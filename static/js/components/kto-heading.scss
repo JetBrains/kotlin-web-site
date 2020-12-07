@@ -1,0 +1,56 @@
+.kto-heading {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kto-heading_size_hero {
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -2px;
+
+  @media (max-width: 640px) {
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: -1px;
+  }
+}
+
+.kto-heading_size_h1 {
+  font-size: 43px;
+  line-height: 48px;
+  letter-spacing: -1px;
+
+  @media (max-width: 640px) {
+    font-size: 36px;
+    line-height: 44px;
+    letter-spacing: -1px;
+  }
+}
+
+.kto-heading_size_h2 {
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 640px) {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+  }
+}
+
+.kto-heading_size_h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.kto-heading_size_h4 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}

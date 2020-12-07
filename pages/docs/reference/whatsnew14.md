@@ -208,13 +208,13 @@ arguments. Moreover, you can mix positional and named arguments any way you like
 fun reformat(
     str: String,
     uppercaseFirstLetter: Boolean = true,
-    wordSeparator: Character = ' '
+    wordSeparator: Char = ' '
 ) {
     // ...
 }
 
 //Function call with a named argument in the middle
-reformat('This is a String!', uppercaseFirstLetter = false , '-')
+reformat("This is a String!", uppercaseFirstLetter = false , '-')
 ```
 
 </div>
@@ -432,6 +432,7 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 
 * [Create a console application based on Kotlin/JVM](../tutorials/jvm-get-started.html)
 * [Create a Kotlin/JS application for React](../tutorials/javascript/setting-up.html)
+* [Create a Kotlin/Native application](../tutorials/native/using-intellij-idea.html)
 
 ### Coroutine Debugger
 
@@ -1209,7 +1210,7 @@ to the script configurations without updating the whole project. This takes much
   You should also **Load Script Configurations** for newly created scripts or when you open a project with new Kotlin plugin for the first time.
   
   With Gradle 6.0 and above, you are now able to load all scripts at once as opposed to the previous implementation where
-  they were loaded individually. Since each request requires the Gradle configuration phase to be executes, this could be
+  they were loaded individually. Since each request requires the Gradle configuration phase to be executed, this could be
   resource-intensive for large Gradle projects. 
   
   Currently, such loading is limited to `build.gradle.kts` and `settings.gradle.kts` files (please vote for the related [issue](https://github.com/gradle/gradle/issues/12640)).
@@ -1358,7 +1359,7 @@ They return `null` on empty collections.
             OrderItem("Coffee", price = 2.5, count = 3),
             OrderItem("Tea", price = 1.5, count = 2))
     
-        val total = order.sumOf { it.price * it.count} // Double
+        val total = order.sumOf { it.price * it.count } // Double
         val count = order.sumOf { it.count } // Int
     //sampleEnd
         println("You've ordered $count items that cost $total in total")
@@ -1666,8 +1667,8 @@ coroutines APIs. We've published it to Maven, and we include it in the Kotlin di
 
 ## Stable JSON serialization
 
-With Kotlin 1.4.0, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
-- 1.0.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
+With Kotlin 1.4.0, we are shipping the first stable version of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) -
+1.0.0-RC. Now we are pleased to declare the JSON serialization API in `kotlinx-serialization-core` (previously known as `kotlinx-serialization-runtime`)
 stable. Libraries for other serialization formats remain experimental, along with some advanced parts of the core library.
 
 We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,

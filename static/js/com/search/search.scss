@@ -8,22 +8,23 @@ body._no-scroll {
   z-index: 1;
   vertical-align: middle;
   cursor: pointer;
-  opacity: 0.8;
-  padding: 5px;
+  opacity: 0.75;
+  padding: 6px;
 
   .icon {
-    background: url('../../../css/com/layout/images/main-sprite.png') no-repeat 0 -550px;
+    background: url('../../../css/com/layout/images/search.svg') no-repeat center;
     width: 23px;
     height: 23px;
-
-    @include adapt_retina {
-      background-image: url('../../../css/com/layout/images/main-sprite@2x.png');
-      background-size: 150px auto;
-    }
   }
 
   &:hover {
     opacity: 1;
+    border-radius: 50%;
+    background: hsla(0, 0%, 100%, 0.1);
+
+    .icon {
+      background: url('../../../css/com/layout/images/search-white.svg') no-repeat center;
+    }
   }
 }
 

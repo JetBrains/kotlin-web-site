@@ -7,9 +7,9 @@
 {#{% endif %}#}
 <header class="global-header">
     <div class="global-header-panel">
-        <div class="g-layout" data-nosnippet="true">
+        <div data-nosnippet="true" class="global-header-logo-box">
             <a class="global-header-logo" href="{{ baseurl }}/">Kotlin</a> <a href="{{ data.releases.latest.url }}" target="_blank" class="global-header-logo__version">v{{ data.releases.latest.version }}</a>
-            {% include 'inc/nav/global-nav.html' %}
         </div>
+        {% include 'inc/nav/global-nav.html' %}
     </div>
 </header>

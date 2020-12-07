@@ -13,7 +13,7 @@ Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) 
 
 * Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML;
 * Programmatically laying out UI components: [Anko](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
-* Configuring routes for a web server: [Ktor](http://ktor.io/features/routing.html#routing-tree).
+* Configuring routes for a web server: [Ktor](https://ktor.io/docs/routing.html).
 
 ## A type-safe builder example
 

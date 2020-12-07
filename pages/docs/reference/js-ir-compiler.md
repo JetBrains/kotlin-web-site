@@ -22,8 +22,8 @@ The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotl
 kotlin {
     js(IR) { // or: LEGACY, BOTH
         // . . .
+        binaries.executable()
     }
-    binaries.executable()
 }
 ```
 
@@ -35,6 +35,43 @@ kotlin {
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`. (This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however).
 
+## Ignoring compilation errors
+
+>_Ignore compilation errors_ mode is [experimental](evolution/components-stability.html) in Kotlin 1.4.20. Its behavior
+>and interface may change in the future.
+{:.note}
+
+Kotlin/JS IR compiler provides a new compilation mode unavailable in the default backend – _ignoring compilation errors_.
+In this mode, you can try out your application even while its code contains errors.
+For example, when you’re doing a complex refactoring or working on a part of the system that is completely unrelated to
+a compilation error in another part.
+
+With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
+that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a 
+runtime exception.
+
+Choose between two tolerance policies for ignoring compilation errors in your code:
+- `SEMANTIC`. The compiler will accept code that is syntactically correct but doesn't make sense semantically.
+    For example, assigning a number to a string variable (type mismatch).
+- `SYNTAX`. The compiler will accept any code, even if it contains syntax errors. Regardless of what you write, the
+    compiler will still try to generate a runnable executable.
+    
+As an experimental feature, ignoring compilation errors requires an opt-in.
+To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
+
+<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
+
+```kotlin
+kotlin {
+   js(IR) {
+       compilations.all {
+           compileKotlinTask.kotlinOptions.freeCompilerArgs += listOf("-Xerror-tolerance-policy=SYNTAX")
+       }
+   }
+}
+```
+</div>
+
 ## Current limitations of the IR compiler
 
 A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend. A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler backend can’t be used from the default backend, and vice versa.
@@ -45,7 +82,7 @@ If you want to use the IR compiler backend for your project, you need to **updat
 
 The IR compiler backend also has some discrepancies in comparison to the default backend. When trying out the new backend, it's good to be mindful of these possible pitfalls.
 - Currently, the IR backend **does not generate source maps for Kotlin code**. You can follow the progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-39447).
-- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigatin and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
+- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
 - The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.html#jsexport-annotation).
 
 ## Preview: Generation of TypeScript declaration files (d.ts)

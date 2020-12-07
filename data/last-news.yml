@@ -1,11 +1,11 @@
-- title: "Kotlin/Native Memory Management Roadmap"
-  link: https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap/
+- title: "New release cadence"
+  link: https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/
 
-- title: Debugging coroutines
-  link: https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/
+- title: "kotlinx.serialization 1.0 released"
+  link: https://blog.jetbrains.com/kotlin/2020/10/kotlinx-serialization-1-0-released/
 
-- title: "Dokka Preview Based on Kotlin 1.4.0-RC"
-  link: https://blog.jetbrains.com/kotlin/2020/08/dokka-preview-based-on-kotlin-1-4-0-rc/
+- title: "Kotlin public roadmap"
+  link: https://blog.jetbrains.com/kotlin/2020/10/kotlin-public-roadmap-through-spring-2021/
 
-- title: The State of Kotlin Support in Spring
-  link: https://blog.jetbrains.com/kotlin/2020/08/the-state-of-kotlin-support-in-spring/
+- title: "Kotlin Multiplatform Mobile goes Alpha"
+  link: https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/

@@ -1,14 +1,49 @@
-@import '../../../css/_config';
-@import '../../../css/_utils';
-@import '../../../css/com/_bits/_pre';
-@import '../../../css/com/_bits/_code';
-@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
+@import 'static/css/_config';
+@import 'static/css/_utils';
+@import 'static/css/com/_bits/_pre';
+@import 'static/css/com/_bits/_code';
+@import 'static/css/com/_syntax-highlight/_syntax-highlight_dark';
+@import "static/js/components/-vars-spaces";
+@import "static/js/components/kto-text";
+
+a, a:hover  {
+  color: #7F52FF;
+}
+
+.page__index-new {
+  min-width: 650px;
+}
 
 .kto-overview-section {
   font-family: Inter, Arial, sans-serif;
   color: #27282C;
 
-  padding-top: 40px;
+  padding-top: 62px;
+}
+/*
+.kto-overview-section .g-layout {
+  padding-left: var(--s-space);
+  padding-right: var(--s-space);
+  box-sizing: border-box;
+
+  @media (max-width: $breakpoint-xs) {
+    padding-left: var(--s-space);
+    padding-right: var(--s-space);
+  }
+}
+*/
+
+.kto-heading_size_hero {
+  margin-bottom: var(--l-space);
+}
+
+.kto-heading_size_h1 {
+  margin-bottom: var(--l-space);
+}
+
+.kto-heading_size_h4 {
+  margin-bottom: var(--m-space);
+  @media(max-width: $breakpoint-xs) { margin-bottom: var(--xs-space); }
 }
 
 .kto-overview-section_mode_dark {
@@ -20,15 +55,6 @@
   background: #F5F5F5;
 }
 
-.kto-overview-section a {
-  color: #6B70FC;
-  text-decoration: none;
-}
-
-.kto-overview-section a:hover {
-  text-decoration: underline;
-}
-
 .kto-overview-section a.kto-button,
 .kto-overview-section a.kto-button:hover,
 .kto-overview-section a.kto-button:active,
@@ -37,8 +63,7 @@
   text-decoration: none;
 }
 
-.kto-overview-section__title,
-.kto-overview-section__title_link {
+.kto-overview-section__title {
   font-weight: bold;
   font-size: 45px;
   line-height: 52px;
@@ -68,10 +93,7 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kto-overview-section__title_size_s {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
-  margin-bottom: 30px;
+  margin-bottom: var(--m-space);
 }
 
 @import "kotlin-intro-section";
@@ -83,10 +105,9 @@ a.kto-overview-section__title_link:any-link {
 @import "kotlin-highlights-section";
 @import "kotlin-stay-in-touch-section";
 
-
 .kotlin-get-started-section {
   padding-top: 88px;
-  padding-bottom: 96px;
+  padding-bottom: var(--xxl-space);
 }
 
 .kotlin-get-started-section__title {
@@ -94,7 +115,58 @@ a.kto-overview-section__title_link:any-link {
 }
 
 .kotlin-get-started-section__text {
-  margin: 32px 0 48px;
+  margin: var(--m-space) 0 var(--l-space);
   font-size: 31px;
   line-height: 42px;
+}
+
+.kjq-tabs-tab__tabs {
+  display: flex;
+}
+
+.kjq-tabs-tab__tabs-item {
+  margin-right: var(--s-space);
+  border-bottom: 2px solid rgba(39, 40, 44, 0.2);
+  padding: var(--xs-space) 0;
+  cursor: pointer;
+}
+.kjq-tabs-tab__tabs-item:hover {
+  border-bottom-color: #27282C;
+}
+
+.kjq-tabs-tab__tabs-item_active,
+.kjq-tabs-tab__tabs-item_active:hover {
+  color: #7F52FF;
+  border-color: #7F52FF;
+  cursor: default;
+}
+
+.kjq-tabs-tab__tabs-item:last-of-type {
+  margin-right: 0;
+}
+
+.kjq-tabs_inited .kjq-tabs-tab_inactive {
+  display: none;
+}
+
+.kjq-tabs_size_s > .kjq-tabs-tab__tabs {
+  @include kto-text;
+  @include kto-text_size_s;
+
+  margin-bottom: var(--m-space);
+}
+
+.kto-overview-youtube {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+.kto-overview-youtube > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

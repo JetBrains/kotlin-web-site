@@ -2,7 +2,7 @@
 type: tutorial
 layout: tutorial
 title: "Hello Kotlin/Native using Command Line Compiler"
-description: "A look at how to compileKotlin/Native applications using the command line compiler"
+description: "A look at how to compile Kotlin/Native applications using the command line compiler"
 authors: 
   - Hadi Hariri
 date: 2020-01-15
@@ -15,7 +15,7 @@ date: 2020-01-15
 
 The Kotlin/Native compiler is available for macOS, Linux, and Windows. It is available as a command line tool and ships as part of the standard Kotlin distribution and can be downloaded from [GitHub Releases]({{ site.data.releases.latest.url }}). It supports
 different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
-Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, SMT32, WASM. For the full list of targets please see the [Kotlin/Native overview](/docs/reference/native-overview.html). 
+Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, STM32, WASM. For the full list of targets please see the [Kotlin/Native overview](/docs/reference/native-overview.html). 
 
 While cross-platform compilation is possible, which means using one platform to compile for a different one, 
 in this case we'll be targeting the same platform we're compiling on.  

@@ -33,6 +33,7 @@ grammar.xml
 /build/
 /node_modules/
 pdf/kotlin-docs.pdf
+pdf/kotlin-reference.pdf
 pdf/tmp.html
 *.pyc
 google-credentials.json

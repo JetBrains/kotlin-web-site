@@ -21,9 +21,9 @@ This page contains the current coding style for the Kotlin language.
 
 To configure the IntelliJ formatter according to this style guide, please install Kotlin plugin version
 1.2.20 or newer, go to __Settings | Editor | Code Style | Kotlin__, click __Set from...__ link in the upper
-right corner, and select __Predefined style | Kotlin style guide__ from the menu.
+right corner, and select __Kotlin style guide__ from the menu.
 
-To verify that your code is formatted according to the style guide, go to the inspection settings and enable
+To verify that your code is formatted according to the style guide, go to __Settings | Editor | Inspections__ and enable
 the __Kotlin | Style issues | File is not formatted according to project settings__ inspection. Additional
 inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
@@ -45,7 +45,8 @@ statement.
 If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the .kt extension appended. If a file contains multiple classes, or only top-level declarations,
 choose a name describing what the file contains, and name the file accordingly.
-Use the [camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (for example, `ProcessDeclarations.kt`).
+Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
+for example, `ProcessDeclarations.kt`.
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as "Util" in file names.
@@ -92,9 +93,9 @@ Package and class naming rules in Kotlin are quite simple:
 
 * Names of packages are always lower case and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either simply concatenate them together
-or use the camel case (`org.example.myProject`).
+or use camel case (`org.example.myProject`).
 
-* Names of classes and objects start with an upper case letter and use the camel case:
+* Names of classes and objects start with an upper case letter and use camel case:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -108,7 +109,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lower case letter and use the camel case and no underscores:
+Names of functions, properties and local variables start with a lower case letter and use camel case and no underscores:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -153,7 +154,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names:
+that hold deeply immutable data) should use uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case)) names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -164,7 +165,7 @@ val USER_NAME_FIELD = "UserName"
 
 </div>
 
-Names of top-level or object properties which hold objects with behavior or mutable data should use camel-case names:
+Names of top-level or object properties which hold objects with behavior or mutable data should use camel case names:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -184,8 +185,8 @@ val PersonComparator: Comparator<Person> = /*...*/
 
 </div>
  
-For enum constants, it's OK to use either uppercase underscore-separated names
-(`enum class Color { RED, GREEN }`) or regular camel-case names starting with an uppercase first letter, depending on the usage.
+For enum constants, it's OK to use either uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+(`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage.
    
 #### Names for backing properties
 
@@ -222,7 +223,7 @@ capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStre
 
 ## Formatting
 
-Use 4 spaces for indentation. Do not use tabs.
+Use four spaces for indentation. Do not use tabs.
 
 For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
 on a separate line aligned horizontally with the opening construct.
@@ -239,8 +240,9 @@ if (elements != null) {
 
 </div>
 
-(Note: In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
-Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.)
+> In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
+> Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.
+{:.note}
 
 ### Horizontal whitespace
 
@@ -385,7 +387,7 @@ class MyFavouriteVeryLongClassHolder :
 
 </div>
 
-Use regular indent (4 spaces) for constructor parameters.
+Use regular indent (four spaces) for constructor parameters.
 
 > Rationale: This ensures that properties declared in the primary constructor have the same indentation as properties
 > declared in the body of a class.
@@ -488,7 +490,7 @@ If the function signature doesn't fit on a single line, use the following syntax
 ```kotlin
 fun longMethodName(
     argument: ArgumentType = defaultValue,
-    argument2: AnotherArgumentType
+    argument2: AnotherArgumentType,
 ): ReturnType {
     // body
 }
@@ -516,14 +518,14 @@ fun foo() = 1        // good
 
 ### Expression body formatting
 
-If the function has an expression body that doesn't fit in the same line as the declaration, put the `=` sign on the first line.
-Indent the expression body by 4 spaces.
+If the function has an expression body whose first line doesn't fit on the same line as the declaration, put the `=` sign on the first line,
+and indent the expression body by four spaces.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
 ```kotlin
-fun f(x: String) =
-    x.length
+fun f(x: String, y: String, z: String) =
+    veryLongFunctionCallWithManyWords(andLongParametersToo(), x, y, z)
 ```
 
 </div>
@@ -566,7 +568,7 @@ private val defaultCharset: Charset? =
 ### Formatting control flow statements
 
 If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
-Indent each subsequent line of the condition by 4 spaces relative to statement begin. 
+Indent each subsequent line of the condition by four spaces relative to statement begin. 
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
@@ -726,6 +728,272 @@ foo {
 
 </div>
 
+### Trailing commas
+
+A trailing comma is a comma symbol after the last item of a series of elements:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class Person(
+    val firstName: String,
+    val lastName: String,
+    val age: Int, // trailing comma
+)
+```
+
+</div>
+
+Using trailing commas has several benefits:
+
+* It makes version-control diffs cleaner – as all the focus is on the changed value.
+* It makes it easy to add and reorder elements – there is no need to add or delete the comma if you manipulate elements.
+* It simplifies code generation, for example, for object initializers. The last element can also have a comma.
+
+Trailing commas are entirely optional – your code will still work without them. The Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it at your discretion for the call site.
+
+To enable trailing commas in the IntelliJ IDEA formatter, go to __Settings | Editor | Code Style | Kotlin__, 
+open the __Other__ tab and select the __Use trailing comma__ option.
+
+Kotlin supports trailing commas in the following cases:
+* [Enumerations](#enumerations)
+* [Value arguments](#value-arguments) 
+* [Class properties and parameters](#class-properties-and-parameters)
+* [Function value parameters](#function-value-parameters)
+* [Parameters with optional type (including setters)](#parameters-with-optional-type-including-setters)
+* [Indexing suffix](#indexing-suffix)
+* [Lambda parameters](#lambda-parameters)
+* [`when` entry](#when-entry)
+* [Collection literals (in annotations)](#collection-literals-in-annotations)
+* [Type arguments](#type-arguments)
+* [Type parameters](#type-parameters)
+* [Destructuring declarations](#destructuring-declarations)
+
+#### Enumerations
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+enum class Direction {
+    NORTH,
+    SOUTH,
+    WEST,
+    EAST, // trailing comma
+}
+```
+
+</div>
+
+#### Value arguments
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun shift(x: Int, y: Int) { /*...*/ }
+
+shift(
+    25,
+    20, // trailing comma
+)
+
+val colors = listOf(
+    "red",
+    "green",
+    "blue", // trailing comma
+)
+```
+
+</div>
+
+#### Class properties and parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class Customer(
+    val name: String,
+    val lastName: String, // trailing comma
+)
+
+class Customer(
+    val name: String,
+    lastName: String, // trailing comma
+)
+```
+
+</div>
+
+#### Function value parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun powerOf(
+    number: Int, 
+    exponent: Int, // trailing comma
+) { /*...*/ }
+
+constructor(
+    x: Comparable<Number>,
+    y: Iterable<Number>, // trailing comma
+) {}
+
+fun print(
+    vararg quantity: Int,
+    description: String, // trailing comma
+) {}
+```
+
+</div>
+
+#### Parameters with optional type (including setters)
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+val sum: (Int, Int, Int) -> Int = fun(
+    x,
+    y,
+    z, // trailing comma
+): Int {
+    return x + y + x
+}
+println(sum(8, 8, 8))
+```
+
+</div>
+
+#### Indexing suffix
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class Surface {
+    operator fun get(x: Int, y: Int) = 2 * x + 4 * y - 10
+}
+fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
+    mySurface[
+        xValue,
+        yValue, // trailing comma
+    ]
+```
+
+</div>
+
+#### Lambda parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun main() {
+    val x = {
+            x: Comparable<Number>,
+            y: Iterable<Number>, // trailing comma
+        ->
+        println("1")
+    }
+
+    println(x)
+}
+```
+
+</div>
+
+#### `when` entry
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
+    Comparable::class,
+    Iterable::class,
+    String::class, // trailing comma
+        -> true
+    else -> false
+}
+```
+
+</div>
+
+#### Collection literals (in annotations)
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+annotation class ApplicableFor(val services: Array<String>)
+
+@ApplicableFor([
+    "serializer",
+    "balancer",
+    "database",
+    "inMemoryCache", // trailing comma
+])
+fun run() {}
+```
+
+</div>
+
+#### Type arguments
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+fun <T1, T2> foo() {}
+
+fun main() {
+    foo<
+            Comparable<Number>,
+            Iterable<Number>, // trailing comma
+            >()
+}
+```
+
+</div>
+
+#### Type parameters
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+class MyMap<
+        MyKey,
+        MyValue, // trailing comma
+        > {}
+```
+
+</div>
+
+#### Destructuring declarations
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+data class Car(val manufacturer: String, val model: String, val year: Int)
+val myCar = Car("Tesla", "Y", 2019)
+
+val (
+    manufacturer,
+    model,
+    year, // trailing comma
+) = myCar
+
+val cars = listOf<Car>()
+fun printMeanValue() {
+    var meanValue: Int = 0
+    for ((
+        _,
+        _,
+        year, // trailing comma
+    ) in cars) {
+        meanValue += year
+    }
+    println(meanValue/cars.size)
+}
+printMeanValue()
+```
+
+</div>
+
 ## Documentation comments
 
 For longer documentation comments, place the opening `/**` on a separate line and begin each subsequent line
@@ -875,6 +1143,9 @@ typealias PersonIndex = Map<String, Person>
 
 </div>
 
+If you use a private or internal type alias for avoiding name collision, prefer the `import … as …` mentioned in 
+[Packages and Imports](packages.html).
+
 ### Lambda parameters
 
 In lambdas which are short and not nested, it's recommended to use the `it` convention instead of declaring the parameter
@@ -1015,7 +1286,7 @@ Although the semantics are similar, there are some stylistic conventions on when
 Prefer a property over a function when the underlying algorithm:
 
 * does not throw
-* is cheap to calculate (or caсhed on the first run)
+* is cheap to calculate (or cached on the first run)
 * returns the same result over invocations if the object state hasn't changed
 
 ### Using extension functions

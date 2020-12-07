@@ -1,3 +1,35 @@
+- name: Perth, Australia
+  geo:
+    lat: -32.08841
+    lng: 115.895122
+- name: Fort Collins, CO, USA
+  geo:
+    lat: 40.5813
+    lng: -105.06259
+- name: Saudi Arabia
+  geo:
+    lat: 22.848295
+    lng: 45.725533
+- name: Kano, Nigeria
+  geo:
+    lat: 11.991296
+    lng: 8.533807
+- name: Hamar, Norway
+  geo:
+    lat: 60.80184
+    lng: 11.076443
+- name: Omsk, Russia
+  geo:
+    lat: 54.989342
+    lng: 73.368212
+- name: Dubai, United Arab Emirates
+  geo:
+    lat: 25.195137
+    lng: 55.278478
+- name: Dubai, U.A.E.
+  geo:
+    lat: 24.977545
+    lng: 55.091062
 - name: Port Harcourt, Nigeria
   geo:
     lat: 4.788882

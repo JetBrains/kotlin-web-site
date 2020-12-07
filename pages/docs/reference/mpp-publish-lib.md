@@ -10,7 +10,6 @@ You can publish a multiplatform library to a Maven repository with the [`maven-p
 Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
 where the library should be published. The plugin creates publications automatically.
 
-
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
@@ -24,7 +23,7 @@ version = "1.0"
 
 publishing {
     repositories {
-        maven{
+        maven {
             //...
         }
     }
@@ -33,20 +32,34 @@ publishing {
 
 </div>
 
+You can also use [`gradle-bintray-plugin`](https://github.com/bintray/gradle-bintray-plugin) for publishing multiplatform libraries. 
+However, this plugin does not support publishing Gradle module metadata required for [hierarchical structure support](mpp-share-on-platforms.html#share-code-on-similar-platforms).
+Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to enable metadata publishing 
+or migrate to the [`maven-publish` plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
 
-Publications are automatically created for each target that can be built on the current host, except for the Android target, 
+## Structure of publications
+
+When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
 which needs an [additional step to configure publishing](#publish-an-android-library).
 
-Publications of a multiplatform library include an additional 'root' publication `kotlinMultiplatform` that stands for the 
+Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
 whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 
 Learn more about [adding dependencies](mpp-add-dependencies.html).
 
-This `kotlinMultiplatform` publication does not include any artifacts and only references the other publications as its 
-variants. However, it may need the sources and documentation artifacts if that is required by the repository. In that case, 
+This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
+
+> Some repositories, such as Maven Central, require that the root module contains a JAR artifact without a classifier, for example `kotlinMultiplatform-1.0.jar`.  
+> The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
+> This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository’s requirements.
+{:.note}
+
+The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
 in the publication's scope.
 
-To avoid duplicate publications of modules that can be built on several platforms (like JVM, JS, Kotlin metadata), 
+## Avoid duplicate publications
+
+To avoid duplicate publications of modules that can be built on several platforms (like JVM and JS), 
 configure the publishing tasks for these modules to run conditionally.
 
 You can detect the platform in the script, introduce a flag such as `isMainHost` and set it to `true` for the main target 
@@ -64,14 +77,15 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-
-    // Note that the Kotlin metadata is here, too.
-
-    configure([targets["metadata"], jvm(), js()]) {
-        mavenPublication { targetPublication ->
-            tasks.withType(AbstractPublishToMaven)
-                    .matching { it.publication == targetPublication }
-                    .all { onlyIf { findProperty("isMainHost") == "true" } }
+    def publicationsFromMainHost = 
+        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
+                tasks.withType(AbstractPublishToMaven)
+                        .matching { it.publication == targetPublication }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
         }
     }
 }
@@ -89,15 +103,16 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-
-    // Note that the Kotlin metadata is here, too.
-
-    configure(listOf(targets["metadata"], jvm(), js())) {
-        mavenPublication {
-            val targetPublication = this@mavenPublication
-            tasks.withType<AbstractPublishToMaven>()
-                    .matching { it.publication == targetPublication }
-                    .all { onlyIf { findProperty("isMainHost") == "true" } }
+    val publicationsFromMainHost = 
+        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all {
+                val targetPublication = this@all
+                tasks.withType<AbstractPublishToMaven>()
+                        .matching { it.publication == targetPublication }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
         }
     }
 }

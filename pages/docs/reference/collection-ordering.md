@@ -79,7 +79,7 @@ With `compareBy()`, the length comparator from the example above looks like this
 ```kotlin
 fun main() {
 //sampleStart    
-println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
+    println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
 //sampleEnd
 }
 

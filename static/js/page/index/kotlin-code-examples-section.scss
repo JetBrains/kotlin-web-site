@@ -1,5 +1,5 @@
 .kotlin-code-examples-section {
-  padding-bottom: 90px;
+  padding-top: var(--xxl-space);
 }
 
 .kotlin-code-examples-section__title {
@@ -41,7 +41,7 @@
   .run-button {
     margin-top: 10px;
     margin-right: 10px;
-    background: #6B70FC url("./images/run_icon.svg") center center no-repeat;
+    background: #7F52FF url("./images/run_icon.svg") center center no-repeat;
     height: 36px;
     width: 36px;
     border-radius: 50%;
@@ -222,9 +222,7 @@
 
 .kotlin-overview-code-example-tabs {
   position: relative;
-  margin-bottom: $unit*4;
   background-color: #27282C;
-  padding-bottom: 2px;
   font-size: 0;
 
   &:before {

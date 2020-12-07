@@ -13,10 +13,10 @@ typical for JavaScript development. For example, the plugin downloads the [Yarn]
 for managing [npm](https://www.npmjs.com/) dependencies in background and can build a JavaScript bundle from a Kotlin project
 using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part directly from the Gradle build file, with the option to override automatically generated configurations for full control.
 
-To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project** and select **Gradle | Kotlin/JS for browser**
- or **Kotlin/JS for Node.js**. Be sure to clear the **Java** checkbox. If you want to use the Kotlin DSL for Gradle, make sure to check the **Kotlin DSL build script** option.
+To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin** and choose a 
+Kotlin/JS target that suits you best. Don't forget to choose the language for the build script: Groovy or Kotlin.
 
-![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/wizard.png') }})
+![New project wizard]({{ url_for('asset', path='images/reference/js-project-setup/js-project-wizard.png') }})
 
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file (`build.gradle` or `build.gradle.kts`).
@@ -66,6 +66,7 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Test configuration](#configuring-test-task)
 * [Bundling](#configuring-webpack-bundling) and [CSS support](#configuring-css) for browser projects
 * [Target directory](#distribution-target-directory) and [module name](#adjusting-the-module-name)
+* [Project's `package.json` file](#packagejson-customization)
 
 ## Choosing execution environment
 
@@ -237,11 +238,14 @@ Once an npm dependency is installed, you can use its API in your code as describ
 
 ## Configuring run task
 
-The Kotlin/JS plugin provides a `run` task that lets you run projects without additional configuration.
-For running Kotlin/JS projects, it uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/).
+The Kotlin/JS plugin provides a `run` task that lets you run pure Kotlin/JS projects without additional configuration.
+
+For running Kotlin/JS projects in the browser, this task is an alias for the `browserDevelopmentRun` task (which is also available in Kotlin multiplatform projects). It uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/) to serve your JavaScript artifacts.
 If you want to customize the configuration used by `webpack-dev-server`, for example adjust the port the server runs on, use the [webpack configuration file](#configuring-webpack-bundling).
 
-To run the project, execute the standard lifecycle `run` task:
+For running Kotlin/JS projects targeting Node.js, the `run` task is an alias for the `nodeRun` task (which is also available in Kotlin multiplatform projects). 
+
+To run a project, execute the standard lifecycle `run` task, or the alias to which it corresponds:
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -361,7 +365,24 @@ The Kotlin/JS Gradle plugin automatically generates a standard webpack configura
 at build time which you can find the at `build/js/packages/projectName/webpack.config.js`.
 
 The most common webpack adjustments can be made directly via the
-`kotlin.js.browser.webpackTask` configuration block in the Gradle build file.
+`kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distibution/` after
+an execution of a webpack task. The default value is the project name.
+- `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
+Kotlin/JS projects](js-modules.html). The default value is `umd`.
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+webpackTask {
+    outputFileName = "mycustomfilename.js"
+    output.libraryTarget = "commonjs2"
+}
+```
+</div>
+
+You can also configure common webpack settings to use in bundling, running, and testing tasks in the `commonWebpackConfig`
+block. 
 
 If you want to make further adjustments to the webpack configuration, place your additional configuration files inside a directory
 called `webpack.config.d` in the root of your project. When building your project, all `.js` configuration files will automatically
@@ -383,7 +404,13 @@ config.module.rules.push({
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
-For building executable JavaScript artifacts though webpack, the Kotlin/JS plugin contains the `browserDevelopmentWebpack` and `browserProductionWebpack` Gradle tasks. Execute them to obtain artifacts for development or production. The final generated artifacts will be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
+For building executable JavaScript artifacts through webpack, the Kotlin/JS plugin contains the `browserDevelopmentWebpack` and `browserProductionWebpack` Gradle tasks.
+
+* `browserDevelopmentWebpack` creates development artifacts, which are larger in size, but take little time to create. As such, use the `browserDevelopmentWebpack` tasks during active development.
+
+* `browserProductionWebpack` applies [dead code elimination](javascript-dce.html) to the generated artifacts and minifies the resulting JavaScript file, which takes more time, but generates executables that are smaller in size. As such, use the `browserProductionWebpack` task when preparing your project for production use.
+ 
+ Execute either of these tasks to obtain the respective artifacts for development or production. The generated files will be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
 
 <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -398,7 +425,21 @@ Note that these tasks will only be available if your target is configured to gen
 ## Configuring CSS
 The Kotlin/JS Gradle plugin also provides support for webpack's [CSS](https://webpack.js.org/loaders/css-loader/) and [style](https://webpack.js.org/loaders/style-loader/) loaders. While all options can be changed by directly modifying the [webpack configuration files](#configuring-webpack-bundling) that are used to build your project, the most commonly used settings are available directly from the `build.gradle(.kts)` file.
 
-To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file for `webpackTask`, `runTask`, and `testTask` respectively. This configuration is also enabled by default when creating a new project using the wizard.
+To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file in the `commonWbpackConfig` block. This configuration is also enabled by default when creating a new project using the wizard.
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```groovy
+browser {
+    commonWebpackConfig {
+        cssSupport.enabled = true
+    }
+    binaries.executable()
+}
+```
+</div>
+
+Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
 
@@ -417,6 +458,7 @@ testTask {
 }
 ```
 </div>
+
 Activating CSS support in your project helps prevent common errors that occur when trying to use style sheets from an unconfigured project, such as `Module parse failed: Unexpected character '@' (14:0)`.
 
 You can use `cssSupport.mode` to specify how encountered CSS should be handled. The following values are available:
@@ -505,6 +547,45 @@ js {
 </div>
 
 Note that this does not affect the webpacked output in `build/distributions`.
+
+## package.json customization
+
+The `package.json` file holds the metadata of a JavaScript package. Popular package registries such as npm require all 
+published packages to have such a file. They use it to track and manage package publications.  
+
+The Kotlin/JS Gradle plugin automatically generates `package.json` for Kotlin/JS projects during build time. By default, 
+the file contains essential data: name, version, license, and dependencies, and some other package attributes.
+
+Aside from basic package attributes, `package.json` can define how a JavaScript project should behave, for example,
+identifying scripts that are available to run.
+
+You can add custom entries to the project's `package.json` via the Gradle DSL. To add custom fields to your `package.json`,
+use the `customField` function in the compilations `packageJson` block:
+
+<div class="sample" markdown="1" mode="groovy" theme="idea">
+
+```kotlin
+kotlin {
+    js {
+        compilations["main"].packageJson {
+            customField("hello", mapOf("one" to 1, "two" to 2))
+        }
+    }
+}
+```
+
+</div>
+
+When you build the project, this code will add the following block to the `package.json` file:
+
+```
+"hello": {
+  "one": 1,
+  "two": 2
+}
+```
+
+Learn more about writing `package.json` files for npm registry in the [npm docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
 
 ## Troubleshooting
 When building a Kotlin/JS project using Kotlin 1.3.xx, you may encounter a Gradle error if one of your dependencies (or any transitive dependency) was built using Kotlin 1.4 or higher: `Could not determine the dependencies of task ':client:jsTestPackageJson'.` / `Cannot choose between the following variants`. This is a known problem, a workaround is provided [here](https://youtrack.jetbrains.com/issue/KT-40226).

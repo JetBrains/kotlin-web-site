@@ -49,7 +49,7 @@ their API can be changed without notice.
 
 There are also community-maintained libraries that support more serialization formats, such as [YAML](https://yaml.org/)
 or [Apache Avro](https://avro.apache.org/). For detailed information about available serialization formats, see the 
-[`kotlinx.serialization` documentation](https://github.com/Kotlin/kotlinx.serialization/formats.md).
+[`kotlinx.serialization` documentation](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md).
 
 ## Example: JSON serialization
    
@@ -66,7 +66,7 @@ in the Kotlin Gradle DSL).
     ```groovy
     plugins {
         id 'org.jetbrains.kotlin.jvm' version '{{ site.data.releases.latest.version }}'
-        id 'org.jetbrains.kotlin.plugin.serialization' '{{ site.data.releases.latest.serialization.version }}'  
+        id 'org.jetbrains.kotlin.plugin.serialization' version '{{ site.data.releases.latest.version }}'  
     }
     ```
     
@@ -79,7 +79,7 @@ in the Kotlin Gradle DSL).
     ```kotlin
     plugins {
         kotlin("jvm") version "{{ site.data.releases.latest.version }}"
-        kotlin("plugin.serialization") version "{{ site.data.releases.latest.serialization.version }}"
+        kotlin("plugin.serialization") version "{{ site.data.releases.latest.version }}"
     }
     ```
     
@@ -93,7 +93,7 @@ in the Kotlin Gradle DSL).
     
     ```groovy
     dependencies {
-        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}'
+        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}'
     } 
     ```
     
@@ -105,7 +105,7 @@ in the Kotlin Gradle DSL).
     
     ```kotlin
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}")
     } 
     ```
     

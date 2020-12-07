@@ -1,12 +1,54 @@
 <nav class="global-nav">
-    <div class="nav-links">
+    <ul class="nav-links">
+        <li class="nav-item nav-item-solutions" data-tab-id="solutions">
+            <span class="nav-item-link">Solutions</span>
+            <div class="solutions-menu solutions-menu-is-hidden">
+                <ul class="solutions-menu-list">
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link" href="/lp/mobile/"
+                           target="_blank">Mobile cross-platform ↗</a></li>
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link" href="/lp/server-side/"
+                           target="_blank">
+                            Server-side ↗
+                        </a></li>
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link"
+                           href="/docs/reference/native-overview.html"
+                           target="_blank">
+                            Native
+                        </a></li>
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link"
+                           href="/docs/reference/js-overview.html"
+                           target="_blank">Web development
+                        </a></li>
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link"
+                           href="/docs/reference/data-science-overview.html"
+                           target="_blank">
+                            Data science
+                        </a></li>
+                    <li class="solutions-menu-item">
+                        <a class="solutions-menu-item-link solutions-menu-item-link-external"
+                           href="/docs/reference/android-overview.html"
+                           target="_blank">
+                            Android</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         {% for item in nav.main.content %}
             {% set domain_link = get_domain(item.url) %}
-            <a href="{{ item.url }}" class="nav-item {% if domain_link %} nav-item-external{% endif %}"{% if domain_link %} target="_blank" {% endif %}>
+            <li class="nav-item" data-tab-id="{{ item.title }}"><a href="{{ item.url }}"
+                                                                   class="nav-item-link {% if item.is_active %} nav-item-link-is_active{% endif %} {% if domain_link %} nav-item-link-external{% endif %}"
+                    {% if domain_link %} target="_blank" {% endif %}>
                 {{ item.title }}
             </a>
+            </li>
         {% endfor %}
-    </div>
+
+    </ul>
     <div class="search-button">
         <div class="icon"></div>
     </div>

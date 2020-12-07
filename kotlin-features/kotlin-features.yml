@@ -9,7 +9,3 @@
 - title: Interoperable
   description: Leverage existing libraries for the JVM, Android, and the browser
   content_file: interoperable.md
-
-- title: Tool-friendly
-  description: Choose any Java IDE or build from the command line
-  content_file: tooling.md

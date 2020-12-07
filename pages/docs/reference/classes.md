@@ -114,6 +114,20 @@ class Person(val firstName: String, val lastName: String, var age: Int) { /*...*
 
 </div>
 
+You can use a [trailing comma](coding-conventions.html#trailing-commas) when you declare class properties:
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+class Person(
+    val firstName: String,
+    val lastName: String,
+    var age: Int, // trailing comma
+) { /*...*/ }
+```
+
+</div>
+
 Much the same way as regular properties, the properties declared in the primary constructor can be
 mutable (*var*{: .keyword }) or read-only (*val*{: .keyword }).
 
@@ -130,7 +144,6 @@ class Customer public @Inject constructor(name: String) { /*...*/ }
 
 For more details, see [Visibility Modifiers](visibility-modifiers.html#constructors).
 
-
 #### Secondary constructors
 
 The class can also declare **secondary constructors**, which are prefixed with *constructor*{: .keyword }:
@@ -139,7 +152,7 @@ The class can also declare **secondary constructors**, which are prefixed with *
 
 ```kotlin
 class Person {
-    var children: MutableList<Person> = mutableListOf<>()
+    var children: MutableList<Person> = mutableListOf()
     constructor(parent: Person) {
         parent.children.add(this)
     }
@@ -156,7 +169,7 @@ is done using the *this*{: .keyword } keyword:
 
 ```kotlin
 class Person(val name: String) {
-    var children: MutableList<Person> = mutableListOf<>()
+    var children: MutableList<Person> = mutableListOf()
     constructor(name: String, parent: Person) : this(name) {
         parent.children.add(this)
     }
@@ -402,7 +415,7 @@ open class Base(val name: String) {
 
 class Derived(
     name: String,
-    val lastName: String
+    val lastName: String,
 ) : Base(name.capitalize().also { println("Argument for Base: $it") }) {
 
     init { println("Initializing Derived") }
@@ -448,21 +461,35 @@ class FilledRectangle : Rectangle() {
 
 Inside an inner class, accessing the superclass of the outer class is done with the *super*{: .keyword } keyword qualified with the outer class name: `super@Outer`:
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea">
 
 ```kotlin
-class FilledRectangle: Rectangle() {
-    fun draw() { /* ... */ }
+open class Rectangle {
+    open fun draw() { println("Drawing a rectangle") }
     val borderColor: String get() = "black"
+}
+
+//sampleStart
+class FilledRectangle: Rectangle() {
+    override fun draw() { 
+    	val filler = Filler()
+        filler.drawAndFill()
+    }
     
     inner class Filler {
-        fun fill() { /* ... */ }
+        fun fill() { println("Filling") }
         fun drawAndFill() {
             super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
             fill()
             println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
         }
     }
+}
+//sampleEnd
+
+fun main() {
+    val fr = FilledRectangle()
+        fr.draw()
 }
 ```
 

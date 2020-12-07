@@ -1,10 +1,9 @@
-
 <div class="multi-language-sample" data-lang="groovy" data-os="macos">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-highlight-only>
 
 ```
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.3.21'
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
 }
 
 repositories {
@@ -12,7 +11,7 @@ repositories {
 }
 
 kotlin {
-  macosX64("native") {
+  macosX64('native') {
     binaries {
       executable()
     }
@@ -20,8 +19,8 @@ kotlin {
 }
 
 wrapper {
-  gradleVersion = "5.3.1"
-  distributionType = "ALL"
+  gradleVersion = '{{ site.data.releases.tutorials.native.gradle_version }}'
+  distributionType = 'BIN'
 }
 ```
 
@@ -34,7 +33,7 @@ wrapper {
 
 ```
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.3.21'
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
 }
 
 repositories {
@@ -42,7 +41,7 @@ repositories {
 }
 
 kotlin {
-  linuxX64("native") {
+  linuxX64('native') {
     binaries {
       executable()
     }
@@ -50,8 +49,8 @@ kotlin {
 }
 
 wrapper {
-  gradleVersion = "5.3.1"
-  distributionType = "ALL"
+  gradleVersion = '{{ site.data.releases.tutorials.native.gradle_version }}'
+  distributionType = 'BIN'
 }
 ```
 
@@ -64,7 +63,7 @@ wrapper {
 
 ```
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '1.3.21'
+    id 'org.jetbrains.kotlin.multiplatform' version '{{ site.data.releases.latest.version }}'
 }
 
 repositories {
@@ -72,7 +71,7 @@ repositories {
 }
 
 kotlin {
-  mingwX64("native") {
+  mingwX64('native') {
     binaries {
       executable()
     }
@@ -80,8 +79,8 @@ kotlin {
 }
 
 wrapper {
-  gradleVersion = "5.3.1"
-  distributionType = "ALL"
+  gradleVersion = '{{ site.data.releases.tutorials.native.gradle_version }}'
+  distributionType = 'BIN'
 }
 ```
 
@@ -94,7 +93,7 @@ wrapper {
 
 ```
 plugins {
-    kotlin("multiplatform") version "1.3.21"
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
 }
 
 repositories {
@@ -110,8 +109,8 @@ kotlin {
 }
 
 tasks.withType<Wrapper> {
-  gradleVersion = "5.3.1"
-  distributionType = Wrapper.DistributionType.ALL
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.BIN
 }
 ```
 
@@ -124,7 +123,7 @@ tasks.withType<Wrapper> {
 
 ```
 plugins {
-    kotlin("multiplatform") version "1.3.21"
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
 }
 
 repositories {
@@ -140,8 +139,8 @@ kotlin {
 }
 
 tasks.withType<Wrapper> {
-  gradleVersion = "5.3.1"
-  distributionType = Wrapper.DistributionType.ALL
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.BIN
 }
 ```
 
@@ -154,7 +153,7 @@ tasks.withType<Wrapper> {
 
 ```
 plugins {
-    kotlin("multiplatform") version "1.3.21"
+    kotlin("multiplatform") version "{{ site.data.releases.latest.version }}"
 }
 
 repositories {
@@ -170,11 +169,10 @@ kotlin {
 }
 
 tasks.withType<Wrapper> {
-  gradleVersion = "5.3.1"
-  distributionType = Wrapper.DistributionType.ALL
+  gradleVersion = "{{ site.data.releases.tutorials.native.gradle_version }}"
+  distributionType = Wrapper.DistributionType.BIN
 }
 ```
 
 </div>
 </div>
-

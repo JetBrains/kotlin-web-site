@@ -195,12 +195,15 @@ The design of inline classes is in [Alpha](evolution/components-stability.html),
 To remove the warning you have to opt in to the usage of this feature by passing the compiler argument `-Xinline-classes`.
 
 ### Enabling inline classes in Gradle
+
 <div class="multi-language-sample" data-lang="groovy">
 <div class="sample" markdown="1" theme="idea" mode="groovy" data-lang="groovy">
 
 ```groovy
-compileKotlin {
-    kotlinOptions.freeCompilerArgs += ["-Xinline-classes"]
+kotlin {
+    sourceSets.all {
+        languageSettings.enableLanguageFeature('InlineClasses')
+    }
 }
 ```
 
@@ -211,8 +214,10 @@ compileKotlin {
 <div class="sample" markdown="1" theme="idea" mode="kotlin" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-tasks.withType<KotlinCompile> {
-    kotlinOptions.freeCompilerArgs += "-Xinline-classes"
+kotlin {
+    sourceSets.all {
+        languageSettings.enableLanguageFeature("InlineClasses")
+    }
 }
 ```
 

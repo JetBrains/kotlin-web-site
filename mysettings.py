@@ -18,6 +18,7 @@ STACK_OVERFLOW_URL = 'https://stackoverflow.com/questions/tagged/kotlin'
 BLOG_URL = 'https://blog.jetbrains.com/kotlin/'
 FORUM_URL = 'https://discuss.kotlinlang.org/'
 BUGTRACKER_URL = 'https://youtrack.jetbrains.com/issues/KT'
+JETBRAINS = 'https://www.jetbrains.com/'
 
 EDIT_ON_GITHUB_URL = 'https://github.com/JetBrains/kotlin-web-site/edit/master/'
 PDF_URL = '/docs/kotlin-docs.pdf'

@@ -7,37 +7,57 @@
   display: flex;
   align-items: center;
   position: relative;
-  float: right;
   font-size: 0;
-  margin-top: 2px;
 
   @media (max-width: 1205px) {
     top: auto;
   }
 
   .nav-links {
-    .nav-item {
-      display: inline-block;
-      margin-right: $unit*4;
-      color: #d1d1d1;
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 43px;
-      letter-spacing: 0.02em;
-      text-decoration: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
 
-      &-external{
+    .nav-item {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-item-link {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 43px;
+      letter-spacing: normal;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+      min-height: 100%;
+      cursor: pointer;
+      color: hsla(0, 0%, 100%, .75);
+      transition: .3s ease-out;
+      margin-right: 32px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+
+      &-is_active {
+        border-bottom: 2px solid #fff;
+        color: #fff;
+        box-sizing: border-box;
+      }
+
+      &-external {
+        margin-right: 24px;
+
         &::after {
           display: inline-block;
-          content: '';
-          background: url("../../../js/page/index/images/external-link-marker_fff_06.svg") bottom no-repeat;
+          content: '↗';
           background-size: 12px;
-          height: 12px;
+          height: 48px;
           width: 12px;
-        }
-
-        &:hover::after {
-          background-image: url("../../../js/page/index/images/external-link-marker_fff.svg");
+          padding-left: 6px;
         }
       }
 
@@ -46,8 +66,12 @@
       }
 
       &.is_active {
-        color: #7d838b;
+        color: #fff;
       }
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 
@@ -141,7 +165,7 @@
   display: none;
   padding: 0;
   height: auto;
-  background-color: #6b70fc!important;
+  background-color: #7F52FF !important;
 
   .banner-item {
     display: inline-block;
@@ -161,6 +185,7 @@
   .banner-container {
     width: 100%;
   }
+
   .banner-text {
     letter-spacing: 0.5px;
     margin: 0 auto;
@@ -180,8 +205,74 @@
     height: 20px;
     width: 20px;
     background: url('../layout/images/icon_cross.svg') center center no-repeat;
+
     &:hover {
       transform: scale(0.9, 0.9);
     }
+  }
+}
+
+.solutions-menu {
+  width: 260px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #27282C;
+  position: absolute;
+  top: 72px;
+  left: 0;
+  box-sizing: border-box;
+  display: block;
+  animation: fade-in ease-out 0.3ms forwards;
+  z-index: 10;
+
+  .solutions-menu__is-hovered,
+  .solutions-menu__is-open {
+    display: block;
+  }
+
+  .solutions-menu-list {
+    display: flex;
+    flex-direction: column;
+
+    .solutions-menu-item {
+      background-color: #27282C;
+
+      .solutions-menu-item-link {
+        background-color: #27282C;
+        display: block;
+        color: rgba(255, 255, 255, 0.75);
+        text-decoration: none;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, Arial, sans-serif;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        height: 100%;
+        padding: 8px 16px;
+        outline: none;
+
+        &:hover,
+        &:focus {
+          color: #fff;
+          cursor: pointer;
+          background: rgba(255, 255, 255, 0.1);
+          transition: 0.3s ease-out;
+        }
+      }
+    }
+  }
+
+  &-is-hidden {
+    display: none;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

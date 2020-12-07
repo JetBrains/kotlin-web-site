@@ -3,7 +3,7 @@
 main:
   content:
     - url: /docs/reference/
-      title: Learn
+      title: Docs
 
     - url: /community/
       title: Community
@@ -80,14 +80,26 @@ reference:
     - title: What's New
       description: What's new in Kotlin releases
       content:
+        - url: /docs/reference/whatsnew-plugin-20203.html
+          title: Kotlin plugin 2020.3
+        - url: /docs/reference/whatsnew1420.html
+          title: Kotlin 1.4.20
         - url: /docs/reference/whatsnew14.html
-          title: What's New in 1.4
+          title: Kotlin 1.4
         - url: /docs/reference/whatsnew13.html
-          title: What's New in 1.3
+          title: Kotlin 1.3
         - url: /docs/reference/whatsnew12.html
-          title: What's New in 1.2
+          title: Kotlin 1.2
         - url: /docs/reference/whatsnew11.html
-          title: What's New in 1.1
+          title: Kotlin 1.1
+
+    - title: Releases and Roadmap
+      description: Kotlin releases and roadmap
+      content:
+        - url: /releases.html
+          title: Kotlin Releases
+        - url: /roadmap.html
+          title: Kotlin Roadmap
 
     - title: Getting Started
       description: Get familiar with the basics of Kotlin including operations, coding conventions and idioms.
@@ -323,7 +335,7 @@ reference:
         nav: _nav_reference.yml
         base: /docs/reference/native
         repo: https://github.com/JetBrains/kotlin-native
-        branch: v1.4.0-fixes
+        branch: v1.4.20-fixes
 
     - title: Tools
       description:
@@ -432,7 +444,7 @@ tutorials:
         - url: /docs/tutorials/native/using-gradle.html
           title: Hello Kotlin/Native using Gradle
         - url: /docs/tutorials/native/using-intellij-idea.html
-          title: Hello Kotlin/Native using IntelliJ IDEA
+          title: Get started with Kotlin/Native using IntelliJ IDEA
         - url: /docs/tutorials/native/intro-to-kotlin-native.html
           title: Creating an HTTP Client in Kotlin/Native
         - url: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
@@ -462,6 +474,10 @@ tutorials:
           title: Intro to Kotlin Coroutines on the JVM
         - url: /docs/tutorials/coroutines/intro-to-coroutines-and-channels.html
           title: Intro to Coroutines and Channels
+        - url: /docs/tutorials/coroutines/debug-coroutines-with-idea.html
+          title: Debug coroutines using IntelliJ IDEA
+        - url: /docs/tutorials/coroutines/debug-flow-with-idea.html
+          title: Debug Kotlin Flow using IntelliJ IDEA
 
     - title: Web Development
       content:
@@ -481,16 +497,6 @@ tutorials:
           title: Learning Kotlin with EduTools plugin
         - url: /docs/tutorials/edu-tools-educator.html
           title: Teaching Kotlin with EduTools plugin
-    - title: Migrating from Python
-      external:
-        path: kotlin-for-python-developers
-        nav: kotlinlang.org.yaml
-        base: /docs/tutorials/kotlin-for-py
-        branch: master
-        repo: https://github.com/Khan/kotlin-for-python-developers
-        type: tutorial
-        wrap_code_snippets: True
-        github_edit_page: README.md
 
 foundation:
   content:

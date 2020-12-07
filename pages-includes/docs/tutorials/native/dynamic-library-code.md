@@ -117,7 +117,7 @@ kotlin {
   }
 }
 
-tasks.withType<Wrapper> {
+tasks.wrapper {
   gradleVersion = "5.3.1"
   distributionType = Wrapper.DistributionType.ALL
 }
@@ -149,7 +149,7 @@ kotlin {
   }
 }
 
-tasks.withType<Wrapper> {
+tasks.wrapper {
   gradleVersion = "5.3.1"
   distributionType = Wrapper.DistributionType.ALL
 }
@@ -181,7 +181,7 @@ kotlin {
   }
 }
 
-tasks.withType<Wrapper> {
+tasks.wrapper {
   gradleVersion = "5.3.1"
   distributionType = Wrapper.DistributionType.ALL
 }

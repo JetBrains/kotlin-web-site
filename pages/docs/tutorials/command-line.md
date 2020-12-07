@@ -60,21 +60,21 @@ $ sudo snap install --classic kotlin
 
 </div>
 
-### Creating and running a first application
+### Creating and running the first application
 
-1. Create a simple application in Kotlin that displays Hello, World!. Using our favorite editor, we create a new file called *hello.kt* with the following:
+1. Create a simple application in Kotlin that displays `"Hello, World!"`. Using our favorite editor, we create a new file called *hello.kt* with the following content:
 
    <div class="sample" markdown="1" theme="idea">
 
    ```kotlin
-   fun main(args: Array<String>) {
+   fun main() {
        println("Hello, World!")
    }
    ```
 
    </div>
 
-2. Compile the application using the Kotlin compiler
+2. Compile the application using the Kotlin compiler:
 
     <div class="sample" markdown="1" mode="shell" theme="idea">
 
@@ -84,7 +84,7 @@ $ sudo snap install --classic kotlin
 
     </div>
 
-   The `-d` option indicates the output path for generated class files which may be either a directory or a *.jar* file. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
+   The `-d` option indicates the output path for generated class files, which may be either a directory or a *.jar* file. The `-include-runtime` option makes the resulting *.jar* file self-contained and runnable by including the Kotlin runtime library in it.
    If you want to see all available options run
 
     <div class="sample" markdown="1" mode="shell" theme="idea">

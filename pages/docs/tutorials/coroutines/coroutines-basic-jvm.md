@@ -22,16 +22,32 @@ Make sure it's configured for Kotlin 1.3 or higher.
 
 Since we'll be using the [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), let's add its recent version to our dependencies:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy">
+<div class="multi-language-sample" data-lang="groovy">
+<div class="sample" markdown="1" theme="idea" mode='groovy'>
 
 ```groovy
 dependencies {
     ...
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}'
 }
 ```
 
 </div>
+</div>
+
+<div class="multi-language-sample" data-lang="kotlin">
+<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
+
+```kotlin
+dependencies {
+    ...
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.latest.coroutines.version }}")
+}
+```
+
+</div>
+</div>
+
 
 This library is published to Bintray JCenter repository, so let us add it:
 
@@ -99,7 +115,7 @@ This library is published to Bintray JCenter repository, so let us add it:
     ...
     <repository>
         <id>central</id>
-        <url>http://jcenter.bintray.com</url>
+        <url>https://jcenter.bintray.com</url>
     </repository>
 </repositories>
 ```
@@ -249,12 +265,12 @@ All these have already started, all we need is collect the results:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-val sum = deferred.map { it.await().toLong() }.sum()
+val sum = deferred.sumOf { it.await().toLong() }
 ```
 
 </div>
 
-We simply take every coroutine and await its result here, then all results are added together by the standard library function `sum()`. But the compiler rightfully complains:
+We simply take every coroutine and await its result here, then all results are added together by the standard library function `sumOf()`. But the compiler rightfully complains:
 
 > Suspend functions are only allowed to be called from a coroutine or another suspend function
 
@@ -264,7 +280,7 @@ We simply take every coroutine and await its result here, then all results are a
 
 ```kotlin
 runBlocking {
-    val sum = deferred.map { it.await().toLong() }.sum()
+    val sum = deferred.sumOf { it.await().toLong() }
     println("Sum: $sum")
 }
 ```

@@ -12,22 +12,22 @@ You only need to configure your build manually for existing projects — project
 
 To configure your build to use the EAP version of Kotlin, you need to: 
 
-*   Specify the EAP version of Kotlin. Available EAP versions are listed [here](index.html#build-details). 
-*   Add the EAP repository to the build – <https://dl.bintray.com/kotlin/kotlin-eap>.
-*   Change the versions of dependencies to EAP ones.
+* Specify the EAP version of Kotlin. Available EAP versions are listed [here](index.html#build-details). 
+* Add the EAP repository to the build – <https://dl.bintray.com/kotlin/kotlin-eap>.
+* Change the versions of dependencies to EAP ones.
 The EAP version of Kotlin may not work with the libraries of the previously released version. 
 
 The following procedures describe how to configure your build in Gradle and Maven:
 
-*   [Configure in Gradle](#configure-in-gradle)
-*   [Configure in Maven](#configure-in-maven)  
+* [Configure in Gradle](#configure-in-gradle)
+* [Configure in Maven](#configure-in-maven)  
 
 ## Configure in Gradle 
 
 This section describes how you can:
 
-*   [Adjust the Kotlin version and add the EAP repository](#adjust-the-kotlin-version-and-add-the-eap-repository)
-*   [Adjust versions in dependencies](#adjust-versions-in-dependencies)
+* [Adjust the Kotlin version and add the EAP repository](#adjust-the-kotlin-version-and-add-the-eap-repository)
+* [Adjust versions in dependencies](#adjust-versions-in-dependencies)
 
 
 ### Adjust the Kotlin version and add the EAP repository 
@@ -37,8 +37,8 @@ This section describes common options, but if you use a different approach, you 
 
 This section covers:
 
-*   [Option 1. Configure in the build and settings files](#option-1-configure-in-the-build-and-settings-files)
-*   [Option 2. Configure in the build file only](#option-2-configure-in-the-build-file-only)
+* [Option 1. Configure in the build and settings files](#option-1-configure-in-the-build-and-settings-files)
+* [Option 2. Configure in the build file only](#option-2-configure-in-the-build-file-only)
 
 #### Option 1. Configure in the build and settings files 
 
@@ -54,14 +54,14 @@ Here is an example for the Multiplatform project.
 
 ```groovy
 plugins {
-   id 'java' 
-   id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
+    id 'java' 
+    id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
 }
 
 repositories {
-   mavenCentral()
-   maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-   maven { url 'https://kotlin.bintray.com/kotlinx' }
+    mavenCentral()
+    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    maven { url 'https://kotlin.bintray.com/kotlinx' }
 }
 ```
 
@@ -73,13 +73,13 @@ repositories {
 
 ```kotlin
 plugins {
-   java
-   kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
+    java
+    kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
 }
 repositories {
-   mavenCentral()
-   maven ("https://dl.bintray.com/kotlin/kotlin-eap")
-   maven ("https://kotlin.bintray.com/kotlinx")
+    mavenCentral()
+    maven ("https://dl.bintray.com/kotlin/kotlin-eap")
+    maven ("https://kotlin.bintray.com/kotlinx")
 }
 ```
 
@@ -93,11 +93,11 @@ repositories {
 
 ```groovy
 pluginManagement {
-   repositories {
-       mavenCentral()
-       gradlePluginPortal()
-       maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-   }
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
 }
 ```
 
@@ -109,11 +109,11 @@ pluginManagement {
 
 ```kotlin
 pluginManagement { 
-   repositories { 
-       mavenCentral() 
-       gradlePluginPortal() 
-       maven ("https://dl.bintray.com/kotlin/kotlin-eap") 
-         }
+    repositories { 
+        mavenCentral() 
+        gradlePluginPortal() 
+        maven ("https://dl.bintray.com/kotlin/kotlin-eap") 
+    }
 }
 ```
 
@@ -134,7 +134,7 @@ buildscript {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-       maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
     }
 
     dependencies {
@@ -176,7 +176,7 @@ For the **kotlinx.coroutines** library, add the version number – `{{ site.data
 
 ```groovy
 dependencies {
-   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}"
 }
 ```
 
@@ -188,7 +188,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:{{ site.data.releases.eap.coroutines }}")
 }
 ```
 

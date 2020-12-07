@@ -526,17 +526,16 @@ Kotlin supports annonation processing via the Kotlin annotation processing tool 
 The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes of source files between 
 builds so only files affected by these changes would be compiled.
 
-Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects.  
+Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and is enabled by default since Kotlin 1.1.1.
 
-There are several ways to override the default setting:
+There are several ways to disable the setting:
 
 * Add the following line to the `gradle.properties` or `local.properties` file: 
-    * `kotlin.incremental=<value>` for Kotlin/JVM 
-    * `kotlin.incremental.js=<value>` for Kotlin/JS projects .  
-    `<value>` is a boolean value reflecting the usage of incremental compilation. 
+    * `kotlin.incremental=false` for Kotlin/JVM 
+    * `kotlin.incremental.js=false` for Kotlin/JS projects
     
-* As the command line parameter, use `-Pkotlin.incremental` or `-Pkotlin.incremental.js` with the boolean value reflecting 
-the usage of incremental compilation.  
+* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false`.
+
     Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental 
     compilation invalidates incremental caches.
 
@@ -561,7 +560,7 @@ for test code. The tasks for custom source sets are called accordingly to the `c
 
 The names of the tasks in Android Projects contain the [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the pattern `compile<BuildVariant>Kotlin`, for example, `compileDebugKotlin`, `compileReleaseUnitTestKotlin`.
 
-When targeting JavaScript, the tasks are called `compileKotlin2Js` and `compileTestKotlin2Js` respectively, and `compile<Name>Kotlin2Js` for custom source sets.
+When targeting JavaScript, the tasks are called `compileKotlinJs` and `compileTestKotlinJs` respectively, and `compile<Name>KotlinJs` for custom source sets.
 
 To configure a single task, use its name. Examples:
 
@@ -611,7 +610,7 @@ It is also possible to configure all Kotlin compilation tasks in the project:
 
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-    kotlinOptions { //... }
+    kotlinOptions { /*...*/ }
 }
 ```
 
@@ -622,10 +621,8 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.suppressWarnings = true
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions { /*...*/ }
 }
 ```
 
@@ -647,8 +644,8 @@ The complete list of options for the Gradle tasks is the following:
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Allow using declarations only from the specified version of bundled libraries | "1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.0", "1.1", "1.2", "1.3", "1.4 (EXPERIMENTAL)" |  |
+| `apiVersion` | Allow using declarations only from the specified version of bundled libraries | "1.2" (DEPRECATED), "1.3", "1.4", "1.5" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.2" (DEPRECATED), "1.3", "1.4", "1.5" (EXPERIMENTAL) |  |
 
 ### Attributes specific for JVM
 
@@ -656,10 +653,11 @@ The complete list of options for the Gradle tasks is the following:
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |  |  |
-| `jvmTarget` | Target version of the generated JVM bytecode (1.6, 1.8, 9, 10, 11, 12 or 13) | "1.6", "1.8", "9", "10", "11", "12", "13"| "1.8" |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.6", "1.8", "9", "10", "11", "12", "13", "14", "15" | "1.6" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `noReflect` | Don't automatically include Kotlin reflection into the classpath |  | true |
 | `noStdlib` | Don't automatically include the Kotlin/JVM stdlib and Kotlin reflection into the classpath |  | true |
+| `useIR` | Use the IR backend |  | false |
 
 ### Attributes specific for JS
 
@@ -670,8 +668,8 @@ The complete list of options for the Gradle tasks is the following:
 | `metaInfo` | Generate .meta.js and .kjsm files with metadata. Use to create a library |  | true |
 | `moduleKind` | The kind of JS module generated by the compiler | "umd", "commonjs", "amd", "plain"  | "umd" |
 | `noStdlib` | Don't automatically include the default Kotlin/JS stdlib into compilation dependencies |  | true |
-| `outputFile` | Destination *.js file for the compilation result |  |  |
-| `sourceMap` | Generate source map |  | false |
+| `outputFile` | Destination *.js file for the compilation result |  | "\<buildDir>/js/packages/\<project.name>/kotlin/\<project.name>.js" |
+| `sourceMap` | Generate source map |  | true |
 | `sourceMapEmbedSources` | Embed source files into source map | "never", "always", "inlining" |  |
 | `sourceMapPrefix` | Add the specified prefix to paths in the source map |  |  |
 | `target` | Generate JS files for specific ECMA version | "v5" | "v5" |

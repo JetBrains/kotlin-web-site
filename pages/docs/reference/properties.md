@@ -2,10 +2,10 @@
 type: doc
 layout: reference
 category: "Syntax"
-title: "Properties and Fields: Getters, Setters, const, lateinit"
+title: "Properties: Getters, Setters, const, lateinit"
 ---
 
-# Properties and Fields
+# Properties
 
 ## Declaring Properties
 
@@ -126,7 +126,7 @@ var setterWithAnnotation: Any? = null
 
 ### Backing Fields
 
-Fields cannot be declared directly in Kotlin classes. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
+In Kotlin, a field is only used when needed as part of a property to hold its value in memory. Fields can not be declared directly. However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in the accessors using the `field` identifier:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only auto-indent="false">
 
