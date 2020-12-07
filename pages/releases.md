@@ -50,7 +50,7 @@ You can also use [preview versions of Kotlin](eap/index.html#build-details).
         </td>
         <td>
             <p>A bug fix release for Kotlin 1.4.20</p>
-            <p>Learn more about <a href="docs/reference/whatsnew1420.html" target="_blank">Kotlin 1.4.0</a>.</p>
+            <p>Learn more about <a href="docs/reference/whatsnew1420.html" target="_blank">Kotlin 1.4.20</a>.</p>
         </td>
         <td>
             <ul>
