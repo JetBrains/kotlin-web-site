@@ -875,7 +875,7 @@ kotlin {
 </div>
 </div>
 
-Additionally, source sets can depend on each other and for a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
+Additionally, source sets can depend on each other and form a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
 
 Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
