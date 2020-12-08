@@ -1,5 +1,158 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+        <event>
+        <lang>en</lang>
+        <startDate>2020-11-26</startDate>
+        <endDate>2020-11-26</endDate>
+        <location>Bern,Switzerland</location>
+        <speaker>Alexey Loubyansky</speaker>
+        <title>Kotlin User Group Bern</title>
+        <subject>Developing cloud-native microservices in Kotlin with Quarkus</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Bern/events/274039179/</url>
+        <description>
+            <![CDATA[
+<p>Quarkus is a Kubernetes Native Java stack tailored for OpenJDK HotSpot and GraalVM.
+It flips your assumption about how fast and small a JVM-based application can be.
+Quarkus enables applications to boot super fast and occupy tiny memory and disk spaces compared to the equivalent applications developed with traditional Java/JavaEE frameworks. In addition to that, Quarkus provides a range of tools and features that make writing, testing, building and deploying applications easy and fun.</p>
+<p>During this session we will use Kotlin to write a microservice with Quarkus to demonstrate its cloud-native power.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-26</startDate>
+        <endDate>2020-11-26</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Nicola Corti</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>There Is 1 Broken API Among Us</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybcpbzb/</url>
+        <description>
+            <![CDATA[
+<p>As a library user, you probably know that versions don't always tell the truth. Have you ever experienced a broken build after you did a minor bump of a library?
+As a library author, maintaining a clean API is a challenge. There is always the that a breaking change sneaks in by accident.</p>
+<p>Wouldn't it be nice to get notified if you're accidentally breaking your users' code? A tool to inspect the binary API of your Kotlin/Java code can help you exactly with that. In this talk, we will see some of those tools and how that simplifies the life of library & SDK developers.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-26</startDate>
+        <endDate>2020-11-26</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Danilo Lima</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>DSLs: teoria e prática com Kotlin</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/274530052/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-26</startDate>
+        <endDate>2020-11-26</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Igor Escodro</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>O que há de novo no Kotlin 1.4</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/274530052/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-27</startDate>
+        <endDate>2020-11-27</endDate>
+        <location>Paris, France</location>
+        <speaker>Cedric Ravalec</speaker>
+        <title>Kotlin Paris Meetup</title>
+        <subject>Multiplatform solutions</subject>
+        <url>https://www.meetup.com/Kotlin-Paris-Meetup/events/273094531/</url>
+        <description>
+            <![CDATA[
+<p>Many subjects will be covered, technical presentation of a specific multiplatform solution, benchmarks of different solutions, CI/CD, shared UI over native UI and many others. The purpose is to bring all the answers to any question one might have on the multiplatform ecosystem or future.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2020-11-27</startDate>
+        <endDate>2020-11-27</endDate>
+        <location>La Paz, Bolivia</location>
+        <speaker>Facundo Rodríguez, Cristian Gómez, Kenji Kawaida</speaker>
+        <title>Kotlin La Paz</title>
+        <subject>Kotlin Nights La Paz - Vol. 11</subject>
+        <url>https://www.meetup.com/KotlinLPZ/events/274312785/</url>
+        <description>
+            <![CDATA[
+<p>En nuestro 11vo Kotlin Night aprenderemos acerca del proceso de pruebas unitarias y los distintos tipos o maneras de realizar testing a nuestras aplicaciones Android, además de Firebase.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-27</startDate>
+        <endDate>2020-11-27</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Wajahat Karim</speaker>
+        <title>BlrKotlin - Kotlin User Group</title>
+        <subject>Games and Animations in Jetpack Compose</subject>
+        <url>https://www.meetup.com/BlrKotlin/events/274659817/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-28</startDate>
+        <endDate>2020-11-28</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Adit Lal</speaker>
+        <title>BlrKotlin - Kotlin User Group</title>
+        <subject>Taking a test drive with DataStore</subject>
+        <url>https://www.meetup.com/BlrKotlin/events/274659817/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-27</startDate>
+        <endDate>2020-11-27</endDate>
+        <location>Minna, Nigeria</location>
+        <speaker>Umar Saidu</speaker>
+        <title>Kotlin Minna User Group, Nigeria</title>
+        <subject>Kotlin Clustered Webinar 2020</subject>
+        <url>https://www.meetup.com/Kotlin-Minna-User-Group-Nigeria/events/273455660/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Technologies overview and in-depth tech talks from amazing speakers.
+Talks are aimed at viewers of all levels – newcomers, intermediate, and advanced.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-28</startDate>
+        <endDate>2020-11-28</endDate>
+        <location>Kolkata, India</location>
+        <speaker>Niharika Arora</speaker>
+        <title>Kotlin Kolkata UG</title>
+        <subject>Make your App Production Ready</subject>
+        <url>https://www.meetup.com/Kotlin-Kolkata-UG/events/274664948/</url>
+        <description>
+            <![CDATA[
+<p>A brief synopsis of the session:
+1. How to scale production apps
+2. How to maintain a good architecture and manage the states
+3. How to write clean code and follow Solid principles
+4. What mistakes to avoid when writing code for a feature
+5. How to not lose calm when Adhoc tasks come up
+6. How to balance working in a team and progress towards leadership and ownership
+7. Roadmap to becoming a better developer</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2020-11-19</startDate>
@@ -101,8 +254,8 @@ As a library author, maintaining a clean API is a challenge. There is always the
 
     <event>
         <lang>en</lang>
-        <startDate>2020-12-09</startDate>
-        <endDate>2020-12-09</endDate>
+        <startDate>2020-12-16</startDate>
+        <endDate>2020-12-16</endDate>
         <location>Perth, Australia</location>
         <speaker>Richard Hickling</speaker>
         <title>ProfitView</title>
