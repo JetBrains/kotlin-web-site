@@ -10,7 +10,12 @@ a, a:hover  {
   color: #7F52FF;
 }
 
-.page__index-new {
+.page_restyled_v2,
+.page_restyled_v2 body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
   min-width: 650px;
 }
 
@@ -20,18 +25,22 @@ a, a:hover  {
 
   padding-top: 62px;
 }
-/*
-.kto-overview-section .g-layout {
+
+.page__index-new .g-layout,
+.page__index-new .g-footer-layout, {
   padding-left: var(--s-space);
   padding-right: var(--s-space);
   box-sizing: border-box;
+
+  width: auto;
+  min-width: auto;
+  max-width: 1480px;
 
   @media (max-width: $breakpoint-xs) {
     padding-left: var(--s-space);
     padding-right: var(--s-space);
   }
 }
-*/
 
 .kto-heading_size_hero {
   margin-bottom: var(--l-space);
