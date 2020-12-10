@@ -140,8 +140,8 @@ kotlin {
             defaultSourceSet {
                 dependencies {
                     def main = compilations.main
-                            // Compile against the main compilation's compile classpath and outputs:
-                            implementation(main.compileDependencyFiles + main.output.classesDirs)
+                    // Compile against the main compilation's compile classpath and outputs:
+                    implementation(main.compileDependencyFiles + main.output.classesDirs)
                     implementation kotlin('test-junit')
                     /* ... */
                 }
