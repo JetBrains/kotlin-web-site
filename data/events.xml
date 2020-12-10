@@ -1,6 +1,185 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
-        <event>
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-05</startDate>
+        <endDate>2020-12-05</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Ivar Grimstad</speaker>
+        <title>Kotlin Hyderabad</title>
+        <subject>Announcing Jakarta MVC 2.0</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/274765588/</url>
+        <description>
+            <![CDATA[
+<p>When JSR 371 was dropped from the scope of Java EE, Oracle made the decision to allow the Community to finalize the specification. It quickly became known as the "Community JSR" and the slogan "@Controller to the Community" grew out of it.</p>
+<p>All the Java EE 8 specifications were transferred to Eclipse Foundation and Jakarta EE, MVC was once again left behind. We managed to release MVC 1.0 through the JCP and has since moved over to Jakarta EE as well and released Jakarta MVC 1.1 through the Jakarta EE Specification Process. And we don't stop there, these days, Jakarta MVC 2.0 is on its way out. Maybe it is time for a new slogan? "The Specification that Never Dies!"?</p>
+<p>In this talk, I will take you through this journey and show all aspects of Jakarta MVC 2.0 in code. You don't want to miss this!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-07</startDate>
+        <endDate>2020-12-07</endDate>
+        <location>Boston, MA, USA</location>
+        <speaker>Mark Murphy</speaker>
+        <title>Clean Mobile Code</title>
+        <subject>Informal Clean Kotlin Code</subject>
+        <url>https://www.meetup.com/Clean-Mobile-Code/events/nmlfcsybcqbkb/</url>
+        <description>
+            <![CDATA[
+<p>In these Monday sessions, we go informal but try to focus on Clean Kotlin Code and related subjects, especially learning Kotlin using Klassbook</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-07</startDate>
+        <endDate>2020-12-07</endDate>
+        <location>Hyderabad, Indian</location>
+        <speaker>Nicolas Frankel</speaker>
+        <title>JakartaOne Livestream 2020</title>
+        <subject>Shorten all URLs: Quarkus, Kotlin, Hazelcast and GraalVM in action</subject>
+        <url>https://www.meetup.com/kotlinhyderabad/events/274645716/</url>
+        <description>
+            <![CDATA[
+<p>JakartaOne Livestream is a one-day virtual conference for developers and technical business leaders that brings insights into the current state and future of Jakarta® EE and related technologies focused on developing cloud native Java application</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>fr</lang>
+        <startDate>2020-12-08</startDate>
+        <endDate>2020-12-08</endDate>
+        <location>Toulouse, France</location>
+        <speaker>Mialy Rakotovao</speaker>
+        <title>Toulouse Java User Group</title>
+        <subject>De WebFlux en Java aux coroutines en Kotlin, le parcours du combattant</subject>
+        <url>https://www.meetup.com/Toulouse-Java-User-Group/events/274919048/</url>
+        <description>
+            <![CDATA[
+<p>Vous aviez votre application en JAVA Spring Boot REST controller/REST template et tout allait bien. Mais votre boss/archi/... a débarqué dans l'openspace après la lecture d'un article Medium et a déclaré "qu'à partir de maintenant on fait du webflux avec du Kotlin et des coroutines" et qu'il vous restait exactement 4h56 pour tout migrer. Si vous ne savez pas par où commencer, ce talk est fait pour vous. Si vous êtes juste intéressé pour savoir quels types de problèmes vous allez rencontrer, ce talk est fait pour vous (aussi).</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-12</startDate>
+        <endDate>2020-12-12</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Akinrolie Shola Slick, Adetayo James</speaker>
+        <title>Kotlin Abuja User Group, Nigeria</title>
+        <subject>Kotlin Clustered Webinar 2020</subject>
+        <url>https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/events/273450128/</url>
+        <description>
+            <![CDATA[
+<p>In this clustered event you will learn:
+: General Overview
+: Libraries
+: Kotlin on Multiplatform
+: Kotlin Coroutines
+: Server-side and Kotlin Future Plan</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-16</startDate>
+        <endDate>2020-12-16</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Venkat Subramaniam</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>The Magic of Delegates in Kotlin</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/274383792/</url>
+        <description>
+            <![CDATA[
+<p>Very many good books on OO design have advised us to choose delegation over inheritance. Yet, most developers using OO languages like Java use inheritance predominantly compared to delegation. Part of the reason is the lack of support for delegation when compared to inheritance. In this presentation we will see how Kotlin has first class support for delegation. We will look at how delegation helps us better model relationships and take a look at some usecases of applying delegates in Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-16</startDate>
+        <endDate>2020-12-16</endDate>
+        <location>Sofia, Bulgaria</location>
+        <speaker>Ivan Deskov</speaker>
+        <title>GDG Sofia</title>
+        <subject>Going Reactive with Spring and Kotlin</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-sofia-presents-going-reactive-with-spring-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>This time the topic will revolve around our favourite Kotlin, or more specifically: Going Reactive with Spring & Kotlin
+There's been a lot of buzz around reactive programming in recent years. Spring, being the dominating framework in the JVM world, didn't disappoint and introduced its reactive-stack web framework WebFlux in Spring 5. Together with this, they also saw the rise of Kotlin coming and they introduced dedicated Kotlin support for the Spring 5 with the goal to make Kotlin a first-class citizen of the ecosystem. In this talk we'll have a look at some of the results this collaboration has led. We'll have a look at a good old blocking Spring MVC service and transform it into a fully reactive one using WebFlux, Kotlin and coroutines.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>pt</lang>
+        <startDate>2020-12-10</startDate>
+        <endDate>2020-12-10</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Cristiano Lima</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Microframeworks em Kotlin: Explorando alternativas ao Spring Boot!</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/274989181/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-17</startDate>
+        <endDate>2020-12-17</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Márton Braun</speaker>
+        <title>Kotlin Budapest User Group</title>
+        <subject>Mastering API Visibility in Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Budapest/events/274627463/</url>
+        <description>
+            <![CDATA[
+<p>When designing a library, minimizing your API surface - the types, methods, properties, and functions you expose to the outside world - is a great idea. This doesn't apply to just libraries: it's a consideration you should make for every module in a multi-module project. In this talk, we'll look at all the ways that Kotlin lets you get your visibility just right.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-17</startDate>
+        <endDate>2020-12-17</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Sebastian Aigner</speaker>
+        <title>Kotlin Budapest User Group</title>
+        <subject>Introducing Compose for Desktop</subject>
+        <url>https://www.meetup.com/Kotlin-Budapest/events/274627463/</url>
+        <description>
+            <![CDATA[
+<p>Some time ago, JetBrains published the first milestone version of Compose for Desktop – a modern UI framework for Kotlin that makes building performant and beautiful user interfaces easy and enjoyable. In this lightning talk, we’ll take an introductory look at the framework. We will learn a bit about the principles and technology behind CFD, and see how easy it is to get started with building UIs in pure Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-17</startDate>
+        <endDate>2020-12-17</endDate>
+        <location>Budapest, Hungary</location>
+        <speaker>Nav Singh</speaker>
+        <title>Kotlin Budapest User Group</title>
+        <subject>Impact of Kotlin 1.4.20 in Android</subject>
+        <url>https://www.meetup.com/Kotlin-Budapest/events/274627463/</url>
+        <description>
+            <![CDATA[
+<p> In this talk, I would like to talk about the deprecation of Kotlin synthetics and package restituting of the Parcelize. I will also showcase the migration from Kotlin synthetics to ViewBinding, and show some code samples of new functionality provided by Kotlin 1.4.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2020-11-26</startDate>
         <endDate>2020-11-26</endDate>
