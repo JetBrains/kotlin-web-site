@@ -263,6 +263,9 @@ As a library author, maintaining a clean API is a challenge. There is always the
         <title>Kotlin La Paz</title>
         <subject>Kotlin Nights La Paz - Vol. 11</subject>
         <url>https://www.meetup.com/KotlinLPZ/events/274312785/</url>
+        <content>
+            <video>https://www.youtube.com/watch?v=R2c4vvhL7kY</video>
+        </content>
         <description>
             <![CDATA[
 <p>En nuestro 11vo Kotlin Night aprenderemos acerca del proceso de pruebas unitarias y los distintos tipos o maneras de realizar testing a nuestras aplicaciones Android, además de Firebase.</p>
