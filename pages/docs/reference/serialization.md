@@ -120,7 +120,7 @@ First, make a class serializable by annotating it with `@Serializable`.
 
 ```kotlin
 @Serializable
-data class Data(val a: Int, val str: String = "str")
+data class Data(val a: Int, val b: String)
 ```
 </div>
 
@@ -129,7 +129,7 @@ You can now serialize an instance of this class by calling `Json.encodeToString(
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-Json.encodeToString(Data(42))
+Json.encodeToString(Data(a = 42, b = "str"))
 ```
 </div>
 
@@ -140,7 +140,7 @@ You can also serialize object collections, such as lists, in a single call.
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
  
  ```kotlin
-val dataList = listOf(Data(42), Data(12, "test"))
+val dataList = listOf(Data(42, "abc"), Data(12, "test"))
 val jsonList = Json.encodeToString(dataList)
  ```
 </div>
@@ -150,7 +150,7 @@ To deserialize an object from JSON, use the `decodeFromString()` function:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
  
  ```kotlin
-val obj = Json.decodeFromString<Data>("""{"a":42}""")
+val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
  ```
  </div>
  
