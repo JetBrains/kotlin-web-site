@@ -29,8 +29,8 @@ Use the following factory methods to declare elements of the `binaries` collecti
 | `staticLib` | Static native library | All native targets, except for `WebAssembly` |
 | `framework` | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only |
 
-The simplest version doesn't require any additional parameters and creates one binary for each build type. Currently 
-there two build types available: 
+The simplest version doesn't require any additional parameters and creates one binary for each build type.
+Currently there are two build types available: 
 
 * `DEBUG`  – produces a non-optimized binary with debug information 
 * `RELEASE`  – produces an optimized binary without debug information
@@ -375,7 +375,7 @@ kotlin {
     tasks.register("debugFatFramework", FatFrameworkTask) {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
-        // The default destination directory is '<build directory>/fat-framework'.
+        // The default destination directory is "<build directory>/fat-framework".
         destinationDir = file("$buildDir/fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
@@ -408,7 +408,7 @@ kotlin {
     tasks.register<FatFrameworkTask>("debugFatFramework") {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
-        // The default destination directory is '<build directory>/fat-framework'.
+        // The default destination directory is "<build directory>/fat-framework".
         destinationDir = buildDir.resolve("fat-framework/debug")
         // Specify the frameworks to be merged.
         from(

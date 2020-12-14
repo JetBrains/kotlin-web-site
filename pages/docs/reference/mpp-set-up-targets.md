@@ -23,10 +23,10 @@ kotlin {
 }
 ```
 
+</div>
+
 Each target can have one or more [compilations](mpp-configure-compilations.html). In addition to default compilations for
 test and production purposes, you can [create custom compilations](mpp-configure-compilations.html#create-a-custom-compilation).
-
-</div>
 
 ## Distinguish several targets for one platform
 
