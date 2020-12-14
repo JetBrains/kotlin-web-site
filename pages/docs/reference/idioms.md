@@ -403,5 +403,5 @@ There's also an overload that accepts a reason parameter:
 fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 ```
 
-IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO toolwindow. 
+IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO tool window. 
 
