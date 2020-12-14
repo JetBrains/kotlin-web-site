@@ -81,11 +81,11 @@ Below you will find the list of the most important changes in Kotlin 1.4.0.
 Kotlin 1.4.0 comes with a variety of different language features and improvements. They include:
 
 * [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
+* [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
 * [Callable reference improvements](#callable-reference-improvements)
 * [`break` and `continue` inside `when` included in loops](#using-break-and-continue-inside-when-expressions-included-in-loops)
-* [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
 
 ### SAM conversions for Kotlin interfaces
 
