@@ -7,12 +7,14 @@
   }
 }
 
-.kotlin-intro-section__supports {
-  text-align: right;
+@media (min-width: $breakpoint-m) {
+  .kotlin-intro-section__title-chunk {
+    display: block;
+  }
 }
 
 .kotlin-intro-section__link {
-  margin-left: 8px;
+  margin-left: var(--s-space);
 }
 
 .kotlin-intro-actions {

@@ -10,8 +10,17 @@ a, a:hover  {
   color: #7F52FF;
 }
 
-.page__index-new {
+.page_restyled_v2,
+.page_restyled_v2 body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
   min-width: 650px;
+}
+
+.kto-heading {
+  max-width: 960px;
 }
 
 .kto-overview-section {
@@ -20,18 +29,22 @@ a, a:hover  {
 
   padding-top: 62px;
 }
-/*
-.kto-overview-section .g-layout {
+
+.page__index-new .g-layout,
+.page__index-new .g-footer-layout, {
   padding-left: var(--s-space);
   padding-right: var(--s-space);
   box-sizing: border-box;
+
+  width: auto;
+  min-width: auto;
+  max-width: 1480px;
 
   @media (max-width: $breakpoint-xs) {
     padding-left: var(--s-space);
     padding-right: var(--s-space);
   }
 }
-*/
 
 .kto-heading_size_hero {
   margin-bottom: var(--l-space);
@@ -106,12 +119,14 @@ a.kto-overview-section__title_link:any-link {
 @import "kotlin-stay-in-touch-section";
 
 .kotlin-get-started-section {
-  padding-top: 88px;
-  padding-bottom: var(--xxl-space);
+  padding: var(--l-space) 0;
+  color: #fff;
+  background: #7f52ff radial-gradient(89.53% 145.96% at 0.34% 100.79%, #EF4857 0%, #DE4970 17.58%, #B44DB0 50.31%, #7F52FF 97.03%);
+  background-color: #7f52ff;
 }
 
 .kotlin-get-started-section__title {
-  padding: 0;
+  padding: var(--xxl-space) 0 0;
 }
 
 .kotlin-get-started-section__text {

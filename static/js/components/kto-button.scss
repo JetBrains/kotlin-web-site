@@ -232,6 +232,91 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
   border-width: 1px;
 }
 
+.kto-button_mode_black,
+.kto-button_mode_contrast{
+  color: #fff;
+  background-color: #27282c;
+
+  & .kto-button__busy-icon {
+    color: #fff;
+  }
+
+  &:focus {
+    color: #fff;
+    background-color: #27282c;
+  }
+
+  &:hover {
+    color: #fff;
+    background: rgba(39, 40, 44, 0.70);
+  }
+
+  &:active {
+    color: #fff;
+    background: #27282c;
+  }
+
+  &:active:focus:not(:hover)[data-focus-method='key'] {
+    background: rgba(22, 125, 255, 0.80);
+  }
+
+  &.kto-button_disabled {
+    color: rgba(39, 40, 44, 0.40);
+    background: rgba(39, 40, 44, 0.20);
+
+    & .kto-button__busy-icon {
+      color: rgba(39, 40, 44, 0.40);
+    }
+  }
+
+  &.kto-button_highlighted {
+    color: #fff;
+    background: rgba(39, 40, 44, 0.70);
+  }
+
+  &.kto-button_theme_dark {
+    color: #27282c;
+    background-color: #fff;
+
+    & .kto-button__busy-icon {
+      color: #27282c;
+    }
+
+    &:focus {
+      color: #27282c;
+      background-color: #fff;
+    }
+
+    &:hover {
+      color: #27282c;
+      background: rgba(255, 255, 255, 0.60);
+    }
+
+    &:active {
+      color: #27282c;
+      background: #fff;
+    }
+
+    &:active:focus:not(:hover)[data-focus-method='key'] {
+      background: rgba(76, 166, 255, 0.80);
+    }
+
+    &.kto-button_disabled {
+      color: rgba(255, 255, 255, 0.30);
+      background: rgba(255, 255, 255, 0.20);
+
+      & .kto-button__busy-icon {
+        color: rgba(255, 255, 255, 0.30);
+      }
+    }
+
+    &.kto-button_highlighted {
+      color: #27282c;
+      background: rgba(255, 255, 255, 0.60);
+    }
+  }
+}
+
 @import "static/js/components/kto-text";
 
 .page_restyled_v2 .kto-button_size_l {
