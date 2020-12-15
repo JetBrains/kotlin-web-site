@@ -20,7 +20,10 @@
 }
 
 .kotlin-why-section__media_type_why {
-
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .kotlin-why-section .CodeMirror pre.CodeMirror-line {
