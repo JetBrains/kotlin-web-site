@@ -81,7 +81,7 @@ From the root project folder, execute the build by running
 
 `gradle nativeBinaries`
 
-This should create a folder `build/native/bin` with two subfolders `debugExecutable` and `releaseExecutable` with the corresponding binary.
+This should create a folder `build/bin/native` with two subfolders `debugExecutable` and `releaseExecutable` with the corresponding binary.
 By default, the binary is named the same as the project folder. 
 
 
