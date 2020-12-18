@@ -2,6 +2,247 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2020-12-17</startDate>
+        <endDate>2020-12-17</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Jakub Jabłoński</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>Informal get-together of Kotlin developers in Berlin</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrybcqbwb/</url>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2020-12-21</startDate>
+        <endDate>2020-12-21</endDate>
+        <location>Kempten, Germany</location>
+        <speaker>Thomas Deniffel</speaker>
+        <title>Bavarian Coding Group</title>
+        <subject>Kotlin am Programmiersprachen-Montag. Remote-Mob-Programmin</subject>
+        <url>https://www.meetup.com/Bavarian-Coding-Group/events/269869005/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin (/ˈkɒtlɪn/)[2] is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of its standard library depends on the Java Class Library,[3] but type inference allows its syntax to be more concise. Kotlin mainly targets the JVM, but also compiles to JavaScript or native code (via LLVM). Language development costs are borne by JetBrains, while the Kotlin Foundation protects the Kotlin trademark.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-23</startDate>
+        <endDate>2020-12-23</endDate>
+        <location>Minneapolis, MN</location>
+        <speaker>Colin Lee</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>Kotlin Virtual Holiday Social</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/275197102/</url>
+        <description>
+            <![CDATA[
+<p>Well, we're going to try something as new and exciting as Kotlin 1.4. This won't be Zoom, where you can wait long minutes to get a single word in.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-26</startDate>
+        <endDate>2020-12-26</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Gurupreet Singh</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Exploring the future of Android UI with Jetpack Compose</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/275096324/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will be going through how far have we come with existing UI tools and what challenges it presented and why something like Jetpack Compose is needed.
+We will learn how Jetpack Compose accelerates Android App development by creating a complex app UI in a few lines of codes. While making app we will go through core concepts of Jetpack Compose and how it handles state management, rendering, performance and how Kotlin compliments compose.</p>
+<p>At last, we will see how Compose can be adopted to our current projects and how soon we can be ready for production apps with Compose.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-04</startDate>
+        <endDate>2021-01-04</endDate>
+        <location>Los Gatos, CA, USA</location>
+        <speaker>Casey Bowman</speaker>
+        <title>The Los Gatos Reading Group</title>
+        <subject>Book #11 - Functional Programming in Kotlin, or The Joy of Kotlin</subject>
+        <url>https://www.meetup.com/Los-Gatos-Rust-Reading-Group/events/274759321/</url>
+        <description>
+            <![CDATA[
+<p>This is a peer-to-peer reading group for learning and teaching each other programming languages, such as Rust, Go, and Kotlin, and software-related monetary technologies based upon Bitcoin.</p
+<p>For our meetings, we read a chapter from a book we've selected and then present the sections of that chapter to each other, each participant taking responsibility for a section or two. We pause after each section to allow for discussion and questions. At the end of each meeting we decide when we're meeting next. The more you present, the more you learn.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-21</startDate>
+        <endDate>2021-01-21</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Jakub Jabłoński</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>Informal get-together of Kotlin developers in Berlin</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrycccbcc/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-30</startDate>
+        <endDate>2021-01-30</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Akinrolie Shola Slick</speaker>
+        <title>Kotlin Abuja User Group, Nigeria</title>
+        <subject>Kotlin Clustered Webinar</subject>
+        <url>https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/events/273450128/</url>
+        <description>
+            <![CDATA[
+<p>Join us for a deep dive into Kotlin and its latest release from the JetBrains Kotlin team!
+In this clustered event you will learn:
+: General Overview
+: Libraries
+: Kotlin on Multiplatform
+: Kotlin Coroutines
+: Server-side and Kotlin Future Plans</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-30</startDate>
+        <endDate>2021-01-30</endDate>
+        <location>Abuja, Nigeria</location>
+        <speaker>Akinrolie Shola Slick, Olaosebikan Rotimi, Nancy Grace, Sunkanmi Ijatuyi</speaker>
+        <title>GDG Akoko</title>
+        <subject>Kotlin Clustered Webinar 2020</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-akoko-presents-kotlin-clustered-webinar-2020/</url>
+        <description>
+            <![CDATA[
+<p>Join us for a deep dive into Kotlin and its latest release from the JetBrains Kotlin team!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-14</startDate>
+        <endDate>2020-12-14</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>Google Saudi Community</title>
+        <subject>Build your first Android app using Kotlin</subject>
+        <content>
+    <video>https://www.youtube.com/watch?v=H4fKJnGT7Os&amp;feature=youtu.be</video>
+        </content>
+        <url>https://www.meetup.com/GCDCSaudi/events/275106025/</url>
+        <description>
+            <![CDATA[
+<p>In this workshop we will get to know Android Studio and build an app from a template. Then, get to know the difference between classic views and modern composables. We will build an identical practical app using both UI systems.  This workshop is the second workshop that is part of #AndroidStudyJams</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-07-28</startDate>
+        <endDate>2020-07-28</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>MENA Digital Days</title>
+        <subject>Jetpack Compose!</subject>
+        <content>
+    <video>https://youtu.be/ojiv4kzSlxc</video>
+        </content>
+        <url>https://events.withgoogle.com/menadd/#content</url>
+        <description>
+            <![CDATA[
+<p>- What is Jetpack Compose? - How to build an app using Jetpack Compose?</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-10-18</startDate>
+        <endDate>2020-10-18</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>DevFest 2020 | Saudi Arabia</title>
+        <subject>The Concept behind Jetpack Compose</subject>
+        <content>
+    <video>https://youtu.be/nM0xe6baHUY</video>
+        </content>
+        <url>https://gdg.community.dev/events/details/google-gdg-cloud-saudi-presents-devfest-2020-saudi-arabia/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will learn about what is Jetpack Compose in general. We will get familiar with why we are supposed to use Jetpack Compose. Also, we will differentiate between Composition and Inheritance. In this session, we are gaining to distinguish between imperative UI and declarative UI. Followed by suggested pathways & samples.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ar</lang>
+        <startDate>2020-11-01</startDate>
+        <endDate>2020-11-01</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>بادرة العطاء الرقمي</title>
+        <subject>Kotlin in Android apps</subject>
+        <content>
+    <video>https://www.youtube.com/watch?v=kpl8GAapLM4&amp;feature=youtu.be</video>
+        </content>
+        <url>https://webinar.attaa.sa/view/241</url>
+        <description>
+            <![CDATA[
+<p>- What is Kotlin? - Why is it recommended to use Kotlin? - Jetpack modern libraries to develop Android apps - What is the future roadmap for Kotlin?</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-11-07</startDate>
+        <endDate>2020-11-07</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>Women Techmakers Saudi Arabia</title>
+        <subject>Art Gallery Using Jetpack Compose</subject>
+        <content>
+    <video>https://www.youtube.com/watch?v=Y9Dof35dru4&amp;feature=youtu.be</video>
+        </content>
+        <url>https://twitter.com/wtmsaudi</url>
+        <description>
+            <![CDATA[
+<p>- What is Jetpack Compose - Building an app that uses Jetpack Compose</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2020-12-07</startDate>
+        <endDate>2020-12-07</endDate>
+        <location>Medina, Saudi Arabia</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>Google Saudi Community</title>
+        <subject>Introduction to Kotlin</subject>
+        <content>
+    <video>https://www.youtube.com/watch?v=3JJn6Jr2N50&amp;feature=youtu.be</video>
+        </content>
+        <url>https://www.meetup.com/GCDCSaudi/events/275008686/</url>
+        <description>
+            <![CDATA[
+<p>Introduction about Kotlin language and how to create, change, understand, and run a minimal Kotlin program that displays complicated text messages.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2020-12-05</startDate>
         <endDate>2020-12-05</endDate>
         <location>Hyderabad, Indian</location>
