@@ -10,10 +10,10 @@ title: "Aggregate Operations"
 Kotlin collections contain functions for commonly used _aggregate operations_ – operations that return a single value based on the collection content.
 Most of them are well known and work the same way as they do in other languages:
 
-* [`minOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/min-or-null.html) and [`maxOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/max-or-null.html) return the smallest and the largest element respectively;
-* [`average()`](/api/latest/jvm/stdlib/kotlin.collections/average.html) returns the average value of elements in the collection of numbers;
-* [`sum()`](/api/latest/jvm/stdlib/kotlin.collections/sum.html) returns the sum of elements in the collection of numbers;
-* [`count()`](/api/latest/jvm/stdlib/kotlin.collections/count.html) returns the number of elements in a collection;
+* [`minOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/min-or-null.html) and [`maxOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/max-or-null.html) return the smallest and the largest element respectively. On empty collections, they return `null`.
+* [`average()`](/api/latest/jvm/stdlib/kotlin.collections/average.html) returns the average value of elements in the collection of numbers.
+* [`sum()`](/api/latest/jvm/stdlib/kotlin.collections/sum.html) returns the sum of elements in the collection of numbers.
+* [`count()`](/api/latest/jvm/stdlib/kotlin.collections/count.html) returns the number of elements in a collection.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
@@ -36,6 +36,8 @@ There are also functions for retrieving the smallest and the largest elements by
 
 * [`maxByOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/max-by-or-null.html)/[`minByOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/min-by-or-null.html) take a selector function and return the element for which it returns the largest or the smallest value.
 * [`maxWithOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/max-with-or-null.html)/[`minWithOrNull()`](/api/latest/jvm/stdlib/kotlin.collections/min-with-or-null.html) take a `Comparator` object and return the largest or smallest element according to that `Comparator`. 
+
+All these functions return `null` on empty collections.
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
