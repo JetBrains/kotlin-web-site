@@ -83,13 +83,10 @@ const hoverSolutionsMenu = function () {
   const $solutionsMenuItem = $('.nav-item-solutions');
   const $solutionsMenu = $('.solutions-menu');
 
-  $solutionsMenuItem.on('mouseenter', function () {
-    $solutionsMenu.fadeIn(300);
-  });
-
-  $solutionsMenuItem.on('mouseleave', function () {
-    $solutionsMenu.fadeOut(300);
-  });
+  $solutionsMenuItem.hover(
+    function () { $solutionsMenu.stop(true).delay(500).fadeIn(300); },
+    function () { $solutionsMenu.stop(true).fadeOut(300); }
+  );
 };
 
 $(function () {
