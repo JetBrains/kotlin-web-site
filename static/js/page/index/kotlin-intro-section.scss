@@ -55,7 +55,8 @@
   justify-content: space-between;
   margin-bottom: 32px;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: $breakpoint-s) {
     flex-direction: column;
@@ -76,18 +77,14 @@
 
   background: transparent none no-repeat 32px 32px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-  &:last-of-type {
-    border-right-style: none;
-  }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: $breakpoint-s) {
-    border-right-style: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-    &:last-of-type {
-      border-bottom-style: none;
-    }
+  @media (max-width: $breakpoint-m) {
+    flex: 1 50%;
   }
 }
 
