@@ -86,7 +86,7 @@ in the Kotlin Gradle DSL).
     </div>
     </div>
 
-2. Add the JSON serialization library dependency:`org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}`
+2. Add the JSON serialization library dependency:`org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}`
 
     <div class="multi-language-sample" data-lang="groovy">
     <div class="sample" markdown="1" theme="idea" mode='groovy'>
@@ -105,7 +105,7 @@ in the Kotlin Gradle DSL).
     
     ```kotlin
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:{{ site.data.releases.latest.serialization.version }}")
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:{{ site.data.releases.latest.serialization.version }}")
     } 
     ```
     
