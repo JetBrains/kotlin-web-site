@@ -38,12 +38,17 @@ This is the main feature of inline classes, which inspired the name "inline": da
 
 ## Members
 
-Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and functions:
+Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties, functions and have *init*{: .keyword } blocks:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
 ```kotlin
 inline class Name(val s: String) {
+
+    init {
+      require(s.isNotEmpty()) { "Name cannot be empty" }
+    }
+    
     val length: Int
         get() = s.length
 
@@ -62,7 +67,6 @@ fun main() {
 </div>
 
 However, there are some restrictions for inline class members:
-* inline classes cannot have *init*{: .keyword } blocks
 * inline class properties cannot have [backing fields](properties.html#backing-fields)
     * it follows that inline classes can only have simple computable properties (no lateinit/delegated properties)
 
