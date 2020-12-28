@@ -2,6 +2,73 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-01-05</startDate>
+        <endDate>2021-01-05</endDate>
+        <location>London, UK</location>
+        <speaker>Maryna Cherniavska</speaker>
+        <title>LJC - London Java Community</title>
+        <subject>Winter Is Coming: A Kotlin Web Application Without Spring</subject>
+        <url>https://www.eventbrite.co.uk/e/winter-is-coming-a-kotlin-web-application-without-spring-tickets-132916882975?aff=meetup</url>
+        <description>
+            <![CDATA[
+<p>Spring Boot is a common way to start almost any back-end web application or REST API; but what if you'd prefer to go without Spring Boot and without Spring altogether? Is it possible at all, and more importantly, is it painless? We will work through a common example and see together.</p>
+<p>For this talk, a basic knowledge of Kotlin is preferred. After the session, Maryna will share a link to the repository with all the relevant code, so you can fork it and play with it on your own.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-12</startDate>
+        <endDate>2021-01-12</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>A brief tour of Ktor</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/275328108</url>
+        <description>
+            <![CDATA[
+<p>Ktor is a web application framework written from the ground up in Kotlin and uses coroutines. Whether you want to create a website, an HTTP back-end or a RESTful system, Ktor provides you with the functionality needed to do these things. In addition, by incorporating a client, you can also use it not only for making HTTP requests, but also as part of a micro-service set-up. In this talk we're going to take a brief tour of Ktor and see all it has to offer.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-13</startDate>
+        <endDate>2021-01-13</endDate>
+        <location>London, UK</location>
+        <speaker>Jorge Rego</speaker>
+        <title>Kotlin London</title>
+        <subject>Architecture proposal to build servers with Ktor</subject>
+        <url>https://www.meetup.com/kotlin-london/events/275280292</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is growing really fast and new tools and libraries are available to code with this language.</p>
+<p>As an Android developer, I've always wanted to be able to do a full stack project, connecting my mobile apps with a server, and this is where Ktor came to the rescue. Documentation is there and also many disconnected examples, but when we want to get into business, we need a maintainable and clean architecture if we want to succeed.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-13</startDate>
+        <endDate>2021-01-13</endDate>
+        <location>London, UK</location>
+        <speaker>Jorge Castillo</speaker>
+        <title>Kotlin London</title>
+        <subject>Functional Android</subject>
+        <url>https://www.meetup.com/kotlin-london/events/275280292</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will learn how to seamlessly integrate the functional programming paradigm with our Android architecture to get the most out of both worlds.</p>
+<p>We'll cover concepts like declarative programming + runtime optimization, integration of functional effects with Jetpack Compose, error handling strategies, data validation, concurrency, safe resource handling to avoid memory leaks, Streams, and much more.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2020-12-17</startDate>
         <endDate>2020-12-17</endDate>
         <location>Berlin, Germany</location>
