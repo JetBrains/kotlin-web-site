@@ -70,16 +70,16 @@ To improve the behavior in such cases, Kotlin 1.3 introduces experimental mechan
 
 ```kotlin
 fun require(condition: Boolean) {
-    // This is a syntax form, which tells compiler:
-    // "if this function returns successfully, then passed 'condition' is true"
+    // This is a syntax form which tells the compiler:
+    // "if this function returns successfully, then the passed 'condition' is true"
     contract { returns() implies condition }
     if (!condition) throw IllegalArgumentException(...)
 }
 
 fun foo(s: String?) {
     require(s is String)
-    // s is smartcasted to 'String' here, because otherwise
-    // 'require' would have throw an exception
+    // s is smartcast to 'String' here, because otherwise
+    // 'require' would have thrown an exception
 }
 ```
 
@@ -91,7 +91,7 @@ fun foo(s: String?) {
 
 ```kotlin
 fun synchronize(lock: Any?, block: () -> Unit) {
-    // It tells compiler:
+    // It tells the compiler:
     // "This function will invoke 'block' here and now, and exactly one time"
     contract { callsInPlace(block, EXACTLY_ONCE) }
 }
@@ -119,7 +119,7 @@ fun foo() {
 //sampleStart
 fun bar(x: String?) {
     if (!x.isNullOrEmpty()) {
-        println("length of '$x' is ${x.length}") // Yay, smartcasted to not-null!
+        println("length of '$x' is ${x.length}") // Yay, smartcast to not-null!
     }
 }
 //sampleEnd
@@ -133,9 +133,9 @@ fun main() {
 
 ### Custom Contracts
 
-It is possible to declare contracts for your own functions, but this feature is **experimental,** as the current syntax is in a state of early prototype and will most probably be changed. Also, please note, that currently the Kotlin compiler does not verify contracts, so it's a programmer's responsibility to write correct and sound contracts. 
+It is possible to declare contracts for your own functions, but this feature is **experimental,** as the current syntax is in a state of early prototype and will most probably be changed. Also please note that currently the Kotlin compiler does not verify contracts, so it's the responsibility of the programmer to write correct and sound contracts. 
 
-Custom contracts are introduced by the call to `contract` stdlib function, which provides DSL scope:
+Custom contracts are introduced by a call to `contract` stdlib function, which provides DSL scope:
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
