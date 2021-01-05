@@ -119,7 +119,7 @@ val olderJack = jack.copy(age = 2)
 
 </div>
 
-Note that the `copy()` call performs shallow copy, meaning that it doesn't propagate recursively through attributes:
+Note that the `copy()` call performs a shallow copy, meaning that the copy's reference properties point to the _same objects_ as the original object's references. However, the copy has its own primitive properties not linked to the original.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
