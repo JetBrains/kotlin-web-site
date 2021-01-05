@@ -121,22 +121,27 @@ val olderJack = jack.copy(age = 2)
 
 Note that the `copy()` call performs a shallow copy, meaning that the copy's reference properties point to the _same objects_ as the original object's references. However, the copy has its own primitive properties not linked to the original.
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
+<div class="sample" markdown="1" theme="idea">
 
 ```kotlin
 data class User(var name : String)
 
 data class Address(var user: User, var city: String)
 
-var userJack = User(name="jack")
-var address = Address(user = userJack, city = "London")
-var addressCopy = address.copy()
+fun main() {
+//sampleStart
 
-address.city = "New York"
-address.user.name = "john"
+    var userJack = User(name="Jack")
+    var address = Address(user = userJack, city = "London")
+    var addressCopy = address.copy()
 
-println(addressCopy.city)  // prints "London"
-println(addressCopy.user.name)  // prints "john", because `address.user === addressCopy.user`
+    addressCopy.city = "New York"
+    addressCopy.user.name = "John"  // Propagates to `address.user` because they both point to userJack.
+
+//sampleEnd
+    println("address.city is ${address.city}")  // Prints "London"
+    println("address.user.name is ${address.user.name}")  // Prints "John"
+}
 ```
 
 </div>
