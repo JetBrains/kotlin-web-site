@@ -118,7 +118,7 @@ val list = listOf("a", "b", "c")
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+val map = mapOf("key-a" to "value-a", "key-b" to "value-b")
 ```
 </div>
 
@@ -126,8 +126,9 @@ val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 ```kotlin
-println(map["key"])
-map["key"] = value
+val map = mutableMapOf("key-a" to "value-a", "key-b" to "value-b")
+map["key-c"] = "value-c"
+println(map["key-c"]) // prints "value-c"
 ```
 </div>
 
