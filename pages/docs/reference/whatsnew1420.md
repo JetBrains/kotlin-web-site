@@ -106,7 +106,7 @@ Learn more about [configuring webpack bundling](js-project-setup.html#configurin
 
 #### package.json customization from Gradle
 
-For more control over you Kotlin/JS package management and distribution, you can now add properties to the project file
+For more control over your Kotlin/JS package management and distribution, you can now add properties to the project file
 [`package.json`](https://nodejs.dev/learn/the-package-json-guide) via the Gradle DSL.
 
 To add custom fields to your `package.json`, use the `customField` function in the compilation's `packageJson` block:
