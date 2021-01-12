@@ -161,17 +161,18 @@ object Resource {
 ```
 </div>
 
-### Instantiate abstract class
+### Instantiate an abstract class
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
-abstract class AnAbstractClass {
+abstract class MyAbstractClass {
     abstract fun doSomething()
     abstract fun sleep()
 }
 
 fun main() {
-    val myObject = object : AnAbstractClass() {
+    val myObject = object : MyAbstractClass() {
         override fun doSomething() {
             // ...
         }
