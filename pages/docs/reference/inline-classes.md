@@ -38,7 +38,7 @@ This is the main feature of inline classes, which inspired the name "inline": da
 
 ## Members
 
-Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties, functions and have *init*{: .keyword } blocks:
+Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties, functions and, starting with Kotlin 1.4.30, to have *init*{: .keyword } blocks:
 
 <div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
 
