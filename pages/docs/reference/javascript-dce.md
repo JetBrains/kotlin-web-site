@@ -43,8 +43,8 @@ kotlin {
             dceTask {
                 keep("myKotlinJSModule.org.example.getName", "myKotlinJSModule.org.example.User" )
             }
-            binaries.executable()
         }
+        binaries.executable()
     }
 }
 ```
