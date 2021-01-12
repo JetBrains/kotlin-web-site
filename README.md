@@ -1,5 +1,5 @@
 # Kotlin website
-[![Official project][project-badge]][project-url] [![Slack][slack-badge]][slack-url] 
+[![Official project][project-badge]][project-url]
 
 This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 
