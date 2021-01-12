@@ -8,6 +8,7 @@ This is the source for the [http://kotlinlang.org](http://kotlinlang.org).
 - [Project structure & overview](#project-structure)
 - [Writing content](#writing-content)
 - [Filing bugs](#filing-bugs)
+- [Public Slack channel][slack-url]
 
 ## Installation
 
@@ -127,4 +128,3 @@ Click [here to report an issue](http://youtrack.jetbrains.com/newIssue?project=K
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
 [project-badge]: http://jb.gg/badges/official.svg
 [slack-url]: http://slack.kotlinlang.org
-[slack-badge]: http://slack.kotlinlang.org/badge.svg
