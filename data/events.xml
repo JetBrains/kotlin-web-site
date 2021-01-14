@@ -2,6 +2,142 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Kraków, Poland</location>
+        <speaker>Nicolas Frenkel</speaker>
+        <title>Kraków Kotlin User Group</title>
+        <subject>Pragmatic App Migration to the Cloud: Quarkus, Kotlin, Hazelcast and GraalVM in action</subject>
+        <url>https://hopin.com/events/micro-sphere-it-6-kotlin</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Kraków, Poland</location>
+        <speaker>Andrzej Ratajczak, Kacper Korban</speaker>
+        <title>Kraków Kotlin User Group</title>
+        <subject>Inkuire - Using types as search keys in Kotlin libraries</subject>
+        <url>https://hopin.com/events/micro-sphere-it-6-kotlin</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-16</startDate>
+        <endDate>2021-01-16</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Svetlana Isakova, Amrit Sanjeev, Ragunath Jawahar</speaker>
+        <title>Globant - Europe</title>
+        <subject>Meet Kotlin</subject>
+        <url>https://www.meetup.com/Globant-Europe/events/275680553</url>
+        <description>
+            <![CDATA[
+<p>We invite you to learn Kotlin with us. Meet Kotlin is planned to be a series of sessions on Kotlin covering all the functionalities.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-20</startDate>
+        <endDate>2021-01-20</endDate>
+        <location>Belfast, United Kingdom</location>
+        <speaker>Ekaterina Petrova</speaker>
+        <title>Kotlin Belfast User Group</title>
+        <subject>It's time for Kotlin Multiplatform Mobile!</subject>
+        <url>https://www.meetup.com/kotlin-belfast/events/275627621</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform Mobile (KMM) is an SDK for cross-platform mobile development. It makes the end-to-end experience of building mobile cross-platform apps efficient and enjoyable. In this talk, I will firstly go through a typical mobile application development process and show how we can use KMM features to share code between platforms.</p>
+<p>After that, to give you a wider perspective, we will talk about the different obstacles that you might meet on your KMM journey and what you can do to overcome them right now. Finally I'll give you an overview of the experiences of a variety of teams who already use KMM in their production apps. You can start applying their KMM best practices into your applications right away.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-17</startDate>
+        <endDate>2021-01-17</endDate>
+        <location>Baku, Azerbaijan</location>
+        <speaker>Smit Satodia</speaker>
+        <title>GDG Baku</title>
+        <subject>Jump Start in Kotlin!</subject>
+        <url>https://www.meetup.com/GDG-Baku/events/275556428</url>
+        <description>
+            <![CDATA[
+<p>Divided into two tracks, Beginners and Intermediate, choose as you fancy, starting with the basics of Kotlin, dive into the Android Kotlin Fundamentals, learn about UI layouts, app architecture, data storage, connecting to the network, and best practices for Android development.</p>
+<p>Again, no prior programming experience is necessary.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-19</startDate>
+        <endDate>2021-01-19</endDate>
+        <location>Dubai, United Arab Emirates</location>
+        <speaker>Garth Gilmour</speaker>
+        <title>Google Developer Groups Dubai</title>
+        <subject>Using Kotlin and Spring Boot to Administer JetBrains Space</subject>
+        <url>https://www.meetup.com/GDG-Dubai/events/275561798</url>
+        <description>
+            <![CDATA[
+<p>At Instil we use JetBrains Space as the primary mechanism for coaching developers during virtual training. Space provides integrated support for managing projects, repositories, documents and discussions. To ensure privacy we create a dedicated instance for each training delivery, which initially led to a lot of manual configuration. We have addressed this by using Kotlin, Spring Boot and the Space HTTP API to automatically configure instances. This talk will walk you through some of the code we created. In addition to the Space API we will be covering OAuth, Spring WebFlux, Functional Patterns and Reactive Design.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-19</startDate>
+        <endDate>2021-01-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Eugene Petrenko, Francisco Franco, Enrique López-Mañas</speaker>
+        <title>Kotlin User Group Munich</title>
+        <subject>Kotlin Meetup - January 2021 Edition</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/275573397</url>
+        <description>
+            <![CDATA[
+<p>Have you been working on a project with Kotlin? Is there a library you would like to discuss? Would you like to try public speaking or need help to prepare a talk? Message us, come and have fun sharing your Kotlin story!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2021-01-14</startDate>
+        <endDate>2021-01-14</endDate>
+        <location>Hamburg, Germany</location>
+        <speaker>Stefan López Romero, Felicitas Hörmann</speaker>
+        <title>Java User Group Hamburg</title>
+        <subject>Kotlin und Arrow ein Duo für FP</subject>
+        <url>https://www.meetup.com/jug-hamburg/events/275403440</url>
+        <description>
+            <![CDATA[
+<p>Kotlin ermöglicht Funktionale Programmierung. Durch Funktionen als first-class-citizens und eine prägnante und flexible Syntax unterstützt die Sprache dieses Paradigma grundlegend. Für weiterführende funktionale Programmierung fehlen der Standardbibliothek jedoch gängige Funktionen, Datentypen und höhere Abstraktionsmöglichkeiten. Diese Lücke möchte die Library Arrow füllen. Der Vortrag beleuchtet die Vorteile von Kotlin für Funktionale Programmierung und was mit der Arrow darüber hinaus noch möglich ist.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-01-06</startDate>
+        <endDate>2021-01-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Nav Singh</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Impact of Kotlin 1.4.20 on Android (Online)</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/wqrtcsycccbjb/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, I would like to talk about the deprecation of Kotlin synthetics and the package restituting of Parcelize. I'll also showcase the migration from Kotlin synthetics to ViewBinding.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-01-05</startDate>
         <endDate>2021-01-05</endDate>
         <location>London, UK</location>
