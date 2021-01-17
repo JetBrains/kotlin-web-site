@@ -129,7 +129,7 @@ reference:
         - url: /docs/reference/classes.html
           title: Classes and Inheritance
         - url: /docs/reference/properties.html
-          title: Properties and Fields
+          title: Properties
         - url: /docs/reference/interfaces.html
           title: Interfaces
         - url: /docs/reference/fun-interfaces.html
