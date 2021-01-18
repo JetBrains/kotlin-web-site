@@ -37,7 +37,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 This table describes the biggest projects that we’re working on. You can also view these projects on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current).
 
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets by following links in the table or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
 <table>
     <tr>
@@ -145,8 +145,8 @@ If you have any questions or feedback about the roadmap or the items on it, feel
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">Improve dependency management for iOS</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42303" target="_blank">Improve Gradle & Compiler error messages</a></li>
+                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">Improve dependency management for iOS</a></li>
+                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42303" target="_blank">Improve Gradle & Compiler error messages</a></li>
                 <li>⏸ Sharing code between JVM and Android</li>
                 <li>⏸ KMM plugin: support for IntelliJ IDEA</li>
             </ul>
@@ -187,8 +187,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
         </td>
     </tr>
     <tr>
-        <td><strong>Libraries</strong>
-        </td>
+        <td><strong>Libraries</strong></td>
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support <code>java.nio.Path</code> extension in the standard library</a></li>
