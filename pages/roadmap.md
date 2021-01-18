@@ -39,11 +39,15 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 ## Kotlin roadmap by subsystem
 
-You can view the biggest projects that we’re working on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) or in the table below.
+You can view the biggest projects that we’re working on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) and in the [Roadmap details](#roadmap-details) table.
+
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+
+### YouTrack board
 
 <a href="https://youtrack.jetbrains.com/agiles/153-1251/current"><img class="img-responsive" src="{{ url_for('asset', path='images/reference/roadmap/roadmap-board.png' )}}" alt="Roadmap board in YouTrack"/></a>
 
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets by following links in the table or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+### Roadmap details
 
 <table>
     <tr>
@@ -247,7 +251,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 ### Completed items
 
-We've **completed** the following items from the roadmap that was published in October 2020:
+We've **completed** the following items from the roadmap that we published in October 2020:
 
 * ✅ Compiler core: [Bootstrap the new compiler (make the new Kotlin compiler compile itself)](https://youtrack.jetbrains.com/issue/KT-42285)
 * ✅ Kotlin/Native: [Runtime performance: improve object allocation times](https://youtrack.jetbrains.com/issue/KT-42295)
@@ -284,7 +288,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Libraries: [Unambiguous API for Char conversion](https://youtrack.jetbrains.com/issue/KT-44333)
 * 🆕 Libraries: [Multiplatform API for characters](https://youtrack.jetbrains.com/issue/KT-44334)
 
-We've also added a new subsystem **Website** to share our roadmap for [kotlinlang.org](https://kotlinlang.org/):
+We've also added a new subsystem, **Website**, to share our roadmap for [kotlinlang.org](https://kotlinlang.org/):
 
 * 🆕 Website: [Revamp Kotlin documentation](https://youtrack.jetbrains.com/issue/KT-44338)
 * 🆕 Website: [Make the Kotlin website mobile friendly](https://youtrack.jetbrains.com/issue/KT-44339)
@@ -293,5 +297,5 @@ We've also added a new subsystem **Website** to share our roadmap for [kotlinlan
 
 ### Items in progress
 
-All other previously planned roadmap items are in progress. 
-Check [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=Type:%20%7BRoadmap%20Item%7D%20state:%20%7BIn%20Progress%7D%20) for updates.
+All other previously identified roadmap items are in progress. 
+You can check their [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=Type:%20%7BRoadmap%20Item%7D%20state:%20%7BIn%20Progress%7D%20) for updates.
