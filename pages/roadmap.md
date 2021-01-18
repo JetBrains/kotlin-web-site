@@ -25,7 +25,7 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotli
 
 * [Key priorities](#key-priorities)
 * [Kotlin roadmap by subsystem](#kotlin-roadmap-by-subsystem)
-* [Changelog](#changelog)
+* [What's changed since October 2020](#whats-changed-since-october-2020)
  
 ## Key priorities
 
@@ -39,7 +39,9 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 ## Kotlin roadmap by subsystem
 
-This table describes the biggest projects that we’re working on. You can also view these projects on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current).
+You can view the biggest projects that we’re working on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) or in the table below.
+
+<a href="https://youtrack.jetbrains.com/agiles/153-1251/current"><img class="img-responsive" src="{{ url_for('asset', path='images/reference/roadmap/roadmap-board.png' )}}" alt="Roadmap board in YouTrack"/></a>
 
 If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets by following links in the table or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
@@ -241,7 +243,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 >* We will adjust our priorities as we go and update the roadmap approximately every three months.
 {:.note}
 
-## Changelog
+## What's changed since October 2020
 
 ### January 2021
 
