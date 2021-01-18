@@ -284,3 +284,6 @@ We've also added a new subsystem **Website** to share our roadmap for [kotlinlan
 * 🆕 Website: [Make the Kotlin website mobile friendly](https://youtrack.jetbrains.com/issue/KT-44339)
 * 🆕 Website: [Design a new Kotlin visual style](https://youtrack.jetbrains.com/issue/KT-44340)
 * 🆕 Website: [Close _try.kotlinlang.org_](https://youtrack.jetbrains.com/issue/KT-44342)
+
+All other roadmap items are in progress. 
+Check [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=Type:%20%7BRoadmap%20Item%7D%20state:%20%7BIn%20Progress%7D%20) for updates.
