@@ -1,7 +1,7 @@
 ---
 layout: reference
 title: Kotlin Roadmap
-date: 2020-10-01
+date: 2021-01-19
 ---
 
 # Kotlin Roadmap
@@ -9,29 +9,19 @@ date: 2020-10-01
 <table>
     <tr>
         <td><strong>Last modified on</strong></td>
-        <td>October 2020</td>
+        <td>January 2021</td>
     </tr>
     <tr>
         <td><strong>Time frame</strong></td>
-        <td>6 months until March 2021</td>
+        <td>6 months until June 2021</td>
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td>January 2021</td>
+        <td>April 2021</td>
     </tr>
 </table>
 
 Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotlin Team.
-
-Here are a few points to note about this roadmap:
-
-1. It describes the primary areas that the team is investing into.
-2. It’s not an exhaustive list of all things the team is working on, only the biggest projects.
-3. There’s no commitment to delivering specific features or fixes in specific versions.
-4. It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
-5. Nothing is set in stone, we will adjust our priorities as we go and update the roadmap approximately every three months.
-
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.60878444.1901676095.1599823213-394965905.1588600024)).
  
 ## Key priorities
 
@@ -45,7 +35,9 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 ## Kotlin roadmap by subsystem
 
-This table describes the biggest projects that we’re working on.
+This table describes the biggest projects that we’re working on. You can also view these projects on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current).
+
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
 <table>
     <tr>
@@ -58,10 +50,10 @@ This table describes the biggest projects that we’re working on.
         </td>
         <td>
             <ul>
-                <li><p>Support JVM records<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42430" target="_blank">KT-42430</a>)</p></li>
-                <li><p>Support JVM sealed classes<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">KT-42433</a>)</p></li>
-                <li><p>Release inline classes as stable, secure Valhalla compatibility<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42434" target="_blank">KT-42434</a>)</p></li>
-                <li><p>Prototype multiple receivers<br/>(<a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">KT-42435</a>)</p></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42430" target="_blank">Support JVM records</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">Support JVM sealed classes</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42434" target="_blank">Release inline classes as stable, secure Valhalla compatibility</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
         </td>
         <td>
@@ -295,3 +287,10 @@ This table describes the biggest projects that we’re working on.
         </td>
     </tr>
 </table>
+
+>* This roadmap describes the primary areas that the team is investing into.
+>* It’s not an exhaustive list of all things the team is working on, only the biggest projects.
+>* There’s no commitment to delivering specific features or fixes in specific versions.
+>* It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
+>* Nothing is set in stone, we will adjust our priorities as we go and update the roadmap approximately every three months.
+{:.note}
