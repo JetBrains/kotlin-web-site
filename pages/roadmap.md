@@ -245,7 +245,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 ## What's changed since October 2020
 
-### January 2021
+### Completed items
 
 We've **completed** the following items from the roadmap that was published in October 2020:
 
@@ -255,6 +255,8 @@ We've **completed** the following items from the roadmap that was published in O
 * ✅ Multiplatform: [KMM plugin: Run common tests on Android devices](https://youtrack.jetbrains.com/issue/KT-42298) (partially)
 * ✅ Libraries: [Improve `kotlinx-coroutines`(release v1.4)](https://youtrack.jetbrains.com/issue/KT-42317)
 
+### Postponed items
+
 We've decided to **postpone** the following items from the previous roadmap: 
 
 * ⏸ Kotlin/JVM: [Maintain the old JVM backend by fixing critical bugs](https://youtrack.jetbrains.com/issue/KT-42288)
@@ -262,6 +264,8 @@ We've decided to **postpone** the following items from the previous roadmap:
 * ⏸ Multiplatform: [Improve dependency management for iOS](https://youtrack.jetbrains.com/issue/KT-42301)
 * ⏸ Multiplatform: [Improve Gradle & Compiler error messages](https://youtrack.jetbrains.com/issue/KT-42303)
 * ⏸ Libraries: [Improve usability of multi-threaded coroutines library for Kotlin/Native](https://youtrack.jetbrains.com/issue/KT-42314)
+
+### New items
 
 We've **added** the following items to the roadmap:
 
@@ -287,5 +291,7 @@ We've also added a new subsystem **Website** to share our roadmap for [kotlinlan
 * 🆕 Website: [Design a new Kotlin visual style](https://youtrack.jetbrains.com/issue/KT-44340)
 * 🆕 Website: [Close _try.kotlinlang.org_](https://youtrack.jetbrains.com/issue/KT-44342)
 
-All other roadmap items are in progress. 
+### Items in progress
+
+All other previously planned roadmap items are in progress. 
 Check [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=Type:%20%7BRoadmap%20Item%7D%20state:%20%7BIn%20Progress%7D%20) for updates.
