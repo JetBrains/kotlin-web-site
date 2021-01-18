@@ -22,6 +22,10 @@ date: 2021-01-19
 </table>
 
 Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotlin Team.
+
+* [Key priorities](#key-priorities)
+* [Kotlin roadmap by subsystem](#kotlin-roadmap-by-subsystem)
+* [Changelog](#changelog)
  
 ## Key priorities
 
@@ -236,3 +240,47 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 >* It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
 >* We will adjust our priorities as we go and update the roadmap approximately every three months.
 {:.note}
+
+## Changelog
+
+### January 2021
+
+We've **completed** the following items from the roadmap that was published in October 2020:
+
+* ✅ Compiler core: [Bootstrap the new compiler (make the new Kotlin compiler compile itself)](https://youtrack.jetbrains.com/issue/KT-42285)
+* ✅ Kotlin/Native: [Runtime performance: improve object allocation times](https://youtrack.jetbrains.com/issue/KT-42295)
+* ✅ Multiplatform: [KMM plugin: Fix major bugs](https://youtrack.jetbrains.com/issue/KT-42299)
+* ✅ Multiplatform: [KMM plugin: Run common tests on Android devices](https://youtrack.jetbrains.com/issue/KT-42298) (partially)
+* ✅ Libraries: [Improve `kotlinx-coroutines`(release v1.4)](https://youtrack.jetbrains.com/issue/KT-42317)
+
+We've decided to **postpone** the following items from the previous roadmap: 
+
+* ⏸ Kotlin/JVM: [Maintain the old JVM backend by fixing critical bugs](https://youtrack.jetbrains.com/issue/KT-42288)
+* ⏸ Kotlin/JS: [Improve Dukat support](https://youtrack.jetbrains.com/issue/KT-42290)
+* ⏸ Multiplatform: [Improve dependency management for iOS](https://youtrack.jetbrains.com/issue/KT-42301)
+* ⏸ Multiplatform: [Improve Gradle & Compiler error messages](https://youtrack.jetbrains.com/issue/KT-42303)
+* ⏸ Libraries: [Improve usability of multi-threaded coroutines library for Kotlin/Native](https://youtrack.jetbrains.com/issue/KT-42314)
+
+We've **added** the following items to the roadmap:
+
+* 🆕 Compiler core: [Support incremental compilation for the new compiler](https://youtrack.jetbrains.com/issue/KT-44317)
+* 🆕 Compiler core: [Work on services for the new compiler to interact with IDE](https://youtrack.jetbrains.com/issue/KT-44318)
+* 🆕 Kotlin/JS: [JS IR BE: Add an ability to generate separate JS files for each module](https://youtrack.jetbrains.com/issue/KT-44319)
+* 🆕 Kotlin/JS: [JS IR BE: Prototype lazy initialization for top-level properties like in JVM](https://youtrack.jetbrains.com/issue/KT-44320)
+* 🆕 Kotlin/Native: [Support producing binaries that run on Apple Silicon without Rosetta 2](https://youtrack.jetbrains.com/issue/KT-44321)
+* 🆕 Multiplatform: [Improve frontend and IDE import stability for Multiplatform projects](https://youtrack.jetbrains.com/issue/KT-44325)
+* 🆕 Multiplatform: [Introduce a complex KMM application sample](https://youtrack.jetbrains.com/issue/KT-44326)
+* 🆕 Multiplatform: [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KT-44328)
+* 🆕 Multiplatform: [Improve UX of using Native libraries in Kotlin](https://youtrack.jetbrains.com/issue/KT-44329)
+* 🆕 IDE: [Improve debugging experience](https://youtrack.jetbrains.com/issue/KT-44330)
+* 🆕 Libraries: [Improve `kotlinx-serialization` (release v1.2)](https://youtrack.jetbrains.com/issue/KT-44335)
+* 🆕 Libraries: [Improve `kotlinx-coroutines` (release v1.5)](https://youtrack.jetbrains.com/issue/KT-44336)
+* 🆕 Libraries: [Unambiguous API for Char conversion](https://youtrack.jetbrains.com/issue/KT-44333)
+* 🆕 Libraries: [Multiplatform API for characters](https://youtrack.jetbrains.com/issue/KT-44334)
+
+We've also added a new subsystem **Website** to share our roadmap for [kotlinlang.org](https://kotlinlang.org/):
+
+* 🆕 Website: [Revamp Kotlin documentation](https://youtrack.jetbrains.com/issue/KT-44338)
+* 🆕 Website: [Make the Kotlin website mobile friendly](https://youtrack.jetbrains.com/issue/KT-44339)
+* 🆕 Website: [Design a new Kotlin visual style](https://youtrack.jetbrains.com/issue/KT-44340)
+* 🆕 Website: [Close _try.kotlinlang.org_](https://youtrack.jetbrains.com/issue/KT-44342)
