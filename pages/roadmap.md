@@ -39,7 +39,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 ## Kotlin roadmap by subsystem
 
-You can view the biggest projects that we’re working on the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) and in the [Roadmap details](#roadmap-details) table.
+To view the biggest projects we're working on, visit the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) or the [Roadmap details](#roadmap-details) table.
 
 If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
