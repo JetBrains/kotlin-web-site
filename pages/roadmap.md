@@ -212,10 +212,10 @@ If you have any questions or feedback about the roadmap or the items on it, feel
         <td>
             <ul>
                 <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42314" target="_blank">Improve usability of multi-threaded coroutines library for Kotlin/Native</a></li>
-                <li><p>⏸ <code>kotlinx-cli</code></p></li>
-                <li><p>⏸ <code>binary-compatibility-validator</code></p></li>
-                <li><p>⏸ <code>kotlinx-io</code></p></li>
-                <li><p>⏸ Any new multiplatform libraries</p></li>
+                <li>⏸ <code>kotlinx-cli</code></li>
+                <li>⏸ <code>binary-compatibility-validator</code></li>
+                <li>⏸ <code>kotlinx-io</code></li>
+                <li>⏸ Any new multiplatform libraries</li>
             </ul>
         </td>
     </tr>
@@ -285,8 +285,8 @@ We've **added** the following items to the roadmap:
 * 🆕 IDE: [Improve debugging experience](https://youtrack.jetbrains.com/issue/KT-44330)
 * 🆕 Libraries: [Improve `kotlinx-serialization` (release v1.2)](https://youtrack.jetbrains.com/issue/KT-44335)
 * 🆕 Libraries: [Improve `kotlinx-coroutines` (release v1.5)](https://youtrack.jetbrains.com/issue/KT-44336)
-* 🆕 Libraries: [Unambiguous API for Char conversion](https://youtrack.jetbrains.com/issue/KT-44333)
-* 🆕 Libraries: [Multiplatform API for characters](https://youtrack.jetbrains.com/issue/KT-44334)
+* 🆕 Libraries: [Implement unambiguous API for Char conversion](https://youtrack.jetbrains.com/issue/KT-44333)
+* 🆕 Libraries: [Implement multiplatform API for characters](https://youtrack.jetbrains.com/issue/KT-44334)
 
 We've also added a new subsystem, **Website**, to share our roadmap for [kotlinlang.org](https://kotlinlang.org/):
 
