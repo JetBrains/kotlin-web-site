@@ -41,7 +41,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 To view the biggest projects we're working on, visit the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) or the [Roadmap details](#roadmap-details) table.
 
-If you have any questions or feedback about the roadmap or the items on it, feel free to post them to YouTrack tickets or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
 ### YouTrack board
 
@@ -61,7 +61,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42430" target="_blank">Support JVM records</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">Support JVM sealed classes</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42434" target="_blank">Release inline classes as stable, secure Valhalla compatibility</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42434" target="_blank">Release inline classes as Stable, secure Valhalla compatibility</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
         </td>
@@ -205,8 +205,8 @@ If you have any questions or feedback about the roadmap or the items on it, feel
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42316" target="_blank">Improve <code>kotlinx-serialization</code> (release v1.1)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44336" target="_blank">Improve <code>kotlinx-coroutines</code> (release v1.5)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44333" target="_blank">Unambiguous API for Char conversion</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44334" target="_blank">Multiplatform API for characters</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-44333" target="_blank">Implement unambiguous API for Char conversion</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-44334" target="_blank">Implement multiplatform API for characters</a></li>
             </ul>
          </td>
         <td>
