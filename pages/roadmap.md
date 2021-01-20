@@ -206,6 +206,7 @@ Visit the [new roadmap board in our issue tracker, YouTrack](https://youtrack.je
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42437" target="_blank">Make multiplatform <code>kotlin.text</code> API locale-agnostic by default</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42316" target="_blank">Improve <code>kotlinx-serialization</code> (release v1.1)</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-44335" target="_blank">Improve <code>kotlinx-serialization</code> (release v1.2)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44336" target="_blank">Improve <code>kotlinx-coroutines</code> (release v1.5)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44333" target="_blank">Implement unambiguous API for Char conversion</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44334" target="_blank">Implement multiplatform API for characters</a></li>
