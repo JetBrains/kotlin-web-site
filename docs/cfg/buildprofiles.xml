@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<buildprofiles>
+    <variables>
+        <enable-browser-edits>true</enable-browser-edits>
+        <browser-edits-url>https://github.com/JetBrains/kotlin-web-site/edit/master/</browser-edits-url>
+        <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
+        <generate-only-default-anchors>true</generate-only-default-anchors>
+        <web-root>http://www.jetbrains.com/idea/</web-root>
+        <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
+        <download-page/>
+        <help-app-version>3</help-app-version>
+        <config-productid>help/kotlin-reference</config-productid>
+        <config-disqus-id>jetbrains</config-disqus-id>
+        <config-disqus-show>true</config-disqus-show>
+        <config-feedback-enabled>true</config-feedback-enabled>
+        <config-feedback-widget>true</config-feedback-widget>
+        <config-feedback-support>http://kotl.in/issue</config-feedback-support>
+        <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
+        <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
+        <config-sideblocks>true</config-sideblocks>
+        <config-search-scopes-provider>https://www.jetbrains.com/search/json/</config-search-scopes-provider>
+            <custom-favicons>
+        <![CDATA[
+<link rel="icon" href="https://kotlinlang.org/assets/images/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" sizes="57x57" href="https://kotlinlang.org/assets/images/apple-touch-icon.png"/>
+<link rel="apple-touch-icon" sizes="72x72" href="https://kotlinlang.org/assets/images/apple-touch-icon-72x72.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="https://kotlinlang.org/assets/images/apple-touch-icon-114x114.png"/>
+<link rel="apple-touch-icon" sizes="144x144" href="https://kotlinlang.org/assets/images/apple-touch-icon-144x144.png"/>
+        ]]>
+    </custom-favicons>
+    </variables>
+    <build-profile product="kr"/>
+</buildprofiles>
