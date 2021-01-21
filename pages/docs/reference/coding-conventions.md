@@ -490,7 +490,7 @@ If the function signature doesn't fit on a single line, use the following syntax
 ```kotlin
 fun longMethodName(
     argument: ArgumentType = defaultValue,
-    argument2: AnotherArgumentType,
+    argument2: AnotherArgumentType
 ): ReturnType {
     // body
 }
