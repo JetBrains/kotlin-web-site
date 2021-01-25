@@ -8,7 +8,7 @@ title: "Sealed Classes"
 # Sealed Classes
 
 > **Sealed interfaces** are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
-> Opt-in is required (see details [below](#experimental-status-of-sealed-interfaces)). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-20423).
+> Opt-in is required (see details [below](#experimental-status-of-sealed-interfaces-and-extended-inheritance-rules)). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
 {:.note}
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance. 
@@ -45,6 +45,15 @@ Sealed classes are not allowed to have non-*private*{: .keyword } constructors (
 
 ## Inheritance rules
 
+All direct subclasses of a sealed class must be declared in the same file as the sealed class itself. Classes that extend
+direct subclasses of a sealed class (indirect inheritors) can be placed anywhere, not necessarily in the same file.
+
+### Extended inheritance rules
+
+> The extended inheritance rules are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
+> Opt-in is required (see details [below](#experimental-status-of-sealed-interfaces-and-extended-inheritance-rules)). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
+{:.note}
+
 Direct subclasses of sealed classes and interfaces must be declared in the same package. They may be top-level or nested 
 inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.html)
 as long as they are otherwise compatible with normal inheritance rules in Kotlin.
@@ -53,7 +62,7 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 
 Subclasses of sealed classes are `final` by default.
 
-> `enum` classes can't extend a sealed class (as well as any other class) but they can implement sealed interfaces.
+> `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
 {:.note}
 
 
@@ -75,10 +84,10 @@ fun eval(expr: Expr): Double = when(expr) {
 ```
 </div>
 
-## Experimental status of sealed interfaces
+## Experimental status of sealed interfaces and extended inheritance rules
 
-Sealed **interfaces** are [Experimental](evolution/components-stability.html). To be able to use sealed interfaces in
-your code, switch to the language version `1.5`:
+Sealed interfaces and [extended inheritance rules](#extended-inheritance-rules) are [Experimental](evolution/components-stability.html).
+To be able to use them in your code, switch to the language version `1.5`:
 * In Gradle, add the [compiler option](using-gradle.html#attributes-common-for-jvm-and-js) `languageVersion` with the value `1.5`.
 
 <div class="sample" markdown="1" mode="groovy" theme="idea">
@@ -90,5 +99,3 @@ kotlinOptions.languageVersion = "1.5"
 </div>  
 
 * In the command-line compiler, add the option `-language-version 1.5`.
-
-Note that this does not apply to sealed **classes**. They are stable since Kotlin 1.0.
