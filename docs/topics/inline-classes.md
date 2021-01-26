@@ -14,7 +14,7 @@ To solve such issues, Kotlin introduces a special kind of class called an *inlin
 Inline classes are a subset of value-based classes. They don't have identity and hold values only.
 
 To declare an inline class, use `inline` or `value` modifier before the name of the class.
-Kotlin also requires the `@JvmInline` annotation before class declaration for the JVM backend:
+Kotlin also requires the `@JvmInline` annotation before class declaration along with the `value` modifier for the JVM backend:
 
 ```kotlin
 inline class Password(val value: String)
