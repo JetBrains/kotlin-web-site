@@ -137,7 +137,7 @@ Visit the [new roadmap board in our issue tracker, YouTrack](https://youtrack.je
          </td>
         <td>
             <ul>
-                <li>⏸ Support ARM Mac and Catalyst</li>
+                <li>⏸ Support Mac Catalyst</li>
                 <li>⏸ Development with Kotlin/Native on Apple Silicon without Rosetta 2</li>
                 <li>⏸ Direct interoperability with Swift</li>
                 <li>⏸ Interoperability with C++</li>
