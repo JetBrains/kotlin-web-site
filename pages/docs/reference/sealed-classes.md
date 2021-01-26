@@ -7,24 +7,41 @@ title: "Sealed Classes"
 
 # Sealed Classes
 
-> **Sealed interfaces** are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
-> Opt-in is required (see details [below](#experimental-status-of-sealed-interfaces-and-extended-inheritance-rules)). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
-{:.note}
-
-_Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance. 
+_Sealed_ classes represent restricted class hierarchies that provide more control over inheritance. 
 All subclasses of a sealed class are known at compile time. No other subclasses may appear after
 a module with the sealed class is compiled. For example, third-party clients can't extend your sealed class in their code.
-
-The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled, 
-no new implementations can appear.
-
 Thus, instances of sealed classes can have one of the types from a limited set closed for further extension.
 
 In some sense, sealed classes are similar to enum classes: the set of values
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
-To declare a sealed class or interface, put the `sealed` modifier before its name.
+To declare a sealed class, put the `sealed` modifier before its name.
+
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
+```kotlin
+sealed class Expr
+
+data class Const(val number: Double) : Expr()
+data class Sum(val e1: Expr, val e2: Expr) : Expr()
+object NotANumber : Expr()
+```
+</div>
+
+A sealed class is [abstract](classes.html#abstract-classes) by itself, it cannot be instantiated directly and can have *abstract*{: .keyword } members.
+
+Sealed classes are not allowed to have non-*private*{: .keyword } constructors (their constructors are *private*{: .keyword } by default).
+
+## Sealed interfaces
+
+> Sealed interfaces are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
+> Opt-in is required (see details [below](#experimental-status-of-sealed-interfaces-and-extended-inheritance-rules)). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
+{:.note}
+
+Interfaces can be declared `sealed` as well as classes. The `sealed` modifier works on interfaces the same way:
+all implementations of a sealed interface are known at compile time. Once a module with a sealed interface is compiled,
+no new implementations can appear.
 
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
@@ -38,10 +55,6 @@ data class Sum(val e1: Expr, val e2: Expr) : MathExpr()
 object NotANumber : Expr
 ```
 </div>
-
-A sealed class is [abstract](classes.html#abstract-classes) by itself, it cannot be instantiated directly and can have *abstract*{: .keyword } members.
-
-Sealed classes are not allowed to have non-*private*{: .keyword } constructors (their constructors are *private*{: .keyword } by default).
 
 ## Inheritance rules
 
@@ -86,7 +99,7 @@ fun eval(expr: Expr): Double = when(expr) {
 
 ## Experimental status of sealed interfaces and extended inheritance rules
 
-Sealed interfaces and [extended inheritance rules](#extended-inheritance-rules) are [Experimental](evolution/components-stability.html).
+[Sealed interfaces](#sealed-interfaces) and [extended inheritance rules](#extended-inheritance-rules) are [Experimental](evolution/components-stability.html).
 To be able to use them in your code, switch to the language version `1.5`:
 * In Gradle, add the [compiler option](using-gradle.html#attributes-common-for-jvm-and-js) `languageVersion` with the value `1.5`.
 
