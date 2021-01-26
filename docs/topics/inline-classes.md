@@ -2,7 +2,7 @@
 
 > Inline classes are in [Beta](components-stability.md). It is almost stable, but migration steps may be required in the future. 
 > We'll do our best to minimize any changes you will have to make.
-> We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42434).
+> We would appreciate your feedback on the inline classes feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42434).
 >
 {type="warning"}
 
