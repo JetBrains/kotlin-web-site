@@ -10,7 +10,7 @@ Sometimes it is necessary for business logic to create a wrapper around some typ
 overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
 because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
 
-To solve such issues, Kotlin introduces a special kind of class called an *inline class*. 
+To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
 Inline classes are a subset of value-based classes. They don't have identity and hold values only.
 
 To declare an inline class, use `inline` or `value` modifier before the name of the class.
