@@ -153,7 +153,7 @@ fun compute(x: UInt) { }
 To mitigate such issues, functions using inline classes are *mangled* by adding some stable hashcode to the function name. 
 Therefore, `fun compute(x: UInt)` will be represented as `public final void compute-<hashcode>(int x)`, which solves the clash problem.
 
-> Mangling schemes in Kotlin 1.4 and 1.4.30 are different. 
+> The mangling scheme has been changed in Kotlin 1.4.30. 
 > Use the `-Xuse-14-inline-classes-mangling-scheme` compiler flag to force the compiler to use the old 1.4.0 mangling scheme and preserve binary compatibility.
 >
 {type="note"}
