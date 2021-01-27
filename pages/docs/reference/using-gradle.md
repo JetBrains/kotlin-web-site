@@ -543,13 +543,24 @@ Note that the first build isn't incremental in any case.
 
 ## Gradle build cache support 
 
-The Kotlin plugin supports [Gradle Build Cache](https://guides.gradle.org/using-build-cache/).
+The Kotlin plugin supports [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html) that stores 
+the build outputs for reuse in future builds.
 
 To disable the caching for all Kotlin tasks, set the system property flag `kotlin.caching.enabled` to `false` 
 (run the build with the argument `-Dkotlin.caching.enabled=false`).
 
 If you use [kapt](kapt.html), note that the kapt annotation processing tasks are not cached by default. However, you can
- [enable caching for them manually](kapt.html#gradle-build-cache-support-since-1220). 
+ [enable caching for them manually](kapt.html#gradle-build-cache-support-since-1220).
+
+## Gradle configuration cache support
+
+The Kotlin plugin supports [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
+that speeds up the build process by reusing the results of the configuration phase.
+
+The configuration cache is available in Gradle since version 6.5. It is still experimental and not enabled by default.
+See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
+to learn how to enable the configuration cache. The Kotlin plugin will start using the configuration cache once you
+enable it in Gradle.
  
 ## Compiler options
 
