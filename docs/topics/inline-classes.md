@@ -1,6 +1,6 @@
 [//]: # (title: Inline classes)
 
-> Inline classes are in [Beta](components-stability.md). It is almost stable, but migration steps may be required in the future. 
+> Inline classes are in [Beta](components-stability.md). They are almost stable, but migration steps may be required in the future. 
 > We'll do our best to minimize any changes you will have to make.
 > We would appreciate your feedback on the inline classes feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42434).
 >
