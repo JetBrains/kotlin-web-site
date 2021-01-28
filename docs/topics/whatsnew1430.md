@@ -229,7 +229,7 @@ To start using this feature, you can [use the Gradle command](https://docs.gradl
 > Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42437).
 >
-{type="note"}
+{type="warning"}
 
 This release introduces the experimental locale-agnostic API for changing the case of strings and characters.
 The current `toLowerCase()`, `toUpperCase()`, `capitalize()`, `decapitalize()` API functions are locale-sensitive. This means that different platform locale settings can affect code behavior. For example, in the Turkish locale, when the string “kotlin” is converted using `toUpperCase`, the result is "KOTLİN", not "KOTLIN".
@@ -273,11 +273,11 @@ See the full list of changes to the text processing functions in [KEEP](https://
 > Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-44333).
 >
-{type="note"}
+{type="warning"}
 
 The current `Char` to numbers conversion functions, which return UTF-16 codes expressed in different numeric types, are often confused with the similar String-to-Int conversion, which returns the numeric value of a string:
 
-```
+```kotlin
 "4".toInt() // returns 4
 '4'.toInt() // returns 52
 // and there was no common function that would return the numeric value 4 for Char '4'
@@ -325,7 +325,7 @@ inline class Color(val rgb: Int)
 
 > The feature requires the new 1.4.30 IR compiler.
 >
-{type=”warning”}
+{type="note"}
 
 The serialization framework does not box serializable inline classes when they are used in other serializable classes.
 
