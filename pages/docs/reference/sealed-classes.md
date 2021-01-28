@@ -10,7 +10,7 @@ title: "Sealed Classes"
 _Sealed_ classes represent restricted class hierarchies that provide more control over inheritance.
 All subclasses of a sealed class are known at compile time. No other subclasses may appear after
 a module with the sealed class is compiled. For example, third-party clients can't extend your sealed class in their code.
-Thus, each instance of a sealed class belongs a type from a limited set that is known when this class is compiled. 
+ iThus, each instance of a sealed class has a type from a limited set that is known when this class is compiled. 
 
 In some sense, sealed classes are similar to enum classes: the set of values
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
@@ -36,7 +36,7 @@ Sealed classes are not allowed to have non-*private*{: .keyword } constructors (
 ## Sealed interfaces
 
 > Sealed interfaces are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
-> Opt-in is required (see details [below](#try-sealed-interfaces-and-additional-location-for-direct-subclasses)). Use them only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
+> Opt-in is required (see details [below](#try-sealed-interfaces-and-package-wide-hierarchies-of-sealed-classes)). Use them only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
 {:.note}
 
 Interfaces can be declared `sealed` as well as classes. The `sealed` modifier works on interfaces the same way:
@@ -64,7 +64,7 @@ direct subclasses of a sealed class (indirect inheritors) can be placed anywhere
 ### Additional location: the same package
 
 > The option to store direct subclasses of sealed classes in the same package is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
-> Opt-in is required (see details [below](#try-sealed-interfaces-and-additional-location-for-direct-subclasses)). Use it only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
+> Opt-in is required (see details [below](#try-sealed-interfaces-and-package-wide-hierarchies-of-sealed-classes)). Use it only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT-42433).
 {:.note}
 
 Direct subclasses of sealed classes and interfaces must be declared in the same package. They may be top-level or nested 
@@ -94,9 +94,9 @@ fun eval(expr: Expr): Double = when(expr) {
 ```
 </div>
 
-## Try sealed interfaces and additional location for direct subclasses
+## Try sealed interfaces and package-wide hierarchies of sealed classes
 
-[Sealed interfaces](#sealed-interfaces) and [extended inheritance rules](#additional-location-the-same-package) are [Experimental](evolution/components-stability.html).
+[Sealed interfaces](#sealed-interfaces) and [package-wide hierarchies](#additional-location-the-same-package) are [Experimental](evolution/components-stability.html).
 To be able to use them in your code, switch to the language version `1.5`:
 * In Gradle, add the [compiler option](using-gradle.html#attributes-common-for-jvm-and-js) `languageVersion` with the value `1.5`.
 
