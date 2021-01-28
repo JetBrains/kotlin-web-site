@@ -1,3 +1,7 @@
+- name: Baku, Azerbaijan
+  geo:
+    lat: 40.372967
+    lng: 49.853139
 - name: Medina, Saudi Arabia
   geo:
     lat: 24.10879

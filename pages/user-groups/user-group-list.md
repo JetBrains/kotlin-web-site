@@ -135,7 +135,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Taiwan Kotlin User Group](https://wetogether.co/kotlin-tw), Taiwan
  * [Tel Aviv Kotlin User Group](https://www.meetup.com/KotlinTLV/), Israel
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
- * [Turkey Kotlin User Group](http://kotlinveandroid.com/), Turkey
+ * [Turkey Kotlin User Group](https://youtube.com/channel/UCAofnGf9aQbioLzMMOdHV7w), Turkey
  * [Vellore Kotlin User Group](https://www.facebook.com/kotlinvellore), India
  * [Vietnam Kotlin User Group (online community)](https://vnkotlin.com), Vietnam
  * [Vijayawada Kotlin User Group](https://www.facebook.com/KotlinVijayawada/), India
