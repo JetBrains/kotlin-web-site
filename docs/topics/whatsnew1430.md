@@ -235,7 +235,7 @@ This release introduces the experimental locale-agnostic API for changing the ca
 The current `toLowerCase()`, `toUpperCase()`, `capitalize()`, `decapitalize()` API functions are locale-sensitive. This means that different platform locale settings can affect code behavior. For example, in the Turkish locale, when the string “kotlin” is converted using `toUpperCase`, the result is "KOTLİN", not "KOTLIN".
 
 ```kotlin
-// deprecated API
+// current API
 println("Needs to be capitalized".toUpperCase()) // NEEDS TO BE CAPITALIZED
 
 // new API
