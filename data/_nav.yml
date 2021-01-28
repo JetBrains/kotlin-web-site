@@ -80,6 +80,8 @@ reference:
     - title: What's New
       description: What's new in Kotlin releases
       content:
+        - url: /docs/reference/whatsnew1430.html
+          title: Kotlin 1.4.30
         - url: /docs/reference/whatsnew-plugin-20203.html
           title: Kotlin plugin 2020.3
         - url: /docs/reference/whatsnew1420.html
