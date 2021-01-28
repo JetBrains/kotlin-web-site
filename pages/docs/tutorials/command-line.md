@@ -24,6 +24,11 @@ Simply run the following in a terminal and follow any instructions:
 ```bash
 $ curl -s https://get.sdkman.io | bash
 ```
+The above command works for ZSH shells as well. Following it up with the `source` linnking should get `sdkman` working in your current terminal shell
+
+```bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
 
 </div>
 
