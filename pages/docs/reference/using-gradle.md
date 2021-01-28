@@ -554,13 +554,16 @@ If you use [kapt](kapt.html), note that the kapt annotation processing tasks are
 
 ## Gradle configuration cache support
 
+> The configuration cache is available in Gradle since the version 6.5 as an experimental feature.
+> Check the [Gradle updates](https://gradle.org/releases/) to learn when it promotes to stable.
+{:.note}
+
 The Kotlin plugin supports [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
 that speeds up the build process by reusing the results of the configuration phase.
 
-The configuration cache is available in Gradle since version 6.5. It is still experimental and not enabled by default.
 See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
-to learn how to enable the configuration cache. The Kotlin plugin will start using the configuration cache once you
-enable it in Gradle.
+to learn how to enable the configuration cache. Once you enable the configuration cache feature, the Kotlin Gradle plugin
+starts using it.
  
 ## Compiler options
 
