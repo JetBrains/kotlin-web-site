@@ -11,9 +11,9 @@ overhead due to additional heap allocations. Moreover, if the wrapped type is pr
 because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
 
 To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
-Inline classes are a subset of value-based classes. They don't have identity and hold values only.
+Inline classes are a subset of value-based classes. They don't have an identity and can only hold values.
 
-To declare an inline class, use `inline` or `value` modifier before the name of the class:
+To declare an inline class, use an `inline` or `value` modifier before the name of the class:
 
 ```kotlin
 inline class Password(val value: String)
@@ -23,7 +23,7 @@ inline class Password(val value: String)
 value class Password(private val s: String)
 ```
 
-To declare an inline class for the JVM backend, use the `value` modifier along with the `@JvmInline` annotation before class declaration: 
+To declare an inline class for the JVM backend, use the `value` modifier along with the `@JvmInline` annotation before the class declaration: 
 
 ```kotlin
 // For JVM backends
@@ -74,7 +74,7 @@ fun main() {
 There are some restrictions for inline class members:
 * Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
 properties (no `lateinit`/delegated properties).
-* Inline classes cannot have `var` properties as well as extension `var` properties.
+* Inline classes cannot have `var` properties or extension `var` properties.
 
 ## Inheritance
 
@@ -165,7 +165,7 @@ Therefore, `fun compute(x: UInt)` will be represented as `public final void comp
 
 ### Calling from Java code
 
-You can call functions which accept inline classes from Java code. To do that, you should disable mangling manually:
+You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling:
 add the `@JvmName` annotation before the function declaration:
 
 ```kotlin
