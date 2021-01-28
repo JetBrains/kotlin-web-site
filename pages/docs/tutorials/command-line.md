@@ -105,6 +105,19 @@ $ sudo snap install --classic kotlin
 
     </div>
 
+#### Running the Kotlin file with `kscript`
+
+This is another easy and straight forward way to run the `hello.kt` file. Begin by installing `kscript` using `sdkman`
+
+```bash
+sdk install kscript
+```
+ You can then run the file by typing in:
+ 
+ ```bash
+ kscript hello.kt
+ ```
+You should be seeing the familiar "Hello, World!" output
 
 ### Compiling a library
 
