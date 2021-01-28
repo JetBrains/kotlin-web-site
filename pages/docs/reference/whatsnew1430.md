@@ -334,7 +334,7 @@ string “kotlin” is converted using `toUpperCase`, the result is "KOTLİN", n
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only>
 
 ```kotlin
-// deprecated API
+// current API
 println("Needs to be capitalized".toUpperCase()) // NEEDS TO BE CAPITALIZED
 
 // new API
