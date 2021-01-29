@@ -357,9 +357,9 @@ Kotlin 1.4.30 provides the following alternatives:
 
 |**Earlier versions**|**1.4.30 alternative**| 
 | --- | --- |
-|`Char.toUpperCase()`|`Char.uppercaseChar() : Char`<br/>`Char.uppercase(): String`|
-|`Char.toLowerCase()`|`Char.lowercaseChar() : Char`<br/>`Char.lowercase(): String`|
-|`Char.toTitleCase()`|`Char.titlecaseChar() : Char`<br/>`Char.titlecase(): String`|
+|`Char.toUpperCase()`|`Char.uppercaseChar(): Char`<br/>`Char.uppercase(): String`|
+|`Char.toLowerCase()`|`Char.lowercaseChar(): Char`<br/>`Char.lowercase(): String`|
+|`Char.toTitleCase()`|`Char.titlecaseChar(): Char`<br/>`Char.titlecase(): String`|
 
 > For Kotlin/JVM, there are also overloaded `uppercase()`, `lowercase()`, and `titlecase()` functions with an explicit `Locale` parameter.
 {:.note}
