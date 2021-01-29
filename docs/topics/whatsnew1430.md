@@ -94,7 +94,7 @@ Direct subclasses may be top-level or nested inside any number of other named cl
 
 To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`. We’d be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
-[Learn more about the extended inheritance rules for sealed classes and interfaces](sealed-classes.md).
+[Learn more about package-wide hierarchies of sealed classes](sealed-classes.md).
 
 ### Improved inline classes
 
