@@ -134,8 +134,8 @@ with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-424
 
 ### Package-wide sealed class hierarchies
 
-> The new location for subsclasses of sealed classes is [Experimental](evolution/components-stability.html). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42433).
+> Package-wide hierarchies of sealed classes are [Experimental](evolution/components-stability.html). They may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use them only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42433).
 {:.note}
 
 Sealed classes can now form more flexible hierarchies. They can have subclasses in all files of the same compilation unit
@@ -144,7 +144,7 @@ and the same package. Previously, all subclasses had to appear in the same file.
 Direct subclasses may be top-level or nested inside any number of other named classes, named interfaces, or named objects.
 The subclasses of a sealed class must have a name that is properly qualified – they cannot be local nor anonymous objects.
 
-To try the preview version of the new inheritance rules for sealed classes, add the compiler option `-language-version 1.5`.
+To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`.
 We’d be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
 [Learn more about the new rules for sealed class hierarchies](sealed-classes.html).
