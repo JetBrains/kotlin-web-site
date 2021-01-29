@@ -1,6 +1,7 @@
 [//]: # (title: Classes and inheritance)
 
 ## Classes
+{id="Classes"}
 
 Classes in Kotlin are declared using the keyword `class`:
 
