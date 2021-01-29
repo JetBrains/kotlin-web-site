@@ -147,7 +147,7 @@ The subclasses of a sealed class must have a name that is properly qualified –
 To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`.
 We’d be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
-[Learn more about the new rules for sealed class hierarchies](sealed-classes.html).
+[Learn more about package-wide hierarchies of sealed classes](sealed-classes.html).
 
 ### Improved inline classes
 
