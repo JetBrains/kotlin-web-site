@@ -9,7 +9,7 @@ Kotlin 1.4.30 offers preview versions of new language features, promotes the new
 Kotlin 1.5.0 is going to deliver new language features – JVM records support, sealed interfaces, and Stable inline classes. In Kotlin 1.4.30, you can try these features and improvements in preview mode. We’d be very grateful if you share your feedback with us in the corresponding YouTrack tickets, as that will allow us to address it before the release of 1.5.0.
 
 * [JVM records support](#jvm-records-support)
-* [Sealed interfaces](#sealed-interfaces) and [sealed class improvements](#more-freedom-for-sealed-class-hierarchies)
+* [Sealed interfaces](#sealed-interfaces) and [sealed class improvements](#package-wide-sealed-class-hierarchies)
 * [Improved inline classes](#improved-inline-classes)
 
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options. See the sections below for details.
@@ -257,9 +257,9 @@ Kotlin 1.4.30 provides the following alternatives:
 
   |**Earlier versions**|**1.4.30 alternative**| 
   | --- | --- |
-  |`Char.toUpperCase()`|`Char.uppercaseChar()`|
-  |`Char.toLowerCase()`|`Char.lowercaseChar()`|
-  |`Char.toTitleCase()`|`Char.titlecaseChar()`|
+  |`Char.toUpperCase()`|`Char.uppercaseChar(): Char`<br/>`Char.uppercase(): String`|
+  |`Char.toLowerCase()`|`Char.lowercaseChar(): Char`<br/>`Char.lowercase(): String`|
+  |`Char.toTitleCase()`|`Char.titlecaseChar(): Char`<br/>`Char.titlecase(): String`|
 
 > For Kotlin/JVM, there are also overloaded `uppercase()`, `lowercase()`, and `titlecase()` functions with an explicit `Locale` parameter.
 >
