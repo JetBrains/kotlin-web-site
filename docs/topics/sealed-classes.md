@@ -3,7 +3,7 @@
 _Sealed_ classes represent restricted class hierarchies that provide more control over inheritance.
 All subclasses of a sealed class are known at compile time. No other subclasses may appear after
 a module with the sealed class is compiled. For example, third-party clients can't extend your sealed class in their code.
-iThus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
+Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
 
 In some sense, sealed classes are similar to enum classes: the set of values
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
