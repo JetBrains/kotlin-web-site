@@ -1,19 +1,8 @@
 [//]: # (title: Create a RESTful web service with Spring Boot)
 
-
-<!-- Create the project -->
-  Explore the project build file
-  Explore the Spring Boot application
-Create a data class and a controller 
-Run the application
---
-Add the database support
-Run the final application 
-
-
 This tutorial walks you through the process of creating a simple application with Spring Boot. 
 First, you will create an application with the HTTP endpoint that returns a data objects list in the JSON format.
-In the next tutorial, you'll add another endpoint to write the data and the database support for storing it.
+In the next tutorial, you'll add another endpoint to write the data, and the database support for storing it.
 
 ## Bootstrap the project
 
@@ -172,7 +161,7 @@ data class Message(@Id val id: String?, val text: String)
 
 Application is ready to run:
 
-1. Click the green __Run__ icon in the gutter to the `main` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
+1. Click the green **Run** icon in the gutter to the `main` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
 
     ![Run the application](spring-boot-run-the-application.png){width=800}
     
@@ -186,20 +175,20 @@ Application is ready to run:
 
 ## Add database support
 
-In the following step, we will demonstrate how to integrate our application with a real database to store the messages.
+In this section, you will create two endpoints to save and return the messages to the database:
 
-1. Add `Message` class mapping to a database table. This is done by using `@Table` annotation:
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. 
+  The annotation also requires an additional import:
 
     ```kotlin
     import org.springframework.data.annotation.Id
     import org.springframework.data.relational.core.mapping.Table
     
-    
     @Table("MESSAGES")
     data class Message(@Id val id: String?, val text: String)
     ```
 
-2. Use the Spring Data Repository API to access the database:
+2. Use the [Spring Data Repository API](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) to access the database:
 
     ```kotlin
     import org.springframework.data.jdbc.repository.query.Query
@@ -212,9 +201,16 @@ In the following step, we will demonstrate how to integrate our application with
     }
     ```
 
-    Calling the `findMessages` method on an instance of `MessageRepository` will execute the corresponding database query, `select * from messages`. As a result, we will retrieve a list of `Message` objects.
+    When you call the `findMessages` method on an instance of `MessageRepository`, it will execute the corresponding database query:
 
-3. Use the `MessageRepository` from within the service layer implemented by `MessageService` class:  
+    ```sql
+    `select * from messages`
+   ```
+
+   This query retrieves a list of all `Message` objects in the database table.
+
+
+3. Create the `MessageService` class:
 
     ```kotlin
     import org.springframework.stereotype.Service
@@ -230,7 +226,11 @@ In the following step, we will demonstrate how to integrate our application with
     }
     ```
 
-4. Finally, `MessageResource` will make use of the new service:
+    It contains two methods:
+     * `post()` to sent a new `Message` object to the database
+     * `findMessages()` to get all the message from the database
+
+4. Update the `MessageResource` class:
   
     ```kotlin
     import org.springframework.web.bind.annotation.RequestBody
@@ -249,16 +249,17 @@ In the following step, we will demonstrate how to integrate our application with
     }
     ```
 
+    Now it uses `MessageService` to work with database.
+
 ## Configure the database
 
-1. Create a new folder called `sql` in the `src/main/resources`.
+Configure the database in the application:
+
+1. Create a new folder called `sql` in the `src/main/resources` with the `scheme.sql` file inside. It will store the database scheme:
 
     ![Create a new folder](spring-boot-sql-scheme.png)
 
-2. We have added database support to the application. Now we need to configure the database. 
-   Then put the SQL code into the `src/main/resources/sql/schema.sql` file:
-   
-   Since this is a demo project, we will not be designing anything complex and we’ll stick to the following structure:
+2. Update the `src/main/resources/sql/schema.sql` file with the following code:
 
     ```sql
     CREATE TABLE IF NOT EXISTS messages (
@@ -267,7 +268,9 @@ In the following step, we will demonstrate how to integrate our application with
     );
     ```
 
-1. Open the `application.properties` located in the `src/main/resources` folder, and add the following application properties:
+   It creates the `messages` table with two fields inside: `id` and `text`. The table structure is the same as `Message` class.
+   
+3. Open the `application.properties` located in the `src/main/resources` folder, and add the following application properties:
 
     ```properties
     spring.datasource.driver-class-name=org.h2.Driver
@@ -278,17 +281,19 @@ In the following step, we will demonstrate how to integrate our application with
     spring.datasource.initialization-mode=always
     ```
 
-See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
+    These settings enable the Spring Boot application work with the database.
+    See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
 ## Run the final application
 
-Let’s run the application again and see how it behaves. Once the application is up and running, we can execute a few post request to store some message in the database.
+You should use an HTTP client to work with previously created endpoints.
+In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
 
-In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html). Create a file with the .http extension and add a few requests there:
+1. [Run the application](#run-the-application). Once the application is up and running, you can execute a few POST request to store messages in the database.
 
-1. Create a file with the `.http` extension and add the following requests there:
+1. Create the `request.http` file and add the following HTTP requests:
 
-    ```HTTP
+    ```http request
     ### Post 'Hello!"
     POST http://localhost:8080/
     Content-Type: application/json
@@ -319,10 +324,10 @@ In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www
     GET http://localhost:8080/
     ```
 
-2. Execute all `POST` requests.
+2. Execute all `POST` requests. Use the green **Run** icon in the gutter to the request declaration.
    These requests write the text messages to the database.
-   
-   ![Run HTTP POST requests](spring-boot-run-http-request.png)
+    
+    ![Run HTTP POST requests](spring-boot-run-http-request.png)
 
 3. Execute the `GET` request and see the result in the **Run** tool window:
 
@@ -333,11 +338,11 @@ In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www
 > You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
 > 
 > ```cURL
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"hello\" }"
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Hello!\" }"
 >
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"bonjour\" }"
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Bonjour!\" }"
 > 
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"privet\" }"
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Privet!\" }"
 > 
 > curl -X GET --location "http://localhost:8080"
 > ```
