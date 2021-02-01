@@ -1,115 +1,404 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Creating a RESTful Web Service with Spring Boot"
-description: "This tutorial walks us through the process of creating a simple REST controller with Spring Boot"
-authors: Hadi Hariri, Edoardo Vacchi, Sébastien Deleuze
-showAuthorInfo: true
+title:  "Create a RESTful Web Service with Spring Boot"
+description: "This tutorial walks you through the process of creating a simple application with Spring Boot."
 source: spring-boot-restful
 ---
-Kotlin works quite smoothly with Spring Boot and many of the steps found on the [Spring Guides](https://spring.io/guides) for creating a RESTful service
-can be followed verbatim for Kotlin. There are some minor differences however when it comes to defining the Gradle configuration
-and the project layout structure, as well as the initialization code.
 
-In this tutorial we'll walk through the steps required. For a more thorough explanation of Spring Boot and Kotlin, please see
-[Building web applications with Spring Boot and Kotlin](https://spring.io/guides/tutorials/spring-boot-kotlin/).
+First, you will create an application with the HTTP endpoint that returns a data objects list in the JSON format.  
+In the second part of the tutorial, you'll update the application: there will be two enpoints to write and retrive objects, and the database for storing it.
 
-Note that all classes in this tutorial are in the `org.jetbrains.kotlin.demo` package.
+To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-### Defining the project and dependencies
-{{ site.text_using_gradle }}
+## Bootstrap the project
 
-The Gradle file is pretty much standard for Spring Boot. The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the [*kotlin-spring*](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugi) Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require `open` classes).
+To generate a new project, use `start.spring.io` application:
 
-<div class="sample" markdown="1" theme="idea" mode="groovy">
-``` groovy
-buildscript {
-    ext.kotlin_version = '{{ site.data.releases.latest.version }}' // Required for Kotlin integration
-    ext.spring_boot_version = '2.1.0.RELEASE'
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$spring_boot_version"
-	classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
-    }
+> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html) 
+>
+{type="note"}
+
+1. Open the [spring initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
+  This project uses **Gradle** as a build tool, **Kotlin** as a language of choice, and the following dependencies: **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
+
+   ![Create a new project with Spring initializr]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-create-project-with-initializr.png') }})
+
+2. Click **GENERATE** at the bottom of the screen. Spring initializr will generate the project with the specified settings. The download starts automatically.
+
+3. Unpack the **.zip** file and open in the IntelliJ IDEA.
+  
+   The project has the following structure: 
+   ![The Spring Boot project structure]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-project-structure.png') }})
+   
+   Under the `main/kotlin` folder there are packages and classes that belong to the application. The entry point to the application is the `DemoApplication.kt file`. This is where the `main` method is. We are going to edit the file throughout the tutorial.
+
+## Explore the project build file
+
+Open the `build.gradle.kts` file:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+   id("org.springframework.boot") version "2.4.2"
+   id("io.spring.dependency-management") version "1.0.10.RELEASE"
+   kotlin("jvm") version "1.4.21"
+   kotlin("plugin.spring") version "1.4.21"
 }
 
-apply plugin: 'kotlin' // Required for Kotlin integration
-apply plugin: "kotlin-spring" // https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-jar {
-    baseName = 'gs-rest-service'
-    version = '0.1.0'
-}
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-    jcenter()
+   mavenCentral()
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version" // Required for Kotlin integration
-    compile "org.springframework.boot:spring-boot-starter-web"
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+   implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+   implementation("org.springframework.boot:spring-boot-starter-web")
+   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+   implementation("org.jetbrains.kotlin:kotlin-reflect")
+   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+   runtimeOnly("com.h2database:h2")
+   testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+tasks.withType<KotlinCompile> {
+   kotlinOptions {
+       freeCompilerArgs = listOf("-Xjsr305=strict")
+       jvmTarget = "11"
+   }
+}
+
+tasks.withType<Test> {
+   useJUnitPlatform()
 }
 ```
+
 </div>
 
-### Creating a Greeting Data Class and Controller
-The next step is to create Greeting Data class that has two properties: *id* and a *content*
+This is the Gradle Kotlin build script, which contains a list of the dependencies required for the application. 
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
-data class Greeting(val id: Long, val content: String)
-```
-</div>
+The Gradle file is standard for Spring Boot, but also contains necessary Kotlin dependencies, including [kotlin-spring](../reference/compiler-plugins.html#spring-support) Gradle plugin.
 
-We now define the *GreetingController* which serves requests of the form */greeting?name={value}* and returns a JSON object
-representing an instance of *Greeting*
+## Explore the Spring Boot application
 
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
-@RestController
-class GreetingController {
+Open the `DemoApplication.kt` file:
 
-    val counter = AtomicLong()
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
-    @GetMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) =
-            Greeting(counter.incrementAndGet(), "Hello, $name")
+```kotlin
+package demo
 
-}
-```
-</div>
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
-As can be seen, this is again pretty much a one-to-one translation of Java to Kotlin, with nothing special required for Kotlin.
-
-### Creating the Application class
-Finally we need to define an Application class. As Spring Boot looks for a public static main method, we need to define this in Kotlin. It could be done with the *@JvmStatic* annotation and a companion object but here we prefer using a [top-level function]({{ url_for('page', page_path="docs/reference/functions") }}) defined outside Application class since it leads to more concise and clean code.
-
-No need to mark the Application class as *open* since we are using the *kotlin-spring* Gradle plugin which does that automatically.
-
-<div class="sample" markdown="1" theme="idea" data-highlight-only>
-``` kotlin
 @SpringBootApplication
-class Application
+class DemoApplication
 
 fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+   runApplication<DemoApplication>(*args)
 }
 ```
+
 </div>
 
-### Running the application
-We can now use any of the standard Gradle tasks for Spring Boot to run the application. As such, running
+Comparing to Java, the application file has the following differences:
+* As Spring Boot looks for a public static main method, the Kotlin uses a [top-level function](../reference/functions.html) defined outside `DemoApplication` class.
+* The `DemoApplication` class is not declared as `open`, since the [kotlin-spring](../reference/compiler-plugins.html#spring-support) Gradle plugin does that automatically.
 
-    ./gradlew bootRun
+## Create a data class and a controller
 
-the application is compiled, resources bundled and launched, allowing us to access it via the browser (default port is 8080)
+To create an endpoint, you need to create a [data class](../reference/data-classes.html) and a controller:
 
-![Running App]({{ url_for('tutorial_img', filename='spring-boot-restful/running-app.png')}})
+1. In the `DemoApplication.kt` file, create a `Message` data class with two properties: `id` and `text`:
 
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+   ```kotlin
+   data class Message(val id: String?, val text: String)
+   ```
+   
+   </div>
+
+2. In the same file, create a `MessageResource` class which will serve the requests and return a JSON document representing a collection of `Message` objects:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+  ```kotlin
+   @RestController
+   class MessageResource {
+      @GetMapping
+      fun index(): List<Message> = listOf(
+        Message("1", "Hello!"),
+        Message("2", "Bonjour!"),
+        Message("3", "Privet!"),
+      )
+   }
+   ```
+
+   </div>
+
+Full code of the `DemoApplication.kt`:
+
+<div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+```kotlin
+package demo
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.data.annotation.Id
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RestController
+
+@SpringBootApplication
+class DemoApplication
+
+fun main(args: Array<String>) {
+  runApplication<DemoApplication>(*args)
+}
+
+@RestController
+class MessageResource {
+  @GetMapping
+  fun index(): List<Message> = listOf(
+      Message("1", "Hello!"),
+      Message("2", "Bonjour!"),
+      Message("3", "Privet!"),
+  )
+}
+
+data class Message(val id: String?, val text: String)
+```
+
+</div>
+
+## Run the application
+
+Application is ready to run:
+
+1. Click the green **Run** icon in the gutter to the `main` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
+
+    ![Run the application]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-run-the-application.png') }})
+    
+    > You can also run the `./gradlew bootRun` command in the terminal.
+    {:.note}
+
+2. Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080). You will see a page with a collection of messages in JSON format:
+
+    ![Application output]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output.png') }})
+
+## Add database support
+
+In this section, you will create two endpoints to save and return the messages to the database:
+
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also add the `@Id` annotation before the `id` field. 
+  These annotations also require additional imports:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   import org.springframework.data.annotation.Id
+   import org.springframework.data.relational.core.mapping.Table
+   
+   @Table("MESSAGES")
+   data class Message(@Id val id: String?, val text: String)
+   ```
+   
+   </div>
+
+2. Use the [Spring Data Repository API](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) to access the database:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+    ```kotlin
+    import org.springframework.data.jdbc.repository.query.Query
+    import org.springframework.data.repository.CrudRepository
+    
+    interface MessageRepository : CrudRepository<Message, String>{
+    
+       @Query("select * from messages")
+       fun findMessages(): List<Message>
+    }
+    ```
+
+   </div>
+
+    When you call the `findMessages` method on an instance of `MessageRepository`, it will execute the corresponding database query:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only> 
+   
+    ```sql
+    `select * from messages`
+   ```
+   
+   </div>
+
+   This query retrieves a list of all `Message` objects in the database table.
+
+
+3. Create the `MessageService` class:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   import org.springframework.stereotype.Service
+   
+   @Service
+   class MessageService(val db: MessageRepository) {
+   
+      fun findMessages(): List<Message> = db.findMessages()
+   
+      fun post(message: Message){
+          db.save(message)
+      }
+   }
+   ```
+   
+   </div>
+
+   It contains two methods:
+    * `post()` to sent a new `Message` object to the database
+    * `findMessages()` to get all the message from the database
+
+4. Update the `MessageResource` class:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```kotlin
+   import org.springframework.web.bind.annotation.RequestBody
+   import org.springframework.web.bind.annotation.PostMapping
+   
+   
+   @RestController
+   class MessageResource(val service: MessageService) {
+       @GetMapping
+       fun index(): List<Message> = service.findMessages()
+   
+       @PostMapping
+       fun post(@RequestBody message: Message) {
+           service.post(message)
+       }
+   }
+   ```
+   
+   </div>
+   
+   Now it uses `MessageService` to work with the database.
+
+## Configure the database
+
+Configure the database in the application:
+
+1. Create a new folder called `sql` in the `src/main/resources` with the `scheme.sql` file inside. It will store the database scheme:
+
+    ![Create a new folder]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-sql-scheme.png') }})
+
+2. Update the `src/main/resources/sql/schema.sql` file with the following code:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```sql
+   CREATE TABLE IF NOT EXISTS messages (
+     id                     VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
+     text                   VARCHAR      NOT NULL
+   );
+   ```
+   
+   </div>
+
+   It creates the `messages` table with two fields inside: `id` and `text`. The table structure is the same as `Message` class.
+   
+3. Open the `application.properties` located in the `src/main/resources` folder, and add the following application properties:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+
+   ```properties
+   spring.datasource.driver-class-name=org.h2.Driver
+   spring.datasource.url=jdbc:h2:file:./data/testdb
+   spring.datasource.username=sa
+   spring.datasource.password=password
+   spring.datasource.schema=classpath:sql/schema.sql
+   spring.datasource.initialization-mode=always
+   ```
+
+   </div>
+
+    These settings enable the Spring Boot application work with the database.
+    See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
+
+## Run the final application
+
+You should use an HTTP client to work with previously created endpoints.
+In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
+
+1. [Run the application](#run-the-application). Once the application is up and running, you can execute a few POST request to store messages in the database.
+
+1. Create the `request.http` file and add the following HTTP requests:
+
+   <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+   
+   ```http request
+   ### Post 'Hello!"
+   POST http://localhost:8080/
+   Content-Type: application/json
+   
+   {
+     "text": "Hello!"
+   }
+   
+   ### Post "Bonjour!"
+   
+   POST http://localhost:8080/
+   Content-Type: application/json
+   
+   {
+     "text": "Bonjour!"
+   }
+   
+   ### Post "Privet!"
+   
+   POST http://localhost:8080/
+   Content-Type: application/json
+   
+   {
+     "text": "Privet!"
+   }
+   
+   ### Get all the messages
+   GET http://localhost:8080/
+   ```
+
+   </div>
+
+2. Execute all `POST` requests. Use the green **Run** icon in the gutter to the request declaration.
+   These requests write the text messages to the database.
+    
+    ![Run HTTP POST requests]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-run-http-request.png') }})
+
+3. Execute the `GET` request and see the result in the **Run** tool window:
+
+    ![Run HTTP GET request]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output-2.png') }})
+
+> You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
+> 
+> <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
+>
+> ```cURL
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Hello!\" }"
+>
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Bonjour!\" }"
+> 
+> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Privet!\" }"
+> 
+> curl -X GET --location "http://localhost:8080"
+> ```
+> 
+> </div>
+>
+{:.note}
