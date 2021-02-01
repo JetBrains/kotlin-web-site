@@ -1,14 +1,14 @@
 [//]: # (title: Create a RESTful web service with Spring Boot)
 
 
-Create the project
+<!-- Create the project -->
   Explore the project build file
   Explore the Spring Boot application
 Create a data class and a controller 
 Run the application
 --
 Add the database support
-Run the final application
+Run the final application 
 
 
 This tutorial walks you through the process of creating a simple application with Spring Boot. 
@@ -17,30 +17,25 @@ In the next tutorial, you'll add another endpoint to write the data and the data
 
 ## Bootstrap the project
 
-To generate a new project, use `start.spring.io` application. By following this link you will open the project generator tool where all the parameters for this tutorial are preselected. We will use Gradle as a build tool, select Kotlin as a language of choice, and add a few dependencies: Spring Web, Spring Data JDBC, and H2 Database.
+To generate a new project, use `start.spring.io` application:
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html) 
 >
->
+{type="note"}
 
 1. Open the [spring initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
+  This project uses **Gradle** as a build tool, **Kotlin** as a language of choice, and the following dependencies: **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
 
-    Pay special attention to the following:
-    * **Gradle project** – the project will use Gradle as a build system. See [Using Gradle](gradle.html) for details on setting up Gradle to work with Kotlin.
-    * **Kotlin** – 
-    * **Dependencies**: 
-        * **Spring Web** 
-        * **Spring Data JDBC** 
-        * **H2 Database** 
+    ![Create a new project with Spring initializr](spring-boot-create-project-with-initializr.png){width=800}
 
 2. Click **GENERATE** at the bottom of the screen. Spring initializr will generate the project with the specified settings. The download starts automatically.
 
 3. Unpack the **.zip** file and open in the IntelliJ IDEA.
   
    The project has the following structure: 
-   <!-- [!image]() -->
+   ![The Spring Boot project structure](spring-boot-project-structure.png)
    
-   Under the main/kotlin folder there are packages and classes that belong to the application. The entry point to the application is the DemoApplication.kt file. This is where the main method is. We are going to edit the file throughout the tutorial.
+   Under the `main/kotlin` folder there are packages and classes that belong to the application. The entry point to the application is the `DemoApplication.kt file`. This is where the `main` method is. We are going to edit the file throughout the tutorial.
 
 ## Explore the project build file
 
@@ -179,103 +174,109 @@ Application is ready to run:
 
 1. Click the green __Run__ icon in the gutter to the `main` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
 
+    ![Run the application](spring-boot-run-the-application.png){width=800}
+    
     > You can also run the `./gradlew bootRun` command in the terminal.
     >
     {type="note"}
 
 2. Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080). You will see a page with a collection of messages in JSON format:
 
-    <!-- ![pic](jvm-main-kt-updated.png) -->
+    ![Application output](spring-boot-output.png)
 
 ## Add database support
 
 In the following step, we will demonstrate how to integrate our application with a real database to store the messages.
 
+1. Add `Message` class mapping to a database table. This is done by using `@Table` annotation:
 
-First, we need to say that the `Message` class maps to a database table. This is done by using `@Table` annotation:
+    ```kotlin
+    import org.springframework.data.annotation.Id
+    import org.springframework.data.relational.core.mapping.Table
+    
+    
+    @Table("MESSAGES")
+    data class Message(@Id val id: String?, val text: String)
+    ```
 
-```kotlin
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
+2. Use the Spring Data Repository API to access the database:
 
+    ```kotlin
+    import org.springframework.data.jdbc.repository.query.Query
+    import org.springframework.data.repository.CrudRepository
+    
+    interface MessageRepository : CrudRepository<Message, String>{
+    
+       @Query("select * from messages")
+       fun findMessages(): List<Message>
+    }
+    ```
 
-@Table("MESSAGES")
-data class Message(@Id val id: String?, val text: String)
-```
+    Calling the `findMessages` method on an instance of `MessageRepository` will execute the corresponding database query, `select * from messages`. As a result, we will retrieve a list of `Message` objects.
 
-Next, we are going to use the Spring Data Repository API to access the database:
+3. Use the `MessageRepository` from within the service layer implemented by `MessageService` class:  
 
-```kotlin
-import org.springframework.data.jdbc.repository.query.Query
-import org.springframework.data.repository.CrudRepository
+    ```kotlin
+    import org.springframework.stereotype.Service
+    
+    @Service
+    class MessageService(val db: MessageRepository) {
+    
+       fun findMessages(): List<Message> = db.findMessages()
+    
+       fun post(message: Message){
+           db.save(message)
+       }
+    }
+    ```
 
-interface MessageRepository : CrudRepository<Message, String>{
+4. Finally, `MessageResource` will make use of the new service:
+  
+    ```kotlin
+    import org.springframework.web.bind.annotation.RequestBody
+    import org.springframework.web.bind.annotation.PostMapping
+    
+    
+    @RestController
+    class MessageResource(val service: MessageService) {
+        @GetMapping
+        fun index(): List<Message> = service.findMessages()
+    
+        @PostMapping
+        fun post(@RequestBody message: Message) {
+            service.post(message)
+        }
+    }
+    ```
 
-   @Query("select * from messages")
-   fun findMessages(): List<Message>
-}
-```
+## Configure the database
 
-Calling the `findMessages` method on an instance of `MessageRepository` will execute the corresponding database query, `select * from messages`. As a result, we will retrieve a list of `Message` objects.
+1. Create a new folder called `sql` in the `src/main/resources`.
 
-We will use the `MessageRepository` from within the service layer implemented by `MessageService` class:  
+    ![Create a new folder](spring-boot-sql-scheme.png)
 
-```kotlin
-import org.springframework.stereotype.Service
+2. We have added database support to the application. Now we need to configure the database. 
+   Then put the SQL code into the `src/main/resources/sql/schema.sql` file:
+   
+   Since this is a demo project, we will not be designing anything complex and we’ll stick to the following structure:
 
-@Service
-class MessageService(val db: MessageRepository) {
-
-   fun findMessages(): List<Message> = db.findMessages()
-
-   fun post(message: Message){
-       db.save(message)
-   }
-}
-```
-
-Finally, `MessageResource` will make use of the new service:
-
-```kotlin
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.PostMapping
-
-
-@RestController
-class MessageResource(val service: MessageService) {
-   @GetMapping
-   fun index(): List<Message> = service.findMessages()
-
-   @PostMapping
-   fun post(@RequestBody message: Message) {
-       service.post(message)
-   }
-}
-```
-
-We have added database support to the application. Now we need to configure the database.
-
-Since this is a demo project, we will not be designing anything complex and we’ll stick to the following structure:
-
-```sql
-CREATE TABLE IF NOT EXISTS messages (
-  id                     VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
-  text                   VARCHAR      NOT NULL
-);
-```
-
-1.️ Create a new folder called sql in the src/main/resources directory. Then put the SQL code from above into the src/main/resources/sql/schema.sql file. 
+    ```sql
+    CREATE TABLE IF NOT EXISTS messages (
+      id                     VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
+      text                   VARCHAR      NOT NULL
+    );
+    ```
 
 1. Open the `application.properties` located in the `src/main/resources` folder, and add the following application properties:
 
-```properties
-spring.datasource.driver-class-name=org.h2.Driver
-spring.datasource.url=jdbc:h2:file:./data/testdb
-spring.datasource.username=sa
-spring.datasource.password=password
-spring.datasource.schema=classpath:sql/schema.sql
-spring.datasource.initialization-mode=always
-```
+    ```properties
+    spring.datasource.driver-class-name=org.h2.Driver
+    spring.datasource.url=jdbc:h2:file:./data/testdb
+    spring.datasource.username=sa
+    spring.datasource.password=password
+    spring.datasource.schema=classpath:sql/schema.sql
+    spring.datasource.initialization-mode=always
+    ```
 
 See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
@@ -287,7 +288,7 @@ In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www
 
 1. Create a file with the `.http` extension and add the following requests there:
 
-    ```http request
+    ```HTTP
     ### Post 'Hello!"
     POST http://localhost:8080/
     Content-Type: application/json
@@ -320,10 +321,12 @@ In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www
 
 2. Execute all `POST` requests.
    These requests write the text messages to the database.
+   
+   ![Run HTTP POST requests](spring-boot-run-http-request.png)
 
 3. Execute the `GET` request and see the result in the **Run** tool window:
 
-    <!-- ![Create a console application](jvm-new-project-1.png) -->
+    ![Run HTTP GET request](spring-boot-output-2.png)
 
     All the previously sent messages are in the database! All your base are belong to us!
 
@@ -340,6 +343,3 @@ In IntelliJ IDEA, we can do that by using the embedded [HTTP client](https://www
 > ```
 > 
 {type="note"}
-
-
-
