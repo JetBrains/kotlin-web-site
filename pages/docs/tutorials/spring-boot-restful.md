@@ -15,9 +15,8 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 To generate a new project, use `start.spring.io` application:
 
-> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html) 
->
-{type="note"}
+> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
+{:.note}
 
 1. Open the [spring initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
   This project uses **Gradle** as a build tool, **Kotlin** as a language of choice, and the following dependencies: **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
@@ -31,7 +30,7 @@ To generate a new project, use `start.spring.io` application:
    The project has the following structure: 
    ![The Spring Boot project structure]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-project-structure.png') }})
    
-   Under the `main/kotlin` folder there are packages and classes that belong to the application. The entry point to the application is the `DemoApplication.kt file`. This is where the `main` method is. We are going to edit the file throughout the tutorial.
+   Under the `main/kotlin` folder there are packages and classes that belong to the application. The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
 ## Explore the project build file
 
@@ -129,14 +128,14 @@ To create an endpoint, you need to create a [data class](../reference/data-class
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
    
-  ```kotlin
+   ```kotlin
    @RestController
    class MessageResource {
-      @GetMapping
-      fun index(): List<Message> = listOf(
-        Message("1", "Hello!"),
-        Message("2", "Bonjour!"),
-        Message("3", "Privet!"),
+       @GetMapping
+       fun index(): List<Message> = listOf(
+           Message("1", "Hello!"),
+           Message("2", "Bonjour!"),
+           Message("3", "Privet!"),
       )
    }
    ```
@@ -189,13 +188,15 @@ Application is ready to run:
     > You can also run the `./gradlew bootRun` command in the terminal.
     {:.note}
 
-2. Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080). You will see a page with a collection of messages in JSON format:
+2. Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080). 
+
+    You will see a page with a collection of messages in JSON format:
 
     ![Application output]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output.png') }})
 
 ## Add database support
 
-In this section, you will create two endpoints to save and return the messages to the database:
+In this section, you will create two endpoints to save messages to the database, and retrieve them.  
 
 1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also add the `@Id` annotation before the `id` field. 
   These annotations also require additional imports:
@@ -339,11 +340,11 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
 1. [Run the application](#run-the-application). Once the application is up and running, you can execute a few POST request to store messages in the database.
 
-1. Create the `request.http` file and add the following HTTP requests:
+2. Create the `requests.http` file in the `src/main/` folder and add the following HTTP requests inside:
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
    
-   ```http request
+   ```text
    ### Post 'Hello!"
    POST http://localhost:8080/
    Content-Type: application/json
@@ -376,12 +377,12 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
    </div>
 
-2. Execute all `POST` requests. Use the green **Run** icon in the gutter to the request declaration.
+3. Execute all POST requests. Use the green **Run** icon in the gutter to the request declaration.
    These requests write the text messages to the database.
     
     ![Run HTTP POST requests]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-run-http-request.png') }})
 
-3. Execute the `GET` request and see the result in the **Run** tool window:
+4. Execute the GET request and see the result in the **Run** tool window:
 
     ![Run HTTP GET request]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output-2.png') }})
 
