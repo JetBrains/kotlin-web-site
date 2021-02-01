@@ -9,6 +9,8 @@ title: "What's New in Kotlin 1.4.30"
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
+You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/1-4-30-is-released-with-a-new-jvm-backend-and-language-and-multiplatform-features).
+
 [**Language features**](#language-features)
 * [JVM records support](#jvm-records-support)
 * [Sealed interfaces](#sealed-interfaces)
@@ -49,6 +51,9 @@ feedback with us in the corresponding YouTrack tickets, as that will allow us to
 
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options.
 See the sections below for details.
+
+Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/new-language-features-preview-in-kotlin-1-4-30).
+
 
 ### JVM records support
 
@@ -130,7 +135,7 @@ To try the preview version of sealed interfaces, add the compiler option `-langu
 version, you’ll be able to use the `sealed` modifier on interfaces. We’d be very grateful if you would share your feedback
 with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
-[Learn more about sealed interfaces](sealed-classes.html).
+[Learn more about sealed interfaces](sealed-classes.html#sealed-interfaces).
 
 ### Package-wide sealed class hierarchies
 
@@ -147,7 +152,7 @@ The subclasses of a sealed class must have a name that is properly qualified –
 To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`.
 We’d be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
-[Learn more about package-wide hierarchies of sealed classes](sealed-classes.html).
+[Learn more about package-wide hierarchies of sealed classes](sealed-classes.html#additional-location-the-same-package).
 
 ### Improved inline classes
 
@@ -221,6 +226,8 @@ To try the preview version of inline classes, add the compiler option `-Xinline-
 
 Learn more about the mangling algorithm in [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md).
 
+[Learn more about inline classes](inline-classes.html).
+
 ## Kotlin/JVM
 
 ### JVM IR compiler backend reaches Beta
@@ -270,6 +277,8 @@ compileKotlin.kotlinOptions.useIR = true
 </configuration>
 ```
 </div>
+
+Learn more about the changes that the JVM compiler backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
 
 ## Kotlin/Native
 
@@ -421,7 +430,7 @@ See more details in [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/
 
 ## Serialization updates
 
-Along with Kotlin 1.4.30, we are releasing `kotlinx.serialization` [1.1.0](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.1.0),
+Along with Kotlin 1.4.30, we are releasing `kotlinx.serialization` [1.1.0-RC](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.1.0-RC),
 which includes some new features:
 
 * Inline classes serialization support
@@ -464,10 +473,3 @@ fun main() {
 </div>
 
 Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md).
-
-
-
-
-
-
-
