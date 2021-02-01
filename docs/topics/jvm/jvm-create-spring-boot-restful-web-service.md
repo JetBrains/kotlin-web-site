@@ -1,8 +1,11 @@
 [//]: # (title: Create a RESTful web service with Spring Boot)
 
-This tutorial walks you through the process of creating a simple application with Spring Boot. 
-First, you will create an application with the HTTP endpoint that returns a data objects list in the JSON format.
-In the next tutorial, you'll add another endpoint to write the data, and the database support for storing it.
+This tutorial walks you through the process of creating a simple application with Spring Boot.
+
+First, you will create an application with the HTTP endpoint that returns a data objects list in the JSON format.  
+In the second part of the tutorial, you'll update the application: there will be two enpoints to write and retrive objects, and the database for storing it.
+
+To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 ## Bootstrap the project
 
@@ -70,9 +73,9 @@ tasks.withType<Test> {
 }
 ```
 
-This is the Gradle Kotlin build script, which contains a list of the dependencies required for our application. 
-The Gradle file is pretty much standard for Spring Boot. 
-The only differences are the structure layout for source folders for Kotlin, the required Kotlin dependencies and the `kotlin-spring` Gradle plugin (CGLIB proxies used for example for `@Configuration` and `@Bean` processing require open classes).
+This is the Gradle Kotlin build script, which contains a list of the dependencies required for the application. 
+
+The Gradle file is standard for Spring Boot, but also contains necessary Kotlin dependencies, including [kotlin-spring](all-open-plugin.md#spring-support) Gradle plugin.
 
 ## Explore the Spring Boot application
 
@@ -92,15 +95,13 @@ fun main(args: Array<String>) {
 }
 ```
 
-As Spring Boot looks for a public static main method, we need to define this in Kotlin. Here we prefer using a [top-level function](https://kotlinlang.org/docs/reference/functions.html) defined outside DemoApplication class since it leads to more concise and clean code. 
-[scope](https://kotlinlang.org/docs/functions.html#function-scope)
+Comparing to Java, the application file has the following differences:
+* As Spring Boot looks for a public static main method, the Kotlin uses a [top-level function](functions.md#function-scope) defined outside `DemoApplication` class.
+* The `DemoApplication` class is not declared as `open`, since the [kotlin-spring](all-open-plugin.md#spring-support) Gradle plugin does that automatically.
 
-No need to mark the DemoApplication class as open since we are using the [kotlin-spring](https://kotlinlang.org/docs/reference/compiler-plugins.html#kotlin-spring-compiler-plugin) Gradle plugin which does that automatically.
-[new kotlin-spring](https://kotlinlang.org/docs/all-open-plugin.html#spring-support)
+## Create a data class and a controller
 
-### Create a data class and a controller
-
-What for we need a
+To create an endpoint, you need to create a [data class](data-classes.md) and a controller:
 
 1. In the `DemoApplication.kt` file, create a `Message` data class with two properties: `id` and `text`:
 
@@ -121,10 +122,6 @@ What for we need a
       )
    }
    ```
-
-  * `@RestController` annotation before the class description is for ...
-  * `@GetMapping` annotation is for mapping ...
-
 
 Full code of the `DemoApplication.kt`:
 
@@ -154,7 +151,7 @@ class MessageResource {
   )
 }
 
-data class Message(@Id val id: String?, val text: String)
+data class Message(val id: String?, val text: String)
 ```
 
 ## Run the application
@@ -177,8 +174,8 @@ Application is ready to run:
 
 In this section, you will create two endpoints to save and return the messages to the database:
 
-1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. 
-  The annotation also requires an additional import:
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also add the `@Id` annotation before the `id` field. 
+  These annotations also require additional imports:
 
     ```kotlin
     import org.springframework.data.annotation.Id
@@ -332,8 +329,6 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 3. Execute the `GET` request and see the result in the **Run** tool window:
 
     ![Run HTTP GET request](spring-boot-output-2.png)
-
-    All the previously sent messages are in the database! All your base are belong to us!
 
 > You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
 > 
