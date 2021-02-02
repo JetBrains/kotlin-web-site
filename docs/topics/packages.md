@@ -65,7 +65,7 @@ import org.test.Message as testMessage // testMessage stands for 'org.test.Messa
 The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
 
   * top-level functions and properties
-  * functions and properties declared in [object declarations](object-declarations.md#object-declarations)
+  * functions and properties declared in [object declarations](object-declarations.md#object-declarations-overview)
   * [enum constants](enum-classes.md)
 
 ## Visibility of top-level declarations
