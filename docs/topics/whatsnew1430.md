@@ -200,7 +200,9 @@ To enable the new JVM IR backend, add the following lines to the project’s con
   <tabs>
   
   ```groovy
-  kotlinOptions.useIR = true
+  compileKotlin {
+      kotlinOptions.useIR = true
+  }
   ```
   
   ```Kotlin
