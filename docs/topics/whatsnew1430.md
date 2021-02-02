@@ -385,7 +385,7 @@ inline class Color(val rgb: Int)
 
 The serialization framework does not box serializable inline classes when they are used in other serializable classes.
 
-Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md).
+Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/dev/docs/inline-classes.md#serializable-inline-classes).
 
 ### Unsigned primitive type serialization support
 
@@ -401,4 +401,4 @@ fun main() {
 }
 ```
 
-Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md).
+Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/dev/docs/inline-classes.md#unsigned-types-support-json-only).
