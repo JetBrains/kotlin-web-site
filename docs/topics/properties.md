@@ -141,7 +141,7 @@ public val table: Map<String, Int>
 If the value of a read-only property is known at the compile time, mark it as a *compile time constant* using the `const` modifier.
 Such properties need to fulfil the following requirements:
 
-  * Top-level, or member of an [`object` declaration](object-declarations.md#object-declarations) or [a *companion object*](object-declarations.md#companion-objects).
+  * Top-level, or member of an [`object` declaration](object-declarations.md#object-declarations-overview) or [a *companion object*](object-declarations.md#companion-objects).
   * Initialized with a value of type `String` or a primitive type
   * No custom getter
 
