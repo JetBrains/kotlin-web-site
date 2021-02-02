@@ -1,10 +1,10 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 1.4.21
-  url: https://github.com/JetBrains/kotlin/releases/tag/v1.4.21
+  version: 1.4.30
+  url: https://github.com/JetBrains/kotlin/releases/tag/v1.4.30
   runtime_size: 1347 KB
-  date: December 7, 2020
+  date: February 3, 2021
 
   coroutines:
     version: 1.4.2
@@ -12,13 +12,13 @@ latest:
     date: November 26, 2020
 
   serialization:
-    version: 1.0.1
+    version: 1.1.0-RC
     url: https://github.com/Kotlin/kotlinx.serialization
-    date: October 28, 2020
+    date: February 3, 2020
 
 eap:
-  version: 1.4.30-M1
-  coroutines: 1.4.1
+  version: 1.4.30-RC
+  coroutines: 1.4.2
 
 tutorials:
   native:
