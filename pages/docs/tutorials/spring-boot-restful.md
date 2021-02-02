@@ -7,7 +7,7 @@ source: spring-boot-restful
 ---
 
 First, you will create an application with the HTTP endpoint that returns a data objects list in the JSON format.  
-In the second part of the tutorial, you'll update the application: there will be two enpoints to write and retrive objects, and the database for storing it.
+In the second part of the tutorial, you'll update the application: there will be two endpoints to write and retrieve objects, and the database for storing it.
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
@@ -18,7 +18,7 @@ To generate a new project, use `start.spring.io` application:
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
 {:.note}
 
-1. Open the [spring initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
+1. Open the [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
   This project uses **Gradle** as a build tool, **Kotlin** as a language of choice, and the following dependencies: **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
 
    ![Create a new project with Spring initializr]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-create-project-with-initializr.png') }})
@@ -107,7 +107,7 @@ fun main(args: Array<String>) {
 </div>
 
 Comparing to Java, the application file has the following differences:
-* As Spring Boot looks for a public static main method, the Kotlin uses a [top-level function](../reference/functions.html) defined outside `DemoApplication` class.
+* As Spring Boot looks for a public static `main()` method, the Kotlin uses a [top-level function](../reference/functions.html) defined outside `DemoApplication` class.
 * The `DemoApplication` class is not declared as `open`, since the [kotlin-spring](../reference/compiler-plugins.html#spring-support) Gradle plugin does that automatically.
 
 ## Create a data class and a controller
@@ -181,7 +181,7 @@ data class Message(val id: String?, val text: String)
 
 Application is ready to run:
 
-1. Click the green **Run** icon in the gutter to the `main` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
+1. Click the green **Run** icon in the gutter to the `main()` method or hit the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA:
 
     ![Run the application]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-run-the-application.png') }})
     
@@ -230,12 +230,12 @@ In this section, you will create two endpoints to save messages to the database,
 
    </div>
 
-    When you call the `findMessages` method on an instance of `MessageRepository`, it will execute the corresponding database query:
+    When you call the `findMessages()` method on an instance of `MessageRepository`, it will execute the corresponding database query:
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only> 
    
-    ```sql
-    `select * from messages`
+   ```sql
+   select * from messages
    ```
    
    </div>
