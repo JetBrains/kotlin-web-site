@@ -21,9 +21,9 @@ To generate a new project, use `start.spring.io` application:
 1. Open the [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). The link from the tutorial opens the window with the predefined settings of the new project. 
   This project uses **Gradle** as a build tool, **Kotlin** as a language of choice, and the following dependencies: **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
 
-   ![Create a new project with Spring initializr]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-create-project-with-initializr.png') }})
+   ![Create a new project with Spring Initializr]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-create-project-with-initializr.png') }})
 
-2. Click **GENERATE** at the bottom of the screen. Spring initializr will generate the project with the specified settings. The download starts automatically.
+2. Click **GENERATE** at the bottom of the screen. Spring Initializr will generate the project with the specified settings. The download starts automatically.
 
 3. Unpack the **.zip** file and open in the IntelliJ IDEA.
   
@@ -264,7 +264,7 @@ In this section, you will create two endpoints to save messages to the database,
    </div>
 
    It contains two methods:
-    * `post()` to sent a new `Message` object to the database
+    * `post()` to send a new `Message` object to the database
     * `findMessages()` to get all the message from the database
 
 4. Update the `MessageResource` class:
