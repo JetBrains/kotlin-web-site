@@ -17,7 +17,7 @@ latest:
     date: February 3, 2021
 
 eap:
-  version: 1.4.20-RC
+  version: 1.4.30-RC
   coroutines: 1.4.2
 
 tutorials:
