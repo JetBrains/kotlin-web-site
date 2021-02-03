@@ -1,3 +1,7 @@
+- name: Nacka, Sweden
+  geo:
+    lat: 59.304496
+    lng: 18.206605
 - name: Baku, Azerbaijan
   geo:
     lat: 40.372967
