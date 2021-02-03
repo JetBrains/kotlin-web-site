@@ -165,9 +165,11 @@ Process 4985 launched: './program.kexe' (x86_64)
 (lldb) fr var
 (int) x = 1
 (int) y = 2
-(ObjHeader *) p = Point(x=1, y=2)
+(ObjHeader *) p = [x: ..., y: ...]
 (lldb) p p
-(ObjHeader *) $2 = Point(x=1, y=2)
+(ObjHeader *) $2 = [x: ..., y: ...]
+(lldb) script lldb.frame.FindVariable("p").GetChildMemberWithName("x").Dereference().GetValue()
+'1'
 (lldb) 
 ```
 
