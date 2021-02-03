@@ -248,18 +248,20 @@ To enable the new JVM IR backend, add the following lines to the project’s con
 <div class="sample" markdown="1" mode="groovy" theme="idea" data-lang="groovy">
 
 ```groovy
-kotlinOptions.useIR = true
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+  kotlinOptions.useIR = true
+}
 ```
 </div>
 </div>
 
 <div class="multi-language-sample" data-lang="kotlin">
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-lang="kotlin" data-highlight-only>
+
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-// ...
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions.useIR = true
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile::class) {
+  kotlinOptions.useIR = true
+}
 ```
 
 </div>
