@@ -31,14 +31,14 @@ Install libgit2 and prepare stubs for the git library:
 ```bash
 
 cd samples/gitchurn
-../../dist/bin/cinterop -def src/main/c_interop/libgit2.def \
+../../dist/bin/cinterop -def src/nativeInterop/cinterop/libgit2.def \
  -compilerOpts -I/usr/local/include -o libgit2
 ```
 
 Compile the client:
 
 ```bash
-../../dist/bin/kotlinc src/main/kotlin \
+../../dist/bin/kotlinc src/gitChurnMain/kotlin \
  -library libgit2 -o GitChurn
 ```
 

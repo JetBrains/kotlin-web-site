@@ -248,7 +248,7 @@ latest language versions quickly.
 
 >Inline classes are in [Alpha](components-stability.md). They may change incompatibly and require manual migration in the future.
 > We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
-> See details in the [reference](inline-classes.md#alpha-status-of-inline-classes).
+> See details in the [reference](inline-classes.md).
 >
 {type="warning"}
 
