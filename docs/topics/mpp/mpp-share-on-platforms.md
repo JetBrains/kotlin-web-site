@@ -76,7 +76,7 @@ The `kotlin-multiplatform` plugin provides target shortcuts for creating structu
 | Target shortcut | Targets |
 |-----------------| -------- |
 | `ios` | `iosArm64`, `iosX64` |
-| `watchos` | `watchosArm32`, `watchosArm64`, `watchosX86` |
+| `watchos` | `watchosArm32`, `watchosArm64`, `watchosX64` |
 | `tvos` | `tvosArm64`, `tvosX64` |
 
 All shortcuts create similar hierarchical structures in the code. For example, the `ios` shortcut creates the following hierarchical structure:

@@ -16,7 +16,7 @@ self-contained program that does not require an additional runtime or virtual ma
 Kotlin/Native supports the following platforms:
    * iOS (arm32, arm64, simulator x86_64)
    * macOS (x86_64)
-   * watchOS (arm32, arm64, x86)
+   * watchOS (arm32, arm64, x86, x86_64)
    * tvOS (arm64, x86_64)
    * Android (arm32, arm64, x86, x86_64)
    * Windows (mingw x86_64, x86)

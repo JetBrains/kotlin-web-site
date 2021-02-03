@@ -48,7 +48,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     </tr>
     <tr>
         <td>watchOS</td>
-        <td><code>watchosArm32</code>, <code>watchosArm64</code>, <code>watchosX86</code></td>
+        <td><code>watchosArm32</code>, <code>watchosArm64</code>, <code>watchosX86</code>, <code>watchosX64</code></td>
         <td></td>
     </tr>
     <tr>
