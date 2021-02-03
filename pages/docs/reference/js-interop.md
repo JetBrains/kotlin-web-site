@@ -11,7 +11,7 @@ Kotlin was first designed for easy interoperation with the Java platform: it see
 
 However, JavaScript is a dynamically typed language, which means it does not check types at compile time. You can freely talk to JavaScript from Kotlin via  [dynamic](dynamic-type.html) types. If you want to use the full power of the Kotlin type system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and the surrounding tooling.
 
-An experimental tool to automatically create Kotlin external declarations for npm dependencies which provide type definitions (TypeScript / `d.ts`) called [Dukat](js-external-declarations-with-dukat) is also available.
+An experimental tool to automatically create Kotlin external declarations for npm dependencies which provide type definitions (TypeScript / `d.ts`) called [Dukat](js-external-declarations-with-dukat.html) is also available.
 
 ## Inline JavaScript
 
