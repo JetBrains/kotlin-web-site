@@ -4,13 +4,13 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.4.21" type="string"/>
+    <var name="kotlinVersion" value="1.4.30" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.4.30-M1" type="string"/>
+    <var name="kotlinEapVersion" value="1.4.30-RC" type="string"/>
 
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.4.21" type="string"/>
 
-    <var name="kotlinReleaseDate" value="December 7, 2020" type="string"/>
+    <var name="kotlinReleaseDate" value="February 3, 2021" type="string"/>
 
     <var name="coroutinesVersion" value="1.4.2" type="string"/>
 
@@ -18,6 +18,6 @@
 
     <var name="gradleVersion" value="6.7.1" type="string"/>
 
-    <var name="serializationVersion" value="1.0.1" type="string"/>
+    <var name="serializationVersion" value="1.1.0-RC" type="string"/>
 
 </vars>

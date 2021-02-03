@@ -68,7 +68,8 @@ The complete list of available targets is the following:
 |`iosX64`|Apple iOS 64-bit simulator|
 |`watchosArm32`|Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)|
 |`watchosArm64`|Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)|
-|`watchosX86`|Apple watchOS simulator|
+|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier)|
+|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer)|
 |`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
 |`tvosX64`|Apple tvOS simulator|
 |`linuxArm64`|Linux on ARM64 platforms, for example, Raspberry Pi|
