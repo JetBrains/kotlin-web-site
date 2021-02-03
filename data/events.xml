@@ -1,6 +1,142 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Kraków, Poland</location>
+        <speaker>Nicolas Frankel</speaker>
+        <title>Kraków Kotlin User Group</title>
+        <subject>Pragmatic App Migration to the Cloud: Quarkus, Kotlin, Hazelcast and GraalVM in action</subject>
+        <url>https://micro.sphere.it/talk/pragmatic-app-migration-to-the-cloud-quarkus-kotlin-hazelcast-and-graalvm-in-action/</url>
+        <description>
+            <![CDATA[
+<p>At a point in the past, it was forecast that Java would die, but the JVM platform would be its legacy. And in fact, for a long time, the JVM has been tremendously successful. Wikipedia itself lists a bunch of languages that run on it, some of them close to Java e.g. Kotlin, some of them very remote e.g. Clojure.</p>
+<p>But nowadays, the Cloud is becoming ubiquitous. Containerization is the way to go to alleviate some of the vendor lock-in issues. Kubernetes is a de facto platform. If a container needs to be killed for whatever reason (resource consumption, unhealthy, etc.), a new one needs to replace it as fast as possible. In that context, the JVM seems to be a dead-end: its startup time is huge in comparison to a native process. Likewise, it consumes a lot of memory that just increase the monthly bill.</p>
+<p>What does that mean for us developers? Has all the time spent in learning the JVM ecosystem been invested with no hope of return over investment? Shall we need to invest even more time in new languages, frameworks, libraries, etc.? That is one possibility for sure. But we can also leverage our existing knowledge, and embrace the Cloud and containers ways with the help of some tools.</p>
+<p>In this talk, I’ll create a simple URL shortener with a “standard” stack: Kotlin, JAX-RS and Hazelcast. Then, with the help of Quarkus and GraalVM, I’ll turn this application into a native executable with all Cloud/Container related work has been moved to the build process.</p>
+]]>
+        </description>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Kraków, Poland</location>
+        <speaker>Andrzej Ratajczak, Kacper Korban</speaker>
+        <title>Kraków Kotlin User Group</title>
+        <subject>Inkuire – Using types as search keys in Kotlin libraries</subject>
+        <url>https://micro.sphere.it/talk/inkuire-using-types-as-search-keys-in-kotlin-libraries/</url>
+        <description>
+            <![CDATA[
+<p>Programmers tend to use strongly typed languages for the safety in the runtime and their own comfort while developing applications. While using new dependency, they often have to browse the documentation by symbolic names of classes and functions. Oftentimes, they don’t know the function name, but are convinced there must be a function somewhere that fits given type transformation.</p>
+p>In this talk, we will focus on a prototype tool that lets you browse the docs using types as search keys in Kotlin.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sr</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Novi Sad, Serbia</location>
+        <speaker>Nebojsa Vuksic</speaker>
+        <title>Kotlin User Group Serbia</title>
+        <subject>Kotlin Serbia Hang out February 2021</subject>
+        <url>https://www.meetup.com/Serbia-Kotlin-User-Group/events/275983602</url>
+        <description>
+            <![CDATA[
+<p>Pošto se ne možemo videti uživo, ovaj februarski meetup je potpuno virtualan. Da bi sve prošlo kako treba, odlučili smo se za Airmeet. Tu ćemo imati "stolove" - jedan za Kotlin multiplatform, drugi za Android, treći za Server side, itd.</p>
+]]>
+        </description>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Stuttgart, Germany</location>
+        <speaker>Andreas Eberle</speaker>
+        <title>Kotlin User Group Stuttgart</title>
+        <subject>Using Apache Kafka with Kotlin and Quarkus</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Stuttgart/events/276088421</url>
+        <description>
+            <![CDATA[
+<p>This talk will be an introduction to using Quarkus and Kotlin together with Kafka to create event driven systems.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Karlsruhe, Germany</location>
+        <speaker>Andreas Eberle</speaker>
+        <title>Kotlin Karlsruhe User Group</title>
+        <subject>Using Apache Kafka with Kotlin and Quarkus</subject>
+        <url>https://www.meetup.com/Kotlin-Karlsruhe-User-Group/events/276125331/</url>
+        <description>
+            <![CDATA[
+<p>This talk will be an introduction to using Quarkus and Kotlin together with Kafka to create event driven systems.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>es</lang>
+        <startDate>2021-02-10</startDate>
+        <endDate>2021-02-10</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Antonio Leiva Gordillo</speaker>
+        <title>KeepCoding</title>
+        <subject>Webinar: Kotlin, presente y futuro del desarrollo Android</subject>
+        <url>https://www.meetup.com/KeepCoding/events/276045215</url>
+        <description>
+            <![CDATA[
+<p>En este webinar vamos a analizar cómo Kotlin ha llegado al mundo del desarrollo Android para ponerlo todo patas arriba. Cómo ha cambiado la forma que tenemos de trabajar y cuáles son las ventajas con respecto a Java.</p>
+<p>En la hora que compartiremos, trataremos:
+- Cuál es la situación actual de Kotlin en el mercado
+- Lo sencillo que es empezar con Kotlin para Android, especialmente si conoces Java
+- Cómo Kotlin va a hacer estallar tu productividad gracias a todas sus funcionalidades"</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sv</lang>
+        <startDate>2021-01-27</startDate>
+        <endDate>2021-01-27</endDate>
+        <location>Nacka, Sweden</location>
+        <speaker>Jesper Holmberg</speaker>
+        <title>CADEC 2021</title>
+        <subject>Kotlin Coroutines – a useful tool for asynchronous programming</subject>
+        <url>https://callistaenterprise.se/event/cadec/2021/</url>
+        <description>
+            <![CDATA[
+<p>A guided tour through the possibilities of Kotlin coroutines - mainly aimed at Java developers.</p>
+]]>
+        </description>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-05-19</startDate>
+        <endDate>2021-05-19</endDate>
+        <location>London, UK</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>Software Design and Development</title>
+        <subject>Kotlin for .NET developers</subject>
+        <url>https://sddconf.com/agenda/</url>
+        <description>
+            <![CDATA[
+<p>If the one thing that has kept you from the JVM has been Java, you might be interested to know that there’s now another language, even more concise than C#, that will open up a world of possibilities for you to leverage the JVM. The JVM or Java ecosystem is a vibrant and innovative platform, and many of the libraries and frameworks we see in .NET have originated in Java. In this session we’ll give an introduction to Kotlin and the JVM from the perspective of a .NET developer.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>es</lang>
         <startDate>2021-01-21</startDate>
         <endDate>2021-01-21</endDate>
