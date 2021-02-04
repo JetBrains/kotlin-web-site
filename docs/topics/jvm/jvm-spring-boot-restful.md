@@ -21,12 +21,12 @@ To generate a new project, use the Spring Initializr:
 
 2. Click **GENERATE** at the bottom of the screen. Spring Initializr will generate the project with the specified settings. The download starts automatically.
 
-3. Unpack the **.zip** file and open in the IntelliJ IDEA.
+3. Unpack the **.zip** file and open it in the IntelliJ IDEA.
   
    The project has the following structure: 
    ![The Spring Boot project structure](spring-boot-project-structure.png)
    
-   Under the `main/kotlin` folder there are packages and classes that belong to the application. The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
+    There are packages and classes under the `main/kotlin` folder that belong to the application. The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
 ## Explore the project build file
 

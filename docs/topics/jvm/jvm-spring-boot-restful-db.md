@@ -12,7 +12,7 @@ At the end of the tutorial, you'll get an application with a database for storin
 
 In this section, you will create two endpoints to save the messages to the database and retrieve them:
 
-1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also add the `@Id` annotation before the `id` field. 
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also, add the `@Id` annotation before the `id` field. 
   These annotations also require additional imports:
 
     ```kotlin
@@ -115,7 +115,7 @@ Configure the database in the application:
     spring.datasource.initialization-mode=always
     ```
 
-    These settings enable the Spring Boot application work with the database.
+    These settings enable the database to the Spring Boot application.
     See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
 ## Run the application
@@ -123,7 +123,7 @@ Configure the database in the application:
 You should use an HTTP client to work with previously created endpoints.
 In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
 
-1. [Run the application](#run-the-application). Once the application is up and running, you can execute a few POST request to store messages in the database.
+1. [Run the application](#run-the-application). Once the application is up and running, you can execute POST requests to store messages in the database.
 
 1. Create the `requests.http` file and add the following HTTP requests:
 
@@ -183,5 +183,4 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
 ## What's next?
 
-If you got trouble while following the tutorial, download and explore the [completed project](https://github.com/antonarhipov/spring-time-in-kotlin-episode1).
-
+If you got trouble while following the tutorial, download and explore the [completed project](https://github.com/kotlin-hands-on/spring-time-in-kotlin-episode1).
