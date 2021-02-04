@@ -3,8 +3,6 @@
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
-You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/1-4-30-is-released-with-a-new-jvm-backend-and-language-and-multiplatform-features).
-
 ## Language features
 
 Kotlin 1.5.0 is going to deliver new language features – JVM records support, sealed interfaces, and Stable inline classes.
@@ -17,8 +15,6 @@ feedback with us in the corresponding YouTrack tickets, as that will allow us to
 
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options.
 See the sections below for details.
-
-Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/new-language-features-preview-in-kotlin-1-4-30).
 
 ### JVM records support
 
@@ -222,8 +218,6 @@ To enable the new JVM IR backend, add the following lines to the project’s con
       </args>
   </configuration>
   ```
-
-Learn more about the changes that the JVM compiler backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
 
 ## Kotlin/Native
 
