@@ -62,11 +62,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li>Improved Kotlin/Native performance</li>
                 <li>Standard library API improvements</li>
             </ul>
-            <p>Learn more in:</p>
-            <ul>
-                <li><a href="http://blog.jetbrains.com/kotlin/2021/01/1-4-30-is-released-with-a-new-jvm-backend-and-language-and-multiplatform-features/" target="_blank">Release blog post</a></li>
-                <li><a href="whatsnew1430.md" target="_blank">What's new in Kotlin 1.4.30</a></li>
-            </ul>
+            <p>Learn more in <a href="whatsnew1430.md" target="_blank">What's new in Kotlin 1.4.30</a>.</p>
         </td>
         <td>
             <ul>
