@@ -235,7 +235,7 @@ backend becomes the default for the Kotlin/JVM compiler.
 We’re now dropping the restriction on consuming binaries produced by the IR compiler. Previously, you could use code
 compiled by the new JVM IR backend only if you had enabled the new backend. Starting from 1.4.30, there is no such limitation,
 so you can use the new backend to build components for third-party use, such as libraries. Try the Beta version of the
-new backend and share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-42287).
+new backend and share your feedback in our [issue tracker](https://kotl.in/issue).
 
 To enable the new JVM IR backend, add the following lines to the project’s configuration file:
 * In Gradle:
