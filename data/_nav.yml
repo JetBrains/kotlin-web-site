@@ -2,7 +2,7 @@
 # ====================
 main:
   content:
-    - url: /docs/reference/
+    - url: /docs/home.html
       title: Docs
 
     - url: /community/
@@ -94,9 +94,9 @@ reference:
     - title: Releases and Roadmap
       description: Kotlin releases and roadmap
       content:
-        - url: /releases.html
+        - url: /docs/releases.html
           title: Kotlin Releases
-        - url: /roadmap.html
+        - url: /docs/roadmap.html
           title: Kotlin Roadmap
 
     - title: Getting Started
