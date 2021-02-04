@@ -26,6 +26,13 @@ subnav:
           title: Standard Library
         - url: /api/latest/kotlin.test/index.html
           title: Test Library
+    - url: /docs/reference/grammar.html
+      content:
+        - url: /docs/reference/grammar.html
+          title: Grammar
+
+        - url: /spec/introduction.html
+          title: Language specification
     - url: /community/
       content:
         - url: /community/
