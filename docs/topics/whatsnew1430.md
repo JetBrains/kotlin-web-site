@@ -3,6 +3,8 @@
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
+You can also learn about new features in [this blog post](http://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/).
+
 ## Language features
 
 Kotlin 1.5.0 is going to deliver new language features – JVM records support, sealed interfaces, and Stable inline classes.
@@ -15,6 +17,8 @@ feedback with us in the corresponding YouTrack tickets, as that will allow us to
 
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options.
 See the sections below for details.
+
+Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/new-language-features-preview-in-kotlin-1-4-30).
 
 ### JVM records support
 
@@ -95,7 +99,7 @@ with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-424
 
 ### Package-wide sealed class hierarchies
 
-> Package-wide hierarchies of sealed classes is [Experimental](components-stability.md). They may be dropped or changed at any time.
+> Package-wide hierarchies of sealed classes are [Experimental](components-stability.md). They may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use them only for evaluation purposes.  We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42433).
 >
 {type="warning"}
@@ -188,7 +192,7 @@ becomes the default for the Kotlin/JVM compiler.
 We’re now dropping the restriction on consuming binaries produced by the IR compiler. Previously, you could use code
 compiled by the new JVM IR backend only if you had enabled the new backend. Starting from 1.4.30, there is no such limitation,
 so you can use the new backend to build components for third-party use, such as libraries. Try the Beta version of the
-new backend and share your feedback in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-42287).
+new backend and share your feedback in our [issue tracker](https://kotl.in/issue).
 
 To enable the new JVM IR backend, add the following lines to the project’s configuration file:
 * In Gradle:
@@ -218,6 +222,8 @@ To enable the new JVM IR backend, add the following lines to the project’s con
       </args>
   </configuration>
   ```
+
+Learn more about the changes that the JVM IR backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
 
 ## Kotlin/Native
 
@@ -380,7 +386,7 @@ inline class Color(val rgb: Int)
 
 The serialization framework does not box serializable inline classes when they are used in other serializable classes.
 
-Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/dev/docs/inline-classes.md#serializable-inline-classes).
+Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/inline-classes.md#serializable-inline-classes).
 
 ### Unsigned primitive type serialization support
 
@@ -396,4 +402,4 @@ fun main() {
 }
 ```
 
-Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/dev/docs/inline-classes.md#unsigned-types-support-json-only).
+Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/inline-classes.md#unsigned-types-support-json-only).
