@@ -9,6 +9,8 @@ title: "What's New in Kotlin 1.4.30"
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
+You can also learn about new features in [this blog post](http://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/).
+
 [**Language features**](#language-features)
 * [JVM records support](#jvm-records-support)
 * [Sealed interfaces](#sealed-interfaces)
@@ -49,6 +51,8 @@ feedback with us in the corresponding YouTrack tickets, as that will allow us to
 
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options.
 See the sections below for details.
+
+Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/new-language-features-preview-in-kotlin-1-4-30).
 
 
 ### JVM records support
@@ -275,6 +279,8 @@ tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile::class) {
 </configuration>
 ```
 </div>
+
+Learn more about the changes that the JVM compiler backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
 
 ## Kotlin/Native
 
