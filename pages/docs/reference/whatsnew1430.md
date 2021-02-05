@@ -280,7 +280,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile::class) {
 ```
 </div>
 
-Learn more about the changes that the JVM compiler backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
+Learn more about the changes that the JVM IR backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
 
 ## Kotlin/Native
 
