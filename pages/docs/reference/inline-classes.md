@@ -65,7 +65,7 @@ This is the main feature of inline classes, which inspired the name "inline": da
 
 Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and functions, and have the `init` block:
 
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 @JvmInline
@@ -100,7 +100,7 @@ There are some restrictions for inline class members:
 
 Inline classes are allowed to inherit from interfaces:
 
-<div class="sample" markdown="1" theme="idea" data-min-compiler-version="1.3">
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
 interface Printable {
@@ -191,6 +191,8 @@ To mitigate such issues, functions using inline classes are *mangled* by adding 
 You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling:
 add the `@JvmName` annotation before the function declaration:
 
+<div class="sample" markdown="1" theme="idea" data-highlight-only>
+
 ```kotlin
 @JvmInline
 value class UInt(val x: Int)
@@ -200,6 +202,8 @@ fun compute(x: Int) { }
 @JvmName("computeUInt")
 fun compute(x: UInt) { }
 ```
+
+</div>
 
 ## Inline classes vs type aliases
 
