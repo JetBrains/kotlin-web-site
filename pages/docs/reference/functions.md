@@ -163,7 +163,7 @@ When calling this function, you don’t have to name all its arguments:
 
 ```kotlin
 reformat(
-    'String!',
+    "String!",
     false,
     upperCaseFirstLetter = false,
     divideByCamelHumps = true,
@@ -178,7 +178,7 @@ You can skip all arguments with default values:
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-reformat('This is a long String!')
+reformat("This is a long String!")
 ```
 
 </div>
@@ -188,7 +188,7 @@ You can skip some arguments with default values. However, after the first skippe
 <div class="sample" markdown="1" theme="idea" data-highlight-only>
 
 ```kotlin
-reformat('This is a short String!', upperCaseFirstLetter = false, wordSeparator = '_')
+reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
 </div>
