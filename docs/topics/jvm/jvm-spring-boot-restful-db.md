@@ -167,19 +167,19 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
     ![Run HTTP GET request](spring-boot-output-2.png)
 
-> You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
-> 
-> ```cURL
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Hello!\" }"
->
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Bonjour!\" }"
-> 
-> curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Privet!\" }"
-> 
-> curl -X GET --location "http://localhost:8080"
-> ```
-> 
-{type="note"}
+## Alternative way to execute requests
+
+You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
+
+```cURL
+curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Hello!\" }"
+
+curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Bonjour!\" }"
+
+curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Privet!\" }"
+
+curl -X GET --location "http://localhost:8080"
+```
 
 ## What's next?
 
