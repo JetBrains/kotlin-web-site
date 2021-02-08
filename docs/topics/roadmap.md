@@ -79,7 +79,7 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td><strong>Kotlin/JVM</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">Make the new JVM IR backend Stable</a>)</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42287" target="_blank">Make the new JVM IR backend Stable</a></li>
             </ul>
          </td>
         <td>
