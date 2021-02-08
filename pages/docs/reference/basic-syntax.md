@@ -182,7 +182,7 @@ fun main() {
 
 </div>
 
-See also [Properties And Fields](properties.html).
+See also [Properties](properties.html).
 
 
 ## Comments
