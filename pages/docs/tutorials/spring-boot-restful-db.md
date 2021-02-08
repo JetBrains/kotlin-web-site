@@ -201,7 +201,7 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
     ![Run HTTP GET request]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output-2.png') }})
 
-## Alternative way to execute requests
+### Alternative way of executing requests
 
 You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
 
