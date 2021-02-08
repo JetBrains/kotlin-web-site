@@ -26,9 +26,12 @@ serialization formats – JSON, CBOR, protocol buffers, and others. You can find
 formats [below](#formats).
 
 All Kotlin serialization libraries belong to the `org.jetbrains.kotlinx:` group. Their names start with `kotlinx-serialization-`
-and have suffixes that reflect the serialization format. Libraries for the JVM and for the common code of multiplatform projects contain no suffix. In multiplatform projects, platform-specific artifacts are handled automatically and do not need to be added manually. Examples:
+and have suffixes that reflect the serialization format. Examples:
 * `org.jetbrains.kotlinx:kotlinx-serialization-json` provides JSON serialization for Kotlin projects.
 * `org.jetbrains.kotlinx:kotlinx-serialization-cbor` provides CBOR serialization.
+
+Platform-specific artifacts are handled automatically; you don't need to add them manually. Use the same dependencies in JVM, JS, Native,
+and multiplatofrm projects.
 
 Note that the `kotlinx.serialization` libraries use their own versioning structure, which doesn't match Kotlin's versioning. Check out the
 releases on [GitHub](https://github.com/Kotlin/kotlinx.serialization/releases) to find the latest versions.
