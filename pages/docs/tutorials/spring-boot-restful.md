@@ -3,7 +3,6 @@ type: tutorial
 layout: tutorial
 title:  "Create a RESTful Web Service with Spring Boot"
 description: "This tutorial walks you through the process of creating a simple application with Spring Boot."
-source: spring-boot-restful
 ---
 
 You will create an application with the HTTP endpoint that returns a data objects list in the JSON format.

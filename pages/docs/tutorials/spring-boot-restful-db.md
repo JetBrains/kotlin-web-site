@@ -3,7 +3,6 @@ type: tutorial
 layout: tutorial
 title:  "Add a database to a Spring Boot RESTful web service"
 description: "This tutorial walks you through the process of adding a database to the RESTful web service with Spring Boot and working with it."
-source: spring-boot-restful-db
 ---
 
 At the end of the tutorial, you'll get an application with a database for storing objects and two endpoints to write and retrieve them.
