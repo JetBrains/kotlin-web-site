@@ -9,7 +9,7 @@ You will create an application with the HTTP endpoint that returns a data object
 
 This tutorial consists of two parts:
 * Create a RESTful Web Service with Spring Boot
-* [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.md)
+* [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.html)
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
