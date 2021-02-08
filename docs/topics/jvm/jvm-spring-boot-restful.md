@@ -2,7 +2,11 @@
 
 This tutorial walks you through the process of creating a simple application with Spring Boot.
 
-You will create an application with the HTTP endpoint that returns a data objects list in the JSON format.  
+You will create an application with the HTTP endpoint that returns a data objects list in the JSON format.
+
+This tutorial consists of two parts:
+* Create a RESTful Web Service with Spring Boot
+* [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.md)  
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
