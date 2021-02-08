@@ -1,4 +1,4 @@
-[//]: # (title: Properties and fields)
+[//]: # (title: Properties)
 
 ## Declaring properties
 
