@@ -131,7 +131,6 @@ Application is ready to run:
 
     ![Application output](spring-boot-output.png)
 
-## What's next?
+## Proceed to the next tutorial
 
-Once you’ve created this application, you can enhance it by adding a database for storing objects.
-Proceed to the next tutorial – [Add a database to a Spring Boot RESTful web service](jvm-spring-boot-restful-db.md). 
+Once you’ve created this application, add a database for storing objects and two endpoints to write and retrieve them using the next part of the tutorial – [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.html). 
