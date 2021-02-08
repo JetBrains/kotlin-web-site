@@ -28,8 +28,7 @@ Instead of creating a function object for the parameter and generating a call, t
 l.lock()
 try {
     foo()
-}
-finally {
+} finally {
     l.unlock()
 }
 ```
