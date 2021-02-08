@@ -11,8 +11,7 @@ if (obj is String) {
 
 if (obj !is String) { // same as !(obj is String)
     print("Not a String")
-}
-else {
+} else {
     print(obj.length)
 }
 ```

@@ -21,11 +21,9 @@ To catch an exception, use the `try` expression:
 ```kotlin
 try {
     // some code
-}
-catch (e: SomeException) {
+} catch (e: SomeException) {
     // handler
-}
-finally {
+} finally {
     // optional finally block
 }
 ```
@@ -62,8 +60,7 @@ So it results in this kind of code all over the place:
 ```kotlin
 try {
     log.append(message)
-}
-catch (IOException e) {
+} catch (IOException e) {
     // Must be safe
 }
 ```
