@@ -1,11 +1,15 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Create a RESTful Web Service with Spring Boot"
+title: "Create a RESTful Web Service with Spring Boot"
 description: "This tutorial walks you through the process of creating a simple application with Spring Boot."
 ---
 
 You will create an application with the HTTP endpoint that returns a data objects list in the JSON format.
+
+This tutorial consists of two parts:
+* Create a RESTful Web Service with Spring Boot
+* [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.md)
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
@@ -148,6 +152,6 @@ Application is ready to run:
 
     ![Application output]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output.png') }})
 
-## What's next?
+## Proceed to the next tutorial
 
-Once you’ve created this application, you can enhance it by adding a database for storing objects. Proceed to the next tutorial – [Add a database to a Spring Boot RESTful web service](spring-boot-db.html).
+Once you’ve created this application, add a database for storing objects and two endpoints to write and retrieve them using the next part of the tutorial – [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.html).

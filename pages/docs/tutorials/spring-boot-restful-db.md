@@ -1,7 +1,7 @@
 ---
 type: tutorial
 layout: tutorial
-title:  "Add a database to a Spring Boot RESTful web service"
+title: "Add a database to a Spring Boot RESTful web service"
 description: "This tutorial walks you through the process of adding a database to the RESTful web service with Spring Boot and working with it."
 ---
 
