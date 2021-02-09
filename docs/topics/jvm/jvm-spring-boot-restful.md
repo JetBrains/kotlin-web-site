@@ -54,7 +54,7 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-  runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 ```
 
@@ -77,12 +77,12 @@ To create an endpoint, add a [data class](data-classes.md) and a controller to y
    ```kotlin
    @RestController
    class MessageResource {
-      @GetMapping
-      fun index(): List<Message> = listOf(
-        Message("1", "Hello!"),
-        Message("2", "Bonjour!"),
-        Message("3", "Privet!"),
-      )
+       @GetMapping
+       fun index(): List<Message> = listOf(
+           Message("1", "Hello!"),
+           Message("2", "Bonjour!"),
+           Message("3", "Privet!"),
+       )
    }
    ```
 
@@ -101,17 +101,17 @@ import org.springframework.web.bind.annotation.RestController
 class DemoApplication
 
 fun main(args: Array<String>) {
- runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 
 @RestController
 class MessageResource {
- @GetMapping
- fun index(): List<Message> = listOf(
-     Message("1", "Hello!"),
-     Message("2", "Bonjour!"),
-     Message("3", "Privet!"),
- )
+    @GetMapping
+    fun index(): List<Message> = listOf(
+        Message("1", "Hello!"),
+        Message("2", "Bonjour!"),
+        Message("3", "Privet!"),
+    )
 }
 
 data class Message(val id: String?, val text: String)
@@ -137,5 +137,5 @@ The application is now ready to run:
 
 ## Proceed to the next tutorial
 
-In the next part of this tutorial you will add a database for storing objects, as well as two endpoints for writing and retrieving those objects: [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.html).
+In the next part of this tutorial you will add a database for storing objects, as well as two endpoints for writing and retrieving those objects: [Add a database to a Spring Boot RESTful web service](jvm-spring-boot-restful-db.md).
 

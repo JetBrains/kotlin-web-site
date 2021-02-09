@@ -31,8 +31,8 @@ In this section, you will create two endpoints: one for saving messages to the d
   
    interface MessageRepository : CrudRepository<Message, String>{
   
-      @Query("select * from messages")
-      fun findMessages(): List<Message>
+       @Query("select * from messages")
+       fun findMessages(): List<Message>
    }
    ```
 
@@ -51,12 +51,12 @@ In this section, you will create two endpoints: one for saving messages to the d
   
    @Service
    class MessageService(val db: MessageRepository) {
-  
-      fun findMessages(): List<Message> = db.findMessages()
-  
-      fun post(message: Message){
-          db.save(message)
-      }
+
+       fun findMessages(): List<Message> = db.findMessages()
+
+       fun post(message: Message){
+           db.save(message)
+       }
    }
    ```
 
