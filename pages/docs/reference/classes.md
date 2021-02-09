@@ -427,7 +427,7 @@ class Derived(
 
 fun main() {
     println("Constructing Derived(\"hello\", \"world\")")
-    val d = Derived("hello", "world")
+    Derived("hello", "world")
 }
 ```
 
