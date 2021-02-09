@@ -2,19 +2,19 @@
 type: tutorial
 layout: tutorial
 title: "Add a database to a Spring Boot RESTful web service"
-description: "This tutorial walks you through the process of adding a database to the RESTful web service with Spring Boot and working with it."
+description: "This tutorial walks you through the process of adding a database to a RESTful web service with Spring Boot and shows you how to work with it."
 ---
 
-At the end of the tutorial, you'll get an application with a database for storing objects and two endpoints to write and retrieve them.
+On completing this tutorial you'll have an application with a database for storing objects, as well as endpoints for writing and retrieving them.
 
->This tutorial is a continuation of the previous one – [Create a RESTful web service with Spring Boot](spring-boot-restful.html). Finish it before proceeding.
+>This tutorial is a continuation of the previous tutorial – [Create a RESTful web service with Spring Boot](spring-boot-restful.html). Complete the previous tutorial before proceeding with this one.
 {:.note}
 
 ## Add database support
 
-In this section, you will create two endpoints to save the messages to the database and retrieve them:  
+In this section, you will create two endpoints: one for saving messages to the database, and one for retrieving them:  
 
-1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Also add the `@Id` annotation before the `id` field. 
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Add the `@Id` annotation before the `id` field. 
   These annotations also require additional imports:
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
@@ -33,16 +33,16 @@ In this section, you will create two endpoints to save the messages to the datab
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
-    ```kotlin
-    import org.springframework.data.jdbc.repository.query.Query
-    import org.springframework.data.repository.CrudRepository
-    
-    interface MessageRepository : CrudRepository<Message, String>{
-    
+   ```kotlin
+   import org.springframework.data.jdbc.repository.query.Query
+   import org.springframework.data.repository.CrudRepository
+   
+   interface MessageRepository : CrudRepository<Message, String>{
+   
        @Query("select * from messages")
        fun findMessages(): List<Message>
-    }
-    ```
+   }
+   ```
 
    </div>
 
@@ -68,19 +68,19 @@ In this section, you will create two endpoints to save the messages to the datab
    @Service
    class MessageService(val db: MessageRepository) {
    
-      fun findMessages(): List<Message> = db.findMessages()
+       fun findMessages(): List<Message> = db.findMessages()
    
-      fun post(message: Message){
-          db.save(message)
-      }
+       fun post(message: Message){
+           db.save(message)
+       }
    }
    ```
    
    </div>
 
-   It contains two methods:
-    * `post()` to send a new `Message` object to the database
-    * `findMessages()` to get all the message from the database
+   This class contains two methods:
+   * `post()` for writing a new `Message` object to the database
+   * `findMessages()` for getting all the messages from the database
 
 4. Update the `MessageResource` class:
 
@@ -128,9 +128,9 @@ Configure the database in the application:
    
    </div>
 
-   It creates the `messages` table with two fields inside: `id` and `text`. The table structure is the same as `Message` class.
+   It creates the `messages` table with two fields: `id` and `text`. The table structure matches the structure of the `Message` class.
    
-3. Open the `application.properties` located in the `src/main/resources` folder, and add the following application properties:
+3. Open the `application.properties` file located in the `src/main/resources` folder, and add the following application properties:
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
@@ -145,13 +145,13 @@ Configure the database in the application:
 
    </div>
 
-    These settings enable the Spring Boot application work with the database.
+    These settings enable the database for the Spring Boot application.
     See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
 ## Run the application
 
 You should use an HTTP client to work with previously created endpoints.
-In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
+In IntelliJ IDEA, you can use the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
 
 1. Run the application. Once the application is up and running, you can execute a few POST request to store messages in the database.
 
@@ -192,7 +192,7 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
    </div>
 
-3. Execute all POST requests. Use the green **Run** icon in the gutter to the request declaration.
+3. Execute all POST requests. Use the green **Run** icon in the gutter next to the request declaration.
    These requests write the text messages to the database.
     
     ![Run HTTP POST requests]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-run-http-request.png') }})
@@ -201,7 +201,7 @@ In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://ww
 
     ![Run HTTP GET request]({{ url_for('tutorial_img', filename='spring-boot-restful/spring-boot-output-2.png') }})
 
-### Alternative way of executing requests
+### Alternative way to execute requests
 
 You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
 
@@ -221,4 +221,4 @@ curl -X GET --location "http://localhost:8080"
 
 ## What's next?
 
-If you got trouble while following the tutorial, download and explore the [completed project](https://github.com/kotlin-hands-on/spring-time-in-kotlin-episode1).
+If you encountered any difficulties while following this tutorial, you can download and explore the [completed project](https://github.com/kotlin-hands-on/spring-time-in-kotlin-episode1).
