@@ -119,7 +119,7 @@ When calling this function, you don’t have to name all its arguments:
 
 ```kotlin
 reformat(
-    'String!',
+    "String!",
     false,
     upperCaseFirstLetter = false,
     divideByCamelHumps = true,
@@ -130,13 +130,13 @@ reformat(
 You can skip all arguments with default values:
 
 ```kotlin
-reformat('This is a long String!')
+reformat("This is a long String!")
 ```
 
 You can skip some arguments with default values. However, after the first skipped argument, you must name all subsequent arguments:
 
 ```kotlin
-reformat('This is a short String!', upperCaseFirstLetter = false, wordSeparator = '_')
+reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
 You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the 
