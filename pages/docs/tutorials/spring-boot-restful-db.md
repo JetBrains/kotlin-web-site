@@ -33,16 +33,16 @@ In this section, you will create two endpoints: one for saving messages to the d
 
    <div class="sample" markdown="1" theme="idea" mode="kotlin" data-highlight-only>
 
-    ```kotlin
-    import org.springframework.data.jdbc.repository.query.Query
-    import org.springframework.data.repository.CrudRepository
-    
-    interface MessageRepository : CrudRepository<Message, String>{
-    
+   ```kotlin
+   import org.springframework.data.jdbc.repository.query.Query
+   import org.springframework.data.repository.CrudRepository
+   
+   interface MessageRepository : CrudRepository<Message, String>{
+   
        @Query("select * from messages")
        fun findMessages(): List<Message>
-    }
-    ```
+   }
+   ```
 
    </div>
 
@@ -68,11 +68,11 @@ In this section, you will create two endpoints: one for saving messages to the d
    @Service
    class MessageService(val db: MessageRepository) {
    
-      fun findMessages(): List<Message> = db.findMessages()
+       fun findMessages(): List<Message> = db.findMessages()
    
-      fun post(message: Message){
-          db.save(message)
-      }
+       fun post(message: Message){
+           db.save(message)
+       }
    }
    ```
    

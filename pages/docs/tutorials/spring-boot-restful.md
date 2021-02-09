@@ -58,7 +58,7 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-   runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 ```
 
@@ -94,7 +94,7 @@ To create an endpoint, add a [data class](../reference/data-classes.html) and a 
            Message("1", "Hello!"),
            Message("2", "Bonjour!"),
            Message("3", "Privet!"),
-      )
+       )
    }
    ```
 
@@ -117,17 +117,17 @@ import org.springframework.web.bind.annotation.RestController
 class DemoApplication
 
 fun main(args: Array<String>) {
-  runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 
 @RestController
 class MessageResource {
-  @GetMapping
-  fun index(): List<Message> = listOf(
-      Message("1", "Hello!"),
-      Message("2", "Bonjour!"),
-      Message("3", "Privet!"),
-  )
+    @GetMapping
+    fun index(): List<Message> = listOf(
+        Message("1", "Hello!"),
+        Message("2", "Bonjour!"),
+        Message("3", "Privet!"),
+    )
 }
 
 data class Message(val id: String?, val text: String)
