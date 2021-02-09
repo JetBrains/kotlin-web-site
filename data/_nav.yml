@@ -486,7 +486,9 @@ tutorials:
         - url: /docs/tutorials/httpservlets.html
           title: Creating Web Applications with Http Servlets
         - url: /docs/tutorials/spring-boot-restful.html
-          title: Creating a RESTful Web Service with Spring Boot
+          title: Create a RESTful Web Service with Spring Boot
+        - url: /docs/tutorials/spring-boot-restful-db.html
+          title: Add a database to a Spring Boot RESTful web service
 
     - title: Tools
       content:
