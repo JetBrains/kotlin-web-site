@@ -7,7 +7,7 @@ description: "This tutorial walks you through the process of adding a database t
 
 At the end of the tutorial, you'll get an application with a database for storing objects and two endpoints to write and retrieve them.
 
->This tutorial is a continuation of the previous one – Create a RESTful web service with Spring Boot. Finish it before proceeding.
+>This tutorial is a continuation of the previous one – [Create a RESTful web service with Spring Boot](spring-boot-restful.html). Finish it before proceeding.
 {:.note}
 
 ## Add database support
@@ -153,7 +153,7 @@ Configure the database in the application:
 You should use an HTTP client to work with previously created endpoints.
 In IntelliJ IDEA, you can do that by using the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html): 
 
-1. [Run the application](#run-the-application). Once the application is up and running, you can execute a few POST request to store messages in the database.
+1. Run the application. Once the application is up and running, you can execute a few POST request to store messages in the database.
 
 2. Create the `requests.http` file in the `src/main/` folder and add the following HTTP requests inside:
 
