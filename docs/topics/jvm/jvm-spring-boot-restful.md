@@ -137,4 +137,4 @@ Application is ready to run:
 
 ## Proceed to the next tutorial
 
-Once you’ve created this application, add a database for storing objects and two endpoints to write and retrieve them using the next part of the tutorial – [Add a database to a Spring Boot RESTful web service](spring-boot-restful-db.html). 
+Once you’ve created this application, add a database for storing objects and two endpoints to write and retrieve them using the next part of the tutorial – [Add a database to a Spring Boot RESTful web service](jvm-spring-boot-restful-db.md). 
