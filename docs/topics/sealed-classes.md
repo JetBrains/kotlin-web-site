@@ -5,7 +5,7 @@ All subclasses of a sealed class are known at compile time. No other subclasses 
 a module with the sealed class is compiled. For example, third-party clients can't extend your sealed class in their code.
 Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
 
-In some sense, sealed classes are similar to enum classes: the set of values
+In some sense, sealed classes are similar to [`enum` classes](enum-classes.md): the set of values
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
