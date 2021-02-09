@@ -193,7 +193,7 @@ class Constructors {
     }
 
     constructor(i: Int) {
-        println("Constructor")
+        println("Constructor $i")
     }
 }
 //sampleEnd
