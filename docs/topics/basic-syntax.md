@@ -176,7 +176,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See also [Properties And Fields](properties.md).
+See also [Properties](properties.md).
 
 ## Creating classes and instances
 

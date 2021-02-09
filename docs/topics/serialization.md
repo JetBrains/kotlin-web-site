@@ -19,26 +19,27 @@ serialization formats – JSON, CBOR, protocol buffers, and others. You can find
 formats [below](#formats).
 
 All Kotlin serialization libraries belong to the `org.jetbrains.kotlinx:` group. Their names start with `kotlinx-serialization-`
-and have suffixes that reflect the serialization format and the target platform, such as `-js` or `-native`. Libraries for
-the JVM and for the common code of multiplatform projects contain no suffix. Examples:
-* `org.jetbrains.kotlinx:kotlinx-serialization-core` provides JSON serialization on the JVM.
-* `org.jetbrains.kotlinx:kotlinx-cbor-js` provides CBOR serialization on the JavaScript platform.
+and have suffixes that reflect the serialization format. Examples:
+* `org.jetbrains.kotlinx:kotlinx-serialization-json` provides JSON serialization for Kotlin projects.
+* `org.jetbrains.kotlinx:kotlinx-serialization-cbor` provides CBOR serialization.
 
-Note that `kotlinx.serialization` libraries use their own versioning structure, which doesn’t match the Kotlin's. Check out the
+Platform-specific artifacts are handled automatically; you don't need to add them manually. Use the same dependencies in
+JVM, JS, Native, and multiplatform projects.
+
+Note that the `kotlinx.serialization` libraries use their own versioning structure, which doesn't match Kotlin's versioning. Check out the
 releases on [GitHub](https://github.com/Kotlin/kotlinx.serialization/releases) to find the latest versions.
-
 ## Formats
 
 `kotlinx.serialization` includes libraries for various serialization formats:
 
-* [JSON](https://www.json.org/): `kotlinx-serialization-core`
-* [Protocol buffers](https://developers.google.com/protocol-buffers): `kotlinx-serialization-protobuf`
-* [CBOR](https://cbor.io/): `kotlinx-serialization-cbor` 
-* [Properties](https://en.wikipedia.org/wiki/.properties): `kotlinx-serialization-properties`
-* [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md): `kotlinx-serialization-hocon` (only on JVM)
+* [JSON](https://www.json.org/): [`kotlinx-serialization-json`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#json)
+* [Protocol buffers](https://developers.google.com/protocol-buffers): [`kotlinx-serialization-protobuf`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#protobuf)
+* [CBOR](https://cbor.io/): [`kotlinx-serialization-cbor`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#cbor)
+* [Properties](https://en.wikipedia.org/wiki/.properties): [`kotlinx-serialization-properties`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#properties)
+* [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md): [`kotlinx-serialization-hocon`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#hocon) (only on JVM)
 
-Note that all libraries except JSON serialization (`kotlinx-serialization-core`) are in the experimental state, which means
-their API can be changed without notice.
+Note that all libraries except JSON serialization (`kotlinx-serialization-core`) are [Experimental](components-stability.md),
+which means their API can be changed without notice.
 
 There are also community-maintained libraries that support more serialization formats, such as [YAML](https://yaml.org/)
 or [Apache Avro](https://avro.apache.org/). For detailed information about available serialization formats, see the 

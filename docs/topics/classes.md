@@ -139,7 +139,7 @@ class Constructors {
     }
 
     constructor(i: Int) {
-        println("Constructor")
+        println("Constructor $i")
     }
 }
 //sampleEnd
@@ -326,7 +326,7 @@ class Derived(
 
 fun main() {
     println("Constructing the derived class(\"hello\", \"world\")")
-    val d = Derived("hello", "world")
+    Derived("hello", "world")
 }
 ```
 {kotlin-runnable="true"}
