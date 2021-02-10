@@ -39,7 +39,7 @@ class MyView : View {
 }
 ```
 
-## Override methods
+## Overriding methods
 
 Kotlin requires explicit modifiers for overridable members and overrides:
 
@@ -66,7 +66,7 @@ open class Rectangle() : Shape() {
 }
 ```
 
-## Override properties 
+## Overriding properties 
 
 Overriding properties works in a similar way to overriding methods; properties declared on a superclass 
 that are then redeclared on a derived class must be prefaced with `override`, and they must have a compatible type.
@@ -135,7 +135,7 @@ fun main() {
 
 It means that, by the time of the base class constructor execution, the properties declared or overridden in the derived class are not yet initialized. If any of those properties are used in the base class initialization logic (either directly or indirectly, through another overridden `open` member implementation), it may lead to incorrect behavior or a runtime failure. When designing a base class, you should therefore avoid using `open` members in the constructors, property initializers, and `init` blocks.
 
-## Call the superclass implementation
+## Calling the superclass implementation
 
 Code in a derived class can call its superclass functions and property accessors implementations using the `super` keyword:
 

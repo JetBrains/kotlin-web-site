@@ -28,7 +28,7 @@ of `Derived` and the compiler will generate all the methods of `Base` that forwa
 
 ## Overriding a member of an interface implemented by delegation 
 
-[Overrides](inheritance.md#override-methods) work as you expect: the compiler will use your `override` 
+[Overrides](inheritance.md#overriding-methods) work as you expect: the compiler will use your `override` 
 implementations instead of those in the delegate object. If you want to add `override fun printMessage() { print("abc") }` to 
 `Derived`, the program would print *abc* instead of *10* when `printMessage` is called:
 

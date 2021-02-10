@@ -168,7 +168,7 @@ class DontCreateMe private constructor () { /*...*/ }
 > 
 {type="note"}
 
-## Create instances of classes
+## Creating instances of classes
 
 To create an instance of a class, call the constructor as if it were a regular function:
 

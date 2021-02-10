@@ -199,7 +199,7 @@ the outer types, or at top level in the same file.
 
 ## Overriding properties
 
-See [Overriding properties](inheritance.md#override-properties)
+See [Overriding properties](inheritance.md#overriding-properties)
 
 ## Delegated properties
   
