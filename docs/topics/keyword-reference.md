@@ -39,7 +39,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `package` specifies the [package for the current file](packages.md)
  * `return` [returns from the nearest enclosing function or anonymous function](returns.md)  
  * `super` 
-     - [refers to the superclass implementation of a method or property](classes.md#calling-the-superclass-implementation)
+     - [refers to the superclass implementation of a method or property](inheritance.md#call-the-superclass-implementation)
      - [calls the superclass constructor from a secondary constructor](classes.md#inheritance)
  * `this` 
      - refers to [the current receiver](this-expressions.md)
@@ -98,7 +98,7 @@ in other contexts:
  * `enum` declares an [enumeration](enum-classes.md)
  * `expect` marks a declaration as [platform-specific](multiplatform.md), expecting an implementation in platform modules.
  * `external` marks a declaration as implemented not in Kotlin (accessible through [JNI](java-interop.md#using-jni-with-kotlin) or in [JavaScript](js-interop.md#external-modifier)) 
- * `final` forbids [overriding a member](classes.md#overriding-methods)
+ * `final` forbids [overriding a member](inheritance.md#override-methods)
  * `infix` allows calling a function in [infix notation](functions.md#infix-notation)
  * `inline` tells the compiler to [inline the function and the lambdas passed to it at the call site](inline-functions.md)
  * `inner` allows referring to the outer class instance from a [nested class](nested-classes.md)
@@ -108,7 +108,7 @@ in other contexts:
  * `open` allows [subclassing a class or overriding a member](classes.md#inheritance)
  * `operator` marks a function as [overloading an operator or implementing a convention](operator-overloading.md)
  * `out` marks a type parameter as [covariant](generics.md#declaration-site-variance)
- * `override` marks a member as an [override of a superclass member](classes.md#overriding-methods)
+ * `override` marks a member as an [override of a superclass member](inheritance.md#override-methods)
  * `private` marks a declaration as [visible in the current class or file](visibility-modifiers.md) 
  * `protected` marks a declaration as [visible in the current class and its subclasses](visibility-modifiers.md)
  * `public` marks a declaration as [visible anywhere](visibility-modifiers.md)
@@ -158,7 +158,7 @@ Kotlin supports the following operators and special symbols:
     - introduces or references a [loop label](returns.md#break-and-continue-labels) 
     - introduces or references a [lambda label](returns.md#return-at-labels)
     - references a ['this' expression from an outer scope](this-expressions.md#qualified-this)
-    - references an [outer superclass](classes.md#calling-the-superclass-implementation)
+    - references an [outer superclass](inheritance.md#call-the-superclass-implementation)
  * `;` separates multiple statements on the same line
  * `$` references a variable or expression in a [string template](basic-types.md#string-templates)    
  * `_`
