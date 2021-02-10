@@ -107,9 +107,9 @@
         <toc-element id="mpp-supported-platforms.md"/>
         <toc-element id="mpp-dsl-reference.md"/>
         <toc-element id="migrating-multiplatform-project-to-14.md"/>
-        <toc-element id="mpp-tutorials.md"/>
-        <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
-        <toc-element toc-title="Intro to Kotlin Multiplatform – hands-on" href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform"/>
+        <toc-element id="mpp-tutorials.md">
+            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
+        </toc-element>
 
     </toc-element>
 
