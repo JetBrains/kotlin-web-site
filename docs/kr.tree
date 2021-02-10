@@ -5,7 +5,7 @@
 <product-profile id="kr"
                  name="Kotlin"
                  start-page="home.md"
-                 status="eap">
+                 status="release">
 
     <toc-element id="home.md" toc-title="Home"/>
 

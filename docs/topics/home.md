@@ -1,24 +1,5 @@
 [//]: # (title: Kotlin docs)
 
-> You're looking at the revamped Kotlin documentation, which has a completely new look, an updated structure, and helpful new features. 
-> The new documentation is also mobile friendly.
-> 
-> Before going to production and deprecating the current version of the documentation, we want to make sure that we haven’t overlooked any critical issues. 
-> 
-> We’d be extremely grateful if you could share your feedback about the new documentation with us.
->
-> You can:
-> 
-> * Share feedback in the [#docs-revamped](https://kotlinlang.slack.com/archives/C01GGPPCAA0/p1607340719000500) channel in our Kotlin public Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
-> * Report an issue to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=tag%20kotlin-doc-migration).
-> * Email us at [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
-> 
-> You can learn more about the revamped documentation in [our blog post](https://blog.jetbrains.com/kotlin/2020/12/revamped-kotlin-documentation/) and in the [#docs-revamped](https://kotlinlang.slack.com/archives/C01GGPPCAA0/p1607340719000500) channel in our Kotlin public Slack.
-> 
-> If you find that there are problems with the new documentation and you would like to revert to the old format, click [this link](https://kotlinlang.org/api/beta/disabled).
->
-{type="note"}
-
 <table header-style="none" width="100%" >
 <tr>
 <td width="50%">
