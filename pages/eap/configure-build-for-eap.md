@@ -60,8 +60,6 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
-    maven { url 'https://kotlin.bintray.com/kotlinx' }
 }
 ```
 
@@ -78,8 +76,6 @@ plugins {
 }
 repositories {
     mavenCentral()
-    maven ("https://dl.bintray.com/kotlin/kotlin-eap")
-    maven ("https://kotlin.bintray.com/kotlinx")
 }
 ```
 
@@ -96,7 +92,6 @@ pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
     }
 }
 ```
@@ -111,8 +106,7 @@ pluginManagement {
 pluginManagement { 
     repositories { 
         mavenCentral() 
-        gradlePluginPortal() 
-        maven ("https://dl.bintray.com/kotlin/kotlin-eap") 
+        gradlePluginPortal()
     }
 }
 ```
@@ -134,7 +128,6 @@ buildscript {
     repositories {
         mavenCentral()
         gradlePluginPortal()
-        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
     }
 
     dependencies {
@@ -143,10 +136,6 @@ buildscript {
 }
 
 apply plugin: "kotlin"
-
-repositories {
-    maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-}
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib"
@@ -210,23 +199,15 @@ Available EAP versions are listed [here](index.html#build-details).
 
     <repositories>
         <repository>
-            <id>bintray.kotlin.eap</id>
-            <name>Bintray Kotlin EAP Repository</name>
-            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+            <id>mavenCentral</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray.kotlin.eap</id>
-            <name>Bintray Kotlin EAP Repository</name>
-            <url>https://dl.bintray.com/kotlin/kotlin-eap</url>
+            <id>mavenCentral</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </pluginRepository>
     </pluginRepositories>
 
