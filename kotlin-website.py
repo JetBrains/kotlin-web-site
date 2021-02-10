@@ -212,11 +212,6 @@ def videos_page():
     return render_template('pages/videos.html', videos=process_video_nav(site_data['videos']))
 
 
-@app.route('/docs/books.html')
-def books_page():
-    return render_template('pages/books.html')
-
-
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
     if build_mode:
