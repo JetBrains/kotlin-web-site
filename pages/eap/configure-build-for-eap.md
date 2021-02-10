@@ -13,7 +13,6 @@ You only need to configure your build manually for existing projects — project
 To configure your build to use the EAP version of Kotlin, you need to: 
 
 * Specify the EAP version of Kotlin. Available EAP versions are listed [here](index.html#build-details). 
-* Add the EAP repository to the build – <https://dl.bintray.com/kotlin/kotlin-eap>.
 * Change the versions of dependencies to EAP ones.
 The EAP version of Kotlin may not work with the libraries of the previously released version. 
 
@@ -26,25 +25,13 @@ The following procedures describe how to configure your build in Gradle and Mave
 
 This section describes how you can:
 
-* [Adjust the Kotlin version and add the EAP repository](#adjust-the-kotlin-version-and-add-the-eap-repository)
+* [Adjust the Kotlin version](#adjust-the-kotlin-version)
 * [Adjust versions in dependencies](#adjust-versions-in-dependencies)
 
+### Adjust the Kotlin version
 
-### Adjust the Kotlin version and add the EAP repository 
-
-Depending on your configuration approach, you need to perform different steps in your build files. 
-This section describes common options, but if you use a different approach, you can refer to [Gradle documentation](https://docs.gradle.org/) for assistance.
-
-This section covers:
-
-* [Option 1. Configure in the build and settings files](#option-1-configure-in-the-build-and-settings-files)
-* [Option 2. Configure in the build file only](#option-2-configure-in-the-build-file-only)
-
-#### Option 1. Configure in the build and settings files 
-
-1. In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `{{ site.data.releases.eap.version }}`. Available EAP versions are listed [here](index.html#build-details).<br>
+In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version, such as `{{ site.data.releases.eap.version }}`. Available EAP versions are listed [here](index.html#build-details).<br>
 Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle` (`settings.gradle.kts`) – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
-2. In the `repositories` block, specify the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – for dependencies.
 
 Here is an example for the Multiplatform project.
 
@@ -80,68 +67,6 @@ repositories {
 ```
 
 </div>
-</div>
-
-* In the `pluginManagement` block within `settings.gradle` (`settings.gradle.kts`), specify the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap>.
-
-<div class="multi-language-sample" data-lang="groovy">
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-pluginManagement {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
-```
-
-</div>
-</div>
-
-<div class="multi-language-sample" data-lang="kotlin">
-<div class="sample" markdown="1" theme="idea" mode='kotlin' data-highlight-only>
-
-```kotlin
-pluginManagement { 
-    repositories { 
-        mavenCentral() 
-        gradlePluginPortal()
-    }
-}
-```
-
-</div>
-</div> 
-
-#### Option 2. Configure in the build file only 
-
-1. In `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` in the `buildscript` block to the actual EAP version, such as `{{ site.data.releases.eap.version }}`.  
-Available EAP versions are listed [here](index.html#build-details).
-2. Add the EAP repository – <https://dl.bintray.com/kotlin/kotlin-eap> – to the `buildscript` block.
-3. In the `repositories` block, specify the EAP repository for dependencies. 
-
-<div class="sample" markdown="1" theme="idea" mode='groovy'>
-
-```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-        gradlePluginPortal()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:KOTLIN-EAP-VERSION"
-    }
-}
-
-apply plugin: "kotlin"
-
-dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib"
-}
-```
-
 </div>
 
 ### Adjust versions in dependencies
