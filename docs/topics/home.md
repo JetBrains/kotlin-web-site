@@ -25,7 +25,7 @@ versions](eap.md) before they are released.
 * [What's new in Kotlin 1.4.30](whatsnew1430.md)
 * [What's new in Kotlin plugin 2020.3](whatsnew-plugin-20203.md)
 * [Kotlin public roadmap](roadmap.md)
-* [New KMM plugin for Android Studio](https://kotlinlang.org/docs/mobile/kmm-plugin-releases.html)
+* [KMM plugin releases for Android Studio](https://kotlinlang.org/docs/mobile/kmm-plugin-releases.html)
 
 <br/>
 
