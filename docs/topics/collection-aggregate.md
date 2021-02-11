@@ -49,22 +49,21 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Additionally, there are advanced summation functions that take a function and return the sum of its return values on all elements: 
-
-* [`sumBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-by.html) applies functions that return `Int` values on collection elements.
-* [`sumByDouble()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-by-double.html) works with functions that return `Double`.
+Besides regular `sum()`, there is an advanced summation function [`sumOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html)
+that takes a selector function and returns the sum of its application to all collection elements. Selector can return 
+different numeric types: `Int`, `Long`, `Double`, `UInt`, and `ULong` (also `BigInteger` and `BigDecimal` on the JVM).
 
 ```kotlin
 
 fun main() {
-//sampleStart    
+//sampleStart
     val numbers = listOf(5, 42, 10, 4)
-    println(numbers.sumBy { it * 2 })
-    println(numbers.sumByDouble { it.toDouble() / 2 })
+    println(numbers.sumOf { it * 2 })
+    println(numbers.sumOf { it.toDouble() / 2 })
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 ## Fold and reduce
 
