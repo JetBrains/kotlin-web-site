@@ -2,7 +2,7 @@
 # ====================
 main:
   content:
-    - url: /docs/reference/
+    - url: /docs/home.html
       title: Docs
 
     - url: /community/
@@ -22,14 +22,17 @@ subnav:
   content:
     - url: /docs/
       content:
-        - url: /docs/reference/
-          title: Language Guide
+        - url: /api/latest/jvm/stdlib/index.html
+          title: Standard Library
+        - url: /api/latest/kotlin.test/index.html
+          title: Test Library
+    - url: /docs/reference/grammar.html
+      content:
+        - url: /docs/reference/grammar.html
+          title: Grammar
 
-        - url: /docs/tutorials/
-          title: Tutorials
-
-        - url: /docs/books.html
-          title: Books
+        - url: /spec/introduction.html
+          title: Language specification
     - url: /community/
       content:
         - url: /community/
@@ -98,9 +101,9 @@ reference:
     - title: Releases and Roadmap
       description: Kotlin releases and roadmap
       content:
-        - url: /releases.html
+        - url: /docs/releases.html
           title: Kotlin Releases
-        - url: /roadmap.html
+        - url: /docs/roadmap.html
           title: Kotlin Roadmap
 
     - title: Getting Started
@@ -211,15 +214,6 @@ reference:
         - url: /docs/reference/map-operations.html
           title: Map Specific Operations
 
-    - title: Coroutines
-      description: Kotlin Coroutines Library
-      external:
-        path: kotlinx.coroutines/docs
-        nav: _nav.yml
-        base: /docs/reference/coroutines
-        repo: https://github.com/kotlin/kotlinx.coroutines
-        branch: master
-
     - title: Multiplatform Programming
       description: Reusing code across different platforms
       content:
@@ -329,15 +323,6 @@ reference:
          title: IR Compiler
        - url: /docs/reference/js-external-declarations-with-dukat.html
          title: Generating External Declarations with Dukat
-
-    - title: Native
-      description: Using Kotlin/Native for iOS and Native
-      external:
-        path: kotlin-native
-        nav: _nav_reference.yml
-        base: /docs/reference/native
-        repo: https://github.com/JetBrains/kotlin-native
-        branch: v1.4.30-fixes
 
     - title: Tools
       description:
