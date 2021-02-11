@@ -16,7 +16,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-To catch an exception, use the `try` expression:
+To catch an exception, use the `try`...`catch` expression:
 
 ```kotlin
 try {
