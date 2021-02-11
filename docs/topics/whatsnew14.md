@@ -177,7 +177,7 @@ fun main() {
     println(apply(::foo))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 Previously, you had to write additional overloads for the function `apply` to use the default argument values.
 
@@ -379,7 +379,7 @@ fun main() {
     println(rulesMap.getValue("strong")("abc!"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 In Kotlin 1.3, you needed to introduce an explicit lambda parameter or replace `to` with a `Pair` constructor with 
 explicit generic arguments to make it work.
@@ -440,7 +440,7 @@ fun main() {
     perform(Cat())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 You can use different member references `animal::meow` and `animal::woof` after the animal variable has been smart cast 
 to specific types `Cat` and `Dog`. After type checks, you can access member references corresponding to subtypes.
@@ -462,7 +462,7 @@ fun main() {
     prop = "xyz"
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 #### SAM conversion for Java interfaces with different arguments
 
@@ -1062,7 +1062,7 @@ In 1.4.0, the standard library includes a number of useful functions for working
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `shuffled()` for sequences.
 
@@ -1075,7 +1075,7 @@ In 1.4.0, the standard library includes a number of useful functions for working
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `*Indexed()` counterparts for `onEach()` and `flatMap()`.
 The operation that they apply to the collection elements has the element index as a parameter.
@@ -1095,7 +1095,7 @@ The operation that they apply to the collection elements has the element index a
               println(kotlin)
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
 They return `null` on empty collections.
@@ -1109,7 +1109,7 @@ They return `null` on empty collections.
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `runningFold()`, its synonym `scan()`, and `runningReduce()` apply the given operation to the collection elements sequentially,
  similarly to`fold()` and `reduce()`; the difference is that these new functions return the whole sequence of intermediate results.
@@ -1125,7 +1125,7 @@ They return `null` on empty collections.
         println(runningFoldSum.toString())
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `sumOf()` takes a selector function and returns a sum of its values for all elements of a collection.
 `sumOf()` can produce sums of the types `Int`, `Long`, `Double`, `UInt`, and `ULong`. On the JVM, `BigInteger` and `BigDecimal` are also available.
@@ -1146,7 +1146,7 @@ They return `null` on empty collections.
         println("You've ordered $count items that cost $total in total")
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * The `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
   convention used across the Kotlin collections API. An `*OrNull` suffix in the function name means that it returns `null`
@@ -1169,7 +1169,7 @@ They return `null` on empty collections.
         println("The most expensive item in the order costs $highestPrice")
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
     There are also `minOfWith()` and `maxOfWith()`, which take a `Comparator` as an argument, and `*OrNull()` versions
 of all four functions that return `null` on empty collections.
@@ -1189,7 +1189,7 @@ of all four functions that return `null` on empty collections.
         println(lettersSeq.toList())
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * `removeFirst()` and `removeLast()` shortcuts for removing elements from mutable lists, and `*orNull()` counterparts
 of these functions.
@@ -1223,7 +1223,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 Additionally, there are new functions for conversions between `CharArray`/`ByteArray` and `String`:
 * `ByteArray.decodeToString()` and `String.encodeToByteArray()`
@@ -1238,7 +1238,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 #### ArrayDeque
 
@@ -1262,7 +1262,7 @@ fun main() {
     println(deque) // [1, 2, 3]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 The `ArrayDeque` implementation uses a resizable array underneath: it stores the contents in a circular buffer, an `Array`,
 and resizes this `Array` only when it becomes full.
@@ -1286,7 +1286,7 @@ and others.
         //sampleEnd
         }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 * Some existing functions of `StringBuilder` are available in the common library. Among them are `append()`, `insert()`,
 `substring()`, `setLength()`, and more. 
@@ -1303,7 +1303,7 @@ replace the JVM-only `appendln()` functions of these classes.
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 ### Bit operations
 
@@ -1325,7 +1325,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 ### Delegated properties improvements
 
@@ -1366,7 +1366,7 @@ fun main() {
    // Java type: java.util.List<java.lang.String>
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
 ### Proguard configurations for Kotlin reflection
 
