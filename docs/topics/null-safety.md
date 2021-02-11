@@ -14,7 +14,7 @@ Kotlin's type system is aimed to eliminate `NullPointerException`'s from our cod
 * Usage of the `!!` operator that is described below.
 * Some data inconsistency with regard to initialization, such as when:
   * An uninitialized `this` available in a constructor is passed and used somewhere ("leaking `this`").
-  * [A superclass constructor calls an open member](classes.md#derived-class-initialization-order) whose implementation 
+  * [A superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation 
   in the derived class uses uninitialized state.
 * Java interoperation:
   * Attempts to access a member on a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types);

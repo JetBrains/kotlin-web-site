@@ -58,6 +58,7 @@
         <toc-element id="packages.md"/>
         <toc-element toc-title="Classes and objects">
             <toc-element id="classes.md"/>
+            <toc-element id="inheritance.md"/>
             <toc-element id="properties.md"/>
             <toc-element id="interfaces.md"/>
             <toc-element id="fun-interfaces.md"/>
