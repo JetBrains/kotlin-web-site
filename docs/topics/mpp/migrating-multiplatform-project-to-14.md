@@ -116,20 +116,35 @@ Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
 
 ### Migrate to the hierarchical project structure
 
-A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms. 
-We recommend that you switch to the hierarchical project structure in your libraries when migrating to Kotlin 1.4.0:
+A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms. We recommend that you switch to the hierarchical project structure in your libraries when migrating to Kotlin 1.4.0:
 
-* Libraries published with the hierarchical project structure are compatible with all kinds of projects, both with and without the hierarchical project structure. 
-However, libraries published without the hierarchical project structure can’t be used in a shared native source set. 
-So, for example, users with `ios()` shortcuts in their `gradle.build` files won’t be able to use your library in their iOS-shared code.
-* In future versions, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be the default in multiplatform projects. 
-So the sooner you support it, the sooner users will be able to migrate. We’ll also be very grateful if you report any bugs you find to our [issue tracker.](http://kotl.in/issue) 
+* By default, libraries published with the hierarchical project structure are compatible only with projects that have hierarchical project structure. To enable compatibility with non-hierarchical projects, add the following to the `gradle.properties` file in your library project:
 
-To enable hierarchical project structure support, add the following to your `gradle.properties`:
-
-```kotlin
-kotlin.mpp.enableGranularSourceSetsMetadata=true
 ```
+`kotlin.mpp.enableCompatibilityMetadataVariant=true`
+```
+
+* Libraries published without the hierarchical project structure can’t be used in a shared native source set. For example, users with `ios()` shortcuts in their `build.gradle.(kts)` files won’t be able to use your library in their iOS-shared code.
+
+The compatibility between multiplatform projects and libraries is as follows:
+
+|**Library with hierarchical project structure**|**Project with hierarchical project structure**|**Compatibility**|
+| --- | --- | --- |
+|Yes|Yes|✅|
+|Yes|No|⚠️ Need to enable with `enableCompatibilityMetadataVariant`|
+|No|Yes|⚠️ Library can’t be used in a shared native source set|
+|No|Yes|✅|
+
+
+In future versions, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be the default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very grateful if you report any bugs you find to our issue tracker.
+
+To enable hierarchical project structure support, add the following to your `gradle.properties` file:
+
+```
+kotlin.mpp.enableGranularSourceSetsMetadata=true
+kotlin.mpp.enableCompatibilityMetadataVariant=true \\ to enable compatibility with projects without hierarchical structure
+```
+
 
 ## For build authors
 
