@@ -153,7 +153,7 @@ for a package.
 
 Here's an example content of the file:
 
-```
+```text
 # Module kotlin-demo
 
 The module shows the Dokka syntax usage.
