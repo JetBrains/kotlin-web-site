@@ -18,11 +18,9 @@ fun main() {
     println("Min: ${numbers.minOrNull()}")
     println("Average: ${numbers.average()}")
     println("Sum: ${numbers.sum()}")
-
 }
-
 ```
-{runnable="true" min-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 There are also functions for retrieving the smallest and the largest elements by certain selector function or custom [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/index.html):
 
