@@ -28,6 +28,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+A range created with the `..` operator is empty if the start value is greater than the end value.
 To iterate numbers in reverse order, use the [`downTo`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/down-to.html)
 function instead of `..`.
 
@@ -35,7 +36,12 @@ function instead of `..`.
 
 fun main() {
 //sampleStart
-    for (i in 4 downTo 1) print(i)
+    for (i in 4..1) {
+        print(i) // Never runs
+    }
+    for (i in 4 downTo 1) {
+        print(i)
+    }
 //sampleEnd
 }
 ```
