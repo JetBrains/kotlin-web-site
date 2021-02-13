@@ -113,7 +113,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 
 On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on. 
 Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
-In these cases numbers are boxed in Java clases `Integer`, `Double`, and so on.
+In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
 
 Note that nullable references to the same number can be different objects:
 
