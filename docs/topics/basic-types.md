@@ -188,7 +188,7 @@ All number types support conversions to other types:
 * `toDouble(): Double`
 * `toChar(): Char`
 
-Absence of implicit conversions is rarely noticeable because the type is inferred from the context,
+Implicit conversions is rarely noticeable because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
 
 ```kotlin
@@ -401,7 +401,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
->**On JVM**: nullable references to boolean objects are boxed similarly [numbers](#numbers-representation-on-the-jvm).
+>**On JVM**: nullable references to boolean objects are boxed similarly as [numbers](#numbers-representation-on-the-jvm).
 >
 {type="note"}
 
