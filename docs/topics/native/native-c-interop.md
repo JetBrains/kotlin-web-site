@@ -32,7 +32,7 @@ Install libgit2 and prepare stubs for the git library:
 
 cd samples/gitchurn
 ../../dist/bin/cinterop -def src/nativeInterop/cinterop/libgit2.def \
- -compilerOpts -I/usr/local/include -o libgit2
+ -compiler-option -I/usr/local/include -o libgit2
 ```
 
 Compile the client:
@@ -63,7 +63,7 @@ Then run the `cinterop` tool with something like this (note that for host librar
 in the sysroot search paths, headers may be needed):
 
 ```bash
-cinterop -def png.def -compilerOpts -I/usr/local/include -o png
+cinterop -def png.def -compiler-option -I/usr/local/include -o png
 ```
 
 This command will produce a `png.klib` compiled library and
@@ -105,7 +105,7 @@ are included into the bindings.
 
 The globs are applied to the header paths relative to the appropriate include
 path elements, e.g. `time.h` or `curl/curl.h`. So if the library is usually
-included with `#include <SomeLbrary/Header.h>`, then it would probably be
+included with `#include <SomeLibrary/Header.h>`, then it would probably be
 correct to filter headers with
 
 ```c
