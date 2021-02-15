@@ -40,4 +40,4 @@ email.value = "hadi@jetbrains.com"
 Much like you reference this `input` element, you can access other elements on the page, casting them to the appropriate
 types.
 
-To see how to create and structure elements in the DOM in a concise way, check out the the [Typesafe HTML DSL](typesafe-html-dsl.md).
+To see how to create and structure elements in the DOM in a concise way, check out the [Typesafe HTML DSL](typesafe-html-dsl.md).

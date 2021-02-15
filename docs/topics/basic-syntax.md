@@ -208,7 +208,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Inhertitance between classes is declared by a colon (`:`). Classes are final by default; to make a class inheritable, 
+Inheritance between classes is declared by a colon (`:`). Classes are final by default; to make a class inheritable, 
 mark it as `open`.
 
 ```kotlin

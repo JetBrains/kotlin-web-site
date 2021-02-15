@@ -377,7 +377,10 @@ You can add dependencies on a Pod library from a custom Podspec repository with 
 4. Re-import the project.
 
 > To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
-> For example, `source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'`
+> For example, 
+> ```ruby
+> source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'`
+> ```
 >
 > You should also specify the path to the Podspec in your Podfile.
 > For example:

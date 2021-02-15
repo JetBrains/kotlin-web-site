@@ -1,4 +1,4 @@
-[//]: # (title: Create a RESTful web service with Spring Boot)
+[//]: # (title: Create a RESTful web service with Spring Boot – tutorial)
 
 This tutorial walks you through the process of creating a simple application with Spring Boot.
 
@@ -28,7 +28,7 @@ This project uses **Gradle**, **Kotlin**, **Spring Web**, **Spring Data JDBC**, 
 3. Unpack the **.zip** file and open it in IntelliJ IDEA.
 
    The project has the following structure:
-   ![The Spring Boot project structure](spring-boot-project-structure.png)
+   ![The Spring Boot project structure](spring-boot-project-structure.png){width=500}
  
    There are packages and classes under the `main/kotlin` folder that belong to the application. The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
