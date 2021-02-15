@@ -119,6 +119,7 @@
             <toc-element id="jvm-get-started.md"/>
             <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html"/>
             <toc-element id="jvm-spring-boot-restful-db.md" accepts-web-file-names="spring-boot-restful-db.html"/>
+            <toc-element id="jvm-records.md"/>
             <toc-element id="java-interop.md"/>
             <toc-element id="java-to-kotlin-interop.md"/>
             <toc-element id="mixing-java-kotlin-intellij.md"/>
