@@ -210,8 +210,8 @@ Process 80496 stopped
    12   }
 
 Process 80496 launched: './program.kexe' (x86_64)
-(lldb) expression -- Konan_DebugPrint(a_variable)
-(a_variable) one is 1(KInt) $0 = 0
+(lldb) expression -- (int32_t)Konan_DebugPrint(a_variable)
+(a_variable) one is 1(int32_t) $0 = 0
 (lldb)
 
 ```
