@@ -1,4 +1,4 @@
-[//]: # (title: Add a database to a Spring Boot RESTful web service)
+[//]: # (title: Add a database to a Spring Boot RESTful web service – tutorial)
 
 This tutorial walks you through the process of adding a database to a RESTful web service with Spring Boot and shows you how to work with it.
 
@@ -91,7 +91,7 @@ Configure the database in the application:
 
 1. Create a new folder called `sql` in the `src/main/resources` with the `scheme.sql` file inside. It will store the database scheme:
 
-   ![Create a new folder](spring-boot-sql-scheme.png)
+   ![Create a new folder](spring-boot-sql-scheme.png){width=300}
 
 2. Update the `src/main/resources/sql/schema.sql` file with the following code:
 
