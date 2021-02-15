@@ -238,7 +238,7 @@ has decreased from 9.5 seconds (in 1.4.10) to 4.5 seconds (in 1.4.30).
 The x86 simulator target has been deprecated for watchOS since version 7.0. To keep up with the latest watchOS versions,
 Kotlin/Native has the new target `watchosX64` for running the simulator on 64-bit architecture.
 
-### Support for XCode 12.2 libraries
+### Support for Xcode 12.2 libraries
 
 We have added support for the new libraries delivered with Xcode 12.2. You can now use them from Kotlin code.
 
