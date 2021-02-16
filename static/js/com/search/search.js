@@ -27,6 +27,11 @@ $(document).ready(function () {
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: indexName,
+    searchParameters: {
+      attributesToSnippet: ['content:90'],
+      snippetEllipsisText: '...',
+      typoTolerance: true
+    },
     searchFunction: debounce((helper) => {
       const searchResults = $('.search-popup__results');
 

@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="{% block body_class %}{% endblock %} {% if restyled %}page_restyled_{{ restyled }}{% else %}page-old-styled {% endif %}">
 <head>
-    {% include 'inc/head.html' %}
-    {% block styles %}{% endblock %}
-
     {% if page and page.title %}
         {% set title=page.title + ' - Kotlin Programming Language' %}
     {% else %}
@@ -11,10 +8,12 @@
     {% endif %}
 
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% include 'inc/head.html' %}
 
+    {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
-<body class="{% block body_class %}{% endblock %} {% if restyled %}page_restyled_{{ restyled }}{% else %}page-old-styled {% endif %}">
+<body class="page_js_no">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
@@ -36,6 +35,7 @@
 
 {% include 'inc/search-popup.html' %}
 
+<script>document.body.className = document.body.className.replace('page_js_no', 'page_js_yes')</script>
 <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
 {% block scripts %}{% endblock %}
 </body>

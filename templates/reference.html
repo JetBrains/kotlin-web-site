@@ -12,18 +12,6 @@
 
 {% block content %}
     <div class="g-grid">
-
-        <aside class="g-3">
-            <div class="js-side-tree-nav">
-                {{ side_tree_nav(nav.reference.content) }}
-
-                <a href="{{ config.PDF_URL }}" class="reference-pdf-link">
-                    <span class="icon"></span>
-                    <span class="text">Full Kotlin Reference</span>
-                </a>
-            </div>
-        </aside>
-
         <article role="main" class="page-content g-9"{%- if site.contenteditable -%} contenteditable="true"{%- endif -%}>
             {% include 'inc/edit-on-github-link.html' %}
 

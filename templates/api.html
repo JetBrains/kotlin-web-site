@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
 {% block scripts %}
     <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
@@ -9,16 +8,22 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
+{% set docsNavBack={
+    "url": "/docs/home.html",
+    "text": "Kotlin Docs"
+} %}
+
 {% block content %}
     <div class="g-grid">
-        <aside class="g-3">
-            <div class="js-side-tree-nav">
-                {{ side_tree_nav(nav.reference.content) }}
+        <div class="api-layout">
+            <div class="api-layout_button-box">
+                <a class="scroll-button-back" href="/docs/home.html">← Docs</a>
+                <button class="scroll-button-top"></button>
             </div>
-        </aside>
 
-        <article role="main" class="page-content g-9">
-            {{ page.content | safe }}
-        </article>
+            <article role="main" class="page-content g-9">
+                {{ page.content | safe }}
+            </article>
+        </div>
     </div>
 {% endblock %}

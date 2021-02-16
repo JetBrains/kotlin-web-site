@@ -7,7 +7,7 @@ authors:
  - Hadi Hariri
  - Eugene Petrenko 
 date: 2019-04-15
-redirect_path: docs/tutorials/native/using-gradle
+redirect_path: https://kotlinlang.org/docs/tutorials/native/using-gradle.html
 ---
 
 

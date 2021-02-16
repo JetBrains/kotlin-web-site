@@ -5,7 +5,7 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 202 KUGs around the world
+## 203 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
@@ -126,6 +126,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Pune Kotlin User Group](https://www.facebook.com/groups/punekotlin), India
  * [Rajkot Kotlin User Group](https://sites.google.com/view/kugrajkot/home), India
  * [Saudi Arabia Kotlin User Group](https://www.facebook.com/KotlinArabia), Saudi Arabia
+ * [Saudi Kotlin User Group](https://twitter.com/kotlinsaudi), Saudi Arabia
  * [Shanghai, KotlinThree](http://kotlinthree.github.io/), China
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
  * [Sri Lanka Kotlin User Group](https://www.facebook.com/KotlinSrilanka/), Sri Lanka
@@ -134,7 +135,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Taiwan Kotlin User Group](https://wetogether.co/kotlin-tw), Taiwan
  * [Tel Aviv Kotlin User Group](https://www.meetup.com/KotlinTLV/), Israel
  * [Thailand Kotlin Developers](https://www.facebook.com/groups/872547279487598/), Thailand
- * [Turkey Kotlin User Group](http://kotlinveandroid.com/), Turkey
+ * [Turkey Kotlin User Group](https://youtube.com/channel/UCAofnGf9aQbioLzMMOdHV7w), Turkey
  * [Vellore Kotlin User Group](https://www.facebook.com/kotlinvellore), India
  * [Vietnam Kotlin User Group (online community)](https://vnkotlin.com), Vietnam
  * [Vijayawada Kotlin User Group](https://www.facebook.com/KotlinVijayawada/), India

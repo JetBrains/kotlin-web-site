@@ -1,11 +1,11 @@
-- title: "New release cadence"
-  link: https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/
+- title: "Kotlin Plugin Released With IDEA 2020.3"
+  link: https://blog.jetbrains.com/kotlin/2020/12/kotlin-plugin-released-with-idea-2020-3/
 
-- title: "kotlinx.serialization 1.0 released"
-  link: https://blog.jetbrains.com/kotlin/2020/10/kotlinx-serialization-1-0-released/
+- title: "Deep Learning With Kotlin"
+  link: https://blog.jetbrains.com/kotlin/2020/12/deep-learning-with-kotlin-introducing-kotlindl-alpha/
 
-- title: "Kotlin public roadmap"
-  link: https://blog.jetbrains.com/kotlin/2020/10/kotlin-public-roadmap-through-spring-2021/
+- title: "Jetpack Compose for Desktop"
+  link: https://blog.jetbrains.com/cross-post/jetpack-compose-for-desktop-milestone-2-released/
 
-- title: "Kotlin Multiplatform Mobile goes Alpha"
-  link: https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/
+- title: "Server-Side Development with Kotlin: Frameworks and Libraries"
+  link: https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/

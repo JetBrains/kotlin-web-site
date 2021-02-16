@@ -1,5 +1,8 @@
+@import "static/js/components/-vars-media";
+@import "static/js/components/kto-text";
+
 .kotlin-highlights-section {
-  padding: 0;
+  padding: 0 0 var(--xxl-space);
 }
 
 .kotlin-highlights-section__title {
@@ -15,6 +18,13 @@
 .kto-highlights-item {
   margin-bottom: 56px;
   width: 28%;
+
+  @media (max-width: $breakpoint-s) {
+    width: 49%;
+  }
+  @media (max-width: $breakpoint-xs) {
+    width: 100%;
+  }
 }
 
 .kto-highlights-item_company_gradle,
@@ -69,9 +79,8 @@
 }
 
 .kto-highlights-item__text {
-  font-size: 14px;
-  line-height: 24px;
-  color: rgba(39, 40, 44, .7);
+  @include kto-text;
+  @include kto-text_size_s;
 }
 
 .kotlin-highlights-section__title .kto-overview-section__title_link:hover::after {

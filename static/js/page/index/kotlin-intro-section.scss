@@ -7,12 +7,14 @@
   }
 }
 
-.kotlin-intro-section__supports {
-  text-align: right;
+@media (min-width: $breakpoint-m) {
+  .kotlin-intro-section__title-chunk {
+    display: block;
+  }
 }
 
 .kotlin-intro-section__link {
-  margin-left: 8px;
+  margin-left: var(--s-space);
 }
 
 .kotlin-intro-actions {
@@ -53,7 +55,8 @@
   justify-content: space-between;
   margin-bottom: 32px;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: $breakpoint-s) {
     flex-direction: column;
@@ -74,18 +77,14 @@
 
   background: transparent none no-repeat 32px 32px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
-
-  &:last-of-type {
-    border-right-style: none;
-  }
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: $breakpoint-s) {
-    border-right-style: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-    &:last-of-type {
-      border-bottom-style: none;
-    }
+  @media (max-width: $breakpoint-m) {
+    flex: 1 50%;
   }
 }
 
@@ -103,6 +102,10 @@
 
 .kotlin-intro-featured__item_type_web {
   background-image: url("./images/good-for/web.svg");
+}
+
+.kotlin-intro-featured__item_type_android {
+  background-image: url("./images/good-for/android.svg");
 }
 
 .kotlin-intro-featured .kto-heading_size_h3 {

@@ -1,10 +1,12 @@
 .kto-tabs {
   display: flex;
   justify-content: flex-end;
+  flex-grow: 1;
 }
 
+.kto-tabs__item,
 .kto-tabs > .kto-tabs__item {
-  color: #27282C;
+  color: rgba(39, 40, 44, 0.7);
 
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
@@ -23,6 +25,8 @@
     margin-right: 0;
   }
 
+  &:hover,
+  &:focus,
   &_active {
     color: #585DEF;
   }

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<platforms>
+    <platform id="primary">
+        <delimiter>+</delimiter>
+
+        <use-keymaps product="ij">
+            primary_Default for Windows,
+            primary_Eclipse,
+            primary_Emacs,
+            primary_NetBeans,
+            primary_Sublime Text,
+            primary_Visual Studio
+        </use-keymaps>
+
+        <use-keymaps product="db">
+            primary_Default for Windows,
+            primary_IntelliJ IDEA Classic (macOS),
+            primary_Emacs,
+            primary_Default for XWin,
+            primary_Default for GNOME,
+            primary_Default for KDE,
+            primary_Sublime Text,
+            primary_Sublime Text (macOS)
+        </use-keymaps>
+
+        <use-keymaps product="go">
+            primary_Default for Windows,
+            primary_IntelliJ IDEA Classic (macOS),
+            primary_Emacs,
+            primary_Visual Studio,
+            primary_Default for XWin,
+            primary_Default for GNOME,
+            primary_Default for KDE,
+            primary_Eclipse,
+            primary_Eclipse (macOS),
+            primary_Eclipse (macOS),
+            primary_NetBeans,
+            primary_Sublime Text,
+            primary_Sublime Text (macOS)
+        </use-keymaps>
+
+<use-keymaps product="cl">
+            primary_Default for Windows,
+            primary_Default for macOS,
+            primary_IntelliJ IDEA Classic (macOS),
+            primary_Emacs,
+            primary_Visual Studio,
+            primary_Default for XWin,
+            primary_Default for GNOME,
+            primary_Default for KDE,
+            primary_Eclipse,
+            primary_Eclipse (macOS),
+            primary_NetBeans,
+            primary_Sublime Text,
+            primary_Sublime Text (macOS),
+            primary_Xcode,
+            primary_ReSharper,
+            primary_ReSharper (macOS)
+        </use-keymaps>
+
+        <use-keymaps product="mps">
+            primary_Windows,
+            primary_Emacs,
+            primary_GNOME,
+            primary_IntelliJ IDEA Classic (macOS),
+            primary_KDE,
+            primary_macOS,
+            primary_Sublime Text,
+            primary_Sublime Text (macOS),
+            primary_XWin
+        </use-keymaps>
+        <use-keymaps product="ac"/>
+        <use-keymaps product="rm">
+            primary_Default for Windows,
+            primary_Default for GNOME,
+            primary_Eclipse,
+            primary_Eclipse (macOS),
+            primary_Emacs,
+            primary_Default for KDE,
+            primary_IntelliJ IDEA Classic (macOS),
+            primary_NetBeans,
+            primary_Sublime Text,
+            primary_Sublime Text (macOS),
+            primary_Visual Studio,
+            primary_Default for XWin
+        </use-keymaps>
+
+        <src>keymap-%currentId%.xml</src>
+        <mappings>ctrl:Ctrl;control:Ctrl;alt:Alt;shift:Shift;command:⌘;meta:⌘</mappings>
+        <directory-separator>\</directory-separator>
+    </platform>
+    <platform id="secondary">
+
+        <use-keymaps product="ac">
+            secondary_macOS,
+            secondary_Eclipse,
+            secondary_Eclipse (macOS),
+            secondary_Emacs,
+            secondary_IntelliJ IDEA Classic,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS),
+            secondary_Xcode
+        </use-keymaps>
+
+        <use-keymaps product="ij">
+            secondary_macOS,
+            secondary_Eclipse,
+            secondary_Eclipse (macOS),
+            secondary_Emacs,
+            secondary_IntelliJ IDEA Classic,
+            secondary_NetBeans,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS),
+            secondary_Visual Studio
+        </use-keymaps>
+
+        <use-keymaps product="db">
+            secondary_Default for macOS,
+            secondary_Emacs,
+            secondary_Default for XWin,
+            secondary_Default for GNOME,
+            secondary_Default for KDE,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS)
+        </use-keymaps>
+
+        <use-keymaps product="go">
+            secondary_Default for macOS,
+            secondary_Emacs,
+            secondary_Visual Studio,
+            secondary_Default for XWin,
+            secondary_Default for GNOME,
+            secondary_Default for KDE,
+            secondary_Eclipse,
+            secondary_Eclipse (macOS),
+            secondary_Eclipse (macOS),
+            secondary_NetBeans,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS)
+        </use-keymaps>
+
+        <use-keymaps product="rm">
+            secondary_Default for macOS,
+            secondary_Eclipse,
+            secondary_Eclipse (macOS),
+            secondary_Emacs,
+            secondary_NetBeans,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS),
+            secondary_Visual Studio
+        </use-keymaps>
+
+        <use-keymaps product="cl">
+            secondary_Default for macOS,
+            secondary_Default for Windows,
+            secondary_IntelliJ IDEA Classic,
+            secondary_Emacs,
+            secondary_Visual Studio,
+            secondary_Default for XWin,
+            secondary_Default for GNOME,
+            secondary_Default for KDE,
+            secondary_Eclipse,
+            secondary_Eclipse (macOS),
+            secondary_NetBeans,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS),
+            secondary_Xcode,
+            secondary_ReSharper,
+            secondary_ReSharper (macOS)
+        </use-keymaps>
+
+        <use-keymaps product="mps">
+            secondary_macOS,
+            secondary_Emacs,
+            secondary_GNOME,
+            secondary_IntelliJ IDEA Classic,
+            secondary_KDE,
+            secondary_Sublime Text,
+            secondary_Sublime Text (macOS),
+            secondary_XWin
+        </use-keymaps>
+
+        <src>keymap-%currentId%.xml</src>
+        <mappings>ctrl:^;control:Control;alt:⌥;shift:⇧;command:⌘;meta:⌘</mappings>
+        <directory-separator>/</directory-separator>
+    </platform>
+</platforms>

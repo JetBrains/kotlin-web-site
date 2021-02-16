@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import { throttle } from '../../util/throttle';
 import Dropdown from '../../com/dropdown'
 import NavTree from '../../com/nav-tree'
 import './api.scss'
@@ -176,7 +177,7 @@ function initializeSelects() {
       } else {
         state.platform.push(platform);
       }
-      
+
       updateState(state);
     }
   });
@@ -211,9 +212,33 @@ function initializeSections() {
   });
 }
 
+function handleApiPageScroll() {
+    // Container with float buttons should render after 800px
+    const scrollOffset = 800;
+    const $scrollTopButton = $('.scroll-button-top');
+    const $buttonsBox = $('.api-layout_button-box');
+
+    if (document.body.scrollTop > scrollOffset || document.documentElement.scrollTop > scrollOffset) {
+        $buttonsBox.addClass('api-layout_button-box_visible')
+    } else {
+        $buttonsBox.removeClass('api-layout_button-box_visible')
+    }
+
+    $scrollTopButton.on('click', function () {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 $(document).ready(() => {
   fixPlatformsAvailability();
   initializeSelects();
   initializeSections();
+  handleApiPageScroll();
   new NavTree(document.querySelector('.js-side-tree-nav'));
 });
+
+window.onscroll = throttle(function() {handleApiPageScroll()}, 250);
