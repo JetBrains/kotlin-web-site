@@ -120,7 +120,7 @@ A hierarchical project structure allows reusing code in similar targets, as well
 
 * By default, libraries published with the hierarchical project structure are compatible only with projects that have hierarchical project structure. To enable compatibility with non-hierarchical projects, add the following to the `gradle.properties` file in your library project:
 
-  ```kotlin
+  ```properties
   kotlin.mpp.enableCompatibilityMetadataVariant=true
   ```
 
@@ -128,23 +128,21 @@ A hierarchical project structure allows reusing code in similar targets, as well
 
 The compatibility between multiplatform projects and libraries is as follows:
 
-|**Library with hierarchical project structure**|**Project with hierarchical project structure**|**Compatibility**|
+|Library with hierarchical project structure|Project with hierarchical project structure|Compatibility|
 | --- | --- | --- |
 |Yes|Yes|✅|
 |Yes|No|Need to enable with `enableCompatibilityMetadataVariant`|
 |No|Yes|Library can’t be used in a shared native source set|
 |No|Yes|✅|
 
-
 In future versions, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be the default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very grateful if you report any bugs you find to our issue tracker.
 
 To enable hierarchical project structure support, add the following to your `gradle.properties` file:
 
-```kotlin
+```properties
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.mpp.enableCompatibilityMetadataVariant=true // to enable compatibility with projects without hierarchical structure
 ```
-
 
 ## For build authors
 
