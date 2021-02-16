@@ -2,7 +2,7 @@
 
 Kotlin 1.4.0 comes with lots of features and improvements in the tooling for multiplatform programming. 
 Some of them just work out of the box on existing projects, and some require additional configuration steps. 
-This guide will help you migrate your multiplatform projects to 1.4.0 and get the benefits of all its new features.
+This guide will help you migrate your multiplatform projects to 1.4.0 or higher and get the benefits of all its new features.
 
 ## For multiplatform project authors
 
@@ -120,9 +120,9 @@ A hierarchical project structure allows reusing code in similar targets, as well
 
 * By default, libraries published with the hierarchical project structure are compatible only with projects that have hierarchical project structure. To enable compatibility with non-hierarchical projects, add the following to the `gradle.properties` file in your library project:
 
-```
-`kotlin.mpp.enableCompatibilityMetadataVariant=true`
-```
+  ```kotlin
+  kotlin.mpp.enableCompatibilityMetadataVariant=true
+  ```
 
 * Libraries published without the hierarchical project structure can’t be used in a shared native source set. For example, users with `ios()` shortcuts in their `build.gradle.(kts)` files won’t be able to use your library in their iOS-shared code.
 
@@ -131,8 +131,8 @@ The compatibility between multiplatform projects and libraries is as follows:
 |**Library with hierarchical project structure**|**Project with hierarchical project structure**|**Compatibility**|
 | --- | --- | --- |
 |Yes|Yes|✅|
-|Yes|No|⚠️ Need to enable with `enableCompatibilityMetadataVariant`|
-|No|Yes|⚠️ Library can’t be used in a shared native source set|
+|Yes|No|Need to enable with `enableCompatibilityMetadataVariant`|
+|No|Yes|Library can’t be used in a shared native source set|
 |No|Yes|✅|
 
 
@@ -140,9 +140,9 @@ In future versions, the hierarchical project structure with the usage of platfor
 
 To enable hierarchical project structure support, add the following to your `gradle.properties` file:
 
-```
+```kotlin
 kotlin.mpp.enableGranularSourceSetsMetadata=true
-kotlin.mpp.enableCompatibilityMetadataVariant=true \\ to enable compatibility with projects without hierarchical structure
+kotlin.mpp.enableCompatibilityMetadataVariant=true // to enable compatibility with projects without hierarchical structure
 ```
 
 
