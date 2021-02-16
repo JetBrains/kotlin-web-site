@@ -41,6 +41,9 @@ The ecosystem of libraries for data-related tasks created by the Kotlin communit
 Here are some libraries that you may find useful:
 
 ### Kotlin libraries
+* [Multik](https://github.com/Kotlin/multik): multidimensional arrays in Kotlin. The library provides Kotlin-idiomatic, 
+  type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
+  JVM and native computational engines, and a combination of the two for optimal performance.
 
 * [kotlin-statistics](https://github.com/thomasnield/kotlin-statistics) is a library providing extension functions for 
 exploratory and production statistics. It supports basic numeric list/sequence/array functions (from `sum` to `skewness`),
