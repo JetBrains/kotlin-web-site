@@ -24,10 +24,10 @@ This section describes how you can:
 
 ### Adjust the Kotlin version
 
-In the `plugins` block within `build.gradle` (`build.gradle.kts`), change the `KOTLIN-EAP-VERSION` to the actual EAP version,
+In the `plugins` block within `build.gradle(.kts)`, change the `KOTLIN-EAP-VERSION` to the actual EAP version,
 such as `%kotlinEapVersion%`. Available EAP versions are listed [here](eap.md#build-details).
 
-Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle` (`settings.gradle.kts`) – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
+Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle(.kts)` – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
 
 Here is an example for the Multiplatform project.
 
@@ -78,13 +78,13 @@ For the **kotlinx.coroutines** library, add the version number – `%coroutinesE
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5-1.4-M1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesEapVersion%"
 }
 ```
 
 ```kotlin
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5-1.4-M1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesEapVersion%")
 }
 ```
 
