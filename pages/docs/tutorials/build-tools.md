@@ -1,7 +1,7 @@
 ---
-title: docs/build-tools.html
+title: docs/gradle.html
 showAuthorInfo: false
-redirect_path: https://kotlinlang.org/docs/build-tools.html
+redirect_path: https://kotlinlang.org/docs/gradle.html
 ---
 
-The page is moved to [docs/build-tools.md](docs/build-tools.md)
+The page is moved to [docs/gradle.md](docs/gradle.md)

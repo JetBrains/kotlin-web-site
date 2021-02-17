@@ -1,7 +1,7 @@
 ---
-title: docs/basics.html
+title: docs/coroutines-basics.html
 showAuthorInfo: false
-redirect_path: https://kotlinlang.org/docs/basics.html
+redirect_path: https://kotlinlang.org/docs/coroutines-basics.html
 ---
 
-The page is moved to [docs/basics.md](docs/basics.md)
+The page is moved to [docs/coroutines-basics.md](docs/coroutines-basics.md)
