@@ -1,7 +1,7 @@
 ---
-title: docs/compiler-plugins.html
+title: docs/all-open-plugin.html
 showAuthorInfo: false
-redirect_path: https://kotlinlang.org/docs/compiler-plugins.html
+redirect_path: https://kotlinlang.org/docs/all-open-plugin.html
 ---
 
-The page is moved to [docs/compiler-plugins.md](docs/compiler-plugins.md)
+The page is moved to [docs/all-open-plugin.md](docs/all-open-plugin.md)
