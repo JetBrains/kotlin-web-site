@@ -31,14 +31,14 @@ all the code you write is executed as if it would be in the body of `main`.
 Once you have finished writing your code in a scratch or a worksheet, click __Run__. 
 The execution results will appear in the lines opposite your code.
 
-<img src="scratch-run.png" alt="Run scratch" width="700" animated="true"/>
+![Run scratch](scratch-run.png){width=700}
 
 ### Interactive mode
 
 IntelliJ IDEA can run the code from scratches and worksheets automatically. To get the execution results when you stop 
 typing, switch on the __Interactive mode__.
 
-<img src="scratch-interactive.png" alt="Scratch interactive mode" width="700" animated="true"/>
+![Scratch interactive mode](scratch-interactive.png){width=700}
 
 ### Using modules
 
@@ -53,7 +53,7 @@ Both scratches and worksheets use the compiled versions of connected modules. So
 the changes will propagate to scratches and worksheets when you rebuild the module.
 To rebuild the module automatically before each run of a scratch or a worksheet, select __Make before Run__.
 
-<img src="scratch-select-module.png" alt="Scratch select module" width="700"/>
+![Scratch select module](scratch-select-module.png){width=700}
 
 ### Running as REPL 
 
@@ -61,7 +61,7 @@ To evaluate each particular expression in a scratch or a worksheet, run it with 
 executed the same way as in [REPL](#repl): the code lines will run sequentially, providing results of each call. 
 You can later refer to the results by the names `res*` shown in the corresponding lines.
 
-<img src="scratch-repl.png" alt="Scratch REPL" width="700"/>
+![Scratch REPL](scratch-repl.png){width=700}
 
 ## REPL
 
@@ -75,9 +75,10 @@ To run REPL in the OS command line, open `/bin/kotlinc-jvm` from the directory o
 The REPL command line interface will open. You can enter any valid Kotlin code and see the result. The results are printed as 
 variables with auto-generated names like `res*`. You can later use such variables in the code you run in REPL.
 
-<img src="repl-run.png" alt="Run REPL" width="700" animated="true"/>
+![Run REPL](repl-run.png){width=700}
 
 REPL supports multiline input as well. The result of the multiline input is the value of its last expression. 
 
-<img src="repl-multi-line.png" alt="Run REPL" width="700" animated="true"/>
+![REPL multi-line run](repl-multi-line.png){width=700}
+
 
