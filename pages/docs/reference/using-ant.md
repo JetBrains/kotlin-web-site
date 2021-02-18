@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-ant.html
 ---
 
-The page is moved to [docs/native-ant.md](docs/native-ant.md)
+The page is moved to [topics/native-ant.md](docs/topics/native-ant.md)

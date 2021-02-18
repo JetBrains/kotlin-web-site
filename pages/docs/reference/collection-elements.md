@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/collection-elements.html
 ---
 
-The page is moved to [docs/collection-elements.md](docs/collection-elements.md)
+The page is moved to [topics/collection-elements.md](docs/topics/collection-elements.md)

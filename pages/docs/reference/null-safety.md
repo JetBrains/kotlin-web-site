@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/null-safety.html
 ---
 
-The page is moved to [docs/null-safety.md](docs/null-safety.md)
+The page is moved to [topics/null-safety.md](docs/topics/null-safety.md)

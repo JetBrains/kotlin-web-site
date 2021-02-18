@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/collection-grouping.html
 ---
 
-The page is moved to [docs/collection-grouping.md](docs/collection-grouping.md)
+The page is moved to [topics/collection-grouping.md](docs/topics/collection-grouping.md)

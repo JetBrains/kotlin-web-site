@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/collection-ordering.html
 ---
 
-The page is moved to [docs/collection-ordering.md](docs/collection-ordering.md)
+The page is moved to [topics/collection-ordering.md](docs/topics/collection-ordering.md)

@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/control-flow.html
 ---
 
-The page is moved to [docs/control-flow.md](docs/control-flow.md)
+The page is moved to [topics/control-flow.md](docs/topics/control-flow.md)

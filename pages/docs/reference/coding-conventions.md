@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/coding-conventions.html
 ---
 
-The page is moved to [docs/coding-conventions.md](docs/coding-conventions.md)
+The page is moved to [topics/coding-conventions.md](docs/topics/coding-conventions.md)

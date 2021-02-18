@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/guidelines.html
 ---
 
-The page is moved to [docs/guidelines.md](../../docs/guidelines.md)
+The page is moved to [topics/guidelines.md](../../docs/topics/guidelines.md)

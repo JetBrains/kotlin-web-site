@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/curl.html
 ---
 
-The page is moved to [docs/curl.md](docs/curl.md)
+The page is moved to [topics/curl.md](../../../../docs/topics/curl.md)

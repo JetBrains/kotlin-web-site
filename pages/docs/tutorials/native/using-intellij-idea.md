@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-get-started.html
 ---
 
-The page is moved to [docs/native-get-started.md](docs/native-get-started.md)
+The page is moved to [topics/native/native-get-started.md](../../../../docs/topics/native/native-get-started.md)

@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/packages.html
 ---
 
-The page is moved to [docs/packages.md](docs/packages.md)
+The page is moved to [topics/packages.md](docs/topics/packages.md)

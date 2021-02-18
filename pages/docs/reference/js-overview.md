@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/js-overview.html
 ---
 
-The page is moved to [docs/js-overview.md](docs/js-overview.md)
+The page is moved to [topics/js-overview.md](docs/topics/js-overview.md)

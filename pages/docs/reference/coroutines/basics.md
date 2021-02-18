@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/coroutines-basics.html
 ---
 
-The page is moved to [docs/coroutines-basics.md](docs/coroutines-basics.md)
+The page is moved to [topics/coroutines-basics.md](docs/topics/coroutines-basics.md)

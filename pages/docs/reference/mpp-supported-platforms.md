@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/mpp-supported-platforms.html
 ---
 
-The page is moved to [docs/mpp-supported-platforms.md](docs/mpp-supported-platforms.md)
+The page is moved to [topics/mpp-supported-platforms.md](docs/topics/mpp-supported-platforms.md)

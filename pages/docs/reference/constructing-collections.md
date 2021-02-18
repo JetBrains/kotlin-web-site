@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/constructing-collections.html
 ---
 
-The page is moved to [docs/constructing-collections.md](docs/constructing-collections.md)
+The page is moved to [topics/constructing-collections.md](docs/topics/constructing-collections.md)

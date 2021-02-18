@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-overview.html
 ---
 
-The page is moved to [docs/native-overview.md](docs/native-overview.md)
+The page is moved to [topics/native-overview.md](docs/topics/native-overview.md)

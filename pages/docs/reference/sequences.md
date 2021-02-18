@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/sequences.html
 ---
 
-The page is moved to [docs/sequences.md](docs/sequences.md)
+The page is moved to [topics/sequences.md](docs/topics/sequences.md)
