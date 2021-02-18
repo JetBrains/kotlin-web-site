@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/kotlin-pdf.html
 ---
 
-The page is moved to [docs/kotlin-pdf.md](docs/kotlin-pdf.md)
+The page is moved to [topics/kotlin-pdf.md](../../docs/topics/kotlin-pdf.md)

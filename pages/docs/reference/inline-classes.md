@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/inline-classes.html
 ---
 
-The page is moved to [docs/inline-classes.md](docs/inline-classes.md)
+The page is moved to [topics/inline-classes.md](docs/topics/inline-classes.md)

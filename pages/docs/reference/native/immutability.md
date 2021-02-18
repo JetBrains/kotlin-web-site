@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-immutability.html
 ---
 
-The page is moved to [docs/native-immutability.md](docs/native-immutability.md)
+The page is moved to [topics/native-immutability.md](docs/topics/native-immutability.md)

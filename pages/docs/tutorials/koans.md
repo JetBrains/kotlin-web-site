@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/koans.html
 ---
 
-The page is moved to [docs/koans.md](docs/koans.md)
+The page is moved to [topics/koans.md](docs/topics/koans.md)

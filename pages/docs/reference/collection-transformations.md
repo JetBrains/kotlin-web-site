@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/collection-transformations.html
 ---
 
-The page is moved to [docs/collection-transformations.md](docs/collection-transformations.md)
+The page is moved to [topics/collection-transformations.md](docs/topics/collection-transformations.md)

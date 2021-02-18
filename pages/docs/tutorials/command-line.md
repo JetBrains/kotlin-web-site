@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/command-line.html
 ---
 
-The page is moved to [docs/command-line.md](docs/command-line.md)
+The page is moved to [topics/command-line.md](../../../docs/topics/command-line.md)

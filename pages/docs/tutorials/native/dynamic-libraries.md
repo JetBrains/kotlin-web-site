@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-dynamic-libraries.html
 ---
 
-The page is moved to [docs/native-dynamic-libraries.html.md](docs/native-dynamic-libraries.html.md)
+The page is moved to [topics/native/native-dynamic-libraries.md](../../../../docs/topics/native/native-dynamic-libraries.md)

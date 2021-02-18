@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-debugging.html
 ---
 
-The page is moved to [docs/native-debugging.md](docs/native-debugging.md)
+The page is moved to [topics/native-debugging.md](docs/topics/native-debugging.md)

@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/generics.html
 ---
 
-The page is moved to [docs/generics.md](docs/generics.md)
+The page is moved to [topics/generics.md](docs/topics/generics.md)

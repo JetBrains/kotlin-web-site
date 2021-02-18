@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/inline-functions.html
 ---
 
-The page is moved to [docs/inline-functions.md](docs/inline-functions.md)
+The page is moved to [topics/inline-functions.md](docs/topics/inline-functions.md)

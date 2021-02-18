@@ -1,7 +1,7 @@
 ---
-title: docs/working-with-javascript.html
+title: docs/js-project-setup.html
 showAuthorInfo: false
-redirect_path: https://kotlinlang.org/docs/working-with-javascript.html
+redirect_path: https://kotlinlang.org/docs/js-project-setup.html
 ---
 
-The page is moved to [docs/working-with-javascript.md](docs/working-with-javascript.md)
+The page is moved to [topics/js/working-with-javascript.md](../../../../docs/topics/js/js-project-setup.md)

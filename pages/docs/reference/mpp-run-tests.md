@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/mpp-run-tests.html
 ---
 
-The page is moved to [docs/mpp-run-tests.md](docs/mpp-run-tests.md)
+The page is moved to [topics/mpp-run-tests.md](docs/topics/mpp-run-tests.md)

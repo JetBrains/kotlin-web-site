@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/nested-classes.html
 ---
 
-The page is moved to [docs/nested-classes.md](docs/nested-classes.md)
+The page is moved to [topics/nested-classes.md](docs/topics/nested-classes.md)

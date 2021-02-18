@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/jvm-get-started.html
 ---
 
-The page is moved to [docs/jvm-get-started.md](docs/jvm-get-started.md)
+The page is moved to [topics/jvm/jvm-get-started.md](docs/topics/jvm/jvm-get-started.md)

@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/roadmap.html
 ---
 
-The page is moved to [docs/roadmap.md](../docs/roadmap.md)
+The page is moved to [topics/roadmap.md](../docs/topics/roadmap.md)

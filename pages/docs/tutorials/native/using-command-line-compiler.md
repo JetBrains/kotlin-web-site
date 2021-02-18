@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-command-line-compiler.html
 ---
 
-The page is moved to [docs/native-command-line-compiler.md](docs/native-command-line-compiler.md)
+The page is moved to [topics/native/native-command-line-compiler.md](../../../../docs/topics/native/native-command-line-compiler.md)

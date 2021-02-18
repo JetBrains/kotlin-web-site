@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/composing-suspending-functions.html
 ---
 
-The page is moved to [docs/composing-suspending-functions.md](docs/composing-suspending-functions.md)
+The page is moved to [topics/composing-suspending-functions.md](docs/topics/composing-suspending-functions.md)

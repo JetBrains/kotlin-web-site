@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/submitting-incompatible-changes.html
 ---
 
-The page is moved to [docs/submitting-incompatible-changes.md](../../docs/submitting-incompatible-changes.md)
+The page is moved to [topics/submitting-incompatible-changes.md](../../docs/topics/submitting-incompatible-changes.md)

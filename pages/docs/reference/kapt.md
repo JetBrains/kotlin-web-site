@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/kapt.html
 ---
 
-The page is moved to [docs/kapt.md](docs/kapt.md)
+The page is moved to [topics/kapt.md](docs/topics/kapt.md)

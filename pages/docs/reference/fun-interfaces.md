@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/fun-interfaces.html
 ---
 
-The page is moved to [docs/fun-interfaces.md](docs/fun-interfaces.md)
+The page is moved to [topics/fun-interfaces.md](docs/topics/fun-interfaces.md)

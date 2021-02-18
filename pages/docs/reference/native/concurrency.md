@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/native-concurrency.html
 ---
 
-The page is moved to [docs/native-concurrency.md](docs/native-concurrency.md)
+The page is moved to [topics/native-concurrency.md](docs/topics/native-concurrency.md)

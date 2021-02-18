@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/js-reflection.html
 ---
 
-The page is moved to [docs/js-reflection.md](docs/js-reflection.md)
+The page is moved to [topics/js-reflection.md](docs/topics/js-reflection.md)

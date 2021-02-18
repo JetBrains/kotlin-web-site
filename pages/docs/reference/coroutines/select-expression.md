@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/select-expression.html
 ---
 
-The page is moved to [docs/select-expression.md](docs/select-expression.md)
+The page is moved to [topics/select-expression.md](docs/topics/select-expression.md)

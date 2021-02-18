@@ -4,4 +4,4 @@ showAuthorInfo: false
 redirect_path: https://kotlinlang.org/docs/index.html
 ---
 
-The page is moved to [docs/index.md](docs/index.md)
+The page is moved to [topics/index.md](docs/topics/index.md)
