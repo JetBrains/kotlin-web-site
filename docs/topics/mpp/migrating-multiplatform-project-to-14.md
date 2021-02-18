@@ -94,18 +94,14 @@ In future versions, the hierarchical project structure will become default for K
 
 ## For library authors
 
-### Check uploading to Bintray
+### Migrate from Gradle Bintray plugin to Maven Publish plugin
 
-The Bintray plugin doesn’t support publishing Gradle module metadata, but there are a couple of ways to get around this issue:
-
-* Migrate to `maven-publish` instead of `gradle-bintray-plugin` [as we did for kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5).
+If you're using `gradle-bintray-plugin` for library publication, migrate your projects to `maven-publish` plugin instead.
+See how we've done this for `kotlinx.serialization` [here](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5).
 Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
 
-* Use [a workaround for the Bintray plugin](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891).
-
-While uploading your library to Bintray, you will see multiple versions for each artifact such as `my-library-jvm` and `my-library-js`. 
-To fix this, add `systemProp.org.gradle.internal.publish.checksums.insecure=true`. See [this issue](https://github.com/gradle/gradle/issues/11412) for details. 
-This is a common Gradle 6.0 issue that is neither MPP nor Kotlin specific.
+If for some reason you need to keep using Bintray, remember that the Bintray plugin doesn’t support publishing Gradle module metadata.
+Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to fix this.
 
 ### Follow the default libraries’ layout 
 

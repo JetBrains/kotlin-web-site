@@ -16,12 +16,6 @@ Open the __Help \| Eclipse Marketplace...__ menu and search for __Kotlin Plugin 
 
 <img src="marketplace.png" alt="Eclipse Marketplace" width="500"/>
 
-A more old-fashioned way is using an *update site* directly:
-
-```
-https://dl.bintray.com/jetbrains/kotlin/eclipse-plugin/last/
-```
-
 Once the plugin is installed and Eclipse is restarted, make sure the plugin is installed correctly: open the __Kotlin perspective__
 in the menu __Window \| Open Perspective \| Other...__
     
