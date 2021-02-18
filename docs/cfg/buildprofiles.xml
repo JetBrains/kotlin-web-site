@@ -13,6 +13,7 @@
         <web-root>http://www.jetbrains.com/idea/</web-root>
         <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
         <download-page/>
+        <relative-url-to-absolute-prefix>https://github.com/Kotlin/kotlinx.coroutines/blob/master/</relative-url-to-absolute-prefix>
         <help-app-version>3</help-app-version>
         <config-productid>help/kotlin-reference</config-productid>
         <config-disqus-id>jetbrains</config-disqus-id>
