@@ -100,8 +100,8 @@ If you're using `gradle-bintray-plugin` for library publication, migrate your pr
 See how we've done this for `kotlinx.serialization` [here](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5).
 Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
 
-If for some reason you need to keep using Bintray, remember that the Bintray plugin doesn’t support publishing Gradle module metadata.
-Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to fix this.
+If for some reason you need to publish to Bintray and use the Gradle Bintray plugin, remember that this plugin doesn’t support
+publishing Gradle module metadata. Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to fix this.
 
 ### Follow the default libraries’ layout 
 
