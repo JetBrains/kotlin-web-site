@@ -8,7 +8,7 @@
 
     <var name="kotlinEapVersion" value="1.4.30-RC" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.4.21" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.4.30" type="string"/>
 
     <var name="kotlinReleaseDate" value="February 3, 2021" type="string"/>
 
