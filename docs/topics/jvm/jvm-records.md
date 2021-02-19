@@ -24,7 +24,7 @@ Records are very similar to Kotlin [data classes](data-classes.md).
 ## Using Java records from Kotlin code
 
 You can use record classes with components that are declared in Java the same way you would use classes with properties in Kotlin.
-To access the record component, just use its name like you do for [Kotlin properties](https://kotlinlang.org/docs/properties.html):
+To access the record component, just use its name like you do for [Kotlin properties](properties.md):
 
 ```kotlin
 val firstName = Person.name
