@@ -1,13 +1,16 @@
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
-In this tutorial, you will learn how to create a multiplatform library for Kotlin/JVM, Kotlin/JS, and Kotlin/Native, write tests that will be executed on all platforms, and publish the library to a local Maven repository.
+In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write tests common for all platforms, and publish the library to a local Maven repository.
 
-The library that you will create converts raw data (strings and byte arrays) to the [Base64](https://en.wikipedia.org/wiki/Base64) format, which can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
-* For JVM implementation, you will use the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html), which is efficient because JVM compiles it in a special way.
-* For JS, you will use the [Buffer API](https://nodejs.org/docs/latest/api/buffer.html).
-* For Kotlin/Native, you will write your own implementation.
+This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format. It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
 
-You will also test your code with common tests, and then publish the resulting library to local Maven.
+You will use different ways to implement conversion to the Base64 format on different platforms:
+
+* For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
+* For JS – the [Buffer API](https://nodejs.org/docs/latest/api/buffer.html).
+* For Kotlin/Native – own implementation.
+
+You will also test your code using common tests, and then publish the library to your local Maven repository.
 
 ## Set up the environment
 
@@ -33,11 +36,11 @@ The wizard will create a sample multiplatform library with the following structu
 
 ## Cross-platform code
 
-Define the classes and interfaces you are going to implement.
+Define the classes and interfaces you are going to implement in the common code.
 
-1. In the `commonMain/kotlin` directory, create the structure `org/jetbrains/base64`.
-2. Create the `Base64.kt` file in the new directory.
-3. Define the `Base64Encoder` interface that converts bytes to bytes in the `Base64` format:
+1. In the `commonMain/kotlin` directory, create the `org/jetbrains/base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Define the `Base64Encoder` interface that converts bytes to the `Base64` format:
 
     ```kotlin
     package org.jetbrains.base64
@@ -69,13 +72,13 @@ Now it is time to provide `actual` implementations of the `Base64Factory` object
 
 ### JVM
 
-1. In the `jvmMain/kotlin` directory, create the structure `org/jetbrains/base64`.
-2. Create the `Base64.kt` file in the new directory.
+1. In the `jvmMain/kotlin` directory, create the `org/jetbrains/base64` package.
+2. Create the `Base64.kt` file in the new package.
 3. Provide a simple implementation of the `Base64Factory` object that delegates to the `java.util.Base64` class:
 
     > IDEA inspections help create `actual` implementations for an `expect` declaration.
     > 
-    > {type="note"}
+    {type="note"}
 
     ```kotlin
     package org.jetbrains.base64
@@ -90,14 +93,14 @@ Now it is time to provide `actual` implementations of the `Base64Factory` object
     }
     ```
 
-Pretty simple, isn't it?! You've provided a platform-specific implementation by using a straightforward delegation to an implementation of someone else.
+Pretty simple, isn't it?! You've provided a platform-specific implementation by using a straightforward delegation to a third-party implementation.
 
 ### JS
 
 The JS implementation will be very similar to the JVM one. 
 
-1. In the `jsMain/kotlin` directory, create the structure `org/jetbrains/base64`.
-2. Create the `Base64.kt` file in the new directory.
+1. In the `jsMain/kotlin` directory, create the `org/jetbrains/base64` package.
+2. Create the `Base64.kt` file in the new package.
 3. Provide a simple implementation of the `Base64Factory` object that delegates to  the NodeJS `Buffer` API:
 
     ```kotlin
@@ -118,10 +121,10 @@ The JS implementation will be very similar to the JVM one.
 
 ### Native
 
-Unfortunately, for Kotlin/Native there is no way to reuse implementation of someone else, and you need to write it yourself.
+Unfortunately, there is no relevant third-party implementation for Kotlin/Native, and you need to write it yourself.
 
-1. In the `nativeMain/kotlin` directory, create the structure `org/jetbrains/base64`.
-2. Create the `Base64.kt` file in the new directory.
+1. In the `nativeMain/kotlin` directory, create the `org/jetbrains/base64` package.
+2. Create the `Base64.kt` file in the new package.
 3. Provide your own implementation for the `Base64Factory` object:
 
     ```kotlin
@@ -169,7 +172,9 @@ Unfortunately, for Kotlin/Native there is no way to reuse implementation of some
 
 Now when you have `actual` implementations of the `Base64Factory` object for all platforms, it's time to test your multiplatform library.
 
-To save time on testing, don't test each platform separately – write common tests that will be executed on each platform.
+To save time on testing, don't test each platform separately – write common tests that will be executed on all platforms.
+
+### Prerequisites
 
 Before writing tests, add the `encodeToString` method with the default implementation to the `Base64Encoder` interface, which is defined in `commonMain/kotlin/org/jetbrains/base64/Base64.kt`.
 This implementation converts byte arrays to strings, which are much easier to test. 
@@ -187,7 +192,7 @@ interface Base64Encoder {
 }
 ```
 
-You can also provide a more efficient implementation of this method for a specific platform, for example, for JVM:
+You can also provide a more efficient implementation of this method for a specific platform, for example, for JVM in `jvmMain/kotlin/org/jetbrains/base64/Base64.kt`:
 
 ```kotlin
 object JvmBase64Encoder : Base64Encoder {
@@ -196,12 +201,14 @@ object JvmBase64Encoder : Base64Encoder {
 }
 ```
 
-Default implementations with optional platform-specific overrides are one the multiplatform library benefits. 
+A default implementation with optional platform-specific overrides is one of the multiplatform library benefits. 
 
-Now you have a string-based API and can cover it with basic tests.
+### Write common tests
 
-1. In the `commonTest/kotlin` directory, create the structure `org/jetbrains/base64`.
-2. Create the `Base64Test.kt` file in the new directory.
+Now you have a string-based API that can cover with basic tests.
+
+1. In the `commonTest/kotlin` directory, create the `org/jetbrains/base64` package.
+2. Create the `Base64Test.kt` file in the new package.
 3. Add tests to this file:
 
     ```kotlin
@@ -234,16 +241,22 @@ Now you have a string-based API and can cover it with basic tests.
     }
     ```
 
-4. In **Terminal**, execute the Gradle `check` task:
+4. In the Terminal, execute the `check` Gradle task:
 
     ```text
     ./gradlew check 
     ```
+   
+    > You can also run the `check` Gradle task by double-clicking it in the list of Gradle tasks.
+    >
+    {type="note"}
 
-The tests run on each platform – JVM, JS, and Native.
+The tests will run on all platforms – JVM, JS, and Native.
 
-You can also add tests for a specific platform that will run only as part of the platform tests.
-For example, you can add UTF-16 tests on JVM. Just follow the same steps as before, but create the `Base64Test` file in `jvmTest/kotlin/org/jetbrains/base64`:
+### Add platform-specific tests
+
+You can also add tests specific for a platform. Such tests will run only as part of the platform-specific tests.
+For example, you can add UTF-16 tests on JVM. Just follow the same steps as for common tests, but create the `Base64Test` file in `jvmTest/kotlin/org/jetbrains/base64`:
 
 ```kotlin
 package org.jetbrains.base64
@@ -263,13 +276,13 @@ class Base64JvmTest {
 
 This test will automatically run on the JVM platform in addition to common tests.
 
-## Publishing library to Maven
+## Publish your library to the local Maven repository
 
 Your multiplatform library is ready for publishing so that you could use in other projects.
 
 To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
 
-1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library :
+1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
 
 <tabs>
 
@@ -291,13 +304,23 @@ version = "1.0.0"
 
 </tabs>
 
-2. In **Terminal**, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
+2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
-```text
-./gradlew publishToMavenLocal
-```   
+    ```text
+    ./gradlew publishToMavenLocal
+    ```
 
-Your library will be published to the local Maven repository. Now you can add a dependency on it to other multiplatform projects.
+    > You can also run the `publishToMavenLocal` Gradle task by double-clicking it in the list of Gradle tasks.
+    >
+    {type="note"}
+   
+
+Your library will be published to the local Maven repository. 
+
+## Add a dependency on the published library
+
+Now you can add a dependency on your library to other multiplatform projects.
+
 Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle(.kts)` file.
 
 <tabs>
@@ -342,9 +365,12 @@ kotlin {
 
 In this tutorial, you've:
 * Created a multiplatform library with platform-specific implementations.
-* Written common tests that are executed on each platform.
+* Written common tests that are executed on all platforms.
 * Published the final library to the local Maven repository.
 
 ## What’s next
 
-* Learn more about [publishing multiplatform libraries](mpp-publish-lib.md)
+Learn more about:
+* [Publishing multiplatform libraries](mpp-publish-lib.md).
+* [Adding dependencies in multiplatform projects](mpp-add-dependencies.md).
+* [CocoaPods integration](native-cocoapods.md)
