@@ -123,6 +123,7 @@
             <toc-element id="java-interop.md"/>
             <toc-element id="java-to-kotlin-interop.md"/>
             <toc-element id="mixing-java-kotlin-intellij.md"/>
+            <toc-element id="jvm-test-using-junit.md"/>
             <toc-element id="comparison-to-java.md"/>
         </toc-element>
         <toc-element toc-title="JavaScript">
