@@ -180,7 +180,7 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <url>https://fosdem.org/2021/schedule/event/compose_for_desktop/</url>
         <description>
             <![CDATA[
-<p>Developing for multi-platform is picking up speed as the Kotlin Multi-Platform gets better with every release. That mostly means that shared logic is being written in Kotlin which can then be targeted to many target platforms. Up until recently it wasn't easy to develop UI for multiple platforms on the Desktop side. That is changing with the introduction of Compose for Desktop, which will allow building application UI for Linux, macOS and Windows.</p>
+<p>Developing for multiplatform is picking up speed as the Kotlin Multiplatform gets better with every release. That mostly means that shared logic is being written in Kotlin which can then be targeted to many target platforms. Up until recently it wasn't easy to develop UI for multiple platforms on the Desktop side. That is changing with the introduction of Compose for Desktop, which will allow building application UI for Linux, macOS and Windows.</p>
 <p>In this session you will get to understand what is Compose for Desktop, how does it work and how can you jump right into building for multiple platforms opening up the vast domains other than the mobile.</p>
 ]]>
         </description>
@@ -1163,7 +1163,7 @@ As a library author, maintaining a clean API is a challenge. There is always the
         <url>https://team.cft.ru/events/1</url>
         <description>
             <![CDATA[
-<p>Progress of coroutines in cross platform client development</p>
+<p>Progress of coroutines in cross-platform client development</p>
 ]]>
         </description>
     </event>
