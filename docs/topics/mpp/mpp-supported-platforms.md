@@ -44,7 +44,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     <tr>
         <td>iOS</td>
         <td><code>iosArm32</code>, <code>iosArm64</code>, <code>iosX64</code></td>
-        <td>Requires a macOS host.</td>
+        <td>Requires macOS host.</td>
     </tr>
     <tr>
         <td>watchOS</td>
@@ -59,7 +59,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     <tr>
         <td>macOS</td>
         <td><code>macosX64</code></td>
-        <td>Requires a macOS host.</td>
+        <td>Requires macOS host.</td>
     </tr>
     <tr>
         <td>Linux</td>
