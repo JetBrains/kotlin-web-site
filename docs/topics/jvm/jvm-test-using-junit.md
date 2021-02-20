@@ -8,6 +8,10 @@ The example has the [kotlin.test](/api/latest/kotlin.test/index.html) library un
 
 1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](/docs/tutorials/jvm-get-started.html#create-an-application).
 
+   > Specify **JUnit 4** as your test framework when creating a project.
+   >
+   {type="note"} 
+
 2. Open the `build.gradle(.kts)` file and add the following dependencies to the Gradle configuration to work with `kotlin.test` and `JUnit`:
 
 <tabs>
@@ -53,7 +57,7 @@ class Sample() {
 
 1. In IntelliJ IDEA, select **Code** \| **Generate** \| **Test...** of the `main.kt` file in `src/main/kotlin`.
 
-   ![Create a test]({{ url_for('tutorial_img', filename='testing/create-test.png') }})
+   ![Create a test](create-test.png)
    
    > You can also create a `*.kt` file for test in `src/main/kotlin` manually.
    > 
@@ -88,10 +92,11 @@ class Sample() {
 
 1. Run the test using the gutter icon. You can also run a test via the command-line interface using the `./gradlew` command.
    
-   ![Run the test]({{ url_for('tutorial_img', filename='testing/run-test.png') }})
+   ![Run the test](run-test.png)
    
 2. Check the result of the test run. 
 
 ## What's next
 
-* 
+* Look tutorial on Spring Boot, JUnit on YouTube
+* Watch videos on Spring Boot with Kotlin & JUnit 5 Tutorials [on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr).
