@@ -36,7 +36,7 @@ val oneByte: Byte = 1
 For real numbers, Kotlin provides floating-point types `Float` and `Double`.
 According to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754),
 floating point types differ by their _decimal place_, that is, how many decimal digits they can store.
-`Float` reflects the IEEE 754 _single precision_, while `Double` provides _double precision_.  
+`Float` reflects the IEEE 754 _single precision_, while `Double` provides _double precision_.   
  
 | Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
 |--------|-----------|--------------- |-------------|--------------|
@@ -409,7 +409,7 @@ fun main() {
 
 Characters are represented by the type `Char`. Character literals go in single quotes: `'1'`.
 
-Special characters start from an ecsaping backslash `\`. 
+Special characters start from an escaping backslash `\`. 
 The following escape sequences are supported: `\t`, `\b`, `\n`, `\r`, `\'`, `\"`, `\\` and `\$`.
 
 To encode any other character, use the Unicode escape sequence syntax: `'\uFF00'`.
