@@ -21,11 +21,11 @@ Download and install the [latest version of IntelliJ IDEA](http://www.jetbrains.
 
 1. In IntelliJ IDEA, select **File | New | Project**.
 2. In the left-hand panel, select **Kotlin**.
-3. Enter a project name, then in the **Multiplatform** section select  **Library**  as the project template.
+3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
 
    ![Select a project template](mpp-project-1.png)
 
-4. Select the Kotlin Gradle DSL.
+4. Select the Gradle DSL – Kotlin or Groovy.
 5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
 5. Click **Next**, and then click **Finish**.
 
