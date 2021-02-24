@@ -33,7 +33,7 @@ The wizard will create a sample multiplatform library with the following structu
 
 ![Multiplatform library structure](mpp-lib-structure.png){width=250}
 
-## Cross-platform code
+## Make code cross-platform
 
 Define the classes and interfaces you are going to implement in the common code.
 
@@ -61,7 +61,7 @@ The factory object is marked with the `expect` keyword in the cross-platform cod
 For each platform, you should provide an `actual` implementation of the `Base64Factory` object with the platform-specific encoder.
 Learn more about [platform-specific implementations](mpp-connect-to-apis.md).
 
-## Platform-specific implementations
+## Provide platform-specific implementations
 
 Now you will create the `actual` implementations of the `Base64Factory` object for each platform:
 
@@ -367,7 +367,7 @@ In this tutorial, you:
 * Wrote common tests that are executed on all platforms.
 * Published your library to the local Maven repository.
 
-## What’s next
+## What’s next?
 
 * Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
 * Learn more about [Kotlin Multiplatform](mpp-intro.md).
