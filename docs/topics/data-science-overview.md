@@ -45,6 +45,14 @@ Here are some libraries that you may find useful:
   type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
   JVM and native computational engines, and a combination of the two for optimal performance.
 
+* [KotlinDL](http://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
+  by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
+  for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
+
+* [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) adds a missing layer of compatibility between
+  Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
+  lambda expressions as simple expressions in curly braces or method references.
+
 * [kotlin-statistics](https://github.com/thomasnield/kotlin-statistics) is a library providing extension functions for 
 exploratory and production statistics. It supports basic numeric list/sequence/array functions (from `sum` to `skewness`),
 slicing operators (such as `countBy`, `simpleRegressionBy`), binning operations, discrete PDF sampling,
