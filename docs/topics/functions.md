@@ -47,7 +47,7 @@ of overloads compared to other languages:
 
 ```kotlin
 fun read(
-    b: Array<Byte>, 
+    b: ByteArray, 
     off: Int = 0,
     len: Int = b.size,
 ) { /*...*/ }
