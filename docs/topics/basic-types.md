@@ -113,7 +113,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 
 On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on. 
 Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
-In these cases numbers are boxed in Java clases `Integer`, `Double`, and so on.
+In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
 
 Note that nullable references to the same number can be different objects:
 
@@ -188,7 +188,7 @@ All number types support conversions to other types:
 * `toDouble(): Double`
 * `toChar(): Char`
 
-Absence of implicit conversions is rarely noticeable because the type is inferred from the context,
+Implicit conversions is rarely noticeable because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
 
 ```kotlin
@@ -401,7 +401,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
->**On JVM**: nullable references to boolean objects are boxed similarly [numbers](#numbers-representation-on-the-jvm).
+>**On JVM**: nullable references to boolean objects are boxed similarly as [numbers](#numbers-representation-on-the-jvm).
 >
 {type="note"}
 
