@@ -59,4 +59,4 @@ Have a question? [Contact us](mailto:kug@jetbrains.com)
 * **86** countries
  {:.community-numbers-right}
 
-This is a series of community-led events, where you can learn the essentials and best practices of Kotlin in Android, Google Cloud Platform, and multi-platform development
+This is a series of community-led events, where you can learn the essentials and best practices of Kotlin in Android, Google Cloud Platform, and multiplatform development
