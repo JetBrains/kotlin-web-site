@@ -6,7 +6,7 @@ or test framework.
 
 ## Required dependencies
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
+The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
 the Project Wizard automatically adds test dependencies to common and platform-specific source sets. 
 
 If you didn’t use the Project Wizard to create your project, you can [add the dependencies manually](gradle.md#set-dependencies-on-test-libraries).

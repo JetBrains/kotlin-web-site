@@ -102,7 +102,7 @@ fun main() {
 The sequence operations can be classified into the following groups regarding their state requirements:
 
 * _Stateless_ operations require no state and process each element independently, for example, [`map()`](collection-transformations.md#map) or [`filter()`](collection-filtering.md).
-   Stateless operations can also require a small constant amount of state to process an element, for example, [`take()` or `drop()`](collection-parts.md).
+   Stateless operations can also require a small constant amount of state to process an element, for example, [`take()`](collection-parts.md) or [`drop()`](collection-parts.md).
 * _Stateful_ operations require a significant amount of state, usually proportional to the number of elements in a sequence.
 
 If a sequence operation returns another sequence, which is produced lazily, it's called _intermediate_.

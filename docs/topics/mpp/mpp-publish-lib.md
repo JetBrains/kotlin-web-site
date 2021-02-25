@@ -1,6 +1,6 @@
 [//]: # (title: Publish a multiplatform library)
 
-You can publish a multiplatform library to a Maven repository with the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
+You can publish a multiplatform library to a Maven repository with the [`maven-publish`](https://docs.gradle.org/current/userguide/publishing_maven.html) Gradle plugin. 
 Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
 where the library should be published. The plugin creates publications automatically.
 

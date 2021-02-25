@@ -245,7 +245,7 @@ interface A {
 ```
 
 > The types in this example only take place with the strict mode enabled; otherwise, the platform types remain.
->See the [`@UnderMigration` annotation](#undermigration-annotation) and [Compiler configuration](#compiler-configuration) sections.
+>See the [`@UnderMigration`](#undermigration-annotation) annotation and [Compiler configuration](#compiler-configuration) sections.
 >
 {type="note"}
 

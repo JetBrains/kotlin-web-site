@@ -49,8 +49,8 @@ if (x is String && x.length > 0) {
 }
 ```
 
-Such _smart casts_ work for [`when` expressions](control-flow.md#when-expression)
-and [`while` loops](control-flow.md#while-loops) as well:
+Such _smart casts_ work for [`when`](control-flow.md#when-expression) expressions
+and [`while`](control-flow.md#while-loops) loops as well:
 
 ```kotlin
 when (x) {

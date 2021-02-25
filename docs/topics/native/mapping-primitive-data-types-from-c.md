@@ -46,7 +46,7 @@ necessary if you use C++ and overloaded functions. The
 contains more details on this.
 
 For every set of `.h` files,
-you will be using the [`cinterop` tool](native-c-interop.md)
+you will be using the [`cinterop`](native-c-interop.md) tool
 from Kotlin/Native to generate a Kotlin/Native library,
 or `.klib`. The generated library will bridge calls from Kotlin/Native to C. It includes
 respective Kotlin declarations for the definitions form the `.h` files.

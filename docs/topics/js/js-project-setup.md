@@ -300,7 +300,7 @@ To run tests, execute the standard lifecycle `check` task:
 ### Karma configuration
 
 The Kotlin/JS Gradle plugin automatically generates a Karma configuration file at build time which includes your settings
-from the [`kotlin.js.browser.testTask.useKarma` block](#test-task) in your `build.gradle(.kts)`. You can find
+from the [`kotlin.js.browser.testTask.useKarma`](#test-task) block in your `build.gradle(.kts)`. You can find
 the file at `build/js/packages/projectName-test/karma.conf.js`. 
 To make adjustments to the configuration used by Karma, place your additional configuration files inside a directory
 called `karma.config.d` in the root of your project. All `.js` configuration files in this directory will be picked up
