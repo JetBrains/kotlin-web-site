@@ -1,4 +1,4 @@
-[//]: # (title: Test code using JUnit in JVM)
+[//]: # (title: Test code using JUnit in JVM – tutorial)
 
 This tutorial shows you how to write a simple unit test and run it with the Gradle build tool.
 
@@ -91,12 +91,35 @@ class Sample() {
 ## Run a test
 
 1. Run the test using the gutter icon. You can also run a test via the command-line interface using the `./gradlew` command.
-   
+
    ![Run the test](run-test.png)
+
+2. Check the result of the test run in the **Run** tool window:
+
+   ![Check the reult](check-the-result.png)
+
+   The test function executed successfully.
+
+3. Ensure that the test works correctly – change the `expected` variable value to 43:
+
+   ```kotlin
+   @Test
+   fun testSum() {
+       val expected = 43
+       assertEquals(expected, classForTesting.sum(40, 2))
+   }
+   ```
    
-2. Check the result of the test run. 
+4. Run the test again and check the result:
+   
+   ![Check the test result](check-the-result-2.png)
+
+   The test execution has been failed.
 
 ## What's next
 
-* Look tutorial on Spring Boot, JUnit on YouTube
-* Watch videos on Spring Boot with Kotlin & JUnit 5 Tutorials [on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr).
+Once you've finished your first test, you can:
+
+* Try to write another test using other [`kotlin.test` functions](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/)
+* [Create your first application](jvm-spring-boot-restful.md) with Kotlin and Spring Boot.
+* Watch video [tutorials on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr) that show how to use Spring Boot with Kotlin & JUnit 5.
