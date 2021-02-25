@@ -71,7 +71,7 @@ class Sample() {
 
 2. Add the test code that for the `sum()` function in `SampleTest.kt`:
    
-   * Define the test `testSum()` function using the [`@Test` annotation](/api/latest/kotlin.test/kotlin.test/-test/index.html).
+   * Define the test `testSum()` function using the [@Test annotation](/api/latest/kotlin.test/kotlin.test/-test/index.html).
    * Check that the `sum()` function returns the value that is equal to the expected one using the [assertEquals()](/api/latest/kotlin.test/kotlin.test/-test/assert-equals.html) function.
 
    ```kotlin
@@ -122,6 +122,6 @@ class Sample() {
 
 Once you've finished your first test, you can:
 
-* Try to write another test using other [`kotlin.test` functions](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/)
+* Try to write another test using other [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions.
 * [Create your first application](jvm-spring-boot-restful.md) with Kotlin and Spring Boot.
 * Watch video [tutorials on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr) that show how to use Spring Boot with Kotlin & JUnit 5.
