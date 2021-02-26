@@ -518,7 +518,7 @@ Box<Derived> boxDerived(Derived value) { ... }
 Base unboxBase(Box<Base> box) { ... }
 ```
 
-The problem is that in Kotlin you can write `unboxBase(boxDerived("s"))` but in Java that would be impossible
+The problem is that in Kotlin you can write `unboxBase(boxDerived(Derived()))` but in Java that would be impossible
 because in Java the class `Box` is *invariant* in its parameter `T`, and thus `Box<Derived>` is not a subtype of `Box<Base>`. 
 To make this work in Java, you would have to define `unboxBase` as follows:
 

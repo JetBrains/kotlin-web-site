@@ -32,7 +32,7 @@ expect fun hello(world: String): String
 
 fun greet() {
     // usage of the expected API:
-    val greeting = hello("multi-platform world")
+    val greeting = hello("multiplatform world")
     println(greeting)
 }
 
