@@ -63,4 +63,4 @@ class SampleTestsIOS {
 }
 ```
 
-You can also learn how to create and run multiplatform tests in [this tutorial](multiplatform-library.md#testing).
+You can also learn how to create and run multiplatform tests in the [Create and publish a multiplatform library – tutorial](multiplatform-library.md#test-your-library).

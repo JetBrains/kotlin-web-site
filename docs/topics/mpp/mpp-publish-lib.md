@@ -22,6 +22,8 @@ publishing {
 }
 ```
 
+Complete the [tutorial on creating and publishing a multiplatform library](multiplatform-library.md) to get hands-on experience.
+
 ## Structure of publications
 
 When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
