@@ -121,7 +121,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
-    </tr> 
+    </tr>
     <tr>
         <td><strong>1.4.20</strong>
             <p>Released: <strong>November 23, 2020</strong></p>
@@ -151,7 +151,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
-       </tr>  
+       </tr>
     <tr>
         <td><strong>1.4.10</strong>
             <p>Released: <strong>September 7, 2020</strong></p>
@@ -204,7 +204,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
-    </tr>       
+    </tr>
     <tr>
         <td><strong>1.3.72</strong>
             <p> Released: <strong>April 15, 2020</strong></p>
