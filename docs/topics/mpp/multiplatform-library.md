@@ -33,11 +33,11 @@ The wizard will create a sample multiplatform library with the following structu
 
 ![Multiplatform library structure](mpp-lib-structure.png){width=250}
 
-## Make code cross-platform
+## Write cross-platform code
 
 Define the classes and interfaces you are going to implement in the common code.
 
-1. In the `commonMain/kotlin` directory, create the `org/jetbrains/base64` package.
+1. In the `commonMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
 3. Define the `Base64Encoder` interface that converts bytes to the `Base64` format:
 
@@ -71,7 +71,7 @@ Now you will create the `actual` implementations of the `Base64Factory` object f
 
 ### JVM
 
-1. In the `jvmMain/kotlin` directory, create the `org/jetbrains/base64` package.
+1. In the `jvmMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
 3. Provide a simple implementation of the `Base64Factory` object that delegates to the `java.util.Base64` class:
 
@@ -98,7 +98,7 @@ Pretty simple, right? You've provided a platform-specific implementation by usin
 
 The JS implementation will be very similar to the JVM one.
 
-1. In the `jsMain/kotlin` directory, create the `org/jetbrains/base64` package.
+1. In the `jsMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
 3. Provide a simple implementation of the `Base64Factory` object that delegates to the NodeJS `Buffer` API:
 
@@ -120,9 +120,9 @@ The JS implementation will be very similar to the JVM one.
 
 ### Native
 
-Unfortunately, there is no third-party implementation available for Kotlin/Native, so you need to write it yourself.
+Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself.
 
-1. In the `nativeMain/kotlin` directory, create the `org/jetbrains/base64` package.
+1. In the `nativeMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
 3. Provide your own implementation for the `Base64Factory` object:
 
@@ -206,7 +206,7 @@ One of the benefits of a multiplatform library is having a default implementatio
 
 Now you have a string-based API that you can cover with basic tests.
 
-1. In the `commonTest/kotlin` directory, create the `org/jetbrains/base64` package.
+1. In the `commonTest/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64Test.kt` file in the new package.
 3. Add tests to this file:
 
@@ -286,9 +286,13 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
 <tabs>
 
 ```groovy
-apply plugin: 'maven-publish'
-group 'org.jetbrains.base64'
-version '1.0.0'
+plugins {
+   id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+   id 'maven-publish'
+}
+
+group = 'org.jetbrains.base64'
+version = '1.0.0'
 ```
 
 ```kotlin
