@@ -1,3 +1,7 @@
+- name: Würzburg, Germany
+  geo:
+    lat: 49.795056
+    lng: 9.935672
 - name: Nacka, Sweden
   geo:
     lat: 59.304496
