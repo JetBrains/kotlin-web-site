@@ -1,5 +1,158 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-12</startDate>
+        <endDate>2021-02-12</endDate>
+        <location>Nürnberg, Germany</location>
+        <speaker>Enrique López Mañas</speaker>
+        <title>GDG Nuremberg</title>
+        <subject>Kotlin Coroutines for JVM</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-nuremberg-presents-kotlin-foundations-of-multithreading-and-functional-programming/</url>
+        <description>
+            <![CDATA[
+<p>Enrique will tell us more about the underlying Kotlin Coroutines</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-12</startDate>
+        <endDate>2021-02-12</endDate>
+        <location>Nürnberg, Germany</location>
+        <speaker>Nick Skelton</speaker>
+        <title>GDG Nuremberg</title>
+        <subject>Kotlin Flows</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-nuremberg-presents-kotlin-foundations-of-multithreading-and-functional-programming/</url>
+        <description>
+            <![CDATA[
+<p>Nick will talk about Kotlin Flows</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-12</startDate>
+        <endDate>2021-02-12</endDate>
+        <location>Nürnberg, Germany</location>
+        <speaker>Karin-Aleksandra Monoid</speaker>
+        <title>GDG Nuremberg</title>
+        <subject>Hands-on Arrows</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-nuremberg-presents-kotlin-foundations-of-multithreading-and-functional-programming/</url>
+        <description>
+            <![CDATA[
+<p>WTM Nuremberg presents functional programming advocate for Kotlin Karin-Aleksandra Monoid with her talk on Arrow.kt.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-02-25</startDate>
+        <endDate>2021-02-25</endDate>
+        <location>Minneapolis, MN</location>
+        <speaker>Chet Haase</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>The State of Kotlin on Android</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/276177619/</url>
+        <description>
+            <![CDATA[
+<p>In this session, Chet Haase from the Android developer relations team will give an overview of where things are at with the use of Kotlin on Android.</p>
+<p>This includes information on the parts of Android that are being enhanced for Kotlin developers, the resources for learning and using Kotlin, and the ongoing efforts to improve both the language and Android itself through the use and adoption of Kotlin.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-03</startDate>
+        <endDate>2021-03-03</endDate>
+        <location>London, UK</location>
+        <speaker>Nicola Corti</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>There is 1 broken API among us</subject>
+        <url>https://www.meetup.com/kotlin-london/events/276461959</url>
+        <description>
+            <![CDATA[
+<p>As a library user, you probably know that versions don't always tell the truth. Have you ever experienced a broken build after doing a minor bump of a library?
+<p>As a library author, maintaining a clean API is a challenge. There is always the risk that a breaking change sneaks in by accident.</p>
+<p>Wouldn't it be nice to get notified if you're accidentally breaking your users' code? A tool to inspect the binary API of your Kotlin/Java code can help you exactly with that. In this talk, we will see some of those tools and how that simplifies the life of library & SDK developers.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-03</startDate>
+        <endDate>2021-03-03</endDate>
+        <location>London, UK</location>
+        <speaker>Paulien van Alst</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>Embrace the Kotlin ecosystem at the back-end side</subject>
+        <url>https://www.meetup.com/kotlin-london/events/276461959</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is becoming a mature and established back-end language. The maturity of a language is not only measured by its features but also by its community and ecosystem. Kotlin's ecosystem for server-side development is growing very fast. Coming from the Java development side, Spring would be a default fallback option to build your application. While Spring is also hopping on the Kotlin train, the rest of Kotlin's ecosystem is growing fast. More and more new frameworks are popping up implementing different point of views on how to build your service. Those new frameworks might change our ways of developing back-end applications. Let’s have a look out there!</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-25</startDate>
+        <endDate>2021-03-25</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Joe Birch</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Scaling UI across platforms with Server Driven UI</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/276580829</url>
+        <description>
+            <![CDATA[
+<p>Mobile, Web, Desktop... when working with multiple platforms for your product, you might start to feel like there is a lot for your team to maintain. If we update the design for a feature or want to test a new layout, we often need to make that change in multiple clients. This results in more time spent on the same task in multiple places, with less time being able to focus on delivering even more value to your users./p>
+<p>With the use of declarative UI frameworks on the rise, there are more opportunities opening up that allow us to experiment with how we build our applications. Whilst Server Driven UI is nothing new, pair this with strongly typed server-side technologies and dynamically building our user interfaces becomes both simpler and safer./p>
+<p>In this talk we'll explore how we can utilise GraphQL to declare the presentation of our apps, with this being used to build our Jetpack Compose, SwiftUI or React components to be displayed on screen. With this knowledge we'll be able to start thinking about how we can build more dynamic UIs whilst utilising modern approaches when doing so.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-25</startDate>
+        <endDate>2021-03-25</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Sebastian Aigner </speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Introducing Compose for Desktop</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/276580829</url>
+        <description>
+            <![CDATA[
+<p>Some time ago, JetBrains published versions of Compose for Desktop – a modern UI framework for Kotlin that makes building performant and beautiful user interfaces for Desktop applications easy and enjoyable.</p>
+<p>In this talk, We will learn a bit about the principles and technology behind Compose for Desktop, and see what it takes to get started with building UIs in pure Kotlin!</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>de</lang>
+        <startDate>2021-03-30</startDate>
+        <endDate>2021-03-30</endDate>
+        <location>Würzburg, Germany</location>
+        <speaker>Sebastian Aigner </speaker>
+        <title>WUE.tech</title>
+        <subject>Microservices mit Ktor und NATS</subject>
+        <url>https://www.meetup.com/wue-tech/events/276539182/</url>
+        <description>
+            <![CDATA[
+<p>In unserem Meetup möchten wir Euch das Erstellen zweier Microservices mit dem Anwendungsframework Ktor im praktischen Einsatz vorstellen. Miteinander kommunizieren sollen die beiden Microservices über einen zentralen Event Bus. Hierfür setzen wir das Event Messaging System NATS ein. Wir schaffen damit ein flexibles und leichtgewichtiges Setup, welches die Arbeitsweise von Microservices in einem Live-System nachstellt.</p>
+<p>Das Framework Ktor kommt aus dem Hause JetBrains und ist in der hauseigenen Programmiersprache Kotlin verfasst. Es ermöglicht eine schnelle Realisierung von Web-Client- und Server-Applikationen und bietet sich daher gut zur Erstellung von Microservices in vernetzten Systemen an. Als Package Manager und Build Tool wird Gradle verwendet.</p>
+<p>Wir erstellen mit Ktor zwei einfache Webservices und demonstrieren ein paar der wichtigsten Features dieses Frameworks. Hierzu gehören Auto Reload, Routing, Basic User Authentification und Json.</p>
+<p>Beleuchtet werden darüberhinaus die Vorteile gegenüber etablierter Lösungen wie beispielsweise Spring Boot oder Symfony.</p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2021-02-10</startDate>
