@@ -41,8 +41,8 @@ The initializer, getter and setter are optional. Property type is optional if it
 (or from the getter return type, as shown below).
 
 ```kotlin
-var allByDefault: Int? // error: explicit initializer required, default getter and setter implied
 var initialized = 1 // has type Int, default getter and setter
+// var allByDefault // ERROR: explicit initializer required, default getter and setter implied
 ```
 
 The full syntax of a read-only property declaration differs from a mutable one in two ways: 
