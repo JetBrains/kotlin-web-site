@@ -10,33 +10,51 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](/docs/tutorials/jvm-get-started.html#create-an-application).
 
-   > Specify **JUnit 4** as your test framework when creating a project.
+   > Specify **JUnit 5** as your test framework when creating a project.
    >
    {type="note"} 
 
 2. Open the `build.gradle(.kts)` file and add the following dependencies to the Gradle configuration to work with `kotlin.test` and `JUnit`:
 
-<tabs>
+   <tabs>
 
    ```groovy
    dependencies {
        // Other dependencies.
-       // ...
-       testImplementation "org.jetbrains.kotlin:kotlin-test:1.3.11"
-       testImplementation "org.jetbrains.kotlin:kotlin-test-junit:1.3.11"
+       testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+       testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+       testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
    }
    ```
 
    ```kotlin
    dependencies {
        // Other dependencies.
-       // ...
-       testImplementation(kotlin("test"))
-       testImplementation(kotlin("test-junit"))
+       testImplementation(kotlin("test-junit5"))
+       testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+       testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
    }
    ```
 
-</tabs>
+   </tabs>
+
+3. Ensure, that **Project Wizard** automatically created the `test` task in the `build.gradle(.kts)` file:
+
+   <tabs>
+
+   ```groovy
+   test {
+       useJUnitPlatform()
+   }
+   ```
+
+   ```kotlin
+   tasks.test {
+       useJUnit()
+   }
+   ```
+
+   </tabs>
 
 ## Add code to test
 
@@ -92,9 +110,13 @@ class Sample() {
 
 ## Run a test
 
-1. Run the test using the gutter icon. You can also run a test via the command-line interface using the `./gradlew` command.
+1. Run the test using the gutter icon.
 
    ![Run the test](run-test.png)
+
+   > You can also run all project tests via the command-line interface using the `./gradlew test` command.
+   > 
+   {type="note"} 
 
 2. Check the result of the test run in the **Run** tool window:
 
@@ -122,6 +144,6 @@ class Sample() {
 
 Once you've finished your first test, you can:
 
-* Try to write another test using other [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions.
+* Try to write another test using other [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions. For example, use the [`assertNotEquals`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-not-equals.html) function. 
 * [Create your first application](jvm-spring-boot-restful.md) with Kotlin and Spring Boot.
 * Watch video [tutorials on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr) that show how to use Spring Boot with Kotlin & JUnit 5.
