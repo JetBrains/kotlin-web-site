@@ -2,13 +2,13 @@
 
 This tutorial shows you how to write a simple unit test and run it with the Gradle build tool.
 
-The example has the [kotlin.test](/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
+The example has the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 ## Add dependencies
 
-1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](/docs/tutorials/jvm-get-started.html#create-an-application).
+1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](jvm-get-started.md#create-an-application).
 
    > Specify **JUnit 5** as your test framework when creating a project.
    >
@@ -89,8 +89,8 @@ class Sample() {
 
 2. Add the test code that for the `sum()` function in `SampleTest.kt`:
    
-   * Define the test `testSum()` function using the [@Test annotation](/api/latest/kotlin.test/kotlin.test/-test/index.html).
-   * Check that the `sum()` function returns the value that is equal to the expected one using the [assertEquals()](/api/latest/kotlin.test/kotlin.test/-test/assert-equals.html) function.
+   * Define the test `testSum()` function using the [@Test annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
+   * Check that the `sum()` function returns the value that is equal to the expected one using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/assert-equals.html) function.
 
    ```kotlin
    import kotlin.test.Test
