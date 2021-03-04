@@ -2,6 +2,59 @@
 <events>
    <event>
         <lang>en</lang>
+        <startDate>2021-03-04</startDate>
+        <endDate>2021-03-04</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Daniele Baroncelli</speaker>
+        <title>droidcon Online - Your Android Online Events</title>
+        <subject>The D-KMP Architecture: Declarative UIs + Kotlin MultiPlatform + MVI Pattern</subject>
+        <url>https://www.online.droidcon.com/webinar/d-kmp-architecture-declarativeuis</url>
+        <description>
+            <![CDATA[
+<p>In this talk I will present the D-KMP architecture which is based on the 3 pillars:
+- DeclarativeUIs (JetpackCompose on Android, SwiftUI on iOS, Kotlin/React on Web)
+- KMP (Kotlin MultiPlatform)
+- MVI pattern (Model-View-Intent)</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-11</startDate>
+        <endDate>2021-03-11</endDate>
+        <location>London, UK</location>
+        <speaker>Alexey Soshin</speaker>
+        <title>JVM in London</title>
+        <subject>Mixing Scala and Kotlin</subject>
+        <url>https://www.meetup.com/JVM-in-London/events/276707808/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin and Scala are two popular JVM languages, but they are rarely seen together. In this talk Alexey will cover some reasons you may want to do it, and also the challenges you will face and how to solve them</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-04</startDate>
+        <endDate>2021-03-04</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Yevhenii Kanivets</speaker>
+        <title>droidcon Online - Your Android Online Events</title>
+        <subject>Backend for mobile engineers with Kotlin and Ktor</subject>
+        <url>https://www.online.droidcon.com/webinar/backend-for-mobile-engineers-with-kotlin-and-ktor</url>
+        <description>
+            <![CDATA[
+<p>How many times were you thinking about writing your backend for mobile apps you are working on? And how many times have you chosen Firebase instead? Are there any better options at the moment?</p>
+<p>In this session, I'll describe my experience of writing Kotlin backend for Codeforces WatchR mobile apps using Ktor, which is officially positioned as follows:
+<p>"An asynchronous framework for creating microservices, web applications, and more. It’s fun, free, and open source."</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
         <startDate>2021-02-12</startDate>
         <endDate>2021-02-12</endDate>
         <location>Nürnberg, Germany</location>
