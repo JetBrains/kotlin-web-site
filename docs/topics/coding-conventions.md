@@ -538,7 +538,7 @@ The first call in the chain usually should have a line break before it, but it's
 ### Lambdas
 
 In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
-from the body. If a call takes a single lambda, pas it outside of parentheses whenever possible.
+from the body. If a call takes a single lambda, pass it outside of parentheses whenever possible.
 
 ```kotlin
 list.filter { it > 10 }
