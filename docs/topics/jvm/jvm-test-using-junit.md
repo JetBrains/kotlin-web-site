@@ -50,7 +50,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
    ```kotlin
    tasks.test {
-       useJUnit()
+       useJUnitPlatform()
    }
    ```
 
@@ -114,13 +114,13 @@ class Sample() {
 
    ![Run the test](run-test.png)
 
-   > You can also run all project tests via the command-line interface using the `./gradlew test` command.
+   > You can also run all project tests via the command-line interface using the `./gradlew check` command.
    > 
    {type="note"} 
 
 2. Check the result of the test run in the **Run** tool window:
 
-   ![Check the reult](check-the-result.png)
+   ![Check the test result. The test passed successfully](check-the-result.png)
 
    The test function executed successfully.
 
@@ -136,7 +136,7 @@ class Sample() {
    
 4. Run the test again and check the result:
    
-   ![Check the test result](check-the-result-2.png)
+   ![Check the test result. The test has been failed](check-the-result-2.png)
 
    The test execution has been failed.
 
