@@ -50,7 +50,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-`println` prints its arguments and adds a line break, so that the next thing you print appears and the next line.
+`println` prints its arguments and adds a line break, so that the next thing you print appears on the next line.
 
 ```kotlin
 fun main() {
