@@ -98,7 +98,7 @@ class Sample() {
    
    internal class SampleTest {
    
-       private val classForTesting: Sample = Sample()
+       private val testSample: Sample = Sample()
    
        @Test
        fun testSum() {
