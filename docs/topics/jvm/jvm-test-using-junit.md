@@ -103,7 +103,7 @@ class Sample() {
        @Test
        fun testSum() {
            val expected = 42
-           assertEquals(expected, classForTesting.sum(40, 2))
+           assertEquals(expected, testSample.sum(40, 2))
        }
    }
    ```
