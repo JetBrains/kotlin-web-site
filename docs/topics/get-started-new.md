@@ -1,44 +1,43 @@
 [//]: # (title: Get started with Kotlin)
 
-[learn materials]()
+Is Kotlin your first language? Check out our [learn materials](learning-materials-overview.md).
+
+## Choose your goal
 
 <tabs>
 
 <tab title="Backend application">
 
 
-Choose your goal
+1. Install the IDE
 
-Create the backend application
+   Install the [latest IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
 
-Install the IDE
+2. Create the project
 
-Install the [latest IntelliJ IDEA Ultimate]
+  Решили не делать визард совсем.
 
-Create the project
+  **Spring**
 
-Решили не делать визард совсем.
+   [Spring](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
 
-Spring 
+  **Ktor**
+   
+   [Ktor](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction)
 
-[Spring](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
+3. Enhance your app
 
- Ktor
-[Ktor](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction)
+   Можем дать конкретное задание, а можно просто сказать о том, что можно делать (как опциональные задания.)
 
-Enhance your app
+   1) kotlinx.coroutines // Ktor, попробуй сделать асинхронным. Например, можем сделать его асинхронным с помощью kotlinx.coroutines.
+   2) Используй collections, чтобы решить следующие шесть задачек.
+   3) А еще изучи библиотеку Expose, чтобы хранить сообщения. И добавь БД туда.
+   
+4. Learn more Kotlin
 
-Можем дать конкретное задание, а можно просто сказать о том, что можно делать (как опциональные задания.)
+5. Have some problems
 
-1) kotlinx.coroutines // Ktor, попробуй сделать асинхронным. Например, можем сделать его асинхронным с помощью kotlinx.coroutines.
-2) Используй collections, чтобы решить следующие шесть задачек.
-3) А еще изучи библиотеку Expose, чтобы хранить сообщения. И добавь БД туда.
-
-Learn more Kotlin
-
-Have some problems
-
-Join Kotlin community
+6, Join Kotlin community
 
 </tab>
 
