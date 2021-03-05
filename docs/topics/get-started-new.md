@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin)
 
-Is Kotlin your first language? Check out our [learn materials](learning-materials-overview.md).
+Is Kotlin your first programming language? Check out our [learning materials](learning-materials-overview.md).
 
 ## Meet your goal with the Kotlin ecosystem
 
