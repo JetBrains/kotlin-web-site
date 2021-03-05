@@ -10,6 +10,7 @@
     <toc-element id="home.md" toc-title="Home"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
+    <toc-element toc-title="Get started (new)" id="get-started-new.md"/>
 
 
     <toc-element toc-title="Kotlin overview">
