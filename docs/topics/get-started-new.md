@@ -2,7 +2,9 @@
 
 Is Kotlin your first language? Check out our [learn materials](learning-materials-overview.md).
 
-## Choose your goal
+## Meet your goal with the Kotlin ecosystem
+
+Select a tab with the relevant scenario.
 
 <tabs>
 
@@ -43,39 +45,45 @@ Is Kotlin your first language? Check out our [learn materials](learning-material
 
 <tab title="Cross-platform mobile app">
 
-Install Android Studio.
-Create your first project:
-If you want to start from scratch, create a basic Kotlin application with the KMM plugin project wizard
-Tired of Hello,worlds? Clone an existing project --
-Hands-on: networking & data storage
-Samples?
-Add more logic:
-Use the power of standard library
-Sample….
-Use other Kotlin libs (use Gradle)
-Ktor (docs and sample)
-Serialization (docs and sample)
-Coroutines (docs and sample)
-Datetime (docs and sample)
-Community libraries
-SQLDelight
-https://libs.kmp.icerock.dev/
+Here you'll learn how to develop and improve your cross-platform mobile application using Kotlin Multiplatform Mobile (KMM).
 
+1. [Install Android Studio and set up your environment](https://kotlinlang.org/docs/mobile/setup.html).
+2. Create your first KMM application:
 
-Add dependencies (Deal with Gradle)
-Learn more Kotlin
-Look through GitHub samples
-Create and publish a multiplatform library
-Learn who use Kotlin in case studies
+    * To start from scratch, [create a basic KMM application with the project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html).
+    * If you have an existing Android application and want to make it cross-platform, complete the tutorial [Make your Android application work on iOS](https://kotlinlang.org/docs/mobile/integrate-in-existing-app.html).
+    * If you prefer real-life examples, clone and play with an existing project –  the networking and data storage project from the [hands-on tutorial](https://kotlinlang.org/docs/mobile/complete-networking-data-storage-hands-on.html) or any [KMM sample](https://kotlinlang.org/docs/mobile/samples.html). 
 
+3. Leverage the power of the [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), for example, [collections](https://kotlinlang.org/docs/collections-overview.html).
 
-Join Kotlinlang Slack (get invite here) to... (#getting-started, #multiplatform).
-StackOverflow: Subscribe to the “kotlin-multiplatform” tag.
-You can create an issue at https://youtrack.jetbrains.com/issues/KT  
-Follow us
-Twitter https://twitter.com/kotlin
-Reddit https://www.reddit.com/r/Kotlin/
-Kotlin Youtube https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw
+4. Use other Kotlin libraries in your application: 
+    * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
+    * Serialization ([docs](https://kotlinlang.org/docs/serialization.html) and sample).
+    * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
+    * dateTime (docs and sample).  
+   
+   Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
+
+5. Use third-party libraries to get more capabilities:
+    * [SQLDelight](https://cashapp.github.io/sqldelight/) for data storage ([sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html))
+    * [IceRock libraries](https://libs.kmp.icerock.dev/)
+   
+6. Learn more Kotlin for KMM:
+   * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html)
+   * [Create and publish a multiplatform library]()
+   * Learn who uses KMM in [case studies](https://kotlinlang.org/lp/mobile/case-studies/)
+   * Learn more about [Kotlin Multiplatform](https://kotlinlang.org/docs/mpp-intro.html)
+
+7. Join the Kotlin Multiplatform community:
+
+    * **Slack**: get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
+    * **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform). 
+    * **YouTrack**: Report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
+8. Follow Kotlin on: 
+    * [Twitter](https://twitter.com/kotlin)
+    * [Reddit](https://www.reddit.com/r/Kotlin/)
+    * [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
 </tab>
 
