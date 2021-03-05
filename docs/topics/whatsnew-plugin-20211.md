@@ -49,7 +49,7 @@ This release expands debugger capabilities. Here are some changes:
 
    ![Variables view](debugging-variables-view.png){width=620}
 
-* **Suspend functions evaluation (not in 2021.1 yet)** CHECK IT!!
+* **Suspend functions evaluation (not in 2021.1 yet)** MAYBE POSTPONED
 KT-27974 Allow to evaluate expression with suspended function from non-coroutine context
 KT-31701 Evaluate: "IllegalStateException: Can not generate outer receiver value for class" with suspend function
 
@@ -60,14 +60,13 @@ KT-31701 Evaluate: "IllegalStateException: Can not generate outer receiver value
 ## Code completion for type parameters
 
 From now on, the code completion mechanism offers functions that require type parameters. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
-
-Важно, что раньше в комплишене не предлагались варианты, если ты не указывал тип, то теперь IDE автоматически дописывает INT
+Важно, что раньше в комплишене не предлагались варианты, если ты не указывал тип, то теперь IDE автоматически дописывает его.
 
 ## Change signature refactoring
 
-To change signature refactoring,
+Change signature refactoring intro.
 
-Мы тут сделали значительные улучшения, очень много кейсов, где Change Signature ломает код, тепреь IDE скажет об этом.
+Мы тут сделали значительные улучшения, очень много кейсов, где Change Signature ломает код, теперь IDE скажет об этом.
 
 Here some refactoring improvements:
 * Correct rendering in IDE
@@ -97,5 +96,3 @@ Since the plugin and the platform have been moved to the same codebase and ship 
 * We’ve fixed some of the language injections issues that received the most votes: 
     * First, when you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end, the lines inside the triple quotes are highlighted correctly, and the mentioned functions work as expected.
     * Second, language injection works correctly when you concatenate strings.
-
-You can insert code written in a different language into your Kotlin code – we call this language injection
