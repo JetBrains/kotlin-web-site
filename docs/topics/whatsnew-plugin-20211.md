@@ -81,7 +81,7 @@ Here some refactoring improvements:
 
 ## UML diagrams for Kotlin classes
 
-In this EAP, you can test Kotlin code visualization via UML Class diagrams. You can build a diagram either from the **Project view** via **Diagrams | Show Diagram... | Java Classes**.
+With this release you can test Kotlin code visualization via UML Class diagrams. You can build a diagram either from the **Project view** via **Diagrams | Show Diagram... | Java Classes**.
 Currently, the diagrams only show inheritance and nesting relationships, but we plan to support more detailed association connections, like aggregation, construction, dependency, and others.
 
 ![Variables view](kotlin-classes-uml-diagram.png){width=620}
@@ -90,7 +90,7 @@ Currently, the diagrams only show inheritance and nesting relationships, but we 
 
 Since the plugin and the platform have been moved to the same codebase and ship simultaneously, this release also brings the following list of features that improve the Kotlin experience:
 
-* Now you can launch the basic memory profiler that was announced in the [IntelliJ IDEA 2020.3 release](https://www.jetbrains.com/idea/whatsnew/#debugger) via Gradle command run.
+* Now you can launch the basic memory profiler that was announced in the [IntelliJ IDEA 2020.3 release](https://www.jetbrains.com/idea/whatsnew/#debugger) via Gradle run.
 * To improve the experience of working with coroutines this release provides better thread-blocking call detection.
   Now the inspection warns you about inappropriate blocking method calls correctly.
 * We’ve fixed some of the language injections issues that received the most votes: 
