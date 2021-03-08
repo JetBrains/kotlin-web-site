@@ -71,7 +71,7 @@ class Customer(name: String) {
 In fact, for declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
 
 ```kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
+class Person(val firstName: String = "Foo", val lastName: String = "Bar", var age: Int = 27) { /*...*/ }
 ```
 
 You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare class properties:
@@ -101,7 +101,7 @@ Learn more about [visibility modifiers](visibility-modifiers.md#constructors).
 The class can also declare _secondary constructors_, which are prefixed with `constructor`:
 
 ```kotlin
-class Person {
+class Person() {
     var children: MutableList<Person> = mutableListOf()
     constructor(parent: Person) {
         parent.children.add(this)
