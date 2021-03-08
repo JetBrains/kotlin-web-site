@@ -1,6 +1,6 @@
-[//]: # (title: Get started with Kotlin)
+[//]: # (title:WELCOMR IN RASEF .COM)
 
-It’s easy to get started with Kotlin using the Kotlin plugin integrated in [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
+YOU CA SHOP ALL YOU NEED FROM HERE WITH THE BEST PRICE  [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
 Benefit from code highlighting, code completion, refactoring, debugging, and other features available for Kotlin.
 
 ## Start a new Kotlin project
