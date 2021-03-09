@@ -19,8 +19,8 @@ Kotlin makes server-side development easy and concise, no matter if you have no 
 
 2. Create the project using one of the following frameworks:
 
-   * **Spring** – mature family of frameworks with established ecosystem, used by millions of developers worldwide. Spring provides verified tools for everyday usage from DB interaction to security. Use the [tutorial](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/) to start with it.
-   * **Ktor** – the lightweight framework for those who value freedom in making architectural decisions. 100% Kotlin native framework, which does not force you to use any specific libraries – develop backend apps in your way. Go through our [hands-on](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction) to get started.
+   * **Spring** – mature family of frameworks with established ecosystem, used by millions of developers worldwide. Spring provides verified tools for everyday usage from DB interaction to security. [Use the tutorial](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/) to start with it.
+   * **Ktor** – the lightweight framework for those who value freedom in making architectural decisions. 100% Kotlin native framework, which does not force you to use any specific libraries – develop backend apps in your way. [Go through our hands-on](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction) to get started.
 
 3. Leverage the power of the [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), for example, [collections](collections-overview.md).
 
@@ -37,13 +37,15 @@ Kotlin makes server-side development easy and concise, no matter if you have no 
    * Write your first unit test TODO: add a link after merge PR.
    * [Mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
    * [Add dependencies using Gradle](gradle.md).
+   * Learn how Kotlin is used for server-side development in [DoorDash](https://kotlinlang.org/lp/server-side/case-studies/doordash), [Atlassian](https://www.youtube.com/watch?v=4GkoB4hZUnw), [Amazon](https://talkingkotlin.com/qldb/?_ga=2.194721837.1273405507.1615277998-602697560.1599818467) and [many other](https://kotlinlang.org/lp/server-side/case-studies/).
 
 7. Join the Kotlin server-side community:
    * **Slack**: get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * **StackOverflow**: Subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
-   * **YouTrack**: Report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates. enjoy the variety of educational content.
+
+If you encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 </tab>
 
@@ -64,19 +66,19 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
     * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
     * Serialization ([docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model)).
     * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
-    * DateTime ([docs](https://github.com/Kotlin/kotlinx-datetime#readme))  
+    * DateTime ([docs](https://github.com/Kotlin/kotlinx-datetime#readme)).
    
    Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
 
 4. Use third-party libraries to get more capabilities:
-    * [SQLDelight](https://cashapp.github.io/sqldelight/) for data storage ([sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html))
-    * [The community-driven list of Kotlin Multiplatform libraries](https://libs.kmp.icerock.dev/)
+    * [SQLDelight](https://cashapp.github.io/sqldelight/) for data storage ([sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html)).
+    * [The community-driven list of Kotlin Multiplatform libraries](https://libs.kmp.icerock.dev/).
    
 5. Learn more Kotlin for KMM:
-   * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html)
-   * [Create and publish a multiplatform library](mpp-create-lib.md)
-   * Learn how KMM is used in [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/) and [many other](https://kotlinlang.org/lp/mobile/case-studies/)
-   * Learn more about [Kotlin Multiplatform](mpp-intro.md)
+   * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html).
+   * [Create and publish a multiplatform library](mpp-create-lib.md).
+   * Learn how KMM is used in [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/) and [many other](https://kotlinlang.org/lp/mobile/case-studies/).
+   * Learn more about [Kotlin Multiplatform](mpp-intro.md).
 
 6. Join the Kotlin Multiplatform community:
 
@@ -117,14 +119,13 @@ Kotlin provides the ability to transpile your Kotlin code, the Kotlin standard l
 6. Learn more Kotlin web frontend:
 
    * The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Alpha](components-stability.md) stability) comes with a number of improvements over the current default compiler.
-   * [How to use dependencies from npm](using-packages-from-npm.md)
-   * [How to use Kotlin code from JavaScript](/js-to-kotlin-interop.md)
+   * [How to use dependencies from npm](using-packages-from-npm.md).
+   * [How to use Kotlin code from JavaScript](/js-to-kotlin-interop.md).
 
 7. Join the Kotlin web frontend community:
 
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
    * **StackOverflow**: Subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
-   * **YouTrack**: Report an issue to [our issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates. enjoy the variety of educational content.
 
