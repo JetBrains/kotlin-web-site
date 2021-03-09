@@ -1,45 +1,52 @@
 [//]: # (title: Get started with Kotlin)
 
-Is Kotlin your first language? Check out our [learn materials](learning-materials-overview.md).
+> If you are at the very beginning and Kotlin is your first programming language, we recommend you to start with [learning materials](learning-materials-overview.md).
+>
+{type="note"}
 
 ## Meet your goal with the Kotlin ecosystem
 
 Select a tab with the relevant scenario.
 
+
 <tabs>
 
 <tab title="Backend application">
 
+1. Install the [latest IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
 
-1. Install the IDE
+2. Create the project using one of the following frameworks:
 
-   Install the [latest IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
+   * **[Spring](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)**
+   * **[Ktor](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction)**
 
-2. Create the project
+3. Leverage the power of the [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), for example, [collections](https://kotlinlang.org/docs/collections-overview.html).
 
-  Решили не делать визард совсем.
+4. Use other Kotlin libraries in your application:
+   * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
+   * Serialization ([docs](https://kotlinlang.org/docs/serialization.html) and sample).
+   * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
+   * dateTime (docs and sample).
 
-  **Spring**
+   Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
 
-   [Spring](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
-
-  **Ktor**
-   
-   [Ktor](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction)
-
-3. Enhance your app
 
    Можем дать конкретное задание, а можно просто сказать о том, что можно делать (как опциональные задания.)
 
    1) kotlinx.coroutines // Ktor, попробуй сделать асинхронным. Например, можем сделать его асинхронным с помощью kotlinx.coroutines.
    2) Используй collections, чтобы решить следующие шесть задачек.
    3) А еще изучи библиотеку Expose, чтобы хранить сообщения. И добавь БД туда.
+
+5. Use third-party libraries to get more capabilities:
    
-4. Learn more Kotlin
+6. Learn more Kotlin for server-side:
 
-5. Have some problems
+7. Have some problems?
 
-6, Join Kotlin community
+8. Follow Kotlin on:
+   * [Twitter](https://twitter.com/kotlin)
+   * [Reddit](https://www.reddit.com/r/Kotlin/)
+   * [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
 </tab>
 
