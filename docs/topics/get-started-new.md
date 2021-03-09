@@ -59,26 +59,25 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
 
     * To start from scratch, [create a basic KMM application with the project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html).
     * If you have an existing Android application and want to make it cross-platform, complete the tutorial [Make your Android application work on iOS](https://kotlinlang.org/docs/mobile/integrate-in-existing-app.html).
-    * If you prefer real-life examples, clone and play with an existing project –  the networking and data storage project from the [hands-on tutorial](https://kotlinlang.org/docs/mobile/complete-networking-data-storage-hands-on.html) or any [KMM sample](https://kotlinlang.org/docs/mobile/samples.html). 
-
-3. Leverage the power of the [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), for example, [collections](https://kotlinlang.org/docs/collections-overview.html).
-
-4. Use other Kotlin libraries in your application: 
+    * If you prefer real-life examples, clone and play with an existing project –  the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [KMM sample](https://kotlinlang.org/docs/mobile/samples.html). 
+   
+3. Use the variety of Kotlin libraries to implement the needed business logic all in the shared module:
+    * Powerful [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/).
     * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
-    * Serialization ([docs](https://kotlinlang.org/docs/serialization.html) and sample).
+    * Serialization ([docs](https://kotlinlang.org/docs/serialization.html) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model)).
     * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
-    * dateTime (docs and sample).  
+    * DateTime ([docs](https://github.com/Kotlin/kotlinx-datetime#readme))  
    
    Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
 
 5. Use third-party libraries to get more capabilities:
     * [SQLDelight](https://cashapp.github.io/sqldelight/) for data storage ([sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html))
-    * [IceRock libraries](https://libs.kmp.icerock.dev/)
+    * [The community-driven list of Kotlin Multiplatform libraries](https://libs.kmp.icerock.dev/)
    
 6. Learn more Kotlin for KMM:
    * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html)
    * [Create and publish a multiplatform library]()
-   * Learn who uses KMM in [case studies](https://kotlinlang.org/lp/mobile/case-studies/)
+   * Learn how KMM is used in [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/) and [many other](https://kotlinlang.org/lp/mobile/case-studies/)
    * Learn more about [Kotlin Multiplatform](https://kotlinlang.org/docs/mpp-intro.html)
 
 7. Join the Kotlin Multiplatform community:
