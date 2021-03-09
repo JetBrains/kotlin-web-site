@@ -34,7 +34,7 @@ Kotlin makes server-side development easy and concise, no matter if you have no 
    * [graphql-kotlin](https://expediagroup.github.io/graphql-kotlin/docs/getting-started.html) to work with GraphQL.
 
 6. Learn more Kotlin for server-side:
-   * [Write your first unit test](jvm-test-using-junit.md). testing -- TODO: don't forget to merge testing tutorial
+   * Write your first unit test TODO: add a link after merge PR.
    * [Mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
    * [Add dependencies using Gradle](gradle.md).
 
