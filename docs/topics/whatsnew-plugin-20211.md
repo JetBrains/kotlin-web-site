@@ -16,8 +16,8 @@ Here are some major refinements:
 
 * **Faster syntax and error highlighting**. Previously, the compiler parses everything before throwing an error message. Now it processes the code gradually, which makes the code analysis much faster. Once the compiler finds the error, it instantly passes it to the IDE to show the error or warning message.
   
-* **Speed-up code completion**. In the release, the Kotlin plugin provides faster code completion 
-  В этом релизе мы много поработали над code completion и он стал намного быстрее. Кроме того, мы внесли и другие улучшение в CC, отдельно стоит отметить [Code completion for type parameters](#code-completion-for-type-parameters).
+* **Speed-up code completion**. In the release, the Kotlin plugin provides faster code completion.
+  In addition to speed changes, we made other improvements to code completion, especially [Code completion for type parameters](#code-completion-for-type-parameters).
 
 * **Faster IDE responsiveness**. We’ve fixed numerous issues based on your feedback and improve the overall stability of the plugin and IDE responsiveness.
 
@@ -53,14 +53,27 @@ This release expands debugger capabilities. Here are some changes:
 KT-27974 Allow to evaluate expression with suspended function from non-coroutine context
 KT-31701 Evaluate: "IllegalStateException: Can not generate outer receiver value for class" with suspend function
 
-* **Capability to change top-level variables in stack-frames**
-
+* **Capability to change top-level variables in stack-frames** 
+  
+   DOUBLE-CHECK: IS IT IMPORTANT?
    Менять топ-левел переменные в стек-фрейме.
 
 ## Code completion for type parameters
 
 From now on, the code completion mechanism offers functions that require type parameters. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
-Важно, что раньше в комплишене не предлагались варианты, если ты не указывал тип, то теперь IDE автоматически дописывает его.
+
+In the following example, the IDE automatically adds the `<Int>()` type:
+
+![Now code completion suggest functions](code-completion-type-pararmeters.png){width=800}
+
+And you'll get the following code:
+
+```kotlin
+class SimpleClass<T>(val f: T) {
+    operator fun <U> invoke(): List<U> = TODO()
+    val one: List<Int> = SimpleClass("one")<Int>().asReversed()
+}
+```
 
 ## Change signature refactoring
 
@@ -82,7 +95,7 @@ Here some refactoring improvements:
 ## UML diagrams for Kotlin classes
 
 With this release you can test Kotlin code visualization via UML Class diagrams. You can build a diagram either from the **Project view** via **Diagrams | Show Diagram... | Java Classes**.
-Currently, the diagrams only show inheritance and nesting relationships, but we plan to support more detailed association connections, like aggregation, construction, dependency, and others.
+Currently, the diagrams only show gitinheritance and nesting relationships, but we plan to support more detailed association connections, like aggregation, construction, dependency, and others.
 
 ![Variables view](kotlin-classes-uml-diagram.png){width=620}
 
