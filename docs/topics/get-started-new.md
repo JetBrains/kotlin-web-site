@@ -15,7 +15,7 @@ Concise, safe, and interoperable. Easy to pick up, so you can create powerful ap
 
 Kotlin makes server-side development easy and concise, no matter if you have no prior backend experience or an experienced server-side developer. Here we will help you with your first step in developing Kotlin server applications.
 
-1. Install the [latest IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
+1. Install the [latest version of IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/)
 
 2. Create the project using one of the following frameworks:
 
@@ -43,7 +43,7 @@ Kotlin makes server-side development easy and concise, no matter if you have no 
    * **Slack**: get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * **StackOverflow**: Subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
 
-8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates. enjoy the variety of educational content.
+8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates.
 
 If you encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
@@ -85,7 +85,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
     * **Slack**: get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
     * **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
-7. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates. enjoy the variety of educational content.
+7. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates.
 
 If you encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
    
@@ -95,7 +95,7 @@ If you encountered any difficulties or problems, report an issue to our [issue t
 
 Kotlin provides the ability to transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies to JavaScript.
 
-1. Install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+1. Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
 2. Create your first web frontend application:
 
@@ -127,7 +127,7 @@ Kotlin provides the ability to transpile your Kotlin code, the Kotlin standard l
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
    * **StackOverflow**: Subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
 
-8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates. enjoy the variety of educational content.
+8. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) and don't miss the important ecosystem updates.
 
 If you encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
