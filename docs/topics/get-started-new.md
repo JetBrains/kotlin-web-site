@@ -17,31 +17,26 @@ Select a tab with the relevant scenario.
 
 2. Create the project using one of the following frameworks:
 
-   * **[Spring](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)**
-   * **[Ktor](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction)**
+   * **Spring** – mature family of frameworks with established ecosystem, used by millions of developers worldwide. Spring provides verified tools for everyday usage from DB interaction to security. Use the [tutorial](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/) to start with it.
+   * **Ktor**. Go through our [hands-on](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction) to get started.
 
 3. Leverage the power of the [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), for example, [collections](https://kotlinlang.org/docs/collections-overview.html).
 
 4. Use other Kotlin libraries in your application:
-   * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
-   * Serialization ([docs](https://kotlinlang.org/docs/serialization.html) and sample).
-   * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
-   * dateTime (docs and sample).
+   * To go more in-depth with Kotlin and Ktor, you can make your application asynchronous with [kotlinx.coroutines](https://kotlinlang.org/docs/coroutines-guide.html).
+   * Take a look at the [Exposed](https://github.com/JetBrains/Exposed) library and use it to save messages and add a database to your application.
 
-   Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
-
-
-   Можем дать конкретное задание, а можно просто сказать о том, что можно делать (как опциональные задания.)
-
-   1) kotlinx.coroutines // Ktor, попробуй сделать асинхронным. Например, можем сделать его асинхронным с помощью kotlinx.coroutines.
-   2) Используй collections, чтобы решить следующие шесть задачек.
-   3) А еще изучи библиотеку Expose, чтобы хранить сообщения. И добавь БД туда.
-
-5. Use third-party libraries to get more capabilities:
+5. Use [third-party libraries](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/) to get more capabilities.
    
 6. Learn more Kotlin for server-side:
+   * [Write your first unit test](jvm-test-using-junit.html). TODO: wait for merge of the PR
+   * [Mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
+   * [Add dependencies using Gradle](gradle.md).
 
-7. Have some problems?
+7. Join the Kotlin Multiplatform community:
+   * **Slack**: get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
+   * **StackOverflow**: Subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
+   * **YouTrack**: Report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 8. Follow Kotlin on:
    * [Twitter](https://twitter.com/kotlin)
