@@ -33,10 +33,8 @@ def get_pages(freezer):
 
                 url = path.join(prefix_path, filename)
 
-                if filename == "index.html":
-                    paths.append((prefix_path, frozen_dict.get(prefix_path, None)))
-                else:
-                    paths.append((url, frozen_dict.get(url, None)))
+                if url.endswith('index.html'): url = url[:-10]
+                paths.append((url, frozen_dict.get(url, None)))
 
     return paths if len(paths) > 0 else frozen
 
@@ -263,7 +261,7 @@ def to_wh_index(version, item):
 
 
 def build_search_indices(pages, version):
-    page_views_statistic = {} #get_page_views_statistic()
+    page_views_statistic = get_page_views_statistic()
     index_objects = []
     wh_index_objects = []
 
