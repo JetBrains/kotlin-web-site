@@ -254,17 +254,14 @@ If you do not need a standard library at all, you can add the opt-out flag to th
 kotlin.stdlib.default.dependency=false
 ```
 
-### Set dependencies on test libraries
+### Set the dependency on test libraries
 
 The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing different Kotlin projects. 
 
-Add the corresponding dependencies on test libraries:
+Add the dependency on `kotlin-test` to the `commonTest` source set. 
+The dependencies for the corresponding platform source sets will be inferred automatically. //todo tell more about this?
 
-* For `commonTest`, add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies.
-* For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and annotations mapping.
-* For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. 
-
-Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
+//Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
 <tabs>
 
@@ -273,18 +270,7 @@ kotlin{
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
-            }
-        }
-        jvmTest {
-            dependencies {
-                implementation kotlin('test-junit')
-            }
-        }
-        jsTest {
-            dependencies {
-                implementation kotlin('test-js')
+                implementation kotlin('test')
             }
         }
     }
@@ -296,18 +282,7 @@ kotlin{
     sourceSets {
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
+                implementation(kotlin("test"))
             }
         }
     }
