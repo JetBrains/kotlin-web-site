@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
-        SYSTEM "http://helpserver.labs.intellij.net/help/product-profile.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 
 <product-profile id="kr"
                  name="Kotlin"
@@ -117,6 +117,7 @@
 <toc-element toc-title="Platforms">
         <toc-element toc-title="JVM">
             <toc-element id="jvm-get-started.md"/>
+            <toc-element id="jvm-test-using-junit.md"/>
             <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html"/>
             <toc-element id="jvm-spring-boot-restful-db.md" accepts-web-file-names="spring-boot-restful-db.html"/>
             <toc-element id="jvm-records.md"/>
