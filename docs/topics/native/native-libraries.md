@@ -5,7 +5,7 @@
 To produce a library with the Kotlin/Native compiler use the `-produce library` or `-p library` flag. For example:
 
 ```bash
-$ kotlinc foo.kt -p library -o bar
+$ kotlinc-native foo.kt -p library -o bar
 ```
 
 This command will produce a `bar.klib` with the compiled contents of `foo.kt`.
@@ -13,7 +13,7 @@ This command will produce a `bar.klib` with the compiled contents of `foo.kt`.
 To link to a library use the `-library <name>` or `-l <name>` flag. For example:
 
 ```bash
-$ kotlinc qux.kt -l bar
+$ kotlinc-native qux.kt -l bar
 ```
 
 This command will produce a `program.kexe` out of `qux.kt` and `bar.klib`
@@ -79,7 +79,7 @@ val String.kotlinized
 ```
 
 ```bash
-$ kotlinc kotlinizer.kt -p library -o kotlinizer
+$ kotlinc-native kotlinizer.kt -p library -o kotlinizer
 ```
 
 The library has been created in the current directory:
@@ -120,7 +120,7 @@ fun main(args: Array<String>) {
 Now compile the program linking with the library you have just created:
 
 ```bash
-$ kotlinc use.kt -l kotlinizer -o kohello
+$ kotlinc-native use.kt -l kotlinizer -o kohello
 ```
 
 And run the program:

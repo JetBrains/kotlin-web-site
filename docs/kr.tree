@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE product-profile
-        SYSTEM "http://helpserver.labs.intellij.net/help/product-profile.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
 
 <product-profile id="kr"
                  name="Kotlin"
@@ -104,13 +104,12 @@
         <toc-element id="mpp-configure-compilations.md"/>
         <toc-element id="mpp-run-tests.md"/>
         <toc-element id="mpp-publish-lib.md"/>
+        <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
         <toc-element id="mpp-build-native-binaries.md"/>
         <toc-element id="mpp-supported-platforms.md"/>
         <toc-element id="mpp-dsl-reference.md"/>
         <toc-element id="migrating-multiplatform-project-to-14.md"/>
-        <toc-element id="mpp-tutorials.md">
-            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
-        </toc-element>
+        <toc-element id="mpp-tutorials.md"/>
 
     </toc-element>
 

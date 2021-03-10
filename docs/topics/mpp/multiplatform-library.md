@@ -1,152 +1,161 @@
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
-In this tutorial, we will build a small library available from the worlds of JVM, JS, and Native. 
-You will learn step-by-step how to create a multiplatform library which can be used from any other common code (e.g., one shared with Android and iOS), 
-and how to write tests which will be executed on all platforms and use an efficient implementation provided by the concrete platform.
+In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common tests for all platforms, and publish the library to a local Maven repository.
 
-## What are we building?
+This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format. It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
 
-Our goal is to build a small multiplatform library to demonstrate the ability to share the code between the platforms and its benefits.
-In order to have a small implementation to focus on the multiplatform machinery, we will write a library which
-converts raw data (strings and byte arrays) to the [Base64](https://en.wikipedia.org/wiki/Base64) format which can be used on JVM, JS, and any available K/N platform.
-On JVM implementation will be using [`java.util.Base64`](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html) which is known to be extremely efficient 
-because JVM is aware of this particular class and compiles it in a special way.
-On JS we will be using the native [Buffer](https://nodejs.org/docs/latest/api/buffer.html) API and on Kotlin/Native we will write our own implementation.
-We will cover this functionality with common tests and then publish the resulting library to Maven.
+You will use different ways to implement the conversion to the Base64 format on different platforms:
 
-## Setting up the local environment
+* For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
+* For JS – the [Buffer API](https://nodejs.org/docs/latest/api/buffer.html).
+* For Kotlin/Native – your own implementation.
 
-We will be using IntelliJ IDEA Community Edition for this tutorial, though using Ultimate edition is possible as well. The Kotlin plugin 1.3.x or higher should be installed in the IDE. 
-This can be verified via the *Language & Frameworks | Kotlin Updates* section in the *Settings* (or *Preferences*) of the IDE.
-Native part of this project is written using Mac OS X, but don't worry if you are using another platform, the platform affects only directory names in this particular tutorial.
+You will also test your code using common tests, and then publish the library to your local Maven repository.
 
-## Creating a project
+## Set up the environment
 
-We will be using IntelliJ IDEA Community Edition for the example. You need to make sure you have the latest version of the Kotlin plugin installed, 1.3.x or newer.
-We select *File | New | Project*, select *Kotlin | Kotlin (Multiplatform Library)* and configure the project in the way we want. 
+You can complete this tutorial on any operating system.
+Download and install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html) with the [latest Kotlin plugin](releases.md).
 
-![Wizard](js-project-wizard.png)
+## Create a project
 
-A multiplatform sample library is now created and imported into IntelliJ IDEA. Let's go to any `.kt` file and rename the package with the IntelliJ IDEA action *Refactor | Rename* action to `org.jetbrains.base64`
-Let's just check everything is right with the project so far, the project structure should be:
+1. In IntelliJ IDEA, select **File | New | Project**.
+2. In the left-hand panel, select **Kotlin**.
+3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
 
-```text
-└── src
-    ├── commonMain
-    │   └── kotlin
-    ├── commonTest
-    │   └── kotlin
-    ├── jsMain
-    │   └── kotlin
-    ├── jsTest
-    │   └── kotlin
-    ├── jvmMain
-    │   └── kotlin
-    ├── jvmTest
-    │   └── kotlin
-    ├── macosMain
-    │   └── kotlin
-    └── macosTest
-        └── kotlin
-```
+   ![Select a project template](mpp-project-1.png)
 
-And the `kotlin` folder should contain an `org.jetbrains.base64` subfolder.
+4. Select the Gradle DSL – Kotlin or Groovy.
+5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
+5. Click **Next**, and then click **Finish**.
 
-## Common part
+The wizard will create a sample multiplatform library with the following structure:
 
-Now we need to define the classes and interfaces we want to implement. Create the file `Base64.kt` in the `commonMain/kotlin/jetbrains/base64` folder.
-Core primitive will be the `Base64Encoder` interface which knows how to convert bytes to bytes in `Base64` format:
+![Multiplatform library structure](mpp-lib-structure.png){width=250}
 
-```kotlin
-interface Base64Encoder {
-    fun encode(src: ByteArray): ByteArray
-}
-```
+## Write cross-platform code
 
-But the common code should somehow get an instance of this interface, for that purpose we define the factory object `Base64Factory`:
+Define the classes and interfaces you are going to implement in the common code.
 
-```kotlin
-expect object Base64Factory {
-    fun createEncoder(): Base64Encoder
-}
-```
+1. In the `commonMain/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Define the `Base64Encoder` interface that converts bytes to the `Base64` format:
 
-Our factory is marked with the `expect` keyword. `expect` is a mechanism to define a requirement, which every platform should provide in order for the common part to work properly.
-So on each platform we should provide the `actual` `Base64Factory` which knows how to create the platform-specific encoder.
-You can read more about platform specific declarations [here](mpp-connect-to-apis.md).
+    ```kotlin
+    package org.jetbrains.base64
+    
+    interface Base64Encoder {
+        fun encode(src: ByteArray): ByteArray
+    }
+    ```
 
-## Platform-specific implementations
+4. Define the `Base64Factory` object to provide an instance of the `Base64Encoder` interface to the common code:
 
-Now it is time to provide an `actual` implementation of `Base64Factory` for every platform.
+    ```kotlin
+    expect object Base64Factory {
+        fun createEncoder(): Base64Encoder
+    }
+    ```
+
+The factory object is marked with the `expect` keyword in the cross-platform code.
+For each platform, you should provide an `actual` implementation of the `Base64Factory` object with the platform-specific encoder.
+Learn more about [platform-specific implementations](mpp-connect-to-apis.md).
+
+## Provide platform-specific implementations
+
+Now you will create the `actual` implementations of the `Base64Factory` object for each platform:
+
+* [JVM](#jvm)
+* [JS](#js)
+* [Native](#native)
 
 ### JVM
-We are starting with an implementation for the JVM. Let's create a file `Base64.kt` in `jvmMain/kotlin/jetbrains/base64` folder and provide a simple implementation, which delegates to `java.util.Base64`:
 
-```kotlin
-actual object Base64Factory {
-    actual fun createEncoder(): Base64Encoder = JvmBase64Encoder
-}
+1. In the `jvmMain/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the `java.util.Base64` class:
 
-object JvmBase64Encoder : Base64Encoder {
-    override fun encode(src: ByteArray): ByteArray = Base64.getEncoder().encode(src)
-}
+   > IDEA inspections help create `actual` implementations for an `expect` declaration.
+   >
+   {type="note"}
 
-```
+    ```kotlin
+    package org.jetbrains.base64
+    import java.util.*
+    
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = JvmBase64Encoder
+    }
+    
+    object JvmBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray = Base64.getEncoder().encode(src)
+    }
+    ```
 
-Pretty simple, isn't it? We have provided a platform-specific implementation, but used a straightforward delegation to an implementation someone else has written!
+Pretty simple, right? You've provided a platform-specific implementation by using a straightforward delegation to a third-party implementation.
 
 ### JS
 
-Our JS implementation will be very similar to the JVM one. We create a file `Base64.kt` in `jsMain/kotlin/jetbrains/base64` and provide an implementation 
-which delegates to NodeJS `Buffer` API:
+The JS implementation will be very similar to the JVM one.
 
-```kotlin
-actual object Base64Factory {
-    actual fun createEncoder(): Base64Encoder = JsBase64Encoder
-}
+1. In the `jsMain/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the NodeJS `Buffer` API:
 
-object JsBase64Encoder : Base64Encoder {
-    override fun encode(src: ByteArray): ByteArray {
-        val buffer = js("Buffer").from(src)
-        val string = buffer.toString("base64") as String
-        return ByteArray(string.length) { string[it].toByte() }
+    ```kotlin
+    package org.jetbrains.base64
+   
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = JsBase64Encoder
     }
-}
-```
+    
+    object JsBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray {
+            val buffer = js("Buffer").from(src)
+            val string = buffer.toString("base64") as String
+            return ByteArray(string.length) { string[it].toByte() }
+        }
+    }
+    ```
 
 ### Native
 
-On the generic Native platform we don't have the luxury to use someone else's implementation, so we will have to write one ourselves. I won't explain the implementation details here,
-but it's pretty straightforward and follows Base64 format description without any optimizations:
+Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself.
 
-```kotlin
-private val BASE64_ALPHABET: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-private val BASE64_MASK: Byte = 0x3f
-private val BASE64_PAD: Char = '='
-private val BASE64_INVERSE_ALPHABET = IntArray(256) {
-    BASE64_ALPHABET.indexOf(it.toChar())
-}
+1. In the `nativeMain/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Provide your own implementation for the `Base64Factory` object:
 
-private fun Int.toBase64(): Char = BASE64_ALPHABET[this]
-
-actual object Base64Factory {
-    actual fun createEncoder(): Base64Encoder = NativeBase64Encoder
-}
-
-object NativeBase64Encoder : Base64Encoder {
-    override fun encode(src: ByteArray): ByteArray {
+    ```kotlin
+    package org.jetbrains.base64
+    
+    private val BASE64_ALPHABET: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    private val BASE64_MASK: Byte = 0x3f
+    private val BASE64_PAD: Char = '='
+    private val BASE64_INVERSE_ALPHABET = IntArray(256) {
+        BASE64_ALPHABET.indexOf(it.toChar())
+    }
+    
+    private fun Int.toBase64(): Char = BASE64_ALPHABET[this]
+    
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = NativeBase64Encoder
+    }
+    
+    object NativeBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray {
             fun ByteArray.getOrZero(index: Int): Int = if (index >= size) 0 else get(index).toInt()
             // 4n / 3 is expected Base64 payload
-            val result = ArrayList<Byte>(4 * src.size / 3) 
+            val result = ArrayList<Byte>(4 * src.size / 3)
             var index = 0
             while (index < src.size) {
                 val symbolsLeft = src.size - index
                 val padSize = if (symbolsLeft >= 3) 0 else (3 - symbolsLeft) * 8 / 6
                 val chunk = (src.getOrZero(index) shl 16) or (src.getOrZero(index + 1) shl 8) or src.getOrZero(index + 2)
                 index += 3
-        
+    
                 for (i in 3 downTo padSize) {
-                val char = (chunk shr (6 * i)) and BASE64_MASK.toInt()
+                    val char = (chunk shr (6 * i)) and BASE64_MASK.toInt()
                     result.add(char.toBase64().toByte())
                 }
                 // Fill the pad with '='
@@ -156,20 +165,18 @@ object NativeBase64Encoder : Base64Encoder {
             return result.toByteArray()
         }
     }
-```
+    ```
 
-Now we have implementations on all the platforms and it is time to move to testing of our library.
+## Test your library
 
-## Testing
+Now when you have `actual` implementations of the `Base64Factory` object for all platforms, it's time to test your multiplatform library.
 
-To make the library complete we should write some tests, but we have three independent implementations and it is a waste of time to write duplicate tests for each one.
-The good thing about common code is that it can be covered with common tests, which later are compiled and executed on *every* platform.
-All the bits for testing are already generated by the project Wizard.
+To save time on testing, you can write common tests that will be executed on all platforms instead of testing each platform separately.
 
-Let's create the class `Base64Test` in `commonTest/kotlin/jetbrains/base64` folder and write the basic tests for Base64.
+### Prerequisites
 
-But as you remember, our API converts byte arrays to byte arrays in a different format and it is not easy to test byte arrays.
-So before we start writing a test, let's add the method `encodeToString` with a default implementation to our `Base64Encoder` interface:
+Before writing tests, add the `encodeToString` method with the default implementation to the `Base64Encoder` interface, which is defined in `commonMain/kotlin/org/jetbrains/base64/Base64.kt`.
+This implementation converts byte arrays to strings, which are much easier to test.
 
 ```kotlin
 interface Base64Encoder {
@@ -184,8 +191,7 @@ interface Base64Encoder {
 }
 ```
 
-Notice that the implementation on *every* platform can encode byte arrays to a string. If we want we can provide a more efficient implementation for this method, 
-for example, let's specialize it on the JVM:
+You can also provide a more efficient implementation of this method for a specific platform, for example, for JVM in `jvmMain/kotlin/org/jetbrains/base64/Base64.kt`:
 
 ```kotlin
 object JvmBase64Encoder : Base64Encoder {
@@ -194,42 +200,69 @@ object JvmBase64Encoder : Base64Encoder {
 }
 ```
 
-Default implementations with optional more specialized overrides is another bonus of the multiplatform library. Now, when we have a string-based API, we can cover it with basic tests:
+One of the benefits of a multiplatform library is having a default implementation with optional platform-specific overrides.
+
+### Write common tests
+
+Now you have a string-based API that you can cover with basic tests.
+
+1. In the `commonTest/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64Test.kt` file in the new package.
+3. Add tests to this file:
+
+    ```kotlin
+    package org.jetbrains.base64
+   
+    import kotlin.test.Test
+   
+    class Base64Test {
+        @Test
+        fun testEncodeToString() {
+            checkEncodeToString("Kotlin is awesome", "S290bGluIGlzIGF3ZXNvbWU=")
+        }
+    
+        @Test
+        fun testPaddedStrings() {
+            checkEncodeToString("", "")
+            checkEncodeToString("1", "MQ==")
+            checkEncodeToString("22", "MjI=")
+            checkEncodeToString("333", "MzMz")
+            checkEncodeToString("4444", "NDQ0NA==")
+        }
+    
+        private fun checkEncodeToString(input: String, expectedOutput: String) {
+            assertEquals(expectedOutput, Base64Factory.createEncoder().encodeToString(input.asciiToByteArray()))
+        }
+    
+        private fun String.asciiToByteArray() = ByteArray(length) {
+            get(it).toByte()
+        }
+    }
+    ```
+
+4. In the Terminal, execute the `check` Gradle task:
+
+    ```text
+    ./gradlew check 
+    ```
+
+   > You can also run the `check` Gradle task by double-clicking it in the list of Gradle tasks.
+   >
+   {type="note"}
+
+The tests will run on all platforms (JVM, JS, and Native).
+
+### Add platform-specific tests
+
+You can also add tests that will be run only for a specific platform.
+For example, you can add UTF-16 tests on JVM. Just follow the same steps as for common tests, but create the `Base64Test` file in `jvmTest/kotlin/org/jetbrains/base64`:
 
 ```kotlin
-class Base64Test {
-    @Test
-    fun testEncodeToString() {
-        checkEncodeToString("Kotlin is awesome", "S290bGluIGlzIGF3ZXNvbWU=")
-    }
+package org.jetbrains.base64
 
-    @Test
-    fun testPaddedStrings() {
-        checkEncodeToString("", "")
-        checkEncodeToString("1", "MQ==")
-        checkEncodeToString("22", "MjI=")
-        checkEncodeToString("333", "MzMz")
-        checkEncodeToString("4444", "NDQ0NA==")
-    }
+import org.junit.Test
+import kotlin.test.assertEquals
 
-    private fun checkEncodeToString(input: String, expectedOutput: String) {
-        assertEquals(expectedOutput, Base64Factory.createEncoder().encodeToString(input.asciiToByteArray()))
-    }
-
-    private fun String.asciiToByteArray() = ByteArray(length) {
-        get(it).toByte()
-    }
-}
-```
-
-Use gradle 4.7 and above to generate wrapper (`gradle wrapper`) in project root directoy to generate gradlew, gradlew.bat and gradle/wrapper/gradle-wrapper.jar.
-
-Execute `./gradlew check` and you will see that the tests are run three times, on JVM, on JS, and on Native!
-
-If we want, we can add tests to a specific platform, then it will be executed only as part of these platform tests.
-For example, we can add UTF-16 tests on JVM. Just follow the same steps as before, but create file in `jvmTest/kotlin/jetbrains/base64`:
-
-```kotlin
 class Base64JvmTest {
     @Test
     fun testNonAsciiString() {
@@ -240,33 +273,107 @@ class Base64JvmTest {
 }
 ```
 
-This test will be automatically executed on the JVM target in addition to the common part.
+This test will automatically run on the JVM platform in addition to the common tests.
 
-## Publishing library to Maven
+## Publish your library to the local Maven repository
 
-Our first multiplatform library is almost ready. The last step is to publish it, so other projects can then depend on our library.
-To make the publishing mechanism work, you should enable the experimental Gradle feature in `settings.gradle`:
+Your multiplatform library is ready for publishing so that you can use it in other projects.
 
-```groovy
-enableFeaturePreview('GRADLE_METADATA')
-```
+To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
 
-Now the classic `maven-publish` Gradle [plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) can be used.
-Don't forget to specify the group and version of your library along with the plugin in `build.gradle`:
+1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
+
+<tabs>
 
 ```groovy
-apply plugin: 'maven-publish'
-group 'org.jetbrains.base64'
-version '1.0.0'
+plugins {
+   id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+   id 'maven-publish'
+}
+
+group = 'org.jetbrains.base64'
+version = '1.0.0'
 ```
 
-Now check it with the command `./gradlew publishToMavenLocal` and you should see a successful build. 
-That's it, our library is now successfully published and any Kotlin project can depend on it, whether it is another common library, JVM, JS, or Native application.
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+    id("maven-publish")
+}
+
+group = "org.jetbrains.base64"
+version = "1.0.0"
+```
+
+</tabs>
+
+2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
+
+    ```text
+    ./gradlew publishToMavenLocal
+    ```
+
+   > You can also run the `publishToMavenLocal` Gradle task by double-clicking it in the list of Gradle tasks.
+   >
+   {type="note"}
+
+
+Your library will be published to the local Maven repository.
+
+## Add a dependency on the published library
+
+Now you can add your library to other multiplatform projects as a dependency.
+
+Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle(.kts)` file.
+
+<tabs>
+
+```groovy
+repositories {
+   mavenCentral()
+   mavenLocal()
+}
+
+kotlin {
+   sourceSets {
+      commonMain {
+         dependencies {
+            implementation 'org.jetbrains.base64:Base64:1.0.0'
+         }
+      }
+   }
+}
+```
+
+```kotlin
+repositories {
+   mavenCentral()
+   mavenLocal()
+}
+
+kotlin {
+   sourceSets {
+      val commonMain by getting {
+         dependencies {
+            implementation("org.jetbrains.base64:Base64:1.0.0")
+         }
+      }
+   }
+}
+```
+
+</tabs>
 
 ## Summary
 
-In this tutorial we have:
-- Created a multiplatform library with platform-specific implementations.
-- Provided default implementation for common part and specialized it on JVM.
-- Written common tests which are executed on every platform.
-- Published the final library to Maven repository.
+In this tutorial, you:
+* Created a multiplatform library with platform-specific implementations.
+* Wrote common tests that are executed on all platforms.
+* Published your library to the local Maven repository.
+
+## What’s next?
+
+* Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
+* Learn more about [Kotlin Multiplatform](mpp-intro.md).
+* [Create your first KMM application for Android and iOS – tutorial](https://kotlinlang.org/docs/mobile/create-first-app.html).
+* [Create a full-stack web app with Kotlin Multiplatform – hands-on tutorial](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).

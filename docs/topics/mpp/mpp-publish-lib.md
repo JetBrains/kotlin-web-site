@@ -22,10 +22,7 @@ publishing {
 }
 ```
 
-You can also use [`gradle-bintray-plugin`](https://github.com/bintray/gradle-bintray-plugin) for publishing multiplatform libraries. 
-However, this plugin does not support publishing Gradle module metadata required for [hierarchical structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms).
-Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to enable metadata publishing 
-or migrate to the [`maven-publish` plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
+Complete the [tutorial on creating and publishing a multiplatform library](multiplatform-library.md) to get hands-on experience.
 
 ## Structure of publications
 

@@ -728,7 +728,7 @@ kotlin {
 }
 ```
 
-```groovy
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
