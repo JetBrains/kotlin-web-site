@@ -10,6 +10,7 @@
     <toc-element id="home.md" toc-title="Home"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
+    <toc-element toc-title="Get started (new)" id="get-started-new.md" hidden="true"/>
 
 
     <toc-element toc-title="Kotlin overview">
@@ -257,6 +258,7 @@
     </toc-element>
 
     <toc-element toc-title="Learning materials">
+        <toc-element id="learning-materials-overview.md" toc-title="Overview"/>
         <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
         <toc-element id="koans.md"/>
         <toc-element id="books.md"/>
