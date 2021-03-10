@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE root
-        SYSTEM "http://helpserver.labs.intellij.net/help/build-script.dtd">
+        SYSTEM "https://resources.jetbrains.com/stardust/build-script.dtd">
 <root>
     <builds>
         <product id="kr" master="project.ihp" family="idea">
