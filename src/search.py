@@ -117,6 +117,10 @@ def get_page_path_from_url(url):
 def group_small_content_pats(content_parts, start_index=0):
     record_limit = 100 * 1024
     size = len(content_parts)
+
+    # ToDo: REMOVE RECURSION
+    if size > 950: content_parts = content_parts[0:950]
+
     for i in range(start_index, size):
         if len(content_parts[i]) < record_limit and i < size - 1:
             content_parts[i] = content_parts[i].rstrip()
@@ -286,6 +290,12 @@ def build_search_indices(pages, version):
         elif page_path.startswith('docs/tutorials'):
             page_type = 'Tutorial'
 
+        html_content = get_page_content(url)
+        parsed = BeautifulSoup(html_content, "html.parser")
+
+        if parsed.find("meta", {"http-equiv": "refresh"}):
+            continue
+
         if page_path.startswith("api/latest/"):
             page_info = get_api_page(True, page_path[4:], dist_path)
 
@@ -313,12 +323,6 @@ def build_search_indices(pages, version):
             page_type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             content = page_info['content'].find('article', {"role": "main"})
         else:
-            html_content = get_page_content(url)
-            parsed = BeautifulSoup(html_content, "html.parser")
-
-            if parsed.find("meta", {"http-equiv": "refresh"}):
-                continue
-
             body_title = parsed.select_one("body[data-search-title]")
 
             if body_title:
