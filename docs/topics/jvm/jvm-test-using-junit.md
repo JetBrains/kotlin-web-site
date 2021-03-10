@@ -38,7 +38,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
    </tabs>
 
-3. Check to make sure that the **Project Wizard** automatically created the `test` task in the `build.gradle(.kts)` file:
+3. Add the `test` task to the `build.gradle(.kts)` file:
 
    <tabs>
 
@@ -55,6 +55,10 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    ```
 
    </tabs>
+
+   > If you created the project using the **Project Wizard**, the task will be added automatically.
+   > 
+   {type="note}
 
 ## Add the code to test it
 
@@ -146,4 +150,4 @@ Once you've finished your first test, you can:
 
 * Try to write another test using other [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions. For example, you could use the [`assertNotEquals()`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-not-equals.html) function.
 * [Create your first application](jvm-spring-boot-restful.md) with Kotlin and Spring Boot.
-* Watch these video [tutorials on YouTube](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr), which demonstrate how to use Spring Boot with Kotlin and JUnit 5.
+* Watch [these video tutorials](https://www.youtube.com/playlist?list=PL6gx4Cwl9DGDPsneZWaOFg0H2wsundyGr) on YouTube, which demonstrate how to use Spring Boot with Kotlin and JUnit 5.
