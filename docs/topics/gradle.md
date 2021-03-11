@@ -254,14 +254,17 @@ If you do not need a standard library at all, you can add the opt-out flag to th
 kotlin.stdlib.default.dependency=false
 ```
 
-### Set the dependency on test libraries
+### Set dependencies on test libraries
 
 The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing different Kotlin projects. 
 
-Add the dependency on `kotlin-test` to the `commonTest` source set. 
-The dependencies for the corresponding platform source sets will be inferred automatically. //todo tell more about this?
+Add the dependency on `kotlin-test` to the `commonTest` source set.
+The Gradle plugin will infer the corresponding test dependency for each source set:
+* `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
+* `kotlin-test-junit`/`kotlin-test-junit-5`/`kotlin-test-testng` for JVM source sets
+* `kotlin-test-js` for Kotlin/JS source sets
 
-//Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
+Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
 <tabs>
 
@@ -291,9 +294,43 @@ kotlin{
 
 </tabs>
 
-> You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
+> You can use shorthand for a dependency on a Kotlin module, for example, kotlin('test') for "org.jetbrains.kotlin:kotlin-test".
 >
 {type="note"}
+
+For Kotlin/JVM the code above enables JUnit 4 by default.
+You can choose JUnit 5 or TestNG by calling 
+[`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
+or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the test task:
+
+ <tabs>
+
+```groovy
+tasks {
+    test {
+        // enable TestNG support
+        useTestNG()
+        // or
+        // enable JUnit Platform (a.k.a. JUnit 5) support
+        useJUnitPlatform()
+    }
+}
+```
+
+```kotlin
+tasks.test {
+    // enable TestNG support
+    useTestNG()
+    // or
+    // enable JUnit Platform (a.k.a. JUnit 5) support
+    useJUnitPlatform()
+}
+```
+
+ </tabs>
+
+If you used JUnit 5 or TestNG as the dependency before, either rewrite your build script to use new functions or disable 
+this feature: add the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`.
 
 ### Set a dependency on a kotlinx library
 
