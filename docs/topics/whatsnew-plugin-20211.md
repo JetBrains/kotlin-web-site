@@ -14,7 +14,7 @@ Kotlin Plugin 2021.1 has received a number of performance improvements that spee
 
 Here are some major refinements:
 
-* **Faster syntax and error highlighting**. Previously, the compiler parses the whole file before throwing an error message. Now it processes the code gradually, which makes the code analysis much faster. Once the compiler finds the error, it instantly passes it to the IDE to show the error or warning message.
+* **Faster syntax and error highlighting**. Code highlighting API has been reworked – now you get all the necessary diagnostic information faster.
 
 * **Speed-up code completion**. In the release, the Kotlin plugin provides faster code completion.
   In addition to speed changes, we made other improvements to code completion, especially [Code completion for type parameters](#code-completion-for-type-parameters).
@@ -29,49 +29,35 @@ This release expands debugger capabilities. Here are some changes:
 
    Now it's possible to get Kotlin properties without backing field in the variables view.
    For example, during the debugging of the following code you can execute the `get()` method to see the value:
- 
+
    ```kotlin
-    class TestClass() {
-        val lazyInt: Int by lazy { 10 }
-        var ambiguousInt: Int = 10
-            get() = 20
-            set(value: Int) {field = value}
-    }
-   
-    fun main() {
-        val Instance = TestClass()
-        println("")
-    }
+   class TestClass() {
+       val lazyInt: Int by lazy { 10 }
+       var ambiguousInt: Int = 10
+           get() = 20
+           set(value: Int) {field = value}
+   }
+  
+   fun main() {
+       val Instance = TestClass()
+       println("")
+   }
    ```
- 
+
    In the **Debug** window, you can see the properties value:
- 
+  
    ![Variables view](debugging-variables-view.png){width=620}
 
-* **Suspend functions evaluation (not in 2021.1 yet)**
-   To Anton: status update
-   KT-27974 Allow to evaluate expression with suspended function from non-coroutine context
-   KT-31701 Evaluate: "IllegalStateException: Can not generate outer receiver value for class" with suspend function
-
 * **Capability to change top-level variables in stack-frames**
-   To Anton: status update
-   DOUBLE-CHECK: IS IT IMPORTANT?
-   From now on, you could change top-level variables in the stack frame.
+   
+  From now on, you could change top-level variables in the stack frame. Менять топ-левел переменные в стек-фрейме.
 
 ## Updated Change Signature refactoring
 
-This release contains changes in Change Signature refactoring. Cross-language features got a lot of attention
-
-Here some refactoring improvements:
-* Support warning messages for more refactoring cases
+This release contains changes in [Change Signature](https://www.jetbrains.com/help/idea/change-signature.html) refactoring. Cross-language refactoring got a lot of attention, here are some of the improvements:
+* More refactoring cases show warning messages
 * Correct backticks processing
-* Fixes in inheritance refactoring, including cross-language // (for demo: KTIJ-966)
-
-To Anton: status update
-* --drop of dialog for properties (in progress)--
-* --default arguments (in progress)--
-* --imports management (in progress)--
-
+* Fixes in inheritance refactoring, including cross-language
 
 ## Code completion for type parameters
 
@@ -81,7 +67,7 @@ In the following example, the IDE automatically adds the `<Int>()` type:
 
 ![Now code completion suggest functions](code-completion-type-pararmeters.png){width=800}
 
-And you'll get the following code:
+You'll get the following code:
 
 ```kotlin
 class SimpleClass<T>(val f: T) {
@@ -104,8 +90,9 @@ Since the plugin and the platform have been moved to the same codebase and ship 
 * Now you can launch the basic memory profiler that was announced in the [IntelliJ IDEA 2020.3 release](https://www.jetbrains.com/idea/whatsnew/#debugger) via Gradle run.
 * To improve the experience of working with coroutines this release provides better thread-blocking call detection.
   Now the inspection warns you about inappropriate blocking method calls correctly.
-* We’ve fixed some of the language injections issues that received the most votes:
-   * When you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end, the lines inside the triple quotes are highlighted correctly, and the mentioned functions work as expected.
-   * Language injection works correctly when you concatenate strings.
+* We’ve fixed some language injections issues that received the most votes. Now language injection works correctly for the following cases:
+   * When you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end.
+   * When you concatenate strings.
 
 See the What’s new in IntelliJ IDEA 2021.2 blog post to learn more about platform enhancements.
+
