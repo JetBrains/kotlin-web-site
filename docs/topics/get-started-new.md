@@ -1,4 +1,6 @@
-[//]: # (title: Get started with Kotlin)
+[//]: # (title: Get started with Kotlin \(experimental\))
+
+> This page is experimental.
 
 Kotlin is a modern programming language that makes many developers happier.
 It's concise, safe, and interoperable. Pick it up and start building powerful applications immediately.
@@ -28,6 +30,8 @@ Here we will help you with your first steps in developing Kotlin server-side app
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md). Try to solve [these business tasks](https://github.com/kotlin-hands-on/kotlin-collections-taxipark) using collections.
    * To go more in-depth with Kotlin and Ktor, you can make your application asynchronous with [kotlinx.coroutines](coroutines-guide.md).
    * Take a look at the [Exposed](https://github.com/JetBrains/Exposed) library, which is designed to save messages and add a database to your application.
+
+   Learn more about [adding dependencies](gradle.md#configuring-dependencies).
 
 4. Use [third-party libraries](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/) to get more capabilities:
    * [jdbi](https://jdbi.org/#_kotlin), [jooq](https://www.jooq.org/doc/3.0/manual/getting-started/jooq-and-kotlin/), [JPA with Spring Data](https://spring.io/guides/tutorials/spring-boot-kotlin/#_persistence_with_jpa) to access databases from Kotlin code.
