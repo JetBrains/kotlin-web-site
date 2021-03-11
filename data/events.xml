@@ -1,6 +1,58 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>pt</lang>
+        <startDate>2021-03-06</startDate>
+        <endDate>2021-03-06</endDate>
+        <location>Angola, Luanda</location>
+        <speaker>Manuel Ernesto</speaker>
+        <title>Fenix Innovation Oficial</title>
+        <subject>Desenvolvimento de Rest API com Kotlin + Spring Boot</subject>
+        <url>https://www.facebook.com/FenixInnovationOficial/</url>
+        <description>
+            <![CDATA[
+<p>In this talk we will cover in practice how to create a Rest API using  Kotlin and Spring Boot.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-25</startDate>
+        <endDate>2021-03-25</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Robin Trietsch</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Building a platform native CLI in Kotlin with Clikt and GraalVM</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/276812021</url>
+        <description>
+            <![CDATA[
+<p>Most developers love working with command-line interfaces (CLI's) to speed up and automate tasks. But have you ever created one yourself? How about building a beautiful and feature rich CLI in a JVM language? Sounds impractical, since JVM languages need a virtual machine to run on.</p>
+<p>Well, not anymore! With Clikt and GraalVM, it is possible to create these CLIs with ease, and even create native platform binaries for every major platform architecture.
+In this talk, I'll show you how we created a CLI with these technologies, and even automated the process of compiling them to binaries for various platforms (Windows, OSX & Linux). After this talk, you'll be ready to start building you own platform native CLI's!</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-11</startDate>
+        <endDate>2021-03-11</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Bart Enkelaar</speaker>
+        <title>Kotlin.amsterdam</title>
+        <subject>The Dangerous Side of Kotlin</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/276812021</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has been the new superhero on the JVM team for the last couple of years now. With significant support from both JetBrains and the community Kotlin has managed to find a good balance between new features and understandability.</p>
+<p>However, with great power comes great responsibility. Every new feature holds new ways to shoot yourself in the foot. Every bit of syntactic sugar has the potential to introduce an incomprehensible layer of abstraction.</p>
+<p>Amongst all the awesome features of Kotlin, which ones have the potential to harm more than they help? Which ones should you handle with care? How do you make sure that your Kotlin code is not only shiny and new, but also genuinely better?</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>en</lang>
         <startDate>2021-03-04</startDate>
         <endDate>2021-03-04</endDate>

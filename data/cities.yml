@@ -1,3 +1,7 @@
+- name: Angola, Luanda
+  geo:
+    lat: -8.814776
+    lng: 13.233064
 - name: Würzburg, Germany
   geo:
     lat: 49.795056
