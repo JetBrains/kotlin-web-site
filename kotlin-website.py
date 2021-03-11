@@ -506,11 +506,13 @@ if __name__ == '__main__':
             build_mode = True
 
             urls = freezer.freeze()
-            generate_sitemap(urls)
             if len(build_errors) > 0:
                 for error in build_errors:
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
+
+        elif argv_copy[1] == "sitemap":
+            generate_sitemap(get_pages(freezer))
         elif argv_copy[1] == "index":
             build_search_indices(get_pages(freezer), site_data['releases']['latest']['version'])
         else:

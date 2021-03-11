@@ -1,7 +1,7 @@
 ---
 title: docs/native-ant.html
 showAuthorInfo: false
-redirect_path: https://kotlinlang.org/docs/native-ant.html
+redirect_path: https://kotlinlang.org/docs/ant.html
 ---
 
-The page is moved to [topics/native-ant.md](docs/topics/native-ant.md)
+The page is moved to [topics/ant.md](docs/topics/ant.md)
