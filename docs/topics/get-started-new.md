@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin – experimental)
+[//]: # (title: Get started with Kotlin \(experimental\))
 
 > This page is experimental.
 
