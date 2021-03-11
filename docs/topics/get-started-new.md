@@ -42,7 +42,7 @@ Here we will help you with your first steps in developing Kotlin server-side app
    * [Write your first unit test](jvm-test-using-junit.md)
    * [Mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
    * [Add dependencies using Gradle](gradle.md).
-   * Learn how Kotlin is used for server-side development in  [DoorDash](https://kotlinlang.org/lp/server-side/case-studies/doordash), [Atlassian](https://www.youtube.com/watch?v=4GkoB4hZUnw), [Amazon](https://talkingkotlin.com/qldb/?_ga=2.194721837.1273405507.1615277998-602697560.1599818467) and [many other companies](https://kotlinlang.org/lp/server-side/case-studies/).
+   * Learn how Kotlin is used for server-side development in [DoorDash](https://kotlinlang.org/lp/server-side/case-studies/doordash), [Atlassian](https://www.youtube.com/watch?v=4GkoB4hZUnw), [Amazon](https://talkingkotlin.com/qldb/?_ga=2.194721837.1273405507.1615277998-602697560.1599818467) and [many other companies](https://kotlinlang.org/lp/server-side/case-studies/).
 
 6. Join the Kotlin server-side community:
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
