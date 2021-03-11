@@ -62,7 +62,9 @@ For more information check out [the resource on client-side development](js-over
 ### Can I use Kotlin for desktop development?
 
 Yes. You can use any Java UI framework such as JavaFx, Swing or other. 
-In addition there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
+In addition there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx).
+
+And you can use also [Сompose Kotlin UI framework](https://github.com/JetBrains/compose-jb) port for macOS, Linux, Windows, components outside of the core Compose repository at https://android.googlesource.com/platform/frameworks/support.
 
 ### Can I use Kotlin for native development?
 
