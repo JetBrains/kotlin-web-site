@@ -58,7 +58,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
    > If you created the project using the **Project Wizard**, the task will be added automatically.
    > 
-   {type="note}
+   {type="note"}
 
 ## Add the code to test it
 
