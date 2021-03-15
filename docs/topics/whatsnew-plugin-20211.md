@@ -58,9 +58,9 @@ This release contains changes in [Change Signature](https://www.jetbrains.com/he
 
 * Support warning messages for more refactoring cases.
 * Correct backticks processing.
-* Fixes in inheritance refactoring, including cross-language.
+* Fixes in inheritance refactoring, including cross-language. // TODO: link KTIJ-966
 * Improved UX of properties processing.
-* Added the way to declare default parameter value.
+* Added the way to declare default parameter value.  // TODO: link:  KTIJ-966
 
 ## Code completion for type parameters
 
