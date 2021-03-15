@@ -1,6 +1,6 @@
 [//]: # (title: Filtering collections)
 
-Filtering is one of the most popular tasks in the collection processing.
+Filtering is one of the most popular tasks in collection processing.
 In Kotlin, filtering conditions are defined by _predicates_ – lambda functions that take a collection element and return
 a boolean value: `true` means that the given element matches the predicate, `false` means the opposite.
 
