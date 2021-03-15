@@ -78,8 +78,9 @@ class SimpleClass<T>(val f: T) {
 
 ## UML diagrams for Kotlin classes
 
-With this release you can test Kotlin code visualization via UML Class diagrams. You can build a diagram either from the **Project view** via **Diagrams | Show Diagram... | Java Classes**.
-Currently, the diagrams only show inheritance and nesting relationships, but we plan to support more detailed association connections, like aggregation, construction, dependency, and others.
+With this release you can test Kotlin code visualization via UML Class diagrams. To build a diagram, in the **Project View** select **Diagrams | Show Diagram... | Java Classes**.
+
+Currently, the diagrams only show inheritance and nesting relationships. All other more detailed association connections, like aggregation, construction, dependency, and others will be available in next releases.
 
 ![Variables view](kotlin-classes-uml-diagram.png){width=620}
 
