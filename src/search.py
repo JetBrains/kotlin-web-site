@@ -192,13 +192,30 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
 
 
 def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
-                                    page_views: int) -> List[Dict]:
+                                   page_views: int) -> List[Dict]:
     index_objects = []
 
-    article_title = content.select_one('h1').text
+    article_title_node = content.select_one('h1')
+    article_title = article_title_node.text
+    article_content = content
+
+    chapters = content.select('.chapter')
 
     if article_title:
-        chapters = content.select('.chapter')
+        if len(chapters) != 0:
+            article_content = []
+            next_node = article_title_node.next_sibling
+
+            while next_node and next_node != chapters[0]:
+                article_content.append(next_node)
+                next_node = next_node.next_sibling
+
+        for ind, page_part in enumerate(get_valuable_content(page_path, article_content)):
+            page_info = {'url': url, 'objectID': url + str(ind), 'content': page_part,
+                         'headings': article_title, 'mainTitle': article_title, 'pageTitle': article_title,
+                         'type': page_type,
+                         'pageViews': page_views}
+            index_objects.append(page_info)
 
         for chapter in chapters:
             chapter_title_node = chapter.select_one('h2[data-toc]')
@@ -211,7 +228,8 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
 
                 for ind, page_part in enumerate(get_valuable_content(page_path, chapter_content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'headings': chapter_title, 'mainTitle': article_title, 'pageTitle': chapter_title, 'type': page_type,
+                                 'headings': chapter_title, 'mainTitle': article_title, 'pageTitle': chapter_title,
+                                 'type': page_type,
                                  'pageViews': page_views}
                     index_objects.append(page_info)
 
@@ -365,7 +383,10 @@ def build_search_indices(pages, version):
             )
 
             index_objects += page_indices
-            def wh(*args): return to_wh_index(version, *args)
+
+            def wh(*args):
+                return to_wh_index(version, *args)
+
             wh_index_objects += list(map(wh, page_indices.copy()))
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)
