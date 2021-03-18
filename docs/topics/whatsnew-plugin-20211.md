@@ -23,44 +23,40 @@ Here are some major refinements:
 
 ## Better debugging experience
 
-This release expands debugger capabilities. Here are some changes:
+This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without backing field in the Variables view.
 
-* **Variables view shows properties without backing field**
+For example, during the debugging of the following code you can execute the `get()` method to see the value:
 
-   Now it's possible to get Kotlin properties without backing field in the variables view.
-   For example, during the debugging of the following code you can execute the `get()` method to see the value:
+```kotlin
+class TestClass() {
+    val lazyInt: Int by lazy { 10 }
+    var ambiguousInt: Int = 10
+        get() = 20
+        set(value: Int) {field = value}
+}
 
-   ```kotlin
-   class TestClass() {
-       val lazyInt: Int by lazy { 10 }
-       var ambiguousInt: Int = 10
-           get() = 20
-           set(value: Int) {field = value}
-   }
-  
-   fun main() {
-       val Instance = TestClass()
-       println("")
-   }
-   ```
+fun main() {
+    val Instance = TestClass()
+    println("")
+}
+```
 
-   In the **Debug** window, you can see the properties value:
-  
-   ![Variables view](debugging-variables-view.png){width=620}
+In the **Debug** window, you can see the properties value:
 
-* **Evaluator and Debugger’s extension for coroutines**.
-  
-   If you use coroutines and suspend functions in your project, with this release it becomes easier to debug them.
+![Variables view](debugging-variables-view.png){width=620}
 
 ## Updated Change Signature refactoring
 
-This release contains changes in [Change Signature](https://www.jetbrains.com/help/idea/change-signature.html) refactoring. Cross-language refactoring got a lot of attention, here are some of the improvements:
+This release contains changes in [Change Signature](https://www.jetbrains.com/help/idea/change-signature.html) refactoring. We’ve fixed more than [40 issues](https://youtrack.jetbrains.com/issue/KTIJ-685) to make the refactoring process better.
 
+Here are some of the important improvements:
 * Support warning messages for more refactoring cases.
-* Correct backticks processing.
-* Fixes in inheritance refactoring, including cross-language. // TODO: link KTIJ-966
+* Fixes in inheritance refactoring, including cross-language.
+   See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-966) for details.
 * Improved UX of properties processing.
-* Added the way to declare default parameter value.  // TODO: link:  KTIJ-966
+* Added the way to declare default parameter value.
+   See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-903) for details.
+* Correct backticks processing.
 
 ## Code completion for type parameters
 
@@ -92,10 +88,10 @@ Currently, the diagrams only show inheritance and nesting relationships. All oth
 Since the plugin and the platform have been moved to the same codebase and ship simultaneously, this release also brings the following list of features that improve the Kotlin experience:
 
 * Now you can launch the basic memory profiler that was announced in the [IntelliJ IDEA 2020.3 release](https://www.jetbrains.com/idea/whatsnew/#debugger) via Gradle run.
-* To improve the experience of working with coroutines this release provides better thread-blocking call detection.
+* To improve the experience of working with coroutines this release provides [better thread-blocking call detection](https://youtrack.jetbrains.com/issue/KTIJ-826).
   Now the inspection warns you about inappropriate blocking method calls correctly.
 * We’ve fixed some language injection issues that received the most votes. Now language injection works correctly for the following cases:
-   * When you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end.
-   * When you concatenate strings.
+  * When you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end. See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-679) for details.
+  * When you concatenate strings. See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-855) for details.
 
 See the What’s new in IntelliJ IDEA 2021.1 blog(TODO: link) post to learn more about platform enhancements.
