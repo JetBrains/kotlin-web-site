@@ -51,7 +51,7 @@ Here we will help you with your first steps in developing Kotlin server-side app
    </tr>
    </table>
 
-3. Use Kotlin libraries in your application:
+3. Use Kotlin and third-party libraries in your application:
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [kotlinx.coroutines](coroutines-guide.md).
    * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/)
 
