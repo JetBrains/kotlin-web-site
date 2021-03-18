@@ -5,7 +5,7 @@
 Kotlin is a modern programming language that makes many developers happier.
 It's concise, safe, and interoperable. Pick it up and start building powerful applications immediately.
 
-> If you are at the very beginning and Kotlin is your first programming language, you can start with these [learning materials](learning-materials-overview.md).
+> If you are at the very beginning, you can start with these [learning materials](learning-materials-overview.md).
 >
 {type="note"}
 
