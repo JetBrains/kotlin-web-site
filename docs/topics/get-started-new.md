@@ -15,40 +15,57 @@ It's concise, safe, and interoperable. Pick it up and start building powerful ap
 
 <tab title="Backend app">
 
-Kotlin makes server-side development easy and concise, whether you have lots of backend experience or none.
-
 Here we will help you with your first steps in developing Kotlin server-side applications.
 
-1. Install the [latest version of IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/).
+1. Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-2. Create a project using one of the following frameworks:
+2. Choose one of the frameworks below and create a project:
 
-   * **Spring** – a mature family of frameworks with an established ecosystem that is used by millions of developers worldwide. Spring provides verified tools for everyday usage, from database interaction to security. [Use the tutorial](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/) to get started with Spring.
-   * **Ktor** – a lightweight framework for those who value freedom in making architectural decisions. It is 100% Kotlin native and does not force you to use any specific libraries – develop backend apps however you want. [Go through our hands-on tutorial](https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction) to get started.
+   <table width="100%" >
+   <tr>
+      <th>Spring</th>
+      <th>Ktor</th>
+   </tr>
+   <tr>
+   <td width="50%">
+     A mature family of frameworks with an established ecosystem that is used by millions of developers worldwide.
+   <br/>
+   <ul>
+      <li><a href="jvm-spring-boot-restful.md">Create a RESTful web service with Spring Boot</a>.</li>
+      <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a></li>
+      <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a></li>
+   </ul>
+   </td>
+   <td width="50%">
+      A lightweight framework for those who value freedom in making architectural decisions.
+   <ul>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20HTTP%20APIs%20with%20Ktor/01_introduction">Create HTTP APIs with Ktor</a></li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction">Create a WebSocket chat with Ktor</a></li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20website%20with%20Ktor/01_introduction">Create an interactive website with Ktor</a></li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction">Build a Full Stack Web App with Kotlin Multiplatform</a></li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform/01_Introduction">Get to know Kotlin Multiplatform</a></li>
+      <li><a href="https://dev.to/kotlin/publishing-server-side-kotlin-applications-ktor-on-heroku-2ce4">Publish server-side Kotlin applications: Ktor on Heroku</a></li>
+   </ul>
+   
+   </td>
+   </tr>
+   </table>
 
 3. Use Kotlin libraries in your application:
-   * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md). Try to solve [these business tasks](https://github.com/kotlin-hands-on/kotlin-collections-taxipark) using collections.
-   * To go more in-depth with Kotlin and Ktor, you can make your application asynchronous with [kotlinx.coroutines](coroutines-guide.md).
-   * Take a look at the [Exposed](https://github.com/JetBrains/Exposed) library, which is designed to save messages and add a database to your application.
+   * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [kotlinx.coroutines](coroutines-guide.md).
+   * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/)
 
-   Learn more about [adding dependencies](gradle.md#configuring-dependencies).
+   Learn how to [add library and tool dependencies to your project](gradle.md#configuring-dependencies).
 
-4. Use [third-party libraries](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/) to get more capabilities:
-   * [jdbi](https://jdbi.org/#_kotlin), [jooq](https://www.jooq.org/doc/3.0/manual/getting-started/jooq-and-kotlin/), [JPA with Spring Data](https://spring.io/guides/tutorials/spring-boot-kotlin/#_persistence_with_jpa) to access databases from Kotlin code.
-   * [Kotest](https://kotest.io/) – a testing library with support for Kotlin multiplatform projects.
-   * [graphql-kotlin](https://expediagroup.github.io/graphql-kotlin/docs/getting-started.html) to work with GraphQL.
+4. Learn more about Kotlin for server-side:
+   * [How to write your first unit test](jvm-test-using-junit.md).
+   * [How to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
 
-5. Learn more Kotlin for server-side:
-   * [Write your first unit test](jvm-test-using-junit.md)
-   * [Mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
-   * [Add dependencies using Gradle](gradle.md).
-   * Learn how Kotlin is used for server-side development in [DoorDash](https://kotlinlang.org/lp/server-side/case-studies/doordash), [Atlassian](https://www.youtube.com/watch?v=4GkoB4hZUnw), [Amazon](https://talkingkotlin.com/qldb/?_ga=2.194721837.1273405507.1615277998-602697560.1599818467) and [many other companies](https://kotlinlang.org/lp/server-side/case-studies/).
-
-6. Join the Kotlin server-side community:
+5. Join the Kotlin server-side community:
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * **StackOverflow**: subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
 
-7. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), and [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+6. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), and [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
