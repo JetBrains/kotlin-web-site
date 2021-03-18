@@ -124,12 +124,12 @@ Here you'll learn how to develop and improve your frontend web application using
 
 1. Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-2. Create your first frontend web application:
+2. Create your **first frontend web application**:
 
    * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
    * If you prefer more robust examples, complete the [Building Web Applications with React and Kotlin/JS hands-on](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
 
-3. Use Kotlin libraries in your application:
+3. Use **Kotlin libraries** in your application:
 
    * The powerful [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/).
    * The [kotlinx.browser](browser-api-dom.md) library for accessing browser-specific functionality, including typical top-level objects such as document and window.
@@ -138,19 +138,19 @@ Here you'll learn how to develop and improve your frontend web application using
 
    Learn more about [adding dependencies](js-project-setup.md#dependencies).
 
-4. Use third-party libraries to get more capabilities to take full advantage of Kotlin’s concepts, expressive power, and conciseness:
+4. Use **third-party libraries** to get more capabilities to take full advantage of Kotlin’s concepts, expressive power, and conciseness:
 
    * [KVision](https://kvision.io/) – an object-oriented web framework for Kotlin/JS.
    * [fritz2](https://www.fritz2.dev/) – an extremely lightweight, high-performance, independent library for building reactive web apps in Kotlin that are heavily dependent on coroutines and flows.
    * [Kotlin wrappers](https://github.com/JetBrains/kotlin-wrappers) – provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a select number of adjacent technologies like react-redux, react-router, or styled-components. Interoperability with the JavaScript ecosystem means that you can also use third-party React components and component libraries.
 
-5. Learn more about Kotlin for frontend web development:
+5. Learn **more about Kotlin for frontend web development**:
 
    * The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Alpha](components-stability.md) stability).
    * [Using dependencies from npm](using-packages-from-npm.md).
    * [Using Kotlin code from JavaScript](js-to-kotlin-interop.md).
 
-6. Join the Kotlin frontend web community:
+6. Join the **Kotlin frontend web community**:
 
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
    * **StackOverflow**: subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
