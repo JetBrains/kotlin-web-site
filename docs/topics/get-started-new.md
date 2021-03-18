@@ -32,19 +32,19 @@ Here we will help you with your first steps in developing Kotlin server-side app
    <br/>
    <ul>
       <li><a href="jvm-spring-boot-restful.md">Create a RESTful web service with Spring Boot</a>.</li>
-      <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a></li>
-      <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a></li>
+      <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a>.</li>
+      <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a>.</li>
    </ul>
    </td>
    <td width="50%">
       A lightweight framework for those who value freedom in making architectural decisions.
    <ul>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20HTTP%20APIs%20with%20Ktor/01_introduction">Create HTTP APIs with Ktor</a></li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction">Create a WebSocket chat with Ktor</a></li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20website%20with%20Ktor/01_introduction">Create an interactive website with Ktor</a></li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction">Build a Full Stack Web App with Kotlin Multiplatform</a></li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform/01_Introduction">Get to know Kotlin Multiplatform</a></li>
-      <li><a href="https://dev.to/kotlin/publishing-server-side-kotlin-applications-ktor-on-heroku-2ce4">Publish server-side Kotlin applications: Ktor on Heroku</a></li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20HTTP%20APIs%20with%20Ktor/01_introduction">Create HTTP APIs with Ktor</a>.</li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction">Create a WebSocket chat with Ktor</a>.</li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20website%20with%20Ktor/01_introduction">Create an interactive website with Ktor</a>.</li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction">Build a Full Stack Web App with Kotlin Multiplatform</a>.</li>
+      <li><a href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform/01_Introduction">Get to know Kotlin Multiplatform</a>.</li>
+      <li><a href="https://dev.to/kotlin/publishing-server-side-kotlin-applications-ktor-on-heroku-2ce4">Publish server-side Kotlin applications: Ktor on Heroku</a>.</li>
    </ul>
    
    </td>
@@ -52,8 +52,8 @@ Here we will help you with your first steps in developing Kotlin server-side app
    </table>
 
 3. Use Kotlin and third-party libraries in your application:
-   * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [kotlinx.coroutines](coroutines-guide.md).
-   * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/)
+   * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
+   * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
 
    Learn how to [add library and tool dependencies to your project](gradle.md#configuring-dependencies).
 
