@@ -5,9 +5,10 @@
 Kotlin is a modern programming language that makes many developers happier.
 It's concise, safe, and interoperable. Pick it up and start building powerful applications immediately.
 
-> If you are at the very beginning and Kotlin is your first programming language, you can start with these [learning materials](learning-materials-overview.md).
->
-{type="note"}
+## Learn Kotlin fundamentals
+
+* If you're already familiar with one or more programming languages and want to learn Kotlin, start with these [Kotlin learning materials](learning-materials-overview.md).
+* If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or attending a Kotlin course.
 
 ## Create your powerful application with Kotlin
 
@@ -19,7 +20,7 @@ Here we will help you with your first steps in developing Kotlin server-side app
 
 1. Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
-2. Choose one of the frameworks below and create a project:
+2. Choose one of the **frameworks** below and create a project:
 
    <table width="100%" >
    <tr>
@@ -51,17 +52,18 @@ Here we will help you with your first steps in developing Kotlin server-side app
    </tr>
    </table>
 
-3. Use Kotlin and third-party libraries in your application:
+3. Use **Kotlin and third-party libraries** in your application:
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
    * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
 
-   Learn how to [add library and tool dependencies to your project](gradle.md#configuring-dependencies).
+   > Learn how to [add library and tool dependencies to your project](gradle.md#configuring-dependencies).
+   > 
 
-4. Learn more about Kotlin for server-side:
+4. Learn **more about Kotlin for server-side**:
    * [How to write your first unit test](jvm-test-using-junit.md).
    * [How to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
 
-5. Join the Kotlin server-side community:
+5. Join the **Kotlin server-side community**:
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * **StackOverflow**: subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
 
@@ -73,41 +75,42 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 <tab title="Cross-platform mobile app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using Kotlin Multiplatform Mobile (KMM).
+Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile (KMM)]().
 
-1. [Install Android Studio and set up your environment](https://kotlinlang.org/docs/mobile/setup.html).
+1. [Set up your environment for cross-platform development](https://kotlinlang.org/docs/mobile/setup.html).
 
-2. Create your first KMM application:
+2. Create your **first KMM application**:
 
    * To start from scratch, [create a basic KMM application with the project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html).
    * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](https://kotlinlang.org/docs/mobile/integrate-in-existing-app.html) tutorial.
    * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [KMM sample](https://kotlinlang.org/docs/mobile/samples.html).
 
-3. Use a wide set of Kotlin libraries to implement the required business logic only once in the shared module:
-   * The powerful [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/).
-   * Ktor for networking ([docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html)).
-   * Serialization ([docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model)).
-   * Coroutines for concurrency ([docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html)).
-   * DateTime ([docs](https://github.com/Kotlin/kotlinx-datetime#readme)).
+3. Use a wide set of **multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
+   
+   |Library|Details|
+   |-------|-------|
+   | Ktor |  [Docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html).| 
+   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
+   | Coroutines |  [Docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html).|
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html).|
+   
+   > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
+   > 
+   {type="tip"}
 
-   Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
-
-4. Use third-party libraries to get more capabilities:
-   * [SQLDelight](https://cashapp.github.io/sqldelight/) for data storage ([sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html)).
-   * [Community-driven list of Kotlin Multiplatform libraries](https://libs.kmp.icerock.dev/).
-
-5. Learn more Kotlin for KMM:
+4. Learn **more about KMM**:
+   * Learn more about [Kotlin Multiplatform](mpp-intro.md).
    * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html).
    * [Create and publish a multiplatform library](mpp-create-lib.md).
    * Learn how KMM is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
-   * Learn more about [Kotlin Multiplatform](mpp-intro.md).
 
-6. Join the Kotlin Multiplatform community:
+5. Join the **Kotlin Multiplatform community**:
 
    * **Slack**: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
    * **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
-7. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), and [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+6. Follow Kotlin on [Twitter](https://twitter.com/kotlin), [Reddit](https://www.reddit.com/r/Kotlin/), and [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
