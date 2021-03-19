@@ -63,7 +63,7 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    * [How to write your first unit test](jvm-test-using-junit.md).
    * [How to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
 
-**5.  Join the Kotlin server-side community:**
+**5. Join the Kotlin server-side community:**
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
 
