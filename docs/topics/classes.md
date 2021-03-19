@@ -101,10 +101,11 @@ Learn more about [visibility modifiers](visibility-modifiers.md#constructors).
 The class can also declare _secondary constructors_, which are prefixed with `constructor`:
 
 ```kotlin
-class Person {
-    var children: MutableList<Person> = mutableListOf()
-    constructor(parent: Person) {
-        parent.children.add(this)
+class Person(val pets: MutableList<Pet> = mutableListOf())
+
+class Pet {
+    constructor(owner: Person) {
+        owner.pets.add(this) // adds this pet to the list of its owners pets
     }
 }
 ```
