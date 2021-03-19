@@ -1,7 +1,7 @@
 [//]: # (title: Get started with Kotlin)
 
 [Kotlin](https://kotlinlang.org) is a modern but already mature programming language aimed to make developers happier.
-It’s concise, safe, interoperable, and provides many ways to reuse code between multiple platforms for productive programming.
+It’s concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
 
 Pick it up to start building powerful applications!
 
