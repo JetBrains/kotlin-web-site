@@ -24,21 +24,24 @@ Here are some major refinements:
 
 ## Better debugging experience
 
-This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without backing field in the Variables view.
+This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without a [backing field](properties.md#backing-fields) in the Variables view.
+
+Previously, during the debug session, you could see only properties without custom getter and those with a backing field. Properties with the custom getter didn't appear because they are represented as regular methods on JVM. Starting with Kotlin plugin 2021.1, you can see all the list of such properties and evaluate them on demand by clicking on "get()" near the property name.
 
 For example, during the debugging of the following code you can execute the `get()` method to see the value:
 
 ```kotlin
-class TestClass() {
-    val lazyInt: Int by lazy { 10 }
-    var ambiguousInt: Int = 10
-        get() = 20
-        set(value: Int) {field = value}
+class LanguageVersion(val major: Int, val minor: Int) {
+    val isStable: Boolean
+        get() = major <= 1 && minor <= 4
+    val isExperimental: Boolean
+        get() = !isStable
+    val versionString: String
+        get() = "$major.$minor"
+    override fun toString() = versionString
 }
-
 fun main() {
-    val Instance = TestClass()
-    println("")
+    val version = LanguageVersion(1, 4)
 }
 ```
 
