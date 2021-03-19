@@ -61,7 +61,8 @@ val isEmpty: Boolean
     get() = this.size == 0
 ```
 
-If you define a custom setter, it will be called every time you assign a value to the property. A custom setter looks like this:
+If you define a custom setter, it will be called every time you assign a value to the property except its initialization.
+A custom setter looks like this:
 
 ```kotlin
 var stringRepresentation: String
