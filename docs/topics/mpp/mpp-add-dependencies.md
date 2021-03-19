@@ -1,7 +1,7 @@
 [//]: # (title: Add dependencies)
 
 To add a dependency on a library, set the dependency of the required [type](gradle.md#dependency-types) (for example, `implementation`) in the 
-`dependencies` block of the source sets DSL.
+`dependencies` block in your [Gradle](gradle.md) build script.
 
 <tabs>
 
