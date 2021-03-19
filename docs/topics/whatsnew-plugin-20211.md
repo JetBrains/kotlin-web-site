@@ -16,7 +16,7 @@ Here are some major refinements:
 
 * **Faster syntax and error highlighting**. Code highlighting API has been reworked – now you get all the necessary diagnostic information faster. See the benchmark results and share your feedback in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-37702#focus=Comments-27-4775165.0-0).
 
-* **Speed-up code completion**. In the release, the Kotlin plugin provides faster code completion. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-37702#focus=Comments-27-4775166.0-0) to see an example of how much faster it got going.
+* **Speed-up code completion**. In the release, the Kotlin plugin provides faster code completion. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-1015#focus=Comments-27-4775642.0-0) to see the benchmark results.
   
    In addition to speed changes, we made other improvements to code completion, especially [Code completion for type parameters](#code-completion-for-type-parameters).
 
