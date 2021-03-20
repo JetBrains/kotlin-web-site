@@ -8,7 +8,7 @@ Pick it up to start building powerful applications!
 ## Learn Kotlin fundamentals
 
 * If you're already familiar with one or more programming languages and want to learn Kotlin, start with these [Kotlin learning materials](learning-materials-overview.md).
-* If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or attending a Kotlin course.
+* If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or finding a Kotlin course.
 
 ## Create your powerful application with Kotlin
 
@@ -73,7 +73,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 <tab title="Cross-platform mobile app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile (KMM)]().
+Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile/).
 
 1. **[Set up your environment for cross-platform development](https://kotlinlang.org/docs/mobile/setup.html).**
 
