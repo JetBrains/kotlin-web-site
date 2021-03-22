@@ -68,7 +68,7 @@ Here are some important improvements:
 
 From now on, code completion started offering functions and properties after generic functions restoring type arguments where needed. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
 
-In the following example, the IDE automatically adds the `<Int>()` type:
+In the following example, the IDE automatically adds the `<String>` type:
 
 ![Now code completion suggest functions](code-completion-type-pararmeters.png){width=800}
 
@@ -76,7 +76,7 @@ After you apply the IDE suggestion you'll get the following code:
 
 ```kotlin
 fun typeParametersAtCodeCompletion() {
-    //  Function definition from stdlib:
+    // Function definition from stdlib:
     // public fun <T> emptyList(): List<T>
 
     val listA: List<String> = emptyList() // T is inferred from the context (explicit variable type)
