@@ -55,7 +55,7 @@ In the **Debug** window, you can see the properties value:
 
 This release contains changes in [Change Signature](https://www.jetbrains.com/help/idea/change-signature.html) refactoring. We’ve fixed more than [40 issues](https://youtrack.jetbrains.com/issue/KTIJ-685) to make the refactoring process better.
 
-Here are some of the important improvements:
+Here are some important improvements:
 * Support warning messages for more refactoring cases.
 * Fixes in inheritance refactoring, including cross-language.
    See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-966) for details.
