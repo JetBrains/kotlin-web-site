@@ -26,7 +26,7 @@ Here are some major refinements:
 
 This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without a [backing field](properties.md#backing-fields) in the Variables view.
 
-Previously, during the debug session, you could see only properties without custom getter and those with a backing field. Properties with the custom getter didn't appear because they are represented as regular methods on JVM. Starting with Kotlin plugin 2021.1, you can see all the list of such properties and evaluate them on demand by clicking on "get()" near the property name.
+Previously, during the debug session, you could see only properties without custom getter and those with a backing field. Properties with the custom getter didn't appear because they are represented as regular methods on JVM. Starting with Kotlin plugin 2021.1, you can see all such properties and evaluate them on demand by clicking on `get()` near the property name.
 
 For example, during the debugging of the following code you can execute the `get()` method to see the value:
 
@@ -66,7 +66,7 @@ Here are some important improvements:
 
 ## Code completion for type parameters
 
-From now on, the code completion mechanism offers functions and properties after generic functions and restores type arguments where needed. When you select such a function or property from the list, the IDE adds the correct type parameter to the preceding code.
+From now on, code completion started offering functions and properties after generic functions restoring type arguments where needed. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
 
 In the following example, the IDE automatically adds the `<Int>()` type:
 
