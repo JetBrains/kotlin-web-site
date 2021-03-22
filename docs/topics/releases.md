@@ -30,8 +30,8 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 
 The IDE support for the latest version of the language is available for the following versions of IntelliJ IDEA and Android Studio:
 * IntelliJ IDEA:
-  * Latest stable ([IntelliJ IDEA 2020.3](https://blog.jetbrains.com/idea/2020/12/intellij-idea-2020-3/) version
-  * Previous stable ([IntelliJ IDEA 2020.2](https://blog.jetbrains.com/idea/2020/07/intellij-idea-2020-2-is-released/) version
+  * Latest stable ([IntelliJ IDEA %kotlinPluginVersion%](https://todo-add-link) version)
+  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://blog.jetbrains.com/idea/2020/12/intellij-idea-2020-3/) version)
   * [Early access](https://www.jetbrains.com/resources/eap/) versions
 * Android Studio:
   * [Latest released](https://developer.android.com/studio) version
