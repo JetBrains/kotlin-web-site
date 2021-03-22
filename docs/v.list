@@ -20,4 +20,6 @@
 
     <var name="serializationVersion" value="1.1.0" type="string"/>
 
+    <var name="kotlinPluginVersion" value="2021.1" type="string"/>
+
 </vars>

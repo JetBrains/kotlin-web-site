@@ -3,7 +3,7 @@
 This release aims to increase productivity and improve the development experience. Kotlin plugin 2021.1 introduces the following major updates:
 * [Performance improvements](#performance-improvements)
 * [Better debugging experience](#better-debugging-experience)
-* [Updated Change Signature refactoring](#updated-change-signature-refactoring)
+* [Improved Change Signature refactoring](#improved-change-signature-refactoring)
 * [Code completion for type parameters](#code-completion-for-type-parameters)
 * [UML diagrams for Kotlin classes](#uml-diagrams-for-kotlin-classes)
 * [Other platform enhancements](#other-platform-enhancements)
@@ -51,7 +51,7 @@ In the **Debug** window, you can see the properties value:
 
 ![Variables view](debugging-variables-view.png){width=620}
 
-## Updated Change Signature refactoring
+## Improved Change Signature refactoring
 
 This release contains changes in [Change Signature](https://www.jetbrains.com/help/idea/change-signature.html) refactoring. We’ve fixed more than [40 issues](https://youtrack.jetbrains.com/issue/KTIJ-685) to make the refactoring process better.
 
