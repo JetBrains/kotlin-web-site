@@ -28,7 +28,7 @@ class A { // implicit label @A
                 val d = this // funLit's receiver
             }
 
-val funLit2 = { s: String ->
+            val funLit2 = { s: String ->
                 // foo()'s receiver, since enclosing lambda expression
                 // doesn't have any receiver
                 val d1 = this
