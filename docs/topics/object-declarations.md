@@ -5,7 +5,33 @@ Kotlin handles this case with *object expressions* and *object declarations*.
 
 ## Object expressions
 
-To create an object of an anonymous class that inherits from some type (or types), write:
+_Object expressions_ create objects of anonymous classes, that is, classes that aren't explicitly declared with the `class`
+declaration. Such classes are handy for one-time use. You can inherit them from existing classes or interfaces or define
+from scratch. Instances of anonymous classes are also called _anonymous objects_ because they are defined by an expression,
+not a name.
+
+Object expressions start with the `object` keyword.
+
+If you need just an object with no nontrivial supertypes, write its members in curly braces after `object`:
+
+```kotlin
+
+fun main() {
+//sampleStart
+    val helloWorld = object {
+        val hello = "Hello"
+        val world = "World"
+        // object expressions extend Any, so `override` is required on `toString()`
+        override fun toString() = "$hello $world" 
+    }
+//sampleEnd
+    print(helloWorld)
+}
+```
+{kotlin-runnable="true"}
+
+To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and
+colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it.
 
 ```kotlin
 window.addMouseListener(object : MouseAdapter() {
@@ -30,26 +56,14 @@ val ab: A = object : A(1), B {
 }
 ```
 
-If you need just an object, with no nontrivial supertypes, write:
-
-```kotlin
-fun foo() {
-    val adHoc = object {
-        var x: Int = 0
-        var y: Int = 0
-    }
-    print(adHoc.x + adHoc.y)
-}
-```
-
-Note that anonymous objects can be used as types only in local and [private](visibility-modifiers.md#packages) declarations. If you use an anonymous object as a
-return type of a public function or the type of a public property, the actual type of that function or property
-will be the declared supertype of the anonymous object, or `Any` if you haven't declared any supertype. Members added
-in the anonymous object will not be accessible.
+Anonymous objects can be used as types only in local and [private](visibility-modifiers.md#packages) declarations.
+If you use an anonymous object as a return type of a public function or the type of a public property, the actual type
+of that function or property will be the declared supertype of the anonymous object, or `Any` if you haven't declared
+any supertype. Members added in the anonymous object will not be accessible.
 
 ```kotlin
 class C {
-    // Private function, so the return type is the anonymous object type
+    // Private function, so the return type is the type of the anonymous object
     private fun foo() = object {
         val x: String = "x"
     }
@@ -61,7 +75,7 @@ class C {
 
     fun bar() {
         val x1 = foo().x        // Works
-        val x2 = publicFoo().x  // ERROR: Unresolved reference 'x'
+        // val x2 = publicFoo().x  // ERROR: Unresolved reference 'x'
     }
 }
 ```
