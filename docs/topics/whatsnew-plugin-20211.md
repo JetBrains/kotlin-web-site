@@ -66,7 +66,7 @@ Here are some important improvements:
 
 ## Code completion for type parameters
 
-From now on, the code completion mechanism offers functions that require type parameters. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
+From now on, the code completion mechanism offers functions and properties after generic functions and restores type arguments where needed. When you select such a function or property from the list, the IDE adds the correct type parameter to the preceding code.
 
 In the following example, the IDE automatically adds the `<Int>()` type:
 
@@ -75,9 +75,13 @@ In the following example, the IDE automatically adds the `<Int>()` type:
 After you apply the IDE suggestion you'll get the following code:
 
 ```kotlin
-class SimpleClass<T>(val f: T) {
-   operator fun <U> invoke(): List<U> = TODO()
-   val one: List<Int> = SimpleClass("one")<Int>().asReversed()
+fun typeParametersAtCodeCompletion() {
+    //  Function definition from stdlib:
+    // public fun <T> emptyList(): List<T>
+
+    val listA: List<String> = emptyList() // T is inferred from the context (explicit variable type)
+    val listB: List<String> =
+        emptyList<String>().reversed() // type argument for emptyList() is required to evaluate expression type
 }
 ```
 
