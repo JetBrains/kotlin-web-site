@@ -1,23 +1,13 @@
 [//]: # (title: Inline classes)
 
-> Inline classes are in [Beta](components-stability.md). They are almost stable, but migration steps may be required in the future. 
-> We'll do our best to minimize any changes you will have to make.
-> We would appreciate your feedback on the inline classes feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42434).
->
-{type="warning"}
-
 Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
 overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
 because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
 
 To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
-Inline classes are a subset of value-based classes. They don't have an identity and can only hold values.
+Inline classes are a subset of [value-based classes](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md). They don't have an identity and can only hold values.
 
-To declare an inline class, use an `inline` or `value` modifier before the name of the class:
-
-```kotlin
-inline class Password(val value: String)
-```
+To declare an inline class, use a `value` modifier before the name of the class:
 
 ```kotlin
 value class Password(private val s: String)
@@ -30,6 +20,10 @@ To declare an inline class for the JVM backend, use the `value` modifier along w
 @JvmInline
 value class Password(private val s: String)
 ```
+
+> The `inline` modifier is deprecated with the `WARNING` level.
+> 
+{type="warning"}
 
 An inline class must have a single property initialized in the primary constructor. At runtime, instances of the inline 
 class will be represented using this single property (see details about runtime representation [below](#representation)):
@@ -70,10 +64,8 @@ fun main() {
 }
 ```
 
-There are some restrictions for inline class members:
-* Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
+Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
 properties (no `lateinit`/delegated properties).
-* Inline classes cannot have `var` properties or extension `var` properties.
 
 ## Inheritance
 
@@ -210,55 +202,3 @@ fun main() {
     acceptNameInlineClass(string) // Not OK: can't pass underlying type instead of inline class
 }
 ```
-
-## Enabling inline classes
- 
-When using inline classes, a warning will be reported, indicating that this feature has not been released as stable.
-To remove the warning you have to opt in to the usage of this feature by passing the compiler argument `-Xinline-classes`.
-
-### Gradle
-
-<tabs>
-<tab title="Groovy">
-
-```groovy
-kotlin {
-    sourceSets.all {
-        languageSettings.enableLanguageFeature('InlineClasses')
-    }
-}
-```
-
-</tab>
-<tab title="Kotlin">
-
-```kotlin
-kotlin {
-    sourceSets.all {
-        languageSettings.enableLanguageFeature("InlineClasses")
-    }
-}
-```
-
-</tab>
-</tabs>
-
-See [compiler options in Gradle](gradle.md#compiler-options) for details. For [multiplatform project](mpp-intro.md) settings, 
-see [language settings](mpp-dsl-reference.md#language-settings).
-
-### Maven
-
-```xml
-<configuration>
-    <args>
-        <arg>-Xinline-classes</arg> 
-    </args>
-</configuration>
-```
-
-See [compiler options in Maven](maven.md#specifying-compiler-options) for details.
-
-## Further discussion
-
-See this [language proposal for inline classes](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md) 
-for other technical details and discussion.
