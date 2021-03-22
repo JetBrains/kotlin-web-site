@@ -38,8 +38,10 @@ class LanguageVersion(val major: Int, val minor: Int) {
         get() = !isStable
     val versionString: String
         get() = "$major.$minor"
+    
     override fun toString() = versionString
 }
+
 fun main() {
     val version = LanguageVersion(1, 4)
 }
