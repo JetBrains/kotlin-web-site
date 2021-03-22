@@ -16,7 +16,7 @@ Integral type ranges ([`IntRange`](https://kotlinlang.org/api/latest/jvm/stdlib/
 they can be iterated over. These ranges are also [progressions](https://en.wikipedia.org/wiki/Arithmetic_progression) of
 the corresponding integral types.
 
-Such ranges are generally used for iteration in the `for` loops.
+Such ranges are generally used for iteration in `for` loops.
 
 ```kotlin
 
