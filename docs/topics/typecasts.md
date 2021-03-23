@@ -131,6 +131,10 @@ generic type itself, *its* type arguments are still erased.
 
 ```kotlin
 //sampleStart
+class Greeter{
+    fun sayHello() = "Hello!"
+}
+
 inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
     if (first !is A || second !is B) return null
     return first as A to second as B
@@ -141,7 +145,10 @@ val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
 val stringToSomething = somePair.asPairOf<String, Any>()
 val stringToInt = somePair.asPairOf<String, Int>()
 val stringToList = somePair.asPairOf<String, List<*>>()
-val stringToStringList = somePair.asPairOf<String, List<String>>() // Breaks type safety!
+val stringToStringList = somePair.asPairOf<String, List<Greeter>>() // Breaks type safety!
+
+stringToStringList?.second?.forEach(Greeter::sayHello) // This will throw ClassCastException as Int is not Greeter
+
 //sampleEnd
 
 fun main() {
@@ -149,6 +156,7 @@ fun main() {
     println("stringToInt = " + stringToInt)
     println("stringToList = " + stringToList)
     println("stringToStringList = " + stringToStringList)
+    println(stringToStringList?.second?.forEach(Greeter::sayHello))
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
