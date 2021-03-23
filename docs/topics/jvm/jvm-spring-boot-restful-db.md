@@ -8,6 +8,8 @@ On completing this tutorial you'll have an application with a database for stori
 >
 {type="note"}
 
+<video width="560" height="315" href="gf-kjD2ZmZk" title="Spring Time in Kotlin. Getting Started"/>
+
 ## Add database support
 
 In this section, you will create two endpoints: one for saving messages to the database, and one for retrieving them:
@@ -171,7 +173,7 @@ In IntelliJ IDEA, you can use the embedded [HTTP client](https://www.jetbrains.c
 
 You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in the terminal to get the same result:
 
-```cURL
+```bash
 curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Hello!\" }"
 
 curl -X POST --location "http://localhost:8080" -H "Content-Type: application/json" -d "{ \"text\": \"Bonjour!\" }"
