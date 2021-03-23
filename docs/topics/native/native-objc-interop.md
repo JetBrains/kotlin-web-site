@@ -14,7 +14,7 @@ with `@objc`. Pure Swift modules are not yet supported.
 
 Kotlin modules can be used in Swift/Objective-C code if compiled into a
 framework (see [here](mpp-build-native-binaries.md#declare-binaries)).
-See [calculator sample](https://github.com/JetBrains/kotlin-native/tree/master/samples/calculator) for an example.
+See [calculator sample](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/calculator) for an example.
 
 ## Mappings
 

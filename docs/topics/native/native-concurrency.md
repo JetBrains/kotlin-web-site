@@ -55,7 +55,7 @@ If an object is transferred in `UNSAFE` mode and is still accessible from multip
 program will likely crash unexpectedly, so consider that last resort in optimizing, not a general purpose
 mechanism.
 
-For a more complete example please refer to the [workers example](https://github.com/JetBrains/kotlin-native/tree/master/samples/workers)
+For a more complete example please refer to the [workers example](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/workers)
 in the Kotlin/Native repository.
 
 ### Object transfer and freezing
