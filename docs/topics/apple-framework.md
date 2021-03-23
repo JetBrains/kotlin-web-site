@@ -4,7 +4,7 @@ Kotlin/Native provides bi-directional interoperability with Objective-C/Swift.
 Objective-C frameworks and libraries can be used in Kotlin code.
 Kotlin modules can be used in Swift/Objective-C code too.
 Besides that, Kotlin/Native has
-[C Interop](https://github.com/JetBrains/kotlin-native/blob/master/INTEROP.md).
+[C Interop](native-c-interop.md).
 There is also the [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
 tutorial for more information.
 
