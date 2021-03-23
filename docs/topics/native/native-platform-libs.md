@@ -49,5 +49,5 @@ should be installed on the machine.
 
 The Kotlin/Native repository provides a wide spectrum of examples
 demonstrating the use of platform libraries. 
-See [samples](https://github.com/JetBrains/kotlin-native/tree/master/samples) for details.
+See [samples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples) for details.
 

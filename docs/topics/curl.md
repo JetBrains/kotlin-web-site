@@ -225,6 +225,6 @@ the contents of the site `http://example.com`
 The reason you're seeing the actual output is because the call `curl_easy_perform` prints the result to the standard output. You could hide this using 
 `curl_easy_setopt`. 
 
-For a more complete example of using `libcurl`, the [libcurl sample of the Kotlin/Native project](https://github.com/JetBrains/kotlin-native/tree/master/samples/libcurl) shows how to abstract the code into Kotlin
+For a more complete example of using `libcurl`, the [libcurl sample of the Kotlin/Native project](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/libcurl) shows how to abstract the code into Kotlin
 classes as well as display headers. It also demonstrates how to make the steps a little easier by combining them into a shell script or Gradle build.
 

@@ -78,7 +78,7 @@ Recommended tutorials:
 ## Sample projects
 
 * [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
-* [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
+* [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples) 
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 * [Kotlin/Native sources and examples (.tgz)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.tar.gz)
