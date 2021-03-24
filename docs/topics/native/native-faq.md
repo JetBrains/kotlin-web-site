@@ -141,5 +141,4 @@ used to store different pointers to frozen objects in a frozen object and automa
 First, please consider trying [preview versions](eap.md).
 
 In case you need an even more recent development version, you can build Kotlin/Native from source code:
-clone [Kotlin repository](https://github.com/JetBrains/kotlin) and follow the steps:
-https://github.com/JetBrains/kotlin/blob/master/kotlin-native/README.md#building-from-source.
+clone [Kotlin repository](https://github.com/JetBrains/kotlin) and follow [these steps](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/README.md#building-from-source).
