@@ -71,6 +71,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Stuttgart Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Stuttgart/), Germany
  * [Swiss Kotlin User Group](https://www.meetup.com/Kotlin-Swiss-User-Group/), Switzerland
  * [Taganrog Kotlin User Group](https://vk.com/kotlintgn), Russia
+ * [Torino Kotlin User Group](https://www.meetup.com/kotlin-torino-user-group/), Italy
  * [Tricity Kotlin User Group](https://www.facebook.com/groups/2519853351660362/), Poland
  * [Utrecht Kotlin User Group](https://www.meetup.com/meetup-group-YgJEOzCn/), Netherlands
  * [Uzhgorod Kotlin User Group](https://www.facebook.com/groups/135578123824203/), Ukraine
