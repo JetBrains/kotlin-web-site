@@ -3,18 +3,29 @@ from os import path
 from jinja2 import Environment
 from jinja2.loaders import FileSystemLoader
 
+
 root_folder_path = path.dirname(path.dirname(__file__))
 
 
 def generate_sitemap(pages):
     non_static_urls = []
 
-    for url, endpoint in pages:
-        is_page = url.endswith('/') or url.endswith('.html') or url.endswith('pdf') or url.endswith('package-list') or url.endswith('index.yml')
-        is_exclude = url.endswith('404.html')
+    for url, type in pages:
+        if type is None:
+            continue
 
-        if  is_page and not is_exclude:
-            non_static_urls.append(url)
+        is_page = type.startswith('Page')
+        is_exclude = type == 'Page_NotFound'
+
+        if is_page and not is_exclude:
+            location = dict(url=url, priority=0.3, lastmod=None)
+
+            if url == '/':
+                location['priority'] = 1
+            if type == 'Page_Documentation':
+                location['priority'] = 0.8
+
+            non_static_urls.append(location)
 
     env = Environment(loader=FileSystemLoader(path.join(root_folder_path, 'templates')))
     template = env.get_template('sitemap.xml')
