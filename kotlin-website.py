@@ -15,8 +15,10 @@ from flask import Flask, render_template, Response, send_from_directory, request
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 from hashlib import md5
+from yaml import FullLoader
 
 from src.Feature import Feature
+from src.dist import get_dist_pages
 from src.github import assert_valid_git_hub_url
 from src.navigation import process_video_nav, process_nav
 from src.api import get_api_page
@@ -28,7 +30,7 @@ from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
-from src.search import build_search_indices, get_pages
+from src.search import build_search_indices
 from src.sitemap import generate_sitemap
 
 app = Flask(__name__, static_folder='_assets')
@@ -75,7 +77,7 @@ def get_site_data():
         with open(data_file_path, encoding="UTF-8") as stream:
             try:
                 file_name_without_extension = data_file[:-4] if data_file.endswith(".yml") else data_file
-                data[file_name_without_extension] = yaml.load(stream)
+                data[file_name_without_extension] = yaml.load(stream, Loader=FullLoader)
             except yaml.YAMLError as exc:
                 sys.stderr.write('Cant parse data file ' + data_file + ': ')
                 sys.stderr.write(str(exc))
@@ -112,7 +114,7 @@ def get_nav():
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = yaml.load(stream)
+        nav = yaml.load(stream, Loader=FullLoader)
         nav = process_nav_includes(build_mode, nav)
         return nav
 
@@ -512,9 +514,9 @@ if __name__ == '__main__':
                 sys.exit(-1)
 
         elif argv_copy[1] == "sitemap":
-            generate_sitemap(get_pages(freezer))
+            generate_sitemap(get_dist_pages())
         elif argv_copy[1] == "index":
-            build_search_indices(get_pages(freezer), site_data['releases']['latest']['version'])
+            build_search_indices(get_dist_pages(), site_data['releases']['latest']['version'])
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
