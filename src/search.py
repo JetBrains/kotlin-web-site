@@ -1,42 +1,14 @@
 import os
-from os import path
 from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
 from bs4 import BeautifulSoup, Tag
-from flask import current_app as app
 from googleapiclient.discovery import build, Resource
 from oauth2client.service_account import ServiceAccountCredentials
 
 from src.api import get_api_page
-
-dist_path = "./dist"
-root_folder = path.dirname(path.dirname(__file__))
-
-
-def get_pages(freezer):
-    frozen = freezer._generate_all_urls()
-
-    frozen_dict = dict()
-
-    for url, type in frozen:
-        frozen_dict[url] = type
-
-    paths = []
-
-    if os.path.isdir(dist_path):
-        for root, dirnames, filenames in os.walk(dist_path):
-            for filename in filenames:
-                prefix_path = root[len(dist_path):]
-                if not prefix_path: prefix_path = "/"
-
-                url = path.join(prefix_path, filename)
-
-                if url.endswith('index.html'): url = url[:-10]
-                paths.append((url, frozen_dict.get(url, None)))
-
-    return paths if len(paths) > 0 else frozen
+from src.dist import get_dist_page_xml, dist_path
 
 
 def initialize_analyticsreporting() -> Resource:
@@ -244,22 +216,6 @@ def get_wh_index():
     return None
 
 
-def get_page_content(url):
-    path_file = dist_path + url
-
-    if path.exists(path_file):
-        with open(path_file, 'r', encoding="UTF-8") as file:
-            return file.read()
-
-    client = app.test_client()
-    content = client.get(url, follow_redirects=True)
-
-    if content.status_code != 200:
-        raise Exception('Bad response during indexing')
-
-    return content.data
-
-
 def to_wh_index(version, item):
     page_title = item["pageTitle"] if "pageTitle" in item else item["headings"]
 
@@ -288,9 +244,9 @@ def build_search_indices(pages, version):
     wh_index_objects = []
 
     print("Start building index")
-    for url, endpoint in pages:
+    for url, type in pages:
         if url.endswith('/'): url += 'index.html'
-        if not url.endswith('.html'): continue
+        if type.startswith: continue
 
         title = ''
         content = ''
@@ -301,20 +257,16 @@ def build_search_indices(pages, version):
         if url in page_views_statistic:
             page_views = page_views_statistic[url]
 
-        if page_path.startswith('community'):
+        if type == 'Page_Community':
             page_type = 'Community'
-        elif page_path.startswith('docs/reference'):
+        elif type == 'Page_Reference':
             page_type = 'Reference'
-        elif page_path.startswith('docs/tutorials'):
+        elif type == 'Page_Tutorial':
             page_type = 'Tutorial'
 
-        html_content = get_page_content(url)
-        parsed = BeautifulSoup(html_content, "html.parser")
+        parsed = get_dist_page_xml(url)
 
-        if parsed.find("meta", {"http-equiv": "refresh"}):
-            continue
-
-        if page_path.startswith("api/latest/"):
+        if type.startswith('Page_API_'):
             page_info = get_api_page(True, page_path[4:], dist_path)
 
             for table in page_info['content']('table'):
