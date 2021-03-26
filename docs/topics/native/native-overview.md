@@ -14,13 +14,10 @@ self-contained program that does not require an additional runtime or virtual ma
 ## Target platforms
 
 Kotlin/Native supports the following platforms:
-   * iOS
-   * macOS
-   * watchOS
-   * tvOS
-   * Android NDK
-   * Windows (MinGW)
+   * iOS, macOS, tvOS, watchOS
    * Linux
+   * Windows (MinGW)
+   * Android NDK
 
 The full list of supported targets is available [here](mpp-supported-platforms.md).
 
