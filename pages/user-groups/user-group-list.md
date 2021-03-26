@@ -5,7 +5,7 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 204 KUGs around the world
+## 197 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
@@ -218,24 +218,16 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
 * [Damaturu Kotlin User Group](https://web.facebook.com/Damaturu-Kotlin-User-Group-114389643760406), Nigeria
 * [Egypt Kotlin](https://www.facebook.com/kotlinegypt/), Egypt
-* [Enugu Kotlin User Group](https://kotlin-enuguusergroup.slack.com/), Nigeria
-* [Kano Kotlin User Group](https://www.meetup.com/Kotlin-Kano-User-Group-Nigeria/), Nigeria
 * [Katsina Kotlin User Group](https://www.downtomeet.com/Katsina-Kotlin-Group), Nigeria
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
-* [Lapai Kotlin User Group](https://www.meetup.com/Kotlin-Lapai-User-Group/), Nigeria
-* [Libreville Kotlin User Group](https://www.meetup.com/fr-FR/Libreville-Kotlin/), Gabon
 * [Lome Kotlin User Group](https://www.facebook.com/groups/1825278611119862/), Togo
-* [Lubumbashi Kotlin User Group](https://www.meetup.com/Lubumbashi-Kotlin-User-Group/), Congo
-* [Minna Kotlin User Group](https://www.meetup.com/Kotlin-Minna-User-Group-Nigeria/), Nigeria
 * [Minya Kotlin User Group](https://www.facebook.com/kotlinminya/), Egypt
 * [Nairobi Kotlin User Group](https://www.meetup.com/KotlinKenya/), Kenya
-* [Noun Kotlin User Group](https://www.meetup.com/Noun-Kotlin-User-Group/), Cameroon
 * [Ondo Kotlin User Group](https://www.meetup.com/Kotlin-Ondo-User-Group/), Nigeria
 * [Ouagadougou Kotlin User Group](https://www.facebook.com/groups/649651491892414/), Burkina Faso
 * [Rivers Kotlin User Group](https://www.facebook.com/groups/2178453949151460/), Nigeria
 * [Tunisia Kotlin User Group](https://www.facebook.com/groups/1501353116571104), Tunisia
 * [Uganda Kotlin User Group](https://www.facebook.com/Uganda-Kotlin-User-Group-613707548753658/), Uganda
-* [Warri Kotlin User Group](https://www.meetup.com/kotlin-warri/), Nigeria
 * [Yola Kotlin User Group](https://www.facebook.com/Kotlin-Yola-User-Group-104198534358013/), Nigeria
  {:.community-usergroup-list}
 
