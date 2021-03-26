@@ -258,8 +258,8 @@ kotlin.stdlib.default.dependency=false
 
 The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing different Kotlin projects. 
 
-Add the dependency on `kotlin-test` to the `commonTest` source set.
-The Gradle plugin will infer the corresponding test dependency for each source set:
+Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
+test dependencies for each source set:
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
 * `kotlin-test-junit`/`kotlin-test-junit-5`/`kotlin-test-testng` for JVM source sets
 * `kotlin-test-js` for Kotlin/JS source sets
@@ -298,7 +298,9 @@ kotlin{
 >
 {type="note"}
 
-For Kotlin/JVM the code above enables JUnit 4 by default.
+For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, in the code above the `kotlin(‘test’)` dependency resolves to 
+the variant for JUnit 4, namely `kotlin-test-junit`.
+
 You can choose JUnit 5 or TestNG by calling 
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the test task:
@@ -329,8 +331,8 @@ tasks.test {
 
  </tabs>
 
-If you used JUnit 5 or TestNG as the dependency before, either rewrite your build script to use new functions or disable 
-this feature: add the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`.
+You can disable the automatic selection of a testing framework by adding the line `kotlin.test.infer.jvm.variant=false` 
+to the project’s `gradle.properties`.
 
 ### Set a dependency on a kotlinx library
 
