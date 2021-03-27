@@ -245,8 +245,8 @@ def build_search_indices(pages, version):
 
     print("Start building index")
     for url, type in pages:
+        if not type.startswith('Page'): continue
         if url.endswith('/'): url += 'index.html'
-        if type.startswith: continue
 
         title = ''
         content = ''
