@@ -1,4 +1,4 @@
-flask==0.12.3
+flask==1.0
 flask-flatpages==0.6
 frozen-flask==0.12
 Pygments==2.7.4
