@@ -266,6 +266,11 @@ test dependencies for each source set:
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
+Additionaly, you can use the `kotlin-test` dependency in any shared or platform-specific source set.
+
+For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to
+the variant for JUnit 4, namely `kotlin-test-junit`:
+
 <tabs>
 
 ```groovy
@@ -273,7 +278,7 @@ kotlin{
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin('test')
+                implementation kotlin('test') // This brings the dependency on JUnit 4 transitively
             }
         }
     }
@@ -285,7 +290,7 @@ kotlin{
     sourceSets {
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(kotlin("test")) // This brings the dependency on JUnit 4 transitively
             }
         }
     }
@@ -297,9 +302,6 @@ kotlin{
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin('test') for "org.jetbrains.kotlin:kotlin-test".
 >
 {type="note"}
-
-For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, in the code above the `kotlin(‘test’)` dependency resolves to 
-the variant for JUnit 4, namely `kotlin-test-junit`.
 
 You can choose JUnit 5 or TestNG by calling 
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
