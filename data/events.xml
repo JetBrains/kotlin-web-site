@@ -68,24 +68,6 @@ Under kvällen kommer Alexander att visa hur man kan sätta upp ett REST Api gen
    </event>
 
    <event>
-        <lang>de</lang>
-        <startDate>2021-03-30</startDate>
-        <endDate>2021-03-30</endDate>
-        <location>Würzburg, Germany</location>
-        <speaker>Alexander Sundström</speaker>
-        <title>WUE.tech</title>
-        <subject>Microservices mit Ktor und NATS</subject>
-        <url>https://www.meetup.com/wue-tech/events/276539182</url>
-        <description>
-            <![CDATA[
-<p>Das Framework Ktor kommt aus dem Hause JetBrains und ist in der hauseigenen Programmiersprache Kotlin verfasst. Es ermöglicht eine schnelle Realisierung von Web-Client- und Server-Applikationen und bietet sich daher gut zur Erstellung von Microservices in vernetzten Systemen an. Als Package Manager und Build Tool wird Gradle verwendet.</p>
-<p>Wir erstellen mit Ktor zwei einfache Webservices und demonstrieren ein paar der wichtigsten Features dieses Frameworks. Hierzu gehören Auto Reload, Routing, Basic User Authentification und Json.</p>
-<p>Beleuchtet werden darüberhinaus die Vorteile gegenüber etablierter Lösungen wie beispielsweise Spring Boot oder Symfony.</p>
-]]>
-        </description>
-   </event>
-
-   <event>
         <lang>pt</lang>
         <startDate>2021-03-06</startDate>
         <endDate>2021-03-06</endDate>
