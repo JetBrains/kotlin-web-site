@@ -2,7 +2,7 @@
 
 This release aims to increase productivity and improve the development experience. Kotlin plugin 2021.1 introduces the following major updates:
 * [Performance improvements](#performance-improvements)
-* [Better debugging experience](#better-debugging-experience)
+* [Custom getters evaluation during the debugging](#custom-getters-evaluation-during-the-debugging)
 * [Improved Change Signature refactoring](#improved-change-signature-refactoring)
 * [Code completion for type parameters](#code-completion-for-type-parameters)
 * [UML diagrams for Kotlin classes](#uml-diagrams-for-kotlin-classes)
@@ -22,7 +22,7 @@ Here are some major refinements:
 
 * **Faster IDE responsiveness**. We’ve fixed numerous issues based on your feedback and improve the overall stability of the plugin and IDE responsiveness.
 
-## Better debugging experience
+## Custom getters evaluation during the debugging
 
 This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without a [backing field](properties.md#backing-fields) in the Variables view.
 
@@ -68,28 +68,39 @@ Here are some important improvements:
 
 From now on, code completion started offering functions and properties after generic functions restoring type arguments where needed. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
 
-In the following example, the IDE automatically adds the `<String>` type:
-
-![Now code completion suggest functions](code-completion-type-pararmeters.png){width=800}
-
-After you apply the IDE suggestion you'll get the following code:
+In the following example, there is a list of strings to be reversed:
 
 ```kotlin
 fun typeParametersAtCodeCompletion() {
     // Function definition from stdlib:
     // public fun <T> emptyList(): List<T>
 
-    val listA: List<String> = emptyList() // T is inferred from the context (explicit variable type)
-    val listB: List<String> =
-        emptyList<String>().reversed() // type argument for emptyList() is required to evaluate expression type
+    val list: List<String> = emptyList() // T is inferred from the context (explicit variable type)
 }
 ```
+
+To reverse this list, start typing the name of the `reversed()` function:
+
+![Now code completion suggests functions](code-completion-type-pararmeters.png){width=800}
+
+After you apply the code completion suggestion, the IDE automatically adds the `<String>` type:
+
+```kotlin
+fun typeParametersAtCodeCompletion() {
+    // Function definition from stdlib:
+    // public fun <T> emptyList(): List<T>
+
+    val list: List<String> = emptyList<String>().reversed()
+}
+```
+
+Type argument for `emptyList()` is required to evaluate expression type, otherwise the code will not compile.
 
 ## UML diagrams for Kotlin classes
 
 With this release, you can test Kotlin code visualization via UML Class diagrams. To build a diagram, in the **Project View** select **Diagrams | Show Diagram... | Kotlin Classes**.
 
-![Variables view](kotlin-classes-uml-diagram.png){width=620}
+![UML diagram for Kotlin classes](kotlin-classes-uml-diagram.png){width=620}
 
 Currently, the diagrams only show inheritance and nesting relationships. All other more detailed association connections, like aggregation, construction, dependency, and others will be available in the next releases.
 
