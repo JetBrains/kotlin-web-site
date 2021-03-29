@@ -2,7 +2,7 @@
 
 This release aims to increase productivity and improve the development experience. Kotlin plugin 2021.1 introduces the following major updates:
 * [Performance improvements](#performance-improvements)
-* [Custom getters evaluation during the debugging](#custom-getters-evaluation-during-the-debugging)
+* [Evaluation of custom getters during debugging](#evaluation-of-custom-getters-during-debugging)
 * [Improved Change Signature refactoring](#improved-change-signature-refactoring)
 * [Code completion for type parameters](#code-completion-for-type-parameters)
 * [UML diagrams for Kotlin classes](#uml-diagrams-for-kotlin-classes)
@@ -22,7 +22,7 @@ Here are some major refinements:
 
 * **Faster IDE responsiveness**. We’ve fixed numerous issues based on your feedback and improve the overall stability of the plugin and IDE responsiveness.
 
-## Custom getters evaluation during the debugging
+## Evaluation of custom getters during debugging
 
 This release expands debugger capabilities. One of the most notable features is showing Kotlin properties without a [backing field](properties.md#backing-fields) in the Variables view.
 
@@ -72,10 +72,10 @@ In the following example, there is a list of strings to be reversed:
 
 ```kotlin
 fun typeParametersAtCodeCompletion() {
-    // Function definition from stdlib:
-    // public fun <T> emptyList(): List<T>
+   // Function definition from stdlib:
+   // public fun <T> emptyList(): List<T>
 
-    val list: List<String> = emptyList() // T is inferred from the context (explicit variable type)
+   val list: List<String> = emptyList() // T is inferred from the context (explicit variable type)
 }
 ```
 
@@ -87,14 +87,14 @@ After you apply the code completion suggestion, the IDE automatically adds the `
 
 ```kotlin
 fun typeParametersAtCodeCompletion() {
-    // Function definition from stdlib:
-    // public fun <T> emptyList(): List<T>
+   // Function definition from stdlib:
+   // public fun <T> emptyList(): List<T>
 
-    val list: List<String> = emptyList<String>().reversed()
+   val list: List<String> = emptyList<String>().reversed()
 }
 ```
 
-Type argument for `emptyList()` is required to evaluate expression type, otherwise the code will not compile.
+The type argument for `emptyList()` is required to evaluate the expression type. Otherwise, the code will not compile.
 
 ## UML diagrams for Kotlin classes
 
