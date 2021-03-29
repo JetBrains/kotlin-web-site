@@ -8,6 +8,8 @@ On completing this tutorial you'll have an application with a database for stori
 >
 {type="note"}
 
+You can also watch a video of this tutorial (starting from 4:17):
+
 <video width="560" height="315" href="gf-kjD2ZmZk" title="Spring Time in Kotlin. Getting Started"/>
 
 ## Add database support

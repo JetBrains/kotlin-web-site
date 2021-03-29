@@ -10,6 +10,8 @@ This tutorial consists of two parts:
 
 To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
 
+You can also watch a video of this tutorial:
+
 <video width="560" height="315" href="gf-kjD2ZmZk" title="Spring Time in Kotlin. Getting Started"/>
 
 ## Bootstrap the project
