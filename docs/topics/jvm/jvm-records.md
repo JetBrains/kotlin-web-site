@@ -1,10 +1,5 @@
 [//]: # (title: Records)
 
-> JVM records are [Experimental](components-stability.md). They may be dropped or changed at any time.
-> Opt-in is required (see the details [below](#enabling-jvm-records)), and you should use them only for evaluation purposes. We would appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-42430).
->
-{type="warning"}
-
 _Records_ are [classes](https://openjdk.java.net/jeps/395) in Java for storing immutable data. Records carry a fixed set of values – the _records components_.
 They have a concise syntax in Java and save you from having to write boilerplate code:
 
@@ -62,12 +57,6 @@ To declare a data class with the `@JvmRecord` annotation, it must meet the follo
 * The class cannot declare any mutable properties with backing fields.
 * The class cannot be local.
 * The primary constructor of the class must be as visible as the class itself.
-
-## Enabling JVM records
-
-To start using JVM records, add the compiler options `-Xjvm-enable-preview` and `-language-version 1.5`.
-
-See [compiler options in Gradle](gradle.md#compiler-options) for details.
 
 ## Further discussion
 
