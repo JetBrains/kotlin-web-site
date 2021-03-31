@@ -11,7 +11,7 @@ Read on for our tips on how to speed up the Kotlin/Native compilation process.
 
 * **Use the most recent version of Kotlin**. This way you will always have the latest performance improvements.
 * **Avoid creating huge classes**. They take a long time to compile and load during execution.
-* **Preserve downloaded components between builds**. When compiling projects, Kotlin/Native downloads the required components
+* **Preserve downloaded and cached components between builds**. When compiling projects, Kotlin/Native downloads the required components
   and caches some results of its work to the `$USER_HOME/.konan` directory. The compiler uses this directory for subsequent
   compilations, making them take less time to complete.
 
