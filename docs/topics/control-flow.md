@@ -109,7 +109,7 @@ If no argument is supplied, the branch conditions are simply boolean expressions
 ```kotlin
 when {
     x.isOdd() -> print("x is odd")
-    x.isEven() -> print("y is even")
+    y.isEven() -> print("y is even")
     else -> print("x+y is odd")
 }
 ```
