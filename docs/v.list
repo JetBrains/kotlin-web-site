@@ -16,6 +16,8 @@
 
     <var name="coroutinesEapVersion" value="1.4.2" type="string"/>
 
+    <var name="minGradleVersion" value="6.1" type="string"/>
+
     <var name="gradleVersion" value="6.7.1" type="string"/>
 
     <var name="serializationVersion" value="1.1.0" type="string"/>

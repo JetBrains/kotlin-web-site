@@ -15,7 +15,7 @@ See the [Gradle documentation](https://docs.gradle.org/current/userguide/upgradi
 
 Gradle module metadata provides rich publishing and dependency resolution features that are used in Kotlin Multiplatform Projects. 
 In Gradle 6.0 and above, module metadata is used in dependency resolution and included in publications by default. 
-Thus, once you update to Gradle 6.0, you can remove `enableFeaturePreview("GRADLE_METADATA")` from the project’s `settings.gradle` file.
+Thus, once you update to such a version, you can remove `enableFeaturePreview("GRADLE_METADATA")` from the project’s `settings.gradle` file.
 
 If you use libraries published with metadata, you only have to specify dependencies on them only once in the shared source set, 
 as opposed to specifying dependencies on different variants of the same library in the shared and platform-specific source sets prior to 1.4.0. 
