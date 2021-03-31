@@ -8,7 +8,7 @@ Thus, each instance of a sealed class has a type from a limited set that is know
 The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled,
 no new implementations can appear.
 
-In some sense, sealed classes are similar to [`enum` classes](enum-classes.md): the set of values
+In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: the set of values
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
@@ -31,7 +31,7 @@ Sealed classes are not allowed to have non-`private` constructors (their constru
 ## Location of direct subclasses
 
 Direct subclasses of sealed classes and interfaces must be declared in the same package. They may be top-level or nested
-inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.html)
+inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.md)
 as long as they are compatible with normal inheritance rules in Kotlin.
 
 Subclasses of sealed classes must have a proper qualified name. They can't be local nor anonymous objects.
@@ -42,7 +42,8 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 
 ## Sealed classes and when expression
 
-The key benefit of using sealed classes comes into play when you use them in a [`when` expression](control-flow.md#when-expression). 
+The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
+expression. 
 If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement. 
 However, this works only if you use `when` as an expression (using the result) and not as a statement.
 
