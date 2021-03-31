@@ -1,7 +1,7 @@
 [//]: # (title: Delegation)
 
 The [Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) has proven to be a good alternative to 
-implementation inheritance,and Kotlin supports it natively requiring zero boilerplate code.
+implementation inheritance, and Kotlin supports it natively requiring zero boilerplate code.
 
 A class `Derived` can implement an interface `Base` by delegating all of its public members to a specified object:
 
