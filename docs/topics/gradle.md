@@ -532,8 +532,8 @@ The complete list of options for the Gradle tasks is the following:
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Allow using declarations only from the specified version of bundled libraries | "1.2" (DEPRECATED), "1.3", "1.4", "1.5" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.2" (DEPRECATED), "1.3", "1.4", "1.5" (EXPERIMENTAL) |  |
+| `apiVersion` | Allow using declarations only from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
 
 ### Attributes specific for JVM
 
