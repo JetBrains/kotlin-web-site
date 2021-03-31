@@ -56,7 +56,7 @@ direct subclasses of a sealed class (indirect inheritors) can be placed anywhere
 {type="warning"}
 
 Direct subclasses of sealed classes and interfaces must be declared in the same package. They may be top-level or nested
-inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.html)
+inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.md)
 as long as they are compatible with normal inheritance rules in Kotlin.
 
 Subclasses of sealed classes must have a proper qualified name. They can't be local nor anonymous objects.
