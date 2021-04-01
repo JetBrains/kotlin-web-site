@@ -4,13 +4,13 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.4.32" type="string"/>
+    <var name="kotlinVersion" value="1.4.31" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.5.0-RC" type="string"/>
+    <var name="kotlinEapVersion" value="1.5.0-M1" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.4.32" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.4.31" type="string"/>
 
-    <var name="kotlinReleaseDate" value="March 22, 2021" type="string"/>
+    <var name="kotlinReleaseDate" value="February 25, 2021" type="string"/>
 
     <var name="coroutinesVersion" value="1.4.2" type="string"/>
 
@@ -27,5 +27,7 @@
     <var name="kotlinPluginVersion" value="2021.1" type="string"/>
 
     <var name="kotlinPreviousPluginVersion" value="2020.3" type="string"/>
+
+    <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
 
 </vars>
