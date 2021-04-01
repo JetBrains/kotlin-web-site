@@ -26,7 +26,17 @@ object NotANumber : Expr
 
 A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot be instantiated directly and can have `abstract` members.
 
-Sealed classes are not allowed to have non-`private` constructors (their constructors are `private` by default).
+Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
+`private`.
+
+```kotlin
+sealed class MathExpr {
+    constructor() { /*...*/ } // protected by default
+    private constructor(vararg operands: Number): this() { /*...*/ } // private is OK
+    // public constructor(s: String): this() {} // Error: public and internal are not allowed
+}
+```
+
 
 ## Location of direct subclasses
 
