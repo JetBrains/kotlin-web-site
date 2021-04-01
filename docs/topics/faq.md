@@ -94,9 +94,9 @@ When targeting native, Kotlin will produce platform-specific code (via LLVM).
 
 ### Which versions of JVM does Kotlin target?
 
-Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 6 compatible bytecode.
+Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 8 compatible bytecode.
 If you want to make use of optimizations available in newer versions of Java, you can explicitly specify the target Java
-version from 8 to 15. Note that in this case the resulting bytecode might not run on lower versions. 
+version from 9 to 16. Note that in this case the resulting bytecode might not run on lower versions. 
 
 ### Is Kotlin hard?
 

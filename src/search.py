@@ -33,10 +33,8 @@ def get_pages(freezer):
 
                 url = path.join(prefix_path, filename)
 
-                if filename == "index.html":
-                    paths.append((prefix_path, frozen_dict.get(prefix_path, None)))
-                else:
-                    paths.append((url, frozen_dict.get(url, None)))
+                if url.endswith('index.html'): url = url[:-10]
+                paths.append((url, frozen_dict.get(url, None)))
 
     return paths if len(paths) > 0 else frozen
 
@@ -119,6 +117,10 @@ def get_page_path_from_url(url):
 def group_small_content_pats(content_parts, start_index=0):
     record_limit = 100 * 1024
     size = len(content_parts)
+
+    # ToDo: REMOVE RECURSION
+    if size > 950: content_parts = content_parts[0:950]
+
     for i in range(start_index, size):
         if len(content_parts[i]) < record_limit and i < size - 1:
             content_parts[i] = content_parts[i].rstrip()
@@ -190,13 +192,30 @@ def get_markdown_page_index_objects(content: Tag, url: str, page_path: str, titl
 
 
 def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title: str, page_type: str,
-                                    page_views: int) -> List[Dict]:
+                                   page_views: int) -> List[Dict]:
     index_objects = []
 
-    article_title = content.select_one('h1').text
+    article_title_node = content.select_one('h1')
+    article_title = article_title_node.text
+    article_content = content
+
+    chapters = content.select('.chapter')
 
     if article_title:
-        chapters = content.select('.chapter')
+        if len(chapters) != 0:
+            article_content = []
+            next_node = article_title_node.next_sibling
+
+            while next_node and next_node != chapters[0]:
+                article_content.append(next_node)
+                next_node = next_node.next_sibling
+
+        for ind, page_part in enumerate(get_valuable_content(page_path, article_content)):
+            page_info = {'url': url, 'objectID': url + str(ind), 'content': page_part,
+                         'headings': article_title, 'mainTitle': article_title, 'pageTitle': article_title,
+                         'type': page_type,
+                         'pageViews': page_views}
+            index_objects.append(page_info)
 
         for chapter in chapters:
             chapter_title_node = chapter.select_one('h2[data-toc]')
@@ -209,7 +228,8 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
 
                 for ind, page_part in enumerate(get_valuable_content(page_path, chapter_content)):
                     page_info = {'url': url_with_href, 'objectID': url_with_href + str(ind), 'content': page_part,
-                                 'headings': chapter_title, 'mainTitle': article_title, 'pageTitle': chapter_title, 'type': page_type,
+                                 'headings': chapter_title, 'mainTitle': article_title, 'pageTitle': chapter_title,
+                                 'type': page_type,
                                  'pageViews': page_views}
                     index_objects.append(page_info)
 
@@ -263,7 +283,7 @@ def to_wh_index(version, item):
 
 
 def build_search_indices(pages, version):
-    page_views_statistic = {} #get_page_views_statistic()
+    page_views_statistic = get_page_views_statistic()
     index_objects = []
     wh_index_objects = []
 
@@ -287,6 +307,12 @@ def build_search_indices(pages, version):
             page_type = 'Reference'
         elif page_path.startswith('docs/tutorials'):
             page_type = 'Tutorial'
+
+        html_content = get_page_content(url)
+        parsed = BeautifulSoup(html_content, "html.parser")
+
+        if parsed.find("meta", {"http-equiv": "refresh"}):
+            continue
 
         if page_path.startswith("api/latest/"):
             page_info = get_api_page(True, page_path[4:], dist_path)
@@ -315,12 +341,6 @@ def build_search_indices(pages, version):
             page_type = "Standard Library" if "jvm/stdlib" in url else "Kotlin Test"
             content = page_info['content'].find('article', {"role": "main"})
         else:
-            html_content = get_page_content(url)
-            parsed = BeautifulSoup(html_content, "html.parser")
-
-            if parsed.find("meta", {"http-equiv": "refresh"}):
-                continue
-
             body_title = parsed.select_one("body[data-search-title]")
 
             if body_title:
@@ -363,7 +383,10 @@ def build_search_indices(pages, version):
             )
 
             index_objects += page_indices
-            def wh(*args): return to_wh_index(version, *args)
+
+            def wh(*args):
+                return to_wh_index(version, *args)
+
             wh_index_objects += list(map(wh, page_indices.copy()))
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)

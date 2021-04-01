@@ -6,14 +6,19 @@ from jinja2.loaders import FileSystemLoader
 root_folder_path = path.dirname(path.dirname(__file__))
 
 
-def generate_sitemap(urls):
-    sitemap_content = _generate_sitemap_content(urls)
-    with open(path.join(root_folder_path, 'build', 'sitemap.xml'), 'w') as sitemap_file:
-        sitemap_file.write(sitemap_content)
+def generate_sitemap(pages):
+    non_static_urls = []
 
+    for url, endpoint in pages:
+        is_page = url.endswith('/') or url.endswith('.html') or url.endswith('pdf') or url.endswith('package-list') or url.endswith('index.yml')
+        is_exclude = url.endswith('404.html')
 
-def _generate_sitemap_content(urls):
-    non_static_urls = [url for url in urls if not (url.startswith('/_assets') or url.startswith('/assets'))]
+        if  is_page and not is_exclude:
+            non_static_urls.append(url)
+
     env = Environment(loader=FileSystemLoader(path.join(root_folder_path, 'templates')))
     template = env.get_template('sitemap.xml')
-    return template.render(locations=non_static_urls)
+    sitemap_content = template.render(locations=non_static_urls)
+
+    with open(path.join(root_folder_path, 'dist', 'sitemap.xml'), 'w') as sitemap_file:
+        sitemap_file.write(sitemap_content)
