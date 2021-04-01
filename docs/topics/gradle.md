@@ -333,7 +333,7 @@ tasks.test {
 
  </tabs>
 
-You can disable the automatic selection of a testing framework by adding the line `kotlin.test.infer.jvm.variant=false` 
+You can disable the automatic selection of a variant of `kotlin-test` library by adding the line `kotlin.test.infer.jvm.variant=false` 
 to the project’s `gradle.properties`.
 
 ### Set a dependency on a kotlinx library
