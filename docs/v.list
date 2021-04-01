@@ -20,4 +20,6 @@
 
     <var name="serializationVersion" value="1.1.0" type="string"/>
 
+    <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
+
 </vars>
