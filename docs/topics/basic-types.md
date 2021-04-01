@@ -312,7 +312,7 @@ Unsigned types are implemented using feature that's not yet stable, namely [inli
 
 #### Unsigned arrays and ranges 
 
-> Unsigned arrays and operations on them are [Beta](components-stability.md). They are almost stable, but migration
+> Unsigned arrays and operations on them are in [Beta](components-stability.md). They are almost stable, but migration
 > steps may be required in the future. We'll do our best to minimize any changes you will have to make.
 >
 {type="warning"}
@@ -329,7 +329,7 @@ Same as for signed integer arrays, they provide similar API to `Array` class wit
 When using unsigned arrays, a warning will be reported, indicating that this feature has not been released to stable.
 To remove the warning, opt in using one of the following ways:
 
-* To propagate the opt-in requirement, annotate declarations that use unsigned integers with  `@ExperimentalUnsignedTypes`.
+* To propagate the opt-in requirement, annotate declarations that use unsigned integers with `@ExperimentalUnsignedTypes`.
 * To opt-in without propagating, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)`
   or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
 
