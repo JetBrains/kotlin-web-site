@@ -1,6 +1,73 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>pl</lang>
+        <startDate>2021-03-25</startDate>
+        <endDate>2021-03-25</endDate>
+        <location>Kielce, Poland</location>
+        <speaker>Jarek Ratajski</speaker>
+        <title>Kielce Java User Group</title>
+        <subject>Czysty Kotlin</subject>
+        <url>https://www.meetup.com/Kielce-Java-User-Group/events/276948167</url>
+        <description>
+            <![CDATA[
+<p>Można pisać haskella w każdym języku. W prezentacji pokażę jak to robić w kotlinie.
+Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co robią monady na produkcji i jak można zrobić użyteczny framework webowy bez magii. A na deser naprawdę "mordercza" reguła do lintera...</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-03-30</startDate>
+        <endDate>2021-03-30</endDate>
+        <location>Lausanne, Switzerland</location>
+        <speaker>Roberto Orgiu</speaker>
+        <title>GDG Lausanne</title>
+        <subject>Android - Kotlin Multiplatform</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-lausanne-presents-android-kotlin-multiplatform/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform is an experimental language feature that allows you to run Kotlin in JavaScript, iOS, and native desktop applications, to name but a few. Moreover, it is possible to share code between all these different platforms, reducing the amount of time required for the development. Multiplatform programming is one of Kotlin’s major functionality. In this talk, we will learn about reducing time for writing and maintaining code for different platformswhile keeping the adaptability and advantages of native programming.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-08</startDate>
+        <endDate>2021-06-08</endDate>
+        <location>Vilnius, Lithuania</location>
+        <speaker>Raul Hernandez Lopez</speaker>
+        <title>DevDays Europe 2021</title>
+        <subject>Getting ready for Declarative UIs with Unidirectional Data Flow using Kotlin Coroutines</subject>
+        <url>https://devdays.lt/Raul-Hernandez-Lopez/</url>
+        <description>
+            <![CDATA[
+<p>Unidirectional Data Flow (UDF) is a powerful technique that enhances our Reactive apps to work deterministically. Synchronising our views with fresh data was never an easy task to accomplish. For this same reason, there are mechanisms that support us to make that possible. Surely callbacks were a thing in the past, however, they were an antipattern themselves due to the lack of readability. Now we don’t need to deal with them any more thanks to Kotlin Coroutines. Getting ready for Declarative UIs with Kotlin Coroutines and friends is indeed feasible, now we could use suspend functions, Flow and in the end StateFlow would make our Reactive apps ready for Declarative UIs. Let’s define a single entry point, receive data, transform it into a state, and render each state. Let’s get our apps ready for a Declarative UI world on Android.</p>
+<p>You’ll learn how to use Kotlin Coroutines and friends from the Kotlin Coroutines library to take advantage of really efficient and easy to read code. How to handle its lifecycle without being compromised to a specific external Android framework, which would enable your code to be prepared for more purposes than Android only apps. </p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sv</lang>
+        <startDate>2021-04-27</startDate>
+        <endDate>2021-04-27</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Alexander Sundström</speaker>
+        <title>Dynabyte TechTalk</title>
+        <subject>Kotlin and SpringBoot</subject>
+        <url>https://www.meetup.com/dynabyte-techtalk/events/277105511</url>
+        <description>
+            <![CDATA[
+<p>Är du nyfiken på Kotlin och Spring Boot?
+Under kvällen kommer Alexander att visa hur man kan sätta upp ett REST Api genom Spring Boot tillsammans med Kotlin. Vi kommer prata både om Spring Boot i sig, men använda det som en utgångspunkt kring Kotlin, dess funktioner och syntax.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>pt</lang>
         <startDate>2021-03-06</startDate>
         <endDate>2021-03-06</endDate>

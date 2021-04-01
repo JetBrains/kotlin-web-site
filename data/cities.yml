@@ -1,3 +1,7 @@
+- name: Vilnius, Switzerland
+  geo:
+    lat: 46.812875
+    lng: 8.443732
 - name: Angola, Luanda
   geo:
     lat: -8.814776
