@@ -1,6 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>en</lang>
+        <startDate>2021-04-08</startDate>
+        <endDate>2021-04-08</endDate>
+        <location>Chicago, USA</location>
+        <speaker>Eli Burns</speaker>
+        <title>Chicago Kotlin Users Group</title>
+        <subject>Implementing and using backend services with gRPC and Kotlin</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/276564667/</url>
+        <description>
+            <![CDATA[
+<p>Google's gRPC is a valuable tool in defining back-end services that offer bi-directional streaming through HTTP/2 (with the latter conveniently abstracted away). We’ll touch on the basics of gRPC, why one may prefer to use it with respect to its alternatives(e.g. REST and/or OpenAPI), and then dive into its use in combination with Kotlin. The gRPC team now provides full support for generating sever and client code using suspended methods and Kotlin Flows, giving coroutines first class treatment and allowing engineers to provide powerful asynchronous expressively implemented services.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-04-29</startDate>
+        <endDate>2021-04-29</endDate>
+        <location>Chicago, USA</location>
+        <speaker>Pratik Patel</speaker>
+        <title>Chicago Kotlin Users Group</title>
+        <subject>Data Science on the JVM with Kotlin and Zeppelin</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/277206260/</url>
+        <description>
+            <![CDATA[
+<p>In this session, Pratik will introduce you to Data Science using the popular Kotlin language that runs on the JVM. We'll do this using an interactive platform called Apache Zeppelin. Similar to Jupyter Notebooks, Zeppelin allows you to write code, formatted text, and use a myriad of plugins to process, analyze, and display data. With its integration with Spark, you can also prototype and develop solutions for Big Data in a fun and interactive way!</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-04-14</startDate>
+        <endDate>2021-04-14</endDate>
+        <location>London, UK</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>London Meetup</title>
+        <subject>Riding the state flow</subject>
+        <url>https://www.meetup.com/kotlin-london/events/277070779</url>
+        <description>
+            <![CDATA[
+<p>View, State, Action ... Unidirectional Data Flow is not a concept unique to React. Used for many years in Web development, it tends to propagate to mobile platforms. Why? Because it helps develop our UI and consider the changes as states and events.</p>
+<p>This topic is not new on Android. But Kotlin and coroutines can now greatly improve our experience.</p>
+<p>Let's see how we can structure our Android MVVM development with such an approach. Let's take some concrete samples and see how we can easily write it with just a Kotlin function, and even embrace functional programming.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-04-14</startDate>
+        <endDate>2021-04-14</endDate>
+        <location>London, UK</location>
+        <speaker>Roberto Orgiu</speaker>
+        <title>London Meetup</title>
+        <subject>An Android Dev start to Kotlin MPP</subject>
+        <url>https://www.meetup.com/kotlin-london/events/277070779</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform becomes more and more usable by the day. We might not need it every day, but there might also be the moment when it makes sense for everyone to just share that little bit of logic. In this talk, we will be talking about how we can convert a module to be Kotlin Multiplatform-ready in an existing codebase and how we can interact with it on an Android app.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>it</lang>
+        <startDate>2021-04-14</startDate>
+        <endDate>2021-04-14</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Massimiliano Bertinetti</speaker>
+        <title>Kotlin Torino User Group</title>
+        <subject>Kotlin per il Web - una rapida presentazione delle opzioni</subject>
+        <url>https://www.meetup.com/kotlin-torino-user-group/events/277153685</url>
+   </event>
+
+   <event>
+        <lang>pt</lang>
+        <startDate>2021-03-27</startDate>
+        <endDate>2021-03-27</endDate>
+        <location>Angola, Luanda</location>
+        <speaker>Manuel Ernosto</speaker>
+        <title>IWD - Internatinal Women's Day Luanda</title>
+        <subject>Kotlin para quem está a começar</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-luanda-presents-iwd-internatinal-womens-day-luanda-couragetocreate-iwd21/</url>
+        <description>
+            <![CDATA[
+<p>In this talk we will go throw the overview of the Kotlin language and why choose Kotlin as the first language to learn how to code.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>pl</lang>
         <startDate>2021-03-25</startDate>
         <endDate>2021-03-25</endDate>
@@ -37,7 +130,7 @@ Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co
         <lang>en</lang>
         <startDate>2021-06-08</startDate>
         <endDate>2021-06-08</endDate>
-        <location>Vilnius, Lithuania</location>
+        <location>Vilnus, Lithuania</location>
         <speaker>Raul Hernandez Lopez</speaker>
         <title>DevDays Europe 2021</title>
         <subject>Getting ready for Declarative UIs with Unidirectional Data Flow using Kotlin Coroutines</subject>
