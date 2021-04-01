@@ -7,7 +7,7 @@ In order to build a Kotlin project with Gradle, you should [apply the Kotlin Gra
 
 Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
 
-The Kotlin Gradle plugin and `kotlin-multiplatform` plugin %kotlinVersion% requires Gradle %minGradleVersion% or later.
+The Kotlin Gradle plugin and `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
 <tabs>
 
