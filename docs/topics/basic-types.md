@@ -326,14 +326,8 @@ Same as for primitives, each of unsigned type has corresponding type that repres
 
 Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead. 
 
-When using unsigned arrays, a warning will be reported, indicating that this feature has not been released to stable.
-To remove the warning, opt in using one of the following ways:
-
-* To propagate the opt-in requirement, annotate declarations that use unsigned integers with `@ExperimentalUnsignedTypes`.
-* To opt-in without propagating, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)`
-  or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
-
-[Learn more about opt-in requirements](opt-in-requirements.md).
+When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
+To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation. [Learn more about opt-in requirements](opt-in-requirements.md).
 
 [Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,
 `ULongRange`, and `ULongProgression`. Together with the unsigned integer types, these classes are stable.
