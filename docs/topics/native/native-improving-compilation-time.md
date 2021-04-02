@@ -38,9 +38,9 @@ Here are some recommendations for configuring Gradle for better compilation perf
   
   If you have a non-typical case or build configuration, you might need to choose the task yourself.
     * `linkDebug*`: To run your code during development, you usually need only one binary, so running the corresponding
-      `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time than compiling a debug one
+      `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time than compiling a debug one.
     * `packForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
-      distribute a Kotlin Native binary as a universal (fat) framework. During local development, it will be faster to build
+      distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
       the `.framework` for only the platform you’re using. You can do this by calling the  `packForXcode` task generated
       by the KMM project wizard. Remember that in this case, you will need to clean the build using `./gradlew clean` after
       switching between the device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
@@ -63,7 +63,6 @@ Here are some recommendations for configuring Gradle for better compilation perf
   `kotlin.native.cacheKind=none` project properties in `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
-
 
 
 
