@@ -160,7 +160,7 @@ If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
 * [in Gradle](gradle.md#attributes-specific-for-jvm)
 * [in Maven](maven.md#attributes-specific-for-jvm)
-* [in the command-line compiler](compiler-reference.md#jvm-target)
+* [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
 ### String concatenation via invokedynamic
 
@@ -402,7 +402,7 @@ val kotlinFiles: List<Path> = Path("/home/user").listDirectoryEntries("*.kt")
 ### Floored division and the mod operator
 
 New operations for modular arithmetics have been added to the standard library:
-* `floorDiv()` returns the result of [floored division](TODO: link). It is available for integer types.
+* `floorDiv()` returns the result of [floored division](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions). It is available for integer types.
 * `mod()` returns the remainder of floored division (_modulus_). It is available for all numeric types.
 
 These operations look quite similar to the existing [division of integers](basic-types.md#operations) and [rem()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/rem.html)
@@ -436,9 +436,9 @@ duration amounts in different time units. In 1.5.0, the Duration API has receive
 
 * Internal value representation now uses `Long` instead of `Double` to provide better precision.
 * There is a new API for conversion to a particular time unit in `Long`. It comes to replace the old API, which operates
-  with `Double` values and is now deprecated. For example, [`Duration.inWholeMinutes`](TODO) returns the value of the duration
+  with `Double` values and is now deprecated. For example, `Duration.inWholeMinutes` <!--(TODO link)--> returns the value of the duration
   expressed as `Long` and replaces `Duration.inMinutes`.
-* There are new companion functions for constructing a `Duration` from a number. For example, [`Duration.seconds(Int)`](TODO)
+* There are new companion functions for constructing a `Duration` from a number. For example, `Duration.seconds(Int)`<!-- (TODO link-->)
   creates a `Duration` object representing an integer number of seconds. Old extension properties like `Int.seconds` are now deprecated.
 
 ```kotlin
@@ -500,7 +500,7 @@ a char's general category according to Unicode, are now also available in multip
 
 ### New collections function firstNotNullOf()
 
-The new [`firstNotNullOf()`](TODO) and [`firstNotNullOfOrNull()`](TODO) functions combine [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html)
+The new `firstNotNullOf()`<!--(TODO link)--> and `firstNotNullOfOrNull()`<!--(TODO link) --> functions combine [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html)
 with [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) or [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html).
 They map the original collection with the custom selector function and return the first non-null value. If there is no such value,
 `firstNotNullOf()` throws an exception, and `firstNotNullOfOrNull()` returns null.
@@ -518,8 +518,8 @@ fun main() {
 ### Strict version of String?.toBoolean()
 
 Two new functions introduce case-sensitive strict versions of the existing [String?.toBoolean()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean.html):
-* [`String.toBooleanStrict()`](TODO) throws an exception for all inputs except the literals `true` and `false`.
-* [`String.toBooleanStrictOrNull()`](TODO) returns null for all inputs except the literals `true` and `false`.
+* `String.toBooleanStrict()`<!--(TODO link)-->  throws an exception for all inputs except the literals `true` and `false`.
+* `String.toBooleanStrictOrNull()`<!--(TODO link)-->  returns null for all inputs except the literals `true` and `false`.
 
 ```kotlin
 fun main() {
