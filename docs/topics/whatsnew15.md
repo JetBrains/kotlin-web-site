@@ -235,8 +235,8 @@ Kotlin 1.5.0 introduces a number of improvements for the feature:
   * Type parameters and their bounds
   * Type arguments of base classes and interfaces
 * If a nullability annotation has multiple targets applicable to a type, and one of these targets is `TYPE_USE`, then `TYPE_USE` is preferred.
-  For example, the method signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` if `@Nullable` has both
-  `TYPE_USE` and `METHOD`as targets .
+  For example, the method signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` if `@Nullable` supports both
+  `TYPE_USE` and `METHOD`as targets.
 
 For these newly supported cases, using the wrong type nullability when calling Java from Kotlin produces warnings.
 Use the `-Xtype-enhancement-improvements-strict-mode` compiler option to enable strict mode for these cases (with error reporting).
