@@ -38,12 +38,20 @@ Here are some recommendations for configuring Gradle for better compilation perf
   
   If you have a non-typical case or build configuration, you might need to choose the task yourself.
     * `linkDebug*`: To run your code during development, you usually need only one binary, so running the corresponding
-      `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time than compiling a debug one.
+      `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time
+      than compiling a debug one.
     * `packForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
-      the `.framework` for only the platform you’re using. You can do this by calling the  `packForXcode` task generated
-      by the KMM project wizard. Remember that in this case, you will need to clean the build using `./gradlew clean` after
-      switching between the device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
+      the `.framework` for only the platform you’re using.
+      
+      To build a platform-specific framework, call the  `packForXcode` task generated
+      by the [KMM project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html). 
+      
+      > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
+      > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
+      > 
+      {type="note"}
+
 
 * **Don’t disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
@@ -54,13 +62,14 @@ Here are some recommendations for configuring Gradle for better compilation perf
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
 
 * **Use the compiler caches**. Starting from 1.5.0-M1, `linuxX64` and `iosArm64` targets have experimental opt-in support
-  for compiler caches that improve compilation time for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
-  You can use them by adding `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
+  for compiler caches. They improve compilation time for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
+  To enable the compiler caches, add `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
 
   `iosX64` and `macosX64` targets already have the compiler caches enabled by default.
 
-* **Enable previously disabled features of Kotlin/Native**. If you have the `kotlin.native.disableCompilerDaemon=true` or
-  `kotlin.native.cacheKind=none` project properties in `gradle.properties` or Gradle arguments, remove them and check whether
+* **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
+  caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
+  features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
 
