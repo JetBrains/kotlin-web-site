@@ -717,7 +717,7 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 `kotlinx.serialization` [1.2.0](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0) is here with:
 * Improvements to JSON serialization performance
 * Support for multiple names in JSON serialization
-* Advanced protobuf serialization
+* Experimental .proto schema generation from `@Serializable` classes
 * And more
 
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0).
