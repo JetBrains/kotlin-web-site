@@ -624,7 +624,7 @@ The `kotlin-test` library now has the following features:
   @Test
   fun testFunction() {
       val s: Any = "test"
-     assertIs<String>(s)  // throws AssertionError mentioning the actual type of s if the assertion fails
+      assertIs<String>(s)  // throws AssertionError mentioning the actual type of s if the assertion fails
       // can now print s.length because of contract in assertIs
       println("${s.length}")
   }
