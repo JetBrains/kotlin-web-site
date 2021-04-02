@@ -3,7 +3,7 @@
 Kotlin 1.5.0 introduces new language features, stable IR-based JVM compiler backend, performance improvements,
 and evolutionary changes such as stabilizing experimental features and deprecating outdated ones.
 
-You can also learn about the new features in [BLOG POST – TO ADD].
+<!-- TO ADD: You can also learn about the new features in [BLOG POST – TO ADD]. -->
 
 ## Language features
 
@@ -31,7 +31,7 @@ data class User(val name: String, val age: Int)
 
 [Learn more about using JVM records in Kotlin](jvm-records.md).
 
-[VIDEO – TO ADD]
+<!-- [VIDEO – TO ADD] -->
 
 ### Sealed interfaces
 
@@ -62,7 +62,7 @@ class FilledRectangle: Polygon, Fillable
 
 [Learn more about sealed interfaces](sealed-classes.md).
 
-[VIDEO – TO ADD]
+<!-- [VIDEO – TO ADD] -->
 
 ### Package-wide sealed class hierarchies
 
@@ -98,7 +98,7 @@ The `inline` modifier is now deprecated with a warning.
 
 [Learn more about inline classes](inline-classes.md).
 
-[VIDEO – TO ADD]
+<!-- [VIDEO – TO ADD] -->
 
 ## Kotlin/JVM
 
@@ -304,8 +304,8 @@ The standard library has received a range of changes and improvements, from stab
 * [New collections function firstNotNullOf()](#new-collections-function-firstnotnullof)
 * [Strict version of String?.toBoolean()](#strict-version-of-string-toboolean)
 
-[VIDEO – TO ADD]
-You can learn more about the standard library changes in [BLOG POST – TO ADD].
+<!-- [VIDEO – TO ADD] -->
+You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-is-out).
 
 ### Stable unsigned integer types
 
@@ -708,8 +708,8 @@ are disabled and the `-Xcoroutines=experimental` flag is no longer supported.
 
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0).
 
-[VIDEO – TO ADD]
-[BLOG POST – TO ADD]
+<!-- [VIDEO – TO ADD] -->
+<!-- [BLOG POST – TO ADD] -->
 
 ### Serialization 1.2.0
 
@@ -721,8 +721,8 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0).
 
-[VIDEO – TO ADD]
-[BLOG POST – TO ADD]
+<!-- [VIDEO – TO ADD] -->
+<!-- [BLOG POST – TO ADD] -->
 
 ### Datetime 0.2
 
@@ -734,3 +734,6 @@ TODO: check if Datetime is released with Kotlin
 * And more
 
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2)
+
+<!-- [VIDEO – TO ADD] -->
+<!-- [BLOG POST – TO ADD] -->
