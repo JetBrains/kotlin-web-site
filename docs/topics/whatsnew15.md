@@ -191,7 +191,7 @@ Learn how to add compiler options in [Gradle](gradle.md#compiler-options), [Mave
 ### Lambdas via invokedynamic
 
 > Compiling plain Kotlin lambdas into invokedynamic is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see details below), and you should use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> Opt-in is required (see details below), and you should use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-45375).
 >
 {type="warning"}
 
@@ -305,6 +305,7 @@ The standard library has received a range of changes and improvements, from stab
 * [Strict version of String?.toBoolean()](#strict-version-of-string-toboolean)
 
 <!-- [VIDEO – TO ADD] -->
+
 You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-is-out).
 
 ### Stable unsigned integer types
@@ -692,9 +693,9 @@ The `kotlin-test` library now has the following features:
 ## kotlinx libraries
 
 Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
-* `kotlinx.coroutines` 1.5.0 TODO: adjust version
+* `kotlinx.coroutines` 1.5.0 <!-- TODO: adjust version -->
 * `kotlinx.serialization` 1.2.0
-* `kotlinx.datetime` 0.2 TODO: check it this is released
+* `kotlinx.datetime` 0.2 <!-- TODO: check if this is released -->
 
 ### Coroutines 1.5.0
 
@@ -726,7 +727,7 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/re
 
 ### Datetime 0.2
 
-TODO: check if Datetime is released with Kotlin
+<!-- TODO: check if Datetime is released with Kotlin -->
 
 `kotlinx-datetime` [0.2](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2) is here with:
 * `@Serializable` Datetime objects
