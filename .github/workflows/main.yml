@@ -44,6 +44,10 @@ jobs:
         working-directory: ./verifier
         run: ./gradlew build -x test
         
+      - name: Build a client with Gradle
+        working-directory: ./verifier
+        run: ./gradlew installDist
+        
       - name: Run docker
         working-directory: ./verifier
         run: ./gradlew dockerRun
