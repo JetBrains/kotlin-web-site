@@ -42,7 +42,7 @@ jobs:
         run: chmod +x ./verifier/gradlew
       - name: Build with Gradle
         working-directory: ./verifier
-        run: ./gradlew build
+        run: ./gradlew build -x test
         
       - name: Run docker
         working-directory: ./verifier
