@@ -37,14 +37,14 @@ Released: April 6, 2021
 <td>
 
 * Performance improvements
-* Better debugging experience
-* Updated Change Signature refactoring
+* Evaluation of custom getters during debugging
+* Improved Change Signature refactoring
 * Code completion for type parameters
 * UML diagrams for Kotlin classes
 
 Learn more in:
 * [What's new in Kotlin plugin 2021.1](whatsnew-plugin-20211.md)
-* [IntelliJ IDEA 2021.1 release blog post](https://blog.jetbrains.com/idea/2020/12/intellij-idea-2020-3/)
+* [What’s New in IntelliJ IDEA 2021.1](https://www.jetbrains.com/idea/whatsnew/)
 
 </td>
 </tr>
