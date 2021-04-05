@@ -12,7 +12,7 @@ In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: 
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
-To declare a sealed class or interface, put the `sealed` modifier before its name.
+To declare a sealed class or interface, put the `sealed` modifier before its name:
 
 ```kotlin
 sealed interface Expr
@@ -27,7 +27,7 @@ object NotANumber : Expr
 A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot be instantiated directly and can have `abstract` members.
 
 Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
-`private`.
+`private`:
 
 ```kotlin
 sealed class MathExpr {
@@ -55,7 +55,7 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
 expression. 
 If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement. 
-However, this works only if you use `when` as an expression (using the result) and not as a statement.
+However, this works only if you use `when` as an expression (using the result) and not as a statement:
 
 ```kotlin
 fun eval(expr: Expr): Double = when(expr) {
