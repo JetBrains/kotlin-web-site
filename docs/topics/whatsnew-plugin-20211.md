@@ -8,6 +8,8 @@ This release aims to increase productivity and improve the development experienc
 * [UML diagrams for Kotlin classes](#uml-diagrams-for-kotlin-classes)
 * [Other platform enhancements](#other-platform-enhancements)
 
+You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-plugin-2021-1-released/).
+
 ## Performance improvements
 
 Kotlin Plugin 2021.1 has received a number of performance improvements that speed up the development process.
