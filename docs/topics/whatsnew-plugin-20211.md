@@ -63,7 +63,7 @@ Here are some of the important improvements:
   See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-966) for details.* Improved UX of properties processing.
 * Improved UX for processing properties.
 * Addition of a way to declare the default parameter value.
-  See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-903) for details
+  See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-903) for details.
 * Correct backticks processing.
 
 ## Code completion for type parameters
