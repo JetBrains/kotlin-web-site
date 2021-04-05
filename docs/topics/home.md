@@ -73,7 +73,7 @@ Find a way to learn Kotlin that works for you. There are lots of learning materi
 
 Watch videos produced by our team and other authors. You can find all our Kotlin videos on YouTube. 
 
-* [Kotlin Online Event 2020 playlist](https://www.youtube.com/watch?v=BGHx5ueEUGI&list=PLQ176FUIyIUankIQrXKNfXaOxOPx04D8V)
+* [Kotlin Online Event 2020 playlist](https://www.youtube.com/playlist?list=PLQ176FUIyIUankIQrXKNfXaOxOPx04D8V)
 * [KotlinConf 2019 playlist](https://www.youtube.com/playlist?list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl)
 * [Kotlin – Beyond the Basics](https://www.youtube.com/watch?v=1KldcFc7HCY)
 * [Functional Programming with Kotlin](https://www.youtube.com/watch?v=eNe5Nokrjdg)

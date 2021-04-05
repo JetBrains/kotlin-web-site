@@ -14,14 +14,14 @@ self-contained program that does not require an additional runtime or virtual ma
 ## Target platforms
 
 Kotlin/Native supports the following platforms:
-   * iOS (arm32, arm64, simulator x86_64)
-   * macOS (x86_64)
-   * watchOS (arm32, arm64, x86, x86_64)
-   * tvOS (arm64, x86_64)
-   * Android (arm32, arm64, x86, x86_64)
-   * Windows (mingw x86_64, x86)
-   * Linux (x86_64, arm32, arm64, MIPS, MIPS little endian)
-   * WebAssembly (wasm32)
+   * macOS
+   * iOS, tvOS, watchOS
+   * Linux
+   * Windows (MinGW)
+   * Android NDK
+
+The full list of supported targets is available [here](mpp-supported-platforms.md).
+
 
 ## Interoperability
 
@@ -78,7 +78,7 @@ Recommended tutorials:
 ## Sample projects
 
 * [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
-* [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin-native/tree/master/samples) 
+* [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples) 
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 * [Kotlin/Native sources and examples (.tgz)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.tar.gz)

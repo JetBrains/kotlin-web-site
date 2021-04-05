@@ -283,7 +283,7 @@ The operations on floating-point numbers discussed in this section are:
 
 When the operands `a` and `b` are statically known to be `Float` or `Double` or their nullable counterparts (the type is 
 declared or inferred or is a result of a [smart cast](typecasts.md#smart-casts)), the operations on the 
-numbers and the range that they form follow the [IEEE 754 Standard for Floating-Point Arithmetic]((https://en.wikipedia.org/wiki/IEEE_754)). 
+numbers and the range that they form follow the [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754). 
 
 However, to support generic use cases and provide total ordering, when the operands are **not** statically typed as 
 floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the operations use the 

@@ -473,7 +473,7 @@ The command produces the `main.exe` file, which you can run.
 
 Dynamic libraries are the main way to use Kotlin code from existing programs. 
 You can use them to share your code with many platforms or languages, including JVM,
-[Python](https://github.com/JetBrains/kotlin-native/blob/master/samples/python_extension/src/main/c/kotlin_bridge.c),
+[Python](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/samples/python_extension/src/main/c/kotlin_bridge.c),
 iOS, Android, and others.
 
 Kotlin/Native also has tight integration with Objective-C and Swift.

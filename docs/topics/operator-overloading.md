@@ -1,11 +1,24 @@
 [//]: # (title: Operator overloading)
 
-Kotlin allows us to provide implementations for a predefined set of operators on our types. These operators have fixed 
-symbolic representation (like `+` or `*`) and fixed precedence. To implement an operator, provide a [member function](functions.md#member-functions)
-or an [extension function](extensions.md) with a fixed name, for the corresponding type, that means a left-hand side type for binary operations and argument type for unary ones.
-Functions that overload operators need to be marked with the `operator` modifier.
+Kotlin allows you to provide custom implementations for the predefined set of operators on types. These operators have
+prefedined symbolic representation (like `+` or `*`) and precedence. To implement an operator, provide a [member function](functions.md#member-functions)
+or an [extension function](extensions.md) with a specific name for the corresponding type. This type becomes the left-hand side type
+for binary operations and the argument type for the unary ones.
 
-Further you describe the conventions that regulate operator overloading for different operators.
+To overload an operator, mark the corresponding function with the `operator` modifier:
+
+```kotlin
+interface IndexedContainer {
+    operator fun get(index: Int)
+}
+```
+When [overriding](inheritance.md#overriding-methods) your operator overloads, you can omit `operator`:
+
+```kotlin
+class OrdersList: IndexedContainer {
+    override fun get(index: Int) { /*...*/ }   
+}
+```
 
 ## Unary operations
 

@@ -42,7 +42,7 @@ fun foo() {
 }
 ```
 
-Note that anonymous objects can be used as types only in local and private declarations. If you use an anonymous object as a
+Note that anonymous objects can be used as types only in local and [private](visibility-modifiers.md#packages) declarations. If you use an anonymous object as a
 return type of a public function or the type of a public property, the actual type of that function or property
 will be the declared supertype of the anonymous object, or `Any` if you haven't declared any supertype. Members added
 in the anonymous object will not be accessible.

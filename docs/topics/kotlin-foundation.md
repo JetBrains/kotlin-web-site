@@ -33,7 +33,7 @@ The President and the Secretary are elected by the Board of Directors as well. T
 
 President: Maxim Shafirov (JetBrains)
 
-Secretary: Max Sills (Google)
+Secretary: David Winer (Google)
 
 Board of Directors:
 *   Maxim Shafirov (JetBrains)

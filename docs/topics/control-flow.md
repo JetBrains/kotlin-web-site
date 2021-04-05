@@ -109,7 +109,7 @@ If no argument is supplied, the branch conditions are simply boolean expressions
 ```kotlin
 when {
     x.isOdd() -> print("x is odd")
-    x.isEven() -> print("y is even")
+    y.isEven() -> print("y is even")
     else -> print("x+y is odd")
 }
 ```
@@ -202,7 +202,7 @@ fun main() {
 `while` and `do-while` loops execute their body continuously while their condition is satisfied.
 The difference between them is the condition checking time:
 * `while` checks the condition and, if it's satisfied, executes the body and then returns to the condition check.
-* `do-while` executes the body and then checks the condition. If it's satisfies, the loop repeats. So, the body of `do-while`
+* `do-while` executes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
 executes at least once regardless of the condition. 
 
 ```kotlin
