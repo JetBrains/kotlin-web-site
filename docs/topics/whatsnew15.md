@@ -558,7 +558,7 @@ Learn more about [setting dependencies on test libraries](gradle.md#set-dependen
 The Gradle plugin now chooses and adds a dependency on a testing framework automatically. All you need to do is add
 the dependency `kotlin-test` in the common source set.
 
-Gradle uses JUnit 4 by default; therefore, the `kotlin(‘test’)` dependency resolves to the variant for JUnit 4, namely `kotlin-test-junit`:
+Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to the variant for JUnit 4, namely `kotlin-test-junit`:
 
  <tabs>
 
