@@ -261,15 +261,15 @@ The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is avail
 Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
 test dependencies for each source set:
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
-* `kotlin-test-junit`/`kotlin-test-junit-5`/`kotlin-test-testng` for JVM source sets
+* `kotlin-test-junit` for JVM source sets
 * `kotlin-test-js` for Kotlin/JS source sets
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
-Additionaly, you can use the `kotlin-test` dependency in any shared or platform-specific source set.
+Additionally, you can use the `kotlin-test` dependency in any shared or platform-specific source set.
 
-For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to
-the variant for JUnit 4, namely `kotlin-test-junit`:
+For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to JUnit 4, 
+namely `kotlin-test-junit`:
 
 <tabs>
 
@@ -307,8 +307,6 @@ You can choose JUnit 5 or TestNG by calling
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the test task:
 
- <tabs>
-
 ```groovy
 tasks {
     test {
@@ -321,20 +319,8 @@ tasks {
 }
 ```
 
-```kotlin
-tasks.test {
-    // enable TestNG support
-    useTestNG()
-    // or
-    // enable JUnit Platform (a.k.a. JUnit 5) support
-    useJUnitPlatform()
-}
-```
-
- </tabs>
-
-You can disable the automatic selection of a variant of `kotlin-test` library by adding the line `kotlin.test.infer.jvm.variant=false` 
-to the project’s `gradle.properties`.
+If you had used some test library in the dependency block of your build script, you can disable the automatic selection 
+of a testing framework by adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`.
 
 ### Set a dependency on a kotlinx library
 
