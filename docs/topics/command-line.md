@@ -36,6 +36,14 @@ $ brew update
 $ brew install kotlin
 ```
 
+### MacPorts
+
+You can install the compiler via [MacPorts](https://www.macports.org) on macOS:
+
+```bash
+$ sudo port install kotlin
+```
+
 ### Snap package
 
 If you use [Snap](https://snapcraft.io/) on Ubuntu 16.04 or later, you can install the compiler from the command line:
