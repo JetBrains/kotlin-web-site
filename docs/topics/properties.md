@@ -100,7 +100,9 @@ in the accessors using the `field` identifier:
 ```kotlin
 var counter = 0 // the initializer assigns the backing field directly
     set(value) {
-        if (value >= 0) field = value
+        if (value >= 0)
+            field = value
+            // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
     }
 ```
 
