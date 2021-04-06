@@ -306,7 +306,7 @@ The standard library has received a range of changes and improvements, from stab
 
 <!-- [VIDEO – TO ADD] -->
 
-You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-is-out).
+You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released).
 
 ### Stable unsigned integer types
 
