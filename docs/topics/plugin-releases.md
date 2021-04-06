@@ -31,7 +31,7 @@ The following table lists the details of the latest Kotlin plugin releases:
 
 **2021.1**
 
-Released: April 6, 2021
+Released: April 7, 2021
 
 </td>
 <td>
