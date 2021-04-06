@@ -104,6 +104,84 @@ perspective
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ApproximateAnonymousReturnTypesInPrivateInlineFunctions` can be used to temporarily revert to pre-1.5 behavior
 
+### Support special semantics for underscore-named catch block parameters
+
+> **Issue**: [KT-31567](https://youtrack.jetbrains.com/issue/KT-31567)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.5 will outlaw references to the underscore symbol (`_`) that is used to omit parameter name of an exception in the catch block
+>
+> **Deprecation cycle**:
+>
+> - 1.4.20: introduce warning for the problematic references
+> - \>= 1.5: raise this warning to an error,
+>  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
+
+### It's possible to pass non-spread arrays after arguments with SAM-conversion
+
+> **Issue**: [KT-35224](https://youtrack.jetbrains.com/issue/KT-35224)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.5 will outlaw passing non-spread arrays after arguments with SAM-conversion
+>
+> **Deprecation cycle**:
+>
+> - 1.3.70: introduce warning for the problematic calls
+> - \>= 1.5: raise this warning to an error,
+>  `-XXLanguage:-ProhibitVarargAsArrayAfterSamArgument` can be used to temporarily revert to pre-1.5 behavior
+
+### Change implementation strategy of SAM conversion from anonymous class-based to invokedynamic
+
+> **Issue**: [KT-44912](https://youtrack.jetbrains.com/issue/KT-44912)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Since Kotlin 1.5, implementation strategy of SAM (single abstract method) conversion will be changed from generating an anonymous class to using the `invokedynamic` JVM instruction
+>
+> **Deprecation cycle**:
+>
+> - 1.5: change implementation strategy of SAM conversion,
+>  `-Xsam-conversions=class` can be used to revert implementation scheme to the one that used before
+
+### Generate nullability assertion for delegated property with generic call in the delegate expression
+
+> **Issue**: [KT-44304](https://youtrack.jetbrains.com/issue/KT-44304)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Since Kotlin 1.5, the Kotlin compiler will emit nullability assertion for delegated property with generic call in the delegate expression
+>
+> **Deprecation cycle**:
+>
+> - 1.5: emit nullability assertion for delegated properties (see details in the issue),
+>  `-Xuse-old-backend` or `-language-version 1.4` can be used to temporarily revert to pre-1.5 behavior
+
+### Turning warnings into errors for calls with type parameters annotated by @OnlyInputTypes
+
+> **Issue**: [KT-45861](https://youtrack.jetbrains.com/issue/KT-45861)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.5 will outlaw calls like `contains`, `indexOf` and `assertEquals` with senseless arguments to improve type safety (see details in the issue)
+>
+> **Deprecation cycle**:
+>
+> - 1.4.0: introduce warning for the problematic constructors
+> - \>= 1.5: raise this warning to an error,
+>  `-XXLanguage:-StrictOnlyInputTypesChecks` can be used to temporarily revert to pre-1.5 behavior
+
 ### Use the correct order of arguments execution in calls with named vararg
 
 > **Issue**: [KT-17691](https://youtrack.jetbrains.com/issue/KT-17691)
@@ -151,3 +229,46 @@ perspective
 > - < 1.5: old behavior (see details in the issue)
 > - \>= 1.5: behavior changed,
 >  `-XXLanguage:-JvmIrEnabledByDefault` can be used to temporarily revert to pre-1.5 behavior
+
+### Straighten Char-to-code and Char-to-digit conversions out
+
+> **Issue**: [KT-23451](https://youtrack.jetbrains.com/issue/KT-23451)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since Kotlin 1.5, conversions of Char to number types will be deprecated
+>
+> **Deprecation cycle**:
+>
+> - 1.5: deprecate `Char.toInt()/toShort()/toLong()/toByte()/toDouble()/toFloat()` and the reverse functions like `Int.toChar()`, and propose replacement 
+
+### Inconsistent case-insensitive comparison of characters in kotlin.text functions
+
+> **Issue**: [KT-45496](https://youtrack.jetbrains.com/issue/KT-45496)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Since Kotlin 1.5, `Char.equals` will be improved in case-insensitive case by first comparing whether the uppercase variants of characters are equal, then whether the lowercase variants of those uppercase variants (as opposed to the characters themselves) are equal
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: old behavior (see details in the issue)
+> - 1.5: change behavior for `Char.equals` function 
+
+### Remove default locale-dependent case conversion API
+
+> **Issue**: [KT-43023](https://youtrack.jetbrains.com/issue/KT-43023)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since Kotlin 1.5, default locale-dependent case conversion functions like `String.upperCase()` will be deprecated
+>
+> **Deprecation cycle**:
+>
+> - 1.5: deprecate case conversions functions with the default locale (see details in the issue), and propose replacement 
