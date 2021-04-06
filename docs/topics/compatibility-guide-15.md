@@ -104,7 +104,7 @@ perspective
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ApproximateAnonymousReturnTypesInPrivateInlineFunctions` can be used to temporarily revert to pre-1.5 behavior
 
-### Use correct arguments execution order in calls with named vararg
+### Use the correct order of arguments execution in calls with named vararg
 
 > **Issue**: [KT-17691](https://youtrack.jetbrains.com/issue/KT-17691)
 >
@@ -112,7 +112,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Kotlin 1.5 will change arguments execution order in calls with named vararg
+> **Short summary**: Kotlin 1.5 will change the order of arguments execution in calls with named vararg
 >
 > **Deprecation cycle**:
 >
