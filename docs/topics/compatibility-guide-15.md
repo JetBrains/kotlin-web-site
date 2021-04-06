@@ -72,22 +72,6 @@ perspective
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitNonReifiedArraysAsReifiedTypeArguments` can be used to temporarily revert to pre-1.5 behavior
 
-### Forbid using array based on non-reified type parameters as reified type arguments on JVM
-
-> **Issue**: [KT-31227](https://youtrack.jetbrains.com/issue/KT-31227)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**: Kotlin 1.5 will outlaw using array based on non-reified type parameters as reified type arguments on JVM
->
-> **Deprecation cycle**:
->
-> - < 1.5: introduce warning for the problematic calls
-> - \>= 1.5: raise this warning to an error,
->  `-XXLanguage:-ProhibitNonReifiedArraysAsReifiedTypeArguments` can be used to temporarily revert to pre-1.5 behavior
-
 ### Forbid secondary enum class constructors which do not delegate to the primary constructor
 
 > **Issue**: [KT-35870](https://youtrack.jetbrains.com/issue/KT-35870)
