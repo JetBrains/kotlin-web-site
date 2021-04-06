@@ -8,7 +8,7 @@
 
 You can get started with Kotlin using an online editor. If you already have an IDE or you are ready to install one, here are also some ways to begin using Kotlin on your local machine.
 
-* [Get started in IntelliJ IDEA](getting-started.md)
+* [Get started with Kotlin](getting-started.md)
 * [Try Kotlin online](https://play.kotlinlang.org/)
 * [Get started with KMM in Android Studio](https://kotlinlang.org/docs/mobile/getting-started.html)
 
