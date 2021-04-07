@@ -1,4 +1,7 @@
-- title: "Kotlin 1.5 Language Features Preview"
+- title: "Kotlin 1.5.0-M2 Released"
+  link: https://blog.jetbrains.com/kotlin/2021/03/kotlin-1-5-0-m2-released-ensure-smooth-migration-to-kotlin-1-5-0/
+
+- title: "Kotlin 1.5.0 Language Features Preview"
   link: https://blog.jetbrains.com/kotlin/2021/02/new-language-features-preview-in-kotlin-1-4-30/
 
 - title: "Try The New JVM IR Backend"
@@ -6,6 +9,3 @@
 
 - title: "Jetpack Compose for Desktop. Milestone 3"
   link: https://blog.jetbrains.com/kotlin/2021/02/jetpack-compose-for-desktop-milestone-3-released/
-
-- title: "Server-Side Development with Kotlin: Webinar Series"
-  link: https://blog.jetbrains.com/kotlin/2021/02/server-side-with-kotlin-webinar-series-vol-2/
