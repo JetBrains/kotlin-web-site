@@ -120,7 +120,7 @@ perspective
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
 
-### It's possible to pass non-spread arrays after arguments with SAM-conversion
+### Forbid passing non-spread arrays after arguments with SAM-conversion
 
 > **Issue**: [KT-35224](https://youtrack.jetbrains.com/issue/KT-35224)
 >
@@ -151,7 +151,7 @@ perspective
 > - 1.5: change implementation strategy of SAM conversion,
 >  `-Xsam-conversions=class` can be used to revert implementation scheme to the one that used before
 
-### Generate nullability assertion for delegated property with generic call in the delegate expression
+### Generate nullability assertion for delegated properties with a generic call in the delegate expression
 
 > **Issue**: [KT-44304](https://youtrack.jetbrains.com/issue/KT-44304)
 >
@@ -159,14 +159,14 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Since Kotlin 1.5, the Kotlin compiler will emit nullability assertion for delegated property with generic call in the delegate expression
+> **Short summary**: Since Kotlin 1.5, the Kotlin compiler will emit nullability assertions for delegated properties with a generic call in the delegate expression
 >
 > **Deprecation cycle**:
 >
 > - 1.5: emit nullability assertion for delegated properties (see details in the issue),
 >  `-Xuse-old-backend` or `-language-version 1.4` can be used to temporarily revert to pre-1.5 behavior
 
-### Turning warnings into errors for calls with type parameters annotated by @OnlyInputTypes
+### Turn warnings into errors for calls with type parameters annotated by @OnlyInputTypes
 
 > **Issue**: [KT-45861](https://youtrack.jetbrains.com/issue/KT-45861)
 >
@@ -174,7 +174,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.5 will outlaw calls like `contains`, `indexOf` and `assertEquals` with senseless arguments to improve type safety (see details in the issue)
+> **Short summary**: Kotlin 1.5 will outlaw calls like `contains`, `indexOf`, and `assertEquals` with senseless arguments to improve type safety
 >
 > **Deprecation cycle**:
 >
@@ -259,7 +259,7 @@ perspective
 > - < 1.5: old behavior (see details in the issue)
 > - 1.5: change behavior for `Char.equals` function 
 
-### Remove default locale-dependent case conversion API
+### Remove default locale-sensitive case conversion API
 
 > **Issue**: [KT-43023](https://youtrack.jetbrains.com/issue/KT-43023)
 >
@@ -267,7 +267,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Since Kotlin 1.5, default locale-dependent case conversion functions like `String.upperCase()` will be deprecated
+> **Short summary**: Since Kotlin 1.5, default locale-sensitive case conversion functions like `String.upperCase()` will be deprecated
 >
 > **Deprecation cycle**:
 >
