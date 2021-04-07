@@ -113,7 +113,7 @@ class C {
 
 ### Accessing variables from anonymous objects 
 
-The code in object expressions can access variables from the enclosing scope.
+The code in object expressions can access variables from the enclosing scope:
 
 ```kotlin
 fun countClicks(window: JComponent) {
