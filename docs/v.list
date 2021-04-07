@@ -32,4 +32,8 @@
 
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
+    <var name="kotlinPluginVersion" value="2021.1" type="string"/>
+
+    <var name="kotlinPreviousPluginVersion" value="2020.3" type="string"/>
+
 </vars>
