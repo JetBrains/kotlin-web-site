@@ -21,10 +21,32 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 
 The following table lists the details of the latest Kotlin plugin releases: 
 
-<table> 
+<table>
 <tr>
 <th>Release info</th>
 <th>Release highlights</th>
+</tr>
+<tr>
+<td>
+
+**2021.1**
+
+Released: April 7, 2021
+
+</td>
+<td>
+
+* Performance improvements
+* Evaluation of custom getters during debugging
+* Improved Change Signature refactoring
+* Code completion for type parameters
+* UML diagrams for Kotlin classes
+
+Learn more in:
+* [What's new in Kotlin plugin 2021.1](whatsnew-plugin-20211.md)
+* [What’s New in IntelliJ IDEA 2021.1](https://www.jetbrains.com/idea/whatsnew/)
+
+</td>
 </tr>
 <tr>
 <td>

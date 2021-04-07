@@ -33,6 +33,7 @@
             </toc-element>
         </toc-element>
         <toc-element toc-title="Kotlin plugin">
+            <toc-element id="whatsnew-plugin-20211.md" toc-title="Kotlin plugin 2021.1"/>
             <toc-element id="whatsnew-plugin-20203.md" toc-title="Kotlin plugin 2020.3"/>
         </toc-element>
     </toc-element>
