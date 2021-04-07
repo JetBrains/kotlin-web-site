@@ -147,7 +147,7 @@ It leads to the following signature seen in Kotlin:
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String>
 ```
 
-Note the `@NotNull` annotations on `String` type arguments. Without them, you get platform types in the type arguments:
+Without  the `@NotNull` annotations on type arguments, you get platform types in the type arguments:
 
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!>
