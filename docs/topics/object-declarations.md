@@ -35,7 +35,7 @@ fun main() {
 ### Inheriting anonymous objects from supertypes
 
 To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and
-colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it.
+colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
 
 ```kotlin
 window.addMouseListener(object : MouseAdapter() {
