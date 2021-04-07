@@ -49,7 +49,7 @@ temporary_list = [
     "/docs/getting-started-with-maven.html",
     "/docs/httpservlets.html",
     "/docs/intro-to-kotlin-mpp.html",
-    "/docs/kotlin-foundation.html?utm_source=dlvr.it&utm_medium=facebook",
+    "/docs/kotlin-foundation.html?utm_source=dlvr.it&amp;utm_medium=facebook",
     "/docs/kotlin-native-with-clion.html",
     "/docs/kotlin-to-javascript.html",
     "/docs/mobile/",
