@@ -4,7 +4,7 @@ This release aims to increase productivity and improve the development experienc
 * [Performance improvements](#performance-improvements)
 * [Evaluation of custom getters during debugging](#evaluation-of-custom-getters-during-debugging)
 * [Improved Change Signature refactoring](#improved-change-signature-refactoring)
-* [Code completion for type parameters](#code-completion-for-type-parameters)
+* [Code completion for type arguments](#code-completion-for-type-arguments)
 * [UML diagrams for Kotlin classes](#uml-diagrams-for-kotlin-classes)
 * [Other platform enhancements](#other-platform-enhancements)
 
@@ -20,7 +20,7 @@ Here are some major refinements:
 
 * **Code completion speed improvements**. The Kotlin plugin provides faster code completion. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-1015#focus=Comments-27-4775642.0-0) to see the benchmark results.
 
-  This version also introduces other improvements for code completion, particularly [code completion for type parameters](#code-completion-for-type-parameters).
+  This version also introduces other improvements for code completion, particularly [code completion for type arguments](#code-completion-for-type-arguments).
 
 * **Improved IDE responsiveness**. We’ve fixed numerous issues based on your feedback, and we’ve improved the overall stability of the plugin, as well as IDE responsiveness.
 
@@ -66,14 +66,14 @@ Here are some of the important improvements:
   See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-903) for details.
 * Correct backticks processing.
 
-## Code completion for type parameters
+## Code completion for type arguments
 
-From now on, code completion will offer functions and properties after generic functions and will restore type arguments where needed. When you select such a function from the list, the IDE adds the correct type parameter to the preceding code.
+From now on, code completion will offer functions and properties after generic functions and will restore type arguments where needed. When you select such a function from the list, the IDE adds the correct type argument to the preceding code.
 
 In the following example, there is a list of strings to be reversed:
 
 ```kotlin
-fun typeParametersAtCodeCompletion() {
+fun typeArgumentsAtCodeCompletion() {
    // Function definition from stdlib:
    // public fun <T> emptyList(): List<T>
 
@@ -83,12 +83,12 @@ fun typeParametersAtCodeCompletion() {
 
 To reverse this list, start typing the name of the `reversed()` function:
 
-![Now code completion suggests functions](code-completion-type-pararmeters.png){width=800}
+![Now code completion suggests functions](code-completion-type-arguments.png){width=800}
 
 After you apply the code completion suggestion, the IDE automatically adds the `<String>` type:
 
 ```kotlin
-fun typeParametersAtCodeCompletion() {
+fun typeArgumentsAtCodeCompletion() {
    // Function definition from stdlib:
    // public fun <T> emptyList(): List<T>
 

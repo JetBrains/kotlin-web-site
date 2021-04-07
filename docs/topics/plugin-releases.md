@@ -39,7 +39,7 @@ Released: April 7, 2021
 * Performance improvements
 * Evaluation of custom getters during debugging
 * Improved Change Signature refactoring
-* Code completion for type parameters
+* Code completion for type arguments
 * UML diagrams for Kotlin classes
 
 Learn more in:
