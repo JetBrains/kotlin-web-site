@@ -6,9 +6,9 @@ Kotlin handles this case with *object expressions* and *object declarations*.
 ## Object expressions
 
 _Object expressions_ create objects of anonymous classes, that is, classes that aren't explicitly declared with the `class`
-declaration. Such classes are handy for one-time use. You can inherit them from existing classes or interfaces or define
-from scratch. Instances of anonymous classes are also called _anonymous objects_ because they are defined by an expression,
-not a name.
+declaration. Such classes are handy for one-time use. You can define them from scratch, inherit from existing classes,
+or implement interfaces. Instances of anonymous classes are also called _anonymous objects_ because they are defined by
+an expression, not a name.
 
 ### Creating anonymous objects from scratch
 
@@ -83,7 +83,7 @@ If this function or property is public or private inline, its actual type is:
 * the explicitly declared type if there is more than one declared supertype
 
 In all these cases, members added in the anonymous object are not accessible. Overriden members are accessible if they 
-are declared in the actual type of the function or property.
+are declared in the actual type of the function or property:
 
 ```kotlin
 interface A {
