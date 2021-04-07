@@ -312,8 +312,8 @@ Unsigned types are implemented using feature that's not yet stable, namely [inli
 
 #### Unsigned arrays and ranges 
 
-> Unsigned arrays and operations on them are in [Beta](components-stability.md). They are almost stable, but migration
-> steps may be required in the future. We'll do our best to minimize any changes you will have to make.
+> Unsigned arrays and operations on them are in [Beta](components-stability.md). They can be changed incompatibly at any time.
+> Opt-in is required (see the details below).
 >
 {type="warning"}
 
@@ -327,7 +327,10 @@ Same as for primitives, each of unsigned type has corresponding type that repres
 Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead. 
 
 When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
-To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation. [Learn more about opt-in requirements](opt-in-requirements.md).
+To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation. 
+It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
+array are not a stable feature, so API which uses them can be broken by changes in the language.
+[Learn more about opt-in requirements](opt-in-requirements.md).
 
 [Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,
 `ULongRange`, and `ULongProgression`. Together with the unsigned integer types, these classes are stable.
