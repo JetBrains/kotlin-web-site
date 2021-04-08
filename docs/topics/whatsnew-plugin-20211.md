@@ -104,7 +104,7 @@ With this release, you can test Kotlin code visualization via UML Class diagrams
 
 ![UML diagram for Kotlin classes](kotlin-classes-uml-diagram.png){width=620}
 
-Currently, the diagrams only show inheritance and nesting relationships. All other more detailed association connections, like aggregation, construction, dependency, and others will be available in the future releases.
+Currently, the diagrams only show inheritance and nesting relationships. All other more detailed association connections, like aggregation, composition, dependency, and others will be available in the future releases.
 
 ## Other platform enhancements
 
