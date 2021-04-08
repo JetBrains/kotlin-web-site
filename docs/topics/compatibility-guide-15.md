@@ -1,5 +1,10 @@
 [//]: # (title: Compatibility guide for Kotlin 1.5)
 
+> This page describes changes that will happen in the upcoming version 1.5.0. It isn't released yet. You can try
+> its preview version [1.5.0-RC](eap.md#build-details).
+> 
+{type="note"}
+
 [*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
 latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
@@ -104,22 +109,6 @@ perspective
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ApproximateAnonymousReturnTypesInPrivateInlineFunctions` can be used to temporarily revert to pre-1.5 behavior
 
-### Support special semantics for underscore-named catch block parameters
-
-> **Issue**: [KT-31567](https://youtrack.jetbrains.com/issue/KT-31567)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**: Kotlin 1.5 will outlaw references to the underscore symbol (`_`) that is used to omit parameter name of an exception in the catch block
->
-> **Deprecation cycle**:
->
-> - 1.4.20: introduce warning for the problematic references
-> - \>= 1.5: raise this warning to an error,
->  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
-
 ### Forbid passing non-spread arrays after arguments with SAM-conversion
 
 > **Issue**: [KT-35224](https://youtrack.jetbrains.com/issue/KT-35224)
@@ -135,6 +124,22 @@ perspective
 > - 1.3.70: introduce warning for the problematic calls
 > - \>= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitVarargAsArrayAfterSamArgument` can be used to temporarily revert to pre-1.5 behavior
+
+### Support special semantics for underscore-named catch block parameters
+
+> **Issue**: [KT-31567](https://youtrack.jetbrains.com/issue/KT-31567)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.5 will outlaw references to the underscore symbol (`_`) that is used to omit parameter name of an exception in the catch block
+>
+> **Deprecation cycle**:
+>
+> - 1.4.20: introduce warning for the problematic references
+> - \>= 1.5: raise this warning to an error,
+    >  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
 
 ### Change implementation strategy of SAM conversion from anonymous class-based to invokedynamic
 
