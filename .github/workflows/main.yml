@@ -42,18 +42,16 @@ jobs:
         run: chmod +x ./verifier/gradlew
       - name: Build with Gradle
         working-directory: ./verifier
-        run: ./gradlew build -x test
-        
-      - name: Build a client with Gradle
-        working-directory: ./verifier
-        run: ./gradlew installDist
+        run: |
+             ./gradlew build -x test
+             ./gradlew installDist
         
       - name: Run docker
         working-directory: ./verifier
         run: ./gradlew dockerRun
       - name: Run verifier
         working-directory: ./verifier
-        run: ./client/build/install/client/bin/client check -r https://github.com/AlexanderPrendota/kotlin-samples-verifier.git -f run-kotlin
+        run: ./client/build/install/client/bin/client collect -r https://github.com/${{github.repository}} -f run-kotlin -commits ${{ github.event.before }},${{ github.event.after }}
         
 
       # Runs a set of commands using the runners shell
