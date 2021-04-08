@@ -24,7 +24,9 @@
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
         <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
         <config-sideblocks>true</config-sideblocks>
-        <allow-indexable-eaps>true</allow-indexable-eaps>
+        <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
+        <noindex-content-in-eap>false</noindex-content-in-eap>
+        <noindex-content-in-release>false</noindex-content-in-release>
         <config-search-scopes-provider>https://www.jetbrains.com/search/json/</config-search-scopes-provider>
             <custom-favicons>
         <![CDATA[
