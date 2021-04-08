@@ -73,6 +73,8 @@ Lets-Plot is multiplatform and can be used not only with JVM, but also with JS a
 * [kravis](https://github.com/holgerbrandl/kravis) is another library for the visualization of tabular data inspired by
 Python's [ggplot](https://ggplot2.tidyverse.org/).
 
+* [londogard-nlp-toolkit](https://github.com/londogard/londogard-nlp-toolkit/) is a library that provides great utilities when working with natural language processing (nlp) such as word/subword/sentence embeddings, word-frequencies, stopwords, stemming & much more!
+
 ### Java libraries
 
 Since Kotlin provides first-class interop with Java, you can also use Java libraries for data science in your Kotlin code.
