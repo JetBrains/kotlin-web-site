@@ -27,7 +27,7 @@ jobs:
       - name: Checkout verifier
         uses: actions/checkout@v2
         with:
-          repository: vmishenev/kotlin-samples-verifier
+          repository: AlexanderPrendota/kotlin-samples-verifier
           ref: feature_commits
           path: verifier
           
