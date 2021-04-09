@@ -247,7 +247,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.5: deprecate `Char.toInt()/toShort()/toLong()/toByte()/toDouble()/toFloat()` and the reverse functions like `Int.toChar()`, and propose replacement 
+> - 1.5: deprecate `Char.toInt()/toShort()/toLong()/toByte()/toDouble()/toFloat()` and the reverse functions like `Long.toChar()`, and propose replacement 
 
 ### Inconsistent case-insensitive comparison of characters in kotlin.text functions
 
