@@ -3,9 +3,9 @@
 [Kotlin](https://kotlinlang.org) is a modern but already mature programming language aimed to make developers happier.
 It’s concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
 
-Pick it up to start building powerful applications!
+Pick it up to start building powerful Applications!
 
-## Learn Kotlin fundamentals
+## Learn Kotlin Fundamentals
 
 * If you're already familiar with one or more programming languages and want to learn Kotlin, start with these [Kotlin learning materials](learning-materials-overview.md).
 * If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or finding a Kotlin course.
