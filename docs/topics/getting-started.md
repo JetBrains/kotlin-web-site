@@ -191,7 +191,7 @@ Here you'll learn how to develop and a multiplatform library.
    >
    {type="tip"}
 
-4. **Learn more about Kotlin for frontend web development:**
+4. **Learn more about Kotlin Multiplatform programming:**
 
    * [Introduction to Kotlin Multiplatform](mpp-intro.md).
    * [Kotlin Multiplatform supported platforms](mpp-supported-platforms.md).
