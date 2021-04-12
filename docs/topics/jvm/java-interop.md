@@ -126,7 +126,7 @@ You can find the full list in the [Kotlin compiler source code](https://github.c
 
 ### Annotating type arguments and type parameters
 
-You can annotate type arguments and type parameters of generic types to provide nullability information for them as well. 
+You can annotate the type arguments and type parameters of generic types to provide nullability information for them as well. 
 
 > All examples in the section use JetBrains nullability annotations from the `org.jetbrains.annotations` package.
 >
@@ -141,13 +141,13 @@ Consider these annotations on a Java declaration:
 Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... }
 ```
 
-It leads to the following signature seen in Kotlin:
+They result in the following signature in Kotlin:
 
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
 ```
 
-Without the `@NotNull` annotations on type arguments, you get platform types in the type arguments:
+When the `@NotNull` annotation is missing from a type argument, you get a platform type instead:
 
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
@@ -155,15 +155,15 @@ fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... 
 
 #### Type parameters
 
-By default, plain type parameters both in Kotlin and Java have undefined nullability. From Java, you can specify 
-it with nullability annotations. Let's annotate the type parameter of the `Base` class:
+By default, the nullability of plain type parameters in both Kotlin and Java is undefined. In Java, you can specify it 
+using nullability annotations. Let's annotate the type parameter of the `Base` class:
 
 ```java
 public class Base<@NotNull T> {}
 ```
 
-In Kotlin, inheriting from `Base` expects a non-nullable type argument or type parameter. Thus, the following Kotlin code
-produces warning:
+When inheriting from `Base`, Kotlin expects a non-nullable type argument or type parameter. 
+Thus, the following Kotlin code produces a warning:
 
 ```kotlin
 class Derived<K> : Base<K> {} // warning: K has undefined nullability
@@ -171,13 +171,13 @@ class Derived<K> : Base<K> {} // warning: K has undefined nullability
 
 You can fix it by specifying the upper bound `K : Any`.
 
-Kotlin also supports nullability annotations on bounds of Java type parameters. Let's add bounds to the `Base`:
+Kotlin also supports nullability annotations on the bounds of Java type parameters. Let's add bounds to `Base`:
 
 ```java
 public class BaseWithBound<T extends @NotNull Number> {}
 ```
 
-Kotlin translates it just as follows:
+Kotlin translates this just as follows:
 
 ```kotlin
 class BaseWithBound<T : Number> {}
@@ -185,13 +185,13 @@ class BaseWithBound<T : Number> {}
 
 So passing nullable type as a type argument or type parameter produces a warning.
 
-Annotating type arguments and type parameters works with Java 8 target or higher. The feature requires nullability annotations 
-to support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
-Pass the `-Xtype-enhancement-improvements-strict-mode` compiler option to report errors in the Kotlin code, which uses 
-the wrong nullability according to the nullability annotations from Java.
+Annotating type arguments and type parameters works with the Java 8 target or higher. The feature requires that the 
+nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above). 
+Pass the `-Xtype-enhancement-improvements-strict-mode` compiler option to report errors in Kotlin code that uses 
+nullability which deviates from the nullability annotations from Java.
 
-> Note: If the nullability annotation supports multiple targets applicable to a type along with the `TYPE_USE` target, then
-> `TYPE_USE` has a higher priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method 
+> Note: If a nullability annotation supports other targets being applicable to a type in addition to the `TYPE_USE` target, then
+> `TYPE_USE` takes priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
 {type="note"}
