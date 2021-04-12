@@ -179,26 +179,28 @@ Here you'll learn how to develop and a multiplatform library.
 
 3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).
 
-   |Library | Details |
-   |--------|---------|
-   |[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/) | The Kotlin standard library included in all projects by default. |
-   |[kotlinx.browser](browser-api-dom.md)| The Kotlin library for accessing browser-specific functionality, including typical top-level objects such as document and window. |
-   |[kotlinx.html](typesafe-html-dsl.md) | The Kotlin library for generating DOM elements using statically-typed HTML builders.|
-   |[Ktor](https://ktor.io/) | The Kotlin multiplatform library for networking. |
-   |[KVision](https://kvision.io/) | A third-party object-oriented web framework for Kotlin/JS.|
-   |[fritz2](https://www.fritz2.dev/)| A third-party lightweight, high-performance, independent library for building reactive web apps in Kotlin that are heavily dependent on coroutines and flows.|
-   |[kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers) | Provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a number of adjacent technologies like `react-redux`, `react-router`, or `styled-components`. |
+   |Library|Details|
+   |-------|-------|
+   | Ktor |  [Docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html).| 
+   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
+   | Coroutines |  [Docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html).|
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html).|
+
+   > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
+   >
+   {type="tip"}
 
 4. **Learn more about Kotlin for frontend web development:**
 
-   * Link 1
-   * Link 2
-   * Link 3
+   * [Introduction to Kotlin Multiplatform](mpp-intro.md).
+   * [Kotlin Multiplatform supported platforms](mpp-supported-platforms.md).
+   * [Kotlin Multiplatform programming benefits](multiplatform.md).
 
-5. **Join the Kotlin frontend web community:**
+5. **Join the Kotlin Multiplatform community:**
 
-   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
-   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
+   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
+   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
 6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
