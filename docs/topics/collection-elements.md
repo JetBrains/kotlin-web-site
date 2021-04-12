@@ -71,7 +71,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-## Retrieving by condition
+## Retrieve by condition
 
 Functions [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) and [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html)
 also let you search a collection for elements matching a given predicate. When you call `first()` with a predicate that
@@ -106,7 +106,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Alternatively, you can use the aliases if their names suit your situation better:
+Use the aliases if their names suit your situation better:
 
 * [`find()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find.html) instead of `firstOrNull()`
 * [`findLast()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find-last.html) instead of `lastOrNull()`
@@ -122,6 +122,29 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## Retrieve with selector
+
+If you need to map the collection before retrieving the element, there is a function [`firstNotNullOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of.html).
+It combines 2 actions:
+- Maps the collection with the selector function
+- Returns the first non-null value in the result
+
+`firstNotNullOf()` throws the `NoSuchElementException` if the resulting collection doesn't have a non-null element. 
+Use the counterpart [`firstNotNullOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of-or-null.html) 
+to return null in this case.
+
+```kotlin
+fun main() {
+//sampleStart
+   val list = listOf("one", "two", "three")
+   // Returns the first string that has required length
+   val longEnough = list.firstNotNullOf { it.takeIf { it.length > 4 } }
+   println(longEnough)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 ## Random element
 
