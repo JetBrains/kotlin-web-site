@@ -57,3 +57,13 @@ To declare a data class with the `@JvmRecord` annotation, it must meet the follo
 * The class cannot declare any mutable properties with backing fields.
 * The class cannot be local.
 * The primary constructor of the class must be as visible as the class itself.
+
+### Enabling JVM records
+
+JVM records require the `16` target version of the generated JVM bytecode.
+
+To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle.md#attributes-specific-for-jvm) or [Maven](maven.md#attributes-specific-for-jvm).
+
+## Further discussion
+
+See this [language proposal for JVM records](https://github.com/Kotlin/KEEP/blob/master/proposals/jvm-records.md) for further technical details and discussion.
