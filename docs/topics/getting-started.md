@@ -166,6 +166,46 @@ Follow Kotlin on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](http
 
 </tab>
 
+<tab title="Multiplatform library">
+
+Here you'll learn how to develop and a multiplatform library.
+
+1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
+
+2. **Create a multiplaform library:**
+
+   * To start from scratch, [create a basic project](mpp-create-lib.md).
+   * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
+
+3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).
+
+   |Library | Details |
+   |--------|---------|
+   |[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/) | The Kotlin standard library included in all projects by default. |
+   |[kotlinx.browser](browser-api-dom.md)| The Kotlin library for accessing browser-specific functionality, including typical top-level objects such as document and window. |
+   |[kotlinx.html](typesafe-html-dsl.md) | The Kotlin library for generating DOM elements using statically-typed HTML builders.|
+   |[Ktor](https://ktor.io/) | The Kotlin multiplatform library for networking. |
+   |[KVision](https://kvision.io/) | A third-party object-oriented web framework for Kotlin/JS.|
+   |[fritz2](https://www.fritz2.dev/)| A third-party lightweight, high-performance, independent library for building reactive web apps in Kotlin that are heavily dependent on coroutines and flows.|
+   |[kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers) | Provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a number of adjacent technologies like `react-redux`, `react-router`, or `styled-components`. |
+
+4. **Learn more about Kotlin for frontend web development:**
+
+   * Link 1
+   * Link 2
+   * Link 3
+
+5. **Join the Kotlin frontend web community:**
+
+   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
+   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
+
+6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+
+If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
+</tab>
+
 </tabs>
 
 ## Is anything missing?
