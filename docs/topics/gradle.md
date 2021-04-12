@@ -335,7 +335,7 @@ tasks {
 
 </tabs>
 
-[Learn how to test code using JUnit on the JVM](#jvm-test-using-junit.md).
+[Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
 If you need to use a different JVM test framework, you can disable the automatic selection of a testing framework by 
 adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties` and add this framework as a 
