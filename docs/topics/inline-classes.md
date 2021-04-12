@@ -7,7 +7,7 @@ because primitive types are usually heavily optimized by the runtime, while thei
 To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
 Inline classes are a subset of [value-based classes](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md). They don't have an identity and can only hold values.
 
-To declare an inline class, use a `value` modifier before the name of the class:
+To declare an inline class, use the `value` modifier before the name of the class:
 
 ```kotlin
 value class Password(private val s: String)
