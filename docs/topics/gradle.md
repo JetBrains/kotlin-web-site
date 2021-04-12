@@ -256,9 +256,10 @@ kotlin.stdlib.default.dependency=false
 
 ### Set dependencies on test libraries
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing Kotlin projects on different Kotlin platforms.
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing Kotlin projects on 
+all platforms supported by Kotlin.
 Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
-test dependencies for each source set:
+test dependencies for each test source set:
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
 * `kotlin-test-junit` for JVM source sets
 * `kotlin-test-js` for Kotlin/JS source sets
@@ -272,7 +273,7 @@ kotlin{
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin('test') // This brings all the platforms' dependencies automatically
+                implementation kotlin("test") // This brings all the platform dependencies automatically
             }
         }
     }
@@ -284,7 +285,7 @@ kotlin{
     sourceSets {
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test")) // This brings all the platforms' dependencies automatically
+                implementation(kotlin("test")) // This brings all the platform dependencies automatically
             }
         }
     }
@@ -293,17 +294,19 @@ kotlin{
 
 </tabs>
 
-> You can use shorthand for a dependency on a Kotlin module, for example, kotlin('test') for "org.jetbrains.kotlin:kotlin-test".
+> You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
 >
 {type="note"}
 
-Additionally, you can use the `kotlin-test` dependency in any shared or platform-specific source set.
+You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
 
-For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to JUnit 4.
+For Kotlin/JVM Gradle uses JUnit 4 by default; therefore, the `kotlin("test")` dependency resolves to the variant for 
+JUnit 4, namely `kotlin-test-junit`.
 
 You can choose JUnit 5 or TestNG by calling 
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
-or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG).
+or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the 
+test task of your build script.
 The following example is for a JVM project:
 
 <tabs>
@@ -325,18 +328,18 @@ dependencies {
 
 tasks {
     test {
-        useJUnitPlatform()
+        useTestNG()
     }
 }
 ```
 
 </tabs>
 
-See [the tutorial on how to test code using JUnit in JVM](#jvm-test-using-junit.md).
+[Learn how to test code using JUnit on the JVM](#jvm-test-using-junit.md).
 
-If the standard variants described above don't cover you needs, you can disable the automatic selection
-of a testing framework by adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties` and 
-use the dependencies you need.
+If you need to use a different JVM test framework, you can disable the automatic selection of a testing framework by 
+adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties` and add this framework as a 
+dependency to your build script.
 
 ### Set a dependency on a kotlinx library
 
