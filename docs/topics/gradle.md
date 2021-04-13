@@ -256,8 +256,8 @@ kotlin.stdlib.default.dependency=false
 
 ### Set dependencies on test libraries
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing Kotlin projects on 
-all platforms supported by Kotlin.
+The [`kotlin.test`] API(https://kotlinlang.org/api/latest/kotlin.test/) is available for testing Kotlin projects on 
+all supported platforms.
 Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
 test dependencies for each test source set:
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
@@ -307,6 +307,46 @@ You can choose JUnit 5 or TestNG by calling
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the 
 test task of your build script.
+The following example is for an MPP project:
+
+<tabs>
+
+```groovy
+kotlin {
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin("test")
+            }
+        }
+    }
+}
+```
+
+```kotlin
+kotlin {
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+    }
+}
+```
+
+</tabs>
+
 The following example is for a JVM project:
 
 <tabs>
