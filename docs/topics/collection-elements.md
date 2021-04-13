@@ -137,10 +137,10 @@ to return null in this case.
 ```kotlin
 fun main() {
 //sampleStart
-   val list = listOf("one", "two", "three")
-   // Returns the first string that has required length
-   val longEnough = list.firstNotNullOf { it.takeIf { it.length > 4 } }
-   println(longEnough)
+    val list = listOf<Any>(0, "true", false)
+    // Converts each element to string and returns the first one that has required length
+    val longEnough = list.firstNotNullOf { item -> item.toString().takeIf { it.length >= 4 } }
+    println(longEnough)
 //sampleEnd
 }
 ```
