@@ -7,7 +7,6 @@
             primary_Default for Windows,
             primary_Eclipse,
             primary_Emacs,
-            primary_NetBeans,
             primary_Sublime Text,
             primary_Visual Studio
         </use-keymaps>
@@ -34,7 +33,6 @@
             primary_Eclipse,
             primary_Eclipse (macOS),
             primary_Eclipse (macOS),
-            primary_NetBeans,
             primary_Sublime Text,
             primary_Sublime Text (macOS)
         </use-keymaps>
@@ -50,7 +48,6 @@
             primary_Default for KDE,
             primary_Eclipse,
             primary_Eclipse (macOS),
-            primary_NetBeans,
             primary_Sublime Text,
             primary_Sublime Text (macOS),
             primary_Xcode,
@@ -78,7 +75,6 @@
             primary_Emacs,
             primary_Default for KDE,
             primary_IntelliJ IDEA Classic (macOS),
-            primary_NetBeans,
             primary_Sublime Text,
             primary_Sublime Text (macOS),
             primary_Visual Studio,
@@ -108,7 +104,6 @@
             secondary_Eclipse (macOS),
             secondary_Emacs,
             secondary_IntelliJ IDEA Classic,
-            secondary_NetBeans,
             secondary_Sublime Text,
             secondary_Sublime Text (macOS),
             secondary_Visual Studio
@@ -134,7 +129,6 @@
             secondary_Eclipse,
             secondary_Eclipse (macOS),
             secondary_Eclipse (macOS),
-            secondary_NetBeans,
             secondary_Sublime Text,
             secondary_Sublime Text (macOS)
         </use-keymaps>
@@ -144,7 +138,6 @@
             secondary_Eclipse,
             secondary_Eclipse (macOS),
             secondary_Emacs,
-            secondary_NetBeans,
             secondary_Sublime Text,
             secondary_Sublime Text (macOS),
             secondary_Visual Studio
@@ -161,7 +154,6 @@
             secondary_Default for KDE,
             secondary_Eclipse,
             secondary_Eclipse (macOS),
-            secondary_NetBeans,
             secondary_Sublime Text,
             secondary_Sublime Text (macOS),
             secondary_Xcode,
