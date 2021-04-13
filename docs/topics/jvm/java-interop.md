@@ -190,7 +190,7 @@ nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotation
 Pass the `-Xtype-enhancement-improvements-strict-mode` compiler option to report errors in Kotlin code that uses 
 nullability which deviates from the nullability annotations from Java.
 
-> Note: If a nullability annotation supports other targets being applicable to a type in addition to the `TYPE_USE` target, then
+> Note: If a nullability annotation supports other targets that are applicable to a type in addition to the `TYPE_USE` target, then
 > `TYPE_USE` takes priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
