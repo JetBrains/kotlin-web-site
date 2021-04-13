@@ -540,8 +540,8 @@ The [kotlin-test](https://kotlinlang.org/api/latest/kotlin.test/) library introd
 
 ### Simplified test dependencies usage in multiplatform projects
 
-Now you can use the `kotlin-test` dependency to add dependencies for testing in the `commonTest` source set, and the Gradle plugin
-will infer the corresponding platform dependencies for each source set:
+Now you can use the `kotlin-test` dependency to add dependencies for testing in the `commonTest` source set, and the 
+Gradle plugin will infer the corresponding platform dependencies for each test source set:
 * `kotlin-test-junit` for JVM source sets, see [automatic choice of a testing framework for Kotlin/JVM source sets](#automatic-selection-of-a-testing-framework-for-kotlin-jvm-source-sets)
 * `kotlin-test-js` for Kotlin/JS source sets
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
@@ -558,7 +558,8 @@ Learn more about [setting dependencies on test libraries](gradle.md#set-dependen
 The Gradle plugin now chooses and adds a dependency on a testing framework automatically. All you need to do is add
 the dependency `kotlin-test` in the common source set.
 
-Gradle uses JUnit 4 by default; therefore, the `kotlin('test')` dependency resolves to JUnit 4, namely `kotlin-test-junit`:
+Gradle uses JUnit 4 by default; therefore, the `kotlin("test")` dependency resolves to the variant for JUnit 4, 
+namely `kotlin-test-junit`:
 
  <tabs>
 
@@ -567,7 +568,7 @@ kotlin {
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin('test') // This brings the dependency 
+                implementation kotlin("test") // This brings the dependency 
                                               // on JUnit 4 transitively
             }
         }
