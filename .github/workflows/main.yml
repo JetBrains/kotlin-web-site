@@ -81,7 +81,7 @@ jobs:
 
       - name: Run pusher
         working-directory: ./pusher
-        run: ./build/install/kotlin-samples-pusher/bin/kotlin-samples-pusher -in snippets -r https://github.com/vmishenev/kotlin-compiler-server -username ${{ secrets.TOKEN }}
+        run: ./build/install/kotlin-samples-pusher/bin/kotlin-samples-pusher -in snippets -r https://github.com/vmishenev/kotlin-compiler-server -username ${{ secrets.TOKEN }} -path src/test/resources/test-compile-data/kotlin-web-site
         
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
