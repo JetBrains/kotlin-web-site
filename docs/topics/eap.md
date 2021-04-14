@@ -47,7 +47,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>Changes in the experimental Duration API</li>
                 <li>New assertion functions in <code>kotlin-test</code></li>
             </ul>
-            <p>For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released/">this blog post</a> and the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.0-rc">changelog</a>.</p>
+            <p>For more details, please refer to <a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released/">this blog post</a> and the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.0-RC">changelog</a>.</p>
         </td>
         <td>
             <ul>
