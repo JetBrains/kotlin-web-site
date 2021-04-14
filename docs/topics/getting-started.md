@@ -11,7 +11,7 @@ Pick it up to start building powerful applications!
 * If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or finding a Kotlin course.
 
 ## Create your powerful application with Kotlin
-
+ 
 <tabs>
 
 <tab title="Backend app">
@@ -168,7 +168,9 @@ Follow Kotlin on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](http
 
 <tab title="Multiplatform library">
 
-Here you'll learn how to develop and a multiplatform library.
+Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the same code for different platforms while retaining the flexibility and benefits of native programming.
+
+Here you'll learn how to develop and a multiplatform library:
 
 1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
 
@@ -177,7 +179,7 @@ Here you'll learn how to develop and a multiplatform library.
    * To start from scratch, [create a basic project](mpp-create-lib.md).
    * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
 
-3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).
+3. **Use libraries in your application.** Learn more about [adding dependencies](mpp-add-dependencies.md).
 
    |Library|Details|
    |-------|-------|
