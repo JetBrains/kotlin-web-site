@@ -10,7 +10,8 @@
         </browser-edits-url-override>
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
         <generate-only-default-anchors>true</generate-only-default-anchors>
-        <web-root>http://www.jetbrains.com/idea/</web-root>
+        <web-root>https://kotlinlang.org/docs/</web-root>
+        <og-image>https://kotlinlang.org/docs/</og-image>
         <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
         <download-page/>
         <relative-url-to-absolute-prefix>https://github.com/Kotlin/kotlinx.coroutines/blob/master/</relative-url-to-absolute-prefix>
