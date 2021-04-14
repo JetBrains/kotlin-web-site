@@ -14,7 +14,7 @@ plugin in the file `build.gradle`(`.kts`).
 
 You can also apply it manually.
 
->The `kotlin-multiplatform` plugin works with Gradle 6.0 or later. 
+>The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later. 
 >
 {type="note"}
 

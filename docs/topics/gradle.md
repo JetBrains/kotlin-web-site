@@ -7,8 +7,7 @@ In order to build a Kotlin project with Gradle, you should [apply the Kotlin Gra
 
 Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
 
-The Kotlin Gradle plugin %kotlinVersion% works with Gradle 5.4 and later. The `kotlin-multiplatform` plugin
-requires Gradle 6.0 or later.
+The Kotlin Gradle plugin and `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
 <tabs>
 
@@ -33,7 +32,7 @@ The placeholder `<...>` should be replaced with one of the plugin names that can
 Projects targeting [multiple platforms](mpp-supported-platforms.md), called [multiplatform projects](mpp-intro.md), 
 require the `kotlin-multiplatform` plugin. [Learn more about the plugin](mpp-discover-project.md#multiplatform-plugin).
 
->The `kotlin-multiplatform` plugin works with Gradle 6.0 or later. 
+>The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later. 
 >
 {type="note"}
 
