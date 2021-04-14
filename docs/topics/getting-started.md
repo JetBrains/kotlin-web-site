@@ -20,7 +20,10 @@ Here is how you can take the first steps in developing Kotlin server-side applic
 
 1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
 
-2. **Choose one of the frameworks below and create a project:**
+2. **Create your first backend application:**
+   
+   * To start from scratch, [create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).
+   * If you prefer more robust examples, choose one of the frameworks below and create a project:
 
    <table width="100%" >
    <tr>
@@ -50,12 +53,9 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    </tr>
    </table>
 
-3. **Use Kotlin and third-party libraries in your application:**
+3. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle.md#configuring-dependencies).
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
    * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
-
-   > Learn how to [add library and tool dependencies to your project](gradle.md#configuring-dependencies).
-   >
 
 4. **Learn more about Kotlin for server-side:**
    * [How to write your first unit test](jvm-test-using-junit.md).
