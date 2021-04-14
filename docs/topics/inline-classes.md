@@ -21,7 +21,7 @@ To declare an inline class for the JVM backend, use the `value` modifier along w
 value class Password(private val s: String)
 ```
 
-> The `inline` modifier is deprecated with the `WARNING` level.
+> The `inline` modifier for inline classes is deprecated.
 > 
 {type="warning"}
 
