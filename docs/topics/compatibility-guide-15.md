@@ -277,3 +277,35 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5: deprecate case conversions functions with the default locale (see details in the issue), and propose replacement 
+
+### Gradually change the return type of collection `min` and `max` functions to non-nullable
+
+> **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
+>
+> **Component**: kotlin-stdlib (JVM)
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: return type of collection `min` and `max` functions will be changed to non-nullable in 1.6
+>
+> **Deprecation cycle**:
+>
+> - 1.4: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
+> - 1.5.0: raise the deprecation level of the affected API to error
+> - \>=1.6: reintroduce the affected API but with non-nullable return type
+
+### Raise the deprecation level of conversions of floating-point types to `Short` and `Byte`
+
+> **Issue**: [KT-30360](https://youtrack.jetbrains.com/issue/KT-30360)
+>
+> **Component**: kotlin-stdlib (JVM)
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: conversions of floating-point types to `Short` and `Byte` deprecated in Kotlin 1.4 with `WARNING`
+> level will cause errors since Kotlin 1.5.0.
+>
+> **Deprecation cycle**:
+>
+> - 1.4: deprecate `Double.toShort()/toByte()` and `Float.toShort()/toByte()` and propose replacement
+> - 1.5.0: raise the deprecation level to error
