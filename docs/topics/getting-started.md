@@ -170,7 +170,7 @@ Follow Kotlin on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](http
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the same code for different platforms while retaining the flexibility and benefits of native programming.
 
-Here you'll learn how to develop and a multiplatform library:
+Here you'll learn how to develop and publish a multiplatform library:
 
 1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
 
@@ -178,17 +178,17 @@ Here you'll learn how to develop and a multiplatform library:
 
    * To start from scratch, [create a basic project](mpp-create-lib.md).
    * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
+   * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) hands-on.
 
-3. **Use libraries in your application.** Learn more about [adding dependencies](mpp-add-dependencies.md).
+3. **Use libraries in your application.** Learn more about [adding dependencies on libraries](mpp-add-dependencies.md).
 
    |Library|Details|
    |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html).| 
-   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
-   | Coroutines |  [Docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html).|
+   | Ktor |  [Docs](https://ktor.io/learn/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
+   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
+   | Coroutines |  [Docs](coroutines-overview.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html).|
-
+   
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
    {type="tip"}
