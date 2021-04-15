@@ -272,7 +272,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Since Kotlin 1.5, default locale-sensitive case conversion functions like `String.upperCase()` will be deprecated
+> **Short summary**: Since Kotlin 1.5, default locale-sensitive case conversion functions like `String.toUpperCase()` will be deprecated
 >
 > **Deprecation cycle**:
 >
