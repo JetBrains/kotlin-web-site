@@ -256,7 +256,7 @@ kotlin.stdlib.default.dependency=false
 
 ### Set dependencies on test libraries
 
-The [`kotlin.test`] API(https://kotlinlang.org/api/latest/kotlin.test/) is available to test Kotlin projects on 
+The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available to test Kotlin projects on 
 all supported platforms.
 Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
 test dependencies for each test source set:
