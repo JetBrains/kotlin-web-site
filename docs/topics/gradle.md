@@ -255,13 +255,13 @@ kotlin.stdlib.default.dependency=false
 
 ### Set dependencies on test libraries
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for testing different Kotlin projects. 
-
-Add the corresponding dependencies on test libraries:
-
-* For `commonTest`, add the `kotlin-test-common` and `kotlin-test-annotations-common` dependencies.
-* For JVM targets, use `kotlin-test-junit` or `kotlin-test-testng` for the corresponding asserter implementation and annotations mapping.
-* For Kotlin/JS targets, add `kotlin-test-js` as a test dependency. 
+The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available to test Kotlin projects on 
+all supported platforms.
+Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding 
+test dependencies for each test source set:
+* `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
+* `kotlin-test-junit` for JVM source sets
+* `kotlin-test-js` for Kotlin/JS source sets
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
@@ -272,18 +272,7 @@ kotlin{
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
-            }
-        }
-        jvmTest {
-            dependencies {
-                implementation kotlin('test-junit')
-            }
-        }
-        jsTest {
-            dependencies {
-                implementation kotlin('test-js')
+                implementation kotlin("test") // This brings all the platform dependencies automatically
             }
         }
     }
@@ -295,18 +284,7 @@ kotlin{
     sourceSets {
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(kotlin("test-junit"))
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
+                implementation(kotlin("test")) // This brings all the platform dependencies automatically
             }
         }
     }
@@ -318,6 +296,89 @@ kotlin{
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
 >
 {type="note"}
+
+You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
+
+For Kotlin/JVM, Gradle uses JUnit 4 by default. Therefore, the `kotlin("test")` dependency resolves to the variant for 
+JUnit 4, namely `kotlin-test-junit`.
+
+You can choose JUnit 5 or TestNG by calling 
+[`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform) 
+or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the 
+test task of your build script.
+The following example is for an MPP project:
+
+<tabs>
+
+```groovy
+kotlin {
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin("test")
+            }
+        }
+    }
+}
+```
+
+```kotlin
+kotlin {
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+    }
+}
+```
+
+</tabs>
+
+The following example is for a JVM project:
+
+<tabs>
+
+```groovy
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useTestNG()
+}
+```
+
+```kotlin
+dependencies {
+    testImplementation(kotlin("test"))
+}
+
+tasks {
+    test {
+        useTestNG()
+    }
+}
+```
+
+</tabs>
+
+[Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
+
+If you need to use a different JVM test framework, disable automatic testing framework selection by
+adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`. 
+Once you do this, add the framework as a Gradle dependency.
 
 ### Set a dependency on a kotlinx library
 
