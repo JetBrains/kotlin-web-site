@@ -1,3 +1,15 @@
+- name: Vilnius, Lithuania
+  geo:
+    lat: 54.689383
+    lng: 25.270894
+- name: Chiasso, Switzerland
+  geo:
+    lat: 45.839996
+    lng: 9.018888
+- name: Torino, Italy
+  geo:
+    lat: 45.069149
+    lng: 7.688672
 - name: Vilnius, Switzerland
   geo:
     lat: 46.812875

@@ -1,6 +1,141 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>pl</lang>
+        <startDate>2021-04-15</startDate>
+        <endDate>2021-04-15</endDate>
+        <location>Kielce, Poland</location>
+        <speaker>Jarek Ratajski</speaker>
+        <title>Kielce Java User Group</title>
+        <subject>Czysty Kotlin</subject>
+        <url>https://www.meetup.com/Kielce-Java-User-Group/events/277419665</url>
+        <description>
+            <![CDATA[
+<p>Można pisać haskella w każdym języku. W prezentacji pokażę jak to robić w kotlinie.
+Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co robią monady na produkcji i jak można zrobić użyteczny framework webowy bez magii. A na deser naprawdę "mordercza" reguła do lintera...</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>de</lang>
+        <startDate>2021-04-28</startDate>
+        <endDate>2021-04-28</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Johannes Barop</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>GraphQL Server mit Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/277444365</url>
+        <description>
+            <![CDATA[
+<p>Egal ob Kotlin neu für dich ist, oder du es bereits produktiv nutzt: wir wollen die Kotlin-Enthusiasten im Rhein-Main Gebiet zusammenbringen, und unsere Erfahrungen austauschen.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>it</lang>
+        <startDate>2021-04-22</startDate>
+        <endDate>2021-04-22</endDate>
+        <location>Torino, Italy</location>
+        <speaker>Alessandro Minoccheri</speaker>
+        <title>Java/JVM User Group Torino</title>
+        <subject>Kotlin e l'Architettura esagonale</subject>
+        <url>https://www.meetup.com/JUGTorino/events/277505456</url>
+        <description>
+            <![CDATA[
+<p>Kotlin è un linguaggio di programmazione sorprendente. Ma è importante proteggere la propria logica dell'applicazione, creare i propri modelli di dominio disaccoppiati dalle implementazioni reali. In questo talk spiegheró la tecnica dell' "Architettura esagonale" per capire come organizzare applicazioni per essere testate e per far sì che siano facili da mantenere per future evoluzioni ed aggiornamenti.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-04-29</startDate>
+        <endDate>2021-04-29</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Raul Hernandez Lopez</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>[Virtual] Getting ready for Declarative UIs with UDF using Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/264305841</url>
+        <description>
+            <![CDATA[
+<p>Unidirectional Data Flow (UDF) is a powerful technique that enhances our Reactive apps to work deterministically. Synchronising our views with fresh data was never an easy task to accomplish. For this same reason, there are mechanisms that support us to make that possible. Surely callbacks were a thing in the past, however, they were an antipattern themselves due to the lack of readability. Now we don’t need to deal with them any more thanks to Kotlin Coroutines. Getting ready for Declarative UIs with Kotlin Coroutines and friends is indeed feasible, now we could use suspend functions, Flow and in the end, StateFlow would make our Reactive apps ready for Declarative UIs. Let’s define a single entry point, receive data, transform it into a state, and render each state. Let’s get our apps ready for a Declarative UI world on Android.</p>
+<p>You’ll learn how to use Kotlin Coroutines and friends from the Kotlin Coroutines library to take advantage of really efficient and easy to read code. How to handle its lifecycle without being compromised to a specific external Android framework, which would enable your code to be prepared for more purposes than Android-only apps.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-04-27</startDate>
+        <endDate>2021-04-27</endDate>
+        <location>Poznań, Poland</location>
+        <speaker>Márton Braun</speaker>
+        <title>Android Worldwide 2021</title>
+        <subject>Mastering API Visibility in Kotlin</subject>
+        <url>https://www.airmeet.com/e/3a42a900-9868-11eb-bfbb-3361cd1b2fd8</url>
+        <description>
+            <![CDATA[
+<p>When designing a library, minimizing your API surface - the types, methods, properties, and functions you expose to the outside world - is a great idea. This doesn’t apply to just libraries: it’s a consideration you should make for every module in a multi-module project. In this talk, we’ll look at all the ways that Kotlin lets you get your visibility just right.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-05-27</startDate>
+        <endDate>2021-05-27</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Josh Long</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Bootiful Kotlin</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/277538707</url>
+        <description>
+            <![CDATA[
+<p>Spring Boot, the convention-over-configuration centric framework from the Spring team at Pivotal, marries Spring's flexibility with conventional, common sense defaults to make application development on the JVM not just fly, but pleasant! Spring Boot aims to make address the common functional and non-functional requirements that gate quickly moving to production. The framework is as clean as it gets, wouldn't it be nice if the language matched its elegance?</p>
+<p>Kotlin, the productivity-focused language from our friends at JetBrains, takes up the slack to make the experience leaner, cleaner and even more pleasant!</p>
+<p>The Spring and Kotlin teams have worked hard to make sure that Kotlin and Spring Boot are a first-class experience for all developers trying to get to production, faster and safer. Come for the Spring and stay for the Bootiful Kotlin.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>de</lang>
+        <startDate>2021-05-17</startDate>
+        <endDate>2021-05-17</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Tobse Fritz</speaker>
+        <title>ObjektForum Frankfurt als OnlineEditionp</title>
+        <subject>Kotlin Native and Kotlin Multiplatform in Action</subject>
+        <url>https://www.andrena.de/event/objektforum-onlineedition-mai-2021</url>
+        <description>
+            <![CDATA[
+<p>Seit den Anfängen als frisch gedachte Java-Alternative auf der JVM mausert sich Kotlin immer mehr zum Multitool in der Entwicklung. Mit Kotlin Native und Kotlin JS stehen die passenden Werkzeuge parat, um sprachübergreifend nicht nur im klassischen Backend, sondern auch für die Native Entwicklung mobiler Anwendungen, sowie für clientseitige Webanwendungen, einheitlich Kotlin einzusetzen. Und dank Kotlin Multiplatform lassen sich diese unterschiedlichen Targets nicht nur in einem Projekt gemeinsam verwalten, sondern mit einem Common Modul sogar wiederverwenden.</p>
+<p>Im Talk werde ich die Vorteile und Funktionsweise von Multiplatform-Projekten anhand von Beispielprojekten aufzeigen. In welchen Projekten wird sich der Einsatz sehr lohnen, wann lässt man besser noch die Finger davon und warum bietet ein Multiplatform-Projekt auch schon bei einem Build Target große Vorteile? Dabei werde ich sowohl auf die Limitierungen eingehen als auch einen Vergleich mit GraalVM ziehen. Die Einsatzmöglichkeiten sind vielfältig und so schauen wir unter anderem Native Entwicklung unter Windows an, den Aufbau von Webapplikationen mit Ktor, Spieleprogrammierung mit KorGE und auch die Desktop Entwicklung mit dem brandneuen Jetpack Compose for Desktop.</p>
+<p>Kotlin-Vorwissen ist nicht nötig, wird aber den Einstieg sicherlich erleichtern. Ich freue mich sehr darauf, diese spannende Seite der Sprache zu beleuchten und dabei Unentschlossene von Kotlin zu begeistern.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>it</lang>
+        <startDate>2021-05-18</startDate>
+        <endDate>2021-05-18</endDate>
+        <location>Chiasso, Switzerland</location>
+        <speaker>Alessandro Minoccheri</speaker>
+        <title>Ticino Software Craft</title>
+        <subject>Kotlin e l'architettura esagonale</subject>
+        <url>https://www.meetup.com/Ticino-Software-Craft/events/277415578</url>
+        <description>
+            <![CDATA[
+<p>Kotlin è un linguaggio di programmazione sorprendente. Ma è importante implementare la propria logica dell'applicazione, creare i propri modelli di dominio disaccoppiati dalle implementazioni reali.</p>
+<p>In questo talk spiegheró la tecnica dell' "Architettura esagonale" per aiutare altri dev ad organizzare applicazioni per essere testate e per far sì che siano facili da mantenere per future evoluzioni.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>en</lang>
         <startDate>2021-04-08</startDate>
         <endDate>2021-04-08</endDate>
@@ -74,6 +209,9 @@
         <speaker>Massimiliano Bertinetti</speaker>
         <title>Kotlin Torino User Group</title>
         <subject>Kotlin per il Web - una rapida presentazione delle opzioni</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=C1vraXxnecM</video>
+        </content>
         <url>https://www.meetup.com/kotlin-torino-user-group/events/277153685</url>
    </event>
 
