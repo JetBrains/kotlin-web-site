@@ -16,7 +16,7 @@ Detection and Migration modes: <see guide below>
 
 # Background
 > Optional section. Describe the background of the issue and possibly some motivation
-# Existing behaviour
+# Existing behavior
 > 1. (Minimal) code example
 > 2. What's wrong with it
 > 3. Detailed explanation of why and how this happens
@@ -111,7 +111,7 @@ Specify one or more of the following:
     *   The behavior in question belongs under a previously released specification, contract or official documentation
         *   By the contract, the old behavior is incorrect (thus a fix is needed)
         *   The contract doesn't specify this behavior
-            *   The new behaviour needs to be specified
+            *   The new behavior needs to be specified
             *   The new behavior will remain unspecified
         *   The new behavior contradicts the contract (i.e. the contract has to be changed)
 *   **Performance and code size**

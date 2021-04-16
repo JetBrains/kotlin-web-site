@@ -71,7 +71,7 @@ The typical deprecation cycle for an incompatible language change:
     *   For eligible changes, the `-progressive` flag enables the change before version B (e.g. in version A or an incremental update to it)
 *   Version B ships with the change enabled (e.g. warnings turn into errors)
     *   Migrations aids are kept available in the IDE 
-    *   Backward compatibility flags in the compiler (`-language-version` and `-api-version`) support the behaviour of version A
+    *   Backward compatibility flags in the compiler (`-language-version` and `-api-version`) support the behavior of version A
 *   Future versions can remove migration aids and compatibility flags, but a version capable of automated migration should be kept available for a reasonable amount of time
 
 ### Incompatible changes to the libraries
