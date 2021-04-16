@@ -11,7 +11,7 @@ Pick it up to start building powerful applications!
 * If you are at the very beginning and Kotlin is your first programming language, you can start with reading the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/) or finding a Kotlin course.
 
 ## Create your powerful application with Kotlin
-
+ 
 <tabs>
 
 <tab title="Backend app">
@@ -166,7 +166,52 @@ Follow Kotlin on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](http
 
 </tab>
 
+<tab title="Multiplatform library">
+
+Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the same code for different platforms while retaining the flexibility and benefits of native programming.
+
+Here you'll learn how to develop and publish a multiplatform library:
+
+1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
+
+2. **Create a multiplaform library:**
+
+   * To start from scratch, [create a basic project](mpp-create-lib.md).
+   * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
+   * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) hands-on.
+
+3. **Use libraries in your application.** Learn more about [adding dependencies on libraries](mpp-add-dependencies.md).
+
+   |Library|Details|
+   |-------|-------|
+   | Ktor |  [Docs](https://ktor.io/learn/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
+   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
+   | Coroutines |  [Docs](coroutines-overview.md).|
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
+   
+   > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
+   >
+   {type="tip"}
+
+4. **Learn more about Kotlin Multiplatform programming:**
+
+   * [Introduction to Kotlin Multiplatform](mpp-intro.md).
+   * [Kotlin Multiplatform supported platforms](mpp-supported-platforms.md).
+   * [Kotlin Multiplatform programming benefits](multiplatform.md).
+
+5. **Join the Kotlin Multiplatform community:**
+
+   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
+   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
+
+6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+
+If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
+</tab>
+
 </tabs>
 
 ## Is anything missing?
+
 If anything is missing or seems confusing on this page, please [share your feedback](https://surveys.hotjar.com/d82e82b0-00d9-44a7-b793-0611bf6189df).
