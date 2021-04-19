@@ -295,10 +295,6 @@ floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the op
 
 ### Unsigned integers
 
->Unsigned types are available only since Kotlin 1.3 and currently in [Beta](components-stability.md). See details [below](#beta-status-of-unsigned-integers)
->
-{type="note"}
-
 In addition to [integer types](#integer-types), Kotlin provides the following types for unsigned integer numbers:
 
 * `UByte`: an unsigned 8-bit integer, ranges from 0 to 255
@@ -316,6 +312,11 @@ Unsigned types are implemented using feature that's not yet stable, namely [inli
 
 #### Unsigned arrays and ranges 
 
+> Unsigned arrays and operations on them are in [Beta](components-stability.md). They can be changed incompatibly at any time.
+> Opt-in is required (see the details below).
+>
+{type="warning"}
+
 Same as for primitives, each of unsigned type has corresponding type that represents arrays of that type:
 
 * `UByteArray`: an array of unsigned bytes
@@ -325,8 +326,14 @@ Same as for primitives, each of unsigned type has corresponding type that repres
 
 Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead. 
 
-Also, [ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,
-`UIntProgression`, `ULongRange`, and `ULongProgression`. 
+When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
+To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation. 
+It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
+array are not a stable feature, so API which uses them can be broken by changes in the language.
+[Learn more about opt-in requirements](opt-in-requirements.md).
+
+[Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,
+`ULongRange`, and `ULongProgression`. Together with the unsigned integer types, these classes are stable.
 
 #### Literals
 
@@ -350,22 +357,6 @@ val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't
 ```kotlin
 val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
 ```
-
-#### Beta status of unsigned integers
-
-The design of unsigned types is in [Beta](components-stability.md), meaning that its compatibility is best-effort only and not guaranteed.
-
-When using unsigned arithmetics, a warning will be reported, indicating that this feature has not been released to stable.
-To remove the warning, you have to opt in for usage of unsigned types:
-
-* To propagate the opt-in requirement, annotate declarations that use unsigned integers with  `@ExperimentalUnsignedTypes`.
-* To opt-in without propagating, either annotate declarations with `@OptIn(ExperimentalUnsignedTypes::class)`
-or pass `-Xopt-in=kotlin.ExperimentalUnsignedTypes` to the compiler.
-
-It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that
-unsigned types are not a stable feature, so API which uses them can be suddenly broken by changes in the language. 
-
-See the [opt-in requirements](opt-in-requirements.md) for details on using APIs that require opt-in.
 
 #### Further discussion
 
