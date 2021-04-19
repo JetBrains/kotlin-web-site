@@ -314,8 +314,9 @@ For browser targets, the Kotlin/JS plugin uses the widely known [webpack](https:
 
 ### webpack version 
 
-The Kotlin/JS plugin uses webpack %webpackMajorVersion%. You can switch to a webpack version from previous versions of 
-the plugin (for example, webpack 4) by adding the following line to the project's `gradle.properties`:
+The Kotlin/JS plugin uses webpack %webpackMajorVersion%. If you have projects created with plugin versions earlier than 1.5.0,
+you can temporarily switch back to webpack %webpackPreviousMajorVersion% used in these versions by adding the following line
+to the project's `gradle.properties`:
 
 ```properties
 kotlin.js.webpack.major.version=4
