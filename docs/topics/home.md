@@ -78,7 +78,7 @@ Our [YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) 
 * [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
 * [Competitive Programming](https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG)
 * [Kotlin Standard Library](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg)
-* [Talking Kotlin Podcast](https://www.youtube.com/playlist?list=LLP7uiEZIqci43m22KDl0sNw)
+* [Talking Kotlin Podcast](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
 * [Kotlin for Educators](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA)
 * [Kotlin Online Event 2020 playlist](https://www.youtube.com/playlist?list=PLlFc5cFwUnmztiekWaNlCcjfxvNQbXViP)
 
