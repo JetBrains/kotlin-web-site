@@ -69,18 +69,18 @@ Find a way to learn Kotlin that works for you. There are lots of learning materi
 <tr>
 <td>
 
-**Kotlin videos**
+**Kotlin YouTube Channel**
 
-Watch videos produced by our team and other authors. You can find all our Kotlin videos on YouTube. 
+Our [YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) is packed with resources for learning Kotlin! [Subscribe](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw?sub_confirmation=1) to stay updated for shows, the latest news, and live events!
 
-* [Kotlin Online Event 2020 playlist](https://www.youtube.com/playlist?list=PLQ176FUIyIUankIQrXKNfXaOxOPx04D8V)
-* [KotlinConf 2019 playlist](https://www.youtube.com/playlist?list=PLQ176FUIyIUY6SKGl3Cj9yeYibBuRr3Hl)
-* [Kotlin – Beyond the Basics](https://www.youtube.com/watch?v=1KldcFc7HCY)
-* [Functional Programming with Kotlin](https://www.youtube.com/watch?v=eNe5Nokrjdg)
-* [Introduction to Coroutines](https://www.youtube.com/watch?v=_hfBv0a09Jc) and [one more intro](https://www.youtube.com/watch?v=BXwuYykIxbk)
-* [Asynchronous Data Streams with Kotlin Flow](https://www.youtube.com/watch?v=tYcqn48SMT8)
-* [Kotlin on the Server with Ktor](https://www.youtube.com/watch?v=DGquaQs-Lh0)
-* [Kotlin Vocabulary Series](https://www.youtube.com/playlist?list=PL2o2UfaTu22qD93FyjqtQ0jTgPrtsJg1k)
+* [Kotlin in Spring Framework](https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x)
+* [Webinars with Experts](https://www.youtube.com/playlist?list=PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1)
+* [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
+* [Competitive Programming](https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG)
+* [Kotlin Standard Library](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg)
+* [Talking Kotlin Podcast](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
+* [Kotlin for Educators](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA)
+* [Kotlin Online Event 2020 playlist](https://www.youtube.com/playlist?list=PLlFc5cFwUnmztiekWaNlCcjfxvNQbXViP)
 
 <br/>
 
