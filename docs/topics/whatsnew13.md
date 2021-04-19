@@ -403,7 +403,7 @@ efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`
 fun main() {
 //sampleStart
     val keys = 'a'..'f'
-    val map = keys.associateWith { it.toString().repeat(5).capitalize() }
+    val map = keys.associateWith { it.toString().repeat(5).replaceFirstChar { it.uppercase() } }
     map.forEach { println(it) }
 //sampleEnd
 }

@@ -284,7 +284,7 @@ This convention, along with [passing a lambda expression outside parentheses](#p
 [LINQ-style](https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/bb308959(v=msdn.10)) code:
 
 ```kotlin
-strings.filter { it.length == 5 }.sortedBy { it }.map { it.toUpperCase() }
+strings.filter { it.length == 5 }.sortedBy { it }.map { it.uppercase() }
 ```
 
 ### Underscore for unused variables

@@ -433,7 +433,7 @@ If a value of character variable is a digit, you can explicitly convert it to an
 fun decimalDigitValue(c: Char): Int {
     if (c !in '0'..'9')
         throw IllegalArgumentException("Out of range")
-    return c.toInt() - '0'.toInt() // Explicit conversions to numbers
+    return c.code - '0'.code // Explicit conversions to numbers
 }
 ```
 
@@ -472,7 +472,7 @@ All operations that transform strings return their results in a new `String` obj
 fun main() {
 //sampleStart
     val str = "abcd"
-    println(str.toUpperCase()) // Create and print a new String object
+    println(str.uppercase()) // Create and print a new String object
     println(str) // the original string remains the same
 //sampleEnd
 }

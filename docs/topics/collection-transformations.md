@@ -51,7 +51,7 @@ Both functions use the transformations that take a map entry as an argument, so 
 fun main() {
 //sampleStart
     val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
-    println(numbersMap.mapKeys { it.key.toUpperCase() })
+    println(numbersMap.mapKeys { it.key.uppercase() })
     println(numbersMap.mapValues { it.value + it.key.length })
 //sampleEnd
 }
@@ -98,7 +98,7 @@ fun main() {
     val colors = listOf("red", "brown", "grey")
     val animals = listOf("fox", "bear", "wolf")
     
-    println(colors.zip(animals) { color, animal -> "The ${animal.capitalize()} is $color"})
+    println(colors.zip(animals) { color, animal -> "The ${animal.replaceFirstChar { it.uppercase() }} is $color"})
 //sampleEnd
 }
 ```
@@ -155,8 +155,8 @@ fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
 
-    println(numbers.associateBy { it.first().toUpperCase() })
-    println(numbers.associateBy(keySelector = { it.first().toUpperCase() }, valueTransform = { it.length }))
+    println(numbers.associateBy { it.first().uppercaseChar() })
+    println(numbers.associateBy(keySelector = { it.first().uppercaseChar() }, valueTransform = { it.length }))
 //sampleEnd
 }
 ```
@@ -301,7 +301,7 @@ Finally, to customize the representation of elements themselves, provide the `tr
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
-    println(numbers.joinToString { "Element: ${it.toUpperCase()}"})
+    println(numbers.joinToString { "Element: ${it.uppercase()}"})
 //sampleEnd
 }
 ```
