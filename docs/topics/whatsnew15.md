@@ -694,13 +694,13 @@ The `kotlin-test` library now has the following features:
 ## kotlinx libraries
 
 Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
-* `kotlinx.coroutines` 1.5.0 <!-- TODO: adjust version -->
-* `kotlinx.serialization` 1.2.0
-* `kotlinx.datetime` 0.2 <!-- TODO: check if this is released -->
+* `kotlinx.coroutines` [1.5.0-RC](#coroutines-1-5-0-rc)
+* `kotlinx.serialization` [1.2.0](#serialization-1-2-0)
+* `kotlinx-datetime` [0.2.0](#datetime-0-2-0)
 
-### Coroutines 1.5.0
+### Coroutines 1.5.0-RC
 
-`kotlinx.coroutines` [1.5.0](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0) is here with:
+`kotlinx.coroutines` [1.5.0-RC](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC) is here with:
 * [New channels API](channels.md)
 * Stable [reactive integrations](async-programming.md#reactive-extensions)
 * And more
@@ -708,7 +708,7 @@ Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
 Starting with Kotlin 1.5.0, [experimental coroutines](whatsnew14.md#exclusion-of-the-deprecated-experimental-coroutines)
 are disabled and the `-Xcoroutines=experimental` flag is no longer supported.
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0).
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC).
 
 <!-- [VIDEO – TO ADD] -->
 <!-- [BLOG POST – TO ADD] -->
@@ -726,16 +726,14 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/re
 <!-- [VIDEO – TO ADD] -->
 <!-- [BLOG POST – TO ADD] -->
 
-### Datetime 0.2
+### dateTime 0.2.0
 
-<!-- TODO: check if Datetime is released with Kotlin -->
-
-`kotlinx-datetime` [0.2](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2) is here with:
+`kotlinx-datetime` [0.2.0](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2.0) is here with:
 * `@Serializable` Datetime objects
 * Normalized API of `DateTimePeriod` and `DatePeriod`
 * And more
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2)
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2.0).
 
 <!-- [VIDEO – TO ADD] -->
 <!-- [BLOG POST – TO ADD] -->
