@@ -283,6 +283,43 @@ Platform.isMemoryLeakCheckerActive = true
 
 Note that enabling the checker for the application runtime is not recommended.
 
+## Kotlin/JS
+
+Kotlin/JS is receiving evolutionary changes in 1.5.0. We’re continuing our work on moving the [JS IR compiler backend](js-ir-compiler.md)
+towards stable and shipping other updates:
+
+* [Upgrade of webpack to version 5](#upgrade-to-webpack-5)
+* [Frameworks and libraries for the IR compiler](#frameworks-and-libraries-for-the-ir-compiler)
+
+### Upgrade to webpack 5
+
+The Kotlin/JS Gradle plugin now uses webpack 5 for browser targets instead of webpack 4. This is a major webpack upgrade
+that brings incompatible changes. If you’re using a custom webpack configuration, be sure to check the [webpack 5 release notes](https://webpack.js.org/blog/2020-10-10-webpack-5-release/).
+
+If you need to use webpack 4, you can switch back to it by adding the line `kotlin.js.webpack.major.version=4` to the
+project’s `gradle.properties`.
+
+[Learn more about bundling Kotlin/JS projects with webpack](js-project-setup.md#webpack-bundling).
+
+### Frameworks and libraries for the IR compiler
+
+> The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
+>in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>
+{type="warning"}
+
+Along with working on the IR-based backend for Kotlin/JS compiler, we encourage and help library authors to build their
+projects in `both` mode. This means they are able to produce artifacts for both Kotlin/JS compilers, therefore growing
+the ecosystem for the new compiler.
+
+Many well-known frameworks and libraries are already available for the IR backend: [KVision](https://kvision.io/), [fritz2](https://www.fritz2.dev/),
+[doodle](https://github.com/nacular/doodle), and others. If you’re using them in your project, you can already build it
+with the IR backend and see the benefits it brings.
+
+If you’re writing your own library, [compile it in the 'both' mode](js-ir-compiler.md#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility)
+so that your clients can also use it with the new compiler.
+
+
 ## Kotlin Multiplatform
 
 In Kotlin 1.5.0, [choosing a testing dependency for each platform has been simplified](#simplified-test-dependencies-usage-in-multiplatform-projects)
