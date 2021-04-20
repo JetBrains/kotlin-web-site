@@ -14,25 +14,21 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    >
    {type="note"}
 
-2. Open the `build.gradle(.kts)` file and add the following dependencies to the Gradle configuration. They will allow you to work with `kotlin.test` and `JUnit`:
+2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration. This dependency will allow you to work with `kotlin.test` and `JUnit`:
 
    <tabs>
 
    ```groovy
    dependencies {
        // Other dependencies.
-       testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
-       testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-       testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+       testImplementation 'org.jetbrains.kotlin:kotlin-test'
    }
    ```
 
    ```kotlin
    dependencies {
        // Other dependencies.
-       testImplementation(kotlin("test-junit5"))
-       testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-       testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+       testImplementation(kotlin("test"))
    }
    ```
 
