@@ -453,14 +453,15 @@ function (or the `%`operator), but they work differently on negative numbers:
 ```kotlin
 fun main() {
 //sampleStart
-    println("Floored division -5/3: ${-5.floorDiv(3)}")
-    println( "Modulus: ${-5.mod(3)}")
+    println("Floored division -5/3: ${(-5).floorDiv(3)}")
+    println( "Modulus: ${(-5).mod(3)}")
     
     println("Truncated division -5/3: ${-5 / 3}")
     println( "Remainder: ${-5 % 3}")
 //sampleEnd    
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Duration API changes
 
@@ -488,6 +489,7 @@ fun main() {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### New API for getting a char category now available in multiplatform code
 
@@ -509,6 +511,7 @@ fun main() {
 //sampleEnd    
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 Functions for checking the case of a char:
 * [`Char.isLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-lower-case.html)
@@ -525,6 +528,7 @@ fun main() {
 //sampleEnd    
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 Some other functions:
 * [`Char.isDefined()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-defined.html)
@@ -552,6 +556,7 @@ fun main() {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Strict version of String?.toBoolean()
 
@@ -568,6 +573,7 @@ fun main() {
 //sampleEnd    
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ## kotlin-test library
 The [kotlin-test](https://kotlinlang.org/api/latest/kotlin.test/) library introduces some new features:
