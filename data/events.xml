@@ -633,6 +633,9 @@ p>In this talk, we will focus on a prototype tool that lets you browse the docs 
         <title>Kotlin Karlsruhe User Group</title>
         <subject>Using Apache Kafka with Kotlin and Quarkus</subject>
         <url>https://www.meetup.com/Kotlin-Karlsruhe-User-Group/events/276125331/</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=5MI0X70nZy4</video>
+        </content>
         <description>
             <![CDATA[
 <p>This talk will be an introduction to using Quarkus and Kotlin together with Kafka to create event driven systems.</p>
@@ -649,6 +652,9 @@ p>In this talk, we will focus on a prototype tool that lets you browse the docs 
         <title>KeepCoding</title>
         <subject>Webinar: Kotlin, presente y futuro del desarrollo Android</subject>
         <url>https://www.meetup.com/KeepCoding/events/276045215</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=f0v_sEWgSQM</video>
+        </content>
         <description>
             <![CDATA[
 <p>En este webinar vamos a analizar cómo Kotlin ha llegado al mundo del desarrollo Android para ponerlo todo patas arriba. Cómo ha cambiado la forma que tenemos de trabajar y cuáles son las ventajas con respecto a Java.</p>
@@ -701,6 +707,9 @@ p>In this talk, we will focus on a prototype tool that lets you browse the docs 
         <title>rockndroid Vigo</title>
         <subject>Kotlin vs Flutter en Producción</subject>
         <url>https://www.meetup.com/rockndroidvig/events/275764894</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=wABwAEJjqPc</video>
+        </content>
         <description>
             <![CDATA[
 <p>En la sesión, abordarán qué les aportan dos tecnologías como Flutter y Kotlin en desarrollo multiplataforma nativo, teniendo en cuenta que Dart es el lenguaje detrás de Flutter y Kotlin es un lenguaje que ha logrado una increíble comunidad de desarrolladores de Android (siendo el lenguaje oficial de Android desde hace tres años): Pros y contras Cuando elegir una frente a otra Proyectos donde hemos utilizado estas tecnologías y resultado Resumen de la situación actual de cada SDK y su representación en aplicaciones de gran magnitud.</p>
@@ -959,6 +968,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>Kraków Kotlin User Group</title>
         <subject>Pragmatic App Migration to the Cloud: Quarkus, Kotlin, Hazelcast and GraalVM in action</subject>
         <url>https://hopin.com/events/micro-sphere-it-6-kotlin</url>
+        <content>
+       <video>https://www.youtube.com/watch?v=w0b4OQQmhBI</video>
+       </content>
     </event>
 
     <event>
@@ -970,6 +982,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>Kraków Kotlin User Group</title>
         <subject>Inkuire - Using types as search keys in Kotlin libraries</subject>
         <url>https://hopin.com/events/micro-sphere-it-6-kotlin</url>
+        <content>
+       <video>https://www.youtube.com/watch?v=hPsowDgJDFo</video>
+       </content>
     </event>
 
     <event>
@@ -1014,6 +1029,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>GDG Baku</title>
         <subject>Jump Start in Kotlin!</subject>
         <url>https://www.meetup.com/GDG-Baku/events/275556428</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=98uAQWlZ6a4</video>
+        </content>
         <description>
             <![CDATA[
 <p>Divided into two tracks, Beginners and Intermediate, choose as you fancy, starting with the basics of Kotlin, dive into the Android Kotlin Fundamentals, learn about UI layouts, app architecture, data storage, connecting to the network, and best practices for Android development.</p>
@@ -1031,6 +1049,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>Google Developer Groups Dubai</title>
         <subject>Using Kotlin and Spring Boot to Administer JetBrains Space</subject>
         <url>https://www.meetup.com/GDG-Dubai/events/275561798</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=MOekJiJx_oU</video>
+        </content>
         <description>
             <![CDATA[
 <p>At Instil we use JetBrains Space as the primary mechanism for coaching developers during virtual training. Space provides integrated support for managing projects, repositories, documents and discussions. To ensure privacy we create a dedicated instance for each training delivery, which initially led to a lot of manual configuration. We have addressed this by using Kotlin, Spring Boot and the Space HTTP API to automatically configure instances. This talk will walk you through some of the code we created. In addition to the Space API we will be covering OAuth, Spring WebFlux, Functional Patterns and Reactive Design.</p>
@@ -1063,6 +1084,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>Java User Group Hamburg</title>
         <subject>Kotlin und Arrow ein Duo für FP</subject>
         <url>https://www.meetup.com/jug-hamburg/events/275403440</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=eGVQ0T4iEko</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin ermöglicht Funktionale Programmierung. Durch Funktionen als first-class-citizens und eine prägnante und flexible Syntax unterstützt die Sprache dieses Paradigma grundlegend. Für weiterführende funktionale Programmierung fehlen der Standardbibliothek jedoch gängige Funktionen, Datentypen und höhere Abstraktionsmöglichkeiten. Diese Lücke möchte die Library Arrow füllen. Der Vortrag beleuchtet die Vorteile von Kotlin für Funktionale Programmierung und was mit der Arrow darüber hinaus noch möglich ist.</p>
@@ -1095,6 +1119,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>LJC - London Java Community</title>
         <subject>Winter Is Coming: A Kotlin Web Application Without Spring</subject>
         <url>https://www.eventbrite.co.uk/e/winter-is-coming-a-kotlin-web-application-without-spring-tickets-132916882975?aff=meetup</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=U3Wa1B86i1k</video>
+        </content>
         <description>
             <![CDATA[
 <p>Spring Boot is a common way to start almost any back-end web application or REST API; but what if you'd prefer to go without Spring Boot and without Spring altogether? Is it possible at all, and more importantly, is it painless? We will work through a common example and see together.</p>
@@ -1145,6 +1172,9 @@ p>Nacido en Madrid y criado bajo olivos en mitad de Extremadura, Daniel lleva 4 
         <title>Kotlin London</title>
         <subject>Functional Android</subject>
         <url>https://www.meetup.com/kotlin-london/events/275280292</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=XhijgrEG1tI</video>
+        </content>
         <description>
             <![CDATA[
 <p>In this talk, we will learn how to seamlessly integrate the functional programming paradigm with our Android architecture to get the most out of both worlds.</p>
@@ -1240,6 +1270,9 @@ We will learn how Jetpack Compose accelerates Android App development by creatin
         <title>Kotlin User Group Berlin</title>
         <subject>Informal get-together of Kotlin developers in Berlin</subject>
         <url>https://www.meetup.com/kotlin-berlin/events/bcvtkrycccbcc/</url>
+        <content>
+    <video>https://www.youtube.com/watch?v=qSBjas8H38U</video>
+        </content>
     </event>
 
     <event>
