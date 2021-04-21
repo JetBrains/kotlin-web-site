@@ -41,7 +41,7 @@ A `continue` proceeds to the next iteration of that loop.
 
 ## Return at labels
 
-With function literals, local functions and object expression, functions can be nested in Kotlin. 
+With function literals, local functions and object expressions, functions can be nested in Kotlin. 
 Qualified `return`s allow us to return from an outer function. 
 The most important use case is returning from a lambda expression. Recall that when we write this:
 
