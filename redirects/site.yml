@@ -1,0 +1,29 @@
+- from:
+   - /docs/diagnostics/experimental-coroutines/index.html
+   - /docs/reference/coroutines.html
+  to: /docs/reference/coroutines-overview.html
+
+- from: /community/user-groups.html
+  to: /user-groups/user-group-list.html
+
+- from: /docs/tutorials/coroutines-basic-jvm.html
+  to: /docs/tutorials/coroutines/coroutines-basic-jvm.html
+
+- from: /docs/reference/collections.html
+  to: /docs/reference/collections-overview.html
+
+- from: /docs/reference/experimental.html
+  to: /docs/reference/opt-in-requirements.html
+
+- from: /docs/resources.html
+  to: https://kotlin.link/
+
+
+- from: /community.html
+  to: /community/
+
+- from: /docs/events.html
+  to: /community/talks.html
+
+- from: /docs/reference/compatibility.html
+  to: /docs/reference/evolution/components-stability.html
