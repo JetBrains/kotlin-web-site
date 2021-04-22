@@ -481,6 +481,9 @@ duration amounts in different time units. In 1.5.0, the Duration API has receive
   creates a `Duration` object representing an integer number of seconds. Old extension properties like `Int.seconds` are now deprecated.
 
 ```kotlin
+import kotlin.time.Duration
+import kotlin.time.ExperimentalTime
+
 @ExperimentalTime
 fun main() {
 //sampleStart
@@ -569,7 +572,7 @@ fun main() {
 //sampleStart
     println("true".toBooleanStrict())
     println("1".toBooleanStrictOrNull())
-    println("1".toBooleanStrict())
+    // println("1".toBooleanStrict()) // Exception
 //sampleEnd    
 }
 ```
