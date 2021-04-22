@@ -1,6 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>en</lang>
+        <startDate>2021-04-26</startDate>
+        <endDate>2021-04-26</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Java.IL - the Israeli Java Community</title>
+        <subject>[ONLINE/Special Guest/English] Server-side development with Kotlin and Ktor</subject>
+        <url>https://www.meetup.com/JavaIL/events/277528861</url>
+        <description>
+            <![CDATA[
+<p>Ktor is an asynchronous web framework built using Kotlin and coroutines. It enables developers to create both server and client applications targeting a variety of platforms including JVM, JavaScript, macOS, Windows, and Linux. In this session, we’re going to focus on Ktor for backend development. We’ll learn how simple it is to create server-side applications with Ktor, what features it provides out of the box, and its extensibility model.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>es</lang>
+        <startDate>2021-04-29</startDate>
+        <endDate>2021-04-29</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Antonio Leiva</speaker>
+        <title>KotlinMAD</title>
+        <subject>Kotlin tiene mucho Flow</subject>
+        <url>https://www.meetup.com/KotlinMAD/events/277550427</url>
+        <description>
+            <![CDATA[
+<p>Para retomar los eventos en la comunidad comenzamos con mucha fuerza. Como primer ponente tenemos nada más y nada menos que a Antonio Leiva!!</p>
+<p>Si esto de la Programación Reactiva se te va de las manos pero Kotlin te mola mucho, prepárate porque las corrutinas tienen la solución.</p>
+<p>En esta charla veremos qué son los Flows, así como un repaso a los tipos de Flows que podemos encontrarnos, como StateFlow, SharedFlow y CallbackFlow.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-08</startDate>
+        <endDate>2021-06-08</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Haim Michael</speaker>
+        <title>KotlinMAD</title>
+        <subject>Kotlin Lambda Expressions [Free Meetup]</subject>
+        <url>https://www.meetup.com/lifemichael/events/275951172</url>
+        <description>
+            <![CDATA[
+<p>During this coming meetup, we will learn what a lambda expression is, and gain an in-depth understanding of how the lambda expressions are implemented in Kotlin.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>pl</lang>
         <startDate>2021-04-15</startDate>
         <endDate>2021-04-15</endDate>
