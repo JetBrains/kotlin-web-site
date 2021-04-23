@@ -49,7 +49,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
         <th>Recommended kotlinx library versions</th>
     </tr>
-<tr>
+    <tr>
         <td><strong>1.5.0</strong>
             <p>Released: <strong>April 26, 2021</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.0" target="_blank">Release on GitHub</a></p>
@@ -75,7 +75,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
     </tr>
-<tr>
+    <tr>
         <td><strong>1.4.32</strong>
             <p>Released: <strong>March 22, 2021</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.32" target="_blank">Release on GitHub</a></p>
@@ -96,7 +96,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
     </tr>
-<tr>
+    <tr>
         <td><strong>1.4.31</strong>
             <p>Released: <strong>February 25, 2021</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.4.31" target="_blank">Release on GitHub</a></p>
