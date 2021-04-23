@@ -403,12 +403,11 @@ efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`
 fun main() {
 //sampleStart
     val keys = 'a'..'f'
-    val map = keys.associateWith { it.toString().repeat(5).replaceFirstChar { it.uppercase() } }
+    val map = keys.associateWith { it.toString().repeat(5).capitalize() }
     map.forEach { println(it) }
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ### ifEmpty and ifBlank functions
 
