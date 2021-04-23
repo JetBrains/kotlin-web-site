@@ -84,7 +84,7 @@ fun postItem(item: Item) {
 }
 
 fun preparePostAsync(): Promise<Token> {
-    // makes request an returns a promise that is completed later
+    // makes request and returns a promise that is completed later
     return promise 
 }
 ```
