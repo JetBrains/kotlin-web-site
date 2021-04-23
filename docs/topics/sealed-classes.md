@@ -56,7 +56,7 @@ In [multiplatform projects](mpp-intro.md), there comes one more restriction: dir
 reside in the same source set. It applies to sealed classes without the [`expect`/`actual`](mpp-connect-to-apis.md) modifiers.
 
 A sealed class can be declared as `expect` in a common source set and have `actual` implementations in platform source sets.
-In this case, both `expect` and `actual` classes can have subclasses in their source sets. Moreover, if you use [hierarchical structure](mpp-share-on-platforms.md#share-code-on-similar-platforms),
+In this case, both `expect` and `actual` classes can have subclasses in their source sets. Moreover, if you use a [hierarchical structure](mpp-share-on-platforms.md#share-code-on-similar-platforms),
 you can create subclasses in any source set between the `expect` and `actual` declarations. 
 
 [Learn more about the hierarchical structure of multiplatform projects](mpp-share-on-platforms.md#share-code-on-similar-platforms). 
