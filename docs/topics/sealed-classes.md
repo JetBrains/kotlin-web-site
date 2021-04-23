@@ -52,15 +52,14 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 
 ### Inheritance in multiplatform projects
 
-In [multiplatform projects](mpp-intro.md), there comes one more restriction: direct subclasses of sealed classes must
-reside in the same source set. It applies to sealed classes without the [`expect`/`actual`](mpp-connect-to-apis.md) modifiers.
+There is one more inheritance restriction in [multiplatform projects](mpp-intro.md): direct subclasses of sealed classes must
+reside in the same source set. It applies to sealed classes without the [`expect` and `actual` modifiers]((mpp-connect-to-apis.md)).
 
-A sealed class can be declared as `expect` in a common source set and have `actual` implementations in platform source sets.
-In this case, both `expect` and `actual` classes can have subclasses in their source sets. Moreover, if you use a [hierarchical structure](mpp-share-on-platforms.md#share-code-on-similar-platforms),
+If a sealed class is declared as `expect` in a common source set and have `actual` implementations in platform source sets,
+both `expect` and `actual` versions can have subclasses in their source sets. Moreover, if you use a [hierarchical structure](mpp-share-on-platforms.md#share-code-on-similar-platforms),
 you can create subclasses in any source set between the `expect` and `actual` declarations. 
 
 [Learn more about the hierarchical structure of multiplatform projects](mpp-share-on-platforms.md#share-code-on-similar-platforms). 
- 
 
 ## Sealed classes and when expression
 
