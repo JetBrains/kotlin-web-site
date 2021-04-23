@@ -58,7 +58,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>A feature release with new language features, performance improvements, and evolutionaly changes such as stabilizaing experimental APIs.</p>
             <p>Learn more in:</p>
             <ul>
-                <li><a href="http://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew15.md" target="_blank">What's new in Kotlin 1.5.0</a></li>
                 <li><a href="compatibility-guide-15.md" target="_blank">Compatibility Guide</a></li>
             </ul>
