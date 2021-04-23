@@ -433,7 +433,7 @@ If a value of character variable is a digit, you can explicitly convert it to an
 fun decimalDigitValue(c: Char): Int {
     if (c !in '0'..'9')
         throw IllegalArgumentException("Out of range")
-    return c.code - '0'.code // Explicit conversions to numbers
+    return c.digitToInt() - '0'.digitToInt() // Explicit conversions to numbers
 }
 ```
 
