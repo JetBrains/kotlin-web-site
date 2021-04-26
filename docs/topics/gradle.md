@@ -380,6 +380,10 @@ If you need to use a different JVM test framework, disable automatic testing fra
 adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`. 
 Once you do this, add the framework as a Gradle dependency.
 
+If you had used a variant of `kotlin("test")` in your build script explicitly and project build stopped working with
+a conflict on capability, 
+look [the compatibility guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
+
 ### Set a dependency on a kotlinx library
 
 If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants 
