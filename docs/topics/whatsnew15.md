@@ -31,7 +31,7 @@ data class User(val name: String, val age: Int)
 
 [Learn more about using JVM records in Kotlin](jvm-records.md).
 
-<!-- [VIDEO – TO ADD] -->
+<video href="iyEWXyuuseU" title="Support for JVM Records in Kotlin 1.5.0"/>
 
 ### Sealed interfaces
 
@@ -62,7 +62,7 @@ class FilledRectangle: Polygon, Fillable
 
 [Learn more about sealed interfaces](sealed-classes.md).
 
-<!-- [VIDEO – TO ADD] -->
+<video href="d_Mor21W_60" title="Sealed Interfaces and Sealed Classes Improvements"/>
 
 ### Package-wide sealed class hierarchies
 
@@ -98,7 +98,7 @@ The `inline` modifier is now deprecated with a warning.
 
 [Learn more about inline classes](inline-classes.md).
 
-<!-- [VIDEO – TO ADD] -->
+<video href="LpqvtgibbsQ" title="From Inline to Value Classes"/>
 
 ## Kotlin/JVM
 
