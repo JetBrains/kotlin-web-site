@@ -309,3 +309,34 @@ perspective
 >
 > - 1.4: deprecate `Double.toShort()/toByte()` and `Float.toShort()/toByte()` and propose replacement
 > - 1.5.0: raise the deprecation level to error
+
+## Tools
+
+### Do not mix several JVM variants of kotlin-test in a single project
+
+> **Issue**: [KT-40225](https://youtrack.jetbrains.com/issue/KT-40225)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: several mutually exclusive `kotlin-test` variants for different testing frameworks could have been in a project if one
+> of them is brought by a transitive dependency. From 1.5.0, Gradle won't allow having mutually exclusive `kotlin-test` 
+> variants for different testing frameworks.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: having several mutually exclusive `kotlin-test` variants for different testing frameworks is allowed
+> - \>= 1.5: behavior changed,  
+> Gradle throws an exception like "Cannot select module with conflict on capability...". Possible solutions:
+>    * use the same `kotlin-test` variant and the corresponding testing framework as the transitive dependency brings.
+>    * find another variant of the dependency that doesn't bring the `kotlin-test` variant transitively, so you can use the testing framework you would like to use.
+>    * find another variant of the dependency that brings another `kotlin-test` variant transitively, which uses the same testing framework you would like to use.
+>    * exclude the testing framework that is brought transitively. The following example is for excluding JUnit 4:
+>      ```groovy
+>      configurations { 
+>          testImplementation.get().exclude("org.jetbrains.kotlin", "kotlin-test-junit")
+>      }
+>      ```
+>      After excluding the testing framework, test your application. If it stopped working, rollback excluding changes, 
+> use the same testing framework as the library does, and exclude your testing framework.
