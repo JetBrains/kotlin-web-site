@@ -106,7 +106,6 @@ Kotlin/JVM has received a number of improvements, both internal and user-facing.
 
 * [Stable JVM IR backend](#stable-jvm-ir-backend)
 * [New default JVM target: 1.8](#new-default-jvm-target-1-8)
-* [String concatenation via invokedynamic](#string-concatenation-via-invokedynamic)
 * [SAM adapters via invokedynamic](#sam-adapters-via-invokedynamic)
 * [Lambdas via invokedynamic](#lambdas-via-invokedynamic)
 * [Deprecation of @JvmDefault and old Xjvm-default modes](#deprecation-of-jvmdefault-and-old-xjvm-default-modes)
@@ -161,18 +160,6 @@ If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 * [in Gradle](gradle.md#attributes-specific-for-jvm)
 * [in Maven](maven.md#attributes-specific-for-jvm)
 * [in the command-line compiler](compiler-reference.md#jvm-target-version)
-
-### String concatenation via invokedynamic
-
-Kotlin 1.5.0 compiles string concatenations into [dynamic invocations](https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
-(`invokedynamic`) on JVM 9+ targets, thereby improving performance.
-More precisely, it uses [`StringConcatFactory.makeConcatWithConstants()`](https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcatWithConstants-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.String-java.lang.Object...-)
-for string concatenation.
-
-To switch back to the concatenation via [`StringBuilder.append()`](https://docs.oracle.com/javase/9/docs/api/java/lang/StringBuilder.html#append-java.lang.String-)
-that was used in previous versions, add the compiler option `-Xstring-concat=inline`.
-
-Learn how to add compiler options in [Gradle](gradle.md#compiler-options), [Maven](maven.md#specifying-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
 
 ### SAM adapters via invokedynamic
 
