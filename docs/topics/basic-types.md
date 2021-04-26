@@ -418,15 +418,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-If a value of character variable is a digit, you can explicitly convert it to an `Int` number:
-
-```kotlin
-fun decimalDigitValue(c: Char): Int {
-    if (c !in '0'..'9')
-        throw IllegalArgumentException("Out of range")
-    return c.toInt() - '0'.toInt() // Explicit conversions to numbers
-}
-```
+If a value of character variable is a digit, you can explicitly convert it to an `Int` number using the [`digitToInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/digit-to-int.html) function.
 
 >**On JVM**: Like [numbers](#numbers-representation-on-the-jvm), characters are boxed when a nullable reference is needed.
 >Identity is not preserved by the boxing operation.
@@ -463,7 +455,7 @@ All operations that transform strings return their results in a new `String` obj
 fun main() {
 //sampleStart
     val str = "abcd"
-    println(str.toUpperCase()) // Create and print a new String object
+    println(str.uppercase()) // Create and print a new String object
     println(str) // the original string remains the same
 //sampleEnd
 }

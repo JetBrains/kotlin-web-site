@@ -407,7 +407,6 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ### ifEmpty and ifBlank functions
 

@@ -64,7 +64,7 @@ property initializers declared in the class body:
 
 ```kotlin
 class Customer(name: String) {
-    val customerKey = name.toUpperCase()
+    val customerKey = name.uppercase()
 }
 ```
 

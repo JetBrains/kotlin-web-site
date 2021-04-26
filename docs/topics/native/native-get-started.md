@@ -99,19 +99,19 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 2. Declare the new [extension function](extensions.md#extension-functions) `countDistinctCharacters()` for `String`:
 
-   * Convert the name to lowercase using the [`toLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-lower-case.html) function.
+   * Convert the name to lowercase using the [`lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function.
    * Convert the input string to a list of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
    * Select only the distinct characters in your name using the [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function.
    * Count the distinct characters using the [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function.
 
    ```kotlin
-   fun String.countDistinctCharacters() = toLowerCase().toList().distinct().count()
+   fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
    ```
 
 3. Use the `countDistinctCharacters()` function to count the unique letters in your name.
 
    ```kotlin
-   fun String.countDistinctCharacters() = toLowerCase().toList().distinct().count()
+   fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
 
    fun main() {
        // Read the input value.

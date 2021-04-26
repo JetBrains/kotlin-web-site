@@ -334,7 +334,7 @@ fun main() {
     val modifiedFirstItem = numbers.first().let { firstItem ->
         println("The first item of the list is '$firstItem'")
         if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
-    }.toUpperCase()
+    }.uppercase()
     println("First item after modifications: '$modifiedFirstItem'")
 //sampleEnd
 }
@@ -542,8 +542,8 @@ When chaining other functions after `takeIf` and `takeUnless`, don't forget to p
 fun main() {
 //sampleStart
     val str = "Hello"
-    val caps = str.takeIf { it.isNotEmpty() }?.toUpperCase()
-   //val caps = str.takeIf { it.isNotEmpty() }.toUpperCase() //compilation error
+    val caps = str.takeIf { it.isNotEmpty() }?.uppercase()
+   //val caps = str.takeIf { it.isNotEmpty() }.uppercase() //compilation error
     println(caps)
 //sampleEnd
 }
