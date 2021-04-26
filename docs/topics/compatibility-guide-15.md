@@ -329,9 +329,9 @@ perspective
 > - < 1.5: having several mutually exclusive `kotlin-test` variants for different testing frameworks is allowed
 > - \>= 1.5: behavior changed,  
 > Gradle throws an exception like "Cannot select module with conflict on capability...". Possible solutions:
->    * consider using the same `kotlin-test` variant and the corresponding testing framework as the transitive dependency brings.
->    * consider finding another variant of the dependency that doesn't bring the `kotlin-test` variant transitively, so you can use the testing framework you would like to use.
->    * consider finding another variant of the dependency that brings another `kotlin-test` variant transitively, which uses the same testing framework you would like to use.
+>    * use the same `kotlin-test` variant and the corresponding testing framework as the transitive dependency brings.
+>    * find another variant of the dependency that doesn't bring the `kotlin-test` variant transitively, so you can use the testing framework you would like to use.
+>    * find another variant of the dependency that brings another `kotlin-test` variant transitively, which uses the same testing framework you would like to use.
 >    * exclude the testing framework that is brought transitively. The following example is for excluding JUnit 4:
 >      ```groovy
 >      configurations { 
