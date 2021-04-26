@@ -373,6 +373,9 @@ Under kvällen kommer Alexander att visa hur man kan sätta upp ett REST Api gen
         <title>OpenValue Vienna - Better Software, Faster</title>
         <subject>Building a platform native CLI in Kotlin with Clikt and GraalVM</subject>
         <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/276812021</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=MWrAt1L6xpM</video>
+        </content>
         <description>
             <![CDATA[
 <p>Most developers love working with command-line interfaces (CLI's) to speed up and automate tasks. But have you ever created one yourself? How about building a beautiful and feature rich CLI in a JVM language? Sounds impractical, since JVM languages need a virtual machine to run on.</p>
@@ -391,6 +394,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <title>Kotlin.amsterdam</title>
         <subject>The Dangerous Side of Kotlin</subject>
         <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/276812021</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=gyngDvXFpoM</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin has been the new superhero on the JVM team for the last couple of years now. With significant support from both JetBrains and the community Kotlin has managed to find a good balance between new features and understandability.</p>
@@ -409,6 +415,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <title>droidcon Online - Your Android Online Events</title>
         <subject>The D-KMP Architecture: Declarative UIs + Kotlin MultiPlatform + MVI Pattern</subject>
         <url>https://www.online.droidcon.com/webinar/d-kmp-architecture-declarativeuis</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=J3x7_HhrvO8</video>
+        </content>
         <description>
             <![CDATA[
 <p>In this talk I will present the D-KMP architecture which is based on the 3 pillars:
@@ -443,6 +452,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <speaker>Yevhenii Kanivets</speaker>
         <title>droidcon Online - Your Android Online Events</title>
         <subject>Backend for mobile engineers with Kotlin and Ktor</subject>
+        <content>
+        <video>https://www.droidcon.com/media-detail?video=530298873</video>
+        </content>
         <url>https://www.online.droidcon.com/webinar/backend-for-mobile-engineers-with-kotlin-and-ktor</url>
         <description>
             <![CDATA[
@@ -561,6 +573,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <title>Brighton Kotlin</title>
         <subject>Scaling UI across platforms with Server Driven UI</subject>
         <url>https://www.meetup.com/Brighton-Kotlin/events/276580829</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=YNiGszOfjoI</video>
+        </content>
         <description>
             <![CDATA[
 <p>Mobile, Web, Desktop... when working with multiple platforms for your product, you might start to feel like there is a lot for your team to maintain. If we update the design for a feature or want to test a new layout, we often need to make that change in multiple clients. This results in more time spent on the same task in multiple places, with less time being able to focus on delivering even more value to your users./p>
@@ -579,6 +594,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <title>Brighton Kotlin</title>
         <subject>Introducing Compose for Desktop</subject>
         <url>https://www.meetup.com/Brighton-Kotlin/events/276580829</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=q8G6nzGhSEE</video>
+        </content>
         <description>
             <![CDATA[
 <p>Some time ago, JetBrains published versions of Compose for Desktop – a modern UI framework for Kotlin that makes building performant and beautiful user interfaces for Desktop applications easy and enjoyable.</p>
@@ -615,6 +633,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <title>Kraków Kotlin User Group</title>
         <subject>Pragmatic App Migration to the Cloud: Quarkus, Kotlin, Hazelcast and GraalVM in action</subject>
         <url>https://micro.sphere.it/talk/pragmatic-app-migration-to-the-cloud-quarkus-kotlin-hazelcast-and-graalvm-in-action/</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=w0b4OQQmhBI</video>
+        </content>
         <description>
             <![CDATA[
 <p>At a point in the past, it was forecast that Java would die, but the JVM platform would be its legacy. And in fact, for a long time, the JVM has been tremendously successful. Wikipedia itself lists a bunch of languages that run on it, some of them close to Java e.g. Kotlin, some of them very remote e.g. Clojure.</p>
@@ -633,6 +654,9 @@ In this talk, I'll show you how we created a CLI with these technologies, and ev
         <speaker>Andrzej Ratajczak, Kacper Korban</speaker>
         <title>Kraków Kotlin User Group</title>
         <subject>Inkuire – Using types as search keys in Kotlin libraries</subject>
+        <content>
+        <video>https://www.youtube.com/watch?v=hPsowDgJDFo&amp;feature=emb_imp_woyt</video>
+        </content>
         <url>https://micro.sphere.it/talk/inkuire-using-types-as-search-keys-in-kotlin-libraries/</url>
         <description>
             <![CDATA[
@@ -667,6 +691,9 @@ p>In this talk, we will focus on a prototype tool that lets you browse the docs 
         <title>Kotlin User Group Stuttgart</title>
         <subject>Using Apache Kafka with Kotlin and Quarkus</subject>
         <url>https://www.meetup.com/Kotlin-User-Group-Stuttgart/events/276088421</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=5MI0X70nZy4</video>
+        </content>
         <description>
             <![CDATA[
 <p>This talk will be an introduction to using Quarkus and Kotlin together with Kafka to create event driven systems.</p>
