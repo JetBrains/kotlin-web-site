@@ -5,14 +5,14 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 196 KUGs around the world
+## 187 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
 ## Europe
 
  * [Amsterdam Kotlin User Group](https://www.meetup.com/kotlin-amsterdam/), Netherlands
- * [Amsterdam High-performance Kotlin User Group](https://www.meetup.com/High-performance-Kotlin/), Netherlands
+ * [Amsterdam High-performwarrance Kotlin User Group](https://www.meetup.com/High-performance-Kotlin/), Netherlands
  * [Athens Kotlin User Group](https://www.meetup.com/Kotlin-Athens/), Greece
  * [Barcelona, KotlinBCN](https://www.meetup.com/kotlinbcn/), Spain
  * [Basel Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Basel/), Switzerland
@@ -28,7 +28,6 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Bulgarian Kotlin User Group](https://bg-kug.github.io/), Bulgaria
  * [Cologne Kotlin User Group](https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref), Germany
  * [Copenhagen Kotlin User Group](https://www.meetup.com/Kotlin-Copenhagen/), Denmark
- * [Cosenza Kotlin User Group](https://www.facebook.com/groups/251720265392355), Italy
  * [Croatia Kotlin User Group](https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/), Croatia
  * [Czech Kotlin User Group](https://www.facebook.com/czkug/), Czech Republic
  * [Dnipro Kotlin User Group](https://www.meetup.com/Kotlin-Dnipro/), Ukraine
@@ -106,7 +105,6 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Israel Kotlin User Group](https://www.facebook.com/groups/107080706530829/), Israel
  * [Istanbul Kotlin User Group](https://www.meetup.com/Kotlin-%C4%B0stanbul/), Turkey
  * [Jaffna Kotlin User Group](https://www.facebook.com/Kotlin-User-Group-Jaffna-102091321371464/), Sri Lanka
- * [Jalandhar Kotlin User Group](https://www.meetup.com/Kotlin-EveryWhere-Jalandhar-Group/), India
  * [Japan Kotlin User Group](https://kotlin.connpass.com/), Japan
  * [JiangXi Kotlin User Group](https://weibo.com/u/6689084931), China
  * [Jodhpur Kotlin User Group](https://www.linkedin.com/company/kotlin-mumbai-ug), India
@@ -127,7 +125,6 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Pune Kotlin User Group](https://www.facebook.com/groups/punekotlin), India
  * [Rajkot Kotlin User Group](https://sites.google.com/view/kugrajkot/home), India
  * [Saudi Kotlin User Group](https://twitter.com/kotlinsaudi), Saudi Arabia
- * [Shanghai, KotlinThree](http://kotlinthree.github.io/), China
  * [Shenzhen Kotlin User Group](https://korilin.com/KUGshenzhen/), China
  * [Singapore Kotlin User Group](https://www.meetup.com/Singapore-Kotlin-User-group/), Singapore
  * [Sri Lanka Kotlin User Group](https://www.facebook.com/KotlinSrilanka/), Sri Lanka
@@ -153,12 +150,9 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Dallas, Kotlin DFW](https://www.meetup.com/Kotlin-DFW/), USA
 * [Guadalajara Kotlin User Group](https://www.meetup.com/es/Kotlin-User-Group-GDL/), Mexico
 * [Guatemala Kotlin User Group](https://www.meetup.com/guatemala-kotlin-user-group/), Guatemala
-* [Houston Kotlin User Group](https://www.hccug.org/), USA
 * [Kansas City User Group](https://www.meetup.com/Kansas-City-Kotlin-User-Group/), USA
 * [Mexico, CDMX Kotlin User Group](https://www.meetup.com/es-ES/Kotlin-Nights-CDMX/), Mexico
-* [Mérida Kotlin User Group](https://www.meetup.com/Merida-Kotlin-User-Group/), Mexico
 * [New York Kotlin Meetup](http://www.meetup.com/New-York-Kotlin-Meetup/), USA
-* [Norfolk Kotlin User Group](mailto:robert.chrzanowski@gmail.com), USA
 * [Irvine Kotlin User Group "OC Kotlin Krew"](https://www.meetup.com/OCKotlinKrew/), USA
 * [San Diego Kotlin User Group](https://www.meetup.com/sd-kotlin/), USA
 * [San Francisco Kotlin Meetup](https://www.meetup.com/San-Francisco-Kotlin-Meetup/), USA
@@ -166,7 +160,6 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [South Florida Kotlin User Group](https://www.meetup.com/Kotlin-South-Florida-Users-Group/), USA
 * [Toronto Kotlin](https://www.meetup.com/Kotlin-Toronto/events/235740293/), Canada
 * [Twin Cities Kotlin User Group](https://www.meetup.com/Twin-Cities-Kotlin-User-Group/), USA
-* [Utah Kotlin](https://www.meetup.com/Kotlin-Utah/), USA
 * [Vancouver Kotlin Meetup](https://www.meetup.com/VancouverKotlin/), Canada
 * [Washington DC Kotlin User Group](https://www.meetup.com/DCKotlin/), USA
 * [Waterloo Kotlin P2P](https://www.meetup.com/Kotlin-Waterloo-P2P/events/), Canada
@@ -204,14 +197,12 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 
 * [Abidjan Kotlin User Group](https://www.facebook.com/groups/778398068995641/), Cote d'Ivoire
 * [Abuja Kotlin User Group](https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/), Nigeria
-* [Accra Ghana Kotlin User Group](http://groupspaces.com/AccraGhanaKotlinUserGroup/), Ghana
 * [Ado-Ekiti Kotlin User Group](https://web.facebook.com/groups/1598555973529998/?ref=group_header), Nigeria
 * [Agadir Kotlin User Group](https://www.meetup.com/Agadir-Kotlin-User-Group/), Morocco
 * [Algeria Kotlin User Group](https://web.facebook.com/groups/383147662448461/), Algeria
 * [Angola Kotlin User Group](https://www.facebook.com/groups/405177603231134/about/), Angola
 * [Bauchi Kotlin User Group](https://www.facebook.com/groups/kotlinbauchi/), Nigeria
 * [Beira Kotlin User Group](https://www.facebook.com/groups/470398203308975/), Mozambique
-* [Benin Kotlin User Group](https://www.meetup.com/Kotlin-Benin/), Nigeria
 * [Brazza Kotlin User Group](https://www.facebook.com/groups/KotlinBrazza/), Congo
 * [Cairo Kotlin User Group](https://www.facebook.com/Kotlin.Cairo/), Egypt
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
