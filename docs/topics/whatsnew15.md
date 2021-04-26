@@ -416,7 +416,7 @@ This release introduces `Char` conversions that are divided into the following s
  fun Int.digitToChar(radix: Int): Char
  ```
 
-The old conversion APIs, including `Number.toChar()` with its implementations and `Char` extensions for conversion to a
+The old conversion APIs, including `Number.toChar()` with its implementations (all except `Int.toChar()`) and `Char` extensions for conversion to a
 numeric type, like `Char.toInt()`, are now deprecated.
 
 [Learn more about the char-to-integer conversion API in KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/char-int-conversions.md).
