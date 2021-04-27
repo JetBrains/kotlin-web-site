@@ -283,9 +283,6 @@ towards stable and shipping other updates:
 The Kotlin/JS Gradle plugin now uses webpack 5 for browser targets instead of webpack 4. This is a major webpack upgrade
 that brings incompatible changes. If you’re using a custom webpack configuration, be sure to check the [webpack 5 release notes](https://webpack.js.org/blog/2020-10-10-webpack-5-release/).
 
-If you need to use webpack 4, you can switch back to it by adding the line `kotlin.js.webpack.major.version=4` to the
-project’s `gradle.properties`.
-
 [Learn more about bundling Kotlin/JS projects with webpack](js-project-setup.md#webpack-bundling).
 
 ### Frameworks and libraries for the IR compiler
