@@ -382,7 +382,7 @@ Once you do this, add the framework as a Gradle dependency.
 
 If you had used a variant of `kotlin("test")` in your build script explicitly and project build stopped working with
 a conflict on capability, 
-look [the compatibility guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
+see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
 
 ### Set a dependency on a kotlinx library
 
