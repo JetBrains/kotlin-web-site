@@ -1,3 +1,6 @@
+- title: "Kotlin 1.5.0-RC Released: Changes to the Standard and Test Libraries"
+  link: https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released/
+
 - title: "Kotlin Plugin 2021.1 Released"
   link: https://blog.jetbrains.com/kotlin/2021/04/kotlin-plugin-2021-1-released/
 
@@ -6,6 +9,3 @@
 
 - title: "Try The New JVM IR Backend"
   link: https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/
-
-- title: "Jetpack Compose for Desktop. Milestone 3"
-  link: https://blog.jetbrains.com/kotlin/2021/02/jetpack-compose-for-desktop-milestone-3-released/
