@@ -325,9 +325,9 @@ The standard library has received a range of changes and improvements, from stab
 * [New collections function firstNotNullOf()](#new-collections-function-firstnotnullof)
 * [Strict version of String?.toBoolean()](#strict-version-of-string-toboolean)
 
-<!-- [VIDEO – TO ADD] -->
-
 You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released).
+
+<video href="MyTkiT2I6-8" title="New Standard Library Features"/>
 
 ### Stable unsigned integer types
 
