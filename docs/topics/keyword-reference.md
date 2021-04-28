@@ -81,6 +81,7 @@ as identifiers in other contexts:
      - declares the [setter of a property](properties.md#getters-and-setters)
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets)
  * `setparam` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets)
+ * `value` with the `class` keyword declares an [inline class](inline-classes.md)
  * `where` specifies [constraints for a generic type parameter](generics.md#upper-bounds)
  
 ## Modifier keywords
