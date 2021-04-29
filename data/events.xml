@@ -1,5 +1,82 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>sk</lang>
+        <startDate>2021-05-05</startDate>
+        <endDate>2021-05-05</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Peťo Šuly</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Jetpack Compose Intro</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/277870878</url>
+        <description>
+            <![CDATA[
+   <p>- Čo je to Jetpack Compose
+   - Ako vyzerajú základné stavebné prvky
+   - Čo je to modifier a ako sa používa
+   - Ako vyzerajú zložitejšie stavebné prvky
+   - Čo to je Preview Composable funkcie ako vyzerá Preview
+   -pros/cons Jetpack Compose</p>
+    ]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-05-05</startDate>
+        <endDate>2021-05-05</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Jozef Kňažko</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Čo skrýva Compose "pod kapotou"?</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/277870878</url>
+        <description>
+            <![CDATA[
+   <p> Aký je rozdiel medzi Compose runtime a Compose UI
+   - Čo to vôbec je ten compiler plugin
+   - Akú štruktúru približne generuje Compose na pozadí
+   - Prečo sa @Composable funkcie nesprávajú ako bežné Kotlin funkcie a načo potrebujú SideEffect
+   - Čo reprezentuje typ State/MutableState a prečo je viac než len alternatíva k Observable/StateFlow/LiveData</p>
+   ]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-05-17</startDate>
+        <endDate>2021-05-17</endDate>
+        <location>Köln, Germany</location>
+        <speaker>Phyllis Augustin</speaker>
+        <title>ObjektForum Köln</title>
+        <subject>Kotlin Native and Kotlin Multiplatform in Action</subject>
+        <url>https://www.meetup.com/ObjektForum-Koln/events/277705658</url>
+        <description>
+            <![CDATA[
+<p>Seit den Anfängen als frisch gedachte Java-Alternative auf der JVM mausert sich Kotlin immer mehr zum Multitool in der Entwicklung. Mit Kotlin Native und Kotlin JS stehen die passenden Werkzeuge parat, um sprachübergreifend nicht nur im klassischen Backend, sondern auch für die Native Entwicklung mobiler Anwendungen, sowie für clientseitige Webanwendungen, einheitlich Kotlin einzusetzen. Und dank Kotlin Multiplatform lassen sich diese unterschiedlichen Targets nicht nur in einem Projekt gemeinsam verwalten, sondern mit einem Common Modul sogar wiederverwenden.</p>
+<p>Kotlin-Vorwissen ist nicht nötig, wird aber den Einstieg sicherlich erleichtern. Ich freue mich sehr darauf, diese spannende Seite der Sprache zu beleuchten und dabei Unentschlossene von Kotlin zu begeistern."
+Weitere Infos über den Referent, so wie das Anmeldeformular findet ihr unter: https://www.andrena.de/event/objektforum-onlineedition-mai-2021
+Um Anmeldung wird gebeten.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-04-29</startDate>
+        <endDate>2021-04-29</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Raul Hernandez Lopez</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Getting ready for Declarative UIs with Unidirectional Data Flow using Coroutines</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/277375504</url>
+        <description>
+            <![CDATA[
+<p>Unidirectional Data Flow (UDF) is a powerful technique that enhances our Reactive apps to work deterministically. Synchronising our views with fresh data was never an easy task to accomplish. For this same reason, there are mechanisms that support us to make that possible. Surely callbacks were a thing in the past, however, they were an antipattern themselves due to the lack of readability. Now we don’t need to deal with them any more thanks to Kotlin Coroutines. Getting ready for Declarative UIs with Kotlin Coroutines and friends is indeed feasible, now we could use suspend functions, Flow and in the end, StateFlow would make our Reactive apps ready for Declarative UIs. Let’s define a single entry point, receive data, transform it into a state, and render each state. Let’s get our apps ready for a Declarative UI world on Android.</p>
+<p>You’ll learn how to use Kotlin Coroutines and friends from the Kotlin Coroutines library to take advantage of really efficient and easy to read code. How to handle its lifecycle without being compromised to a specific external Android framework, which would enable your code to be prepared for more purposes than Android-only apps.</p>
+]]>
+        </description>
+   </event>
+
    <event>
         <lang>en</lang>
         <startDate>2021-04-26</startDate>
@@ -59,6 +136,9 @@
         <title>Kielce Java User Group</title>
         <subject>Czysty Kotlin</subject>
         <url>https://www.meetup.com/Kielce-Java-User-Group/events/277419665</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=iAp2mLxS5-s&amp;t=543s</video>
+        </content>
         <description>
             <![CDATA[
 <p>Można pisać haskella w każdym języku. W prezentacji pokażę jak to robić w kotlinie.
@@ -92,6 +172,9 @@ Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co
         <title>Java/JVM User Group Torino</title>
         <subject>Kotlin e l'Architettura esagonale</subject>
         <url>https://www.meetup.com/JUGTorino/events/277505456</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=C_0R6_KXG40</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin è un linguaggio di programmazione sorprendente. Ma è importante proteggere la propria logica dell'applicazione, creare i propri modelli di dominio disaccoppiati dalle implementazioni reali. In questo talk spiegheró la tecnica dell' "Architettura esagonale" per capire come organizzare applicazioni per essere testate e per far sì che siano facili da mantenere per future evoluzioni ed aggiornamenti.</p>
@@ -226,6 +309,9 @@ Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co
         <title>London Meetup</title>
         <subject>Riding the state flow</subject>
         <url>https://www.meetup.com/kotlin-london/events/277070779</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=B1t-nAhCAhs</video>
+        </content>
         <description>
             <![CDATA[
 <p>View, State, Action ... Unidirectional Data Flow is not a concept unique to React. Used for many years in Web development, it tends to propagate to mobile platforms. Why? Because it helps develop our UI and consider the changes as states and events.</p>
@@ -244,6 +330,9 @@ Zobaczymy jak żyć bez pętli, zmiennych i innych dziwnych rzeczy. Zobaczymy co
         <title>London Meetup</title>
         <subject>An Android Dev start to Kotlin MPP</subject>
         <url>https://www.meetup.com/kotlin-london/events/277070779</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=B1t-nAhCAhs</video>
+        </content>
         <description>
             <![CDATA[
 <p>Kotlin Multiplatform becomes more and more usable by the day. We might not need it every day, but there might also be the moment when it makes sense for everyone to just share that little bit of logic. In this talk, we will be talking about how we can convert a module to be Kotlin Multiplatform-ready in an existing codebase and how we can interact with it on an Android app.</p>

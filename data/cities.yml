@@ -1,3 +1,7 @@
+- name: Zhilina, Slovakia
+  geo:
+    lat: 49.223516
+    lng: 18.739297
 - name: Vilnius, Lithuania
   geo:
     lat: 54.689383
