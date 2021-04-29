@@ -445,7 +445,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 ### Duration API changes
 
@@ -476,7 +476,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 ### New API for getting a char category now available in multiplatform code
 
@@ -498,7 +498,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 Functions for checking the case of a char:
 * [`Char.isLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-lower-case.html)
@@ -515,7 +515,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 Some other functions:
 * [`Char.isDefined()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-defined.html)
@@ -543,7 +543,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 ### Strict version of String?.toBoolean()
 
@@ -560,7 +560,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 ## kotlin-test library
 The [kotlin-test](https://kotlinlang.org/api/latest/kotlin.test/) library introduces some new features:
