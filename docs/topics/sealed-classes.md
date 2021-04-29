@@ -85,7 +85,7 @@ fun eval(expr: Expr): Double = when(expr) {
 [Sealed interfaces](#sealed-interfaces) and [package-wide hierarchies](#additional-location-the-same-package) are [Experimental](components-stability.md).
 To be able to use them in your code, switch to the language version `1.5`:
 
-* In Gradle, add the [compiler option](gradle.md#attributes-common-for-jvm-and-js) `languageVersion` with the value `1.5`.
+* In Gradle, add the [compiler option](gradle.md#compiler-option-attributes) `languageVersion` with the value `1.5`.
 
   ```groovy
   kotlinOptions.languageVersion = "1.5"
