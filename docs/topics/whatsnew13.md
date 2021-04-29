@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.3)
 
+_Release date: 29 October 2018_
+
 ## Coroutines release
 
 After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language

@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.4.20)
 
+_[Release date: 23 November 2020](releases.md#release-details)_
+
 Kotlin 1.4.20 offers a number of new experimental features and provides fixes and improvements for
 existing features, including those added in 1.4.0.
 
