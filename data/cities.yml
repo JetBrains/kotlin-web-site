@@ -1,3 +1,7 @@
+- name: Táizhōng, Taiwan
+  geo:
+    lat: 23.882593
+    lng: 120.954775
 - name: Zhilina, Slovakia
   geo:
     lat: 49.223516

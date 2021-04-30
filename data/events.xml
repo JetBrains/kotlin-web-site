@@ -1,6 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-05-18</startDate>
+        <endDate>2021-05-18</endDate>
+        <location>Táizhōng, Taiwan</location>
+        <speaker>Chiu-Wen-Yeh</speaker>
+        <title>Mobile Software Research Group</title>
+        <subject>Kotlin-MVVM-ROOM</subject>
+        <url>https://www.cmrdb.cs.pu.edu.tw/researchTeam/4</url>
+        <description>
+            <![CDATA[
+<p>teach what is  MVVM MVC MVP and what different 、Why use  ROOM , Why not use SQLiteOpenHelper project sample code => https://github.com/wayne900204/CRUD-MVVM-ROOM</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>sk</lang>
         <startDate>2021-05-05</startDate>
         <endDate>2021-05-05</endDate>
