@@ -93,7 +93,7 @@ In this section, you will create two endpoints: one for saving messages to the d
 
 Configure the database in the application:
 
-1. Create a new folder called `sql` in the `src/main/resources` with the `scheme.sql` file inside. It will store the database scheme:
+1. Create a new folder called `sql` in the `src/main/resources` with the `schema.sql` file inside. It will store the database scheme:
 
    ![Create a new folder](spring-boot-sql-scheme.png){width=300}
 
