@@ -22,7 +22,7 @@ expect fun randomUUID(): String
 ```kotlin
 // Android
 import java.util.*
-actual fun randomUUID() = UUID.randomUUID().toString()
+actual fun randomUUID(): String = UUID.randomUUID().toString()
 ```
 
 ```kotlin
