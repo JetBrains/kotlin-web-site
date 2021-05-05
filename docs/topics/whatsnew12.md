@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.2)
 
+_Release date: 28 November 2017_
+
 ## Table of contents
 
 * [Multiplatform projects](#multiplatform-projects-experimental)

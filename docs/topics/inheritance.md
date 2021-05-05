@@ -117,7 +117,7 @@ open class Base(val name: String) {
 class Derived(
     name: String,
     val lastName: String,
-) : Base(name.capitalize().also { println("Argument for the base class: $it") }) {
+) : Base(name.replaceFirstChar { it.uppercase() }.also { println("Argument for the base class: $it") }) {
 
     init { println("Initializing a derived class") }
 

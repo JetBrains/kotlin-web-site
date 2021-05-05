@@ -97,7 +97,7 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 | `a - b` | `a.minus(b)` |
 | `a * b` | `a.times(b)` |
 | `a / b` | `a.div(b)` |
-| `a % b` | `a.rem(b)`, `a.mod(b)` (deprecated) |
+| `a % b` | `a.rem(b)` |
 | `a..b ` | `a.rangeTo(b)` |
 
 For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
@@ -153,7 +153,7 @@ Parentheses are translated to calls to `invoke` with appropriate number of argum
 | `a -= b` | `a.minusAssign(b)` |
 | `a *= b` | `a.timesAssign(b)` |
 | `a /= b` | `a.divAssign(b)` |
-| `a %= b` | `a.remAssign(b)`, `a.modAssign(b)` (deprecated) |
+| `a %= b` | `a.remAssign(b)` |
 
 For the assignment operations, for example `a += b`, the compiler performs the following steps:
 

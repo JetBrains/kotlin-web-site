@@ -477,7 +477,7 @@ fun main() {
     fruits
       .filter { it.startsWith("a") }
       .sortedBy { it }
-      .map { it.toUpperCase() }
+      .map { it.uppercase() }
       .forEach { println(it) }
 //sampleEnd
 }

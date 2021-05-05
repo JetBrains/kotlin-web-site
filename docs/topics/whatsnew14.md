@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.4)
 
+_[Release date: 17 August 2020](releases.md#release-details)_
+
 In Kotlin 1.4.0, we ship a number of improvements in all of its components, with the [focus on quality and performance](https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/).
 Below you will find the list of the most important changes in Kotlin 1.4.0.
 

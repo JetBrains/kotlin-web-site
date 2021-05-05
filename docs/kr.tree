@@ -23,10 +23,11 @@
 
     <toc-element toc-title="What's new">
         <toc-element toc-title="Kotlin">
-            <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
-            <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
-            <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
+            <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
             <toc-element toc-title="Earlier versions">
+                <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
+                <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
+                <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
                 <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
                 <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
                 <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>

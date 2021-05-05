@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.1)
 
+_Release date: 15 February 2016_
+
 ## Table of contents
 
 * [Coroutines](#coroutines-experimental)

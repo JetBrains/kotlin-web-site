@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.3)
 
+_Release date: 29 October 2018_
+
 ## Coroutines release
 
 After some long and extensive battle testing, coroutines are now released! It means that from Kotlin 1.3 the language
@@ -283,7 +285,6 @@ See [reference](inline-classes.md) for inline classes for details.
 > Unsigned integers are in [Beta](components-stability.md).
 > Their implementation is almost stable, but migration steps may be required in the future.
 > We'll do our best to minimize any changes you will have to make.
-> See details in the [reference](basic-types.md#beta-status-of-unsigned-integers).
 >
 {type="warning"}
 
@@ -408,7 +409,6 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ### ifEmpty and ifBlank functions
 

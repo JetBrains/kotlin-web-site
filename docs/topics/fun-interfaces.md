@@ -18,7 +18,7 @@ For functional interfaces, you can use SAM conversions that help make your code 
 
 Instead of creating a class that implements a functional interface manually, you can use a lambda expression.
 With a SAM conversion, Kotlin can convert any lambda expression whose signature matches
-the signature of the interface's single method into an instance of a class that implements the interface.
+the signature of the interface's single method into the code, which dynamically instantiates the interface implementation.
 
 For example, consider the following Kotlin functional interface:
 
@@ -60,6 +60,30 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
+In another example of a SAM conversion, the function `process()` uses a lambda instead of creating an anonymous object:
+
+```kotlin
+fun interface SuspendRunnable {
+   suspend fun invoke()
+}
+class Listener {
+   fun setOnClickListener(r: SuspendRunnable) {
+       GlobalScope.launch { r.invoke() }
+   }
+}
+class Button(private val listener: Listener) {
+   fun process() {
+       listener.setOnClickListener {
+           addText()
+       }
+   }
+   suspend fun addText() {
+       // ...
+   }
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
