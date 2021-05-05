@@ -187,7 +187,7 @@ Learn how to add compiler options in [Gradle](gradle.md#compiler-options), [Mave
 Kotlin 1.5.0 is introducing experimental support for compiling plain Kotlin lambdas (which are not converted to an instance
 of a functional interface) into dynamic invocations (`invokedynamic`). The implementation produces lighter binaries by using
 [`LambdaMetafactory.metafactory()`](https://docs.oracle.com/javase/8/docs/api/java/lang/invoke/LambdaMetafactory.html#metafactory-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.invoke.MethodType-java.lang.invoke.MethodHandle-java.lang.invoke.MethodType-),
-which effectively generates the necessary classes at run time. Currently, it has three limitations compared to ordinary
+which effectively generates the necessary classes at runtime. Currently, it has three limitations compared to ordinary
 lambda compilation:
 
 * A lambda compiled into invokedynamic is not serializable.
