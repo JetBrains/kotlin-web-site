@@ -17,14 +17,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% endblock %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="Shortcut Icon" href="{{ url_for('asset', path='images/favicon.ico') }}" type="image/x-icon"/>
-<link rel="apple-touch-icon" href="{{ url_for('asset', path='images/apple-touch-icon.png') }}"/>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('asset', path='images/favicon.svg')|autoversion }}">
+<link rel="alternate icon" href="{{ url_for('asset', path='images/favicon.ico')|autoversion }}" />
+<link rel="apple-touch-icon" href="{{ url_for('asset', path='images/apple-touch-icon.png')|autoversion }}"/>
 <link rel="apple-touch-icon" sizes="72x72"
-      href="{{ url_for('asset', path='images/apple-touch-icon-72x72.png') }}"/>
+      href="{{ url_for('asset', path='images/apple-touch-icon-72x72.png')|autoversion }}"/>
 <link rel="apple-touch-icon" sizes="114x114"
-      href="{{ url_for('asset', path='images/apple-touch-icon-114x114.png') }}"/>
+      href="{{ url_for('asset', path='images/apple-touch-icon-114x114.png')|autoversion }}"/>
 <link rel="apple-touch-icon" sizes="144x144"
-      href="{{ url_for('asset', path='images/apple-touch-icon-144x144.png') }}"/>
+      href="{{ url_for('asset', path='images/apple-touch-icon-144x144.png')|autoversion }}"/>
 
 <!-- Social Media tag Starts -->
 <!-- Place this data between the <head> tags of your website -->
