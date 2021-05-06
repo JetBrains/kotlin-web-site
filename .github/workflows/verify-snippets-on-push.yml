@@ -1,0 +1,24 @@
+name: Verify snippets
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '15'
+          distribution: 'adopt'
+      - name: Run a verifier
+        uses: vmishenev/kotlin-samples-pusher@master
+        with:
+          push-repository: 'https://github.com/vmishenev/kotlin-compiler-server'
+          snippet-flags: 'kotlin'
+          push-path: 'src/test/resources/test-compile-data/kotlin-web-site'
+          username: '${{ secrets.GITHUB_TOKEN }}' #token with an access to create PR in push-repository and issue in this repository
+          start-commit: '${{ github.event.before }}'
+          end-commit: '${{ github.event.after }}'
