@@ -1,7 +1,7 @@
 [//]: # (title: Operator overloading)
 
 Kotlin allows you to provide custom implementations for the predefined set of operators on types. These operators have
-prefedined symbolic representation (like `+` or `*`) and precedence. To implement an operator, provide a [member function](functions.md#member-functions)
+predefined symbolic representation (like `+` or `*`) and precedence. To implement an operator, provide a [member function](functions.md#member-functions)
 or an [extension function](extensions.md) with a specific name for the corresponding type. This type becomes the left-hand side type
 for binary operations and the argument type for the unary ones.
 
