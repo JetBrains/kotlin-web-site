@@ -226,7 +226,6 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td><strong>Website</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44342" target="_blank">Close try.kotlinlang.org</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44339" target="_blank">Make the Kotlin website mobile friendly</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Make the UI and navigation consistent</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Update community graphic assets to the new Kotlin visual style</a></li>
@@ -276,6 +275,7 @@ We've **completed** the following items from the roadmap that we published in Oc
 * ✅ Libraries: [Improve kotlinx-serialization (release v1.2)](https://youtrack.jetbrains.com/issue/KT-44335)
 * ✅ Libraries: [Improve kotlinx-coroutines (release v1.5)](https://youtrack.jetbrains.com/issue/KT-44336)
 * ✅ Website: [Design a new Kotlin visual style](https://youtrack.jetbrains.com/issue/KT-44340)
+* ✅ Website: [Close try.kotlinlang.org](https://youtrack.jetbrains.com/issue/KT-44342)
 
 ### Postponed items
 
