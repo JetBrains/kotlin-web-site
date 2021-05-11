@@ -131,10 +131,6 @@ generic type itself, *its* type arguments are still erased.
 
 ```kotlin
 //sampleStart
-class Greeter{
-    fun sayHello() = "Hello!"
-}
-
 inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
     if (first !is A || second !is B) return null
     return first as A to second as B
@@ -142,12 +138,12 @@ inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
 
 val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
 
+
 val stringToSomething = somePair.asPairOf<String, Any>()
 val stringToInt = somePair.asPairOf<String, Int>()
 val stringToList = somePair.asPairOf<String, List<*>>()
-val stringToStringList = somePair.asPairOf<String, List<Greeter>>() // Breaks type safety!
-
-stringToStringList?.second?.forEach(Greeter::sayHello) // This will throw ClassCastException as Int is not Greeter
+val stringToStringList = somePair.asPairOf<String, List<String>>() // Compiles but breaks type safety!
+// Expand the sample for more details
 
 //sampleEnd
 
@@ -156,7 +152,7 @@ fun main() {
     println("stringToInt = " + stringToInt)
     println("stringToList = " + stringToList)
     println("stringToStringList = " + stringToStringList)
-    println(stringToStringList?.second?.forEach(Greeter::sayHello))
+    //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
