@@ -753,10 +753,10 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 * Experimental .proto schema generation from `@Serializable` classes
 * And more
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0).
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0) and the
+[`kotlinx.serialization` 1.2.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlinx-serialization-1-2-released/).
 
-<!-- [VIDEO – TO ADD] -->
-<!-- [BLOG POST – TO ADD] -->
+<video href="698I_AH8h6s" title="kotlinx.serialization 1.2.0"/>
 
 ### dateTime 0.2.0
 
