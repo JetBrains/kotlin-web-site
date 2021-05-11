@@ -186,8 +186,8 @@ A good example of this is `Array`:
 
 ```kotlin
 class Array<T>(val size: Int) {
-    fun get(index: Int): T { ... }
-    fun set(index: Int, value: T) { ... }
+    operator fun get(index: Int): T { ... }
+    operator fun set(index: Int, value: T) { ... }
 }
 ```
 
