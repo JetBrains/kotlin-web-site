@@ -31,7 +31,7 @@
     "mini-svg-data-uri": "1.1.3",
     "monkberry-loader": "4.0.9",
     "mustache-loader": "1.4.1",
-    "node-sass": "4.12.0",
+    "node-sass": "4.13.1",
     "nunjucks": "3.2.2",
     "nunjucks-loader": "3.0.0",
     "postcss-custom-properties": "10.0.0",
