@@ -3,11 +3,7 @@
 <table>
     <tr>
         <td><strong>Last modified on</strong></td>
-        <td>April 2021</td>
-    </tr>
-    <tr>
-        <td><strong>Time frame</strong></td>
-        <td>5 months until September 2021</td>
+        <td>May 2021</td>
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
@@ -65,7 +61,7 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         </td>
         <td>
             <ul>
-                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">Support JVM sealed classes</a></li>
+                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Support JVM sealed classes</a></li>
             </ul>
         </td>
     </tr>
@@ -259,6 +255,7 @@ We've **completed** the following items from the roadmap that we published in Oc
 
 * ✅ Language: [Support JVM records](https://youtrack.jetbrains.com/issue/KT-42430)
 * ✅ Language: [Release inline classes as Stable, secure Valhalla compatibility](https://youtrack.jetbrains.com/issue/KT-42434)
+* ✅ Language: [Sealed interfaces and more sealed classes freedom](https://youtrack.jetbrains.com/issue/KT-42433)
 * ✅ Compiler core: [Support incremental compilation for the new compiler](https://youtrack.jetbrains.com/issue/KT-44317)
 * ✅ Kotlin/JVM: [Make the new JVM IR backend Stable](https://youtrack.jetbrains.com/issue/KT-42287)
 * ✅ Kotlin/JS: [JS IR BE: Prototype lazy initialization for top-level properties like in JVM](https://youtrack.jetbrains.com/issue/KT-44320)
@@ -281,7 +278,7 @@ We've **completed** the following items from the roadmap that we published in Oc
 
 We've decided to **postpone** the following items from the previous roadmap:
 
-* ⏸ [Support JVM sealed classes](https://youtrack.jetbrains.com/issue/KT-42433)
+* ⏸ [Support JVM sealed classes](https://youtrack.jetbrains.com/issue/TODO)
 * ⏸ [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KT-44328)
 
 Other postponed items remain in this state from earlier roadmap versions.
