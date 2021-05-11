@@ -65,7 +65,7 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         </td>
         <td>
             <ul>
-                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-44328" target="_blank">Support JVM sealed classes</a></li>
+                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42433" target="_blank">Support JVM sealed classes</a></li>
             </ul>
         </td>
     </tr>
@@ -282,6 +282,7 @@ We've **completed** the following items from the roadmap that we published in Oc
 We've decided to **postpone** the following items from the previous roadmap:
 
 * ⏸ [Support JVM sealed classes](https://youtrack.jetbrains.com/issue/KT-42433)
+* ⏸ [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KT-44328)
 
 Other postponed items remain in this state from earlier roadmap versions.
 
