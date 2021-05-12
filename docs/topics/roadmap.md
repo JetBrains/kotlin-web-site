@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td>September 2021</td>
+        <td><strong>September 2021</strong></td>
     </tr>
 </table>
 
@@ -230,28 +230,20 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         </td>
         <td></td>
     </tr>
-    <tr>
-        <td><strong>Ktor</strong></td>
-        <td>
-           <p><a href="https://blog.jetbrains.com/ktor/2020/08/10/ktor-roadmap-for-2020-2021/" target="_blank">Ktor roadmap</a></p>
-         </td>
-        <td>
-        </td>
-    </tr>
 </table>
 
 > * This roadmap is not an exhaustive list of all things the team is working on, only the biggest projects.
 > * There’s no commitment to delivering specific features or fixes in specific versions.
 > * It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
-> * We will adjust our priorities as we go and update the roadmap approximately every three months.
+> * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
 {type="note"}
 
-## What's changed since October 2020
+## What's changed since January 2021
 
 ### Completed items
 
-We've **completed** the following items from the roadmap that we published in October 2020:
+We've **completed** the following items from the previous roadmap:
 
 * ✅ Language: [Support JVM records](https://youtrack.jetbrains.com/issue/KT-42430)
 * ✅ Language: [Release inline classes as Stable, secure Valhalla compatibility](https://youtrack.jetbrains.com/issue/KT-42434)
