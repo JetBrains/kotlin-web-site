@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td><strong>October 2021</strong></td>
+        <td><strong>November 2021</strong></td>
     </tr>
 </table>
 
@@ -31,7 +31,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 ### YouTrack board
 
-Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){width=30}{type="joined"} YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current)!
+Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){width=30}{type="joined"} YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current)!
 
 ![Roadmap board in YouTrack](roadmap-board.png)
 
@@ -48,7 +48,6 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12380" target="_blank">Support sealed (exhaustive) whens</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-18707" target="_blank">Support suspending functions as a supertype</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">Release OptIn annotations</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45395" target="_blank">Support programmatic creation of annotation class instances</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45396" target="_blank">Stabilize typeOf</a></li>
@@ -70,13 +69,17 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Release the new JVM compiler frontend in Alpha</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Release incremental compilation for the new compiler in Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler (bug-fixing only)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Finalize support for jspecify</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44318" target="_blank">Work on services for the new compiler to interact with IDE</a></li>
             </ul>
         </td>
-        <td></td>
+        <td>
+            <ul>
+                <li>⏸ Stable Compiler Plugin API</li>
+                <li>⏸ Scripting improvements</li>
+            </ul>
+        </td>
     </tr>
     <tr>
         <td><strong>Kotlin/JVM</strong></td>
@@ -87,19 +90,15 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize JVM-specific experimental features</a></li>
             </ul>
          </td>
-        <td>
-            <ul>
-                <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42288" target="_blank">Maintain the old JVM backend by fixing critical bugs</a></li>
-            </ul>
-        </td>
+        <td></td>
     </tr>
     <tr>
         <td><strong>Kotlin/JS</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">Maintain the old JS backend by fixing critical bugs</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42289" target="_blank">Make the new JS IR backend Stable</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44319" target="_blank">JS IR BE: Add an ability to generate separate JS files for each module</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-44319" target="_blank">JS IR BE: Add an ability to generate separate JS files for each module</a></li>                
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42291" target="_blank">Maintain the old JS backend by fixing critical bugs</a></li>
             </ul>
          </td>
         <td>
@@ -110,7 +109,7 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         </td>
     </tr>
     <tr>
-        <td><strong>Kotlin/WASM</strong></td>
+        <td><strong>Kotlin/Wasm</strong></td>
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-TODO" target="_blank">Implement an experimental version of Kotlin/Wasm compiler backend</a></li>
@@ -132,7 +131,6 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td>
             <ul>
                 <li>⏸ Support Mac Catalyst</li>
-                <li>⏸ Development with Kotlin/Native on Apple Silicon without Rosetta 2</li>
                 <li>⏸ Direct interoperability with Swift</li>
                 <li>⏸ Interoperability with C++</li>
                 <li>⏸ Support Alpine Linux</li>
@@ -153,7 +151,6 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
                 <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-44328" target="_blank">Improve Kotlin/Native debugging experience</a></li>
                 <li>⏸ <a href="https://youtrack.jetbrains.com/issue/KT-42303" target="_blank">Improve Gradle and Compiler error messages</a></li>
                 <li>⏸ Sharing code between JVM and Android</li>
-                <li>⏸ KMM plugin: support for IntelliJ IDEA</li>
             </ul>
         </td>
     </tr>
@@ -161,11 +158,10 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td><strong>IDE</strong></td>
         <td>
             <ul>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">Improve IDE performance</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Refactor the internal index system</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44330" target="_blank">Improve debugging experience</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve the New Project wizard</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42308" target="_blank">Move the Kotlin plugin to the IntelliJ platform development infrastructure</a></li>
             </ul>
          </td>
@@ -197,7 +193,6 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
         <td><strong>Libraries</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Support Apple Silicon target in libraries</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Provide Kotlin coverage support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve kotlinx-serialization (release v1.3.0)</a></li>
@@ -280,7 +275,6 @@ Other postponed items remain in this state from earlier roadmap versions.
 We've **added** the following items to the roadmap:
 
 * 🆕 Language: [Support sealed (exhaustive) whens](https://youtrack.jetbrains.com/issue/KT-12380)
-* 🆕 Language: [Support suspending functions a as supertype](https://youtrack.jetbrains.com/issue/KT-18707)
 * 🆕 Language: [Release OptIn annotations](https://youtrack.jetbrains.com/issue/KT-22956)
 * 🆕 Language: [Support programmatic creation of annotation class instances](https://youtrack.jetbrains.com/issue/KT-45395)
 * 🆕 Language: [Stabilize typeOf](https://youtrack.jetbrains.com/issue/KT-45396)
@@ -289,7 +283,6 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Support annotations on type parameters and generate them for JVM](https://youtrack.jetbrains.com/issue/KT-43714)
 * 🆕 Language: [Improve type inference in corner cases on par with Java](https://youtrack.jetbrains.com/issue/KT-40804)
 * 🆕 Compiler core: [Release the new JVM compiler frontend in Alpha](https://youtrack.jetbrains.com/issue/TODO)
-* 🆕 Compiler core: [Release incremental compilation for the new compiler in Alpha](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Kotlin/JVM: [Maintain the new JVM IR backend](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Kotlin/JVM: [Improve new JVM IR backend compilation time](https://youtrack.jetbrains.com/issue/TODO)
@@ -297,7 +290,6 @@ We've **added** the following items to the roadmap:
 * 🆕 Kotlin/Wasm: [Implement an experimental version of Kotlin/Wasm compiler backend](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Kotlin/Native: [Implement safe initialization for top-level properties](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Multiplatform: [Support the Apple Silicon target in the Kotlin Multiplatform tooling](https://youtrack.jetbrains.com/issue/TODO)
-* 🆕 IDE: [Refactor the internal index system](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve user experience with the Kotlin Gradle plugin](https://youtrack.jetbrains.com/issue/TODO)
