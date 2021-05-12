@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td><strong>September 2021</strong></td>
+        <td><strong>October 2021</strong></td>
     </tr>
 </table>
 
@@ -203,8 +203,8 @@ Visit the [new roadmap board in our issue tracker ![YouTrack](youtrack-logo.png)
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve kotlinx-serialization (release v1.3.0)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve kotlinx-coroutines (release v1.6.0)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize Duration API in the standard library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Get rid of !! for readLine() in the standard library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize and document `atomicfu`</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Get rid of <code>!!</code> for <code>readLine()</code> in the standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize and document atomicfu</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support java.nio.Path extension in the standard library</a></li>
             </ul>
          </td>
@@ -306,7 +306,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Libraries: [Improve kotlinx-serialization (release v1.3.0)](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Improve kotlinx-coroutines (release v1.6.0)](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Stabilize Duration API in the standard library](https://youtrack.jetbrains.com/issue/TODO)
-* 🆕 Libraries: [Get rid of !! for readLine() in the standard library](https://youtrack.jetbrains.com/issue/TODO)
+* 🆕 Libraries: [Get rid of <code>!!</code> for <code>readLine()</code> in the standard library](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Stabilize and document `atomicfu`](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Website: [Make the UI and navigation consistent](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Website: [Update community graphic assets to the new Kotlin visual style](https://youtrack.jetbrains.com/issue/TODO)
