@@ -54,7 +54,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45616" target="_blank">🆕 Stabilize builder inference</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12794" target="_blank">🆕 Allow repeating annotations with runtime retention when compiling under Java 8</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">🆕 Support annotations on type parameters and generate them for JVM</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">🆕 Improve type inference in corner cases on par with Java</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">🆕 Improve type inference in corner cases for popular Java APIs</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
         </td>
@@ -281,7 +281,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Stabilize builder inference](https://youtrack.jetbrains.com/issue/KT-45618)
 * 🆕 Language: [Allow repeating annotations with runtime retention when compiling under Java 8](https://youtrack.jetbrains.com/issue/KT-12794)
 * 🆕 Language: [Support annotations on type parameters and generate them for JVM](https://youtrack.jetbrains.com/issue/KT-43714)
-* 🆕 Language: [Improve type inference in corner cases on par with Java](https://youtrack.jetbrains.com/issue/KT-40804)
+* 🆕 Language: [Improve type inference in corner cases for popular Java APIs](https://youtrack.jetbrains.com/issue/KT-40804)
 * 🆕 Compiler core: [Release the new JVM compiler frontend in Alpha](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Kotlin/JVM: [Maintain the new JVM IR backend](https://youtrack.jetbrains.com/issue/TODO)
