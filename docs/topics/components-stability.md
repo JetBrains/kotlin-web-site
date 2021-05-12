@@ -58,7 +58,7 @@ Serialization Compiler Plugin|Stable|1.4| |
 Serialization Core Library|Stable|1.0.0|Versioned separately from the language
 Multiplatform Projects|Alpha|1.3| |
 expect/actual language feature|Beta|1.2| |
-Inline classes|Alpha|1.3| |
+Inline classes|Stable|1.5| |
 Unsigned arithmetics|Beta|1.3| |
 Contracts in stdlib|Stable|1.3| |
 User-defined contracts|Experimental|1.3| |
