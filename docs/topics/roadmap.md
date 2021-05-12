@@ -47,14 +47,14 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Language</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-12380" target="_blank">Support sealed (exhaustive) whens</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">Release OptIn annotations</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-45395" target="_blank">Support programmatic creation of annotation class instances</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-45396" target="_blank">Stabilize typeOf</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-45616" target="_blank">Stabilize builder inference</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-12794" target="_blank">Allow repeating annotations with runtime retention when compiling under Java 8</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">Support annotations on type parameters and generate them for JVM</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">Improve type inference in corner cases on par with Java</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-12380" target="_blank">🆕 Support sealed (exhaustive) whens</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">🆕 Release OptIn annotations</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-45395" target="_blank">🆕 Support programmatic creation of annotation class instances</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-45396" target="_blank">🆕 Stabilize typeOf</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-45616" target="_blank">🆕 Stabilize builder inference</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-12794" target="_blank">🆕 Allow repeating annotations with runtime retention when compiling under Java 8</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">🆕 Support annotations on type parameters and generate them for JVM</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">🆕 Improve type inference in corner cases on par with Java</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
         </td>
@@ -68,9 +68,9 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Compiler core</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Release the new JVM compiler frontend in Alpha</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Release the new JVM compiler frontend in Alpha</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Finalize support for jspecify</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler (bug-fixing only)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Finalize support for jspecify</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44318" target="_blank">Work on services for the new compiler to interact with IDE</a></li>
             </ul>
         </td>
@@ -85,9 +85,9 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Kotlin/JVM</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Maintain the new JVM IR backend</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve new JVM IR backend compilation time</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize JVM-specific experimental features</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Maintain the new JVM IR backend</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve new JVM IR backend compilation time</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Stabilize JVM-specific experimental features</a></li>
             </ul>
          </td>
         <td></td>
@@ -112,7 +112,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Kotlin/Wasm</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-TODO" target="_blank">Implement an experimental version of Kotlin/Wasm compiler backend</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-TODO" target="_blank">🆕 Implement an experimental version of Kotlin/Wasm compiler backend</a></li>
             </ul>
          </td>
         <td>Note: Wasm support in <a href="https://kotlinlang.org/docs/reference/native-overview.html" target="_blank">Kotlin/Native</a> (through LLVM) will be deprecated and removed</td>
@@ -121,7 +121,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Kotlin/Native</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Implement safe initialization for top-level properties</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Implement safe initialization for top-level properties</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42296" target="_blank">Prototype a new garbage collector</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve compilation time</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
@@ -141,8 +141,8 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Kotlin Multiplatform</strong></td>
         <td>
             <ul>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Support the Apple Silicon target in the Kotlin Multiplatform tooling</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44329" target="_blank">Improve UX of using Native libraries in Kotlin</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Support the Apple Silicon target in the Kotlin Multiplatform tooling</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42301" target="_blank">Improve dependency management for iOS</a></li>
             </ul>
          </td>
@@ -161,7 +161,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">Improve IDE performance</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44330" target="_blank">Improve debugging experience</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve the New Project wizard</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve the New Project wizard</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42308" target="_blank">Move the Kotlin plugin to the IntelliJ platform development infrastructure</a></li>
             </ul>
          </td>
@@ -179,8 +179,8 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve incremental compilation performance in Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42311" target="_blank">Decrease time for opening Gradle projects</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve the quality of Gradle import</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve user experience with the Kotlin Gradle plugin</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve the quality of Gradle import</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve user experience with the Kotlin Gradle plugin</a></li>
             </ul>
          </td>
         <td>
@@ -193,13 +193,13 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Libraries</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Provide Kotlin coverage support</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Provide Kotlin coverage support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve kotlinx-serialization (release v1.3.0)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Improve kotlinx-coroutines (release v1.6.0)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize Duration API in the standard library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Get rid of <code>!!</code> for <code>readLine()</code> in the standard library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Stabilize and document atomicfu</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve kotlinx-serialization (release v1.3.0)</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve kotlinx-coroutines (release v1.6.0)</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Stabilize Duration API in the standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Get rid of <code>!!</code> for <code>readLine()</code> in the standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Stabilize and document atomicfu</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support java.nio.Path extension in the standard library</a></li>
             </ul>
          </td>
@@ -218,8 +218,8 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44339" target="_blank">Make the Kotlin website mobile friendly</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Make the UI and navigation consistent</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">Update community graphic assets to the new Kotlin visual style</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Make the UI and navigation consistent</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Update community graphic assets to the new Kotlin visual style</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44338" target="_blank">Revamp Kotlin documentation</a></li>
             </ul>
         </td>
@@ -293,7 +293,6 @@ We've **added** the following items to the roadmap:
 * 🆕 IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve user experience with the Kotlin Gradle plugin](https://youtrack.jetbrains.com/issue/TODO)
-* 🆕 Libraries: [Support Apple Silicon target in libraries](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Provide Kotlin coverage support](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Improve kotlinx-serialization (release v1.3.0)](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Improve kotlinx-coroutines (release v1.6.0)](https://youtrack.jetbrains.com/issue/TODO)
