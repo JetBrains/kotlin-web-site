@@ -228,12 +228,18 @@ def videos_page():
 
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
-    return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
+    if build_mode:
+        return send_file(generate_pdf('kotlin-reference.pdf'))
+    else:
+        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
 @app.route('/docs/kotlin-docs.pdf')
 def kotlin_docs_pdf():
-    return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
+    if build_mode:
+        return send_file(generate_pdf('kotlin-docs.pdf'))
+    else:
+        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
 
 
 @app.route('/community/')
@@ -535,6 +541,8 @@ if __name__ == '__main__':
             generate_temporary_sitemap()
         elif argv_copy[1] == "index":
             build_search_indices(get_dist_pages())
+        elif argv_copy[1] == "reference-pdf":
+            generate_pdf("kotlin-docs.pdf")
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)

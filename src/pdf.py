@@ -12,6 +12,7 @@ from src.pages import MyFlatPages
 
 root_folder_path = path.dirname(path.dirname(__file__))
 pdf_folder_path = path.join(root_folder_path, 'pdf')
+pdf_source_path = path.join(root_folder_path, 'dist', 'docs')
 
 PDF_CONFIG = {
     'encoding': 'UTF-8',
@@ -21,12 +22,14 @@ PDF_CONFIG = {
     'margin-bottom': '0.8in',
     'margin-left': '0.7in',
     'print-media-type': '',
-    'no-images': '',
     'dpi': '96',
     'footer-center': '[page]',
     'footer-font-size': '9',
     'footer-spacing': '7',
     'enable-smart-shrinking': '',
+    'enable-local-file-access': '',
+    'run-script': 'webhelp.js',
+    'user-style-sheet': 'webhelp.css',
     'zoom': '1.3'
 }
 
@@ -35,30 +38,30 @@ PDF_TOC_CONFIG = {
 }
 
 
-def generate_pdf(name, build_mode: bool, pages, toc):
-    tmp_file_path = path.join(pdf_folder_path, "tmp.html")
-    with open(tmp_file_path, 'w', encoding="UTF-8") as tmp_file:
-        tmp_file.write(get_pdf_content(build_mode, pages, toc))
-        output_file_path = path.join(pdf_folder_path, name)
-        arguments = ["wkhtmltopdf"]
-        for name, value in PDF_CONFIG.items():
-            arguments.append("--" + name)
-            if value != '':
-                arguments.append(value)
-        arguments.append('cover')
-        arguments.append(path.join(pdf_folder_path, 'book-cover.html'))
-        arguments.append('toc')
-        for name, value in PDF_TOC_CONFIG.items():
-            arguments.append("--" + name)
+def generate_pdf(name):
+    source_file_path = path.join(pdf_source_path, 'pdf.html')
+    output_file_path = path.join(pdf_folder_path, name)
+    arguments = ["wkhtmltopdf"]
+    for name, value in PDF_CONFIG.items():
+        arguments.append("--" + name)
+        if value != '':
             arguments.append(value)
-        arguments.append(tmp_file_path)
-        arguments.append(output_file_path)
+    arguments.append('cover')
+    arguments.append(path.join(pdf_folder_path, 'book-cover.html'))
+    arguments.append('toc')
+    for name, value in PDF_TOC_CONFIG.items():
+        arguments.append("--" + name)
+        arguments.append(value)
+    arguments.append(source_file_path)
+    arguments.append(output_file_path)
 
-        subprocess.check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
-        return output_file_path
+    print(" ".join(arguments))
+
+    subprocess.check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
+    return output_file_path
 
 
-def get_pdf_content(build_mode: bool, pages: MyFlatPages, toc: Dict) -> str:
+def get_pdf_content1(build_mode: bool, pages: MyFlatPages, toc: Dict) -> str:
     content = []
     for toc_section in toc['content']:
         section = {
