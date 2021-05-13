@@ -71,7 +71,7 @@ a functional-style API; it also includes functions for filtering, transforming, 
 Lets-Plot is multiplatform and can be used not only with JVM, but also with JS and Python. 
 
 * [kravis](https://github.com/holgerbrandl/kravis) is another library for the visualization of tabular data inspired by
-Python's [ggplot](https://ggplot2.tidyverse.org/).
+R's [ggplot](https://ggplot2.tidyverse.org/).
 
 * [londogard-nlp-toolkit](https://github.com/londogard/londogard-nlp-toolkit/) is a library that provides utilities when working with natural language processing such as word/subword/sentence embeddings, word-frequencies, stopwords, stemming, and much more.
 
