@@ -2,6 +2,119 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-05-20</startDate>
+        <endDate>2021-05-20</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Michal Szczepanik</speaker>
+        <title>EPAM TechTalks Gdansk</title>
+        <subject>Kotlin vs. Java – who wears the crown?</subject>
+        <url>https://www.meetup.com/EPAM-Tech-Talks-Gdansk/events/278020110</url>
+        <description>
+            <![CDATA[
+<p>We'd like to invite you all to another Java-inspired event we're expecting in May – Kotlin vs. Java – who wears the crown?</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-05-26</startDate>
+        <endDate>2021-05-26</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Ilya Murday</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Kotlin Jupyter API: интеграция Kotlin-библиотек с Jupyter-ноутбуками</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/278027639</url>
+        <description>
+            <![CDATA[
+<p>Занимаясь прототипированием, data scientist хочет, чтобы ничто не отвлекало его от моделей и данных. Он хочет, чтобы данные без лишних усилий отображались в виде диаграмм и таблиц, все необходимые зависимости подключались по возможности просто, а тулинг помогал лучше ориентироваться в исследуемых данных.
+В этом докладе я расскажу, как Kotlin Jupyter kernel позволяет авторам библиотек делать их удобными для использования в ноутбуках. Рассмотрим отображение объектов, pre-evaluation и post-evaluation коллбэки, а также доступ к результатам выполнения ячеек через reflection напрямую из библиотек. Поговорим о том, что такое Kotlin REPL Compiler и причём тут implicit receivers, о разрешении зависимостей и класслудерах. Посмотрим, как библиотека Dataframe эксплуатирует Jupyter API для обеспечения типобезопасного доступа к данным, а KotlinDL - для отображения структуры нейросетей.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-05-26</startDate>
+        <endDate>2021-05-26</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Nikita Fedyunin</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Non-blocking и его друзья</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/278027639</url>
+        <description>
+            <![CDATA[
+<p>В основном расскажу про то, как работает многозадачность без блокирования jvm тредов в веб-приложениях на примере spring webflux (и почему вообще кто-то хочет не блокировать jvm треды, хотя раньше всегда делали thread-per-request и спокойно жили). Сравню корутины и project reactor с точки зрения удобства API и интеграции со спрингом и другими kotlin/java библиотеками.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-06-08</startDate>
+        <endDate>2021-06-08</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Haim Michael</speaker>
+        <title>life michael academy</title>
+        <subject>Kotlin Lambda Expressions [Free Meetup]</subject>
+        <url>https://www.meetup.com/lifemichael/events/275951172</url>
+        <description>
+            <![CDATA[
+<p>During this coming meetup, we will learn what a lambda expression is, and gain an in-depth understanding of how the lambda expressions are implemented in Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2021-06-09</startDate>
+        <endDate>2021-06-09</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Gabi Moreno</speaker>
+        <title>KotlinMAD</title>
+        <subject>Tips de Productividad para Desarrolladores Kotlin</subject>
+        <url>https://www.meetup.com/KotlinMAD/events/278075754</url>
+        <description>
+            <![CDATA[
+<p>El objetivo de esta charla es dar tips sobre acciones concretas para ser más productivos en el día a día como desarrolladores Kotlin.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2021-05-19</startDate>
+        <endDate>2021-05-19</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Frank Scheffler</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Sprache als Werkzeug: DSLs mit Kotlin</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/277919623</url>
+        <description>
+            <![CDATA[
+<p>Eigene Domain-specific Languages mit Kotlin zu erstellen, gehört zwar nicht zu den Standardaufgaben von Entwicklern. Die zunehmende Zahl an DSLs etwa für Gradle, Spring Beans oder Spring Cloud Contract beweist jedoch, dass sich die Sprache hervorragend dafür eignet.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-05-18</startDate>
+        <endDate>2021-05-19</endDate>
+        <location>Madrid, Spain</location>
+        <speaker>Alexander Cabezas</speaker>
+        <title>Codemotion 2021</title>
+        <subject>One language to rule them all</subject>
+        <url>https://events.codemotion.com/conferences/online/2021/online-tech-conference-spring/agenda</url>
+        <description>
+            <![CDATA[
+<p>We will go together in an exciting journey through the lands of mobile cross platform development to learn how to use the ancient power of kotlin multiplatform mobile in a modularized architecture and take advantage of such type of heavenly architectures in native mobile development, so we can develop once and share that code/wisdom between Android and iOS, saving time, gold, sweat and even tears. With that single code base, we will endure a fight with the oldest enemies of native mobile developers, lack of testing, duplicated code, etc. </p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-05-18</startDate>
         <endDate>2021-05-18</endDate>
         <location>Táizhōng, Taiwan</location>
