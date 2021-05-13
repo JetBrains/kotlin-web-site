@@ -18,6 +18,6 @@ jobs:
         uses: vmishenev/kotlin-samples-pusher@dev
         with:
           push-repository: 'https://github.com/vmishenev/kotlin-compiler-server'
-          tag-filter: '#tag="code" & kotlin-runnable="true"'
+          tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
           push-path: 'src/test/resources/test-compile-data/kotlin-web-site'
           username: '${{ secrets.KOTLIN_WEB_SITE_TOKEN }}' #token with an access to create PR in push-repository and issue in this repository
