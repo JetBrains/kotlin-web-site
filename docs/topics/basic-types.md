@@ -542,11 +542,11 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can use templates both in raw and escaped strings.
-To insert the `$` character in a raw string (which doesn't support backslash escaping), use the following syntax:
+To insert the `$` character in a raw string (which doesn't support backslash escaping) before any symbol, which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers), use the following syntax:
 
 ```kotlin
 val price = """
-${'$'}9.99
+${'$'}_9.99
 """
 ```
 
