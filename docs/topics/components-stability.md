@@ -45,7 +45,7 @@ kotlin-stdlib (JVM)|Stable|1.0| |
 Coroutines|Stable|1.3| |
 kotlin-reflect (JVM)|Beta|1.0| |
 Kotlin/JS (Classic back-end)|Stable|1.3| |
-Kotlin/JVM (IR-based)|Alpha|1.4| |
+Kotlin/JVM (IR-based)|Beta|1.5| |
 Kotlin/JS (IR-based)|Alpha|1.4| |
 Kotlin/Native Runtime|Beta|1.3| |
 KLib binaries|Alpha|1.4| |
