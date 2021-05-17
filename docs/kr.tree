@@ -173,7 +173,7 @@
             <toc-element id="apple-framework.md"/>
             <toc-element id="native-debugging.md"/>
             <toc-element id="native-ios-symbolication.md"/>
-            <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation time"/>
+            <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation times"/>
             <toc-element id="native-faq.md"/>
             <toc-element toc-title="Intro to Kotlin/Native – hands-on" href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/"/>
         </toc-element>
