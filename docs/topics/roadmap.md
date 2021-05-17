@@ -53,7 +53,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45396" target="_blank">🆕 Stabilize typeOf</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45616" target="_blank">🆕 Stabilize builder inference</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12794" target="_blank">🆕 Allow repeating annotations with runtime retention when compiling under Java 8</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">🆕 Support annotations on type parameters and generate them for JVM</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">🆕 Support annotations on class type parameters and generate them for JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">🆕 Improve type inference in corner cases for popular Java APIs</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
@@ -177,7 +177,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Build tools</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve incremental compilation performance in Gradle</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42311" target="_blank">Decrease time for opening Gradle projects</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve the quality of Gradle import</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve user experience with the Kotlin Gradle plugin</a></li>
@@ -193,13 +193,12 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Libraries</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Provide Kotlin coverage support</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve kotlinx-serialization (release v1.3.0)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Improve kotlinx-coroutines (release v1.6.0)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Stabilize Duration API in the standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Get rid of <code>!!</code> for <code>readLine()</code> in the standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/TODO" target="_blank">🆕 Stabilize and document atomicfu</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support java.nio.Path extension in the standard library</a></li>
             </ul>
          </td>
@@ -280,7 +279,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Stabilize typeOf](https://youtrack.jetbrains.com/issue/KT-45396)
 * 🆕 Language: [Stabilize builder inference](https://youtrack.jetbrains.com/issue/KT-45618)
 * 🆕 Language: [Allow repeating annotations with runtime retention when compiling under Java 8](https://youtrack.jetbrains.com/issue/KT-12794)
-* 🆕 Language: [Support annotations on type parameters and generate them for JVM](https://youtrack.jetbrains.com/issue/KT-43714)
+* 🆕 Language: [Support annotations on class type parameters and generate them for JVM](https://youtrack.jetbrains.com/issue/KT-43714)
 * 🆕 Language: [Improve type inference in corner cases for popular Java APIs](https://youtrack.jetbrains.com/issue/KT-40804)
 * 🆕 Compiler core: [Release the new JVM compiler frontend in Alpha](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/TODO)
@@ -293,7 +292,6 @@ We've **added** the following items to the roadmap:
 * 🆕 IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Build tools: [Improve user experience with the Kotlin Gradle plugin](https://youtrack.jetbrains.com/issue/TODO)
-* 🆕 Libraries: [Provide Kotlin coverage support](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Improve kotlinx-serialization (release v1.3.0)](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Improve kotlinx-coroutines (release v1.6.0)](https://youtrack.jetbrains.com/issue/TODO)
 * 🆕 Libraries: [Stabilize Duration API in the standard library](https://youtrack.jetbrains.com/issue/TODO)
