@@ -32,7 +32,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   you might need to make the heap even larger or choose the right number of threads with `org.gradle.parallel.threads`.
 
 * **Build only the binaries you need**. Don't run Gradle tasks that build the whole project, such as `build` or `assemble`,
-  unless you really need to. These tasks build the same code multiple times, increasing the compilation times. In typical
+  unless you really need to. These tasks build the same code more than once, increasing the compilation times. In typical
   cases such as running tests from IntelliJ IDEA or starting the app from Xcode, the Kotlin tooling avoids executing unnecessary
   tasks. 
   
