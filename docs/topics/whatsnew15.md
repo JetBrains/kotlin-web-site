@@ -765,10 +765,8 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/re
 * Normalized API of `DateTimePeriod` and `DatePeriod`
 * And more
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2.0).
-
-<!-- [VIDEO – TO ADD] -->
-<!-- [BLOG POST – TO ADD] -->
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.2.0) and the
+[`kotlinx-datetime` 0.2.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlinx-datetime-0-2-0-is-out/).
 
 ## Migrating to Kotlin 1.5.0
 
