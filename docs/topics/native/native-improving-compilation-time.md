@@ -1,8 +1,8 @@
-[//]: # (title: Tips for improving Kotlin/Native compilation time)
+[//]: # (title: Tips for improving Kotlin/Native compilation times)
 
 
 The Kotlin/Native compiler is constantly receiving updates that improve its performance. With the latest Kotlin/Native
-compiler and a properly configured build environment, you can significantly improve the compilation time of your projects
+compiler and a properly configured build environment, you can significantly improve the compilation times of your projects
 with Kotlin/Native targets.
 
 Read on for our tips on how to speed up the Kotlin/Native compilation process.
@@ -32,7 +32,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   you might need to make the heap even larger or choose the right number of threads with `org.gradle.parallel.threads`.
 
 * **Build only the binaries you need**. Don't run Gradle tasks that build the whole project, such as `build` or `assemble`,
-  unless you really need to. These tasks build the same code multiple times, increasing the compilation time. In typical
+  unless you really need to. These tasks build the same code more than once, increasing the compilation times. In typical
   cases such as running tests from IntelliJ IDEA or starting the app from Xcode, the Kotlin tooling avoids executing unnecessary
   tasks. 
   
@@ -62,7 +62,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
 
 * **Use the compiler caches**. Starting from 1.5.0-M1, `linuxX64` and `iosArm64` targets have experimental opt-in support
-  for compiler caches. They improve compilation time for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
+  for compiler caches. They improve compilation times for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
   To enable the compiler caches, add `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
 
   `iosX64` and `macosX64` targets already have the compiler caches enabled by default.
