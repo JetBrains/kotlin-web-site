@@ -728,7 +728,7 @@ The `kotlin-test` library now has the following features:
 
 Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
 * `kotlinx.coroutines` [1.5.0-RC](#coroutines-1-5-0-rc)
-* `kotlinx.serialization` [1.2.0](#serialization-1-2-0)
+* `kotlinx.serialization` [1.2.1](#serialization-1-2-1)
 * `kotlinx-datetime` [0.2.0](#datetime-0-2-0)
 
 ### Coroutines 1.5.0-RC
@@ -746,18 +746,18 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 
 <video href="EVLnWOcR0is" title="kotlinx.coroutines 1.5.0"/>
 
-### Serialization 1.2.0
+### Serialization 1.2.1
 
-`kotlinx.serialization` [1.2.0](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0) is here with:
+`kotlinx.serialization` [1.2.1](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1) is here with:
 * Improvements to JSON serialization performance
 * Support for multiple names in JSON serialization
 * Experimental .proto schema generation from `@Serializable` classes
 * And more
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.0) and the
-[`kotlinx.serialization` 1.2.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlinx-serialization-1-2-released/).
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1) and the
+[`kotlinx.serialization` 1.2.1 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlinx-serialization-1-2-released/).
 
-<video href="698I_AH8h6s" title="kotlinx.serialization 1.2.0"/>
+<video href="698I_AH8h6s" title="kotlinx.serialization 1.2.1"/>
 
 ### dateTime 0.2.0
 
