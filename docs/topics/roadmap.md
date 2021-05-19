@@ -169,7 +169,6 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
             <ul>
                 <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin.</li>
                 <li>⏸ Quality of less frequently used features, except blocking problems.</li>
-                <li>⏸ Support for VSCode or other IDEs. Community initiatives in this respect are welcome. </li>
             </ul>
         </td>
     </tr>
