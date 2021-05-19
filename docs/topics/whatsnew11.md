@@ -120,7 +120,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See the [documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
+See the [type aliases documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
 ### Bound callable references
 
@@ -171,7 +171,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Read the [documentation](sealed-classes.md) or KEEPs for
+Read the [sealed classes documentation](sealed-classes.md) or KEEPs for
 [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) for more detail.
 
@@ -196,7 +196,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Read the [documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
+Read the [destructuring declarations documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
 ### Underscores for unused parameters
 
@@ -290,7 +290,7 @@ fun main(args: Array<String>) {
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
-Read the [documentation](inline-functions.md#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
+Read the [inline functions documentation](inline-functions.md#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 ### Local delegated properties
 
@@ -348,7 +348,7 @@ class MyUI {
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
-Read the [documentation](delegated-properties.md) for more details.
+Read the [delegated properties documentation](delegated-properties.md) for more details.
 
 ### Generic enum value access
 
@@ -391,7 +391,7 @@ In Kotlin 1.1, you can restrict that, so that only methods defined on the implic
 will be available inside the lambda passed to `td`. You do that by defining your annotation marked with the `@DslMarker` meta-annotation
 and applying it to the base class of the tag classes.
 
-Read the [documentation](type-safe-builders.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
+Read the [type safe builders documentation](type-safe-builders.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
 
 ### rem operator
 

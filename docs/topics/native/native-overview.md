@@ -20,7 +20,7 @@ Kotlin/Native supports the following platforms:
    * Windows (MinGW)
    * Android NDK
 
-The full list of supported targets is available [here](mpp-supported-platforms.md).
+[The full list of supported targets is available here](mpp-supported-platforms.md).
 
 
 ## Interoperability

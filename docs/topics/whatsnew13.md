@@ -29,7 +29,7 @@ The key differences to the old model are:
   (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
   * [Publishing multiplatform libraries](mpp-publish-lib.md) is now supported.
 
-For more information, please refer to the [Multiplatform Programming documentation](multiplatform.md).
+For more information, please refer to the [multiplatform programming documentation](multiplatform.md).
 
 ## Contracts
 
@@ -146,7 +146,7 @@ fun Request.getBody() =
 ```
 
 While it was already possible to extract this variable just before `when` , `val` in `when` has its scope properly restricted
-to the body of `when`, and so preventing namespace pollution. See the full documentation on `when` [here](control-flow.md#when-expression).
+to the body of `when`, and so preventing namespace pollution. [See the full documentation on `when` here](control-flow.md#when-expression).
 
 ## @JvmStatic and @JvmField in companions of interfaces
 

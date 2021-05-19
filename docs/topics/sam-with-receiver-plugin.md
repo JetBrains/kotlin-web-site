@@ -2,7 +2,7 @@
 
 The *sam-with-receiver* compiler plugin makes the first parameter of the annotated Java "single abstract method" (SAM)
 interface method a receiver in Kotlin. This conversion only works when the SAM interface is passed as a Kotlin lambda,
-both for SAM adapters and SAM constructors (see the [documentation](java-interop.md#sam-conversions) for more details).
+both for SAM adapters and SAM constructors (see the [SAM conversions documentation](java-interop.md#sam-conversions) for more details).
 
 Here is an example:
 

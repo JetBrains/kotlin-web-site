@@ -97,7 +97,7 @@ By generating TypeScript declaration files (d.ts) from Kotlin code, the new comp
 applications that mix TypeScript and Kotlin code, and leverage code-sharing functionality using Kotlin Multiplatform.
 
 To learn more about the available features in the new Kotlin/JS IR compiler and how to try it for your project, visit the
-[documentation](js-ir-compiler.md).
+[Kotlin/JS IR compiler documentation](js-ir-compiler.md).
 
 ## Join the Kotlin/JS community
 
