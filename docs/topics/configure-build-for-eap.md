@@ -6,7 +6,7 @@ You only need to configure your build manually for existing projects — project
 
 To configure your build to use the EAP version of Kotlin, you need to: 
 
-* Specify the EAP version of Kotlin. Available EAP versions are listed [here](eap.md#build-details).
+* Specify the EAP version of Kotlin. [Available EAP versions are listed here](eap.md#build-details).
 * Change the versions of dependencies to EAP ones.
 The EAP version of Kotlin may not work with the libraries of the previously released version. 
 
@@ -25,7 +25,7 @@ This section describes how you can:
 ### Adjust the Kotlin version
 
 In the `plugins` block within `build.gradle(.kts)`, change the `KOTLIN-EAP-VERSION` to the actual EAP version,
-such as `%kotlinEapVersion%`. Available EAP versions are listed [here](eap.md#build-details).
+such as `%kotlinEapVersion%`. [Available EAP versions are listed here](eap.md#build-details).
 
 Alternatively, you can specify the EAP version in the `pluginManagement` block in `settings.gradle(.kts)` – see [Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html#sec:plugin_version_management) for details.
 
@@ -93,7 +93,7 @@ dependencies {
 ## Configure in Maven
 
 In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the actual version, such as `%kotlinEapVersion%`.
-Available EAP versions are listed [here](eap.md#build-details).
+[Available EAP versions are listed here](eap.md#build-details).
 
 ```xml
 <project ...>

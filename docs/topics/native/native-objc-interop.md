@@ -8,12 +8,12 @@ Swift/Objective-C.
 Kotlin/Native provides bidirectional interoperability with Objective-C.
 Objective-C frameworks and libraries can be used in Kotlin code if
 properly imported to the build (system frameworks are imported by default).
-See [here](mpp-configure-compilations.md#configure-interop-with-native-languages) for more details.
+See [compilation configurations](mpp-configure-compilations.md#configure-interop-with-native-languages) for more details.
 A Swift library can be used in Kotlin code if its API is exported to Objective-C
 with `@objc`. Pure Swift modules are not yet supported.
 
 Kotlin modules can be used in Swift/Objective-C code if compiled into a
-framework (see [here](mpp-build-native-binaries.md#declare-binaries)).
+framework ([see here for how to declare binaries](mpp-build-native-binaries.md#declare-binaries)).
 See [calculator sample](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/calculator) for an example.
 
 ## Mappings

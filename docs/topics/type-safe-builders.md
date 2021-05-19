@@ -47,7 +47,7 @@ fun result() =
 ```
 
 This is completely legitimate Kotlin code.
-You can play with this code online (modify it and run in the browser) [here](https://play.kotlinlang.org/byExample/09_Kotlin_JS/06_HtmlBuilder).
+You can [play with this code online (modify it and run in the browser) here](https://play.kotlinlang.org/byExample/09_Kotlin_JS/06_HtmlBuilder).
 
 ## How it works
 
