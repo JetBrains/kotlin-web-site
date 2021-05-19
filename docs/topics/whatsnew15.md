@@ -461,9 +461,9 @@ duration amounts in different time units. In 1.5.0, the Duration API has receive
 
 * Internal value representation now uses `Long` instead of `Double` to provide better precision.
 * There is a new API for conversion to a particular time unit in `Long`. It comes to replace the old API, which operates
-  with `Double` values and is now deprecated. For example, `Duration.inWholeMinutes` <!--(TODO link)--> returns the value of the duration
+  with `Double` values and is now deprecated. For example, [`Duration.inWholeMinutes`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/in-whole-minutes.html) returns the value of the duration
   expressed as `Long` and replaces `Duration.inMinutes`.
-* There are new companion functions for constructing a `Duration` from a number. For example, `Duration.seconds(Int)`<!-- (TODO link-->)
+* There are new companion functions for constructing a `Duration` from a number. For example, [`Duration.seconds(Int)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/seconds.html)
   creates a `Duration` object representing an integer number of seconds. Old extension properties like `Int.seconds` are now deprecated.
 
 ```kotlin
@@ -531,7 +531,8 @@ a char's general category according to Unicode, are now also available in multip
 
 ### New collections function firstNotNullOf()
 
-The new `firstNotNullOf()`<!--(TODO link)--> and `firstNotNullOfOrNull()`<!--(TODO link) --> functions combine [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html)
+The new [`firstNotNullOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of.html) and [`firstNotNullOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of-or-null.html)
+functions combine [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html)
 with [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) or [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html).
 They map the original collection with the custom selector function and return the first non-null value. If there is no such value,
 `firstNotNullOf()` throws an exception, and `firstNotNullOfOrNull()` returns null.
@@ -550,8 +551,8 @@ fun main() {
 ### Strict version of String?.toBoolean()
 
 Two new functions introduce case-sensitive strict versions of the existing [String?.toBoolean()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean.html):
-* `String.toBooleanStrict()`<!--(TODO link)-->  throws an exception for all inputs except the literals `true` and `false`.
-* `String.toBooleanStrictOrNull()`<!--(TODO link)-->  returns null for all inputs except the literals `true` and `false`.
+* [`String.toBooleanStrict()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean-strict.html) throws an exception for all inputs except the literals `true` and `false`.
+* [`String.toBooleanStrictOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean-strict-or-null.html) returns null for all inputs except the literals `true` and `false`.
 
 ```kotlin
 fun main() {
@@ -740,10 +741,10 @@ Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
 Starting with Kotlin 1.5.0, [experimental coroutines](whatsnew14.md#exclusion-of-the-deprecated-experimental-coroutines)
 are disabled and the `-Xcoroutines=experimental` flag is no longer supported.
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC).
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC) and the
+[`kotlinx.coroutines` 1.5.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlin-coroutines-1-5-0-released/).
 
-<!-- [VIDEO – TO ADD] -->
-<!-- [BLOG POST – TO ADD] -->
+<video href="EVLnWOcR0is" title="kotlinx.coroutines 1.5.0"/>
 
 ### Serialization 1.2.0
 
