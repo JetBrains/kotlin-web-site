@@ -740,10 +740,10 @@ Along with Kotlin 1.5.0, we are releasing new versions of the kotlinx libraries:
 Starting with Kotlin 1.5.0, [experimental coroutines](whatsnew14.md#exclusion-of-the-deprecated-experimental-coroutines)
 are disabled and the `-Xcoroutines=experimental` flag is no longer supported.
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC).
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC) and the
+[`kotlinx.coroutines` 1.5.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlin-coroutines-1-5-0-released/).
 
-<!-- [VIDEO – TO ADD] -->
-<!-- [BLOG POST – TO ADD] -->
+<video href="EVLnWOcR0is" title="kotlinx.coroutines 1.5.0"/>
 
 ### Serialization 1.2.0
 
