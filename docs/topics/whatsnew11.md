@@ -57,7 +57,6 @@ and resumed when the next element is requested. Here's an example:
 import kotlin.coroutines.experimental.*
 
 fun main(args: Array<String>) {
-//sampleStart
     val seq = buildSequence {
       for (i in 1..5) {
           // yield a square of i
@@ -68,11 +67,9 @@ fun main(args: Array<String>) {
     }
 
     // print the sequence
-  println(seq.toList())
-//sampleEnd
+    println(seq.toList())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 Run the code above to see the result. Feel free to edit it and run again!
 
