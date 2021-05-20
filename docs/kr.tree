@@ -125,6 +125,7 @@
             <toc-element id="java-to-kotlin-interop.md"/>
             <toc-element id="mixing-java-kotlin-intellij.md"/>
             <toc-element id="comparison-to-java.md"/>
+            <toc-element id="java-to-kotlin-idioms-strings.md"/>
         </toc-element>
         <toc-element toc-title="JavaScript">
 
