@@ -51,7 +51,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">🆕 Release OptIn annotations</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45395" target="_blank">🆕 Support programmatic creation of annotation class instances</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45396" target="_blank">🆕 Stabilize typeOf</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-45616" target="_blank">🆕 Stabilize builder inference</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-45618" target="_blank">🆕 Stabilize builder inference</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12794" target="_blank">🆕 Allow repeating annotations with runtime retention when compiling under Java 8</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-43714" target="_blank">🆕 Support annotations on class type parameters</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-40804" target="_blank">🆕 Improve type inference in corner cases for popular Java APIs</a></li>
