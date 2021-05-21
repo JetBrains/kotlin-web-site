@@ -22,7 +22,7 @@ project, pass a compiler type to the `js` function in your Gradle build script:
 
 ```groovy
 kotlin {
-    js(IR) { // or: LEGACY, BOTH
+    js(IR) { // or: LEGACY
         // . . .
     }
     binaries.executable()
