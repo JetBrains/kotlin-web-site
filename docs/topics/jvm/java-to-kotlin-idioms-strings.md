@@ -1,4 +1,4 @@
-[//]: # (title: Java to Kotlin idioms. Part 1, Strings)
+[//]: # (title: Strings idioms)
 
 _Idiom_ is a recurring construct that provides a common approach for solving a task. In contrast to design patterns, idioms are often specific to a programming language.
 
@@ -7,9 +7,13 @@ In this guide you’ll find examples of how to do the same things with strings i
 ## String concatenation vs string interpolation
 ```java
 //Java
-String name = "Joe";
-System.out.println("Hello, " + name);
-System.out.println("Your name is " + name.length() + " characters long");
+public void main() {
+//sampleStart
+        String name="Joe";
+        System.out.println("Hello, "+name);
+        System.out.println("Your name is "+name.length()+" characters long");
+//sampleEnd
+}
 ```
 
 In Kotlin, you don’t need to use string concatenation. Just use the dollar sign $ before the variable name to [interpolate](https://kotlinlang.org/docs/idioms.html#string-interpolation) your sting:
@@ -24,6 +28,7 @@ fun main() {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
 
@@ -105,8 +110,8 @@ System.out.println(sb);
 
 ## Make a string from collection items
 
-//Java
 ```java
+//Java
 List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
 String oddNumbers = numbers.stream().filter(it -> it % 2 != 0).map(Object::toString).collect(Collectors.joining(", "));
 System.out.println(oddNumbers);
@@ -242,7 +247,7 @@ System.out.println(s);
 
 Output:
 
-![Java 15 multiline output](java-15-multiline-output.png)
+![Java 15 multiline output](java-15-multiline-output.png){width=500}
 
 If you put the triple-quote on the same line as the last word, this problem will disappear.
 
@@ -262,6 +267,6 @@ fun main() {
 
 Output:
 
-![Kotlin multiline output](kotlin-multiline-output.png)
+![Kotlin multiline output](kotlin-multiline-output.png){width=500}
 
 
