@@ -135,16 +135,19 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+All nullable references to `a` are actually the same object because of the memory optimization that JVM applies to `Integer`s
+between `-128` and `127`. It doesn't apply to the `b` references, so they are different objects.
+
 On the other hand, they are still equal:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val a: Int = 10000
-    println(a == a) // Prints 'true'
-    val boxedA: Int? = a
-    val anotherBoxedA: Int? = a
-    println(boxedA == anotherBoxedA) // Prints 'true'
+    val b: Int = 10000
+    println(b == b) // Prints 'true'
+    val boxedB: Int? = b
+    val anotherBoxedB: Int? = b
+    println(boxedB == anotherBoxedB) // Prints 'true'
 //sampleEnd
 }
 ```
