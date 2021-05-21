@@ -22,8 +22,8 @@ scenarios in which you can use Kotlin/JS.
     JavaScript frameworks. `kotlin-wrappers` also provides support for a select number of adjacent technologies like
     `react-redux`, `react-router`, or `styled-components`. Interoperability with the JavaScript ecosystem also means that
     you can also use third-party React components and component libraries.
-    * Use **community-maintained Kotlin/JS frameworks** that take full advantage of Kotlin concepts, its expressive power
-    and conciseness – like [KVision](https://kvision.io/) or [fritz2](https://www.fritz2.dev/). 
+    * Use the **[Kotlin/JS frameworks](#kotlin-js-frameworks)** that take full advantage of Kotlin concepts, its expressive power
+    and conciseness. 
 
 * **Write server-side and serverless applications using Kotlin/JS**
     * The Node.js target provided by Kotlin/JS enables you to create applications that **run on a server** or get
@@ -58,6 +58,61 @@ at the expense of type safety.
 
 Kotlin/JS is also compatible with the most common module systems: UMD, CommonJS, and AMD. Being able to [produce and consume modules](js-modules.md)
 means that you can interact with the JavaScript ecosystem in a structured manner.
+
+## Kotlin/JS frameworks
+
+Modern web development benefits significantly from frameworks that simplify building web applications.
+Here are examples of popular web frameworks for Kotlin/JS written by different authors:
+
+### KVision
+
+_KVision_ is an object-oriented web framework that makes it possible to write applications in Kotlin/JS without having to
+write HTML or CSS. Instead, it provides ready-to-use components that can be used as building blocks for your application’s
+user interface. You can use both reactive and imperative programming models to build your frontend, use connectors for Ktor,
+Spring Boot, and other frameworks to integrate it with your server-side applications, and share code using Kotlin Multiplatform.
+
+Visit [https://kvision.io](https://kvision.io) for documentation, tutorials, and examples.
+
+For updates and discussions about the framework, join [#kvision](https://kotlinlang.slack.com/messages/kvision) and
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+
+### fritz2
+
+_fritz2_ is a standalone framework for building reactive web user interfaces. It provides its own type-safe DSL for building
+and rendering HTML elements, and it makes use of Kotlin’s coroutines and flows to express components and their data bindings.
+It provides state management, validation, routing, and more out of the box, and integrates with Kotlin Multiplatform projects.
+
+Visit [https://www.fritz2.dev](https://www.fritz2.dev) for documentation, tutorials, and examples.
+
+Join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
+channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)to stay up to date with the latest
+news about this framework.
+
+### Doodle
+
+_Doodle_ is a vector-based UI framework for Kotlin/JS. Apps built using it do not rely on DOM, CSS, or Javascript. Instead,
+they use the browser’s graphics capabilities to draw user interfaces, giving you precise control over the rendering of
+arbitrary UI elements, vector shapes, gradients, and custom visualizations.
+
+Visit [https://nacular.github.io/doodle/](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
+
+Join [#doodle](https://kotlinlang.slack.com/messages/doodle) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
+channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) for updates and discussions about
+this framework.
+
+### Compose for Web
+
+_Compose for Web_ brings [Google’s Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose) to your browser.
+It allows you to build reactive web user interfaces using the concepts introduced by Jetpack Compose. It provides a DOM API
+to describe your website, as well as an experimental set of multiplatform layout primitives. Compose for Web also gives
+you the option to share parts of your UI code and logic across Android, desktop, and web.
+
+Compose for Web is in _Technology Preview_, which means it is ready for experiments but not yet ready for production use.
+
+You can find more information about Compose for Web on its [landing page](https://jb.gg/compose-web).
+
+Join the [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channel on [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
+to discuss Compose for Web, or [#compose](https://kotlinlang.slack.com/archives/CJLTWPH7S) for general Compose discussions.
 
 ## Kotlin/JS, Today and Tomorrow
 
