@@ -91,7 +91,8 @@ in the Kotlin Gradle DSL).
 
     </tabs>
 
-Now you're ready to use the serialization API in your code.
+Now you're ready to use the serialization API in your code. The API is located in the the `kotlinx.serialization` package
+and its format-specific subpackages such as `kotlinx.serialization.json`.
 
 First, make a class serializable by annotating it with `@Serializable`.
 
@@ -102,7 +103,7 @@ data class Data(val a: Int, val b: String)
 
 You can now serialize an instance of this class by calling `Json.encodeToString()`.
 
-```kotlin
+```kotlin 
 Json.encodeToString(Data(42, "str"))
 ```
 
