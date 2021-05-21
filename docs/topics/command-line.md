@@ -13,15 +13,9 @@ The `bin` directory contains the scripts needed to compile and run Kotlin on Win
 ### SDKMAN!
 
 An easier way to install Kotlin on UNIX-based systems such as OS X, Linux, Cygwin, FreeBSD, and Solaris is
-[SDKMAN!](http://sdkman.io). It also works in Bash and ZSH shells.
+[SDKMAN!](http://sdkman.io). It also works in Bash and ZSH shells. [Learn how to install SDKMAN!](https://sdkman.io/install).
 
-To install SDKMAN!, run the following command in a terminal and follow any instructions:
-
-```bash
-$ curl -s https://get.sdkman.io | bash
-```
-
-Next, open a new terminal and install Kotlin with:
+To install the Kotlin compiler via SDKMAN!, run the following command in a terminal:
 
 ```bash
 $ sdk install kotlin
