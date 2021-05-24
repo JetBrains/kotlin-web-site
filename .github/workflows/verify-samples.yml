@@ -15,7 +15,7 @@ jobs:
           java-version: '15'
           distribution: 'adopt'
       - name: Run a verifier
-        uses: vmishenev/kotlin-samples-pusher
+        uses: AlexanderPrendota/kotlin-samples-pusher
         with:
           push-repository: 'https://github.com/AlexanderPrendota/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
