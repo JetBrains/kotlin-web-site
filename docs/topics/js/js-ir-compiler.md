@@ -122,6 +122,7 @@ kotlin {
     js(BOTH) {
         // ...
     }
+    binaries.library()
 }
 ```
 
