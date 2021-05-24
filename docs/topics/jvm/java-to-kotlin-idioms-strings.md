@@ -8,13 +8,24 @@ In this guide you’ll find examples of how to do the same things with strings i
 ```java
 //Java
 public void main() {
-//sampleStart
         String name="Joe";
-        System.out.println("Hello, "+name);
-        System.out.println("Your name is "+name.length()+" characters long");
-//sampleEnd
+        System.out.println("Hello, " + name);
+        System.out.println("Your name is " + name.length() + " characters long");
 }
 ```
+
+<tr>
+<code style="block" lang="Java"
+initial-collapse-state="collapsed" collapsed-title-line-number="4">
+<![CDATA[
+public void main() {
+        String name="Joe";
+        System.out.println("Hello, " + name);
+        System.out.println("Your name is " + name.length() + " characters long");
+}
+]]>
+</code>
+</tr>
 
 In Kotlin, you don’t need to use string concatenation. Just use the dollar sign $ before the variable name to [interpolate](https://kotlinlang.org/docs/idioms.html#string-interpolation) your sting:
 
