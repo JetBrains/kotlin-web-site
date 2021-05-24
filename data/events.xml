@@ -2288,7 +2288,7 @@ As a library author, maintaining a clean API is a challenge. There is always the
         <url>https://www.online.droidcon.com/agenda-dcamericas</url>
         <description>
             <![CDATA[
-<p>Many Android developers are working in Kotlin nowadays. On Android, your Kotlin source code gets compiled to Java byte code, and eventually to Dalvik bytecode. How is the result different compared to starting from Java source code then? Is it compatible? Can it be as compact? Is it as secure?</p>
+<p>Many Android developers are working in Kotlin nowadays. On Android, your Kotlin source code gets compiled to Java bytecode, and eventually to Dalvik bytecode. How is the result different compared to starting from Java source code then? Is it compatible? Can it be as compact? Is it as secure?</p>
 <p>We'll look at the differences. We've extended our open source code optimizer ProGuard and our protection software DexGuard to fully support Kotlin. We'll now share our experiences and point out what can be important in your apps and in your libraries. We'll demonstrate a new open source tool to view the
 Kotlin metadata hiding inside your apps. We'll show how to optimize and obfuscate Kotlin libraries in such a way that they remain compatible in other Kotlin projects.</p>
 <p>Armed with this knowledge, you'll better understand your own Kotlin projects and you can tune them to create more compact and more secure software.</p>
@@ -3156,7 +3156,7 @@ Because Kotlin is so easy to learn and so enjoyable, that you'll never look back
         <url>https://www.online.droidcon.com/emea-agenda</url>
         <description>
             <![CDATA[
-<p>Many Android developers are working in Kotlin nowadays. On Android, your Kotlin source code gets compiled to Java byte code, and eventually to Dalvik bytecode. How is the result different compared to starting from Java source code then? Is it compatible? Can it be as compact? Is it as secure?</p>
+<p>Many Android developers are working in Kotlin nowadays. On Android, your Kotlin source code gets compiled to Java bytecode, and eventually to Dalvik bytecode. How is the result different compared to starting from Java source code then? Is it compatible? Can it be as compact? Is it as secure?</p>
 <p>We'll look at the differences. We've extended our open source code optimizer ProGuard and our protection software DexGuard to fully support Kotlin. We'll now share our experiences and point out what can be important in your apps and in your libraries. We'll demonstrate our new open source tool to view the
 Kotlin metadata hiding inside your apps. We'll show how to optimize and obfuscate Kotlin libraries in such a way that they remain compatible in other Kotlin projects.</p>
 <p>Armed with this knowledge, you'll better understand your own Kotlin projects and you can tune them to create more compact and more secure software.</p>

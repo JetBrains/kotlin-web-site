@@ -496,7 +496,7 @@ val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
 ```
 
-When compiling to the JVM byte code, the compiler optimizes access to arrays so that there's no overhead introduced:
+When compiling to the JVM bytecode, the compiler optimizes access to arrays so that there's no overhead introduced:
 
 ```kotlin
 val array = arrayOf(1, 2, 3, 4)
