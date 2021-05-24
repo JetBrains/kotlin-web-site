@@ -23,9 +23,9 @@ project, pass a compiler type to the `js` function in your Gradle build script:
 ```groovy
 kotlin {
     js(IR) { // or: LEGACY, BOTH
-        // . . .
+        // ...
     }
-    binaries.executable()
+    // ...
 }
 ```
 
@@ -120,7 +120,7 @@ or can be set as one of the project-specific options inside your `js` block insi
 ```groovy
 kotlin {
     js(BOTH) {
-        // . . .
+        // ...
     }
 }
 ```
