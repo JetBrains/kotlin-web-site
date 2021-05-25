@@ -68,7 +68,7 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
         <td><strong>Compiler core</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">🆕 Release the new JVM compiler frontend in Alpha</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">🆕 Release the new compiler frontend in Alpha for JVM target</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank">🆕 Finalize support for jspecify</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler (bug-fixing only)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44318" target="_blank">Work on services for the new compiler to interact with IDE</a></li>
@@ -280,7 +280,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Allow repeating annotations with runtime retention when compiling under Java 8](https://youtrack.jetbrains.com/issue/KT-12794)
 * 🆕 Language: [Support annotations on class type parameters](https://youtrack.jetbrains.com/issue/KT-43714)
 * 🆕 Language: [Improve type inference in corner cases for popular Java APIs](https://youtrack.jetbrains.com/issue/KT-40804)
-* 🆕 Compiler core: [Release the new JVM compiler frontend in Alpha](https://youtrack.jetbrains.com/issue/KT-46756)
+* 🆕 Compiler core: [Release the new compiler frontend in Alpha for JVM target](https://youtrack.jetbrains.com/issue/KT-46756)
 * 🆕 Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/KT-46762)
 * 🆕 Kotlin/JVM: [Maintain the new JVM IR backend](https://youtrack.jetbrains.com/issue/KT-46767)
 * 🆕 Kotlin/JVM: [Improve new JVM IR backend compilation time](https://youtrack.jetbrains.com/issue/KT-46768)
