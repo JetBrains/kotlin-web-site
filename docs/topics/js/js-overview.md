@@ -66,10 +66,10 @@ Here are examples of popular web frameworks for Kotlin/JS written by different a
 
 ### KVision
 
-_KVision_ is an object-oriented web framework that makes it possible to write applications in Kotlin/JS without having to
-write HTML or CSS. Instead, it provides ready-to-use components that can be used as building blocks for your application’s
-user interface. You can use both reactive and imperative programming models to build your frontend, use connectors for Ktor,
-Spring Boot, and other frameworks to integrate it with your server-side applications, and share code using Kotlin Multiplatform.
+_KVision_ is an object-oriented web framework that makes it possible to write applications in Kotlin/JS with ready-to-use components
+that can be used as building blocks for your application’s user interface. You can use both reactive and imperative programming
+models to build your frontend, use connectors for Ktor, Spring Boot, and other frameworks to integrate it with your server-side
+applications, and share code using [Kotlin Multiplatform](multiplatform.md).
 
 Visit [https://kvision.io](https://kvision.io) for documentation, tutorials, and examples.
 
@@ -84,21 +84,19 @@ It provides state management, validation, routing, and more out of the box, and 
 
 Visit [https://www.fritz2.dev](https://www.fritz2.dev) for documentation, tutorials, and examples.
 
-Join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
-channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)to stay up to date with the latest
-news about this framework.
+For updates and discussions about the framework, join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ### Doodle
 
-_Doodle_ is a vector-based UI framework for Kotlin/JS. Apps built using it do not rely on DOM, CSS, or Javascript. Instead,
-they use the browser’s graphics capabilities to draw user interfaces, giving you precise control over the rendering of
-arbitrary UI elements, vector shapes, gradients, and custom visualizations.
+_Doodle_ is a vector-based UI framework for Kotlin/JS. Doodle applications use the browser’s graphics capabilities to draw
+user interfaces instead of relying on DOM, CSS, or Javascript. By using this approach, Doodle gives you precise control
+over the rendering of arbitrary UI elements, vector shapes, gradients, and custom visualizations.
 
 Visit [https://nacular.github.io/doodle/](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
 
-Join [#doodle](https://kotlinlang.slack.com/messages/doodle) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69)
-channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) for updates and discussions about
-this framework.
+For updates and discussions about the framework, join [#doodle](https://kotlinlang.slack.com/messages/doodle) and
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ### Compose for Web
 
