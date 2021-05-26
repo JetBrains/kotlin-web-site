@@ -205,7 +205,8 @@ fun main() {
     ::y.set(2)
     println(y)
 }
-```       
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 A property reference can be used where a function with a single generic parameter is expected:
 
