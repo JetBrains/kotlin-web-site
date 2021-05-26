@@ -25,13 +25,13 @@ kotlin {
     js(IR) { // or: LEGACY, BOTH
         // ...
     }
-    // ...
+    binaries.executable() // not applicable to BOTH, see details below
 }
 ```
 
 - `IR` uses the new IR compiler backend for Kotlin/JS.
 - `LEGACY` uses the default compiler backend.
-- `BOTH` compiles your project with the new IR compiler as well as the default compiler backend. This is mainly useful for authoring libraries that are compatible with both backends, see [below](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility).
+- `BOTH` compiles your project with the new IR compiler as well as the default compiler backend. Use this mode for [authoring libraries compatible with both backends](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility).
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
@@ -122,7 +122,6 @@ kotlin {
     js(BOTH) {
         // ...
     }
-    binaries.library()
 }
 ```
 
