@@ -87,6 +87,11 @@ properties, add the `-Xir-property-lazy-initialization` compiler option when com
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
+> The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D).
+>
+{type="warning"}
+
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be
 used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and
 make it easier to include Kotlin code in JavaScript and TypeScript projects.
@@ -96,10 +101,6 @@ executable files (`binaries.executable()`) will get a `.d.ts` file generated, wh
 for the exported Kotlin declarations.
 In Kotlin 1.4, these declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding,
 un-webpacked JavaScript code.
-
-The generation of TypeScript declaration files is a feature exclusive to the IR compiler, and is in active development.
-If you run into any problems, please submit them to the Kotlin [issue tracker](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D)
-or vote for submitted issues that impact you.
 
 ## Current limitations of the IR compiler
 
