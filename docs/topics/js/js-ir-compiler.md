@@ -38,9 +38,8 @@ This behaviour is overwritten by any settings in the `build.gradle(.kts)`, howev
 
 ## Ignoring compilation errors
 
->_Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed
-> at any time. Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback 
-> on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>_Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT.
 >
 {type="warning"}
 
@@ -72,26 +71,19 @@ kotlin {
 }
 ```
 
-## Current limitations of the IR compiler
+## Lazy initialization of top-level properties
 
-A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend.
-A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler
-backend can’t be used from the default backend, and vice versa.
+> Lazy initialization of top-level properties is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-44320).
+>
+{type="warning"}
 
-If you want to use the IR compiler backend for your project, you need to **update all Kotlin dependencies to versions
-that support this new backend**. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all
-artifacts required for usage with the new IR compiler backend.
+For better application startup performance, the Kotlin/JS IR compiler offers an option to initialize top-level properties
+lazily. This way, the application loads without initializing all the top-level properties used in its code. It initializes
+only the ones needed at startup; other properties get initialized later when the code that uses them is executed. 
 
-**If you are a library author** looking to provide compatibility with the current compiler backend as well as the new IR
-compiler backend, additionally check out the [“Authoring libraries for the IR compiler”](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility)
-section.
-
-The IR compiler backend also has some discrepancies in comparison to the default backend. When trying out the new backend,
-it's good to be mindful of these possible pitfalls.
-
-- Currently, the IR backend **does not generate source maps for Kotlin code**. You can follow the progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-39447).
-- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
-- The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
+We're still working on this feature, so it's experimental and requires an opt-in. To use the lazy initialization of top-level
+properties, add the `-Xir-property-lazy-initialization` compiler option when compiling the code with the JS IR compiler.
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
@@ -107,7 +99,28 @@ un-webpacked JavaScript code.
 
 The generation of TypeScript declaration files is a feature exclusive to the IR compiler, and is in active development.
 If you run into any problems, please submit them to the Kotlin [issue tracker](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D)
-or vote for submitted issues that impact you. 
+or vote for submitted issues that impact you.
+
+## Current limitations of the IR compiler
+
+A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend.
+A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler
+backend can’t be used from the default backend, and vice versa.
+
+If you want to use the IR compiler backend for your project, you need to **update all Kotlin dependencies to versions
+that support this new backend**. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all
+artifacts required for usage with the new IR compiler backend.
+
+**If you are a library author** looking to provide compatibility with the current compiler backend as well as the new IR
+compiler backend, additionally check out the [section about authoring libraries for the IR compiler](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility)
+section.
+
+The IR compiler backend also has some discrepancies in comparison to the default backend. When trying out the new backend,
+it's good to be mindful of these possible pitfalls.
+
+- Currently, the IR backend **does not generate source maps for Kotlin code**. You can follow the progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-39447).
+- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
+- The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
 
 ## Authoring libraries for the IR compiler with backwards compatibility
 
