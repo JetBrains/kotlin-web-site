@@ -306,7 +306,7 @@ To make adjustments to the configuration used by Karma, place your additional co
 called `karma.config.d` in the root of your project. All `.js` configuration files in this directory will be picked up
 and are automatically merged into the generated `karma.conf.js` at build time.
 
-All karma configuration abilities are well described in Karma's [documentation](http://karma-runner.github.io/5.0/config/configuration-file.html).
+All karma configuration abilities are well described in Karma's [documentation](https://karma-runner.github.io/5.0/config/configuration-file.html).
 
 ## webpack bundling
 

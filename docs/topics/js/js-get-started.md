@@ -2,7 +2,7 @@
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a frontend application with Kotlin/JS for React.
 
-To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
 ## Create an application 
 

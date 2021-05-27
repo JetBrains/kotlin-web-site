@@ -4,7 +4,7 @@ This tutorial will show you how to write a simple unit test and run it with the 
 
 The example in the tutorial has the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
 
-To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
 ## Add dependencies
 

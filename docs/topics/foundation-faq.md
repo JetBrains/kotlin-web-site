@@ -10,7 +10,7 @@ Kotlin is an open source project, and there are many ways you can contribute:
 
 ### How can I get more involved with the Kotlin community?
 
-There are many online and in-person Kotlin communities. Please visit the [Kotlin community page](http://kotlinlang.org/community/) to see a list of user groups, Kotlin nights and other ways that you can get involved!
+There are many online and in-person Kotlin communities. Please visit the [Kotlin community page](https://kotlinlang.org/community/) to see a list of user groups, Kotlin nights and other ways that you can get involved!
 
 ### How is the Kotlin Foundation governed?
 

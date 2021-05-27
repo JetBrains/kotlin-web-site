@@ -15,7 +15,7 @@ You will also test your code using common tests, and then publish the library to
 ## Set up the environment
 
 You can complete this tutorial on any operating system.
-Download and install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html) with the [latest Kotlin plugin](releases.md).
+Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html) with the [latest Kotlin plugin](releases.md).
 
 ## Create a project
 

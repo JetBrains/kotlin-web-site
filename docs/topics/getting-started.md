@@ -18,7 +18,7 @@ Pick it up to start building powerful applications!
 
 Here is how you can take the first steps in developing Kotlin server-side applications.
 
-1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
+1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
 
 2. **Create your first backend application:**
    
@@ -120,7 +120,7 @@ Kotlin provides an ability to transpile your Kotlin code, the Kotlin standard li
 
 Here you'll learn how to develop and improve your frontend web application using [Kotlin/JS](js-overview.md).
 
-1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
+1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
 
 2. **Create your first frontend web application:**
 
@@ -174,7 +174,7 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 Here you'll learn how to develop and publish a multiplatform library:
 
-1. **Install the [latest version of IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).**
+1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
 
 2. **Create a multiplaform library:**
 

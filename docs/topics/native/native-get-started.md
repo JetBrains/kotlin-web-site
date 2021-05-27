@@ -2,7 +2,7 @@
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Native application.
 
-To get started, install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
 
 ## Create a new Kotlin/Native project in IntelliJ IDEA
 

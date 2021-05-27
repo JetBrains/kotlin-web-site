@@ -51,7 +51,7 @@ represents the location and optionally other wordings. These entities should als
 
 **User groups and Kotlin meetups** 
 A valid name for a user group could be “San Diego Kotlin User Group” If you’re a user group or Kotlin meetup, please 
-use the [User Group assets provided](http://kotlinlang.org/user-groups/branding.html). 
+use the [User Group assets provided](https://kotlinlang.org/user-groups/branding.html). 
 
 **Events**
 If you’re organising a conference or educational event, you can use the word Kotlin to refer to the technology that the event covers. However, Kotlin cannot be contained in the brand name for your conference or educational event (such as KotlinConf or Kotlin Conference).  Instead, you should use your own brand name, but indicate that it is a conference for “Kotlin Language Users.”  Your conference or educational event title also should not cause any confusion or suggest any affiliation with or sponsorship by the Kotlin Foundation. Example of appropriate usages could be “XYZ Conference for Kotlin” with XYZ being your own brand name.  

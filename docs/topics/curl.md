@@ -168,7 +168,7 @@ int main(void)
  
   curl = curl_easy_init();
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
+    curl_easy_setopt(curl, CURLOPT_URL, "https://example.com");
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
  
     res = curl_easy_perform(curl);
@@ -190,7 +190,7 @@ import kotlinx.cinterop.*
 fun main(args: Array<String>) {
     val curl = curl_easy_init()
     if (curl != null) {
-        curl_easy_setopt(curl, CURLOPT_URL, "http://example.com")
+        curl_easy_setopt(curl, CURLOPT_URL, "https://example.com")
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L)
         val res = curl_easy_perform(curl)
         if (res != CURLE_OK) {
@@ -218,7 +218,7 @@ Call the following command:
  
 If there are no errors during compilation, you should see the result of the execution
 of the program, which on execution should output 
-the contents of the site `http://example.com`
+the contents of the site `https://example.com`
 
 ![Output](output.png){width=700}
 

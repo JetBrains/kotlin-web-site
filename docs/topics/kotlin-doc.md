@@ -109,7 +109,7 @@ API of a module but still have to be visible externally.
 
 ## Inline markup
 
-For inline markup, KDoc uses the regular [Markdown](http://daringfireball.net/projects/markdown/syntax) syntax, extended
+For inline markup, KDoc uses the regular [Markdown](https://daringfireball.net/projects/markdown/syntax) syntax, extended
 to support a shorthand syntax for linking to other elements in the code.
 
 ### Links to elements

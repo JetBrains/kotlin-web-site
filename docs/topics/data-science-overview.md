@@ -45,7 +45,7 @@ Here are some libraries that you may find useful:
   type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
   JVM and native computational engines, and a combination of the two for optimal performance.
 
-* [KotlinDL](http://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
+* [KotlinDL](https://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
   by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
   for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
 
@@ -60,7 +60,7 @@ naive bayes classifier, clustering, linear regression, and much more.
 
 * [kmath](https://github.com/mipt-npm/kmath) is a library inspired by [NumPy](https://numpy.org/).
 This library supports algebraic structures and operations, array-like structures, math expressions, histograms,
-streaming operations, a wrapper around [commons-math](http://commons.apache.org/proper/commons-math/) and
+streaming operations, a wrapper around [commons-math](https://commons.apache.org/proper/commons-math/) and
 [koma](https://github.com/kyonifer/koma), and more.
 
 * [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
@@ -82,17 +82,17 @@ Here are some examples of such libraries:
 
 * [DeepLearning4J](https://deeplearning4j.org/) - a deep learning library for Java
 
-* [ND4J](http://nd4j.org/) - an efficient matrix math library for JVM
+* [ND4J](https://github.com/deeplearning4j/nd4j) - an efficient matrix math library for JVM
 
 * [Dex](https://github.com/PatMartin/Dex) - a Java-based data visualization tool
 
 * [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing,
 linear algebra, graph, interpolation, and visualization system. Besides Java API, Smile also provides a functional
-[Kotlin API](http://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
+[Kotlin API](https://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
    * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) - a Kotlin rewrite of the Scala implicits for the natural
    language processing part of Smile in the format of extension functions and interfaces.
 
-* [Apache Commons Math](http://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning
+* [Apache Commons Math](https://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning
 library for Java
 
 * [OptaPlanner](https://www.optaplanner.org/) - a solver utility for optimization planning problems

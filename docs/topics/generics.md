@@ -26,7 +26,7 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<I
 One of the most tricky parts of Java's type system is wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
 And Kotlin doesn't have any. Instead, it has two other things: declaration-site variance and type projections.
 
-First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 31: _Use bounded wildcards to increase API flexibility_.
+First, let's think about why Java needs those mysterious wildcards. The problem is explained in [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 31: _Use bounded wildcards to increase API flexibility_.
 First, generic types in Java are _invariant_, meaning that `List<String>` is _not_ a subtype of `List<Object>`. 
 Why so? If `List` was not _invariant_, it would have been no 
 better than Java's arrays, since the following code would have compiled and caused an exception at runtime:
@@ -61,7 +61,7 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, you learned this lesson the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: _Prefer lists to arrays_)
+(In Java, you learned this lesson the hard way, see [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 28: _Prefer lists to arrays_)
 
 That's why the actual signature of `addAll()` is the following:
 
@@ -174,7 +174,7 @@ fun demo(x: Comparable<Number>) {
 The words _in_ and _out_ seem to be self-explaining (as they were successfully used in C# for quite some time already), 
 thus the mnemonic mentioned above is not really needed, and one can rephrase it for a higher purpose:
 
-**[The Existential](http://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
+**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
 
 ## Type projections
 
