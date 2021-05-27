@@ -2,6 +2,42 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-06-24</startDate>
+        <endDate>2021-06-24</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Laksitha Ranasingha</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>A fresh look at Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/278385095</url>
+        <description>
+            <![CDATA[
+<p>Ok, Kotlin is cool and fun. It's even better with built in coroutine support. As Kotlin is getting popular in backend development, I would like to share my recent experience of using coroutines.</p>
+<p>I will start with briefly looking at different concurrency models/patterns such as traditional thread based, asynchronous callback-based, futures, actor-based and coroutine based concurrency. Then I'll dive a little deeper into Kotlin coroutines, how they work and their pros and cons.</p>
+<p>Finally, I would like to show how I used coroutines in a backend service that I recently worked on. The aim is to show the application of coroutines in a real-world use case.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-06-02</startDate>
+        <endDate>2021-06-02</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Wouter Nederhof</speaker>
+        <title>Jspring 2021</title>
+        <subject>Why you should use Kotlin – and how a pitch changed everything!</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/278385095</url>
+        <description>
+            <![CDATA[
+<p>Within a few weeks after pitching Kotlin, our team migrated a 12,000 line codebase from Java to Kotlin alongside planned Sprint work. This sparked interest among management and colleague developers, which eventually led to the creation of the Kotlin Movement at the Rabobank. And what an incredible journey it has been!</p>
+<p>Within just a few months, we set up a Kotlin Community, organized study groups, developed an adoption & migration guide, presented at our in-house IT conference, and were able to advise different teams about migrating to Kotlin.</p>
+<p>In this talk, I’ll explain why Kotlin has been my favorite language for over four years and how it led to a movement within the Rabobank. I’ll discuss what the benefits of Kotlin over Java are and why the trade-offs for migrating often make sense. I’ll demonstrate how easy it is to convert a database-backed Java-based Spring Boot application to Kotlin using the built-in converter and just a tiny bit of coding. And finally, I’ll share how we convinced managers and developers to get on board – and how YOU can do that, too!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-05-21</startDate>
         <endDate>2021-05-21</endDate>
         <location>Moscow, Russia</location>
