@@ -8,7 +8,7 @@ This tutorial consists of two parts:
 * Create a RESTful Web Service with Spring Boot
 * [Add a database to a Spring Boot RESTful web service](jvm-spring-boot-restful-db.md) 
 
-To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
 You can also watch a video of this tutorial:
 

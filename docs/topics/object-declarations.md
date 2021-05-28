@@ -135,7 +135,7 @@ fun countClicks(window: JComponent) {
 
 ## Object declarations
 
-[Singleton](http://en.wikipedia.org/wiki/Singleton_pattern) can be useful in several cases,
+[Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) can be useful in several cases,
 and Kotlin (after Scala) makes it easy to declare singletons:
 
 ```kotlin

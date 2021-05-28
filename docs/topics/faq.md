@@ -129,7 +129,7 @@ on the [Books](books.md) page. For more books, see the community-maintained list
 ### Are there any online courses available for Kotlin?
 
 There are a few courses available for Kotlin, including a [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones, 
-an [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri and an [Udemy Kotlin Course](http://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff.
+an [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri and an [Udemy Kotlin Course](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff.
 
 There are also many recordings of [Kotlin talks](https://kotlinlang.org/community/talks.html) available on YouTube and Vimeo. 
 
@@ -159,7 +159,7 @@ Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 ### Any other online Kotlin resources?
 
 The web site has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
-a [newsletter](http://www.kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
+a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
 
 ### Where can I get an HD Kotlin logo?
 

@@ -51,5 +51,5 @@ is correct and up to date. Unfortunately, we won't be able to review documentati
 
 ## Hold events and presentations
 
-If you've given or just plan to give presentations or hold events on Kotlin, please fill out [the form](https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk). We'll feature them on [the event list](http://kotlinlang.org/docs/events.html).
+If you've given or just plan to give presentations or hold events on Kotlin, please fill out [the form](https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk). We'll feature them on [the event list](https://kotlinlang.org/docs/events.html).
 

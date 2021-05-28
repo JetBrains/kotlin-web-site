@@ -10,7 +10,7 @@
         </browser-edits-url-override>
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
         <generate-only-default-anchors>true</generate-only-default-anchors>
-        <web-root>http://www.jetbrains.com/idea/</web-root>
+        <web-root>https://www.jetbrains.com/idea/</web-root>
         <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
         <download-page/>
         <relative-url-to-absolute-prefix>https://github.com/Kotlin/kotlinx.coroutines/blob/master/</relative-url-to-absolute-prefix>
@@ -20,7 +20,7 @@
         <config-disqus-show>true</config-disqus-show>
         <config-feedback-enabled>true</config-feedback-enabled>
         <config-feedback-widget>true</config-feedback-widget>
-        <config-feedback-support>http://kotl.in/issue</config-feedback-support>
+        <config-feedback-support>https://kotl.in/issue</config-feedback-support>
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
         <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
         <config-sideblocks>true</config-sideblocks>

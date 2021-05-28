@@ -153,7 +153,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             </ul>
             <p>Learn more in:</p>
             <ul>
-                <li><a href="http://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew1430.md" target="_blank">What's new in Kotlin 1.4.30</a></li>
             </ul>
         </td>
@@ -204,7 +204,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             </ul>
             <p>Learn more in:</p>
             <ul>
-                <li><a href="http://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew1420.md" target="_blank">What's new in Kotlin 1.4.20</a></li>
             </ul>
         </td>
@@ -250,7 +250,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>A feature release with many features and improvements that mostly focus on quality and performance.</p>
             <p>Learn more in:</p>
             <ul>
-                <li><a href="http://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew14.md" target="_blank">What's new in Kotlin 1.4.0</a></li>
                 <li><a href="compatibility-guide-14.md" target="_blank">Compatibility Guide</a></li>
                 <li><a href="whatsnew14.md#migrating-to-kotlin-1-4-0" target="_blank">Migrating to Kotlin 1.4.0</a></li>

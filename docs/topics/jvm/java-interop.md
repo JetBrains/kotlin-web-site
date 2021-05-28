@@ -601,7 +601,7 @@ class Example : Cloneable {
 }
 ```
 
-Don't forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
+Don't forget about [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html),
 Item 13: *Override clone judiciously*.
 
 ### finalize()

@@ -21,11 +21,11 @@ written in a single source file.
 
 Let's take a look at a concrete example. 
 
-[Codeforces](http://codeforces.com/) 
+[Codeforces](https://codeforces.com/) 
 Round 555 was held on April 26th for 3rd Division, which means it had problems fit for any developer to try. 
-You can use [this link](http://codeforces.com/contest/1157) to read the problems. 
+You can use [this link](https://codeforces.com/contest/1157) to read the problems. 
 The simplest problem in the set is the 
-[Problem A: Reachable Numbers](http://codeforces.com/contest/1157/problem/A).
+[Problem A: Reachable Numbers](https://codeforces.com/contest/1157/problem/A).
 It asks to implement a straightforward algorithm described in the problem statement. 
 
 We'd start solving it by creating a Kotlin source file with an arbitrary name. `A.kt` will do well.
@@ -115,7 +115,7 @@ same template without getting an error for conflicting public declarations in th
 For more complicated problems, Kotlin's extensive library of functional operations on collections comes in handy to 
 minimize the boilerplate and turn the code into a linear top-to-bottom and left-to-right fluent data transformation 
 pipeline. For example, the 
-[Problem B: Long Number](http://codeforces.com/contest/1157/problem/B) problem 
+[Problem B: Long Number](https://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
 
 ```kotlin

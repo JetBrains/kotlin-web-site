@@ -5,7 +5,7 @@ _[Release date: 3 February 2021](releases.md#release-details)_
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
-You can also learn about new features in [this blog post](http://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/).
+You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/).
 
 ## Language features
 
