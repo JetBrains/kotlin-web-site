@@ -80,10 +80,10 @@ kotlin {
 
 For better application startup performance, the Kotlin/JS IR compiler offers an option to initialize top-level properties
 lazily. This way, the application loads without initializing all the top-level properties used in its code. It initializes
-only the ones needed at startup; other properties get initialized later when the code that uses them is executed. 
+only the ones needed at startup; other properties receive their values later when the code that uses them actually runs. 
 
-We're still working on this feature, so it's experimental and requires an opt-in. To use the lazy initialization of top-level
-properties, add the `-Xir-property-lazy-initialization` compiler option when compiling the code with the JS IR compiler.
+As an experimental feature, lazy initialization of top-level properties requires an opt-in. To use the lazy initialization
+of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler.
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
@@ -99,7 +99,7 @@ make it easier to include Kotlin code in JavaScript and TypeScript projects.
 Top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) in a project that produces
 executable files (`binaries.executable()`) will get a `.d.ts` file generated, which contains the TypeScript definitions
 for the exported Kotlin declarations.
-In Kotlin 1.4, these declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding
+These declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding
 un-webpacked JavaScript code.
 
 ## Current limitations of the IR compiler
