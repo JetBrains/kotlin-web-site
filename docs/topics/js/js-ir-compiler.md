@@ -39,7 +39,7 @@ This behaviour is overwritten by any settings in the `build.gradle(.kts)`, howev
 ## Ignoring compilation errors
 
 >_Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
 
@@ -99,7 +99,7 @@ make it easier to include Kotlin code in JavaScript and TypeScript projects.
 Top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) in a project that produces
 executable files (`binaries.executable()`) will get a `.d.ts` file generated, which contains the TypeScript definitions
 for the exported Kotlin declarations.
-In Kotlin 1.4, these declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding,
+In Kotlin 1.4, these declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding
 un-webpacked JavaScript code.
 
 ## Current limitations of the IR compiler
