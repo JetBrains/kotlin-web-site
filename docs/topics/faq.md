@@ -159,7 +159,7 @@ Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 ### Any other online Kotlin resources?
 
 The web site has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
-a [newsletter](https://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
+a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
 
 ### Where can I get an HD Kotlin logo?
 
