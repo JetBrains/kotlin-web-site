@@ -26,7 +26,7 @@
         <speaker>Wouter Nederhof</speaker>
         <title>Jspring 2021</title>
         <subject>Why you should use Kotlin – and how a pitch changed everything!</subject>
-        <url>https://www.meetup.com/Brighton-Kotlin/events/278385095</url>
+        <url>https://jspring.nl/sessions/the-miles-stones-towards-a-kotlin-movement/</url>
         <description>
             <![CDATA[
 <p>Within a few weeks after pitching Kotlin, our team migrated a 12,000 line codebase from Java to Kotlin alongside planned Sprint work. This sparked interest among management and colleague developers, which eventually led to the creation of the Kotlin Movement at the Rabobank. And what an incredible journey it has been!</p>
