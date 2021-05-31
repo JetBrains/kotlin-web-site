@@ -46,7 +46,7 @@ window.addMouseListener(object : MouseAdapter() {
 ```
 
 If a supertype has a constructor, appropriate constructor parameters must be passed to it.
-Many supertypes can be specified as a comma-delimited list after the colon:
+Multiple supertypes can be specified as a comma-delimited list after the colon:
 
 ```kotlin
 open class A(x: Int) {
