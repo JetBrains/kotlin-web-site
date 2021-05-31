@@ -95,7 +95,7 @@ With Kondor you need to define how the Json would look like for each of the type
         <startDate>2021-05-26</startDate>
         <endDate>2021-05-26</endDate>
         <location>Barcelona, Spain</location>
-        <speaker>Uriel Salischiker </speaker>
+        <speaker>Uriel Salischiker</speaker>
         <title>Barcelona JUG</title>
         <subject>Functional error handling with Kotlin</subject>
         <url>https://www.meetup.com/BarcelonaJUG/events/277859861</url>
