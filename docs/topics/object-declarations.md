@@ -203,7 +203,7 @@ class MyClass {
 val x = MyClass.Companion
 ```
 
-Class members can access the private fields of a corresponding companion object.
+Class members can access the private members of a corresponding companion object.
 
 The name of a class used by itself (not as a qualifier to another name) acts as a reference to the companion
 object of the class (whether named or not):
