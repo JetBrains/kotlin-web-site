@@ -66,7 +66,9 @@ You can also include metadata fields. Learn more in the [Jekyll docs](http://jek
 
 ## Local deployment
 
-Currently, there is no way to deploy the Kotlin website locally. We'll add this support later. You can contribute to the Kotlin website by sending us a pull request.
+Currently, there is no way to deploy the Kotlin website locally. This ticket tracks the effort of adding support for local testing: [KT-47049](https://youtrack.jetbrains.com/issue/KT-47049).
+
+You can contribute to the Kotlin website by sending us a pull request.
 
 ## Feedback and issues
 
