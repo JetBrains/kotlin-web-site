@@ -45,6 +45,9 @@
         <title>Kotlin Moscow</title>
         <subject>Making your own Kotlin Jupyter plugin</subject>
         <url>https://www.meetup.com/KotlinMoscow/events/278196467</url>
+        <content>
+        <video>https://www.youtube.com/channel/UCTEjjKNAfVtPvv3h-FAk-Sg</video>
+        </content>
         <description>
             <![CDATA[
 <p>This workshop is dedicated to building your own kotlin jupyter kernel plugin with interactive visualization using the brand new notebook API. We will discuss how does the notebook works, how to build the back-end part using notebook API, how to build the front-end using Kotlin-JS, and how to establish communication via WebSockets and Ktor.</p>
@@ -96,6 +99,9 @@ With Kondor you need to define how the Json would look like for each of the type
         <title>Barcelona JUG</title>
         <subject>Functional error handling with Kotlin</subject>
         <url>https://www.meetup.com/BarcelonaJUG/events/277859861</url>
+        <content>
+        <video>https://www.youtube.com/watch?v=w0fhQCzy2g0 </video>
+        </content>
         <description>
             <![CDATA[
 <p>Abolishing try-catch blocks and making your code more readable using functional programming</p>
