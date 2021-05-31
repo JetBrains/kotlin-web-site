@@ -516,7 +516,7 @@ if __name__ == '__main__':
             # temporary sitemap
             generate_temporary_sitemap()
         elif argv_copy[1] == "index":
-            build_search_indices(get_dist_pages(), site_data['releases']['latest']['version'])
+            build_search_indices(get_dist_pages())
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
