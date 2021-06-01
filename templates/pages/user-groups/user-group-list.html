@@ -1,0 +1,28 @@
+{% set restyled="v1" %}
+{% extends 'groups.html' %}
+
+{% block title %}Kotlin User Groups List{% endblock %}
+
+{% block page_content %}
+    <h1 class="typo-header typo-h1" id="find-a-kug-near-you">Find a KUG near you</h1>
+    <h2 class="typo-header typo-h2" id="kugs-around-the-world">{{ number_of_groups }} KUGs around the world</h2>
+    <p class="typo-para">
+        Kotlin User Group or KUG is a community of people and a place to share your programming experience with
+        Kotlin and its ecosystem
+    </p>
+
+    {% for section in user_groups_data %}
+        <h2 class="typo-header typo-h2" id="{{ section.anchorId }}">{{ section.section }}</h2>
+        <ul class="community-usergroup-list typo-list typo-list_type_simple">
+            {% for user_group in section.groups %}
+                <li class="typo-list__item">
+                    <a class="typo-link" href="{{ user_group.url }}">{{ user_group.name }}</a>, {{ user_group.country }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+    <p class="community-attention-info typo-para">
+        Have a question? <a class="typo-link" href="mailto:kug@jetbrains.com">Contact us</a>
+    </p>
+{% endblock %}

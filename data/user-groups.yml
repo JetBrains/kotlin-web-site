@@ -1,0 +1,597 @@
+- section: Europe
+  anchorId: europe
+  groups:
+    - name: Amsterdam Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/kotlin-amsterdam/
+    - name: Amsterdam High-performwarrance Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/High-performance-Kotlin/
+    - name: Athens Kotlin User Group
+      country: Greece
+      url: https://www.meetup.com/Kotlin-Athens/
+    - name: Barcelona, KotlinBCN
+      country: Spain
+      url: https://www.meetup.com/kotlinbcn/
+    - name: Basel Kotlin User Group
+      country: Switzerland
+      url: https://www.meetup.com/Kotlin-User-Group-Basel/
+    - name: Belarus Kotlin User Group
+      country: Belarus
+      url: https://bkug.by/
+    - name: Belfast Kotlin User Group
+      country: Northern Ireland
+      url: https://www.meetup.com/kotlin-belfast/
+    - name: Berlin Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/kotlin-berlin/
+    - name: Bielefelder Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Bielefelder-Kotlin-User-Group/
+    - name: Bologna Kotlin User Group
+      country: Italy
+      url: https://www.facebook.com/Kotlin-User-Group-Bologna-111446750450756/
+    - name: Bosnia Kotlin User Group
+      country: Bosnia and Herzegovina
+      url: https://www.facebook.com/kotlinugbosnia
+    - name: Brighton Kotlin User Group
+      country: United Kingdom
+      url: https://www.meetup.com/Brighton-Kotlin/
+    - name: Bucharest Kotlin User Group
+      country: Romania
+      url: https://www.meetup.com/kug-bucharest/
+    - name: Budapest Kotlin User Group
+      country: Hungary
+      url: https://www.facebook.com/groups/KotlinBudapest/
+    - name: Bulgarian Kotlin User Group
+      country: Bulgaria
+      url: https://bg-kug.github.io/
+    - name: Cologne Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref
+    - name: Copenhagen Kotlin User Group
+      country: Denmark
+      url: https://www.meetup.com/Kotlin-Copenhagen/
+    - name: Croatia Kotlin User Group
+      country: Croatia
+      url: https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/
+    - name: Czech Kotlin User Group
+      country: Czech Republic
+      url: https://www.facebook.com/czkug/
+    - name: Dnipro Kotlin User Group
+      country: Ukraine
+      url: https://www.meetup.com/Kotlin-Dnipro/
+    - name: Dobrich Kotlin User Group
+      country: Bulgaria
+      url: https://www.facebook.com/groups/156178639762762/
+    - name: Dublin Kotlin User Group
+      country: Ireland
+      url: https://www.meetup.com/Dublin-Kotlin-Meetup/
+    - name: Dusseldorf Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Dusseldorf-Kotlin-Meetup/
+    - name: Dutch Kotlin User Group
+      country: Netherlands
+      url: http://kotlin.nl/
+    - name: Edinburgh Kotlin User Group
+      country: Scotland
+      url: https://www.meetup.com/Edinburgh-Kotlin-User-Group/
+    - name: Estonia Kotlin User Group
+      country: Estonia
+      url: https://www.facebook.com/groups/estoniaKotlin/
+    - name: Hamburg Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/de-DE/Kotlin-User-Group-Hamburg/
+    - name: Helsinki Kotlin User Group
+      country: Finland
+      url: https://www.meetup.com/Kotlin-User-Group-Helsinki/?from=ref
+    - name: Italy Kotlin User Group
+      country: Italy
+      url: https://www.facebook.com/groups/kotlinitaly/
+    - name: Karlsruhe Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Karlsruhe-Software-Development-Meetup/
+    - name: Kassel Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kassel-Kotlin-User-Group/
+    - name: Kyiv Kotlin User Group
+      country: Ukraine
+      url: https://www.meetup.com/KyivKUG
+    - name: Krakow Kotlin User Group
+      country: Poland
+      url: https://www.meetup.com/krakow-kotlin/
+    - name: Leeds Kotlin User Group
+      country: United Kingdom
+      url: https://leedskotlinusergroup.netlify.com/published/2020/1/6/our-first-meetup/
+    - name: Lisboa Kotlin User Group
+      country: Portugal
+      url: https://meetup.com/kotlin-lisboa/
+    - name: London Kotlin
+      country: United Kingdom
+      url: http://www.meetup.com/kotlin-london/
+    - name: Lviv Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/1395212093948927/
+    - name: Madrid Kotlin User Group
+      country: Spain
+      url: https://www.meetup.com/KotlinMAD/
+    - name: Manchester Kotlin Developers
+      country: United Kingdom
+      url: http://www.meetup.com/Kotlin-Manchester/
+    - name: Marseille Kotlin User Group
+      country: France
+      url: https://www.meetup.com/Marseille-Kotlin-User-Group/
+    - name: Milano Kotlin User Group
+      country: Italy
+      url: https://www.meetup.com/it-IT/KUG-Milan/
+    - name: Moscow Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/KotlinMoscow/
+    - name: Munich Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Munich/
+    - name: Nantes Kotlin User Group
+      country: France
+      url: https://www.meetup.com/fr-FR/Kotlin-Nantes-Meetup
+    - name: Nizhny Novgorod Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/kotlin_nn/
+    - name: Odessa Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/557764034687880/
+    - name: Oslo Kotlin User Group
+      country: Norway
+      url: https://www.meetup.com/meetup-group-nWeRbyMu/
+    - name: Omsk Kotlin User Group
+      country: Russia
+      url: https://vk.com/omskkotlin
+    - name: Paris Kotlin User Group
+      country: France
+      url: https://www.meetup.com/Kotlin-Paris-Meetup/
+    - name: Rhein-Main Kotlin
+      country: Germany
+      url: https://www.meetup.com/de-DE/Kotlin-Rhein-Main/
+    - name: Rostov Kotlin User Group
+      country: Russia
+      url: https://vk.com/rndkotlin
+    - name: Samara Kotlin User Group
+      country: Russia
+      url: https://sitc.community/communities/kug/
+    - name: St. Petersburg Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/St-Petersburg-Kotlin-User-Group/
+    - name: Serbia Kotlin User Group
+      country: Serbia
+      url: https://www.meetup.com/Serbia-Kotlin-User-Group/
+    - name: Slovakia Kotlin User Group
+      country: Slovakia
+      url: https://www.meetup.com/Kotlin-Slovakia/
+    - name: Stockholm Kotlin User Group
+      country: Sweden
+      url: https://www.meetup.com/Sweden-Kotlin-User-Group/
+    - name: Stuttgart Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Stuttgart/
+    - name: Swiss Kotlin User Group
+      country: Switzerland
+      url: https://www.meetup.com/Kotlin-Swiss-User-Group/
+    - name: Taganrog Kotlin User Group
+      country: Russia
+      url: https://vk.com/kotlintgn
+    - name: Torino Kotlin User Group
+      country: Italy
+      url: https://www.meetup.com/kotlin-torino-user-group/
+    - name: Tricity Kotlin User Group
+      country: Poland
+      url: https://www.facebook.com/groups/2519853351660362/
+    - name: Utrecht Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/meetup-group-YgJEOzCn/
+    - name: Uzhgorod Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/135578123824203/
+    - name: Vienna Kotlin
+      country: Austria
+      url: https://www.meetup.com/Kotlin-Vienna/
+    - name: Warsaw Kotlin
+      country: Poland
+      url: https://www.meetup.com/Kotlin-Warsaw/
+- section: Asia
+  anchorId: asia
+  groups:
+    - name: Ahmedabad Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinAhmedabad/
+    - name: Allahabad Kotlin User Group
+      country: India
+      url: https://www.facebook.com/Kotlin-Allahabad-User-Group-967463300076405/
+    - name: Astana Java & Kotlin User Group
+      country: Kazakhstan
+      url: https://community-z.com/communities/astana-jkug
+    - name: Azerbaijan Kotlin User Group
+      country: Azerbaijan
+      url: https://www.facebook.com/groups/395337754167951/
+    - name: Bangladesh Kotlin User Group
+      country: Bangladesh
+      url: https://www.facebook.com/KotlinBangladesh/
+    - name: Batam Kotlin User Group
+      country: Indonesia
+      url: https://t.me/KotlinDevBatam
+    - name: Bengaluru Kotlin User Group
+      country: India
+      url: https://www.facebook.com/KotlinBengaluru/
+    - name: Bengaluru Kotlin 'BlrKotlin' Meetup
+      country: India
+      url: https://www.meetup.com/BlrKotlin/
+    - name: Beijing Kotlin User Group
+      country: China
+      url: http://www.kotliner.cn/
+    - name: Bhopal Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinbpl/
+    - name: Bhubaneswar Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/1961143800818624/
+    - name: Chennai Kotlin User Group
+      country: India
+      url: https://discord.gg/UYHG85Pgu9
+    - name: Cirebon Kotlin User Group
+      country: Indonesia
+      url: https://t.me/kotlin_crb
+    - name: Coimbatore Kotlin User Group
+      country: India
+      url: https://facebook.com/kotlincbe/
+    - name: Cambodia Kotlin User Group
+      country: Cambodia
+      url: https://www.facebook.com/groups/kotlinphnompenh
+    - name: Dubai Kotlin User Group
+      country: United Arab Emirates
+      url: https://www.facebook.com/kotlindubai/
+    - name: Durg Kotlin User Group
+      country: India
+      url: https://www.facebook.com/Kotlin-User-Group-Durg-102907258611792
+    - name: Jordan Kotlin User Group
+      country: Jordan
+      url: https://www.facebook.com/KotlinJO/
+    - name: Hefei Kotlin User Group
+      country: China
+      url: http://weibo.com/kotlinhfug
+    - name: Ho Chi Minh Kotlin User Group
+      country: Vietnam
+      url: https://www.facebook.com/kughcmc/
+    - name: Hong Kong Kotlin User Group
+      country: China
+      url: https://www.facebook.com/KotlinHK
+    - name: Hyderabad Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinHyderabad/
+    - name: Indonesia Kotlin User Group
+      country: Indonesia
+      url: https://www.facebook.com/groups/395469687469099/
+    - name: Indore Kotlin User Group
+      country: India
+      url: https://www.meetup.com/kotlinindore/
+    - name: Israel Kotlin User Group
+      country: Israel
+      url: https://www.facebook.com/groups/107080706530829/
+    - name: Istanbul Kotlin User Group
+      country: Turkey
+      url: https://www.meetup.com/Kotlin-%C4%B0stanbul/
+    - name: Jaffna Kotlin User Group
+      country: Sri Lanka
+      url: https://www.facebook.com/Kotlin-User-Group-Jaffna-102091321371464/
+    - name: Japan Kotlin User Group
+      country: Japan
+      url: https://kotlin.connpass.com/
+    - name: JiangXi Kotlin User Group
+      country: China
+      url: https://weibo.com/u/6689084931
+    - name: Jodhpur Kotlin User Group
+      country: India
+      url: https://www.linkedin.com/company/kotlin-mumbai-ug
+    - name: Kanpur Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/1010455952691560/
+    - name: Karachi Kotlin User Group
+      country: Pakistan
+      url: https://www.facebook.com/kotlinkarachi/
+    - name: Kathmandu Kotlin User Group
+      country: Nepal
+      url: https://www.facebook.com/groups/100333660782830/
+    - name: Khabarovsk Kotlin User Group
+      country: Russia
+      url: https://devdv.ru/projects/kug
+    - name: Kolkata Kotlin User Group
+      country: India
+      url: https://www.meetup.com/Kotlin-Kolkata-UG/
+    - name: Korean Kotlin User Group
+      country: South Korea
+      url: http://kotlin.kr/
+    - name: Kozhikode Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinusergroup/
+    - name: Mumbai Kotlin User Group
+      country: India
+      url: https://www.meetup.com/Kotlin-User-Group-Mumbai/
+    - name: Myanmar Kotlin User Group
+      country: Myanmar
+      url: https://www.facebook.com/groups/kotlinmyanmarusergroup/about/
+    - name: Nagpur Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinnagpur/
+    - name: Nepal Kotlin User Group
+      country: Nepal
+      url: https://www.facebook.com/groups/dnkotlin/
+    - name: New Delhi Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinDelhi/
+    - name: Pakistan KotlinUser Group
+      country: Pakistan
+      url: https://www.facebook.com/groups/565405337181251/
+    - name: Palestine Kotlin User Group
+      country: State of Palestine
+      url: https://www.facebook.com/groups/592717964582711/
+    - name: Philippines Kotlin
+      country: Philippines
+      url: https://www.facebook.com/groups/642901202586581/
+    - name: Pune Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/punekotlin
+    - name: Rajkot Kotlin User Group
+      country: India
+      url: https://sites.google.com/view/kugrajkot/home
+    - name: Saudi Kotlin User Group
+      country: Saudi Arabia
+      url: https://twitter.com/kotlinsaudi
+    - name: Shenzhen Kotlin User Group
+      country: China
+      url: https://korilin.com/KUGshenzhen/
+    - name: Singapore Kotlin User Group
+      country: Singapore
+      url: https://www.meetup.com/Singapore-Kotlin-User-group/
+    - name: Sri Lanka Kotlin User Group
+      country: Sri Lanka
+      url: https://www.facebook.com/KotlinSrilanka/
+    - name: Syria Kotlin User Group
+      country: Syria
+      url: https://www.facebook.com/KotlinSyria/
+    - name: Surat Kotlin User Group
+      country: India
+      url: https://web.facebook.com/kotlinsurat
+    - name: Taiwan Kotlin User Group
+      country: Taiwan
+      url: https://wetogether.co/kotlin-tw
+    - name: Tel Aviv Kotlin User Group
+      country: Israel
+      url: https://www.meetup.com/KotlinTLV/
+    - name: Thailand Kotlin Developers
+      country: Thailand
+      url: https://www.facebook.com/groups/872547279487598/
+    - name: Turkey Kotlin User Group
+      country: Turkey
+      url: https://youtube.com/channel/UCAofnGf9aQbioLzMMOdHV7w
+    - name: Vellore Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinvellore
+    - name: Vietnam Kotlin User Group (online community)
+      country: Vietnam
+      url: https://vnkotlin.com
+    - name: Vijayawada Kotlin User Group
+      country: India
+      url: https://www.facebook.com/KotlinVijayawada/
+    - name: Yerevan Kotlin User Group
+      country: Armenia
+      url: https://www.meetup.com/Kotlin-Yerevan/
+- section: North America
+  anchorId: north-america
+  groups:
+    - name: Austin Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Austin-Kotlin-Meetup/
+    - name: Brooklyn (NY) Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Brooklyn-Kotlin/
+    - name: Cambridge Kotlin Office Hours
+      country: USA
+      url: https://www.meetup.com/kotlin-office-hours/
+    - name: Chicago Kotlin Users Group
+      country: USA
+      url: http://www.meetup.com/Chicago-Kotlin/
+    - name: Cincinnati Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Cincinnati-Kotlin/
+    - name: Dallas, Kotlin DFW
+      country: USA
+      url: https://www.meetup.com/Kotlin-DFW/
+    - name: Guadalajara Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es/Kotlin-User-Group-GDL/
+    - name: Guatemala Kotlin User Group
+      country: Guatemala
+      url: https://www.meetup.com/guatemala-kotlin-user-group/
+    - name: Kansas City User Group
+      country: USA
+      url: https://www.meetup.com/Kansas-City-Kotlin-User-Group/
+    - name: Mexico, CDMX Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es-ES/Kotlin-Nights-CDMX/
+    - name: New York Kotlin Meetup
+      country: USA
+      url: http://www.meetup.com/New-York-Kotlin-Meetup/
+    - name: Irvine Kotlin User Group "OC Kotlin Krew"
+      country: USA
+      url: https://www.meetup.com/OCKotlinKrew/
+    - name: San Diego Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/sd-kotlin/
+    - name: San Francisco Kotlin Meetup
+      country: USA
+      url: https://www.meetup.com/San-Francisco-Kotlin-Meetup/
+    - name: Santa Cruz Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Santa-Cruz-Kotlin-User-Group/events/245895831/
+    - name: South Florida Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Kotlin-South-Florida-Users-Group/
+    - name: Toronto Kotlin
+      country: Canada
+      url: https://www.meetup.com/Kotlin-Toronto/events/235740293/
+    - name: Twin Cities Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Twin-Cities-Kotlin-User-Group/
+    - name: Vancouver Kotlin Meetup
+      country: Canada
+      url: https://www.meetup.com/VancouverKotlin/
+    - name: Washington DC Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/DCKotlin/
+    - name: Waterloo Kotlin P2P
+      country: Canada
+      url: https://www.meetup.com/Kotlin-Waterloo-P2P/events/
+    - name: West Florida Kotlin User Group
+      country: USA
+      url: https://www.facebook.com/groups/KotlnWestFlorida
+- section: South America
+  anchorId: south-america
+  groups:
+    - name: Asunción Kotlin User Group
+      country: Paraguay
+      url: https://kotlin-user-group-asuncion-py.github.io/
+    - name: Brasil Kotlin User Group
+      country: Brazil
+      url: https://groups.google.com/forum/#!forum/kotlin-brasil
+    - name: Buenos Aires Desarrollo en Android con Kotlin
+      country: Argentina
+      url: https://www.meetup.com/Desarrollo-en-Android-con-Kotlin/
+    - name: Cascavel Kotlin Meetup
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-Meetup-Cascavel/
+    - name: Chile Kotlin User Group
+      country: Chile
+      url: http://www.facebook.com/kotlinchile
+    - name: Cochabamba Kotlin User Group
+      country: Bolivia
+      url: https://www.facebook.com/kotlincocha/
+    - name: Curitiba CWB Kotlin User Group
+      country: Brazil
+      url: https://www.meetup.com/KotlinCWB/
+    - name: El Alto Kotlin User Group
+      country: Bolivia
+      url: https://m.facebook.com/KotlinElAlto/
+    - name: La Paz Kotlin User Group
+      country: Bolivia
+      url: https://www.facebook.com/KotlinLaPaz/
+    - name: Lima Kotlin User Group
+      country: Peru
+      url: https://www.facebook.com/groups/limakotlin/
+    - name: Medellin Kotlin User Group
+      country: Colombia
+      url: https://www.meetup.com/Kotlin-User-Group-Medellin/
+    - name: Peru Kotlin User Group
+      country: Peru
+      url: https://www.facebook.com/groups/1540580306247047/
+    - name: Porto Alegre Kotlin User Group
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-RS/
+    - name: Santiago Kotlin User Group
+      country: Chile
+      url: https://www.facebook.com/kotlinsantiago/
+    - name: Sao Paulo Kotlin Meetup
+      country: Brazil
+      url: https://www.meetup.com/kotlin-meetup-sp/
+    - name: Rio de Janeiro
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-Rio/
+    - name: Tabasco Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es-ES/kotlin-tabasco/
+- section: Australia/Oceania
+  anchorId: australiaoceania
+  groups:
+    - name: Melbourne Kotlin User Group
+      country: Australia
+      url: https://www.meetup.com/Melbourne-Kotlin-Meetup/
+    - name: Sydney Kotlin User Group
+      country: Australia
+      url: https://sydspace.org/kotlin/
+- section: Africa
+  anchorId: africa
+  groups:
+    - name: Abidjan Kotlin User Group
+      country: Cote d'Ivoire
+      url: https://www.facebook.com/groups/778398068995641/
+    - name: Abuja Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/
+    - name: Ado-Ekiti Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/1598555973529998/?ref=group_header
+    - name: Agadir Kotlin User Group
+      country: Morocco
+      url: https://www.meetup.com/Agadir-Kotlin-User-Group/
+    - name: Algeria Kotlin User Group
+      country: Algeria
+      url: https://web.facebook.com/groups/383147662448461/
+    - name: Angola Kotlin User Group
+      country: Angola
+      url: https://www.facebook.com/groups/405177603231134/about/
+    - name: Bauchi Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/groups/kotlinbauchi/
+    - name: Beira Kotlin User Group
+      country: Mozambique
+      url: https://www.facebook.com/groups/470398203308975/
+    - name: Brazza Kotlin User Group
+      country: Congo
+      url: https://www.facebook.com/groups/KotlinBrazza/
+    - name: Cairo Kotlin User Group
+      country: Egypt
+      url: https://www.facebook.com/Kotlin.Cairo/
+    - name: Cotonou Kotlin User Group
+      country: Benin
+      url: https://www.facebook.com/kotlinCotonou/
+    - name: Damaturu Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/Damaturu-Kotlin-User-Group-114389643760406
+    - name: Egypt Kotlin
+      country: Egypt
+      url: https://www.facebook.com/kotlinegypt/
+    - name: Kano Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/193660894904095/about
+    - name: Katsina Kotlin User Group
+      country: Nigeria
+      url: https://www.downtomeet.com/Katsina-Kotlin-Group
+    - name: Lagos Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Lagos-Kotlin-Meetup/
+    - name: Lome Kotlin User Group
+      country: Togo
+      url: https://www.facebook.com/groups/1825278611119862/
+    - name: Minna Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/969877396554431/about
+    - name: Minya Kotlin User Group
+      country: Egypt
+      url: https://www.facebook.com/kotlinminya/
+    - name: Nairobi Kotlin User Group
+      country: Kenya
+      url: https://www.meetup.com/KotlinKenya/
+    - name: Ondo Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Kotlin-Ondo-User-Group/
+    - name: Ouagadougou Kotlin User Group
+      country: Burkina Faso
+      url: https://www.facebook.com/groups/649651491892414/
+    - name: Rivers Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/groups/2178453949151460/
+    - name: Tunisia Kotlin User Group
+      country: Tunisia
+      url: https://www.facebook.com/groups/1501353116571104
+    - name: Uganda Kotlin User Group
+      country: Uganda
+      url: https://www.facebook.com/Uganda-Kotlin-User-Group-613707548753658/
+    - name: Yola Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/Kotlin-Yola-User-Group-104198534358013/
