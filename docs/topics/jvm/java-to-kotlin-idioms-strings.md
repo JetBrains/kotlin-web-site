@@ -1,283 +1,336 @@
-[//]: # (title: Strings idioms)
+[//]: # (title: Migrating from Java to Kotlin: Strings)
 
-_Idiom_ is a recurring construct that provides a common approach for solving a task. In contrast to design patterns, idioms are often specific to a programming language.
+This guide contains examples of how to solve the typical tasks with strings in Java and Kotlin. It will help you migrate from Java to Kotlin and write your code in the authentic Kotlin way.
+## Concatenate strings
 
-In this guide you’ll find examples of how to do the same things with strings in Java and Kotlin.
+In Java, you can do this in the following way:
 
-## String concatenation vs string interpolation
 ```java
-//Java
-public void main() {
-        String name="Joe";
-        System.out.println("Hello, " + name);
-        System.out.println("Your name is " + name.length() + " characters long");
-}
+// Java
+String name = "Joe";
+System.out.println("Hello, " + name);
+System.out.println("Your name is " + name.length() + " characters long");
 ```
 
-<tr>
-<code style="block" lang="Java"
-initial-collapse-state="collapsed" collapsed-title-line-number="4">
-<![CDATA[
-public void main() {
-        String name="Joe";
-        System.out.println("Hello, " + name);
-        System.out.println("Your name is " + name.length() + " characters long");
-}
-]]>
-</code>
-</tr>
-
-In Kotlin, you don’t need to use string concatenation. Just use the dollar sign $ before the variable name to [interpolate](https://kotlinlang.org/docs/idioms.html#string-interpolation) your sting:
+In Kotlin, use the dollar sign (`$`) before the variable name to interpolate the value of this variable into your string:
 
 ```kotlin
-//Kotlin
 fun main() {
 //sampleStart
+    // Kotlin
     val name = "Joe"
     println("Hello, $name")
-    println("Your name is ${name.length} characters long")//template expression in curly braces
+    println("Your name is ${name.length} characters long")
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true"}
 
-See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
-
-## Regular expressions
-### Replace occurrences
-
-Sometimes you need to replace something. Let’s imagine you want to obfuscate some data, for example, to hide the user’s login and password from logs. In Java it will look like this:
+You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`. See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
+## Build a string
+In Java, you can use the [StringBuilder](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/StringBuilder.html):
 
 ```java
-//Java
-String input = "login: Pokemon5, password: 1q2w3e4r5t";
-Pattern pattern = Pattern.compile("\\w*\\d+\\w*");
-Matcher matcher = pattern.matcher(input);
-String replacementResult = matcher.replaceAll(it -> "xxx");
-System.out.println("Initial input: '" + input + "'"); // Prints 'Initial input: 'login: Pokemon5, password: 1q2w3e4r5t''
-System.out.println("Anonymized input: '" + replacementResult + "'"); // Prints 'Anonymized input: 'login: xxx, password: xxx''
+// Java
+StringBuilder countDown = new StringBuilder();
+for (int i = 5; i > 0; i--) {
+    countDown.append(i);
+    countDown.append("\n");
+}
+System.out.println(countDown);
 ```
 
-In Kotlin, you can use [raw string](https://kotlinlang.org/docs/basic-types.html#string-literals) concept to simplify regex pattern and eliminate the count of slashes:
+In Kotlin, you use the [inline function](https://kotlinlang.org/docs/inline-functions.html) [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html), which takes logic to construct a string as a lambda argument:
+
 ```kotlin
-//Kotlin
 fun main() {
 //sampleStart
-       val regex = Regex("""\w*\d+\w*""")//raw string
-       val input = "login: Pokemon5, password: 1q2w3e4r5t"
-       val replacementResult = regex.replace(input, replacement = "xxx")
-       println("Initial input: '$input'") // Prints 'Initial input: 'login: Pokemon5, password: 1q2w3e4r5t''
-       println("Anonymized input: '$replacementResult'") // Prints 'Anonymized input: 'login: xxx, password: xxx''
-//sampleEnd
-}
-```
-### Split a string
-
-In Java, to split some string by the dot symbol ```.```, you need to use shielding ```\\```, because the ```split``` function in Java receives a regex string that then is compiled to an instance of ```Pattern``` class:
-
-```java
-//Java
-System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\."))); // Prints '[Sometimes, text, should, be, split]'
-```
-
-In Kotlin, you can achieve the same result easier because you can use [extension function](https://kotlinlang.org/docs/extensions.html#extension-functions) ```split```, which receives varargs of delimiters as input parameters:
-
-```kotlin
-//Kotlin
-   fun main() {
-//sampleStart
-       println("Sometimes.text.should.be.split".split(".")) // Prints '[Sometimes, text, should, be, split]'
-//sampleEnd
-   }
-```
-
-## String builder
-
-```java
-//Java
-StringBuilder sb = new StringBuilder();
-for (int i = 5; i > 0; i--) {
-sb.append(i);
-sb.append("\n");
-}
-System.out.println(sb);
-```
-
-```kotlin
-//Kotlin
-   fun main() {
-//sampleStart
-       var counter = 5
-       val s = buildString {
+       // Kotlin
+       var counter = 5;
+       val countDown = buildString {
            repeat(5) {
                append(counter--)
                appendLine()
            }
        }
-       println(s)
+       println(countDown)
 //sampleEnd
-   }
+}
 ```
+{kotlin-runnable="true"}
 
-## Make a string from collection items
+Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this` inside the [lambda](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
+
+Learn more about [lambdas coding conventions](https://kotlinlang.org/docs/coding-conventions.html#lambdas).
+## Create a string from collection items
+In Java, you use the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) to filter, map, and then collect the items:
 
 ```java
-//Java
+// Java
 List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
-String oddNumbers = numbers.stream().filter(it -> it % 2 != 0).map(Object::toString).collect(Collectors.joining(", "));
+String oddNumbers = numbers
+   .stream()
+   .filter(it -> it % 2 != 0)
+   .map(it -> (-1) * it)
+   .map(Object::toString)
+   .collect(Collectors.joining(", "));
 System.out.println(oddNumbers);
 ```
 
-In Kotlin, you don’t need to explicitly map integers to strings and use Stream API:
+In Kotlin, use the [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function, which Kotlin defines for every List:
 
 ```kotlin
-//Kotlin
-   fun main() {
+fun main() {
 //sampleStart
+       // Kotlin
        val numbers = mutableListOf(1, 2, 3, 4, 5, 6)
-       val oddNumers = numbers.filter { it % 2 != 0 }.joinToString()
-       println(oddNumers)
+       val oddNumbers = numbers.filter { it % 2 != 0 }
+ .joinToString{ it.unaryMinus().toString() }
+       println(oddNumbers)
 //sampleEnd
-   }
+}
 ```
+{kotlin-runnable="true"}
 ## Set default value if the string is blank
-
-What if some string is blank and a default value should be used in this case? In Java you can write it this way:
+In Java, you can use the ternary operator:
 
 ```java
-//Java
-public String getName() {
-Random rand = new Random();
-if (rand.nextBoolean()) {
-return "";
-} else {
-return "Roman";
-}
+// Java
+public void defaultValueIfStringIsBlank() {
+   String nameValue = getName();
+   String name = nameValue.isBlank() ? "John Doe" : nameValue;
+   System.out.println(name);
 }
 
-public void defaultValueIfStringIsBlank() {
-String nameValue = getName();
-String name = nameValue.isBlank() ? "John Doe" : nameValue;
-System.out.println(name);
+public String getName() {
+   Random rand = new Random();
+   return rand.nextBoolean() ? "" : "Roman";
 }
 ```
 
-Kotlin ```Strings.kt``` provides the function ```ifBlank```, to which a default value can be supplied:
+Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html) that consumes the default value as an argument:
 
 ```kotlin
-//Kotlin
-fun getName(): String =
-   if (Random.nextBoolean()) "" else "Roman"
+// Kotlin
+import kotlin.random.Random
 
 fun main () {
    val name = getName().ifBlank { "John Doe" }
    println(name)
 }
+
+fun getName(): String =
+   if (Random.nextBoolean()) "" else "Roman"
 ```
+{kotlin-runnable="true"}
 ## Replace characters at the beginning and the end of a string
-Let’s imagine you need to delete something from the beginning and the end of the string. Let it be ```##```. The same time you need to leave the ```##``` in the middle of the string. In Java it looks like this:
+
+In Java, you can use the `replaceFirst()` and the `replaceAll()` functions. The `replaceAll()` function in this case consumes the regular expression `##$`, which defines a string ending with `##`:
 
 ```java
-//Java
-String string = "##place##holder##";
-String result = string.replaceFirst("##", "");
-System.out.println(result.replaceAll("##$", ""));
+// Java
+String input = "##place##holder##";
+String result = input.replaceFirst("##", "").replaceAll("##$", "");
+System.out.println(result);
 ```
 
-In Kotlin, you don’t need to write regex "##$" to define the end of the string. Also you can write such replacing in one string:
+In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`:
 
 ```kotlin
-//Kotlin
    fun main() {
 //sampleStart
-       val string = "##place##holder##"
-       println(string.removeSurrounding("##"))
+       // Kotlin
+       val input = "##place##holder##"
+       val result = input.removeSurrounding("##")
+       println(result)
 //sampleEnd
    }
-```
 
-## Substring methods
+```
+{kotlin-runnable="true"}
+## Replace occurrences
+In Java, you can use the [Pattern](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Pattern.html) and the [Matcher](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Matcher.html) classes, for example, to obfuscate some data:
 
 ```java
-//Java
-String s = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42";
-System.out.println(s.substring(s.indexOf("?") + 1));
+// Java
+String input = "login: Pokemon5, password: 1q2w3e4r5t";
+Pattern pattern = Pattern.compile("\\w*\\d+\\w*");
+Matcher matcher = pattern.matcher(input);
+String replacementResult = matcher.replaceAll(it -> "xxx");
+System.out.println("Initial input: '" + input + "'");
+System.out.println("Anonymized input: '" + replacementResult + "'");
 ```
 
-In Kotlin, you don’t need to calculate the index of the symbol you want to have substring after:
+In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class that simplifies working with regular expressions. Additionally, use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) to simplify a regex pattern – reduce the count of backslashes:
 
 ```kotlin
-//Kotlin   
-fun substringAfterLastExample() {
-//sampleStart
-       val s = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42"
-       println(s.substringAfter("?"))
-//sampleEnd
-   }
-```
-## Print uppercase characters from a string
-
-```java
-//Java
-String s = "Hello, World!"
-.chars()
-.filter(Character::isUpperCase)
-.collect(StringBuilder::new,
-StringBuilder::appendCodePoint,
-StringBuilder::append)
-.toString();
-System.out.println(s);
-```
-
-```kotlin
-//Kotlin
-print("Hello, World!".filter { it.isUpperCase() })
-```
-## Multi-line strings
-Before Java 15, there were several ways to create a multi-line string. For example, using join() function of the String class:
-
-```java
-//Java
-String lineSeparator = System.getProperty("line.separator");
-String s = String.join(lineSeparator,
-"Kotlin",
-"Java");
-System.out.println(s);
-```
-
-In Java 15 multi-lines appeared. There is one thing to keep in mind: if you print a multiline string and the triple-quote is on the next line, there will be an extra empty line:
-
-```java
-//Java
-String s = """
-Kotlin
-Java
-""".stripIndent();
-System.out.println(s);
-```
-
-Output:
-
-![Java 15 multiline output](java-15-multiline-output.png){width=500}
-
-If you put the triple-quote on the same line as the last word, this problem will disappear.
-
-In Kotlin, you can nicely format your line and there will be no extra empty line in the output. The beginning of the line is identified by the left-most character of any line.
-
-```kotlin
-//Kotlin
 fun main() {
-   val s = """
-       Kotlin
-          Java  
-     """.trimIndent()
-
-   println(s)
+//sampleStart
+       // Kotlin
+       val regex = Regex("""\w*\d+\w*""") // raw string
+       val input = "login: Pokemon5, password: 1q2w3e4r5t"
+       val replacementResult = regex.replace(input, replacement = "xxx")
+       println("Initial input: '$input'")
+       println("Anonymized input: '$replacementResult'")
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
+## Split a string
 
-Output:
+In Java, to split a string by the period character (`.`), you need to use the shielding (`\\`). This happens because the [split()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#split(java.lang.String)) function of the `String` class accepts a regular expression as an argument:
 
+```java
+// Java
+System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\.")));
+```
+
+In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html), which receives varargs of delimiters as input parameters:
+
+```kotlin
+   fun main() {
+//sampleStart
+       // Kotlin
+       println("Sometimes.text.should.be.split".split("."))
+//sampleEnd
+   }
+```
+{kotlin-runnable="true"}
+
+If you need to split by a regular expression, use the overloaded `split()` version that consumes the `Regex` as a parameter.
+## Take a substring
+Use this code in Java:
+
+```java
+// Java
+String input = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42";
+String answer = input.substring(input.indexOf("?") + 1);
+System.out.println(answer);
+```
+
+In Kotlin, you use the `substringAfter()` function and don’t need to calculate the index of the character you want to take a substring after:
+
+```kotlin  
+fun main() {
+//sampleStart
+       // Kotlin
+       val input = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42"
+       val answer = input.substringAfter("?")
+       println(answer)
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+Additionally, you can take a substring after the last occurrence of a character:
+
+```kotlin  
+fun main() {
+//sampleStart
+       // Kotlin
+       val input = "To be, or not to be, that is the question."
+       val question = input.substringAfterLast(",")
+       println(question)
+//sampleEnd
+   }
+```
+{kotlin-runnable="true"}
+## Print uppercase characters from a string
+
+In Java:
+
+```java
+// Java
+String initials = "František Xaver Svoboda"
+       .chars()
+       .filter(Character::isUpperCase)
+       .collect(StringBuilder::new,
+               StringBuilder::appendCodePoint,
+               StringBuilder::append)
+       .toString();
+System.out.println(initials);
+```
+
+In Kotlin:
+
+```kotlin
+fun main() {
+//sampleStart
+   // Kotlin
+   val initials = "František Xaver Svoboda".filter { it.isUpperCase() }
+   println(initials)
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+## Use multi-line strings
+Before Java 15, there were several ways to create a multi-line string. For example, using the [join()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)) function of the `String` class:
+
+```java
+// Java
+String lineSeparator = System.getProperty("line.separator");
+String result = String.join(lineSeparator,
+       "Kotlin",
+       "Java");
+System.out.println(result);
+```
+
+In Java 15, multi-line strings appeared. There is one thing to keep in mind: if you print a multi-line string and the triple-quote is on the next line, there will be an extra empty line:
+
+```java
+// Java
+   String result = """
+       Kotlin
+       Java
+       """.stripIndent();
+   System.out.println(result);
+```
+
+The output:
+![Java 15 multiline output](java-15-multiline-output.png){width=500}
+
+
+
+
+If you put the triple-quote on the same line as the last word, this difference in behavior disappears.
+
+In Kotlin, you can format your line with the quotes on the new line, and there will be no extra empty line in the output. The left-most character of any line identifies the beginning of the line.
+
+```kotlin
+fun main() {
+//sampleStart
+    // Kotlin   
+       val result = """
+        Kotlin
+        Java 
+    """.trimIndent()
+    println(result)
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+The output:
 ![Kotlin multiline output](kotlin-multiline-output.png){width=500}
 
 
+In Kotlin, you can also use the `trimMargin()` function to customize the indents:
+
+```kotlin
+// Kotlin
+fun main() {
+   val result = """
+       #  Kotlin
+       #  Java
+   """.trimMargin("#")
+   println(result)
+}
+{kotlin-runnable="true"}
+
+Learn more about [multi-line strings](https://kotlinlang.org/docs/coding-conventions.html#strings).
+## What’s next?
+Learn other [Kotlin idioms](https://kotlinlang.org/docs/idioms.html).
+
+Learn how to convert existing Java code to Kotlin with [Java to Kotlin converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k).
+
+If you have a favorite idiom, contribute it by sending a pull request.
