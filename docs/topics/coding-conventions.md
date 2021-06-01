@@ -344,7 +344,7 @@ vararg
 suspend
 inner
 enum / annotation / fun // as a modifier in `fun interface`companion
-inline
+inline / value
 infix
 operator
 data
