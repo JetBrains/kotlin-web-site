@@ -206,6 +206,11 @@ def get_universities():
     return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
+@app.route('/data/user-groups.json')
+def get_user_groups():
+    return Response(json.dumps(site_data['user-groups'], cls=DateAwareEncoder), mimetype='application/json')
+
+
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar(build_mode)
@@ -232,6 +237,13 @@ def kotlin_docs_pdf():
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
+
+@app.route('/user-groups/user-group-list.html')
+def user_group_list():
+    return render_template(
+        'pages/user-groups/user-group-list.html',
+        user_groups_data=site_data['user-groups'],
+        number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
 
 @app.route('/education/')
 def education_page():
