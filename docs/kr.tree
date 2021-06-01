@@ -251,7 +251,7 @@
             <toc-element id="all-open-plugin.md" toc-title="All-open"/>
             <toc-element id="no-arg-plugin.md" toc-title="No-arg"/>
             <toc-element id="sam-with-receiver-plugin.md" toc-title="SAM with receiver"/>
-            <toc-element id="kapt.md" toc-title="Kapt"/>
+            <toc-element id="kapt.md" toc-title="kapt"/>
         </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc and Dokka"/>

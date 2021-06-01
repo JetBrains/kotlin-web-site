@@ -121,7 +121,7 @@ kapt.include.compile.classpath=false
 
 ## Incremental annotation processing
 
-Kapt supports incremental annotation processing that is enabled by default. 
+kapt supports incremental annotation processing that is enabled by default. 
 Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
@@ -135,7 +135,7 @@ to be enabled as well.
  
 ## Java compiler options
 
-Kapt uses Java compiler to run annotation processors.  
+kapt uses Java compiler to run annotation processors.  
 Here is how you can pass arbitrary options to javac:
 
 ```groovy
@@ -151,7 +151,7 @@ kapt {
 ## Non-existent type correction
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures.
-By default, Kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`,
+By default, kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`,
 but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
 
 ```groovy
@@ -195,7 +195,7 @@ toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI
 
-Kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
+kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
 
 You can attach the plugin by providing the path to its JAR file using the `Xplugin` kotlinc option:
 
@@ -237,13 +237,13 @@ An example:
 
 ## Generating Kotlin sources
 
-Kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
+kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
 and these files will be compiled together with the main sources.
 
 You can find the complete sample in the [kotlin-examples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-code-generation)
 Github repository.
 
-Note that Kapt does not support multiple rounds for the generated Kotlin files.
+Note that kapt does not support multiple rounds for the generated Kotlin files.
 
 ## AP/Javac options encoding
 

@@ -338,7 +338,7 @@ reference:
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
         - url: /docs/reference/kapt.html
-          title: Kapt
+          title: kapt
         - url: /docs/reference/kotlin-doc.html
           title: Dokka
         - url: /docs/reference/kotlin-osgi.html
