@@ -1,5 +1,10 @@
 [//]: # (title: Kotlin docs)
 
+<microformat>
+    <p>Latest stable release: <strong>%kotlinVersion%</strong></p>
+    <p><a href="releases.md#release-details">Explore Kotlin releases</a></p>
+</microformat>
+
 <table header-style="none" width="100%" >
 <tr>
 <td width="50%">
