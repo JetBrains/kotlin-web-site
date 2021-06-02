@@ -61,38 +61,19 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
-In another example of a SAM conversion, the function `process()` uses a lambda instead of creating an anonymous object:
-
-```kotlin
-fun interface SuspendRunnable {
-   suspend fun invoke()
-}
-class Listener {
-   fun setOnClickListener(r: SuspendRunnable) {
-       GlobalScope.launch { r.invoke() }
-   }
-}
-class Button(private val listener: Listener) {
-   fun process() {
-       listener.setOnClickListener {
-           addText()
-       }
-   }
-   suspend fun addText() {
-       // ...
-   }
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
-
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
 ## Functional interfaces vs. type aliases
 
 Functional interfaces and [type aliases](type-aliases.md) serve different purposes. Type aliases are just names for
 existing types – they don't create a new type, while functional interfaces do.
+You can provide extensions that are specific to a particular functional interace, so that they would be inapplicable for
+plain functions or for typealiases to plain functions. 
 
 Type aliases can have only one member, while functional interfaces can have multiple non-abstract members and one abstract member.
-Functional interfaces can also implement and extend other interfaces.
+Functional interfaces can also implement and extend other interfaces. 
 
-Considering the above, functional interfaces are more flexible and provide more capabilities than type aliases.
+So, functional interfaces are more flexible and provide more capabilities than type aliases, but they also may end up being more costly both syntactically
+and at run time, requiring conversions to a specific interface. When picking which one to use in your code, consider your needs. 
+If your API just needs to accept a function (any function) with some specific parameter and return types, then prefer using a simple functional type or define a typealias to give a shorter name to the corresponding functional type. 
+If your API accepts a more complex entity than a function, something that has non-trivial contracts and/or operations on it, which cannot be expressed in a functional type's signature, then consider declaring a separate functional interface for it.
