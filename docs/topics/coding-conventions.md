@@ -997,6 +997,8 @@ val a = """if(a > 1) {
           |}""".trimMargin()
 ```
 
+Learn the difference between [Java and Kotlin multiline strings](java-to-kotlin-idioms-strings.md#use-multiline-strings).
+
 ### Functions vs properties
 
 In some cases functions with no arguments might be interchangeable with read-only properties. 
