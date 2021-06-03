@@ -131,7 +131,7 @@ that consumes the default value as an argument:
 ```kotlin
 // Kotlin
 import kotlin.random.Random
-
+//sampleStart
 fun main() {
     val name = getName().ifBlank { "John Doe" }
     println(name)
@@ -139,6 +139,7 @@ fun main() {
 
 fun getName(): String =
     if (Random.nextBoolean()) "" else "Roman"
+//sampleEnd
 ```
 {kotlin-runnable="true" id="set-default-value-if-blank-kotlin"}
 
