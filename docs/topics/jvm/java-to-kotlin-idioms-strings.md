@@ -30,11 +30,11 @@ fun main() {
 {kotlin-runnable="true" id="concatenate-strings-kotlin" lang="Kotlin"}
 
 You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`.
-See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
+See [string templates](basic-types.md#string-templates) for more information.
 
 ## Build a string
 
-In Java, you can use the [StringBuilder](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/StringBuilder.html):
+In Java, you can use the [StringBuilder](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/StringBuilder.html):
 
 ```java
 // Java
@@ -47,7 +47,7 @@ System.out.println(countDown);
 ```
 
 In Kotlin, use [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) –
-an [inline function](https://kotlinlang.org/docs/inline-functions.html) that takes logic to construct a string as a lambda argument:
+an [inline function](inline-functions.md) that takes logic to construct a string as a lambda argument:
 
 ```kotlin
 fun main() {
@@ -67,14 +67,14 @@ fun main() {
 {kotlin-runnable="true" id="kotlin-build-string"}
 
 Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this`
-inside the [lambda](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
+inside the [lambda](lambdas.md#function-literals-with-receiver).
 
-Learn more about [lambda coding conventions](https://kotlinlang.org/docs/coding-conventions.html#lambdas).
+Learn more about [lambda coding conventions](coding-conventions.md#lambdas).
 
 ## Create a string from collection items
 
-In Java, you use the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) to filter,
-map, and then collect the items:
+In Java, you use the [Stream API](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/package-summary.html) 
+to filter, map, and then collect the items:
 
 ```java
 // Java
@@ -168,8 +168,8 @@ In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`
 
 ## Replace occurrences
 
-In Java, you can use the [Pattern](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Pattern.html)
-and the [Matcher](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Matcher.html) classes,
+In Java, you can use the [Pattern](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html)
+and the [Matcher](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Matcher.html) classes,
 for example, to obfuscate some data:
 
 ```java
@@ -184,7 +184,7 @@ System.out.println("Anonymized input: '" + replacementResult + "'");
 
 In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class
 that simplifies working with regular expressions.
-Additionally, use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) to simplify a regex pattern
+Additionally, use [raw strings](basic-types.md#string-literals) to simplify a regex pattern
 by reducing the count of backslashes:
 
 ```kotlin
@@ -204,7 +204,7 @@ fun main() {
 ## Split a string
 
 In Java, to split a string with the period character (`.`), you need to use shielding (`\\`).
-This happens because the [split()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#split(java.lang.String))
+This happens because the [split()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#split(java.lang.String))
 function of the `String` class accepts a regular expression as an argument:
 
 ```java
@@ -301,7 +301,7 @@ fun main() {
 ## Use multiline strings
 
 Before Java 15, there were several ways to create a multiline string. For example, using
-the [join()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...))
+the [join()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...))
 function of the `String` class:
 
 ```java
@@ -364,12 +364,12 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Learn more about [multiline strings](https://kotlinlang.org/docs/coding-conventions.html#strings).
+Learn more about [multiline strings](coding-conventions.md#strings).
 
 ## What’s next?
 
-* Look through other [Kotlin idioms](https://kotlinlang.org/docs/idioms.html).
+* Look through other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with
-  [Java to Kotlin converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k).
+  [Java to Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 
 If you have a favorite idiom, contribute it by sending a pull request.
