@@ -13,7 +13,7 @@ String name = "Joe";
 System.out.println("Hello, " + name);
 System.out.println("Your name is " + name.length() + " characters long");
 ```
-{id="concatenate-strings-java" lang="Java"}
+{id="concatenate-strings-java"}
 
 In Kotlin, use the dollar sign (`$`) before the variable name to interpolate the value of this variable into your string:
 
@@ -27,7 +27,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="concatenate-strings-kotlin" lang="Kotlin"}
+{kotlin-runnable="true" id="concatenate-strings-kotlin"}
 
 You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`.
 See [string templates](basic-types.md#string-templates) for more information.
@@ -45,6 +45,7 @@ for (int i = 5; i > 0; i--) {
 }
 System.out.println(countDown);
 ```
+{id="build-string-java"}
 
 In Kotlin, use [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) –
 an [inline function](inline-functions.md) that takes logic to construct a string as a lambda argument:
@@ -64,7 +65,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="kotlin-build-string"}
+{kotlin-runnable="true" id="build-string-kotlin"}
 
 Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this`
 inside the [lambda](lambdas.md#function-literals-with-receiver).
@@ -87,6 +88,7 @@ String oddNumbers = numbers
    .collect(Collectors.joining(", "));
 System.out.println(oddNumbers);
 ```
+{id="create-string-from-collection-java"}
 
 In Kotlin, use the [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function,
 which Kotlin defines for every List:
@@ -102,7 +104,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true"  id="create-string-from-collection-kotlin"}
 
 ## Set default value if the string is blank
 
@@ -121,6 +123,7 @@ public String getName() {
    return rand.nextBoolean() ? "" : "Roman";
 }
 ```
+{id="set-default-value-if-blank-java"}
 
 Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html)
 that consumes the default value as an argument:
@@ -137,7 +140,7 @@ fun main () {
 fun getName(): String =
    if (Random.nextBoolean()) "" else "Roman"
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="set-default-value-if-blank-kotlin"}
 
 ## Replace characters at the beginning and end of a string
 
@@ -150,6 +153,7 @@ String input = "##place##holder##";
 String result = input.replaceFirst("##", "").replaceAll("##$", "");
 System.out.println(result);
 ```
+{id="replace-characters-java"}
 
 In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`:
 
@@ -164,7 +168,7 @@ In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`
    }
 
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="replace-characters-kotlin"}
 
 ## Replace occurrences
 
@@ -181,6 +185,7 @@ String replacementResult = matcher.replaceAll(it -> "xxx");
 System.out.println("Initial input: '" + input + "'");
 System.out.println("Anonymized input: '" + replacementResult + "'");
 ```
+{id="replace-occurrences-java"}
 
 In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class
 that simplifies working with regular expressions.
@@ -199,7 +204,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="replace-occurrences-kotlin"}
 
 ## Split a string
 
@@ -211,6 +216,7 @@ function of the `String` class accepts a regular expression as an argument:
 // Java
 System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\.")));
 ```
+{id="split-string-java"}
 
 In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html),
 which receives varargs of delimiters as input parameters:
@@ -223,7 +229,7 @@ which receives varargs of delimiters as input parameters:
 //sampleEnd
    }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="split-string-kotlin"}
 
 If you need to split with a regular expression, use the overloaded `split()` version that consumes the `Regex` as a parameter.
 
@@ -239,6 +245,7 @@ String input = "What is the answer to the Ultimate Question of Life, the Univers
 String answer = input.substring(input.indexOf("?") + 1);
 System.out.println(answer);
 ```
+{id="take-substring-java"}
 
 In Kotlin, you use the `substringAfter()` function and don’t need to calculate the index of the character you want
 to take a substring after:
@@ -253,7 +260,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="take-substring-kotlin"}
 
 Additionally, you can take a substring after the last occurrence of a character:
 
@@ -267,7 +274,7 @@ fun main() {
 //sampleEnd
    }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="take-substring-after-last-kotlin"}
 
 ## Print uppercase characters from a string
 
@@ -284,6 +291,7 @@ String initials = "František Xaver Svoboda"
        .toString();
 System.out.println(initials);
 ```
+{id="print-uppercase-characters-java"}
 
 In Kotlin:
 
@@ -296,7 +304,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="print-uppercase-characters-kotlin"}
 
 ## Use multiline strings
 
@@ -312,6 +320,7 @@ String result = String.join(lineSeparator,
        "Java");
 System.out.println(result);
 ```
+{id="join-strings-11-java"}
 
 In Java 15, text blocks appeared. There is one thing to keep in mind: if you print a multiline string
 and the triple-quote is on the next line, there will be an extra empty line:
@@ -324,6 +333,7 @@ and the triple-quote is on the next line, there will be an extra empty line:
        """.stripIndent();
    System.out.println(result);
 ```
+{id="join-strings-15-java"}
 
 The output:
 ![Java 15 multiline output](java-15-multiline-output.png){width=500}
@@ -345,7 +355,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="join-strings-kotlin"}
 
 The output:
 ![Kotlin multiline output](kotlin-multiline-output.png){width=500}
@@ -362,7 +372,7 @@ fun main() {
    println(result)
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="join-strings-trim-margin-kotlin"}
 
 Learn more about [multiline strings](coding-conventions.md#strings).
 
