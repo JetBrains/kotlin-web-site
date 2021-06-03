@@ -1,6 +1,8 @@
 [//]: # (title: Migrating from Java to Kotlin: Strings)
 
-This guide contains examples of how to solve the typical tasks with strings in Java and Kotlin. It will help you migrate from Java to Kotlin and write your code in the authentic Kotlin way.
+This guide contains examples of how to solve typical tasks with strings in Java and Kotlin.
+It will help you migrate from Java to Kotlin and write your code in the authentic Kotlin way.
+
 ## Concatenate strings
 
 In Java, you can do this in the following way:
@@ -11,6 +13,7 @@ String name = "Joe";
 System.out.println("Hello, " + name);
 System.out.println("Your name is " + name.length() + " characters long");
 ```
+{id="concatenate-strings-java" lang="Java"}
 
 In Kotlin, use the dollar sign (`$`) before the variable name to interpolate the value of this variable into your string:
 
@@ -24,10 +27,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="concatenate-strings-kotlin" lang="Kotlin"}
 
-You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`. See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
+You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`.
+See [string templates](https://kotlinlang.org/docs/basic-types.html#string-templates) for more information.
+
 ## Build a string
+
 In Java, you can use the [StringBuilder](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/StringBuilder.html):
 
 ```java
@@ -40,7 +46,8 @@ for (int i = 5; i > 0; i--) {
 System.out.println(countDown);
 ```
 
-In Kotlin, you use the [inline function](https://kotlinlang.org/docs/inline-functions.html) [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html), which takes logic to construct a string as a lambda argument:
+In Kotlin, use [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) –
+an [inline function](https://kotlinlang.org/docs/inline-functions.html) that takes logic to construct a string as a lambda argument:
 
 ```kotlin
 fun main() {
@@ -57,13 +64,17 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-build-string"}
 
-Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this` inside the [lambda](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
+Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this`
+inside the [lambda](https://kotlinlang.org/docs/lambdas.html#function-literals-with-receiver).
 
-Learn more about [lambdas coding conventions](https://kotlinlang.org/docs/coding-conventions.html#lambdas).
+Learn more about [lambda coding conventions](https://kotlinlang.org/docs/coding-conventions.html#lambdas).
+
 ## Create a string from collection items
-In Java, you use the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) to filter, map, and then collect the items:
+
+In Java, you use the [Stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html) to filter,
+map, and then collect the items:
 
 ```java
 // Java
@@ -77,7 +88,8 @@ String oddNumbers = numbers
 System.out.println(oddNumbers);
 ```
 
-In Kotlin, use the [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function, which Kotlin defines for every List:
+In Kotlin, use the [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function,
+which Kotlin defines for every List:
 
 ```kotlin
 fun main() {
@@ -91,7 +103,9 @@ fun main() {
 }
 ```
 {kotlin-runnable="true"}
+
 ## Set default value if the string is blank
+
 In Java, you can use the ternary operator:
 
 ```java
@@ -108,7 +122,8 @@ public String getName() {
 }
 ```
 
-Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html) that consumes the default value as an argument:
+Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html)
+that consumes the default value as an argument:
 
 ```kotlin
 // Kotlin
@@ -123,9 +138,11 @@ fun getName(): String =
    if (Random.nextBoolean()) "" else "Roman"
 ```
 {kotlin-runnable="true"}
-## Replace characters at the beginning and the end of a string
 
-In Java, you can use the `replaceFirst()` and the `replaceAll()` functions. The `replaceAll()` function in this case consumes the regular expression `##$`, which defines a string ending with `##`:
+## Replace characters at the beginning and end of a string
+
+In Java, you can use the `replaceFirst()` and the `replaceAll()` functions.
+The `replaceAll()` function in this case consumes the regular expression `##$`, which defines a string ending with `##`:
 
 ```java
 // Java
@@ -148,8 +165,12 @@ In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`
 
 ```
 {kotlin-runnable="true"}
+
 ## Replace occurrences
-In Java, you can use the [Pattern](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Pattern.html) and the [Matcher](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Matcher.html) classes, for example, to obfuscate some data:
+
+In Java, you can use the [Pattern](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Pattern.html)
+and the [Matcher](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/util/regex/Matcher.html) classes,
+for example, to obfuscate some data:
 
 ```java
 // Java
@@ -161,7 +182,10 @@ System.out.println("Initial input: '" + input + "'");
 System.out.println("Anonymized input: '" + replacementResult + "'");
 ```
 
-In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class that simplifies working with regular expressions. Additionally, use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) to simplify a regex pattern – reduce the count of backslashes:
+In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class
+that simplifies working with regular expressions.
+Additionally, use [raw strings](https://kotlinlang.org/docs/basic-types.html#string-literals) to simplify a regex pattern
+by reducing the count of backslashes:
 
 ```kotlin
 fun main() {
@@ -176,16 +200,20 @@ fun main() {
 }
 ```
 {kotlin-runnable="true"}
+
 ## Split a string
 
-In Java, to split a string by the period character (`.`), you need to use the shielding (`\\`). This happens because the [split()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#split(java.lang.String)) function of the `String` class accepts a regular expression as an argument:
+In Java, to split a string with the period character (`.`), you need to use shielding (`\\`).
+This happens because the [split()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#split(java.lang.String))
+function of the `String` class accepts a regular expression as an argument:
 
 ```java
 // Java
 System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\.")));
 ```
 
-In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html), which receives varargs of delimiters as input parameters:
+In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html),
+which receives varargs of delimiters as input parameters:
 
 ```kotlin
    fun main() {
@@ -197,9 +225,13 @@ In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/j
 ```
 {kotlin-runnable="true"}
 
-If you need to split by a regular expression, use the overloaded `split()` version that consumes the `Regex` as a parameter.
+If you need to split with a regular expression, use the overloaded `split()` version that consumes the `Regex` as a parameter.
+
 ## Take a substring
-Use this code in Java:
+
+In Java, you can use the [substring()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int)) function,
+which takes an inclusive begin index of a character to start taking substring from.
+To take a substring after this character, you need to increment the index:
 
 ```java
 // Java
@@ -208,7 +240,8 @@ String answer = input.substring(input.indexOf("?") + 1);
 System.out.println(answer);
 ```
 
-In Kotlin, you use the `substringAfter()` function and don’t need to calculate the index of the character you want to take a substring after:
+In Kotlin, you use the `substringAfter()` function and don’t need to calculate the index of the character you want
+to take a substring after:
 
 ```kotlin  
 fun main() {
@@ -235,6 +268,7 @@ fun main() {
    }
 ```
 {kotlin-runnable="true"}
+
 ## Print uppercase characters from a string
 
 In Java:
@@ -263,8 +297,12 @@ fun main() {
 }
 ```
 {kotlin-runnable="true"}
-## Use multi-line strings
-Before Java 15, there were several ways to create a multi-line string. For example, using the [join()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)) function of the `String` class:
+
+## Use multiline strings
+
+Before Java 15, there were several ways to create a multiline string. For example, using
+the [join()](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...))
+function of the `String` class:
 
 ```java
 // Java
@@ -275,7 +313,8 @@ String result = String.join(lineSeparator,
 System.out.println(result);
 ```
 
-In Java 15, multi-line strings appeared. There is one thing to keep in mind: if you print a multi-line string and the triple-quote is on the next line, there will be an extra empty line:
+In Java 15, text blocks appeared. There is one thing to keep in mind: if you print a multiline string
+and the triple-quote is on the next line, there will be an extra empty line:
 
 ```java
 // Java
@@ -289,12 +328,10 @@ In Java 15, multi-line strings appeared. There is one thing to keep in mind: if 
 The output:
 ![Java 15 multiline output](java-15-multiline-output.png){width=500}
 
-
-
-
 If you put the triple-quote on the same line as the last word, this difference in behavior disappears.
 
-In Kotlin, you can format your line with the quotes on the new line, and there will be no extra empty line in the output. The left-most character of any line identifies the beginning of the line.
+In Kotlin, you can format your line with the quotes on the new line, and there will be no extra empty line in the output.
+The left-most character of any line identifies the beginning of the line.
 
 ```kotlin
 fun main() {
@@ -313,7 +350,6 @@ fun main() {
 The output:
 ![Kotlin multiline output](kotlin-multiline-output.png){width=500}
 
-
 In Kotlin, you can also use the `trimMargin()` function to customize the indents:
 
 ```kotlin
@@ -325,12 +361,15 @@ fun main() {
    """.trimMargin("#")
    println(result)
 }
+```
 {kotlin-runnable="true"}
 
-Learn more about [multi-line strings](https://kotlinlang.org/docs/coding-conventions.html#strings).
-## What’s next?
-Learn other [Kotlin idioms](https://kotlinlang.org/docs/idioms.html).
+Learn more about [multiline strings](https://kotlinlang.org/docs/coding-conventions.html#strings).
 
-Learn how to convert existing Java code to Kotlin with [Java to Kotlin converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k).
+## What’s next?
+
+* Look through other [Kotlin idioms](https://kotlinlang.org/docs/idioms.html).
+* Learn how to convert existing Java code to Kotlin with
+  [Java to Kotlin converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k).
 
 If you have a favorite idiom, contribute it by sending a pull request.
