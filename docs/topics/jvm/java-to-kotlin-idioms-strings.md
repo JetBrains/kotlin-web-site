@@ -81,11 +81,11 @@ to filter, map, and then collect the items:
 // Java
 List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
 String oddNumbers = numbers
-   .stream()
-   .filter(it -> it % 2 != 0)
-   .map(it -> (-1) * it)
-   .map(Object::toString)
-   .collect(Collectors.joining(", "));
+        .stream()
+        .filter(it -> it % 2 != 0)
+        .map(it -> (-1) * it)
+        .map(Object::toString)
+        .collect(Collectors.joining(", "));
 System.out.println(oddNumbers);
 ```
 {id="create-string-from-collection-java"}
@@ -113,14 +113,14 @@ In Java, you can use the ternary operator:
 ```java
 // Java
 public void defaultValueIfStringIsBlank() {
-   String nameValue = getName();
-   String name = nameValue.isBlank() ? "John Doe" : nameValue;
-   System.out.println(name);
+    String nameValue = getName();
+    String name = nameValue.isBlank() ? "John Doe" : nameValue;
+    System.out.println(name);
 }
 
 public String getName() {
-   Random rand = new Random();
-   return rand.nextBoolean() ? "" : "Roman";
+    Random rand = new Random();
+    return rand.nextBoolean() ? "" : "Roman";
 }
 ```
 {id="set-default-value-if-blank-java"}
@@ -132,13 +132,13 @@ that consumes the default value as an argument:
 // Kotlin
 import kotlin.random.Random
 
-fun main () {
-   val name = getName().ifBlank { "John Doe" }
-   println(name)
+fun main() {
+    val name = getName().ifBlank { "John Doe" }
+    println(name)
 }
 
 fun getName(): String =
-   if (Random.nextBoolean()) "" else "Roman"
+    if (Random.nextBoolean()) "" else "Roman"
 ```
 {kotlin-runnable="true" id="set-default-value-if-blank-kotlin"}
 
@@ -158,15 +158,14 @@ System.out.println(result);
 In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`:
 
 ```kotlin
-   fun main() {
+fun main() {
 //sampleStart
-       // Kotlin
-       val input = "##place##holder##"
-       val result = input.removeSurrounding("##")
-       println(result)
+    // Kotlin
+    val input = "##place##holder##"
+    val result = input.removeSurrounding("##")
+    println(result)
 //sampleEnd
-   }
-
+}
 ```
 {kotlin-runnable="true" id="replace-characters-kotlin"}
 
@@ -195,12 +194,12 @@ by reducing the count of backslashes:
 ```kotlin
 fun main() {
 //sampleStart
-       // Kotlin
-       val regex = Regex("""\w*\d+\w*""") // raw string
-       val input = "login: Pokemon5, password: 1q2w3e4r5t"
-       val replacementResult = regex.replace(input, replacement = "xxx")
-       println("Initial input: '$input'")
-       println("Anonymized input: '$replacementResult'")
+    // Kotlin
+    val regex = Regex("""\w*\d+\w*""") // raw string
+    val input = "login: Pokemon5, password: 1q2w3e4r5t"
+    val replacementResult = regex.replace(input, replacement = "xxx")
+    println("Initial input: '$input'")
+    println("Anonymized input: '$replacementResult'")
 //sampleEnd
 }
 ```
@@ -222,12 +221,12 @@ In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/j
 which receives varargs of delimiters as input parameters:
 
 ```kotlin
-   fun main() {
+fun main() {
 //sampleStart
-       // Kotlin
-       println("Sometimes.text.should.be.split".split("."))
+    // Kotlin
+    println("Sometimes.text.should.be.split".split("."))
 //sampleEnd
-   }
+}
 ```
 {kotlin-runnable="true" id="split-string-kotlin"}
 
@@ -247,16 +246,16 @@ System.out.println(answer);
 ```
 {id="take-substring-java"}
 
-In Kotlin, you use the `substringAfter()` function and don’t need to calculate the index of the character you want
-to take a substring after:
+In Kotlin, you use the [substringAfter()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/substring-after.html) function 
+and don’t need to calculate the index of the character you want to take a substring after:
 
-```kotlin  
+```kotlin
 fun main() {
 //sampleStart
-       // Kotlin
-       val input = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42"
-       val answer = input.substringAfter("?")
-       println(answer)
+    // Kotlin
+    val input = "What is the answer to the Ultimate Question of Life, the Universe, and Everything? 42"
+    val answer = input.substringAfter("?")
+    println(answer)
 //sampleEnd
 }
 ```
@@ -264,15 +263,15 @@ fun main() {
 
 Additionally, you can take a substring after the last occurrence of a character:
 
-```kotlin  
+```kotlin
 fun main() {
 //sampleStart
-       // Kotlin
-       val input = "To be, or not to be, that is the question."
-       val question = input.substringAfterLast(",")
-       println(question)
+    // Kotlin
+    val input = "To be, or not to be, that is the question."
+    val question = input.substringAfterLast(",")
+    println(question)
 //sampleEnd
-   }
+}
 ```
 {kotlin-runnable="true" id="take-substring-after-last-kotlin"}
 
@@ -298,9 +297,9 @@ In Kotlin:
 ```kotlin
 fun main() {
 //sampleStart
-   // Kotlin
-   val initials = "František Xaver Svoboda".filter { it.isUpperCase() }
-   println(initials)
+    // Kotlin
+    val initials = "František Xaver Svoboda".filter { it.isUpperCase() }
+    println(initials)
 //sampleEnd
 }
 ```
@@ -347,7 +346,7 @@ The left-most character of any line identifies the beginning of the line.
 fun main() {
 //sampleStart
     // Kotlin   
-       val result = """
+    val result = """
         Kotlin
         Java 
     """.trimIndent()
@@ -365,11 +364,11 @@ In Kotlin, you can also use the `trimMargin()` function to customize the indents
 ```kotlin
 // Kotlin
 fun main() {
-   val result = """
+    val result = """
        #  Kotlin
        #  Java
    """.trimMargin("#")
-   println(result)
+    println(result)
 }
 ```
 {kotlin-runnable="true" id="join-strings-trim-margin-kotlin"}
