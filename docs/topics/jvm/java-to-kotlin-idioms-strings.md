@@ -145,7 +145,10 @@ fun getName(): String =
 
 ## Replace characters at the beginning and end of a string
 
-In Java, you can use the `replaceFirst()` and the `replaceAll()` functions.
+In Java, you can use 
+the [replaceFirst()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceFirst(java.lang.String,java.lang.String)) 
+and the [replaceAll()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)) 
+functions.
 The `replaceAll()` function in this case consumes the regular expression `##$`, which defines a string ending with `##`:
 
 ```java
@@ -156,7 +159,8 @@ System.out.println(result);
 ```
 {id="replace-characters-java"}
 
-In Kotlin, use the `removeSurrounding()` function with the string delimiter `##`:
+In Kotlin, use the [removeSurrounding()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/remove-surrounding.html) 
+function with the string delimiter `##`:
 
 ```kotlin
 fun main() {
@@ -322,8 +326,9 @@ System.out.println(result);
 ```
 {id="join-strings-11-java"}
 
-In Java 15, text blocks appeared. There is one thing to keep in mind: if you print a multiline string
-and the triple-quote is on the next line, there will be an extra empty line:
+In Java 15, [text blocks](https://docs.oracle.com/en/java/javase/15/text-blocks/index.html) appeared. 
+There is one thing to keep in mind: if you print a multiline string and the triple-quote is on the next line, 
+there will be an extra empty line:
 
 ```java
 // Java
@@ -336,7 +341,7 @@ and the triple-quote is on the next line, there will be an extra empty line:
 {id="join-strings-15-java"}
 
 The output:
-![Java 15 multiline output](java-15-multiline-output.png){width=500}
+![Java 15 multiline output](java-15-multiline-output.png){width=700}
 
 If you put the triple-quote on the same line as the last word, this difference in behavior disappears.
 
@@ -358,9 +363,9 @@ fun main() {
 {kotlin-runnable="true" id="join-strings-kotlin"}
 
 The output:
-![Kotlin multiline output](kotlin-multiline-output.png){width=500}
+![Kotlin multiline output](kotlin-multiline-output.png){width=700}
 
-In Kotlin, you can also use the `trimMargin()` function to customize the indents:
+In Kotlin, you can also use the [trimMargin()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function to customize the indents:
 
 ```kotlin
 // Kotlin
