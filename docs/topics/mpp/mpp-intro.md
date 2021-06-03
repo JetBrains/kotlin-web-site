@@ -6,7 +6,7 @@
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the
  same code for [different platforms](mpp-supported-platforms.md) while retaining the flexibility and benefits of native programming. 
- Learn more about [Kotlin Mutliplatform benefits](multiplatform.md).
+ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
 
 With Kotlin Multiplatform, share the code using the mechanisms Kotlin provides: 
  
