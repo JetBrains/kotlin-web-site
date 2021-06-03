@@ -1,6 +1,6 @@
 [//]: # (title: Calling Java from Kotlin)
 
-Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
+Kotlin is designed with Java interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
 and Kotlin code can be used from Java rather smoothly as well.
 In this section, we describe some details about calling Java code from Kotlin.
 
