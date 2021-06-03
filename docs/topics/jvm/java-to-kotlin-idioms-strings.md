@@ -332,11 +332,11 @@ there will be an extra empty line:
 
 ```java
 // Java
-   String result = """
-       Kotlin
-       Java
-       """.stripIndent();
-   System.out.println(result);
+String result = """
+    Kotlin
+    Java
+    """.stripIndent();
+System.out.println(result);
 ```
 {id="join-strings-15-java"}
 
