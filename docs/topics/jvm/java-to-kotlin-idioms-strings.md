@@ -235,7 +235,7 @@ If you need to split with a regular expression, use the overloaded `split()` ver
 ## Take a substring
 
 In Java, you can use the [substring()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int)) function,
-which takes an inclusive begin index of a character to start taking substring from.
+which takes an inclusive beginning index of a character to start taking the substring from.
 To take a substring after this character, you need to increment the index:
 
 ```java
