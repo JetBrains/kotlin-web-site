@@ -45,4 +45,4 @@ Kotlin fixes a series of issues that Java suffers from:
 
 ## What’s next?
 
-Learn how to solve [typical tasks with strings in Java and Kotlin](jvm/java-to-kotlin-idioms-strings.md).
+Learn how to solve [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
