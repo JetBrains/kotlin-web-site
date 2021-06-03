@@ -78,7 +78,7 @@ referenced inside the class, put them in the end, after the companion object.
 ### Interface implementation layout
 
 When implementing an interface, keep the implementing members in the same order as members of the interface (if necessary,
-interspersed with additional private methods used for the implementation)
+interspersed with additional private methods used for the implementation).
 
 ### Overload layout
 
@@ -939,7 +939,7 @@ Prefer using `if` for binary conditions instead of `when`.
 For example, use this syntax with `if`:
 
 ```kotlin
-`if (x == null) ... else ...`
+if (x == null) ... else ...
 ```
 
 instead of this one with `when`:
@@ -984,18 +984,33 @@ To maintain indentation in multiline strings, use `trimIndent` when the resultin
 indentation, or `trimMargin` when internal indentation is required:
 
 ```kotlin
-assertEquals(
+fun main() {
+//sampleStart
+   println("""
+    Not
+    trimmed
+    text
     """
-    Foo
-    Bar
-    """.trimIndent(), 
-    value
-)
+   )
 
-val a = """if(a > 1) {
+   println("""
+    Trimmed
+    text
+    """.trimIndent()
+   )
+
+   println()
+
+   val a = """Trimmed to margin text:
+          |if(a > 1) {
           |    return a
           |}""".trimMargin()
+
+   println(a)
+//sampleEnd
+}
 ```
+{kotlin-runnable="true"}
 
 ### Functions vs properties
 
@@ -1077,5 +1092,5 @@ When writing libraries, it's recommended to follow an additional set of rules to
  * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)
  * Always explicitly specify function return types and property types (to avoid accidentally changing the return type
    when the implementation changes)
- * Provide KDoc comments for all public members, with the exception of overrides that do not require any new documentation
+ * Provide [KDoc](kotlin-doc.md) comments for all public members, with the exception of overrides that do not require any new documentation
    (to support generating documentation for the library)
