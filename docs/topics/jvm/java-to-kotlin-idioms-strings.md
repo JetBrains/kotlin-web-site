@@ -121,7 +121,7 @@ public void defaultValueIfStringIsBlank() {
 
 public String getName() {
     Random rand = new Random();
-    return rand.nextBoolean() ? "" : "Roman";
+    return rand.nextBoolean() ? "" : "David";
 }
 ```
 {id="set-default-value-if-blank-java"}
@@ -139,7 +139,7 @@ fun main() {
 }
 
 fun getName(): String =
-    if (Random.nextBoolean()) "" else "Roman"
+    if (Random.nextBoolean()) "" else "David"
 //sampleEnd
 ```
 {kotlin-runnable="true" id="set-default-value-if-blank-kotlin"}
