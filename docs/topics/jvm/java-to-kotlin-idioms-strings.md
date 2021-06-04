@@ -54,10 +54,9 @@ an [inline function](inline-functions.md) that takes logic to construct a string
 fun main() {
 //sampleStart
        // Kotlin
-       var counter = 5;
        val countDown = buildString {
-           repeat(5) {
-               append(counter--)
+           for (i in 5 downTo 1) {
+               append(i)
                appendLine()
            }
        }
@@ -100,7 +99,7 @@ fun main() {
     val numbers = mutableListOf(1, 2, 3, 4, 5, 6)
     val oddNumbers = numbers
         .filter { it % 2 != 0 }
-        .joinToString{ "${it.unaryMinus()}" }
+        .joinToString{ "${-it}" }
   println(oddNumbers)
 //sampleEnd
 }
