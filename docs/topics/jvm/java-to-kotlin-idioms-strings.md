@@ -109,7 +109,7 @@ fun main() {
 
 ## Set default value if the string is blank
 
-In Java, you can use the ternary operator:
+In Java, you can use the [ternary operator](https://en.wikipedia.org/wiki/%3F:):
 
 ```java
 // Java
@@ -132,6 +132,7 @@ that consumes the default value as an argument:
 ```kotlin
 // Kotlin
 import kotlin.random.Random
+
 //sampleStart
 fun main() {
     val name = getName().ifBlank { "John Doe" }
