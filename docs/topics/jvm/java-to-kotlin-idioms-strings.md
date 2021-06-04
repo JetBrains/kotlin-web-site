@@ -127,7 +127,7 @@ public String getName() {
 {id="set-default-value-if-blank-java"}
 
 Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html)
-that consumes the default value as an argument:
+that accepts the default value as an argument:
 
 ```kotlin
 // Kotlin
@@ -151,7 +151,7 @@ In Java, you can use
 the [replaceFirst()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceFirst(java.lang.String,java.lang.String)) 
 and the [replaceAll()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)) 
 functions.
-The `replaceAll()` function in this case consumes the regular expression `##$`, which defines a string ending with `##`:
+The `replaceAll()` function in this case accepts the regular expression `##$`, which defines a string ending with `##`:
 
 ```java
 // Java
@@ -225,7 +225,7 @@ System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\.")
 {id="split-string-java"}
 
 In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html),
-which receives varargs of delimiters as input parameters:
+which accepts varargs of delimiters as input parameters:
 
 ```kotlin
 fun main() {
@@ -237,12 +237,12 @@ fun main() {
 ```
 {kotlin-runnable="true" id="split-string-kotlin"}
 
-If you need to split with a regular expression, use the overloaded `split()` version that consumes the `Regex` as a parameter.
+If you need to split with a regular expression, use the overloaded `split()` version that accepts the `Regex` as a parameter.
 
 ## Take a substring
 
 In Java, you can use the [substring()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#substring(int)) function,
-whose argument is an inclusive beginning index of a character to start taking the substring from.
+which accepts an inclusive beginning index of a character to start taking the substring from.
 To take a substring after this character, you need to increment the index:
 
 ```java
