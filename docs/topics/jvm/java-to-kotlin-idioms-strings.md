@@ -282,36 +282,6 @@ fun main() {
 ```
 {kotlin-runnable="true" id="take-substring-after-last-kotlin"}
 
-## Print uppercase characters from a string
-
-In Java:
-
-```java
-// Java
-String initials = "František Xaver Svoboda"
-       .chars()
-       .filter(Character::isUpperCase)
-       .collect(StringBuilder::new,
-               StringBuilder::appendCodePoint,
-               StringBuilder::append)
-       .toString();
-System.out.println(initials);
-```
-{id="print-uppercase-characters-java"}
-
-In Kotlin:
-
-```kotlin
-fun main() {
-//sampleStart
-    // Kotlin
-    val initials = "František Xaver Svoboda".filter { it.isUpperCase() }
-    println(initials)
-//sampleEnd
-}
-```
-{kotlin-runnable="true" id="print-uppercase-characters-kotlin"}
-
 ## Use multiline strings
 
 Before Java 15, there were several ways to create a multiline string. For example, using
