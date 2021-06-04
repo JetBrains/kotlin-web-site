@@ -34,7 +34,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" validate="false"}
 
 To allow nulls, you can declare a variable as nullable string, written `String?`:
 
