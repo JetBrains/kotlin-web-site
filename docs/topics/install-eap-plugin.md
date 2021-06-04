@@ -1,5 +1,10 @@
 [//]: # (title: Install the EAP Plugin for IntelliJ IDEA or Android Studio)
 
+<microformat>
+    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
+</microformat>
+
 You can follow these instructions to install [the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio](eap.md#build-details).
 
 1. Select **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**. 
