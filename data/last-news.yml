@@ -4,8 +4,8 @@
 - title: "kotlinx.serialization 1.2.0: Faster JSON Handling, Value Classes, API Docs & More"
   link: https://youtu.be/698I_AH8h6s
 
-- title: "Talking Kotlin: Contributing to the Kotlin Compiler"
-  link: https://youtu.be/UryyHq45Y_8
+- title: "What’s new in KMM since going Alpha"
+  link: https://blog.jetbrains.com/kotlin/2021/05/whats-new-in-kmm-since-going-alpha/
 
-- title: "Sealed Interfaces and Sealed Classes Improvements"
-  link: https://youtu.be/d_Mor21W_60
+- title: "Talking Kotlin: Realm for Kotlin Multiplatform"
+  link: https://youtu.be/pU9yaCPmQ2g
