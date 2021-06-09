@@ -25,7 +25,7 @@
   resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.0.8.tgz#e901073291c2c28305cf7c1d1bbf6c093108432a"
   integrity sha512-26tjhwsDm0V2otTJ9s3AeBC0NWpVpam+frnxGnmSM18+pa9zqpa7f23XcqLr7ZIzDwfJluVpQkwOHdumgn4vog==
 
-"@rescui/typography@^0.0.1":
+"@rescui/typography@0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.0.1.tgz#22bee3868885d7b3fa65f8024b140f17aa467579"
   integrity sha512-ODGiOIA/fArWmwEZEmdF5SJByVeiqVamX3ZWK/PD4JsxeNvzZl5TSA5JiDnlEdE42jLSIPd463ioF4n1L9fV2w==
@@ -34,7 +34,7 @@
     bem-cn-fast "^1.0.2"
     inter-ui "^3.15.1"
 
-"@rescui/ui-contexts@^0.0.2":
+"@rescui/ui-contexts@0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@rescui/ui-contexts/-/ui-contexts-0.0.2.tgz#899a9077b15fafae027fd277a89d21b74328f10c"
   integrity sha512-wh+NZdX4iu4Nz/dj2zjqQyBFui2IJEKw2UB5YeqgAKHAa6WcyfVymcBG5hxHsjXP5SrBoSrEsOBx5WZQw+lDlg==
