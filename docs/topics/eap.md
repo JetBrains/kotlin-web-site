@@ -40,8 +40,8 @@ check [our instructions on how to configure your build to support this version](
         <td> 
              <ul>
                 <li>Parallel compilation of Kotlin sources is controlled by <code>--parallel</code> Gradle property. The <code>kotlin.parallel.tasks.in.project</code> property is deprecated.</li>
-                <li>The Gradle plugin option <code>kotlinOptions.jdkHome</code> is deprecated. The JDK location can be set via tasks that implement the <code>UsesKotlinJavaToolchain</code> interface.</li>
                 <li>Aligned behavior of stdlib functions <code>isLowerCase</code>/<code>isUpperCase</code> and <code>digitToInt</code> across platforms.</li>
+                <li>Kotlin/Native: opt-in export of KDoc comments to the generated Objective-C headers with the <code>-Xexport-kdoc</code> compiler option.</li>
             </ul>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.20-RC">changelog</a>.</p>
         </td>
