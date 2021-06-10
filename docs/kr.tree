@@ -136,6 +136,7 @@
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
+            <toc-element id="js-ir-migration.md"/>
 
             <toc-element toc-title="Kotlin for the JS platform">
                 <toc-element id="browser-api-dom.md"/>
