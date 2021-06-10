@@ -190,7 +190,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
             index_objects.append(page_info)
 
         for chapter in chapters:
-            chapter_title_node = chapter.select_one('h2[data-toc]')
+            chapter_title_node = chapter.select_one('[data-toc]')
             if chapter_title_node:
                 chapter_title = chapter_title_node.extract().text
                 chapter_title_anchor = chapter_title_node.attrs["data-toc"].split('#')[1]
