@@ -5,7 +5,7 @@ title: "Kotlin User Groups List"
 ---
 
 # Find a KUG near you
-## 190 KUGs around the world
+## 193 KUGs around the world
 
 Kotlin User Group or KUG is a community of people and a place to share your programming experience with Kotlin and its ecosystem
 
@@ -92,6 +92,7 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
  * [Beijing Kotlin User Group](http://www.kotliner.cn/), China
  * [Bhopal Kotlin User Group](https://www.facebook.com/kotlinbpl/), India
  * [Bhubaneswar Kotlin User Group](https://www.facebook.com/groups/1961143800818624/), India
+ * [Chennai Kotlin User Group](https://discord.gg/UYHG85Pgu9), India
  * [Cirebon Kotlin User Group](https://t.me/kotlin_crb), Indonesia
  * [Coimbatore Kotlin User Group](https://facebook.com/kotlincbe/), India
  * [Cambodia Kotlin User Group](https://www.facebook.com/groups/kotlinphnompenh), Cambodia
@@ -211,9 +212,11 @@ Kotlin User Group or KUG is a community of people and a place to share your prog
 * [Cotonou Kotlin User Group](https://www.facebook.com/kotlinCotonou/), Benin
 * [Damaturu Kotlin User Group](https://web.facebook.com/Damaturu-Kotlin-User-Group-114389643760406), Nigeria
 * [Egypt Kotlin](https://www.facebook.com/kotlinegypt/), Egypt
+* [Kano Kotlin User Group](https://web.facebook.com/groups/193660894904095/about), Nigeria
 * [Katsina Kotlin User Group](https://www.downtomeet.com/Katsina-Kotlin-Group), Nigeria
 * [Lagos Kotlin User Group](https://www.meetup.com/Lagos-Kotlin-Meetup/), Nigeria
 * [Lome Kotlin User Group](https://www.facebook.com/groups/1825278611119862/), Togo
+* [Minna Kotlin User Group](https://web.facebook.com/groups/969877396554431/about), Nigeria
 * [Minya Kotlin User Group](https://www.facebook.com/kotlinminya/), Egypt
 * [Nairobi Kotlin User Group](https://www.meetup.com/KotlinKenya/), Kenya
 * [Ondo Kotlin User Group](https://www.meetup.com/Kotlin-Ondo-User-Group/), Nigeria
