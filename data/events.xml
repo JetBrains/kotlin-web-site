@@ -1,6 +1,94 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>de</lang>
+        <startDate>2021-06-17</startDate>
+        <endDate>2021-06-17</endDate>
+        <location>Stuttgart, Germany</location>
+        <speaker>Jan Baganz</speaker>
+        <title>Kotlin User Group Stuttgart</title>
+        <subject>Erfahrungen mit Spring Boot und Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Stuttgart/events/278526815</url>
+        <description>
+            <![CDATA[
+<p>In diesem Talk schauen wir uns am Beispiel eines großen Logistik-Systems an, wie ein komplettes Backend mit Kotlin und Spring-Boot aufgebaut ist.
+Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Performance erhöhen können, welche Magie hinter den Koroutinen arbeitet und welche Fallstricke es bei ihrem Einsatz gibt.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-22</startDate>
+        <endDate>2021-06-22</endDate>
+        <location>Denver, CO, USA</location>
+        <speaker>Monika Kumar Jethani</speaker>
+        <title>360|AnDev</title>
+        <subject>Unit testing made easy with MockK</subject>
+        <url>https://360andev.com/session/unit-testing-made-easy-with-mockk/</url>
+        <description>
+            <![CDATA[
+<p>Mockito has been used in testing kotlin/android apps since long, however there is setup required and a lot of boilerplate code required to test certain kotlin components as well as a need to use other libraries like PowerMock for the features that Mockito doesn’t support. Mockk, a mocking framework with first-class support for kotlin features, comes to the rescue and helps developers write unit tests easily as well as improve code coverage without having to do extra setup/ write boilerplate code or use other mocking frameworks.</p>
+<p>In this session, we will look at codebase of an android app and learn the following,
+1- how mockk can help us test the various application components(objects, classes, enums, constructors, chaining calls, hierarchial mocking, verification order, extension functions, coroutines, deferred and suspending functions, private and static functions, capturing and replaying arguments, relaxed mocking, top-level functions)
+2- how mockk is better than mockito in testing 1
+3- which is better for code coverage – mockk vs mockito</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-23</startDate>
+        <endDate>2021-06-23</endDate>
+        <location>Denver, CO, USA</location>
+        <speaker>Lauren Yew</speaker>
+        <title>360|AnDev</title>
+        <subject>Threading Made Easy! A Busy Developer’s Guide to Kotlin Coroutines and Flows</subject>
+        <url>https://360andev.com/session/threading-made-easy-a-busy-developers-guide-to-kotlin-coroutines-flows/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Coroutines is a powerful threading library for Kotlin, released by JetBrains in 2018. At The New York Times, we recently migrated our core libraries and parts of our News app from RxJava to Kotlin Coroutines. In this talk we’ll share lessons learned and best practices to understand, migrate to, and use Kotlin Coroutines & Flows.</p>
+<p>In this presentation, you will learn:</p>
+<p>What Coroutines are and how they function
+How to use Kotlin Coroutines & Flows (with real world examples and demos)
+Where and why you should use Coroutines & Flows in your app
+How to avoid the pitfalls of Coroutines
+Kotlin Coroutines vs. RxJava
+Lessons learned from migrating to Kotlin Coroutines from RxJava in large legacy projects & libraries
+By the end of this talk, you will be able to apply Kotlin Coroutines to your own app, run the provided sample code yourself, and convince your team to give Kotlin Coroutines a try!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-05-13</startDate>
+        <endDate>2021-05-13</endDate>
+        <location>Minneapolis, MN</location>
+        <speaker>Jossi Wolf</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>Keeping a Healthy StateFlow of Mind</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/277921042/?_xtd=gqFypzk1NTMxODihcKdhbmRyb2lk&amp;from=ref</url>
+        <description>
+            <![CDATA[
+<p>StateFlows, SharedFlows, oh my! With a lot of new Flow APIs around, we have many mistakes to make and lots of things to learn. In this talk, we will look at use cases for StateFlow and SharedFlow, common and some not-so-common gotchas and how to test the whole thing!</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-06-17</startDate>
+        <endDate>2021-06-17</endDate>
+        <location>Minneapolis, MN</location>
+        <speaker>Colin Lee</speaker>
+        <title>Twin Cities Kotlin User Group</title>
+        <subject>What Went Down at Kotlin Global Event and Google I/O</subject>
+        <url>https://www.meetup.com/Twin-Cities-Kotlin-User-Group/events/278286197/</url>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2021-06-24</startDate>
         <endDate>2021-06-24</endDate>
