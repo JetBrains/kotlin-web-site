@@ -123,6 +123,12 @@ it's good to be mindful of these possible pitfalls.
 - Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
 - The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
 
+## Migrating existing projects to the IR compiler
+
+Due to significant differences between the two Kotlin/JS compilers, making your Kotlin/JS code work with the IR compiler
+may require some adjustments. Learn how to migrate existing Kotlin/JS projects to the IR compiler in the [Kotlin/JS IR
+compiler migration guide](js-ir-migration.md).
+
 ## Authoring libraries for the IR compiler with backwards compatibility
 
 If you're a library maintainer who is looking to provide compatibility with the default backend as well as the new IR
