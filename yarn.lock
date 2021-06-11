@@ -20,10 +20,10 @@
     babel-preset-react "6.24.1"
     babel-preset-stage-2 "6.24.1"
 
-"@jetbrains/kotlin-web-site-ui@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.0.8.tgz#e901073291c2c28305cf7c1d1bbf6c093108432a"
-  integrity sha512-26tjhwsDm0V2otTJ9s3AeBC0NWpVpam+frnxGnmSM18+pa9zqpa7f23XcqLr7ZIzDwfJluVpQkwOHdumgn4vog==
+"@jetbrains/kotlin-web-site-ui@^2.0.12":
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.0.12.tgz#54e5995eb7bc427da3c6363376270e1556a1958b"
+  integrity sha512-r6C3sWSoF78BjsgtzcsTb/U4Zv//Vr48C34KDBKmDFKww/1e29L4kpnKwk6ALNDrUh3ZOfiOiDFhaNUatgAY2A==
 
 "@rescui/typography@0.0.1":
   version "0.0.1"
