@@ -38,6 +38,8 @@ It serves as an alternative to traditional templating systems such as JSP and Fr
 For JPA, the [kotlin-jpa compiler plugin](no-arg-plugin.md#jpa-support) adapts
 Kotlin-compiled classes to the requirements of the framework.
 
+ * [Kweb](https://kweb.io/) is a frontend web framework for backend developers which automates communication between browser and server.
+
 ## Deploying Kotlin server-side applications
 
 Kotlin applications can be deployed into any host that supports Java Web applications, including Amazon Web Services,
