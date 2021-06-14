@@ -266,3 +266,20 @@ fun encodeList(options: Map<String, String>): String {
 }
 ```
 
+## Making Java's annotation processors working
+
+By default, kapt assumes that all annotation processors work through it and disables Java's compiler's annotation processors.
+Sometimes, some plugins should be launched via annotation processor of Java's compiler. To make such plugins working, 
+you need to change the behaviour described above.
+
+If you use Gradle build system, add the additional flag to the `build.gradle` file to make Java's compiler's annotations
+processors working:
+
+```groovy
+kapt {
+    keepJavacAnnotationProcessors = true
+}
+```
+
+If you use Maven build system, you need to specify a concrete plugin's settings. 
+See the [example of settings for Lombok compiler plugin](lombok.md#using-along-with-kapt).

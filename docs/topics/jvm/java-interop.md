@@ -702,3 +702,9 @@ var myProperty: String
 ```
 
 Behind the scenes, this will create two functions `getMyProperty` and `setMyProperty`, both marked as `external`.
+
+## Using Lombok-generated declarations in Kotlin
+
+If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations,
+then everything works out of the box. If you need to use Java's Lombok-generated declarations in mixed Kotlin/Java
+sources, learn how to do this on [Lombok Kotlin compiler plugin's page](lombok.md).
