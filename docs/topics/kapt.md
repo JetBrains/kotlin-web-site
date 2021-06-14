@@ -85,7 +85,9 @@ kapt {
 }
 ```
 
-## Running kapt tasks in parallel (since 1.2.60)
+## Improving the speed of builds that use kapt
+
+### Running kapt tasks in parallel (since 1.2.60)
 
 To improve the speed of builds that use kapt, you can enable the [Gradle worker API](https://guides.gradle.org/using-the-worker-api/)
 for kapt tasks. Using the worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
@@ -96,6 +98,29 @@ To use the Gradle worker API for parallel execution of kapt tasks, add this line
 
 ```
 kapt.use.worker.api=true
+```
+
+### Caching annotation processors' classloaders (since 1.5.20)
+
+> Caching annotation processors' classloaders in kapt is [Experimental](https://kotlinlang.org/docs/components-stability.html). 
+> It may be dropped or changed at any time. Opt-in is required (see the details below), and you should use it only for evaluation purposes. 
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
+>
+{type="warning"}
+
+Experimental feature of caching annotation processors' classloaders in kapt can increase the speed of kapt for many 
+consecutive Gradle runs.
+
+To enable this feature, use the following properties in `gradle.properties`:
+
+```groovy
+#positive value will enable caching
+#use the same value as the number of modules that use kapt
+kapt.classloaders.cache.size=5
+kapt.classloaders.cache.disableForProcessors=[specify annotation processors full names to disable cache for them]
+
+#needs to be disabled for caching to work
+kapt.include.compile.classpath = false
 ```
 
 ## Compile avoidance for kapt (since 1.3.20)
@@ -269,10 +294,10 @@ fun encodeList(options: Map<String, String>): String {
 ## Making Java's annotation processors working
 
 By default, kapt assumes that all annotation processors work through it and disables Java's compiler's annotation processors.
-Sometimes, some plugins should be launched via annotation processor of Java's compiler. To make such plugins working, 
-you need to change the behaviour described above.
+Sometimes, some plugins should be launched via an annotation processor of Java's compiler. To make such plugins working,
+you need to change the behavior described above.
 
-If you use Gradle build system, add the additional flag to the `build.gradle` file to make Java's compiler's annotations
+If you use the Gradle build system, add the additional flag to the `build.gradle` file to make Java's compiler's annotations
 processors working:
 
 ```groovy
@@ -281,5 +306,5 @@ kapt {
 }
 ```
 
-If you use Maven build system, you need to specify a concrete plugin's settings. 
+If you use the Maven build system, you need to specify a concrete plugin's settings.
 See the [example of settings for Lombok compiler plugin](lombok.md#using-along-with-kapt).
