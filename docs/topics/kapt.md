@@ -102,8 +102,8 @@ kapt.use.worker.api=true
 
 ### Caching annotation processors' classloaders (since 1.5.20)
 
-> Caching annotation processors' classloaders in kapt is [Experimental](https://kotlinlang.org/docs/components-stability.html). 
-> It may be dropped or changed at any time. Opt-in is required (see the details below), and you should use it only for evaluation purposes. 
+> Caching annotation processors' classloaders in kapt is [Experimental](components-stability.md). 
+> It may be dropped or changed at any time. Use it only for evaluation purposes. 
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
 >
 {type="warning"}
@@ -111,7 +111,7 @@ kapt.use.worker.api=true
 Experimental feature of caching annotation processors' classloaders in kapt can increase the speed of kapt for many 
 consecutive Gradle runs.
 
-To enable this feature, use the following properties in `gradle.properties`:
+To enable this feature, use the following properties in your `gradle.properties` file:
 
 ```groovy
 #positive value will enable caching
@@ -120,7 +120,7 @@ kapt.classloaders.cache.size=5
 kapt.classloaders.cache.disableForProcessors=[specify annotation processors full names to disable cache for them]
 
 #needs to be disabled for caching to work
-kapt.include.compile.classpath = false
+kapt.include.compile.classpath=false
 ```
 
 ## Compile avoidance for kapt (since 1.3.20)
