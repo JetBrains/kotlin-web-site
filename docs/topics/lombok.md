@@ -1,13 +1,14 @@
 [//]: # (title: Lombok compiler plugin (experimental))
 
-> The new Lombok compiler plugin is [Experimental](https://kotlinlang.org/docs/components-stability.html). 
+> The Lombok compiler plugin is [Experimental](https://kotlinlang.org/docs/components-stability.html). 
 > It may be dropped or changed at any time. 
 > We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-7112).
 >
 {type="warning"}
 
-Experimental Lombok Kotlin compiler plugin allows the use of Java's Lombok-generated declarations in mixed Kotlin/Java 
-sources. If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations, 
+Since 1.5.20, Kotlin supports experimental Lombok Kotlin compiler plugin. This plugin allows the use of 
+Java's Lombok-generated declarations in mixed Kotlin/Java sources. 
+If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations, 
 then you don't need to use this plugin.
 
 [Lombok](https://projectlombok.org/) does Java code generation itself, not the Lombok Kotlin compiler plugin. 
