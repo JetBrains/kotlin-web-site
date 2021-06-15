@@ -76,7 +76,7 @@ external interface CustomComponentState : RState {
 ## Make boolean properties nullable in external interface
 
 **Issue**: in JavaScript, the `null` or undefined value of a boolean variable equals to `false`. So, boolean properties can be used
-in expressions without being defined. 
+in expressions without being defined. This is OK in JavaScript but not in Kotlin.
 
 ```kotlin
 external interface ComponentProps: RProps {
@@ -92,7 +92,7 @@ props.isInitialized = true
 if (props.isInitialized && props.visible) {} // not OK in Kotlin
 ```
 
-However, this code will throw a `ClassCastException` because `visible` is `null` while its type doesn't allow this.
+This code will throw a `ClassCastException` because `visible` is `null` while its type doesn't allow this.
 
 **Solution**: make all `Boolean` properties of external interfaces nullable (`Boolean?`):
 
@@ -155,7 +155,7 @@ fun main() {
 }
 ```
 
-**Solution 1**: create plain JavaScript objects with `js()` or `jsObject()`:
+**Solution 1**: create plain JavaScript objects with `js()` or `jsObject()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
 ```kotlin
 external interface AppProps { var name: String }
