@@ -43,7 +43,7 @@ At least 82 universities from the Times Higher Education Rankings 2020 use Kotli
 ### Popular in the industry ###
 * Kotlin is used by renowned businesses and organizations of all sizes, including Twitter, Reddit, Pinterest, Uber, Coursera, Evernote, Slack, and Trello, just to name a few.
 * Kotlin job postings have increased by more than 1400% since 2017. Source: [Dice](https://insights.dice.com/2018/09/24/kotlin-jobs-meteoric-rise-android/).
-* Kotlin is one of the fastest-growing programming languages and ranked 4th in the [Github Octoverse 2019](https://octoverse.github.com/).
+* Kotlin is one of the fastest-growing programming languages and ranked 4th in the [GitHub Octoverse 2019](https://octoverse.github.com/).
 * [PYPL](http://pypl.github.io/PYPL.html) ranks Kotlin as the 12th most popular programming language, with a high upward trend in 2020.
 
 > Students are happy to have the chance to program in something they may have heard about. 
