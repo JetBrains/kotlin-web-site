@@ -21,7 +21,7 @@ report any issues you face when switching to the IR compiler to our issue tracke
 ## Convert JS- and React-related classes and interfaces to external interfaces 
 
 **Issue**: Using Kotlin interfaces and classes (including data classes) that derive from pure JS classes, such as React's `RState` and
-`RProps`, can cause `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of 
+`RProps`, can cause a `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of 
 such classes as Kotlin objects, whereas they actually come from JS.
 
 **Solution**: convert all classes and interfaces that derive from pure JS classes to [external intefaces](js-interop.md#external-interfaces):
@@ -92,7 +92,7 @@ props.isInitialized = true
 if (props.isInitialized && props.visible) {} // not OK in Kotlin
 ```
 
-However, this code with throw a `ClassCastException` because `visible` is `null` while it's type doesn't allow this.
+However, this code will throw a `ClassCastException` because `visible` is `null` while its type doesn't allow this.
 
 **Solution**: make all `Boolean` properties of external interfaces nullable (`Boolean?`):
 
@@ -112,7 +112,7 @@ external interface ComponentProps: RProps {
 
 ## Convert functions with receiver in external interfaces to regular functions 
 
-**Issue**: external declarations can't contain functions with receiver, such as extension functions or properties with corresponding
+**Issue**: external declarations can't contain functions with receivers, such as extension functions or properties with corresponding
 functional types.
 
 **Solution**: convert such functions and properties to regular functions by adding the receiver object as an argument:
@@ -133,11 +133,10 @@ external interface ButtonProps : RProps {
 ## Create plain JS objects for interoperability
 
 **Issue**: Properties of a Kotlin object that implements an external interface are not _enumerable_. This means that they are not 
-visible for operations that iterate over the object's properties, such as:
+visible for operations that iterate over the object's properties, for example:
 * `for (var name in obj)`
 * `console.log(obj)`
 * `JSON.stringify(obj)`
-* And other
 
 Although they are still accessible by the name: `obj.myProperty`
 
