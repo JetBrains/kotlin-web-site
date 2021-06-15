@@ -11,11 +11,11 @@ Java's Lombok-generated declarations in mixed Kotlin/Java sources.
 If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations, 
 then you don't need to use this plugin.
 
-[Lombok](https://projectlombok.org/) does Java code generation itself, not the Lombok Kotlin compiler plugin.
+[Lombok](https://projectlombok.org/) does Java code generation itself, not the Lombok Kotlin compiler plugin. 
+So, you still need to configure Lombok as usual, when using this plugin. 
+Learn more about [how to make the plugin seeing Lombok's config](#defining-the-place-of-lombok-config).
 
-> Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
->
-{type="note"}
+## Support of annotations
 
 Learn which annotations the plugin supports and the
 [current state of Lombok Kotlin compiler plugin](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
@@ -25,9 +25,15 @@ Learn which annotations the plugin supports and the
 >
 {type="warning"}
 
+> Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
+>
+{type="note"}
+
 Please read below about how to apply the Lombok Kotlin compiler plugin to your Gradle/Maven build.
 
 ## Gradle
+
+### Main settings
 
 Apply the `kotlin-plugin-lombok` Gradle plugin:
 
@@ -50,9 +56,12 @@ plugins {
     id "io.freefair.lombok" version "5.3.0"
 }
 ```
+Learn the [test project with examples of Lombok compiler plugin usage](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt).
 
-If you use the file `lombok.config` for [configuring Lombok](https://projectlombok.org/features/configuration), 
-then use the following syntax to define where this file situates, so Kotlin Lombok compiler plugin can find this file:
+### Defining the place of lombok.config
+
+If you use the file `lombok.config` for [configuring Lombok](https://projectlombok.org/features/configuration),
+Kotlin Lombok compiler plugin should know where this file situates. Use the following syntax in your `build.gradle` file:
 
 ```groovy
 kotlinLombok {
@@ -60,9 +69,7 @@ kotlinLombok {
 }
 ```
 
-Learn the test projects with examples of Lombok compiler plugins usage:
-* [without `lombok.config`](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt)
-* [with `lombok.config`](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig)
+Learn the [test project with examples of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig).
 
 ## Maven
 
@@ -95,7 +102,7 @@ Please refer to the [Gradle](#gradle) section for detailed information about the
 
 Learn the [test project example of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/nokapt).
 
-## Using along with kapt
+## Using the plugin along with kapt
 
 If you use [kapt](kapt.md) compiler plugin, note that Java's Lombok should be launched via annotation processor of Java's compiler.
 By default, kapt assumes that all annotation processors work through it and disables Java's compiler's annotation processors.
