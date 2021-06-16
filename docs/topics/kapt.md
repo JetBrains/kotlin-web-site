@@ -100,16 +100,16 @@ To use the Gradle worker API for parallel execution of kapt tasks, add this line
 kapt.use.worker.api=true
 ```
 
-### Caching annotation processors' classloaders (since 1.5.20)
+### Caching for annotation processors' classloaders (since 1.5.20)
 
-> Caching annotation processors' classloaders in kapt is [Experimental](components-stability.md). 
-> It may be dropped or changed at any time. Use it only for evaluation purposes. 
+> Caching for annotation processors' classloaders in kapt is [Experimental](components-stability.md).
+> It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
 >
 {type="warning"}
 
-Experimental feature of caching annotation processors' classloaders in kapt can increase the speed of kapt for many 
-consecutive Gradle runs.
+This experimental feature makes it possible to cache the classloaders of annotation processors in kapt and so 
+increases the speed of kapt for many consecutive Gradle runs.
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
