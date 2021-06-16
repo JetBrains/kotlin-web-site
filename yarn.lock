@@ -20,10 +20,10 @@
     babel-preset-react "6.24.1"
     babel-preset-stage-2 "6.24.1"
 
-"@jetbrains/kotlin-web-site-ui@^2.1.12":
-  version "2.1.12"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.1.12.tgz#93bb0c59428a601817b1124355eefa81b277ac8c"
-  integrity sha512-UTl5LZ36e7sjYmt8EmKoYk7tRfkUNe2cmAfdRErl7ga439bb8dK8Mf/mpZtlX8zrYjDY9hA0i7z4vN7vJE870Q==
+"@jetbrains/kotlin-web-site-ui@^2.1.13":
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.1.13.tgz#b47d9c0a7b43fe2824d3a146eb2f8a4754ec14cb"
+  integrity sha512-SaGo5CExwHeGZj3OFkC2aVwfUzUnYLbW5Fe/aXCUjoKzsbp+sEp2iQNwuILcuiyPfhZJdHLgtAn01L26JoCHEg==
 
 "@rescui/typography@0.0.1":
   version "0.0.1"
@@ -7529,9 +7529,9 @@ wrappy@1:
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
 ws@^6.2.1:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
-  integrity sha512-zmhltoSR8u1cnDsD43TX59mzoMZsLKqUweyYBAIvTngR3shc0W6aOZylZmq/7hqyVxPdi+5Ud2QInblgyE72fw==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.1.tgz#442fdf0a47ed64f59b6a5d8ff130f4748ed524fb"
+  integrity sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   dependencies:
     async-limiter "~1.0.0"
 
