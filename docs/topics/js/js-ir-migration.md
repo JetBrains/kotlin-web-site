@@ -1,7 +1,7 @@
-[//]: # (title: Migrating Kotlin/JS projects to IR compiler)
+[//]: # (title: Migrating Kotlin/JS projects to the IR compiler)
 
 > The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
->in the future. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
 
@@ -89,10 +89,17 @@ external interface ComponentProps: RProps {
 val props = js("{}") as ComponentProps
 props.isInitialized = true
 // visible is not initialized - OK in JS – means it's false
-if (props.isInitialized && props.visible) {} // not OK in Kotlin
 ```
 
-This code will throw a `ClassCastException` because `visible` is `null` while its type doesn't allow this.
+If you try to use such a property in a function overriden in Kotlin (for example, a React `button`), you'll get a `ClassCastException`:
+
+```kotlin
+button {
+    attrs {
+        autoFocus = props.visible // ClassCastException here
+    }
+}
+```
 
 **Solution**: make all `Boolean` properties of external interfaces nullable (`Boolean?`):
 
