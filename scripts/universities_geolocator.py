@@ -31,23 +31,17 @@ for n, university in enumerate(universities):
     if university.get("geo") is None:
         university['geo'] = new_geo
 
-    if university['geo'] != new_geo:
-        is_same = None
-        while is_same is None:
-            input_text = "Will coordinates for \"" + location + """\" update? (y/n)
-    https://www.google.com/maps/search/?api=1&query=""" + new_geo['lat'] + "," + new_geo['lng'] + """
-    https://www.google.com/maps/search/?api=1&query=""" + university['geo']['lat'] + "," + university['geo']['lng']
-            user_input = input(input_text)
+        input_text = "Will coordinates for \"" + location + """\" set? (y/n)
+            https://www.google.com/maps/search/?api=1&query=""" + new_geo['lat'] + "," + new_geo['lng']
 
-            if user_input == "y" or user_input == "yes":
-                is_same = True
-            elif user_input == "n" or user_input == "no":
-                is_same = False
-            else:
-                print("Please, enter \"y\" or \"n\"")
+        user_input = input(input_text)
 
-            if is_same:
-                university['geo'] = new_geo
+        if user_input == "y" or user_input == "yes":
+            is_same = True
+        elif user_input == "n" or user_input == "no":
+            is_same = False
+        else:
+            print("Please, enter \"y\" or \"n\"")
 
 with open(data_file, 'w') as points_file:
     yaml.dump(universities, stream=points_file, Dumper=yaml.RoundTripDumper, allow_unicode=True)
