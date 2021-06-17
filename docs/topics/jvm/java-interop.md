@@ -705,6 +705,6 @@ Behind the scenes, this will create two functions `getMyProperty` and `setMyProp
 
 ## Using Lombok-generated declarations in Kotlin
 
-If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations,
-everything works out of the box. If you need to use Java's Lombok-generated declarations in mixed Kotlin/Java
-sources, learn how to do this on the [Lombok compiler plugin's page](lombok.md).
+You can use Java's Lombok-generated declarations in Kotlin code. If these declarations are in another module 
+than the Kotlin code that uses these declarations, everything works out of the box. 
+If you need to generate and use such declarations in the same multilingual module, learn how to do this on the [Lombok compiler plugin's page](lombok.md).

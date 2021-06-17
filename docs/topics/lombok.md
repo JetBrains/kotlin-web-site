@@ -6,36 +6,31 @@
 >
 {type="warning"}
 
-Since 1.5.20, Kotlin supports the experimental Lombok Kotlin compiler plugin. This plugin allows the use of
-Java's Lombok-generated declarations in mixed Kotlin/Java sources.
-If Java's Lombok-generated declarations are in another module than the Kotlin code that uses these declarations, 
+The Lombok compiler plugin allows the generation and use of Java's Lombok declarations within the same multilingual module. 
+If such declarations are generated in another module than the Kotlin code that uses these declarations, 
 then you don't need to use this plugin.
 
-[Lombok](https://projectlombok.org/) does Java code generation itself, not the Lombok Kotlin compiler plugin. 
-So, you still need to configure Lombok as usual, when using this plugin. 
+[Lombok](https://projectlombok.org/) generates Java code itself, not the Lombok Kotlin compiler plugin. 
+Thus, you still need to configure Lombok as usual, when using this plugin. 
 Learn more about [how to make the plugin seeing Lombok's config](#defining-the-place-of-lombok-config).
 
 ## Support of annotations
 
-Learn which annotations the plugin supports and the
+See which annotations the plugin supports and the
 [current state of Lombok Kotlin compiler plugin](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
 
-> Generation of `@Builder` annotation won't be supported in the current prototype. However, you can give your feedback
-> about the plugin and vote for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
->
-{type="warning"}
+Currently, we don't have plans on supporting the @Builder annotation. However, we can consider this if you vote
+for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
 >
 {type="note"}
 
-Please read below about how to apply the Lombok Kotlin compiler plugin to your Gradle/Maven build.
-
 ## Gradle
 
 ### Main settings
 
-Apply the `kotlin-plugin-lombok` Gradle plugin:
+Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle` file:
 
 ```groovy
 plugins {
@@ -49,19 +44,19 @@ Alternatively, you can use the `apply plugin` syntax:
 apply plugin: 'kotlin-plugin-lombok'
 ```
 
-The Lombok itself should be set up as the Java annotation processor (not via kapt) or as the plugin as below:
+Set up the Lombok itself as the plugin:
 
 ```groovy
 plugins {
     id "io.freefair.lombok" version "5.3.0"
 }
 ```
-Learn the [test project with examples of Lombok compiler plugin usage](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt).
+See the [test project with examples of Lombok compiler plugin usage](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt).
 
 ### Defining the place of lombok.config
 
 If you use the file `lombok.config` for [configuring Lombok](https://projectlombok.org/features/configuration),
-Kotlin Lombok compiler plugin should know where this file situates. Use the following syntax in your `build.gradle` file:
+Kotlin Lombok compiler plugin should know where this file situates. Provide a `lombok.config`'s path to the plugin in your `build.gradle` file:
 
 ```groovy
 kotlinLombok {
@@ -69,11 +64,11 @@ kotlinLombok {
 }
 ```
 
-Learn the [test project with examples of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig).
+See the [test project with examples of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig).
 
 ## Maven
 
-Here's how to use Lombok Kotlin compiler plugin with Maven:
+To use Lombok compiler plugin, add the following lines to the `pom.xml` file:
 
 ```xml
 <plugin>
@@ -100,15 +95,14 @@ Here's how to use Lombok Kotlin compiler plugin with Maven:
 
 Please refer to the [Gradle](#gradle) section for detailed information about the Lombok Kotlin compiler plugin configuration.
 
-Learn the [test project example of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/nokapt).
+See the [test project example of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/nokapt).
 
 ## Using the plugin along with kapt
 
-If you use [kapt](kapt.md) compiler plugin, note that Java's Lombok should be launched via annotation processor of Java's compiler.
-By default, kapt assumes that all annotation processors work through it and disables Java's compiler's annotation processors.
-To make Lombok working, you need to change this behavior.
+By default, [kapt](kapt.md) compiler plugin launches all annotation processors and disables javac's annotation processors.
+You need to change this behavior because Java's Lombok should be launched via the annotation processor of Java's compiler.
 
-If you use the Gradle build system, add the additional flag to the `build.gradle` file to make Java's compiler's annotations
+If you use the Gradle, add the option to the `build.gradle` file to make Java's compiler's annotations
 processors working:
 
 ```groovy
@@ -117,7 +111,7 @@ kapt {
 }
 ```
 
-If you use Maven, use the following settings to make Lombok launched by Java's compiler:
+If Maven, use the following settings to launch Lombok with Java's compiler:
 
 ```xml
 <plugin>
@@ -143,7 +137,7 @@ If you use Maven, use the following settings to make Lombok launched by Java's c
 >
 {type="note"}
 
-Learn the test project examples of kapt and Lombok compiler plugins usages:
+Look through the test project examples of kapt and Lombok compiler plugins usages:
 * Using [Gradle](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/lombokProject/yeskapt).
 * Using [Maven](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/yeskapt)
 

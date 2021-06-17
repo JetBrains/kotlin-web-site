@@ -87,7 +87,7 @@ kapt {
 
 ## Improving the speed of builds that use kapt
 
-### Running kapt tasks in parallel (since 1.2.60)
+### Running kapt tasks in parallel
 
 To improve the speed of builds that use kapt, you can enable the [Gradle worker API](https://guides.gradle.org/using-the-worker-api/)
 for kapt tasks. Using the worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
@@ -100,7 +100,7 @@ To use the Gradle worker API for parallel execution of kapt tasks, add this line
 kapt.use.worker.api=true
 ```
 
-### Caching for annotation processors' classloaders (since 1.5.20)
+### Caching for annotation processors' classloaders
 
 > Caching for annotation processors' classloaders in kapt is [Experimental](components-stability.md).
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
@@ -108,18 +108,19 @@ kapt.use.worker.api=true
 >
 {type="warning"}
 
-This experimental feature makes it possible to cache the classloaders of annotation processors in kapt and so 
-increases the speed of kapt for many consecutive Gradle runs.
+Caching for annotation processors' classloaders increases the speed of kapt if you run many Gradle tasks consecutively.
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
-```groovy
-#positive value will enable caching
-#use the same value as the number of modules that use kapt
+```properties
+# positive value will enable caching
+# use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5
-kapt.classloaders.cache.disableForProcessors=[specify annotation processors full names to disable cache for them]
+# optional property, use, if needed
+# specify annotation processors full names to disable cache for them
+kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 
-#needs to be disabled for caching to work
+# disable for caching to work
 kapt.include.compile.classpath=false
 ```
 
@@ -177,7 +178,7 @@ kapt {
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures.
 By default, kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`,
-but you can change this behavior. Add the additional flag to the `build.gradle` file to enable error type inferring in stubs:
+but you can change this behavior. Add the option to the `build.gradle` file to enable error type inferring in stubs:
 
 ```groovy
 kapt {
@@ -293,9 +294,9 @@ fun encodeList(options: Map<String, String>): String {
 
 ## Keeping Java compiler's annotation processors
 
-By default, kapt assumes that all annotation processors work through it and disables Java's compiler's annotation processors. 
-Some annotation processors should be run by javac, for example, [Lombok](https://projectlombok.org/). 
-To enable javac's annotation processing in the Gradle, use the flag `keepJavacAnnotationProcessors` in your `build.gradle` file:
+By default, kapt launches all annotation processors and disables javac's annotation processors.
+If some annotation processors should be launched by javac (for example, [Lombok](https://projectlombok.org/)), you can specify it manually.
+In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
 
 ```groovy
 kapt {
@@ -303,5 +304,5 @@ kapt {
 }
 ```
 
-If you use the Maven build system, you need to specify a concrete plugin's settings.
+If you use the Maven build system, you need to specify concrete plugin settings.
 See the [example of settings for Lombok compiler plugin](lombok.md#using-the-plugin-along-with-kapt).
