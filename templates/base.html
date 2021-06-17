@@ -18,8 +18,12 @@
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+{% if not headerDropdownTheme %}
+    {% set headerDropdownTheme = "light" %}
+{% endif %}
+
 <div class="global-layout">
-    {% ktl_component "header" productWebUrl=data.releases.latest.url hasSearch=True %}
+    {% ktl_component "header" productWebUrl=data.releases.latest.url hasSearch=True dropdownTheme=headerDropdownTheme %}
     {% block page_outer_content %}
         <div class="g-layout global-content">
             {% include 'inc/nav/docs-nav.html' %}
