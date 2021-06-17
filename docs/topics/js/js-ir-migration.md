@@ -190,6 +190,6 @@ val jsonApp = kotlin.js.json(Pair("name", "App1")) as AppProps
 
 **Issue**: in the IR backend, calling `toString()` on function references doesn't produce unique values.
 
-**Solution**: use the `name` property instead of `toString()`:
+**Solution**: use the `name` property instead of `toString()`.
 
 
