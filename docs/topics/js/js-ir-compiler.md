@@ -86,7 +86,7 @@ As an experimental feature, lazy initialization of top-level properties requires
 of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler:
 
 ```kotlin
-tasks.withType<KotlinJsIrLink> {
+tasks.withType<Kotlin2JsCompile> {
    kotlinOptions {
      freeCompilerArgs += "-Xir-property-lazy-initialization"
    }
