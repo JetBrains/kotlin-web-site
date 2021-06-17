@@ -68,6 +68,16 @@ table {
 body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
 }
+
+figure img {
+    max-width: 100% !important;
+    max-height: initial !important;
+    min-width: initial !important;
+    min-height: initial !important;
+    height: auto !important;
+    width: auto !important;
+}
+
 .chapter {
     margin-top: 48px;
     margin-bottom: 48px;
@@ -83,9 +93,6 @@ figure:after {
     color: rgba(39,40,44,0.5);
 }
 figure img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
     margin: 32px 0 16px;
 }
 figure.video, figure.gif {
@@ -341,4 +348,13 @@ table th {
 }
 .prompt p:last-child {
     margin-bottom: 0;
+}
+
+figure img {
+    max-width: 100% !important;
+    max-height: initial !important;
+    min-width: initial !important;
+    min-height: initial !important;
+    height: auto !important;
+    width: auto !important;
 }
