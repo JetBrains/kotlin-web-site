@@ -1,6 +1,110 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-07-24</startDate>
+        <endDate>2021-07-24</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Márton Braun</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Mastering API Visibility in Kotlin</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/278833869</url>
+        <description>
+            <![CDATA[
+<p>When designing a library, minimizing your API surface - the types, methods, properties, and functions you expose to the outside world - is a great idea. This doesn’t apply to just libraries: it’s a consideration you should make for every module in a multi-module project. In this talk, we’ll look at all the ways that Kotlin lets you get your visibility just right.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-07-05</startDate>
+        <endDate>2021-07-05</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>Stockholm Java and Kotlin Meetup Group</title>
+        <subject>Functional Programming in Kotlin</subject>
+        <url>https://www.meetup.com/stockholm-java-and-kotlin-meetup-group/events/278743008</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we'll explain the basics of functional programming, where it fits in with the Object Orientation paradigm, and how we can use functional programming in our everyday work. We’ll cover important concepts of functional programming such as: Lambdas, Higher-Order Functions, Partial Functions, Monads, and more, and see how we can apply these in a series of functional patterns to cut down our codebase and at the same time make sure we keep it maintainable.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-23</startDate>
+        <endDate>2021-06-23</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Paulien van Alst</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Embrace the Kotlin ecosystem and Playing games with AI</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/278745448</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is becoming a mature and established back-end language. The maturity of a language is not only measured by its features but also by its community and ecosystem. Kotlin’s ecosystem for server-side development is growing very fast. Coming from the Java development side, Spring would be a default fallback option to build your application. While Spring is also hopping on the Kotlin train, the rest of Kotlin’s ecosystem is growing fast. More and more new frameworks are popping up implementing different point of views on how to build your service. Those new frameworks might change our ways of developing back-end applications. Let’s have a look out there!</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-23</startDate>
+        <endDate>2021-06-23</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Roy van Rijn</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>From Tic Tac Toe to AlphaGo: Playing games with AI</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/278745448</url>
+        <description>
+            <![CDATA[
+<p>Google DeepMind's AlphaGo was an extraordinary breakthrough for Artificial Intelligence. The game of Go has 1.74×10^172 unique positions and is about a 'googol' times harder to calculate than chess. Experts thought it would take at least another decade before A.I. would be able to beat the best human players. So how did DeepMind tackle this problem? What algorithms did they use and how do they work?</p>
+<p>During this talk we'll explore several algorithms that can be used to make a program play games, we'll start simple (Tic Tac Toe) and as the games get harder, the A.I.'s need to become smarter.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-19</startDate>
+        <endDate>2021-06-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Joe Birch</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Adopting Jetpack Compose</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/278790819</url>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-19</startDate>
+        <endDate>2021-06-19</endDate>
+        <location>Munich, Germany</location>
+        <speaker>Trinh Le</speaker>
+        <title>Kotlin User Group Munich - KUG Munich</title>
+        <subject>Android App Modularization</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Munich/events/278790819</url>
+    </event>
+
+    <event>
+        <lang>de</lang>
+        <startDate>2021-06-17</startDate>
+        <endDate>2021-06-17</endDate>
+        <location>Karlsruhe, Germany</location>
+        <speaker>Jan Baganz</speaker>
+        <title>Kotlin Karlsruhe User Group</title>
+        <subject>Erfahrungen mit Spring Boot und Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Karlsruhe-User-Group/events/278675522</url>
+        <description>
+            <![CDATA[
+<p>In diesem Talk schauen wir uns am Beispiel eines großen Logistik-Systems an, wie ein komplettes Backend mit Kotlin und Spring-Boot aufgebaut ist.
+Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Performance erhöhen können, welche Magie hinter den Koroutinen arbeitet und welche Fallstricke es bei ihrem Einsatz gibt.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>de</lang>
         <startDate>2021-06-17</startDate>
         <endDate>2021-06-17</endDate>
