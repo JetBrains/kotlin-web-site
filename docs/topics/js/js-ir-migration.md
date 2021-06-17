@@ -73,7 +73,7 @@ external interface CustomComponentState : RState {
 }
 ```
 
-## Make boolean properties nullable in external interface
+## Make boolean properties nullable in external interfaces
 
 **Issue**: JavaScript treats the `null` or undefined value of a boolean variable as `false`. So, boolean properties can be used
 in expressions without being defined. This is okay in JavaScript, but not in Kotlin.
@@ -117,7 +117,7 @@ external interface ComponentProps: RProps {
 }
 ```
 
-## Convert functions with a receiver in external interfaces to regular functions
+## Convert functions with receivers in external interfaces to regular functions
 
 **Issue**: external declarations can't contain functions with receivers, such as extension functions or properties with corresponding
 functional types.
@@ -171,7 +171,7 @@ data class AppPropsImpl(override var name: String) : AppProps
 
 ```kotlin
 // Replace this
-val ktApp = AppPropsImpl("App2") // Kotlin object
+val ktApp = AppPropsImpl("App1") // Kotlin object
 ```
 
 ```kotlin
@@ -182,7 +182,8 @@ val jsApp = js("{name: 'App1'}") as AppProps // or jsObject {}
 **Solution 2**: create objects with `kotlin.js.json()`:
 
 ```kotlin
-val jsonApp = kotlin.js.json(Pair("name", "App3")) as AppProps
+// or with this
+val jsonApp = kotlin.js.json(Pair("name", "App1")) as AppProps
 ```
 
 ## Replace toString() calls on function references with .name
