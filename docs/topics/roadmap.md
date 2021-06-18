@@ -167,8 +167,8 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
          </td>
         <td>
             <ul>
-                <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin.</li>
-                <li>⏸ Quality of less frequently used features, except blocking problems.</li>
+                <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin</li>
+                <li>⏸ Quality of less frequently used features, except blocking problems</li>
             </ul>
         </td>
     </tr>
