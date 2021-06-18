@@ -40,7 +40,7 @@ and more. You can find more details about this in the [JSpecify design overview]
 Here is the example of how Kotlin can handle JSpecify annotations:
 
 ```java
-// A.java
+// JavaClass.java
 import org.jspecify.nullness.*;
 
 @NullMarked
