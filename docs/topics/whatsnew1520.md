@@ -72,16 +72,16 @@ strict mode (with error reporting) when working with JSpecify.
 >
 {type="warning"}
 
-Kotlin 1.5.20 introduces an experimental Lombok compiler plugin <!-- [Lombok compiler plugin](lombok.md) -->. This plugin makes it possible to use Java’s
-[Lombok](https://projectlombok.org/)-generated declarations in mixed Kotlin/Java sources. Lombok annotations work only in
-Java sources and are ignored if you use them in Kotlin code.
+Kotlin 1.5.20 introduces an experimental Lombok compiler plugin <!-- [Lombok compiler plugin](lombok.md) -->. This plugin makes it possible to generate
+and use Java’s [Lombok](https://projectlombok.org/) declarations within modules that have Kotlin and Java code. Lombok
+annotations work only in Java sources and are ignored if you use them in Kotlin code.
 
 The plugin supports the following annotations:
 * Basic support for the `@With` and `Data` annotations
 * Extended but not full support for the `@Getter` and `@Setter` annotations
 * Support for the `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
 
-Currently, we don't have plans on supporting the `@Builder` annotation. However, we can consider this if you vote
+Currently, we don't have plans to support the `@Builder` annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 
 Learn more about the support of these annotations in the [Lombok compiler plugin README](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
