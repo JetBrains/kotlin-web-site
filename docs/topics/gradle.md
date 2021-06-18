@@ -607,7 +607,7 @@ The complete list of options for the Gradle tasks is the following:
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
-| `useOldBackend` | Use the old JVM backend |  | false |
+| `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
 
 ### Attributes specific for JS
 
