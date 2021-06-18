@@ -83,7 +83,27 @@ lazily. This way, the application loads without initializing all the top-level p
 only the ones needed at startup; other properties receive their values later when the code that uses them actually runs. 
 
 As an experimental feature, lazy initialization of top-level properties requires an opt-in. To use the lazy initialization
-of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler.
+of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler:
+
+<tabs>
+    
+```groovy
+tasks.withType(Kotlin2JsCompile) {
+   kotlinOptions {
+     freeCompilerArgs += "-Xir-property-lazy-initialization"
+   }
+}
+```
+
+```kotlin
+tasks.withType<Kotlin2JsCompile> {
+   kotlinOptions {
+     freeCompilerArgs += "-Xir-property-lazy-initialization"
+   }
+}
+```
+
+</tabs>
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
