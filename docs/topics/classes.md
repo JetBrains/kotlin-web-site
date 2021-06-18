@@ -217,7 +217,7 @@ abstract class Polygon {
     abstract fun draw()
 }
 
-class Rectangle : Polygon {
+class Rectangle : Polygon() {
     override fun draw() {
         // draw the rectangle
     }
@@ -233,7 +233,7 @@ open class Polygon {
     }
 }
 
-abstract class WildShape : Polygon {
+abstract class WildShape : Polygon() {
     // Classes that inherit WildShape need to provide their own
     // draw method instead of using the default on Polygon
     abstract override fun draw()
