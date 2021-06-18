@@ -98,7 +98,38 @@ To use the Gradle worker API for parallel execution of kapt tasks, add this line
 kapt.use.worker.api=true
 ```
 
-## Compile avoidance for kapt (since 1.3.20)
+### Caching for annotation processors' classloaders
+
+> Caching for annotation processors' classloaders in kapt is [Experimental](components-stability.md).
+> It may be dropped or changed at any time. Use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
+>
+{type="warning"}
+
+Caching for annotation processors' classloaders increases the speed of kapt if you run many Gradle tasks consecutively.
+
+To enable this feature, use the following properties in your `gradle.properties` file:
+
+```properties
+# positive value will enable caching
+# use the same value as the number of modules that use kapt
+kapt.classloaders.cache.size=5
+# optional property, use, if needed
+# specify annotation processors full names to disable cache for them
+kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
+
+# disable for caching to work
+kapt.include.compile.classpath=false
+```
+
+If you face any problems with caching for some annotation processors, disable caching for them:
+
+```properties
+# specify annotation processors full names to disable cache for them
+kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
+```
+
+## Compile avoidance for kapt
 
 To improve the times of incremental builds with kapt, it can use the Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
 With compile avoidance enabled, Gradle can skip annotation processing when rebuilding a project. Particularly, annotation
@@ -266,3 +297,17 @@ fun encodeList(options: Map<String, String>): String {
 }
 ```
 
+## Keeping Java compiler's annotation processors
+
+By default, kapt launches all annotation processors and disables javac's annotation processors.
+If some annotation processors should be launched by javac (for example, [Lombok](https://projectlombok.org/)), you can specify it manually.
+In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
+
+```groovy
+kapt {
+    keepJavacAnnotationProcessors = true
+}
+```
+
+If you use Maven, you need to specify concrete plugin settings.
+See the [example of settings for Lombok compiler plugin](lombok.md#using-the-plugin-along-with-kapt).
