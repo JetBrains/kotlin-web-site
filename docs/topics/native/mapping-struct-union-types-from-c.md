@@ -130,7 +130,7 @@ tasks.wrapper {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from Github:
+The prepared project sources can be directly downloaded from GitHub:
 
 * for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-macos-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-macos-c.zip)
 * for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-linux-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-linux-c.zip)

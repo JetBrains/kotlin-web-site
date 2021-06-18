@@ -126,7 +126,7 @@ tasks.wrapper {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from Github:
+The prepared project sources can be directly downloaded from GitHub:
 
 * [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-framework-groovy-macos-mac.zip)
 * [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-framework-kotlin-macos-mac.zip)

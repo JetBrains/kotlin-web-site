@@ -241,7 +241,7 @@ kapt can generate Kotlin sources. Just write the generated Kotlin source files t
 and these files will be compiled together with the main sources.
 
 You can find the complete sample in the [kotlin-examples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-code-generation)
-Github repository.
+GitHub repository.
 
 Note that kapt does not support multiple rounds for the generated Kotlin files.
 
