@@ -1,15 +1,13 @@
 import $ from 'jquery';
 import 'whatwg-fetch';
 import kotlinPlayground from 'kotlin-playground';
-import { createElement } from 'react';
-import { hydrate } from 'react-dom';
-import '@jetbrains/kotlin-web-site-ui/dist/header.css';
 import { initSearch } from '../com/search/search';
 import '../com/cities-banners';
 import GifPlayer from '../com/gif-player/gif-player';
 import CodeMirror from '../com/codemirror/CodeMirror';
 import './code-blocks';
 import '../com/head-banner';
+import {initComponents} from '../ktl-component';
 
 function trackEvent(event) {
   window.dataLayer = window.dataLayer || [];
@@ -95,41 +93,6 @@ const hoverSolutionsMenu = function () {
   );
 };
 
-function getKTLComponentsComments(node) {
-  const comment = ' ktl_component: ';
-
-  const result = [];
-  let currentNode = null;
-
-  const iterator = document.createNodeIterator(node || document.body, NodeFilter.SHOW_ALL);
-
-  while (currentNode = iterator.nextNode()) {
-    if (currentNode.nodeType === 8) {
-      const { nodeValue } = currentNode;
-
-      if(nodeValue.startsWith(comment)) {
-        const { name, props } = JSON.parse(nodeValue.substring(comment.length));
-
-        result.push({
-          name: name,
-          props: props,
-          node: currentNode,
-        });
-      }
-    }
-  }
-
-  return result;
-}
-
-function initKTLComponent(node, name, props) {
-  import(`@jetbrains/kotlin-web-site-ui/dist/${name}.js`)
-      .then(({ default: Component }) => {
-        const fake_node = document.createElement('div');
-        hydrate(createElement(Component, props), fake_node);
-        node.replaceWith(fake_node); // TODO: preact render to node
-      });
-}
 
 $(function () {
   CodeMirror.colorize($('.code._highlighted'));
@@ -143,14 +106,8 @@ $(function () {
   initHeadingAnchors();
   initGifPlayer();
 
-  const { openPopup } = initSearch();
-
-  getKTLComponentsComments().forEach(({ name, node, props }) => {
-    if (name === 'header') initKTLComponent(node.nextElementSibling, name, {
-      ...props,
-      onSearchClick: openPopup,
-    });
-  });
+  initSearch();
+  initComponents();
 
   hoverSolutionsMenu();
 });

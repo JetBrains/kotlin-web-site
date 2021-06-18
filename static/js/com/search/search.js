@@ -15,13 +15,26 @@ const KEYS = {
   ESC: 27
 };
 
+let isInited = false;
+let search;
+let $searchPopup;
+
+export function openPopup() {
+  if (!isInited) {
+    search.start();
+    isInited = true;
+  }
+
+  $searchPopup.removeClass('_hidden');
+  $('body').addClass('_no-scroll');
+  $('.ais-search-box--input').focus();
+}
+
 export function initSearch() {
-  const $searchPopup = $('.search-popup');
+  $searchPopup = $('.search-popup');
   const $closeButton = $('.search-popup__close');
 
-  let isInited = false;
-
-  const search = Instantsearch({
+  search = Instantsearch({
     appId: '7961PKYRXV',
     apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
     indexName: indexName,
@@ -70,17 +83,6 @@ export function initSearch() {
   );
 
   const $input = $('.ais-search-box input');
-
-  function openPopup() {
-    if (!isInited) {
-      search.start();
-      isInited = true;
-    }
-
-    $searchPopup.removeClass('_hidden');
-    $('body').addClass('_no-scroll');
-    $('.ais-search-box--input').focus();
-  }
 
   function closePopup() {
     search.helper.setQuery('').clearRefinements().search();
@@ -136,8 +138,6 @@ export function initSearch() {
   if ('q' in urlParameters && urlParameters.q !== '') {
     openPopup();
   }
-
-  return { openPopup };
 }
 
 function handlerKeysEvent() {

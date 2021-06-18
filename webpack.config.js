@@ -54,7 +54,7 @@ module.exports = (params = {}) => {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           loader: 'babel-loader',
           include: [
             path.resolve(__dirname, 'static/js')

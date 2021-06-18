@@ -3,8 +3,27 @@ import { renderToString } from 'react-dom/server';
 
 export default async function main() {
     const name = process.argv[2];
-    const props = process.argv[3] ? JSON.parse(process.argv[3]): {};
-    const component = await import(`../../node_modules/@jetbrains/kotlin-web-site-ui/dist/${name}.js`);
+    let props = {};
+
+    if (process.argv[3]) {
+        try {
+            props = JSON.parse(process.argv[3]);
+        } catch (e) {
+            console.log(e);
+            return;
+        }
+    }
+
+    const componentPath = `../../static/js/ktl-component/${name}/index.jsx`;
+    const component = await import(componentPath);
     const { default: Component } = component;
-    console.log(renderToString(createElement(Component, props)));
+    let res = '';
+
+    try {
+        res = renderToString(createElement(Component, props))
+    } catch (e) {
+        res = e;
+    }
+
+    console.log(res);
 }
