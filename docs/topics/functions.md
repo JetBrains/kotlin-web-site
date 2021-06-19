@@ -24,7 +24,7 @@ Stream().read() // create instance of class Stream and call read()
 
 ### Parameters
 
-Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas. Each 
+Function parameters are defined using lower camel case notation - *name*: *type*. Parameters are separated using commas. Each 
 parameter must be explicitly typed:
 
 ```kotlin
