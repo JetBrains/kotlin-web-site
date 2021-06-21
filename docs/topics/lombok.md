@@ -13,7 +13,7 @@ that another module.
 
 The Lombok compiler plugin does not substitute [Lombok](https://projectlombok.org/), it helps Lombok work in mixed Java/Kotlin modules.
 Thus, you still need to configure Lombok as usual, when using this plugin. 
-Learn more about [how to make the plugin seeing Lombok's config](#defining-the-place-of-lombok-config).
+Learn more about [how to make the plugin seeing Lombok's config](#using-the-lombok-configuration-file).
 
 ## Supported annotations
 
