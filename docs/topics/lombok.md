@@ -6,18 +6,23 @@
 >
 {type="warning"}
 
-The Kotlin Lombok compiler plugin allows the generation and use of Java's Lombok declarations within the same mixed Java/Kotlin module.
-If you generate these declarations in a pure Java module and use them in another Kotlin module, 
-then you don't need to use this plugin.
+The Kotlin Lombok compiler plugin allows the generation and use of Java's Lombok declarations by Kotlin code 
+in the same mixed Java/Kotlin module.
+If you call such declarations from another module, then you don't need to use this plugin for the compilation of 
+that another module.
 
-[Lombok](https://projectlombok.org/) generates the declarations itself, not the Kotlin Lombok compiler plugin. 
+The Lombok compiler plugin does not substitute [Lombok](https://projectlombok.org/), it helps Lombok work in mixed Java/Kotlin modules.
 Thus, you still need to configure Lombok as usual, when using this plugin. 
 Learn more about [how to make the plugin seeing Lombok's config](#defining-the-place-of-lombok-config).
 
-## Support for annotations
+## Supported annotations
 
-See which annotations the plugin supports and the
-[current state of Lombok compiler plugin](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
+The plugin supports the following annotations:
+* `@Getter`, `@Setter`
+* `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
+* `@Data`
+* `@With`
+* `@Value`
 
 Currently, we don't have plans on supporting the @Builder annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
@@ -26,32 +31,39 @@ for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 >
 {type="note"}
 
+We continue to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
+
 ## Gradle
 
-Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle.kts` file:
+Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle(.kts)` file:
+
+<tabs>
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.lombok' version '%kotlinVersion%'
+    id 'io.freefair.lombok' version '5.3.0'
+}
+```
 
 ```kotlin
 plugins {
     id ("org.jetbrains.kotlin.plugin.lombok") version "%kotlinVersion%"
-}
-```
-
-Set up the Lombok itself as the plugin:
-
-```kotlin
-plugins {
     id ("io.freefair.lombok") version "5.3.0"
 }
 ```
+
+</tabs>
 
 See the [test project with examples of Lombok compiler plugin usage](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt).
 
 ### Using the Lombok configuration file
 
 If you use [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`, 
-provide a path to it to the plugin. Add the following code to your `build.gradle.kts` file:
+provide a path to it to the plugin. The path should be relative to the module's directory. 
+Add the following code to your `build.gradle(.kts)` file:
 
-```kotlin
+```groovy
 kotlinLombok {
     lombokConfigurationFile(file("lombok.config"))
 }
@@ -85,21 +97,14 @@ provide a path to it to the plugin in the `pluginOptions`. Add the following lin
             <artifactId>kotlin-maven-lombok</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </plugin>
-```
-
-Set up the Lombok itself as the plugin:
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>1.18.20</version>
-        <scope>provided</scope>
-    </dependency>
-</dependencies>
 ```
 
 See the [test project example of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/nokapt).
@@ -109,9 +114,9 @@ See the [test project example of Lombok compiler plugin and `lombok.config` usag
 By default, [kapt](kapt.md) compiler plugin launches all annotation processors and disables javac's annotation processors.
 You need javac's annotation processors working to launch Lombok.
 
-If you use Gradle, add the option to the `build.gradle.kts` file:
+If you use Gradle, add the option to the `build.gradle(.kts)` file:
 
-```kotlin
+```groovy
 kapt {
     keepJavacAnnotationProcessors = true
 }
