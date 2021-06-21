@@ -63,11 +63,21 @@ If you use [Lombok configuration file](https://projectlombok.org/features/config
 provide a path to it to the plugin. The path should be relative to the module's directory. 
 Add the following code to your `build.gradle(.kts)` file:
 
+<tabs>
+
 ```groovy
+kotlinLombok {
+    lombokConfigurationFile file("lombok.config")
+}
+```
+
+```kotlin
 kotlinLombok {
     lombokConfigurationFile(file("lombok.config"))
 }
 ```
+
+</tabs>
 
 See the [test project with examples of Lombok compiler plugin and `lombok.config` usages](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig).
 
