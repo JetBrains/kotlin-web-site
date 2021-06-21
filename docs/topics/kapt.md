@@ -124,7 +124,7 @@ kapt.include.compile.classpath=false
 If you face any problems with caching for some annotation processors, disable caching for them:
 
 ```properties
-# specify annotation processors full names to disable cache for them
+# specify annotation processors' full names to disable cache for them
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
@@ -299,7 +299,7 @@ fun encodeList(options: Map<String, String>): String {
 ## Keeping Java compiler's annotation processors
 
 By default, kapt runs all annotation processors and disables annotation processing by javac.
-You may need some javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
+You may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
 
 In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
 

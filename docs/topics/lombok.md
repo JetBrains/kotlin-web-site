@@ -83,7 +83,7 @@ See the [test project with examples of Lombok compiler plugin and `lombok.config
 
 ## Maven
 
-To use Lombok compiler plugin, add the plugin `lombok` to the `compilerPlugins` section and the dependency 
+To use the Lombok compiler plugin, add the plugin `lombok` to the `compilerPlugins` section and the dependency 
 `kotlin-maven-lombok` to the `dependencies` section. 
 If you use [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`,
 provide a path to it to the plugin in the `pluginOptions`. Add the following lines to the `pom.xml` file:
