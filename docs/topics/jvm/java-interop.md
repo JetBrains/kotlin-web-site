@@ -155,7 +155,7 @@ fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... 
 ```
 
 Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example, 
-there are 2 Java classes with the signatures provided below.
+there are two Java classes with the signatures provided below.
 
 ```java
 public class Base<T> {}
