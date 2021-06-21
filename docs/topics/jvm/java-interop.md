@@ -154,8 +154,8 @@ When the `@NotNull` annotation is missing from a type argument, you get a platfo
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
 
-Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example, 
-there are two Java classes with the signatures provided below.
+Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example,
+there are two Java classes with the signatures provided below:
 
 ```java
 public class Base<T> {}
@@ -165,7 +165,7 @@ public class Base<T> {}
 public class Derived extends Base<@Nullable String> {}
 ```
 
-In the Kotlin code, passing the instance of `Derived` where the `Base<String>` assumed produces the warning.
+In the Kotlin code, passing the instance of `Derived` where the `Base<String>` is assumed produces the warning.
 
 ```kotlin
 fun takeBaseOfNotNullStrings(x: Base<String>) {}
