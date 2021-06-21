@@ -45,11 +45,20 @@
 @media (max-width: 450px) {
   .kotlin-intro-actions__buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 100%;
+
+    .kto-button {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px;
+      flex: 1;
+    }
   }
 
   .kotlin-intro-actions__why-button {
-    margin: var(--s-space) 0 0;
+    margin-right: 0;
   }
 }
 
