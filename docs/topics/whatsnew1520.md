@@ -77,7 +77,7 @@ and use Java’s [Lombok](https://projectlombok.org/) declarations within module
 annotations work only in Java sources and are ignored if you use them in Kotlin code.
 
 The plugin supports the following annotations:
-* Basic support for the `@With` and `Data` annotations
+* Basic support for the `@With` and `@Data` annotations
 * Extended but not full support for the `@Getter` and `@Setter` annotations
 * Support for the `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
 
@@ -204,7 +204,6 @@ To enable this feature, use the following properties in your `gradle.properties`
 # positive value will enable caching
 # use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5
-kapt.classloaders.cache.disableForProcessors=[specify annotation processors full names to disable cache for them]
 
 # disable for caching to work
 kapt.include.compile.classpath=false
