@@ -298,7 +298,7 @@ fun encodeList(options: Map<String, String>): String {
 
 ## Keeping Java compiler's annotation processors
 
-By default, kapt launches all annotation processors and disables javac's annotation processors.
+By default, kapt runs all annotation processors and disables annotation processing by javac.
 You may need some javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
 
 In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
