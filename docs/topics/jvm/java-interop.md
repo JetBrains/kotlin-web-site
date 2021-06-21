@@ -116,6 +116,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
+  * [JSpecify](https://jspecify.dev/) (`org.jspecify.nullness`)
   * Android (`com.android.annotations` and `android.support.annotations`)
   * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
@@ -152,6 +153,29 @@ When the `@NotNull` annotation is missing from a type argument, you get a platfo
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
+
+Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example, 
+there are 2 Java classes with the signatures provided below.
+
+```java
+public class Base<T> { ... }
+```
+
+```java
+public class Derived extends Base<@Nullable String> { ... }
+```
+
+In the Kotlin code, passing the instance of `Derived` where the `Base<String>` assumed produces the warning.
+
+```kotlin
+fun takeBaseOfNotNullStrings(x: Base<String>) {}
+
+fun main() {
+    takeBaseOfNotNullStrings(Derived()) // warning: nullability mismatch
+}
+```
+
+The upper bound of `Derived` is set to `Base<String?>`, which is not a subtype of `Base<String>`.
 
 #### Type parameters
 
