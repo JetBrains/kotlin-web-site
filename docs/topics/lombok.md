@@ -24,7 +24,7 @@ The plugin supports the following annotations:
 * `@With`
 * `@Value`
 
-Currently, we don't have plans on supporting the @Builder annotation. However, we can consider this if you vote
+Currently, we don't have plans on supporting the `@Builder` annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
@@ -73,8 +73,8 @@ See the [test project with examples of Lombok compiler plugin and `lombok.config
 
 ## Maven
 
-To use Lombok compiler plugin, add the plugin `lombok` to the `compilerPlugins` section and the artifact 
-`kotlin-maven-lombok` to the `depencdency` section. 
+To use Lombok compiler plugin, add the plugin `lombok` to the `compilerPlugins` section and the dependency 
+`kotlin-maven-lombok` to the `dependencies` section. 
 If you use [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`,
 provide a path to it to the plugin in the `pluginOptions`. Add the following lines to the `pom.xml` file:
 

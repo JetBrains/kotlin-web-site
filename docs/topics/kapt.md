@@ -299,7 +299,8 @@ fun encodeList(options: Map<String, String>): String {
 ## Keeping Java compiler's annotation processors
 
 By default, kapt launches all annotation processors and disables javac's annotation processors.
-If some annotation processors should be launched by javac (for example, [Lombok](https://projectlombok.org/)), you can specify it manually.
+You may need some javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
+
 In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
 
 ```groovy
