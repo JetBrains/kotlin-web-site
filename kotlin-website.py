@@ -21,7 +21,7 @@ from yaml import FullLoader
 from src.Feature import Feature
 from src.dist import get_dist_pages
 from src.github import assert_valid_git_hub_url
-from src.navigation import process_video_nav, process_nav
+from src.navigation import process_video_nav, process_nav, get_current_url
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
 from src.externals import process_nav_includes
@@ -148,8 +148,9 @@ app.jinja_env.add_extension(KTLComponentExtension)
 
 @app.context_processor
 def add_data_to_context():
+    nav = get_nav()
     return {
-        'nav': get_nav(),
+        'nav': nav,
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -159,7 +160,8 @@ def add_data_to_context():
             'text_using_gradle': app.config['TEXT_USING_GRADLE'],
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
-        }
+        },
+        'headerCurrentUrl': get_current_url(nav['subnav']['content'])
     }
 
 @app.template_filter('get_domain')
