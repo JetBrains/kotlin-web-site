@@ -158,11 +158,11 @@ Kotlin also takes into account nullability annotations on type arguments of base
 there are 2 Java classes with the signatures provided below.
 
 ```java
-public class Base<T> { ... }
+public class Base<T> {}
 ```
 
 ```java
-public class Derived extends Base<@Nullable String> { ... }
+public class Derived extends Base<@Nullable String> {}
 ```
 
 In the Kotlin code, passing the instance of `Derived` where the `Base<String>` assumed produces the warning.
