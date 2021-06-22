@@ -72,7 +72,7 @@ strict mode (with error reporting) when working with JSpecify.
 >
 {type="warning"}
 
-Kotlin 1.5.20 introduces an experimental Lombok compiler plugin <!-- [Lombok compiler plugin](lombok.md) -->. This plugin makes it possible to generate
+Kotlin 1.5.20 introduces an experimental [Lombok compiler plugin](lombok.md). This plugin makes it possible to generate
 and use Java’s [Lombok](https://projectlombok.org/) declarations within modules that have Kotlin and Java code. Lombok
 annotations work only in Java sources and are ignored if you use them in Kotlin code.
 
@@ -88,7 +88,7 @@ We're continuing to work on this plugin. To find out the detailed current state,
 Currently, we don't have plans to support the `@Builder` annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 
-<!-- [Learn how to configure the Lombok compiler plugin](lombok.md#gradle). -->
+[Learn how to configure the Lombok compiler plugin](lombok.md#gradle).
 
 ## Kotlin/Native
 
