@@ -77,14 +77,16 @@ and use Java’s [Lombok](https://projectlombok.org/) declarations within module
 annotations work only in Java sources and are ignored if you use them in Kotlin code.
 
 The plugin supports the following annotations:
-* Basic support for the `@With` and `@Data` annotations
-* Extended but not full support for the `@Getter` and `@Setter` annotations
-* Support for the `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
+* `@Getter`, `@Setter`
+* `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
+* `@Data`
+* `@With`
+* `@Value`
+
+We're continuing to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
 
 Currently, we don't have plans to support the `@Builder` annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
-
-Learn more about the support of these annotations in the [Lombok compiler plugin README](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
 
 <!-- [Learn how to configure the Lombok compiler plugin](lombok.md#gradle). -->
 
