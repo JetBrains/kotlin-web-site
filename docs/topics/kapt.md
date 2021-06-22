@@ -310,4 +310,4 @@ kapt {
 ```
 
 If you use Maven, you need to specify concrete plugin settings.
-See this [example of settings for the Lombok compiler plugin](lombok.md#using-the-plugin-along-with-kapt).
+See this [example of settings for the Lombok compiler plugin](lombok.md#using-wth-kap).
