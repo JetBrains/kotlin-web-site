@@ -709,37 +709,3 @@ You can use Java's Lombok-generated declarations in Kotlin code.
 If you need to generate and use these declarations in the same mixed Java/Kotlin module,
 you can learn how to do this on the [Lombok compiler plugin's page](lombok.md).
 If you call such declarations from another module, then you don't need to use this plugin to compile that module.
-
-### Using Lombok along with kapt
-
-By default, the [kapt](kapt.md) compiler plugin runs all annotation processors and disables annotation processing by javac.
-To run [Lombok](https://projectlombok.org/) along with kapt, set up kapt to keep javac's annotation processors working.
-
-If you use Gradle, add the option to the `build.gradle(.kts)` file:
-
-```groovy
-kapt {
-    keepJavacAnnotationProcessors = true
-}
-```
-
-In Maven, use the following settings to launch Lombok with Java's compiler:
-
-```xml
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>3.5.1</version>
-    <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
-        <annotationProcessorPaths>
-            <annotationProcessorPath>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </annotationProcessorPath>
-        </annotationProcessorPaths>
-    </configuration>
-</plugin>    
-```
