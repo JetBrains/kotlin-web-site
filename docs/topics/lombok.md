@@ -11,7 +11,7 @@ in the same mixed Java/Kotlin module.
 If you call such declarations from another module, then you don't need to use this plugin for the compilation of 
 that module.
 
-The Lombok compiler plugin does not substitute [Lombok](https://projectlombok.org/), but it helps Lombok work in mixed Java/Kotlin modules.
+The Lombok compiler plugin cannot replace [Lombok](https://projectlombok.org/), but it helps Lombok work in mixed Java/Kotlin modules.
 Thus, you still need to configure Lombok as usual when using this plugin. 
 Learn more about [how to make the plugin seeing Lombok's config](#using-the-lombok-configuration-file).
 
