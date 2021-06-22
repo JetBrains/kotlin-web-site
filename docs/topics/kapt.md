@@ -108,7 +108,7 @@ kapt.use.worker.api=true
 >
 {type="warning"}
 
-Caching for annotation processors' classloaders increases the speed of kapt if you run many Gradle tasks consecutively.
+Caching for annotation processors' classloaders helps kapt perform faster if you run many Gradle tasks consecutively.
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
@@ -121,10 +121,10 @@ kapt.classloaders.cache.size=5
 kapt.include.compile.classpath=false
 ```
 
-If you face any problems with caching for some annotation processors, disable caching for them:
+If you run into any problems with caching for annotation processors, disable caching for them:
 
 ```properties
-# specify annotation processors' full names to disable cache for them
+# specify annotation processors' full names to disable caching for them
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
@@ -299,9 +299,9 @@ fun encodeList(options: Map<String, String>): String {
 ## Keeping Java compiler's annotation processors
 
 By default, kapt runs all annotation processors and disables annotation processing by javac.
-You may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
+However, you may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
 
-In the Gradle `build.gradle` file, use the option `keepJavacAnnotationProcessors`:
+In the Gradle build file, use the option `keepJavacAnnotationProcessors`:
 
 ```groovy
 kapt {
@@ -310,4 +310,4 @@ kapt {
 ```
 
 If you use Maven, you need to specify concrete plugin settings.
-See the [example of settings for Lombok compiler plugin](lombok.md#using-the-plugin-along-with-kapt).
+See this [example of settings for the Lombok compiler plugin](lombok.md#using-the-plugin-along-with-kapt).

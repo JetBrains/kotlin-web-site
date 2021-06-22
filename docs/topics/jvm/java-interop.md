@@ -706,15 +706,14 @@ Behind the scenes, this will create two functions `getMyProperty` and `setMyProp
 ## Using Lombok-generated declarations in Kotlin
 
 You can use Java's Lombok-generated declarations in Kotlin code.
-If you need to generate and use these declarations in the same mixed Java/Kotlin module, 
-learn how to do this on the [Lombok compiler plugin's page](lombok.md). 
-If you call such declarations from another module, then you don't need to use this plugin for the compilation of
-that another module.
+If you need to generate and use these declarations in the same mixed Java/Kotlin module,
+you can learn how to do this on the [Lombok compiler plugin's page](lombok.md).
+If you call such declarations from another module, then you don't need to use this plugin to compile that module.
 
 ### Using Lombok along with kapt
 
-By default, [kapt](kapt.md) compiler plugin runs all annotation processors and disables annotation processing by javac.
-To run [Lombok](https://projectlombok.org/) along with kapt, you need to set up kapt to keep javac's annotation processors working.
+By default, the [kapt](kapt.md) compiler plugin runs all annotation processors and disables annotation processing by javac.
+To run [Lombok](https://projectlombok.org/) along with kapt, set up kapt to keep javac's annotation processors working.
 
 If you use Gradle, add the option to the `build.gradle(.kts)` file:
 
