@@ -1,0 +1,19 @@
+name: Validate user groups data
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_user_groups_data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: chrisdickinson/setup-yq@latest
+        with:
+          yq-version: 'v4.9.5'
+      - run: |
+         jsonschema -i <(yq eval --tojson -j data/user-groups.yml) data/schemas/user-groups.json
+         echo "User groups data is valid!"
