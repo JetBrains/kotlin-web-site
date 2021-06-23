@@ -36,7 +36,7 @@ which includes the standard unified set of Java nullness annotations.
 
 With JSpecify, you can provide more detailed nullability information to help Kotlin keep null-safety interoperating with
 Java. You can set default nullability for the declaration, package, or module scope, specify parametric nullability,
-and more. You can find more details about this in the [JSpecify design overview](https://jspecify.dev/design-overview.html).
+and more. You can find more details about this in the [JSpecify user guide](https://jspecify.dev/user-guide.html).
 
 Here is the example of how Kotlin can handle JSpecify annotations:
 
@@ -62,6 +62,7 @@ fun kotlinFun() = with(JavaClass()) {
 In 1.5.20, all nullability mismatches according to the JSpecify-provided nullability information are reported as warnings.
 Use the `-Xjspecify-annotations=strict` and `-Xtype-enhancement-improvements-strict-mode` compiler options to enable
 strict mode (with error reporting) when working with JSpecify.
+Please note that the JSpecify project is under active development. Its API and implementation can change significantly at any time.
 
 [Learn more about null-safety and platform types](java-interop.md#null-safety-and-platform-types).
 
