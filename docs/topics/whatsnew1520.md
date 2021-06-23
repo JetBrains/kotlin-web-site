@@ -4,7 +4,7 @@ _[Release date: 23 June 2021](releases.md#release-details)_
 
 Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and it also includes various tooling improvements.
 
-You can find an overview of the changes in the [release blog post](TODO: link).
+You can find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/).
 
 <!-- TO ADD: release video -->
 
@@ -179,7 +179,7 @@ for Kotlin/JS.
 
 ### Migration guide for the JS IR backend
 
-The new migration guide for the JS IR backend](js-ir-migration.md) identifies issues you may encounter during migration
+The new [migration guide for the JS IR backend](js-ir-migration.md) identifies issues you may encounter during migration
 and provides solutions for them. If you find any issues that aren’t covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ## Gradle
@@ -246,6 +246,8 @@ fun main() {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 ### Unification of Char.isLowerCase()/isUpperCase() implementations across platforms
 
@@ -265,6 +267,6 @@ fun main() {
     println(latinCapitalA.isUpperCase() && circledLatinCapitalA.isUpperCase())
 //sampleEnd
 }
-
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
