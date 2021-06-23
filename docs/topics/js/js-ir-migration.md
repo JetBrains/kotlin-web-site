@@ -16,7 +16,7 @@ may require adjusting your code. On this page, we've compiled a list of known mi
 
 Note that this guide may change over time as we fix issues and find new ones. Please help us keep it complete –
 report any issues you encounter when switching to the IR compiler by submitting them to our issue tracker [YouTrack](https://kotl.in/issue)
-.<!-- or filling out [this Google form](TODO: link). -->
+or filling out [this form](https://surveys.jetbrains.com/s3/ir-be-migration-issue).
 
 ## Convert JS- and React-related classes and interfaces to external interfaces
 
