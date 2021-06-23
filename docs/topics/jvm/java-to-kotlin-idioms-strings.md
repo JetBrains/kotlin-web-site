@@ -1,6 +1,6 @@
 [//]: # (title: Migrating from Java to Kotlin: Strings)
 
-This guide contains examples of how to solve typical tasks with strings in Java and Kotlin.
+This guide contains examples of how to perform typical tasks with strings in Java and Kotlin.
 It will help you migrate from Java to Kotlin and write your code in the authentic Kotlin way.
 
 ## Concatenate strings
