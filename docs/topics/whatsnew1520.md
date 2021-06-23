@@ -4,9 +4,10 @@ _[Release date: 23 June 2021](releases.md#release-details)_
 
 Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and it also includes various tooling improvements.
 
-You can find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/).
+You can find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/)
+and this video:
 
-<!-- TO ADD: release video -->
+<video href="SV8CgSXQe44" title="Kotlin 1.5.20"/>
 
 ## Kotlin/JVM
 
