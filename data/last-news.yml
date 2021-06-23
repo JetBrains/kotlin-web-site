@@ -1,11 +1,11 @@
-- title: "Kotlin 1.5 Event Materials and 10 Questions from the Q&A"
-  link: https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-event-materials-and-10-most-interesting-questions-of-the-qa/
+- title: "Answering the Top 10 Questions About Kotlin’s Future"
+  link: https://blog.jetbrains.com/kotlin/2021/06/answering-the-top-10-questions-about-kotlin-s-future/
 
 - title: "Nine Highlights from the Kotlin Roadmap"
   link: https://blog.jetbrains.com/kotlin/2021/05/nine-highlights-from-the-kotlin-roadmap/
 
 - title: "What’s new in KMM since going Alpha"
-  link: https://blog.jetbrains.com/kotlin/2021/05/whats-new-in-kmm-since-going-alpha/
+  link: https://youtu.be/QJqLpTw3vwI
 
-- title: "Talking Kotlin: Realm for Kotlin Multiplatform"
-  link: https://youtu.be/pU9yaCPmQ2g
+- title: "Talking Kotlin: HTTP as a Function With http4k"
+  link: https://youtu.be/mPmUjJhdYME
