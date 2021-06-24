@@ -27,7 +27,7 @@ You can get started with Kotlin using an online editor. If you already have an I
 Discover what features are available in the newest Kotlin release. You can try out upcoming features in the [preview 
 versions](eap.md) before they are released.
 
-* [What's new in Kotlin 1.5.0](whatsnew15.md)
+* [What's new in Kotlin 1.5.20](whatsnew1520.md)
 * [What's new in Kotlin plugin 2021.1](whatsnew-plugin-20211.md)
 * [Kotlin public roadmap](roadmap.md)
 * [KMM plugin releases for Android Studio](https://kotlinlang.org/docs/mobile/kmm-plugin-releases.html)

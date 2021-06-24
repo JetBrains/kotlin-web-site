@@ -116,6 +116,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
+  * [JSpecify](https://jspecify.dev/) (`org.jspecify.nullness`)
   * Android (`com.android.annotations` and `android.support.annotations`)
   * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
@@ -152,6 +153,31 @@ When the `@NotNull` annotation is missing from a type argument, you get a platfo
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
+
+Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example,
+there are two Java classes with the signatures provided below:
+
+```java
+public class Base<T> {}
+```
+
+```java
+public class Derived extends Base<@Nullable String> {}
+```
+
+In the Kotlin code, passing the instance of `Derived` where the `Base<String>` is assumed produces the warning.
+
+```kotlin
+fun takeBaseOfNotNullStrings(x: Base<String>) {}
+
+fun main() {
+    takeBaseOfNotNullStrings(Derived()) // warning: nullability mismatch
+}
+```
+
+The upper bound of `Derived` is set to `Base<String?>`, which is different from `Base<String>`.
+
+Learn more about [Java generics in Kotlin](https://kotlinlang.org/docs/java-interop.html#java-generics-in-kotlin).
 
 #### Type parameters
 
@@ -702,3 +728,10 @@ var myProperty: String
 ```
 
 Behind the scenes, this will create two functions `getMyProperty` and `setMyProperty`, both marked as `external`.
+
+## Using Lombok-generated declarations in Kotlin
+
+You can use Java's Lombok-generated declarations in Kotlin code.
+If you need to generate and use these declarations in the same mixed Java/Kotlin module,
+you can learn how to do this on the [Lombok compiler plugin's page](lombok.md).
+If you call such declarations from another module, then you don't need to use this plugin to compile that module.

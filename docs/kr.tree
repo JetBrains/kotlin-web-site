@@ -23,6 +23,7 @@
 
     <toc-element toc-title="What's new">
         <toc-element toc-title="Kotlin">
+            <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
             <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
             <toc-element toc-title="Earlier versions">
                 <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
@@ -137,6 +138,7 @@
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
+            <toc-element id="js-ir-migration.md"/>
 
             <toc-element toc-title="Kotlin for the JS platform">
                 <toc-element id="browser-api-dom.md"/>
@@ -253,6 +255,7 @@
             <toc-element id="no-arg-plugin.md" toc-title="No-arg"/>
             <toc-element id="sam-with-receiver-plugin.md" toc-title="SAM with receiver"/>
             <toc-element id="kapt.md" toc-title="kapt"/>
+            <toc-element id="lombok.md" toc-title="Lombok"/>
         </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc and Dokka"/>

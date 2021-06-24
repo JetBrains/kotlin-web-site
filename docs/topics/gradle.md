@@ -268,7 +268,7 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 <tabs>
 
 ```groovy
-kotlin{
+kotlin {
     sourceSets {
         commonTest {
             dependencies {
@@ -280,7 +280,7 @@ kotlin{
 ```
 
 ```kotlin
-kotlin{
+kotlin {
     sourceSets {
         val commonTest by getting {
             dependencies {

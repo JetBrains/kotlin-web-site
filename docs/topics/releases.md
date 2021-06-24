@@ -50,6 +50,38 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.5.20</strong>
+            <p>Released: <strong>June 24, 2021</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>An incremental release with various improvements such as:</p>
+            <ul>
+                <li>String concatenation via <code>invokedynamic</code> on JVM by default</li>
+                <li>Improved support for Lombok and support for JSpecify</li>
+                <li>Kotlin/Native: KDoc export to Objective-C headers and faster <code>Array.copyInto()</code> inside one array</li>
+                <li>Gradle: caching of annotation processors' classloaders and support for the <code>--parallel</code> Gradle property</li>
+                <li>Aligned behavior of stdlib functions across platforms</li>
+            </ul>
+            <p>Learn more in:</p>
+            <ul>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/" target="_blank">Release blog post</a></li>
+                <li><a href="whatsnew1520.md" target="_blank">What's new in Kotlin 1.5.20</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1" target="_blank">1.2.1</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0" target="_blank">1.5.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.1" target="_blank">0.16.1</a></li>          
+                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.6.0" target="_blank">1.6.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.5.10</strong>
             <p>Released: <strong>May 24, 2021</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.10" target="_blank">Release on GitHub</a></p>
