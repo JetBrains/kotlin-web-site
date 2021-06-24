@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.5.20)
 
-_[Release date: 23 June 2021](releases.md#release-details)_
+_[Release date: 24 June 2021](releases.md#release-details)_
 
 Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and it also includes various tooling improvements.
 
