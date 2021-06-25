@@ -1084,7 +1084,7 @@
 - title: Government College University Lahore
   location: Lahore (Pakistan)
   courses:
-  - name: "Android Development"
+  - name: "COMPUTER S 315 Mobile application development"
     url: https://www.coursehero.com/sitemap/schools/4088-GC-University-Lahore/courses/15471228-COMPUTER-S315/
 - title: University of Guadalajara
   location: Guadalajara (Mexico)
@@ -1176,4 +1176,73 @@
   courses:
   - name: "Mobile Application Programming Basics"
     url: http://www.cs.vsu.ru/wp-content/uploads/2020/05/M.21_Mobile-application-programming-basics.pdf
-
+- title: Flensburg University of Applied Sciences
+  location: Flensburg (Germany)
+  courses:
+  - name: "Web / mobile technologies"
+    url: https://www.inf.hs-flensburg.de/module/modulelist.php?back=wahlpflicht&modul=662
+- title: I. K. Gujral Punjab Technical University
+  location: Kapurthala (India)
+  courses:
+  - name: "IKG PTU Faculty TTT Online Workshop on Kotlin in collaboration with Google"
+    url: https://pitk.ptu.ac.in/Placements.aspx
+- title: Visvesvaraya Technological University
+  location: Belgaum (India)
+  courses:
+  - name: "Train the Trainer” ( TTT ) program on Android Development using Kotlin"
+    url: https://vtu.ac.in/en/workshop-seminar-conference-fdp/circular-nomination-of-faculty-for-train-the-trainer-ttt-program-on-android-development-using-kotlin/
+- title: Marwadi University
+  location: Rajkot (India)
+  courses:
+  - name: "01CT0713 Programming with Application Development (Android)"
+    url: https://drive.google.com/file/d/1TFbc7uhc6b7iRTf8YFLqfWLWDOZSU1GN/view?usp=sharing
+- title: Politehnica University Timisoara
+  location: Timișoara (Romania)
+  courses:
+  - name: "Mobile Systems and Applications"
+    url: https://sites.google.com/site/claudiudgroza/sma
+- title: Bern University of Applied Sciences
+  location: Bern (Switzerland)
+  courses:
+  - name: "BTI1002 - Programming 1 with Kotlin"
+    url: https://www.bfh.ch/en/about-bfh/people/6db55klgpiwo/
+- title: Montgomery College
+  location: Germantown, MD (US)
+  courses:
+  - name: "ITI 366 - Android Development with Kotlin"
+    url: https://www.montgomerycollege.edu/workforce-development-continuing-education/information-technology/programming-and-software-development/android-development-kotlin.html
+- title: Ammersee-Gymnasium
+  location: Munich (Germany)
+  courses:
+  - name: "Object-oriented programing"
+    url: https://amseegym.de/fachschaften/informatik/
+- title: Instituto Superior de Engenharia de Lisboa
+  location: Lisbon (Portugal)
+  courses:
+  - name: "PROGRAMMING-LEIC"
+    url: https://www.isel.pt/en/subjects/programming-leic
+- title: Omsk State University
+  location: Omsk (Russia)
+  courses:
+  - name: "Технологии разработки программного обеспечения"
+    url: http://pozi.omsu.ru/courses.html
+- title: National University of the South
+  location: Bahia Blanca (Argentina)
+  courses:
+  - name: "Introducción a Kotlin"
+    url: http://cs.uns.edu.ar/~ece/ads/downloads/Practica/Kotlin1.pdf
+- title: University of the Sinos Valley
+  location: Sao Leopoldo (Brazil)
+  courses:
+  - name: "Desenvolvimento de Aplicações para Plataformas Móveis"
+    url: http://www.unisinos.br/noticias/minha-pos/especializacao-em-desenvolvimento-de-aplicacoes-para-dispositivos-moveis
+- title: Universidad Tecnológica Nacional (UTN)
+  location: Buenos Aires (Argentina)
+  courses:
+  - name: "Diplomatura en Android Studio"
+    url: https://sceu.frba.utn.edu.ar/course/diplomatura-en-programacion-mobile/
+- title: Vanderbilt University
+  location: Nashville, TN (US)
+  courses:
+  - name: "CS 891: Concurrent Java Programming in Android "
+    url: http://www.dre.vanderbilt.edu/~schmidt/cs891s/2020-PDFs/11.3.6-overview-of-Android-pt6-application-framework-and-apps-layers.pdf
