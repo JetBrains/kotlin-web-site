@@ -1171,3 +1171,8 @@
   courses:
   - name: "CS111 การโปรแกรมเชิงวัตถุ OBJECT-ORIENTED PROGRAMMING"
     url: https://web.reg.tu.ac.th/registrar/program_info_1.asp?f_cmd=2&levelid=12&programid=10008627&facultyid=9&departmentname=%BB%C3%D4%AD%AD%D2%B5%C3%D5%C0%D2%A4%BE%D4%E0%C8%C9+%CA%D2%A2%D2%C7%D4%AA%D2%C7%D4%B7%C2%D2%A1%D2%C3%A4%CD%C1%BE%D4%C7%E0%B5%CD%C3%EC&programname=%CA%D2%A2%D2%C7%D4%AA%D2%C7%D4%B7%C2%D2%A1%D2%C3%A4%CD%C1%BE%D4%C7%E0%B5%CD%C3%EC&facultyname=%A4%B3%D0%C7%D4%B7%C2%D2%C8%D2%CA%B5%C3%EC%E1%C5%D0%E0%B7%A4%E2%B9%E2%C5%C2%D5&levelname=%BB%C3%D4%AD%AD%D2%B5%C3%D5+%E2%A4%C3%A7%A1%D2%C3%BE%D4%E0%C8%C9#current
+- title: Voronezh State University
+  location: Voronezh (Russia)
+  courses:
+  - name: "Mobile Application Programming Basics"
+    url: http://www.cs.vsu.ru/wp-content/uploads/2020/05/M.21_Mobile-application-programming-basics.pdf
