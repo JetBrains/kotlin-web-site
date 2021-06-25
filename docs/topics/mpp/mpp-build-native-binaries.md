@@ -250,7 +250,7 @@ kotlin {
 By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
 only methods of `foo` are added to the output framework.
 
-You can change this behavior using the `transitiveExport` flag. If set to `true`, the declarations of the library `bar` 
+You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
 are exported as well. 
 
 <tabs>

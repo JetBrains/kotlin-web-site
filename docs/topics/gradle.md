@@ -247,7 +247,7 @@ the `kotlinOptions.jvmTarget` [compiler option](#compiler-options) of your Gradl
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle 
 plugin won’t override it or add a second standard library. 
 
-If you do not need a standard library at all, you can add the opt-out flag to the `gradle.properties`:
+If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
 ```kotlin
 kotlin.stdlib.default.dependency=false
