@@ -856,11 +856,6 @@
   courses:
   - name: "COMP 523: Software Engineering Laboratory"
     url: https://comp523.cs.unc.edu/
-- title: University of California, Davis - UC Davis
-  location: Davis, CA (US)
-  courses:
-  - name: "ECS 189E: Android and iOS Fundamentals"
-    url: https://bob.cs.ucdavis.edu/assets/ECS189E_android_and_ios.pdf
 - title: Leiden University
   location: Leiden (Netherlands)
   courses:
@@ -927,7 +922,7 @@
   - name: "M-CS-201600051-1B M-CS Software Security 201600051s"
     url: https://samenvattingen.inter-actief.utwente.nl/images/d/db/20210120_Software_Security.pdf
 - title: Virginia Polytechnic Institute and State University - Virginia Tech
-  location: EBlacksburg, VA (US)
+  location: Blacksburg, VA (US)
   courses:
   - name: "CS3304 Comparative Languages Schedule"
     url: https://courses.cs.vt.edu/cs3304/fall20meng/schedule.html
