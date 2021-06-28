@@ -259,10 +259,10 @@ __attribute__((swift_name("Kotlin__TYPE__")))
 @end;
 ```
 
-Where `__TYPE__` is one of the simple type names and `__CTYPE__` is the related Objective-C type, e.g. `initWithChar(char)`.
+Where `__TYPE__` is one of the simple type names and `__CTYPE__` is the related Objective-C type, for example, `initWithChar(char)`.
 
 These types are used to map boxed Kotlin number types into Objective-C and Swift.
-In Swift, you may simply call the constructor to create an instance, e.g. `KotlinLong(value: 42)`.
+In Swift, you may simply call the constructor to create an instance, for example, `KotlinLong(value: 42)`.
 
 ### Classes and objects from Kotlin
 
@@ -435,8 +435,8 @@ target platform.
 
 ### Xcode for macOS target
 
-First, in the `General` tab of the *target* configuration, under the 
-`Linked Frameworks and Libraries` section, you need to include our framework. This will 
+First, in the **General** tab of the **target** configuration, under the 
+**Linked Frameworks and Libraries** section, you need to include our framework. This will 
 make Xcode look at our framework and resolve imports both
 from Objective-C and Swift.
 
@@ -447,17 +447,17 @@ installing additional frameworks to the OS if it is not needed. You should under
 of your future application, for example, 
 you may have the `Frameworks` folder under the application bundle with all the frameworks you use. 
 The `@rpath` parameter can be configured in Xcode. You need to open
-the *project* configuration and find the `Runpath Search Paths` section. Here you specify
+the **project** configuration and find the **Runpath Search Paths** section. Here you specify
 the relative path to the compiled framework.
 
 ### Xcode for iOS targets
 
 First, you need to include the compiled framework in the Xcode project. To do
-this, add the framework to the `Frameworks, Libraries, and Embedded Content` section of the `General` 
-tab of the *target* configuration page. 
+this, add the framework to the **Frameworks, Libraries, and Embedded Content** section of the **General** 
+tab of the **target** configuration page. 
 
-The second step is to then include the framework path into the `Framework Search Paths` section
-of the `Build Settings` tab of the *target* configuration page. It is possible to use the `$(PROJECT_DIR)`
+The second step is to then include the framework path into the **Framework Search Paths** section
+of the **Build Settings** tab of the **target** configuration page. It is possible to use the `$(PROJECT_DIR)`
 macro to simplify the setup.
  
 The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder
