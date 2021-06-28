@@ -19,7 +19,7 @@ In this tutorial you'll:
    
 ## Create a Kotlin library
 
-Kotlin/Native compiler can produce a framework for macOS and iOS
+The Kotlin/Native compiler can produce a framework for macOS and iOS
 out of the Kotlin code. The created framework contains all declarations
 and binaries needed to use it with Objective-C and Swift.
 The best way to understand the techniques is to try it for ourselves. 
@@ -56,7 +56,7 @@ fun supplyFun() : (String) -> String? = { "$it is cool!" }
 While it is possible to use the command line, either directly or
 by combining it with a script file (such as `.sh` or `.bat` file), this approach doesn't
 scale well for big projects that have hundreds of files and libraries.
-It is then better to use the Kotlin/Native compiler with a build system, as it
+It is therefore better to use the Kotlin/Native compiler with a build system, as it
 helps to download and cache the Kotlin/Native compiler binaries and libraries with
 transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin) plugin.
@@ -134,7 +134,7 @@ The prepared project sources can be directly downloaded from GitHub:
 Move the sources file into the `src/nativeMain/kotlin` folder under
 the project. That is the default path, where sources are located, when
 the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
-plugin is used. Use the following block to instruct configure the project
+plugin is used. Use the following block to configure the project
 to generate a dynamic or shared library: 
 
 ```kotlin
@@ -421,7 +421,7 @@ constructor in Swift, and we use the `Object()` syntax to access the only instan
 The instance is always the same in Swift, so that 
 `Object() === Object()` is true. 
 Methods and property names are translated as-is. Kotlin `String` is turned into Swift `String` too.
-Swift hides `NSNumber*` boxing from us too. We pass Swift closure to Kotlin and call a Kotlin 
+Swift hides `NSNumber*` boxing from us too. We can pass a Swift closure to Kotlin and call a Kotlin 
 lambda function from Swift too. 
 
 More documentation on the types mapping can be found in the 
@@ -435,9 +435,9 @@ target platform.
 
 ### Xcode for macOS target
 
-First, you need to include the framework in the `General` section of the *target*
-configuration. There is the `Linked Frameworks and Libraries` section to include
-our framework. This will make Xcode look at our framework and resolve imports both
+First, in the `General` tab of the *target* configuration, under the 
+`Linked Frameworks and Libraries` section, you need to include our framework. This will 
+make Xcode look at our framework and resolve imports both
 from Objective-C and Swift.
 
 The second step is to configure the framework search path of the produced
@@ -452,19 +452,19 @@ the relative path to the compiled framework.
 
 ### Xcode for iOS targets
 
-First, you need to include the compiled framework into the Xcode project. For
-this, add the framework to the `Embedded Binaries` block of the `General` section of
-the *target* configuration page. 
+First, you need to include the compiled framework in the Xcode project. To do
+this, add the framework to the `Frameworks, Libraries, and Embedded Contentn` section of the `General` 
+tab of the *target* configuration page. 
 
-The second step is to then include the framework path into the `Framework Search Paths` block
-of the `Build Settings` section of the *target* configuration page. It is possible to use `$(PROJECT_DIR)`
+The second step is to then include the framework path into the `Framework Search Paths` section
+of the `Build Settings` tab of the *target* configuration page. It is possible to use `$(PROJECT_DIR)`
 macro to simplify the setup.
  
 The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder
 in our case.
 
 [This Stackoverflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin)
-contains few more recommendations. Also, 
+contains a few more recommendations. Also, the
 [CocoaPods](https://cocoapods.org/) package manager may be helpful to automate the process too.
 
 # Next steps
