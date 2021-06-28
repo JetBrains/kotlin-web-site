@@ -453,7 +453,7 @@ the relative path to the compiled framework.
 ### Xcode for iOS targets
 
 First, you need to include the compiled framework in the Xcode project. To do
-this, add the framework to the `Frameworks, Libraries, and Embedded Contentn` section of the `General` 
+this, add the framework to the `Frameworks, Libraries, and Embedded Content` section of the `General` 
 tab of the *target* configuration page. 
 
 The second step is to then include the framework path into the `Framework Search Paths` section
@@ -480,4 +480,3 @@ comes with a good set of pre-imported system frameworks.
 Kotlin/Native supports C interop too. Check out the
 [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
 tutorial for that.
-
