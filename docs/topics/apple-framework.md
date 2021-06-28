@@ -457,7 +457,7 @@ this, add the framework to the `Frameworks, Libraries, and Embedded Content` sec
 tab of the *target* configuration page. 
 
 The second step is to then include the framework path into the `Framework Search Paths` section
-of the `Build Settings` tab of the *target* configuration page. It is possible to use `$(PROJECT_DIR)`
+of the `Build Settings` tab of the *target* configuration page. It is possible to use the `$(PROJECT_DIR)`
 macro to simplify the setup.
  
 The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder
