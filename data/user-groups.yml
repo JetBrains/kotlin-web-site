@@ -184,6 +184,9 @@
     - name: Tricity Kotlin User Group
       country: Poland
       url: https://www.facebook.com/groups/2519853351660362/
+      position:
+        lat: 54.3992731
+        lng: 18.5742013
     - name: Utrecht Kotlin User Group
       country: Netherlands
       url: https://www.meetup.com/meetup-group-YgJEOzCn/
