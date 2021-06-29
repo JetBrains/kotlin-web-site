@@ -1,4 +1,6 @@
 @import '../../../css/_utils';
+@import "static/js/components/-vars-media";
+
 
 body._no-scroll {
   overflow: hidden;
@@ -51,7 +53,9 @@ body._no-scroll {
   }
 
   .search-popup__content {
-    margin: 40px 170px 100px;
+    margin: 40px auto 100px;
+    padding: 0 16px;
+    max-width: 1200px;
   }
 
   .search-popup__controls {
@@ -70,6 +74,7 @@ body._no-scroll {
     font-weight: bold;
     caret-color: #888fa3;
     color: #221f3a;
+    width: 100%;
 
     &::placeholder {
       color: #e9f0f4;
@@ -199,5 +204,21 @@ body._no-scroll {
     }
   }
 
+  @media (max-width: $breakpoint-m) {
+    & .ais-infinite-hits--item {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    & .ais-search-box--input {
+      font-size: 48px;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    & .ais-search-box--input {
+      font-size: 32px;
+    }
+  }
 }
 
