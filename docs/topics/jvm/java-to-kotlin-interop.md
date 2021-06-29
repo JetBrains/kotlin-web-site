@@ -472,9 +472,9 @@ And you want to call it from Java and catch the exception:
 
 // Java
 try {
-  demo.Example.writeToFile();
+    demo.Example.writeToFile();
 } catch (IOException e) { // error: writeToFile() does not declare IOException in the throws list
-  // ...
+    // ...
 }
 ```
 
