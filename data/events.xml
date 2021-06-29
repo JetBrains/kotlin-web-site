@@ -105,6 +105,157 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
     </event>
 
     <event>
+        <lang>en</lang>
+        <startDate>2021-06-30</startDate>
+        <endDate>2021-06-30</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Stephen Kirk</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>Pulseman - Creating an Apache Pulsar test tool using Jetpack Compose for Desktop</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/278993491</url>
+        <description>
+            <![CDATA[
+<p>Stephen has created a soon-to-be open sourced desktop test tool for Apache Pulsar similar to Postman, using Jetpack Compose for Desktop, he will walk us through the high and lows of his development journey.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-30</startDate>
+        <endDate>2021-06-30</endDate>
+        <location>Dublin, Ireland</location>
+        <speaker>Justin Slade</speaker>
+        <title>Dublin Kotlin User Group</title>
+        <subject>How to migrate large apps to compose</subject>
+        <url>https://www.meetup.com/Dublin-Kotlin-User-Group/events/278993491</url>
+        <description>
+            <![CDATA[
+<p>Justin's presentation will take us through Vhi Healtcare's plan to migrate to the new compose UI system.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-07-22</startDate>
+        <endDate>2021-07-22</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Karin-Aleksandra Monoid</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Functional Kotlin with Arrow</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/279015769</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we'll walk through Arrow Core, the functional companion to the Kotlin standard library. We'll cover both the concepts that every software engineer may add to their project right now and more advanced structures, starting from non-empty list, going over Validated and Either followed by monad comprehension.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-06-26</startDate>
+        <endDate>2021-06-26</endDate>
+        <location>Online</location>
+        <speaker>Yury Camacho</speaker>
+        <title>CodeAid</title>
+        <subject>KMM in action</subject>
+        <url>https://codeaid.space/</url>
+        <description>
+            <![CDATA[
+<p>KMM is an amazing Kotlin feature. That allows you to make multiplatform apps while preserving the beauty of the UIs of each OS, without generating useless code. Well, the idea is to have a shared code base at the business level.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-07</startDate>
+        <endDate>2021-10-07</endDate>
+        <location>Denver, CO, US</location>
+        <speaker>Kenneth Kousen</speaker>
+        <title>UberConf 2021</title>
+        <subject>Functional Programming in Java, Groovy, and Kotlin</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>See how features of functional programming are implemented in three different JVM-based languages. Examples include how lambda expressions, method references, and streams are handled differently, as well as higher-order functions, closure composition, trampolining, currying, tail recursion, and more.</p>
+<p>Kotlin, Groovy, and Java are all object-oriented languages with functional features. It's interesting to see what capabilities they implemented in similar ways and which are unique to that language.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-07</startDate>
+        <endDate>2021-10-07</endDate>
+        <location>Denver, CO, US</location>
+        <speaker>Kenneth Kousen</speaker>
+        <title>UberConf 2021</title>
+        <subject>Kotlin Features That Surprise Java Developers</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a JVM-based language, and many of its features are borrowed from related languages like Groovy and Scala. It is designed to work well with Java and to be easy for existing Java developers to learn. Nevertheless, Kotlin contains several features and practices that surprise Java developers. This talk will review several of those features, and help existing Java developers understand them and use them productively.</p>
+<p>Examples will include how to create static properties and methods without a static keyword, overriding properties as well as functions, defining objects rather than classes, the Unit and Nothing classes, why const is useful when you already haveval for final, and more.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-07</startDate>
+        <endDate>2021-10-07</endDate>
+        <location>Denver, CO, US</location>
+        <speaker>Kenneth Kousen</speaker>
+        <title>UberConf 2021</title>
+        <subject>Kotlin Workshop</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Learn the basic syntax and semantics for the Kotlin programming language. Kotlin is an alternative JVM language that provides null safety, static typing, and powerful IDE support. This workshop will give you the chance to code in Kotlin, highlighting its similarities and differences from Java, how to use functional programming skills, work with collections, access restful web services, and more.</p>
+<p>This workshop will examine features of Kotlin at a greater depth than most tutorials. Coroutines – the most popular feature of the language – will also be covered, as well as higher order functions, reduction operations like reduce and fold, and lambdas with receivers. Those topics progress toward building DSLs and builders in Kotlin. Terms like “apply”, “let”, “use”, “also”, and “with” will be covered along with their typical use cases.</p>
+<p>Details of the type system, including the Any, Unit, and Nothing classes, will be included. Examples will be provided on how to define extension functions, infix operators, and inlining functions for efficiency.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-07</startDate>
+        <endDate>2021-10-07</endDate>
+        <location>Denver, CO, US</location>
+        <speaker>Kenneth Kousen</speaker>
+        <title>UberConf 2021</title>
+        <subject>Kotlin and Spring: A Winning Combination</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Most developers are aware that Kotlin is the language of choice for Android applications, it can also be used effectively on the server side. The Spring Framework in particular makes excellent use of Kotlin features. Spring supports Kotlin data classes and reified types, provides extension functions and small domain-specific languages for bean configuration and testing, and more.</p>
+<p>MThis talk will show how Kotlin fits into the Spring ecosystem and how Spring developers can benefit from its null safety, strong typing, and powerful support for concurrency.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-08</startDate>
+        <endDate>2021-10-08</endDate>
+        <location>Denver, CO, US</location>
+        <speaker>James Ward</speaker>
+        <title>UberConf 2021</title>
+        <subject>Building and Deploying Cloud Native Applications with gRPC Kotlin and Kubernetes</subject>
+        <url>https://uberconf.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>In this hands-on workshop you will learn how to take a Cloud Native Application from inception to production. Starting with a base sample application we will learn how to break the application into separate services that communicate via gRPC Kotlin. We will then learn how to containerize and deploy the application to Kubernetes. Along the way we will learn how to address some of the major challenges of deploying applications to Kubernetes, such as scaling and service discovery.</p>
+<p>Some of the topics to be covered include:</p>
+<p>Service communication using gRPC, a fast and efficient binary protocol</p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>de</lang>
         <startDate>2021-06-17</startDate>
         <endDate>2021-06-17</endDate>
