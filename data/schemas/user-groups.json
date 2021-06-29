@@ -23,6 +23,26 @@
             },
             "url": {
               "type": "string"
+            },
+            "position": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lng": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "lat",
+                "lng"
+              ]
             }
           },
           "additionalProperties": false,
