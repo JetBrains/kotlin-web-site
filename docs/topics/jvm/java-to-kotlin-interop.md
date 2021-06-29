@@ -472,9 +472,10 @@ And you want to call it from Java and catch the exception:
 
 // Java
 try {
-  demo.Example.writeToFile();
-} catch (IOException e) { // error: writeToFile() does not declare IOException in the throws list
-  // ...
+    demo.Example.writeToFile();
+} catch (IOException e) { 
+    // error: writeToFile() does not declare IOException in the throws list
+    // ...
 }
 ```
 
@@ -580,4 +581,3 @@ fun emptyList(): List<Nothing> = listOf()
 // is translated to
 // List emptyList() { ... }
 ```
-
