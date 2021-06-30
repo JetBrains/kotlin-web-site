@@ -190,14 +190,6 @@
   geo:
     lat: '59.9399613'
     lng: '10.7195609'
-- title: Ulm University
-  location: Ulm (Germany)
-  courses:
-  - name: Parallele Programmierung
-    url: https://www.uni-ulm.de/en/in/sp/lehre/ss2018/parallele-programmierung/
-  geo:
-    lat: '48.396158'
-    lng: '9.985125'
 - title: University of Leeds
   location: Leeds (UK)
   courses:
@@ -207,13 +199,13 @@
     lat: '53.807488'
     lng: '-1.534502'
 - title: University of Notre Dame
-  location: Notre Dame, IN (US)
+  location: Notre Dame, (France)
   courses:
   - name: CSE 40842 – Hackers in the Bazaar
     url: https://www3.nd.edu/~pbui/teaching/cse.40842.sp19/progress02.html
   geo:
-    lat: '47.460027'
-    lng: '0.709139'
+    lat: '35.9049122'
+    lng: '79.0491021,17'
 - title: TU Dresden
   location: Dresden (Germany)
   courses:
@@ -502,14 +494,6 @@
   geo:
     lat: '32.715711'
     lng: '-117.154614'
-- title: University of Wisconsin-Milwaukee
-  location: Milwaukee, WI (US)
-  courses:
-  - name: 'CS 790: Functional Programming'
-    url: https://www4.uwm.edu/schedule/syllabi/220255341.pdf
-  geo:
-    lat: '43.041098'
-    lng: '-87.906484'
 - title: Baylor University
   location: Waco, TX (US)
   courses:
@@ -733,8 +717,8 @@
 - title: Lisbon Superior Engineering Institute (ISEL)
   location: Lisbon (Portugal)
   courses:
-  - name: Mobile Devices Programming
-    url: https://www.isel.pt/en/subjects/mobile-devices-programming-leic
+  - name: "PROGRAMMING-LEIC"
+    url: https://www.isel.pt/en/subjects/programming-leic
   geo:
     lat: '38.7561087'
     lng: '-9.1169233'
@@ -895,11 +879,6 @@
   location: Gainesville, FL (US)
   courses:
   - name: "DIG4634 Wearable and Mobile App Development"
-    url: https://arts.ufl.edu/site/assets/files/187303/dig4634_fall2020_wma_syllabusv1_0_ab.pdf
-- title: Lomonosov Moscow State University - MSU
-  location: Moscow (Russia)
-  courses:
-  - name: "JetBrains Kotlin: теория и практика программирования"
     url: https://arts.ufl.edu/site/assets/files/187303/dig4634_fall2020_wma_syllabusv1_0_ab.pdf
 - title: Arizona State University
   location: Tempe, AZ (US)
@@ -1151,11 +1130,6 @@
   courses:
   - name: "Android Basics with Kotlin"
     url: http://math.science.swu.ac.th/Default.aspx?tabid=6466&ArtMID=24327&ArticleID=14191
-- title: Saint Petersburg Electrotechnical University (LETI)
-  location: Saint Petersburg (Russia)
-  courses:
-  - name: "Разработка Android-приложений на Kotlin"
-    url: https://etu.ru/ru/on-line-obuchenie/novosti-i-obyavleniya/onlajn-kursy-leti-na-platformah-otkrytogo-obrazovaniya
 - title: Telkom University
   location: Bandung (Indonesia)
   courses:
@@ -1211,11 +1185,6 @@
   courses:
   - name: "Object-oriented programing"
     url: https://amseegym.de/fachschaften/informatik/
-- title: Instituto Superior de Engenharia de Lisboa
-  location: Lisbon (Portugal)
-  courses:
-  - name: "PROGRAMMING-LEIC"
-    url: https://www.isel.pt/en/subjects/programming-leic
 - title: Omsk State University
   location: Omsk (Russia)
   courses:
