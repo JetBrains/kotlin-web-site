@@ -826,3 +826,8 @@
   geo:
     lat: '40.1118946'
     lng: '26.4138072'
+- title: Stanford University
+  location: Stanford, CA (US)
+  courses:
+  - name: "CS194A: Android Programming Workshop"
+    url: https://web.stanford.edu/class/cs194a/
