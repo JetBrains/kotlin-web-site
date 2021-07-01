@@ -6,6 +6,7 @@ from functools import lru_cache
 from flask import Markup
 from jinja2 import nodes
 from jinja2.ext import Extension
+from flask import escape
 
 
 class KTLComponentExtension(Extension):
@@ -14,9 +15,9 @@ class KTLComponentExtension(Extension):
     tags = frozenset(['ktl_component'])
 
     error_template = """
-    <pre style='font-size:14px; color:red;'><![CDATA[
+    <pre style='font-size:14px; color:red;'>
       KTLComponentExtension FAILED!: %s
-    ]]></pre>
+    </pre>
     """
 
     def parse(self, parser):
@@ -57,16 +58,17 @@ class KTLComponentExtension(Extension):
         )
 
         stdout_data, stderr_data = nodejs.communicate()
-        result = stdout_data.decode("utf8", errors='ignore')
 
         if nodejs.returncode != 0:
             input_hash = hashlib.sha1(props_json.encode("utf8")).hexdigest()
 
             print(
                 "##teamcity[buildProblem description='ktl-components failed! - %s'identity='%s']"
-                % (stderr_data, input_hash)
+                % (escape(stderr_data), input_hash)
             )
 
-            result = self.error_template % stderr_data
+            result = self.error_template % escape(stderr_data)
+        else:
+            result = stdout_data.decode("utf8", errors='ignore')
 
         return result
