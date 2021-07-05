@@ -248,7 +248,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 
 ### Unification of Char.isLowerCase()/isUpperCase() implementations across platforms
@@ -270,5 +270,5 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
