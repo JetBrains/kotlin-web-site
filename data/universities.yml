@@ -1,16 +1,16 @@
 - title: Stanford University
   location: Stanford, CA (US)
   courses:
-  - name: 'CS 193A: Android App Development'
-    url: https://web.stanford.edu/class/cs193a/index.shtml
+  - name: 'CS194A: Android Programming Workshop'
+    url: https://web.stanford.edu/class/cs194a/
   geo:
     lat: '37.425571'
     lng: '-122.167447'
 - title: Imperial College London
   location: London (UK)
   courses:
-  - name: '161: Computing Practical 1'
-    url: https://www.imperial.ac.uk/computing/current-students/courses/161/
+  - name: '40009 Computing Practical 1'
+    url: https://www.imperial.ac.uk/computing/current-students/courses/40009/
   geo:
     lat: '51.605515'
     lng: '-0.337587'
@@ -18,7 +18,7 @@
   location: Philadelphia, PA (US)
   courses:
   - name: 'CIS 195-202: Android'
-    url: https://www.seas.upenn.edu/~cis195/android/index.html
+    url: https://www.imperial.ac.uk/computing/current-students/courses/40009/
   geo:
     lat: '39.966627'
     lng: '-75.178587'
@@ -26,7 +26,7 @@
   location: Baltimore, MD (US)
   courses:
   - name: 605.603 - Object-Oriented and Functional Programming in Kotlin
-    url: https://ep.jhu.edu/programs-and-courses/605.603-object-oriented-and-functional-programming-in-kotlin
+    url: https://ep.jhu.edu/courses/605603-object-oriented-and-functional-programming-in-kotlin/
   geo:
     lat: '39.297268'
     lng: '-76.594242'
@@ -58,7 +58,7 @@
   location: Seattle, WA (US)
   courses:
   - name: INFO 448 Android Mobile Development
-    url: https://canvas.uw.edu/courses/1222997
+    url: https://canvas.uw.edu/courses/1399103
   geo:
     lat: '47.601109'
     lng: '-122.303272'
@@ -73,7 +73,7 @@
 - title: University of Edinburgh
   location: Edinburgh (UK)
   courses:
-  - name: Computer Science Large Practical
+  - name: Computer Science Large Practical 2017-2018
     url: http://www.inf.ed.ac.uk/teaching/courses/cslp/
   geo:
     lat: '55.951814'
@@ -81,7 +81,7 @@
 - title: University of Texas at Austin
   location: Austin, TX (US)
   courses:
-  - name: CS 371M Mobile Computing (51610)
+  - name: CS 395T Android Programming
     url: https://www.cs.utexas.edu/users/witchel/371M/index.html
   geo:
     lat: '30.244396'
@@ -90,7 +90,7 @@
   location: Munich (Germany)
   courses:
   - name: Patterns in Software Engineering (WS 2019/20)
-    url: https://ase.in.tum.de/lehrstuhl_1/teaching/winter-2019-20?id=998
+    url: https://ase.in.tum.de/lehrstuhl_1/people/people-archive/122-teaching/winterterm-2018-19/998-patterns-in-software-engineering
   geo:
     lat: '48.137187'
     lng: '11.575691'
@@ -98,7 +98,7 @@
   location: Champaign, IL (US)
   courses:
   - name: CS 125 An Introduction to Computer Science
-    url: https://cs125.cs.illinois.edu/info/join/
+    url: https://cs125.cs.illinois.edu/lessons/kotlin/#spring2021-compoundconditionals
   geo:
     lat: '40.039296'
     lng: '-88.277982'
@@ -146,7 +146,7 @@
   location: East Lansing, MI (US)
   courses:
   - name: CSE498, Collaborative Design
-    url: https://www.cse.msu.edu/~cse498/2018-08/slide-gallery/capstone-experience.pdf
+    url: https://www.cse.msu.edu/~cse498/2020-08/schedules/all-hands-meetings/notes/09-02-capstone-overview.pdf
   geo:
     lat: '42.735795'
     lng: '-84.486085'
@@ -162,7 +162,7 @@
   location: College Park, MD (US)
   courses:
   - name: 'CMSC 436: Programming Handheld Systems'
-    url: http://www.cs.umd.edu/class/fall2019/cmsc436/Lectures/IntroductionToClass.pdf
+    url: http://www.cs.umd.edu/class/fall2020/cmsc436/
   geo:
     lat: '38.978174'
     lng: '-76.928451'
@@ -178,7 +178,7 @@
   location: Sheffield (UK)
   courses:
   - name: COM4510 Software development for mobile devices
-    url: https://www.sheffield.ac.uk/meng-engineering/current/modules/com4510
+    url: http://www.dcs.shef.ac.uk/intranet/teaching/public/modules/msc/com6510.html
   geo:
     lat: '53.385337'
     lng: '-1.467389'
@@ -186,7 +186,7 @@
   location: Oslo (Norway)
   courses:
   - name: IN2000 – Software Engineering
-    url: https://www.uio.no/studier/emner/matnat/ifi/IN2000/v20/forelesninger/in2000.2020.01.30.kotlin.kompendium.pdf
+    url: https://www.uio.no/studier/emner/matnat/ifi/IN2000/v21/videoer/kotlin/
   geo:
     lat: '59.9399613'
     lng: '10.7195609'
@@ -194,7 +194,7 @@
   location: Leeds (UK)
   courses:
   - name: COMP3222 Mobile Application Development
-    url: http://lib5.leeds.ac.uk/rlists/broker/?bbModuleId=201920_31958_COMP3222&bbListId=_6921852_1&bbLastListId=_6255684_1&sess=201920&s=m
+    url: https://comp3222.info/lectures/index.html
   geo:
     lat: '53.807488'
     lng: '-1.534502'
@@ -202,7 +202,7 @@
   location: Notre Dame, (France)
   courses:
   - name: CSE 40842 – Hackers in the Bazaar
-    url: https://www3.nd.edu/~pbui/teaching/cse.40842.sp19/progress02.html
+    url: https://www3.nd.edu/~pbui/teaching/cse.40842.sp21/progress02.html
   geo:
     lat: '35.9049122'
     lng: '79.0491021,17'
@@ -272,12 +272,12 @@
     lng: '-91.546385'
 - title: Moscow Institute of Physics and Technology
   location: Moscow (Russia)
-  geo:
-    lat: '55.9297243'
-    lnd: '37.4849245'
   courses:
   - name: Введение в научное программирование на языке Kotlin
-    url: http://npm.mipt.ru/pages/kotlin.html
+    url: https://mipt.ru/online/programming/kotlin.php
+    geo:
+     lat: '55.9297243'
+     lnd: '37.4849245'
 - title: University of Utah
   location: Salt Lake City, UT (US)
   courses:
@@ -329,7 +329,7 @@
 - title: Johannes Gutenberg University of Mainz
   location: Mainz (Germany)
   courses:
-  - name: Visual Computing
+  - name: Mobile Computing und Web Entwicklung
     url: https://www.cs.uni-mainz.de/files/2019/02/Lehrangebot-SS2019-red-.pdf
   geo:
     lat: '49.908747'
@@ -338,7 +338,7 @@
   location: Tartu (Estonia)
   courses:
   - name: Mobile Computing & Internet of Things LTAT.06.009
-    url: https://courses.cs.ut.ee/LTAT.06.009/2019_fall/uploads/Main/L2_2019_Kotlin.pdf
+    url: https://courses.cs.ut.ee/2020/MCIoT/fall/Main/Lectures
   geo:
     lat: '58.370076'
     lng: '26.728509'
@@ -370,7 +370,7 @@
   location: Perugia (Italy)
   courses:
   - name: GP004142 COMPUTER PROGRAMMING 3 / Informatics
-    url: https://www.unipg.it/en/courses/offered-programmes/course-catalogue-2019-20?idins=133946
+    url: https://www.unipg.it/en/ects/ects-course-catalogue-2020-21?idcorso=226&annoregolamento=2020&layout=insegnamento&idinsegnamento=133946
   geo:
     lat: '43.104939'
     lng: '12.356605'
@@ -378,7 +378,7 @@
   location: Fisciano (Italy)
   courses:
   - name: (Android) Mobile Programming
-    url: http://www.di-srv.unisa.it/~robdep/MP/slides/slides2019.pdf
+    url: http://www.di-srv.unisa.it/~robdep/MP/slides/slides2020.pdf
   geo:
     lat: '40.771806'
     lng: '14.7974'
@@ -386,7 +386,7 @@
   location: Aberystwyth (UK)
   courses:
   - name: CS31620 Mobile Development with Android
-    url: https://www.aber.ac.uk/en/modules/deptfuture/CS31620/AB0/
+    url: https://www.aber.ac.uk/en/modules/deptcurrent/CS31620/
   geo:
     lat: '52.410995'
     lng: '-4.075387'
@@ -418,7 +418,7 @@
   location: Columbia, MO (US)
   courses:
   - name: INFOTC 4410 - Android App Development I
-    url: https://online.missouri.edu/course-search/coursedetail.aspx?cid=311519&sid=337137
+    url: hhttp://catalog.missouri.edu/courseofferings/infotc/infotc.pdf
   geo:
     lat: '38.95656'
     lng: '-92.333525'
@@ -426,7 +426,7 @@
   location: St. Louis, MO (US)
   courses:
   - name: 'CMP SCI 4020 Introduction to Android Apps: Android Fundamentals'
-    url: http://bulletin.umsl.edu/search/?P=CMP%20SCI%204020
+    url: https://bulletin.umsl.edu/coursesofinstruction/cmpsci/
   geo:
     lat: '38.6242'
     lng: '-90.20839'
@@ -441,8 +441,8 @@
 - title: Norwegian University of Science and Technology
   location: Trondheim (Norway)
   courses:
-  - name: IMT3673 - Mobile/Wearable Programming
-    url: https://www.ntnu.edu/studies/courses/IMT3673#tab=omEmnet
+  - name: PROG2006 - Advanced Programming
+    url: https://www.ntnu.edu/studies/courses/PROG2006#tab=omEmnet
   geo:
     lat: '63.419499'
     lng: '10.3998884'
@@ -450,7 +450,7 @@
   location: Stillwater, OK (US)
   courses:
   - name: 'CS4153: Mobile Applications Development'
-    url: http://cs.okstate.edu/~sesham/documents/syllabus.pdf
+    url: https://computerscience.okstate.edu/images/courses/2020/CS4153_-_Mylavarapu.pdf
   geo:
     lat: '36.115497'
     lng: '-97.058286'
@@ -458,7 +458,7 @@
   location: Istanbul (Turkey)
   courses:
   - name: IT 535 Wireless and Mobile Programming
-    url: https://www.sabanciuniv.edu/syllabus/?crn=21819&term=201802
+    url: https://www.sabanciuniv.edu/syllabus/?crn=21742&term=201902
   geo:
     lat: '41.00704'
     lng: '29.040422'
@@ -482,7 +482,7 @@
   location: Saint Petersburg (Russia)
   courses:
   - name: Введение в язык Котлин
-    url: https://www.spbstu.ru/media/news/education/now-you-can-learn-kotlin-programming-language-online/?sphrase_id=1403267
+    url: https://www.coursera.org/learn/vvedenie-v-yazyk-kotlin
   geo:
       lat: '60.0076262'
       lng: '30.3710067'
@@ -490,7 +490,7 @@
   location: San Diego, CA (US)
   courses:
   - name: CS 635 Advanced Object-Oriented Design & Programming
-    url: http://www.eli.sdsu.edu/courses/fall19/cs635/Syllabus.pdf
+    url: http://www.eli.sdsu.edu/courses/fall20/cs635/Syllabus635Fall2020.pdf
   geo:
     lat: '32.715711'
     lng: '-117.154614'
@@ -539,7 +539,7 @@
   location: Worcester, MA (US)
   courses:
   - name: 'CS 528: Ubiquitous and Mobile Computing'
-    url: https://web.cs.wpi.edu/~emmanuel/courses/cs528/F19/
+    url: https://web.cs.wpi.edu/~emmanuel/courses/cs528/F20/
   geo:
     lat: '42.2743054'
     lng: '-71.8103258'
@@ -571,7 +571,7 @@
   location: Melbourne, FL (US)
   courses:
   - name: CSE 4250 Programming Language Concepts
-    url: https://cs.fit.edu/~ryan/cse4250/notes/types.pdf
+    url: https://cs.fit.edu/~ryan/cse4250/
   geo:
     lat: '28.0646329'
     lng: '-80.625247'
@@ -580,7 +580,7 @@
   courses:
   - name: The Winter School “Development of Mobile Applications on the Android Platform
       with the Kotlin Programming Language”
-    url: https://2tm.si/the-winter-school-development-of-mobile-applications-on-the-android-platform-with-the-kotlin-programming-language-accepts-applications-for-participation/?lang=en
+    url: -https://2tm.si/the-winter-school-development-of-mobile-applications-on-the-android-platform-with-the-kotlin-programming-language-accepts-applications-for-participation/?lang=en
   geo:
     lat: '46.54215'
     lng: '15.649092'
@@ -588,7 +588,7 @@
   location: El Paso, TX (US)
   courses:
   - name: CS 4330/5390 - Mobile Application Development
-    url: http://www.cs.utep.edu/cheon/cs4330/index.php?page=policy
+    url: https://digitalmeasures.utep.edu/ai/ycheon/schteach/syllabus-44.pdf
   geo:
     lat: '31.758898'
     lng: '-106.486689'
@@ -620,7 +620,7 @@
   location: Sao Leopoldo (Brazil)
   courses:
   - name: Desenvolvimento de Aplicações para Plataformas Móveis
-    url: http://www.unisinos.br/especializacao/desenvolvimento-de-aplicacoes-para-dispositivos-moveis/ead/sao-leopoldo/estrutura-curricular
+    url: http://www.unisinos.br/noticias/minha-pos/especializacao-em-desenvolvimento-de-aplicacoes-para-dispositivos-moveis
   geo:
     lat: '-29.769085'
     lng: '-51.141179'
@@ -653,16 +653,15 @@
   courses:
   - name: "Licence professionnelle Métiers de l'informatique : conception, développement\
       \ et test de logiciels"
-    url: https://www.uca.fr/formation/nos-formations/catalogue-des-formations/licence-professionnelle-metiers-de-l-informatique-conception-developpement-et-test-de-logiciels-10066.kjsp?RH=ACCUEIL-FR
+    url: https://www.uca.fr/formation/nos-formations/catalogue-des-formations/lp-developpement-dapplications-pour-plateformes-mobiles
   geo:
     lat: '45.771132'
     lng: '3.088624'
 - title: East Carolina University
   location: Greenville, NC (US)
   courses:
-  - name: 'CSCI 4540: Mobile Computing & CSCI 6905: Topics in Computer Science Fall
-      2017'
-    url: http://www.cs.ecu.edu/hillsma/syllabi/csci-4540-fall-2017.pdf
+  - name: 'CSCI 6905: Topics in Computer Science. Topic: Mobile Development'
+    url: http://www.cs.ecu.edu/hillsma/syllabi/csci-6905-summer-2020.pdf
   geo:
     lat: '36.037694'
     lng: '-79.035584'
@@ -670,7 +669,7 @@
   location: Reno, NV (US)
   courses:
   - name: Math/CS Numerical methods I 466/666
-    url: http://fractal.math.unr.edu/~ejolson/466/intro.pdf
+    url: http://fractal.math.unr.edu/~ejolson/466-17/
   geo:
     lat: '39.552594'
     lng: '-119.806917'
@@ -694,7 +693,7 @@
   location: Waterford (Ireland)
   courses:
   - name: Android Programming in Kotlin
-    url: https://tutors-design.netlify.com/course/oth-mobile-app-dev-2019.netlify.com
+    url: http://edeleastar.github.io/android-app-dev/
   geo:
     lat: '52.24821'
     lng: '-7.064297'
@@ -702,7 +701,7 @@
   location: Oslo (Norway)
   courses:
   - name: Enterpriseprogrammering 2 (PG6101)
-    url: https://www.kristiania.no/studier/emne/enterpriseprogrammering-22/
+    url: https://www.kristiania.no/for-studenter/programbeskrivelser-emnebeskrivelser-og-pensum/bachelor/2018-2021/bachelor-i-informasjonsteknologi--programmering-wpg/enterpriseprogrammering-2-pg6101/
   geo:
     lat: '59.9159993'
     lng: '10.7579211'
@@ -782,7 +781,7 @@
   location: Laramie, WY (US)
   courses:
   - name: 'Cosc 4730: Mobile Programming'
-    url: http://searchuw.uwyo.edu/ysa/cgi-bin/query-meta?v%3afile=viv_yYaeqy&v%3astate=root%7croot&url=https%3a%2f%2fwww.cs.uwyo.edu%2f~seker%2fcourses%2f4730%2fintro.pptx&rid=Ndoc0&v%3aframe=redirect&v%3aredirect-hash=4e4dd80247a2b7b7fbf8beba61d97f7e&
+    url: https://www.cs.uwyo.edu/~seker/courses/4730/?go=main
   geo:
     lat: '41.477199'
     lng: '-105.635787'
@@ -790,7 +789,7 @@
   location: Logan, UT (US)
   courses:
   - name: CS 4700 - Programming Languages
-    url: https://cs.usu.edu/people/CurtisDyreson/teaching/languages/191/lectures/Kotlin.pdf
+    url: https://gitlab.cs.usu.edu/erik.falor/sp21-cs1440-lecturenotes/-/blob/2ee9ed0b75db6c3ad10ced887e99dbad688450d1/Module3/Lec22-Mon_Mar_15/README.md
   geo:
     lat: '41.735124'
     lng: '-111.834935'
@@ -798,7 +797,7 @@
   location: Thunder Bay (Canada)
   courses:
   - name: "COMP 4411 Programming Languages"
-    url: http://flash.lakeheadu.ca/~mohammed/MyRecentCourses.pdf
+    url: https://www.lakeheadu.ca/users/M/mohammed/my-recent-courses-flyers
   geo:
     lat: '46.4186908'
     lng: '-88.8472074'
@@ -1095,11 +1094,6 @@
   courses:
   - name: "Б1.В.ДВ.05.02 Разработка мобильных приложений"
     url: https://www.s-vfu.ru/gos_fgos/d.php?id=5394&192799506
-- title: Omsk State Technical University (OmSTU)
-  location: Omsk (Russia)
-  courses:
-  - name: "Разработка мобильных приложений для Android"
-    url: https://stepik.org/course/5703/promo
 - title: Pontifical Catholic University of Minas Gerais
   location: Belo Horizonte (Brazil)
   courses:
