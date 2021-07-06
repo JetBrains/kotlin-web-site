@@ -1199,10 +1199,8 @@
   courses:
   - name: "Diplomatura en Android Studio"
     url: https://sceu.frba.utn.edu.ar/course/diplomatura-en-programacion-mobile/
-- title: Vanderbilt University
-  location: Nashville, TN (US)
-  courses:
+ - title: Vanderbilt University
+   location: Nashville, TN (US)
+   courses:
   - name: "CS 891: Concurrent Java Programming in Android "
     url: http://www.dre.vanderbilt.edu/~schmidt/cs891s/2020-PDFs/11.3.6-overview-of-Android-pt6-application-framework-and-apps-layers.pdf
-
-
