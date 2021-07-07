@@ -31,7 +31,7 @@ At least 82 universities from the Times Higher Education Rankings 2020 use Kotli
 > {:.kto-quote__author}
 {:.kto-quote}
 
-22 of the top 100 universities in the THE Rankings 2020 include Kotlin in their courses.
+25 of the top 100 universities in the THE Rankings 2021 include Kotlin in their courses.
 
 
 > I teach Software Engineering with Kotlin. We also have a separate Android Development course. So I can teach in a language that students can use in other courses. 
