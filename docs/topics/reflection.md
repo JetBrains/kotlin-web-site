@@ -350,7 +350,7 @@ You don't need to specify `this` as the receiver: `this::foo` and `::foo` are eq
 
 ### Bound constructor references
 
-A bound callable reference to a constructor of an [*inner* class](nested-classes.md#inner-classes) can 
+A bound callable reference to a constructor of an [inner class](nested-classes.md#inner-classes) can 
 be obtained by providing an instance of the outer class:
 
 ```kotlin

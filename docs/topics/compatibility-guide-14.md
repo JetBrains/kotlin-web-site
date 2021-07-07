@@ -1,6 +1,6 @@
 [//]: # (title: Compatibility guide for Kotlin 1.4)
 
-[*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in Kotlin Language Design.
+[Keeping the Language Modern* and *Comfortable Updates](kotlin-evolution.md) are among the fundamental principles in Kotlin Language Design.
 The former says that constructs which obstruct language evolution should be removed, and the latter says that this
 removal should be well-communicated beforehand to make code migration as smooth as possible.
 

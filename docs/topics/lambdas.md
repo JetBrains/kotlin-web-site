@@ -1,6 +1,6 @@
 [//]: # (title: High-order functions and lambdas)
 
-Kotlin functions are [*first-class*](https://en.wikipedia.org/wiki/First-class_function), which means that they can 
+Kotlin functions are [first-class](https://en.wikipedia.org/wiki/First-class_function), which means that they can 
 be stored in variables and data structures, passed as arguments to and returned from other 
 [higher-order functions](#higher-order-functions). You can operate with functions in any way that is possible for other 
 non-function values. 
