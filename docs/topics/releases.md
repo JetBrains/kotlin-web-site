@@ -108,7 +108,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.0" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A feature release with new language features, performance improvements, and evolutionaly changes such as stabilizaing experimental APIs.</p>
+            <p>A feature release with new language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
             <p>Learn more in:</p>
             <ul>
                 <li><a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
