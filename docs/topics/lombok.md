@@ -48,8 +48,8 @@ plugins {
 
 ```kotlin
 plugins {
-    id ("org.jetbrains.kotlin.plugin.lombok") version "%kotlinVersion%"
-    id ("io.freefair.lombok") version "5.3.0"
+    kotlin("plugin.lombok") version "%kotlinVersion%"
+    id("io.freefair.lombok") version "5.3.0"
 }
 ```
 
