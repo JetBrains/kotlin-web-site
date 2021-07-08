@@ -83,9 +83,8 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 
 ## Compile Kotlin and Java sources
 
-To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler.
-In maven terms that means that `kotlin-maven-plugin` should be run before `maven-compiler-plugin` using the following method,
-making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in your `pom.xml` file:
+To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler by setting the Kotlin compile to happen in the process-sources phase (similarly for test-compile).
+If you mix all your kotlin files with your java files in src/main/java, you can leave out the `sourceDirs` sections.
 
 ```xml
 <build>
@@ -97,6 +96,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <executions>
                 <execution>
                     <id>compile</id>
+                    <phase>process-sources</phase>
                     <goals>
                         <goal>compile</goal>
                     </goals>
@@ -109,6 +109,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
                 <execution>
                     <id>test-compile</id>
+                    <phase>process-test-sources</phase>
                     <goals> <goal>test-compile</goal> </goals>
                     <configuration>
                         <sourceDirs>
@@ -116,37 +117,6 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                             <sourceDir>${project.basedir}/src/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
-                </execution>
-            </executions>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
-            <executions>
-                <!-- Replacing default-compile as it is treated specially by maven -->
-                <execution>
-                    <id>default-compile</id>
-                    <phase>none</phase>
-                </execution>
-                <!-- Replacing default-testCompile as it is treated specially by maven -->
-                <execution>
-                    <id>default-testCompile</id>
-                    <phase>none</phase>
-                </execution>
-                <execution>
-                    <id>java-compile</id>
-                    <phase>compile</phase>
-                    <goals>
-                        <goal>compile</goal>
-                    </goals>
-                </execution>
-                <execution>
-                    <id>java-test-compile</id>
-                    <phase>test-compile</phase>
-                    <goals>
-                        <goal>testCompile</goal>
-                    </goals>
                 </execution>
             </executions>
         </plugin>
@@ -191,6 +161,7 @@ in your Maven pom.xml file, where `main.class` is defined as a property and poin
     </configuration>
 </plugin>
 ```
+Note: use only one at a time of maven-jar-plugin, maven-assembly-plugin, or maven-shade-plugin.
 
 ## Self-contained Jar file
 
@@ -228,6 +199,9 @@ This self-contained jar file can be passed directly to a JRE to run your applica
 ``` bash
 java -jar target/mymodule-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 ```
+
+Note: use only one at a time of maven-jar-plugin, maven-assembly-plugin, or maven-shade-plugin.
+
 
 ## Specifying compiler options
 
