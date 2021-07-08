@@ -4,7 +4,7 @@ The most basic use case for enum classes is the implementation of type-safe enum
 
 ```kotlin
 enum class Direction {
-   NORTH, SOUTH, WEST, EAST
+    NORTH, SOUTH, WEST, EAST
 }
 ```
 Each enum constant is an object. Enum constants are separated by commas.
@@ -13,9 +13,9 @@ Since each enum is an instance of the enum class, it can be initialized as:
 
 ```kotlin
 enum class Color(val rgb: Int) {
-       RED(0xFF0000),
-       GREEN(0x00FF00),
-       BLUE(0x0000FF)
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
 }
 ```
 
@@ -26,15 +26,15 @@ methods.
 
 ```kotlin
 enum class ProtocolState {
-   WAITING {
-       override fun signal() = TALKING
-   },
+    WAITING {
+        override fun signal() = TALKING
+    },
 
-   TALKING {
-       override fun signal() = WAITING
-   };
+    TALKING {
+        override fun signal() = WAITING
+    };
 
-   abstract fun signal(): ProtocolState
+    abstract fun signal(): ProtocolState
 }
 ```
 
@@ -52,23 +52,23 @@ import java.util.function.IntBinaryOperator
 
 //sampleStart
 enum class IntArithmetics : BinaryOperator<Int>, IntBinaryOperator {
-   PLUS {
-       override fun apply(t: Int, u: Int): Int = t + u
-   },
-   TIMES {
-       override fun apply(t: Int, u: Int): Int = t * u
-   };
-  
-   override fun applyAsInt(t: Int, u: Int) = apply(t, u)
+    PLUS {
+        override fun apply(t: Int, u: Int): Int = t + u
+    },
+    TIMES {
+        override fun apply(t: Int, u: Int): Int = t * u
+    };
+    
+    override fun applyAsInt(t: Int, u: Int) = apply(t, u)
 }
 //sampleEnd
 
 fun main() {
-   val a = 13
-   val b = 31
-   for (f in IntArithmetics.values()) {
-       println("$f($a, $b) = ${f.apply(a, b)}")
-   }
+    val a = 13
+    val b = 31
+    for (f in IntArithmetics.values()) {
+        println("$f($a, $b) = ${f.apply(a, b)}")
+    }
 }
 ```
 {kotlin-runnable="true"}
@@ -94,7 +94,7 @@ the `enumValues<T>()` and `enumValueOf<T>()` functions:
 enum class RGB { RED, GREEN, BLUE }
 
 inline fun <reified T : Enum<T>> printAllValues() {
-   print(enumValues<T>().joinToString { it.name })
+    print(enumValues<T>().joinToString { it.name })
 }
 
 printAllValues<RGB>() // prints RED, GREEN, BLUE

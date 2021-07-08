@@ -16,9 +16,9 @@ The following adds a `swap` function to `MutableList<Int>`:
 
 ```kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
-   val tmp = this[index1] // 'this' corresponds to the list
-   this[index1] = this[index2]
-   this[index2] = tmp
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
 }
 ```
 
@@ -34,9 +34,9 @@ This function makes sense for any `MutableList<T>`, and you can make it generic:
 
 ```kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
-   val tmp = this[index1] // 'this' corresponds to the list
-   this[index1] = this[index2]
-   this[index2] = tmp
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
 }
 ```
 
@@ -55,19 +55,17 @@ not by the type of the result from evaluating that expression at runtime. For ex
 ```kotlin
 fun main() {
 //sampleStart
-   open class Shape
-  
-   class Rectangle: Shape()
-  
-   fun Shape.getName() = "Shape"
-  
-   fun Rectangle.getName() = "Rectangle"
-  
-   fun printClassName(s: Shape) {
-       println(s.getName())
-   }   
-  
-   printClassName(Rectangle())
+    open class Shape
+    class Rectangle: Shape()
+    
+    fun Shape.getName() = "Shape"
+    fun Rectangle.getName() = "Rectangle"
+    
+    fun printClassName(s: Shape) {
+        println(s.getName())
+    }
+    
+    printClassName(Rectangle())
 //sampleEnd
 }
 ```
@@ -83,13 +81,13 @@ For example:
 ```kotlin
 fun main() {
 //sampleStart
-   class Example {
-       fun printFunctionType() { println("Class method") }
-   }
-  
-   fun Example.printFunctionType() { println("Extension function") }
-  
-   Example().printFunctionType()
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType() { println("Extension function") }
+    
+    Example().printFunctionType()
 //sampleEnd
 }
 ```
@@ -102,13 +100,13 @@ However, it's perfectly OK for extension functions to overload member functions 
 ```kotlin
 fun main() {
 //sampleStart
-   class Example {
-       fun printFunctionType() { println("Class method") }
-   }
-  
-   fun Example.printFunctionType(i: Int) { println("Extension function") }
-  
-   Example().printFunctionType(1)
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType(i: Int) { println("Extension function") }
+    
+    Example().printFunctionType(1)
 //sampleEnd
 }
 ```
@@ -123,10 +121,10 @@ This way, you can call `toString()` in Kotlin without checking for `null`, as th
 
 ```kotlin
 fun Any?.toString(): String {
-   if (this == null) return "null"
-   // after the null check, 'this' is autocast to a non-null type, so the toString() below
-   // resolves to the member function of the Any class
-   return toString()
+    if (this == null) return "null"
+    // after the null check, 'this' is autocast to a non-null type, so the toString() below
+    // resolves to the member function of the Any class
+    return toString()
 }
 ```
 
@@ -136,7 +134,7 @@ Kotlin supports extension properties much like it supports functions:
 
 ```kotlin
 val <T> List<T>.lastIndex: Int
-   get() = size - 1
+    get() = size - 1
 ```
 
 > Since extensions do not actually insert members into classes, there's no efficient way for an extension
@@ -159,13 +157,13 @@ they can be called using only the class name as the qualifier:
 
 ```kotlin
 class MyClass {
-   companion object { }  // will be called "Companion"
+    companion object { }  // will be called "Companion"
 }
 
 fun MyClass.Companion.printCompanion() { println("companion") }
 
 fun main() {
-   MyClass.printCompanion()
+    MyClass.printCompanion()
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -188,8 +186,8 @@ package org.example.usage
 import org.example.declarations.getLongestString
 
 fun main() {
-   val list = listOf("red", "green", "blue")
-   list.getLongestString()
+    val list = listOf("red", "green", "blue")
+    list.getLongestString()
 }
 ```
 
@@ -203,7 +201,7 @@ _dispatch receiver_, and an instance of the receiver type of the extension metho
 
 ```kotlin
 class Host(val hostname: String) {
-   fun printHostname() { print(hostname) }
+    fun printHostname() { print(hostname) }
 }
 
 class Connection(val host: Host, val port: Int) {
@@ -222,8 +220,8 @@ class Connection(val host: Host, val port: Int) {
 }
 
 fun main() {
-   Connection(Host("kotl.in"), 443).connect()
-   //Host("kotl.in").printConnectionString(443)  // error, the extension function is unavailable outside Connection
+    Connection(Host("kotl.in"), 443).connect()
+    //Host("kotl.in").printConnectionString(443)  // error, the extension function is unavailable outside Connection
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -233,10 +231,10 @@ precedence. To refer to the member of the dispatch receiver, you can use the [qu
 
 ```kotlin
 class Connection {
-   fun Host.getConnectionString() {
-       toString()         // calls Host.toString()
-       this@Connection.toString()  // calls Connection.toString()
-   }
+    fun Host.getConnectionString() {
+        toString()         // calls Host.toString()
+        this@Connection.toString()  // calls Connection.toString()
+    }
 }
 ```
 
@@ -249,33 +247,33 @@ open class Base { }
 class Derived : Base() { }
 
 open class BaseCaller {
-   open fun Base.printFunctionInfo() {
-       println("Base extension function in BaseCaller")
-   }
+    open fun Base.printFunctionInfo() {
+        println("Base extension function in BaseCaller")
+    }
 
-   open fun Derived.printFunctionInfo() {
-       println("Derived extension function in BaseCaller")
-   }
+    open fun Derived.printFunctionInfo() {
+        println("Derived extension function in BaseCaller")
+    }
 
-   fun call(b: Base) {
-       b.printFunctionInfo()   // call the extension function
-   }
+    fun call(b: Base) {
+        b.printFunctionInfo()   // call the extension function
+    }
 }
 
 class DerivedCaller: BaseCaller() {
-   override fun Base.printFunctionInfo() {
-       println("Base extension function in DerivedCaller")
-   }
+    override fun Base.printFunctionInfo() {
+        println("Base extension function in DerivedCaller")
+    }
 
-   override fun Derived.printFunctionInfo() {
-       println("Derived extension function in DerivedCaller")
-   }
+    override fun Derived.printFunctionInfo() {
+        println("Derived extension function in DerivedCaller")
+    }
 }
 
 fun main() {
-   BaseCaller().call(Base())   // "Base extension function in BaseCaller"
-   DerivedCaller().call(Base())  // "Base extension function in DerivedCaller" - dispatch receiver is resolved virtually
-   DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
+    BaseCaller().call(Base())   // "Base extension function in BaseCaller"
+    DerivedCaller().call(Base())  // "Base extension function in DerivedCaller" - dispatch receiver is resolved virtually
+    DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -287,4 +285,3 @@ For example:
 
 * An extension declared at the top level of a file has access to the other `private` top-level declarations in the same file.
 * If an extension is declared outside its receiver type, it cannot access the receiver's `private` members.
-
