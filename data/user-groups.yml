@@ -37,6 +37,9 @@
     - name: Brighton Kotlin User Group
       country: United Kingdom
       url: https://www.meetup.com/Brighton-Kotlin/
+    - name: Brussels Kotlin User Group
+      country: Belgium
+      url: https://www.meetup.com/brussels-kotlin-user-group/
     - name: Bucharest Kotlin User Group
       country: Romania
       url: https://www.meetup.com/kug-bucharest/
