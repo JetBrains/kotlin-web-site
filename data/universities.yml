@@ -418,7 +418,7 @@
   location: Columbia, MO (US)
   courses:
   - name: INFOTC 4410 - Android App Development I
-    url: hhttp://catalog.missouri.edu/courseofferings/infotc/infotc.pdf
+    url: http://catalog.missouri.edu/courseofferings/infotc/infotc.pdf
   geo:
     lat: '38.95656'
     lng: '-92.333525'
@@ -1037,7 +1037,7 @@
   location: Irbid (Jordan)
   courses:
   - name: Mobile Phones Apps Development Using Android-Kotlin Language
-    url: hhttps://www.just.edu.jo/Centers/ConsultativeCenter/Lists/News/DispForm.aspx?ID=30
+    url: https://www.just.edu.jo/Centers/ConsultativeCenter/Lists/News/DispForm.aspx?ID=30
   geo:
     lat: '32.4950392'
     lng: '35.9912257'
