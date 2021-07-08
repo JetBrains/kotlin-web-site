@@ -144,7 +144,7 @@ Such a property needs to fulfil the following requirements:
 
 * It must be a top-level property, or a member of an [`object` declaration](object-declarations.md#object-declarations-overview) or [a companion object](object-declarations.md#companion-objects).
 * It must be initialized with a value of type `String` or a primitive type
-* It cannot be a No custom getter
+* It cannot be a custom getter
 
 Such properties can be used in annotations:
 
@@ -209,4 +209,3 @@ Somewhere in between the simplicity of the first kind and variety of the second,
 can do. A few examples: lazy values, reading from a map by a given key, accessing a database, notifying a listener on access.
 
 Such common behaviors can be implemented as libraries using [delegated properties](delegated-properties.md).
-

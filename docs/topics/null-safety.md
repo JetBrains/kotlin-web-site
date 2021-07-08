@@ -94,7 +94,7 @@ that `b` changes to `null` after the check.
 
 ## Safe calls
 
-Your second option for accessing a property on a nullable variable is using the safe call operator, which is written `?.`:
+Your second option for accessing a property on a nullable variable is using the safe call operator `?.`:
 
 ```kotlin
 fun main() {
@@ -110,7 +110,7 @@ fun main() {
 
 This returns `b.length` if `b` is not null, and `null` otherwise. The type of this expression is `Int?`.
 
-Safe calls are useful in chains. For example, Bob is an employee who may be assigned to a department (or not).That department
+Safe calls are useful in chains. For example, Bob is an employee who may be assigned to a department (or not). That department
 may in turn have another employee as a department head. To obtain the name of Bob's department head (if there is one),
 you write the following:
 
@@ -151,7 +151,7 @@ When you have a nullable reference, `b`, you can say "if `b` is not `null`, use 
 val l: Int = if (b != null) b.length else -1
 ```
 
-Instead of writing the complete `if` expression, you can also express this with the Elvis operator, written `?:`:
+Instead of writing the complete `if` expression, you can also express this with the Elvis operator `?:`:
 
 ```kotlin
 val l = b?.length ?: -1

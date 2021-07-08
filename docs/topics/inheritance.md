@@ -202,7 +202,7 @@ the same member from its immediate superclasses, it must override this member an
 using one of the inherited ones).
 
 To denote the supertype from which the inherited implementation is taken, use `super` qualified by the supertype name in
-angle brackets, e.g. `super<Base>`:
+angle brackets, such as `super<Base>`:
 
 ```kotlin
 open class Rectangle {
