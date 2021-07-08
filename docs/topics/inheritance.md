@@ -32,9 +32,9 @@ constructors can call different constructors of the base type:
 
 ```kotlin
 class MyView : View {
-   constructor(ctx: Context) : super(ctx)
+    constructor(ctx: Context) : super(ctx)
 
-   constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
+    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
 
@@ -44,12 +44,12 @@ Kotlin requires explicit modifiers for overridable members and overrides:
 
 ```kotlin
 open class Shape {
-   open fun draw() { /*...*/ }
-   fun fill() { /*...*/ }
+    open fun draw() { /*...*/ }
+    fun fill() { /*...*/ }
 }
 
 class Circle() : Shape() {
-   override fun draw() { /*...*/ }
+    override fun draw() { /*...*/ }
 }
 ```
 
@@ -63,7 +63,7 @@ use `final`:
 
 ```kotlin
 open class Rectangle() : Shape() {
-   final override fun draw() { /*...*/ }
+    final override fun draw() { /*...*/ }
 }
 ```
 
@@ -75,11 +75,11 @@ Each declared property can be overridden by a property with an initializer or by
 
 ```kotlin
 open class Shape {
-   open val vertexCount: Int = 0
+    open val vertexCount: Int = 0
 }
 
 class Rectangle : Shape() {
-   override val vertexCount = 4
+    override val vertexCount = 4
 }
 ```
 
@@ -90,13 +90,13 @@ Note that you can use the `override` keyword as part of the property declaration
 
 ```kotlin
 interface Shape {
-   val vertexCount: Int
+    val vertexCount: Int
 }
 
 class Rectangle(override val vertexCount: Int = 4) : Shape // Always has 4 vertices
 
 class Polygon : Shape {
-   override var vertexCount: Int = 0  // Can be set to any number later
+    override var vertexCount: Int = 0  // Can be set to any number later
 }
 ```
 
@@ -110,27 +110,27 @@ initialization logic of the derived class is run.
 //sampleStart
 open class Base(val name: String) {
 
-   init { println("Initializing a base class") }
+    init { println("Initializing a base class") }
 
-   open val size: Int =
-       name.length.also { println("Initializing size in the base class: $it") }
+    open val size: Int = 
+        name.length.also { println("Initializing size in the base class: $it") }
 }
 
 class Derived(
-   name: String,
-   val lastName: String,
+    name: String,
+    val lastName: String,
 ) : Base(name.replaceFirstChar { it.uppercase() }.also { println("Argument for the base class: $it") }) {
 
-   init { println("Initializing a derived class") }
+    init { println("Initializing a derived class") }
 
-   override val size: Int =
-       (super.size + lastName.length).also { println("Initializing size in the derived class: $it") }
+    override val size: Int =
+        (super.size + lastName.length).also { println("Initializing size in the derived class: $it") }
 }
 //sampleEnd
 
 fun main() {
-   println("Constructing the derived class(\"hello\", \"world\")")
-   Derived("hello", "world")
+    println("Constructing the derived class(\"hello\", \"world\")")
+    Derived("hello", "world")
 }
 ```
 {kotlin-runnable="true"}
@@ -147,17 +147,17 @@ Code in a derived class can call its superclass functions and property accessor 
 
 ```kotlin
 open class Rectangle {
-   open fun draw() { println("Drawing a rectangle") }
-   val borderColor: String get() = "black"
+    open fun draw() { println("Drawing a rectangle") }
+    val borderColor: String get() = "black"
 }
 
 class FilledRectangle : Rectangle() {
-   override fun draw() {
-       super.draw()
-       println("Filling the rectangle")
-   }
+    override fun draw() {
+        super.draw()
+        println("Filling the rectangle")
+    }
 
-   val fillColor: String get() = super.borderColor
+    val fillColor: String get() = super.borderColor
 }
 ```
 
@@ -166,31 +166,31 @@ outer class name: `super@Outer`:
 
 ```kotlin
 open class Rectangle {
-   open fun draw() { println("Drawing a rectangle") }
-   val borderColor: String get() = "black"
+    open fun draw() { println("Drawing a rectangle") }
+    val borderColor: String get() = "black"
 }
 
 //sampleStart
 class FilledRectangle: Rectangle() {
-   override fun draw() {
-      val filler = Filler()
-       filler.drawAndFill()
-   }
-  
-   inner class Filler {
-       fun fill() { println("Filling") }
-       fun drawAndFill() {
-           super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
-           fill()
-           println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
-       }
-   }
+    override fun draw() {
+        val filler = Filler()
+        filler.drawAndFill()
+    }
+    
+    inner class Filler {
+        fun fill() { println("Filling") }
+        fun drawAndFill() {
+            super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
+            fill()
+            println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
+        }
+    }
 }
 //sampleEnd
 
 fun main() {
-   val fr = FilledRectangle()
-       fr.draw()
+    val fr = FilledRectangle()
+        fr.draw()
 }
 ```
 {kotlin-runnable="true"}
@@ -206,19 +206,19 @@ angle brackets, e.g. `super<Base>`:
 
 ```kotlin
 open class Rectangle {
-   open fun draw() { /* ... */ }
+    open fun draw() { /* ... */ }
 }
 
 interface Polygon {
-   fun draw() { /* ... */ } // interface members are 'open' by default
+    fun draw() { /* ... */ } // interface members are 'open' by default
 }
 
 class Square() : Rectangle(), Polygon {
-   // The compiler requires draw() to be overridden:
-   override fun draw() {
-       super<Rectangle>.draw() // call to Rectangle.draw()
-       super<Polygon>.draw() // call to Polygon.draw()
-   }
+    // The compiler requires draw() to be overridden:
+    override fun draw() {
+        super<Rectangle>.draw() // call to Rectangle.draw()
+        super<Polygon>.draw() // call to Polygon.draw()
+    }
 }
 ```
 

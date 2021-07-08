@@ -29,8 +29,8 @@ For example, a regular variable of type `String` cannot hold `null`:
 ```kotlin
 fun main() {
 //sampleStart
-   var a: String = "abc" // Regular initialization means non-null by default
-   a = null // compilation error
+    var a: String = "abc" // Regular initialization means non-null by default
+    a = null // compilation error
 //sampleEnd
 }
 ```
@@ -41,9 +41,9 @@ To allow nulls, you can declare a variable as a nullable string by writing `Stri
 ```kotlin
 fun main() {
 //sampleStart
-   var b: String? = "abc" // can be set to null
-   b = null // ok
-   print(b)
+    var b: String? = "abc" // can be set to null
+    b = null // ok
+    print(b)
 //sampleEnd
 }
 ```
@@ -77,12 +77,12 @@ More complex conditions are supported as well:
 ```kotlin
 fun main() {
 //sampleStart
-   val b: String? = "Kotlin"
-   if (b != null && b.length > 0) {
-       print("String of length ${b.length}")
-   } else {
-       print("Empty string")
-   }
+    val b: String? = "Kotlin"
+    if (b != null && b.length > 0) {
+        print("String of length ${b.length}")
+    } else {
+        print("Empty string")
+    }
 //sampleEnd
 }
 ```
@@ -99,10 +99,10 @@ Your second option for accessing a property on a nullable variable is using the 
 ```kotlin
 fun main() {
 //sampleStart
-   val a = "Kotlin"
-   val b: String? = null
-   println(b?.length)
-   println(a?.length) // Unnecessary safe call
+    val a = "Kotlin"
+    val b: String? = null
+    println(b?.length)
+    println(a?.length) // Unnecessary safe call
 //sampleEnd
 }
 ```
@@ -126,10 +126,10 @@ To perform a certain operation only for non-null values, you can use the safe ca
 ```kotlin
 fun main() {
 //sampleStart
-   val listWithNulls: List<String?> = listOf("Kotlin", null)
-   for (item in listWithNulls) {
-        item?.let { println(it) } // prints Kotlin and ignores null
-   }
+    val listWithNulls: List<String?> = listOf("Kotlin", null)
+    for (item in listWithNulls) {
+         item?.let { println(it) } // prints Kotlin and ignores null
+    }
 //sampleEnd
 }
 ```
@@ -166,9 +166,9 @@ the right-hand side of the Elvis operator. This can be handy, for example, when 
 
 ```kotlin
 fun foo(node: Node): String? {
-   val parent = node.getParent() ?: return null
-   val name = node.getName() ?: throw IllegalArgumentException("name expected")
-   // ...
+    val parent = node.getParent() ?: return null
+    val name = node.getName() ?: throw IllegalArgumentException("name expected")
+    // ...
 }
 ```
 

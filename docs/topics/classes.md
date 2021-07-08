@@ -38,22 +38,22 @@ class body, interleaved with the property initializers:
 ```kotlin
 //sampleStart
 class InitOrderDemo(name: String) {
-   val firstProperty = "First property: $name".also(::println)
-  
-   init {
-       println("First initializer block that prints ${name}")
-   }
-  
-   val secondProperty = "Second property: ${name.length}".also(::println)
-  
-   init {
-       println("Second initializer block that prints ${name.length}")
-   }
+    val firstProperty = "First property: $name".also(::println)
+    
+    init {
+        println("First initializer block that prints ${name}")
+    }
+    
+    val secondProperty = "Second property: ${name.length}".also(::println)
+    
+    init {
+        println("Second initializer block that prints ${name.length}")
+    }
 }
 //sampleEnd
 
 fun main() {
-   InitOrderDemo("hello")
+    InitOrderDemo("hello")
 }
 ```
 {kotlin-runnable="true"}
@@ -63,7 +63,7 @@ declared in the class body:
 
 ```kotlin
 class Customer(name: String) {
-   val customerKey = name.uppercase()
+    val customerKey = name.uppercase()
 }
 ```
 
@@ -83,9 +83,9 @@ You can use a [trailing comma](coding-conventions.md#trailing-commas) when you d
 
 ```kotlin
 class Person(
-   val firstName: String,
-   val lastName: String,
-   var age: Int, // trailing comma
+    val firstName: String,
+    val lastName: String,
+    var age: Int, // trailing comma
 ) { /*...*/ }
 ```
 
@@ -107,9 +107,9 @@ A class can also declare _secondary constructors_, which are prefixed with `cons
 class Person(val pets: MutableList<Pet> = mutableListOf())
 
 class Pet {
-   constructor(owner: Person) {
-       owner.pets.add(this) // adds this pet to the list of its owner's pets
-   }
+    constructor(owner: Person) {
+        owner.pets.add(this) // adds this pet to the list of its owner's pets
+    }
 }
 ```
 
@@ -119,10 +119,10 @@ done using the `this` keyword:
 
 ```kotlin
 class Person(val name: String) {
-   var children: MutableList<Person> = mutableListOf()
-   constructor(name: String, parent: Person) : this(name) {
-       parent.children.add(this)
-   }
+    var children: MutableList<Person> = mutableListOf()
+    constructor(name: String, parent: Person) : this(name) {
+        parent.children.add(this)
+    }
 }
 ```
 
@@ -136,18 +136,18 @@ still executed:
 ```kotlin
 //sampleStart
 class Constructors {
-   init {
-       println("Init block")
-   }
+    init {
+        println("Init block")
+    }
 
-   constructor(i: Int) {
-       println("Constructor $i")
-   }
+    constructor(i: Int) {
+        println("Constructor $i")
+    }
 }
 //sampleEnd
 
 fun main() {
-   Constructors(1)
+    Constructors(1)
 }
 ```
 {kotlin-runnable="true"}
@@ -210,11 +210,11 @@ You can override a non-abstract `open` member with an abstract one.
 
 ```kotlin
 open class Polygon {
-   open fun draw() {}
+    open fun draw() {}
 }
 
 abstract class Rectangle : Polygon() {
-   abstract override fun draw()
+    abstract override fun draw()
 }
 ```
 

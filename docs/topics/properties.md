@@ -6,11 +6,11 @@ Properties in Kotlin classes can be declared either as mutable, using the `var` 
 
 ```kotlin
 class Address {
-   var name: String = "Holmes, Sherlock"
-   var street: String = "Baker"
-   var city: String = "London"
-   var state: String? = null
-   var zip: String = "123456"
+    var name: String = "Holmes, Sherlock"
+    var street: String = "Baker"
+    var city: String = "London"
+    var state: String? = null
+    var zip: String = "123456"
 }
 ```
 
@@ -18,11 +18,11 @@ To use a property, simply refer to it by its name:
 
 ```kotlin
 fun copyAddress(address: Address): Address {
-   val result = Address() // there's no 'new' keyword in Kotlin
-   result.name = address.name // accessors are called
-   result.street = address.street
-   // ...
-   return result
+    val result = Address() // there's no 'new' keyword in Kotlin
+    result.name = address.name // accessors are called
+    result.street = address.street
+    // ...
+    return result
 }
 ```
 
@@ -32,8 +32,8 @@ The full syntax for declaring a property is as follows:
 
 ```kotlin
 var <propertyName>[: <PropertyType>] [= <property_initializer>]
-   [<getter>]
-   [<setter>]
+    [<getter>]
+    [<setter>]
 ```
 
 The initializer, getter, and setter are optional. The property type is optional if it can be inferred from the initializer
@@ -57,7 +57,7 @@ the property (this way you can implement a computed property). Here's an example
 
 ```kotlin
 val isEmpty: Boolean
-   get() = this.size == 0
+    get() = this.size == 0
 ```
 
 If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
@@ -65,10 +65,10 @@ A custom setter looks like this:
 
 ```kotlin
 var stringRepresentation: String
-   get() = this.toString()
-   set(value) {
-       setDataFromString(value) // parses the string and assigns values to other properties
-   }
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value) // parses the string and assigns values to other properties
+    }
 ```
 
 By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
@@ -84,10 +84,10 @@ you can define the accessor without defining its body:
 
 ```kotlin
 var setterVisibility: String = "abc"
-   private set // the setter is private and has the default implementation
+    private set // the setter is private and has the default implementation
 
 var setterWithAnnotation: Any? = null
-   @Inject set // annotate the setter with Inject
+    @Inject set // annotate the setter with Inject
 ```
 
 ### Backing fields
@@ -101,7 +101,7 @@ var counter = 0 // the initializer assigns the backing field directly
     set(value) {
         if (value >= 0)
             field = value
-        // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
+            // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
     }
 ```
 
@@ -114,7 +114,7 @@ For example, there would be no backing field in the following case:
 
 ```kotlin
 val isEmpty: Boolean
-   get() = this.size == 0
+    get() = this.size == 0
 ```
 
 ### Backing properties
@@ -125,12 +125,12 @@ a _backing property_:
 ```kotlin
 private var _table: Map<String, Int>? = null
 public val table: Map<String, Int>
-   get() {
-       if (_table == null) {
-           _table = HashMap() // Type parameters are inferred
-       }
-       return _table ?: throw AssertionError("Set to null by another thread")
-   }
+    get() {
+        if (_table == null) {
+            _table = HashMap() // Type parameters are inferred
+        }
+        return _table ?: throw AssertionError("Set to null by another thread")
+    }
 ```
 
 > On the JVM: Access to private properties with default getters and setters is optimized to avoid function call overhead.
@@ -165,15 +165,15 @@ To handle such cases, you can mark the property with the `lateinit` modifier:
 
 ```kotlin
 public class MyTest {
-   lateinit var subject: TestSubject
+    lateinit var subject: TestSubject
 
-   @SetUp fun setup() {
-       subject = TestSubject()
-   }
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
 
-   @Test fun test() {
-       subject.method()  // dereference directly
-   }
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
 }
 ```
 
@@ -190,7 +190,7 @@ To check whether a `lateinit var` has already been initialized, use `.isInitiali
 
 ```kotlin
 if (foo::bar.isInitialized) {
-   println(foo.bar)
+    println(foo.bar)
 }
 ```
 
