@@ -19,14 +19,14 @@ combining the current accumulator value with each collection element, replacing 
 
 ```kotlin
 fun <T, R> Collection<T>.fold(
-   initial: R,
-   combine: (acc: R, nextElement: T) -> R
+    initial: R, 
+    combine: (acc: R, nextElement: T) -> R
 ): R {
-   var accumulator: R = initial
-   for (element: T in this) {
-       accumulator = combine(accumulator, element)
-   }
-   return accumulator
+    var accumulator: R = initial
+    for (element: T in this) {
+        accumulator = combine(accumulator, element)
+    }
+    return accumulator
 }
 ```
 
@@ -40,28 +40,28 @@ this purpose at higher-order function call sites:
 
 ```kotlin
 fun main() {
-   //sampleStart
-   val items = listOf(1, 2, 3, 4, 5)
-  
-   // Lambdas are code blocks enclosed in curly braces.
-   items.fold(0, {
-       // When a lambda has parameters, they go first, followed by '->'
-       acc: Int, i: Int ->
-       print("acc = $acc, i = $i, ")
-       val result = acc + i
-       println("result = $result")
-       // The last expression in a lambda is considered the return value:
-       result
-   })
-  
-   // Parameter types in a lambda are optional if they can be inferred:
-   val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i })
-  
-   // Function references can also be used for higher-order function calls:
-   val product = items.fold(1, Int::times)
-   //sampleEnd
-   println("joinedToString = $joinedToString")
-   println("product = $product")
+    //sampleStart
+    val items = listOf(1, 2, 3, 4, 5)
+    
+    // Lambdas are code blocks enclosed in curly braces.
+    items.fold(0, { 
+        // When a lambda has parameters, they go first, followed by '->'
+        acc: Int, i: Int -> 
+        print("acc = $acc, i = $i, ") 
+        val result = acc + i
+        println("result = $result")
+        // The last expression in a lambda is considered the return value:
+        result
+    })
+    
+    // Parameter types in a lambda are optional if they can be inferred:
+    val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i })
+    
+    // Function references can also be used for higher-order function calls:
+    val product = items.fold(1, Int::times)
+    //sampleEnd
+    println("joinedToString = $joinedToString")
+    println("product = $product")
 }
 ```
 {kotlin-runnable="true"}
@@ -124,7 +124,7 @@ There are several ways to obtain an instance of a function type:
 
 ```kotlin
 class IntTransformer: (Int) -> Int {
-   override operator fun invoke(x: Int): Int = TODO()
+    override operator fun invoke(x: Int): Int = TODO()
 }
 
 val intFunction: (Int) -> Int = IntTransformer()
@@ -142,16 +142,16 @@ of type `A.(B) -> C` is expected, and the other way around:
 
 ```kotlin
 fun main() {
-   //sampleStart
-   val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
-   val twoParameters: (String, Int) -> String = repeatFun // OK
-  
-   fun runTransformation(f: (String, Int) -> String): String {
-       return f("hello", 3)
-   }
-   val result = runTransformation(repeatFun) // OK
-   //sampleEnd
-   println("result = $result")
+    //sampleStart
+    val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
+    val twoParameters: (String, Int) -> String = repeatFun // OK
+    
+    fun runTransformation(f: (String, Int) -> String): String {
+        return f("hello", 3)
+    }
+    val result = runTransformation(repeatFun) // OK
+    //sampleEnd
+    println("result = $result")
 }
 ```
 {kotlin-runnable="true"}
@@ -175,17 +175,17 @@ Example:
 
 ```kotlin
 fun main() {
-   //sampleStart
-   val stringPlus: (String, String) -> String = String::plus
+    //sampleStart
+    val stringPlus: (String, String) -> String = String::plus
    val intPlus: Int.(Int) -> Int = Int::plus
-  
-   println(stringPlus.invoke("<-", "->"))
-   println(stringPlus("Hello, ", "world!"))
-  
-   println(intPlus.invoke(1, 1))
-   println(intPlus(1, 2))
-   println(2.intPlus(3)) // extension-like call
-   //sampleEnd
+    
+    println(stringPlus.invoke("<-", "->"))
+    println(stringPlus("Hello, ", "world!"))
+    
+    println(intPlus.invoke(1, 1))
+    println(intPlus(1, 2))
+    println(2.intPlus(3)) // extension-like call
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -266,13 +266,13 @@ Therefore, the two following snippets are equivalent:
 
 ```kotlin
 ints.filter {
-   val shouldFilter = it > 0
-   shouldFilter
+    val shouldFilter = it > 0
+    shouldFilter
 }
 
 ints.filter {
-   val shouldFilter = it > 0
-   return@filter shouldFilter
+    val shouldFilter = it > 0
+    return@filter shouldFilter
 }
 ```
 
@@ -310,7 +310,7 @@ either an expression (as shown above) or a block:
 
 ```kotlin
 fun(x: Int, y: Int): Int {
-   return x + y
+    return x + y
 }
 ```
 
@@ -344,7 +344,7 @@ can be modified in the lambda:
 ```kotlin
 var sum = 0
 ints.filter { it > 0 }.forEach {
-   sum += it
+    sum += it
 }
 print(sum)
 ```
@@ -382,17 +382,17 @@ One of the most important examples of their usage is [type-safe builders](type-s
 
 ```kotlin
 class HTML {
-   fun body() { ... }
+    fun body() { ... }
 }
 
 fun html(init: HTML.() -> Unit): HTML {
-   val html = HTML()  // create the receiver object
-   html.init()        // pass the receiver object to the lambda
-   return html
+    val html = HTML()  // create the receiver object
+    html.init()        // pass the receiver object to the lambda
+    return html
 }
 
 html {       // lambda with receiver begins here
-   body()   // calling a method on the receiver object
+    body()   // calling a method on the receiver object
 }
 ```
 
