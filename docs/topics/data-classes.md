@@ -49,7 +49,7 @@ functions. To exclude a property from the generated implementations, declare it 
 
 ```kotlin
 data class Person(val name: String) {
-   var age: Int = 0
+    var age: Int = 0
 }
 ```
 
@@ -59,18 +59,18 @@ they will be treated as equal.
 
 ```kotlin
 data class Person(val name: String) {
-   var age: Int = 0
+    var age: Int = 0
 }
 fun main() {
 //sampleStart
-   val person1 = Person("John")
-   val person2 = Person("John")
-   person1.age = 10
-   person2.age = 20
+    val person1 = Person("John")
+    val person2 = Person("John")
+    person1.age = 10
+    person2.age = 20
 //sampleEnd
-   println("person1 == person2: ${person1 == person2}")
-   println("person1 with age ${person1.age}: ${person1}")
-   println("person2 with age ${person2.age}: ${person2}")
+    println("person1 == person2: ${person1 == person2}")
+    println("person1 with age ${person1.age}: ${person1}")
+    println("person2 with age ${person2.age}: ${person2}")
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -80,7 +80,7 @@ fun main() {
 Use the `copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
 
 ```kotlin
-fun copy(name: String = this.name, age: Int = this.age) = User(name, age)    
+fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
 ```
 
 You can then write the following:
