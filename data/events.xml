@@ -2,6 +2,104 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-07-31</startDate>
+        <endDate>2021-07-31</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Karin-Aleksandra Monoid, Alex Levin</speaker>
+        <title>Women Techmakers Berlin</title>
+        <subject>Introduction to development in Kotlin</subject>
+        <url>https://gdg.community.dev/events/details/google-women-techmakers-berlin-presents-introduction-to-development-in-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>This pilot workshop is oriented towards people without previous experience with Kotlin (and Java). It will be also useful for people coming from other languages.</p>
+]]>
+        </description>
+   </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-07-22</startDate>
+        <endDate>2021-07-22</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Marcin Moskala</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>How Suspension Works in Kotlin Coroutines?</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/279166556</url>
+        <description>
+            <![CDATA[
+<p>Let's dive deep into the most essential feature of coroutines: suspension. How does it work, both from the usage point of view and what happens under the hood?</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-08-26</startDate>
+        <endDate>2021-08-26</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Yev Kanivets</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Backend for mobile engineers with Kotlin and Ktor</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/279064953</url>
+        <description>
+            <![CDATA[
+<p>How many times were you thinking about writing your backend for mobile apps you are working on? And how many times have you chosen Firebase instead? Are there any better options at the moment?</p>
+<p>In this session, I’ll describe my experience of writing Kotlin backend for Codeforces WatchR mobile apps using Ktor, which is officially positioned as follows:
+“An asynchronous framework for creating microservices, web applications, and more. It’s fun, free, and open source.”</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-07-27</startDate>
+        <endDate>2021-07-27</endDate>
+        <location>Online</location>
+        <speaker>Anna Zharkova</speaker>
+        <title>Android Worldwide</title>
+        <subject>Dealing With KSP in Common Code for Android and iOS</subject>
+        <url>https://www.airmeet.com/e/1affc430-d533-11eb-a99f-47c29d6f218c?utm_source=bugfender&amp;utm_medium=website&amp;utm_campaign=conference</url>
+        <description>
+            <![CDATA[
+<p>KSP (Kotlin Symbol Processor) is an API from Google for writing Kotlin compiler plugins. Using KSP we can write annotation processors to reduce boilerplate and solve cross-cutting concerns. Also KSP is more effective than KAPT. Among the advantages of using it is the support of Kotlin Multiplatform. In my talk I would like to present several cases (such as Dependency Injection, e.g) of using KSP in Kotlin Multiplatform for both Android and iOS.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-07-28</startDate>
+        <endDate>2021-07-28</endDate>
+        <location>Online</location>
+        <speaker>David Rawson</speaker>
+        <title>Android Worldwide</title>
+        <subject>Arrow of Outrageous Error Handling</subject>
+        <url>https://www.airmeet.com/e/1affc430-d533-11eb-a99f-47c29d6f218c?utm_source=bugfender&amp;utm_medium=website&amp;utm_campaign=conference</url>
+        <description>
+            <![CDATA[
+<p>Arrow (https://arrow-kt.io/) is a functional programming library for Kotlin that has been featured in the ThoughtWorks Tech Radar. This talk will explore some error handling techniques from functional programming that will make your Android apps more robust. We will cover Either and Validated from the Arrow library with examples in a real Android codebas.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-07-28</startDate>
+        <endDate>2021-07-28</endDate>
+        <location>Online</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Android Worldwide</title>
+        <subject>Kotlin State and Shared Flows in Action</subject>
+        <url>https://www.airmeet.com/e/1affc430-d533-11eb-a99f-47c29d6f218c?utm_source=bugfender&amp;utm_medium=website&amp;utm_campaign=conference</url>
+        <description>
+            <![CDATA[
+<p>State Flows and Shared Flows were introduced to broadcast events to multiple consumers with coroutines. We’ll dive deep into the Shared & State Flow APIs. A Shared Flow provides you with the ability to replay and cache events. How do you handle back pressure? We’ll look into simple-to-use cases for using Shared Flows.</p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-07-24</startDate>
         <endDate>2021-07-24</endDate>
         <location>Berlin, Germany</location>
