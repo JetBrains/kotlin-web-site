@@ -70,7 +70,7 @@ class Customer(name: String) {
 Kotlin has a concise syntax for declaring properties and initializing them from the primary constructor:
 
 ```kotlin
-class Person(val firstName: String, val lastName: String, var age: Int) { /*...*/ }
+class Person(val firstName: String, val lastName: String, var age: Int)
 ```
 
 Such declarations can also include default values of the class properties:
