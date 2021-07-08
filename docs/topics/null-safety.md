@@ -13,14 +13,14 @@ The only possible causes of an NPE in Kotlin are:
 * An explicit call to `throw NullPointerException()`.
 * Usage of the `!!` operator that is described below.
 * Data inconsistency with regard to initialization, such as when:
-* An uninitialized `this` available in a constructor is passed and used somewhere (a "leaking `this`").
-* A [superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation
+  * An uninitialized `this` available in a constructor is passed and used somewhere (a "leaking `this`").
+  * A [superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation
   in the derived class uses an uninitialized state.
 * Java interoperation:
-* Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types);
-* Nullability issues with generic types being used for Java interoperation. For example, a piece of Java code might add
+  * Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types);
+  * Nullability issues with generic types being used for Java interoperation. For example, a piece of Java code might add
   `null` into a Kotlin `MutableList<String>`, therefore requiring a `MutableList<String?>` for working with it.
-* Other issues caused by external Java code.
+  * Other issues caused by external Java code.
 
 In Kotlin, the type system distinguishes between references that can hold `null` (nullable references) and those that
 cannot (non-null references).
