@@ -4,7 +4,7 @@ Kotlin functions are declared using the `fun` keyword:
 
 ```kotlin
 fun double(x: Int): Int {
-   return 2 * x
+    return 2 * x
 }
 ```
 
@@ -35,8 +35,8 @@ You can use a [trailing comma](coding-conventions.md#trailing-commas) when you d
 
 ```kotlin
 fun powerOf(
-   number: Int,
-   exponent: Int, // trailing comma
+    number: Int,
+    exponent: Int, // trailing comma
 ) { /*...*/ }
 ```
 
@@ -47,9 +47,9 @@ of overloads:
 
 ```kotlin
 fun read(
-   b: ByteArray,
-   off: Int = 0,
-   len: Int = b.size,
+    b: ByteArray,
+    off: Int = 0,
+    len: Int = b.size,
 ) { /*...*/ }
 ```
 
@@ -60,11 +60,11 @@ When overriding a method that has default parameter values, the default paramete
 
 ```kotlin
 open class A {
-   open fun foo(i: Int = 10) { /*...*/ }
+    open fun foo(i: Int = 10) { /*...*/ }
 }
 
 class B : A() {
-   override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
+    override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
 }
 ```
 
@@ -73,8 +73,8 @@ the function with [named arguments](#named-arguments):
 
 ```kotlin
 fun foo(
-   bar: Int = 0,
-   baz: Int,
+    bar: Int = 0,
+    baz: Int,
 ) { /*...*/ }
 
 foo(baz = 1) // The default value bar = 0 is used
@@ -85,9 +85,9 @@ you can pass it either as a named argument or [outside the parentheses](lambdas.
 
 ```kotlin
 fun foo(
-   bar: Int = 0,
-   baz: Int = 1,
-   qux: () -> Unit,
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: () -> Unit,
 ) { /*...*/ }
 
 foo(1) { println("hello") }     // Uses the default value baz = 1
@@ -107,11 +107,11 @@ Consider the following function, `reformat()`, which has 4 arguments with defaul
 
 ```kotlin
 fun reformat(
-   str: String,
-   normalizeCase: Boolean = true,
-   upperCaseFirstLetter: Boolean = true,
-   divideByCamelHumps: Boolean = false,
-   wordSeparator: Char = ' ',
+    str: String,
+    normalizeCase: Boolean = true,
+    upperCaseFirstLetter: Boolean = true,
+    divideByCamelHumps: Boolean = false,
+    wordSeparator: Char = ' ',
 ) { /*...*/ }
 ```
 
@@ -119,11 +119,11 @@ When calling this function, you don’t have to name all its arguments:
 
 ```kotlin
 reformat(
-   "String!",
-   false,
-   upperCaseFirstLetter = false,
-   divideByCamelHumps = true,
-   '_'
+    "String!",
+    false,
+    upperCaseFirstLetter = false,
+    divideByCamelHumps = true,
+    '_'
 )
 ```
 
@@ -161,11 +161,11 @@ This value does not have to be returned explicitly:
 
 ```kotlin
 fun printHello(name: String?): Unit {
-   if (name != null)
-       println("Hello $name")
-   else
-       println("Hi there!")
-   // `return Unit` or `return` is optional
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+    // `return Unit` or `return` is optional
 }
 ```
 
@@ -203,10 +203,10 @@ You can mark a parameter of a function (usually the last one) with the `vararg` 
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
-   val result = ArrayList<T>()
-   for (t in ts) // ts is an Array
-       result.add(t)
-   return result
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
 }
 ```
 
@@ -270,13 +270,13 @@ unambiguous parsing.
 
 ```kotlin
 class MyStringCollection {
-   infix fun add(s: String) { /*...*/ }
-  
-   fun build() {
-       this add "abc"   // Correct
-       add("abc")       // Correct
-       //add "abc"        // Incorrect: the receiver must be specified
-   }
+    infix fun add(s: String) { /*...*/ }
+    
+    fun build() {
+        this add "abc"   // Correct
+        add("abc")       // Correct
+        //add "abc"        // Incorrect: the receiver must be specified
+    }
 }
 ```
 
@@ -292,13 +292,13 @@ Kotlin supports local functions, which are functions inside other functions:
 
 ```kotlin
 fun dfs(graph: Graph) {
-   fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
-       if (!visited.add(current)) return
-       for (v in current.neighbors)
-           dfs(v, visited)
-   }
+    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v, visited)
+    }
 
-   dfs(graph.vertices[0], HashSet())
+    dfs(graph.vertices[0], HashSet())
 }
 ```
 
@@ -306,14 +306,14 @@ A local function can access local variables of outer functions (the closure). In
 
 ```kotlin
 fun dfs(graph: Graph) {
-   val visited = HashSet<Vertex>()
-   fun dfs(current: Vertex) {
-       if (!visited.add(current)) return
-       for (v in current.neighbors)
-           dfs(v)
-   }
+    val visited = HashSet<Vertex>()
+    fun dfs(current: Vertex) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v)
+    }
 
-   dfs(graph.vertices[0])
+    dfs(graph.vertices[0])
 }
 ```
 
@@ -323,7 +323,7 @@ A member function is a function that is defined inside a class or object:
 
 ```kotlin
 class Sample {
-   fun foo() { print("Foo") }
+    fun foo() { print("Foo") }
 }
 ```
 
@@ -356,7 +356,7 @@ the recursion, leaving behind a fast and efficient loop based version instead:
 val eps = 1E-10 // "good enough", could be 10^-15
 
 tailrec fun findFixPoint(x: Double = 1.0): Double =
-   if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+    if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
 ```
 
 This code calculates the `fixpoint` of cosine, which is a mathematical constant. It simply calls `Math.cos` repeatedly
@@ -367,12 +367,12 @@ starting at `1.0` until the result no longer changes, yielding a result of `0.73
 val eps = 1E-10 // "good enough", could be 10^-15
 
 private fun findFixPoint(): Double {
-   var x = 1.0
-   while (true) {
-       val y = Math.cos(x)
-       if (Math.abs(x - y) < eps) return x
-       x = Math.cos(x)
-   }
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (Math.abs(x - y) < eps) return x
+        x = Math.cos(x)
+    }
 }
 ```
 

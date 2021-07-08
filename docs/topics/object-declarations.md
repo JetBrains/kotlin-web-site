@@ -20,14 +20,14 @@ If you just need an object that doesn’t have any nontrivial supertypes, write 
 
 fun main() {
 //sampleStart
-   val helloWorld = object {
-       val hello = "Hello"
-       val world = "World"
-       // object expressions extend Any, so `override` is required on `toString()`
-       override fun toString() = "$hello $world"
-   }
+    val helloWorld = object {
+        val hello = "Hello"
+        val world = "World"
+        // object expressions extend Any, so `override` is required on `toString()`
+        override fun toString() = "$hello $world"
+    }
 //sampleEnd
-   print(helloWorld)
+    print(helloWorld)
 }
 ```
 {kotlin-runnable="true"}
@@ -39,9 +39,9 @@ colon (`:`). Then implement or override the members of this class as if you were
 
 ```kotlin
 window.addMouseListener(object : MouseAdapter() {
-   override fun mouseClicked(e: MouseEvent) { /*...*/ }
+    override fun mouseClicked(e: MouseEvent) { /*...*/ }
 
-   override fun mouseEntered(e: MouseEvent) { /*...*/ }
+    override fun mouseEntered(e: MouseEvent) { /*...*/ }
 })
 ```
 
@@ -50,13 +50,13 @@ Multiple supertypes can be specified as a comma-delimited list after the colon:
 
 ```kotlin
 open class A(x: Int) {
-   public open val y: Int = x
+    public open val y: Int = x
 }
 
 interface B { /*...*/ }
 
 val ab: A = object : A(1), B {
-   override val y = 15
+    override val y = 15
 }
 ```
 
@@ -67,13 +67,13 @@ declaration (function or property), all its members are accessible via this func
 
 ```kotlin
 class C {
-   private fun getObject() = object {
-       val x: String = "x"
-   }
+    private fun getObject() = object {
+        val x: String = "x"
+    }
 
-   fun printX() {
-       println(getObject().x)
-   }
+    fun printX() {
+        println(getObject().x)
+    }
 }
 ```
 
@@ -87,27 +87,27 @@ are declared in the actual type of the function or property:
 
 ```kotlin
 interface A {
-   fun funFromA() {}
+    fun funFromA() {}
 }
 interface B
 
 class C {
-   // The return type is Any. x is not accessible
-   fun getObject() = object {
-       val x: String = "x"
-   }
+    // The return type is Any. x is not accessible
+    fun getObject() = object {
+        val x: String = "x"
+    }
 
-   // The return type is A; x is not accessible
-   fun getObjectA() = object: A {
-       override fun funFromA() {}
-       val x: String = "x"
-   }
+    // The return type is A; x is not accessible
+    fun getObjectA() = object: A {
+        override fun funFromA() {}
+        val x: String = "x"
+    }
 
-   // The return type is B; funFromA() and x are not accessible
-   fun getObjectB(): B = object: A, B { // explicit return type is required
-       override fun funFromA() {}
-       val x: String = "x"
-   }
+    // The return type is B; funFromA() and x are not accessible
+    fun getObjectB(): B = object: A, B { // explicit return type is required
+        override fun funFromA() {}
+        val x: String = "x"
+    }
 }
 ```
 
@@ -117,19 +117,19 @@ The code in object expressions can access variables from the enclosing scope:
 
 ```kotlin
 fun countClicks(window: JComponent) {
-   var clickCount = 0
-   var enterCount = 0
+    var clickCount = 0
+    var enterCount = 0
 
-   window.addMouseListener(object : MouseAdapter() {
-       override fun mouseClicked(e: MouseEvent) {
-           clickCount++
-       }
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {
+            clickCount++
+        }
 
-       override fun mouseEntered(e: MouseEvent) {
-           enterCount++
-       }
-   })
-   // ...
+        override fun mouseEntered(e: MouseEvent) {
+            enterCount++
+        }
+    })
+    // ...
 }
 ```
 
@@ -141,12 +141,12 @@ and Kotlin makes it easy to declare singletons:
 
 ```kotlin
 object DataProviderManager {
-   fun registerDataProvider(provider: DataProvider) {
-       // ...
-   }
+    fun registerDataProvider(provider: DataProvider) {
+        // ...
+    }
 
-   val allDataProviders: Collection<DataProvider>
-       get() = // ...
+    val allDataProviders: Collection<DataProvider>
+        get() = // ...
 }
 ```
 
@@ -166,9 +166,9 @@ Such objects can have supertypes:
 
 ```kotlin
 object DefaultListener : MouseAdapter() {
-   override fun mouseClicked(e: MouseEvent) { ... }
+    override fun mouseClicked(e: MouseEvent) { ... }
 
-   override fun mouseEntered(e: MouseEvent) { ... }
+    override fun mouseEntered(e: MouseEvent) { ... }
 }
 ```
 
@@ -183,9 +183,9 @@ An object declaration inside a class can be marked with the `companion` keyword:
 
 ```kotlin
 class MyClass {
-   companion object Factory {
-       fun create(): MyClass = MyClass()
-   }
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
 }
 ```
 
@@ -199,7 +199,7 @@ The name of the companion object can be omitted, in which case the name `Compani
 
 ```kotlin
 class MyClass {
-   companion object { }
+    companion object { }
 }
 
 val x = MyClass.Companion
@@ -212,13 +212,13 @@ object of the class (whether named or not):
 
 ```kotlin
 class MyClass1 {
-   companion object Named { }
+    companion object Named { }
 }
 
 val x = MyClass1
 
 class MyClass2 {
-   companion object { }
+    companion object { }
 }
 
 val y = MyClass2
@@ -229,13 +229,13 @@ are still instance members of real objects, and can, for example, implement inte
 
 ```kotlin
 interface Factory<T> {
-   fun create(): T
+    fun create(): T
 }
 
 class MyClass {
-   companion object : Factory<MyClass> {
-       override fun create(): MyClass = MyClass()
-   }
+    companion object : Factory<MyClass> {
+        override fun create(): MyClass = MyClass()
+    }
 }
 
 val f: Factory<MyClass> = MyClass
