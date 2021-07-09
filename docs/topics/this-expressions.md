@@ -8,7 +8,7 @@ To denote the current _receiver_, you use `this` expressions:
 
 If `this` has no qualifiers, it refers to the _innermost enclosing scope_. To refer to `this` in other scopes, _label qualifiers_ are used:
 
-## Qualified `this` 
+## Qualified this 
 
 To access `this` from an outer scope (a [class](classes.md), [extension function](extensions.md),
 or labeled [function literal with receiver](lambdas.md#function-literals-with-receiver)) you write `this@label`,
@@ -38,7 +38,7 @@ class A { // implicit label @A
 }
 ```
 
-## Implicit `this`
+## Implicit this
 
 When you call a member function on `this`, you can skip the `this.` part.
 If you have a non-member function with the same name, use this with caution because in some cases it can be called instead:
