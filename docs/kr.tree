@@ -85,6 +85,7 @@
         <toc-element id="null-safety.md"/>
         <toc-element id="equality.md"/>
         <toc-element id="this-expressions.md"/>
+        <toc-element id="async-programming.md"/>
         <toc-element id="coroutines-overview.md"/>
         <toc-element toc-title="DSL">
             <toc-element id="type-safe-builders.md"/>
