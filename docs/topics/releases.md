@@ -19,7 +19,7 @@ Learn more about [types of Kotlin releases and their compatiblity](kotlin-evolut
 
 IntelliJ IDEA and Android Studio suggest updating to a new release once it is out. When you accept the suggestion,
 it automatically updates the Kotlin plugin to the new version. You can check the Kotlin version in **Tools** \| **Kotlin** 
-\| **Configure Plugin Updates**.
+\| **Configure Kotlin Plugin Updates**.
 
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
 libraries if necessary – check the [recommended versions](#release-details).
