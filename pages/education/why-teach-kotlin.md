@@ -210,10 +210,10 @@ This plugin helps users learn and teach Kotlin programming. Educators can use ex
 
 Open source at heart, Kotlin is a free language that runs on all major platforms. Kotlin is supported by, and evolves with the help of, its diverse and enthusiastic community.
 
-[200 Kotlin User Groups](https://kotlinlang.org/user-groups/user-group-list.html)
-[Kotlinlang Slack workspace](https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators), with a dedicated #education channel
-[Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), which hosts regular [educational webinars](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA)
-[Twitter](https://twitter.com/kotlin)
-[Reddit](https://www.reddit.com/r/Kotlin/)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/kotlin)
-[Forum](https://discuss.kotlinlang.org/)
+* [200 Kotlin User Groups](https://kotlinlang.org/user-groups/user-group-list.html)
+* [Kotlinlang Slack workspace](https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators), with a dedicated #education channel
+* [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), which hosts regular [educational webinars](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA)
+* [Twitter](https://twitter.com/kotlin)
+* [Reddit](https://www.reddit.com/r/Kotlin/)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/kotlin)
+* [Forum](https://discuss.kotlinlang.org/)
