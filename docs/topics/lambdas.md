@@ -177,7 +177,7 @@ Example:
 fun main() {
     //sampleStart
     val stringPlus: (String, String) -> String = String::plus
-   val intPlus: Int.(Int) -> Int = Int::plus
+    val intPlus: Int.(Int) -> Int = Int::plus
     
     println(stringPlus.invoke("<-", "->"))
     println(stringPlus("Hello, ", "world!"))
