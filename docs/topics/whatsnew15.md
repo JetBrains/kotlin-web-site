@@ -341,7 +341,7 @@ You can learn more about the standard library changes in [this blog post](https:
 The `UInt`, `ULong`, `UByte`, `UShort` unsigned integer types are now [Stable](components-stability.md). The same goes
 for operations on these types, ranges, and progressions of them. Unsigned arrays and operations on them remain in Beta.
 
-[Learn more about unsigned integer types](basic-types.md#unsigned-integers).
+[Learn more about unsigned integer types](unsigned-types.md).
 
 ### Stable locale-agnostic API for upper/lowercasing text
 
@@ -434,7 +434,7 @@ New operations for modular arithmetics have been added to the standard library:
 * `floorDiv()` returns the result of [floored division](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions). It is available for integer types.
 * `mod()` returns the remainder of floored division (_modulus_). It is available for all numeric types.
 
-These operations look quite similar to the existing [division of integers](basic-types.md#operations) and [rem()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/rem.html)
+These operations look quite similar to the existing [division of integers](numbers.md#operations) and [rem()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/rem.html)
 function (or the `%`operator), but they work differently on negative numbers:
 * `a.floorDiv(b)` differs from a regular `/` in that `floorDiv` rounds the result down (towards the lesser integer),
   whereas `/` truncates the result to the integer closer to 0.

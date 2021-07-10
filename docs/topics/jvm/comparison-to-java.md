@@ -6,7 +6,7 @@ Kotlin fixes a series of issues that Java suffers from:
 
 * Null references are [controlled by the type system](null-safety.md).
 * [No raw types](java-interop.md#java-generics-in-kotlin)
-* Arrays in Kotlin are [invariant](basic-types.md#arrays)
+* Arrays in Kotlin are [invariant](arrays.md)
 * Kotlin has proper [function types](lambdas.md#function-types), as opposed to Java's SAM-conversions
 * [Use-site variance](generics.md#use-site-variance-type-projections)  without wildcards
 * Kotlin does not have checked [exceptions](exceptions.md)
@@ -29,7 +29,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Extension functions](extensions.md)
 * [Null-safety](null-safety.md)
 * [Smart casts](typecasts.md)
-* [String templates](basic-types.md#strings)
+* [String templates](strings.md)
 * [Properties](properties.md)
 * [Primary constructors](classes.md)
 * [First-class delegation](delegation.md)

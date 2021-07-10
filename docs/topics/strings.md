@@ -63,7 +63,7 @@ Here's an example of an escaped string:
 val s = "Hello, world!\n"
 ```
 
-Escaping is done in the conventional way, with a backslash (`\`). See [Characters](#characters) above for the list of supported escape sequences.
+Escaping is done in the conventional way, with a backslash (`\`). See [Characters](characters.md) page for the list of supported escape sequences.
 
 A raw string is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 

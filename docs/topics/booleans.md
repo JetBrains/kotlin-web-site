@@ -27,6 +27,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
->**On JVM**: nullable references to boolean objects are boxed similarly to [numbers](#numbers-representation-on-the-jvm).
+>**On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
 {type="note"}

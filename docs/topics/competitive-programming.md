@@ -298,7 +298,7 @@ natural in Kotlin. However, beware that `java.util.Scanner` is extremely slow. S
 Writing output in Kotlin is usually straightforward with 
 [println(...)](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) 
 calls and using Kotlin's 
-[string templates](basic-types.md#string-templates). However, care must be taken when output 
+[string templates](strings.md#string-templates). However, care must be taken when output 
 contains on order of 10<sup>5</sup> lines or more. Issuing so many `println` calls is too slow, since the output 
 in Kotlin is automatically flushed after each line. 
 A faster way to write many lines from an array or a list is using

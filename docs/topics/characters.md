@@ -22,7 +22,7 @@ fun main() {
 
 If a value of character variable is a digit, you can explicitly convert it to an `Int` number using the [`digitToInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/digit-to-int.html) function.
 
->**On JVM**: Like [numbers](#numbers-representation-on-the-jvm), characters are boxed when a nullable reference is needed.
+>**On JVM**: Like [numbers](numbers.md#numbers-representation-on-the-jvm), characters are boxed when a nullable reference is needed.
 >Identity is not preserved by the boxing operation.
 >
 {type="note"}
