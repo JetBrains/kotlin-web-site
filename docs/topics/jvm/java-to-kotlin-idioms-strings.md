@@ -79,13 +79,13 @@ to filter, map, and then collect the items:
 ```java
 // Java
 List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6);
-String oddNumbers = numbers
+String invertedOddNumbers = numbers
         .stream()
         .filter(it -> it % 2 != 0)
-        .map(it -> (-1) * it)
+        .map(it -> -it)
         .map(Object::toString)
         .collect(Collectors.joining(", "));
-System.out.println(oddNumbers);
+System.out.println(invertedOddNumbers);
 ```
 {id="create-string-from-collection-java"}
 
@@ -96,11 +96,11 @@ which Kotlin defines for every List:
 fun main() {
 //sampleStart
     // Kotlin
-    val numbers = mutableListOf(1, 2, 3, 4, 5, 6)
-    val oddNumbers = numbers
+    val numbers = listOf(1, 2, 3, 4, 5, 6)
+    val invertedOddNumbers = numbers
         .filter { it % 2 != 0 }
         .joinToString{ "${-it}" }
-  println(oddNumbers)
+    println(invertedOddNumbers)
 //sampleEnd
 }
 ```
