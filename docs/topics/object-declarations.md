@@ -78,9 +78,9 @@ class C {
 ```
 
 If this function or property is public or private inline, its actual type is:
-* `Any` if the anonymous object doesn't have a declared supertype.
-* The declared supertype of the anonymous object, if there is exactly one such type.
-* The explicitly declared type if there is more than one declared supertype.
+* `Any` if the anonymous object doesn't have a declared supertype
+* The declared supertype of the anonymous object, if there is exactly one such type
+* The explicitly declared type if there is more than one declared supertype
 
 In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
 are declared in the actual type of the function or property:
@@ -253,4 +253,3 @@ There is one important semantic difference between object expressions and object
 * Object declarations are initialized _lazily_, when accessed for the first time.
 * A companion object is initialized when the corresponding class is loaded (resolved) that matches the semantics of a Java
   static initializer.
-
