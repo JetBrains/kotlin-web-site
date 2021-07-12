@@ -77,8 +77,9 @@ fun main() {
 
 ## Copying
   
-To copy an object for changing _some_ of its properties, but keeping the rest unchanged, use  
-the `copy()` function. For the `User` class above, its implementation would be as follows:
+To copy an object for changing _some_ of its properties, but keeping the rest unchanged, use  the `copy()` function, which creates an new instance and also calls the `init` block. 
+
+For the `User` class above, its implementation would be as follows:
 
 ```kotlin
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)     
