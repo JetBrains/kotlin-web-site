@@ -99,8 +99,7 @@ fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
     val invertedOddNumbers = numbers
         .filter { it % 2 != 0 }
-        .map { -it }
-        .joinToString()
+        .joinToString{ "${-it}" }
     println(invertedOddNumbers)
 //sampleEnd
 }
