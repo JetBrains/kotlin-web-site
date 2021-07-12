@@ -61,6 +61,27 @@ val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't
 val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
 ```
 
+## Use cases
+
+The main use case of unsigned numbers is utilizing the full bit range of an integer to represent positive values. 
+For example, to represent hexadecimal constants that do not fit in signed types such as color in 32-bit `AARRGGBB` format:
+
+```kotlin
+data class Color(val representation: UInt)
+
+val yellow = Color(0xFFCC00CCu)
+```
+
+Or to initialize byte arrays without explicit `toByte()` literal casts:
+
+```kotlin
+val byteOrderMarkUtf8 = ubyteArrayOf(0xEFu, 0xBBu, 0xBFu)
+```
+
+Another use case is interoperability with native APIs. TODO
+
+Do not use unsigned numbers to perform calculations. TODO
+
 ## Further discussion
 
 See [language proposal for unsigned types](https://github.com/Kotlin/KEEP/blob/master/proposals/unsigned-types.md)
