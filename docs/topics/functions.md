@@ -80,7 +80,7 @@ fun foo(
 foo(baz = 1) // The default value bar = 0 is used
 ```
 
-If the last argument after default parameter, or  collection of default parameters,s is a [lambda](lambdas.md#lambda-expression-syntax),
+If the last argument after default parameters is a [lambda](lambdas.md#lambda-expression-syntax),
 you can pass it either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
 ```kotlin
@@ -239,7 +239,7 @@ for the call). Infix functions must meet the following requirements:
 * They must be member functions or [extension functions](extensions.md).
 * They must have a single parameter.
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
-  no [default value](#default-arguments).
+no [default value](#default-arguments).
 
 ```kotlin
 infix fun Int.shl(x: Int): Int { ... }
@@ -384,5 +384,4 @@ Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
 * [Inline functions](inline-functions.md)
 * [Extension functions](extensions.md)
 * [Higher-order functions and lambdas](lambdas.md)
-
 
