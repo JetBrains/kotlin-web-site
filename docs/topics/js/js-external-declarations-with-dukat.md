@@ -39,8 +39,8 @@ If the repository of the dependency you wish to use does not provide TypeScript 
 provided via the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) repository. In this case, make
 sure you add `npm` dependencies for both `your-package` and `@types/your-package` (with `generateExternals = true`).
 
-You can use the flag `kotlin.js.generate.externals` in your `gradle.properties` file to set the generator's behavior for
-all npm dependencies simultaneously. As usual, individual explicit settings take precedence over this general flag.
+You can use the option `kotlin.js.generate.externals` in your `gradle.properties` file to set the generator's behavior for
+all npm dependencies simultaneously. As usual, individual explicit settings take precedence over this general option.
 
 ## Manually generate external declarations via Gradle task
 

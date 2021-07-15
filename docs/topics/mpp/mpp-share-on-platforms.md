@@ -38,7 +38,7 @@ that could still directly call any of the APIs that are common to both the iOS d
 
 In this case, you can share code across native targets in your project using the hierarchical structure.
 
-To enable the hierarchy structure support, add the following flag to your `gradle.properties`.
+To enable the hierarchy structure support, add the following option to your `gradle.properties`.
 
 ```kotlin
 kotlin.mpp.enableGranularSourceSetsMetadata=true
