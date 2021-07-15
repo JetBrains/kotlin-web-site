@@ -65,7 +65,11 @@ Here are some recommendations for configuring Gradle for better compilation perf
   for compiler caches. They improve compilation times for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
   To enable the compiler caches, add `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
 
-  `iosX64` and `macosX64` targets already have the compiler caches enabled by default.
+  The following targets already have the compiler caches enabled by default:
+  * `iosX64`
+  * `iosSimulatorArm64`
+  * `macosX64`
+  * `macosArm64`
 
 * **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
   caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
