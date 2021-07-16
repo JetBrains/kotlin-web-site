@@ -27,7 +27,7 @@ If you want to work on existing projects that were created before installing the
 
 ## If you run into any problems
 
-* Report issues to [our issue tracker, YouTrack](https://kotl.in/issue).
+* Report an issue to [our issue tracker, YouTrack](https://kotl.in/issue).
 * Find help in the _#eap_ channel on [Slack](https://kotlinlang.slack.com/) ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 * Roll back to the latest stable version by selecting the **Stable** update channel in 
   **Tools | Kotlin | Configure Kotlin Plugin Updates**, and clicking **Install** to install the latest version. 
