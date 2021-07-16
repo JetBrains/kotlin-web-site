@@ -46,7 +46,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>Passing by value for more C structs using C interop.</li>
                 <li>Compiler improvements: requiring opt-in on implicit usages of experimental APIs, changes in using opt-in requirement annotations with different targets.</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.30-M1">changelog</a> or <a href="https://blog.jetbrains.com/kotlin/2021/07/kotlin-1-5-30-m1-released/?utm_source=ide&amp;utm_medium=change-notes&amp;utm_campaign=1-5-30-eap">this blog post</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.30-M1">changelog</a> or <a href="https://blog.jetbrains.com/kotlin/2021/07/kotlin-1-5-30-m1-released/?utm_source=documentation&amp;utm_medium=eap&amp;utm_campaign=1-5-30-eap">this blog post</a>.</p>
         </td>
         <td>
             <ul>
