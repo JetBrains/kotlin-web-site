@@ -2,6 +2,62 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-08-17</startDate>
+        <endDate>2021-08-17</endDate>
+        <location>Online</location>
+        <speaker>Karan Balkar</speaker>
+        <title>Mobile Week 2021</title>
+        <subject>Co-routines: When to Use and When to Avoid</subject>
+        <url>https://mobileweek.co/conference/</url>
+        <description>
+            <![CDATA[
+<p>his talk provides a brief introduction about Kotlin Co-routines and explains the scenarios when one should try using the same and when to avoid it using practical examples. The session will also help developers understand how Co-routines work and the best practices for using the same.</p>
+<p>As software developers, we often tend to use what is considered best practice without understanding the practical applicability of the same in our own applications.</p>
+<p>Through this talk, my aim is to help developers understand areas / use cases where Co-routines can prove much effective as well as less effective. It will not focus on downsides of Co-routines but mainly on the applicability of it in different scenarios based on my experience so far.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-25</startDate>
+        <endDate>2021-08-25</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Viktor Gamov</speaker>
+        <title>Devoxx Poland</title>
+        <subject>All Things Serverless: Kotlin, Kafka and Stream Processing</subject>
+        <url>https://devoxx.pl/talk-details/?id=16552</url>
+        <description>
+            <![CDATA[
+<p>Modern serverless technologies are coming in different sorts and ranges. But there is no doubt that it’s bringing significant innovation in the application development space. And today’s developer is trying to grasp the best approach for each cloud vendor. And often she faced with following questions</p>
+<p>How do I start?
+Which platform supports my language of choice?
+How do I manage the application state?
+How do I integrate with existing «legacy» systems?
+In this presentation, Viktor Gamov will walk you through the setup and deploy a serverless application that includes event functions, services, data streaming. For event functions and services we will use the open-source Knative project on Kubernetes. For data streaming, we will use Apache Kafka.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-25</startDate>
+        <endDate>2021-08-25</endDate>
+        <location>Krakow, Poland</location>
+        <speaker>Jarek Ratajski</speaker>
+        <title>Devoxx Poland</title>
+        <subject>Pure Kotlin</subject>
+        <url>https://devoxx.pl/talk-details/?id=14231</url>
+        <description>
+            <![CDATA[
+<p>You can write Haskell in any language. In this talk, I am going to show you how to do that in Kotlin.</p>
+<p>You will see a beautiful world without loops, variables, and other impure monsters. Instead, you will see monads that work on production. I will demonstrate how to create a useful functional framework for web applications. On top of that an insane linter that enables you to gradually enforce purity in your projects.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
         <startDate>2021-07-31</startDate>
         <endDate>2021-07-31</endDate>
         <location>Berlin, Germany</location>
@@ -16,7 +72,7 @@
         </description>
    </event>
 
-    <event>
+   <event>
         <lang>en</lang>
         <startDate>2021-07-22</startDate>
         <endDate>2021-07-22</endDate>
@@ -392,8 +448,8 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
 
    <event>
         <lang>en</lang>
-        <startDate>2021-06-23</startDate>
-        <endDate>2021-06-23</endDate>
+        <startDate>2021-07-23</startDate>
+        <endDate>2021-07-23</endDate>
         <location>Denver, CO, USA</location>
         <speaker>Lauren Yew</speaker>
         <title>360|AnDev</title>
