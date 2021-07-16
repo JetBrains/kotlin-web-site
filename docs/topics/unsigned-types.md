@@ -78,9 +78,19 @@ Or to initialize byte arrays without explicit `toByte()` literal casts:
 val byteOrderMarkUtf8 = ubyteArrayOf(0xEFu, 0xBBu, 0xBFu)
 ```
 
-Another use case is interoperability with native APIs. TODO
+Another yet use case is interoperability with native APIs. Kotlin allows representing native declarations that contain 
+unsigned types in the signature. The mapping won't substitute unsigned integers with signed ones keeping the semantics unaltered.
 
-Do not use unsigned numbers to perform calculations. TODO
+### Non-goals
+
+While unsigned integers can only represent positive numbers and zero, it's not a goal to use them where application 
+domain requires non-negative integers. For example, as a type of collection size or collection index value.
+There are a couple of reasons:
+
+* Using signed integers can help to detect accidental overflows and signal error conditions, such as 
+  [`List.lastIndex`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last-index.html) being -1 for an empty list.
+* Unsigned integers cannot be treated as a range-limited version of signed ones because their range of values is not a 
+  subset of the signed integers range. Neither signed, nor unsigned integers are subtypes of each other.
 
 ## Further discussion
 
