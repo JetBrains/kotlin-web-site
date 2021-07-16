@@ -39,7 +39,7 @@ check [our instructions on how to configure your build to support this version](
         </td>
         <td>
              <ul>
-                <li>Kotlin/Native: support for Apple silicon, improved Kotlin DSL for Cocoapods Gradle plugin, optimized access to object declarations with `const val`s only, and debugger improvements.</li>
+                <li>Kotlin/Native: support for Apple silicon, improved Kotlin DSL for Cocoapods Gradle plugin, optimized access to object declarations with <code>const val</code>s only, and debugger improvements.</li>
                 <li>Kotlin Multiplatform: sharing custom <code>cinterop</code> libraries between platforms, new default publishing setup for Android artifacts, and XCFrameworks support.</li>
                 <li>Kotlin/JS: source maps generation for the IR compiler backend.</li>
                 <li>Swift/Objective-C interop: experimental interoperability with Swift 5.5 async/await, improved singleton mapping</li>
