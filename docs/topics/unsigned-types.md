@@ -91,8 +91,3 @@ There are a couple of reasons:
   [`List.lastIndex`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last-index.html) being -1 for an empty list.
 * Unsigned integers cannot be treated as a range-limited version of signed ones because their range of values is not a 
   subset of the signed integers range. Neither signed, nor unsigned integers are subtypes of each other.
-
-## Further discussion
-
-See [language proposal for unsigned types](https://github.com/Kotlin/KEEP/blob/master/proposals/unsigned-types.md)
-for technical details and further discussion.
