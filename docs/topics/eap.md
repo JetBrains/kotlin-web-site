@@ -10,7 +10,7 @@ It is very likely that we’ll be able to fix them before the final release, whi
 By participating in the Early Access Preview and reporting bugs, you contribute to Kotlin and help us make it better 
 for everyone in [the growing Kotlin community](https://kotlinlang.org/community/). We appreciate your help a lot! 
 
-If you have any questions and want to participate in discussions, you are welcome to join the _#eap_ channel in [Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
+If you have any questions and want to participate in discussions, you are welcome to join the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
 In this channel, you can also get notifications about new EAP builds.
 
 **[Install the Kotlin EAP Plugin for IDEA or Android Studio](install-eap-plugin.md)**
