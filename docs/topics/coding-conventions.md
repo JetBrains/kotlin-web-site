@@ -72,6 +72,8 @@ Do not sort the method declarations alphabetically or by visibility, and do not 
 from extension methods. Instead, put related stuff together, so that someone reading the class from top to bottom can 
 follow the logic of what's happening. Choose an order (either higher-level stuff first, or vice versa) and stick to it.
 
+Extension properties are effectively methods, thus in terms of order they are treated as methods.
+
 Put nested classes next to the code that uses those classes. If the classes are intended to be used externally and aren't
 referenced inside the class, put them in the end, after the companion object.
 
