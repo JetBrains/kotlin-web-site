@@ -284,4 +284,4 @@ Extensions utilize the same [visibility modifiers](visibility-modifiers.md) as r
 For example:
 
 * An extension declared at the top level of a file has access to the other `private` top-level declarations in the same file.
-* If an extension is declared outside its receiver type, it cannot access the receiver's `private` members.
+* If an extension is declared outside its receiver type, it cannot access the receiver's `private` or `protected` members.
