@@ -60,14 +60,14 @@
             <h2 class="kotlin-highlights-section__title kto-heading kto-heading_size_h1">
                 <a class="kto-overview-section__title_link" href="#usage-highlights">Kotlin Usage Highlights</a>
             </h2>
-            <ul class="kto-highlights">
+            <div class="kto-highlights">
                 {% for testimonial in data.testimonials %}
-                    <li class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}">
+                    <a class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}" href="{{ testimonial.url | safe }}" target="_blank">
                         <h3 class="kto-highlights-item__header">{{ testimonial.company | safe }}</h3>
                         <div class="kto-highlights-item__text">{{ testimonial.text | safe }}</div>
-                    </li>
+                    </a>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
     </section>
 
