@@ -11,7 +11,7 @@ To facilitate this, Kotlin, as a statically typed programming language, uses a f
 
 ## Higher-order functions
 
-A higher-order function is a function that takes functions as parameters, or returns a function.
+A higher-order function is a function that takes at least one function as parameter, and/or returns a function.
 
 A good example of a higher-order function is the [functional programming idiom `fold`](https://en.wikipedia.org/wiki/Fold_(higher-order_function))
 for collections. It takes an initial accumulator value and a combining function and builds its return value by consecutively
