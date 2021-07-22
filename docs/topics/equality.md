@@ -41,4 +41,4 @@ When an equality check operands are statically known to be `Float` or `Double` (
 
 Otherwise, the structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, and `-0.0` is not equal to `0.0`.
 
-See: [Floating-point numbers comparison](basic-types.md#floating-point-numbers-comparison).
+See: [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).

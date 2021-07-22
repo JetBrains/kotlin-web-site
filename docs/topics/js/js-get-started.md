@@ -49,7 +49,7 @@ Enter your name in the text box and accept the greetings from your application!
 2. Change the code of `styledDiv` to show your name backwards.  
    
    * Use the standard library function `reversed()` to reverse your name.
-   * Use a [string template](basic-types.md#string-templates) for your reversed 
+   * Use a [string template](strings.md#string-templates) for your reversed 
    name by adding a dollar sign `$` and enclosing it in curly braces – `${state.name.reversed()}`.
 
    ```kotlin

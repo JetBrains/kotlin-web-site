@@ -56,7 +56,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    * Check that the provided name is not `null` with the [safe call operator `?.`](null-safety.md#safe-calls).
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.
    * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context. 
-   * Use a [string template](basic-types.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
+   * Use a [string template](strings.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
      `it` is the default name of a [lambda parameter](coding-conventions.md#lambda-parameters).
 
    ```kotlin
