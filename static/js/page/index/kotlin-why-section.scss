@@ -1,6 +1,6 @@
 .kotlin-why-section {
   margin-top: 0;
-  padding-top: var(--xxl-space);
+  padding-top: var(--xxxl-space);
 }
 
 .kotlin-why-section__section {
@@ -9,6 +9,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: var(--xxl-space);
+
+  &:last-of-type {
+    margin-bottom: var(--xxxl-space);
+  }
 }
 
 .kotlin-why-section .kto-heading_size_hero {

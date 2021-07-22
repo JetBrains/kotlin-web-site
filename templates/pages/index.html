@@ -20,7 +20,7 @@
 
     <section class="kotlin-banner-section kto-overview-section kto-overview-section_mode_dark">
         <div class="g-layout">
-            <h2 class="kto-heading kto-heading_size_h4">Latest from Kotlin</h2>
+            <h2 class="kotlin-banner-section__header kto-heading kto-heading_size_h1">Latest from Kotlin</h2>
             <div class="kotlin-banner-section__banner">
                 <a target="_blank" class="kotlin-banner-section__link"
                    href="https://blog.jetbrains.com/kotlin/2021/07/kotlin-1-5-30-m1-released/">
@@ -36,19 +36,26 @@
                     <div class="kotlin-news-section__chunk">
                         {% for news in news_list %}
                             {% set domain_link = get_domain(news.link) %}
-                            <a class="kotlin-news-section__item" href="{{ news.link }}"{% if domain_link %} target="_blank"{% endif %}>
+                            <a class="kotlin-news-section__item" href="{{ news.link }}"{% if domain_link %}
+                               target="_blank"{% endif %}>
                                 <p class="kto-text kto-text_size_s">
                                     {% if news.tag %}{{ news.tag }}
                                         {% elif domain_link %}{{ domain_link }}
                                     {% else %}Overview{% endif %}
                                 </p>
                                 <h3 class="kto-text kto-text_size_m">
-                                    <span class="kotlin-news-section__title">{{ news.title }}</span>&nbsp;<span class="kotlin-news-section__arrow">↗</span>
+                                    <span class="kotlin-news-section__title">{{ news.title }}</span>&nbsp;<span
+                                        class="kotlin-news-section__arrow">↗</span>
                                 </h3>
                             </a>
                         {% endfor %}
                     </div>
                 {% endfor %}
+            </div>
+
+            <div class="kotlin-news-section__button">
+                <a class="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_outline"
+                   href="https://blog.jetbrains.com/kotlin/" target="_blank">Kotlin blog ↗</a>
             </div>
         </div>
     </section>
@@ -57,12 +64,13 @@
 
     <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
         <div class="g-layout">
-            <h2 class="kotlin-highlights-section__title kto-heading kto-heading_size_h1">
+            <h2 class="kotlin-highlights-section__title kto-heading kto-heading_size_hero">
                 <a class="kto-overview-section__title_link" href="#usage-highlights">Kotlin Usage Highlights</a>
             </h2>
             <div class="kto-highlights">
                 {% for testimonial in data.testimonials %}
-                    <a class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}" href="{{ testimonial.url | safe }}" target="_blank">
+                    <a class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}"
+                       href="{{ testimonial.url | safe }}" target="_blank">
                         <h3 class="kto-highlights-item__header">{{ testimonial.company | safe }}</h3>
                         <div class="kto-highlights-item__text">{{ testimonial.text | safe }}</div>
                     </a>
@@ -83,8 +91,8 @@
                 </a>
             </h2>
             <a
-                class="kto-button kto-button_size_m kto-button_mode_contrast smooth-anchor"
-                href="/docs/getting-started.html"
+                    class="kto-button kto-button_size_m kto-button_mode_contrast smooth-anchor"
+                    href="/docs/getting-started.html"
             >Get started</a>
         </div>
     </section>
