@@ -484,10 +484,9 @@ Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and i
 
 There are several ways to switch off incremental compilation:
 
-    * `kotlin.incremental=false` for Kotlin/JVM 
-    * `kotlin.incremental.js=false` for Kotlin/JS projects
-    
-* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false`.
+* `kotlin.incremental=false` for Kotlin/JVM.
+* `kotlin.incremental.js=false` for Kotlin/JS projects.
+* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false` for Kotlin/JVM and Kotlin/JS projects respectively.
 
     Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental 
     compilation invalidates incremental caches.
