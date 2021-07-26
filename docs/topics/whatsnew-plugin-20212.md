@@ -24,7 +24,7 @@ Learn more about EAP programs for [Kotlin](https://kotlinlang.org/docs/eap.html)
 
 ## Performance improvements
 
-This release brings some performance improvements, we want to highlight the major:
+This release brings several performance improvements, we want to highlight the major:
 
 * **Faster test files analysis**. Now you can run tests before code analysis finishes. The **Run test** icon appears in the gutter as soon as you open the file and you can run your test immediately.
   
@@ -32,7 +32,7 @@ This release brings some performance improvements, we want to highlight the majo
   
 * **Improved the speed of rename refactoring**. Rename refactoring for particular cases, like renaming `name` or `id` fields, become faster. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-10051) for more details.
   
-* **Shared indexes for new Spring Boot projects**. Shared indexes help you to prevent the situations when you open a project and wait for indexing to finish. Learn more about how to download and use shared indexes in the [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/shared-indexes.html).
+* **Shared indexes for new Spring Boot projects**. Shared indexes help you to prevent the situations when you open a project and wait for indexing to finish. Now shared indexes are available for Spring Boot projects. Learn more about how to download and use shared indexes in the [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/shared-indexes.html).
 
 ## WSL 2 and Run Targets support for Kotlin projects
 
