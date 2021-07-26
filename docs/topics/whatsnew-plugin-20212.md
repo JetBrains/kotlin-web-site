@@ -30,7 +30,7 @@ This release brings several performance improvements, we want to highlight the m
   
 * **Run and debug your code before the IDE finishes indexing**. The indexing process in the IDE and running code are now autonomous from each other. You can run or debug the project right away without waiting for the IDE to finish its work.
   
-* **Improved the speed of rename refactoring**. Rename refactoring for particular cases, like renaming `name` or `id` fields, become faster. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-10051) for more details.
+* **Improved the speed of rename refactoring**. Rename refactoring for particular cases, like renaming `name` or `id` fields, becomes faster. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-10051) for more details.
   
 * **Shared indexes for new Spring Boot projects**. Shared indexes help you to prevent the situations when you open a project and wait for indexing to finish. Now shared indexes are available for Spring Boot projects. Learn more about how to download and use shared indexes in the [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/shared-indexes.html).
 
@@ -84,6 +84,6 @@ Since the plugin and the platform have been moved to the same codebase and now s
 * **Advanced settings**. There is a new node **Advanced Settings** in the **Preferences | Settings** window. It contains some use-case-specific options conveniently grouped by IDE tool.
   For example, you can add a left margin in Distraction-free mode, or set the maximum number of recent projects which are displayed in the **File | Open Recent** menu.
   
-* **Quick access to Eclipse projects**. IntelliJ detects existing Eclipse projects automatically and adds them to your welcome screen. To try this feature, select the **Open existing Eclipse projects** on you first IDE launch.
+* **Quick access to Eclipse projects**. IntelliJ detects existing Eclipse projects automatically and adds them to your welcome screen. To try this feature, select the **Open existing Eclipse projects** on your first IDE launch.
 
 See the [What’s new in IntelliJ IDEA 2021.2 blog post](https://www.jetbrains.com/idea/whatsnew/) or watch [this video](https://www.youtube.com/watch?v=YBmR0J3-r3o) to learn more about the platform enhancements.
