@@ -13,9 +13,10 @@ You can also learn about new features in [this blog post](https://blog.jetbrains
 ## Kotlin plugin in the IntelliJ IDEA repository
 
 Finally, the Kotlin plugin code has been moved to the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
-That means that every stable IDE improves your Kotlin experience and brings you all debugging, refactoring and other IDE-related features.
+That means that every stable IDE release improves your Kotlin experience and brings you all debugging, refactoring and other IDE-related features.
 
-Since the Kotlin plugin and Kotlin have separate release cycles also has some limitations:
+Since the Kotlin plugin and Kotlin have separate release cycles there are also limitations:
+
 * The **EAP** version of Kotlin works only with the **stable** version of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
 * Kotlin plugin works only with the **previous stable version** of the Kotlin compiler. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
 
@@ -25,7 +26,7 @@ Learn more about EAP programs: [Kotlin](https://kotlinlang.org/docs/eap.html) an
 
 This release brings some performance improvements, we want to highlight the major:
 
-* **Faster test files analysis**. Now you can run tests before code analysis finishes: you no longer need to wait until the code analysis finishes to start running them. The **Run test** icon appears in the gutter as soon as you open the file and you can run your test immediately.
+* **Faster test files analysis**. Now you can run tests before code analysis finishes. The **Run test** icon appears in the gutter as soon as you open the file and you can run your test immediately.
   
 * **Run and debug your code before the IDE finishes indexing**. The indexing process in the IDE and running code are now autonomous from each other. You can run or debug the project right away without waiting for the IDE to finish its work.
   
@@ -65,23 +66,23 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
 
 * **Preserving variables after suspension points**
 
-  Previously, when local variables were not used after passing a suspension point, you can't see their values in the **Local Variable** table.
-  This was done to avoid memory leaks. As a side effect, such variables used to disappear in the **Variables** view of the Debugger tool window.
+   Previously, when local variables were not used after passing a suspension point, you can't see their values in the **Local Variable** table.
+   This was done to avoid memory leaks. As a side effect, such variables used to disappear in the **Variables** view of the Debugger tool window.
   
    Starting from Kotlin plugin 2021.2 you can see the values of such variables.
 
 * **Coroutines extension support in Java, Maven, Spring run-configurations**
 
-  The coroutines agent is now available for Java, Maven, and Spring run configurations with a dependency on `kotlinx.coroutines`.
+   The coroutines agent is now available for Java, Maven, and Spring run configurations with a dependency on `kotlinx.coroutines`.
 
 ## Other IDE experience improvements
 
 Since the plugin and the platform have been moved to the same codebase and now ship simultaneously, this release also brings the following features that improve the Kotlin experience:
 
-* **Package Search integration**. Package Search lets you upgrade, downgrade, and remove existing dependencies, and it also works for `build.gradle.kts` files. Use it to find new dependencies and add them automatically. Also Package Search will add the required repositories to your build script if they’re missing.
+* **Package Search integration**. Package Search now works with `build.gradle.kts` files. This feature allows you to upgrade, downgrade, and remove existing dependencies. Use it to find new dependencies and add them automatically. Also, Package Search will add the required repositories to your build script if they’re missing.
 
 * **Advanced settings**. There is a new node **Advanced Settings** in the **Preferences | Settings** window. It contains some use-case-specific options conveniently grouped by IDE tool.
-  For example, you can add a left margin in Distraction-free mode, or set the caret to move down after you use the Comment with Line Comment action.
+  For example, you can add a left margin in Distraction-free mode, or set the maximum number of recent projects which are displayed in the **File | Open Recent** menu.
   
 * **Quick access to Eclipse projects**. На него можно навесить кучу всего, например, реформат сделать, оптимизировать импорты при сейве. Можно будет несколько шорткатов объединить в один.
 
