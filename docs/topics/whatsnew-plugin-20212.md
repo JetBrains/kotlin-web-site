@@ -1,12 +1,25 @@
 [//]: # (title: What's new in Kotlin plugin 2021.2)
 
-This release aims to increase productivity and improve the development experience. Version 2021.1 of the Kotlin plugin introduces the following major updates:
+This release aims to increase productivity and improve the development experience. Version 2021.2 of the Kotlin plugin introduces the following major updates:
+
+* [Kotlin plugin in the IntelliJ IDEA repository](#kotlin-plugin-in-the-intellij-idea-repository)
 * [Performance improvements](#performance-improvements)
 * [WSL 2 and Run Targets support for Kotlin projects](#wsl-2-and-run-targets-support-for-kotlin-projects)
-* [Debugging improvements](#debugging-improvements)
+* [Improved debugging experience](#improved-debugging-experience)
 * [Other IDE experience improvements](#other-ide-experience-improvements)
 
 You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/07/kotlin-plugin-2021-2-released/).
+
+## Kotlin plugin in the IntelliJ IDEA repository
+
+Finally, the Kotlin plugin code has been moved to the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
+That means that every stable IDE improves your Kotlin experience and brings you all debugging, refactoring and other IDE-related features.
+
+Since the Kotlin plugin and Kotlin have separate release cycles also has some limitations:
+* The **EAP** version of Kotlin works only with the **stable** version of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
+* Kotlin plugin works only with the **previous stable version** of the Kotlin compiler. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
+
+Learn more about EAP programs: [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/)
 
 ## Performance improvements
 
@@ -27,31 +40,50 @@ Feel free to run, debug, and test your code in different remote environments wit
 
 Learn more about Run Targets feature in our [blog post](https://blog.jetbrains.com/idea/2021/01/run-targets-run-and-debug-your-app-in-the-desired-environment/) and [IntelliJ IDEA documentation about WSL 2](https://www.jetbrains.com/help/idea/how-to-use-wsl-development-environment-in-product.html#wsl-general).
 
-## Improved suspend function debugging experience
+## Improved debugging experience
 
-In this EAP we’ve introduced some useful improvements and updates to our coroutine agent in the debugger.
+Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in the debugger:
 
-Previously, when local variables were not used after passing a suspension point, advanced liveness analysis didn’t save these variables in the **Local Variable** table. This was done to avoid memory leaks. As a side effect, such variables used to disappear in the Variables view of the Debugger tool window. We’ve fixed this and now, in most cases, you will see all the local variables. A couple of cases are still not processed, but we’ll address those soon.
+* **Evaluate suspend functions**
 
-The coroutines agent is now available for Java run configurations with a dependency on kotlinx.coroutines. We’ve also supported the agent for Spring and Maven run configurations. You can now see the **Coroutines** tab in the **Debug** tool window.
+   Now you can evaluate suspend function calls during the debugging process. You can put a breakpoint and evaluate the suspend function:
+  
+   ```kotlin
+   import kotlinx.coroutines.runBlocking
+
+   fun main(): Unit = runBlocking {
+       foo() // Put a breakpoint here and evaluate `foo()`
+       Unit
+   }
+
+   suspend fun foo(): Int {
+       return 42
+   }
+   ```
+  
+   Look through these YouTrack tickets for more details: [KT-27974](https://youtrack.jetbrains.com/issue/KT-27974), [KT-31701](https://youtrack.jetbrains.com/issue/KT-31701).
 
 * **Preserving variables after suspension points**
 
-* **Coroutines extension support in java, maven, spring run-configurations**
-
-* **Evaluate suspend functions**
-  Look through these YouTrack tickets for more details: [KT-27974](https://youtrack.jetbrains.com/issue/KT-27974), [KT-31701](https://youtrack.jetbrains.com/issue/KT-31701).
+  Previously, when local variables were not used after passing a suspension point, you can't see their values in the **Local Variable** table.
+  This was done to avoid memory leaks. As a side effect, such variables used to disappear in the **Variables** view of the Debugger tool window.
   
+   Starting from Kotlin plugin 2021.2 you can see the values of such variables.
+
+* **Coroutines extension support in Java, Maven, Spring run-configurations**
+
+  The coroutines agent is now available for Java, Maven, and Spring run configurations with a dependency on `kotlinx.coroutines`.
+
 ## Other IDE experience improvements
 
 Since the plugin and the platform have been moved to the same codebase and now ship simultaneously, this release also brings the following features that improve the Kotlin experience:
 
-* **Package Search integration**. Package Search also lets you upgrade, downgrade, and remove existing dependencies, change their scope, and navigate to their declarations. Use it to find new dependencies and add them automatically. On top of that, Package Search will also add the required repositories to your build script if they’re missing.
+* **Package Search integration**. Package Search lets you upgrade, downgrade, and remove existing dependencies, and it also works for `build.gradle.kts` files. Use it to find new dependencies and add them automatically. Also Package Search will add the required repositories to your build script if they’re missing.
 
-* **Advanced settings**. We have good news for those who need to configure IntelliJ IDEA to address particular needs. We’ve added a new node to Preferences | Settings | Advanced Settings. It contains some use-case-specific options conveniently grouped by IDE tool. Most of the settings have been transferred from the Registry, though some of them are new.
+* **Advanced settings**. There is a new node **Advanced Settings** in the **Preferences | Settings** window. It contains some use-case-specific options conveniently grouped by IDE tool.
   For example, you can add a left margin in Distraction-free mode, or set the caret to move down after you use the Comment with Line Comment action.
   
-* **Quick access to Eclipse projects** На него можно навесить кучу всего, например, реформат сделать, оптимизировать импорты при сейве. Можно будет несколько шорткатов объединить в один.
+* **Quick access to Eclipse projects**. На него можно навесить кучу всего, например, реформат сделать, оптимизировать импорты при сейве. Можно будет несколько шорткатов объединить в один.
 
 * **VCS improvements**.
 
