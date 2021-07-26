@@ -15,12 +15,12 @@ You can also learn about new features in [this blog post](https://blog.jetbrains
 Finally, the Kotlin plugin code has been moved to the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
 That means that every stable IDE release improves your Kotlin experience and brings you all debugging, refactoring and other IDE-related features.
 
-Since the Kotlin plugin and Kotlin have separate release cycles there are also limitations:
+Since the [Kotlin plugin and Kotlin have separate release cycles](https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/), this brings some limitations that are important to emphasize:
 
-* The **EAP** version of Kotlin works only with the **stable** version of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
+* The EAP version of Kotlin works only with the **stable version** of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
 * Kotlin plugin works only with the **previous stable version** of the Kotlin compiler. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
 
-Learn more about EAP programs: [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/)
+Learn more about EAP programs for [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/)
 
 ## Performance improvements
 
@@ -71,7 +71,7 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
   
    Starting from Kotlin plugin 2021.2 you can see the values of such variables.
 
-* **Coroutines extension support in Java, Maven, Spring run-configurations**
+* **Coroutines extension support in Java, Maven, Spring run configurations**
 
    The coroutines agent is now available for Java, Maven, and Spring run configurations with a dependency on `kotlinx.coroutines`.
 
@@ -84,8 +84,6 @@ Since the plugin and the platform have been moved to the same codebase and now s
 * **Advanced settings**. There is a new node **Advanced Settings** in the **Preferences | Settings** window. It contains some use-case-specific options conveniently grouped by IDE tool.
   For example, you can add a left margin in Distraction-free mode, or set the maximum number of recent projects which are displayed in the **File | Open Recent** menu.
   
-* **Quick access to Eclipse projects**. На него можно навесить кучу всего, например, реформат сделать, оптимизировать импорты при сейве. Можно будет несколько шорткатов объединить в один.
-
-* **VCS improvements**.
+* **Quick access to Eclipse projects**. IntelliJ detects existing Eclipse projects automatically and adds them to your welcome screen. To try this feature, select the **Open existing Eclipse projects** on you first IDE launch.
 
 See the [What’s new in IntelliJ IDEA 2021.2 blog post](https://www.jetbrains.com/idea/whatsnew/) or watch [this video](https://www.youtube.com/watch?v=YBmR0J3-r3o) to learn more about the platform enhancements.
