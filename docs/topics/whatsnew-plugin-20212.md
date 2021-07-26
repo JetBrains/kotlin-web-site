@@ -87,4 +87,4 @@ Since the plugin and the platform have been moved to the same codebase and now s
   
 * **Quick access to Eclipse projects**. IntelliJ IDEA detects existing Eclipse projects automatically and adds them to your welcome screen. To try this feature, select the **Open existing Eclipse projects** on your first IDE launch.
 
-See the [What’s new in IntelliJ IDEA 2021.2 blog post](https://www.jetbrains.com/idea/whatsnew/) or watch [this video](https://www.youtube.com/watch?v=YBmR0J3-r3o) to learn more about the platform enhancements.
+See the [What’s new in IntelliJ IDEA 2021.2 blog post](https://www.jetbrains.com/idea/whatsnew/) to learn more about the platform enhancements.
