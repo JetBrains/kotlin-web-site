@@ -6,7 +6,7 @@ This release increases productivity and improves the development experience. The
 * [Performance improvements](#performance-improvements)
 * [WSL 2 and Run Targets support for Kotlin projects](#wsl-2-and-run-targets-support-for-kotlin-projects)
 * [Improved debugging experience](#improved-debugging-experience)
-* [Other IDE experience improvements](#other-ide-experience-improvements)
+* [Other IDE improvements](#other-ide-improvements)
 
 You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/07/kotlin-plugin-2021-2-released/).
 
@@ -76,7 +76,7 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
 
    The coroutines agent is now available for Java, Maven, and Spring run configurations with a dependency on `kotlinx.coroutines`.
 
-## Other IDE experience improvements
+## Other IDE improvements
 
 Since the plugin and the platform have been moved to the same codebase and now ship simultaneously, this release also brings the following features that improve the Kotlin experience:
 
