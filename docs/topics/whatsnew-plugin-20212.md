@@ -19,7 +19,7 @@ To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https:/
 Since the [Kotlin plugin and Kotlin have separate release cycles](https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/), this brings some limitations that are important to emphasize:
 
 * The EAP version of Kotlin works only with the **stable version** of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
-* The Kotlin plugin based on the **previous stable version** of the Kotlin compiler. You can manually update the Kotlin version in your project, but some IDE-related features might not be available. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
+* The Kotlin plugin based on the **previous stable version** of the Kotlin compiler. You can still update the Kotlin version in your project, but some IDE-related features might not be available. We are working on stabilizing the process so that the next versions of the plugin will be based on the latest stable version of the compiler.
 
 Learn more about EAP for [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/).
 
