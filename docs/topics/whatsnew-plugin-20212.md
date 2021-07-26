@@ -14,14 +14,14 @@ You can also learn about new features in [this blog post](https://blog.jetbrains
 
 Finally, the Kotlin plugin code has been moved to the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
 That means that every stable IDE release improves your Kotlin experience and brings you all debugging, refactoring and other IDE-related features.
-To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
+To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/).
 
 Since the [Kotlin plugin and Kotlin have separate release cycles](https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/), this brings some limitations that are important to emphasize:
 
 * The EAP version of Kotlin works only with the **stable version** of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
-* Kotlin plugin works only with the **previous stable version** of the Kotlin compiler. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
+* The Kotlin plugin based on the **previous stable version** of the Kotlin compiler. You can manually update the Kotlin version in your project, but some IDE-related features might not be available. We are working on stabilizing the process so that the next versions of the plugin work with the latest version of the compiler.
 
-Learn more about EAP for [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/)
+Learn more about EAP for [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/).
 
 ## Performance improvements
 
@@ -30,8 +30,8 @@ We are always working on IDE performance and this release brings some major perf
 * **Faster test files analysis**. Now you can run tests before code analysis finishes. The **Run test** icon appears in the gutter as soon as you open the file and you can run your test immediately.
   
 * **Run and debug your code before the IDE finishes indexing**. The indexing process in the IDE and running code are now autonomous from each other. You can run or debug the project right away without waiting for the IDE to finish its work.
-  
-* **Improved the speed of rename refactoring**. Rename refactoring for particular cases, like renaming `name` or `id` fields, becomes faster. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-10051) for more details.
+
+* **Improved the speed of rename refactoring**. Rename refactoring for particular cases, like for fields with common names `name` or `id`, becomes faster. Check out this [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-10051) for more details.
   
 * **Shared indexes for new Spring Boot projects**. Shared indexes help you to prevent the situations when you open a project and wait for indexing to finish. Now shared indexes are available for Spring Boot projects. Learn more about how to download and use shared indexes in the [IntelliJ IDEA documentation](https://www.jetbrains.com/help/idea/shared-indexes.html).
 
@@ -69,8 +69,8 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
 
    Previously, when local variables were not used after passing a suspension point, you can't see their values in the **Local Variable** table.
    This helps to avoid memory leaks, but as a side effect such variables used to disappear in the **Variables** view of the Debugger tool window.
-  
-   Starting from Kotlin plugin 2021.2 you can see the values of such variables.
+
+   Starting from Kotlin plugin 2021.2 you can see the values of such variables for common cases. Now the IDE handles other specific cases properly and notifies you that it is impossible to obtain the value. Check these YouTrack issues for more details: [KTIJ-18499 ](https://youtrack.jetbrains.com/issue/KTIJ-18499), [KTIJ-18630](https://youtrack.jetbrains.com/issue/KTIJ-18630). 
 
 * **Coroutines extension support in Java, Maven, Spring run configurations**
 
