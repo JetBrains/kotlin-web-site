@@ -112,7 +112,7 @@ data class Counter(val dayIndex: Int) {
 }
 ```
 
-### `in` operator
+### in operator
 
 | Expression | Translated to |
 | -----------|-------------- |
@@ -134,7 +134,7 @@ For `in` and `!in` the procedure is the same, but the order of arguments is reve
 
 Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
 
-### `invoke` operator
+### invoke operator
 
 | Expression | Translated to |
 |--------|---------------|

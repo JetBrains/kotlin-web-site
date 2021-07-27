@@ -4,15 +4,15 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.5.20" type="string"/>
+    <var name="kotlinVersion" value="1.5.21" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.5.20-RC" type="string"/>
+    <var name="kotlinEapVersion" value="1.5.30-M1" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.5.20" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.5.21" type="string"/>
 
-    <var name="kotlinReleaseDate" value="June 24, 2021" type="string"/>
+    <var name="kotlinReleaseDate" value="July 13, 2021" type="string"/>
 
-    <var name="coroutinesVersion" value="1.5.0" type="string"/>
+    <var name="coroutinesVersion" value="1.5.1" type="string"/>
 
     <var name="coroutinesEapVersion" value="1.5.0-RC" type="string"/>
 
@@ -20,7 +20,7 @@
 
     <var name="gradleVersion" value="6.7.1" type="string"/>
 
-    <var name="serializationVersion" value="1.2.1" type="string"/>
+    <var name="serializationVersion" value="1.2.2" type="string"/>
 
     <var name="kotlinPluginVersion" value="2021.1" type="string"/>
 

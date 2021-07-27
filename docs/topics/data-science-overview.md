@@ -95,6 +95,8 @@ linear algebra, graph, interpolation, and visualization system. Besides Java API
 * [Apache Commons Math](https://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning
 library for Java
 
+* [NM Dev](https://nm.dev/) - a Java mathematical library that covers all of classical mathematics.
+
 * [OptaPlanner](https://www.optaplanner.org/) - a solver utility for optimization planning problems
 
 * [Charts](https://github.com/HanSolo/charts) - a scientific JavaFX charting library in development

@@ -204,7 +204,7 @@ See [Overriding properties](inheritance.md#overriding-properties)
 ## Delegated properties
 
 The most common kind of property simply reads from (and maybe writes to) a backing field, but custom getters and setters
-allow you to use properties to one can implement any sort of behavior of a property.
+allow you to use properties so one can implement any sort of behavior of a property.
 Somewhere in between the simplicity of the first kind and variety of the second, there are common patterns for what properties
 can do. A few examples: lazy values, reading from a map by a given key, accessing a database, notifying a listener on access.
 

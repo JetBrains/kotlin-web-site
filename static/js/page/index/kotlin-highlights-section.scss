@@ -2,28 +2,53 @@
 @import "static/js/components/kto-text";
 
 .kotlin-highlights-section {
-  padding: 0 0 var(--xxl-space);
+  padding: 0 0 var(--xxxl-space);
 }
 
 .kotlin-highlights-section__title {
-  margin-bottom: 45px;
+  margin-bottom: var(--xl-space);
+
+  @media (max-width: $breakpoint-s) {
+    margin-bottom: var(--l-space);
+  }
 }
 
 .kto-highlights {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @media (max-width: $breakpoint-s) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .kto-highlights-item {
-  margin-bottom: 56px;
-  width: 28%;
+  border: 1px solid rgba(39, 40, 44, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  padding: 0 16px 16px;
+  height: 192px;
+  color: rgba(39, 40, 44, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .3s ease-out;
 
-  @media (max-width: $breakpoint-s) {
-    width: 49%;
+  &:hover {
+    background: rgba(39, 40, 44, 0.05);
+    border: 1px solid rgba(39, 40, 44, 1);
+    color: rgba(39, 40, 44, 1);
+    text-decoration: none;
+    cursor: pointer;
   }
+
   @media (max-width: $breakpoint-xs) {
-    width: 100%;
+    height: 160px;
   }
 }
 
@@ -45,28 +70,34 @@
 
 .kto-highlights-item_company_gradle > .kto-highlights-item__header {
   background-image: url("./images/companies/gradle.svg");
+  margin-top: 7px;
 }
 
 .kto-highlights-item_company_evernote > .kto-highlights-item__header {
   background-image: url("./images/companies/evernote.svg");
+  margin-top: 7px;
 }
 
 .kto-highlights-item_company_corda > .kto-highlights-item__header {
   background-image: url("./images/companies/corda.svg");
+  margin-top: 5px;
 }
 
 .kto-highlights-item_company_coursera > .kto-highlights-item__header {
   background-image: url("./images/companies/coursera.svg");
+  margin-top: 1px;
 }
 
 .kto-highlights-item_company_spring > .kto-highlights-item__header {
   background-image: url("./images/companies/spring.svg");
-  background-size: 125px;
-  background-position: center left;
+  margin-top: 16px;
+  background-size: contain;
+  height: 32px;
 }
 
 .kto-highlights-item_company_atlassian > .kto-highlights-item__header {
   background-image: url("./images/companies/atlassian.svg");
+  margin-top: 1px;
 }
 
 .kto-highlights-item__header {
@@ -80,7 +111,12 @@
 
 .kto-highlights-item__text {
   @include kto-text;
-  @include kto-text_size_s;
+  @include kto-text_size_m;
+  font-weight: 400;
+
+  @media (max-width: $breakpoint-s) {
+    @include kto-text_size_s;
+  }
 }
 
 .kotlin-highlights-section__title .kto-overview-section__title_link:hover::after {

@@ -19,7 +19,7 @@ Learn more about [types of Kotlin releases and their compatiblity](kotlin-evolut
 
 IntelliJ IDEA and Android Studio suggest updating to a new release once it is out. When you accept the suggestion,
 it automatically updates the Kotlin plugin to the new version. You can check the Kotlin version in **Tools** \| **Kotlin** 
-\| **Configure Plugin Updates**.
+\| **Configure Kotlin Plugin Updates**.
 
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
 libraries if necessary – check the [recommended versions](#release-details).
@@ -48,6 +48,27 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build info</th>
         <th>Build highlights</th>
         <th>Recommended kotlinx library versions</th>
+    </tr>
+    <tr>
+        <td><strong>1.5.21</strong>
+            <p>Released: <strong>July 13, 2021</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.5.20.</p>
+            <p>Learn more about <a href="whatsnew1520.md" target="_blank">Kotlin 1.5.20</a>.</p>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1" target="_blank">1.2.1</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0" target="_blank">1.5.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank">kotlinx.atomicfu</a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.1" target="_blank">0.16.1</a></li>          
+                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.6.0" target="_blank">1.6.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank">kotlinx.html</a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>1.5.20</strong>

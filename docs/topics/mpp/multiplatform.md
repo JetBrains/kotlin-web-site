@@ -41,7 +41,7 @@ With this mechanism, a common source set defines an *expected declaration*, and 
 *actual declaration* that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
 functions, classes, interfaces, enumerations, properties, and annotations.
 
-![Expect and actual declarations](expect-actual.png)
+![Expect and actual declarations](expect-actual.png){width=700}
 
 ```kotlin
 //Common

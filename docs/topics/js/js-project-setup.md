@@ -392,7 +392,7 @@ The Kotlin/JS Gradle plugin also provides support for webpack's [CSS](https://we
 the [webpack configuration files](#webpack-bundling) that are used to build your project, the most commonly
 used settings are available directly from the `build.gradle(.kts)` file.
 
-To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file in the `commonWbpackConfig`
+To turn on CSS support in your project, set the `cssSupport.enabled` option in the Gradle build file in the `commonWbpackConfig`
 block. This configuration is also enabled by default when creating a new project using the wizard.
 
 ```groovy

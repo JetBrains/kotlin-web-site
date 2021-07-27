@@ -1,12 +1,14 @@
 [//]: # (title: Coroutines)
 
-Asynchronous or non-blocking programming is the new reality. When creating server-side, desktop or mobile applications, it's important 
-to provide an experience that is not only fluid from the user's perspective, but scalable when needed.
+Asynchronous or non-blocking programming is an important part of the development landscape. When creating server-side,
+desktop, or mobile applications, it's important to provide an experience that is not only fluid from the user's perspective,
+but also scalable when needed.
 
-Kotlin solves this problem in a flexible way by providing [coroutine](https://en.wikipedia.org/wiki/Coroutine) support at the language 
-level and delegating most of the functionality to libraries. 
+Kotlin solves this problem in a flexible way by providing [coroutine](https://en.wikipedia.org/wiki/Coroutine) support
+at the language level and delegating most of the functionality to libraries.
 
-As a bonus, coroutines not only open the doors to asynchronous programming, but also provide a wealth of other possibilities such as concurrency and actors.
+In addition to opening the doors to asynchronous programming, coroutines also provide a wealth of other possibilities,
+such as concurrency and actors.
 
 ## How to start
 
@@ -31,6 +33,6 @@ New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
 ## Sample projects
 
 - [kotlinx.coroutines examples and sources](https://github.com/Kotlin/kotlin-coroutines/tree/master/examples)
-- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 
 
