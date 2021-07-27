@@ -51,16 +51,26 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
    Now you can evaluate suspend function calls during the debugging process. You can put a breakpoint and evaluate the suspend function:
   
    ```kotlin
+   import kotlinx.coroutines.async
+   import kotlinx.coroutines.delay
    import kotlinx.coroutines.runBlocking
-
-   fun main(): Unit = runBlocking {
-       foo() // Put a breakpoint here and evaluate `foo()`
-       Unit
+   //sampleStart
+   suspend fun longRunningFun(): Int {
+       delay(2000)
+       return 10
    }
 
-   suspend fun foo(): Int {
-       return 42
+   suspend fun fastFun(): Int {
+      delay(100)
+      return 32
    }
+  
+   fun main() = runBlocking {
+       val deferred = async { longRunningFun() }
+       val sum = deferred.await() + fastFun() // Put a breakpoint here and evaluate `the fastFun() + deferred.await()` expression
+       println(sum)
+   }
+   //sampleEnd
    ```
   
    Look through these YouTrack tickets for more details: [KT-27974](https://youtrack.jetbrains.com/issue/KT-27974), [KT-31701](https://youtrack.jetbrains.com/issue/KT-31701).
@@ -69,6 +79,26 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
 
    Previously, when local variables were not used after passing a suspension point, you can't see their values in the **Local Variable** table.
    This helps to avoid memory leaks, but as a side effect such variables used to disappear in the **Variables** view of the Debugger tool window.
+   
+   ```kotlin
+   import kotlinx.coroutines.runBlocking
+   
+   suspend fun foo() {
+   
+   }
+   fun main() = runBlocking {
+       val x1 = 1
+       println(x1)
+       foo()
+       val x2 = 2
+       println(x2)
+       foo()
+       val x3 = 3
+       println(x3)
+       foo()
+       println()
+   }
+   ```
 
    Starting from Kotlin plugin 2021.2 you can see the values of such variables for common cases. Now the IDE handles other specific cases properly and notifies you that it is impossible to obtain the value. Check these YouTrack issues for more details: [KTIJ-18499 ](https://youtrack.jetbrains.com/issue/KTIJ-18499), [KTIJ-18630](https://youtrack.jetbrains.com/issue/KTIJ-18630). 
 
@@ -78,7 +108,13 @@ Kotlin 2021.2 brings useful improvements and updates to the coroutine agent in t
 
 ## Other IDE improvements
 
-Since the plugin and the platform have been moved to the same codebase and now ship simultaneously, this release also brings the following features that improve the Kotlin experience:
+Since the plugin and the platform have been moved to the same codebase and now ship simultaneously, this release also brings more IDE features that improve the Kotlin experience:
+
+* **Clickable inlay hints**. You can easily get access to the type annotations declaration.
+  
+  ![Types highliting in inlay hints](inlay-hints.png)
+  
+  To enable the feature, go to the **Preferences | Editor | Inlay hints | Kotlin** and select all inlay hints for **Types**.
 
 * **Package Search integration**. Package Search now works with `build.gradle.kts` files. This feature allows you to upgrade, downgrade, and remove existing dependencies. Use it to find new dependencies and add them automatically. Also, Package Search will add the required repositories to your build script if they’re missing.
 
