@@ -415,6 +415,9 @@
     - name: Guatemala Kotlin User Group
       country: Guatemala
       url: https://www.meetup.com/guatemala-kotlin-user-group/
+    - name: Houstan Kotlin User Group
+      country: USA
+      url: https://www.hccug.org/user-groups/houston-kotlin-user-group
     - name: Kansas City User Group
       country: USA
       url: https://www.meetup.com/Kansas-City-Kotlin-User-Group/
