@@ -630,7 +630,7 @@ In the build script, you may have related compile tasks, for example:
 * `compileKotlin` and `compileJava`
 * `compileTestKotlin` and `compileTestJava`
 
-> `main` and `test` sources compile tasks are not related.
+> `main` and `test` source sets' compile tasks are not related.
 >
 {type="note}
 
