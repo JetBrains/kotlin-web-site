@@ -45,7 +45,8 @@ IntelliJ IDEA 2021.2 brings useful improvements and updates to the coroutine age
 
   fun main() = runBlocking {
       val deferred = async { longRunningFun() }
-      val sum = deferred.await() + fastFun() // Put a breakpoint here and evaluate `the fastFun() + deferred.await()` expression
+      // Put a breakpoint here and evaluate `the fastFun() + deferred.await()` expression:
+      val sum = deferred.await() + fastFun()
       println(sum)
   }
   ```
@@ -68,7 +69,8 @@ IntelliJ IDEA 2021.2 brings useful improvements and updates to the coroutine age
 
   }
   fun main() = runBlocking {
-      val x1 = 1  // Set a breakpoint here.
+      // Set a breakpoint here:
+      val x1 = 1  
       println(x1)
       foo()
       val x2 = 2
