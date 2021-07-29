@@ -126,11 +126,6 @@ tasks.wrapper {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from GitHub:
-
-* [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-framework-groovy-macos-mac.zip)
-* [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-framework-kotlin-macos-mac.zip)
-
 Move the sources file into the `src/nativeMain/kotlin` folder under
 the project. That is the default path, where sources are located, when
 the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
