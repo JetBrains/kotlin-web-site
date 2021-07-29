@@ -157,12 +157,6 @@ tasks.wrapper {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from GitHub:
-
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-macos-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-macos-c.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-linux-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-linux-c.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-windows-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-windows-c.zip)
-
 The project file configures the C interop as an additional step of the build.
 Let's move the `interop.def` file to the `src/nativeInterop/cinterop` directory.
 Gradle recommends using conventions instead of configurations,
