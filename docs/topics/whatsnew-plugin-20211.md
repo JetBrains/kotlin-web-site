@@ -116,5 +116,3 @@ Since the plugin and the platform have been moved to the same codebase and now s
 * We’ve fixed some of the language injection issues that received the most votes. Language injection now works correctly for the following cases:
   * When you use triple quotes to inject multi-line strings and add the `.trimIndent()`, or `.trimMargin()` functions at the end. See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-679) for details.
   * When you concatenate strings. See the [YouTrack issue](https://youtrack.jetbrains.com/issue/KTIJ-855) for details.
-
-See the [What’s new in IntelliJ IDEA 2021.1 blog post](https://www.jetbrains.com/idea/whatsnew/) or watch [this video](https://www.youtube.com/watch?v=YBmR0J3-r3o) to learn more about the platform enhancements.
