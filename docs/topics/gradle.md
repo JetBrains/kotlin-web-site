@@ -712,7 +712,8 @@ Java toolchain support includes the functionality for locating and installing mi
 The Kotlin Gradle plugin supports Java toolchain for Kotlin/JVM compilation tasks. JS and Native tasks don't use the toolchain.
 The toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) if the `jvmTarget` option is not explicitly defined in DSL.
+* Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) to the toolchain's JDK version 
+  if it is defined and the `jvmTarget` option is not explicitly defined in DSL.
   If the toolchain is not configured, `jvmTarget` field uses the default value.
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
@@ -820,11 +821,24 @@ The Kotlin daemon:
 The Kotlin daemon starts at the Gradle [execution stage](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)
 when some Kotlin compile task starts compiling the sources. The Kotlin daemon stops along with the Gradle daemon or after two idle hours with no Kotlin compilation.
 
+The Kotlin daemon uses the same JDK the Gradle daemon does.
+
 ### Setting Kotlin daemon’s JVM arguments
 
 In the following list, the latter options override the previous ones:
-* If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon.
-* If Gradle daemon has `kotlin.daemon.jvm.options` – use it.
+* If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon. 
+  For example, in the `gradle.properties` file:
+
+    ```kotlin
+    org.gradle.jvmargs=-Xmx1500m,-Xms=500m
+    ```
+
+* If Gradle daemon has `kotlin.daemon.jvm.options` – use it in the `gradle.properties` file:
+
+    ```kotlin
+    org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,-Xms=500m
+    ```
+
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
     ```kotlin
@@ -873,7 +887,7 @@ In the following list, the latter options override the previous ones:
 
     </tabs>
 
-When configuring the Kotlin daemon’s JVM arguments, please, note that:
+When configuring the Kotlin daemon's JVM arguments, please, note that:
 
 * It is expected to have multiple instances of the Kotlin daemon running at the same time when different subprojects or tasks have different sets of JVM arguments.
 * New Kotlin daemon instance starts only when Gradle runs a related compilation task and existing Kotlin daemons do not have the same set of JVM arguments.
