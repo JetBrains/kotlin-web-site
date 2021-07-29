@@ -710,6 +710,7 @@ Using this feature, you can:
 Java toolchain support includes the functionality for locating and installing missing JDKs if they're required by Gradle builds.
 
 The Kotlin Gradle plugin supports Java toolchain for Kotlin/JVM compilation tasks. JS and Native tasks don't use the toolchain.
+The Kotlin compiler always uses the JDK the Gradle daemon is running on.
 The toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) to the toolchain's JDK version 
