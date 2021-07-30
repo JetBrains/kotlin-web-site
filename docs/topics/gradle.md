@@ -136,7 +136,7 @@ plugins {
 ### Kotlin and Java sources for JavaScript
 
 This plugin only works for Kotlin files so it is recommended that you keep Kotlin and Java files separately (in case the 
-project contains Java files). If you don't store them separately , specify the source folder in the `sourceSets` block:
+project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets` block:
 
 <tabs>
 
@@ -245,7 +245,7 @@ library is added to the rest. The Kotlin Gradle plugin will select the appropria
 the `kotlinOptions.jvmTarget` [compiler option](#compiler-options) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle 
-plugin won’t override it or add a second standard library. 
+plugin won't override it or add a second standard library. 
 
 If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
@@ -377,7 +377,7 @@ tasks {
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
 If you need to use a different JVM test framework, disable automatic testing framework selection by
-adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties`. 
+adding the line `kotlin.test.infer.jvm.variant=false` to the project's `gradle.properties`. 
 Once you do this, add the framework as a Gradle dependency.
 
 If you had used a variant of `kotlin("test")` in your build script explicitly and project build stopped working with
@@ -632,7 +632,7 @@ In the build module, you may have related compile tasks, for example:
 
 > `main` and `test` source sets' compile tasks are not related.
 >
-{type="note}
+{type="note"}
 
 For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in the `kotlin` extension
 and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
@@ -643,7 +643,7 @@ the `compileJava` task has (or [inherits]((https://docs.gradle.org/current/userg
 Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
 * `warning` – default value, the Kotlin Gradle plugin will print a warning message.
 * `error` – the plugin will fail the build.
-* `ignore` – the plugin will skip the check and won’t produce any messages.
+* `ignore` – the plugin will skip the check and won't produce any messages.
 
 #### Setting custom JDK home
 
@@ -680,7 +680,7 @@ The Kotlin compiler always uses the JDK the Gradle daemon is running on.
 The toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) to the toolchain's JDK version
-  if the user didn’t set the `jvmTarget` option explicitly.
+  if the user didn't set the `jvmTarget` option explicitly.
   If you don't configure the toolchain, the `jvmTarget` field will use the default value.
   Learn more about [targets compatibility](gradle.md#check-for-targets-compatibility).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
@@ -873,7 +873,7 @@ In the following list, the latter options override the previous ones:
 
   </tabs>
 
-#### Kotlin daemon’s behavior with JVM arguments
+#### Kotlin daemon's behavior with JVM arguments
 
 When configuring the Kotlin daemon's JVM arguments, please, note that:
 
