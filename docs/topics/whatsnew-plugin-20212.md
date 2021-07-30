@@ -105,7 +105,7 @@ Since the [Kotlin plugin and Kotlin have separate release cycles](https://blog.j
 * The EAP version of Kotlin works only with the **stable version** of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
 * The Kotlin plugin is based on the **previous stable version** of the Kotlin compiler. You can still update the Kotlin version in your project, but some IDE-related features might not be available. We are working on stabilizing the process so that the next versions of the plugin will be based on the latest stable version of the compiler.
 
-Learn more about the EAP for [Kotlin](https://kotlinlang.org/docs/eap.html) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/).
+Learn more about the EAP for [Kotlin](eap.md) and [IntelliJ IDEA](https://www.jetbrains.com/idea/nextversion/).
 
 ## Other IDE improvements
 
