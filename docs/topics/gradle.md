@@ -673,15 +673,16 @@ Using this feature, you can:
 * Compile and test code with a not yet released language version.
 
 With toolchain support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build. 
-Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support).
+Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support)
+for tasks that depend on major JDK version.
 
 The Kotlin Gradle plugin supports the Java toolchain for Kotlin/JVM compilation tasks. JS and Native tasks don't use the toolchain. 
 The Kotlin compiler always uses the JDK the Gradle daemon is running on.
 The toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-for-jvm) to the toolchain's JDK version
-  if the user didn't set the `jvmTarget` option explicitly.
-  If you don't configure the toolchain, the `jvmTarget` field will use the default value.
+  if the user doesn't set the `jvmTarget` option explicitly.
+  If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
   Learn more about [targets compatibility](#check-for-jvm-targets-compatibility).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
@@ -700,7 +701,7 @@ kotlin {
 ```kotlin
 kotlin {
    toolchain {
-       (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>) // "8"
+       (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
    }
 }
 ```
@@ -724,7 +725,7 @@ java {
 ```kotlin
 java {
    toolchain {
-       languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>) // "8"
+       languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
    }
 }
 ```
@@ -735,8 +736,8 @@ To set any JDK home (even local), use the Task DSL.
 
 #### Setting JDK version with the Task DSL
 
-The Task DSL allows setting any JDK version for `KotlinCompile` tasks. 
-In the Task DSL, use `UsesKotlinJavaToolchain` interface, which allows setting up tasks with a JDK location.
+The Task DSL allows setting any JDK version for any task implementing `UsesKotlinJavaToolchain` interface. 
+At the moment, such tasks are the `KotlinCompile` and the `KaptTask`.
 If you want Gradle to search for the major JDK version, replace the <MAJOR_JDK_VERSION> placeholder in your build script:
 
 <tabs>
@@ -744,7 +745,7 @@ If you want Gradle to search for the major JDK version, replace the <MAJOR_JDK_V
 ```groovy
 JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
 Provider<JavaLauncher> customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(8))
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project
         .tasks
@@ -757,7 +758,7 @@ project
 ```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
-  it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>) // "8"
+  it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project.tasks
   .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
@@ -892,7 +893,7 @@ In the following list, the latter options override the previous ones:
 
   > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemons-behavior-with-jvm-arguments).
   >
-  {type=”note”}
+  {type="note"}
 
 #### Kotlin daemon's behavior with JVM arguments
 
@@ -902,8 +903,8 @@ When configuring the Kotlin daemon's JVM arguments, please, note that:
 * New Kotlin daemon instance starts only when Gradle runs a related compilation task and existing Kotlin daemons do not have the same set of JVM arguments.
   Imagine, your project has a lot of subprojects: most of them require some heap memory for Kotlin daemon but one module requires a lot (though it is compiled rarely).
   In this case, provide a different set of JVM arguments for such a module, so a Kotlin daemon with more heap size would start only for developers touching this specific module.
-  > In case when the difference is in the `Xmx` argument values, for example, running daemons have the `Xmx` values larger than is required by the new argument,
-  > one of such daemons may be used instead of launching the new one.
+  > In case when already running Kotlin daemon has enough heap size to handle compilation request 
+  > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
   >
   {type="note"}
 * If the `Xmx` is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
