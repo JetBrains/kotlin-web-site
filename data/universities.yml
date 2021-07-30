@@ -761,14 +761,6 @@
   geo:
     lat: '44.3221657'
     lng: '-93.9709658'
-- title: Universidad Tecnológica Nacional (UTN)
-  location: Buenos Aires (Argentina)
-  courses:
-  - name: Diplomatura en Android Studio
-    url: https://sceu.frba.utn.edu.ar/course/diplomatura-en-programacion-mobile/
-  geo:
-    lat: '19.018493'
-    lng: '-98.189283'
 - title: Loyola University Chicago
   location: Chicago, IL (US)
   courses:
