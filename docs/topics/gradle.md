@@ -682,7 +682,7 @@ The toolchain:
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-for-jvm) to the toolchain's JDK version
   if the user didn't set the `jvmTarget` option explicitly.
   If you don't configure the toolchain, the `jvmTarget` field will use the default value.
-  Learn more about [targets compatibility](#check-for-targets-compatibility).
+  Learn more about [targets compatibility](#check-for-jvm-targets-compatibility).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set the toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
@@ -890,7 +890,7 @@ In the following list, the latter options override the previous ones:
 
   </tabs>
 
-  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon’s behavior with JVM arguments](#kotlin-daemons-behavior-with-jvmarguments).
+  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemons-behavior-with-jvm-arguments).
   >
   {type=”note”}
 
