@@ -100,8 +100,8 @@ To use the Gradle worker API for parallel execution of kapt tasks, add this line
 kapt.use.worker.api=true
 ```
 
-When you use [custom JDK home](gradle.md#setting-custom-jdk-home) feature in the Kotlin Gradle plugin, 
-kapt workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode), 
+When you use [custom JDK home](gradle.md#setting-custom-jdk-home) feature in the Kotlin Gradle plugin,
+a kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode),
 and `kapt.workers.isolation` property is ignored.
 
 ### Caching for annotation processors' classloaders
