@@ -28,6 +28,6 @@ If you want to work on existing projects that were created before installing the
 ## If you run into any problems
 
 * Report an issue to [our issue tracker, YouTrack](https://kotl.in/issue).
-* Find help in the [#eap channel in Kotlin Slack]((https://app.slack.com/client/T09229ZC6/C0KLZSCHF) ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+* Find help in the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF) ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 * Roll back to the latest stable version: in **Tools | Kotlin | Configure Kotlin Plugin Updates**, select the **Stable**
   update channel and click **Install**.
