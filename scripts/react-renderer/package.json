@@ -1,0 +1,17 @@
+{
+  "name": "ktl-components-renderer",
+  "version": "1.0.0",
+  "browserslist": [
+    "defaults, not ie > 0, edge > 18"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "7.14.5",
+    "@babel/register": "^7.11.5",
+    "core-js": "^3.10.0"
+  },
+  "dependencies": {
+    "babel-plugin-transform-import-ignore": "^1.1.0"
+  }
+}

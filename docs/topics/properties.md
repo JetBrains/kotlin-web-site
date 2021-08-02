@@ -2,8 +2,7 @@
 
 ## Declaring properties
 
-Properties in Kotlin classes can be declared either as mutable using the `var` keyword, 
-or as read-only using the `val` keyword.
+Properties in Kotlin classes can be declared either as mutable, using the `var` keyword, or as read-only, using the `val` keyword.
 
 ```kotlin
 class Address {
@@ -29,7 +28,7 @@ fun copyAddress(address: Address): Address {
 
 ## Getters and setters
 
-The full syntax for declaring a property is the following.
+The full syntax for declaring a property is as follows:
 
 ```kotlin
 var <propertyName>[: <PropertyType>] [= <property_initializer>]
@@ -37,16 +36,16 @@ var <propertyName>[: <PropertyType>] [= <property_initializer>]
     [<setter>]
 ```
 
-The initializer, getter and setter are optional. Property type is optional if it can be inferred from the initializer
-(or from the getter return type, as shown below).
+The initializer, getter, and setter are optional. The property type is optional if it can be inferred from the initializer
+or from the initializer’s or the getter’s return type, as shown below:
 
 ```kotlin
 var initialized = 1 // has type Int, default getter and setter
 // var allByDefault // ERROR: explicit initializer required, default getter and setter implied
 ```
 
-The full syntax of a read-only property declaration differs from a mutable one in two ways: 
-it starts with `val` instead of `var` and does not allow a setter:
+The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with `val` instead
+of `var` and does not allow a setter:
 
 ```kotlin
 val simple: Int? // has type Int, default getter, must be initialized in constructor
@@ -61,7 +60,7 @@ val isEmpty: Boolean
     get() = this.size == 0
 ```
 
-If you define a custom setter, it will be called every time you assign a value to the property except its initialization.
+If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
 A custom setter looks like this:
 
 ```kotlin
@@ -80,7 +79,7 @@ You can omit the property type if it can be inferred from the getter:
 val isEmpty get() = this.size == 0  // has type Boolean
 ```
 
-If you need to change the visibility of an accessor or to annotate it, but don't need to change the default implementation,
+If you need to annotate an accessor or change its visibility, but you don't need to change the default implementation,
 you can define the accessor without defining its body:
 
 ```kotlin
@@ -93,9 +92,9 @@ var setterWithAnnotation: Any? = null
 
 ### Backing fields
 
-In Kotlin, a field is only used as a part of a property to hold its value in memory. Fields can not be declared directly.
-However, when a property needs a backing field,  Kotlin provides it automatically. This backing field can be referenced
-in the accessors using the `field` identifier:
+In Kotlin, a field is only used as a part of a property to hold its value in memory. Fields cannot be declared directly.
+However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in
+the accessors using the `field` identifier:
 
 ```kotlin
 var counter = 0 // the initializer assigns the backing field directly
@@ -109,9 +108,9 @@ var counter = 0 // the initializer assigns the backing field directly
 The `field` identifier can only be used in the accessors of the property.
 
 A backing field will be generated for a property if it uses the default implementation of at least one of the accessors,
- or if a custom accessor references it through the `field` identifier.
+or if a custom accessor references it through the `field` identifier.
 
-For example, in the following case there will be no backing field:
+For example, there would be no backing field in the following case:
 
 ```kotlin
 val isEmpty: Boolean
@@ -120,8 +119,8 @@ val isEmpty: Boolean
 
 ### Backing properties
 
-If you want to do something that does not fit into this *implicit backing field* scheme, 
-you can always fall back to having a *backing property*:
+If you want to do something that does not fit into this _implicit backing field_ scheme, you can always fall back to having
+a _backing property_:
 
 ```kotlin
 private var _table: Map<String, Int>? = null
@@ -134,19 +133,18 @@ public val table: Map<String, Int>
     }
 ```
 
-> On JVM: Access to private properties with default getters and setters is optimized
-> to avoid function call overhead.
+> On the JVM: Access to private properties with default getters and setters is optimized to avoid function call overhead.
 >
 {type="note"}
 
 ## Compile-time constants
 
-If the value of a read-only property is known at the compile time, mark it as a *compile time constant* using the `const` modifier.
-Such properties need to fulfil the following requirements:
+If the value of a read-only property is known at compile time, mark it as a _compile time constant_ using the `const` modifier.
+Such a property needs to fulfil the following requirements:
 
-  * Top-level, or member of an [`object` declaration](object-declarations.md#object-declarations) or [a *companion object*](object-declarations.md#companion-objects).
-  * Initialized with a value of type `String` or a primitive type
-  * No custom getter
+* It must be a top-level property, or a member of an [`object` declaration](object-declarations.md#object-declarations-overview) or [a companion object](object-declarations.md#companion-objects).
+* It must be initialized with a value of type `String` or a primitive type
+* It cannot be a custom getter
 
 Such properties can be used in annotations:
 
@@ -159,11 +157,11 @@ const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 ## Late-initialized properties and variables
 
 Normally, properties declared as having a non-null type must be initialized in the constructor.
-However, fairly often this is not convenient. For example, properties can be initialized through dependency injection,
-or in the setup method of a unit test. In this case, you cannot supply a non-null initializer in the constructor,
+However, it is often the case that doing so is not convenient. For example, properties can be initialized through dependency
+injection, or in the setup method of a unit test. In these cases, you cannot supply a non-null initializer in the constructor,
 but you still want to avoid null checks when referencing the property inside the body of a class.
 
-To handle this case, you can mark the property with the `lateinit` modifier:
+To handle such cases, you can mark the property with the `lateinit` modifier:
 
 ```kotlin
 public class MyTest {
@@ -179,17 +177,16 @@ public class MyTest {
 }
 ```
 
-The modifier can be used on `var` properties declared inside the body of a class (not in the primary constructor, and only
-when the property does not have a custom getter or setter) as well as for top-level properties and 
-local variables. The type of the property or variable must be non-null, and it must not be a primitive type.
+This modifier can be used on `var` properties declared inside the body of a class (not in the primary constructor,
+and only when the property does not have a custom getter or setter), as well as for top-level properties and local variables.
+The type of the property or variable must be non-null, and it must not be a primitive type.
 
 Accessing a `lateinit` property before it has been initialized throws a special exception that clearly identifies the property
 being accessed and the fact that it hasn't been initialized.
 
 ### Checking whether a `lateinit var` is initialized
 
-To check whether a `lateinit var` has already been initialized, use `.isInitialized` on 
-the [reference to that property](reflection.md#property-references):
+To check whether a `lateinit var` has already been initialized, use `.isInitialized` on the [reference to that property](reflection.md#property-references):
 
 ```kotlin
 if (foo::bar.isInitialized) {
@@ -197,18 +194,18 @@ if (foo::bar.isInitialized) {
 }
 ```
 
-This check is only available for the properties that are lexically accessible, when declared in the same type or in one of
-the outer types, or at top level in the same file.
+This check is only available for properties that are lexically accessible when declared in the same type, in one of the
+outer types, or at top level in the same file.
 
 ## Overriding properties
 
 See [Overriding properties](inheritance.md#overriding-properties)
 
 ## Delegated properties
-  
-The most common kind of properties simply reads from (and maybe writes to) a backing field. 
-On the other hand, with custom getters and setters one can implement any behaviour of a property.
-Somewhere in between, there are certain common patterns of how a property may work. A few examples: lazy values,
-reading from a map by a given key, accessing a database, notifying listener on access, etc.
 
-Such common behaviours can be implemented as libraries using [delegated properties](delegated-properties.md).
+The most common kind of property simply reads from (and maybe writes to) a backing field, but custom getters and setters
+allow you to use properties so one can implement any sort of behavior of a property.
+Somewhere in between the simplicity of the first kind and variety of the second, there are common patterns for what properties
+can do. A few examples: lazy values, reading from a map by a given key, accessing a database, notifying a listener on access.
+
+Such common behaviors can be implemented as libraries using [delegated properties](delegated-properties.md).

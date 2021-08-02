@@ -1,3 +1,5 @@
+@import "static/js/components/-vars-media";
+
 .kotlin-code-examples-section {
   padding-top: var(--xxl-space);
 }
@@ -296,6 +298,13 @@
         margin-left: 1 * $unit;
         background: url("./images/external-link-marker_fff.svg") no-repeat;
         background-size: 10px;
+      }
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      & {
+        display: flex;
+        flex-wrap: wrap;
       }
     }
   }

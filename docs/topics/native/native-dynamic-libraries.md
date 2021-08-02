@@ -127,12 +127,6 @@ tasks.wrapper {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from Github:
-
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-macos.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-macos.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-linux.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-linux.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-windows.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-windows.zip)
-
 Move the sources file into the `src/nativeMain/kotlin` folder under
 the project. This is the default path, for where sources are located, when
 the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)

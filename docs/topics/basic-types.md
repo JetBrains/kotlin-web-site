@@ -311,8 +311,6 @@ Unsigned types support most of the operations of their signed counterparts.
 >
 {type="note"}
 
-Unsigned types are implemented using feature that's not yet stable, namely [inline classes](inline-classes.md).
-
 #### Unsigned arrays and ranges 
 
 > Unsigned arrays and operations on them are in [Beta](components-stability.md). They can be changed incompatibly at any time.

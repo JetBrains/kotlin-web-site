@@ -31,7 +31,7 @@ uiDesigner.xml
 *.iml
 grammar.xml
 /build/
-/node_modules/
+node_modules
 pdf/kotlin-docs.pdf
 pdf/kotlin-reference.pdf
 pdf/tmp.html

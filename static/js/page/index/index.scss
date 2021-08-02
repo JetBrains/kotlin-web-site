@@ -16,7 +16,7 @@ a, a:hover  {
   margin: 0;
   height: 100%;
   width: 100%;
-  min-width: 650px;
+  min-width: 305px;
 }
 
 .kto-heading {
@@ -52,6 +52,8 @@ a, a:hover  {
 
 .kto-heading_size_h1 {
   margin-bottom: var(--l-space);
+
+  @media(max-width: $breakpoint-xs) { margin-bottom: var(--s-space); }
 }
 
 .kto-heading_size_h4 {
@@ -168,7 +170,7 @@ a.kto-overview-section__title_link:any-link {
   @include kto-text;
   @include kto-text_size_s;
 
-  margin-bottom: var(--m-space);
+  margin-bottom: var(--s-space);
 }
 
 .kto-overview-youtube {

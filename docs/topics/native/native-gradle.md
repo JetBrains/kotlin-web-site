@@ -77,12 +77,6 @@ tasks.withType<Wrapper> {
 
 </tabs>
 
-The prepared project sources can be directly downloaded from Github:
-
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-macos.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-macos.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-linux.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-linux.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-windows.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-windows.zip)
-
 Next, create an empty `settings.gradle` or `settings.gradle.kts` file in the project folder.
 
 Depending on the target platform, different [functions](mpp-supported-platforms.md),

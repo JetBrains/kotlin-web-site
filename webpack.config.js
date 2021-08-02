@@ -2,7 +2,6 @@ const path = require('path');
 
 const webpack = require('webpack');
 const ExtractCssPlugin = require('mini-css-extract-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 
@@ -10,14 +9,14 @@ module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
   const isDevelopment = !isProduction;
   const env = isProduction ? 'production' : 'development';
-  const isServer = process.argv.toString().includes('webpack-dev-server');
+  const isDevServer = process.env.WEBPACK_SERVE === 'true';
   const sourcemaps = params.sourcemaps || isDevelopment;
 
   const siteHost = 'localhost:5000';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
-  const config = {
+  return {
     entry: {
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
@@ -37,24 +36,33 @@ module.exports = (params = {}) => {
     output: {
       path: path.join(__dirname, '_assets'),
       publicPath: '/_assets/',
-      filename: '[name].js'
+      filename: '[name].js',
+      clean: !isDevServer,
     },
 
     devtool: sourcemaps ? 'source-map' : false,
 
     mode: env,
+    bail: !isDevServer,
+
+    resolve: {
+      alias: {
+        'react': 'react',
+        'react-dom': 'react-dom',
+      },
+    },
 
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           loader: 'babel-loader',
           include: [
             path.resolve(__dirname, 'static/js')
           ]
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use: [
             ExtractCssPlugin.loader,
             {
@@ -85,15 +93,10 @@ module.exports = (params = {}) => {
               }
             }
           ]
-
         },
         {
           test: /\.twig$/,
           loader: 'nunjucks-loader'
-        },
-        {
-          test: /\.monk$/,
-          loader: 'monkberry-loader'
         },
         {
           test: /\.mustache$/,
@@ -147,15 +150,12 @@ module.exports = (params = {}) => {
         filename: '[name].css'
       }),
 
-
-      process.env.NODE_ENV === 'production' &&  new CssoWebpackPlugin(),
+      isProduction &&  new CssoWebpackPlugin(),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
-        Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise'
+        'window.jQuery': 'jquery'
       }),
 
       new webpack.DefinePlugin({
@@ -169,6 +169,7 @@ module.exports = (params = {}) => {
 
     devServer: {
       port: 9000,
+      hot: true,
       proxy: {
         '/**': {
           target: `http://${siteHost}`,
@@ -179,12 +180,4 @@ module.exports = (params = {}) => {
       }
     }
   };
-
-  const plugins = config.plugins;
-
-  if (!isServer) {
-    plugins.push(new CleanPlugin(['_assets']))
-  }
-
-  return config;
 };

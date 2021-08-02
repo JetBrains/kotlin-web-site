@@ -5,46 +5,30 @@ title: Why Teach Kotlin
 
 # Why Teach Kotlin
 
-### The Language of Android ###
-Revamp your course with the first-choice language for [Android development](https://kotlinlang.org/docs/reference/android-overview.html). Kotlin has natively supported the mobile development workflow and associated tools since 2017.
-
-> Kotlin is basically becoming the language of Android.
-> {:.kto-quote__text} 
-> Adam Porter, University of Maryland
-> {:.kto-quote__author}
-{:.kto-quote}
-
-Android development will become increasingly Kotlin-first. [Google I/O 2019](https://android-developers.googleblog.com/2019/05/google-io-2019-empowering-developers-to-build-experiences-on-Android-Play.html)
-
-> Decrease in boilerplate helps us to quickly identify which fundamental Android concepts students are missing. The likelihood of issues arising due to some basic syntactic/language problems is lower, allowing students instead to focus on more fundamental software design matters.  
-> {:.kto-quote__text} 
-> Jacob Mass, University of Tartu
-> {:.kto-quote__author}
-{:.kto-quote}
-
 ### Academically recognized ###
-At least 82 universities from the Times Higher Education Rankings 2020 use Kotlin to teach Mobile Application Development, Object-Oriented and Functional Programming, Patterns in Software Engineering, Parallel/Concurrent Programming, Scientific Programming, and other courses (Source: internal Teaching Kotlin Study).
 
-> On numerous courses, where we proceed through Java to Kotlin, we are considering a Kotlin-first approach. 
-> {:.kto-quote__text}
+25 of the top 100 universities in the Times Higher Education World University Rankings 2021 include Kotlin in their courses. We know of 190 universities that teach Kotlin, which is almost twice as many as there were in 2020.
+
+> On numerous courses, where we proceed through Java to Kotlin, we are considering a Kotlin-first approach.
+> {:.kto-quote__text} 
 > Eamonn De Leastar, Waterford Institute of Technology
 > {:.kto-quote__author}
 {:.kto-quote}
 
-22 of the top 100 universities in the THE Rankings 2020 include Kotlin in their courses.
+Kotlin is used to teach a variety of topics,  including object-oriented and functional programming, software engineering, introductory programming, mobile application development, concurrent programming, and scientific programming (Source: internal Teaching Kotlin Study).
 
-
-> I teach Software Engineering with Kotlin. We also have a separate Android Development course. So I can teach in a language that students can use in other courses. 
-> {:.kto-quote__text}
+> I teach Software Engineering with Kotlin. We also have a separate Android Development course. So I can teach in a language that students can use in other courses.  
+> {:.kto-quote__text} 
 > Eugeniy Tyumentcev, Omsk State University
 > {:.kto-quote__author}
 {:.kto-quote}
 
-### Popular in the industry ###
-* Kotlin is used by renowned businesses and organizations of all sizes, including Twitter, Reddit, Pinterest, Uber, Coursera, Evernote, Slack, and Trello, just to name a few.
-* Kotlin job postings have increased by more than 1400% since 2017. Source: [Dice](https://insights.dice.com/2018/09/24/kotlin-jobs-meteoric-rise-android/).
-* Kotlin is one of the fastest-growing programming languages and ranked 4th in the [Github Octoverse 2019](https://octoverse.github.com/).
-* [PYPL](http://pypl.github.io/PYPL.html) ranks Kotlin as the 12th most popular programming language, with a high upward trend in 2020.
+### Language of the industry ###
+
+* Kotlin is used by top companies such as Google, Twitter, Reddit, Netflix, Uber, BMW, Coursera, Slack, and Trello, just to name a few.
+* Kotlin has consistently ranked among the top 4 most-loved programming languages since 2018, according to the [Stack Overflow Developer Surveys](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted).
+* Kotlin is one of the fastest-growing programming languages, ranking  fourth in that category in [GitHub’s 2019 State of the Octoverse survey](https://octoverse.github.com/).
+* Kotlin has the fastest growing language community. ([SlashData's State of the Developer Nation 20th edition, Q1 2021](https://developer-economics.cdn.prismic.io/developer-economics/dbf9f36f-a31a-440a-9c22-c599cc235fa4_20th+edition+-+State+of+the+developer+Nation.pdf))
 
 > Students are happy to have the chance to program in something they may have heard about. 
 > {:.kto-quote__text}
@@ -52,36 +36,30 @@ At least 82 universities from the Times Higher Education Rankings 2020 use Kotli
 > {:.kto-quote__author}
  {:.kto-quote}
 
-4th most loved programming language in the 2019 [StackOverflow Developer Survey](https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted).
-
 > The students are so happy. They can produce useful software quickly. 
 > {:.kto-quote__text}
 > Károly Machalik, University of Pannonia
 > {:.kto-quote__author}
 {:.kto-quote}
 
-### Easy to teach fundamental concepts ###
+### Multiplatform ###
 
-Kotlin's industrial popularity has a sound educational foundation. It is a full-featured language that supports teaching various computer science and software engineering topics like algorithmic problem-solving, data structures, machine learning, compilers, databases, and more.
-Kotlin builds on the students' previous programming experience and is simple to grasp for those with a Java or Python background. 
+The first-choice language for Android development, Kotlin is also being adopted for teaching multiplatform development for mobile, web, server-side programming, data science, and other computer science topics.
 
-> I think our students benefit in general from being exposed to a wide range of programming languages, and I think it is valuable for them to gain experience in using more modern languages alongside the more traditional ones like Java and C++. 
+> Decrease in boilerplate helps us to quickly identify which fundamental Android concepts students are missing. The likelihood of issues arising due to some basic syntactic/language problems is lower, allowing students instead to focus on more fundamental software design matters.
 > {:.kto-quote__text}
-> Nick Efford, University of Leeds
+> Jacob Mass, University of Tartu
 > {:.kto-quote__author}
 {:.kto-quote}
 
-> I appreciate Kotlin's diffusion, its innovation while being able to ‘stay in the mainstream’ to soften the learning curve, the way it supports key concepts – in short, its clarity and cleanness. 
-> {:.kto-quote__text}
-> Enrico Denti, University of Bologna
-> {:.kto-quote__author}
-{:.kto-quote}
 
-Kotlin has a soft learning curve and makes it easy to migrate existing course materials.
+### Easy to learn ###
 
-> Kotlin is as easy to use as Java, but it has pretty much the same desirable language features of harder languages such as C++. 
+Kotlin has a soft learning curve and builds on the students' previous programming experience. It is simple to grasp for those with a Java or Python background.
+
+> Nearly all my students have picked up Kotlin quite easily and really loved it, as compared with Java. 
 > {:.kto-quote__text}
-> Nicola Capodieci, University of Modena and Reggio Emilia
+> Scott Stanchfield, Johns Hopkins University
 > {:.kto-quote__author}
 {:.kto-quote}
 
@@ -91,32 +69,17 @@ Kotlin has a soft learning curve and makes it easy to migrate existing course ma
 > {:.kto-quote__author}
 {:.kto-quote}
 
-### Student motivation ### 
-Knowing that Kotlin is a marketable skill, students tend to be more enthusiastic in studying it. Another big motivator for students is learning a language that allows them to quickly see results from their code.
-
-> Nearly all my students have picked up Kotlin quite easily and really loved it, as compared with Java. 
+> I appreciate Kotlin's diffusion, its innovation while being able to ‘stay in the mainstream’ to soften the learning curve, the way it supports key concepts – in short, its clarity and cleanness. 
 > {:.kto-quote__text}
-> Scott Stanchfield, Johns Hopkins University
+> Enrico Denti, University of Bologna
 > {:.kto-quote__author}
 {:.kto-quote}
 
-> Students like the language. It's less verbose than Java, for instance, and has more market appeal than OCaml and ML. 
-> {:.kto-quote__text}
-> Fernando Magno Quintão Pereira, Federal University of Minas Gerais
-> {:.kto-quote__author}
-{:.kto-quote}
-
-88% of students give positive feedback about learning Kotlin.
-Source: internal Teaching Kotlin Study.
-
-> Students’ feedback about learning Kotlin is really, really positive.
-> {:.kto-quote__text}
-> Márton Braun, Budapest University of Technology and Economics
-> {:.kto-quote__author}
-{:.kto-quote}
+According to an internal Teaching Kotlin study, 88% of students give positive feedback about learning Kotlin.
 
 ### Interoperable ###
-Seamless interoperability with the JVM ecosystem means that Kotlin can rely on numerous existing libraries. Our handy Java-to-Kotlin converter provides excellent support to migrate Java code to Kotlin and helps students quickly learn the syntax if they are already familiar with Java. Java programs can call Kotlin code without any overhead either. Kotlin can also be compiled to JavaScript to run in the browser or on Node.js, or into a standalone native binary targeting any major operating system.
+
+Seamless interoperability with the JVM ecosystem means that Kotlin can rely on numerous existing libraries. Java programs can also call Kotlin code without any overhead. Our helpful Java-to-Kotlin converter makes it easy to migrate existing course materials. It also helps students quickly learn the syntax if they are already familiar with Java.
 
 > Kotlin is faster to develop and comprehend what is happening; near 100% backwards compatibility makes it easy to show in Java and translate into Kotlin while still utilizing every available library from Java; Students seem to understand it fairly quickly. 
 > {:.kto-quote__text}
@@ -124,9 +87,12 @@ Seamless interoperability with the JVM ecosystem means that Kotlin can rely on n
 > {:.kto-quote__author}
 {:.kto-quote}
 
-+ [Java-to-Kotlin converter](https://try.kotlinlang.org/#/Kotlin%20Koans/Introduction/Java%20to%20Kotlin%20conversion/Task.kt)
-+ [Kotlin/JS](https://kotlinlang.org/docs/reference/js-project-setup.html)
-+ [Kotlin/Native](https://kotlinlang.org/docs/reference/native/concurrency.html)
+Kotlin can also be compiled to JavaScript to run in the browser or on Node.js, or into a standalone native binary targeting any major operating system.
+
++ [Java-to-Kotlin converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k)
++ [Kotlin/JVM](https://kotlinlang.org/docs/jvm-get-started.html)
++ [Kotlin/JS](https://kotlinlang.org/docs/js-get-started.html)
++ [Kotlin/Native](https://kotlinlang.org/docs/native-get-started.html)
 
 > For the upcoming Introductory Programming course, we chose Kotlin, because we wanted a language that targets the JVM and seamlessly interoperates with its ecosystem: a stack of utmost importance to our market. 
 > {:.kto-quote__text}
@@ -136,15 +102,13 @@ Seamless interoperability with the JVM ecosystem means that Kotlin can rely on n
 
 ### Supports multiple paradigms ###
 
-Kotlin combines the major programming paradigms in an elegant way, making it possible to use functional, imperative, object-oriented, or procedural programming – all within the same language. With Kotlin’s support for coroutines, the concepts of concurrency and parallelism come naturally.
+Kotlin combines all the major programming paradigms in an elegant way, making it possible to use functional, imperative, object-oriented, or procedural programming – all within the same language. With Kotlin’s support for coroutines, the concepts of concurrency and parallelism come naturally.
 
 > You are able to teach procedural programming for the very beginners without needing to describe classes. Thus, your course can be more consistent. 
 > {:.kto-quote__text}
 > Alexey Mitsyuk, HSE university
 > {:.kto-quote__author}
 {:.kto-quote}
-
-Kotlin supports functional, imperative, object-oriented, and procedural programming
 
 > My Kotlin students in fact understand OO concepts better than my Java students do. 
 > {:.kto-quote__text}
@@ -158,17 +122,23 @@ Kotlin supports functional, imperative, object-oriented, and procedural programm
 > {:.kto-quote__author}
 {:.kto-quote}
 
-### Supports coding safety ###
-Kotlin promotes writing correct programs with static type checking and automatic memory management. It rules out null-pointer dereferences and has no explicit pointers or undetectable uninitialized variables. 
+### Modern, concise, and safe ###
 
-> Take the opportunity to teach something new, type safe and functional. 
+Kotlin allows students to focus on expressing their ideas, as they don’t have to write as much boilerplate code. Less code written also means less code to test and debug. This language design makes Kotlin a highly productive language, and it also simplifies grading homework and understanding the students' code. According to an internal Teaching Kotlin survey, Kotlin’s concise and expressive syntax is its most beloved feature among educators.
+
+> Kotlin's compactness is my favorite feature. I’ve translated a few of my Java programming courseworks into Kotlin and noticed that code typically shrinks to 50% of its original size. As a teacher, I also get some benefit from being able to use less code when showing students how to do things. 
 > {:.kto-quote__text}
-> Gaute Berge, University of Oslo
+> Nick Efford, University of Leeds
 > {:.kto-quote__author}
 {:.kto-quote}
 
-Type safety and null safety are among the favorite features of Kotlin instructors.
-Source: internal Teaching Kotlin Study.
+> Simple syntax. Less code to get more done. At the same time Kotlin has advanced topics such as coroutines.
+> {:.kto-quote__text}
+> Zaid Altahat, Northwestern University, University of Wisconsin–Parkside
+> {:.kto-quote__author}
+{:.kto-quote}
+
+Kotlin promotes writing correct programs with static type checking and automatic memory management. It rules out null-pointer dereferences and has no explicit pointers or undetectable uninitialized variables. Type safety and null safety are some of the most beloved features among Kotlin instructors, according to our internal Teaching Kotlin study.
 
 > One of Kotlin’s advantages is a good combination of strong typing and nullability. 
 > {:.kto-quote__text}
@@ -182,27 +152,9 @@ Source: internal Teaching Kotlin Study.
 > {:.kto-quote__author}
 {:.kto-quote}
 
-### Modern and concise language design ###
-Kotlin's syntactic simplicity makes it beginner-friendly, while at the same time, it offers sophisticated features that ambitious students won't grow out of.
-
-Kotlin allows students to focus on expressing their ideas and write less boilerplate code. Less code written also means less code to test and debug. Such language design makes Kotlin a highly productive language, and it also simplifies grading homework and understanding your students' code.
-
-> Simple syntax. Less code to get more done. At the same time Kotlin has advanced topics such as coroutines.
-> {:.kto-quote__text}
-> Zaid Altahat, Northwestern University, University of Wisconsin–Parkside
-> {:.kto-quote__author}
-{:.kto-quote}
-
-Instructors love Kotlin’s concise and expressive syntax. Source: internal Teaching Kotlin Study.
-
-> Kotlin's compactness is my favorite feature. I’ve translated a few of my Java programming courseworks into Kotlin and noticed that code typically shrinks to 50% of its original size. As a teacher, I also get some benefit from being able to use less code when showing students how to do things. 
-> {:.kto-quote__text}
-> Nick Efford, University of Leeds
-> {:.kto-quote__author}
-{:.kto-quote}
-
 ### Prepares students for careers ###
-Teaching professional software engineering practices improves students’ employment prospects. In-class coding projects are typically fully functional Android applications, and real-world assignments are more engaging for students than abstract examples are. 
+
+Teaching professional software engineering practices improves students’ employment prospects. And knowing that Kotlin is a marketable skill, students tend to be more enthusiastic about studying it. 
 
 > Employment prospects and how the language will be on the resume are things to look at when choosing a language to teach. 
 > {:.kto-quote__text}
@@ -210,18 +162,19 @@ Teaching professional software engineering practices improves students’ employ
 > {:.kto-quote__author}
 {:.kto-quote}
 
-Kotlin job postings have increased by more than 1400% since 2017. Source: [Dice](https://insights.dice.com/2018/09/24/kotlin-jobs-meteoric-rise-android/).
+Kotlin ranked fifth in the category of Most In-Demand Coding Languages Across the Globe from [Hired’s 2019 State of Software Engineers Report](http://pages.hired.email/rs/289-SIY-439/images/2019-State-of-SoftwareEngineers-Report.pdf?mkt_tok=eyJpIjoiTW1ReVl6RTNZVE15WWpNMSIsInQiOiJ5ajJ4N0xSQ3lRRmFscU84b1FzNGhZXC9IM2ZXbElCcHordUljaGY4Sk00RmtYMU1DVFJWSk1zRFExa3Q5NUlocE9LZVRRd2k3dUJzOVBLeFFQY2d1aWc2NnZydjNsVm1tYzNnUjlwN2xCZWxReEU3YmROTDNIcjA1cHRNaHRlS0EifQ%3D%3D).
 
-> Hard at first, but students love it compared to C# or JavaScript. 
+Kotlin ranked third among programming languages that developers are planning on learning next, according to [HackerRank’s 2020 Developer Skills Report](https://research.hackerrank.com/developer-skills/2020).
+
+> Students like the language. It's less verbose than Java, for instance, and has more market appeal than OCaml and ML. 
 > {:.kto-quote__text}
-> Alex Queudot, ENTI – University of Barcelona
+> Fernando Magno Quintão Pereira, Federal University of Minas Gerais
 > {:.kto-quote__author}
 {:.kto-quote}
 
 ### Tooling and learning materials ###
-The top tools of the profession are packaged with the language. IntelliJ IDEA supports Kotlin as a first-class citizen and is free for educators and students. It offers great productivity features, such as smart code completion, code inspections, a visual debugger, and more.
 
-The educational EduTools plugin is also available to help learn and teach Kotlin programming. Educators can use existing interactive courses or create custom ones, with hands-on assignments and practice coding tasks. Integrated tests will automatically check the assignments and provide feedback.
+The top tools of the profession are packaged with the language.
 
 > JetBrains equipped Kotlin with the best available tooling to simplify development. 
 > {:.kto-quote__text}
@@ -230,9 +183,22 @@ The educational EduTools plugin is also available to help learn and teach Kotlin
 {:.kto-quote}
 
 * [Free IntelliJ IDEA Ultimate license](https://www.jetbrains.com/community/education/#students)
-* [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools)
-* [Documentation](https://kotlinlang.org/docs/reference/)
+
+IntelliJ IDEA supports Kotlin as a first-class citizen and is free for educators and students. It offers great productivity features, such as smart code completion, code inspections, a visual debugger, and more.
+
 * [Playground](https://play.kotlinlang.org/)
+
+The playground provides an interactive way to learn the language, and it is also useful for trying out small code snippets in the browser without having to open an IDE to write and run code.
+
+* [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools)
+
+This plugin helps users learn and teach Kotlin programming. Educators can use existing interactive courses or create custom ones, with hands-on assignments and coding tasks to practice on. Integrated tests will automatically check the assignments and provide feedback.
+
+* [Code With Me](https://www.jetbrains.com/code-with-me/)
+ 
+ This is a new collaborative coding and pair programming service. It’s a great tool for remote learning and real-time collaboration on a project inside an IDE.
+
+* [Resources for educators](https://kotlinlang.org/education)
 
 > Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great. 
 > {:.kto-quote__text}
@@ -241,14 +207,13 @@ The educational EduTools plugin is also available to help learn and teach Kotlin
 {:.kto-quote}
 
 ### Open source community ###
-Open source at heart, Kotlin is a free language that runs on all major platforms. Kotlin is supported by, and evolves with the help of, its diverse and enthusiastic community, which includes over 200 Kotlin User Groups all around the world, an active forum, Slack, Reddit, and Stack Overflow communities, and many other resources.
 
-> Freely available implementation is very important. 
-> {:.kto-quote__text}
-> Ryan Stansifer, Florida Institute of Technology
-> {:.kto-quote__author}
-{:.kto-quote}
+Open source at heart, Kotlin is a free language that runs on all major platforms. Kotlin is supported by, and evolves with the help of, its diverse and enthusiastic community.
 
-We’ve created a dedicated Slack channel where Kotlin educators can share their experience, exchange ideas, and empower each other. Let’s (teach) Kotlin!
-
-<a target="_blank" class="kto-button kto-button_size_m kto-button_mode_primary" href="https://surveys.jetbrains.com/s3/kotlinlang-slack-signup-educators">Request to Join</a>
+* [200 Kotlin User Groups](https://kotlinlang.org/user-groups/user-group-list.html)
+* [Kotlinlang Slack workspace](https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators), with a dedicated #education channel
+* [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), which hosts regular [educational webinars](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA)
+* [Twitter](https://twitter.com/kotlin)
+* [Reddit](https://www.reddit.com/r/Kotlin/)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/kotlin)
+* [Forum](https://discuss.kotlinlang.org/)

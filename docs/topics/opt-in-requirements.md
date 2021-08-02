@@ -20,7 +20,7 @@ requires them to opt in before using the API.
 
 ## Opt in to using API
 
-If a library author marks a declaration from a library's API as [_requiring opt-in_](#require-opt-in-for-api),
+If a library author marks a declaration from a library's API as [requiring opt-in](#require-opt-in-for-api),
 you should give an explicit consent for using it in your code. 
 There are several ways to opt in to such APIs, all applicable without technical limitations.
 You are free to choose the way that you find best for your situation. 
@@ -28,7 +28,7 @@ You are free to choose the way that you find best for your situation.
 ### Propagating opt-in
 
 When you use an API in the code intended for third-party use (a library), you can propagate its opt-in requirement to your API as well.
-To do this, annotate your declaration with the [_opt-in requirement annotation_](#create-opt-in-requirement-annotations) of the API used in its body.
+To do this, annotate your declaration with the [opt-in requirement annotation](#create-opt-in-requirement-annotations) of the API used in its body.
 This enables you to use the API elements marked with this annotation.
 
 ```kotlin

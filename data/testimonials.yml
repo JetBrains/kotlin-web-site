@@ -1,12 +1,18 @@
 - company: Gradle
-  text: Gradle is <a target="_blank" href="https://blog.gradle.org/kotlin-meets-gradle">introducing Kotlin</a> as a language for writing build scripts
+  url: https://blog.gradle.org/kotlin-meets-gradle
+  text: Gradle is introducing Kotlin as a language for writing build scripts
 - company: Corda
-  text: Corda is an open-source distributed ledger platform, supported by major banks, and <a target="_blank" href="https://www.corda.net/2017/01/10/kotlin/">built entirely in Kotlin</a>
+  url: https://www.corda.net/2017/01/10/kotlin/
+  text: Corda is an open-source distributed ledger platform, supported by major banks, and built entirely in Kotlin
 - company: Evernote
-  text: Evernote recently <a target="_blank" href="https://blog.evernote.com/tech/2017/01/26/android-state-library/">integrated Kotlin</a> into their Android client
+  url: https://blog.evernote.com/tech/2017/01/26/android-state-library/
+  text: Evernote recently integrated Kotlin into their Android client
 - company: Coursera
-  text: Coursera Android app is <a target="_blank" href="https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/">partially written</a> in Kotlin
+  url: https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/
+  text: Coursera Android app is partially written in Kotlin
 - company: Spring
-  text: Spring makes <a target="_blank" href="https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0">use of Kotlin's language features</a> to offer more concise APIs
+  url: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
+  text: Spring makes use of Kotlin's language features to offer more concise APIs
 - company: Atlassian
-  text: All new code in the <a target="_blank" href="https://twitter.com/danlew42/status/809065097339564032">Trello Android</a> app is in Kotlin
+  url: https://twitter.com/danlew42/status/809065097339564032
+  text: All new code in the Trello Android app is in Kotlin

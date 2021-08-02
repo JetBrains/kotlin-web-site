@@ -247,7 +247,7 @@ the `kotlinOptions.jvmTarget` [compiler option](#compiler-options) of your Gradl
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle 
 plugin won’t override it or add a second standard library. 
 
-If you do not need a standard library at all, you can add the opt-out flag to the `gradle.properties`:
+If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
 ```kotlin
 kotlin.stdlib.default.dependency=false
@@ -268,7 +268,7 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 <tabs>
 
 ```groovy
-kotlin{
+kotlin {
     sourceSets {
         commonTest {
             dependencies {
@@ -280,7 +280,7 @@ kotlin{
 ```
 
 ```kotlin
-kotlin{
+kotlin {
     sourceSets {
         val commonTest by getting {
             dependencies {
@@ -484,10 +484,9 @@ Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and i
 
 There are several ways to switch off incremental compilation:
 
-    * `kotlin.incremental=false` for Kotlin/JVM 
-    * `kotlin.incremental.js=false` for Kotlin/JS projects
-    
-* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false`.
+* `kotlin.incremental=false` for Kotlin/JVM.
+* `kotlin.incremental.js=false` for Kotlin/JS projects.
+* As the command line parameter, use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false` for Kotlin/JVM and Kotlin/JS projects respectively.
 
     Note that in this case the parameter should be added to each subsequent build, and any build with disabled incremental 
     compilation invalidates incremental caches.
@@ -607,7 +606,7 @@ The complete list of options for the Gradle tasks is the following:
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
-| `useIR` | Use the IR backend |  | false |
+| `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
 
 ### Attributes specific for JS
 

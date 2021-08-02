@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/JS IR compiler)
 
 > The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
->in the future. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
 
@@ -83,7 +83,27 @@ lazily. This way, the application loads without initializing all the top-level p
 only the ones needed at startup; other properties receive their values later when the code that uses them actually runs. 
 
 As an experimental feature, lazy initialization of top-level properties requires an opt-in. To use the lazy initialization
-of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler.
+of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler:
+
+<tabs>
+    
+```groovy
+tasks.withType(Kotlin2JsCompile) {
+   kotlinOptions {
+     freeCompilerArgs += "-Xir-property-lazy-initialization"
+   }
+}
+```
+
+```kotlin
+tasks.withType<Kotlin2JsCompile> {
+   kotlinOptions {
+     freeCompilerArgs += "-Xir-property-lazy-initialization"
+   }
+}
+```
+
+</tabs>
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
@@ -122,6 +142,12 @@ it's good to be mindful of these possible pitfalls.
 - Currently, the IR backend **does not generate source maps for Kotlin code**. You can follow the progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-39447).
 - Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
 - The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
+
+## Migrating existing projects to the IR compiler
+
+Due to significant differences between the two Kotlin/JS compilers, making your Kotlin/JS code work with the IR compiler
+may require some adjustments. Learn how to migrate existing Kotlin/JS projects to the IR compiler in the [Kotlin/JS IR
+compiler migration guide](js-ir-migration.md).
 
 ## Authoring libraries for the IR compiler with backwards compatibility
 

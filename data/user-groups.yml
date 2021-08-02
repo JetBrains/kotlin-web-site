@@ -1,0 +1,1188 @@
+- section: Europe
+  anchorId: europe
+  groups:
+    - name: Amsterdam Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/kotlin-amsterdam/
+      position:
+        lat: 52.3675734
+        lng: 4.9041389
+    - name: Amsterdam High-performwarrance Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/High-performance-Kotlin/
+      position:
+        lat: 52.3676789
+        lng: 4.9039003
+    - name: Athens Kotlin User Group
+      country: Greece
+      url: https://www.meetup.com/Kotlin-Athens/
+      position:
+        lat: 37.9838096
+        lng: 23.7275388
+    - name: Barcelona, KotlinBCN
+      country: Spain
+      url: https://www.meetup.com/kotlinbcn/
+      position:
+        lat: 41.3850639
+        lng: 2.1734035
+    - name: Basel Kotlin User Group
+      country: Switzerland
+      url: https://www.meetup.com/Kotlin-User-Group-Basel/
+      position:
+        lat: 47.5595986
+        lng: 7.5885761
+    - name: Belarus Kotlin User Group
+      country: Belarus
+      url: https://bkug.by/
+      position:
+        lat: 53.709807
+        lng: 27.953389
+    - name: Belfast Kotlin User Group
+      country: Northern Ireland
+      url: https://www.meetup.com/kotlin-belfast/
+      position:
+        lat: 54.597285
+        lng: -5.93012
+    - name: Berlin Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/kotlin-berlin/
+      position:
+        lat: 52.5200066
+        lng: 13.404954
+    - name: Bielefelder Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Bielefelder-Kotlin-User-Group/
+      position:
+        lat: 52.0302285
+        lng: 8.5324708
+    - name: Bologna Kotlin User Group
+      country: Italy
+      url: https://www.facebook.com/Kotlin-User-Group-Bologna-111446750450756/
+      position:
+        lat: 44.494887
+        lng: 11.3426163
+    - name: Bosnia Kotlin User Group
+      country: Bosnia and Herzegovina
+      url: https://www.facebook.com/kotlinugbosnia
+      position:
+        lat: 43.915886
+        lng: 17.679076
+    - name: Brighton Kotlin User Group
+      country: United Kingdom
+      url: https://www.meetup.com/Brighton-Kotlin/
+      position:
+        lat: 50.82253
+        lng: -0.137163
+    - name: Brussels Kotlin User Group
+      country: Belgium
+      url: https://www.meetup.com/brussels-kotlin-user-group/
+      position:
+        lat: 50.8503396
+        lng: 4.3517103
+    - name: Bucharest Kotlin User Group
+      country: Romania
+      url: https://www.meetup.com/kug-bucharest/
+      position:
+        lat: 44.4267674
+        lng: 26.1025384
+    - name: Budapest Kotlin User Group
+      country: Hungary
+      url: https://www.facebook.com/groups/KotlinBudapest/
+      position:
+        lat: 47.497912
+        lng: 19.040235
+    - name: Bulgarian Kotlin User Group
+      country: Bulgaria
+      url: https://bg-kug.github.io/
+      position:
+        lat: 42.733883
+        lng: 25.48583
+    - name: Cologne Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref
+      position:
+        lat: 50.937531
+        lng: 6.9602786
+    - name: Copenhagen Kotlin User Group
+      country: Denmark
+      url: https://www.meetup.com/Kotlin-Copenhagen/
+      position:
+        lat: 55.6760968
+        lng: 12.5683371
+    - name: Croatia Kotlin User Group
+      country: Croatia
+      url: https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/
+      position:
+        lat: 45.1
+        lng: 15.2
+    - name: Czech Kotlin User Group
+      country: Czech Republic
+      url: https://www.facebook.com/czkug/
+      position:
+        lat: 49.817492
+        lng: 15.472962
+    - name: Dnipro Kotlin User Group
+      country: Ukraine
+      url: https://www.meetup.com/Kotlin-Dnipro/
+      position:
+        lat: 48.464717
+        lng: 35.046183
+    - name: Dobrich Kotlin User Group
+      country: Bulgaria
+      url: https://www.facebook.com/groups/156178639762762/
+      position:
+        lat: 43.57259
+        lng: 27.8272606
+    - name: Dublin Kotlin User Group
+      country: Ireland
+      url: https://www.meetup.com/Dublin-Kotlin-Meetup/
+      position:
+        lat: 53.3498053
+        lng: -6.2603097
+    - name: Dusseldorf Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Dusseldorf-Kotlin-Meetup/
+      position:
+        lat: 51.2277411
+        lng: 6.7734556
+    - name: Dutch Kotlin User Group
+      country: Netherlands
+      url: http://kotlin.nl/
+      position:
+        lat: 52.132633
+        lng: 5.291266
+    - name: Edinburgh Kotlin User Group
+      country: Scotland
+      url: https://www.meetup.com/Edinburgh-Kotlin-User-Group/
+      position:
+        lat: 55.953252
+        lng: -3.188267
+    - name: Estonia Kotlin User Group
+      country: Estonia
+      url: https://www.facebook.com/groups/estoniaKotlin/
+      position:
+        lat: 58.595272
+        lng: 25.013607
+    - name: Hamburg Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/de-DE/Kotlin-User-Group-Hamburg/
+      position:
+        lat: 53.5510846
+        lng: 9.9936818
+    - name: Helsinki Kotlin User Group
+      country: Finland
+      url: https://www.meetup.com/Kotlin-User-Group-Helsinki/?from=ref
+      position:
+        lat: 60.1698557
+        lng: 24.938379
+    - name: Italy Kotlin User Group
+      country: Italy
+      url: https://www.facebook.com/groups/kotlinitaly/
+      position:
+        lat: 41.87194
+        lng: 12.56738
+    - name: Karlsruhe Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Karlsruhe-Software-Development-Meetup/
+      position:
+        lat: 49.0068901
+        lng: 8.4036527
+    - name: Kassel Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kassel-Kotlin-User-Group/
+      position:
+        lat: 51.3127114
+        lng: 9.4797461
+    - name: Kyiv Kotlin User Group
+      country: Ukraine
+      url: https://www.meetup.com/KyivKUG
+      position:
+        lat: 50.4501
+        lng: 30.5234
+    - name: Krakow Kotlin User Group
+      country: Poland
+      url: https://www.meetup.com/krakow-kotlin/
+      position:
+        lat: 50.0646501
+        lng: 19.9449799
+    - name: Leeds Kotlin User Group
+      country: United Kingdom
+      url: https://leedskotlinusergroup.netlify.com/published/2020/1/6/our-first-meetup/
+      position:
+        lat: 53.8007554
+        lng: -1.5490774
+    - name: Lisboa Kotlin User Group
+      country: Portugal
+      url: https://meetup.com/kotlin-lisboa/
+      position:
+        lat: 38.7222524
+        lng: -9.1393366
+    - name: London Kotlin
+      country: United Kingdom
+      url: http://www.meetup.com/kotlin-london/
+      position:
+        lat: 51.5073509
+        lng: -0.1277583
+    - name: Lviv Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/1395212093948927/
+      position:
+        lat: 49.839683
+        lng: 24.029717
+    - name: Madrid Kotlin User Group
+      country: Spain
+      url: https://www.meetup.com/KotlinMAD/
+      position:
+        lat: 40.4167754
+        lng: -3.7037902
+    - name: Manchester Kotlin Developers
+      country: United Kingdom
+      url: http://www.meetup.com/Kotlin-Manchester/
+      position:
+        lat: 53.4807593
+        lng: -2.2426305
+    - name: Marseille Kotlin User Group
+      country: France
+      url: https://www.meetup.com/Marseille-Kotlin-User-Group/
+      position:
+        lat: 43.296482
+        lng: 5.36978
+    - name: Milano Kotlin User Group
+      country: Italy
+      url: https://www.meetup.com/it-IT/KUG-Milan/
+      position:
+        lat: 45.4642035
+        lng: 9.189982
+    - name: Moscow Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/KotlinMoscow/
+      position:
+        lat: 55.755826
+        lng: 37.6173
+    - name: Munich Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Munich/
+      position:
+        lat: 48.1351253
+        lng: 11.5819806
+    - name: Nantes Kotlin User Group
+      country: France
+      url: https://www.meetup.com/fr-FR/Kotlin-Nantes-Meetup
+      position:
+        lat: 47.218371
+        lng: -1.553621
+    - name: Nizhny Novgorod Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/kotlin_nn/
+      position:
+        lat: 56.3268684
+        lng: 44.0058793
+    - name: Odessa Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/557764034687880/
+      position:
+        lat: 46.482526
+        lng: 30.7233095
+    - name: Oslo Kotlin User Group
+      country: Norway
+      url: https://www.meetup.com/meetup-group-nWeRbyMu/
+      position:
+        lat: 59.9138688
+        lng: 10.7522454
+    - name: Omsk Kotlin User Group
+      country: Russia
+      url: https://vk.com/omskkotlin
+      position:
+        lat: 54.9913545
+        lng: 73.3645204
+    - name: Paris Kotlin User Group
+      country: France
+      url: https://www.meetup.com/Kotlin-Paris-Meetup/
+      position:
+        lat: 48.856614
+        lng: 2.3522219
+    - name: Rhein-Main Kotlin
+      country: Germany
+      url: https://www.meetup.com/de-DE/Kotlin-Rhein-Main/
+      position:
+        lat: 50.0916446
+        lng: 8.8738682
+    - name: Rostov Kotlin User Group
+      country: Russia
+      url: https://vk.com/rndkotlin
+      position:
+        lat: 57.195623
+        lng: 39.4131527
+    - name: Samara Kotlin User Group
+      country: Russia
+      url: https://sitc.community/communities/kug/
+      position:
+        lat: 53.203772
+        lng: 50.1606382
+    - name: St. Petersburg Kotlin User Group
+      country: Russia
+      url: https://www.meetup.com/St-Petersburg-Kotlin-User-Group/
+      position:
+        lat: 59.9310584
+        lng: 30.3609097
+    - name: Serbia Kotlin User Group
+      country: Serbia
+      url: https://www.meetup.com/Serbia-Kotlin-User-Group/
+      position:
+        lat: 44.016521
+        lng: 21.005859
+    - name: Slovakia Kotlin User Group
+      country: Slovakia
+      url: https://www.meetup.com/Kotlin-Slovakia/
+      position:
+        lat: 48.669026
+        lng: 19.699024
+    - name: Stockholm Kotlin User Group
+      country: Sweden
+      url: https://www.meetup.com/Sweden-Kotlin-User-Group/
+      position:
+        lat: 59.3293235
+        lng: 18.0685808
+    - name: Stuttgart Kotlin User Group
+      country: Germany
+      url: https://www.meetup.com/Kotlin-User-Group-Stuttgart/
+      position:
+        lat: 48.7758459
+        lng: 9.1829321
+    - name: Swiss Kotlin User Group
+      country: Switzerland
+      url: https://www.meetup.com/Kotlin-Swiss-User-Group/
+      position:
+        lat: 46.818188
+        lng: 8.227512
+    - name: Taganrog Kotlin User Group
+      country: Russia
+      url: https://vk.com/kotlintgn
+      position:
+        lat: 47.2125752
+        lng: 38.9159658
+    - name: Torino Kotlin User Group
+      country: Italy
+      url: https://www.meetup.com/kotlin-torino-user-group/
+      position:
+        lat: 45.0703393
+        lng: 7.686864
+    - name: Tricity Kotlin User Group
+      country: Poland
+      url: https://www.facebook.com/groups/2519853351660362/
+      position:
+        lat: 54.39927
+        lng: 18.57639
+    - name: Utrecht Kotlin User Group
+      country: Netherlands
+      url: https://www.meetup.com/meetup-group-YgJEOzCn/
+      position:
+        lat: 52.0907374
+        lng: 5.1214201
+    - name: Uzhgorod Kotlin User Group
+      country: Ukraine
+      url: https://www.facebook.com/groups/135578123824203/
+      position:
+        lat: 48.6208
+        lng: 22.287883
+    - name: Vienna Kotlin
+      country: Austria
+      url: https://www.meetup.com/Kotlin-Vienna/
+      position:
+        lat: 48.2081743
+        lng: 16.3738189
+    - name: Warsaw Kotlin
+      country: Poland
+      url: https://www.meetup.com/Kotlin-Warsaw/
+      position:
+        lat: 52.2296756
+        lng: 21.0122287
+- section: Asia
+  anchorId: asia
+  groups:
+    - name: Ahmedabad Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinAhmedabad/
+      position:
+        lat: 23.022505
+        lng: 72.5713621
+    - name: Allahabad Kotlin User Group
+      country: India
+      url: https://www.facebook.com/Kotlin-Allahabad-User-Group-967463300076405/
+      position:
+        lat: 25.4358011
+        lng: 81.846311
+    - name: Astana Java & Kotlin User Group
+      country: Kazakhstan
+      url: https://community-z.com/communities/astana-jkug
+      position:
+        lat: 51.1605227
+        lng: 71.4703558
+    - name: Azerbaijan Kotlin User Group
+      country: Azerbaijan
+      url: https://www.facebook.com/groups/395337754167951/
+      position:
+        lat: 40.143105
+        lng: 47.576927
+    - name: Bangladesh Kotlin User Group
+      country: Bangladesh
+      url: https://www.facebook.com/KotlinBangladesh/
+      position:
+        lat: 23.684994
+        lng: 90.356331
+    - name: Batam Kotlin User Group
+      country: Indonesia
+      url: https://t.me/KotlinDevBatam
+      position:
+        lat: 1.1300779
+        lng: 104.0529207
+    - name: Bengaluru Kotlin User Group
+      country: India
+      url: https://www.facebook.com/KotlinBengaluru/
+      position:
+        lat: 12.9715987
+        lng: 77.5945627
+    - name: Bengaluru Kotlin 'BlrKotlin' Meetup
+      country: India
+      url: https://www.meetup.com/BlrKotlin/
+      position:
+        lat: 12.9715214
+        lng: 77.5940323
+    - name: Beijing Kotlin User Group
+      country: China
+      url: http://www.kotliner.cn/
+      position:
+        lat: 39.9041999
+        lng: 116.4073963
+    - name: Bhopal Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinbpl/
+      position:
+        lat: 23.2599333
+        lng: 77.412615
+    - name: Bhubaneswar Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/1961143800818624/
+      position:
+        lat: 20.2960587
+        lng: 85.8245398
+    - name: Chennai Kotlin User Group
+      country: India
+      url: https://discord.gg/UYHG85Pgu9
+      position:
+        lat: 13.0826802
+        lng: 80.2707184
+    - name: Cirebon Kotlin User Group
+      country: Indonesia
+      url: https://t.me/kotlin_crb
+      position:
+        lat: -6.7320229
+        lng: 108.5523164
+    - name: Coimbatore Kotlin User Group
+      country: India
+      url: https://facebook.com/kotlincbe/
+      position:
+        lat: 11.0168445
+        lng: 76.9558321
+    - name: Cambodia Kotlin User Group
+      country: Cambodia
+      url: https://www.facebook.com/groups/kotlinphnompenh
+      position:
+        lat: 12.565679
+        lng: 104.990963
+    - name: Dubai Kotlin User Group
+      country: United Arab Emirates
+      url: https://www.facebook.com/kotlindubai/
+      position:
+        lat: 25.2048493
+        lng: 55.2707828
+    - name: Durg Kotlin User Group
+      country: India
+      url: https://www.facebook.com/Kotlin-User-Group-Durg-102907258611792
+      position:
+        lat: 21.1904494
+        lng: 81.2849169
+    - name: Jordan Kotlin User Group
+      country: Jordan
+      url: https://www.facebook.com/KotlinJO/
+      position:
+        lat: 30.585164
+        lng: 36.238414
+    - name: Hefei Kotlin User Group
+      country: China
+      url: http://weibo.com/kotlinhfug
+      position:
+        lat: 31.820591
+        lng: 117.227219
+    - name: Ho Chi Minh Kotlin User Group
+      country: Vietnam
+      url: https://www.facebook.com/kughcmc/
+      position:
+        lat: 10.8230989
+        lng: 106.6296638
+    - name: Hong Kong Kotlin User Group
+      country: China
+      url: https://www.facebook.com/KotlinHK
+      position:
+        lat: 22.3193039
+        lng: 114.1693611
+    - name: Hyderabad Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinHyderabad/
+      position:
+        lat: 17.385044
+        lng: 78.486671
+    - name: Indonesia Kotlin User Group
+      country: Indonesia
+      url: https://www.facebook.com/groups/395469687469099/
+      position:
+        lat: -0.789275
+        lng: 113.921327
+    - name: Indore Kotlin User Group
+      country: India
+      url: https://www.meetup.com/kotlinindore/
+      position:
+        lat: 22.7195687
+        lng: 75.8577258
+    - name: Israel Kotlin User Group
+      country: Israel
+      url: https://www.facebook.com/groups/107080706530829/
+      position:
+        lat: 31.046051
+        lng: 34.851612
+    - name: Istanbul Kotlin User Group
+      country: Turkey
+      url: https://www.meetup.com/Kotlin-%C4%B0stanbul/
+      position:
+        lat: 41.0082376
+        lng: 28.9783589
+    - name: Jaffna Kotlin User Group
+      country: Sri Lanka
+      url: https://www.facebook.com/Kotlin-User-Group-Jaffna-102091321371464/
+      position:
+        lat: 9.6614981
+        lng: 80.0255465
+    - name: Japan Kotlin User Group
+      country: Japan
+      url: https://kotlin.connpass.com/
+      position:
+        lat: 36.204824
+        lng: 138.252924
+    - name: JiangXi Kotlin User Group
+      country: China
+      url: https://weibo.com/u/6689084931
+      position:
+        lat: 27.0874564
+        lng: 114.9042208
+    - name: Jodhpur Kotlin User Group
+      country: India
+      url: https://www.linkedin.com/company/kotlin-mumbai-ug
+      position:
+        lat: 26.2389469
+        lng: 73.0243094
+    - name: Kanpur Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/1010455952691560/
+      position:
+        lat: 26.449923
+        lng: 80.3318736
+    - name: Karachi Kotlin User Group
+      country: Pakistan
+      url: https://www.facebook.com/kotlinkarachi/
+      position:
+        lat: 24.8607343
+        lng: 67.0011364
+    - name: Kathmandu Kotlin User Group
+      country: Nepal
+      url: https://www.facebook.com/groups/100333660782830/
+      position:
+        lat: 27.7172453
+        lng: 85.3239605
+    - name: Khabarovsk Kotlin User Group
+      country: Russia
+      url: https://devdv.ru/projects/kug
+      position:
+        lat: 48.4814433
+        lng: 135.0720667
+    - name: Kolkata Kotlin User Group
+      country: India
+      url: https://www.meetup.com/Kotlin-Kolkata-UG/
+      position:
+        lat: 22.572646
+        lng: 88.363895
+    - name: Korean Kotlin User Group
+      country: South Korea
+      url: http://kotlin.kr/
+      position:
+        lat: 35.907757
+        lng: 127.766922
+    - name: Kozhikode Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinusergroup/
+      position:
+        lat: 11.2587531
+        lng: 75.78041
+    - name: Mumbai Kotlin User Group
+      country: India
+      url: https://www.meetup.com/Kotlin-User-Group-Mumbai/
+      position:
+        lat: 19.0759837
+        lng: 72.8776559
+    - name: Myanmar Kotlin User Group
+      country: Myanmar
+      url: https://www.facebook.com/groups/kotlinmyanmarusergroup/about/
+      position:
+        lat: 21.916221
+        lng: 95.955974
+    - name: Nagpur Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinnagpur/
+      position:
+        lat: 21.1458004
+        lng: 79.0881546
+    - name: Nepal Kotlin User Group
+      country: Nepal
+      url: https://www.facebook.com/groups/dnkotlin/
+      position:
+        lat: 28.394857
+        lng: 84.124008
+    - name: New Delhi Kotlin User Group
+      country: India
+      url: https://www.meetup.com/KotlinDelhi/
+      position:
+        lat: 28.6139391
+        lng: 77.2090212
+    - name: Pakistan KotlinUser Group
+      country: Pakistan
+      url: https://www.facebook.com/groups/565405337181251/
+      position:
+        lat: 30.375321
+        lng: 69.345116
+    - name: Palestine Kotlin User Group
+      country: State of Palestine
+      url: https://www.facebook.com/groups/592717964582711/
+      position:
+        lat: 31.952162
+        lng: 35.233154
+    - name: Philippines Kotlin
+      country: Philippines
+      url: https://www.facebook.com/groups/642901202586581/
+      position:
+        lat: 12.879721
+        lng: 121.774017
+    - name: Pune Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/punekotlin
+      position:
+        lat: 18.5204303
+        lng: 73.8567437
+    - name: Rajkot Kotlin User Group
+      country: India
+      url: https://sites.google.com/view/kugrajkot/home
+      position:
+        lat: 22.3038945
+        lng: 70.8021599
+    - name: Saudi Kotlin User Group
+      country: Saudi Arabia
+      url: https://twitter.com/kotlinsaudi
+      position:
+        lat: 23.885942
+        lng: 45.079162
+    - name: Shenzhen Kotlin User Group
+      country: China
+      url: https://korilin.com/KUGshenzhen/
+      position:
+        lat: 22.543096
+        lng: 114.057865
+    - name: Singapore Kotlin User Group
+      country: Singapore
+      url: https://www.meetup.com/Singapore-Kotlin-User-group/
+      position:
+        lat: 1.352083
+        lng: 103.819836
+    - name: Sri Lanka Kotlin User Group
+      country: Sri Lanka
+      url: https://www.facebook.com/KotlinSrilanka/
+      position:
+        lat: 7.873054
+        lng: 80.771797
+    - name: Syria Kotlin User Group
+      country: Syria
+      url: https://www.facebook.com/KotlinSyria/
+      position:
+        lat: 34.802075
+        lng: 38.996815
+    - name: Surat Kotlin User Group
+      country: India
+      url: https://web.facebook.com/kotlinsurat
+      position:
+        lat: 21.1702401
+        lng: 72.8310607
+    - name: Taiwan Kotlin User Group
+      country: Taiwan
+      url: https://wetogether.co/kotlin-tw
+      position:
+        lat: 23.69781
+        lng: 120.960515
+    - name: Tel Aviv Kotlin User Group
+      country: Israel
+      url: https://www.meetup.com/KotlinTLV/
+      position:
+        lat: 32.0852999
+        lng: 34.7817676
+    - name: Thailand Kotlin Developers
+      country: Thailand
+      url: https://www.facebook.com/groups/872547279487598/
+      position:
+        lat: 15.870032
+        lng: 100.992541
+    - name: Turkey Kotlin User Group
+      country: Turkey
+      url: https://youtube.com/channel/UCAofnGf9aQbioLzMMOdHV7w
+      position:
+        lat: 38.963745
+        lng: 35.243322
+    - name: Vellore Kotlin User Group
+      country: India
+      url: https://www.facebook.com/kotlinvellore
+      position:
+        lat: 12.9165167
+        lng: 79.1324986
+    - name: Vietnam Kotlin User Group (online community)
+      country: Vietnam
+      url: https://vnkotlin.com
+      position:
+        lat: 14.058324
+        lng: 108.277199
+    - name: Vijayawada Kotlin User Group
+      country: India
+      url: https://www.facebook.com/KotlinVijayawada/
+      position:
+        lat: 16.5061743
+        lng: 80.6480153
+    - name: Yerevan Kotlin User Group
+      country: Armenia
+      url: https://www.meetup.com/Kotlin-Yerevan/
+      position:
+        lat: 40.1872023
+        lng: 44.515209
+- section: North America
+  anchorId: north-america
+  groups:
+    - name: Austin Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Austin-Kotlin-Meetup/
+      position:
+        lat: 30.267153
+        lng: -97.7430608
+    - name: Brooklyn (NY) Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Brooklyn-Kotlin/
+      position:
+        lat: 40.6781784
+        lng: -73.9441579
+    - name: Cambridge Kotlin Office Hours
+      country: USA
+      url: https://www.meetup.com/kotlin-office-hours/
+      position:
+        lat: 42.3736158
+        lng: -71.1097335
+    - name: Chicago Kotlin Users Group
+      country: USA
+      url: http://www.meetup.com/Chicago-Kotlin/
+      position:
+        lat: 41.8781136
+        lng: -87.6297982
+    - name: Cincinnati Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Cincinnati-Kotlin/
+      position:
+        lat: 39.1031182
+        lng: -84.5120196
+    - name: Dallas, Kotlin DFW
+      country: USA
+      url: https://www.meetup.com/Kotlin-DFW/
+      position:
+        lat: 32.7766642
+        lng: -96.7969879
+    - name: Guadalajara Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es/Kotlin-User-Group-GDL/
+      position:
+        lat: 20.6596988
+        lng: -103.3496092
+    - name: Guatemala Kotlin User Group
+      country: Guatemala
+      url: https://www.meetup.com/guatemala-kotlin-user-group/
+      position:
+        lat: 15.783471
+        lng: -90.230759
+    - name: Houston Kotlin User Group
+      country: USA
+      url: https://www.hccug.org/user-groups/houston-kotlin-user-group
+      position:
+        lat: 29.7604267
+        lng: -95.3698028
+    - name: Kansas City User Group
+      country: USA
+      url: https://www.meetup.com/Kansas-City-Kotlin-User-Group/
+      position:
+        lat: 39.011902
+        lng: -98.4842465
+    - name: Mexico, CDMX Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es-ES/Kotlin-Nights-CDMX/
+      position:
+        lat: 19.4326077
+        lng: -99.133208
+    - name: New York Kotlin Meetup
+      country: USA
+      url: http://www.meetup.com/New-York-Kotlin-Meetup/
+      position:
+        lat: 40.7127753
+        lng: -74.0059728
+    - name: Irvine Kotlin User Group "OC Kotlin Krew"
+      country: USA
+      url: https://www.meetup.com/OCKotlinKrew/
+      position:
+        lat: 33.6845673
+        lng: -117.8265049
+    - name: San Diego Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/sd-kotlin/
+      position:
+        lat: 32.715738
+        lng: -117.1610838
+    - name: San Francisco Kotlin Meetup
+      country: USA
+      url: https://www.meetup.com/San-Francisco-Kotlin-Meetup/
+      position:
+        lat: 37.7749295
+        lng: -122.4194155
+    - name: Santa Cruz Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Santa-Cruz-Kotlin-User-Group/events/245895831/
+      position:
+        lat: 36.9741171
+        lng: -122.0307963
+    - name: South Florida Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Kotlin-South-Florida-Users-Group/
+      position:
+        lat: 26.1475272
+        lng: -81.0435301
+    - name: Toronto Kotlin
+      country: Canada
+      url: https://www.meetup.com/Kotlin-Toronto/events/235740293/
+      position:
+        lat: 43.653226
+        lng: -79.3831843
+    - name: Twin Cities Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/Twin-Cities-Kotlin-User-Group/
+      position:
+        lat: 44.9374831
+        lng: -93.2009998
+    - name: Vancouver Kotlin Meetup
+      country: Canada
+      url: https://www.meetup.com/VancouverKotlin/
+      position:
+        lat: 49.2827291
+        lng: -123.1207375
+    - name: Washington DC Kotlin User Group
+      country: USA
+      url: https://www.meetup.com/DCKotlin/
+      position:
+        lat: 38.9071923
+        lng: -77.0368707
+    - name: Waterloo Kotlin P2P
+      country: Canada
+      url: https://www.meetup.com/Kotlin-Waterloo-P2P/events/
+      position:
+        lat: 43.4642578
+        lng: -80.5204096
+    - name: West Florida Kotlin User Group
+      country: USA
+      url: https://www.facebook.com/groups/KotlnWestFlorida
+      position:
+        lat: 27.9700729
+        lng: -82.5686415
+- section: South America
+  anchorId: south-america
+  groups:
+    - name: Asunción Kotlin User Group
+      country: Paraguay
+      url: https://kotlin-user-group-asuncion-py.github.io/
+      position:
+        lat: -25.2637399
+        lng: -57.575926
+    - name: Brasil Kotlin User Group
+      country: Brazil
+      url: https://groups.google.com/forum/#!forum/kotlin-brasil
+      position:
+        lat: -14.235004
+        lng: -51.92528
+    - name: Buenos Aires Desarrollo en Android con Kotlin
+      country: Argentina
+      url: https://www.meetup.com/Desarrollo-en-Android-con-Kotlin/
+      position:
+        lat: -34.6036844
+        lng: -58.3815591
+    - name: Cascavel Kotlin Meetup
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-Meetup-Cascavel/
+      position:
+        lat: -24.9541715
+        lng: -53.480283
+    - name: Chile Kotlin User Group
+      country: Chile
+      url: http://www.facebook.com/kotlinchile
+      position:
+        lat: -35.675147
+        lng: -71.542969
+    - name: Cochabamba Kotlin User Group
+      country: Bolivia
+      url: https://www.facebook.com/kotlincocha/
+      position:
+        lat: -17.4139766
+        lng: -66.1653224
+    - name: Curitiba CWB Kotlin User Group
+      country: Brazil
+      url: https://www.meetup.com/KotlinCWB/
+      position:
+        lat: -25.4372382
+        lng: -49.2699727
+    - name: El Alto Kotlin User Group
+      country: Bolivia
+      url: https://m.facebook.com/KotlinElAlto/
+      position:
+        lat: -16.4899474
+        lng: -68.2081896
+    - name: La Paz Kotlin User Group
+      country: Bolivia
+      url: https://www.facebook.com/KotlinLaPaz/
+      position:
+        lat: -16.489689
+        lng: -68.1192936
+    - name: Lima Kotlin User Group
+      country: Peru
+      url: https://www.facebook.com/groups/limakotlin/
+      position:
+        lat: -12.0463731
+        lng: -77.042754
+    - name: Medellin Kotlin User Group
+      country: Colombia
+      url: https://www.meetup.com/Kotlin-User-Group-Medellin/
+      position:
+        lat: 6.2476376
+        lng: -75.5658153
+    - name: Peru Kotlin User Group
+      country: Peru
+      url: https://www.facebook.com/groups/1540580306247047/
+      position:
+        lat: -9.189967
+        lng: -75.015152
+    - name: Porto Alegre Kotlin User Group
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-RS/
+      position:
+        lat: -30.0368176
+        lng: -51.2089887
+    - name: Santiago Kotlin User Group
+      country: Chile
+      url: https://www.facebook.com/kotlinsantiago/
+      position:
+        lat: -33.4488897
+        lng: -70.6692655
+    - name: Sao Paulo Kotlin Meetup
+      country: Brazil
+      url: https://www.meetup.com/kotlin-meetup-sp/
+      position:
+        lat: -21.2922457
+        lng: -50.3428431
+    - name: Rio de Janeiro
+      country: Brazil
+      url: https://www.meetup.com/Kotlin-Rio/
+      position:
+        lat: -22.9068467
+        lng: -43.1728965
+    - name: Tabasco Kotlin User Group
+      country: Mexico
+      url: https://www.meetup.com/es-ES/kotlin-tabasco/
+      position:
+        lat: 17.8409173
+        lng: -92.6189273
+- section: Australia/Oceania
+  anchorId: australiaoceania
+  groups:
+    - name: Melbourne Kotlin User Group
+      country: Australia
+      url: https://www.meetup.com/Melbourne-Kotlin-Meetup/
+      position:
+        lat: -37.8136276
+        lng: 144.9630576
+    - name: Sydney Kotlin User Group
+      country: Australia
+      url: https://sydspace.org/kotlin/
+      position:
+        lat: -33.8688197
+        lng: 151.2092955
+- section: Africa
+  anchorId: africa
+  groups:
+    - name: Abidjan Kotlin User Group
+      country: Cote d'Ivoire
+      url: https://www.facebook.com/groups/778398068995641/
+      position:
+        lat: 5.3599517
+        lng: -4.0082563
+    - name: Abuja Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Kotlin-Abuja-User-Group-Nigeria/
+      position:
+        lat: 9.0764785
+        lng: 7.398574
+    - name: Ado-Ekiti Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/1598555973529998/?ref=group_header
+      position:
+        lat: 7.6124263
+        lng: 5.2371087
+    - name: Agadir Kotlin User Group
+      country: Morocco
+      url: https://www.meetup.com/Agadir-Kotlin-User-Group/
+      position:
+        lat: 30.4277547
+        lng: -9.5981072
+    - name: Algeria Kotlin User Group
+      country: Algeria
+      url: https://web.facebook.com/groups/383147662448461/
+      position:
+        lat: 28.033886
+        lng: 1.659626
+    - name: Angola Kotlin User Group
+      country: Angola
+      url: https://www.facebook.com/groups/405177603231134/about/
+      position:
+        lat: -11.202692
+        lng: 17.873887
+    - name: Bauchi Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/groups/kotlinbauchi/
+      position:
+        lat: 10.7760624
+        lng: 9.9991943
+    - name: Beira Kotlin User Group
+      country: Mozambique
+      url: https://www.facebook.com/groups/470398203308975/
+      position:
+        lat: -19.8315949
+        lng: 34.8370183
+    - name: Brazza Kotlin User Group
+      country: Congo
+      url: https://www.facebook.com/groups/KotlinBrazza/
+      position:
+        lat: -4.2633597
+        lng: 15.2428853
+    - name: Cairo Kotlin User Group
+      country: Egypt
+      url: https://www.facebook.com/Kotlin.Cairo/
+      position:
+        lat: 30.0444196
+        lng: 31.2357116
+    - name: Cotonou Kotlin User Group
+      country: Benin
+      url: https://www.facebook.com/kotlinCotonou/
+      position:
+        lat: 6.3702928
+        lng: 2.3912362
+    - name: Damaturu Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/Damaturu-Kotlin-User-Group-114389643760406
+      position:
+        lat: 11.7469961
+        lng: 11.9661922
+    - name: Egypt Kotlin
+      country: Egypt
+      url: https://www.facebook.com/kotlinegypt/
+      position:
+        lat: 26.820553
+        lng: 30.802498
+    - name: Kano Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/193660894904095/about
+      position:
+        lat: 12.0021794
+        lng: 8.5919561
+    - name: Katsina Kotlin User Group
+      country: Nigeria
+      url: https://www.downtomeet.com/Katsina-Kotlin-Group
+      position:
+        lat: 12.9815608
+        lng: 7.6222665
+    - name: Lagos Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Lagos-Kotlin-Meetup/
+      position:
+        lat: 6.5243793
+        lng: 3.3792057
+    - name: Lome Kotlin User Group
+      country: Togo
+      url: https://www.facebook.com/groups/1825278611119862/
+      position:
+        lat: 6.1256261
+        lng: 1.2254183
+    - name: Minna Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/groups/969877396554431/about
+      position:
+        lat: 9.5835546
+        lng: 6.5463156
+    - name: Minya Kotlin User Group
+      country: Egypt
+      url: https://www.facebook.com/kotlinminya/
+      position:
+        lat: 28.0870967
+        lng: 30.7618397
+    - name: Nairobi Kotlin User Group
+      country: Kenya
+      url: https://www.meetup.com/KotlinKenya/
+      position:
+        lat: -1.2920659
+        lng: 36.8219462
+    - name: Ondo Kotlin User Group
+      country: Nigeria
+      url: https://www.meetup.com/Kotlin-Ondo-User-Group/
+      position:
+        lat: 7.1000051
+        lng: 4.8416936
+    - name: Ouagadougou Kotlin User Group
+      country: Burkina Faso
+      url: https://www.facebook.com/groups/649651491892414/
+      position:
+        lat: 12.3714277
+        lng: -1.5196603
+    - name: Rivers Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/groups/2178453949151460/
+      position:
+        lat: 4.8396414
+        lng: 6.9112378
+    - name: Tunisia Kotlin User Group
+      country: Tunisia
+      url: https://www.facebook.com/groups/1501353116571104
+      position:
+        lat: 33.886917
+        lng: 9.537499
+    - name: Uganda Kotlin User Group
+      country: Uganda
+      url: https://www.facebook.com/Uganda-Kotlin-User-Group-613707548753658/
+      position:
+        lat: 1.373333
+        lng: 32.290275
+    - name: Yola Kotlin User Group
+      country: Nigeria
+      url: https://www.facebook.com/Kotlin-Yola-User-Group-104198534358013/
+      position:
+        lat: 9.2034963
+        lng: 12.4953899

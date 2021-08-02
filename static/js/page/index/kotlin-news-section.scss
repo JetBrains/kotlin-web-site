@@ -5,7 +5,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  margin-top: var(--l-space);
+  margin-top: var(--m-space);
   margin-right: calc(-1*var(--s-space));
 }
 
@@ -14,6 +14,12 @@
   flex-wrap: wrap;
   flex: 1 1;
   margin-top: calc(-1*var(--m-space));
+
+  @media (max-width: 640px) {
+    & + .kotlin-news-section__chunk {
+      margin-top: 0;
+    }
+  }
 }
 
 .kotlin-news-section__item,
@@ -24,7 +30,7 @@
   flex: 1 1;
   min-width: 230px;
   margin-top: var(--m-space);
-  margin-right: var(--s-space);
+  margin-right: var(--m-space);
 
   box-sizing: border-box;
   text-decoration: none;
@@ -37,9 +43,15 @@
 
 .kotlin-news-section__item .kto-text_size_m {
   color: #fff;
-  margin-top: var(--xs-space);
+  margin-top: var(--s-space);
 }
 
 .kotlin-news-section__item .kto-text_size_s {
   color: rgba(255, 255, 255, 0.5);
+}
+
+.kotlin-news-section__button {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--m-space);
 }

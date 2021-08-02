@@ -11,6 +11,6 @@ xmltodict==0.10.2
 #    https://github.com/DenisCarriere/geocoder/pull/404
 git+https://github.com/pik-software/geocoder.git@yandex-api-key#egg=geocoder
 
-ruamel.yaml==0.15.87
+ruamel.yaml==0.17.9
 algoliasearch==1.12.0
 google-api-python-client==1.6.2

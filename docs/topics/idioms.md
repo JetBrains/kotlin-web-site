@@ -35,6 +35,8 @@ Or alternatively, even shorter:
 val positives = list.filter { it > 0 }
 ```
 
+Learn the difference between [Java and Kotlin filtering](java-to-kotlin-idioms-strings.md#create-a-string-from-collection-items).
+
 ## Check the presence of an element in a collection
 
 ```kotlin
@@ -48,6 +50,8 @@ if ("jane@example.com" !in emailsList) { ... }
 ```kotlin
 println("Name $name")
 ```
+
+Learn the difference between [Java and Kotlin string concatenation](java-to-kotlin-idioms-strings.md#concatenate-strings).
 
 ## Instance checks
 
@@ -349,3 +353,6 @@ fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 
 IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO tool window. 
 
+## What’s next?
+
+Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).

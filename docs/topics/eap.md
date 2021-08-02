@@ -10,7 +10,7 @@ It is very likely that we’ll be able to fix them before the final release, whi
 By participating in the Early Access Preview and reporting bugs, you contribute to Kotlin and help us make it better 
 for everyone in [the growing Kotlin community](https://kotlinlang.org/community/). We appreciate your help a lot! 
 
-If you have any questions and want to participate in discussions, you are welcome to join the _#eap_ channel in [Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
+If you have any questions and want to participate in discussions, you are welcome to join the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
 In this channel, you can also get notifications about new EAP builds.
 
 **[Install the Kotlin EAP Plugin for IDEA or Android Studio](install-eap-plugin.md)**
@@ -33,24 +33,27 @@ check [our instructions on how to configure your build to support this version](
         <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
-        <td><strong>1.5.20-M1</strong>
-            <p>Released: <strong>May 26, 2021</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.20-M1" target="_blank">Release on GitHub</a></p>
+        <td><strong>1.5.30-M1</strong>
+            <p>Released: <strong>July 19, 2021</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.30-M1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
-                <li>String concatenation uses invokedynamic on JVM by default.</li>
-                <li>Annotations on function type parameters are emitted to the bytecode on JVM 1.8+.</li>
-                <li>Kotlin/Native: improved performance of <code>Array.copyInto</code> inside one array.</li>
-                <li>Experimental caching of annotation processors' classloaders.</li>
+                <li>Kotlin/Native: support for Apple silicon, improved Kotlin DSL for Cocoapods Gradle plugin, optimized access to object declarations with <code>const val</code>s only, and debugger improvements.</li>
+                <li>Kotlin Multiplatform: sharing custom <code>cinterop</code> libraries between platforms, new default publishing setup for Android artifacts, and XCFrameworks support.</li>
+                <li>Kotlin/JS: source maps generation for the IR compiler backend.</li>
+                <li>Swift/Objective-C interop: experimental interoperability with Swift 5.5 async/await, improved singleton mapping</li>
+                <li>Passing by value for more C structs using C interop.</li>
+                <li>Compiler improvements: requiring opt-in on implicit usages of experimental APIs, changes in using opt-in requirement annotations with different targets.</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.20-M1">changelog</a>.</p>        </td>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.30-M1">changelog</a> or <a href="https://blog.jetbrains.com/kotlin/2021/07/kotlin-1-5-30-m1-released/?utm_source=documentation&amp;utm_medium=eap&amp;utm_campaign=1-5-30-eap">this blog post</a>.</p>
+        </td>
         <td>
             <ul>
-                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1" target="_blank">1.2.1</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0" target="_blank">1.5.0</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.1" target="_blank">0.16.1</a></li>          
-                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.5.4" target="_blank">1.5.4</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.2" target="_blank">1.2.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.1" target="_blank">1.5.1</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.2" target="_blank">0.16.2</a></li>          
+                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.6.1" target="_blank">1.6.1</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
             </ul>

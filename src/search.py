@@ -190,7 +190,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
             index_objects.append(page_info)
 
         for chapter in chapters:
-            chapter_title_node = chapter.select_one('h2[data-toc]')
+            chapter_title_node = chapter.select_one('[data-toc]')
             if chapter_title_node:
                 chapter_title = chapter_title_node.extract().text
                 chapter_title_anchor = chapter_title_node.attrs["data-toc"].split('#')[1]
@@ -216,7 +216,7 @@ def get_wh_index():
     return None
 
 
-def to_wh_index(version, item):
+def to_wh_index(item):
     page_title = item["pageTitle"] if "pageTitle" in item else item["headings"]
 
     wh_index = {
@@ -231,14 +231,13 @@ def to_wh_index(version, item):
         "parent": item["url"],
         "pageViews": item["pageViews"],
         "product": "help/kotlin-reference",
-        "version": version,
         "breadcrumbs": None,
     }
 
     return wh_index
 
 
-def build_search_indices(pages, version):
+def build_search_indices(pages):
     page_views_statistic = get_page_views_statistic()
     index_objects = []
     wh_index_objects = []
@@ -337,7 +336,7 @@ def build_search_indices(pages, version):
             index_objects += page_indices
 
             def wh(*args):
-                return to_wh_index(version, *args)
+                return to_wh_index(*args)
 
             wh_index_objects += list(map(wh, page_indices.copy()))
         else:

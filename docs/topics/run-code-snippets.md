@@ -10,7 +10,7 @@ Let's have a look at three handy ways we can use to run Kotlin code quickly:
 
 ## Scratches and worksheets
 
-The Kotlin plugin for IntelliJ IDEA supports [_scratches_](https://www.jetbrains.com/help/idea/scratches.html) and _worksheets._
+The Kotlin plugin for IntelliJ IDEA supports [scratches and worksheets](https://www.jetbrains.com/help/idea/kotlin-repl.html#efb8fb32).
  
 _Scratches_ let you create code drafts in the same IDE window with your project and run them on the fly. 
 Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS. 

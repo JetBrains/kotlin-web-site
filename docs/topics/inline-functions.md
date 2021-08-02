@@ -74,7 +74,7 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" validate="false"}
 
 But if the function the lambda is passed to is inlined, the return can be inlined as well. So it is allowed:
 

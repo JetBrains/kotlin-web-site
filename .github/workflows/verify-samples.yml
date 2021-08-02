@@ -12,10 +12,10 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '15'
+          java-version: '11'
           distribution: 'adopt'
       - name: Run a verifier
-        uses: AlexanderPrendota/kotlin-samples-pusher@v1
+        uses: AlexanderPrendota/kotlin-samples-verifier@master
         with:
           push-repository: 'https://github.com/AlexanderPrendota/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'

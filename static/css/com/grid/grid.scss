@@ -15,8 +15,8 @@ html {
 
   @media (max-width: 1000px) {
     width: auto;
-    margin-left: 15px;
-    margin-right: 15px;
+    padding-left: var(--s-space);
+    padding-right: var(--s-space);
   }
 }
 

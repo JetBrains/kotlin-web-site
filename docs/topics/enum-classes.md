@@ -1,27 +1,27 @@
 [//]: # (title: Enum classes)
 
-The most basic usage of enum classes is implementing type-safe enums:
+The most basic use case for enum classes is the implementation of type-safe enums:
 
 ```kotlin
 enum class Direction {
     NORTH, SOUTH, WEST, EAST
 }
 ```
-Each enum constant is an object. Enum constants are separated with commas.
+Each enum constant is an object. Enum constants are separated by commas.
 
 Since each enum is an instance of the enum class, it can be initialized as:
 
 ```kotlin
 enum class Color(val rgb: Int) {
-        RED(0xFF0000),
-        GREEN(0x00FF00),
-        BLUE(0x0000FF)
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
 }
 ```
 
 ## Anonymous classes
 
-Enum constants can also declare their own anonymous classes with their corresponding methods, as well as overriding base 
+Enum constants can declare their own anonymous classes with their corresponding methods, as well as with overriding base
 methods.
 
 ```kotlin
@@ -38,13 +38,13 @@ enum class ProtocolState {
 }
 ```
 
-If the enum class defines any members, separate the enum constant definitions from the member definitions with a semicolon.
+If the enum class defines any members, separate the constant definitions from the member definitions with a semicolon.
 
 ## Implementing interfaces in enum classes
 
-An enum class can implement an interface (but not derive from a class), providing either a single interface members 
-implementation for all of the entries, or separate ones for each entry within its anonymous class. 
-This is done by adding the interfaces to the enum class declaration as follows:
+An enum class can implement an interface (but it cannot derive from a class), providing either a common implementation of
+interface members for all of the entries, or separate implementations for each entry within its anonymous class.
+This is done by adding the interfaces you want to implement to the enum class declaration as follows:
 
 ```kotlin
 import java.util.function.BinaryOperator
@@ -87,7 +87,7 @@ EnumClass.values(): Array<EnumClass>
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
 
-You can access the constants in an enum class in a generic way, using
+You can access the constants in an enum class in a generic way using
 the `enumValues<T>()` and `enumValueOf<T>()` functions:
 
 ```kotlin
@@ -100,7 +100,7 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
-Every enum constant has properties to obtain its name and position in the enum class declaration:
+Every enum constant has properties for obtaining its name and position in the enum class declaration:
 
 ```kotlin
 val name: String
@@ -109,3 +109,4 @@ val ordinal: Int
 
 The enum constants also implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface,
 with the natural order being the order in which they are defined in the enum class.
+

@@ -31,7 +31,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 ### YouTrack board
 
-Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){width=30}{type="joined"} YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current)!
+Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current) ![YouTrack](youtrack-logo.png){width=30}{type="joined"}
 
 ![Roadmap board in YouTrack](roadmap-board.png)
 
@@ -167,8 +167,8 @@ Visit the [roadmap board in our issue tracker ![YouTrack](youtrack-logo.png){wid
          </td>
         <td>
             <ul>
-                <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin.</li>
-                <li>⏸ Quality of less frequently used features, except blocking problems.</li>
+                <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin</li>
+                <li>⏸ Quality of less frequently used features, except blocking problems</li>
             </ul>
         </td>
     </tr>

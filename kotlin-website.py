@@ -21,7 +21,7 @@ from yaml import FullLoader
 from src.Feature import Feature
 from src.dist import get_dist_pages
 from src.github import assert_valid_git_hub_url
-from src.navigation import process_video_nav, process_nav
+from src.navigation import process_video_nav, process_nav, get_current_url
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
 from src.externals import process_nav_includes
@@ -33,6 +33,7 @@ from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap, generate_temporary_sitemap
+from src.ktl_components import KTLComponentExtension
 
 app = Flask(__name__, static_folder='_assets')
 app.config.from_pyfile('mysettings.py')
@@ -142,10 +143,14 @@ def add_year_to_context():
     }
 
 
+app.jinja_env.add_extension(KTLComponentExtension)
+
+
 @app.context_processor
 def add_data_to_context():
+    nav = get_nav()
     return {
-        'nav': get_nav(),
+        'nav': nav,
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -155,7 +160,8 @@ def add_data_to_context():
             'text_using_gradle': app.config['TEXT_USING_GRADLE'],
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
-        }
+        },
+        'headerCurrentUrl': get_current_url(nav['subnav']['content'])
     }
 
 @app.template_filter('get_domain')
@@ -202,6 +208,11 @@ def get_universities():
     return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
+@app.route('/data/user-groups.json')
+def get_user_groups():
+    return Response(json.dumps(site_data['user-groups'], cls=DateAwareEncoder), mimetype='application/json')
+
+
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar(build_mode)
@@ -228,6 +239,13 @@ def kotlin_docs_pdf():
 @app.route('/community/')
 def community_page():
     return render_template('pages/community.html')
+
+@app.route('/user-groups/user-group-list.html')
+def user_group_list():
+    return render_template(
+        'pages/user-groups/user-group-list.html',
+        user_groups_data=site_data['user-groups'],
+        number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
 
 @app.route('/education/')
 def education_page():
@@ -516,7 +534,7 @@ if __name__ == '__main__':
             # temporary sitemap
             generate_temporary_sitemap()
         elif argv_copy[1] == "index":
-            build_search_indices(get_dist_pages(), site_data['releases']['latest']['version'])
+            build_search_indices(get_dist_pages())
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)

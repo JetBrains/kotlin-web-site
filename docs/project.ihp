@@ -6,7 +6,7 @@
     <topics dir="topics"/>
     <images dir="images" web-path="images/"/>
     <vars src="v.list"/>
-    <product version="%kotlinVersion%" id="help/kotlin-reference" src="kr.tree" web-path="/kotlin-reference/"/>
+    <product id="help/kotlin-reference" src="kr.tree" web-path="/kotlin-reference/"/>
     <settings>
         <default-property element-name="toc-element" property-name="show-structure-depth" value="2"/>
     </settings>

@@ -135,7 +135,7 @@ See the details on the syntax as well as the compatibility notice in the [KEEP](
 
 ## Capturing `when` subject in a variable
 
-In Kotlin 1.3, it is now possible to capture the `when` subject into variable:
+In Kotlin 1.3, it is now possible to capture the `when` subject into a variable:
 
 ```kotlin
 fun Request.getBody() =
