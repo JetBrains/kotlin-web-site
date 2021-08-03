@@ -90,7 +90,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 2. Add the test code for the `sum()` function in `SampleTest.kt`:
 
    * Define the test `testSum()` function using the [@Test annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
-   * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/assert-equals.html) function.
+   * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
 
    ```kotlin
    import kotlin.test.Test
