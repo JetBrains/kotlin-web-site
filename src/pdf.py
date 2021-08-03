@@ -1,14 +1,7 @@
-import re
-import subprocess
+from subprocess import check_call
 from os import path, remove
-from typing import Dict
-from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
-from flask import render_template
-
-from src.grammar import get_grammar
-from src.pages import MyFlatPages
 
 root_folder_path = path.dirname(path.dirname(__file__))
 pdf_folder_path = path.join(root_folder_path, 'pdf')
@@ -58,17 +51,15 @@ def transform_book_cover(path_file, data):
 
 
 def transform_book_content(path_file):
-    with open(path_file, "r", encoding="UTF-8") as file:
+    with open(path_file, "r", encoding="utf-8") as file:
         html = f"""
             <!DOCTYPE html>
             <html>
             <head>
                 <meta charset="UTF-8">
-                <link rel="stylesheet" href="file://{pdf_folder_path}/highlight-idea.min.css">
-                <link rel="stylesheet" href="file://{pdf_folder_path}/webhelp.css"/>
-                <script src="file://{pdf_folder_path}/highlight.min.js"></script>
-                <script src="file://{pdf_folder_path}/highlight-kotlin.min.js"></script>
-                <script src="file://{pdf_folder_path}/highlight-groovy.min.js"></script>
+                <link rel="stylesheet" href="file://{pdf_folder_path}/prism.css">
+                <link rel="stylesheet" href="file://{pdf_folder_path}/webhelp.css">
+                <script src="file://{pdf_folder_path}/prism.js" data-manual></script>
                 <script src="file://{pdf_folder_path}/pdf.js"></script>
             </head>
             <body>{file.read()}</body></html>
@@ -96,6 +87,7 @@ def generate_pdf(name, data):
 
     source_cover_path = path.join(pdf_folder_path, 'book-cover.html')
 
+    print("Preparing cover...")
     transformed_cover_path = transform_book_cover(source_cover_path, data)
     arguments.append('cover')
     arguments.append(transformed_cover_path)
@@ -105,80 +97,17 @@ def generate_pdf(name, data):
         arguments.append("--" + name)
         arguments.append(value)
 
+    print("Preprocess general content...")
     transformed_file_path = transform_book_content(source_file_path)
     arguments.append(transformed_file_path)
     arguments.append(output_file_path)
 
     print(" ".join(arguments))
 
-    subprocess.check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
+    check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
 
     # _cleanup
-    if transformed_cover_path != source_cover_path: remove(transformed_cover_path)
-    # if transformed_file_path != source_file_path: remove(transformed_file_path)
+    #if transformed_cover_path != source_cover_path: remove(transformed_cover_path)
+    #if transformed_file_path != source_file_path: remove(transformed_file_path)
 
     return output_file_path
-
-
-def get_pdf_content1(build_mode: bool, pages: MyFlatPages, toc: Dict) -> str:
-    content = []
-    for toc_section in toc['content']:
-        section = {
-            'id': toc_section['title'].replace(' ', '_'),
-            'title': toc_section['title'],
-            'content': []
-        }
-        for reference in toc_section['content']:
-            url = reference['url']
-            if url.startswith('/'):
-                url = url[1:]
-            if url.endswith('.html'):
-                url = url[:-5]
-
-            if url == "docs/reference/grammar":
-                page_html = render_template('pages/grammar.html', kotlinGrammar=get_grammar(build_mode)).replace("<br>",
-                                                                                                                 "<br/>")
-                document = BeautifulSoup(page_html, 'html.parser')
-                document = document.find("div", {"class": "grammar"})
-                page_id = "grammar"
-                title = "Grammar"
-            else:
-                page = pages.get(url)
-                if page is None:
-                    continue
-                title = page.meta['title']
-                document = BeautifulSoup(page.html, 'html.parser')
-                page_id = page.path.split('/')[-1]
-
-            for element in document.find_all():
-                if 'id' in element.attrs:
-                    element.attrs['id'] = page_id + '_' + element.attrs['id']
-                if element.name == "a":
-                    if 'href' not in element.attrs:
-                        continue
-                    href = element.attrs['href']
-                    url = urlparse(href)
-                    if url.scheme == "":
-                        if href.startswith('#'):
-                            new_href = page_id + '_' + href[1:]
-                        else:
-                            url_path = url.path.split("/")[-1]
-                            url_path = url_path[:-5] if url_path.endswith(".html") else url_path
-                            new_href = url_path + ('_' + url.fragment if url.fragment != "" else "")
-                        element.attrs['href'] = "#" + new_href
-
-                header_regex = re.compile('^h(\d)$')
-                if header_regex.match(element.name):
-                    level = int(header_regex.match(element.name).group(1)) + 1
-                    element.name = 'h' + str(level)
-
-            section['content'].append({
-                'id': page_id,
-                'title': title,
-                'content': document.decode()
-            })
-        content.append(section)
-    drive, root_folder_path_rest = path.splitdrive(root_folder_path)
-    page_html = render_template('pdf.html', content=content, root_folder=(drive + root_folder_path_rest)
-                                .replace('\\', '/'))
-    return page_html

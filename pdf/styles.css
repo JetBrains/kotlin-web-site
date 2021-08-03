@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    text-rendering: optimizeLegibility!important;
 }
 
 

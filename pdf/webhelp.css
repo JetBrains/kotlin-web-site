@@ -249,7 +249,7 @@ p img, a img, li img {
     font-style: normal;
     line-height: 18px;
     margin-bottom: 16px;
-    white-space: pre;
+    white-space: pre-wrap
 }
 table {
     margin-bottom: 16px;
