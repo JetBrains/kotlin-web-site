@@ -65,19 +65,23 @@ The complete list of available targets is the following:
 |`androidNativeX64`|[Android NDK](https://developer.android.com/ndk) on x86_64 platforms|
 |`iosArm32`|Apple iOS on ARM (ARM32) platforms (Apple iPhone 5 and earlier)|
 |`iosArm64`|Apple iOS on ARM64 platforms (Apple iPhone 5s and newer)|
-|`iosX64`|Apple iOS 64-bit simulator|
+|`iosX64`|Apple iOS simulator on x86_64 platforms|
+|`iosSimulatorArm64`|Apple iOS simulator on Apple Silicon platforms|
 |`watchosArm32`|Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)|
 |`watchosArm64`|Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)|
-|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier)|
-|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer)|
+|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms|
+|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms|
+|`watchosSimulatorArm64`|Apple watchOS simulator on Apple Silicon platforms|
 |`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
-|`tvosX64`|Apple tvOS simulator|
+|`tvosX64`|Apple tvOS simulator on x86_64 platforms|
+|`tvosSimulatorArm64`|Apple tvOS simulator on Apple Silicon platforms|
 |`linuxArm64`|Linux on ARM64 platforms, for example, Raspberry Pi|
 |`linuxArm32Hfp`|Linux on hard-float ARM (ARM32) platforms|
 |`linuxMips32`|Linux on MIPS platforms|
 |`linuxMipsel32`|Linux on little-endian MIPS (mipsel) platforms|
 |`linuxX64`|Linux on x86_64 platforms|
-|`macosX64`|Apple macOS|
+|`macosX64`|Apple macOS on x86_64 platforms|
+|`macosArm64`|Apple macOS on Apple Silicon platforms|
 |`mingwX64`|64-bit Microsoft Windows|
 |`mingwX86`|32-bit Microsoft Windows|
 |`wasm32`|WebAssembly|
