@@ -80,7 +80,8 @@ repositories {
 
 kotlin {
   linuxX64("native") {  // on Linux
-  // macosX64("native") { // on macOS
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { //on Windows
     binaries {
       sharedLib {
@@ -107,8 +108,9 @@ repositories {
 }
 
 kotlin {
-  linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  linuxX64("native") { // on Linux 
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     binaries {
       sharedLib {

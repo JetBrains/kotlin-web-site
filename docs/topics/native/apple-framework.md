@@ -140,13 +140,14 @@ binaries {
 }
 ```
 
-Along with `macOS X64`, Kotlin/Native supports iOS `arm32`, `arm64` and `X64`
+Along with macOS `X64`, Kotlin/Native supports macos `arm64` and iOS `arm32`, `arm64` and `X64`
 targets. You may replace the `macosX64` with respective functions as shown
 in the table:
 
 | Target platform/device | Gradle function |
 |------------------------|-----------------|
 | macOS x86_64           | `macosX64()`    | 
+| macOS ARM 64           | `macosArm64()`  | 
 | iOS ARM 32             | `iosArm32()`    | 
 | iOS ARM 64             | `iosArm64()`    | 
 | iOS Simulator (x86_64) | `iosX64()`      |
