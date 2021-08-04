@@ -1,57 +1,57 @@
 <meta charset="utf-8">
+
 <meta name="viewport" content="width={% if restyled == "v2" %}device-width{% else %}1000{% endif %}, initial-scale=1">
 
-<!-- Google Tag Manager -->
+{# Google Tag Manager #}
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5P98');</script>
-<!-- End Google Tag Manager -->
+{# End Google Tag Manager #}
 
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link rel="dns-prefetch" href="//resources.jetbrains.com">
 
-{% block head_preload %}
-{% endblock %}
+{% block head_preload %}{% endblock %}
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 <link rel="icon" type="image/svg+xml" href="{{ url_for('asset', path='images/favicon.svg')|autoversion }}">
 <link rel="alternate icon" href="{{ url_for('asset', path='images/favicon.ico')|autoversion }}" />
 <link rel="apple-touch-icon" href="{{ url_for('asset', path='images/apple-touch-icon.png')|autoversion }}"/>
-<link rel="apple-touch-icon" sizes="72x72"
-      href="{{ url_for('asset', path='images/apple-touch-icon-72x72.png')|autoversion }}"/>
-<link rel="apple-touch-icon" sizes="114x114"
-      href="{{ url_for('asset', path='images/apple-touch-icon-114x114.png')|autoversion }}"/>
-<link rel="apple-touch-icon" sizes="144x144"
-      href="{{ url_for('asset', path='images/apple-touch-icon-144x144.png')|autoversion }}"/>
+<link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('asset', path='images/apple-touch-icon-72x72.png')|autoversion }}"/>
+<link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('asset', path='images/apple-touch-icon-114x114.png')|autoversion }}"/>
+<link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('asset', path='images/apple-touch-icon-144x144.png')|autoversion }}"/>
 
-<!-- Social Media tag Starts -->
-<!-- Place this data between the <head> tags of your website -->
-<!-- Open Graph data -->
+{# Social Media tag Start
+   Place this data between the <head> tags of your website
+  Open Graph data #}
 <meta property="og:title" content="{{ title }}"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://kotlinlang.org{{ request.path }}"/>
-<meta property="og:image" content="https://kotlinlang.org{{ url_for('asset', path='images/open-graph/kotlin_250x250.png') }}"/>
-{% if page and page.description %}
-    <meta property="og:description" content="{{ page.description }}">
-{% else %}
-    <meta property="og:description" content="">
-{% endif %}
+
+<meta property="og:image" content="https://kotlinlang.org{%
+    if not og_image
+%}{{ url_for('asset', path='images/open-graph/general.png') }}{%
+    else
+%}{{ og_image }}{% endif %}"/>
+
+<meta property="og:description" content="{% if page and page.description %}{{page.description}}{% endif %}">
 <meta property="og:site_name" content="Kotlin"/>
 
-<!-- Twitter Card data -->
+{# Twitter Card data #}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@kotlin">
 <meta name="twitter:title" content="{{ title }}">
-{% if page and page.description %}
-    <meta name="twitter:description" content="{{ page.description }}">
-{% else %}
-    <meta name="twitter:description" content="">
-{% endif %}
-<meta name="twitter:image:src" content="https://kotlinlang.org{{ url_for('asset', path='images/twitter-card/kotlin_800x320.png') }}">
-<!-- Social Media tag Ends -->
+<meta name="twitter:description" content="{% if page and page.description %}{{page.description}}{% endif %}">
+<meta name="twitter:image:src" content="https://kotlinlang.org{%
+    if not og_image
+%}{{ url_for('asset', path='images/twitter/general.png') }}{%
+    else
+%}{{ og_image }}{% endif %}">
+{# Social Media tag Ends #}
 
 {% if restyled %}{% set styles_css='styles-v2.css' %}
 {% else %}{% set styles_css='styles.css' %}{% endif %}
