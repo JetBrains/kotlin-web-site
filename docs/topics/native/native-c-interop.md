@@ -446,9 +446,6 @@ To convert a Kotlin function to a pointer to a C function,
 the lambda instead of a function reference. The function or lambda must not
 capture any values.
 
-If the callback doesn't run in the main thread, it is mandatory to init the Kotlin/Native
-runtime by calling `kotlin.native.initRuntimeIfNeeded()`.
-
 #### Pass user data to callbacks
 
 Often C APIs allow passing some user data to callbacks. Such data is usually
