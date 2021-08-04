@@ -1434,3 +1434,39 @@
   geo:
     lat: '36.1447034'
     lng: '-86.8026551'
+- title: National University of La Matanza - Universidad Nacional de La Matanza
+  location: Buenos Aires (Argentina)
+  courses:
+  - name: 'Tecnicatura en Desarrollo de Aplicaciones Móviles'
+    url: https://ingenieria.unlam.edu.ar/index.php?seccion=3&idArticulo=368
+- title: The University of the Antilles - Université des Antilles
+  location: Schoelcher (Martinique)
+  courses:
+  - name: 'Licence Professionnelle Métiers de l'informatique - Informatique Embarquée et Mobile'
+    url: http://formations.univ-antilles.fr/#/formation/153
+- title: University of Fortaleza
+  location: Fortaleza (Brazil)
+  courses:
+  - name: 'Computer Science'
+    url: https://www.unifor.br/web/graduacao/ciencia-da-computacao
+- title: University of Applied Sciences and Arts Northwestern Switzerland
+  location: Brugg (Switzerland)
+  courses:
+  - name: 'Entwicklung mobiler Applikationen'
+    url: https://www.unifor.br/web/graduacao/ciencia-da-computacao
+- title: National Yang Ming Chiao Tung University
+  location: Taipei City (Taiwan)
+  courses:
+  - name: 'Android Programming'
+    url: https://hscc.cs.nctu.edu.tw/~lincyu/
+- title: ATMIYA University
+  location: Rajkot (India)
+  courses:
+  - name: '20MCACC302 - Mobile App Development using Android in Kotlin'
+    url: https://atmiyauni.ac.in/20MCACC302-Mobile-App-Development-using-Android-in-Kotlin.pdf
+- title: University of Engineering & Management
+  location: Jaipur (India)
+  courses:
+  - name: 'PCCCS-706A: Mobile Computing'
+    url: https://drive.google.com/file/d/13kOP72x8woD_lJHmRHcMgkUkonHWDN55/view?usp=sharing
+
