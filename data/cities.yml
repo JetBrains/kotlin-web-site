@@ -1,3 +1,7 @@
+- name: Bouville, France
+  geo:
+    lat: 48.039107
+    lng: 2.504512
 - name: Táizhōng, Taiwan
   geo:
     lat: 23.882593

@@ -1,10 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>zh</lang>
+        <startDate>2021-08-14</startDate>
+        <endDate>2021-08-14</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>Desmond Yeung</speaker>
+        <title>GDG Hong Kong</title>
+        <subject>Android (Kotlin) Study Group</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-hong-kong-presents-android-study-group-2021-07-31/</url>
+        <description>
+            <![CDATA[
+<p>Learn Kotlin Best practices to develop android Be a better Android Developer Bi-weekly base sharing study group</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-06</startDate>
+        <endDate>2021-08-06</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Pasha Finkelshteyn</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Kotlin API for Apache Spark: why the world needs it?</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/276698090/</url>
+   </event>
+
+   <event>
+        <lang>pt</lang>
+        <startDate>2021-08-06</startDate>
+        <endDate>2021-08-06</endDate>
+        <location>São Paulo, Brazil</location>
+        <speaker>Rafael Toledo</speaker>
+        <title>Kotlin Meetup São Paulo</title>
+        <subject>Bibliotecas KotlinX</subject>
+        <url>https://www.meetup.com/kotlin-meetup-sp/events/276698090/</url>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-08</startDate>
+        <endDate>2021-09-08</endDate>
+        <location>Bouville, France</location>
+        <speaker>Milos Marinković</speaker>
+        <title>DevBreak</title>
+        <subject>State machines with Kotlin Flow</subject>
+        <url>https://www.devbreak.io/?utm_source=bugfender&amp;utm_medium=website&amp;utm_campaign=conference#Agenda</url>
+        <description>
+            <![CDATA[
+<p>If we look at Finite State Machines (FSM), we can find a number of examples everywhere in the world that surrounds us. There are vending machines, subway entrance turnstiles, heating systems, self-driving cars, elevators, etc., but also many, many cases of UI frameworks like Android's UI lifecycle (arguably a finite state machine). The concept of FSM and its mathematical computational model are very interesting to implement in many programming languages. With Kotlin's recent investment in asynchronous programming tools, it seemed like a good time to look into it.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-17</startDate>
+        <endDate>2021-08-17</endDate>
+        <location>Online</location>
+        <speaker>Wajahat Karim</speaker>
+        <title>Mobile Week</title>
+        <subject>Jetpack Compose for Games and Animations</subject>
+        <url>https://mobileweek.co/conference/</url>
+        <description>
+            <![CDATA[
+<p>In this session, we'll take a look at the capabilities of Canvas API for Jetpack Compose and how can we implement different kinds of animations with it. We'll also dig into game development and discuss some common challenges like game loop, state management etc. We will also explore other UI animations and transitions with Jetpack Compose.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-17</startDate>
+        <endDate>2021-08-17</endDate>
+        <location>Online</location>
+        <speaker>Mohit Sharma</speaker>
+        <title>Mobile Week</title>
+        <subject>All Is Messed up - Kotlin Flow, Coroutines and LiveData !!!</subject>
+        <url>https://mobileweek.co/conference/</url>
+        <description>
+            <![CDATA[
+<p>This talk is for beginner to intermediate Android developer.</p>
+<p>JetPack getting evolved so quickly in the past 2 year and many alternates are available for implementing the same use case, but each of them has it's own pro & cons and cause unnecessary confusion during development and code reviews.</p>
+<p>In this talk, I would be deep dive into each of them, from getting started to when and what to use.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>en</lang>
         <startDate>2021-08-19</startDate>
         <endDate>2021-08-19</endDate>
-        <location>Minneapolis, MN, USA</location>
+        <location>Minneapolis, MN</location>
         <speaker>Steve Peterson</speaker>
         <title>Twin Cities Kotlin User Group</title>
         <subject>Becoming a Jetpack Composer</subject>
@@ -64,7 +152,7 @@
         <url>https://mobileweek.co/conference/</url>
         <description>
             <![CDATA[
-<p>his talk provides a brief introduction about Kotlin Co-routines and explains the scenarios when one should try using the same and when to avoid it using practical examples. The session will also help developers understand how Co-routines work and the best practices for using the same.</p>
+<p>This talk provides a brief introduction about Kotlin Co-routines and explains the scenarios when one should try using the same and when to avoid it using practical examples. The session will also help developers understand how Co-routines work and the best practices for using the same.</p>
 <p>As software developers, we often tend to use what is considered best practice without understanding the practical applicability of the same in our own applications.</p>
 <p>Through this talk, my aim is to help developers understand areas / use cases where Co-routines can prove much effective as well as less effective. It will not focus on downsides of Co-routines but mainly on the applicability of it in different scenarios based on my experience so far.</p>
 ]]>
