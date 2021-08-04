@@ -71,7 +71,7 @@ The complete list of available targets is the following:
 |`watchosArm64`|Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)|
 |`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms|
 |`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms|
-|`iosSimulatorArm64`|Apple watchOS simulator on Apple Silicon platforms|
+|`watchosSimulatorArm64`|Apple watchOS simulator on Apple Silicon platforms|
 |`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
 |`tvosX64`|Apple tvOS simulator on x86_64 platforms|
 |`tvosSimulatorArm64`|Apple tvOS simulator on Apple Silicon platforms|
@@ -80,8 +80,8 @@ The complete list of available targets is the following:
 |`linuxMips32`|Linux on MIPS platforms|
 |`linuxMipsel32`|Linux on little-endian MIPS (mipsel) platforms|
 |`linuxX64`|Linux on x86_64 platforms|
-|`macosX64`|Apple macOS x86_64 platforms|
-|`macosArm64`|Apple iOS simulator on Apple Silicon platforms|
+|`macosX64`|Apple macOS on x86_64 platforms|
+|`macosArm64`|Apple macOS on Apple Silicon platforms|
 |`mingwX64`|64-bit Microsoft Windows|
 |`mingwX86`|32-bit Microsoft Windows|
 |`wasm32`|WebAssembly|
