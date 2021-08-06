@@ -137,17 +137,18 @@ exception-throwing.
 
 > The support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
 > It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT-47610).
+> Use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
 >
 {type="warning"}
 
 Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
-functions with callbacks, or `completionHandler` in the Swift/Objective-C terminology.
+functions with callbacks, or [`completionHandler`](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
+in the Swift/Objective-C terminology.
 
-Swift 5.5 is bringing the [support for concurrency at the language level](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html)
-with the `async`/`await` mechanism. Kotlin's `suspend` functions are available for calling from Swift 5.5 and newer as
-`async` functions without using completion handlers. Currently, this functionality is highly experimental and has certain
-limitations. See [this YouTrack](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html) issue for details.
+Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
+`async` functions without using the completion handlers. Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
+for details.
 
 ### Extensions and category members
 
