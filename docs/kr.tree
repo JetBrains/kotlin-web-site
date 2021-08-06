@@ -215,7 +215,7 @@
 
     <toc-element toc-title="Official libraries">
         <toc-element toc-title="Coroutines (kotlinx.coroutines)">
-            <?include-before-build product=kc;source.folder=../coroutines-foreign/docs/;copy.images.from=images;copy.topics.from=topics ?>
+            <include from="kc" target="coroutines" origin="docs"/>
         </toc-element>
         <toc-element toc-title="Serialization (kotlinx.serialization)" id="serialization.md"/>
         <toc-element toc-title="Ktor" href="https://ktor.io/"/>
