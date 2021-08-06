@@ -135,7 +135,7 @@ kotlin {
         iosSimulatorArm64Main {
             dependsOn(iosMain)
         }
-        iosSimulatorArm64MainTest {
+        iosSimulatorArm64Test {
             dependsOn(iosTest)
         }
     }
