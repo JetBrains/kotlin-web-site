@@ -228,18 +228,12 @@ def videos_page():
 
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
-    if build_mode:
-        return send_file(generate_pdf('kotlin-reference.pdf', site_data))
-    else:
-        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
+    return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
 
 
 @app.route('/docs/kotlin-docs.pdf')
 def kotlin_docs_pdf():
-    if build_mode:
-        return send_file(generate_pdf('kotlin-docs.pdf', site_data))
-    else:
-        return "Not supported in the dev mode, ask in #kotlin-web-site, if you need it"
+    return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
 
 
 @app.route('/community/')
