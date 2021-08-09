@@ -659,7 +659,7 @@ When you use a custom JDK, note that a [kapt task workers](kapt.md#running-kapt-
 use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
 and ignore the `kapt.workers.isolation` property.
 
-As before, if you don't set the toolchain or the `jdkHome` option, Kotlin/JVM compilation uses your current JDK.
+As before, if you don't set the toolchain or the `jdkHome` option, Kotlin/JVM compilation uses current user's JDK.
 
 > By default, Kotlin compile tasks use the current Gradle JDK.
 >
@@ -732,7 +732,7 @@ java {
 
 </tabs>
 
-To set any JDK home (even local), use the Task DSL.
+To set any JDK (even local) for the specific task, use the Task DSL.
 
 #### Setting JDK version with the Task DSL
 
