@@ -624,7 +624,7 @@ The complete list of options for the Gradle tasks is the following:
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
 
-#### Check for JVM targets compatibility
+#### Check for JVM target compatibility
 
 In the build module, you may have related compile tasks, for example:
 * `compileKotlin` and `compileJava`
@@ -683,7 +683,7 @@ The toolchain:
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-for-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
-  Learn more about [targets compatibility](#check-for-jvm-targets-compatibility).
+  Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set the toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
@@ -891,7 +891,7 @@ In the following list, the latter options override the previous ones:
 
   </tabs>
 
-  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemons-behavior-with-jvm-arguments).
+  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
   >
   {type="note"}
 
