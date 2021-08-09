@@ -303,7 +303,3 @@ formats, including standard JavaDoc.
 ## OSGi
 
 For OSGi support see the [Kotlin OSGi page](kotlin-osgi.md).
-
-## Examples
-
-An example Maven project can be [downloaded from the GitHub repository](https://github.com/JetBrains/kotlin-examples/archive/master/maven.zip)
