@@ -114,8 +114,7 @@ repositories {
 
 kotlin {
   linuxX64('native') {  // on Linux
-  // macosX64("native") { // on x86_64 macOS
-  // macosArm64("native") { // on Apple Silicon macOS
+  // macosX64('native') { // on macOS
   // mingwX64('native') { //on Windows
     compilations.main.cinterops {
       interop 
@@ -144,8 +143,7 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
-  // macosX64("native") { // on x86_64 macOS
-  // macosArm64("native") { // on Apple Silicon macOS
+  // macosX64("native") { // on macOS
   // mingwX64("native") { // on Windows
     val main by compilations.getting
     val interop by main.cinterops.creating
