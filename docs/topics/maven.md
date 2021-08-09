@@ -253,7 +253,7 @@ Maven plugin node:
 Many of the options can also be configured through properties:
 
 ```xml
-<project>
+<project ...>
     <properties>
         <kotlin.compiler.languageVersion>1.0</kotlin.compiler.languageVersion>
     </properties>
