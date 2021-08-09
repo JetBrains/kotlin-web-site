@@ -385,6 +385,12 @@
       position:
         lat: 48.6208
         lng: 22.287883
+    - name: Valencia Kotlin User Group
+      country: Spain
+      url: https://codelsmartech.com/developer-events/
+      position:
+        lat: 39.4077013
+        lng: 0.5015955
     - name: Vienna Kotlin
       country: Austria
       url: https://www.meetup.com/Kotlin-Vienna/
@@ -397,12 +403,6 @@
       position:
         lat: 52.2296756
         lng: 21.0122287
-    - name: Valencia Kotlin User Group
-      country: Spain
-      url: https://codelsmartech.com/developer-events/
-      position:
-        lat: 39.4077013
-        lng: 0.5015955
 - section: Asia
   anchorId: asia
   groups:
