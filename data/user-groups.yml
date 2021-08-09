@@ -400,6 +400,9 @@
     - name: Valencia Kotlin User Group
       country: Spain
       url: https://codelsmartech.com/developer-events/
+      position:
+        lat: 39.4077013
+        lng: 0.5015955
 - section: Asia
   anchorId: asia
   groups:
