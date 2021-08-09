@@ -18,7 +18,7 @@
         <ul class="community-usergroup-list typo-list typo-list_type_simple">
             {% for user_group in section.groups %}
                 <li class="typo-list__item">
-                    <a class="typo-link" href="{{ user_group.url }}">{{ user_group.name }}</a>, {{ user_group.country }}
+                    <a class="typo-link" href="{{ user_group.url }}" target="_blank">{{ user_group.name }}</a>, {{ user_group.country }}
                 </li>
             {% endfor %}
         </ul>

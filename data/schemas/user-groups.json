@@ -49,8 +49,7 @@
           "required": [
             "name",
             "country",
-            "url",
-            "position"
+            "url"
           ]
         }
       }

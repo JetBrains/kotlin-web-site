@@ -1,3 +1,9 @@
+- section: Virtual
+  anchorId: virtual
+  groups:
+    - name: Virtual Kotlin User Group
+      country: International
+      url: https://www.meetup.com/Virtual-Kotlin-User-Group/
 - section: Europe
   anchorId: europe
   groups:
