@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/JS IR compiler)
 
-> The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
->in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> The Kotlin/JS IR compiler is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="warning"}
 
