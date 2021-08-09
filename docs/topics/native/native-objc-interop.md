@@ -142,7 +142,7 @@ exception-throwing.
 {type="warning"}
 
 Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
-functions with callbacks, or [`completionHandler`’s](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
+functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
 in Swift/Objective-C terminology.
 
 Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
