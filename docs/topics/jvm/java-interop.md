@@ -122,6 +122,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`)
+  * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
 You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
