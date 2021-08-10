@@ -114,7 +114,7 @@ kotlin {
 
 #### Target shortcuts and ARM64 (Apple Silicon) simulators
 
-The target shortcuts `ios`, `watchos` and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
+The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
 `iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to build 
 the project for an Apple Silicon simulator, adjust the build script the following way:
 
