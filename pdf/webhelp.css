@@ -1,0 +1,360 @@
+
+@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap);
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+    display: block;
+}
+/* HTML5 hidden-attribute fix for newer browsers */
+*[hidden] {
+    display: none;
+}
+body {
+    line-height: 1;
+}
+menu, ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+:root{
+    --wt-font-family-gotham:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    --wt-font-family-system:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    --wt-font-family-mono:SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    --wt-font-weight-black:900;
+    --wt-font-weight-bold:700;
+    --wt-font-weight-light:300;
+}
+@page {
+    size: A4;
+    margin: 48px;
+}
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+figure img {
+    max-width: 100% !important;
+    max-height: initial !important;
+    min-width: initial !important;
+    min-height: initial !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+.chapter {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+figure {
+    margin-bottom: 26px;
+}
+figure:after {
+    display: block;
+    content: attr(title) " ";
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(39,40,44,0.5);
+}
+figure img {
+    margin: 32px 0 16px;
+}
+figure.video, figure.gif {
+    display: inline-block;
+    position: relative;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+figure.video:after, figure.gif:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    background: white no-repeat center url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M19 12L8 4v16l11-8z'/%3E%3C/svg%3E");
+    border-radius: 48px;
+    box-shadow: 0px 0px 11px 0px rgba(39, 40, 44, 0.2);
+}
+figure.video img, figure.gif img {
+    margin: 0;
+}
+figure.video + p a, figure.gif + p a {
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(39,40,44,0.5);
+}
+figure.video:after {
+    content: 'Gif';
+    background: #27282C;
+    color: white;
+    box-shadow: none;
+    font-size: 15px;
+    line-height: 48px;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+h1 {
+    letter-spacing:-0.5px;
+    color:#27282c;
+    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size:40px;
+    font-size:40px;
+    font-size:var(--wt-h1-font-size, 40px);
+    font-weight:900;
+    line-height:48px;
+    line-height:48px;
+    line-height:var(--wt-h1-line-height, 48px);
+
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 24px;
+    color: #27282C;
+}
+@media screen and (max-width: 640px){
+    h1 {
+        --wt-h1-font-size:36px;
+        --wt-h1-line-height:44px;
+    }
+}
+.wt-reset-gotham-font-style h1{
+    letter-spacing:normal;
+}
+@media print {
+    h1 {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+}
+h2 {
+    letter-spacing:-0.5px;
+    color:#27282c;
+    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size:31px;
+    font-size:31px;
+    font-size:var(--wt-h2-font-size, 31px);
+    font-weight:700;
+    line-height:40px;
+    line-height:40px;
+    line-height:var(--wt-h2-line-height, 40px);
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 16px;
+    color: #27282C;
+}
+@media screen and (max-width: 640px){
+    h2 {
+        --wt-h2-font-size:24px;
+        --wt-h2-line-height:32px;
+    }
+}
+.wt-reset-gotham-font-style h2{
+    letter-spacing:normal;
+}
+@media print {
+    h2 {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+}
+h3 {
+    letter-spacing:normal;
+    color:#27282c;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size:20px;
+    font-size:20px;
+    font-size:var(--wt-h3-font-size, 20px);
+    font-weight:bold;
+    line-height:28px;
+    line-height:28px;
+    line-height:var(--wt-h3-line-height, 28px);
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+@media print {
+    h3 {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+}
+p, a, li {
+    letter-spacing:normal;
+    color:rgba(39, 40, 44, 0.70);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size:15px;
+    font-weight:normal;
+    line-height:24px;
+
+    color: #27282C;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 24px;
+}
+p img, a img, li img {
+    vertical-align: middle;
+}
+.code-block {
+    background: rgba(39,40,44,0.05);
+    padding: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    font-family: JetBrains Mono;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 18px;
+    margin-bottom: 16px;
+    white-space: pre-wrap
+}
+table {
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: left;
+}
+table a {
+    font-size: 12px;
+    line-height: 18px;
+}
+table tr th,
+table thead
+{
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+table tbody {
+    page-break-before: avoid;
+    -moz-column-break-before: avoid;
+    break-before: avoid;
+}
+table th {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+}
+table th, table td {
+    padding: 16px 12px 16px 0;
+}
+table th {
+    border-bottom: 1px solid rgba(25, 25, 28, 0.2);
+}
+.list {
+    margin-left: 18px;
+}
+.list._ul {
+    list-style: disc;
+}
+.list._decimal {
+    list-style: decimal;
+}
+.list__item {
+    padding-left: 2px;
+    margin-bottom: 16px;
+}
+.tabs {
+    margin: 32px 0;
+    font-size: 12px;
+}
+.tabs p, .tabs a, .tabs .list__item {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.tabs__content {
+    margin-bottom: 16px;
+}
+.tabs__content:before {
+    display: inline-block;
+    content: attr(data-title) " ";
+    padding-bottom: 8px;
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(39,40,44,1);
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+    margin-bottom: 16px;
+}
+.prompt {
+    position: relative;
+    margin: 32px 0;
+    padding: 12px 16px 12px 48px;
+    background-color: rgba(77,187,95,0.2);
+    border-radius: 8px;
+    page-break-inside: avoid;
+}
+.prompt:before {
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    margin-right: 18px;
+
+    content: '\00a0\00a0\00a0\00a0';
+
+    color: transparent;
+
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='rgba(77,187,95,1)'%3E%3Cpath d='M15 8a7 7 0 1 1-7-7 7 7 0 0 1 7 7zM6.833 4.5A1.167 1.167 0 1 0 8 3.333 1.167 1.167 0 0 0 6.833 4.5zm-.389 2.753v.778h.778v4.636h1.556V8a.747.747 0 0 0-.747-.747z' fill='rgba(77,187,95,1)' /%3E%3C/svg%3E") no-repeat 50%/100%;
+
+    line-height: inherit;
+}
+.prompt[data-type=tip] {
+    background-color: rgba(39, 40, 44, 0.05);
+}
+.prompt[data-type=tip]:before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2327282C'%3E%3Cpath d='M15 8a7 7 0 1 1-7-7 7 7 0 0 1 7 7zM6.833 4.5A1.167 1.167 0 1 0 8 3.333 1.167 1.167 0 0 0 6.833 4.5zm-.389 2.753v.778h.778v4.636h1.556V8a.747.747 0 0 0-.747-.747z' fill='%2327282C' /%3E%3C/svg%3E") no-repeat 50%/100%;
+}
+.prompt p:last-child {
+    margin-bottom: 0;
+}
+
+figure img {
+    max-width: 100% !important;
+    max-height: initial !important;
+    min-width: initial !important;
+    min-height: initial !important;
+    height: auto !important;
+    width: auto !important;
+}
