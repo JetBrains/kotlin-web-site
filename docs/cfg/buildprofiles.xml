@@ -11,7 +11,8 @@
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
         <generate-only-default-anchors>true</generate-only-default-anchors>
         <web-root>https://kotlinlang.org/docs/</web-root>
-        <og-image>https://kotlinlang.org/docs/</og-image>
+        <og-image>https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png</og-image>
+        <og-twitter>@kotlin</og-twitter>
         <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
         <download-page/>
         <relative-url-to-absolute-prefix>https://github.com/Kotlin/kotlinx.coroutines/blob/master/</relative-url-to-absolute-prefix>
