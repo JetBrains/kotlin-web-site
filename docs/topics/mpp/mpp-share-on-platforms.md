@@ -111,6 +111,56 @@ kotlin {
 ```
 
 </tabs>
+
+#### Target shortcuts and ARM64 (Apple Silicon) simulators
+
+The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
+`iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to build 
+the project for an Apple Silicon simulator, adjust the build script the following way:
+
+1. Add the `*SimulatorArm64` simulator target you need.
+2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
+
+<tabs>
+
+```groovy
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+
+    // Set up dependencies between the source sets
+    sourceSets {
+        // ...
+        iosSimulatorArm64Main {
+            dependsOn(iosMain)
+        }
+        iosSimulatorArm64Test {
+            dependsOn(iosTest)
+        }
+    }
+}
+```
+
+```kotlin
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+    
+    val iosMain by sourceSets.getting
+    val iosTest by sourceSets.getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+
+    // Set up dependencies between the source sets
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
+}
+```
+
+</tabs>
+
  
 ### Configure the hierarchical structure manually
 
