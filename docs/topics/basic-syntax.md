@@ -236,7 +236,7 @@ Block comments in Kotlin can be nested.
 
 ```kotlin
 /* The comment starts here
-/* contains a nested comment */     
+/* contains a nested comment *&#8288;/     
 and ends here. */
 ```
 

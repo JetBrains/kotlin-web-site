@@ -1,7 +1,8 @@
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 ```kotlin
 /*
- Create a POJO with getters, setters, `equals()`, `hashCode()`, `toString()` and `copy()` in a single line:
+ Create a POJO with getters, setters, `equals()`, `hashCode()`,
+ `toString()` and `copy()` in a single line:
 */
 
 data class Customer(val name: String, val email: String, val company: String)

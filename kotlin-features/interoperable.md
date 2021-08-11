@@ -1,7 +1,8 @@
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 ```kotlin
 /*
- Use any existing library on the JVM, as there’s 100% compatibility, including SAM support.
+ Use any existing library on the JVM, as there’s 100%
+ compatibility, including SAM support.
 */
 
 import io.reactivex.Flowable

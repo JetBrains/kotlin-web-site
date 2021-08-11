@@ -217,9 +217,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 </execution>
 ```
 
-You can find a complete sample project showing the use of Kotlin, Maven and Dagger in the
-[Kotlin examples repository](https://github.com/JetBrains/kotlin-examples/tree/master/maven/dagger-maven-example).
- 
+
 Please note that kapt is still not supported for IntelliJ IDEA’s own build system. Launch the build from the “Maven Projects”
 toolbar whenever you want to re-run the annotation processing.
 
@@ -269,9 +267,6 @@ An example:
 
 kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
 and these files will be compiled together with the main sources.
-
-You can find the complete sample in the [kotlin-examples](https://github.com/JetBrains/kotlin-examples/tree/master/gradle/kotlin-code-generation)
-GitHub repository.
 
 Note that kapt does not support multiple rounds for the generated Kotlin files.
 

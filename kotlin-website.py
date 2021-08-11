@@ -535,6 +535,8 @@ if __name__ == '__main__':
             generate_temporary_sitemap()
         elif argv_copy[1] == "index":
             build_search_indices(get_dist_pages())
+        elif argv_copy[1] == "reference-pdf":
+            generate_pdf("kotlin-docs.pdf", site_data)
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)

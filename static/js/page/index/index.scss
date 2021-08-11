@@ -51,7 +51,7 @@ a, a:hover  {
 }
 
 .kto-heading_size_h1 {
-  margin-bottom: var(--l-space);
+  margin-bottom: var(--m-space);
 
   @media(max-width: $breakpoint-xs) { margin-bottom: var(--s-space); }
 }
