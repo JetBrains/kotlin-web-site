@@ -4,7 +4,7 @@
 KMM is part of the larger Kotlin ecosystem and leverages Kotlin features and improvements for a better mobile developer experience. 
 [Every Kotlin release](releases.md#release-details) brings features and improvements that are helpful for mobile developers like you. 
 
-Android Studio will recommend an automatic update to a new Kotlin release. You can also [update manually](releases.md#updating-to-a-new-release).
+Android Studio will recommend an automatic update to a new Kotlin release. You can also [update manually](releases.md#update-to-a-new-release).
 
 Here you can find a short summary of the features Kotlin provides for developing multiplatform mobile applications.
 
@@ -86,6 +86,6 @@ Learn more about [what's new in Kotlin 1.4.30](whatsnew1430.md).
 now includes metadata artifacts. These were published separately in earlier Kotlin versions.  
 For compatibility, both multiplatform library authors and users must update to Kotlin 1.4.20. Learn more about [publishing a multiplatform library](mpp-publish-lib.md).
 
-* **Deprecation of the Kotlin Android Extensions plugin**. The [`Parcelable` implementation generator](all-open-plugin.md#parcelable-implementations-generator) has been moved to a separate `kotlin-parcelize` plugin.
+* **Deprecation of the Kotlin Android Extensions plugin**. The `Parcelable` implementation generator has been moved to a separate [`kotlin-parcelize` plugin](whatsnew1420.md#new-plugin-for-parcelable-implementation-generator).
 
 Learn more about [what's new in Kotlin 1.4.20](https://kotlinlang.org/docs/whatsnew1420.html).
