@@ -105,8 +105,8 @@
 - title: University of California, Davis - UC Davis
   location: Davis, CA (US)
   courses:
-    - name: 'ECS 189E: Android and iOS Fundamentals'
-      url: https://bob.cs.ucdavis.edu/assets/ECS189E_android_and_ios.pdf
+  - name: 'ECS 189E: Android and iOS Fundamentals'
+    url: https://bob.cs.ucdavis.edu/assets/ECS189E_android_and_ios.pdf
   geo:
     lat: '38.5382322'
     lng: '-121.7639012'
@@ -1437,36 +1437,58 @@
 - title: National University of La Matanza - Universidad Nacional de La Matanza
   location: Buenos Aires (Argentina)
   courses:
-  - name: 'Tecnicatura en Desarrollo de Aplicaciones Móviles'
+  - name: Tecnicatura en Desarrollo de Aplicaciones Móviles
     url: https://ingenieria.unlam.edu.ar/index.php?seccion=3&idArticulo=368
+  geo:
+    lat: '-34.6689958'
+    lng: '-58.566365'
 - title: The University of the Antilles - Université des Antilles
   location: Schoelcher (Martinique)
   courses:
-  - name: "Licence Professionnelle Métiers de l'informatique - Informatique Embarquée et Mobile"
+  - name: Licence Professionnelle Métiers de l'informatique - Informatique Embarquée
+      et Mobile
     url: http://formations.univ-antilles.fr/#/formation/153
+  geo:
+    lat: '14.6197775'
+    lng: '-61.093989'
 - title: University of Fortaleza
   location: Fortaleza (Brazil)
   courses:
-  - name: 'Computer Science'
+  - name: Computer Science
     url: https://www.unifor.br/web/graduacao/ciencia-da-computacao
+  geo:
+    lat: '-3.7687753'
+    lng: '-38.478061'
 - title: University of Applied Sciences and Arts Northwestern Switzerland
   location: Brugg (Switzerland)
   courses:
-  - name: 'Entwicklung mobiler Applikationen'
+  - name: Entwicklung mobiler Applikationen
     url: https://www.unifor.br/web/graduacao/ciencia-da-computacao
+  geo:
+    lat: '47.48188640000001'
+    lng: '8.211477799999999'
 - title: National Yang Ming Chiao Tung University
   location: Taipei City (Taiwan)
   courses:
-  - name: 'Android Programming'
+  - name: Android Programming
     url: https://hscc.cs.nctu.edu.tw/~lincyu/
+  geo:
+    lat: '25.123002'
+    lng: '121.513702'
 - title: ATMIYA University
   location: Rajkot (India)
   courses:
-  - name: '20MCACC302 - Mobile App Development using Android in Kotlin'
+  - name: 20MCACC302 - Mobile App Development using Android in Kotlin
     url: https://atmiyauni.ac.in/20MCACC302-Mobile-App-Development-using-Android-in-Kotlin.pdf
+  geo:
+    lat: '22.2815671'
+    lng: '70.7668523'
 - title: University of Engineering and Management
   location: Jaipur (India)
   courses:
   - name: 'PCCCS-706A: Mobile Computing'
     url: https://drive.google.com/file/d/13kOP72x8woD_lJHmRHcMgkUkonHWDN55/view?usp=sharing
 
+  geo:
+    lat: '26.9124336'
+    lng: '75.7872709'
