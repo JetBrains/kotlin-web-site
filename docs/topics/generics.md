@@ -91,7 +91,7 @@ The latter is called _contravariance_, and you can only call methods that take `
 (for example, you can call `add(String)` or `set(int, String)`).  If you call something that returns `T` in `List<T>`,
 you don't get a `String`, but rather an `Object`.
 
-Joshua Block gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
+Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
 
 >"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers",
 > and proposes the following mnemonic:
