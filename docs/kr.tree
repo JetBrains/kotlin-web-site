@@ -13,6 +13,7 @@
 
     <toc-element toc-title="Kotlin overview">
         <toc-element id="multiplatform.md"/>
+        <toc-element id="kmm-overview.md"/>
         <toc-element id="server-overview.md" accepts-web-file-names="httpservlets.html"/>
         <toc-element id="android-overview.md"/>
         <toc-element id="js-overview.md"/>
@@ -34,6 +35,9 @@
                 <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
                 <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
             </toc-element>
+        </toc-element>
+        <toc-element toc-title="Kotlin for KMM">
+            <toc-element id="whats-new-in-kotlin-for-kmm.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin plugin">
             <toc-element id="whatsnew-plugin-20212.md" toc-title="Kotlin plugin 2021.2"/>
@@ -113,6 +117,25 @@
         <toc-element id="mpp-dsl-reference.md"/>
         <toc-element id="migrating-multiplatform-project-to-14.md"/>
         <toc-element id="mpp-tutorials.md"/>
+        <toc-element toc-title="Multiplatform Mobile (KMM)">
+            <toc-element id="kmm-getting-started.md"/>
+            <toc-element id="kmm-setup.md"/>
+            <toc-element id="kmm-create-first-app.md"/>
+            <toc-element id="kmm-integrate-in-existing-app.md"/>
+            <toc-element id="kmm-understand-project-structure.md"/>
+            <toc-element id="kmm-connect-to-platform-specific-apis.md"/>
+            <toc-element id="kmm-add-dependencies.md"/>
+            <toc-element id="kmm-configure-sqldelight-for-data-storage.md"/>
+            <toc-element id="kmm-use-ktor-for-networking.md"/>
+            <toc-element toc-title="Work with concurrency">
+                <toc-element id="kmm-concurrency-overview.md"/>
+                <toc-element id="kmm-concurrent-mutability.md"/>
+                <toc-element id="kmm-concurrency-and-coroutines.md"/>
+            </toc-element>
+            <toc-element id="kmm-samples.md"/>
+            <toc-element id="kmm-faq.md"/>
+            <toc-element id="kmm-introduce-your-team.md"/>
+        </toc-element>
 
     </toc-element>
 
@@ -189,6 +212,7 @@
 
     <toc-element toc-title="Releases and roadmap">
         <toc-element id="releases.md"/>
+        <toc-element id="kmm-plugin-releases.md"/>
         <toc-element id="plugin-releases.md"/>
         <toc-element id="roadmap.md"/>
     </toc-element>
