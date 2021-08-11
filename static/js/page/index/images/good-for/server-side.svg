@@ -1,23 +1,5 @@
-<svg width="73" height="72" viewBox="0 0 73 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0)">
-        <path d="M54.4521 45.1322H21.5423C18.2441 45.1322 15.5674 42.4399 15.5674 39.1226V6.00961C15.5674 2.69231 18.2441 0 21.5423 0H54.464C57.7622 0 60.4389 2.69231 60.4389 6.00961V39.1226C60.427 42.4399 57.7502 45.1322 54.4521 45.1322Z" fill="url(#paint0_radial)"/>
-        <path d="M0.427002 44.856H44.952" stroke="white" stroke-miterlimit="10"/>
-        <path d="M0.427002 30.3247H44.952" stroke="white" stroke-miterlimit="10"/>
-        <path d="M0.427002 15.7935H44.952" stroke="white" stroke-miterlimit="10"/>
-        <path d="M0.427002 59.3992H44.952" stroke="white" stroke-miterlimit="10"/>
-    </g>
-    <defs>
-        <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18.3793 1.63702) scale(67.23 67.6206)">
-            <stop offset="0.1288" stop-color="#E01528"/>
-            <stop offset="0.146" stop-color="#D4132F"/>
-            <stop offset="0.3114" stop-color="#60006F"/>
-            <stop offset="0.3402" stop-color="#62067A"/>
-            <stop offset="0.3914" stop-color="#691599"/>
-            <stop offset="0.4587" stop-color="#732DCA"/>
-            <stop offset="0.5172" stop-color="#7D45FA"/>
-        </radialGradient>
-        <clipPath id="clip0">
-            <rect width="72" height="72" fill="white" transform="translate(0.427002)"/>
-        </clipPath>
-    </defs>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 45C0 46.6569 1.34315 48 3 48H45C46.6569 48 48 46.6569 48 45V33.7998C48 33.2475 47.5523 32.7998 47 32.7998H1C0.447715 32.7998 0 33.2475 0 33.7998V45Z" fill="white"/>
+<path d="M48 3C48 1.34315 46.6569 0 45 0H3C1.34315 0 0 1.34315 0 3V14.2002C0 14.7525 0.447715 15.2002 1 15.2002H47C47.5523 15.2002 48 14.7525 48 14.2002V3Z" fill="white"/>
+<path d="M0 17.7998V30.2002C0 30.7525 0.447715 31.2002 1 31.2002H47C47.5523 31.2002 48 30.7525 48 30.2002V17.7998C48 17.2475 47.5523 16.7998 47 16.7998H1C0.447715 16.7998 0 17.2475 0 17.7998Z" fill="white"/>
 </svg>
