@@ -71,16 +71,15 @@
 }
 
 .kotlin-intro-featured {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
   justify-content: space-between;
   margin-bottom: 32px;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
 
   @media (max-width: $breakpoint-s) {
-    flex-direction: column;
+    grid-template-columns: none;
   }
 }
 
@@ -94,11 +93,11 @@
   display: block;
 
   box-sizing: border-box;
-  padding: 120px 32px 32px;
+  padding: 128px 16px 16px;
 
-  background: transparent none no-repeat 32px 32px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent none no-repeat 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
 
   @media (max-width: $breakpoint-s) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
