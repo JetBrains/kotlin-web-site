@@ -1,7 +1,7 @@
 [//]: # (title: Concurrent mutability)
 [//]: # (auxiliary-id: Concurrent_Mutability)
 
-When it comes to working with iOS, [Kotlin/Native's state and concurrency model](kmm-concurrency-overview.md) has [two simple rules](concurrency-overview.md#rules-for-state-sharing).
+When it comes to working with iOS, [Kotlin/Native's state and concurrency model](kmm-concurrency-overview.md) has [two simple rules](kmm-concurrency-overview.md#rules-for-state-sharing).
 
 1. A mutable, non-frozen state is visible to only one thread at a time.
 2. An immutable, frozen state can be shared between threads.
