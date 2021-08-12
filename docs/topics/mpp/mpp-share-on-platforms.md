@@ -259,19 +259,17 @@ targets. This helps you share more native code without being limited by platform
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-However, note that there are some limitations:
-
-* This approach works only for a native source set that is shared among platform-specific source sets. It doesn’t work 
-for native source sets shared at higher levels of the source set hierarchy.  
-    For example, if you have `nativeDarwinMain` that is a parent of `watchosMain` and `iosMain`, where `iosMain` has two 
-    children – `iosArm64Main` and `iosX64Main`, you can use platform-dependent libraries only for `iosMain` but not for `nativeDarwinMain`.
-* It works only for interop libraries shipped with Kotlin/Native.
-
 To enable usage of platform-dependent libraries in shared source sets, add the following to your `gradle.properties`:
 
-```kotlin
+```properties
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=false
 ```
 
-Learn more about the [technical details](https://github.com/JetBrains/kotlin/blob/1.4.0/native/commonizer/README.md).
+Besides [platform libraries](native-platform-libs.md) shipped with Kotlin/Native distribution, this approach can also 
+handle a custom [`cinterop` library](native-c-interop.md) making it available in shared source sets. To enable it, 
+specify the additional `kotlin.mpp.enableCInteropCommonization` key:
+
+```properties
+kotlin.mpp.enableCInteropCommonization=true
+```
