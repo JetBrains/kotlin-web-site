@@ -692,17 +692,17 @@ Use the following code to set the toolchain. Replace the placeholder `<MAJOR_JDK
 
 ```groovy
 kotlin {
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-  }
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    }
 }
 ```
 
 ```kotlin
-kotlin {
-  toolchain {
-      (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-  }
+kotlin { 
+    toolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
 }
 ```
 
@@ -716,17 +716,17 @@ You can set the toolchain via the `java` extension, and Kotlin compilation tasks
 
 ```groovy
 java {
-  toolchain {
-    languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-  }
+    toolchain {
+      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    }
 }
 ```
 
 ```kotlin
 java {
-  toolchain {
-    languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-  }
+    toolchain {
+      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
 }
 ```
 
@@ -748,22 +748,22 @@ Provider<JavaLauncher> customLauncher = service.launcherFor {
     it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project.tasks
-  .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
-  .configureEach {
-    it.kotlinJavaToolchain.toolchain.use(customLauncher)
-  }
+    .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
+    .configureEach {
+        it.kotlinJavaToolchain.toolchain.use(customLauncher)
+    }
 ```
 
 ```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
-  it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project.tasks
-  .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-  .configureEach {
-      it.kotlinJavaToolchain.toolchain.use(customLauncher)
-  }
+    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
+    .configureEach {
+        it.kotlinJavaToolchain.toolchain.use(customLauncher)
+    }
 ```
 
 </tabs>
@@ -774,24 +774,24 @@ Or you can specify the path to your local JDK and replace the placeholder `<LOCA
 
 ```groovy
 project.tasks
-  .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-  .configureEach {
-       it.kotlinJavaToolchain.jdk.use(
-           '/path/to/your/jdk', // Put a path to your JDK
-           JavaVersion.<JDK_VERSION> // For example, JavaVersion.17
-       )
-  }
+    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
+    .configureEach {
+        it.kotlinJavaToolchain.jdk.use(
+            '/path/to/your/jdk', // Put a path to your JDK
+            JavaVersion.<JDK_VERSION> // For example, JavaVersion.17
+        )
+    }
 ```
 
 ```kotlin
 project.tasks
-  .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-  .configureEach {
-    it.kotlinJavaToolchain.jdk.use(
-      "/path/to/local/jdk", // Put a path to your JDK
-      JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
-    )
-  }
+    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
+    .configureEach {
+        it.kotlinJavaToolchain.jdk.use(
+            "/path/to/local/jdk", // Put a path to your JDK
+            JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
+        )
+    }
 ```
 
 </tabs>
@@ -854,13 +854,13 @@ In the following list, the latter options override the previous ones:
 
   ```groovy
   kotlin {
-    kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseG1GC"]
+      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseG1GC"]
   }
   ```
 
   ```kotlin
   kotlin {
-    kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC")
+      kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC")
   }
   ```
 
@@ -872,18 +872,18 @@ In the following list, the latter options override the previous ones:
 
   ```groovy
   tasks
-    .matching { it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon }
-    .configureEach {
-      kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
-    }
+      .matching { it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon }
+      .configureEach {
+          kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+      }
   ```
 
   ```kotlin
   tasks
-    .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
-    .configureEach { 
-      (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC"))
-    }
+      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
+      .configureEach { 
+          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC"))
+      }
   ```
 
   </tabs>
