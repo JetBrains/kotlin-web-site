@@ -132,7 +132,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 </tabs>
 
-If your Gradle module is a multiplatform module, use the `useExperimentalAnnotation` method:
+If your Gradle module is a multiplatform module, use the `optIn` method:
 
 <tabs>
 
@@ -140,7 +140,7 @@ If your Gradle module is a multiplatform module, use the `useExperimentalAnnotat
 sourceSets {
     all {
         languageSettings {
-            useExperimentalAnnotation('org.mylibrary.OptInAnnotation')
+            optIn('org.mylibrary.OptInAnnotation')
         }
     }
 }
@@ -149,7 +149,7 @@ sourceSets {
 ```kotlin
 sourceSets {
     all {
-        languageSettings.useExperimentalAnnotation("org.mylibrary.OptInAnnotation")
+        languageSettings.optIn("org.mylibrary.OptInAnnotation")
     }
 }
 ```
