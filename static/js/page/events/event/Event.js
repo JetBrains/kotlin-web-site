@@ -24,6 +24,7 @@ export default class Event {
     }
 
     this.city = data.location;
+    this.online = !!data.online;
     this.lang = data.lang || DEFAULT_LANG;
     this.content = data.content;
     this.image = data.image;
