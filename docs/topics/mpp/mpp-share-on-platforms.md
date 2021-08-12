@@ -266,9 +266,9 @@ kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=false
 ```
 
-Besides [platform libraries](native-platform-libs.md) shipped with Kotlin/Native distribution, this approach can also 
-handle a custom [`cinterop` library](native-c-interop.md) making it available in shared source sets. To enable it, 
-specify the additional `kotlin.mpp.enableCInteropCommonization` key:
+In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
+handle a custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
+To enable this support, specify the additional `kotlin.mpp.enableCInteropCommonization` key:
 
 ```properties
 kotlin.mpp.enableCInteropCommonization=true
