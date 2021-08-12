@@ -888,9 +888,9 @@ In the following list, the latter options override the previous ones:
 
   </tabs>
 
-> In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
->
-{type="note"}
+  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
+  >
+  {type="note"}
 
 #### Kotlin daemon's behavior with JVM arguments
 
