@@ -7,7 +7,7 @@
 {type="warning"}
 
 > `@RequireOptIn` and `@OptIn` annotations were introduced in 1.3.70 to replace previously used `@Experimental` and `@UseExperimental`;
-> at the same time, `-Xopt-in` compiler option replaced `-Xuse-experimental`.
+> at the same time, `-opt-in` compiler option replaced `-Xuse-experimental`.
 >
 {type="note"} 
 
@@ -84,7 +84,7 @@ To use multiple APIs that require opt-in, mark the declaration with all their op
 ### Non-propagating opt-in
 
 In modules that don't expose their own API, such as applications, you can opt in to using APIs without propagating
-the opt-in requirement to your code. In this case, mark your declaration with [@OptIn](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-opt-in/)
+the opt-in requirement to your code. In this case, mark your declaration with [`@OptIn`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-opt-in/)
  passing the opt-in requirement annotation as its argument:
 
 ```kotlin
@@ -113,6 +113,21 @@ fun displayDate() {
 
 When somebody calls the function `getDate()`, they won't be informed about the opt-in requirements for APIs used in its body. 
 
+Note that if `@OptIn` applies to the declaration, which signature contains a type declared as requiring opt-in, 
+the opt-in will still propagate:
+
+```kotlin
+// Client code
+@OptIn(MyDateTime::class)
+fun getDate(dateProvider: DateProvider): Date { // Has DateProvider as a part of a signature; propagates the opt-in requirement
+    // ...
+}
+
+fun displayDate() {
+    println(getDate()) // Warning: getDate() requires opt-in
+}
+```
+
 To use an API that requires opt-in in all functions and classes in a file, add the file-level annotation `@file:OptIn`
 to the top of the file before the package specification and imports.
 
@@ -124,8 +139,8 @@ to the top of the file before the package specification and imports.
 ### Module-wide opt-in
 
 If you don't want to annotate every usage of APIs that require opt-in, you can opt in to them for your whole module.
-To opt in to using an API in a module, compile it with the argument `-Xopt-in`,
-specifying the fully qualified name of the opt-in requirement annotation of the API you use: `-Xopt-in=org.mylibrary.OptInAnnotation`.
+To opt in to using an API in a module, compile it with the argument `-opt-in`,
+specifying the fully qualified name of the opt-in requirement annotation of the API you use: `-opt-in=org.mylibrary.OptInAnnotation`.
 Compiling with this argument has the same effect as if every declaration in the module had the annotation`@OptIn(OptInAnnotation::class)`.
 
 If you build your module with Gradle, you can add arguments like this:
@@ -135,14 +150,14 @@ If you build your module with Gradle, you can add arguments like this:
 ```groovy
 tasks.withType(KotlinCompile).configureEach {
     kotlinOptions {
-        freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
+        freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
     }
 }
 ```
 
 ```kotlin
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
+    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
 }
 ```
 
@@ -184,7 +199,7 @@ For Maven, it would be:
             <executions>...</executions>
             <configuration>
                 <args>
-                    <arg>-Xopt-in=org.mylibrary.OptInAnnotation</arg>                    
+                    <arg>-opt-in=org.mylibrary.OptInAnnotation</arg>                    
                 </args>
             </configuration>
         </plugin>
@@ -209,7 +224,7 @@ annotation class MyDateTime
 ```
 
 Opt-in requirement annotations must meet several requirements:
-* `BINARY` [retention](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/)
+* `BINARY` or `RUNTIME` [retention](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/)
 * No `EXPRESSION`, `FILE`, `TYPE`, or `TYPE_PARAMETER` among [targets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/)
 * No parameters.
 
@@ -277,6 +292,8 @@ This means that in future releases it may be changed in ways that make it incomp
 To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
 the compiler raises warnings when compiling the code with these annotations:
 
-```This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'```
+```This class can only be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
 
-To remove the warnings, add the compiler argument `-Xopt-in=kotlin.RequiresOptIn`.
+To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
+
+Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/d7287626dd4c40c6c89877e266044b83fca38bcd/proposals/opt-in.md).
