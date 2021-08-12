@@ -619,7 +619,7 @@ The complete list of options for the Gradle tasks is the following:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sine 1.5.30, use [other ways to set this option](#setting-custom-jdk-home).  |  |  |
+| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#setting-custom-jdk-home).  |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
