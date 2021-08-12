@@ -29,10 +29,10 @@ You are free to choose the way that you find best for your situation.
 
 When you use an API in the code intended for third-party use (a library), you can propagate its opt-in requirement to your API as well.
 To do this, annotate your declaration with the [opt-in requirement annotation](#create-opt-in-requirement-annotations) of the API used in its body.
-This enables you to use the API elements marked with this annotation.
+This enables you to use API elements that require opt-in.
 
 ```kotlin
-// library code
+// Library code
 @RequiresOptIn(message = "This API is experimental. It may be changed in the future without notice.")
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
@@ -43,7 +43,7 @@ class DateProvider // A class requiring opt-in
 ```
 
 ```kotlin
-// client code
+// Client code
 fun getYear(): Int {  
     val dateProvider: DateProvider // Error: DateProvider requires opt-in
     // ...
@@ -56,7 +56,7 @@ fun getDate(): Date {
 }
 
 fun displayDate() {
-    println(getDate()) // error: getDate() requires opt-in
+    println(getDate()) // Error: getDate() requires opt-in
 }
 ```
 
@@ -88,7 +88,7 @@ the opt-in requirement to your code. In this case, mark your declaration with [@
  passing the opt-in requirement annotation as its argument:
 
 ```kotlin
-// library code
+// Library code
 @RequiresOptIn(message = "This API is experimental. It may be changed in the future without notice.")
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
@@ -99,7 +99,7 @@ class DateProvider // A class requiring opt-in
 ```
 
 ```kotlin
-//client code
+// Client code
 @OptIn(MyDateTime::class)
 fun getDate(): Date { // Uses DateProvider; doesn't propagate the opt-in requirement
     val dateProvider: DateProvider
@@ -117,7 +117,7 @@ To use an API that requires opt-in in all functions and classes in a file, add t
 to the top of the file before the package specification and imports.
 
  ```kotlin
- //client code
+ // Client code
  @file:OptIn(MyDateTime::class)
  ```
 
@@ -210,7 +210,7 @@ annotation class MyDateTime
 
 Opt-in requirement annotations must meet several requirements:
 * `BINARY` [retention](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/)
-* No `EXPRESSION` and `FILE` among [targets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/)
+* No `EXPRESSION`, `FILE`, `TYPE`, or `TYPE_PARAMETER` among [targets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/)
 * No parameters.
 
 An opt-in requirement can have one of two severity [levels](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/):
@@ -244,6 +244,11 @@ class DateProvider
 @MyDateTime
 fun getTime(): Time {}
 ```
+
+Note that on some language elements, opt-in requirement annotation is not applicable:
+* Overriding methods can only have opt-in annotations that are present on their basic declarations.
+* You cannot annotate a backing field or a getter of the property, just the property itself.
+* You cannot annotate a local variable or a value parameter.
 
 ## Opt-in requirements for pre-stable APIs
 
