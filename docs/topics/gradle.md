@@ -638,7 +638,7 @@ For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibi
 and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
 in the `java` extension cause incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
-the `compileJava` task has (or [inherits]((https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension))) `targetCompatibility=15`.
+the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
 Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
 * `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
