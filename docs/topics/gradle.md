@@ -776,7 +776,7 @@ Or you can specify the path to your local JDK and replace the placeholder `<LOCA
 project.tasks
   .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
   .configureEach {
-       it.kotlinJavaToolchain.setJdkHome(
+       it.kotlinJavaToolchain.jdk.use(
            '/path/to/your/jdk', // Put a path to your JDK
            JavaVersion.<JDK_VERSION> // For example, JavaVersion.17
        )
