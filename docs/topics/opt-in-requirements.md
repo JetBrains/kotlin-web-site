@@ -63,6 +63,22 @@ fun displayDate() {
 As you can see in this example, the annotated function appears to be a part of the `@MyDateTime` API.
 So, such an opt-in propagates the opt-in requirement to the client code; its clients will see the same warning message
 and be required to consent as well.
+
+Implicit usages of requiring opt-in API also require opt-in. If an API element doesn't have opt-in requirement annotation 
+but its signature includes a type declared as requiring opt-in, its usage will no matter raise a warning. 
+See the example below.
+
+```kotlin
+// Client code
+fun getDate(dateProvider: DateProvider): Date { // Error: DateProvider requires opt-in
+    // ...
+}
+
+fun displayDate() {
+    println(getDate()) // Warning: the signature of getDate() contains DateProvider, which requires opt-in
+}
+```
+
 To use multiple APIs that require opt-in, mark the declaration with all their opt-in requirement annotations.
 
 ### Non-propagating opt-in
