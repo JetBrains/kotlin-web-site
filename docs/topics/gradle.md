@@ -905,3 +905,95 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   >
   {type="note"}
 * If the `Xmx` is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
+
+## Kotlin daemon and its usage with Gradle
+
+The Kotlin daemon:
+* Runs along with the Gradle daemon to compile the project.
+* Runs separately when you compile the project with an IntelliJ IDEA built-in build system.
+
+The Kotlin daemon starts at the Gradle [execution stage](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)
+when one of Kotlin compile tasks starts compiling the sources.
+The Kotlin daemon stops along with the Gradle daemon or after two idle hours with no Kotlin compilation.
+
+The Kotlin daemon uses the same JDK that the Gradle daemon does.
+
+### Setting Kotlin daemon's JVM arguments
+
+In the following list, the latter options override the previous ones:
+* If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon.
+  For example, in the `gradle.properties` file:
+
+ ```properties
+  org.gradle.jvmargs=-Xmx1500m,-Xms=500m
+  ```
+
+* If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
+
+ ```properties
+  org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,-Xms=500m
+  ```
+
+* You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
+
+ ```properties
+  kotlin.daemon.jvmargs=-Xmx1500m,-Xms=500m
+  ```
+
+* You can specify arguments in the `kotlin` extension:
+
+  <tabs>
+
+  ```groovy
+  kotlin {
+      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseG1GC"]
+  }
+  ```
+
+  ```kotlin
+  kotlin {
+      kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC")
+  }
+  ```
+
+  </tabs>
+
+* You can specify arguments for a specific task:
+  
+  <tabs>
+
+  ```groovy
+  tasks
+      .matching { it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon }
+      .configureEach {
+          kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+      }
+  ```
+
+  ```kotlin
+  tasks
+      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
+      .configureEach { 
+          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC"))
+      }
+  ```
+
+  </tabs>
+
+  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
+  >
+  {type="note"}
+
+#### Kotlin daemon's behavior with JVM arguments
+
+When configuring the Kotlin daemon's JVM arguments, note that:
+
+* It is expected to have multiple instances of the Kotlin daemon running at the same time when different subprojects or tasks have different sets of JVM arguments.
+* A new Kotlin daemon instance starts only when Gradle runs a related compilation task and existing Kotlin daemons do not have the same set of JVM arguments.
+  Imagine that your project has a lot of subprojects. Most of them require some heap memory for a Kotlin daemon, but one module requires a lot (though it is rarely compiled).
+  In this case, you should provide a different set of JVM arguments for such a module, so a Kotlin daemon with a larger heap size would start only for developers who touch this specific module.
+  > If you are already running a Kotlin daemon that has enough heap size to handle the compilation request,
+  > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
+  >
+  {type="note"}
+* If the `Xmx` is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
