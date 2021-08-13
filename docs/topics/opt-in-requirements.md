@@ -64,8 +64,8 @@ As you can see in this example, the annotated function appears to be a part of t
 So, such an opt-in propagates the opt-in requirement to the client code; its clients will see the same warning message
 and be required to consent as well.
 
-Implicit usages of requiring opt-in API also require opt-in. If an API element doesn't have opt-in requirement annotation 
-but its signature includes a type declared as requiring opt-in, its usage will no matter raise a warning. 
+Implicit usages of APIs that require opt-in also require opt-in. If an API element doesn't have an opt-in requirement 
+annotation but its signature includes a type declared as requiring opt-in, its usage will still raise a warning. 
 See the example below.
 
 ```kotlin
@@ -113,7 +113,7 @@ fun displayDate() {
 
 When somebody calls the function `getDate()`, they won't be informed about the opt-in requirements for APIs used in its body. 
 
-Note that if `@OptIn` applies to the declaration, which signature contains a type declared as requiring opt-in, 
+Note that if `@OptIn` applies to the declaration whose signature contains a type declared as requiring opt-in, 
 the opt-in will still propagate:
 
 ```kotlin
@@ -260,9 +260,9 @@ class DateProvider
 fun getTime(): Time {}
 ```
 
-Note that on some language elements, opt-in requirement annotation is not applicable:
+Note that for some language elements, an opt-in requirement annotation is not applicable:
 * Overriding methods can only have opt-in annotations that are present on their basic declarations.
-* You cannot annotate a backing field or a getter of the property, just the property itself.
+* You cannot annotate a backing field or a getter of a property, just the property itself.
 * You cannot annotate a local variable or a value parameter.
 
 ## Opt-in requirements for pre-stable APIs
