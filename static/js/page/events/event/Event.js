@@ -19,8 +19,8 @@ export default class Event {
     this.description = data.description;
     this.tags = data.tags ? data.tags.split(',').map(t => t.trim()) : [];
 
-    if (!data.location) {
-      console.warn(data.title + ' has no location');
+    if (!data.location && !data.online) {
+      console.warn(data.title + ' has no location and online tag');
     }
 
     this.city = data.location;
@@ -79,5 +79,9 @@ export default class Event {
 
   hide() {
     $(this.node).hide();
+  }
+
+  hasCity() {
+    return !!this.city;
   }
 }
