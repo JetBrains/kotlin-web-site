@@ -122,40 +122,14 @@ kotlin {
 The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
 
-> If a library consumer defines variants that are missing in the library, they need to provide matching fallbacks. 
-> For example, if a library does not have or does not publish a staging build type, the library consumer must provide a fallback for the 
-> consumers who have such a build type, specifying at least one of the build types that the library publishes:
->
-><tabs>
->
-> ```groovy
-> android {
->     buildTypes {
->         staging {
->             // ...
->             matchingFallbacks = ['release', 'debug']
->         }
->     }
-> }
-> ```
-> 
-> ```kotlin
-> android {
->     buildTypes {
->         val staging by creating {
->             // ...
->             matchingFallbacks = listOf("release", "debug")
->         }
->     }
-> }
-> ```
->
-></tabs>
->
-{type="note"}
+The default publishing setup is the following:
+* If all Android variants that the project publishes have the same build type attribute, then the published variants 
+  won't have the build type attribute and will be compatible with any build type.
+* If the published variants have different build type attributes, then only those having the value `release` get 
+  published without the build type attribute. It makes the release ones compatible with any build type on the consumer 
+  side, and non-release ones compatible with just the matching consumer's build type.
 
-Similarly, a library consumer needs to provide matching fallbacks for custom product flavors if some are missing in the 
-library publications.
+To keep the build type attribute for all variants, you can set the Gradle property `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
