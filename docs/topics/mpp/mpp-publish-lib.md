@@ -123,13 +123,15 @@ The example works for Android libraries without [product flavors](https://develo
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
 
 The default publishing setup is the following:
-* If all Android variants that the project publishes have the same build type attribute, then the published variants 
-  won't have the build type attribute and will be compatible with any build type.
-* If the published variants have different build type attributes, then only those having the value `release` get 
-  published without the build type attribute. It makes the release ones compatible with any build type on the consumer 
-  side, and non-release ones compatible with just the matching consumer's build type.
+* If the published variants have the same build type (for example, all are `release` or all are `debug`), 
+  they will be compatible with any consumer's build type.
+* If the published variants have different build types, then only the release variants will be compatible 
+  with any consumer's build type that is absent among the published variants. All other variants (such as `debug`) 
+  will only match the same build type on the consumer side, unless the consumer project specifies the 
+  [matching fallbacks](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/BuildType).
 
-To keep the build type attribute for all variants, you can set the Gradle property `kotlin.android.buildTypeAttribute.keep=true`.
+If you want to make every published Android variant compatible only with the same build type used by the library consumer, 
+set the Gradle property `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
