@@ -16,7 +16,8 @@ on it. Refer to your browser's documentation for the detailed information about 
 
 To debug Kotlin/JS in the browser:
 
-1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun`.
+1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
+   `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more in [this tutorial](running-kotlin-js.md#run-the-browser-target).
 2. Navigate to the page in the browser and launch its developer tools, for example, by right-clicking and
    selecting the **Inspect** action.
@@ -55,7 +56,8 @@ For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **Debug JavaScript** deb
 
 Now you're ready to debug your project:
 
-1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun`.
+1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
+   `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more in [this tutorial](running-kotlin-js.md#run-the-browser-target).
 2. Start the debugging session by running the JavaScript debug configuration you've created previously:
 
@@ -71,7 +73,7 @@ Now you're ready to debug your project:
 4. Click the file reference on the right to navigate to the corresponding line of code.
 
 You can now start debugging the program using the whole set of tools that the IDE offers: breakpoints, stepping, expression
-evaluation, and much more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-code.html).
+evaluation, [coroutine debugger](debug-coroutines-with-idea.md) and more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-code.html).
 
 ## Debug in Node.js
 
@@ -91,3 +93,7 @@ Now when you know how to start debug sessions with your Kotlin/JS project, learn
 * Learn how to [debug JavaScript in Google Chrome](https://developer.chrome.com/docs/devtools/javascript/)
 * Get familiar with [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html)
 * Learn how to [debug in Node.js](https://nodejs.org/en/docs/guides/debugging-getting-started/).
+
+## If you run into any problems
+
+If you face any issues with debugging Kotlin/JS, please report them to our issue tracker, [YouTrack](https://kotl.in/issue)
