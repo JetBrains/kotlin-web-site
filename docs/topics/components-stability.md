@@ -38,7 +38,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 
 ## Current stability of Kotlin components
 
-**Component**|**Status**|**Status since version**|**Comment**|
+|**Component**|**Status**|**Status since version**|**Comment**|
 | --- | --- | --- | --- |
 Kotlin/JVM|Stable|1.0| |
 kotlin-stdlib (JVM)|Stable|1.0| |
