@@ -1,6 +1,4 @@
-[//]: # (title: Debug Kotlin/JS - tutorial)
-
-This tutorial shows how to debug Kotlin/JS code using different tools and execution environments: browser, IDE, and Node.js.
+[//]: # (title: Debug Kotlin/JS code)
 
 JavaScript [source maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) provide mappings between
 the minified code produced by bundlers or minifiers and the actual source code a developer works with. This way, source
@@ -12,7 +10,7 @@ without any additional configuration.
 ## Debug in browser
 
 Most modern browsers provide tools that allow inspecting the page content and debugging the code that executes
-on it. Refer to your browser's documentation for the detailed information about its developer tools.
+on it. Refer to your browser's documentation for more details.
 
 To debug Kotlin/JS in the browser:
 
@@ -20,7 +18,8 @@ To debug Kotlin/JS in the browser:
    `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more in [this tutorial](running-kotlin-js.md#run-the-browser-target).
 2. Navigate to the page in the browser and launch its developer tools, for example, by right-clicking and
-   selecting the **Inspect** action.
+   selecting the **Inspect** action. Learn how to [find the developer tools](https://balsamiq.com/support/faqs/browserconsole/)
+   in popular browsers.
 3. If your program is logging information to the console, navigate to the **Console** tab to see this output.
    Depending on your browser, these logs can reference the Kotlin source files and lines they come from:
 
@@ -41,7 +40,7 @@ when the script is loaded for the first time.
 
 ## Debug in the IDE
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/) provides a powerful set of tools for debugging code during the development.
+[IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) provides a powerful set of tools for debugging code during the development.
 
 For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **Debug JavaScript** debug configuration. To add such a configuration:
 
@@ -52,6 +51,7 @@ For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **Debug JavaScript** deb
    ![JavaScript debug configuration](debug-config.png)
    {width="600"}
 
+   Learn more about [setting up JavaScript debug configurations](https://www.jetbrains.com/help/idea/configuring-javascript-debugger.html).
 4. Save the configuration.
 
 Now you're ready to debug your project:
@@ -84,7 +84,7 @@ To debug a Kotlin/JS application targeting Node.js:
 1. Build the project by running the `build` Gradle task.
 2. Find the resulting `.js` file for executing in Node.js in the `build/js/packages/your-module/kotlin/` directory inside
    your project's directory.
-3. Debug it in Node.js as described in the [Node.js Debugging Guide](https://nodejs.org/en/docs/guides/debugging-getting-started/).
+3. Debug it in Node.js as described in the [Node.js Debugging Guide](https://nodejs.org/en/docs/guides/debugging-getting-started/#jetbrains-webstorm-2017-1-and-other-jetbrains-ides).
 
 ## What's next?
 
