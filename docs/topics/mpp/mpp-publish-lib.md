@@ -122,16 +122,16 @@ kotlin {
 The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
 
-The default publishing setup is the following:
-* If the published variants have the same build type (for example, all are `release` or all are `debug`), 
-  they will be compatible with any consumer's build type.
-* If the published variants have different build types, then only the release variants will be compatible 
-  with any consumer's build type that is absent among the published variants. All other variants (such as `debug`) 
-  will only match the same build type on the consumer side, unless the consumer project specifies the 
+The default publishing setup is as follows:
+* If the published variants have the same build type (for example, all of them are `release` or`debug`),
+  they will be compatible with any consumer build type.
+* If the published variants have different build types, then only the release variants will be compatible
+  with consumer build types that are not among the published variants. All other variants (such as `debug`)
+  will only match the same build type on the consumer side, unless the consumer project specifies the
   [matching fallbacks](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/BuildType).
 
-If you want to make every published Android variant compatible only with the same build type used by the library consumer, 
-set the Gradle property `kotlin.android.buildTypeAttribute.keep=true`.
+If you want to make every published Android variant compatible with only the same build type used by the library consumer,
+set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
