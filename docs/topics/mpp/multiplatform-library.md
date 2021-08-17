@@ -7,7 +7,7 @@ This library converts raw data – strings and byte arrays – to the [Base64](h
 You will use different ways to implement the conversion to the Base64 format on different platforms:
 
 * For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
-* For JS – the [Buffer API](https://nodejs.org/docs/latest/api/buffer.html).
+* For JS – the [`WindowOrWorkerGlobalScope.btoa()` API](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/btoa).
 * For Kotlin/Native – your own implementation.
 
 You will also test your code using common tests, and then publish the library to your local Maven repository.
@@ -100,7 +100,7 @@ The JS implementation will be very similar to the JVM one.
 
 1. In the `jsMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
-3. Provide a simple implementation of the `Base64Factory` object that delegates to the NodeJS `Buffer` API:
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the `WindowOrWorkerGlobalScope.btoa()` API:
 
     ```kotlin
     package org.jetbrains.base64
@@ -111,9 +111,9 @@ The JS implementation will be very similar to the JVM one.
     
     object JsBase64Encoder : Base64Encoder {
         override fun encode(src: ByteArray): ByteArray {
-            val buffer = js("Buffer").from(src)
-            val string = buffer.toString("base64") as String
-            return ByteArray(string.length) { string[it].toByte() }
+            val string = src.decodeToString()
+            val encodedString = js("btoa(string)") as String
+            return encodedString.encodeToByteArray()
         }
     }
     ```
