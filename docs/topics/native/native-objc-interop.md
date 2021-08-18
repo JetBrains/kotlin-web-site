@@ -173,8 +173,31 @@ with an additional receiver parameter. These types include:
 
 Kotlin singleton (made with an `object` declaration, including `companion object`)
 is imported to Swift/Objective-C as a class with a single instance.
-The instance is available through the factory method, i.e. as
-`[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift.
+
+The instance is available through the `shared` and `companion` properties.
+
+For the following Kotlin code:
+
+```kotlin
+object MyObject {
+    val x = "Some value"
+}
+
+class MyClass {
+    companion object {
+        val x = "Some value"
+    }
+}
+```
+
+Get the objects as follows: 
+
+```swift
+MyObject.shared
+MyObject.shared.x
+MyClass.companion
+MyClass.Companion.shared
+```
 
 ### NSNumber
 
