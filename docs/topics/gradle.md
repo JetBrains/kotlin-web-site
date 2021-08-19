@@ -845,7 +845,7 @@ In the following list, the latter options override the previous ones:
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
  ```properties
-  kotlin.daemon.jvmargs=-Xmx1500m,-Xms=500m
+  kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
   ```
 
 * You can specify arguments in the `kotlin` extension:
