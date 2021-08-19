@@ -16,7 +16,7 @@ To debug Kotlin/JS in the browser:
 
 1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
-   Learn more in [this tutorial](running-kotlin-js.md#run-the-browser-target).
+   Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Navigate to the page in the browser and launch its developer tools, for example, by right-clicking and
    selecting the **Inspect** action. Learn how to [find the developer tools](https://balsamiq.com/support/faqs/browserconsole/)
    in popular browsers.
@@ -58,7 +58,7 @@ Now you're ready to debug your project:
 
 1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
-   Learn more in [this tutorial](running-kotlin-js.md#run-the-browser-target).
+   Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Start the debugging session by running the JavaScript debug configuration you've created previously:
 
    ![JavaScript debug configuration](debug-config-run.png)
