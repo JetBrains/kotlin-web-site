@@ -35,7 +35,7 @@ To debug Kotlin/JS in the browser:
 
 You can now start debugging the program. For example, set a breakpoint by clicking on one of the line numbers.
 The developer tools even support setting breakpoints within a statement. As with regular JavaScript code, any set
-breakpoints will persist across page reloads. This also makes it possible to debug Kotlin's main method which is executed
+breakpoints will persist across page reloads. This also makes it possible to debug Kotlin's `main()` method which is executed
 when the script is loaded for the first time.
 
 ## Debug in the IDE
@@ -77,12 +77,12 @@ evaluation, [coroutine debugger](debug-coroutines-with-idea.md) and more. Learn 
 
 ## Debug in Node.js
 
-If your projects targets Node.js, you can debug it right in this runtime.
+If your project targets Node.js, you can debug it right in this runtime.
 
 To debug a Kotlin/JS application targeting Node.js:
 
 1. Build the project by running the `build` Gradle task.
-2. Find the resulting `.js` file for executing in Node.js in the `build/js/packages/your-module/kotlin/` directory inside
+2. Find the resulting `.js` file for Node.js in the `build/js/packages/your-module/kotlin/` directory inside
    your project's directory.
 3. Debug it in Node.js as described in the [Node.js Debugging Guide](https://nodejs.org/en/docs/guides/debugging-getting-started/#jetbrains-webstorm-2017-1-and-other-jetbrains-ides).
 
