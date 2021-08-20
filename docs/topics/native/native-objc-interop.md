@@ -146,10 +146,9 @@ functions with callbacks, or [completion handlers](https://developer.apple.com/d
 in Swift/Objective-C terminology.
 
 Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
-`async` functions without using the completion handlers. Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
+`async` functions without using the completion handlers. Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
 for details.
-
-Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
 
 ### Extensions and category members
 
