@@ -27,6 +27,3 @@
 
 - from: /docs/reference/compatibility.html
   to: /docs/reference/evolution/components-stability.html
-
-- from: /docs/debugging-kotlin-in-browser.html
-  to: /docs/js-debugging.html
