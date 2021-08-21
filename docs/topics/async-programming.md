@@ -110,8 +110,8 @@ a complete new way of thinking about our programming model, famously phrased as
 
     "everything is a stream, and it's observable"
     
-This implies a different way to approach problems and quite a significant shift from what we're using to when writing synchronous code. One benefit as opposed to Futures is that given it's ported to 
-so many platforms, generally we can find a consistent API experience no matter what we use it, be it C#, Java, JavaScript, or any other language where Rx is available.
+This implies a different way to approach problems and quite a significant shift from what we're used to when writing synchronous code. One benefit as opposed to Futures is that given it's ported to 
+so many platforms, generally we can find a consistent API experience no matter what we use, be it C#, Java, JavaScript, or any other language where Rx is available.
 
 In addition, Rx does introduce a somewhat nicer approach to error handling. 
 
