@@ -653,7 +653,7 @@ Control the behavior of this check by setting the `kotlin.jvm.target.validation.
 
 You can set the JDK home in the following ways:
 * For Gradle from 6.1 to 6.6 with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
-* For Gradle 6.7 and later with the [Java toolchain](#gradle-java-toolchain-support) or [the Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+* For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or [the Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
 
 When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
 use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
@@ -665,20 +665,20 @@ As before, if you don't set the toolchain or the `jdkHome` option, the Kotlin/JV
 >
 {type="note"}
 
-#### Gradle Java toolchain support
+#### Gradle Java toolchains support
 
-Gradle 6.7 introduced ["Java toolchain support"](https://docs.gradle.org/current/userguide/toolchains.html).
+Gradle 6.7 introduced ["Java toolchains support"](https://docs.gradle.org/current/userguide/toolchains.html).
 Using this feature, you can:
 * Use a JDK and a JRE that are different from the Gradle ones to run compilations, tests, and executables.
 * Compile and test code with a not-yet-released language version.
 
-With toolchain support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
+With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
 Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support)
 for tasks that depend on a major JDK version.
 
-The Kotlin Gradle plugin supports the Java toolchain for Kotlin/JVM compilation tasks. JS and Native tasks don't use this toolchain.
+The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always uses the JDK the Gradle daemon is running on.
-The toolchain:
+A Java toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-for-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
@@ -686,7 +686,7 @@ The toolchain:
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
-Use the following code to set the toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 
 <tabs>
 
@@ -708,9 +708,9 @@ kotlin {
 
 </tabs>
 
-Note that setting the toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
+Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
 
-You can set the toolchain via the `java` extension, and Kotlin compilation tasks will use it:
+You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
 
 <tabs>
 
@@ -814,7 +814,7 @@ If you apply them with `apply { plugin(...) }` instead, you may encounter unreso
 by Gradle Kotlin DSL. To resolve that, you can comment out the erroneous usages, run the Gradle task `kotlinDslAccessorsSnapshot`, 
 then uncomment the usages back and rerun the build or reimport the project into the IDE.
 
-## Kotlin daemon and its usage with Gradle
+## Kotlin daemon and using it with Gradle
 
 The Kotlin daemon:
 * Runs along with the Gradle daemon to compile the project.
@@ -828,7 +828,7 @@ The Kotlin daemon uses the same JDK that the Gradle daemon does.
 
 ### Setting Kotlin daemon's JVM arguments
 
-In the following list, the latter options override the previous ones:
+Each of the options in the following list overrides the ones that came before it:
 * If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon.
   For example, in the `gradle.properties` file:
 
