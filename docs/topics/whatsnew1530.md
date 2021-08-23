@@ -38,13 +38,15 @@ fun main() {
     when (x) { 
         Mode.ON -> println("ON")
    }
-// WARNING: Non exhaustive 'when' statements on sealed classes/interfaces will be prohibited in 1.7, add an 'OFF' or 'else' branch instead
+// WARNING: Non exhaustive 'when' statements on sealed classes/interfaces 
+// will be prohibited in 1.7, add an 'OFF' or 'else' branch instead
 
     val y: Boolean = true
     when (y) {  
         true -> println("true")
     }
-// WARNING: Non exhaustive 'when' statements on Booleans will be prohibited in 1.7, add a 'false' or 'else' branch instead
+// WARNING: Non exhaustive 'when' statements on Booleans will be prohibited 
+// in 1.7, add a 'false' or 'else' branch instead
 }
 ```
 
@@ -197,13 +199,14 @@ You can enable the improvements by passing the `-Xself-upper-bound-inference` co
 
 ### Eliminating builder inference restrictions
 
-Builder inference is a special kind of type inference that allows you to infer the type arguments of a call based on type information from other calls inside its lambda argument. This can be useful when calling generic builder functions such as [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html) or [`sequence()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/sequence.html): `buildList { add(“string”) }`.
+Builder inference is a special kind of type inference that allows you to infer the type arguments of a call based on type information from other calls inside its lambda argument. This can be useful when calling generic builder functions such as [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html) or [`sequence()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/sequence.html): `buildList { add("string") }`.
 
 Inside such a lambda argument, there was previously a limitation on using the type information that the builder inference tries to infer. This means you can only specify it and cannot get it. For example, you cannot call [`get()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/get.html) inside a lambda argument of `buildList()` without explicitly specified type arguments.
 
 Kotlin 1.5.30 removes these limitations with the `-Xunrestricted-builder-inference` compiler option. Add this option to enable previously prohibited calls inside a lambda argument of generic builder functions:
 
 ```kotlin
+@kotlin.ExperimentalStdlibApi
 val list = buildList {
     add("a")
     add("b")
@@ -214,6 +217,7 @@ val list = buildList {
     }
 }
 
+@kotlin.ExperimentalStdlibApi
 val map = buildMap {
     put("a", 1)
     put("b", 1.1)
@@ -257,14 +261,14 @@ Learn more about instantiation of annotation classes in [this KEEP](https://gith
 
 ### Improved nullability annotation support configuration
 
-The Kotlin compiler can read various types of [nullability annotations](https://kotlinlang.org/docs/java-interop.html#nullability-annotations) to get nullability information from Java. This information allows it to report nullability mismatches in Kotlin when calling Java code.
+The Kotlin compiler can read various types of [nullability annotations](java-interop.md#nullability-annotations) to get nullability information from Java. This information allows it to report nullability mismatches in Kotlin when calling Java code.
 
 In Kotlin 1.5.30, you can specify whether the compiler reports a nullability mismatch based on the information from specific types of nullability annotations. Just use the compiler option `-Xnullability-annotations=@<package-name>:<report-level>`. In the argument, specify the fully qualified nullability annotations package and one of these report levels:
 * `ignore` to ignore nullability mismatches
 * `warn` to report warnings
 * `strict` to report errors.
 
-See the [full list of supported nullability annotations](https://kotlinlang.org/docs/java-interop.html#nullability-annotations) along with their fully qualified package names.
+See the [full list of supported nullability annotations](java-interop.md#nullability-annotations) along with their fully qualified package names.
 
 Here is an example showing how to enable error reporting for the newly supported [RxJava](https://github.com/ReactiveX/RxJava) 3 nullability annotations: `-Xnullability-annotations=@io.reactivex.rxjava3.annotations:strict`. Note that all such nullability mismatches are warnings by default.
 
@@ -307,11 +311,13 @@ To use the new DSL, update your project to Kotlin 1.5.30, and specify the parame
 
 ```kotlin
 cocoapods {
-    frameworkName = "MyFramework" // This property is deprecated and will be removed in future versions
+    frameworkName = "MyFramework" // This property is deprecated 
+    // and will be removed in future versions
     // New DSL for framework configuration:
     framework {
         // All Framework properties are supported
-        // Framework name configuration. Use this property instead of deprecated 'frameworkName'
+        // Framework name configuration. Use this property instead of 
+        // deprecated 'frameworkName'
         baseName = "MyFramework"
         // Dynamic framework support
         isStatic = false
@@ -382,7 +388,7 @@ MyClass.companion
 MyClass.Companion.shared
 ```
 
-Learn more about [Swift/Objective-C interoperability](https://kotlinlang.org/docs/native-objc-interop.html).
+Learn more about [Swift/Objective-C interoperability](native-objc-interop.md).
 
 ### Deprecation of linkage against DLLs without import libraries for MinGW targets
 
@@ -595,7 +601,7 @@ java {
 
 </tabs>
 
-For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
+For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
 
 For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface).
 
@@ -640,13 +646,13 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
 * If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon (as before). For example, in the `gradle.properties` file:
 
     ```properties
-    org.gradle.jvmargs=-Xmx1500m,-Xms=500m
+    org.gradle.jvmargs=-Xmx1500m -Xms=500m
     ```
 
 * If the Gradle daemon’s JVM arguments have the `kotlin.daemon.jvm.options` system property, use it as before:
 
     ```properties
-    org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,-Xms=500m
+    org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
     ```
 
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
@@ -724,13 +730,13 @@ Each component is a number followed by the unit’s abbreviated name: `d`, `h`, 
 
 |**Example of function call**|**Previous output**|**Current output**|
 | --- | --- | --- |
-Duration.days(45).toString()|"45.0d"|"45d"|
-Duration.days(1.5).toString()|"36.0h"|"1d 12h"|
-Duration.minutes(1230).toString()|"20.5h"|"20h 30m"|
-Duration.minutes(2415).toString()|"40.3h"|"1d 16h 15m"|
-Duration.minutes(920).toString()|"920m"|"15h 20m"|
-Duration.seconds(1.546).toString()|"1.55s"|"1.546s"|
-Duration.milliseconds(25.12).toString()|"25.1ms"|"25.12ms"|
+Duration.days(45).toString()|`45.0d`|`45d`|
+Duration.days(1.5).toString()|`36.0h`|`1d 12h`|
+Duration.minutes(1230).toString()|`20.5h`|`20h 30m`|
+Duration.minutes(2415).toString()|`40.3h`|`1d 16h 15m`|
+Duration.minutes(920).toString()|`920m`|`15h 20m`|
+Duration.seconds(1.546).toString()|`1.55s`|`1.546s`|
+Duration.milliseconds(25.12).toString()|`25.1ms`|`25.12ms`|
 
 The way negative durations are represented has also been changed. A negative duration is prefixed with a minus sign (`-`), and if it consists of multiple components, it is surrounded with parentheses: `-12m` and `-(1h 30m)`.
 
