@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.5.30)
 
-_[Release date: 23 August 2021](releases.md#release-details)_
+_[Release date: 24 August 2021](releases.md#release-details)_
 
 ## Language
 
@@ -29,21 +29,21 @@ We’re planning to prohibit non-exhaustive `when` statements soon to make the b
 
 ```kotlin
 sealed class Mode {
-   object ON : Mode()
-   object OFF : Mode()
+    object ON : Mode()
+    object OFF : Mode()
 }
 
 fun main() {
-   val x: Mode = Mode.ON
-   when (x) { 
-       Mode.ON -> println("ON")
+    val x: Mode = Mode.ON
+    when (x) { 
+        Mode.ON -> println("ON")
    }
 // WARNING: Non exhaustive 'when' statements on sealed classes/interfaces will be prohibited in 1.7, add an 'OFF' or 'else' branch instead
 
-   val y: Boolean = true
-   when (y) {  
-       true -> println("true")
-   }
+    val y: Boolean = true
+    when (y) {  
+        true -> println("true")
+    }
 // WARNING: Non exhaustive 'when' statements on Booleans will be prohibited in 1.7, add a 'false' or 'else' branch instead
 }
 ```
@@ -54,10 +54,10 @@ To enable this feature in Kotlin 1.5.30, use language version `1.6`. You can als
 
 ```kotlin
 kotlin {
-   sourceSets.all {
-       languageSettings.apply {
-           languageVersion = "1.6"
-           //progressiveMode = true // false by default
+    sourceSets.all {
+        languageSettings.apply {
+            languageVersion = "1.6"
+            //progressiveMode = true // false by default
        }
    }
 }
@@ -96,11 +96,11 @@ Use the `-language-version 1.6` compiler option to enable the feature:
 
 ```kotlin
 kotlin {
-   sourceSets.all {
-       languageSettings.apply {
-           languageVersion = "1.6"
-       }
-   }
+    sourceSets.all {
+        languageSettings.apply {
+            languageVersion = "1.6"
+        }
+    }
 }
 ```
 
@@ -179,18 +179,18 @@ In Kotlin and Java, you can define a recursive generic type, which references it
 ```kotlin
 // Kotlin 1.5.20
 val containerA = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:13-alpine")).apply {
-   withDatabaseName("db")
-   withUsername("user")
-   withPassword("password")
-   withInitScript("sql/schema.sql")
+    withDatabaseName("db")
+    withUsername("user")
+    withPassword("password")
+    withInitScript("sql/schema.sql")
 }
 
 // Kotlin 1.5.30
 val containerB = PostgreSQLContainer(DockerImageName.parse("postgres:13-alpine"))
-   .withDatabaseName("db")
-   .withUsername("user")
-   .withPassword("password")
-   .withInitScript("sql/schema.sql")
+    .withDatabaseName("db")
+    .withUsername("user")
+    .withPassword("password")
+    .withInitScript("sql/schema.sql")
 ```
 
 You can enable the improvements by passing the `-Xself-upper-bound-inference` compiler option. See other examples of newly supported use cases in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-40804).
@@ -284,15 +284,15 @@ Kotlin 1.5.30 introduces native support for [Apple silicon](https://support.appl
 Previously, the Kotlin/Native compiler and tooling required the [Rosetta translation environment](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment) for working on Apple silicon hosts. In Kotlin 1.5.30, the translation environment is no longer needed – the compiler and tooling can run on Apple silicon hardware without requiring any additional actions.
 
 We’ve also introduced new targets that make Kotlin code run natively on Apple silicon:
-`macosArm64`
-`iosSimulatorArm64`
-`watchosSimulatorArm64`
-`tvosSimulatorArm64`
+* `macosArm64`
+* `iosSimulatorArm64`
+* `watchosSimulatorArm64`
+* `tvosSimulatorArm64`
 
 They are available on both Intel-based and Apple silicon hosts. All existing targets are available on Apple silicon hosts as well.
 
-Note that in 1.5.30 we provide only basic support for Apple silicon targets in the `kotlin-multiplatform` Gradle plugin. Particularly, the new simulator targets aren’t included in the [`ios`, `tvos`, and `watchos` target shortcuts](mpp-share-on-platforms.md#use-target-shortcuts). Learn how to [use Apple silicon targets with the target shortcuts]((mpp-share-on-platforms.md#target-shortcuts-and-arm64-apple-silicon-simulators)
-. We will keep working to improve the user experience with the new targets.
+Note that in 1.5.30 we provide only basic support for Apple silicon targets in the `kotlin-multiplatform` Gradle plugin. Particularly, the new simulator targets aren’t included in the [`ios`, `tvos`, and `watchos` target shortcuts](mpp-share-on-platforms.md#use-target-shortcuts). Learn how to [use Apple silicon targets with the target shortcuts](mpp-share-on-platforms.md#target-shortcuts-and-arm64-apple-silicon-simulators).
+We will keep working to improve the user experience with the new targets.
 
 ### Improved Kotlin DSL for the CocoaPods Gradle plugin
 
@@ -307,20 +307,20 @@ To use the new DSL, update your project to Kotlin 1.5.30, and specify the parame
 
 ```kotlin
 cocoapods {
- frameworkName = "MyFramework" // This property is deprecated and will be removed in future versions
- // New DSL for framework configuration:
- framework {
-   // All Framework properties are supported
-   // Framework name configuration. Use this property instead of deprecated 'frameworkName'
-   baseName = "MyFramework"
-   // Dynamic framework support
-   isStatic = false
-   // Dependency export
-   export(project(":anotherKMMModule"))
-   transitiveExport = true
-   // Bitcode embedding
-   embedBitcode(BITCODE)
- }
+    frameworkName = "MyFramework" // This property is deprecated and will be removed in future versions
+    // New DSL for framework configuration:
+    framework {
+        // All Framework properties are supported
+        // Framework name configuration. Use this property instead of deprecated 'frameworkName'
+        baseName = "MyFramework"
+        // Dynamic framework support
+        isStatic = false
+        // Dependency export
+        export(project(":anotherKMMModule"))
+        transitiveExport = true
+        // Bitcode embedding
+        embedBitcode(BITCODE)
+    }
 }
 ```
 
@@ -562,7 +562,7 @@ kotlin {
 ```groovy
 kotlin {
     jvmToolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
     }
 }
 ```
@@ -580,7 +580,7 @@ You can set a toolchain via the `java` extension, and Kotlin compilation tasks w
 ```kotlin
 java {
     toolchain {
-       languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
     }
 }
 ```
@@ -588,8 +588,8 @@ java {
 ```groovy
 java {
     toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
-   }
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
+    }
 }
 ```
 
@@ -620,10 +620,10 @@ project.tasks
 project.tasks
     .withType(UsesKotlinJavaToolchain.class)
     .configureEach {
-         it.kotlinJavaToolchain.jdk.use(
-             '/path/to/your/jdk',
-             JavaVersion.<JDK_VERSION>
-         )
+        it.kotlinJavaToolchain.jdk.use(
+            '/path/to/your/jdk',
+            JavaVersion.<JDK_VERSION>
+        )
     }
 ```
 
@@ -671,8 +671,6 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
     }
     ```
 
-
-
      </tabs>
 
 * You can specify arguments for a specific task:
@@ -689,12 +687,12 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
   
     ```groovy
     tasks
-            .matching {
-                it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon
-            }
-            .configureEach {
-                kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
-            }
+        .matching {
+            it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon
+        }
+        .configureEach {
+            kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+        }
     ```
 
     </tabs>
@@ -708,10 +706,10 @@ For more information about the Kotlin daemon, see [the Kotlin daemon and using i
 ## Standard library
 
 Kotlin 1.5.30 is bringing improvements to the standard library’s `Duration` and `Regex` APIs:
-[Changing `Duration.toString()` output](#changing-duration-tostring-output)
-[Parsing Duration from String](#parsing-duration-from-string)
-[Matching with Regex at a particular position](#matching-with-regex-at-a-particular-position)
-[Splitting Regex to a sequence](#splitting-regex-to-a-sequence)
+* [Changing `Duration.toString()` output](#changing-duration-tostring-output)
+* [Parsing Duration from String](#parsing-duration-from-string)
+* [Matching with Regex at a particular position](#matching-with-regex-at-a-particular-position)
+* [Splitting Regex to a sequence](#splitting-regex-to-a-sequence)
 
 ### Changing Duration.toString() output
 
@@ -721,7 +719,8 @@ Kotlin 1.5.30 is bringing improvements to the standard library’s `Duration` an
 {type="warning"}
 
 Before Kotlin 1.5.30, the [`Duration.toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/to-string.html) function would return a string representation of its argument expressed in the unit that yielded the most compact and readable number value.
-From now on, it will return a string value expressed as a combination of numeric components, each in its own unit. Each component is a number followed by the unit’s abbreviated name: `d`, `h`, `m`, `s`. For example:
+From now on, it will return a string value expressed as a combination of numeric components, each in its own unit.
+Each component is a number followed by the unit’s abbreviated name: `d`, `h`, `m`, `s`. For example:
 
 |**Example of function call**|**Previous output**|**Current output**|
 | --- | --- | --- |
