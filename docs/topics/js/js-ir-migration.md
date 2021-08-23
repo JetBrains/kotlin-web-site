@@ -25,32 +25,32 @@ or filling out [this form](https://surveys.jetbrains.com/s3/ir-be-migration-issu
 
 ## Convert JS- and React-related classes and interfaces to external interfaces
 
-**Issue**: Using Kotlin interfaces and classes (including data classes) that derive from pure JS classes, such as React's `RState` and
-`RProps`, can cause a `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of
+**Issue**: Using Kotlin interfaces and classes (including data classes) that derive from pure JS classes, such as React's `State` and
+`Props`, can cause a `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of
 these classes as if they were Kotlin objects, when they actually come from JS.
 
 **Solution**: convert all classes and interfaces that derive from pure JS classes to [external interfaces](js-interop.md#external-interfaces):
 
 ```kotlin
 // Replace this
-interface AppState : RState { }
-interface AppProps : RProps { }
-data class CustomComponentState(var name: String) : RState
+interface AppState : State { }
+interface AppProps : Props { }
+data class CustomComponentState(var name: String) : State
 ```
 
 ```kotlin
 // With this
-external interface AppState : RState { }
-external interface AppProps : RProps { }
-external interface CustomComponentState : RState {
+external interface AppState : State { }
+external interface AppProps : Props { }
+external interface CustomComponentState : State {
    var name: String
 }
 ```
 
 In IntelliJ IDEA, you can use these [structural search and replace](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
 templates to automatically mark interfaces as `external`:
-* [Template for `RState`](https://gist.github.com/SebastianAigner/62119536f24597e630acfdbd14001b98)
-* [Template for `RProps`](https://gist.github.com/SebastianAigner/a47a77f5e519fc74185c077ba12624f9)
+* [Template for `State`](https://gist.github.com/SebastianAigner/62119536f24597e630acfdbd14001b98)
+* [Template for `Props`](https://gist.github.com/SebastianAigner/a47a77f5e519fc74185c077ba12624f9)
 
 ## Convert properties of external interfaces to var
 
@@ -66,14 +66,14 @@ myState.name = "name"
 
 ```kotlin
 // Replace this
-external interface CustomComponentState : RState {
+external interface CustomComponentState : State {
    val name: String
 }
 ```
 
 ```kotlin
 // With this
-external interface CustomComponentState : RState {
+external interface CustomComponentState : State {
    var name: String
 }
 ```
@@ -84,7 +84,7 @@ external interface CustomComponentState : RState {
 in expressions without being defined. This is okay in JavaScript, but not in Kotlin.
 
 ```kotlin
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var isInitialized: Boolean
    var visible: Boolean
 }
@@ -110,14 +110,14 @@ button {
 
 ```kotlin
 // Replace this
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var visible: Boolean
 }
 ```
 
 ```kotlin
 // With this
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var visible: Boolean?
 }
 ```
@@ -131,13 +131,13 @@ functional types.
 
 ```kotlin
 // Replace this
-external interface ButtonProps : RProps {
+external interface ButtonProps : Props {
    var inside: StyledDOMBuilder<BUTTON>.() -> Unit
 }
 ```
 
 ```kotlin
-external interface ButtonProps : RProps {
+external interface ButtonProps : Props {
    var inside: (StyledDOMBuilder<BUTTON>) -> Unit
 }
 ```
