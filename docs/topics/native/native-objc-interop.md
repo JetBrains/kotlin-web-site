@@ -32,7 +32,7 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `suspend` -> | `completionHandler:`/ `async` | `completionHandler:` | [note](#errors-and-exceptions) [note](#suspending-functions) |
 | `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
 | Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | Class method or property | Class method or property |  |
+| `companion` member <- | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)  |
 | `null` | `nil` | `nil` | |
 | `Singleton` | `Singleton()`  | `[Singleton singleton]` | [note](#kotlin-singletons) |
 | Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
@@ -190,7 +190,7 @@ class MyClass {
 }
 ```
 
-Get the objects as follows: 
+Access these objects as follows: 
 
 ```swift
 MyObject.shared
@@ -198,6 +198,10 @@ MyObject.shared.x
 MyClass.companion
 MyClass.Companion.shared
 ```
+
+> Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
+> 
+{type="note"}
 
 ### NSNumber
 
