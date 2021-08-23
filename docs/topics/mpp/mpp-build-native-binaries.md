@@ -351,3 +351,86 @@ kotlin {
 ```
 
 </tabs>
+
+## Build XCFrameworks
+
+All Kotlin Multiplatform projects can now have XCFrameworks as an output format. Apple introduced XCFrameworks as a replacement for universal (fat) frameworks. 
+
+With the help of XCFrameworks you:
+* Can gather logic for all the target platforms and architectures in a single bundle.
+* Don't need to remove all unnecessary architectures before publishing the application to the App Store.
+
+XCFrameworks is useful if you want to use your KMM framework for devices and simulators on Apple M1.
+
+To use XCFrameworks, update your `build.gradle(.kts)` script:
+
+<tabs>
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    val xcf = XCFramework()
+  
+    ios {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+}
+```
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
+
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+}
+
+kotlin {
+    def xcf = XCFrameworkConfig(project)
+
+    ios {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+}
+```
+
+</tabs>
+
+When you declare XCFrameworks, these new Gradle tasks will be registered:
+* `assembleXCFramework`
+* `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assembleReleaseXCFramework`
