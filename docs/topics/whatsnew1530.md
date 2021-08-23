@@ -784,7 +784,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5.21"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 And here are some examples of `parseIsoString()` and `parseIsoStringOrNull()` usages:
 
