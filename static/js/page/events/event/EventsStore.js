@@ -39,7 +39,7 @@ export default class EventsStore {
     },
 
     bounds: (bounds, event) => {
-      return bounds.contains(event.getBounds());
+      return event.hasCity() ? bounds.contains(event.getBounds()) : null;
     }
   };
 
@@ -80,17 +80,11 @@ export default class EventsStore {
     citiesData.forEach(data => store.cities.push(new City(data)));
 
     eventsData.forEach((data, i) => {
-      const eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
-
-      if (!eventCityExistInDict) {
-        return;
-      }
-
       data.id = i.toString();
       store.events.push(new Event(data));
     });
 
-    store.events.forEach((event) => {
+    store.getEventsWithCity().forEach((event) => {
       event.city = store.cities.filter(city => city.name === event.city)[0];
     });
 
@@ -230,5 +224,9 @@ export default class EventsStore {
     list.forEach((materialId) => listMap[materialId] = EventsStore.MATERIAL_TYPE[materialId]);
 
     return listMap;
+  }
+
+  getEventsWithCity() {
+    return this.events.filter(event => event.hasCity());
   }
 }

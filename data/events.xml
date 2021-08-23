@@ -58,7 +58,7 @@
         <lang>en</lang>
         <startDate>2021-08-17</startDate>
         <endDate>2021-08-17</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Wajahat Karim</speaker>
         <title>Mobile Week</title>
         <subject>Jetpack Compose for Games and Animations</subject>
@@ -74,7 +74,7 @@
         <lang>en</lang>
         <startDate>2021-08-17</startDate>
         <endDate>2021-08-17</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Mohit Sharma</speaker>
         <title>Mobile Week</title>
         <subject>All Is Messed up - Kotlin Flow, Coroutines and LiveData !!!</subject>
@@ -145,7 +145,7 @@
         <lang>en</lang>
         <startDate>2021-08-17</startDate>
         <endDate>2021-08-17</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Karan Balkar</speaker>
         <title>Mobile Week 2021</title>
         <subject>Co-routines: When to Use and When to Avoid</subject>
@@ -163,7 +163,7 @@
         <lang>en</lang>
         <startDate>2021-08-25</startDate>
         <endDate>2021-08-25</endDate>
-        <location>Krakow, Poland</location>
+        <location>Kraków, Poland</location>
         <speaker>Viktor Gamov</speaker>
         <title>Devoxx Poland</title>
         <subject>All Things Serverless: Kotlin, Kafka and Stream Processing</subject>
@@ -182,7 +182,7 @@ How do I integrate with existing «legacy» systems? In this presentation, Vikto
         <lang>en</lang>
         <startDate>2021-08-25</startDate>
         <endDate>2021-08-25</endDate>
-        <location>Krakow, Poland</location>
+        <location>Kraków, Poland</location>
         <speaker>Jarek Ratajski</speaker>
         <title>Devoxx Poland</title>
         <subject>Pure Kotlin</subject>
@@ -249,7 +249,7 @@ How do I integrate with existing «legacy» systems? In this presentation, Vikto
         <lang>en</lang>
         <startDate>2021-07-27</startDate>
         <endDate>2021-07-27</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Anna Zharkova</speaker>
         <title>Android Worldwide</title>
         <subject>Dealing With KSP in Common Code for Android and iOS</subject>
@@ -265,7 +265,7 @@ How do I integrate with existing «legacy» systems? In this presentation, Vikto
         <lang>en</lang>
         <startDate>2021-07-28</startDate>
         <endDate>2021-07-28</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>David Rawson</speaker>
         <title>Android Worldwide</title>
         <subject>Arrow of Outrageous Error Handling</subject>
@@ -281,7 +281,7 @@ How do I integrate with existing «legacy» systems? In this presentation, Vikto
         <lang>en</lang>
         <startDate>2021-07-28</startDate>
         <endDate>2021-07-28</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Mohit Sarveiya</speaker>
         <title>Android Worldwide</title>
         <subject>Kotlin State and Shared Flows in Action</subject>
@@ -449,7 +449,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-06-26</startDate>
         <endDate>2021-06-26</endDate>
-        <location>Online</location>
+        <online>true</online>
         <speaker>Yury Camacho</speaker>
         <title>CodeAid</title>
         <subject>KMM in action</subject>
@@ -465,7 +465,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-10-07</startDate>
         <endDate>2021-10-07</endDate>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <speaker>Kenneth Kousen</speaker>
         <title>UberConf 2021</title>
         <subject>Functional Programming in Java, Groovy, and Kotlin</subject>
@@ -482,7 +482,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-10-07</startDate>
         <endDate>2021-10-07</endDate>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <speaker>Kenneth Kousen</speaker>
         <title>UberConf 2021</title>
         <subject>Kotlin Features That Surprise Java Developers</subject>
@@ -499,7 +499,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-10-07</startDate>
         <endDate>2021-10-07</endDate>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <speaker>Kenneth Kousen</speaker>
         <title>UberConf 2021</title>
         <subject>Kotlin Workshop</subject>
@@ -517,7 +517,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-10-07</startDate>
         <endDate>2021-10-07</endDate>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <speaker>Kenneth Kousen</speaker>
         <title>UberConf 2021</title>
         <subject>Kotlin and Spring: A Winning Combination</subject>
@@ -534,7 +534,7 @@ Wir sehen, wie Kotlin-Coroutines in einem großen Event-basierten System die Per
         <lang>en</lang>
         <startDate>2021-10-08</startDate>
         <endDate>2021-10-08</endDate>
-        <location>Denver, CO, US</location>
+        <location>Denver, CO, USA</location>
         <speaker>James Ward</speaker>
         <title>UberConf 2021</title>
         <subject>Building and Deploying Cloud Native Applications with gRPC Kotlin and Kubernetes</subject>
