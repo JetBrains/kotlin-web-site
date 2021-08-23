@@ -223,7 +223,7 @@ val map = buildMap {
 
 ## Kotlin/JVM
 
-With Kotlin 1.5.30, Kotlin/JVM recieves the following features:
+With Kotlin 1.5.30, Kotlin/JVM receives the following features:
 * [Instantiation of annotation classes](#instantiation-of-annotation-classes)
 * [Improved nullability annotation support configuration](#improved-nullability-annotation-support-configuration)
 
@@ -524,7 +524,7 @@ Learn more about [how to debug Kotlin/JS in the browser or IntelliJ IDEA Ultimat
 
 As a part of our mission to [improve the Kotlin Gradle plugin user experience](https://youtrack.jetbrains.com/issue/KT-45778), we’ve implemented the following features:
 * [Support for Java toolchains](#support-for-java-toolchains), which includes an [ability to specify a JDK home with the `UsesKotlinJavaToolchain` interface for older Gradle versions](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface)
-* [An easier way to explicitly specify the Kotlin daemon’s JVM arguments](#easier-way-to-explicitly-specify-kotlin-daemons-jvm-arguments)
+* [An easier way to explicitly specify the Kotlin daemon’s JVM arguments](#easier-way-to-explicitly-specify-kotlin-daemon-jvm-arguments)
 
 ### Support for Java toolchains
 
@@ -537,13 +537,13 @@ With toolchains support, Gradle can autodetect local JDKs and install missing JD
 
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks.
 A Java toolchain:
-* Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
+* Sets the [`jdkHome` option](gradle.md#attributes-specific-for-jvm) available for JVM targets.
   > [The ability to set the `jdkHome` option directly has been deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
   >
   {type="warning"}
 
 * Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) to the toolchain's JDK version if the user didn’t set the `jvmTarget` option explicitly.
-  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-targets-compatibility).
+  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility).
 
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
@@ -597,11 +597,11 @@ java {
 
 For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
 
-For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-set-jdk-home-with-useskotlinjavatoolchain-interface).
+For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface).
 
 ### Ability to specify JDK home with UsesKotlinJavaToolchain interface
 
-All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle.mdl#compiler-options) now implement the `UsesKotlinJavaToolchain` interface. To set the JDK home, put a path to your JDK and replace the `<JDK_VERSION>` placeholder:
+All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle.md#compiler-options) now implement the `UsesKotlinJavaToolchain` interface. To set the JDK home, put a path to your JDK and replace the `<JDK_VERSION>` placeholder:
 
 <tabs>
 
@@ -699,9 +699,9 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
 
     </tabs>
 
-  > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon’s interactions with with JVM arguments](#kotlin-daemons-behavior-with-jvmarguments).
-  >
-  {type=”note”}
+    > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon’s interactions with JVM arguments](gradle.md#setting-kotlin-daemon-s-jvm-arguments).
+    >
+    {type="note"}
 
 For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle.md#kotlin-daemon-and-using-it-with-gradle).
 
