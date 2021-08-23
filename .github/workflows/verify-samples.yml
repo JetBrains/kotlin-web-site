@@ -1,0 +1,23 @@
+name: Verify samples
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Run a verifier
+        uses: AlexanderPrendota/kotlin-samples-verifier@master
+        with:
+          push-repository: 'https://github.com/AlexanderPrendota/kotlin-compiler-server'
+          tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
+          push-path: 'src/test/resources/test-compile-data/jvm/kotlin-web-site'
+          username: '${{ secrets.KOTLIN_WEB_SITE_TOKEN }}' #token with an access to create PR in push-repository and issue in this repository

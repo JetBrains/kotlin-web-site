@@ -1,4 +1,6 @@
 @import '../../../css/_utils';
+@import "static/js/components/-vars-media";
+
 
 body._no-scroll {
   overflow: hidden;
@@ -8,22 +10,23 @@ body._no-scroll {
   z-index: 1;
   vertical-align: middle;
   cursor: pointer;
-  opacity: 0.8;
-  padding: 5px;
+  opacity: 0.75;
+  padding: 6px;
 
   .icon {
-    background: url('../../../css/com/layout/images/main-sprite.png') no-repeat 0 -550px;
+    background: url('../../../css/com/layout/images/search.svg') no-repeat center;
     width: 23px;
     height: 23px;
-
-    @include adapt_retina {
-      background-image: url('../../../css/com/layout/images/main-sprite@2x.png');
-      background-size: 150px auto;
-    }
   }
 
   &:hover {
     opacity: 1;
+    border-radius: 50%;
+    background: hsla(0, 0%, 100%, 0.1);
+
+    .icon {
+      background: url('../../../css/com/layout/images/search-white.svg') no-repeat center;
+    }
   }
 }
 
@@ -36,7 +39,7 @@ body._no-scroll {
   overflow-y: auto;
   background: white;
   min-width: 100%;
-  z-index: 100;
+  z-index: 9000;
   opacity: 1;
   transition: 0.3s;
 
@@ -50,7 +53,9 @@ body._no-scroll {
   }
 
   .search-popup__content {
-    margin: 40px 170px 100px;
+    margin: 40px auto 100px;
+    padding: 0 16px;
+    max-width: 1200px;
   }
 
   .search-popup__controls {
@@ -63,12 +68,13 @@ body._no-scroll {
     flex-grow: 1;
   }
 
-  .ais-search-box--input {
+  .ais-SearchBox-input {
     font-size: 70px;
     border-width: 0;
     font-weight: bold;
     caret-color: #888fa3;
     color: #221f3a;
+    width: 100%;
 
     &::placeholder {
       color: #e9f0f4;
@@ -76,6 +82,10 @@ body._no-scroll {
 
     &:focus {
       outline: none;
+    }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance:none;
     }
   }
 
@@ -97,14 +107,11 @@ body._no-scroll {
     }
   }
 
-  .search-popup__close-text {
-  }
-
-  .ais-infinite-hits {
+  .ais-InfiniteHits {
     margin-bottom: 50px;
   }
 
-  .ais-infinite-hits--item {
+  .ais-InfiniteHits-item {
     padding: 15px 15px;
     margin-left: 130px;
     margin-right: 130px;
@@ -129,9 +136,10 @@ body._no-scroll {
     display: flex;
   }
 
-  em {
+  mark {
     font-style: normal;
     background: #e9f0f4;
+    color: inherit;
   }
 
   .search-result__type,
@@ -166,37 +174,62 @@ body._no-scroll {
     text-decoration: none;
   }
 
-  .ais-infinite-hits__empty {
+  .ais-InfiniteHits--empty {
     font-size: 16px;
     line-height: 24px;
     color: #888fa3;
   }
 
-  .ais-infinite-hits--showmore {
-    display: flex;
-    justify-content: center;
+  .ais-InfiniteHits-loadMore {
+    display: block;
+    margin: 0 auto;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    border: 0;
+    background-color: rgb(37, 164, 242);
+    padding: 0 40px;
+    opacity: 0.8;
+    cursor: pointer;
 
-    button {
-      height: 50px;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: white;
-      border: 0;
-      background-color: rgb(37, 164, 242);
-      padding: 0 40px;
-      opacity: 0.8;
-      cursor: pointer;
+    &:disabled, &:disabled:hover {
+      display: none;
+    }
 
-      &:disabled, &:disabled:hover {
-        display: none;
-      }
-
-      &:hover {
-        opacity: 1;
-      }
+    &:hover {
+      opacity: 1;
     }
   }
 
+  @media (max-width: $breakpoint-m) {
+    & .ais-InfiniteHits-item {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    & .ais-SearchBox-input {
+      font-size: 48px;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    & .search-result {
+      flex-direction: column;
+    }
+
+    & .ais-SearchBox-input {
+      font-size: 32px;
+    }
+
+    & .search-result__delimiter {
+      display: none;
+    }
+
+    & .search-result__title {
+      margin-top: 8px;
+    }
+  }
 }
 

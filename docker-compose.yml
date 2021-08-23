@@ -17,7 +17,7 @@ services:
     command: /bin/bash scripts/build-frontend.sh
     env_file:
       - .env
-    image: node:9
+    image: node:12
     volumes:
       - ./:/src
     working_dir: /src

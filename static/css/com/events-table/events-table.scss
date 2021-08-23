@@ -53,6 +53,11 @@
     }
 }
 
+.event-date-container {
+    display: flex;
+    line-height: 20px;
+}
+
 .event-date {
     font-size: 12px;
     line-height: 15px;
@@ -109,6 +114,7 @@
     height: 16px;
     background-position: 0 -250px;
 }
+
 .event-content-item:hover._slides {
     background-position: -50px -250px;
 }
@@ -119,6 +125,7 @@
     height: 15px;
     background-position: 0 -200px;
 }
+
 .event-content-item._video:hover {
     background-position: -100px -200px;
 }
@@ -129,6 +136,7 @@
     height: 19px;
     background-position: 0 -350px;
 }
+
 .event-content-item._article:hover {
     background-position: -50px -350px;
 }
@@ -139,6 +147,7 @@
     height: 18px;
     background-position: 0 -300px;
 }
+
 .event-content-item._pdf:hover {
     background-position: -50px -300px;
 }
@@ -149,17 +158,25 @@
     height: 20px;
     background-position: -50px 0;
 }
+
 .event-content-item._examples:hover {
     background-position: 0 0;
 }
 
-
 .event-lang {
+    padding: 0 4px;
+    margin-left: 8px;
+    background-color: #a8a8a8;
+    color: #ffffff;
+    text-transform: uppercase;
+    border-radius: 100%;
+    font-size: 10px;
+}
+
+.book-lang {
     position: relative;
     display: inline-block;
-    top: -3px;
     padding: 0 4px;
-    margin-right: 8px;
     background-color: #a8a8a8;
     color: #ffffff;
     text-transform: uppercase;

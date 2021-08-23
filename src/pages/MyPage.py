@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from flask_flatpages import Page
 from werkzeug.utils import cached_property
 
-from src.processors.processors import process_code_blocks
+from src.processors.processors import process_markdown_html
 
 
 class MyPage(Page):
@@ -12,7 +12,7 @@ class MyPage(Page):
 
     @cached_property
     def parsed_html(self):
-        return process_code_blocks(BeautifulSoup(self.unprocessed_html, 'html.parser'))
+        return process_markdown_html(BeautifulSoup(self.unprocessed_html, 'html.parser'))
 
     @cached_property
     def html(self):

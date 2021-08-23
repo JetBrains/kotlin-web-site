@@ -2,25 +2,17 @@
 
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='reference.css')|autoversion }}">
+{% endblock %}
+
 {% block scripts %}
-    <script src="{{ url_for('static', filename='reference.js') }}"></script>
+    <script src="{{ url_for('static', filename='reference.js')|autoversion }}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="g-grid">
-
-        <aside class="g-3">
-            <div class="js-side-tree-nav">
-                {{ side_tree_nav(nav.reference.content) }}
-
-                <a href="{{ config.PDF_URL }}" class="reference-pdf-link">
-                    <span class="icon"></span>
-                    <span class="text">Full Kotlin Reference</span>
-                </a>
-            </div>
-        </aside>
-
-        <article role="main" class="page-content g-9">
+        <article role="main" class="page-content g-9"{%- if site.contenteditable -%} contenteditable="true"{%- endif -%}>
             {% include 'inc/edit-on-github-link.html' %}
 
             {% block page_content %}

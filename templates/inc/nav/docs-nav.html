@@ -1,23 +1,43 @@
 {% for subnav in  nav.subnav.content %}
     {% if subnav.is_active %}
-        <nav class="docs-nav">
-            {% for item in subnav.content %}
-                <div class="nav-item-wrap">
-                    {% if item.is_active %}
-                        <a href="{{ item.url }}" class="nav-item is_active">
-                            <span class="nav-item-text">
-                                {{ item.title }}
-                            </span>
-                        </a>
-                    {% else %}
-                        <a href="{{ item.url }}" class="nav-item">
-                            <span class="nav-item-text">
-                                {{ item.title }}
-                            </span>
+        {% if nav.subnav.type == 'tab' %}
+            <nav class="docs-nav-new">
+                <div class="docs-nav-controls">
+                    {% if docsNavBack %}
+                        <a class="kto-tabs__item back-to-button"
+                           href="{{ docsNavBack.url }}">
+                            ← {{  docsNavBack.text }}
                         </a>
                     {% endif %}
+
+                    <div class="kto-tabs">
+                        {% for item in subnav.content %}
+                            <a class="kto-tabs__item{% if item.is_active %} kto-tabs__item_active{% endif %}"
+                               href="{{ item.url }}">{{ item.title }}</a>
+                        {% endfor %}
+                    </div>
                 </div>
-            {% endfor %}
-        </nav>
+            </nav>
+        {% else %}
+            <nav class="docs-nav">
+                {% for item in subnav.content %}
+                    <div class="nav-item-wrap">
+                        {% if item.is_active %}
+                            <a href="{{ item.url }}" class="nav-item is_active">
+                                <span class="nav-item-text">
+                                    {{ item.title }}
+                                </span>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.url }}" class="nav-item">
+                                <span class="nav-item-text">
+                                    {{ item.title }}
+                                </span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </nav>
+        {% endif %}
     {% endif %}
 {% endfor %}

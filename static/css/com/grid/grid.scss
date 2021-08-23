@@ -2,32 +2,97 @@
 @import "../../util/_grid";
 
 html {
-    @media (max-width: 1030px) {
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
+  @media (max-width: 1030px) {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .g-layout {
-    margin-left: auto;
-    margin-right: auto;
-    width: $grid-width;
+  margin-left: auto;
+  margin-right: auto;
+  width: $grid-width;
 
-    @media (max-width: 1000px) {
-        width: auto;
-        margin-left: 15px;
-        margin-right: 15px;
-    }
+  @media (max-width: 1000px) {
+    width: auto;
+    padding-left: var(--s-space);
+    padding-right: var(--s-space);
+  }
 }
 
 .g-grid {
-    @include grid-row;
+  @include grid-row;
+
+  .api-layout {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .api-layout_button-box {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100px;
+      z-index: 2;
+    }
+
+    .scroll-button-back,
+    .scroll-button-top {
+      font-family: Inter, Arial, sans-serif;
+      color: #27282C;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      border: 1px solid rgba(39, 40, 44, 0.4);
+      border-radius: 24px;
+      padding: 4px 12px;
+      outline: none;
+      text-decoration: none;
+      position: sticky;
+      top: 30px;
+      left: 0;
+
+      &:hover,
+      &:focus {
+        border-color: rgba(39, 40, 44, 0.7);
+        background-color: #F5F5F5;
+        color: #27282C;
+        cursor: pointer;
+      }
+    }
+
+    .scroll-button-top {
+      background-image: url("../layout/images/arrow-top.svg");
+      background-size: 10px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #fff;
+      width: 34px;
+      height: 34px;
+      top: 94vh;
+
+      &:hover,
+      &:focus {
+        background-image: url("../layout/images/arrow-top.svg");
+      }
+    }
+
+    .api-layout_button-box_visible {
+      display: flex;
+    }
+  }
 }
 
 @for $i from 1 through 12 {
-    .g-#{$i} {
-        @include grid-col;
-        @include grid-span($i, $is-fluid: true);
-    }
+  .g-#{$i} {
+    @include grid-col;
+    @include grid-span($i, $is-fluid: true);
+  }
 }
 

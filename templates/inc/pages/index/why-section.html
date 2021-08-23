@@ -1,0 +1,94 @@
+{% macro switch_tabs(data) -%}
+    <div class="kjq-tabs kjq-tabs_size_s">
+        <ul class="kjq-tabs__list">
+            {% for feature in data %}
+                <li class="kjq-tabs__tab kjq-tabs-tab" data-tab-id="{{ feature.id }}">
+                    <p class="kjq-tabs-tab__title">{{ feature.id.capitalize() }}</p>
+                    <div class="kjq-tabs-tab__content">
+                        {{ feature.content | safe }}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{%- endmacro %}
+
+<article class="kto-overview-section kotlin-why-section">
+    <div class="g-layout">
+        <h2 id="why-kotlin" class="kto-heading kto-heading_size_hero">
+            <a class="kto-overview-section__title_link" href="#why-kotlin">Why Kotlin</a>
+        </h2>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_h1">Modern, concise&nbsp;and&nbsp;safe programming language</h3>
+
+            <p class="kto-text kto-text_size_m">
+                Easy to pick up, so you can create powerful applications immediately.
+            </p>
+
+            <div class="kotlin-why-section__section-content">
+                {{ switch_tabs(features) }}
+            </div>
+
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/docs/getting-started.html">
+                Get started →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_h1">A productive way to write server&#8209;side applications</h3>
+
+            <p class="kto-text kto-text_size_m">
+                Compatible with the Java ecosystem. Use your favorite JVM frameworks and libraries.
+            </p>
+
+            <div class="kotlin-why-section__section-content">
+                <div class="kto-overview-youtube kotlin-why-section__media">
+                    <iframe width="560" height="315"  frameborder="0" allowfullscreen
+                            src="https://www.youtube-nocookie.com/embed/8xAH7RU0Y44"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/lp/server-side/">
+                Learn more →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_h1">Natural way to&nbsp;share code between mobile platforms</h3>
+
+            <p class="kto-text kto-text_size_m">
+                Write the business logic for iOS and Android apps just once. <br />Easily make existing applications cross-platform.
+            </p>
+
+            <div class="kotlin-why-section__section-content">
+                <img class="kotlin-why-section__media kotlin-why-section__media_type_why" alt="Mobile platforms Feature" src="/assets/images/index/mobile-platforms.svg" width="100%">
+            </div>
+
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/lp/mobile/">
+                Browse KMM →
+            </a>
+        </section>
+
+        <section class="kotlin-why-section__section">
+            <h3 class="kto-heading kto-heading_size_h1">Big, friendly and helpful <br />community</h3>
+
+            <p class="kto-text kto-text_size_m">
+                Kotlin has great support and many contributors in&nbsp;its fast-growing global community. Enjoy the benefits of&nbsp;a&nbsp;rich ecosystem with a&nbsp;wide range of&nbsp;community libraries. Help is&nbsp;never far away&nbsp;&mdash; consult extensive community resources or&nbsp;ask the Kotlin team directly.
+            </p>
+
+            <div class="kotlin-why-section__section-content">
+                <div class="kto-overview-youtube kotlin-why-section__media">
+                    <iframe width="560" height="315" frameborder="0" allowfullscreen
+                            src="https://www.youtube-nocookie.com/embed/JGvk4M0Rfxo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                </div>
+            </div>
+
+            <a class="kto-button kto-button_size_l kto-button_mode_outline" href="/community/">
+                Join the community →
+            </a>
+        </section>
+    </div>
+</article>

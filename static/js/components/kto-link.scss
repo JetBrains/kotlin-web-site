@@ -1,0 +1,27 @@
+@mixin kto-link  {
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+
+  &, &:hover {
+    text-decoration: none;
+  }
+}
+
+.kto-link {
+  @include kto-link;
+}
+
+@mixin kto-link_theme_dark {
+  color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+  }
+
+.kto-link_theme_dark {
+  @include kto-link_theme_dark;
+}
+

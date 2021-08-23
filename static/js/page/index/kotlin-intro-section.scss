@@ -1,0 +1,140 @@
+@import "static/js/components/-vars-media";
+
+.kotlin-intro-section {
+  padding-top: var(--xl-space);
+  @media (max-width: $breakpoint-xs) {
+    padding-top: 28px; // ???
+  }
+}
+
+@media (min-width: $breakpoint-m) {
+  .kotlin-intro-section__title-chunk {
+    display: block;
+  }
+}
+
+.kotlin-intro-section__link {
+  margin-left: var(--s-space);
+}
+
+.kotlin-intro-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-bottom: var(--xxl-space);
+  margin-top: calc(-1*var(--m-space));
+}
+
+.kotlin-intro-actions__buttons,
+.kotlin-intro-actions__contributors {
+  margin-top: 32px;
+}
+
+
+.kotlin-intro-actions__contributors {
+  display: flex;
+  align-items: center;
+}
+
+.kotlin-intro-actions__why-button {
+  margin-left: 16px;
+  margin-right: 32px;
+}
+
+@media (max-width: 450px) {
+  .kotlin-intro-actions__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 100%;
+
+    .kto-button {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px;
+      flex: 1;
+    }
+  }
+
+  .kotlin-intro-actions__why-button {
+    margin-right: 0;
+  }
+}
+
+.kotlin-intro-actions__jb-logo {
+  display: inline-block;
+  outline: none;
+  margin-right: 16px;
+  font-size: .01px;
+  line-height: .01px;
+}
+
+.kotlin-intro-featured {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  margin-bottom: 32px;
+
+  @media (max-width: $breakpoint-m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  @media (max-width: $breakpoint-s) {
+    grid-template-columns: none;
+  }
+}
+
+.kotlin-intro-featured__item {
+  &, &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  flex: 1 1;
+  display: block;
+
+  box-sizing: border-box;
+  padding: 128px 16px 16px;
+
+  background: transparent none no-repeat 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+
+  @media (max-width: $breakpoint-s) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: $breakpoint-m) {
+    flex: 1 50%;
+  }
+}
+
+.kotlin-intro-featured__item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.kotlin-intro-featured__item_type_mobile {
+  background-image: url("./images/good-for/mobile.svg");
+}
+
+.kotlin-intro-featured__item_type_server-side {
+  background-image: url("./images/good-for/server-side.svg");
+}
+
+.kotlin-intro-featured__item_type_web {
+  background-image: url("./images/good-for/web.svg");
+}
+
+.kotlin-intro-featured__item_type_android {
+  background-image: url("./images/good-for/android.svg");
+}
+
+.kotlin-intro-featured .kto-heading_size_h3 {
+  margin-bottom: 16px;
+}
+
+.kotlin-intro-featured .kto-text_size_m {
+  color: rgba(255, 255, 255, 0.65)
+}

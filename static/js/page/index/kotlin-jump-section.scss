@@ -1,0 +1,43 @@
+.kotlin-jump-section {
+  padding-bottom: 30px;
+}
+
+.kotlin-jump-section__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #323232;
+  background-color: rgba(255, 255, 255, .05);
+  box-sizing: border-box;
+  padding: 22px 32px 17px 25px;
+}
+
+.kotlin-jump-section__content {
+  padding-left: 85px;
+}
+
+.kotlin-jump-section__content::before {
+  display: block;
+  content: '';
+  width: 56px;
+  height: 62px;
+  margin-left: -85px;
+  float: left;
+
+  background-image: url('images/eap.svg');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 56px 62px;
+  background-size: contain;
+
+}
+
+.kotlin-jump-section__title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  color: #fff;
+
+  margin-top: 6px;
+}

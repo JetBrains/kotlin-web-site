@@ -1,0 +1,64 @@
+@mixin kto-text {
+  font-family: Inter, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kto-text {
+  @include kto-text;
+}
+
+@mixin kto-text_size_m {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.kto-text_size_m {
+  @include kto-text_size_m;
+}
+
+@mixin kto-text_size_s {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.kto-text_size_s {
+  @include kto-text_size_s;
+}
+
+@mixin kto-text_size_xs {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.kto-text_size_xs {
+  @include kto-text_size_xs;
+}
+
+@mixin kto-text_size_subtitle2 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 31px;
+  line-height: 40px;
+}
+
+.kto-text_size_subtitle2 {
+  @include kto-text_size_subtitle2;
+}
+
+@mixin kto-code {
+  font-family: 'JetBrains Mono', 'Droid Sans Mono', 'Courier New', serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.kto-code {
+  @include kto-code;
+}

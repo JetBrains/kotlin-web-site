@@ -1,0 +1,23 @@
+@import './static/css/_config';
+
+.CodeMirror,
+.CodeMirror pre,
+.CodeMirror .CodeMirror-code,
+.CodeMirror .CodeMirror-code pre {
+  font-family: 'JetBrains Mono', $font-family-mono;
+}
+
+// If scroll is 100% the blocks became too big
+.CodeMirror-scroll {
+  height: auto !important;
+}
+
+// pretty print autocomplete
+.CodeMirror-hint {
+  height: 20px;
+  max-width: 600px;
+}
+
+.CodeMirror .CodeMirror-lines pre.CodeMirror-line, .CodeMirror .CodeMirror-lines pre.CodeMirror-line-like {
+  font-variant-ligatures: none;
+}

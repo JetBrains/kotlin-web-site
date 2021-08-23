@@ -3,11 +3,11 @@
 {% from 'inc/nav/side-tree-nav.html' import side_tree_nav %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='videos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='videos.css')|autoversion }}">
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='videos.js') }}"></script>
+    <script src="{{ url_for('static', filename='videos.js')|autoversion }}"></script>
 {% endblock %}
 
 {% block title %}Videos{% endblock %}

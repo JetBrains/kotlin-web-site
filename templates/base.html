@@ -1,9 +1,6 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" class="{% block body_class %}{% endblock %} {% if restyled %}page_restyled_{{ restyled }}{% else %}page-old-styled {% endif %}">
 <head>
-    {% include 'inc/head.html' %}
-    {% block styles %}
-    {% endblock %}
-
     {% if page and page.title %}
         {% set title=page.title + ' - Kotlin Programming Language' %}
     {% else %}
@@ -11,36 +8,39 @@
     {% endif %}
 
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% include 'inc/head.html' %}
 
-    <script src="{{ url_for('static', filename='default.js') }}"></script>
-    <script src="{{ url_for('static', filename='common.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='default.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}"/>
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
 </head>
-<body>
+<body class="page_js_no">
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+{% if not headerDropdownTheme %}
+    {% set headerDropdownTheme = "light" %}
+{% endif %}
+
 <div class="global-layout">
+    {% ktl_component "header" productWebUrl=data.releases.latest.url hasSearch=True dropdownTheme=headerDropdownTheme currentUrl=headerCurrentUrl %}
+    {% block page_outer_content %}
+        <div class="g-layout global-content">
+            {% include 'inc/nav/docs-nav.html' %}
 
-    {% include 'inc/header.html' %}
-
-    <div class="g-layout global-content">
-        {% include 'inc/nav/docs-nav.html' %}
-
-        {% block content %}
-            {{ page.html | safe }}
-        {% endblock %}
-    </div>
-
+            {% block content %}
+                {{ page.html | safe }}
+            {% endblock %}
+        </div>
+    {% endblock %}
+    {% block page_after_content %}{% endblock %}
+    {% ktl_component "footer" %}
 </div>
 
-{% include 'inc/footer.html' %}
-
-{% block scripts %}
-{% endblock %}
 {% include 'inc/search-popup.html' %}
+
+<script>document.body.className = document.body.className.replace('page_js_no', 'page_js_yes')</script>
+<script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>

@@ -7,17 +7,13 @@
 .global-content {
     padding-top: 40px;
     padding-bottom: 40px;
+    flex: 1 0 auto;
 }
 
 .global-layout {
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
-    margin-bottom: -$footer-height;
-
-    &:after {
-        display: block;
-        height: $footer-height;
-        content: '';
-    }
 }
 
 .reference-pdf-link {

@@ -1,0 +1,92 @@
+.kto-socials-list {
+  display: flex;
+}
+
+.kto-socials-list__item {
+  box-sizing: border-box;
+  border-right: 1px solid rgba(39, 40, 44, 0.2);
+  padding: 23px 20px 10px;
+  width: 20%;
+}
+
+.kto-socials-list__item:first-of-type {
+  margin-left: -20px;
+}
+
+.kto-socials-list__item:last-of-type {
+  border-right: none;
+}
+
+.kto-socials-list > .kto-socials-list__item,
+.kto-socials-list > .kto-socials-list__item:any-link {
+  text-decoration: none;
+}
+
+.kto-socials-list > .kto-socials-list__item:hover {
+  background: rgba(39, 40, 44, 0.03);
+}
+
+.kto-socials-list__title {
+  color: #1E1E1F;
+  font-size: 18px;
+  line-height: 28px;
+  white-space: nowrap;
+}
+
+.kto-socials-list__description {
+  color: rgba(39, 40, 44, 0.7);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.kto-socials-list__item::before {
+  display: block;
+  content: '';
+  height: 32px;
+  width: 32px;
+
+  padding-bottom: 45px;
+
+  background: top center no-repeat;
+  background-size: 32px;
+}
+
+.kto-socials-list__item_type_github::before {
+  background-image: url('./icons/github-grey.svg');
+}
+
+.kto-socials-list__item_type_github:hover::before {
+  background-image: url('./icons/github.svg');
+}
+
+.kto-socials-list__item_type_reddit::before {
+  background-image: url('./icons/reddit-grey.svg');
+}
+
+.kto-socials-list__item_type_reddit:hover::before {
+  background-image: url('./icons/reddit.svg');
+}
+
+.kto-socials-list__item_type_slack::before {
+  background-image: url('./icons/slack-grey.svg');
+}
+
+.kto-socials-list__item_type_slack:hover::before {
+  background-image: url('./icons/slack.svg');
+}
+
+.kto-socials-list__item_type_stack-overflow::before {
+  background-image: url('./icons/stack_overflow-grey.svg');
+}
+
+.kto-socials-list__item_type_stack-overflow:hover::before {
+  background-image: url('./icons/stack_overflow.svg');
+}
+
+.kto-socials-list__item_type_twitter::before {
+  background-image: url('./icons/twitter-grey.svg');
+}
+
+.kto-socials-list__item_type_twitter:hover::before {
+  background-image: url('./icons/twitter.svg');
+}

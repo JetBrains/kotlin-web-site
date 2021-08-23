@@ -1,23 +1,22 @@
 const path = require('path');
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ExtractCssPlugin = require('mini-css-extract-plugin');
+const svgToMiniDataURI = require('mini-svg-data-uri');
+const CssoWebpackPlugin = require('csso-webpack-plugin').default;
 
 module.exports = (params = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
   const isDevelopment = !isProduction;
   const env = isProduction ? 'production' : 'development';
-  const isServer = process.argv.toString().includes('webpack-dev-server');
+  const isDevServer = process.env.WEBPACK_SERVE === 'true';
   const sourcemaps = params.sourcemaps || isDevelopment;
 
   const siteHost = 'localhost:5000';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
-  const config = {
+  return {
     entry: {
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
@@ -25,64 +24,78 @@ module.exports = (params = {}) => {
       'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',
       'community': './static/js/page/community/community.js',
-      'pdf': './static/js/page/pdf.js',
+      'education': './static/js/page/education/education.js',
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
-      'styles': './static/css/styles.scss'
+      'styles': './static/css/styles.scss',
+      'styles-v2': './static/css/styles-v2.scss'
     },
 
     output: {
       path: path.join(__dirname, '_assets'),
       publicPath: '/_assets/',
-      filename: '[name].js'
+      filename: '[name].js',
+      clean: !isDevServer,
     },
 
     devtool: sourcemaps ? 'source-map' : false,
 
+    mode: env,
+    bail: !isDevServer,
+
+    resolve: {
+      alias: {
+        'react': 'react',
+        'react-dom': 'react-dom',
+      },
+    },
+
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           loader: 'babel-loader',
           include: [
             path.resolve(__dirname, 'static/js')
           ]
         },
         {
-          test: /\.scss$/,
-          loader: ExtractTextPlugin.extract({
-            use: [
-              'css-loader',
-              {
-                loader: 'resolve-url-loader',
-                options: {
-                  keepQuery: true
-                }
-              },
-              'svg-fill-loader/encodeSharp',
-              {
-                loader: 'postcss-loader',
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true
-                }
+          test: /\.s?css$/,
+          use: [
+            ExtractCssPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2
               }
-            ]
-          })
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
+                keepQuery: true
+              }
+            },
+            {
+              loader: 'svg-transform-loader/encode-query'
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true
+              }
+            }
+          ]
         },
         {
           test: /\.twig$/,
           loader: 'nunjucks-loader'
-        },
-        {
-          test: /\.monk$/,
-          loader: 'monkberry-loader'
         },
         {
           test: /\.mustache$/,
@@ -91,20 +104,38 @@ module.exports = (params = {}) => {
         {
           test: /\.svg/,
           use: [
-            'url-loader',
-            'svg-fill-loader'
-          ]
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+                encoding: 'utf8',
+                esModule: false,
+                generator: (content, mimetype, encoding) => svgToMiniDataURI(content.toString(encoding)),
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [
+                  {removeTitle: true},
+                  {convertPathData: false},
+                  {removeScriptElement:true}
+                ]
+              }
+            }
+          ],
         },
         {
           test: /\.(jpe?g|png|gif)$/,
           loader: 'url-loader',
           options: {
+            esModule: false,
             limit: 10000,
             name: '[path][name].[ext]'
           }
         },
         {
-          test: /\.(woff|ttf)$/,
+          test: /\.(woff2?|ttf)$/,
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]'
@@ -114,19 +145,16 @@ module.exports = (params = {}) => {
     },
 
     plugins: [
-      new ExtractTextPlugin('[name].css'),
-
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'default',
-        minChunks: 3
+      new ExtractCssPlugin({
+        filename: '[name].css'
       }),
+
+      isProduction &&  new CssoWebpackPlugin(),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
-        Promise: 'imports-loader?this=>global!exports-loader?global.Promise!core-js/es6/promise'
+        'window.jQuery': 'jquery'
       }),
 
       new webpack.DefinePlugin({
@@ -134,13 +162,13 @@ module.exports = (params = {}) => {
         indexName: JSON.stringify(indexName),
         'process.env.NODE_ENV': JSON.stringify(env)
       })
-    ],
+    ].filter(Boolean),
 
-    stats: 'errors-only',
+    stats: 'minimal',
 
     devServer: {
       port: 9000,
-      stats: 'errors-only',
+      hot: true,
       proxy: {
         '/**': {
           target: `http://${siteHost}`,
@@ -151,19 +179,4 @@ module.exports = (params = {}) => {
       }
     }
   };
-
-  const plugins = config.plugins;
-
-  if (!isServer) {
-    plugins.push(new CleanPlugin(['_assets']))
-  }
-
-  if (isProduction) {
-    const minimizePlugin = new UglifyJsPlugin({ sourceMap: sourcemaps });
-    const minimizeLoaderOptionPlugin = new LoaderOptionsPlugin({ minimize: true });
-    plugins.push(minimizePlugin);
-    plugins.push(minimizeLoaderOptionPlugin);
-  }
-
-  return config;
 };

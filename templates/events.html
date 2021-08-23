@@ -1,0 +1,36 @@
+{% extends 'community.html' %}
+
+{% block content %}
+    <div class="g-grid">
+
+        <aside class="g-3">
+            <div class="js-side-tree-nav">
+                {% for data in nav.events.content %}
+                    <div class="tree-item tree-leaf js-item js-leaf {{ data.class }}">
+                        {% if data.is_active %}
+                            <div class="tree-item-title tree-leaf-title js-item-title js-leaf-title is_active {{ data.title_class }}">
+                                <div class="marker"></div>
+                                <div class="text">{{ data.title }}</div>
+                            </div>
+                        {% else %}
+                            {% set domain_link = get_domain(data.url) %}
+                            <a href="{{ data.url }}" {% if domain_link %} target="_blank" {% endif %}
+                               class="tree-item-title tree-leaf-title js-item-title js-leaf-title {{ data.title_class }}"
+                                    {% if data.title_arguments %}{{ print_arguments(data.title_arguments) }}{% endif %}
+                            >
+                                <span class="marker"></span>
+                                <span class="text">{{ data.title }}</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <article role="main" class="page-content g-9">
+            {% block page_content %}
+                {{ page.html | safe }}
+            {% endblock %}
+        </article>
+    </div>
+{% endblock %}

@@ -1,5 +1,7 @@
 {
-  "presets": "@jetbrains/jetbrains",
+  "presets": [
+    "@jetbrains/babel-preset-jetbrains"
+  ],
   "plugins": [
     "transform-runtime"
   ]

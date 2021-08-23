@@ -67,18 +67,24 @@ export default class Map {
     });
 
     emitter.on(EVENTS.EVENT_HIGHLIGHTED, (event) => {
+      if (!event.hasCity()) return;
+
       event.marker.highlight();
     });
 
     emitter.on(EVENTS.EVENT_UNHIGHLIGHTED, (event) => {
+      if (!event.hasCity()) return;
+
       event.marker.unhighlight();
     });
 
     // MARKERS
-    this._createMarkers(store.events);
-    const markers = this.markers;
+    const markers = this.markers = store.getEventsWithCity()
+        .map(event => new Marker(event, this));
 
     emitter.on(EVENTS.EVENT_SELECTED, (event) => {
+      if (!event.hasCity()) return;
+
       const currentMarker = event.marker;
 
       markers.forEach((marker) => {
@@ -115,25 +121,16 @@ export default class Map {
    * @param {Array<Event>} events
    */
   _createMarkers(events) {
-    const map = this;
-    const markers = [];
 
-    events.forEach((event) => {
-      if (!event.city) {
-        return;
-      }
-      markers.push(new Marker(event, map));
-    });
 
-    this.markers = markers;
   }
 
   _limitWorldBounds() {
     const map = this.instance;
 
     const maxBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(-85, -175),
-      new google.maps.LatLng(85, 175)
+        new google.maps.LatLng(-85, -175),
+        new google.maps.LatLng(85, 175)
     );
 
     limitMap(map, maxBounds);
@@ -149,17 +146,21 @@ export default class Map {
   applyFilteredResults(filteredEvents) {
     const map = this.instance;
 
-    this.store.events.forEach((event) => {
+    this.store.getEventsWithCity().forEach((event) => {
       filteredEvents.indexOf(event) > -1
-        ? event.marker.show()
-        : event.marker.hide();
+          ? event.marker.show()
+          : event.marker.hide();
     });
 
     const eventsBounds = new google.maps.LatLngBounds(null);
 
-    filteredEvents.forEach(event => eventsBounds.extend(event.getBounds()));
+    filteredEvents.forEach(event => {
+      if (event.hasCity()) {
+        eventsBounds.extend(event.getBounds());
+      }
+    });
 
-    if (filteredEvents.length == 0) {
+    if (filteredEvents.length === 0) {
       return;
     }
 

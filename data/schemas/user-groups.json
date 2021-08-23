@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "section": {
+        "type": "string"
+      },
+      "anchorId": {
+        "type": "string"
+      },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
+            },
+            "position": {
+              "type": "object",
+              "properties": {
+                "lat": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "lng": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "lat",
+                "lng"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "country",
+            "url"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "section",
+      "anchorId",
+      "groups"
+    ]
+  }
+}

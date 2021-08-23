@@ -1,0 +1,231 @@
+{% set restyled="v1" %}
+{% set og_image = url_for('asset', path='images/open-graph/education.png') %}
+
+{% extends 'base.html' %}
+
+{% block title %}Kotlin for Education{% endblock %}
+
+{% block content %}
+    <article role="main" class="page-content">
+        <div class="edu-intro">
+            <h1 class="kto-header kto-header_size_l">Kotlin<br>for Education</h1>
+            <p>
+                Kotlin is a powerful language that's suitable for teaching a wide range of computer science courses.<br>
+                Join the educators community: <a href="https://info.jetbrains.com/kotlin-communication-center-page.html">subscribe to our
+                    newsletter</a> or <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators">join our Slack #education channel</a>.
+            </p>
+        </div>
+
+        <iframe style="width:960px; height:533px;" width="960" height="533" src="https://www.youtube.com/embed/MQPeEOf3G7A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="edu-promo"></iframe>
+
+        <section class="edu-why-teach">
+            <h2 class="kto-header kto-header_size_m">Why Teach Kotlin</h2>
+
+            <ul class="edu-feature-list">
+                <li class="edu-feature-list__item edu-feature-list__item_type_android">
+                    <b class="edu-feature-list__title">Academically recognized</b>
+                    <p class="edu-feature-list__para">25 of the top 100 universities in the Times Higher Education World University Rankings 2021 include Kotlin in their courses.</p>
+                </li>
+                <li class="edu-feature-list__item edu-feature-list__item_type_recognize">
+                    <b class="edu-feature-list__title">Language of the industry</b>
+                    <p class="edu-feature-list__para">Kotlin is used by top companies such as Google, Twitter, Reddit, Netflix, Uber, BMW, Coursera, Slack, and Trello, just to name a few.</p>
+                </li>
+                <li class="edu-feature-list__item edu-feature-list__item_type_popular">
+                    <b class="edu-feature-list__title">Multiplatform</b>
+                    <p class="edu-feature-list__para">The first-choice language for Android development, Kotlin is also being adopted for teaching multiplatform development for mobile, web, server-side programming, data science, and other computer science topics.</p>
+                </li>
+            </ul>
+            <p class="edu-why-teach__learn">
+                <a
+                        class="kto-button kto-button_size_m kto-button_mode_outline"
+                        href="why-teach-kotlin.html"
+                >Learn more →</a>
+            </p>
+        </section>
+
+        <section class="edu-universities">
+            <div class="edu-universities__top">
+                <div>
+                    <h2 class="kto-header kto-header_size_m">Kotlin Courses<br>Around the World</h2>
+                    <p>Explore our interactive map with links to university courses that include Kotlin.</p>
+                </div>
+
+                <ul class="kto-numbers">
+                    <li class="kto-numbers__item">
+                        <strong class="kto-numbers__number">40</strong> countries
+                    </li>
+                    <li class="kto-numbers__item">
+                        <strong class="kto-numbers__number">190</strong> universities
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="edu-universities-top">
+                <li class="edu-universities-top__item edu-universities-top__item_type_stanford">Stanford university</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_imperial">Imperial College London</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_hopkins">Johns Hopkins university</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_penn">Penn</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_ucla">UCLA</li>
+                <li class="edu-universities-top__item edu-universities-top__item_type_duke">Duke</li>
+            </ul>
+
+            <p class="edu-universities__note">
+                If you would like to feature your university and Kotlin course, please get in touch with us at<br> out to us at
+                <a href="mailto:education@kotlinlang.org">education@kotlinlang.org</a>.<br>
+                We’ll send a Kotlin T-shirt for you and stickers for your students.
+            </p>
+
+            <p class="edu-universities__full-list">
+                <a
+                        target="_blank"
+                        class="kto-button kto-button_size_m kto-button_mode_outline"
+                        href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
+                >All universities →</a>
+            </p>
+        </section>
+
+        <section class="edu-slack">
+            <h2 class="edu-slack__title kto-header kto-header_size_m">Join the Kotlin Educator Community</h2>
+            <p class="edu-slack__text">The #education Slack channel is a place to meet fellow educators and the Kotlin team. We post news and announcements there, and you can ask your questions and share your teaching experience.</p>
+            <a
+                target="_blank"
+                class="kto-button kto-button_size_m kto-button_mode_primary"
+                href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+            >Join us on Slack</a>
+        </section>
+
+        <section>
+            {#  <h2 class="kto-header kto-header_size_m">Story Highlights</h2> #}
+            <ul class="kto-quote-slider">
+                <li class="kto-quote">
+                    <p class="kto-quote__text">Kotlin is faster to develop and comprehend what is happening; near 100% backwards compatibility makes it easy to show in Java and translate into Kotlin while still utilizing every available library from Java; Students seem to understand it fairly quickly.</p>
+                    <p class="kto-quote__author">David Vaughn, University of Missouri–St. Louis</p>
+                </li>
+            </ul>
+{#  <!-- @TODO: WAIT LINKS -->
+            <ul class="edu-persons">
+                <li class="edu-persons__item edu-persons-item">
+                    <img class="edu-persons-item__image" src="{{ url_for('asset', path='images/edu/persons/san.png') }}">
+                    <p class="edu-persons-item__title">Teaching Introduction to Computer Science in Kotlin</p>
+                    <p class="edu-persons-item__name">San Skulrattanakulchai, Gustavus Adolphus College</p>
+                </li>
+                <li class="edu-persons__item edu-persons-item">
+                    <img class="edu-persons-item__image" src="{{ url_for('asset', path='images/edu/persons/pedro.png') }}">
+                    <p class="edu-persons-item__title">Teaching Mobile Computing in Kotlin</p>
+                    <p class="edu-persons-item__name">Pedro Alves, Lusófona University</p>
+                </li>
+                <li class="edu-persons__item edu-persons-item">
+                    <img class="edu-persons-item__image" src="{{ url_for('asset', path='images/edu/persons/nick.png') }}">
+                    <p class="edu-persons-item__title">Kotlin for Competitive Programming</p>
+                    <p class="edu-persons-item__name">Nick Johnson, Milwaukee School of Engineering</p>
+                </li>
+                <li class="edu-persons__item edu-persons-item">
+                    <img class="edu-persons-item__image" src="{{ url_for('asset', path='images/edu/persons/pereira.png') }}">
+                    <p class="edu-persons-item__title">Teaching Mobile Devices Programming in Kotlin</p>
+                    <p class="edu-persons-item__name">Paulo Pereira, Lisbon Superior Engineering Institute </p>
+                </li>
+            </ul>
+#}
+        </section>
+    </article>
+{% endblock %}
+
+{% block page_after_content %}
+    <section class="edu-start-teaching">
+        <div class="g-layout">
+            <h2 class="kto-header kto-header_size_m">Resources</h2>
+            <div class="edu-grid-resources">
+                <ul class="edu-grid-resources__column">
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Get started</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a href="/docs/getting-started.html">Getting started</a></li>
+                            <li class="edu-resources-item__link"><a href="/docs/basic-syntax.html">Basics</a></li>
+                            <li class="edu-resources-item__link"><a href="https://play.kotlinlang.org/">Playground</a></li>
+                            <li class="edu-resources-item__link"><a href="/docs/books.html">Recommended reading</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Study materials</p>
+                        <p class="edu-resources-item__description"><a href="https://docs.google.com/document/d/1XIJaV3zhn-tJhDc_6Kr00lmTo5zCBuES3Yt67wX752M/edit">Kotlin curriculum for beginners</a></p>
+                        <p class="edu-resources-item__description">
+                            Hands-on exercises from the <a href="https://leanpub.com/AtomicKotlin" target="_blank">Atomic Kotlin book</a> with <a href="https://www.atomickotlin.com/exercises/" target="_blank">instructions</a> on how to install the course in IntelliJ IDEA or open the <a href="https://github.com/svtk/AtomicKotlinCourse" target="_blank">course project</a> directly in <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank">Educator mode</a>. Tasks are checked automatically, and the platform provides hints and solutions.
+                        </p>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Android in Kotlin</p>
+                        <p class="edu-resources-item__description"><a href="/docs/android-overview.html">Documentation</a></p>
+                        <p class="edu-resources-item__description">Recommended by Google's Android Developer Relations team:</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a href="https://developer.android.com/teach">Android Development Resources for Educators</a></li>
+                            <li class="edu-resources-item__link"><a href="https://developer.android.com/teach#for-instructors-teaching-a-course">Android Development with Kotlin curriculum</a></li>
+                            <li class="edu-resources-item__link"><a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view">Learning materials</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="edu-grid-resources__column">
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Tools</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a href="https://www.jetbrains.com/community/education/#students">Free educational IntelliJ IDEA Ultimate licenses</a></li>
+                            <li class="edu-resources-item__link"><a href="https://plugins.jetbrains.com/plugin/10081-edutools">EduTools plugin</a></li>
+                            <li class="edu-resources-item__link"><a href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k">Java-to-Kotlin converter</a></li>
+                            <li class="edu-resources-item__link"><a href="https://www.jetbrains.com/code-with-me/">Code With Me</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Online Courses</p>
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a target="_blank" href="https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/">Introduction to Kotlin Programming</a></li>
+                            <li class="edu-resources-item__link"><a target="_blank" href="https://www.oreilly.com/library/view/advanced-kotlin-programming/9781491964149/">Advanced Kotlin</a></li>
+                            <li class="edu-resources-item__link"><a target="_blank" href="https://www.coursera.org/learn/kotlin-for-java-developers">Programming Kotlin for Java Developers</a></li>
+                        </ul>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Practice Kotlin by solving problems</p>
+                        <p class="edu-resources-item__description">
+                        <ul class="edu-resources-item__links">
+                            <li class="edu-resources-item__link"><a target="_blank" href="https://play.kotlinlang.org/koans/overview">Koans</a></li>
+                        </ul>
+                        <p class="edu-resources-item__description">
+                            <a target="_blank" href="https://kotlinlang.org/lp/kotlin-heroes/">Kotlin Heroes,</a> a quarterly Kotlin-only competitive programming contest
+                        </p>
+                    </li>
+                    <li class="edu-resources-item">
+                        <p class="edu-resources-item__title">Connect with us</p>
+                        <p class="edu-resources-item__description">
+                            <a target="_blank" href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators">Join the Kotlinlang Slack</a> #education channel
+                        </p>
+                        <p class="edu-resources-item__description">
+                            <a target="_blank" href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw">Subscribe to the Kotlin YouTube channel,</a> which hosts regular <a target="_blank" href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA">educational webinars.</a>
+                        </p>
+                        <p class="edu-resources-item__description">
+                            <a target="_blank" href="mailto:education@kotlinlang.org">Email us at education@kotlinlang.org.</a>
+                        </p>
+                </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="edu-contact-us-section">
+        <div class="g-layout">
+            <a href="mailto:education@kotlinlang.org" class="edu-contact-us">
+                <p class="edu-contact-us__caption">Contact us</p>
+                <div class="edu-contact-us__info">
+                    <p class="edu-contact-us__email">education@kotlinlang.org</p>
+                    <p class="edu-contact-us__text">If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin, please get in touch with us.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='education.css')|autoversion }}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='education.js')|autoversion }}"></script>
+{% endblock %}

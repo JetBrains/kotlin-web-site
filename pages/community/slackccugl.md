@@ -36,10 +36,10 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 
 ## How to report issues
 
-If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy), Hadi Hariri (@hhariri) and Roman Belov (@roman.belov). 
+If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy) and Hadi Hariri (@hhariri). 
 
 ## Basic Usage Guidelines
-There are over 17000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
+There are over 39000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
 
 * Please remember this is a Slack team for Kotlin. If you have generic questions that are about a technology (which may or may not be used with Kotlin), maybe it’s better to use another forum, such as StackOverflow. 
 * This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the [Kotlin Forums](https://discuss.kotlinlang.org), where messages are also persisted.
@@ -76,6 +76,7 @@ This is a list of some of the most popular channels, as well as a sample of the 
 * #javascript. When targeting JavaScript
 * #koans. Have questions about the Kotlin Koans?
 * #kobalt. Working with Kobalt builds
+* #kontributors. Contributing to Kotlin
 * #language-proposals. Discussions around new language proposals
 * #native. For questions about Kotlin/Native
 * #nodejs. When targeting JavaScript and node.js

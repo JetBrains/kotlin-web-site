@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<buildprofiles>
+    <variables>
+        <enable-browser-edits>true</enable-browser-edits>
+        <browser-edits-url>https://github.com/JetBrains/kotlin-web-site/edit/master/docs/</browser-edits-url>
+        <browser-edits-url-override
+            for="coroutines-guide.md,coroutines-basics.md,coroutines-basic-jvm.md,cancellation-and-timeouts.md,composing-suspending-functions.md,coroutine-context-and-dispatchers.md,flow.md,channels.md,exception-handling.md,shared-mutable-state-and-concurrency.md,select-expression.md,debug-coroutines-with-idea.md,debug-flow-with-idea.md">
+            https://github.com/Kotlin/kotlinx.coroutines/edit/master/docs/topics/
+        </browser-edits-url-override>
+        <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
+        <generate-only-default-anchors>true</generate-only-default-anchors>
+        <web-root>https://kotlinlang.org/docs/</web-root>
+        <og-image>https://kotlinlang.org/assets/images/open-graph/docs.png</og-image>
+        <og-twitter>@kotlin</og-twitter>
+        <web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
+        <download-page/>
+        <relative-url-to-absolute-prefix>https://github.com/Kotlin/kotlinx.coroutines/blob/master/</relative-url-to-absolute-prefix>
+        <help-app-version>3</help-app-version>
+        <config-productid>help/kotlin-reference</config-productid>
+        <config-disqus-id>jetbrains</config-disqus-id>
+        <config-disqus-show>true</config-disqus-show>
+        <config-feedback-enabled>true</config-feedback-enabled>
+        <config-feedback-widget>true</config-feedback-widget>
+        <config-feedback-support>https://kotl.in/issue</config-feedback-support>
+        <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
+        <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
+        <config-sideblocks>true</config-sideblocks>
+        <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
+        <noindex-content-in-eap>false</noindex-content-in-eap>
+        <noindex-content-in-release>false</noindex-content-in-release>
+        <config-search-scopes-provider>https://www.jetbrains.com/search/json/</config-search-scopes-provider>
+            <custom-favicons>
+        <![CDATA[
+<link rel="icon" href="https://kotlinlang.org/assets/images/favicon.svg?v2" type="image/svg+xml">
+<link rel="alternate icon" href="https://kotlinlang.org/assets/images/favicon.ico?v2" type="image/x-icon"/>
+<link rel="apple-touch-icon" sizes="57x57" href="https://kotlinlang.org/assets/images/apple-touch-icon.png?v2"/>
+<link rel="apple-touch-icon" sizes="72x72" href="https://kotlinlang.org/assets/images/apple-touch-icon-72x72.png?v2"/>
+<link rel="apple-touch-icon" sizes="114x114" href="https://kotlinlang.org/assets/images/apple-touch-icon-114x114.png?v2"/>
+<link rel="apple-touch-icon" sizes="144x144" href="https://kotlinlang.org/assets/images/apple-touch-icon-144x144.png?v2"/>
+        ]]>
+    </custom-favicons>
+    </variables>
+    <build-profile product="kr"/>
+</buildprofiles>

@@ -1,8 +1,11 @@
 import $ from "jquery";
 import "./search.scss";
-import Instantsearch from "instantsearch.js";
-import resultTemaplate from "./search-result.mustache"
-import emptyResultsTemaplate from "./empty-result.mustache"
+import algoliasearch from "algoliasearch/lite";
+import instantsearch from "instantsearch.js/es";
+import {configure, searchBox, infiniteHits} from "instantsearch.js/es/widgets";
+
+import resultTemplate from "./search-result.mustache"
+import emptyResultsTemplate from "./empty-result.mustache"
 import UrlUtils from "query-string"
 import debounce from 'debounce';
 
@@ -15,18 +18,28 @@ const KEYS = {
   ESC: 27
 };
 
-$(document).ready(function () {
-  const $searchButton = $('.search-button'),
-    $searchPopup = $('.search-popup'),
-    $closeButton = $('.search-popup__close'),
-    $layout = $('.global-layout');
+let isInited = false;
+let search;
+let $searchPopup;
 
-  let isInited = false;
+export function openPopup() {
+  if (!isInited) {
+    search.start();
+    isInited = true;
+  }
 
-  const search = Instantsearch({
-    appId: '7961PKYRXV',
-    apiKey: '604fa45d89af86bdf9eed4cc862b2d0b',
+  $searchPopup.removeClass('_hidden');
+  $('body').addClass('_no-scroll');
+  $('.ais-SearchBox-input').focus();
+}
+
+export function initSearch() {
+  $searchPopup = $('.search-popup');
+  const $closeButton = $('.search-popup__close');
+
+  search = instantsearch({
     indexName: indexName,
+    searchClient: algoliasearch('7961PKYRXV', '604fa45d89af86bdf9eed4cc862b2d0b'),
     searchFunction: debounce((helper) => {
       const searchResults = $('.search-popup__results');
 
@@ -37,47 +50,56 @@ $(document).ready(function () {
         searchResults.show();
       }
     }, searchDelay),
-    urlSync: {
-      trackedParameters: ['query', 'page']
+    routing: {
+      stateMapping: {
+        stateToRoute(uiState) {
+          const indexUiState = uiState[indexName];
+          return {
+            q: indexUiState.query,
+            p: indexUiState.page
+          };
+        },
+        routeToState(routeState) {
+          return {
+            [indexName]: {
+              query: routeState.q,
+              page: routeState.p
+            }
+          }
+        }
+      }
     }
   });
 
-  search.addWidget(
-    Instantsearch.widgets.searchBox({
-      container: '.search-popup__input',
-      placeholder: 'Search',
-      reset: false,
-      magnifier: false
-    })
+  search.addWidgets([
+      configure({
+        attributesToSnippet: ['content:90'],
+        snippetEllipsisText: '...',
+        typoTolerance: true
+      }),
+      searchBox({
+        container: '.search-popup__input',
+        placeholder: 'Search',
+        showReset: false,
+        showSubmit: false,
+        showLoadingIndicator: false
+      }),
+      infiniteHits({
+        container: '.search-popup__results',
+        templates: {
+          empty: emptyResultsTemplate,
+          item: resultTemplate
+        }
+      })
+    ]
   );
 
   search.on('render', function () {
-    $('.ais-infinite-hits--item._active').removeClass('_active');
-    $('.ais-infinite-hits--item:first').addClass('_active')
+    $('.ais-InfiniteHits-item._active').removeClass('_active');
+    $('.ais-InfiniteHits-item:first').addClass('_active')
   });
 
-  search.addWidget(
-    Instantsearch.widgets.infiniteHits({
-      container: '.search-popup__results',
-      templates: {
-        empty: emptyResultsTemaplate,
-        item: resultTemaplate
-      }
-    })
-  );
-
-  const $input = $('.ais-search-box input');
-
-  function openPopup() {
-    if (!isInited) {
-      search.start();
-      isInited = true;
-    }
-
-    $searchPopup.removeClass('_hidden');
-    $('body').addClass('_no-scroll');
-    $('.ais-search-box--input').focus();
-  }
+  const $input = $('.ais-SearchBox-input');
 
   function closePopup() {
     search.helper.setQuery('').clearRefinements().search();
@@ -91,12 +113,12 @@ $(document).ready(function () {
     if (e.keyCode === KEYS.ESC) { // escape key
       closePopup()
     } else if (e.keyCode === KEYS.ENTER) { //enter
-      const searchRef = $('.ais-infinite-hits--item._active a').attr('href');
+      const searchRef = $('.ais-InfiniteHits-item._active a').attr('href');
       if (searchRef !== undefined) {
         window.location.href = searchRef;
       }
     } else if (e.keyCode === KEYS.DOWN) { //arrow down
-      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $activeElement = $('.ais-InfiniteHits-item._active');
       const $nextElement = $activeElement.next();
       if ($nextElement.length > 0) {
         $activeElement.removeClass('_active');
@@ -108,7 +130,7 @@ $(document).ready(function () {
         }
       }
     } else if (e.keyCode === 38) { //arrow up
-      const $activeElement = $('.ais-infinite-hits--item._active');
+      const $activeElement = $('.ais-InfiniteHits-item._active');
       const $prevElement = $activeElement.prev();
       if ($prevElement.length > 0) {
         $prevElement.addClass('_active');
@@ -124,20 +146,19 @@ $(document).ready(function () {
 
   $closeButton.on('click', closePopup);
 
-  $searchButton.on('click touch', openPopup);
-
   $(".search-popup").click(function () {
-    $(".ais-search-box--input").select();
+    $(".ais-SearchBox-input").select();
   });
 
   const urlParameters = UrlUtils.parse(UrlUtils.extract(window.location.href));
+
   if ('q' in urlParameters && urlParameters.q !== '') {
     openPopup();
   }
-});
+}
 
 function handlerKeysEvent() {
-  $(".ais-search-box--input").keydown(function (e) {
+  $(".ais-SearchBox-input").keydown(function (e) {
     if (e.keyCode === KEYS.DOWN || e.keyCode === KEYS.UP) {
       e.preventDefault()
     }

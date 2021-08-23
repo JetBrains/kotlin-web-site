@@ -1,0 +1,33 @@
+.scroll-down-hint {
+  $radius: 21px;
+  cursor: pointer;
+  position: fixed;
+  left: 50%;
+  transform: translateY(-50%);
+  bottom: 0;
+  height: 2*$radius;
+  width: 2*$radius;
+  border-radius: $radius;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  &[data-aos].aos-animate {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.scroll-down-hint:after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 13px;
+  transform: rotate(-90deg);
+  height: 17px;
+  width: 10px;
+  z-index: 1;
+  background: url("./arrow.svg?fill=white");
+  background-repeat: no-repeat;
+}
