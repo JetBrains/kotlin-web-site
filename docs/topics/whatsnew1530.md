@@ -2,7 +2,20 @@
 
 _[Release date: 24 August 2021](releases.md#release-details)_
 
-## Language
+Kotlin 1.5.30 offers many language and standard library features, different backends and tooling updates.
+
+Here are some major improvements:
+* Language features, including experimental sealed `when` statements, changes in using opt-in requirement, and others
+* Native support for Apple silicon
+* Kotlin/JS IR backend reaches Beta
+* Improved Gradle plugin experience
+
+You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/).
+<!-- and this video: -->
+
+<!-- <video href="stub" title="Kotlin 1.5.30"/> -->
+
+## Language features
 
 Kotlin 1.5.30 has received various compiler improvements to the opt-in requirement mechanism and type inference:
 * [Exhaustive when statements for sealed and Boolean subjects](#exhaustive-when-statements-for-sealed-and-boolean-subjects)
@@ -37,7 +50,7 @@ fun main() {
     val x: Mode = Mode.ON
     when (x) { 
         Mode.ON -> println("ON")
-   }
+    }
 // WARNING: Non exhaustive 'when' statements on sealed classes/interfaces 
 // will be prohibited in 1.7, add an 'OFF' or 'else' branch instead
 
@@ -60,8 +73,8 @@ kotlin {
         languageSettings.apply {
             languageVersion = "1.6"
             //progressiveMode = true // false by default
-       }
-   }
+        }
+    }
 }
 ```
 
@@ -79,6 +92,7 @@ kotlin {
 </tabs>
 
 ### Suspending functions as supertypes
+
 > Support for suspending functions as supertypes is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18707).
 >
@@ -793,7 +807,7 @@ import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-fun main(){
+fun main() {
 //sampleStart
     val isoFormatString = "PT1H30M"
     val defaultFormatString = "1h 30m"
