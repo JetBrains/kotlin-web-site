@@ -82,7 +82,7 @@ A moderator is a member of the Kotlin Slack community who volunteers to keep the
 * Communication regarding moderation takes places in the private #moderators channel.
 * If community members notice that a moderator is ignoring their responsibilities (or engaging in any unwanted behavior), they can alert administrators.
 
-### Moderator’s status acquisition/revocation process:
+### Moderator status acquisition/revocation process:
 * Any member is welcome to apply to be a moderator once they have been in the Slack community for longer than 6 months.
 * Moderator status is provided based upon the decision of the administrators.
 * Moderator status can be revoked if (this list is not exhaustive and can be updated on a case-by-case basis):
