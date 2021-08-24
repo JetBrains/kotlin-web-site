@@ -32,9 +32,9 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `suspend` -> | `completionHandler:`/ `async` | `completionHandler:` | [note](#errors-and-exceptions) [note](#suspending-functions) |
 | `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
 | Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)  |
+| `companion` member <- | Class method or property | Class method or property | |
 | `null` | `nil` | `nil` | |
-| `Singleton` | `Singleton()`  | `[Singleton singleton]` | [note](#kotlin-singletons) |
+| `Singleton` | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons) |
 | Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
 | `Unit` return type | `Void` | `void` | |
 | `String` | `String` | `NSString` | |
