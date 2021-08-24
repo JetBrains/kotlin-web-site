@@ -75,6 +75,11 @@ Now you're ready to debug your project!
 You can now start debugging the program using the whole set of tools that the IDE offers: breakpoints, stepping, expression
 evaluation, [coroutine debugger](debug-coroutines-with-idea.md) and more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-code.html).
 
+> Because of the limitations of the current JavaScript debugger in IntelliJ IDEA, you may need to rerun the JavaScript
+> debug configuration for breakpoints to take effect.
+>
+{type="note"}
+
 ## Debug in Node.js
 
 If your project targets Node.js, you can debug it in this runtime.
