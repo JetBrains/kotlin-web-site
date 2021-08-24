@@ -800,7 +800,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 And here are some examples of `parseIsoString()` and `parseIsoStringOrNull()` usages:
 
@@ -819,7 +819,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Matching with Regex at a particular position
 
@@ -843,7 +843,7 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 `matchAt()` returns the match if one is found or `null` if one isn’t:
 
@@ -857,7 +857,7 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Splitting Regex to a sequence
 
@@ -880,7 +880,7 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 A similar function was also added to `CharSequence`:
 
