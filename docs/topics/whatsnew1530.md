@@ -17,7 +17,8 @@ You can also find a short overview of the changes in the [release blog post](htt
 
 ## Language features
 
-Kotlin 1.5.30 has received various compiler improvements to the opt-in requirement mechanism and type inference:
+Kotlin 1.5.30 is presenting previews of future language changes and bringing improvements to the opt-in requirement mechanism
+and type inference:
 * [Exhaustive when statements for sealed and Boolean subjects](#exhaustive-when-statements-for-sealed-and-boolean-subjects)
 * [Suspending functions as supertypes](#suspending-functions-as-supertypes)
 * [Requiring opt-in on implicit usages of experimental APIs](#requiring-opt-in-on-implicit-usages-of-experimental-apis)
@@ -368,7 +369,7 @@ This parameter will not appear in the podspec file. When Xcode runs the Gradle b
 
 ### Experimental interoperability with Swift 5.5 async/await
 
-> Concurrency interoperability with Objective-C is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Concurrency interoperability with Swift async/await is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > You should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
 >
 {type="warning"}
