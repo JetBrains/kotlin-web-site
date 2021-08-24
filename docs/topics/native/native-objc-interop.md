@@ -32,9 +32,9 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `suspend` -> | `completionHandler:`/ `async` | `completionHandler:` | [note](#errors-and-exceptions) [note](#suspending-functions) |
 | `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
 | Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | Class method or property | Class method or property |  |
+| `companion` member <- | Class method or property | Class method or property | |
 | `null` | `nil` | `nil` | |
-| `Singleton` | `Singleton()`  | `[Singleton singleton]` | [note](#kotlin-singletons) |
+| `Singleton` | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons) |
 | Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
 | `Unit` return type | `Void` | `void` | |
 | `String` | `String` | `NSString` | |
@@ -174,8 +174,35 @@ with an additional receiver parameter. These types include:
 
 Kotlin singleton (made with an `object` declaration, including `companion object`)
 is imported to Swift/Objective-C as a class with a single instance.
-The instance is available through the factory method, i.e. as
-`[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift.
+
+The instance is available through the `shared` and `companion` properties.
+
+For the following Kotlin code:
+
+```kotlin
+object MyObject {
+    val x = "Some value"
+}
+
+class MyClass {
+    companion object {
+        val x = "Some value"
+    }
+}
+```
+
+Access these objects as follows: 
+
+```swift
+MyObject.shared
+MyObject.shared.x
+MyClass.companion
+MyClass.Companion.shared
+```
+
+> Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
+> 
+{type="note"}
 
 ### NSNumber
 
