@@ -209,7 +209,7 @@ val containerB = PostgreSQLContainer(DockerImageName.parse("postgres:13-alpine")
     .withInitScript("sql/schema.sql")
 ```
 
-You can enable the improvements by passing the `-Xself-upper-bound-inference` compiler option. See other examples of newly supported use cases in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-40804).
+You can enable the improvements by passing the `-Xself-upper-bound-inference` or the `-language-version 1.6` compiler options. See other examples of newly supported use cases in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-40804).
 
 ### Eliminating builder inference restrictions
 
@@ -238,6 +238,8 @@ val map = buildMap {
     put("c", 2f)
 }
 ```
+
+Also, you can enable this feature with the `-language-version 1.6` compiler option.
 
 ## Kotlin/JVM
 
