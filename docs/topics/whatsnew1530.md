@@ -10,10 +10,9 @@ Here are some major improvements:
 * Kotlin/JS IR backend reaches Beta
 * Improved Gradle plugin experience
 
-You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/).
-<!-- and this video: -->
+You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/) and this video:
 
-<!-- <video href="stub" title="Kotlin 1.5.30"/> -->
+<video href="rNbb3A9IdOo" title="Kotlin 1.5.30"/>
 
 ## Language features
 
