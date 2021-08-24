@@ -2,7 +2,7 @@
 
 _[Release date: 24 August 2021](releases.md#release-details)_
 
-Kotlin 1.5.30 offers many language and standard library features, different backends and tooling updates.
+Kotlin 1.5.30 offers language updates including previews of future changes, various improvements in platform support and tooling, and new standard library functions.
 
 Here are some major improvements:
 * Language features, including experimental sealed `when` statements, changes in using opt-in requirement, and others
