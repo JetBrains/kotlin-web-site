@@ -45,7 +45,7 @@ body._no-scroll {
 
   &._hidden {
     opacity: 0;
-    z-index: -1;
+    visibility: hidden;
   }
 
   &:focus {
