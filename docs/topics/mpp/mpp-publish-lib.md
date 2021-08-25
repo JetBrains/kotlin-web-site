@@ -122,40 +122,16 @@ kotlin {
 The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
 
-> If a library consumer defines variants that are missing in the library, they need to provide matching fallbacks. 
-> For example, if a library does not have or does not publish a staging build type, the library consumer must provide a fallback for the 
-> consumers who have such a build type, specifying at least one of the build types that the library publishes:
->
-><tabs>
->
-> ```groovy
-> android {
->     buildTypes {
->         staging {
->             // ...
->             matchingFallbacks = ['release', 'debug']
->         }
->     }
-> }
-> ```
-> 
-> ```kotlin
-> android {
->     buildTypes {
->         val staging by creating {
->             // ...
->             matchingFallbacks = listOf("release", "debug")
->         }
->     }
-> }
-> ```
->
-></tabs>
->
-{type="note"}
+The default publishing setup is as follows:
+* If the published variants have the same build type (for example, all of them are `release` or`debug`),
+  they will be compatible with any consumer build type.
+* If the published variants have different build types, then only the release variants will be compatible
+  with consumer build types that are not among the published variants. All other variants (such as `debug`)
+  will only match the same build type on the consumer side, unless the consumer project specifies the
+  [matching fallbacks](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/BuildType).
 
-Similarly, a library consumer needs to provide matching fallbacks for custom product flavors if some are missing in the 
-library publications.
+If you want to make every published Android variant compatible with only the same build type used by the library consumer,
+set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 

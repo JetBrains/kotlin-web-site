@@ -111,6 +111,56 @@ kotlin {
 ```
 
 </tabs>
+
+#### Target shortcuts and ARM64 (Apple Silicon) simulators
+
+The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
+`iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to build 
+the project for an Apple Silicon simulator, adjust the build script the following way:
+
+1. Add the `*SimulatorArm64` simulator target you need.
+2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
+
+<tabs>
+
+```groovy
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+
+    // Set up dependencies between the source sets
+    sourceSets {
+        // ...
+        iosSimulatorArm64Main {
+            dependsOn(iosMain)
+        }
+        iosSimulatorArm64Test {
+            dependsOn(iosTest)
+        }
+    }
+}
+```
+
+```kotlin
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+    
+    val iosMain by sourceSets.getting
+    val iosTest by sourceSets.getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+
+    // Set up dependencies between the source sets
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
+}
+```
+
+</tabs>
+
  
 ### Configure the hierarchical structure manually
 
@@ -209,19 +259,17 @@ targets. This helps you share more native code without being limited by platform
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-However, note that there are some limitations:
-
-* This approach works only for a native source set that is shared among platform-specific source sets. It doesn’t work 
-for native source sets shared at higher levels of the source set hierarchy.  
-    For example, if you have `nativeDarwinMain` that is a parent of `watchosMain` and `iosMain`, where `iosMain` has two 
-    children – `iosArm64Main` and `iosX64Main`, you can use platform-dependent libraries only for `iosMain` but not for `nativeDarwinMain`.
-* It works only for interop libraries shipped with Kotlin/Native.
-
 To enable usage of platform-dependent libraries in shared source sets, add the following to your `gradle.properties`:
 
-```kotlin
+```properties
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=false
 ```
 
-Learn more about the [technical details](https://github.com/JetBrains/kotlin/blob/1.4.0/native/commonizer/README.md).
+In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
+handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
+To enable this support, specify the additional `kotlin.mpp.enableCInteropCommonization` key:
+
+```properties
+kotlin.mpp.enableCInteropCommonization=true
+```

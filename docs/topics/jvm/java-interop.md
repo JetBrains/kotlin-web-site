@@ -122,8 +122,17 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`)
+  * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can specify whether the compiler reports a nullability mismatch based on the information from specific types of 
+nullability annotations. Use the compiler option `-Xnullability-annotations=@<package-name>:<report-level>`. 
+In the argument, specify the fully qualified nullability annotations package and one of these report levels:
+* `ignore` to ignore nullability mismatches
+* `warn` to report warnings
+* `strict` to report errors.
+
+See the full list of supported nullability annotations in the 
+[Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### Annotating type arguments and type parameters
 

@@ -23,6 +23,7 @@
 
     <toc-element toc-title="What's new">
         <toc-element toc-title="Kotlin">
+            <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
             <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
             <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
             <toc-element toc-title="Earlier versions">
@@ -134,7 +135,7 @@
             <toc-element id="js-project-setup.md" accepts-web-file-names="command-line-library-js.html,working-with-javascript.html"/>
             <toc-element id="running-kotlin-js.md"/>
             <toc-element id="dev-server-continuous-compilation.md"/>
-            <toc-element id="debugging-kotlin-in-browser.md"/>
+            <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
