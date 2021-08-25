@@ -158,7 +158,7 @@ Parentheses are translated to calls to `invoke` with appropriate number of argum
 For the assignment operations, for example `a += b`, the compiler performs the following steps:
 
 * If the function from the right column is available:
-  * If the corresponding binary function (that means `plus()` for `plusAssign()`) is available too, report error (ambiguity).
+  * If the corresponding binary function (that means `plus()` for `plusAssign()`) is available too, `a` is a mutable variable, and the return type of `plus` is a subtype of the type of `a`, report an error (ambiguity).
   * Make sure its return type is `Unit`, and report an error otherwise.
   * Generate code for `a.plusAssign(b)`.
 * Otherwise, try to generate code for `a = a + b` (this includes a type check: the type of `a + b` must be a subtype of `a`).
