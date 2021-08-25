@@ -12,14 +12,14 @@ The **Eclipse IDE for Java Developers** bundle is recommended.
 
 To add the Kotlin support to your Eclipse IDE, install the **Kotlin Plugin for Eclipse**.
 We recommend installing the Kotlin plugin from [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
-Open the __Help \| Eclipse Marketplace...__ menu and search for __Kotlin Plugin for Eclipse__: 
+Open the __Help \| Eclipse Marketplace...__ menu and search for __Kotlin Plugin for eclipse-_: 
 
-![Eclipse Marketplace](eclipse_marketplace.png){width="500"}
+![Eclipse Marketplace](eclipse-marketplace.png){width="500"}
 
 Once the plugin is installed and Eclipse is restarted, make sure the plugin is installed correctly: open the __Kotlin perspective__
 in the menu __Window \| Perspective | Open Perspective \| Other...__
     
-![Kotlin Perspective](eclipse_open-perspective.png){width="500"}
+![Kotlin Perspective](eclipse-open-perspective.png){width="500"}
 
 ## Create a new project
 
@@ -27,7 +27,7 @@ Now you are ready to create a new Kotlin project.
 
 First, select __File | New | Kotlin Project__.
 
-![New Kotlin project](eclipse_project-name.png){width="700"}
+![New Kotlin project](eclipse-project-name.png){width="500"}
 
 An empty Kotlin/JVM project will be created.
 
@@ -37,33 +37,33 @@ Java code to the same project.
    
 The project structure looks like this:
 
-![Empty Kotlin project](eclipse_empty-project.png){width="700"}
+![Empty Kotlin project](eclipse-empty-project.png){width="700"}
 
-Now, create a new Kotlin file in the the source directory.
+Now, create a new Kotlin file in the source directory.
 
-![New file from context menu](eclipse_new-file.png){width="700"}
+![New file from context menu](eclipse-new-file.png){width="700"}
    
 You can enter the name without the `.kt` extension. Eclipse will add it automatically.
 
-![New Kotlin file wizard](eclipse_file-name.png){width="700"}
+![New Kotlin file wizard](eclipse-file-name.png){width="500"}
 
 Once you have a source file, add the `main` function - the entry point to a Kotlin application. You
 can simply type `main` and invoke code completion by hitting `Ctrl + Space`.
 
-![Kotlin function example](eclipse_main.png){width="500"}
+![Kotlin function example](eclipse-main.png){width="700"}
 
 Finally, add a simple line of Kotlin code to print a message:
 
-![Hello World example](eclipse_hello-world.png){width="500"}
+![Hello World example](eclipse-hello-world.png){width="700"}
 
 ## Run the application
 
 To run the application, right-click somewhere in the main file and select __Run As | Kotlin Application__.
 
-![Run Kotlin application](eclipse_run-as.png){width="700"}
+![Run Kotlin application](eclipse-run-as.png){width="700"}
    
 If everything went well, you'll see the result in the **Console** window.
 
-![Program output view](eclipse_output.png){width="700"}
+![Program output view](eclipse-output.png){width="500"}
 
 Congratulations! You now have your Kotlin application running in Eclipse IDE.
