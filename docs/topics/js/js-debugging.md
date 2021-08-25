@@ -22,15 +22,13 @@ To debug Kotlin/JS in the browser:
 3. If your program is logging information to the console, navigate to the **Console** tab to see this output.
    Depending on your browser, these logs can reference the Kotlin source files and lines they come from:
 
-![Chrome DevTools console](devtools-console.png)
-{width="600"}
+![Chrome DevTools console](devtools-console.png){width="600"}
 
 4. Click the file reference on the right to navigate to the corresponding line of code.
    Alternatively, you can manually switch to the **Sources** tab and find the file you need in the file tree. Navigating
    to the Kotlin file shows you the regular Kotlin code (as opposed to minified JavaScript):
 
-![Debugging in Chrome DevTools](devtools-sources.png)
-{width="600"}
+![Debugging in Chrome DevTools](devtools-sources.png){width="600"}
 
 You can now start debugging the program. Set a breakpoint by clicking on one of the line numbers.
 The developer tools even support setting breakpoints within a statement. As with regular JavaScript code, any set
@@ -47,8 +45,7 @@ For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **Debug JavaScript** deb
 2. Click **+** and select **JavaScript debug**.
 3. Specify the configuration **Name** and provide the **URL** on which the project runs (`http://localhost:8080` by default).
 
-![JavaScript debug configuration](debug-config.png)
-{width="600"}
+![JavaScript debug configuration](debug-config.png){width="600"}
 
 4. Save the configuration.
 
@@ -61,14 +58,12 @@ Now you're ready to debug your project!
    Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Start the debugging session by running the JavaScript debug configuration you've created previously:
 
-![JavaScript debug configuration](debug-config-run.png)
-{width="600"}
+![JavaScript debug configuration](debug-config-run.png){width="600"}
 
 3. You can see the console output of your program in the **Debug** window in IntelliJ IDEA. The output items reference the
    Kotlin source files and lines they come from:
 
-![JavaScript debug output in the IDE](ide-console-output.png)
-{width="600"}
+![JavaScript debug output in the IDE](ide-console-output.png){width="600"}
 
 4. Click the file reference on the right to navigate to the corresponding line of code.
 
@@ -76,7 +71,7 @@ You can now start debugging the program using the whole set of tools that the ID
 evaluation, [coroutine debugger](debug-coroutines-with-idea.md) and more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-code.html).
 
 > Because of the limitations of the current JavaScript debugger in IntelliJ IDEA, you may need to rerun the JavaScript
-> debug configuration for breakpoints to take effect.
+> debug to make the execution stop on breakpoints.
 >
 {type="note"}
 
