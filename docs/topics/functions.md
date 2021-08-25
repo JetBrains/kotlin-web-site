@@ -231,6 +231,14 @@ val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
 
+There are also special [primitive type arrays](https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays).
+For these, you will need to additionally convert them using the `toTypedArray()` function.
+
+```kotlin
+val a = intArrayOf(1, 2, 3) // it is an IntArray
+val list = asList(-1, 0, *a.toTypedArray(), 4)
+```
+
 ### Infix notation
 
 Functions marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses
