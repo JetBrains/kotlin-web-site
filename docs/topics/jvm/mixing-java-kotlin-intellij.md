@@ -1,4 +1,4 @@
-[//]: # (title: Mixing Java and Kotlin in one project – tutorial)
+[//]: # (title: Mixing Java and Kotlin in a Java project – tutorial)
 
 Kotlin provides the first-class interoperability with Java, and modern IDEs make it even better.
 In this tutorial, you'll learn how to use both Kotlin and Java sources in the same project in 
