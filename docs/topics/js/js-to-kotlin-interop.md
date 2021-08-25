@@ -148,6 +148,6 @@ Primitive array translation utilizes JavaScript `TypedArray`:
 
 * `kotlin.ByteArray`, `-.ShortArray`, `-.IntArray`, `-.FloatArray`, and `-.DoubleArray` are mapped to
    JavaScript `Int8Array`, `Int16Array`, `Int32Array`, `Float32Array`, and `Float64Array` correspondingly.
-* `kotlin.BooleanArray` is mapped to JavaScript `Int8Array` with a property `$type$ == "BooleanArray"`
-* `kotlin.CharArray` is mapped to JavaScript `UInt16Array` with a property `$type$ == "CharArray"`
+* `kotlin.BooleanArray` is mapped to JavaScript `Int8Array` with a property `$type$ == "BooleanArray"`.
+* `kotlin.CharArray` is mapped to JavaScript `UInt16Array` with a property `$type$ == "CharArray"`.
 * `kotlin.LongArray` is mapped to JavaScript `Array` of `kotlin.Long` with a property `$type$ == "LongArray"`.
