@@ -12,7 +12,7 @@ The **Eclipse IDE for Java Developers** bundle is recommended.
 
 To add the Kotlin support to your Eclipse IDE, install the **Kotlin Plugin for Eclipse**.
 We recommend installing the Kotlin plugin from [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse). 
-Open the __Help \| Eclipse Marketplace...__ menu and search for __Kotlin Plugin for eclipse-_: 
+Open the __Help \| Eclipse Marketplace...__ menu and search for __Kotlin Plugin for Eclipse__: 
 
 ![Eclipse Marketplace](eclipse-marketplace.png){width="500"}
 
