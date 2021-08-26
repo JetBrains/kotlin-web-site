@@ -214,7 +214,7 @@ If there are no errors during compilation, you should see the result of the exec
 of the program, which on execution should output 
 the contents of the site `https://example.com`
 
-![Output](output.png){width=700}
+![Output](curl-output.png){width=700}
 
 The reason you're seeing the actual output is because the call `curl_easy_perform` prints the result to the standard output. You could hide this using 
 `curl_easy_setopt`. 
