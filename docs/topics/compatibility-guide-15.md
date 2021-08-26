@@ -335,3 +335,52 @@ perspective
 >      ```
 >      After excluding the testing framework, test your application. If it stopped working, rollback excluding changes, 
 > use the same testing framework as the library does, and exclude your testing framework.
+
+### Switch to JVM IR backend
+
+> **Issue**: [KT-48233](https://youtrack.jetbrains.com/issue/KT-48233)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 1.5 uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
+> for the Kotlin/JVM compiler by default. The old backend is still used by default for earlier language versions.
+>
+> You might encounter some performance degradation issues using the new compiler in Kotlin 1.5. We are working on fixing
+> such cases.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: old behavior (see details in the issue)
+> - \>= 1.5: behavior changed, if you need to use the old backend in Kotlin 1.5, add the following lines to the project’s 
+> configuration file to temporarily revert to pre-1.5 behavior:
+>
+> In Gradle:
+>
+> <tabs>
+>
+> ```kotlin
+> tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
+>  kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> ```groovy
+> tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+> kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> </tabs>
+>
+> In Maven:
+>
+>```xml
+> <configuration>
+>     <args>
+>         <arg>-Xuse-old-backend</arg>
+>     </args>
+> </configuration>
+> ```
+> Support for this flag will be removed in one of the future major releases.
