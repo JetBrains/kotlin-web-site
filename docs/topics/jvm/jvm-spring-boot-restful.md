@@ -262,13 +262,13 @@ properties:
    These settings enable the database for the Spring Boot application.
    See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
-## Run the application
+## Execute HTTP requests
 
-You should use an HTTP client to work with previously created endpoints.
-In IntelliJ IDEA, you can use the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html):
+You should use an HTTP client to work with previously created endpoints. In IntelliJ IDEA, you can use
+the embedded [HTTP client](https://www.jetbrains.com/help/idea/http-client-in-product-code-editor.html):
 
-1. [Run the application](#run-the-application). Once the application is up and running, you can execute POST requests
-to store messages in the database.
+1. Run the application. Once the application is up and running, you can execute POST requests to store messages
+in the database.
 
 2. Create the `requests.http` file and add the following HTTP requests:
 
