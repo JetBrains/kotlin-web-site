@@ -5,7 +5,7 @@ In order to build a Kotlin project with Gradle, you should [apply the Kotlin Gra
 
 ## Plugin and versions
 
-Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
+Apply the Kotlin Gradle plugin by using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
 
 The Kotlin Gradle plugin and `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
@@ -653,7 +653,7 @@ Control the behavior of this check by setting the `kotlin.jvm.target.validation.
 
 You can set the JDK home in the following ways:
 * For Gradle from 6.1 to 6.6 with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
-* For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or [the Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+* For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
 
 When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
 use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
