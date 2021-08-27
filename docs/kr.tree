@@ -125,8 +125,8 @@
             <toc-element toc-title="Spring">
                 <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html"/>
                 <toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
-                <toc-element toc-title="Build a web application with Spring Boot and Kotlin" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
-                <toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
+                <toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
+                <toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
             </toc-element>
             <toc-element id="jvm-test-using-junit.md"/>
             <toc-element id="mixing-java-kotlin-intellij.md"/>
