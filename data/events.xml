@@ -1,6 +1,22 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>es</lang>
+        <startDate>2021-08-26</startDate>
+        <endDate>2021-08-26</endDate>
+        <location>Medellín, Colombia</location>
+        <speaker>Juan Guillermo Gómez</speaker>
+        <title>Kotlin User Group Medellin</title>
+        <subject>Usando Compose para aplicaciones Desktop</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Medellin/events/280303741</url>
+        <description>
+            <![CDATA[
+<p>Jetpack Compose está de moda… así que lo vemos en todos lados. Es tan así que ahora podemos construir la UI para apps desktop y web. Sí, sí, sí, Jetbrains creó la forma de usar compose para crear este tipo de aplicaciones. En esta charla revisaremos el estado actual y veremos algunos ejemplos.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>en</lang>
         <startDate>2021-09-16</startDate>
         <endDate>2021-09-16</endDate>
