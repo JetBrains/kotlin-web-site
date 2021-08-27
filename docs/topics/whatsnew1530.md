@@ -559,12 +559,12 @@ With toolchains support, Gradle can autodetect local JDKs and install missing JD
 
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks.
 A Java toolchain:
-* Sets the [`jdkHome` option](gradle.md#attributes-specific-for-jvm) available for JVM targets.
+* Sets the [`jdkHome` option](gradle.md#attributes-specific-to-jvm) available for JVM targets.
   > [The ability to set the `jdkHome` option directly has been deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
   >
   {type="warning"}
 
-* Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-for-jvm) to the toolchain's JDK version if the user didn’t set the `jvmTarget` option explicitly.
+* Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn’t set the `jvmTarget` option explicitly.
   If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility).
 
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.

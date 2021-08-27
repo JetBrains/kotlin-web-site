@@ -80,7 +80,7 @@ Alternatively, you can use the older `apply plugin` approach:
 apply plugin: 'kotlin'
 ```
 
-Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](#using-gradle-kotlin-dsl).
+Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](#using-the-gradle-kotlin-dsl).
 
 ### Kotlin and Java sources
 
@@ -619,7 +619,7 @@ Here is a complete list of options for Gradle tasks:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#setting-custom-jdk-home).  |  |  |
+| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
@@ -679,8 +679,8 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always uses the JDK the Gradle daemon is running on.
 A Java toolchain:
-* Sets the [`jdkHome` option](#attributes-specific-for-jvm) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-for-jvm) to the toolchain's JDK version
+* Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility).
