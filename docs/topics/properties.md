@@ -146,7 +146,26 @@ Such a property needs to fulfil the following requirements:
 * It must be initialized with a value of type `String` or a primitive type
 * It cannot be a custom getter
 
-Such properties can be used in annotations:
+The compiler will inline usages of the constant, but will not remove the field (this can be useful when using [reflection](reflection.md)). For example, this Kotlin code compiles to the following Java code:
+
+```kotlin
+const val MESSAGE: String = "Hello, World!"
+
+fun main() {
+    println(MESSAGE)
+}
+```
+{kotlin-runnable="true"}
+
+```java
+public static final String MESSAGE = "Hello, World!";
+
+public static void main(String[] args) {
+    System.out.println("Hello, World!");
+}
+```
+
+Such properties can also be used in annotations:
 
 ```kotlin
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
