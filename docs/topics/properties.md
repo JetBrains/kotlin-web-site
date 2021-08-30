@@ -56,8 +56,23 @@ You can define custom accessors for a property. If you define a custom getter, i
 the property (this way you can implement a computed property). Here's an example of a custom getter:
 
 ```kotlin
-val isEmpty: Boolean
-    get() = this.size == 0
+//sampleStart
+class Rectangle(val width: Int, val height: Int) {
+    val square: Int
+        get() = this.width * this.height
+}
+//sampleEnd
+fun main() {
+    val rectangle = Rectangle(3, 4)
+    println("Width=${rectangle.width}, height=${rectangle.height}, square=${rectangle.square}")
+}
+```
+{kotlin-runnable="true"}
+
+You can omit the property type if it can be inferred from the getter:
+
+```kotlin
+val square get() = this.width * this.height
 ```
 
 If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
@@ -72,12 +87,6 @@ var stringRepresentation: String
 ```
 
 By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
-
-You can omit the property type if it can be inferred from the getter:
-
-```kotlin
-val isEmpty get() = this.size == 0  // has type Boolean
-```
 
 If you need to annotate an accessor or change its visibility, but you don't need to change the default implementation,
 you can define the accessor without defining its body:
