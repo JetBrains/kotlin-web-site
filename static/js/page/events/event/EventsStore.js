@@ -2,8 +2,9 @@ import $ from "jquery";
 import Event from "./Event";
 import City from "./City";
 import languages from "./lang";
+import {MapStore} from "../map/Map";
 
-export default class EventsStore {
+export default class EventsStore extends MapStore {
   static FILTERS = {
     time: (time, event) => {
       let matched = false;
@@ -56,6 +57,7 @@ export default class EventsStore {
    * @param {Object} citiesData Raw cities data
    */
   constructor(eventsData, citiesData) {
+    super(eventsData);
     const store = this;
     this.events = [];
     this.cities = [];

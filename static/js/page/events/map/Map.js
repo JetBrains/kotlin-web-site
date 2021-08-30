@@ -19,15 +19,32 @@ const mapOptions = {
   styles: require('./styles')
 };
 
+export class MapStore {
+  /**
+   * @param data
+   * @param data.events {}[]
+   */
+  constructor({events}) {
+    this.events = events;
+  }
+
+  filter() {
+    return this.events;
+  }
+
+  getEventsWithCity() {
+    return this.events;
+  }
+}
+
 export default class Map {
   /**
    * @param {HTMLElement} node
-   * @param {EventsStore} store
+   * @param {MapStore} store
    * @param {Object} initialFilters
    */
   constructor(node, store, initialFilters = null) {
     const $mapNode = $(node);
-    const that = this;
     this.node = $mapNode.get(0);
     this.store = store;
     this.markers = [];
@@ -67,13 +84,13 @@ export default class Map {
     });
 
     emitter.on(EVENTS.EVENT_HIGHLIGHTED, (event) => {
-      if (!event.hasCity()) return;
+      if (!event.marker) return;
 
       event.marker.highlight();
     });
 
     emitter.on(EVENTS.EVENT_UNHIGHLIGHTED, (event) => {
-      if (!event.hasCity()) return;
+      if (!event.marker) return;
 
       event.marker.unhighlight();
     });
@@ -83,7 +100,7 @@ export default class Map {
         .map(event => new Marker(event, this));
 
     emitter.on(EVENTS.EVENT_SELECTED, (event) => {
-      if (!event.hasCity()) return;
+      if (!event.marker) return;
 
       const currentMarker = event.marker;
 
@@ -97,7 +114,9 @@ export default class Map {
         }
       });
 
-      instance.panTo(event.getBounds());
+      if (event.getBounds) {
+        instance.panTo(event.getBounds());
+      }
     });
 
     if (this.initialFilters) {
@@ -109,20 +128,12 @@ export default class Map {
   /**
    * @static
    * @param {HTMLElement} node
-   * @param {EventsStore} store
+   * @param {MapStore} store
    * @param {Object} initialFilters
    * @returns {Deferred}
    */
   static create(node, store, initialFilters = null) {
     return $.getScript(MAP_API_URL).then(() => new Map(node, store, initialFilters));
-  }
-
-  /**
-   * @param {Array<Event>} events
-   */
-  _createMarkers(events) {
-
-
   }
 
   _limitWorldBounds() {
@@ -155,7 +166,7 @@ export default class Map {
     const eventsBounds = new google.maps.LatLngBounds(null);
 
     filteredEvents.forEach(event => {
-      if (event.hasCity()) {
+      if (event.marker) {
         eventsBounds.extend(event.getBounds());
       }
     });
