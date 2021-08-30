@@ -148,7 +148,7 @@ If you build your module with Gradle, you can add arguments like this:
 <tabs>
 
 ```groovy
-tasks.withType(KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
         freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
     }
@@ -156,7 +156,7 @@ tasks.withType(KotlinCompile).configureEach {
 ```
 
 ```kotlin
-tasks.withType<KotlinCompile>().configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
 }
 ```
