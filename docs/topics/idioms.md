@@ -351,6 +351,23 @@ There's also an overload that accepts a reason parameter:
 fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 ```
 
+## joinToString
+
+Creates a string from all the elements separated using `separator` and using the given `prefix` and `postfix` if supplied.
+```kotlin
+val a = listOf("distinct", "map", "isEmpty", "Contains", "filter", "first", "last", "reduce", "single", "joinToString")
+val message = a.joinToString (
+        ", ",
+        prefix = "Kotlin has collection functions like : ",
+        postfix = " and they are awesome.",
+        limit = 3,
+        truncated = "etc "
+    )
+
+ println(message)
+ //Output = Kotlin has collection functions like : distinct, map, isEmpty, etc  and they are awesome.
+```
+
 IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO tool window. 
 
 ## What’s next?
