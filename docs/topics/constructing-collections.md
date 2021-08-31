@@ -70,9 +70,9 @@ val presizedSet = HashSet<Int>(32)
 
 ## Copy
 
-To create a collection with the same elements as an existing collection, you can use copying operations. Collection
-copying operations from the standard library create _shallow_ copy collections with references to the same elements.
-Thus, a change made to a collection element reflects in all its copies. 
+To create a collection with the same elements as an existing collection, you can use copying functions. Collection
+copying functions from the standard library create _shallow_ copy collections with references to the same elements.
+Thus, a change made to a collection element reflects in all its copies.
 
 Collection copying functions, such as [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-list.html),
 [`toMutableList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-mutable-list.html),
@@ -83,16 +83,17 @@ independently of the source as well.
 
 ```kotlin
 
+class Person(var name: String)
+
 fun main() {
 //sampleStart
-    val sourceList = mutableListOf(1, 2, 3)
-    val copyList = sourceList.toMutableList()
-    val readOnlyCopyList = sourceList.toList()
-    sourceList.add(4)
-    println("Copy size: ${copyList.size}")   
-    
-    //readOnlyCopyList.add(4)             // compilation error
-    println("Read-only copy size: ${readOnlyCopyList.size}")
+    val alice = Person("Alice")
+    val sourceList = mutableListOf(alice, Person("Bob"))
+    val copyList = sourceList.toList()
+    sourceList.add(Person("Charles"))
+    alice.name = "Alicia"
+    println("First item's name is: ${sourceList[0].name} in source and ${copyList[0].name} in copy")
+    println("List size is: ${sourceList.size} in source and ${copyList.size} in copy")
 //sampleEnd
 }
 ```
