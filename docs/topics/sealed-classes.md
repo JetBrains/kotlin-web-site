@@ -12,16 +12,23 @@ In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: 
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
+As an example, consider a hierarchy of possible errors in a library. There can be classes for networking, database, and
+other errors, as well as code that uses them, such as handling and logging.
+If a root interface of the error hierarchy is exposed in the public API, client classes can inherit it, creating
+new error types. They are declared outside the library, so it cannot handle them in specific ways. With a sealed hierarchy,
+library authors can be sure that they know all possible error types and no other ones can appear.
+
 To declare a sealed class or interface, put the `sealed` modifier before its name:
 
 ```kotlin
-sealed interface Expr
+sealed interface Error
 
-sealed class MathExpr(): Expr
+sealed class IOError(): Error
 
-data class Const(val number: Double) : MathExpr()
-data class Sum(val e1: Expr, val e2: Expr) : MathExpr()
-object NotANumber : Expr
+class FileReadError(val f: File): IOError()
+class DatabaseError(val source: DataSource): IOError()
+
+object RuntimeError : Error
 ```
 
 A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot be instantiated directly and can have `abstract` members.
@@ -30,13 +37,12 @@ Constructors of sealed classes can have one of two [visibilities](visibility-mod
 `private`:
 
 ```kotlin
-sealed class MathExpr {
+sealed class IOError {
     constructor() { /*...*/ } // protected by default
-    private constructor(vararg operands: Number): this() { /*...*/ } // private is OK
-    // public constructor(s: String): this() {} // Error: public and internal are not allowed
+    private constructor(description: String): this() { /*...*/ } // private is OK
+    // public constructor(code: Int): this() {} // Error: public and internal are not allowed
 }
 ```
-
 
 ## Location of direct subclasses
 
@@ -69,10 +75,10 @@ If it's possible to verify that the statement covers all cases, you don't need t
 However, this works only if you use `when` as an expression (using the result) and not as a statement:
 
 ```kotlin
-fun eval(expr: Expr): Double = when(expr) {
-    is Const -> expr.number
-    is Sum -> eval(expr.e1) + eval(expr.e2)
-    NotANumber -> Double.NaN
+fun log(e: Error) = when(e) {
+    is FileReadError -> { println("Error while reading file ${e.file}") }
+    is DatabaseError -> { println("Error while reading from database ${e.source}") }
+    RuntimeError ->  { println("Runtime error") }
     // the `else` clause is not required because we've covered all the cases
 }
 ```
