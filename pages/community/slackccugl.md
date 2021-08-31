@@ -93,7 +93,7 @@ A moderator is a member of the Kotlin Slack community who volunteers to keep the
 
 This is a list of some of the most popular channels, as well as a sample of the types of channels available. 
 
-* #android. For Android generic topics
+* #android. Using Kotlin for Android development (consider to use StackOverflow or other communities for generic Android question not directly related to Kotlin, even if you use Kotlin for Android development).
 * #getting-started. For more beginner questions. Better ask here than in #general if you’re new to Kotlin
 * #communities. A place to discuss physical communities. Also search for cities/countries as there are often channels with these names (#australia), as well as languages (i.e. #spanish).
 * #coroutines. Questions about coroutines and async programming in Kotlin
