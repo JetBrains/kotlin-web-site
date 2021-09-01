@@ -354,15 +354,8 @@ kotlin {
 
 ## Build XCFrameworks
 
-All Kotlin Multiplatform projects can now have XCFrameworks as an output format. Apple introduced XCFrameworks as a replacement for universal (fat) frameworks. 
-
-With the help of XCFrameworks you:
-* Can gather logic for all the target platforms and architectures in a single bundle.
-* Don't need to remove all unnecessary architectures before publishing the application to the App Store.
-
-XCFrameworks is useful if you want to use your KMM framework for devices and simulators on Apple M1.
-
-To use XCFrameworks, update your `build.gradle(.kts)` script:
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
+Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
 
 <tabs>
 
@@ -430,7 +423,7 @@ kotlin {
 
 </tabs>
 
-When you declare XCFrameworks, these new Gradle tasks will be registered:
+When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle tasks:
 * `assembleXCFramework`
 * `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
 * `assembleReleaseXCFramework`
