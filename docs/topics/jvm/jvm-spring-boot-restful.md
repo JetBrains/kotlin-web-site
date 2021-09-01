@@ -1,7 +1,7 @@
 [//]: # (title: Create a RESTful web service with a database using Spring Boot – tutorial)
 
-This tutorial walks you through the process of creating a simple application with Spring Boot and adding a database to
-a RESTful web service.
+This tutorial walks you through the process of creating a simple application with Spring Boot and adding a database
+to store the information.
 
 In this tutorial, you will:
 * Create an application with an HTTP endpoint
@@ -10,11 +10,13 @@ In this tutorial, you will:
 * Use endpoints for writing and retrieving database objects
 
 You can download and explore the [completed project](https://github.com/kotlin-hands-on/spring-time-in-kotlin-episode1)
-or check out our video for this tutorial:
+or watch a video of this tutorial:
 
 <video width="560" height="315" href="gf-kjD2ZmZk" title="Spring Time in Kotlin. Getting Started"/>
 
-To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+## Before you start
+
+Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
 ## Bootstrap the project
 
@@ -150,7 +152,7 @@ the launch menu in IntelliJ IDEA:
 
 ## Add database support
 
-In this section, you will create two endpoints: one for saving messages to the database, and one for retrieving them:
+To use a database in your application, first create two endpoints: one for saving messages and one for retrieving them:
 
 1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table. Add the `@Id` annotation
 before the `id` field. These annotations also require additional imports:
@@ -326,3 +328,10 @@ curl -X POST --location "http://localhost:8080" -H "Content-Type: application/js
 
 curl -X GET --location "http://localhost:8080"
 ```
+
+## What's next?
+
+For more tutorials, check out the Spring website:
+
+* [Building web applications with Spring Boot and Kotlin](https://spring.io/guides/tutorials/spring-boot-kotlin/)
+* [Spring Boot with Kotlin Coroutines and RSocket](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
