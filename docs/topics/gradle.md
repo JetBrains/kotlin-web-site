@@ -5,7 +5,7 @@ and [configure the dependencies](#configuring-dependencies).
 
 ## Plugin and versions
 
-Apply the Kotlin Gradle plugin by using [the Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
+Apply the Kotlin Gradle plugin by using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
 
 The Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
@@ -136,7 +136,7 @@ plugins {
 ### Kotlin and Java sources for JavaScript
 
 This plugin only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
-project contains Java files). If you don't store them separately , specify the source folder in the `sourceSets` block:
+project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets` block:
 
 <tabs>
 
@@ -245,7 +245,7 @@ library is added to the rest. The Kotlin Gradle plugin will select the appropria
 the `kotlinOptions.jvmTarget` [compiler option](#compiler-options) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
-plugin won’t override it or add a second standard library.
+plugin won't override it or add a second standard library.
 
 If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
@@ -377,7 +377,7 @@ tasks {
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
 If you need to use a different JVM test framework, disable automatic testing framework selection by
-adding the line `kotlin.test.infer.jvm.variant=false` to the project’s `gradle.properties` file.
+adding the line `kotlin.test.infer.jvm.variant=false` to the project's `gradle.properties` file.
 After doing this, add the framework as a Gradle dependency.
 
 If you had used a variant of `kotlin("test")` in your build script explicitly and project build stopped working with
@@ -387,7 +387,7 @@ see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix
 ### Set a dependency on a kotlinx library
 
 If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants
-of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library’s
+of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library's
 base artifact name instead – `kotlinx-coroutines-core`.
 
 <tabs>
@@ -419,7 +419,7 @@ kotlin {
 </tabs>
 
 If you use a multiplatform library and need to depend on the shared code, set the dependency only once, in the shared
-source set. Use the library’s base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
+source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
 
 <tabs>
 
@@ -453,7 +453,7 @@ kotlin {
 
 Alternatively, you can specify the dependencies at the top level, using the following pattern for the configuration names:
 `<sourceSetName><DependencyType>`. This can be helpful for some Gradle built-in dependencies, like `gradleApi()`, `localGroovy()`,
-or `gradleTestKit()`, which are not available in the source sets’ dependency DSL.
+or `gradleTestKit()`, which are not available in the source sets' dependency DSL.
 
 <tabs>
 
@@ -484,8 +484,8 @@ Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and i
 
 There are several ways to switch off incremental compilation:
 
-* `kotlin.incremental=false` for Kotlin/JVM
-* `kotlin.incremental.js=false` for Kotlin/JS projects
+* `kotlin.incremental=false` for Kotlin/JVM.
+* `kotlin.incremental.js=false` for Kotlin/JS projects.
 * Use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false` as a command line parameter.
 
   The parameter should be added to each subsequent build, and any build with incremental
@@ -587,7 +587,7 @@ Here is a complete list of options for Gradle tasks:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `allWarningsAsErrors` | Report an error if there are any warnings |  | false |
-| `suppressWarnings` | Don’t generate warnings |  | false |
+| `suppressWarnings` | Don't generate warnings |  | false |
 | `verbose` | Enable verbose logging output |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
 

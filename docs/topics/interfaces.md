@@ -113,4 +113,4 @@ Now, if you derive a concrete class *C* from *A*, you, obviously, have to overri
 
 However, if you derive *D* from *A* and *B*, you need to implement all the methods that you have
 inherited from multiple interfaces, and you need to specify how exactly *D* should implement them. This rule applies
-both to methods for which you've inherited a single implementation (*bar()*) and to those for which you’ve inherited multiple implementations (*foo()*).
+both to methods for which you've inherited a single implementation (*bar()*) and to those for which you've inherited multiple implementations (*foo()*).
