@@ -854,13 +854,13 @@ Each of the options in the following list overrides the ones that came before it
 
   ```groovy
   kotlin {
-      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseG1GC"]
+      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"]
   }
   ```
 
   ```kotlin
   kotlin {
-      kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC")
+      kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC")
   }
   ```
 
@@ -882,7 +882,7 @@ Each of the options in the following list overrides the ones that came before it
   tasks
       .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
       .configureEach { 
-          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC"))
+          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
       }
   ```
 
