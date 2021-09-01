@@ -683,13 +683,13 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
 
     ```kotlin
     kotlin {
-        kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC")
+        kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC")
     }
     ```
 
     ```groovy
     kotlin {
-        kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseG1GC"]
+        kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"]
     }
     ```
 
@@ -703,7 +703,7 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
     tasks
         .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
         .configureEach {
-            (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseG1GC"))
+            (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
         }
     ```
   
