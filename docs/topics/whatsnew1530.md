@@ -273,7 +273,7 @@ fun main(args: Array<String>) {
 
 Use the `-language-version 1.6` compiler option to enable this feature. Note that all current annotation class limitations, such as restrictions to define non-`val` parameters or members different from secondary constructors, remain intact.
 
-Learn more about instantiation of annotation classes in [this KEEP](https://github.com/sandwwraith/KEEP/blob/annotation-instantiation/proposals/annotation-instantiation.md)
+Learn more about instantiation of annotation classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-instantiation.md)
 
 ### Improved nullability annotation support configuration
 

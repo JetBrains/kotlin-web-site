@@ -165,6 +165,7 @@ fun main() {
     }
     
     val i = getRandomInt()
+    println(i)
 //sampleEnd
 }
 ```
@@ -189,6 +190,7 @@ fun main() {
     }
     
     val i = getRandomInt()
+    println(i)
 //sampleEnd
 }
 ```

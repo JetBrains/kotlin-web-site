@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Map from "../events/map/Map";
+import Map, {MapStore} from "../events/map/Map";
 
 import "./education.scss";
 
@@ -26,9 +26,9 @@ ${university.courses.map(course => `<a target="_blank" href="${course.url}">${co
 async function renderUniversitiesMap(tag) {
     const universities = await $.getJSON('/data/universities.json');
 
-    Map.create(tag, {
+    Map.create(tag, new MapStore({
         events: convertToPoints(universities)
-    });
+    }));
 }
 
 $(function () {
