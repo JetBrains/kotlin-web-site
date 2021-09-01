@@ -168,8 +168,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: by default, the old JVM backend is used
-> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5, add
-> the following lines to the project’s configuration file to temporarily revert to pre-1.5 behavior:
+> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5, add the following lines to the project’s configuration file to temporarily revert to pre-1.5 behavior:
 >
 > In Gradle:
 >
@@ -177,13 +176,13 @@ perspective
 >
 > ```kotlin
 > tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
->  kotlinOptions.useOldBackend = true
+>   kotlinOptions.useOldBackend = true
 > }
 > ```
 >
 > ```groovy
 > tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
-> kotlinOptions.useOldBackend = true
+>   kotlinOptions.useOldBackend = true
 > }
 > ```
 >
@@ -191,13 +190,14 @@ perspective
 >
 > In Maven:
 >
->```xml
+> ```xml
 > <configuration>
 >     <args>
 >         <arg>-Xuse-old-backend</arg>
 >     </args>
 > </configuration>
 > ```
+>
 > Support for this flag will be removed in one of the future releases.
 
 ### Generate nullability assertion for delegated properties with a generic call in the delegate expression
