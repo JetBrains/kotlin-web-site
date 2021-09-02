@@ -68,7 +68,7 @@ Now you're ready to debug your project!
 4. Click the file reference on the right to navigate to the corresponding line of code.
 
 You can now start debugging the program using the whole set of tools that the IDE offers: breakpoints, stepping, expression
-evaluation, [coroutine debugger](debug-coroutines-with-idea.md) and more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-code.html).
+evaluation, and more. Learn more about [debugging in IntelliJ IDEA](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html).
 
 > Because of the limitations of the current JavaScript debugger in IntelliJ IDEA, you may need to rerun the JavaScript
 > debug to make the execution stop on breakpoints.
@@ -91,7 +91,7 @@ To debug a Kotlin/JS application targeting Node.js:
 Now that you know how to start debug sessions with your Kotlin/JS project, learn to make efficient use of the debugging tools:
 
 * Learn how to [debug JavaScript in Google Chrome](https://developer.chrome.com/docs/devtools/javascript/)
-* Get familiar with [IntelliJ IDEA debugger](https://www.jetbrains.com/help/idea/debugging-code.html)
+* Get familiar with [IntelliJ IDEA JavaScript debugger](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html)
 * Learn how to [debug in Node.js](https://nodejs.org/en/docs/guides/debugging-getting-started/).
 
 ## If you run into any problems
