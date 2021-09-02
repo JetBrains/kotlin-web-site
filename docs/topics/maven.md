@@ -262,7 +262,7 @@ Many of the options can also be configured through properties:
 
 The following attributes are supported:
 
-### Attributes common for JVM and JS
+### Attributes common to JVM and JS
 
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
@@ -274,14 +274,14 @@ The following attributes are supported:
 | `pluginOptions` | | Options for compiler plugins  | | []
 | `args` | | Additional compiler arguments | | []
 
-### Attributes specific for JVM
+### Attributes specific to JVM
 
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
 | `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
 | `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME | | |
 
-### Attributes specific for JS
+### Attributes specific to JS
 
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
