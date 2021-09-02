@@ -90,7 +90,7 @@ and [for Swift and Objective-C](native-objc-interop.md#errors-and-exceptions).
 val s = person.name ?: throw IllegalArgumentException("Name required")
 ```
 
-The `throw` expression is the special `Nothing` type.
+The `throw` expression has the type `Nothing`.
 This type has no values and is used to mark code locations that can never be reached.
 In your own code, you can use `Nothing` to mark a function that never returns:
 
