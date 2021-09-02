@@ -351,3 +351,79 @@ kotlin {
 ```
 
 </tabs>
+
+## Build XCFrameworks
+
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
+Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
+
+<tabs>
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    val xcf = XCFramework()
+  
+    ios {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+}
+```
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
+
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+}
+
+kotlin {
+    def xcf = XCFrameworkConfig(project)
+
+    ios {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+}
+```
+
+</tabs>
+
+When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle tasks:
+* `assembleXCFramework`
+* `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assembleReleaseXCFramework`
