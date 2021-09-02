@@ -77,7 +77,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > **Deprecation cycle**:
 >
 > - <1.3: the compiler could miss such assertions when type inference was involved, allowing potential `null` propagation during compilation against binaries (see Issue for details).
-> - \>=1.3: the compiler generates missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
+> - \>=1.3: the compiler generates missed assertions. This can cause code which was (erroneously) passing `null`s here fail faster.  
  `-XXLanguage:-StrictJavaNullabilityAssertions` can be used to temporarily return to the pre-1.3 behavior. Support for this flag will be removed in the next major release.
 
 ### Unsound smartcasts on enum members
