@@ -59,11 +59,41 @@ There are over 39000 users on many different timezones using the Kotlin Slack an
 * @channel, @here and other forms of notifications are disabled, even if you own a channel (unfortunately Slack doesn’t allow fine-grained permissions).
 * Use the #meta channel if you’re unsure about how to do something.  
 
+## Moderators
+
+### Role definition: 
+A moderator is a member of the Kotlin Slack community who volunteers to keep the kotlinlang Slack a safe and welcoming place for other members. Moderators are approved by kotlinlang Slack administrators. Their responsibilities and the guidelines they follow are described below.
+
+### Responsibilities: 
+* Monitor Slack channels to ensure compliance with the Code of Conduct.
+* Help community members follow the rules.
+* If a channel has additional rules, ensure these are visible and up-to-date.
+* Monitor the #reports and #meta channels.
+* Participate in the private #moderators channel.
+
+### Guidelines:
+* Moderators communicate in a friendly manner and do their best to help other community members.
+* Any changes suggested by a moderator should be discussed by all moderators and administrators before coming into effect.
+
+### Process:
+* Each moderator oversees at least 1 channel, or more if possible.
+* When moderators notice inappropriate behavior, they explain the rules and guidelines to the members and help figure out how to correct the unwanted behavior. If the unwanted behavior persists, moderators report the case to administrators for further actions. In the case of obvious and/or particularly blatant violations, offending members can be reported immediately.
+* To set up or update a channel’s rules, the moderator initiates a change proposal and discusses it with the appropriate community members.
+* Communication regarding moderation takes places in the private #moderators channel.
+* If community members notice that a moderator is ignoring their responsibilities (or engaging in any unwanted behavior), they can alert administrators.
+
+### Moderator status acquisition/revocation process:
+* Any member is welcome to apply to be a moderator once they have been in the Slack community for longer than 6 months.
+* Moderator status is provided based upon the decision of the administrators.
+* Moderator status can be revoked if (this list is not exhaustive and can be updated on a case-by-case basis):
+  * A moderator ignores their responsibilities, which leads to issues in a channel.
+  * A moderator violates these guidelines.   
+
 ## Common Channels
 
 This is a list of some of the most popular channels, as well as a sample of the types of channels available. 
 
-* #android. For Android generic topics
+* #android. Using Kotlin for Android development (consider to use StackOverflow or other communities for generic Android question not directly related to Kotlin, even if you use Kotlin for Android development).
 * #getting-started. For more beginner questions. Better ask here than in #general if you’re new to Kotlin
 * #communities. A place to discuss physical communities. Also search for cities/countries as there are often channels with these names (#australia), as well as languages (i.e. #spanish).
 * #coroutines. Questions about coroutines and async programming in Kotlin

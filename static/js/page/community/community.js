@@ -1,6 +1,6 @@
 import AOS from 'aos';
 import $ from 'jquery';
-import Map from "../events/map/Map";
+import Map, {MapStore} from "../events/map/Map";
 
 import './community.scss';
 
@@ -143,9 +143,9 @@ async function iniKotlinConfMap() {
 
     const kotlinConfPoints = await $.getJSON('/data/kotlinconf.json');
 
-    Map.create(tag, {
+    Map.create(tag, new MapStore({
       events: convertToPoints(kotlinConfPoints)
-    });
+    }));
   }
 }
 
@@ -154,9 +154,9 @@ async function iniUserGroupsMap() {
   if (mapTag) {
     const userGroupPoints = await $.getJSON('/data/user-groups.json');
 
-    Map.create(mapTag, {
+    Map.create(mapTag, new MapStore({
       events: convertUserGroupsToPoints(userGroupPoints)
-    });
+    }));
   }
 }
 
