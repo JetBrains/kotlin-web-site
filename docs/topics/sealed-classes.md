@@ -1,7 +1,7 @@
 [//]: # (title: Sealed classes)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
-All subclasses of a sealed class are known at compile time. No other subclasses may appear after
+All direct subclasses of a sealed class are known at compile time. No other subclasses may appear after
 a module with the sealed class is compiled. For example, third-party clients can't extend your sealed class in their code.
 Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
 
@@ -55,6 +55,16 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 > `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
 >
 {type="note"}
+
+These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
+it can be extended in any ways that its modifiers allow.
+
+```kotlin
+sealed interface Error // has implementations only in same package and module
+
+sealed class IOError(): Error // extended only in same package and module
+open class CustomError(): Error // can be extended wherever it's visible
+```
 
 ### Inheritance in multiplatform projects
 
