@@ -12,11 +12,11 @@ In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: 
 for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
 of a sealed class can have _multiple_ instances, each with its own state.
 
-As an example, consider a hierarchy of possible errors in a library. There can be classes for networking, database, and
-other errors, as well as code that uses them, such as handling and logging.
-If a root interface of the error hierarchy is exposed in the public API, client classes can inherit it, creating
-new error types. They are declared outside the library, so it cannot handle them in specific ways. With a sealed hierarchy,
-library authors can be sure that they know all possible error types and no other ones can appear.
+As an example, consider a library's API. It's likely to contain error classes to let the library users handle errors 
+the library can throw. If the hierarchy of such error classes includes interfaces or abstract classes, then nothing prevents
+implementing or extending them in the client code. However, the library doesn't know about errors declared outside it,
+so it cannot treat them consistently with classes known during its compilation. With a sealed hierarchy of error classes,
+library authors can be sure that they know all possible error types and no other ones can appear later.
 
 To declare a sealed class or interface, put the `sealed` modifier before its name:
 
