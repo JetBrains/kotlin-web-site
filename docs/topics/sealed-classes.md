@@ -57,7 +57,7 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 {type="note"}
 
 These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
-it can be extended in any ways that its modifiers allow.
+it can be extended in any ways that its modifiers allow:
 
 ```kotlin
 sealed interface Error // has implementations only in same package and module
@@ -89,7 +89,7 @@ fun log(e: Error) = when(e) {
     is FileReadError -> { println("Error while reading file ${e.file}") }
     is DatabaseError -> { println("Error while reading from database ${e.source}") }
     RuntimeError ->  { println("Runtime error") }
-    // the `else` clause is not required because we've covered all the cases
+    // the `else` clause is not required because all the cases are covered
 }
 ```
 
