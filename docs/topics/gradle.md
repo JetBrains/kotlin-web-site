@@ -9,20 +9,25 @@ Apply the Kotlin Gradle plugin by using the [Gradle plugins DSL](https://docs.gr
 
 The Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("<...>") version "%kotlinVersion%"
+  kotlin("<...>") version "%kotlinVersion%"
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 The placeholder `<...>` should be replaced with the name of one of the plugins that will be discussed in subsequent sections.
@@ -36,20 +41,25 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](mpp-dis
 >
 {type="note"}
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+  kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 ## Targeting the JVM
