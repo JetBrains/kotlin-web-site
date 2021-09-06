@@ -112,7 +112,7 @@ repositories {
 }
 
 kotlin {
-  linuxX64("native") {  // on Linux
+  linuxX64("native") { // on Linux
   // macosX64("native") { // on macOS
   // mingwX64("native") { // on Windows
     compilations.main.cinterops {

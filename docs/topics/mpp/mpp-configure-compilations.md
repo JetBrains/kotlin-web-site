@@ -241,7 +241,7 @@ compilation with [available parameters](mpp-dsl-reference.md#cinterops).
 
 ```kotlin
 kotlin {
-    linuxX64 {  // Replace with a target you need.
+    linuxX64 { // Replace with a target you need.
         compilations.getByName("main") {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.

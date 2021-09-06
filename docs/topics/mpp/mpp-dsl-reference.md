@@ -338,7 +338,7 @@ Learn more how to [configure interop with native languages](mpp-configure-compil
 
 ```kotlin
 kotlin {
-    linuxX64 {  // Replace with a target you need.
+    linuxX64 { // Replace with a target you need.
         compilations.getByName("main") {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.
