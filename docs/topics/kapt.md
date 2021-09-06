@@ -11,7 +11,16 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 Apply the `kotlin-kapt` Gradle plugin:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("kapt") version "%kotlinVersion%" }
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 plugins {
@@ -19,12 +28,7 @@ plugins {
 }
 ```
 
-```kotlin
-plugins {
-    kotlin("kapt") version "%kotlinVersion%"
-}
-```
-
+</tab>
 </tabs>
 
 Alternatively, you can use the `apply plugin` syntax:
@@ -35,13 +39,9 @@ apply plugin: 'kotlin-kapt'
 
 Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
-<tabs>
 
-```groovy
-dependencies {
-    kapt 'groupId:artifactId:version'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -49,6 +49,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    kapt 'groupId:artifactId:version'
+}
+```
+
+</tab>
 </tabs>
 
 If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
