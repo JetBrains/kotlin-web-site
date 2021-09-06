@@ -162,9 +162,13 @@ perspective
 > **Short summary**: Kotlin 1.5 uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
 > for the Kotlin/JVM compiler by default. The old backend is still used by default for earlier language versions.
 >
-> You might encounter some performance degradation issues using the new compiler in Kotlin 1.5. We are working on fixing
-> such cases.
->
+> You might encounter the following issues when working with the new backend:
+> 
+> * The IR backend sorts fields of the serialized data differently: it generates fields declared in the constructor
+> before fields declared in the body, while it's vice versa for the old backend. New sorting may affect tests that check
+> serialized data.
+> * Some performance degradation issues. We are working on fixing such cases.
+> 
 > **Deprecation cycle**:
 >
 > - < 1.5: by default, the old JVM backend is used
