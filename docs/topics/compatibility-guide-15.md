@@ -172,8 +172,7 @@ perspective
 >
 > In Gradle:
 >
-> <tabs group="build-script">
-> <tab title="Kotlin" group-key="kotlin">
+> <tabs>
 >
 > ```kotlin
 > tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
@@ -181,16 +180,12 @@ perspective
 > }
 > ```
 >
-> </tab>
-> <tab title="Groovy" group-key="groovy">
->
 > ```groovy
 > tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
 >   kotlinOptions.useOldBackend = true
 > }
 > ```
 >
-> </tab>
 > </tabs>
 >
 > In Maven:
