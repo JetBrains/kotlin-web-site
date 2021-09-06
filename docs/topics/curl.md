@@ -68,9 +68,6 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs group="os">
-<tab title="Linux" group-key="linux">
-
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
@@ -85,6 +82,8 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
+  // macosX64("native") { // on macOS
+  // mingwX64("native") { // on Windows
     val main by compilations.getting
     val interop by main.cinterops.creating
     
@@ -114,6 +113,8 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
+  // macosX64("native") { // on macOS
+  // mingwX64("native") { // on Windows
     compilations.main.cinterops {
       interop 
     }
@@ -130,135 +131,6 @@ wrapper {
 }
 ```
 
-</tab>
-</tabs>
-
-</tab>
-<tab title="macOS" group-key="macos">
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64("native") { // on macOS
-    val main by compilations.getting
-    val interop by main.cinterops.creating
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-tasks.wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = Wrapper.DistributionType.ALL
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64("native") { // on macOS
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
-
-</tab>
-</tabs>
-</tab>
-<tab title="Windows" group-key="windows">
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin { 
-  mingwX64("native") { // on Windows
-    val main by compilations.getting
-    val interop by main.cinterops.creating
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-tasks.wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = Wrapper.DistributionType.ALL
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  mingwX64("native") { // on Windows
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
-
-</tab>
-</tabs>
 </tab>
 </tabs>
 
