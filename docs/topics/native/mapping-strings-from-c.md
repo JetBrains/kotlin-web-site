@@ -144,7 +144,7 @@ kotlin {
   linuxX64('native') {  // on Linux
   // macosX64("native") { // on x86_64 macOS
   // macosArm64("native") { // on Apple Silicon macOS
-  // mingwX64('native') { //on Windows
+  // mingwX64('native') { // on Windows
     compilations.main.cinterops {
       interop 
     }
