@@ -615,9 +615,6 @@ Note that setting a toolchain via the `kotlin` extension will update the toolcha
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
 ```kotlin
 java {
     toolchain {
@@ -625,20 +622,6 @@ java {
     }
 }
 ```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
-    }
-}
-```
-
-</tab>
-</tabs>
 
 For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
 
@@ -656,8 +639,8 @@ project.tasks
     .withType<UsesKotlinJavaToolchain>()
     .configureEach {
         it.kotlinJavaToolchain.jdk.use(
-            "/path/to/your/jdk",
-            JavaVersion.<JDK_VERSION>
+            "/path/to/local/jdk",
+            JavaVersion.<LOCAL_JDK_VERSION>
         )
     }
 ```
@@ -671,8 +654,8 @@ project.tasks
     .withType(UsesKotlinJavaToolchain.class)
     .configureEach {
         it.kotlinJavaToolchain.jdk.use(
-            '/path/to/your/jdk',
-            JavaVersion.<JDK_VERSION>
+            '/path/to/local/jdk',
+            JavaVersion.<LOCAL_JDK_VERSION>
         )
     }
 ```

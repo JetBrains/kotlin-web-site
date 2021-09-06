@@ -792,9 +792,6 @@ Note that setting a toolchain via the `kotlin` extension will update the toolcha
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
 ```kotlin
 java {
     toolchain {
@@ -802,21 +799,6 @@ java {
     }
 }
 ```
-
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-java {
-    toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-    }
-}
-```
-
-</tab>
-</tabs>
 
 To set any JDK (even local) for the specific task, use the Task DSL.
 
@@ -861,9 +843,6 @@ project.tasks
 
 Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
 ```kotlin
 project.tasks
     .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
@@ -874,22 +853,6 @@ project.tasks
         )
     }
 ```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-    .configureEach {
-        it.kotlinJavaToolchain.jdk.use(
-            '/path/to/your/jdk', // Put a path to your JDK
-            JavaVersion.<JDK_VERSION> // For example, JavaVersion.17
-        )
-    }
-```
-</tab>
-</tabs>
 
 ## Generating documentation
 
