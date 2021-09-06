@@ -37,14 +37,8 @@ for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
 
 Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle(.kts)` file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.plugin.lombok' version '%kotlinVersion%'
-    id 'io.freefair.lombok' version '5.3.0'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -53,6 +47,17 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.lombok' version '%kotlinVersion%'
+    id 'io.freefair.lombok' version '5.3.0'
+}
+```
+
+</tab>
 </tabs>
 
 See this [test project with examples of the Lombok compiler plugin in use](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/nokapt).
@@ -63,13 +68,8 @@ If you use a [Lombok configuration file](https://projectlombok.org/features/conf
 provide a path to it to the plugin. The path should be relative to the module's directory. 
 Add the following code to your `build.gradle(.kts)` file:
 
-<tabs>
-
-```groovy
-kotlinLombok {
-    lombokConfigurationFile file("lombok.config")
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlinLombok {
@@ -77,6 +77,17 @@ kotlinLombok {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+
+```groovy
+kotlinLombok {
+    lombokConfigurationFile file("lombok.config")
+}
+```
+
+</tab>
 </tabs>
 
 See this [test project with examples of the Lombok compiler plugin and `lombok.config` in use](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_gradle/withconfig).

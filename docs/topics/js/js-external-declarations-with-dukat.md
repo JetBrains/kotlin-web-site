@@ -19,13 +19,8 @@ if and when Dukat should generate declarations: at build time, and manually via 
 The `npm` dependency function takes a third parameter after the package name and version: `generateExternals`.
 This allows you to control whether Dukat should generate declarations for a specific dependency:
 
-<tabs>
-
-```groovy
-dependencies {
-    implementation(npm('decamelize', '4.0.0', true))
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -33,6 +28,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation(npm('decamelize', '4.0.0', true))
+}
+```
+
+</tab>
 </tabs>
 
 If the repository of the dependency you wish to use does not provide TypeScript definitions, you can also use types

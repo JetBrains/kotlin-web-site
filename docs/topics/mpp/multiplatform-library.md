@@ -283,17 +283,8 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
 
 1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
 
-<tabs>
-
-```groovy
-plugins {
-   id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-   id 'maven-publish'
-}
-
-group = 'org.jetbrains.base64'
-version = '1.0.0'
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -305,6 +296,20 @@ group = "org.jetbrains.base64"
 version = "1.0.0"
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+   id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+   id 'maven-publish'
+}
+
+group = 'org.jetbrains.base64'
+version = '1.0.0'
+```
+
+</tab>
 </tabs>
 
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
@@ -326,24 +331,8 @@ Now you can add your library to other multiplatform projects as a dependency.
 
 Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle(.kts)` file.
 
-<tabs>
-
-```groovy
-repositories {
-   mavenCentral()
-   mavenLocal()
-}
-
-kotlin {
-   sourceSets {
-      commonMain {
-         dependencies {
-            implementation 'org.jetbrains.base64:Base64:1.0.0'
-         }
-      }
-   }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 repositories {
@@ -362,6 +351,27 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+repositories {
+   mavenCentral()
+   mavenLocal()
+}
+
+kotlin {
+   sourceSets {
+      commonMain {
+         dependencies {
+            implementation 'org.jetbrains.base64:Base64:1.0.0'
+         }
+      }
+   }
+}
+```
+
+</tab>
 </tabs>
 
 ## Summary

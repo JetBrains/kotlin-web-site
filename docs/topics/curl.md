@@ -68,7 +68,39 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64("native") { // on Linux
+  // macosX64("native") { // on macOS
+  // mingwX64("native") { // on Windows
+    val main by compilations.getting
+    val interop by main.cinterops.creating
+    
+    binaries {
+      executable()
+    }
+  }
+}
+
+tasks.wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = Wrapper.DistributionType.ALL
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 plugins {
@@ -99,34 +131,7 @@ wrapper {
 }
 ```
 
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
-  // mingwX64("native") { // on Windows
-    val main by compilations.getting
-    val interop by main.cinterops.creating
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-tasks.wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = Wrapper.DistributionType.ALL
-}
-```
-
+</tab>
 </tabs>
 
 The project file configures the C interop as an additional step of the build.
