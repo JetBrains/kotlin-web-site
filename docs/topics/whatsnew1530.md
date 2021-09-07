@@ -888,3 +888,15 @@ A similar function was also added to `CharSequence`:
     val mixedColor = colorsText.splitToSequence(regex)
 ```
 {kotlin-runnable="false"}
+
+## Serialization 1.3.0-RC
+
+`kotlinx.serialization` [1.3.0-RC](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0-RC) is here with 
+new JSON serialization capabilities:
+* Java IO streams serialization
+* Property-level control over default values
+* An option to exclude null values from serialization
+* Custom class discriminators in polymorphic serialization
+
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0-RC).
+<!-- and the [kotlinx.serialization 1.3.0 release blog post](TODO). -->
