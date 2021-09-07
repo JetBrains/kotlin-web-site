@@ -8,6 +8,10 @@ Android Studio will recommend an automatic update to a new Kotlin release. You c
 
 Here you can find a short summary of the features Kotlin provides for developing multiplatform mobile applications.
 
+## Kotlin 1.5.30 for KMM
+
+
+
 ## Kotlin 1.5.20 for KMM
 
 [Kotlin 1.5.20](https://kotlinlang.org/docs/whatsnew1520.html) introduces a number of improvements and features that are helpful for KMM:
