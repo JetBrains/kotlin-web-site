@@ -13,9 +13,9 @@ for an enum type is also restricted, but each enum constant exists only as a _si
 of a sealed class can have _multiple_ instances, each with its own state.
 
 As an example, consider a library's API. It's likely to contain error classes to let the library users handle errors 
-the library can throw. If the hierarchy of such error classes includes interfaces or abstract classes, then nothing prevents
-implementing or extending them in the client code. However, the library doesn't know about errors declared outside it,
-so it cannot treat them consistently with classes known during its compilation. With a sealed hierarchy of error classes,
+that it can throw. If the hierarchy of such error classes includes interfaces or abstract classes visible in the public API,
+then nothing prevents implementing or extending them in the client code. However, the library doesn't know about errors
+declared outside it, so it can't treat them consistently with its own classes. With a sealed hierarchy of error classes,
 library authors can be sure that they know all possible error types and no other ones can appear later.
 
 To declare a sealed class or interface, put the `sealed` modifier before its name:
