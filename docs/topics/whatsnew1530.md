@@ -898,5 +898,5 @@ new JSON serialization capabilities:
 * An option to exclude null values from serialization
 * Custom class discriminators in polymorphic serialization
 
-Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0-RC)
-<!-- and the [kotlinx.serialization 1.3.0 release blog post](TODO) -->.
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0-RC).
+<!-- and the [kotlinx.serialization 1.3.0 release blog post](TODO). -->
