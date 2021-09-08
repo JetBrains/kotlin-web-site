@@ -44,4 +44,4 @@ fun KSFile.suppressedNames(): List<String> {
     }
     return ignoredNames
 }
-```
+```

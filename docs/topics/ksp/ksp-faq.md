@@ -16,4 +16,4 @@ Additionally, KSP’s incremental processing model has a finer granularity than 
 
 ## Is KSP Kotlin-specific?
 
-KSP can process Java sources as well. The API is unified, meaning that when you parse a Java class and a Kotlin class you get a unified data structure in KSP.
+KSP can process Java sources as well. The API is unified, meaning that when you parse a Java class and a Kotlin class you get a unified data structure in KSP.

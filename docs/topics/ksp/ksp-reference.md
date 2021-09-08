@@ -218,6 +218,7 @@ How functionalities of Java annotation processing API can be carried out by KSP.
 | printElements | // KSP implemented basic toString() on most classes. |
 
 ## Types
+{id="another-types"}
 
 | **Java** | **KSP equivalent** |
 | -------- | ------------------ |
@@ -236,6 +237,6 @@ How functionalities of Java annotation processing API can be carried out by KSP.
 | getWildcardType | // Use Variance in places expecting KSTypeArgument |
 | isAssignable | ksType.isAssignableFrom |
 | isSameType | ksType.equals |
-| isSubsignature | functionTypeA == functionTypeB || functionTypeA == functionTypeB.starProjection() |
+| isSubsignature | functionTypeA == functionTypeB // functionTypeA == functionTypeB.starProjection() |
 | isSubtype | ksType.isAssignableFrom |
-| unboxedType | // Not needed. |
+| unboxedType | // Not needed. |

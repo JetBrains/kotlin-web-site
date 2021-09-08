@@ -3,7 +3,7 @@
 The API definition can be found [here](../api/src/main/kotlin/com/google/devtools/ksp/).
 The diagram below is an overview of how Kotlin is [modeled](../api/src/main/kotlin/com/google/devtools/ksp/symbol/) in KSP:
 
-![class diagram](KSPClassDiagram.svg)
+![class diagram](ksp-class-diagram.svg)
 
 ## Type and resolution
 

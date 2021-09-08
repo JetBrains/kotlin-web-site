@@ -60,7 +60,7 @@ one of the reasons why the interfaces are not shared.
 
 ## Comparison to KAPT
 
-[KAPT](https://kotlinlang.org/docs/reference/kapt.html) is a remarkable
+[KAPT](kapt.md) is a remarkable
 solution which makes a large amount of Java annotation processors work
 for Kotlin programs out-of-box. The major advantages of KSP over KAPT are
 improved build performance, not tied to JVM, a more idiomatic Kotlin

@@ -7,7 +7,7 @@ For general information, see Wikipedia's article on [incremental computing](http
 To determine which sources are _dirty_ (i.e., those that need to be reprocessed), KSP needs
 processors' help to identify which input sources correspond to which generated outputs.
 To help with this often cumbersome and error-prone process, KSP is designed to require only a minimal
-set of *root sources* that processors use as starting points to navigate the code structure. In other
+set of _root sources_ that processors use as starting points to navigate the code structure. In other
 words, a processor needs to associate an output with the sources of the corresponding `KSNode` if the
 `KSNode` is obtained from any of the following:
 * `Resolver.getAllFiles`
@@ -23,12 +23,11 @@ Incremental processing is currently enabled by default. To disable it, set the G
 `ksp.incremental=false`. To enable logs that dump the dirty set according to dependencies and
 outputs, use `ksp.incremental.log=true`. These log files can be found in the `build` output folder with a `.log` file extension.
 
-## Aggregating v.s. Isolating
+## Aggregating vs Isolating
 
 Similar to the concepts in [Gradle annotation processing](https://docs.gradle.org/current/userguide/java_plugin.html#sec:incremental_annotation_processing),
-KSP supports both *aggregating* and *isolating* modes. Note that unlike Gradle annotation processing,
+KSP supports both _aggregating_ and _isolating_ modes. Note that unlike Gradle annotation processing,
 KSP categorizes each output as either aggregating or isolating, rather than the entire processor.
-
 
 An aggregating output can potentially be affected by any input changes, with the exception of removing files that don't affect
 other files. This means that any input change results in a rebuild of all aggregating outputs,
@@ -36,8 +35,7 @@ which in turn means that all of the corresponding registered, new, and modified 
 
 As an example, an output that collects all symbols with a particular annotation is considered an `aggregating` output.
 
-
-An *isolating* output depends only on its specified sources. Changes to other sources do not affect an isolating output.
+An _isolating_ output depends only on its specified sources. Changes to other sources do not affect an isolating output.
 Note that unlike Gradle annotation processing, you can define multiple source files for a given output.
 
 As an example, a generated class that is dedicated to an interface it implements is considered *isolating*.
@@ -45,11 +43,12 @@ As an example, a generated class that is dedicated to an interface it implements
 To summarize, if an output might depend on new or any changed sources, it is considered *aggregating*. Otherwise, the output is *isolating*.
 
 Here's a summary for readers familiar with Java annotation processing:
-* In an *isolating* Java annotation processor, all the outputs are *isolating* in KSP.
-* In an *aggregating* Java annotation processor, some outputs can be *isolating* and some be
-*aggregating* in KSP.
+* In an _isolating_ Java annotation processor, all the outputs are _isolating_ in KSP.
+* In an _aggregating_ Java annotation processor, some outputs can be _isolating_ and some be
+_aggregating_ in KSP.
 
 ## Example 1
+
 A processor generates `outputForA` after reading class `A` in `A.kt` and class `B` in `B.kt`,
 where `A` extends `B`. The processor got `A` by `Resolver.getSymbolsWithAnnotation` and then got
 `B` by `KSClassDeclaration.superTypes` from `A`. Because the inclusion of `B` is due to `A`,
@@ -83,6 +82,7 @@ class Example1Processor : SymbolProcessor {
 ```
 
 ## Example 2
+
 Consider sourceA -> outputA, sourceB -> outputB.
 
 When sourceA is changed:
@@ -104,19 +104,21 @@ When sourceB is removed:
 * Nothing needs to be reprocessed.
 
 ## How file dirtiness is determined
-A dirty file is either directly *changed* by users or indirectly *affected* by other dirty files. KSP propagates dirtiness in two steps:
-* Propagation by *resolution tracing*:
+
+A dirty file is either directly _changed_ by users or indirectly _affected_ by other dirty files. KSP propagates dirtiness in two steps:
+* Propagation by _resolution tracing_:
   Resolving a type reference (implicitly or explicitly) is the only way to navigate from one file
-  to another. When a type reference is resolved by a processor, a *changed* or *affected* file that
-  contains a change that may potentially affect the resolution result will *affect* the file
+  to another. When a type reference is resolved by a processor, a _changed_ or _affected_ file that
+  contains a change that may potentially affect the resolution result will _affect_ the file
   containing that reference.
-* Propagation by *input-output correspondence*:
-  If a source file is *changed* or *affected*, all other source files having some output in common
-  with that file are *affected*.
+* Propagation by _input-output correspondence_:
+  If a source file is _changed_ or _affected_, all other source files having some output in common
+  with that file are _affected_.
 
 Note that both of them are transitive and the second forms equivalence classes.
 
-## Reporting Bugs
+## Reporting bugs
+
 To report a bug, please set Gradle properties `ksp.incremental=true` and `ksp.incremental.log=true`,
 and perform a clean build. This build produces two log files:
 

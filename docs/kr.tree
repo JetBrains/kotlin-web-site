@@ -259,7 +259,7 @@
             <toc-element id="lombok.md" toc-title="Lombok"/>
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
-            <toc-element id="ksp.md" toc-title="KSP overview"/>
+            <toc-element id="ksp-overview.md" toc-title="KSP overview"/>
             <toc-element id="ksp-quickstart.md" toc-title="Quickstart"/>
             <toc-element id="ksp-why-ksp.md" toc-title="Why KSP"/>
             <toc-element id="ksp-examples.md" toc-title="Examples"/>

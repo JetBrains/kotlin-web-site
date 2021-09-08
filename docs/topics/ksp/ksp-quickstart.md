@@ -1,11 +1,11 @@
 [//]: # (title: KSP quickstart)
 
-[Here's](https://github.com/google/ksp/releases/download/1.5.30-1.0.0-beta09/playground.zip) a sample processor that you can check out.
+Get a [sample processor](https://github.com/google/ksp/releases/download/1.5.30-1.0.0-beta09/playground.zip) to check out.
 
 ## Create a processor of your own
 
-* Create an empty gradle project.
-* Specify version `1.5.30` of the Kotlin plugin in the root project for use in other project modules.
+1. Create an empty gradle project.
+2. Specify version `1.5.30` of the Kotlin plugin in the root project for use in other project modules:
 
   ```kotlin
   plugins {
@@ -19,8 +19,9 @@
   }
   ```
 
-* Add a module for hosting the processor.
-* In the module's `build.gradle.kts` file, do the following:
+3. Add a module for hosting the processor.
+
+4. In the module's `build.gradle.kts` file, do the following:
     * Apply Kotlin plugin
     * Add the KSP API to the `dependencies` block.
 
@@ -38,7 +39,7 @@
   }
   ```
 
-* You'll need to implement [`com.google.devtools.ksp.processing.SymbolProcessor`](../api/src/main/kotlin/com/google/devtools/ksp/processing/SymbolProcessor.kt) and
+5. You'll need to implement [`com.google.devtools.ksp.processing.SymbolProcessor`](../api/src/main/kotlin/com/google/devtools/ksp/processing/SymbolProcessor.kt) and
  [`com.google.devtools.ksp.processing.SymbolProcessorProvider`](../api/src/main/kotlin/com/google/devtools/ksp/processing/SymbolProcessorProvider.kt).
  Your implementation of `SymbolProcessorProvider` will be loaded as a service to instantiate the `SymbolProcessor` you implement.
   Note the following:
@@ -59,10 +60,9 @@
 
 ## Use your own processor in a project
 
-<details open>
-<summary>Setup using Kotlin DSL</summary>
-  
-* Create another module that contains a workload where you want to try out your processor.
+### Setup using Kotlin DSL
+
+1. Create another module that contains a workload where you want to try out your processor.
   
   ```kotlin
   pluginManagement {
@@ -72,37 +72,37 @@
   }
   ```
 
-* In the new module's `build.gradle.kts`, do the following:
-  * Apply the `com.google.devtools.ksp` plugin with the specified version.
-  * Add `ksp(<your processor>)` to the list of dependencies.
-* Run `./gradlew build`. You can find the generated code under
+2. In the new module's `build.gradle.kts`, do the following:
+    * Apply the `com.google.devtools.ksp` plugin with the specified version.
+    * Add `ksp(<your processor>)` to the list of dependencies.
+3. Run `./gradlew build`. You can find the generated code under
   `build/generated/source/ksp`.
-* Here's a `sample build.gradle.kts` to apply the KSP plugin to a workload. 
 
-  ```kotlin
-  plugins {
-      id("com.google.devtools.ksp") version "1.5.30-1.0.0-beta09"
-      kotlin("jvm") 
-  }
+Here's a sample `build.gradle.kts` to apply the KSP plugin to a workload: 
 
-  version = "1.0-SNAPSHOT"
+```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "1.5.30-1.0.0-beta09"
+    kotlin("jvm") 
+}
 
-  repositories {
-      mavenCentral()
-  }
+version = "1.0-SNAPSHOT"
 
-  dependencies {
-      implementation(kotlin("stdlib-jdk8"))
-      implementation(project(":test-processor"))
-      ksp(project(":test-processor"))
-  }
-  ```
+repositories {
+    mavenCentral()
+}
 
-</details>
-<details>
-<summary>Setup using Groovy</summary>
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+    implementation(project(":test-processor"))
+    ksp(project(":test-processor"))
+}
+```
 
-    
+### Setup using Groovy
+
+1. Create another module that contains a workload where you want to try out your processor.
+
   ```groovy
   pluginManagement {
     repositories {
@@ -110,7 +110,8 @@
     }
   }
   ```
-* In your projects `build.gradle` file add a plugins block containing the ksp plugin:
+
+2. In your projects `build.gradle` file add a plugins block containing the ksp plugin:
 
   ```groovy
   plugins {
@@ -118,28 +119,29 @@
   }
   ```
   
-* In the modules `build.gradle`, add the following:
-  * Apply the `com.google.devtools.ksp` plugin:
-  
-  ```groovy
-  apply plugin: 'com.google.devtools.ksp'
-  ```
-  
-  * Add `ksp <your processor>` to the list of dependencies.
-  
-  ```groovy
-  dependencies {
-      implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-      implementation project(":test-processor")
-      ksp project(":test-processor")
-  }
-  ```
+3. In the modules `build.gradle`, add the following:
 
-</details>
+    * Apply the `com.google.devtools.ksp` plugin:
+
+    ```groovy
+    apply plugin: 'com.google.devtools.ksp'
+    ```
+
+    * Add `ksp <your processor>` to the list of dependencies.
+
+    ```groovy
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+        implementation project(":test-processor")
+        ksp project(":test-processor")
+    }
+    ```
 
 ## Pass Options to Processors
+
 Processor options in `SymbolProcessorEnvironment.options` are specified in gradle build scripts:
-```
+
+```properties
   ksp {
     arg("option1", "value1")
     arg("option2", "value2")
@@ -148,25 +150,25 @@ Processor options in `SymbolProcessorEnvironment.options` are specified in gradl
 ```
 
 ## Make IDE Aware Of Generated Code
+
 By default, IntelliJ or other IDEs don't know about the generated code and therefore
 references to those generated symbols will be marked unresolvable.
 To make, for example, IntelliJ be able to reason about the generated symbols,
 the following paths need to be marked as generated source root:
 
-```
+```text
 build/generated/ksp/main/kotlin/
 build/generated/ksp/main/java/
 ```
 
 and perhaps also resource directory if your IDE supports them:
 
-```
+```text
 build/generated/ksp/main/resources/
 ```
 
-It may also be necessary to configure these directories in your KSP consumer module:
+It may also be necessary to configure these directories in your KSP consumer module `build.gradle.kts`:
 
-###### build.gradle.kts
 ```kotlin
 kotlin {
     sourceSets.main {
