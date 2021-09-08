@@ -7,7 +7,7 @@ This library converts raw data – strings and byte arrays – to the [Base64](h
 You will use different ways to implement the conversion to the Base64 format on different platforms:
 
 * For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
-* For JS – the [`WindowOrWorkerGlobalScope.btoa()` API](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/btoa).
+* For JS – the [`btoa()` function](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/btoa).
 * For Kotlin/Native – your own implementation.
 
 You will also test your code using common tests, and then publish the library to your local Maven repository.
@@ -100,7 +100,7 @@ The JS implementation will be very similar to the JVM one.
 
 1. In the `jsMain/kotlin` directory, create the `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
-3. Provide a simple implementation of the `Base64Factory` object that delegates to the `WindowOrWorkerGlobalScope.btoa()` API:
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the `btoa()` function.
 
     ```kotlin
     package org.jetbrains.base64
