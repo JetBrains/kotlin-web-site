@@ -104,7 +104,9 @@ The JS implementation will be very similar to the JVM one.
 
     ```kotlin
     package org.jetbrains.base64
-   
+    
+    import kotlinx.browser.window
+    
     actual object Base64Factory {
         actual fun createEncoder(): Base64Encoder = JsBase64Encoder
     }
@@ -112,7 +114,7 @@ The JS implementation will be very similar to the JVM one.
     object JsBase64Encoder : Base64Encoder {
         override fun encode(src: ByteArray): ByteArray {
             val string = src.decodeToString()
-            val encodedString = js("btoa(string)") as String
+            val encodedString = window.btoa(string)
             return encodedString.encodeToByteArray()
         }
     }
