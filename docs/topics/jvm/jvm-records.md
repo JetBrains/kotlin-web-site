@@ -1,4 +1,4 @@
-[//]: # (title: Records)
+[//]: # (title: Using Java records in Kotlin)
 
 _Records_ are [classes](https://openjdk.java.net/jeps/395) in Java for storing immutable data. Records carry a fixed set of values – the _records components_.
 They have a concise syntax in Java and save you from having to write boilerplate code:
