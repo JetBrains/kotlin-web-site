@@ -23,7 +23,7 @@
   flex-wrap: wrap;
 
   margin-bottom: var(--xxl-space);
-  margin-top: calc(-1*var(--m-space));
+  margin-top: calc(-1 * var(--m-space));
 }
 
 .kotlin-intro-actions__buttons,
@@ -68,6 +68,12 @@
   margin-right: 16px;
   font-size: .01px;
   line-height: .01px;
+  @media (min-width: $breakpoint-m) {
+    img {
+      width: 56px;
+      height: 56px;
+    }
+  }
 }
 
 .kotlin-intro-featured {

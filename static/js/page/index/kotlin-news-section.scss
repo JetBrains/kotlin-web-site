@@ -37,8 +37,10 @@
 }
 
 .kotlin-news-section__title {
-  @include kto-link;
-  @include kto-link_theme_dark;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid #fff;
+  }
 }
 
 .kotlin-news-section__item .kto-text_size_m {

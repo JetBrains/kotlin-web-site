@@ -43,6 +43,11 @@
   }
 }
 
+@mixin kto-link-standalone {
+  text-decoration: underline;
+
+}
+
 .kto-link_theme_dark {
   @include kto-link_theme_dark;
 }
