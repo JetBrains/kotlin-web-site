@@ -325,7 +325,7 @@ The return type inference for anonymous functions works just like for normal fun
 for anonymous functions with an expression body, but it has to be specified explicitly (or is assumed to be `Unit`) for anonymous
 functions with a block body.
 
-> Anonymous function parameters are always passed inside the parentheses. The shorthand syntax that allows you to leave
+> When passing anonymous functions as parameters, place them inside the parentheses. The shorthand syntax that allows you to leave
 > the function outside the parentheses works only for lambda expressions.
 >
 {type="note"}

@@ -96,36 +96,8 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64('native') {  // on Linux
-  // macosX64('native') { // on macOS
-  // mingwX64('native') { //on Windows
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = '%gradleVersion%'
-  distributionType = 'BIN'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -138,7 +110,8 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     val main by compilations.getting
     val interop by main.cinterops.creating
@@ -155,6 +128,40 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64('native') { // on Linux
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
+  // mingwX64('native') { // on Windows
+    compilations.main.cinterops {
+      interop 
+    }
+    
+    binaries {
+      executable()
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = '%gradleVersion%'
+  distributionType = 'BIN'
+}
+```
+
+</tab>
 </tabs>
 
 The project file configures the C interop as an additional step of the build.

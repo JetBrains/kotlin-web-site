@@ -1,4 +1,4 @@
-[//]: # (title: Records)
+[//]: # (title: Using Java records in Kotlin)
 
 _Records_ are [classes](https://openjdk.java.net/jeps/395) in Java for storing immutable data. Records carry a fixed set of values – the _records components_.
 They have a concise syntax in Java and save you from having to write boilerplate code:
@@ -62,7 +62,7 @@ To declare a data class with the `@JvmRecord` annotation, it must meet the follo
 
 JVM records require the `16` target version or higher of the generated JVM bytecode.
 
-To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle.md#attributes-specific-for-jvm) or [Maven](maven.md#attributes-specific-for-jvm).
+To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle.md#attributes-specific-to-jvm) or [Maven](maven.md#attributes-specific-to-jvm).
 
 ## Further discussion
 

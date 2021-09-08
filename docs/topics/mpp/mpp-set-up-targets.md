@@ -30,20 +30,8 @@ during dependency resolution.
 For example, consider a testing library that supports both JUnit and TestNG in the two targets. The library author needs 
 to add an attribute to both targets as follows:
 
-<tabs>
-
-```groovy
-def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
-
-kotlin {
-    jvm('junit') {
-        attributes.attribute(testFrameworkAttribute, 'junit')
-    }
-    jvm('testng') {
-        attributes.attribute(testFrameworkAttribute, 'testng')
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 val testFrameworkAttribute = Attribute.of("com.example.testFramework", String::class.java)
@@ -58,6 +46,23 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
+
+kotlin {
+    jvm('junit') {
+        attributes.attribute(testFrameworkAttribute, 'junit')
+    }
+    jvm('testng') {
+        attributes.attribute(testFrameworkAttribute, 'testng')
+    }
+}
+```
+
+</tab>
 </tabs>
 
 The consumer has to add the attribute to a single target where the ambiguity arises.

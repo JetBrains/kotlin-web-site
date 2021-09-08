@@ -54,15 +54,8 @@ binaries {
 
 You can specify for which build types to create binaries. In the following example, only the `debug` executable is created.
 
-<tabs>
-
-```groovy
-binaries {
-    executable([DEBUG]) {
-        // Binary configuration.
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 binaries {
@@ -72,24 +65,24 @@ binaries {
 }
 ```
 
-</tabs>
-
-You can also declare binaries with custom names.
-
-<tabs>
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 binaries {
-    executable('foo', [DEBUG]) {
-        // Binary configuration.
-    }
-
-    // It's possible to drop the list of build types (in which case, all the available build types will be used).
-    executable('bar') {
+    executable([DEBUG]) {
         // Binary configuration.
     }
 }
 ```
+
+</tab>
+</tabs>
+
+You can also declare binaries with custom names.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 binaries {
@@ -104,6 +97,23 @@ binaries {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    executable('foo', [DEBUG]) {
+        // Binary configuration.
+    }
+
+    // It's possible to drop the list of build types (in which case, all the available build types will be used).
+    executable('bar') {
+        // Binary configuration.
+    }
+}
+```
+
+</tab>
 </tabs>
 
 The first argument sets a name prefix, which is the default name for the binary file. For example, for Windows the code 
@@ -121,7 +131,20 @@ binary kind following the pattern: `<optional-name-prefix><build-type><binary-ki
 >
 {type="note"}
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// Fails if there is no such binary.
+binaries["fooDebugExecutable"]
+binaries.getByName("fooDebugExecutable")
+
+// Returns null if there is no such binary.
+binaries.findByName("fooDebugExecutable")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 // Fails if there is no such binary.
@@ -133,36 +156,13 @@ binaries.getByName('fooDebugExecutable')
 binaries.findByName('fooDebugExecutable')
 ```
 
-```kotlin
-// Fails if there is no such binary.
-binaries["fooDebugExecutable"]
-binaries.getByName("fooDebugExecutable")
-
-// Returns null if there is no such binary.
-binaries.findByName("fooDebugExecutable")
-```
-
+</tab>
 </tabs>
 
 Alternatively, you can access a binary by its name prefix and build type using typed getters.
 
-<tabs>
-
-```groovy
-// Fails if there is no such binary.
-binaries.getExecutable('foo', DEBUG)
-binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
-binaries.getExecutable('bar', 'DEBUG') // You also can use a string for build type.
-
-// Similar getters are available for other binary kinds:
-// getFramework, getStaticLib and getSharedLib.
-
-// Returns null if there is no such binary.
-binaries.findExecutable('foo', DEBUG)
-
-// Similar getters are available for other binary kinds:
-// findFramework, findStaticLib and findSharedLib.
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 // Fails if there is no such binary.
@@ -180,6 +180,26 @@ binaries.findExecutable("foo", DEBUG)
 // findFramework, findStaticLib and findSharedLib.
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Fails if there is no such binary.
+binaries.getExecutable('foo', DEBUG)
+binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
+binaries.getExecutable('bar', 'DEBUG') // You also can use a string for build type.
+
+// Similar getters are available for other binary kinds:
+// getFramework, getStaticLib and getSharedLib.
+
+// Returns null if there is no such binary.
+binaries.findExecutable('foo', DEBUG)
+
+// Similar getters are available for other binary kinds:
+// findFramework, findStaticLib and findSharedLib.
+```
+
+</tab>
 </tabs>
 
 ## Export dependencies to binaries
@@ -188,31 +208,8 @@ When building an Objective-C framework or a native library (shared or static), y
 of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using 
 the `export` method.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        macosMain.dependencies {
-            // Will be exported.
-            api project(':dependency')
-            api 'org.example:exported-library:1.0'
-            // Will not be exported.
-            api 'org.example:not-exported-library:1.0'
-        }
-    }
-    macosX64("macos").binaries {
-        framework {
-            export project(':dependency')
-            export 'org.example:exported-library:1.0'
-        }
-        sharedLib {
-            // It's possible to export different sets of dependencies to different binaries.
-            export project(':dependency')
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -238,6 +235,34 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        macosMain.dependencies {
+            // Will be exported.
+            api project(':dependency')
+            api 'org.example:exported-library:1.0'
+            // Will not be exported.
+            api 'org.example:not-exported-library:1.0'
+        }
+    }
+    macosX64("macos").binaries {
+        framework {
+            export project(':dependency')
+            export 'org.example:exported-library:1.0'
+        }
+        sharedLib {
+            // It's possible to export different sets of dependencies to different binaries.
+            export project(':dependency')
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 > You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.  
@@ -253,17 +278,8 @@ only methods of `foo` are added to the output framework.
 You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
 are exported as well. 
 
-<tabs>
-
-```groovy
-binaries {
-   framework {
-       export project(':dependency')
-       // Export transitively.
-       transitiveExport = true
-   }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 binaries {
@@ -275,6 +291,20 @@ binaries {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+   framework {
+       export project(':dependency')
+       // Export transitively.
+       transitiveExport = true
+   }
+}
+```
+
+</tab>
 </tabs>
 
 For example, assume that you write several modules in Kotlin and then want to access them from Swift. Since usage of 
@@ -292,7 +322,38 @@ framework on both 32-bit and 64-bit devices.
 >
 {type="note"}
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+
+kotlin {
+    // Create and configure the targets.
+    val ios32 = iosArm32("ios32")
+    val ios64 = iosArm64("ios64")
+    configure(listOf(ios32, ios64)) {
+        binaries.framework {
+            baseName = "my_framework"
+        }
+    }
+    // Create a task to build a fat framework.
+    tasks.register<FatFrameworkTask>("debugFatFramework") {
+        // The fat framework must have the same base name as the initial frameworks.
+        baseName = "my_framework"
+        // The default destination directory is "<build directory>/fat-framework".
+        destinationDir = buildDir.resolve("fat-framework/debug")
+        // Specify the frameworks to be merged.
+        from(
+                ios32.binaries.getFramework("DEBUG"),
+                ios64.binaries.getFramework("DEBUG")
+        )
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
@@ -323,31 +384,86 @@ kotlin {
 }
 ```
 
+</tab>
+</tabs>
+
+## Build XCFrameworks
+
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
+Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
+plugins {
+    kotlin("multiplatform")
+}
 
 kotlin {
-    // Create and configure the targets.
-    val ios32 = iosArm32("ios32")
-    val ios64 = iosArm64("ios64")
-    configure(listOf(ios32, ios64)) {
+    val xcf = XCFramework()
+  
+    ios {
         binaries.framework {
-            baseName = "my_framework"
+            baseName = "shared"
+            xcf.add(this)
         }
     }
-    // Create a task to build a fat framework.
-    tasks.register<FatFrameworkTask>("debugFatFramework") {
-        // The fat framework must have the same base name as the initial frameworks.
-        baseName = "my_framework"
-        // The default destination directory is "<build directory>/fat-framework".
-        destinationDir = buildDir.resolve("fat-framework/debug")
-        // Specify the frameworks to be merged.
-        from(
-                ios32.binaries.getFramework("DEBUG"),
-                ios64.binaries.getFramework("DEBUG")
-        )
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
     }
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
+
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+}
+
+kotlin {
+    def xcf = XCFrameworkConfig(project)
+
+    ios {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    watchos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+    tvos {
+        binaries.framework {
+            baseName = "shared"
+            xcf.add(it)
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
+
+When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle tasks:
+* `assembleXCFramework`
+* `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assembleReleaseXCFramework`

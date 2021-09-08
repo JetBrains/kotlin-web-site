@@ -38,18 +38,8 @@ kotlin {
 
 ## Configure compilations for one target
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm().compilations.all {
-        kotlinOptions {
-            sourceMap = true
-            metaInfo = true
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -62,21 +52,27 @@ kotlin {
 }
 ```
 
-</tabs>
-
-## Configure one compilation
-
-<tabs>
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
-    jvm().compilations.main {
+    jvm().compilations.all {
         kotlinOptions {
-            jvmTarget = "1.8"
+            sourceMap = true
+            metaInfo = true
         }
     }
 }
 ```
+
+</tab>
+</tabs>
+
+## Configure one compilation
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -90,6 +86,20 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm().compilations.main {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Create a custom compilation
@@ -105,35 +115,8 @@ collection.
 >
 {type="note"}
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm() {
-        compilations.create('integrationTest') {
-            defaultSourceSet {
-                dependencies {
-                    def main = compilations.main
-                    // Compile against the main compilation's compile classpath and outputs:
-                    implementation(main.compileDependencyFiles + main.output.classesDirs)
-                    implementation kotlin('test-junit')
-                    /* ... */
-                }
-            }
-           
-            // Create a test task to run the tests produced by this compilation:
-            tasks.register('jvmIntegrationTest', Test) {
-                // Run the tests with the classpath containing the compile dependencies (including 'main'),
-                // runtime dependencies, and the outputs of this compilation:
-                classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
-                
-                // Run only the tests from this compilation's outputs:
-                testClassesDirs = output.classesDirs
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -166,6 +149,38 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm() {
+        compilations.create('integrationTest') {
+            defaultSourceSet {
+                dependencies {
+                    def main = compilations.main
+                    // Compile against the main compilation's compile classpath and outputs:
+                    implementation(main.compileDependencyFiles + main.output.classesDirs)
+                    implementation kotlin('test-junit')
+                    /* ... */
+                }
+            }
+           
+            // Create a test task to run the tests produced by this compilation:
+            tasks.register('jvmIntegrationTest', Test) {
+                // Run the tests with the classpath containing the compile dependencies (including 'main'),
+                // runtime dependencies, and the outputs of this compilation:
+                classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
+                
+                // Run only the tests from this compilation's outputs:
+                testClassesDirs = output.classesDirs
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 You also need to create a custom compilation in other cases, for example, if you want to combine compilations for different 
@@ -221,7 +236,45 @@ compilation.
 A compilation can interact with several native libraries. Configure interoperability in the `cinterops` block of the 
 compilation with [available parameters](mpp-dsl-reference.md#cinterops).
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.getByName("main") {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                defFile(project.file("def-file.def"))
+                
+                // Package to place the Kotlin API generated.
+                packageName("org.sample")
+                
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts("-Ipath/to/headers")
+              
+                // Directories to look for headers.
+                includeDirs.apply {
+                    // Directories for header search (an equivalent of the -I<path> compiler option).
+                    allHeaders("path1", "path2")
+                    
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
+                    headerFilterOnly("path1", "path2")
+                }
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs("include/directory", "another/directory")
+            }
+            
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -257,41 +310,7 @@ kotlin {
 }
 ```
 
-```kotlin
-kotlin {
-    linuxX64 {  // Replace with a target you need.
-        compilations.getByName("main") {
-            val myInterop by cinterops.creating {
-                // Def-file describing the native API.
-                // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
-                
-                // Package to place the Kotlin API generated.
-                packageName("org.sample")
-                
-                // Options to be passed to compiler by cinterop tool.
-                compilerOpts("-Ipath/to/headers")
-              
-                // Directories to look for headers.
-                includeDirs.apply {
-                    // Directories for header search (an equivalent of the -I<path> compiler option).
-                    allHeaders("path1", "path2")
-                    
-                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
-                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
-                    headerFilterOnly("path1", "path2")
-                }
-                // A shortcut for includeDirs.allHeaders.
-                includeDirs("include/directory", "another/directory")
-            }
-            
-            val anotherInterop by cinterops.creating { /* ... */ }
-        }
-    }
-}
-
-```
-
+</tab>
 </tabs>
 
 ## Compilation for Android 

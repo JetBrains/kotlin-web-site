@@ -55,13 +55,25 @@ Depending on your project and purposes, you can add dependencies between [a Kotl
     
     kotlin {
         cocoapods {
-            // Configure fields required by CocoaPods.
-            summary = "Some description for a Kotlin/Native module"
-            homepage = "Link to a Kotlin/Native module homepage"
-    
-            // You can change the name of the produced framework.
-            // By default, it is the name of the Gradle project.
-            frameworkName = "my_framework"
+
+            framework {
+                // Configure fields required by CocoaPods.
+                summary = "Some description for a Kotlin/Native module"
+                homepage = "Link to a Kotlin/Native module homepage"
+                // Framework name configuration. Use this property instead of deprecated 'frameworkName'
+                baseName = "MyFramework"
+                // (Optional) Dynamic framework support
+                isStatic = false
+                // (Optional) Dependency export
+                export(project(":anotherKMMModule"))
+                transitiveExport = true
+                // (Optional) Bitcode embedding
+                embedBitcode(BITCODE)
+            }
+            
+            // Maps custom Xcode configuration to NativeBuildType
+            xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
+            xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
         }
     }
     ```
@@ -82,7 +94,7 @@ the build process of an Xcode project.
 ## Add dependencies on Pod libraries
 
 To add dependencies between a Kotlin project and a Pod library, you should [complete the initial configuration](#install-the-cocoapods-dependency-manager-and-plugin).
-This allows you to add dependencies on the following types of Pod libraries: 
+This allows you to add dependencies on the following types of Pod libraries:
  * [A Pod library from the CocoaPods repository](#add-a-dependency-on-a-pod-library-from-the-cocoapods-repository) 
  * [A Pod library stored locally](#add-a-dependency-on-a-pod-library-stored-locally)
  * [A Pod library from a Git repository](#add-a-dependency-on-a-pod-library-from-the-git-repository)

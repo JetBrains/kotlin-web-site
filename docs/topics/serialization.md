@@ -55,14 +55,8 @@ Before starting, you’ll need to configure your build script so that you can us
 1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin(“plugin.serialization”)`
 in the Kotlin Gradle DSL).
 
-    <tabs>
-
-    ```groovy
-    plugins {
-        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-        id 'org.jetbrains.kotlin.plugin.serialization' version '%kotlinVersion%'  
-    }
-    ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     plugins {
@@ -71,17 +65,23 @@ in the Kotlin Gradle DSL).
     }
     ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    plugins {
+        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '%kotlinVersion%'  
+    }
+    ```
+
+    </tab>
     </tabs>
 
 2. Add the JSON serialization library dependency:`org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%`
 
-    <tabs>
-
-    ```groovy
-    dependencies {
-        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%'
-    } 
-    ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     dependencies {
@@ -89,6 +89,16 @@ in the Kotlin Gradle DSL).
     } 
     ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    dependencies {
+        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%'
+    } 
+    ```
+
+    </tab>
     </tabs>
 
 Now you're ready to use the serialization API in your code. The API is located in the the `kotlinx.serialization` package

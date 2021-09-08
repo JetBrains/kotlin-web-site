@@ -29,12 +29,12 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `constructor`/`create` | Initializer | Initializer | [note](#initializers) |
 | Property | Property | Property | [note](#top-level-functions-and-properties) [note](#setters)|
 | Method | Method | Method | [note](#top-level-functions-and-properties) [note](#method-names-translation) |
-| `suspend` -> | `completionHandler:` | | [note](#errors-and-exceptions) |
+| `suspend` -> | `completionHandler:`/ `async` | `completionHandler:` | [note](#errors-and-exceptions) [note](#suspending-functions) |
 | `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
 | Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | Class method or property | Class method or property |  |
+| `companion` member <- | Class method or property | Class method or property | |
 | `null` | `nil` | `nil` | |
-| `Singleton` | `Singleton()`  | `[Singleton singleton]` | [note](#kotlin-singletons) |
+| `Singleton` | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons) |
 | Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
 | `Unit` return type | `Void` | `void` | |
 | `String` | `String` | `NSString` | |
@@ -133,6 +133,24 @@ Note that the opposite reversed translation is not implemented yet:
 Swift/Objective-C error-throwing methods aren't imported to Kotlin as
 exception-throwing.
 
+### Suspending functions
+
+> Support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
+> It may be dropped or changed at any time.
+> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
+>
+{type="warning"}
+
+Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
+functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
+in Swift/Objective-C terminology.
+
+Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
+`async` functions without using the completion handlers. Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
+for details.
+
+Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+
 ### Extensions and category members
 
 Members of Objective-C categories and Swift extensions are imported to Kotlin
@@ -156,8 +174,35 @@ with an additional receiver parameter. These types include:
 
 Kotlin singleton (made with an `object` declaration, including `companion object`)
 is imported to Swift/Objective-C as a class with a single instance.
-The instance is available through the factory method, i.e. as
-`[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift.
+
+The instance is available through the `shared` and `companion` properties.
+
+For the following Kotlin code:
+
+```kotlin
+object MyObject {
+    val x = "Some value"
+}
+
+class MyClass {
+    companion object {
+        val x = "Some value"
+    }
+}
+```
+
+Access these objects as follows: 
+
+```swift
+MyObject.shared
+MyObject.shared.x
+MyClass.companion
+MyClass.Companion.shared
+```
+
+> Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
+> 
+{type="note"}
 
 ### NSNumber
 

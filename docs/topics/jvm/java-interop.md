@@ -34,7 +34,7 @@ import java.util.Calendar
 
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
-    if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
+    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // call getFirstDayOfWeek()
         calendar.firstDayOfWeek = Calendar.MONDAY // call setFirstDayOfWeek()
     }
     if (!calendar.isLenient) { // call isLenient()
@@ -122,8 +122,17 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`)
+  * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can specify whether the compiler reports a nullability mismatch based on the information from specific types of 
+nullability annotations. Use the compiler option `-Xnullability-annotations=@<package-name>:<report-level>`. 
+In the argument, specify the fully qualified nullability annotations package and one of these report levels:
+* `ignore` to ignore nullability mismatches
+* `warn` to report warnings
+* `strict` to report errors.
+
+See the full list of supported nullability annotations in the 
+[Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### Annotating type arguments and type parameters
 
@@ -224,7 +233,7 @@ nullability which deviates from the nullability annotations from Java.
 
 ### JSR-305 support
 
-The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined
+The [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html) annotation defined
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
 
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and
@@ -234,13 +243,13 @@ A library can be compiled against the JSR-305 annotations, but there's no need t
 a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library
 without the annotations present on the classpath.
 
-[Custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md)
+[Custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/master/proposals/jsr-305-custom-nullability-qualifiers.md)
 are also supported (see below).
 
 #### Type qualifier nicknames
 
 If an annotation type is annotated with both
-[`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html)
+[`@TypeQualifierNickname`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/meta/TypeQualifierNickname.html)
 and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for
 retrieving precise nullability and has the same meaning as that nullability annotation:
 
@@ -268,7 +277,7 @@ interface A {
 
 #### Type qualifier defaults
 
-[`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html)
+[`@TypeQualifierDefault`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/meta/TypeQualifierDefault.html)
 allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated
 element.
 
@@ -383,9 +392,9 @@ for managing the migration state for a particular library.
 The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`,
 and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
 
-> Note: the built-in JSR-305 annotations [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html),
->[`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and
->[`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are always enabled and
+> Note: the built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
+>[`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html) and
+>[`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
 >affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
 {type="note"}

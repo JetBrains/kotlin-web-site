@@ -68,36 +68,8 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64("native") {  // on Linux
-  // macosX64("native") { // on macOS
-  // mingwX64("native") { //on Windows
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -110,7 +82,8 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     val main by compilations.getting
     val interop by main.cinterops.creating
@@ -127,6 +100,40 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64("native") { // on Linux
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
+  // mingwX64("native") { // on Windows
+    compilations.main.cinterops {
+      interop 
+    }
+    
+    binaries {
+      executable()
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = "ALL"
+}
+```
+
+</tab>
 </tabs>
 
 The project file configures the C interop as an additional step of the build.
@@ -214,7 +221,7 @@ If there are no errors during compilation, you should see the result of the exec
 of the program, which on execution should output 
 the contents of the site `https://example.com`
 
-![Output](output.png){width=700}
+![Output](curl-output.png){width=700}
 
 The reason you're seeing the actual output is because the call `curl_easy_perform` prints the result to the standard output. You could hide this using 
 `curl_easy_setopt`. 

@@ -72,32 +72,8 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64("native") {
-    binaries {
-      framework {
-        baseName = "Demo"
-      }
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -124,6 +100,35 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  macosX64("native") {
+    binaries {
+      framework {
+        baseName = "Demo"
+      }
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = "ALL"
+}
+```
+
+</tab>
 </tabs>
 
 Move the sources file into the `src/nativeMain/kotlin` folder under
@@ -140,13 +145,14 @@ binaries {
 }
 ```
 
-Along with `macOS X64`, Kotlin/Native supports iOS `arm32`, `arm64` and `X64`
+Along with macOS `X64`, Kotlin/Native supports macos `arm64` and iOS `arm32`, `arm64` and `X64`
 targets. You may replace the `macosX64` with respective functions as shown
 in the table:
 
 | Target platform/device | Gradle function |
 |------------------------|-----------------|
 | macOS x86_64           | `macosX64()`    | 
+| macOS ARM 64           | `macosArm64()`  | 
 | iOS ARM 32             | `iosArm32()`    | 
 | iOS ARM 64             | `iosArm64()`    | 
 | iOS Simulator (x86_64) | `iosX64()`      |

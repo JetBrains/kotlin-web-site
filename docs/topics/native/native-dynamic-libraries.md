@@ -67,35 +67,8 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64("native") {  // on Linux
-  // macosX64("native") { // on macOS
-  // mingwX64("native") { //on Windows
-    binaries {
-      sharedLib {
-        baseName = "native" // on Linux and macOS
-        // baseName = "libnative" //on Windows
-      }
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -107,8 +80,9 @@ repositories {
 }
 
 kotlin {
-  linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  linuxX64("native") { // on Linux 
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     binaries {
       sharedLib {
@@ -125,6 +99,39 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64("native") { // on Linux
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
+  // mingwX64("native") { // on Windows
+    binaries {
+      sharedLib {
+        baseName = "native" // on Linux and macOS
+        // baseName = "libnative" // on Windows
+      }
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = "ALL"
+}
+```
+
+</tab>
 </tabs>
 
 Move the sources file into the `src/nativeMain/kotlin` folder under

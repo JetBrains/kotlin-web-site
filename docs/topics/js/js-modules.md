@@ -44,12 +44,8 @@ system, the instructions are slightly different.
 
 To select module kind, set the `moduleKind` compiler option in the Gradle build script.
 
-<tabs>
-
-```groovy
-compileKotlinJs.kotlinOptions.moduleKind = "commonjs"
-
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
@@ -57,6 +53,14 @@ tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+compileKotlinJs.kotlinOptions.moduleKind = "commonjs"
+```
+
+</tab>
 </tabs>
 
 Available values are: `umd` (default), `commonjs`, `amd`, `plain`.

@@ -2,8 +2,9 @@ import $ from "jquery";
 import Event from "./Event";
 import City from "./City";
 import languages from "./lang";
+import {MapStore} from "../map/Map";
 
-export default class EventsStore {
+export default class EventsStore extends MapStore {
   static FILTERS = {
     time: (time, event) => {
       let matched = false;
@@ -39,7 +40,7 @@ export default class EventsStore {
     },
 
     bounds: (bounds, event) => {
-      return bounds.contains(event.getBounds());
+      return event.hasCity() ? bounds.contains(event.getBounds()) : null;
     }
   };
 
@@ -56,6 +57,7 @@ export default class EventsStore {
    * @param {Object} citiesData Raw cities data
    */
   constructor(eventsData, citiesData) {
+    super(eventsData);
     const store = this;
     this.events = [];
     this.cities = [];
@@ -80,17 +82,11 @@ export default class EventsStore {
     citiesData.forEach(data => store.cities.push(new City(data)));
 
     eventsData.forEach((data, i) => {
-      const eventCityExistInDict = data.location && citiesNames.indexOf(data.location) !== -1;
-
-      if (!eventCityExistInDict) {
-        return;
-      }
-
       data.id = i.toString();
       store.events.push(new Event(data));
     });
 
-    store.events.forEach((event) => {
+    store.getEventsWithCity().forEach((event) => {
       event.city = store.cities.filter(city => city.name === event.city)[0];
     });
 
@@ -230,5 +226,9 @@ export default class EventsStore {
     list.forEach((materialId) => listMap[materialId] = EventsStore.MATERIAL_TYPE[materialId]);
 
     return listMap;
+  }
+
+  getEventsWithCity() {
+    return this.events.filter(event => event.hasCity());
   }
 }

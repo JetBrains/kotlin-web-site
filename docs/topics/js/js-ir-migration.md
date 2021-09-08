@@ -1,7 +1,7 @@
 [//]: # (title: Migrating Kotlin/JS projects to the IR compiler)
 
-> The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
->in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> The Kotlin/JS IR compiler is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="warning"}
 
@@ -14,38 +14,43 @@ by Sebastian Aigner.
 Due to the significant differences between the compilers, switching your Kotlin/JS project from the old backend to the new one
 may require adjusting your code. On this page, we've compiled a list of known migration issues along with suggested solutions.
 
+> Install the [Kotlin/JS Inspection pack](https://plugins.jetbrains.com/plugin/17183-kotlin-js-inspection-pack/) plugin 
+> to get valuable tips on how to fix some of the issues that occur during migration.
+>
+{type="tip"}
+
 Note that this guide may change over time as we fix issues and find new ones. Please help us keep it complete –
 report any issues you encounter when switching to the IR compiler by submitting them to our issue tracker [YouTrack](https://kotl.in/issue)
 or filling out [this form](https://surveys.jetbrains.com/s3/ir-be-migration-issue).
 
 ## Convert JS- and React-related classes and interfaces to external interfaces
 
-**Issue**: Using Kotlin interfaces and classes (including data classes) that derive from pure JS classes, such as React's `RState` and
-`RProps`, can cause a `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of
+**Issue**: Using Kotlin interfaces and classes (including data classes) that derive from pure JS classes, such as React's `State` and
+`Props`, can cause a `ClassCastException`. Such exceptions appear because the compiler attempts to work with instances of
 these classes as if they were Kotlin objects, when they actually come from JS.
 
 **Solution**: convert all classes and interfaces that derive from pure JS classes to [external interfaces](js-interop.md#external-interfaces):
 
 ```kotlin
 // Replace this
-interface AppState : RState { }
-interface AppProps : RProps { }
-data class CustomComponentState(var name: String) : RState
+interface AppState : State { }
+interface AppProps : Props { }
+data class CustomComponentState(var name: String) : State
 ```
 
 ```kotlin
 // With this
-external interface AppState : RState { }
-external interface AppProps : RProps { }
-external interface CustomComponentState : RState {
+external interface AppState : State { }
+external interface AppProps : Props { }
+external interface CustomComponentState : State {
    var name: String
 }
 ```
 
 In IntelliJ IDEA, you can use these [structural search and replace](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
 templates to automatically mark interfaces as `external`:
-* [Template for `RState`](https://gist.github.com/SebastianAigner/62119536f24597e630acfdbd14001b98)
-* [Template for `RProps`](https://gist.github.com/SebastianAigner/a47a77f5e519fc74185c077ba12624f9)
+* [Template for `State`](https://gist.github.com/SebastianAigner/62119536f24597e630acfdbd14001b98)
+* [Template for `Props`](https://gist.github.com/SebastianAigner/a47a77f5e519fc74185c077ba12624f9)
 
 ## Convert properties of external interfaces to var
 
@@ -61,14 +66,14 @@ myState.name = "name"
 
 ```kotlin
 // Replace this
-external interface CustomComponentState : RState {
+external interface CustomComponentState : State {
    val name: String
 }
 ```
 
 ```kotlin
 // With this
-external interface CustomComponentState : RState {
+external interface CustomComponentState : State {
    var name: String
 }
 ```
@@ -79,7 +84,7 @@ external interface CustomComponentState : RState {
 in expressions without being defined. This is okay in JavaScript, but not in Kotlin.
 
 ```kotlin
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var isInitialized: Boolean
    var visible: Boolean
 }
@@ -105,14 +110,14 @@ button {
 
 ```kotlin
 // Replace this
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var visible: Boolean
 }
 ```
 
 ```kotlin
 // With this
-external interface ComponentProps: RProps {
+external interface ComponentProps: Props {
    var visible: Boolean?
 }
 ```
@@ -126,13 +131,13 @@ functional types.
 
 ```kotlin
 // Replace this
-external interface ButtonProps : RProps {
+external interface ButtonProps : Props {
    var inside: StyledDOMBuilder<BUTTON>.() -> Unit
 }
 ```
 
 ```kotlin
-external interface ButtonProps : RProps {
+external interface ButtonProps : Props {
    var inside: (StyledDOMBuilder<BUTTON>) -> Unit
 }
 ```

@@ -16,14 +16,8 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration. This dependency will allow you to work with `kotlin.test` and `JUnit`:
 
-   <tabs>
-
-   ```groovy
-   dependencies {
-       // Other dependencies.
-       testImplementation 'org.jetbrains.kotlin:kotlin-test'
-   }
-   ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
    ```kotlin
    dependencies {
@@ -32,17 +26,23 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    }
    ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+   ```groovy
+   dependencies {
+       // Other dependencies.
+       testImplementation 'org.jetbrains.kotlin:kotlin-test'
+   }
+   ```
+
+   </tab>
    </tabs>
 
 3. Add the `test` task to the `build.gradle(.kts)` file:
 
-   <tabs>
-
-   ```groovy
-   test {
-       useJUnitPlatform()
-   }
-   ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
    ```kotlin
    tasks.test {
@@ -50,6 +50,16 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    }
    ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+   ```groovy
+   test {
+       useJUnitPlatform()
+   }
+   ```
+
+   </tab>
    </tabs>
 
    > If you created the project using the **Project Wizard**, the task will be added automatically.

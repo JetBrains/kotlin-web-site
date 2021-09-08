@@ -14,13 +14,8 @@ The fully qualified name of the Kotlin Multiplatform Gradle plugin is `org.jetbr
 If you use the Kotlin Gradle DSL, you can apply the plugin with `kotlin(“multiplatform”)`.
 The plugin versions match the Kotlin release versions. The most recent version is %kotlinVersion%.
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -28,6 +23,16 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 ## Top-level blocks
@@ -65,19 +70,23 @@ The complete list of available targets is the following:
 |`androidNativeX64`|[Android NDK](https://developer.android.com/ndk) on x86_64 platforms|
 |`iosArm32`|Apple iOS on ARM (ARM32) platforms (Apple iPhone 5 and earlier)|
 |`iosArm64`|Apple iOS on ARM64 platforms (Apple iPhone 5s and newer)|
-|`iosX64`|Apple iOS 64-bit simulator|
+|`iosX64`|Apple iOS simulator on x86_64 platforms|
+|`iosSimulatorArm64`|Apple iOS simulator on Apple Silicon platforms|
 |`watchosArm32`|Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)|
 |`watchosArm64`|Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)|
-|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier)|
-|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer)|
+|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms|
+|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms|
+|`watchosSimulatorArm64`|Apple watchOS simulator on Apple Silicon platforms|
 |`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
-|`tvosX64`|Apple tvOS simulator|
+|`tvosX64`|Apple tvOS simulator on x86_64 platforms|
+|`tvosSimulatorArm64`|Apple tvOS simulator on Apple Silicon platforms|
 |`linuxArm64`|Linux on ARM64 platforms, for example, Raspberry Pi|
 |`linuxArm32Hfp`|Linux on hard-float ARM (ARM32) platforms|
 |`linuxMips32`|Linux on MIPS platforms|
 |`linuxMipsel32`|Linux on little-endian MIPS (mipsel) platforms|
 |`linuxX64`|Linux on x86_64 platforms|
-|`macosX64`|Apple macOS|
+|`macosX64`|Apple macOS on x86_64 platforms|
+|`macosArm64`|Apple macOS on Apple Silicon platforms|
 |`mingwX64`|64-bit Microsoft Windows|
 |`mingwX86`|32-bit Microsoft Windows|
 |`wasm32`|WebAssembly|
@@ -233,40 +242,8 @@ For binaries configuration, the following parameters are available:
 |`runTask`|Access to the run task for executable binaries. For targets other than `linuxX64`, `macosX64`, or `mingwX64` the value is `null`.|
 |`isStatic`|For Objective-C frameworks. Includes a static library instead of a dynamic one.|
 
-<tabs>
-
-```groovy
-binaries {
-    executable('my_executable', [RELEASE]) {
-        // Build a binary on the basis of the test compilation.
-        compilation = compilations.test
-
-        // Custom command line options for the linker.
-        linkerOpts = ['-L/lib/search/path', '-L/another/search/path', '-lmylib']
-
-        // Base name for the output file.
-        baseName = 'foo'
-
-        // Custom entry point function.
-        entryPoint = 'org.example.main'
-
-        // Accessing the output file.
-        println("Executable path: ${outputFile.absolutePath}")
-
-        // Accessing the link task.
-        linkTask.dependsOn(additionalPreprocessingTask)
-
-        // Accessing the run task.
-        // Note that the runTask is null for non-host platforms.
-        runTask?.dependsOn(prepareForRun)
-    }
-
-    framework('my_framework' [RELEASE]) {
-        // Include a static library instead of a dynamic one into the framework.
-        isStatic = true
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 binaries {
@@ -301,6 +278,43 @@ binaries {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    executable('my_executable', [RELEASE]) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations.test
+
+        // Custom command line options for the linker.
+        linkerOpts = ['-L/lib/search/path', '-L/another/search/path', '-lmylib']
+
+        // Base name for the output file.
+        baseName = 'foo'
+
+        // Custom entry point function.
+        entryPoint = 'org.example.main'
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+
+    framework('my_framework' [RELEASE]) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Learn more about [building native binaries](mpp-build-native-binaries.md).
@@ -319,7 +333,39 @@ To provide an interop with a library, add an entry to `cinterops` and define its
 
 Learn more how to [configure interop with native languages](mpp-configure-compilations.md#configure-interop-with-native-languages).
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.getByName("main") {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                defFile(project.file("def-file.def"))
+
+                // Package to place the Kotlin API generated.
+                packageName("org.sample")
+
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts("-Ipath/to/headers")
+
+                // Directories for header search (an analogue of the -I<path> compiler option).
+                includeDirs.allHeaders("path1", "path2")
+
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs("include/directory", "another/directory")
+            }
+
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -351,35 +397,7 @@ kotlin {
 }
 ```
 
-```kotlin
-kotlin {
-    linuxX64 {  // Replace with a target you need.
-        compilations.getByName("main") {
-            val myInterop by cinterops.creating {
-                // Def-file describing the native API.
-                // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
-
-                // Package to place the Kotlin API generated.
-                packageName("org.sample")
-
-                // Options to be passed to compiler by cinterop tool.
-                compilerOpts("-Ipath/to/headers")
-
-                // Directories for header search (an analogue of the -I<path> compiler option).
-                includeDirs.allHeaders("path1", "path2")
-
-                // A shortcut for includeDirs.allHeaders.
-                includeDirs("include/directory", "another/directory")
-            }
-
-            val anotherInterop by cinterops.creating { /* ... */ }
-        }
-    }
-}
-
-```
-
+</tab>
 </tabs>
 
 ### Android targets
@@ -428,7 +446,19 @@ Available predefined source sets are the following:
 
 With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+ sourceSets {
+  val commonMain by getting { /* ... */ }
+ }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin { 
@@ -438,14 +468,7 @@ kotlin {
 }
 ``` 
 
-```kotlin
-kotlin { 
-    sourceSets { 
-        val commonMain by getting { /* ... */ } 
-    }
-}
-```
-
+</tab>
 </tabs>
 
 Learn more about [source sets](mpp-discover-project.md#source-sets).
@@ -456,15 +479,8 @@ Custom source sets are created by the project developers manually.
 To create a custom source set, add a section with its name inside the `sourceSets` section.
 If using Kotlin Gradle DSL, mark custom source sets `by creating`.
 
-<tabs>
-
-```groovy
-kotlin { 
-    sourceSets { 
-        myMain { /* ... */ } // create or configure a source set by the name 'myMain' 
-    }
-}
-``` 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin { 
@@ -474,6 +490,18 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin { 
+    sourceSets { 
+        myMain { /* ... */ } // create or configure a source set by the name 'myMain' 
+    }
+}
+``` 
+
+</tab>
 </tabs>
 
 Note that a newly created source set isn’t connected to other ones. To use it in the project’s compilations,
@@ -491,22 +519,8 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 |`dependencies`|[Dependencies](#dependencies) of the source set.|
 |`languageSettings`|[Language settings](mpp-dsl-reference.md#language-settings) applied to the source set.|
 
-<tabs>
-
-```groovy
-kotlin { 
-    sourceSets { 
-        commonMain {
-            kotlin.srcDir('src')
-            resources.srcDir('res')
-            
-            dependencies {
-                /* ... */
-            }           
-        } 
-    }
-}
-``` 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin { 
@@ -523,6 +537,25 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin { 
+    sourceSets { 
+        commonMain {
+            kotlin.srcDir('src')
+            resources.srcDir('res')
+            
+            dependencies {
+                /* ... */
+            }           
+        } 
+    }
+}
+``` 
+
+</tab>
 </tabs>
 
 ## Compilations
@@ -545,16 +578,8 @@ Available predefined compilations are the following:
 |`main`|Compilation for production sources.|
 |`test`|Compilation for tests.|
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm {
-        compilations.main.output // get the main compilation output
-        compilations.test.runtimeDependencyFiles // get the test runtime classpath
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -568,6 +593,19 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.main.output // get the main compilation output
+        compilations.test.runtimeDependencyFiles // get the test runtime classpath
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ### Custom compilations
@@ -578,26 +616,8 @@ If using Kotlin Gradle DSL, mark custom compilations `by creating`.
 
 Learn more about creating a [custom compilation](mpp-configure-compilations.md#create-a-custom-compilation).
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm() {
-        compilations.create('integrationTest') {
-            defaultSourceSet {
-                dependencies {
-                    /* ... */
-                }
-            }
-
-            // Create a test task to run the tests produced by this compilation:
-            tasks.register('jvmIntegrationTest', Test) {
-                /* ... */
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -620,6 +640,29 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm() {
+        compilations.create('integrationTest') {
+            defaultSourceSet {
+                dependencies {
+                    /* ... */
+                }
+            }
+
+            // Create a test task to run the tests produced by this compilation:
+            tasks.register('jvmIntegrationTest', Test) {
+                /* ... */
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ### Compilation parameters
@@ -639,31 +682,8 @@ A compilation has the following parameters:
 |`compileDependencyFiles`|Compile-time dependency files (classpath) of the compilation.|
 |`runtimeDependencyFiles`|Runtime dependency files (classpath) of the compilation.|
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm {
-        compilations.main.kotlinOptions { 
-            // Setup the Kotlin compiler options for the 'main' compilation:
-            jvmTarget = "1.8"
-        }
-        
-        compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
-        compilations.main.output // get the main compilation output
-        compilations.test.runtimeDependencyFiles // get the test runtime classpath
-    }
-    
-    // Configure all compilations of all targets:
-    targets.all {
-        compilations.all {
-            kotlinOptions {
-                allWarningsAsErrors = true
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -692,6 +712,34 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.main.kotlinOptions { 
+            // Setup the Kotlin compiler options for the 'main' compilation:
+            jvmTarget = "1.8"
+        }
+        
+        compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
+        compilations.main.output // get the main compilation output
+        compilations.test.runtimeDependencyFiles // get the test runtime classpath
+    }
+    
+    // Configure all compilations of all targets:
+    targets.all {
+        compilations.all {
+            kotlinOptions {
+                allWarningsAsErrors = true
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Dependencies
@@ -709,24 +757,8 @@ There are four types of dependencies:
 |`compileOnly`|Dependencies used only for compilation of the current module.|
 |`runtimeOnly`|Dependencies available at runtime but not visible during compilation of any module.|
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                api 'com.example:foo-metadata:1.0'
-            }
-        }
-        jvm6Main {
-            dependencies {
-                implementation 'com.example:foo-jvm6:1.0'
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -745,6 +777,27 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api 'com.example:foo-metadata:1.0'
+            }
+        }
+        jvm6Main {
+            dependencies {
+                implementation 'com.example:foo-jvm6:1.0'
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Additionally, source sets can depend on each other and form a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
@@ -752,14 +805,8 @@ Additionally, source sets can depend on each other and form a hierarchy. In this
 Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
 
-<tabs>
-
-```groovy
-dependencies {
-    commonMainApi 'com.example:foo-common:1.0'
-    jvm6MainApi 'com.example:foo-jvm6:1.0'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -768,6 +815,17 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    commonMainApi 'com.example:foo-common:1.0'
+    jvm6MainApi 'com.example:foo-jvm6:1.0'
+}
+```
+
+</tab>
 </tabs>
 
 ## Language settings
@@ -782,21 +840,8 @@ The `languageSettings` block of a source set defines certain aspects of project 
 |`useExperimentalAnnotation`|Allows using the specified [opt-in annotation](opt-in-requirements.md).|
 |`progressiveMode`|Enables the [progressive mode](whatsnew13.md#progressive-mode).|
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets.all {
-        languageSettings {
-            languageVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
-            apiVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
-            enableLanguageFeature('InlineClasses') // language feature name
-            useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
-            progressiveMode = true // false by default
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -812,4 +857,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets.all {
+        languageSettings {
+            languageVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
+            apiVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
+            enableLanguageFeature('InlineClasses') // language feature name
+            useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
+            progressiveMode = true // false by default
+        }
+    }
+}
+```
+
+</tab>
 </tabs>

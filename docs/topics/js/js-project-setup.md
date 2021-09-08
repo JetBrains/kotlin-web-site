@@ -15,13 +15,8 @@ Kotlin/JS target that suits you best. Don't forget to choose the language for th
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file
 (`build.gradle` or `build.gradle.kts`).
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -29,6 +24,16 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 The Kotlin/JS Gradle plugin lets you manage aspects of your project in the `kotlin` section of the build script.
@@ -86,13 +91,8 @@ This allows developers to build, run and test simple projects without additional
 Like any other Gradle projects, Kotlin/JS projects support traditional Gradle [dependency declarations](https://docs.gradle.org/current/userguide/declaring_dependencies.html)
 in the `dependencies` section of the build script.
 
-<tabs>
-
-```groovy
-dependencies {
-    implementation 'org.example.myproject:1.1.0'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -100,12 +100,34 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation 'org.example.myproject:1.1.0'
+}
+```
+
+</tab>
 </tabs>
 
 The Kotlin/JS Gradle plugin also supports dependency declarations for particular source sets in the `kotlin` section 
 of the build script.
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+  sourceSets["main"].dependencies {
+    implementation("org.example.myproject", "1.1.0")
+  }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -119,14 +141,7 @@ kotlin {
 }
 ```
 
-```kotlin
-kotlin {
-  sourceSets["main"].dependencies {
-    implementation("org.example.myproject", "1.1.0")
-  }
-}
-```
-
+</tab>
 </tabs>
 
 Please note that not all libraries available for the Kotlin programming language are available when targeting JavaScript:
@@ -143,13 +158,8 @@ for all Kotlin/JS projects, and as such is implicit – no artifacts need to be 
 If your project contains tests written in Kotlin, you should add a dependency on the
 [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library:
 
-<tabs>
-
-```groovy
-dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -157,6 +167,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
+}
+```
+
+</tab>
 </tabs>
 
 ### npm dependencies
@@ -170,13 +190,8 @@ declare any other dependencies.
 To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 You can also specify one or multiple version range based on [npm's semver syntax](https://docs.npmjs.com/misc/semver#versions).
 
-<tabs>
-
-```groovy
-dependencies {
-    implementation npm('react', '> 14.0.0 <=16.9.0')
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -184,6 +199,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation npm('react', '> 14.0.0 <=16.9.0')
+}
+```
+
+</tab>
 </tabs>
 
 To download and install your declared dependencies during build time, the plugin manages its own installation of the 
@@ -457,21 +482,8 @@ To set another location for project distribution files, add the `distribution` b
 assign a value to the `directory` property.
 Once you run a project build task, Gradle will save the output bundle in this location together with project resources.
 
-<tabs>
-
-```groovy
-kotlin {
-    js {
-        browser {
-            distribution {
-                directory = file("$projectDir/output/")
-            }
-        }
-        binaries.executable()
-        // . . .
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -487,6 +499,24 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    js {
+        browser {
+            distribution {
+                directory = file("$projectDir/output/")
+            }
+        }
+        binaries.executable()
+        // . . .
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Module name

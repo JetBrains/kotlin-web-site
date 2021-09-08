@@ -45,21 +45,23 @@ kotlin-stdlib (JVM)|Stable|1.0| |
 Coroutines|Stable|1.3| |
 kotlin-reflect (JVM)|Beta|1.0| |
 Kotlin/JS (Classic back-end)|Stable|1.3| |
-Kotlin/JVM (IR-based)|Alpha|1.4| |
-Kotlin/JS (IR-based)|Alpha|1.4| |
+Kotlin/JVM (IR-based)|Stable|1.5| |
+Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
 KLib binaries|Alpha|1.4| |
 KDoc syntax|Stable|1.0| |
-dokka|Alpha|0.1| |
-Kotlin Scripts (*.kts)|Beta|1.2| |
-Kotlin Scripting APIs and custom hosts|Alpha|1.2| |
+Dokka|Alpha|0.1| |
+Scripting syntax and semantics|Alpha|1.2|
+Scripting embedding and extension API|Beta|1.5
+Scripting IDE support|Experimental|1.2
+CLI scripting|Alpha|1.2
 Compiler Plugin API|Experimental|1.0| |
 Serialization Compiler Plugin|Stable|1.4| |
 Serialization Core Library|Stable|1.0.0|Versioned separately from the language
 Multiplatform Projects|Alpha|1.3| |
 expect/actual language feature|Beta|1.2| |
 Inline classes|Stable|1.5| |
-Unsigned arithmetics|Beta|1.3| |
+Unsigned arithmetics|Stable|1.5| |
 Contracts in stdlib|Stable|1.3| |
 User-defined contracts|Experimental|1.3| |
 **All other experimental components, by default**|Experimental|N/A| |

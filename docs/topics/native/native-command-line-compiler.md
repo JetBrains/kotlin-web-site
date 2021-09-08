@@ -12,6 +12,9 @@ in this %product% case we'll be targeting the same platform we're compiling on.
 While the output of the compiler does not have any dependencies or virtual machine requirements,
 the compiler itself requires [Java 1.8 or higher runtime](https://jdk.java.net/11/).
 
+Install the compiler by unpacking its archive to a directory of your choice and adding the path to its `/bin` directory
+to the `PATH` environment variable.
+
 ## Write "Hello Kotlin/Native" program
 
 The application will print "Hello Kotlin/Native" on the standard output. In a working directory of choice, create a file named

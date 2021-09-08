@@ -71,10 +71,7 @@ module.exports = (params = {}) => {
               }
             },
             {
-              loader: 'resolve-url-loader',
-              options: {
-                keepQuery: true
-              }
+              loader: 'resolve-url-loader'
             },
             {
               loader: 'svg-transform-loader/encode-query'

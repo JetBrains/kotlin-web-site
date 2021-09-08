@@ -127,13 +127,8 @@ If you need to use the old backend in Kotlin 1.5.0, you can add the following li
 
 * In Gradle:
 
- <tabs>
-
- ```groovy
- tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
-  kotlinOptions.useOldBackend = true
- }
- ```
+ <tabs group="build-script">
+ <tab title="Kotlin" group-key="kotlin">
 
  ```kotlin
  tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
@@ -141,6 +136,16 @@ If you need to use the old backend in Kotlin 1.5.0, you can add the following li
  }
  ```
 
+ </tab>
+ <tab title="Groovy" group-key="groovy">
+
+ ```groovy
+ tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+  kotlinOptions.useOldBackend = true
+ }
+ ```
+
+ </tab>
  </tabs>
 
 * In Maven:
@@ -159,8 +164,8 @@ The default target version for Kotlin/JVM compilations is now `1.8`. The `1.6` t
 
 If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
-* [in Gradle](gradle.md#attributes-specific-for-jvm)
-* [in Maven](maven.md#attributes-specific-for-jvm)
+* [in Gradle](gradle.md#attributes-specific-to-jvm)
+* [in Maven](maven.md#attributes-specific-to-jvm)
 * [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
 ### SAM adapters via invokedynamic
@@ -594,20 +599,8 @@ the dependency `kotlin-test` in the common source set.
 Gradle uses JUnit 4 by default. Therefore, the `kotlin("test")` dependency resolves to the variant for JUnit 4, 
 namely `kotlin-test-junit`:
 
- <tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonTest {
-            dependencies {
-                implementation kotlin("test") // This brings the dependency 
-                                              // on JUnit 4 transitively
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -622,7 +615,24 @@ kotlin {
 }
 ```
 
- </tabs>
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin("test") // This brings the dependency 
+                                              // on JUnit 4 transitively
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 You can choose JUnit 5 or TestNG by calling [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the test task:

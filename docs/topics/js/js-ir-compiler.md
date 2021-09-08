@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/JS IR compiler)
 
-> The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
->in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> The Kotlin/JS IR compiler is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="warning"}
 
@@ -85,15 +85,8 @@ only the ones needed at startup; other properties receive their values later whe
 As an experimental feature, lazy initialization of top-level properties requires an opt-in. To use the lazy initialization
 of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler:
 
-<tabs>
-    
-```groovy
-tasks.withType(Kotlin2JsCompile) {
-   kotlinOptions {
-     freeCompilerArgs += "-Xir-property-lazy-initialization"
-   }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 tasks.withType<Kotlin2JsCompile> {
@@ -103,6 +96,18 @@ tasks.withType<Kotlin2JsCompile> {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+    
+```groovy
+tasks.withType(Kotlin2JsCompile) {
+   kotlinOptions {
+     freeCompilerArgs += "-Xir-property-lazy-initialization"
+   }
+}
+```
+
+</tab>
 </tabs>
 
 ## Preview: generation of TypeScript declaration files (d.ts)
