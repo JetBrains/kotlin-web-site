@@ -18,13 +18,8 @@ You can also apply it manually.
 >
 {type="note"}
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -32,6 +27,16 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 The `kotlin-multiplatform` plugin configures the project for creating an application or library to work on multiple platforms 
@@ -76,20 +81,8 @@ default source sets for the `main` and `test` compilations of the common code an
 
 Source sets are added to the `sourceSets` block of the top-level `kotlin` block.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonMain { /* ... */} 
-        commonTest { /* ... */}
-        jvmMain { /* ... */}
-        jvmTest { /* ... */ }
-        jsMain { /* ... */}
-        jsTest { /* ... */}    
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -104,6 +97,23 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain { /* ... */} 
+        commonTest { /* ... */}
+        jvmMain { /* ... */}
+        jvmTest { /* ... */ }
+        jsMain { /* ... */}
+        jsTest { /* ... */}    
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Source sets form a hierarchy, which is used for sharing the common code. In a source set shared among several targets, 

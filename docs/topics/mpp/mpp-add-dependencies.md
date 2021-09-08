@@ -3,19 +3,8 @@
 To add a dependency on a library, set a dependency of the required [type](gradle.md#dependency-types) (for example, `implementation`) in the 
 [`dependencies`](mpp-dsl-reference.md#dependencies) block in your [Gradle](gradle.md) build script.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'com.example:my-library:1.0'
-            }
-        }
-    }
-}
-``` 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -29,6 +18,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'com.example:my-library:1.0'
+            }
+        }
+    }
+}
+``` 
+
+</tab>
 </tabs>
 
 Alternatively, you can [set dependencies at the top level](gradle.md#set-dependencies-at-the-top-level).
@@ -57,19 +62,8 @@ If you use a kotlinx library and need a platform-specific dependency, you can us
 of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library 
 base artifact name instead – `kotlinx-coroutines-core`.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        jvmMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
-            }
-        }
-    }
-}
-``` 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -84,12 +78,44 @@ kotlin {
 
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        jvmMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
+            }
+        }
+    }
+}
+``` 
+
+</tab>
 </tabs>
 
 If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared 
 source set. Use the library base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`. 
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -103,18 +129,6 @@ kotlin {
 }
 ``` 
 
-```kotlin
-kotlin {
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-            }
-        }
-    }
-}
-
-```
-
+</tab>
 </tabs>
 

@@ -145,7 +145,17 @@ Compiling with this argument has the same effect as if every declaration in the 
 
 If you build your module with Gradle, you can add arguments like this:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
@@ -155,17 +165,24 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
 }
 ```
 
-```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-}
-```
-
+</tab>
 </tabs>
 
 If your Gradle module is a multiplatform module, use the `optIn` method:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+sourceSets {
+    all {
+        languageSettings.optIn("org.mylibrary.OptInAnnotation")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 sourceSets {
@@ -177,14 +194,7 @@ sourceSets {
 }
 ```
 
-```kotlin
-sourceSets {
-    all {
-        languageSettings.optIn("org.mylibrary.OptInAnnotation")
-    }
-}
-```
-
+</tab>
 </tabs>
 
 For Maven, it would be:

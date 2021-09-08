@@ -65,7 +65,8 @@ fun main() {
 
 To enable this feature in Kotlin 1.5.30, use language version `1.6`. You can also change the warnings to errors by enabling [progressive mode](whatsnew13.md#progressive-mode).
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -78,6 +79,9 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
 ```groovy
 kotlin {
     sourceSets.all {
@@ -89,6 +93,7 @@ kotlin {
 }
 ```
 
+</tab>
 </tabs>
 
 ### Suspending functions as supertypes
@@ -108,7 +113,8 @@ class MyClass: suspend () -> Unit {
 
 Use the `-language-version 1.6` compiler option to enable the feature:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -120,6 +126,9 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
 ```groovy
 kotlin {
     sourceSets.all {
@@ -130,6 +139,7 @@ kotlin {
 }
 ```
 
+</tab>
 </tabs>
 
 The feature has the following restrictions:
@@ -441,7 +451,8 @@ XCFrameworks is useful if you want to use your KMM framework for devices and sim
 
 To use XCFrameworks, update your `build.gradle(.kts)` script:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
@@ -474,6 +485,9 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
 ```groovy
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
 
@@ -505,6 +519,7 @@ kotlin {
 }
 ```
 
+</tab>
 </tabs>
 
 When you declare XCFrameworks, these new Gradle tasks will be registered:
@@ -571,7 +586,8 @@ A Java toolchain:
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -581,6 +597,9 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
 ```groovy
 kotlin {
     jvmToolchain {
@@ -589,15 +608,12 @@ kotlin {
 }
 ```
 
-
-
+</tab>
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
-
-<tabs>
 
 ```kotlin
 java {
@@ -606,16 +622,6 @@ java {
     }
 }
 ```
-
-```groovy
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // “8”
-    }
-}
-```
-
-</tabs>
 
 For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
 
@@ -625,30 +631,36 @@ For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interfac
 
 All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle.md#compiler-options) now implement the `UsesKotlinJavaToolchain` interface. To set the JDK home, put a path to your JDK and replace the `<JDK_VERSION>` placeholder:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 project.tasks
     .withType<UsesKotlinJavaToolchain>()
     .configureEach {
         it.kotlinJavaToolchain.jdk.use(
-            "/path/to/your/jdk",
-            JavaVersion.<JDK_VERSION>
+            "/path/to/local/jdk",
+            JavaVersion.<LOCAL_JDK_VERSION>
         )
     }
 ```
+
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 project.tasks
     .withType(UsesKotlinJavaToolchain.class)
     .configureEach {
         it.kotlinJavaToolchain.jdk.use(
-            '/path/to/your/jdk',
-            JavaVersion.<JDK_VERSION>
+            '/path/to/local/jdk',
+            JavaVersion.<LOCAL_JDK_VERSION>
         )
     }
 ```
 
+</tab>
 </tabs>
 
 Use the `UsesKotlinJavaToolchain` interface for Gradle versions from 6.1 to 6.6. Starting from Gradle 6.7, use the [Java toolchains](#support-for-java-toolchains) instead.
@@ -679,7 +691,8 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
 
 * You can specify arguments in the `kotlin` extension:
 
-    <tabs>
+  <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     kotlin {
@@ -687,17 +700,22 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
     }
     ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
     ```groovy
     kotlin {
         kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"]
     }
     ```
 
-     </tabs>
+    </tab>
+    </tabs>
 
 * You can specify arguments for a specific task:
 
-    <tabs>
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     tasks
@@ -706,6 +724,9 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
             (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
         }
     ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
   
     ```groovy
     tasks
@@ -717,6 +738,7 @@ In Kotlin 1.5.30, there’s a new logic for the Kotlin daemon’s JVM arguments.
         }
     ```
 
+    </tab>
     </tabs>
 
     > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon’s interactions with JVM arguments](gradle.md#setting-kotlin-daemon-s-jvm-arguments).

@@ -17,20 +17,25 @@ library for applications that do not use reflection features.
 To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
 * In Gradle:
 
-    <tabs>
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-reflect:%kotlinVersion%")
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
     
     ```groovy
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-reflect:%kotlinVersion%"
     }
     ```
-    
-    ```kotlin
-    dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-reflect:%kotlinVersion%")
-    }
-    ```
-    
+
+    </tab>
     </tabs>
 
 * In Maven:

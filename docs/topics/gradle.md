@@ -9,20 +9,25 @@ Apply the Kotlin Gradle plugin by using the [Gradle plugins DSL](https://docs.gr
 
 The Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("<...>") version "%kotlinVersion%"
+  kotlin("<...>") version "%kotlinVersion%"
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 The placeholder `<...>` should be replaced with the name of one of the plugins that will be discussed in subsequent sections.
@@ -36,33 +41,33 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](mpp-dis
 >
 {type="note"}
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+  kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 ## Targeting the JVM
 
 To target the JVM, apply the Kotlin JVM plugin.
 
-<tabs>
-
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
-}
-```
+<tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -70,6 +75,16 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+}
+```
+
+</tab>
 </tabs>
 
 The `version` should be literal in this block, and it cannot be applied from another build script.
@@ -96,7 +111,17 @@ project
 
 The corresponding `sourceSets` property should be updated if you are not using the default convention:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+sourceSets.main {
+    java.srcDirs("src/main/myJava", "src/main/myKotlin")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 sourceSets {
@@ -105,25 +130,15 @@ sourceSets {
 }
 ```
 
-```kotlin
-sourceSets.main {
-    java.srcDirs("src/main/myJava", "src/main/myKotlin")
-}
-```
-
+</tab>
 </tabs>
 
 ## Targeting JavaScript
 
 When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -131,6 +146,16 @@ plugins {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
+}
+```
+
+</tab>
 </tabs>
 
 ### Kotlin and Java sources for JavaScript
@@ -138,15 +163,8 @@ plugins {
 This plugin only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
 project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets` block:
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        main.kotlin.srcDirs += 'src/main/myKotlin'
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -156,6 +174,18 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/myKotlin'
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Targeting Android
@@ -167,19 +197,8 @@ It's recommended to use Android Studio for creating Android applications. [Learn
 To add a dependency on a library, set the dependency of the required [type](#dependency-types) (for example, `implementation`) in the
 `dependencies` block of the source sets DSL.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'com.example:my-library:1.0'
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -193,6 +212,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'com.example:my-library:1.0'
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Alternatively, you can [set dependencies at the top level](#set-dependencies-at-the-top-level).
@@ -265,19 +300,8 @@ test dependencies for each test source set:
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        commonTest {
-            dependencies {
-                implementation kotlin("test") // This brings all the platform dependencies automatically
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -291,6 +315,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin("test") // This brings all the platform dependencies automatically
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
@@ -308,24 +348,8 @@ or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/
 test task of your build script.
 The following example is for an MPP project:
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm {
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
-        }
-    }
-    sourceSets {
-        commonTest {
-            dependencies {
-                implementation kotlin("test")
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -344,21 +368,33 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
+    }
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation kotlin("test")
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 The following example is for a JVM project:
 
-<tabs>
-
-```groovy
-dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test'
-}
-
-test {
-    useTestNG()
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -372,6 +408,20 @@ tasks {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useTestNG()
+}
+```
+
+</tab>
 </tabs>
 
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
@@ -390,19 +440,8 @@ If you use a kotlinx library and need a platform-specific dependency, you can us
 of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library's
 base artifact name instead – `kotlinx-coroutines-core`.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        jvmMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -416,24 +455,29 @@ kotlin {
 }
 ```
 
-</tabs>
-
-If you use a multiplatform library and need to depend on the shared code, set the dependency only once, in the shared
-source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
-
-<tabs>
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
     sourceSets {
-        commonMain {
+        jvmMain {
             dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
             }
         }
     }
 }
 ```
+
+</tab>
+</tabs>
+
+If you use a multiplatform library and need to depend on the shared code, set the dependency only once, in the shared
+source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -447,6 +491,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ### Set dependencies at the top level
@@ -455,13 +515,8 @@ Alternatively, you can specify the dependencies at the top level, using the foll
 `<sourceSetName><DependencyType>`. This can be helpful for some Gradle built-in dependencies, like `gradleApi()`, `localGroovy()`,
 or `gradleTestKit()`, which are not available in the source sets' dependency DSL.
 
-<tabs>
-
-```groovy
-dependencies {
-    commonMainImplementation 'com.example:my-library:1.0'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -469,6 +524,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    commonMainImplementation 'com.example:my-library:1.0'
+}
+```
+
+</tab>
 </tabs>
 
 ## Annotation processing
@@ -531,7 +596,20 @@ When targeting JavaScript, the tasks are called `compileKotlinJs` for production
 
 To configure a single task, use its name. Examples:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+// ...
+
+val compileKotlin: KotlinCompile by tasks
+
+compileKotlin.kotlinOptions.suppressWarnings = true
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 compileKotlin {
@@ -547,15 +625,7 @@ compileKotlin {
 }
 ```
 
-```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-// ...
-
-val compileKotlin: KotlinCompile by tasks
-
-compileKotlin.kotlinOptions.suppressWarnings = true
-```
-
+</tab>
 </tabs>
 
 Note that with the Gradle Kotlin DSL, you should get the task from the project's `tasks` first.
@@ -564,13 +634,8 @@ Use the `Kotlin2JsCompile` and `KotlinCompileCommon` types for JS and common tar
 
 It is also possible to configure all of the Kotlin compilation tasks in the project:
 
-<tabs>
-
-```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-    kotlinOptions { /*...*/ }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
@@ -578,6 +643,15 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions { /*...*/ }
+}
+```
+</tab>
 </tabs>
 
 Here is a complete list of options for Gradle tasks:
@@ -688,15 +762,8 @@ A Java toolchain:
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 
-<tabs>
-
-```groovy
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin { 
@@ -706,21 +773,24 @@ kotlin {
 }
 ```
 
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
-
-<tabs>
-
-```groovy
-java {
-    toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-    }
-}
-```
 
 ```kotlin
 java {
@@ -730,8 +800,6 @@ java {
 }
 ```
 
-</tabs>
-
 To set any JDK (even local) for the specific task, use the Task DSL.
 
 #### Setting JDK version with the Task DSL
@@ -740,19 +808,8 @@ The Task DSL allows setting any JDK version for any task implementing the `UsesK
 At the moment, these tasks are `KotlinCompile` and `KaptTask`.
 If you want Gradle to search for the major JDK version, replace the <MAJOR_JDK_VERSION> placeholder in your build script:
 
-<tabs>
-
-```groovy
-JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
-Provider<JavaLauncher> customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-}
-project.tasks
-    .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
-    .configureEach {
-        it.kotlinJavaToolchain.toolchain.use(customLauncher)
-    }
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
@@ -766,22 +823,25 @@ project.tasks
     }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
+Provider<JavaLauncher> customLauncher = service.launcherFor {
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+}
+project.tasks
+    .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
+    .configureEach {
+        it.kotlinJavaToolchain.toolchain.use(customLauncher)
+    }
+```
+
+</tab>
 </tabs>
 
 Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
-
-<tabs>
-
-```groovy
-project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-    .configureEach {
-        it.kotlinJavaToolchain.jdk.use(
-            '/path/to/your/jdk', // Put a path to your JDK
-            JavaVersion.<JDK_VERSION> // For example, JavaVersion.17
-        )
-    }
-```
 
 ```kotlin
 project.tasks
@@ -793,8 +853,6 @@ project.tasks
         )
     }
 ```
-
-</tabs>
 
 ## Generating documentation
 
@@ -850,25 +908,42 @@ Each of the options in the following list overrides the ones that came before it
 
 * You can specify arguments in the `kotlin` extension:
 
-  <tabs>
-
-  ```groovy
-  kotlin {
-      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"]
-  }
-  ```
-
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+  
   ```kotlin
   kotlin {
       kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC")
   }
   ```
 
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  kotlin {
+      kotlinDaemonJvmArgs = ["-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"]
+  }
+  ```
+  
+  </tab>
   </tabs>
 
 * You can specify arguments for a specific task:
+
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
   
-  <tabs>
+  ```kotlin
+  tasks
+      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
+      .configureEach { 
+          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
+      }
+  ```
+  
+  </tab>
+  <tab title="Groovy" group-key="groovy">
 
   ```groovy
   tasks
@@ -877,15 +952,8 @@ Each of the options in the following list overrides the ones that came before it
           kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
       }
   ```
-
-  ```kotlin
-  tasks
-      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
-      .configureEach { 
-          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
-      }
-  ```
-
+  
+  </tab>
   </tabs>
 
   > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).

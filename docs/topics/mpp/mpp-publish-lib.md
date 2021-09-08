@@ -56,27 +56,8 @@ platform. Alternatively, you can pass the flag from an external source, for exam
 This simplified example ensures that publications are only uploaded when `isMainHost=true` is passed. This means that 
 a publication that can be published from multiple platforms will be published only once – from the main host.
 
-<tabs>
-
-```groovy
-kotlin {
-    jvm()
-    js()
-    mingwX64()
-    linuxX64()
-    def publicationsFromMainHost = 
-        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
-    publishing {
-        publications {
-            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
-                tasks.withType(AbstractPublishToMaven)
-                        .matching { it.publication == targetPublication }
-                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-            }
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -99,6 +80,30 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+    def publicationsFromMainHost = 
+        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
+                tasks.withType(AbstractPublishToMaven)
+                        .matching { it.publication == targetPublication }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target. 

@@ -199,20 +199,25 @@ new backend and share your feedback in our [issue tracker](https://kotl.in/issue
 To enable the new JVM IR backend, add the following lines to the project’s configuration file:
 * In Gradle:
 
-  <tabs>
-  
-  ```groovy
-  tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
-    kotlinOptions.useIR = true
-  }
-  ```
-  
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
   ```kotlin
   tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile::class) {
     kotlinOptions.useIR = true
   }
   ```
   
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+  
+  ```groovy
+  tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+    kotlinOptions.useIR = true
+  }
+  ```
+
+  </tab>
   </tabs>
 
 * In Maven:

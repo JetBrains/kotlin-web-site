@@ -23,32 +23,8 @@ Either can be used and samples will show the syntax for both languages.
 First, create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` 
 Gradle build file with the following contents:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64('native') { // on macOS
-  // linuxX64('native') // on Linux
-  // mingwX64('native') // on Windows
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = '%gradleVersion%'
-  distributionType = 'BIN'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -75,6 +51,35 @@ tasks.withType<Wrapper> {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  macosX64('native') { // on macOS
+  // linuxX64('native') // on Linux
+  // mingwX64('native') // on Windows
+    binaries {
+      executable()
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = '%gradleVersion%'
+  distributionType = 'BIN'
+}
+```
+
+</tab>
 </tabs>
 
 Next, create an empty `settings.gradle` or `settings.gradle.kts` file in the project folder.

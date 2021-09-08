@@ -81,19 +81,8 @@ The `kotlin-multiplatform` plugin provides target shortcuts for creating structu
 
 All shortcuts create similar hierarchical structures in the code. For example, the `ios` shortcut creates the following hierarchical structure:
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets{
-        iosMain {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(it)
-            iosArm64Main.dependsOn(it)
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -110,6 +99,22 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets{
+        iosMain {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(it)
+            iosArm64Main.dependsOn(it)
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 #### Target shortcuts and ARM64 (Apple Silicon) simulators
@@ -121,7 +126,28 @@ the project for an Apple Silicon simulator, adjust the build script the followin
 1. Add the `*SimulatorArm64` simulator target you need.
 2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+    
+    val iosMain by sourceSets.getting
+    val iosTest by sourceSets.getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+
+    // Set up dependencies between the source sets
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -142,23 +168,7 @@ kotlin {
 }
 ```
 
-```kotlin
-kotlin {
-    ios()
-    // Add the ARM64 simulator target
-    iosSimulatorArm64()
-    
-    val iosMain by sourceSets.getting
-    val iosTest by sourceSets.getting
-    val iosSimulatorArm64Main by sourceSets.getting
-    val iosSimulatorArm64Test by sourceSets.getting
-
-    // Set up dependencies between the source sets
-    iosSimulatorArm64Main.dependsOn(iosMain)
-    iosSimulatorArm64Test.dependsOn(iosTest)
-}
-```
-
+</tab>
 </tabs>
 
  
@@ -175,26 +185,8 @@ For example, if you want to share code among native Linux, Windows, and macOS ta
 1. Add the intermediate source set `desktopMain` that holds the shared logic for these targets.
 2. Specify the hierarchy of source sets using the `dependsOn` relation.
 
-<tabs>
-
-```groovy
-kotlin {
-    sourceSets {
-        desktopMain {
-            dependsOn(commonMain)
-        }
-        linuxX64Main {
-            dependsOn(desktopMain)
-        }
-        mingwX64Main {
-            dependsOn(desktopMain)
-        }
-        macosX64Main {
-            dependsOn(desktopMain)
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin{
@@ -215,6 +207,29 @@ kotlin{
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        desktopMain {
+            dependsOn(commonMain)
+        }
+        linuxX64Main {
+            dependsOn(desktopMain)
+        }
+        mingwX64Main {
+            dependsOn(desktopMain)
+        }
+        macosX64Main {
+            dependsOn(desktopMain)
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 You can have a shared source set for the following combinations of targets:

@@ -72,32 +72,8 @@ the missing directories will have to be created before any new files can be adde
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64("native") {
-    binaries {
-      framework {
-        baseName = "Demo"
-      }
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -124,6 +100,35 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  macosX64("native") {
+    binaries {
+      framework {
+        baseName = "Demo"
+      }
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = "ALL"
+}
+```
+
+</tab>
 </tabs>
 
 Move the sources file into the `src/nativeMain/kotlin` folder under
