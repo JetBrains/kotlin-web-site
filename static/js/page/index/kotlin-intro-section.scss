@@ -14,7 +14,11 @@
 }
 
 .kotlin-intro-section__link {
-  margin-left: var(--s-space);
+  margin-left: var(--xs-space);
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .kotlin-intro-actions {

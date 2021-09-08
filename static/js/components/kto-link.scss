@@ -44,8 +44,16 @@
 }
 
 @mixin kto-link-standalone {
-  text-decoration: underline;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #fff;
+  }
+}
 
+.kto-link-standalone {
+  color: #ffffff;
+  @include kto-link-standalone;
 }
 
 .kto-link_theme_dark {
