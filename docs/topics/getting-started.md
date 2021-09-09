@@ -75,23 +75,23 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile/).
 
-1. **[Set up your environment for cross-platform development](https://kotlinlang.org/docs/mobile/setup.html).**
+1. **[Set up your environment for cross-platform development](kmm-setup.md).**
 
 2. **Create your first KMM application:**
 
-   * To start from scratch, [create a basic KMM application with the project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html).
-   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](https://kotlinlang.org/docs/mobile/integrate-in-existing-app.html) tutorial.
-   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [KMM sample](https://kotlinlang.org/docs/mobile/samples.html).
+   * To start from scratch, [create a basic KMM application with the project wizard](kmm-create-first-app.md).
+   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](kmm-integrate-in-existing-app.md) tutorial.
+   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [KMM sample](kmm-samples.md).
 
-3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](https://kotlinlang.org/docs/mobile/add-dependencies.html).
+3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](kmm-add-dependencies.md).
    
    |Library|Details|
    |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html).| 
+   | Ktor |  [Docs](https://ktor.io/) and [sample](kmm-use-ktor-for-networking.md).| 
    | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
-   | Coroutines |  [Docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html).|
+   | Coroutines |  [Docs](kmm-concurrency-overview.md) and [sample](kmm-concurrency-and-coroutines.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](https://kotlinlang.org/docs/mobile/configure-sqldelight-for-data-storage.html).|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](kmm-configure-sqldelight-for-data-storage.md ).|
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    > 
@@ -99,7 +99,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
 
 4. **Learn more about KMM:**
    * Learn more about [Kotlin Multiplatform](mpp-intro.md).
-   * Look through [KMM samples on GitHub](https://kotlinlang.org/docs/mobile/samples.html).
+   * Look through [KMM samples on GitHub](kmm-samples.md).
    * [Create and publish a multiplatform library](mpp-create-lib.md).
    * Learn how KMM is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
 
