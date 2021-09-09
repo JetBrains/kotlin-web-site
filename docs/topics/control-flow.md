@@ -76,7 +76,7 @@ You can use arbitrary expressions (not only constants) as branch conditions
 
 ```kotlin
 when (x) {
-    parseInt(s) -> print("s encodes x")
+    s.toInt() -> print("s encodes x")
     else -> print("s does not encode x")
 }
 ```
