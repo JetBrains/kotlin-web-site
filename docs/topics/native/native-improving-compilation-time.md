@@ -45,7 +45,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
       the `.framework` for only the platform you’re using.
       
       To build a platform-specific framework, call the  `packForXcode` task generated
-      by the [KMM project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html). 
+      by the [KMM project wizard](kmm-create-first-app.md). 
       
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.

@@ -15,7 +15,7 @@ You can get started with Kotlin using an online editor. If you already have an I
 
 * [Get started with Kotlin](getting-started.md)
 * [Try Kotlin online](https://play.kotlinlang.org/)
-* [Get started with KMM in Android Studio](https://kotlinlang.org/docs/mobile/getting-started.html)
+* [Get started with KMM in Android Studio](kmm-getting-started.md)
 
 <br/>
 
@@ -30,7 +30,7 @@ versions](eap.md) before they are released.
 * [What's new in Kotlin 1.5.20](whatsnew1520.md)
 * [What's new in Kotlin plugin 2021.2](whatsnew-plugin-20212.md)
 * [Kotlin public roadmap](roadmap.md)
-* [KMM plugin releases for Android Studio](https://kotlinlang.org/docs/mobile/kmm-plugin-releases.html)
+* [KMM plugin releases for Android Studio](kmm-plugin-releases.md)
 
 <br/>
 
