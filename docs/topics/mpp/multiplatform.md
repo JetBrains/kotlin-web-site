@@ -84,14 +84,14 @@ New to Kotlin? Visit [Getting started with Kotlin](getting-started.md).
 
 ### Documentation
 
-* [Get started with Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/docs/mobile/getting-started.html)
+* [Get started with Kotlin Multiplatform Mobile (KMM)](kmm-getting-started.md)
 * [Create a multiplatform project](mpp-create-lib.md)
 * [Share code on multiple platforms](mpp-share-on-platforms.md)
 * [Connect to platform-specific APIs](mpp-connect-to-apis.md)
 
 ### Tutorials
 
-* [Creating a KMM application](https://kotlinlang.org/docs/mobile/create-first-app.html) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+* [Creating a KMM application](kmm-create-first-app.md) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
 Create, run, and test your first multiplatform mobile application.
 
 * [Creating a multiplatform Kotlin library](multiplatform-library.md) teaches how to create a multiplatform 
@@ -106,6 +106,6 @@ Android and iOS). It also shows how to write tests which will be executed on all
   
 ## Sample projects
 
-- [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
+- [Kotlin Multiplatform Mobile samples](kmm-samples.md)
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)

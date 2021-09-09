@@ -24,11 +24,10 @@ Note that source files for the [server-side landing page](https://kotlinlang.org
 
 #### Sources in different repositories
 
-Source files for KMM docs, coroutine docs, and language specification are stored in separate repositories:
+Source files for coroutine docs, and language specification are stored in separate repositories:
 
 |Website page|GitHub repository|
 |------------|--------|
-| [KMM docs](https://kotlinlang.org/docs/mobile/home.html) | [kotlin-mobile-docs](https://github.com/JetBrains/kotlin-mobile-docs) |
 | [Coroutine docs](https://kotlinlang.org/docs/coroutines-guide.html) | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/docs) |
 | [Language specification](https://kotlinlang.org/spec/introduction.html) | [kotlin-spec](https://github.com/Kotlin/kotlin-spec) |
 
