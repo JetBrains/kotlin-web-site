@@ -59,7 +59,7 @@ Learn more about [sharing code in libraries](#share-code-in-libraries) and [usin
 >
 > This issue applies only to the shared native source set. The IDE will correctly support the rest of the code.
 >
-> Learn how to [work around this issue](https://kotlinlang.org/docs/mobile/add-dependencies.html#workaround-to-enable-ide-support-for-the-shared-ios-source-set) 
+> Learn how to [work around this issue](kmm-add-dependencies.md#workaround-to-enable-ide-support-for-the-shared-ios-source-set) 
 > for similar source sets, such as `iosArm64` and `iosX64`.
 >
 {type="note"}

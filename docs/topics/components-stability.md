@@ -49,6 +49,11 @@ Kotlin/JVM (IR-based)|Stable|1.5| |
 Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
 KLib binaries|Alpha|1.4| |
+Multiplatform Projects|Alpha|1.3| |
+Kotlin/Native interop with C and Objective C|Beta|1.3| |
+CocoaPods integration|Beta|1.3| |
+KMM plugin for Android Studio|Experimental|0.1|Versioned separately from the language
+expect/actual language feature|Beta|1.2| |
 KDoc syntax|Stable|1.0| |
 Dokka|Alpha|0.1| |
 Scripting syntax and semantics|Alpha|1.2|
@@ -58,8 +63,6 @@ CLI scripting|Alpha|1.2
 Compiler Plugin API|Experimental|1.0| |
 Serialization Compiler Plugin|Stable|1.4| |
 Serialization Core Library|Stable|1.0.0|Versioned separately from the language
-Multiplatform Projects|Alpha|1.3| |
-expect/actual language feature|Beta|1.2| |
 Inline classes|Stable|1.5| |
 Unsigned arithmetics|Stable|1.5| |
 Contracts in stdlib|Stable|1.3| |
