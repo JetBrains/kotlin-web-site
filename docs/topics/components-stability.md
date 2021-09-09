@@ -50,8 +50,8 @@ Kotlin/JS (IR-based)|Alpha|1.4| |
 Kotlin/Native Runtime|Beta|1.3| |
 KLib binaries|Alpha|1.4| |
 Multiplatform Projects|Alpha|1.3| |
-Kotlin/Native interop with C and Objective C|Beta|1.4| |
-CocoaPods integration|Beta|1.4| |
+Kotlin/Native interop with C and Objective C|Beta|1.3| |
+CocoaPods integration|Beta|1.3| |
 KMM plugin for Android Studio|Experimental|0.1|Versioned separately from the language
 expect/actual language feature|Beta|1.2| |
 KDoc syntax|Stable|1.0| |
