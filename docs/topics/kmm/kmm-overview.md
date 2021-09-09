@@ -5,13 +5,10 @@
 {type="note"}
 
 Kotlin Multiplatform Mobile (_KMM_) is an SDK designed to simplify creating multiplatform mobile applications.
-Kotlin Multiplatform Mobile allows you to use a single codebase for the business logic of iOS and Android apps.
-
+With help of KMM you can share common code between iOS and Android apps. For example, data storage and management, authentication.
 You only need to write platform-specific code where it’s necessary, for example to implement a native UI or when working with platform-specific APIs.
 
-![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
-
-## Supported platforms 
+## Supported platforms
 
 KMM supports the following mobile targets:
 
@@ -20,44 +17,33 @@ KMM supports the following mobile targets:
 * Apple iOS on ARM64 (iPhone 5s and newer), ARM32 (earlier models) platforms, and desktop simulators on both Intel-based and Apple Silicon platforms
 * Apple watchOS on ARM64 (Apple Watch Series 4 and newer), ARM32 (earlier models) platforms, and desktop simulators on both Intel-based and Apple Silicon platforms
 
-KMM is built on top of the [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) technology,
-which supports other platforms inlcuding JavaScript, Linux, WebAssembly, and [more](https://kotlinlang.org/docs/mpp-dsl-reference.html#targets).
+KMM is built on top of the [Kotlin Multiplatform](multiplatform.md) technology,
+which supports other platforms inlcuding JavaScript, Linux, WebAssembly, and [more](mpp-dsl-reference.md#targets).
 
-See [supported platforms for Kotlin multiplatform programming](https://kotlinlang.org/docs/mpp-supported-platforms.html)
+See [supported platforms for Kotlin multiplatform programming](mpp-supported-platforms.md)
 
 ## Get started with Kotlin Multiplatform Mobile
 
-* [Get started with KMM](kmm-getting-started.md) if you're already familiar with the Kotlin language and want to try out Kotlin Multiplatform Mobile (KMM).
-* [Get started with Kotlin](getting-started.md) if you're new to Kotlin. 
+[Get started with KMM](kmm-getting-started.md) if you're already familiar with the Kotlin language and want to try out Kotlin Multiplatform Mobile (KMM). 
+If you're new to Kotlin, [get started with Kotlin](getting-started.md).
+
+If you want to introduce KMM to your team, look through [our recommendations](kmm-introduce-your-team.md).
 
 ### Sample projects
 
-* [Check our list of KMM sample projects](kmm-samples.md) for inspiration.
-
-### Videos
-
-* "Kotlin Multiplatform Multiverse Episode 1: Meet KMM!" by Ekaterina Petrova, Kotlin Developer Advocate
-
-  <!-- <video href="mdN6P6RI__k" title="Kotlin Multiplatform Multiverse, Episode 1: Meet KMM!"/> -->
-
-* "Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial" by 
-  Ekaterina Petrova, Kotlin Developer Advocate
-  
-  <!-- <video href="GcqFhoUuNNI" title="Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial"/> -->
+[Check our list of KMM sample projects](kmm-samples.md) for inspiration.
 
 ## Community
 
+* **Kotlin Multiplatform Multiverse**: learn KMM with [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) videos.
 * **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
 * **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 * **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
-* [New KMM plugin releases](kmm-plugin-releases.md)
-* [What's new in Kotlin for KMM](whats-new-in-kotlin-for-kmm.md)
-* [Multiplatform roadmap](https://youtrack.jetbrains.com/agiles/153-1251/current)
 
 ## Security
 
 We do our best to make sure our software is free of security vulnerabilities.
-To reduce the risk of introducing a vulnerability, you can follow [Kotlin security recommendations](https://kotlinlang.org/security.html).
+To reduce the risk of introducing a vulnerability, you can follow [Kotlin security recommendations](security.md).
 
 We are very eager and grateful to hear about any security issues you find.
 To report vulnerabilities that you discover in any part of KMM, please post a message directly to our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Security%20Problem) or send us an [email](mailto:security@jetbrains.org).
