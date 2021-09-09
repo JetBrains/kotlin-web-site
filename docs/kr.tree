@@ -112,6 +112,7 @@
             <toc-element id="kmm-add-dependencies.md"/>
             <toc-element id="kmm-configure-sqldelight-for-data-storage.md"/>
             <toc-element id="kmm-use-ktor-for-networking.md"/>
+            <toc-element id="kmm-publish-apps.md"/>
             <toc-element toc-title="Work with concurrency">
                 <toc-element id="kmm-concurrency-overview.md"/>
                 <toc-element id="kmm-concurrent-mutability.md"/>
