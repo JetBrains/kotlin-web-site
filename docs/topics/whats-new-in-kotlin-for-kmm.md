@@ -10,7 +10,48 @@ Here you can find a short summary of the features Kotlin provides for developing
 
 ## Kotlin 1.5.30 for KMM
 
+[Kotlin 1.5.30](whatsnew1530.md) introduces a number of improvements and features that are helpful for KMM:
 
+* **Apple silicon support.**
+  Kotlin 1.5.30 introduces native support for [Apple silicon](https://support.apple.com/en-us/HT211814).
+  Now the Kotlin/Native compiler and tooling can run on Apple silicon hardware without [Rosetta translation environment](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment)
+
+  Learn more about [Apple silicon support](whatsnew1530.md#apple-silicon-support).
+
+* **Improved Kotlin DSL for CocoaPods Gradle plugin.** Kotlin 1.5.30 introduces the improved CocoaPods Gradle plugin DSL.
+  In addition to the name of the framework, you can now specify other parameters in the pod configuration: 
+  * Dynamic or static version of the framework
+  * Dependencies explicit export
+  * Bitcode embedding
+  * Custom names for Xcode configuration
+
+  [Learn more about CocoaPods Gradle plugin improvements](whatsnew1530.md#improved-kotlin-dsl-for-the-cocoapods-gradle-plugin).
+
+* **Experimental interoperability with Swift 5.5 async/await.**
+  The Kotlin/Native compiler now emits the `_Nullable_result` attribute in the generated Objective-C headers for suspending functions with nullable return types. This makes it possible to call them from Swift as `async` functions with the proper nullability.
+
+  [Learn more about experimental interoperability with Swift 5.5 async/await](whatsnew1530.md#experimental-interoperability-with-swift-5-5-async-await).
+
+* **Improved Swift/Objective-C mapping for objects and companion objects.**
+  Getting objects and companion objects can now be done in a way that is more intuitive for native iOS developers.
+
+  [Learn more about mapping for objects and companion objects](whatsnew1530.md#improved-swift-objective-c-mapping-for-objects-and-companion-objects).
+
+* **Sharing custom `cinterop` libraries between platforms.**
+  Starting from Kotlin 1.5.30, you can use custom cinterop libraries in shared native code.
+
+  [Learn more about sharing custom `cinterop` libraries between platforms](whatsnew1530.md#ability-to-use-custom-cinterop-libraries-in-shared-native-code).
+
+* **Support for XCFrameworks.**
+  Now all Kotlin Multiplatform projects can use XCFrameworks.
+
+  [Learn more about support for XCFrameworks](mpp-build-native-binaries.md#build-xcframeworks).
+
+* **New default publishing setup for Android artifacts.**
+  Kotlin 1.5.30 brings new default publishing setup for Android artefacts. You can [publish your multiplatform library for the Android target](mpp-publish-lib.md#publish-an-android-library) by specifying [Android variant](https://developer.android.com/studio/build/build-variants) names in the build script.
+  The Kotlin Gradle plugin will generate publications automatically.
+
+  [Learn more about new default publishing setup for Android artifacts](whatsnew1530.md#new-default-publishing-setup-for-android-artifacts).
 
 ## Kotlin 1.5.20 for KMM
 
