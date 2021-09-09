@@ -1,11 +1,15 @@
 [//]: # (title: Kotlin Multiplatform Mobile)
 
+> Multiplatform Mobile projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+>
+{type="note"}
+
 Kotlin Multiplatform Mobile (_KMM_) is an SDK designed to simplify creating multiplatform mobile applications.
 Kotlin Multiplatform Mobile allows you to use a single codebase for the business logic of iOS and Android apps.
 
 You only need to write platform-specific code where it’s necessary, for example to implement a native UI or when working with platform-specific APIs.
 
-![Code shared for iOS targets](iosmain-hierarchy.png){width=700}
+![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
 
 ## Supported platforms 
 
@@ -19,8 +23,7 @@ KMM supports the following mobile targets:
 KMM is built on top of the [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) technology,
 which supports other platforms inlcuding JavaScript, Linux, WebAssembly, and [more](https://kotlinlang.org/docs/mpp-dsl-reference.html#targets).
 
-[Supported platforms for Kotlin multiplatform programming](https://kotlinlang.org/docs/mpp-supported-platforms.html)
-
+See [supported platforms for Kotlin multiplatform programming](https://kotlinlang.org/docs/mpp-supported-platforms.html)
 
 ## Get started with Kotlin Multiplatform Mobile
 
