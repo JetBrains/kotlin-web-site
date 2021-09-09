@@ -150,8 +150,8 @@ perspective
 >
 > - 1.5: change implementation strategy of SAM conversion,
 >  `-Xsam-conversions=class` can be used to revert implementation scheme to the one that used before
- 
-### Switch between JVM backends
+
+### Performance issues with the JVM IR-based backend
 
 > **Issue**: [KT-48233](https://youtrack.jetbrains.com/issue/KT-48233)
 >
@@ -168,7 +168,59 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: by default, the old JVM backend is used
-> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5, add the following lines to the project’s configuration file to temporarily revert to pre-1.5 behavior:
+> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5,
+> add the following lines to the project's configuration file to temporarily revert to pre-1.5 behavior:
+>
+> In Gradle:
+>
+> <tabs>
+>
+> ```kotlin
+> tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> ```groovy
+> tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> </tabs>
+>
+> In Maven:
+>
+> ```xml
+> <configuration>
+>     <args>
+>         <arg>-Xuse-old-backend</arg>
+>     </args>
+> </configuration>
+> ```
+>
+> Support for this flag will be removed in one of the future releases.
+
+### New field sorting in the JVM IR-based backend
+
+> **Issue**: [KT-46378](https://youtrack.jetbrains.com/issue/KT-46378)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Since version 1.5, Kotlin uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
+> that sorts JVM bytecode differently: it generates fields declared in the constructor before fields declared in the body,
+> while it's vice versa for the old backend. The new sorting may change the behavior of programs that use
+> serialization frameworks that depend on the field order, such as Java serialization.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: by default, the old JVM backend is used. It has fields declared in the body before fields declared
+> in the constructor.
+> - \>= 1.5: by default, the new IR-based backend is used. Fields declared in the constructor are generated before fields
+> declared in the body. As a workaround, you can temporarily switch to the old backend in Kotlin 1.5. To do that,
+> add the following lines to the project's configuration file:
 >
 > In Gradle:
 >
