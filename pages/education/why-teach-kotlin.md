@@ -198,7 +198,7 @@ This plugin helps users learn and teach Kotlin programming. Educators can use ex
  
  This is a new collaborative coding and pair programming service. It’s a great tool for remote learning and real-time collaboration on a project inside an IDE.
 
-* [Resources for educators](https://kotlinlang.org/education)
+* [Kotlin Basics track on JetBrains Academy](https://hyperskill.org/tracks/18)
 
 > Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great. 
 > {:.kto-quote__text}
