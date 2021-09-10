@@ -1,7 +1,7 @@
 <div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
 ```kotlin
 /*
- Create a POJO with getters, setters, `equals()`, `hashCode()`,
+ Create a POJO with getters, `equals()`, `hashCode()`,
  `toString()` and `copy()` in a single line:
 */
 
