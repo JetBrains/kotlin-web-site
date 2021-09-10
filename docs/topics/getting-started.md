@@ -143,7 +143,7 @@ Here you'll learn how to develop and improve your frontend web application using
 
 4. **Learn more about Kotlin for frontend web development:**
 
-   * The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Beta](components-stability.md) stability).
+   * The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Alpha](components-stability.md) stability).
    * [Using dependencies from npm](using-packages-from-npm.md).
    * [Using Kotlin code from JavaScript](js-to-kotlin-interop.md).
 

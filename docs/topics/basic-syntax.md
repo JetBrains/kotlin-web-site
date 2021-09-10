@@ -1,6 +1,6 @@
 [//]: # (title: Basic syntax)
 
-A collection of basic syntax elements with examples. At the bottom of every section, you'll find a link to a detailed
+A collection of basic syntax elements with examples. At the end of every section, you'll find a link to a detailed
 description of the related topic.
 
 You can also learn all the Kotlin essentials with a free [Kotlin Basics track](https://hyperskill.org/tracks/18)
