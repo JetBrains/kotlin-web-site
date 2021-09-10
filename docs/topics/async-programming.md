@@ -154,4 +154,4 @@ Coroutines are not a new concept, let alone invented by Kotlin. They've been aro
 is that the way they're implemented in Kotlin, most of the functionality is delegated to libraries. In fact, beyond the `suspend` keyword, no other keywords are added to the language. This is somewhat different from
 languages such as C# that have `async` and `await` as part of the syntax. With Kotlin, these are just library functions.
 
-For more information regarding Coroutines and the different possibilities, check out the reference guide.
+For more information, see the [Coroutines reference](coroutines-overview.md).
