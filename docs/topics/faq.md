@@ -126,16 +126,16 @@ The best place to start is [this website](https://kotlinlang.org). From there yo
 There are a number of books available for Kotlin. Some of them we have reviewed and can recommend to start with. They are listed
 on the [Books](books.md) page. For more books, see the community-maintained list at [kotlin.link](https://kotlin.link/). 
 
-### Are there any online courses available for Kotlin?
+### Are any online courses available for Kotlin?
 
-You can learn all the Kotlin essentials while creating applications with the [Kotlin Basics track](https://hyperskill.org/tracks/18) on JetBrains Academy.
+You can learn all the Kotlin essentials while creating working applications with the [Kotlin Basics track](https://hyperskill.org/tracks/18) on JetBrains Academy.
 
 A few other courses you can take:
-* [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
-* [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri
-* [Udemy Kotlin Course](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
+* [Pluralsight Course: Getting Started with Kotlin](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
+* [O’Reilly Course: Introduction to Kotlin Programming](https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/) by Hadi Hariri
+* [Udemy Course: 10 Kotlin Tutorials for Beginneres](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
 
-You can also check out tutorials and other content available on our [YouTube channel](https://www.youtube.com/c/Kotlin). 
+You can also check out tutorials and other content available on our [YouTube channel](https://www.youtube.com/c/Kotlin).
 
 ### Does Kotlin have a community?
 
