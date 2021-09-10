@@ -143,7 +143,7 @@ For Kotlin/JS, the following hands-on labs are currently available:
 
 ## New Kotlin/JS IR compiler
 
-The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Alpha](components-stability.md) stability) comes with
+The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Beta](components-stability.md) stability) comes with
 a number of improvements over the current default compiler. For example, it improves the size of generated executables
 via dead code elimination and makes it smoother to interoperate with the JavaScript ecosystem and its tooling.
 By generating TypeScript declaration files (d.ts) from Kotlin code, the new compiler makes it easier to create “hybrid”
