@@ -27,24 +27,24 @@ Let’s take a closer look at the basic project and its components.
 The root project is a Gradle project that holds the shared module and the Android application as its subprojects.
 They are linked together via the [Gradle multi-project mechanism](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// settings.gradle.kts
+include(":shared")
+include(":androidApp")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 // settings.gradle
 include ':shared'
 include ':androidApp'
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-// settings.gradle.kts
-include(":shared")
-include(":androidApp")
- ```
-         
+
 </tab>
 </tabs>
 
@@ -70,10 +70,25 @@ This is a [Kotlin Multiplatform](mpp-intro.md) module that compiles
 into an Android library and an iOS framework. It uses Gradle with the Kotlin Multiplatform plugin applied and 
 has targets for Android and iOS.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+    // ..
+}
+
+kotlin {
+    android()
+    ios()
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     //..
@@ -84,22 +99,7 @@ kotlin {
     ios()
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-    // ..
-}
 
-kotlin {
-    android()
-    ios()
-}
- ```
-         
 </tab>
 </tabs>
 
@@ -116,10 +116,28 @@ The shared module contains the code that is common for Android and iOS applicati
 
 Each source set has its own dependencies. Kotlin standard library is added automatically to all source sets, you don’t need to declare it in the build script.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("androidx.core:core-ktx:1.2.0")
+            }
+        }
+        val iosMain by getting 
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     sourceSets {
         commonMain {
@@ -136,25 +154,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    sourceSets {
-        val commonMain by getting
-        val androidMain by getting {
-            dependencies {
-                implementation("androidx.core:core-ktx:1.2.0")
-            }
-        }
-        val iosMain by getting 
-        // ...
-    }
-}
- ```
-         
+
 </tab>
 </tabs>
 
@@ -171,10 +171,30 @@ Use them to store unit tests for common and platform-specific source sets accord
 By default, they have dependencies on Kotlin test library, providing you with means for Kotlin unit testing:
 annotations, assertion functions and other. You can add dependencies on other test libraries you need.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        // ...
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
+            }
+        }
+        val androidTest by getting
+        val iosTest by getting
+    }
+
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     sourceSets {
         //...
@@ -194,27 +214,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    sourceSets {
-        // ...
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
-            }
-        }
-        val androidTest by getting
-        val iosTest by getting
-    }
 
-}
- ```
-         
 </tab>
 </tabs>
 
@@ -233,37 +233,57 @@ To produce the Android library, two more Gradle plugins are used in addition to 
 * Android library
 * Kotlin Android extensions
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    // ...
+    id("com.android.library")
+    id("kotlin-android-extensions")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 plugins {
     // ...
     id 'com.android.library'
     id 'kotlin-android-extensions'
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-plugins {
-    // ...
-    id("com.android.library")
-    id("kotlin-android-extensions")
-}
- ```
-         
+
 </tab>
 </tabs>
 
 The configuration of Android library is stored in the `android {}` top-level block of the shared module’s build script:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+android {
+    compileSdkVersion(29)
+    defaultConfig {
+        minSdkVersion(24)
+        targetSdkVersion(29)
+        versionCode = 1
+        versionName = "1.0"
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -279,27 +299,7 @@ android {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-android {
-    compileSdkVersion(29)
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-}
- ```
-         
+
 </tab>
 </tabs>
 
@@ -319,10 +319,26 @@ of the output artifact. Its default value matches the Gradle module name.
 For a real project, it’s likely that you’ll need a more complex configuration of the framework production.
 For details, see [Multiplatform documentation](mpp-build-native-binaries.md).
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    // ...
+    ios {
+        binaries {
+            framework {
+                baseName = "shared"
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     // ...
     ios {
@@ -334,23 +350,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    // ...
-    ios {
-        binaries {
-            framework {
-                baseName = "shared"
-            }
-        }
-    }
-}
- ```
-         
+
 </tab>
 </tabs>
 
@@ -369,74 +369,62 @@ The Android application part of a KMM project is a typical Android application w
 * Android Application
 * Kotlin Android Extensions
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
-}
-```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-android-extensions")
 } 
 ```
-         
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+}
+```
+
 </tab>
 </tabs>
 
 To access the shared module code, the Android application uses it as a project dependency.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-dependencies {
-    implementation project(':shared')
-    //..
-}
-```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 dependencies {
     implementation(project(":shared"))
     //..
 } 
 ```
-         
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':shared')
+    //..
+}
+```
+
 </tab>
 </tabs>
 
 Besides this dependency, the Android application uses the Kotlin standard library (which is added automatically) and some common Android dependencies:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-dependencies {
-    //..
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-}
-```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 dependencies {
     //..
     implementation("androidx.core:core-ktx:1.2.0")
@@ -444,38 +432,29 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
 } 
 ```
-         
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    //..
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
+```
+
 </tab>
 </tabs>
 
 Add your project’s Android-specific dependencies to this block.
 The build configuration of the Android application is located in the `android {}` top-level block of the build script:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-android {
-    compileSdkVersion 29
-    defaultConfig {
-        applicationId 'org.example.androidApp'
-        minSdkVersion 24
-        targetSdkVersion 29
-        versionCode 1
-        versionName '1.0'
-    }
-    buildTypes {
-        'release' {
-            minifyEnabled false
-        }
-    }
-}
-```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 android {
     compileSdkVersion(29)
     defaultConfig {
@@ -492,7 +471,28 @@ android {
     }
 }
 ```
-         
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId 'org.example.androidApp'
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        'release' {
+            minifyEnabled false
+        }
+    }
+}
+```
+
 </tab>
 </tabs>
 

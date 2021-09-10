@@ -42,10 +42,24 @@ The Kotlin standard library is added automatically to all multiplatform projects
 If you want to use a library from all source sets, you can add it only to the common source set. 
 The Kotlin Multiplatform Mobile plugin will add the corresponding parts to any other source sets automatically.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets["commonMain"].dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+    }
+    sourceSets["androidMain"].dependencies {
+        //dependency to platform part of kotlinx.coroutines will be added automatically
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     sourceSets {
         commonMain {
@@ -61,20 +75,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    sourceSets["commonMain"].dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-    }
-    sourceSets["androidMain"].dependencies {
-        //dependency to platform part of kotlinx.coroutines will be added automatically
-    }
-}
-```
+
 </tab>
 </tabs>
 
@@ -87,10 +88,28 @@ The specified library declarations will then be available only in those source s
 > 
 {type="note"}   
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets["commonMain"].dependencies {
+        //kotlinx.coroutines will be available in all source sets
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+    }
+    sourceSets["androidMain"].dependencies {
+    }
+    sourceSets["iosX64Main"].dependencies {
+        //SQLDelight will be available only in the iOS source set, but not in Android or common
+        implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%)
+    }
+}
+```
+        
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     sourceSets {
         commonMain {
@@ -111,24 +130,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    sourceSets["commonMain"].dependencies {
-        //kotlinx.coroutines will be available in all source sets
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-    }
-    sourceSets["androidMain"].dependencies {
-    }
-    sourceSets["iosX64Main"].dependencies {
-        //SQLDelight will be available only in the iOS source set, but not in Android or common
-        implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%)
-    }
-}
-```
+
 </tab>
 </tabs>
 
@@ -137,10 +139,24 @@ kotlin {
 You can connect one multiplatform project to another as a dependency. To do this, simply add a project dependency to the source set that needs it. 
 If you want to use a dependency in all source sets, add it to the common one. In this case, other source sets will get their versions automatically.
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets["commonMain"].dependencies {
+        implementation(project(":some-other-multiplatform-module"))
+    }
+    sourceSets["androidMain"].dependencies {
+        //platform part of :some-other-multiplatform-module will be added automatically
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 kotlin {
     sourceSets {
         commonMain {
@@ -156,20 +172,7 @@ kotlin {
     }
 }
 ```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
-kotlin {
-    sourceSets["commonMain"].dependencies {
-        implementation(project(":some-other-multiplatform-module"))
-    }
-    sourceSets["androidMain"].dependencies {
-        //platform part of :some-other-multiplatform-module will be added automatically
-    }
-}
-```
+
 </tab>
 </tabs>
 
@@ -202,24 +205,10 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
 
 2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including `pod()` in the build script of your project.
 
-    <tabs>
-    <tab title="Groovy">
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
-    ```Groovy
-    kotlin {
-        cocoapods {
-            //..
-            pod('AFNetworking') {
-                version = '~> 4.0.1'
-            }
-        }
-    }
-    ```
-
-    </tab>
-    <tab title="Kotlin">
-
-    ```Kotlin
+    ```kotlin
     kotlin {
         cocoapods {
             //..
@@ -227,6 +216,20 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
                 version = "~> 4.0.1"
             }
         }
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+        kotlin {
+       cocoapods {
+          //..
+          pod('AFNetworking') {
+             version = '~> 4.0.1'
+          }
+       }
     }
     ```
 
@@ -277,10 +280,35 @@ The steps differ a bit for [libraries](#add-a-library-without-cocoapods) and [fr
     * Tell cinterop where to look for header files using the `includeDirs` option.
     * Configure linking to library binaries.
 
-    <tabs>
-    <tab title="Groovy">
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
-    ```Groovy
+    ```kotlin
+    kotlin {
+        iosX64() {
+            compilations.getByName("main") {
+                val DateTools by cinterops.creating {
+                    // Path to .def file
+                    defFile("src/nativeInterop/cinterop/DateTools.def")
+
+                    // Directories for header search (an analogue of the -I<path> compiler option)
+                    includeDirs("include/this/directory", "path/to/another/directory")
+                }
+                val anotherInterop by cinterops.creating { /* ... */ }
+            }
+
+            binaries.all {
+                // Linker options required to link to the library.
+                linkerOpts("-L/path/to/library/binaries", "-lbinaryname")
+            }
+        }
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
     kotlin {
         iosX64 {
             compilations.main {
@@ -299,31 +327,6 @@ The steps differ a bit for [libraries](#add-a-library-without-cocoapods) and [fr
             binaries.all {
                 // Linker options required to link to the library.
                 linkerOpts "-L/path/to/library/binaries", "-lbinaryname"
-            }
-        }
-    }
-    ```
-
-    </tab>
-    <tab title="Kotlin">
-
-    ```Kotlin
-    kotlin {
-        iosX64() {
-            compilations.getByName("main") {
-                val DateTools by cinterops.creating {
-                    // Path to .def file
-                    defFile("src/nativeInterop/cinterop/DateTools.def")
-
-                    // Directories for header search (an analogue of the -I<path> compiler option)
-                    includeDirs("include/this/directory", "path/to/another/directory")
-                }
-                val anotherInterop by cinterops.creating { /* ... */ }
-            }
-
-            binaries.all {
-                // Linker options required to link to the library.
-                linkerOpts("-L/path/to/library/binaries", "-lbinaryname")
             }
         }
     }
@@ -363,10 +366,34 @@ import DateTools.*
     * Pass the framework name to the compiler and linker using the `-framework` option.
     Pass the path to the framework sources and binaries to the compiler and linker using the `-F` option.
 
-    <tabs>
-    <tab title="Groovy">
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    kotlin {
+        iosX64() {
+            compilations.getByName("main") {
+                val DateTools by cinterops.creating {
+                    // Path to .def file
+                    defFile("src/nativeInterop/cinterop/DateTools.def")
+
+                   compilerOpts("-framework", "MyFramework", "-F/path/to/framework/"
+               }
+               val anotherInterop by cinterops.creating { /* ... */ }
+            }
+
+            binaries.all {
+                // Tell the linker where the framework is located.
+                linkerOpts("-framework", "MyFramework", "-F/path/to/framework/")
+            }
+       }
+    }
+    ```
+   
+    </tab>
+    <tab title="Groovy" group-key="groovy">
     
-    ```Groovy
+    ```groovy
     kotlin {
         iosX64 {
             compilations.main {
@@ -386,30 +413,6 @@ import DateTools.*
                 linkerOpts("-framework", "MyFramework", "-F/path/to/framework/")
             }
         }
-    }
-
-    ```
-    </tab>
-    <tab title="Kotlin">
-    
-    ```Kotlin
-    kotlin {
-        iosX64() {
-            compilations.getByName("main") {
-                val DateTools by cinterops.creating {
-                    // Path to .def file
-                    defFile("src/nativeInterop/cinterop/DateTools.def")
-
-                   compilerOpts("-framework", "MyFramework", "-F/path/to/framework/"
-               }
-               val anotherInterop by cinterops.creating { /* ... */ }
-            }
-
-            binaries.all {
-                // Tell the linker where the framework is located.
-                linkerOpts("-framework", "MyFramework", "-F/path/to/framework/")
-            }
-       }
     }
     ```
 
@@ -443,18 +446,10 @@ This issue applies only to the shared iOS source set. The IDE will correctly sup
 
 To enable IDE support in these cases, you can work around the issue by adding the following code to `build.gradle.(kts)` in the `shared` directory of your project:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-def iosTarget
-if (System.getenv("SDK_NAME")?.startsWith("iphoneos")) {
-    iosTarget = kotlin.&iosArm64
-} else {
-    iosTarget = kotlin.&iosX64
-}
-```
-
-```Kotlin
+```kotlin
 val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
     if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
         ::iosArm64
@@ -464,6 +459,19 @@ val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
 iosTarget("ios")
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+def iosTarget
+if (System.getenv("SDK_NAME")?.startsWith("iphoneos")) {
+    iosTarget = kotlin.&iosArm64
+} else {
+    iosTarget = kotlin.&iosX64
+}
+```
+
+</tab>
 </tabs>
 
 In this code sample, the configuration of iOS targets depends on the environment variable `SDK_NAME`, which is managed by Xcode. 
@@ -483,10 +491,19 @@ The workflow for adding Android-specific dependencies to a KMM module is the sam
 
 We recommend adding Android dependencies to KMM projects by adding them to a specific Android source set:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+sourceSets["androidMain"].dependencies {
+        implementation("com.example.android:app-magic:12.3")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
 sourceSets {
     androidMain {
         dependencies {
@@ -497,37 +514,15 @@ sourceSets {
 ```
 
 </tab>
-<tab title="Kotlin">
-
-```Kotlin
-sourceSets["androidMain"].dependencies {
-        implementation("com.example.android:app-magic:12.3")
-}
-```
-
-</tab>
 </tabs>
 
 Moving what was a top-level dependency in an Android project to a specific source set in a KMM project might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move а `debugImplementation` dependency from the top level of an Android project, you’ll need to add an implementation dependency to the source set named `androidDebug`.
 To minimize the effort you have to put in to deal with migration problems like this, you can add a `dependencies` block inside the `android` block:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-android {
-    ...
-
-    dependencies {
-        implementation 'com.example.android:app-magic:12.3'
-    }
-}
-```
-        
-</tab>
-<tab title="Kotlin">
-    
-```Kotlin
+```kotlin
 android {
     ...
 
@@ -536,6 +531,20 @@ android {
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+android {
+    ...
+
+    dependencies {
+        implementation 'com.example.android:app-magic:12.3'
+    }
+}
+```
+
 </tab>
 </tabs>
 

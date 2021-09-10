@@ -137,26 +137,26 @@ internal actual class PlatformSocket actual constructor(url: String) {
 
 Android implementation uses the third-party library [OkHttp](https://square.github.io/okhttp/). Add the corresponding dependency to `build.gradle(.kts)` in the shared module:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-commonMain {
-    dependencies {
-        implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    }
-}
-```
-
-</tab>
-<tab title="Kotlin">
-
-```Kotlin
+```kotlin
 sourceSets {
     val androidMain by getting {
         dependencies {
             implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
         }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+commonMain {
+    dependencies {
+        implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     }
 }
 ```
@@ -224,7 +224,7 @@ internal actual class PlatformSocket actual constructor(url: String) {
         }
     }
 }
- ```
+```
 
 And here is the common logic in the common module that uses the platform-specific class `PlatformSocket().`
 

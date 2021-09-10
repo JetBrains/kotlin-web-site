@@ -15,24 +15,25 @@ Ktor provides separate artifacts for using the HTTP client: a common module and 
 
 To use Ktor KMM module in the common code, add the dependency to io.ktor:ktor-client-core to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file of the KMM module:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-commonMain {
+```kotlin
+val commonMain by getting {
     dependencies {
-        implementation "io.ktor:ktor-client-core:$ktor_version"
+        implementation("io.ktor:ktor-client-core:$ktor_version")
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
 
-```Kotlin
-val commonMain by getting {
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+commonMain {
     dependencies {
-        implementation("io.ktor:ktor-client-core:$ktor_version")
+        implementation "io.ktor:ktor-client-core:$ktor_version"
     }
 }
 ```
@@ -42,24 +43,25 @@ val commonMain by getting {
 
 Then connect the platform engines by adding the dependencies on them. For Android, add the `ktor-client-android` dependency to the corresponding source set:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-androidMain {
+```kotlin
+val androidMain by getting {
     dependencies {
-        implementation "io.ktor:ktor-client-android:$ktor_version"
+        implementation("io.ktor:ktor-client-android:$ktor_version")
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
 
-```Kotlin
-val androidMain by getting {
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+androidMain {
     dependencies {
-        implementation("io.ktor:ktor-client-android:$ktor_version")
+        implementation "io.ktor:ktor-client-android:$ktor_version"
     }
 }
 ```
@@ -69,24 +71,24 @@ val androidMain by getting {
 
 For iOS, add the `ktor-client-ios` dependency to the corresponding source set:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-iosMain {
+```kotlin
+val iosMain by getting {
     dependencies {
-        implementation "io.ktor:ktor-client-ios:$ktor_version"
+        implementation("io.ktor:ktor-client-ios:$ktor_version")
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Kotlin
-val iosMain by getting {
+```groovy
+iosMain {
     dependencies {
-        implementation("io.ktor:ktor-client-ios:$ktor_version")
+        implementation "io.ktor:ktor-client-ios:$ktor_version"
     }
 }
 ```
@@ -114,21 +116,21 @@ Ktor offers you multiple HTTP engines to use in your project: Apache, CIO, Andro
 
 To use a specific HTTP engine, connect the corresponding Ktor artifact as a dependency, for example:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
+```kotlin
 dependencies {
-    implementation "io.ktor:ktor-client-cio:$ktor_version"
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Kotlin
+```groovy
 dependencies {
-    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation "io.ktor:ktor-client-cio:$ktor_version"
 }
 ```
 
@@ -154,21 +156,21 @@ There are several platform-specific implementations of `MockEngine`. To use them
 `io.ktor:ktor-client-mock-jvm` for Android
 `io.ktor:ktor-client-mock-native` for iOS
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
+```kotlin
 dependencies {
-    api "io.ktor:ktor-client-mock:$ktor_version"
+    testImplementation("io.ktor:ktor-client-mock:$ktor_version")
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Groovy
+```groovy
 dependencies {
-    testImplementation("io.ktor:ktor-client-mock:$ktor_version")
+    api "io.ktor:ktor-client-mock:$ktor_version"
 }
 ```
 
@@ -222,24 +224,24 @@ For more information on engines configuration, see the [Ktor documentation](http
 
 Ktor lets you use additional HTTP client functionality (_features_) that is not available by default, for example, logging, authorization, or serialization. Most of them are distributed in separate artifacts. To use them, you should connect them as dependencies to the common source set. For example:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-commonMain {
+```kotlin
+val commonMain by getting {
     dependencies {
-        implementation "io.ktor:ktor-client-auth:$ktor_version"
+        implementation("io.ktor:ktor-client-auth:$ktor_version")
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Kotlin
-val commonMain by getting {
+```groovy
+commonMain {
     dependencies {
-        implementation("io.ktor:ktor-client-auth:$ktor_version")
+        implementation "io.ktor:ktor-client-auth:$ktor_version"
     }
 }
 ```

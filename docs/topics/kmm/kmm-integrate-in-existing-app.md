@@ -207,7 +207,7 @@ You can learn more about [connecting to platform-specific APIs](kmm-connect-to-p
     
     import platform.Foundation.NSUUID
     actual fun randomUUID(): String = NSUUID().UUIDString()
-    ```     
+    ```
 
 For Android and iOS, Kotlin will use different platform-specific implementations.
 

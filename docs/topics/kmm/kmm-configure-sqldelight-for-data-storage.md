@@ -20,25 +20,10 @@ In this article, we’ll show how to start using databases in your KMM project w
 To connect the SQLDelight plugin to a project, apply the SQLDelight Gradle plugin in your project’s build script (root `build.gradle` or `build.gradle.kts`):
 First, add the plugin's `classpath` to the build system:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.squareup.sqldelight:gradle-plugin:$sql_delight_version"
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-</tab>
-<tab title="Kotlin">
-
-```Kotlin
+```kotlin
 buildscript {
     repositories {
         google()
@@ -51,26 +36,41 @@ buildscript {
 ```
 
 </tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.squareup.sqldelight:gradle-plugin:$sql_delight_version"
+    }
+}
+```
+
+</tab>
 </tabs>
 
 Instead of `$sql_delight_version`, use the version you need for your project.
 
 Then apply the SQLDelight Gradle plugin by adding this line at the beginning of the build script (`build.gradle` or `build.gradle.kts`) in your shared multiplatform module:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
-apply plugin: 'com.squareup.sqldelight'
-```
-
-</tab>
-<tab title="Kotlin">
-
-```Kotlin
+```kotlin
 plugins {
     id("com.squareup.sqldelight")
 }
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+apply plugin: 'com.squareup.sqldelight'
 ```
 
 </tab>
@@ -82,21 +82,10 @@ plugins {
 
 To work with database drivers in the common code, add the following dependency to the `commonMain` source set:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-commonMain {
-    dependencies {
-        implementation "com.squareup.sqldelight:runtime:$sql_delight_version"
-    }
-}
-```
-  
-</tab>
-<tab title="Kotlin">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Kotlin
+```kotlin
 val commonMain by getting {
     dependencies {
         implementation("com.squareup.sqldelight:runtime:$sql_delight_version")
@@ -105,30 +94,41 @@ val commonMain by getting {
 ```
 
 </tab>
-</tabs>
+<tab title="Groovy" group-key="groovy">
 
-####  Android source sets
-
-To connect the SQLite database driver for Android, add the following to the `dependencies` block of the corresponding source set in the module's `build.gradle` or `build.gradle.kts`:
-
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-androidMain {
+```groovy
+commonMain {
     dependencies {
-        implementation "com.squareup.sqldelight:android-driver:$sql_delight_version"
+        implementation "com.squareup.sqldelight:runtime:$sql_delight_version"
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+</tabs>
 
-```Kotlin
+#### Android source sets
+
+To connect the SQLite database driver for Android, add the following to the `dependencies` block of the corresponding source set in the module's `build.gradle` or `build.gradle.kts`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 val androidMain by getting {
     dependencies {
         implementation("com.squareup.sqldelight:android-driver:$sql_delight_version")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+androidMain {
+    dependencies {
+        implementation "com.squareup.sqldelight:android-driver:$sql_delight_version"
     }
 }
 ```
@@ -140,24 +140,24 @@ val androidMain by getting {
 
 To connect the SQLite driver for iOS and other native platforms, add the following dependency:
 
-<tabs>
-<tab title="Groovy">
-    
-```Groovy
-iosMain {
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val iosMain by getting {
     dependencies {
-        implementation "com.squareup.sqldelight:native-driver:$sql_delight_version"
+        implementation("com.squareup.sqldelight:native-driver:$sql_delight_version")
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Kotlin
-val iosMain by getting {
+```groovy
+iosMain {
     dependencies {
-        implementation("com.squareup.sqldelight:native-driver:$sql_delight_version")
+        implementation "com.squareup.sqldelight:native-driver:$sql_delight_version"
     }
 }
 ```
@@ -171,23 +171,23 @@ To configure the SQLDelight API generator, use the `sqldelight` top-level block 
 For example, to create a database named `AppDatabase` and specify the package name `com.example.db` for the generated
 Kotlin classes, use this configuration block:
 
-<tabs>
-<tab title="Groovy">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
-```Groovy
+```kotlin
 sqldelight {
-    AppDatabase {
+    database("AppDatabase") {
         packageName = "com.example.db"
     }
 }
 ```
 
 </tab>
-<tab title="Kotlin">
+<tab title="Groovy" group-key="groovy">
 
-```Kotlin
+```groovy
 sqldelight {
-    database("AppDatabase") {
+    AppDatabase {
         packageName = "com.example.db"
     }
 }
@@ -207,7 +207,7 @@ platform separately. In the common code, you can refer to these drivers using th
 
 You can create an abstract factory using `expect`/`actual` mechanism:
 
-```Kotlin
+```kotlin
 expect class DatabaseDriverFactory {
     fun createDriver(): SqlDriver
 }
@@ -219,7 +219,7 @@ Then provide actual implementations for this expected class:
 
 On Android, the SQLite driver is implemented by the `AndroidSqliteDriver` class. When you create its instance, pass the database information and the link to context to the constructor. For example, this code creates an SQLite driver for a database named `AppDatabase`:
 
-```Kotlin
+```kotlin
 actual class DatabaseDriverFactory(private val context: Context) {
     actual fun createDriver(): SqlDriver {
         return AndroidSqliteDriver(AppDatabase.Schema, context, "test.db")
@@ -231,7 +231,7 @@ actual class DatabaseDriverFactory(private val context: Context) {
 
 On iOS, the SQLite driver implementation is the `NativeSqliteDriver` class:
 
-```Kotlin
+```kotlin
 actual class DatabaseDriverFactory {
     actual fun createDriver(): SqlDriver {
         return NativeSqliteDriver(AppDatabase.Schema, "test.db")
@@ -241,7 +241,7 @@ actual class DatabaseDriverFactory {
 
 Now you can create the `DatabaseDriverFactory` instance in your applications' code and pass it to the common module. Then create an `AppDatabase` instance to perform database operations:
 
-```Kotlin
+```kotlin
 val database = AppDatabase(databaseDriverFactory.createDriver())
 ```
 
