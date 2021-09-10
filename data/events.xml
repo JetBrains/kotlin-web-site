@@ -1,6 +1,106 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>es</lang>
+        <startDate>2021-08-26</startDate>
+        <endDate>2021-08-26</endDate>
+        <location>Medellín, Colombia</location>
+        <speaker>Juan Guillermo Gómez</speaker>
+        <title>Kotlin User Group Medellin</title>
+        <subject>Usando Compose para aplicaciones Desktop</subject>
+        <url>https://www.meetup.com/Kotlin-User-Group-Medellin/events/280303741</url>
+        <description>
+            <![CDATA[
+<p>Jetpack Compose está de moda… así que lo vemos en todos lados. Es tan así que ahora podemos construir la UI para apps desktop y web. Sí, sí, sí, Jetbrains creó la forma de usar compose para crear este tipo de aplicaciones. En esta charla revisaremos el estado actual y veremos algunos ejemplos.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-16</startDate>
+        <endDate>2021-09-16</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Piotr Krzemiński</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>10 suprises when coming from Java</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/280186511/</url>
+        <description>
+            <![CDATA[
+<p>Do you want to start your journey with Kotlin? Is your team introducing Kotlin, you know you need to learn it, and you don't know where to start? In either case, this talk should be a great help. I had a bunch of surprises when I moved from Java to Kotlin, and I want to tell you all about them. I’ll show you Java vs. Kotlin examples and explain why the creators of Kotlin made these choices.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-16</startDate>
+        <endDate>2021-09-16</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Grzegorz Witczak</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>Kotlin Coroutines basics for Java developers</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/280186511/</url>
+        <description>
+            <![CDATA[
+<p>Want to write neat, efficient, asynchronous code without struggling with a clunky Thread class and its derivatives? Just use Kotlin Coroutines! During this talk, you will learn the basics of Kotlin Coroutines and study practical examples, ready to be used in your code. Prior Kotlin knowledge is not required!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-08-21</startDate>
+        <endDate>2021-08-21</endDate>
+        <location>Mumbai, India</location>
+        <speaker>Himanshu Singh</speaker>
+        <title>Kotlin Mumbai</title>
+        <subject>Kotlin for backend Engineering</subject>
+        <url>https://www.meetup.com/Kotlin-Mumbai/events/280092043/</url>
+        <description>
+            <![CDATA[
+<p>We have a lot of code experience to share as an Android developer using Kotlin or a Backend developer using Java.<p>
+<p>When we talk about backend technologies, we have a lot of languages/frameworks like Go, Java, Python, etc. But when we talk about Kotlin as a backend language, it might raise a lot of eyebrows<p>
+<p>But let me try to convince you that Kotlin is definitely a good choice for Backend!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>uk</lang>
+        <startDate>2021-09-07</startDate>
+        <endDate>2021-09-07</endDate>
+        <location>Dnipro, Ukraine</location>
+        <speaker>Danilo Mossur</speaker>
+        <title>Yalantis Education</title>
+        <subject>Legal spying or painless location tracking in background</subject>
+        <url>https://www.meetup.com/yeducation/events/280049517</url>
+        <description>
+            <![CDATA[
+<p>Ви дізнаєтесь — як знайти баланс між точністю координат та енергоефективністю для стеження за локаціею у бекграунді, зберігаючи можливість підтримувати досить широку аудиторію пристроїв?</p>
+<p>Окрім обговорення тем у програмі також блок Q&A та розіграш подарунків серед найактивніших учасників. Зустріч відбудеться в онлайн-форматі, спікер розмовлятиме російською. Ви отримаєте посилання на трансляцію на пошту, вказану при реєстрації.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-29</startDate>
+        <endDate>2021-09-29</endDate>
+        <location>Istanbul, Turkey</location>
+        <speaker>Sven Ruppert</speaker>
+        <title>Istanbul Java User Group</title>
+        <subject>Workshop - DevSecOps from Scratch for Java and Kotlin Developers</subject>
+        <url>https://www.meetup.com/Istanbul-Java-User-Group/events/279924692</url>
+        <description>
+            <![CDATA[
+<p>Do you have a private project, an open-source tool or want to do a POC? Do you already have the idea in mind and you wish to get started? On the other hand, are you looking for a suitable environment so that you get the best possible support for your development?</p>
+<p>JFrog offers you just the right tools for this. You can get access to the JFrog Platform and use it freely.Artifactory, Xray and more and this means that a complete DevSecOps environment is at your disposal.</p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>zh</lang>
         <startDate>2021-08-14</startDate>
         <endDate>2021-08-14</endDate>
