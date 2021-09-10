@@ -130,12 +130,12 @@ on the [Books](books.md) page. For more books, see the community-maintained list
 
 You can learn all the Kotlin essentials while creating working applications with the [Kotlin Basics track](https://hyperskill.org/tracks/18) on JetBrains Academy.
 
-A few other courses you can check out:
+A few other courses you can take:
 * [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
 * [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri
 * [Udemy Kotlin Course](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
 
-There are also many recordings of [Kotlin talks](https://kotlinlang.org/community/talks.html) available on YouTube and Vimeo. 
+You can also check out tutorials and other content available on our [YouTube channel](https://www.youtube.com/c/Kotlin). 
 
 ### Does Kotlin have a community?
 
