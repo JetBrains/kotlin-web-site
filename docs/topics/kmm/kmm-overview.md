@@ -5,8 +5,15 @@
 {type="note"}
 
 Kotlin Multiplatform Mobile (_KMM_) is an SDK designed to simplify creating multiplatform mobile applications.
-With help of KMM you can share common code between iOS and Android apps. For example, data storage and management, authentication.
-You only need to write platform-specific code where it’s necessary, for example to implement a native UI or when working with platform-specific APIs.
+With the help of KMM, you can share common code between iOS and Android apps and write platform-specific code only where it’s necessary.
+For example, to implement a native UI or when working with platform-specific APIs.
+
+## Get started with Kotlin Multiplatform Mobile
+
+[Get started with KMM](kmm-getting-started.md) if you're already familiar with the Kotlin language and want to try out Kotlin Multiplatform Mobile (KMM).
+If you're new to Kotlin, [get started with these tutorials](getting-started.md).
+
+If you want to introduce KMM to your team, look through [our recommendations](kmm-introduce-your-team.md).
 
 ## Supported platforms
 
@@ -20,22 +27,18 @@ KMM supports the following mobile targets:
 KMM is built on top of the [Kotlin Multiplatform](multiplatform.md) technology,
 which supports other platforms inlcuding JavaScript, Linux, WebAssembly, and [more](mpp-dsl-reference.md#targets).
 
-See [supported platforms for Kotlin multiplatform programming](mpp-supported-platforms.md)
-
-## Get started with Kotlin Multiplatform Mobile
-
-[Get started with KMM](kmm-getting-started.md) if you're already familiar with the Kotlin language and want to try out Kotlin Multiplatform Mobile (KMM). 
-If you're new to Kotlin, [get started with Kotlin](getting-started.md).
-
-If you want to introduce KMM to your team, look through [our recommendations](kmm-introduce-your-team.md).
+See [supported platforms for Kotlin multiplatform programming](mpp-supported-platforms.md).
 
 ### Sample projects
 
 [Check our list of KMM sample projects](kmm-samples.md) for inspiration.
 
+### Videos
+
+Learn KMM with [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) videos on YouTube.
+
 ## Community
 
-* **Kotlin Multiplatform Multiverse**: learn KMM with [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) videos.
 * **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
 * **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 * **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
