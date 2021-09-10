@@ -36,7 +36,7 @@ However, at least one `catch` or `finally` block is required.
 `try` is an expression, which means it can have a return value:
 
 ```kotlin
-val a: Int? = try { parseInt(input) } catch (e: NumberFormatException) { null }
+val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
 ```
 
 The returned value of a `try` expression is either the last expression in the `try` block or the
