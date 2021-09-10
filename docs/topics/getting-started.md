@@ -43,10 +43,10 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    <td width="50%">
       A lightweight framework for those who value freedom in making architectural decisions.
    <ul>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20HTTP%20APIs%20with%20Ktor/01_introduction">Create HTTP APIs with Ktor</a>.</li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20WebSocket%20Chat%20with%20Ktor/01_introduction">Create a WebSocket chat with Ktor</a>.</li>
-      <li><a href="https://play.kotlinlang.org/hands-on/Creating%20a%20website%20with%20Ktor/01_introduction">Create an interactive website with Ktor</a>.</li>
-      <li><a href="https://dev.to/kotlin/publishing-server-side-kotlin-applications-ktor-on-heroku-2ce4">Publish server-side Kotlin applications: Ktor on Heroku</a>.</li>
+      <li><a href="https://ktor.io/docs/creating-http-apis.html">Create HTTP APIs with Ktor</a>.</li>
+      <li><a href="https://ktor.io/docs/creating-web-socket-chat.html">Create a WebSocket chat with Ktor</a>.</li>
+      <li><a href="https://ktor.io/docs/creating-interactive-website.html">Create an interactive website with Ktor</a>.</li>
+      <li><a href="https://ktor.io/docs/heroku.html">Publish server-side Kotlin applications: Ktor on Heroku</a>.</li>
    </ul>
    
    </td>
@@ -87,7 +87,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    
    |Library|Details|
    |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/) and [sample](https://kotlinlang.org/docs/mobile/use-ktor-for-networking.html).| 
+   | Ktor |  [Docs](https://ktor.io/docs/client.html).| 
    | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
    | Coroutines |  [Docs](https://kotlinlang.org/docs/mobile/concurrency-overview.html) and [sample](https://kotlinlang.org/docs/mobile/concurrency-and-coroutines.html).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
@@ -186,7 +186,7 @@ Here you'll learn how to develop and publish a multiplatform library:
 
    |Library|Details|
    |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/learn/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
+   | Ktor |  [Docs](https://ktor.io/docs/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
    | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
    | Coroutines |  [Docs](coroutines-overview.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
