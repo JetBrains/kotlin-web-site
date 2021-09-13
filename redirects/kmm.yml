@@ -1,5 +1,4 @@
 - from:
-   - /docs/mobile
    - /docs/mobile/
    - /docs/mobile/home.html
    - /docs/mobile/supported-platforms.html
@@ -63,6 +62,3 @@
 
 - from: /docs/mobile/faq.html
   to: /docs/kmm-faq.html
-
-- from: /docs/mobile/kmm-plugin-releases.html
-  to: /docs/kmm-plugin-releases.html
