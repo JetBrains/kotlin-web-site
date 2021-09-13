@@ -106,8 +106,8 @@
             <toc-element id="kmm-getting-started.md"/>
             <toc-element id="kmm-setup.md"/>
             <toc-element id="kmm-create-first-app.md"/>
-            <toc-element id="kmm-integrate-in-existing-app.md"/>
             <toc-element id="kmm-understand-project-structure.md"/>
+            <toc-element id="kmm-integrate-in-existing-app.md"/>
             <toc-element id="kmm-connect-to-platform-specific-apis.md"/>
             <toc-element id="kmm-add-dependencies.md"/>
             <toc-element id="kmm-configure-sqldelight-for-data-storage.md"/>
