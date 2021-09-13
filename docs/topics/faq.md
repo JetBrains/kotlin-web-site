@@ -135,7 +135,7 @@ A few other courses you can take:
 * [O’Reilly Course: Introduction to Kotlin Programming](https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/) by Hadi Hariri
 * [Udemy Course: 10 Kotlin Tutorials for Beginneres](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
 
-You can also check out tutorials and other content available on our [YouTube channel](https://www.youtube.com/c/Kotlin).
+You can also check out the other tutorials and content on our [YouTube channel](https://www.youtube.com/c/Kotlin).
 
 ### Does Kotlin have a community?
 
