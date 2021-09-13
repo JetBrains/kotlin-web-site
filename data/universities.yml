@@ -1492,3 +1492,10 @@
   geo:
     lat: '26.9124336'
     lng: '75.7872709'
+- title: Gdansk University of Technology
+  location: Gdansk (Poland)
+  courses:
+  - name: 'Object-oriented programming, PG_00054485'
+  geo:
+    lat: '54.371070'
+    lng: '18.613456'
