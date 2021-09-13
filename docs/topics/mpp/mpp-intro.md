@@ -19,8 +19,6 @@ business logic that applies to all platforms.
 reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](mpp-share-on-platforms.md#use-target-shortcuts) 
 for common combinations of targets or [create the hierarchical structure manually](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually).
     
-    ![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
-    
     ![Hierarchical structure](hierarchical-structure.png)
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 

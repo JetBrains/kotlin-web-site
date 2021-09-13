@@ -1,0 +1,64 @@
+- from:
+   - /docs/mobile/
+   - /docs/mobile/home.html
+   - /docs/mobile/supported-platforms.html
+   - /docs/mobile/security.html
+   - /docs/mobile/organize-process-around-kmm.html
+   - /docs/mobile/architect-kmm-app.html
+  to: /docs/kmm-overview.html
+
+- from: /docs/mobile/getting-started.html
+  to: /docs/kmm-getting-started.html
+
+- from: /docs/mobile/setup.html
+  to: /docs/kmm-setup.html
+
+- from: /docs/mobile/create-first-app.html
+  to: /docs/kmm-create-first-app.html
+
+- from: /docs/mobile/integrate-in-existing-app.html
+  to: /docs/kmm-integrate-in-existing-app.html
+
+- from: /docs/mobile/discover-kmm-project.html
+  to: /docs/kmm-understand-project-structure.html
+
+- from: /docs/mobile/introduce-your-team-to-kmm.html
+  to: /docs/kmm-introduce-your-team.html
+
+- from: /docs/mobile/connect-to-platform-specific-apis.html
+  to: /docs/kmm-connect-to-platform-specific-apis.html
+
+- from: /docs/mobile/add-dependencies.html
+  to: /docs/kmm-add-dependencies.html
+
+- from: /docs/mobile/publish-kmm-apps.html
+  to: /docs/kmm-publish-apps.html
+
+- from: /docs/mobile/use-ktor-for-networking.html
+  to: /docs/kmm-use-ktor-for-networking.html
+
+- from: /docs/mobile/concurrency-overview.html
+  to: /docs/kmm-concurrency-overview.html
+
+- from: /docs/mobile/concurrent-mutability.html
+  to: /docs/kmm-concurrent-mutability.html
+
+- from: /docs/mobile/concurrency-and-coroutines.html
+  to: /docs/kmm-concurrency-and-coroutines.html
+
+- from:
+   - /docs/mobile/samples.html
+   - /docs/mobile/complete-networking-data-storage-hands-on.html
+  to: /docs/kmm-samples.html
+
+- from: /docs/mobile/kmm-evolution.html
+  to: /docs/components-stability.html
+
+- from: /docs/mobile/kmm-plugin-releases.html
+  to: /docs/kmm-plugin-releases.html
+
+- from: /docs/mobile/whats-new-in-kotlin-for-kmm.html
+  to: /docs/whats-new-in-kotlin-for-kmm.html
+
+- from: /docs/mobile/faq.html
+  to: /docs/kmm-faq.html

@@ -24,21 +24,23 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
 With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](mpp-supported-platforms.md)
  – just share it using the mechanisms Kotlin provides:
 
-*   [Share code among all platforms used in your project](mpp-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
+* [Share code among all platforms used in your project](mpp-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms. 
      
     ![Code shared for all platforms](flat-structure.png)
     
-*   [Share code among some platforms](mpp-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
+* [Share code among some platforms](mpp-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms.  
     
     ![Hierarchical structure](hierarchical-structure.png)
 
+    ![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
+
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](mpp-connect-to-apis.md).
 
-With this mechanism, a common source set defines an *expected declaration*, and platform source sets must provide the 
-*actual declaration* that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
+With this mechanism, a common source set defines an _expected declaration_, and platform source sets must provide the 
+_actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
 functions, classes, interfaces, enumerations, properties, and annotations.
 
 ![Expect and actual declarations](expect-actual.png){width=700}
@@ -84,14 +86,14 @@ New to Kotlin? Visit [Getting started with Kotlin](getting-started.md).
 
 ### Documentation
 
-* [Get started with Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/docs/mobile/getting-started.html)
+* [Get started with Kotlin Multiplatform Mobile (KMM)](kmm-getting-started.md)
 * [Create a multiplatform project](mpp-create-lib.md)
 * [Share code on multiple platforms](mpp-share-on-platforms.md)
 * [Connect to platform-specific APIs](mpp-connect-to-apis.md)
 
 ### Tutorials
 
-* [Creating a KMM application](https://kotlinlang.org/docs/mobile/create-first-app.html) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+* [Create your first KMM application](kmm-create-first-app.md) shows how to create a mobile application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
 Create, run, and test your first multiplatform mobile application.
 
 * [Creating a multiplatform Kotlin library](multiplatform-library.md) teaches how to create a multiplatform 
@@ -106,6 +108,6 @@ Android and iOS). It also shows how to write tests which will be executed on all
   
 ## Sample projects
 
-- [Kotlin Multiplatform Mobile samples](https://kotlinlang.org/docs/mobile/samples.html)
+- [Kotlin Multiplatform Mobile (KMM) samples](kmm-samples.md)
 - [KotlinConf app](https://github.com/JetBrains/kotlinconf-app) 
 - [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
