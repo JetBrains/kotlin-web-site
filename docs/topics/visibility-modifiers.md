@@ -57,7 +57,7 @@ For members declared inside a class:
 >
 {type="note"}
 
-If you override a `protected` or a `internal` member and do not specify the visibility explicitly, the overriding member
+If you override a `protected` or an `internal` member and do not specify the visibility explicitly, the overriding member
 will also have the same visibility as the original.
 
 Examples:
