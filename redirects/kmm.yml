@@ -1,4 +1,5 @@
 - from:
+   - /docs/mobile
    - /docs/mobile/home.html
    - /docs/mobile/supported-platforms.html
    - /docs/mobile/security.html
