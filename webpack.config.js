@@ -67,14 +67,11 @@ module.exports = (params = {}) => {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 2
+                importLoaders: 1
               }
             },
             {
               loader: 'resolve-url-loader'
-            },
-            {
-              loader: 'svg-transform-loader/encode-query'
             },
             {
               loader: 'postcss-loader',
