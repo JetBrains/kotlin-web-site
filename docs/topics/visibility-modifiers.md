@@ -57,8 +57,8 @@ For members declared inside a class:
 >
 {type="note"}
 
-If you override a `protected` member and do not specify the visibility explicitly, the overriding member will also have
-`protected` visibility.
+If you override a `protected` or an `internal` member and do not specify the visibility explicitly, the overriding member
+will also have the same visibility as the original.
 
 Examples:
 
@@ -66,7 +66,7 @@ Examples:
 open class Outer {
     private val a = 1
     protected open val b = 2
-    internal val c = 3
+    internal open val c = 3
     val d = 4  // public by default
     
     protected class Nested {
@@ -80,6 +80,7 @@ class Subclass : Outer() {
     // Nested and e are visible
 
     override val b = 5   // 'b' is protected
+    override val c = 7   // 'c' is internal
 }
 
 class Unrelated(o: Outer) {
