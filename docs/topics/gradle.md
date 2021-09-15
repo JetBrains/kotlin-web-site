@@ -662,7 +662,7 @@ Here is a complete list of options for Gradle tasks:
 |------|-------------|-----------------|--------------|
 | `allWarningsAsErrors` | Report an error if there are any warnings |  | false |
 | `suppressWarnings` | Don't generate warnings |  | false |
-| `verbose` | Enable verbose logging output |  | false |
+| `verbose` | Enable verbose logging output; works only when the Gradle debug log level enabled: `./gradlew <YOUR_TASKS> --debug` |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
 
 ### Attributes common to JVM and JS
