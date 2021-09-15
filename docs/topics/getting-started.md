@@ -128,7 +128,7 @@ Here you'll learn how to develop and improve your frontend web application using
    * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
    * If you prefer more robust examples, complete the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) hands-on tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
 
-3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
+ **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
     
    |Library | Details |
    |--------|---------|
@@ -139,7 +139,7 @@ Here you'll learn how to develop and improve your frontend web application using
    |[KVision](https://kvision.io/) | A third-party object-oriented web framework for Kotlin/JS.|
    |[fritz2](https://www.fritz2.dev/)| A third-party lightweight, high-performance, independent library for building reactive web apps in Kotlin that are heavily dependent on coroutines and flows.|
    |[Doodle](https://nacular.github.io/doodle/) | A third-party vector-based UI framework that uses browser's capabilities to draw user interfaces.|
-   |[Compose for Web](https://jb.gg/compose-web) | Brings [Google’s Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose) to the browser. A _Technology Preview_ is currently available.|
+   |Compose for Web, a part of [Compose Multiplatform](https://www.jetbrains.com/lp/compose-mpp/) | Brings [Google’s Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose) to the browser (currently with [Alpha](components-stability.md) stability).|
    |[kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers) | Provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a number of adjacent technologies like `react-redux`, `react-router`, or `styled-components`. |
 
 4. **Learn more about Kotlin for frontend web development:**
