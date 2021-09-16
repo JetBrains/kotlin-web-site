@@ -766,8 +766,8 @@ Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_V
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-kotlin { 
-    toolchain {
+kotlin {
+    jvmToolchain {
         (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
     }
 }
