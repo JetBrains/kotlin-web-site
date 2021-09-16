@@ -287,6 +287,17 @@
             <toc-element id="kapt.md" toc-title="kapt"/>
             <toc-element id="lombok.md" toc-title="Lombok"/>
         </toc-element>
+        <toc-element toc-title="Kotlin Symbol Processing API">
+            <toc-element id="ksp-overview.md" toc-title="KSP overview"/>
+            <toc-element id="ksp-quickstart.md" toc-title="Quickstart"/>
+            <toc-element id="ksp-why-ksp.md" toc-title="Why KSP"/>
+            <toc-element id="ksp-examples.md" toc-title="Examples"/>
+            <toc-element id="ksp-additional-details.md" toc-title="How KSP models Kotlin code"/>
+            <toc-element id="ksp-reference.md" toc-title="Reference for Java annotation processor authors"/>
+            <toc-element id="ksp-incremental.md" toc-title="Incremental processing"/>
+            <toc-element id="ksp-multi-round.md" toc-title="Multiple round processing"/>
+            <toc-element id="ksp-faq.md" toc-title="Frequently asked questions"/>
+        </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc and Dokka"/>
         <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
