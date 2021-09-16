@@ -106,6 +106,8 @@ fun main() {
 ```
 {kotlin-runnable="true"  id="create-string-from-collection-kotlin"}
 
+Learn more about [joinToString()](collection-transformations.md#string-representation) usage.
+
 ## Set default value if the string is blank
 
 In Java, you can use the [ternary operator](https://en.wikipedia.org/wiki/%3F:):

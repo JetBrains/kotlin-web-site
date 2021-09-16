@@ -144,7 +144,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 For building maps with collection elements as values, there is the function [`associateBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-by.html).
-It takes a function that returns a key based on an element's value. If two elements are equal, only the last one remains
+It takes a function that returns a key based on an element's value. If two elements' keys are equal, only the last one remains
 in the map.
 
 `associateBy()` can also be called with a value transformation function.
