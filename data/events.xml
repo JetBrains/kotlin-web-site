@@ -1,6 +1,74 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>sk</lang>
+        <startDate>2021-09-23</startDate>
+        <endDate>2021-09-23</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Tomáš Paronai</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/280745039</url>
+        <description>
+            <![CDATA[
+<p>- ViewModel Callback
+- ViewModel RxJava
+- ViewModel Flow<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-09-23</startDate>
+        <endDate>2021-09-23</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Jozef Kňažko</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Modelovanie dát</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/280745039</url>
+        <description>
+            <![CDATA[
+<p> Ukážky ako nám vie type system pomôct predchádzať zbytočným bugom
+- Aké sú časté chyby pri vytváraní dátových modelov
+- Kedy kombinovať dáta s funkciami a kedy radšej nie<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>es</lang>
+        <startDate>2021-09-22</startDate>
+        <endDate>2021-09-22</endDate>
+        <location>Barcelona, Spain</location>
+        <speaker>Ivan Lorenz</speaker>
+        <title>Adevinta Spain</title>
+        <subject>Kotlin and Arrow sesión 2 - Gestión funcional de errores</subject>
+        <url>https://www.meetup.com/adevinta-Spain/events/280743852</url>
+        <description>
+            <![CDATA[
+<p>Continuamos con el caso de uso de Wonderful Enterprises. En esta segunda sesión veremos que en algunas ocasiones no basta con modelar ausencia de valor para nuestros métodos OO. Es conveniente a veces informar al código cliente de nuestras APIs con una explicación que aclare porqué no hemos podido obtener cómo output un valor a partir del input (los parámetros del método).<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-30</startDate>
+        <endDate>2021-09-30</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>John O'Reilly</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Using GraphQL in a KMM project with Jetpack Compose and SwiftUI</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/279631984</url>
+        <description>
+            <![CDATA[
+<p>In this talk John will show how GraphQL, using Apollo library, can be used in shared code a Kotlin Multiplatform project that uses Jetpack Compose Android and SwiftUI iOS clients.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>es</lang>
         <startDate>2021-08-26</startDate>
         <endDate>2021-08-26</endDate>
