@@ -1499,3 +1499,13 @@
   geo:
     lat: '54.371070'
     lng: '18.613456'
+- title: National Research Nuclear University MEPhI
+  location: Moscow (Russia)
+  courses:
+  - name: Kotlin FullStack Developer
+    url: https://drive.google.com/file/d/13kOP72x8woD_lJHmRHcMgkUkonHWDN55/view?usp=sharing
+- title: FH Joanneum
+  location: Graz (Austria)
+  courses:
+  - name: Mobile Software Development
+    url: https://www.fh-joanneum.at/mobile-software-development/bachelor/en/
