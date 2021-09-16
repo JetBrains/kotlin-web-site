@@ -32,4 +32,6 @@
 
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
+    <var name="sqlDelightVersion" value="1.4.1" type="string"/>
+
 </vars>
