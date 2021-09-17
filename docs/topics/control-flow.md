@@ -45,7 +45,7 @@ Its simple form looks like this.
 when (x) {
     1 -> print("x == 1")
     2 -> print("x == 2")
-    else -> { // Note the block
+    else -> {
         print("x is neither 1 nor 2")
     }
 }
@@ -62,6 +62,18 @@ The `else` branch is evaluated if none of the other branch conditions are satisf
 If `when` is used as an expression, the `else` branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions,
 for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+
+```kotlin
+enum class Bit {
+  ZERO, ONE
+}
+
+val numericValue = when (getRandomBit()) {
+    Bit.ZERO -> 0
+    Bit.ONE -> 1
+    // the 'else' clause is not required because all cases are covered
+}
+```
 
 To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
 
