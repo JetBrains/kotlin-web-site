@@ -107,14 +107,25 @@ and its format-specific subpackages such as `kotlinx.serialization.json`.
 First, make a class serializable by annotating it with `@Serializable`.
 
 ```kotlin
+import kotlinx.serialization.Serializable
+
 @Serializable
 data class Data(val a: Int, val b: String)
 ```
 
 You can now serialize an instance of this class by calling `Json.encodeToString()`.
 
-```kotlin 
-Json.encodeToString(Data(42, "str"))
+```kotlin
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
+
+@Serializable
+data class Data(val a: Int, val b: String)
+
+fun main() {
+   val json = Json.encodeToString(Data(42, "str"))
+}
 ```
 
 As a result, you get a string containing the state of this object in the JSON format: `{"a": 42, "b": "str"}`
@@ -129,7 +140,16 @@ val jsonList = Json.encodeToString(dataList)
 To deserialize an object from JSON, use the `decodeFromString()` function:
 
 ```kotlin
-val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.decodeFromString
+
+@Serializable
+data class Data(val a: Int, val b: String)
+
+fun main() {
+   val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
+}
 ```
- 
+
 For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
