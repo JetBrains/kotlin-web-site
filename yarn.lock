@@ -150,10 +150,10 @@
     babel-preset-react "6.24.1"
     babel-preset-stage-2 "6.24.1"
 
-"@jetbrains/kotlin-web-site-ui@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.2.0.tgz#c183241962fc90bbed411283598c42a8c1a9f3ba"
-  integrity sha512-2otMjy35ONnKPLxUkkIKGf7A7V+VY1moZVQzD5a9+WRIYhULx4dmK7D01hryPooGKwDgjWRZVFBjPFMVh8uDQQ==
+"@jetbrains/kotlin-web-site-ui@2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.5.0.tgz#fe535dcc315fac23a01c79e826b1b400aaa29128"
+  integrity sha512-drlmHUf6xm2Ya8pKMY6woW9pzti0AUooV+YuOchVTNAht2dCqVF7ovIUCvQpXbn+stwyHDwvhxdjQZ1zAC8Usw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
