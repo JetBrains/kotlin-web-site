@@ -155,12 +155,12 @@ If your library is missing, feel free to submit a pull request.
 
 |Library|Status|Tracking issue for KSP|
 |---|---|---|
-|Room|[Experimentally supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|   |
-|Moshi|[Experimentally supported](https://github.com/ZacSweers/MoshiX/tree/main/moshi-ksp)|   |
-|Kotshi|[Experimentally supported](https://github.com/ansman/kotshi)|   |
-|Lyricist|[Experimentally supported](https://github.com/adrielcafe/lyricist)|   |
-|Auto Factory|Not yet supported|[Link](https://github.com/google/auto/issues/982)|
-|Dagger|Not yet supported|[Link](https://github.com/google/dagger/issues/2349)|
-|Hilt|Not yet supported|[Link](https://issuetracker.google.com/179057202)|
-|Glide|Not yet supported|[Link](https://github.com/bumptech/glide/issues/4492)|
-|DeeplinkDispatch|Not yet supported|[Link](https://github.com/airbnb/DeepLinkDispatch/issues/307)|
+|[Room](https://developer.android.com/jetpack/androidx/releases/room)|[Experimentally supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|   |
+|[Moshi](https://github.com/square/moshi)|[Experimentally supported](https://github.com/ZacSweers/MoshiX/tree/main/moshi-ksp)|   |
+|[Kotshi](https://github.com/ansman/kotshi)|Experimentally supported|   |
+|[Lyricist](https://github.com/adrielcafe/lyricist)|Experimentally supported|   |
+|[Auto Factory](https://github.com/google/auto/tree/master/factory)|Not yet supported|[Link](https://github.com/google/auto/issues/982)|
+|[Dagger](https://github.com/google/dagger)|Not yet supported|[Link](https://github.com/google/dagger/issues/2349)|
+|[Hilt](https://developer.android.com/jetpack/androidx/releases/hilt)|Not yet supported|[Link](https://issuetracker.google.com/179057202)|
+|[Glide](https://github.com/bumptech/glide)|Not yet supported|[Link](https://github.com/bumptech/glide/issues/4492)|
+|[DeeplinkDispatch](https://github.com/airbnb/DeepLinkDispatch)|Not yet supported|[Link](https://github.com/airbnb/DeepLinkDispatch/issues/307)|
