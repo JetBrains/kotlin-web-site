@@ -2,11 +2,6 @@
 
 _[Release date: 24 August 2021](releases.md#release-details)_
 
-> The latest version of IntelliJ IDEA – 2021.2 – doesn't support Kotlin 1.5.30. 
-> If you have already upgraded, you can easily install IntelliJ IDEA 2021.1 using the JetBrains [Toolbox App](https://www.jetbrains.com/toolbox-app/) and use Kotlin 1.5.30 in that version, or you can wait for the Kotlin 1.5.31 bug-fix release.
-> 
-{type="warning"}
-
 Kotlin 1.5.30 offers language updates including previews of future changes, various improvements in platform support and tooling, and new standard library functions.
 
 Here are some major improvements:
