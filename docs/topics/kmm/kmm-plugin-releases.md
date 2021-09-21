@@ -40,6 +40,33 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.0**
+
+Released: October, 2021
+
+</td>
+<td>
+
+* [New KMM library project wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
+* Support new type of KMM library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
+* Enable [HMPP](https://kotlinlang.org/docs/mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually) for new KMM projects.
+* Use [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
+* [Enable KMM plugin wizards on nonMac machines](https://youtrack.jetbrains.com/issue/KT-48614).
+* [Support subfolders in KMM module wizard](https://youtrack.jetbrains.com/issue/KT-47923).
+* Update Cocoapod Gradle Plugin template.
+* K/N debugger type evaluation improvements.
+* Fix iOS device launching with Xcode 13.
+
+</td>
+<td>
+
+* [Kotlin 1.6.0](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.2.7**
 
 Released: August 2, 2021
