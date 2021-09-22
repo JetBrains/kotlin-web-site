@@ -4,12 +4,10 @@
 when each puzzle is released daily. With the kind permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
 we demonstrate how to solve these puzzles using the idiomatic Kotlin style.
 
-## Advent of Code 2020
-
-> You can find all solutions in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
+> You can find all solutions for Advent of Code puzzles in the idiomatic Kotlin style in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
 >
 
-### Day 1. Report repair
+## Advent of Code. Day 1
 
 In this puzzle, you'll explore input handling, iteration over the list, different ways of building a map, and use
 the `let` function to simplify your code.
@@ -20,7 +18,7 @@ or watch the video:
 
 <video width="560" height="315" href="o4emra1xm88" title="Kotlin Tutorial: Advent of Code Puzzles, Day 1"/>
 
-### Day 2. Password philosophy
+## Advent of Code. Day 2
 
 In this puzzle, you'll explore string utility functions, regular expressions, operations on collections,
 and how the `let` function can be helpful to transform your expressions.
@@ -31,7 +29,7 @@ or watch the video:
 
 <video width="560" height="315" href="MyvJ7G6aErQ" title="Kotlin Tutorial: Advent of Code Puzzles, Day 2"/>
 
-### Day 3. Toboggan trajectory
+## Advent of Code. Day 3
 
 In this puzzle, you'll compare imperative and more functional code styles, work with pairs and the `reduce` function,
 edit code in column selection mode, and fix integer overflows.
@@ -42,7 +40,7 @@ or watch the video:
 
 <video width="560" height="315" href="ounCIclwOAw" title="Kotlin Tutorial: Adopting a Functional Style for Advent of Code Puzzles"/>
 
-### Day 4. Passport processing
+## Advent of Code. Day 4
 
 In this puzzle, you'll apply the `when` statement and explore different ways of how to validate the input — using
 utility functions, working ranges, checking set membership, and matching a particular regular expression.
@@ -52,7 +50,7 @@ utility functions, working ranges, checking set membership, and matching a parti
 
 <video width="560" height="315" href="-kltG4Ztv1s" title="Kotlin Tutorial: Validating and Sanitizing Input. Advent of Code Puzzles"/>
 
-### Day 5. Binary boarding
+## Advent of Code. Day 5
 
 In this puzzle, you'll use the Kotlin standard library functions to work with the binary representation of numbers,
 explore powerful local functions, and learn how to correctly use the `max` function in Kotlin 1.5.
@@ -63,7 +61,8 @@ or watch the video:
 
 <video width="560" height="315" href="XEFna3xyxeY" title="Kotlin Tutorial: Binary Representation of Numbers. Advent of Code Puzzles"/> 
 
-### Day 6. Custom customs
+## Advent of Code. Day 6
+
 In this puzzle, you'll compose a data manipulation pipeline using standard library functions:
 `map`, `reduce`, `sumOf`, `intersect`, and `union`.
 
