@@ -136,7 +136,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
 names:
 
 ```kotlin
