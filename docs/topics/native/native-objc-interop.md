@@ -59,6 +59,10 @@ These classes and interfaces are placed into a package [specified in build confi
 The names of Kotlin classes and interfaces are prefixed when imported to Objective-C.
 The prefix is derived from the framework name.
 
+Because Objective-C does not support packages in a framework, the Kotlin compiler renames Kotlin classes, which have the
+same name but different package in the same framework. This algorithm is not (yet) stable between Kotlin releases.
+Alternative rename the conflicting Kotlin classes in the conflicting framework.
+
 ### Initializers
 
 Swift/Objective-C initializers are imported to Kotlin as constructors and factory methods
