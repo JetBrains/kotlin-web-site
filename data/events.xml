@@ -1,6 +1,61 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>en</lang>
+        <startDate>2021-11-09</startDate>
+        <endDate>2021-11-09</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Garth Gilmour, Eamonn Boyle</speaker>
+        <title>GOTO Amsterdam 2021</title>
+        <subject>A TypeScript Fan's KotlinJS Adventures</subject>
+        <url>https://gotocph.com/2021/schedule?date=2021-11-09</url>
+        <description>
+            <![CDATA[
+<p>In this talk, the dynamic duo will go out of their comfort zone and recreate a Breakout clone for the browser using KotlinJS.<p>
+<p>At Instil Software they standardize on Kotlin for server-side development. Within the training team, they offer a Kotlin native workshop, for which Garth and Eamonn wrote a Kotlin native version of the classic game Breakout.<p>
+<p>Being massive TypeScript fans, it would always be their language of choice when working on JavaScript platforms. They didn't feel the drive to switch to other languages that transpile to JS such as Fable (F#), Scala.js, or even KotlinJS, as they always saw Kotlin on the JVM as the solution to a problem, the problem being Java.<p>
+<p>They will make use of React, Redux and use React Three Fiber for WebGL graphics. Moreover, they will explore what this transition to KotlinJS is like for a TypeScript fanboy and try to answer some questions along the way.<p>
+<p>You'll learn how the tooling, libraries and language features compare, what things tripped up and whether you should switch and use it on your next project<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Garth Gilmour, Eamonn Boyle</speaker>
+        <title>GOTO Amsterdam 2021</title>
+        <subject>Learning Kotlin/JS by Building Web Apps in React and Redux</subject>
+        <url>https://gotocph.com/2021/schedule?date=2021-11-11</url>
+        <description>
+            <![CDATA[
+<p>In this workshop we will learn the full Kotlin/JS feature set by building Web Applications in React and Redux. We will create projects from scratch based on the Kotlin Gradle DSL, and then iteratively assemble a rich UI via the Kotlin/JS language and Kotlin-React DSL. Application state will be managed via Redux using the functional style with React Hooks.<p>
+<p>You'll learn how coroutines simplify asynchronous workflows and concurrency. You'll also learn how interoperability with TypeScript allows you to leverage existing JS libraries in a strongly typed way.<p>
+<p>By the end of the workshop you will have been exposed to some of the advanced features of Kotlin and be comfortable using Kotlin for JS platforms.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-09-30</startDate>
+        <endDate>2021-09-30</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Tristan Hamilton</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>A Functional Approach to Exception Handling</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/280602913</url>
+        <description>
+            <![CDATA[
+<p>"why catch if you never throw?"
+An introduction into the world of functional programming by discussing an approach to exception handling sometimes referred to as "railway oriented programming".<p>
+]]>
+        </description>
+   </event>
+
+   <event>
         <lang>sk</lang>
         <startDate>2021-09-23</startDate>
         <endDate>2021-09-23</endDate>
