@@ -43,7 +43,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>Kotlin/JVM: bytecode optimizations for delegated properties</li>
                 <li>Kotlin/Native: a preview of the new memory manager, support for Xcode 13, updated LLVM to 11.1.0, compiler caches enabled by default for <code>linuxX64</code> and <code>iosArm64</code>, cross-compilation for MinGW targets</li>
                 <li>Kotlin/JS: ability to disable downloading Node.js and Yarn</li>
-                <li>Gradle: removed 'kotlin.useFallbackCompilerSearch' build option</li>
+                <li>Gradle: removed <code>kotlin.useFallbackCompilerSearch</code> build option</li>
                 <li>stdlib: top-level <code>readln()</code> and <code>readlnOrNull()</code> on JVM, stable <code>typeOf()</code></li>
             </ul>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.0-M1">changelog</a>.</p>
