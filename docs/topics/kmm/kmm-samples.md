@@ -43,7 +43,7 @@ Feel free to [reach out to us](mailto:kmm.feedback@kotlinlang.org) and tell us a
       <td>-</td>
       <td>-</td>
       <td><ul><li>Redux for sharing UI State</li>
-<li>Published to Google Play and AppStore</li></ul></td>
+<li>Published to Google Play and App Store</li></ul></td>
     </tr>
     <tr>
       <td>
@@ -204,7 +204,7 @@ Feel free to [reach out to us](mailto:kmm.feedback@kotlinlang.org) and tell us a
 	<td>
 		<ul>
   			<li>Uses Redux (<a href="https://github.com/xorum-io/ReKamp">ReKamp</a>) for sharing UI State</li>
-  			<li>Published to Google Play and AppStore</li>
+  			<li>Published to Google Play and App Store</li>
 		</ul>
 	</td>
 </tr>
