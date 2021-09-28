@@ -156,6 +156,7 @@
             <toc-element id="mixing-java-kotlin-intellij.md"/>
             <toc-element id="jvm-records.md"/>
             <toc-element id="java-to-kotlin-idioms-strings.md"/>
+            <toc-element id="java-to-kotlin-collections-guide.md"/>
         </toc-element>
         <toc-element toc-title="JavaScript">
 
