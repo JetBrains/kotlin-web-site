@@ -16,7 +16,7 @@ In Kotlin, there are many operations that look absolutely the same as in Java:
 | Remove an element | Differs, see [Removing elements](#remove-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use `minusAssign()` operator |
 | Remove all elements from a collection | `clear()` | clear()` | |
 | Get a stream from a collection | `stream()` | `stream()` on keys or values | |
-| Get an iterator from a collection | `iterator()` | [differs for Java and Kotlin](#some-operations-differ-a-bit) | |
+| Get an iterator from a collection | `iterator()` | [differs for Java and Kotlin](#operations-differ-a-bit) | |
 | Get a [Spliterator](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Spliterator.html) | `spliterator()` | `spliterator()` on keys or values | |
 
 There are operations that exist only for lists and are the same:
@@ -32,7 +32,7 @@ There are operations that exist only for lists and are the same:
 ## Operations differ a bit
 
 | Description | Java | Kotlin |
-|-------------------|-----------|----------|
+|-------------------|-----------|----------|converting-an-existing-java-file-to-kotlin-with-j2k.m
 | Get an iterator from a map | `iterator()` on keys or values | `iterator()` on a whole map |
 | Get a collection’s size | `size()` | `size` |
 | Sort a list | `sort(Comparator<? super E> c)` | `sort()` will sort your collection with the natural order by default |
@@ -554,8 +554,8 @@ fun main() {
 ## What’s next?
 
 * Visit [Kotlin Koans](koans.md)
-* Look through other [Kotlin idioms](dioms.md).
-* Learn how to convert existing Java code to Kotlin with [Java to Kotlin converter](converting-an-existing-java-file-to-kotlin-with-j2k.md).
+* Look through other [Kotlin idioms](idioms.md).
+* Learn how to convert existing Java code to Kotlin with [Java to Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Discover [collections in Kotlin](collections-overview.md).
 
 If you have a favorite idiom, contribute it by sending a pull request.
