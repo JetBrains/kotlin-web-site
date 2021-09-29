@@ -1,3 +1,5 @@
+[//]: # (title: Collections and iterating through objects)
+
 # Collections and iterating through objects
 
 _Collections_ are groups of a variable number of items (possibly zero) that share significance to the problem being solved and are operated upon commonly. For the introduction to collections, see the [Collections overview](collections-overview.md).
@@ -14,7 +16,7 @@ In Kotlin, there are many operations that look absolutely the same as in Java:
 | Check if a collection contains an element/elements | `contains()`, `containsAll()` | `containsKey()`, `containsValue()` | |
 | Check if a collection is empty | `isEmpty()` |  `isEmpty()` | |
 | Remove an element | Differs, see [Removing elements](#remove-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use `minusAssign()` operator |
-| Remove all elements from a collection | `clear()` | clear()` | |
+| Remove all elements from a collection | `clear()` | `clear()` | |
 | Get a stream from a collection | `stream()` | `stream()` on keys or values | |
 | Get an iterator from a collection | `iterator()` | [differs for Java and Kotlin](#operations-differ-a-bit) | |
 | Get a [Spliterator](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Spliterator.html) | `spliterator()` | `spliterator()` on keys or values | |
@@ -32,12 +34,12 @@ There are operations that exist only for lists and are the same:
 ## Operations differ a bit
 
 | Description | Java | Kotlin |
-|-------------------|-----------|----------|converting-an-existing-java-file-to-kotlin-with-j2k.m
+|-------------------|-----------|----------|
 | Get an iterator from a map | `iterator()` on keys or values | `iterator()` on a whole map |
 | Get a collection’s size | `size()` | `size` |
 | Sort a list | `sort(Comparator<? super E> c)` | `sort()` will sort your collection with the natural order by default |
 | Remove element from a list | `remove(int index)`, `remove(Object o)`| `removeAt(index: Int)`, `remove(element: ElementType)` |
-| Group elements by some condition | `stream().collect(Collectors.groupingBy(YOUR_CONDITION) | [`groupBy(YOUR_CONDITION)`](collection-grouping.md) |
+| Group elements by some condition | `stream().collect(Collectors.groupingBy(YOUR_CONDITION)` | [`groupBy(YOUR_CONDITION)`](collection-grouping.md) |
 | Get flat access to nested collection elements | `collectionOfCollections.forEach(flatCollection::addAll)` | [`flatten()`](collection-transformations.md#flatten) |
 
 ## Operations that don't persist in the Java’s standard library
@@ -45,12 +47,12 @@ There are operations that exist only for lists and are the same:
 * [ `fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) – fill all elements of the list with the provided value.
 * [ `isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) – check if a collection is not empty.
 * [ `getOrPut()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-put.html) – return the value for the given key. If the key is not found in the map, call the `defaultValue` function, put its result into the map under the given key and return it.
-* [map, zip, associate, flatten](https://kotlinlang.org/docs/collection-transformations.html) – transform a collection.
+* [`map()`, `zip()`, `associate()`, `flatten()`](https://kotlinlang.org/docs/collection-transformations.html) – transform a collection.
 * [ `any()`, `none()`, `all()`](https://kotlinlang.org/docs/collection-filtering.html) - filter by a predicate.
-* [Plus and minus operators](https://kotlinlang.org/docs/collection-plus-minus.html) – add or remove elements.
 * [`groupBy()`, `eachCount()`, `fold()`, `reduce()`, `aggregate()`](https://kotlinlang.org/docs/collection-grouping.html) – group by some condition.
 * [`slice()`, `take()`, `drop()`, `chunked()`, `windowed()`](https://kotlinlang.org/docs/collection-parts.html) – retrieve collection parts.
-  TODO and so on
+* [Plus and minus operators](https://kotlinlang.org/docs/collection-plus-minus.html) – add or remove elements.
+* TODO Should we add more?
 
 Below are examples of differences between the same actions and concepts in Java and Kotlin code.
 
@@ -79,12 +81,13 @@ Apparently from Java, in Kotlin you can explicitly declare mutable or fully immu
 ```kotlin
 fun main() {
 //sampleStart
-       // Kotlin
-   val numbers = mutableListOf("one", "two", "three", "four")
-   numbers.add("five")      // this is OK
-   //numbers = mutableListOf("six", "seven")      // compilation error - Val cannot be reassigned
-   val immutableNumbers = listOf("one", "two")
-   //immutableNumbers.add("five")      // compilation error - Unresolved reference: add
+    // Kotlin
+    val numbers = mutableListOf("one", "two", "three", "four")
+    numbers.add("five")      // this is OK
+    //numbers = mutableListOf("six", "seven")      // compilation error - Val cannot be reassigned
+    val immutableNumbers = listOf("one", "two")
+    //immutableNumbers.add("five")      // compilation error - Unresolved reference: add
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -159,7 +162,6 @@ class Version implements Comparable<Version> {
    }
 }
 
-//sampleStart
 public void compareVersions() {
    List<Version> versions = new ArrayList<>();
    for (int i = 11; i < 31; i++) {
@@ -179,12 +181,12 @@ public void checkVersion(Version versionToCheck, List<Version> versions) {
    }
    System.out.println(false);
 }
-//sampleEnd
 ```
 
 In Kotlin:
 
 ```kotlin
+//Kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int {
         if (this.major != other.major) {
@@ -195,12 +197,9 @@ class Version(val major: Int, val minor: Int): Comparable<Version> {
 }
 
 fun main() {
-//sampleStart
-    //Kotlin
     val versionRange = Version(1, 11)..Version(1, 30)
     println(Version(0, 9) in versionRange)
     println(Version(1, 20) in versionRange)
-//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -316,7 +315,6 @@ In Java, to create a `Set` from a `List`, you need to pass your list to a set’
 
 ```java
 // Java
-@Test
 public void listToSet() {
    var sourceList = List.of(1, 2, 3, 1);
    var copySet = new HashSet<>(sourceList);
@@ -327,12 +325,12 @@ public void listToSet() {
 In Kotlin, use the function `toSet()`:
 
 ```kotlin
-fun main {
+fun main() {
 //sampleStart
-//Kotlin
-val sourceList = listOf(1, 2, 3, 1)   
-val copySet = sourceList.toSet()  
-println(copySet)
+    //Kotlin
+    val sourceList = listOf(1, 2, 3, 1)   
+    val copySet = sourceList.toSet()  
+    println(copySet)
 //sampleEnd
 }
 ```
@@ -403,7 +401,8 @@ fun main() {
    val filtered = numbers.filterIndexed { index, s -> (index != 0) && (s.length < 5) }
    println(filtered)
 }
- 
+```
+
 The Kotlin code above would also work if the numbers are a set. To make the same in Java, you would need to create a list from the set:
 
 ```java
@@ -553,7 +552,7 @@ fun main() {
 
 ## What’s next?
 
-* Visit [Kotlin Koans](koans.md)
+* Visit [Kotlin Koans](koans.md).
 * Look through other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with [Java to Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Discover [collections in Kotlin](collections-overview.md).
