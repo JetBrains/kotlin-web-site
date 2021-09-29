@@ -1,7 +1,5 @@
 [//]: # (title: Collections and iterating through objects)
 
-# Collections and iterating through objects
-
 _Collections_ are groups of a variable number of items (possibly zero) that share significance to the problem being solved and are operated upon commonly. For the introduction to collections, see the [Collections overview](collections-overview.md).
 
 ## Operations that are the same in Java and Kotlin
