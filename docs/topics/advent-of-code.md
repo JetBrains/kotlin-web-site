@@ -53,7 +53,7 @@ or watch the video:
 
 ## Day 5: Binary boarding
 
-Use the Kotlin standard library functions (`replace()`, `toInt`, `find`) to work with the binary representation of numbers,
+Use the Kotlin standard library functions (`replace()`, `toInt()`, `find()`) to work with the binary representation of numbers,
 explore powerful local functions, and learn how to use the `max()` function in Kotlin 1.5.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/5)
