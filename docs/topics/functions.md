@@ -231,11 +231,11 @@ val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
 
-There are also special [primitive type arrays](https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays).
-For these, you will need to additionally convert them using the `toTypedArray()` function.
+If you want to pass a [primitive type array](https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays)
+into `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
 
 ```kotlin
-val a = intArrayOf(1, 2, 3) // it is an IntArray
+val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
 val list = asList(-1, 0, *a.toTypedArray(), 4)
 ```
 
