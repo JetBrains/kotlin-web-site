@@ -72,7 +72,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     <tr>
         <td>Windows</td>
         <td><code>mingwX64</code>, <code>mingwX86</code></td>
-        <td>Requires a Windows host.</td>
+        <td></td>
     </tr>
     <tr>
         <td>WebAssembly</td>
