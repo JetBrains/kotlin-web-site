@@ -1,5 +1,4 @@
 [//]: # (title: Introduce your team to KMM)
-[//]: # (auxiliary-id: Introduce_your_team_to_KMM)
 
 These recommendations will help you introduce your team to KMM:
 
