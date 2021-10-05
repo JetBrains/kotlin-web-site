@@ -6,7 +6,7 @@ title: Guidelines
 
 ## Kotlin Nights Guidelines
 
-* Please use the [branding materials](https://drive.google.com/drive/u/0/folders/1mAD6S0WBER11_ADPAqHoP1M1rcN9Wx5L) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
+* Please use the [branding materials](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
 * Kotlin Night should be a free event. A minimal fee can be charged to cover expenses, but it should remain a non-profit event.
 * The event should be should be announced publicly and open for all people to attend without any kind of discrimination.
 * If you publish the contents of the talks online after the event, they must be free and accessible to everyone, without any sign-up or registration procedures.
