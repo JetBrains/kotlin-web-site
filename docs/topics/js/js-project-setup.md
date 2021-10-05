@@ -84,7 +84,10 @@ than creating executable files, and can be a possible optimization when dealing 
 
 The Kotlin/JS plugin automatically configures its tasks for working with the selected environment.
 This includes downloading and installing the required environment and dependencies for running and testing the application.
-This allows developers to build, run and test simple projects without additional configuration.
+This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
+Node.js, there are also an option to use an existing Node.js installation. Learn how to [disable downloading Node.js](#disable-node-js-downloading).
+
+
 
 ## Dependencies
 
@@ -211,8 +214,9 @@ dependencies {
 </tab>
 </tabs>
 
-To download and install your declared dependencies during build time, the plugin manages its own installation of the 
-[Yarn](https://yarnpkg.com/lang/en/) package manager. 
+The plugin uses the [Yarn](https://yarnpkg.com/lang/en/) package manager to download and install NPM dependencies.
+It works out of the box without additional configuration, but you can tune it to specific needs.
+Learn how to [configure Yarn in Kotlin/JS Gradle plugin](#yarn).
 
 Besides regular dependencies, there are three more types of dependencies that can be used from the Gradle DSL.
 To learn more about when each type of dependency can best be used, have a look at the official documentation linked from npm:
@@ -460,7 +464,49 @@ To use different modes for the same project, use `cssSupport.rules`. Here, you c
 each of which define a mode, as well as [include](https://webpack.js.org/configuration/module/#ruleinclude) and
 [exclude](https://webpack.js.org/configuration/module/#ruleexclude) patterns.
 
+## Node.js
+
+For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and installs the Node.js environment on the
+host. You can also use an existing Node.js installation if you have it.
+
+### Disable Node.js downloading
+
+If you have Node.js already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use this installation. In this case, the plugin won't download and install its own instance.
+
+To disable Node.js installation, add the following lines to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().download = false
+    // or true for default behavior
+}
+ 
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension).download = false
+}
+```
+
+</tab>
+</tabs>
+
+
 ## Yarn
+
+To download and install your declared dependencies at build time, the plugin manages its own installation of the
+[Yarn](https://yarnpkg.com/lang/en/) package manager. It works out of the box without additional configuration, but you
+can fine tune it or use Yarn already installed on your host.
+
+### Additional Yarn features: .yarnrc
 
 To configure additional Yarn features, place a `.yarnrc` file in the root of your project.
 At build time, it gets picked up automatically.
@@ -473,6 +519,37 @@ registry "http://my.registry/api/npm/"
 ```
 
 To learn more about `.yarnrc`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/en/docs/yarnrc/).
+
+### Disable Yarn downloading
+
+If you have Yarn already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use this installation. In this case, the plugin won't download and install its own instance.
+
+To disable Yarn installation, add the following lines to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin::class.java> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().download = false
+    // or true for default behavior
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).download = false
+}
+ 
+```
+
+</tab>
+</tabs>
+
 
 ## Distribution target directory
 
