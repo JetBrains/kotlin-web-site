@@ -1,5 +1,4 @@
 [//]: # (title: Getting started)
-[//]: # (auxiliary-id: Getting_started)
 
 ## Get familiar with KMM
 

@@ -1,5 +1,4 @@
 [//]: # (title: Concurrent mutability)
-[//]: # (auxiliary-id: Concurrent_Mutability)
 
 When it comes to working with iOS, [Kotlin/Native's state and concurrency model](kmm-concurrency-overview.md) has [two simple rules](kmm-concurrency-overview.md#rules-for-state-sharing).
 

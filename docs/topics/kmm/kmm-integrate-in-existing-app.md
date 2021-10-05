@@ -1,5 +1,4 @@
 [//]: # (title: Make your Android application work on iOS – tutorial)
-[//]: # (auxiliary-id: Make_your_Android_application_work_on_iOS_tutorial)
 
 Here you can learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
 You'll be able to write code and test it for both Android and iOS only once, in one place.
