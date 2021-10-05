@@ -1,5 +1,4 @@
 [//]: # (title: Add dependencies to KMM modules)
-[//]: # (auxiliary-id: Add_dependencies_to_KMM_modules)
 
 Every application requires a set of libraries in order to operate successfully. 
 A KMM application can depend on multiplatform libraries that work on both iOS and Android, and it can depend on platform-specific iOS and Android libraries. 

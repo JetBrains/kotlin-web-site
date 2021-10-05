@@ -1,5 +1,4 @@
 [//]: # (title: KMM plugin releases)
-[//]: # (auxiliary-id: KMM_plugin_releases)
 
 Since KMM is now in [Alpha](kotlin-evolution.md), we are working on stabilizing the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
 and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
