@@ -135,6 +135,14 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime-corejs3@^7.14.0":
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.15.4.tgz#403139af262b9a6e8f9ba04a6fdcebf8de692bf1"
+  integrity sha512-lWcAqKeB624/twtTc3w6w/2o9RqJPaNBhPGK6DKLSiwuVWC7WFkypWyNg+CpZoyJH0jVzv1uMtXZ/5/lQOLtCg==
+  dependencies:
+    core-js-pure "^3.16.0"
+    regenerator-runtime "^0.13.4"
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
@@ -150,10 +158,10 @@
     babel-preset-react "6.24.1"
     babel-preset-stage-2 "6.24.1"
 
-"@jetbrains/kotlin-web-site-ui@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.7.0.tgz#1d1b3b747752deafeec60b076616bce68281714c"
-  integrity sha512-fU4qJPpLgiuweOOY6mv8lr5OE2OFpmbYYH2rL3d2x6Um5i9F4abivqn682KMiNjMb8BtraqybmaZfbVDYYx9yg==
+"@jetbrains/kotlin-web-site-ui@^2.7.1":
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.7.1.tgz#64fe629b3aed33f8e73797fbcdda0b5ff2e6c133"
+  integrity sha512-6LEgS9rZtWm9W5nxMot2pqNy7DOUSHb54J2qYfVMLQqRBzrQ0zWiycTjf109RdoMMocACzZ1naxTpC8TuTJFtw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -176,12 +184,18 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@rescui/typography@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.0.1.tgz#22bee3868885d7b3fa65f8024b140f17aa467579"
-  integrity sha512-ODGiOIA/fArWmwEZEmdF5SJByVeiqVamX3ZWK/PD4JsxeNvzZl5TSA5JiDnlEdE42jLSIPd463ioF4n1L9fV2w==
+"@rescui/colors@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.4.tgz#d844dd5beba87cdaf2580e3c918050ab24b23076"
+  integrity sha512-pgex7fC+IeSkGnDU5PDDbvRPrzV1JIg2GXpc7VwK0E54q7wn3cL4+2QwfkLik0ZJvd4x1txhbGi8bQ/o7SgN1g==
+
+"@rescui/typography@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.2.1.tgz#0496662a58097b6964f8be426416105ca532a9d7"
+  integrity sha512-RgpCthrZhTcljqmi+iz3FTCblZEXZVmFtBma2zrZfzSiIG6nbdiVQNV25bfxcQgRQGqSSg4ftJBkjj+21aO4kg==
   dependencies:
-    "@babel/runtime-corejs3" "^7.13.10"
+    "@babel/runtime-corejs3" "^7.14.0"
+    "@rescui/colors" "^0.0.4"
     bem-cn-fast "^1.0.2"
     inter-ui "^3.15.1"
 
@@ -1889,6 +1903,11 @@ core-js-pure@^3.0.0:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.12.1.tgz#934da8b9b7221e2a2443dc71dfa5bd77a7ea00b8"
   integrity sha512-1cch+qads4JnDSWsvc7d6nzlKAippwjUlf6vykkTLW53VSV+NkE6muGBToAjEA8pG90cSfcud3JgVmW2ds5TaQ==
+
+core-js-pure@^3.16.0:
+  version "3.18.2"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.18.2.tgz#d8cc11d4885ea919f3de776d45e720e4c769d406"
+  integrity sha512-4hMMLUlZhKJKOWbbGD1/VDUxGPEhEoN/T01k7bx271WiBKCvCfkgPzy0IeRS4PB50p6/N1q/SZL4B/TRsTE5bA==
 
 core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0:
   version "2.6.12"
