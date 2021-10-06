@@ -113,13 +113,13 @@ val folders = File(path).listFiles { file -> file.isDirectory() }
 folders?.forEach { folder -> println(folder) }
 ```
 
-To run a script, simply pass the `-script` option to the compiler with the corresponding script file.
+To run a script, pass the `-script` option to the compiler with the corresponding script file.
 
 ```bash
 $ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 ```
 
-Since v1.3.0, Kotlin has had experimental support for script customization, such as adding external properties,
+Kotlin provides experimental support for script customization, such as adding external properties,
 providing static or dynamic dependencies, and so on. Customizations are defined by so-called *Script definitions* -
 annotated kotlin classes with the appropriate support code. The script filename extension is used to select the appropriate
 definition.

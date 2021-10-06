@@ -1,7 +1,7 @@
 [//]: # (title: Delegated properties)
 
 With some common kinds of properties, even though you can implement them manually every time you need them,
-it is more helpful to implement them once, add them to a library, and reuse them later. Examples include:
+it is more helpful to implement them once, add them to a library, and reuse them later. For example:
 
 * _Lazy_ properties: the value is computed only on first access.
 * _Observable_ properties: listeners are notified about changes to this property.
@@ -65,7 +65,7 @@ NEW has been assigned to ‘p’ in Example@33a17727.
 
 The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
 
-Note that you can declare a delegated property inside a function or code block; in other words, it doesn’t have to be a member of a class.
+You can declare a delegated property inside a function or code block; it doesn’t have to be a member of a class.
 Below you can find [an example](#local-delegated-properties).
 
 ## Standard delegates
