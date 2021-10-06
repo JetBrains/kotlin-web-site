@@ -59,7 +59,7 @@ const quotes = [
 
 const Teach = (props) => {
   return (
-    <div className="teach-wrapper">
+    <nav className="teach-wrapper">
       <div className="teach-sticky-menu">
         <TopMenu
           items={menuItems}
@@ -76,7 +76,7 @@ const Teach = (props) => {
       </div>
 
 
-      <div className="ktl-container ktl-offset-top-xl">
+      <section className="ktl-container ktl-offset-top-xl">
         <div className="ktl-row ktl-offset-bottom-l">
           <div className="ktl-col">
             <h1 className="ktl-hero">
@@ -173,9 +173,9 @@ const Teach = (props) => {
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="teach-universities ktl-offset-top-xxl">
+      <section className="teach-universities ktl-offset-top-xxl">
         <div className="ktl-container">
           <div className="teach-universities__top">
             <div className="universities-top">
@@ -265,10 +265,10 @@ const Teach = (props) => {
             </a>
           </div>
         </div>
-      </div>
+      </section>
 
 
-      <div className="teach-resources ktl-offset-top-xxl">
+      <section className="teach-resources ktl-offset-top-xxl">
         <div className="ktl-container">
           <div className="teach-resources__top ktl-offset-bottom-xl">
             <img className="teach-resources__top-image" src={resourcesIcon} alt=""/>
@@ -517,9 +517,9 @@ const Teach = (props) => {
             </li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div className="teach-video ktl-offset-top-xxl">
+      <section className="teach-video ktl-offset-top-xxl">
         <div className="ktl-container">
           <div className="ktl-row">
             <div className="ktl-col">
@@ -527,17 +527,17 @@ const Teach = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="ktl-container ktl-offset-top-xxl">
+      <section className="ktl-container ktl-offset-top-xxl">
         <div className="ktl-row">
           <div className="ktl-col-12 ktl-col-md-10 ktl-col-md-offset-1">
             <QuotesSlider quotes={quotes} large/>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="ktl-offset-top-xxl">
+      <section className="ktl-offset-top-xxl">
         <CtaBlock
           mainTitle='Connect with us'
           topTitle='If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'
@@ -554,8 +554,8 @@ const Teach = (props) => {
             </div>
           }
         />
-      </div>
-    </div>
+      </section>
+    </nav>
   )
     ;
 }
