@@ -57,7 +57,7 @@ however, can be manipulated in any way you like, including being stored in field
 ## Non-local returns
 
 In Kotlin, you can only use a normal, unqualified `return` to exit a named function or an anonymous function.
-To exit a lambda, use a [label](returns.md#return-at-labels). A bare `return` is forbidden
+To exit a lambda, use a [label](returns.md#return-to-labels). A bare `return` is forbidden
 inside a lambda because a lambda cannot make the enclosing function `return`:
 
 ```kotlin
