@@ -355,4 +355,5 @@ IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automati
 
 ## What’s next?
 
-Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
+* Solve [Advent of Code puzzles](advent-of-code.md) using the idiomatic Kotlin style
+* Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)

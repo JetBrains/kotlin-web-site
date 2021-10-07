@@ -1,5 +1,4 @@
 [//]: # (title: Concurrency overview)
-[//]: # (auxiliary-id: Concurrency_Overview)
 
 When you extend your development experience from Android to Kotlin Multiplatform Mobile, you will encounter a different state 
 and concurrency model for iOS. This is a Kotlin/Native model. [Kotlin/Native](native-overview.md) 

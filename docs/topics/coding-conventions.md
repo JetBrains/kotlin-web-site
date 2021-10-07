@@ -11,13 +11,13 @@ the given code style.
  
 ### Apply the style guide
 
-1. Go to **Settings | Editor | Code Style | Kotlin**.
+1. Go to **Settings/Preferences | Editor | Code Style | Kotlin**.
 2. Click **Set from...**.
 3. Select **Kotlin style guide** .
 
 ### Verify that your code follows the style guide
 
-1. Go to **Settings | Editor | Inspections | Kotlin**.
+1. Go to **Settings/Preferences | Editor | Inspections | Kotlin**.
 2. Open **Kotlin | Style issues**.
 3. Switch on **File is not formatted according to project settings** inspection.
 Additional inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
@@ -136,7 +136,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
 names:
 
 ```kotlin
@@ -594,7 +594,7 @@ Using trailing commas has several benefits:
 
 Trailing commas are entirely optional – your code will still work without them. The Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it at your discretion for the call site.
 
-To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings | Editor | Code Style | Kotlin**, 
+To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings/Preferences | Editor | Code Style | Kotlin**, 
 open the **Other** tab and select the **Use trailing comma** option.
 
 #### Enumerations {initial-collapse-state="collapsed"}

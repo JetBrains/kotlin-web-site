@@ -1,0 +1,652 @@
+- from: /eap/configure-build-for-eap.html
+  to: /docs/configure-build-for-eap.html
+
+- from:
+   - /eap/
+   - /eap/index.html
+  to: /docs/eap.html
+
+- from: /eap/install-eap-plugin.html
+  to: /docs/install-eap-plugin.html
+
+- from: /releases.html
+  to: /docs/releases.html
+
+- from: /contribute.html
+  to: /docs/contribute.html
+
+- from: /foundation/submitting-incompatible-changes.html
+  to: /docs/submitting-incompatible-changes.html
+
+- from: /foundation/guidelines.html
+  to: /docs/guidelines.html
+
+- from: /foundation/faq.html
+  to: /docs/foundation-faq.html
+
+- from: /foundation/kotlin-foundation.html
+  to: /docs/kotlin-foundation.html
+
+- from:
+   - /foundation/
+   - /foundation/index.html
+  to: /docs/kotlin-foundation.html
+
+- from: /foundation/language-committee-guidelines.html
+  to: /docs/language-committee-guidelines.html
+
+- from: /docs/kotlin-pdf.html
+  to: /docs/kotlin-pdf.html
+
+- from: /docs/tutorials/httpservlets.html
+  to: /docs/server-overview.html
+
+- from: /docs/tutorials/edu-tools-educator.html
+  to: /docs/edu-tools-educator.html
+
+- from: /docs/tutorials/android-frameworks.html
+  to: /docs/reference/android-overview.html
+
+- from: /docs/tutorials/mixing-java-kotlin-intellij.html
+  to: /docs/mixing-java-kotlin-intellij.html
+
+- from: /docs/tutorials/create-library-js.html
+  to: /docs/js-get-started.html
+
+- from: /docs/tutorials/native/mapping-function-pointers-from-c.html
+  to: /docs/mapping-function-pointers-from-c.html
+
+- from: /docs/tutorials/native/kotlin-native-with-clion.html
+  to: /docs/tutorials/native/using-command-line-compiler.html
+
+- from: /docs/tutorials/native/using-command-line-compiler.html
+  to: /docs/native-command-line-compiler.html
+
+- from: /docs/tutorials/native/gradle-for-kotlin-native.html
+  to: /docs/tutorials/native/using-gradle.html
+
+- from: /docs/tutorials/native/interop-with-c.html
+  to: /docs/tutorials/native/curl.html
+
+- from: /docs/tutorials/native/using-intellij-idea.html
+  to: /docs/native-get-started.html
+
+- from: /docs/tutorials/native/targeting-multiple-platforms.html
+  to: /docs/tutorials/native/basic-kotlin-native-app.html
+
+- from: /docs/tutorials/native/mapping-strings-from-c.html
+  to: /docs/mapping-strings-from-c.html
+
+- from: /docs/tutorials/native/mpp-ios-android.html
+  to: /docs/kmm-create-first-app.html
+
+- from: /docs/tutorials/native/apple-framework.html
+  to: /docs/apple-framework.html
+
+- from: /docs/tutorials/native/curl.html
+  to: /docs/curl.html
+
+- from: /docs/tutorials/native/dynamic-libraries.html
+  to: /docs/native-dynamic-libraries.html
+
+- from: /docs/tutorials/native/mapping-struct-union-types-from-c.html
+  to: /docs/mapping-struct-union-types-from-c.html
+
+- from: /docs/tutorials/native/intro-to-kotlin-native.html
+  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/
+
+- from: /docs/tutorials/native/working-with-klib.html
+  to: /docs/tutorials/mpp/multiplatform-library.html
+
+- from: /docs/tutorials/native/basic-kotlin-native-app.html
+  to: /docs/tutorials/native/using-command-line-compiler.html
+
+- from: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
+  to: /docs/mapping-primitive-data-types-from-c.html
+
+- from: /docs/tutorials/native/using-gradle.html
+  to: /docs/native-gradle.html
+
+- from: /docs/tutorials/kotlin-and-ci.html
+  to: /docs/kotlin-and-ci.html
+
+- from: /docs/tutorials/build-tools.html
+  to: /docs/gradle.html
+
+- from: /docs/tutorials/jvm-get-started.html
+  to: /docs/jvm-get-started.html
+
+- from: /docs/tutorials/android-plugin.html
+  to: /docs/reference/android-overview.html
+
+- from: /docs/tutorials/spring-boot-restful.html
+  to: /docs/spring-boot-restful.html
+
+- from: /docs/tutorials/getting-started.html
+  to: /docs/getting-started.html
+
+- from: /docs/tutorials/command-line.html
+  to: /docs/command-line.html
+
+- from:
+   - /docs/tutorials/
+   - /docs/tutorials/index.html
+  to: /docs/home.html
+
+- from: /docs/tutorials/command-line-library-js.html
+  to: /docs/js-project-setup.html
+
+- from: /docs/tutorials/kotlin-android.html
+  to: /docs/reference/android-overview.html
+
+- from: /docs/tutorials/edu-tools-learner.html
+  to: /docs/edu-tools-learner.html
+
+- from: /docs/tutorials/mpp/multiplatform-library.html
+  to: /docs/multiplatform-library.html
+
+- from: /docs/tutorials/mpp/intro-to-kotlin-mpp.html
+  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform/01_Introduction
+
+- from: /docs/tutorials/coroutines/coroutines-basic-jvm.html
+  to: /docs/coroutines-basic-jvm.html
+
+- from: /docs/tutorials/coroutines/async-programming.html
+  to: /docs/async-programming.html
+
+- from: /docs/tutorials/coroutines/debug-coroutines-with-idea.html
+  to: /docs/debug-coroutines-with-idea.html
+
+- from: /docs/tutorials/coroutines/debug-flow-with-idea.html
+  to: /docs/debug-flow-with-idea.html
+
+- from: /docs/tutorials/coroutines/intro-to-coroutines-and-channels.html
+  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels
+
+- from: /docs/tutorials/getting-started-eclipse.html
+  to: /docs/getting-started.html
+
+- from: /docs/tutorials/javascript/getting-started-gradle/getting-started-with-gradle.html
+  to: /docs/tutorials/javascript/setting-up.html
+
+- from: /docs/tutorials/javascript/react-and-kotlin-js.html
+  to: https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction
+
+- from: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
+  to: /docs/tutorials/javascript/debugging-kotlin-in-browser.html
+
+- from: /docs/tutorials/javascript/running-tests.html
+  to: /docs/js-running-tests.html
+
+- from: /docs/tutorials/javascript/typesafe-html-dsl.html
+  to: /docs/typesafe-html-dsl.html
+
+- from: /docs/tutorials/javascript/running-kotlin-js.html
+  to: /docs/running-kotlin-js.html
+
+- from: /docs/tutorials/javascript/kotlin-to-javascript/kotlin-to-javascript.html
+  to: /docs/js-get-started.html
+
+- from: /docs/tutorials/javascript/using-packages-from-npm.html
+  to: /docs/using-packages-from-npm.html
+
+- from: /docs/tutorials/javascript/browser-api-dom.html
+  to: /docs/browser-api-dom.html
+
+- from: /docs/tutorials/javascript/dev-server-continuous-compilation.html
+  to: /docs/dev-server-continuous-compilation.html
+
+- from: /docs/tutorials/javascript/getting-started-idea/getting-started-with-intellij-idea.html
+  to: /docs/getting-started-with-intellij-idea.html
+
+- from: /docs/tutorials/javascript/debugging-kotlin-in-browser.html
+  to: /docs/debugging-kotlin-in-browser.html
+
+- from: /docs/tutorials/javascript/getting-started-command-line/command-line-library-js.html
+  to: /docs/command-line-library-js.html
+
+- from: /docs/tutorials/javascript/setting-up.html
+  to: /docs/js-get-started.html
+
+- from: /docs/tutorials/javascript/getting-started-maven/getting-started-with-maven.html
+  to: /docs/getting-started-with-maven.html
+
+- from: /docs/tutorials/javascript/working-with-javascript.html
+  to: /docs/js-project-setup.html
+
+- from: /docs/tutorials/javascript/calling-javascript-from-kotlin/calling-javascript-from-kotlin.html
+  to: /docs/calling-javascript-from-kotlin.html
+
+- from: /docs/tutorials/javascript/working-with-modules/working-with-modules.html
+  to: /docs/reference/js-modules.html
+
+- from: /docs/tutorials/quick-run.html
+  to: /docs/quick-run.html
+
+- from: /docs/tutorials/competitive-programming.html
+  to: /docs/competitive-programming.html
+
+- from: /docs/tutorials/koans.html
+  to: /docs/koans.html
+
+- from: /docs/reference/iterators.html
+  to: /docs/iterators.html
+
+- from: /docs/reference/sealed-classes.html
+  to: /docs/sealed-classes.html
+
+- from: /docs/reference/opt-in-requirements.html
+  to: /docs/opt-in-requirements.html
+
+- from: /docs/reference/set-operations.html
+  to: /docs/set-operations.html
+
+- from: /docs/reference/mpp-supported-platforms.html
+  to: /docs/mpp-supported-platforms.html
+
+- from: /docs/reference/object-declarations.html
+  to: /docs/object-declarations.html
+
+- from: /docs/reference/exceptions.html
+  to: /docs/exceptions.html
+
+- from: /docs/reference/collection-elements.html
+  to: /docs/collection-elements.html
+
+- from: /docs/reference/compiler-reference.html
+  to: /docs/compiler-reference.html
+
+- from: /docs/reference/collection-grouping.html
+  to: /docs/collection-grouping.html
+
+- from: /docs/reference/whatsnew13.html
+  to: /docs/whatsnew13.html
+
+- from: /docs/reference/nested-classes.html
+  to: /docs/nested-classes.html
+
+- from: /docs/reference/server-overview.html
+  to: /docs/server-overview.html
+
+- from: /docs/reference/mpp-share-on-platforms.html
+  to: /docs/mpp-share-on-platforms.html
+
+- from: /docs/reference/extensions.html
+  to: /docs/extensions.html
+
+- from: /docs/reference/whatsnew12.html
+  to: /docs/whatsnew12.html
+
+- from: /docs/reference/mpp-set-up-targets.html
+  to: /docs/mpp-set-up-targets.html
+
+- from: /docs/reference/equality.html
+  to: /docs/equality.html
+
+- from: /docs/reference/using-maven.html
+  to: /docs/maven.html
+
+- from: /docs/reference/collection-parts.html
+  to: /docs/collection-parts.html
+
+- from: /docs/reference/native/c_interop.html
+  to: /docs/native-c-interop.html
+
+- from: /docs/reference/native/platform_libs.html
+  to: /docs/native-platform-libs.html
+
+- from: /docs/reference/native/faq.html
+  to: /docs/native-faq.html
+
+- from: /docs/reference/native/ios_symbolication.html
+  to: /docs/native-ios-symbolication.html
+
+- from: /docs/reference/native/immutability.html
+  to: /docs/native-immutability.html
+
+- from: /docs/reference/native/objc_interop.html
+  to: /docs/native-objc-interop.html
+
+- from: /docs/reference/native/gradle_plugin.html
+  to: /docs/mpp-dsl-reference.html
+
+- from: /docs/reference/native/cocoapods.html
+  to: /docs/native-cocoapods.html
+
+- from: /docs/reference/native/debugging.html
+  to: /docs/native-debugging.html
+
+- from: /docs/reference/native/libraries.html
+  to: /docs/native-libraries.html
+
+- from: /docs/reference/native/concurrency.html
+  to: /docs/native-concurrency.html
+
+- from: /docs/reference/enum-classes.html
+  to: /docs/enum-classes.html
+
+- from: /docs/reference/js-modules.html
+  to: /docs/js-modules.html
+
+- from: /docs/reference/ranges.html
+  to: /docs/ranges.html
+
+- from: /docs/reference/serialization.html
+  to: /docs/serialization.html
+
+- from: /docs/reference/js-to-kotlin-interop.html
+  to: /docs/js-to-kotlin-interop.html
+
+- from: /docs/reference/dynamic-type.html
+  to: /docs/dynamic-type.html
+
+- from: /docs/reference/generics.html
+  to: /docs/generics.html
+
+- from: /docs/reference/mpp-add-dependencies.html
+  to: /docs/mpp-add-dependencies.html
+
+- from: /docs/reference/compatibility-guide-14.html
+  to: /docs/compatibility-guide-14.html
+
+- from: /docs/reference/data-classes.html
+  to: /docs/data-classes.html
+
+- from: /docs/reference/code-style-migration-guide.html
+  to: /docs/code-style-migration-guide.html
+
+- from: /docs/reference/whatsnew1430.html
+  to: /docs/whatsnew1430.html
+
+- from: /docs/reference/mpp-intro.html
+  to: /docs/mpp-intro.html
+
+- from: /docs/reference/multi-declarations.html
+  to: /docs/multi-declarations.html
+
+- from: /docs/reference/lambdas.html
+  to: /docs/lambdas.html
+
+- from: /docs/reference/whatsnew1420.html
+  to: /docs/whatsnew1420.html
+
+- from: /docs/reference/multiplatform.html
+  to: /docs/multiplatform.html
+
+- from: /docs/reference/kotlin-doc.html
+  to: /docs/kotlin-doc.html
+
+- from: /docs/reference/faq.html
+  to: /docs/faq.html
+
+- from: /docs/reference/classes.html
+  to: /docs/classes.html
+
+- from: /docs/reference/delegated-properties.html
+  to: /docs/delegated-properties.html
+
+- from: /docs/reference/collection-operations.html
+  to: /docs/collection-operations.html
+
+- from: /docs/reference/kapt.html
+  to: /docs/kapt.html
+
+- from: /docs/reference/compiler-plugins.html
+  to: /docs/all-open-plugin.html
+
+- from: /docs/reference/annotations.html
+  to: /docs/annotations.html
+
+- from: /docs/reference/delegation.html
+  to: /docs/delegation.html
+
+- from: /docs/reference/idioms.html
+  to: /docs/idioms.html
+
+- from: /docs/reference/mpp-build-native-binaries.html
+  to: /docs/mpp-build-native-binaries.html
+
+- from: /docs/reference/js-interop.html
+  to: /docs/js-interop.html
+
+- from: /docs/reference/type-safe-builders.html
+  to: /docs/type-safe-builders.html
+
+- from: /docs/reference/mpp-run-tests.html
+  to: /docs/mpp-run-tests.html
+
+- from: /docs/reference/javascript-dce.html
+  to: /docs/javascript-dce.html
+
+- from: /docs/reference/inline-classes.html
+  to: /docs/inline-classes.html
+
+- from: /docs/reference/kotlin-osgi.html
+  to: /docs/kotlin-osgi.html
+
+- from: /docs/reference/migrating-multiplatform-project-to-14.html
+  to: /docs/migrating-multiplatform-project-to-14.html
+
+- from: /docs/reference/collection-plus-minus.html
+  to: /docs/collection-plus-minus.html
+
+- from: /docs/reference/basic-syntax.html
+  to: /docs/basic-syntax.html
+
+- from: /docs/reference/js-overview.html
+  to: /docs/js-overview.html
+
+- from: /docs/reference/list-operations.html
+  to: /docs/list-operations.html
+
+- from: /docs/reference/properties.html
+  to: /docs/properties.html
+
+- from: /docs/reference/mpp-publish-lib.html
+  to: /docs/mpp-publish-lib.html
+
+- from: /docs/reference/building-mpp-with-gradle.html
+  to: /docs/reference/mpp-intro.html
+
+- from: /docs/reference/whatsnew-plugin-20203.html
+  to: /docs/whatsnew-plugin-20203.html
+
+- from: /docs/reference/this-expressions.html
+  to: /docs/this-expressions.html
+
+- from:
+   - /docs/reference/
+   - /docs/reference/index.html
+  to: /docs/home.html
+
+- from: /docs/reference/collection-transformations.html
+  to: /docs/collection-transformations.html
+
+- from: /docs/reference/coroutines-overview.html
+  to: /docs/coroutines-overview.html
+
+- from: /docs/reference/keyword-reference.html
+  to: /docs/keyword-reference.html
+
+- from: /docs/reference/collection-write.html
+  to: /docs/collection-write.html
+
+- from: /docs/reference/interfaces.html
+  to: /docs/interfaces.html
+
+- from: /docs/reference/collection-aggregate.html
+  to: /docs/collection-aggregate.html
+
+- from: /docs/reference/functions.html
+  to: /docs/functions.html
+
+- from: /docs/reference/evolution/kotlin-evolution.html
+  to: /docs/kotlin-evolution.html
+
+- from: /docs/reference/evolution/compatibility-modes.html
+  to: /docs/compatibility-modes.html
+
+- from: /docs/reference/evolution/components-stability-pre-1.4.html
+  to: /docs/components-stability-pre-1-4.html
+
+- from: /docs/reference/evolution/components-stability.html
+  to: /docs/components-stability.html
+
+- from: /docs/reference/collections-overview.html
+  to: /docs/collections-overview.html
+
+- from: /docs/reference/native-overview.html
+  to: /docs/native-overview.html
+
+- from: /docs/reference/control-flow.html
+  to: /docs/control-flow.html
+
+- from: /docs/reference/sequences.html
+  to: /docs/sequences.html
+
+- from: /docs/reference/fun-interfaces.html
+  to: /docs/fun-interfaces.html
+
+- from: /docs/reference/js-external-declarations-with-dukat.html
+  to: /docs/js-external-declarations-with-dukat.html
+
+- from: /docs/reference/mpp-configure-compilations.html
+  to: /docs/mpp-configure-compilations.html
+
+- from: /docs/reference/basic-types.html
+  to: /docs/basic-types.html
+
+- from: /docs/reference/js-project-setup.html
+  to: /docs/js-project-setup.html
+
+- from: /docs/reference/compatibility-guide-13.html
+  to: /docs/compatibility-guide-13.html
+
+- from: /docs/reference/java-interop.html
+  to: /docs/java-interop.html
+
+- from: /docs/reference/data-science-overview.html
+  to: /docs/data-science-overview.html
+
+- from: /docs/reference/packages.html
+  to: /docs/packages.html
+
+- from: /docs/reference/coding-conventions.html
+  to: /docs/coding-conventions.html
+
+- from: /docs/reference/coroutines/select-expression.html
+  to: /docs/select-expression.html
+
+- from: /docs/reference/coroutines/basics.html
+  to: /docs/coroutines-basics.html
+
+- from: /docs/reference/coroutines/exception-handling.html
+  to: /docs/exception-handling.html
+
+- from: /docs/reference/coroutines/cancellation-and-timeouts.html
+  to: /docs/cancellation-and-timeouts.html
+
+- from: /docs/reference/coroutines/shared-mutable-state-and-concurrency.html
+  to: /docs/shared-mutable-state-and-concurrency.html
+
+- from: /docs/reference/coroutines/coroutines-guide.html
+  to: /docs/coroutines-guide.html
+
+- from: /docs/reference/coroutines/channels.html
+  to: /docs/channels.html
+
+- from: /docs/reference/coroutines/composing-suspending-functions.html
+  to: /docs/composing-suspending-functions.html
+
+- from: /docs/reference/coroutines/coroutine-context-and-dispatchers.html
+  to: /docs/coroutine-context-and-dispatchers.html
+
+- from: /docs/reference/coroutines/flow.html
+  to: /docs/flow.html
+
+- from: /docs/reference/using-ant.html
+  to: /docs/ant.html
+
+- from: /docs/reference/whatsnew11.html
+  to: /docs/whatsnew11.html
+
+- from: /docs/reference/visibility-modifiers.html
+  to: /docs/visibility-modifiers.html
+
+- from: /docs/reference/mpp-discover-project.html
+  to: /docs/mpp-discover-project.html
+
+- from: /docs/reference/null-safety.html
+  to: /docs/null-safety.html
+
+- from: /docs/reference/comparison-to-java.html
+  to: /docs/comparison-to-java.html
+
+- from: /docs/reference/map-operations.html
+  to: /docs/map-operations.html
+
+- from: /docs/reference/returns.html
+  to: /docs/returns.html
+
+- from: /docs/reference/js-reflection.html
+  to: /docs/js-reflection.html
+
+- from: /docs/reference/android-overview.html
+  to: /docs/android-overview.html
+
+- from: /docs/reference/constructing-collections.html
+  to: /docs/constructing-collections.html
+
+- from: /docs/reference/whatsnew14.html
+  to: /docs/whatsnew14.html
+
+- from: /docs/reference/reflection.html
+  to: /docs/reflection.html
+
+- from: /docs/reference/js-ir-compiler.html
+  to: /docs/js-ir-compiler.html
+
+- from: /docs/reference/mpp-create-lib.html
+  to: /docs/mpp-create-lib.html
+
+- from: /docs/reference/collection-ordering.html
+  to: /docs/collection-ordering.html
+
+- from: /docs/reference/platform-specific-declarations.html
+  to: /docs/reference/mpp-connect-to-apis.html
+
+- from: /docs/reference/operator-overloading.html
+  to: /docs/operator-overloading.html
+
+- from: /docs/reference/java-to-kotlin-interop.html
+  to: /docs/java-to-kotlin-interop.html
+
+- from: /docs/reference/mpp-dsl-reference.html
+  to: /docs/mpp-dsl-reference.html
+
+- from: /docs/reference/scope-functions.html
+  to: /docs/scope-functions.html
+
+- from: /docs/reference/mpp-connect-to-apis.html
+  to: /docs/mpp-connect-to-apis.html
+
+- from: /docs/reference/type-aliases.html
+  to: /docs/type-aliases.html
+
+- from: /docs/reference/typecasts.html
+  to: /docs/typecasts.html
+
+- from: /docs/reference/using-gradle.html
+  to: /docs/gradle.html
+
+- from: /docs/reference/collection-filtering.html
+  to: /docs/collection-filtering.html
+
+- from: /docs/reference/inline-functions.html
+  to: /docs/inline-functions.html
+
+- from: /roadmap.html
+  to: /docs/roadmap.html
+
+- from: /security.html
+  to: /docs/security.html

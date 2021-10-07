@@ -1,5 +1,4 @@
 [//]: # (title: Create your first multiplatform application – tutorial)
-[//]: # (auxiliary-id: Create_your_first_multiplatform_application)
 
 Here you will learn how to create and run your first KMM application.
 

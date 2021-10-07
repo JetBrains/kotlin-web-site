@@ -1,5 +1,290 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-28</startDate>
+        <endDate>2021-10-28</endDate>
+        <location>London, UK</location>
+        <speaker>Nicola Corti</speaker>
+        <title>london droidcon</title>
+        <subject>Detekt - State of the Union</subject>
+        <url>https://www.london.droidcon.com/program/detekt---state-of-the-union</url>
+        <description>
+            <![CDATA[
+<p>Do you know detekt? We are The static analyzer for Kotlin, trusted by millions of developers around the globe, and completely built by the open-source community.<p>
+<p>Our mission: spotting bugs, anti-patterns, and potential errors in your Kotlin code.<p>
+<p>Did you know that you can extend detekt with your custom rules?
+Did you know that we recently launched support for Kotlin Multiplatform?
+Did you know that we're always looking for new contributors?<p>
+<p>Whether you're new to detekt or you're a veteran, this talk is for you!
+We will walk through the tool, and give you updates on the latest features we shipped and what comes next for the future.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-07</startDate>
+        <endDate>2021-10-07</endDate>
+        <online>true</online>
+        <speaker>Christian Melchior</speaker>
+        <title>by Mobile Seasons GmbH - droidcon Global</title>
+        <subject>Painless persistence on Kotlin Multiplatform with Realm Kotlin</subject>
+        <url>https://www.eventbrite.co.uk/e/painless-persistence-on-kotlin-multiplatform-with-realm-kotlin-registration-174074981957</url>
+        <description>
+            <![CDATA[
+<p>In this session, we will explore a fast, intuitive way to build great mobile applications using Realm’s new Kotlin SDK with Multiplatform support.<p>
+<p>We will dive deeper into how we evolved the Realm Java SDK to be a fully native Kotlin Multiplatform SDK. You will learn how Realm’s natural object model combined with Kotlin features like Coroutines and Flows reduces boilerplate, promotes testability, and allows for maximum code sharing between Multiplatform projects.<p>
+<p>And you will see just how little code is needed to sync data in real-time between Android, iOS and Desktop clients, all in a single codebase.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Marcin Moskała</speaker>
+        <title>berlin droidcon</title>
+        <subject>Efficient Kotlin</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Code efficiency today is often treated indulgently. To a certain degree, it is reasonable. Memory is cheap and developers are expensive. Though at some point maybe your application runs on millions of devices and some battery use optimization might save enough energy to power a small city. Or maybe your company already pays lots of money for servers and their maintenance, and some optimization might make it significantly cheaper. Or even your application works well for a small number of requests but does not scale well and on the day of the trial it shuts down. In this session, I'll show you how to make an efficient Kotlin code cheaply, and how to optimize performance-critical parts of your code.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Lena Stepanova</speaker>
+        <title>berlin droidcon</title>
+        <subject>Kotlin Multiplatform Mobile in production: key takeaways from developing two cross-platform apps</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform Mobile is a young promising technology, but is it there to stay? And is it worth trying out? This talk is based on the experience of developing two very different cross-platform apps with KMM. The goal of this talk is to introduce KMM, discuss the pitfalls that a new KMM developer may encounter and share some valuable tips that were collected along the way of KMM development: from preferable app architecture to team requirements.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Jarosław Michalik</speaker>
+        <title>berlin droidcon</title>
+        <subject>Idiomatic Kotlin in Tests</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Unit tests are boring and maintaining them is complex? Sometimes. But it doesn't have to be this way.<p>
+<p>To create great readable tests with ease we have to go further than standard Java tooling. To achieve that we can incorporate idiomatic Kotlin into test code. It will help us design tests to be both developer and machine friendly.<p>
+<p>During the talk we will refactor step-by-step Java with JUnit test to Kotlin with Kotest. We will look at differences between various tools and we will check how test tech stack choices are influencing developer productivity.<p>
+<p>I will show practical application of Kotlin idioms in test, including, but not limited to, assertions, mocking and test suite definition.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Russell Wolf</speaker>
+        <title>berlin droidcon</title>
+        <subject>The Kotlin/Swift boundary</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin/Native can compile to Objective-C-compatible bytecode, but that doesn’t mean it looks natural to native iOS developers. While Kotlin and Swift are syntactically very similar, they solve certain problems in very different ways. For example, a Swift developer often uses a struct where a Kotlin developer uses a data class. This means the default ways that things translate from Kotlin through Objective-C into Swift don’t always come out looking idiomatic.<p>
+<p>We’ll talk through some of these differences, and strategies for dealing with them. Kotlin, Objective-C, and Swift are three different languages, and so we shouldn’t expect to be able to translate between them perfectly. But with a bit of care at the interop layer, we can make things a lot smoother in the iOS code.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Christian Melchior</speaker>
+        <title>berlin droidcon</title>
+        <subject>Coroutines for Kotlin Multiplatform in practise</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>With coroutines being the de facto way of exposing async work and streams of changes for Kotlin on Android, developers are obviously attempting to use the same approaches when moving their code to Multiplatform.<p>
+<p>But due to the way the memory model differs between JVM and Kotlin Native, it can be a painful experience.<p>
+<p>In this talk, we will take a deep dive into the Coroutine API for Kotlin Multiplatform. You will learn how to expose your API with Coroutines while working with the Kotlin Native memory model instead of against it, and avoid the dragons along the way.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-21</startDate>
+        <endDate>2021-10-21</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Fatih Giriş</speaker>
+        <title>berlin droidcon</title>
+        <subject>Using Kotlin Flow in MVVM</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>LiveData was never designed to be a full-fledged reactive stream. Thread management with LiveData is very hard and making data transformation with transformation operators is very limited. Moreover, testing LiveData becomes very tricky and is likely to open for race conditions if you are using it with coroutines.<p>
+<p>Luckily, Kotlin Flow provides asynchronously computed values with the power of Coroutines. Making data transformations becomes very easy with Flow intermediate operators. Furthermore, StateFlow provides caching the current state just like LiveData. Since there is a back-pressure in Flow, unit testing is much simpler with handy Flow terminal operators.<p>
+<p>Kotlin Flow is a very powerful reactive stream with its robust operators. Using Flow instead of LiveData makes it easier to handle data transformations and background processes. Finally, testing Flow is much safer and painless compared to LiveData.<p>
+]]>
+        </description>
+  </event>
+
+  <event>
+        <lang>en</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Monika Jethani</speaker>
+        <title>berlin droidcon</title>
+        <subject>A-Z of Kotlin Flow</subject>
+        <url>https://www.berlin.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>In this session, the attendees with be learning about the benefits of Kotlin flow, what is flow, how can it be used, how can we migrate existing rx java code in our apps to kotlin coroutines and flow(with code walkthrough and demo of sample apps that involve network and database) and how can we unit test Kotlin flow.
+In this session, we will have a live workshop, where the attendees will learn using Flow with MVVM Architecture & learn unit testing Kotlin flow code with runBlockingTest and TestCoroutineDispatcher & Turbine library.<p>
+<p>By the end of this session, the attendees will be well-versed with using Kotlin flow in their apps.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-09</startDate>
+        <endDate>2021-11-09</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Garth Gilmour, Eamonn Boyle</speaker>
+        <title>GOTO Amsterdam 2021</title>
+        <subject>A TypeScript Fan's KotlinJS Adventures</subject>
+        <url>https://gotocph.com/2021/schedule?date=2021-11-09</url>
+        <description>
+            <![CDATA[
+<p>In this talk, the dynamic duo will go out of their comfort zone and recreate a Breakout clone for the browser using KotlinJS.<p>
+<p>At Instil Software they standardize on Kotlin for server-side development. Within the training team, they offer a Kotlin native workshop, for which Garth and Eamonn wrote a Kotlin native version of the classic game Breakout.<p>
+<p>Being massive TypeScript fans, it would always be their language of choice when working on JavaScript platforms. They didn't feel the drive to switch to other languages that transpile to JS such as Fable (F#), Scala.js, or even KotlinJS, as they always saw Kotlin on the JVM as the solution to a problem, the problem being Java.<p>
+<p>They will make use of React, Redux and use React Three Fiber for WebGL graphics. Moreover, they will explore what this transition to KotlinJS is like for a TypeScript fanboy and try to answer some questions along the way.<p>
+<p>You'll learn how the tooling, libraries and language features compare, what things tripped up and whether you should switch and use it on your next project<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <speaker>Garth Gilmour, Eamonn Boyle</speaker>
+        <title>GOTO Amsterdam 2021</title>
+        <subject>Learning Kotlin/JS by Building Web Apps in React and Redux</subject>
+        <url>https://gotocph.com/2021/schedule?date=2021-11-11</url>
+        <description>
+            <![CDATA[
+<p>In this workshop we will learn the full Kotlin/JS feature set by building Web Applications in React and Redux. We will create projects from scratch based on the Kotlin Gradle DSL, and then iteratively assemble a rich UI via the Kotlin/JS language and Kotlin-React DSL. Application state will be managed via Redux using the functional style with React Hooks.<p>
+<p>You'll learn how coroutines simplify asynchronous workflows and concurrency. You'll also learn how interoperability with TypeScript allows you to leverage existing JS libraries in a strongly typed way.<p>
+<p>By the end of the workshop you will have been exposed to some of the advanced features of Kotlin and be comfortable using Kotlin for JS platforms.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-09-30</startDate>
+        <endDate>2021-09-30</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Tristan Hamilton</speaker>
+        <title>Kotlin User Group Berlin</title>
+        <subject>A Functional Approach to Exception Handling</subject>
+        <url>https://www.meetup.com/kotlin-berlin/events/280602913</url>
+        <description>
+            <![CDATA[
+<p>"why catch if you never throw?"
+An introduction into the world of functional programming by discussing an approach to exception handling sometimes referred to as "railway oriented programming".<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-09-23</startDate>
+        <endDate>2021-09-23</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Tomáš Paronai</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/280745039</url>
+        <description>
+            <![CDATA[
+<p>- ViewModel Callback
+- ViewModel RxJava
+- ViewModel Flow<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>sk</lang>
+        <startDate>2021-09-23</startDate>
+        <endDate>2021-09-23</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Jozef Kňažko</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Modelovanie dát</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/280745039</url>
+        <description>
+            <![CDATA[
+<p> Ukážky ako nám vie type system pomôct predchádzať zbytočným bugom
+- Aké sú časté chyby pri vytváraní dátových modelov
+- Kedy kombinovať dáta s funkciami a kedy radšej nie<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>es</lang>
+        <startDate>2021-09-22</startDate>
+        <endDate>2021-09-22</endDate>
+        <location>Barcelona, Spain</location>
+        <speaker>Ivan Lorenz</speaker>
+        <title>Adevinta Spain</title>
+        <subject>Kotlin and Arrow sesión 2 - Gestión funcional de errores</subject>
+        <url>https://www.meetup.com/adevinta-Spain/events/280743852</url>
+        <description>
+            <![CDATA[
+<p>Continuamos con el caso de uso de Wonderful Enterprises. En esta segunda sesión veremos que en algunas ocasiones no basta con modelar ausencia de valor para nuestros métodos OO. Es conveniente a veces informar al código cliente de nuestras APIs con una explicación que aclare porqué no hemos podido obtener cómo output un valor a partir del input (los parámetros del método).<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-09-30</startDate>
+        <endDate>2021-09-30</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>John O'Reilly</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Using GraphQL in a KMM project with Jetpack Compose and SwiftUI</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/279631984</url>
+        <description>
+            <![CDATA[
+<p>In this talk John will show how GraphQL, using Apollo library, can be used in shared code a Kotlin Multiplatform project that uses Jetpack Compose Android and SwiftUI iOS clients.<p>
+]]>
+        </description>
+   </event>
+
    <event>
         <lang>es</lang>
         <startDate>2021-08-26</startDate>

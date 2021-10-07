@@ -197,4 +197,21 @@ val jsonApp = kotlin.js.json(Pair("name", "App1")) as AppProps
 
 **Solution**: use the `name` property instead of `toString()`.
 
+## Explicitly specify binaries.executable() in the build script
 
+**Issue**: the compiler doesn't produce executable `.js` files. 
+
+This may happen because the default compiler produces JavaScript executables by default while the IR compiler needs an
+explicit instruction to do this. Learn more in the [Kotlin/JS project setup instruction](js-project-setup.md#execution-environments).
+
+**Solution**: add the line `binaries.executable()` to the project's `build.gradle(.kts)`.
+
+```kotlin
+kotlin {
+    js(IR) {
+        browser {
+        }
+        binaries.executable()
+    }
+}
+```

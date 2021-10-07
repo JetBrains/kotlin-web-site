@@ -1495,7 +1495,23 @@
 - title: Gdansk University of Technology
   location: Gdansk (Poland)
   courses:
-  - name: 'Object-oriented programming, PG_00054485'
+  - name: Object-oriented programming, PG_00054485
   geo:
     lat: '54.371070'
     lng: '18.613456'
+- title: National Research Nuclear University MEPhI
+  location: Moscow (Russia)
+  courses:
+  - name: Kotlin FullStack Developer
+    url: https://drive.google.com/file/d/13kOP72x8woD_lJHmRHcMgkUkonHWDN55/view?usp=sharing
+  geo:
+    lat: '55.6502051'
+    lng: '37.6643098'
+- title: FH Joanneum
+  location: Graz (Austria)
+  courses:
+  - name: Mobile Software Development
+    url: https://www.fh-joanneum.at/mobile-software-development/bachelor/en/
+  geo:
+    lat: '47.0693'
+    lng: '15.4097888'

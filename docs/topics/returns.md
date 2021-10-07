@@ -2,9 +2,9 @@
 
 Kotlin has three structural jump expressions:
 
-* `return` by default returns from the nearest enclosing function or [anonymous function](lambdas.md#anonymous-functions)
-* `break` terminates the nearest enclosing loop
-* `continue` proceeds to the next step of the nearest enclosing loop
+* `return` by default returns from the nearest enclosing function or [anonymous function](lambdas.md#anonymous-functions).
+* `break` terminates the nearest enclosing loop.
+* `continue` proceeds to the next step of the nearest enclosing loop.
 
 All of these expressions can be used as part of larger expressions:
 
@@ -17,7 +17,7 @@ The type of these expressions is the [Nothing type](exceptions.md#the-nothing-ty
 ## Break and continue labels
 
 Any expression in Kotlin may be marked with a _label_.
-Labels have the form of an identifier followed by the `@` sign, for example: `abc@`, `fooBar@`.
+Labels have the form of an identifier followed by the `@` sign, such as `abc@` or `fooBar@`.
 To label an expression, just add a label in front of it.
 
 ```kotlin
@@ -39,11 +39,12 @@ loop@ for (i in 1..100) {
 A `break` qualified with a label jumps to the execution point right after the loop marked with that label.
 A `continue` proceeds to the next iteration of that loop.
 
-## Return at labels
+## Return to labels
 
-With function literals, local functions and object expressions, functions can be nested in Kotlin. 
-Qualified `return`s allow us to return from an outer function. 
-The most important use case is returning from a lambda expression. Recall that when we write this:
+In Kotlin, functions can be nested using function literals, local functions, and object expressions.
+Qualified `return`s allow us to return from an outer function.
+The most important use case is returning from a lambda expression. Recall that when we write the following,
+the `return`-expression returns from the nearest enclosing function - `foo`:
 
 ```kotlin
 //sampleStart
@@ -62,7 +63,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The `return`-expression returns from the nearest enclosing function - `foo`.
 Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.md).
 To return from a lambda expression, label it and qualify the `return`:
 
@@ -83,8 +83,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Now, it returns only from the lambda expression. Oftentimes it is more convenient to use _implicit labels_:
-such a label has the same name as the function to which the lambda is passed.
+Now, it returns only from the lambda expression. Often it is more convenient to use _implicit labels_, because such a label
+has the same name as the function to which the lambda is passed.
 
 ```kotlin
 //sampleStart
@@ -123,7 +123,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Note that the use of local returns in previous three examples is similar to the use of `continue` in regular loops.
+Note that the use of local returns in the previous three examples is similar to the use of `continue` in regular loops.
+
 There is no direct equivalent for `break`, but it can be simulated by adding another nesting lambda and non-locally returning from it:
 
 ```kotlin
@@ -151,4 +152,4 @@ When returning a value, the parser gives preference to the qualified return:
 return@a 1
 ```
 
-This means "return `1` at label `@a`" and not "return a labeled expression `(@a 1)`".
+This means "return `1` at label `@a`" rather than "return a labeled expression `(@a 1)`".

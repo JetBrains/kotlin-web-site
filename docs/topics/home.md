@@ -63,6 +63,7 @@ Find a way to learn Kotlin that works for you. There are lots of learning materi
 * [Kotlin by example](https://play.kotlinlang.org/byExample/overview)
 * [Kotlin Koans](koans.md)
 * [Kotlin Basics track on JetBrains Academy](https://hyperskill.org/tracks/18/)
+* [Advent of Code puzzles in idiomatic Kotlin](advent-of-code.md)
 * [Hands-on tutorials](https://play.kotlinlang.org/hands-on/overview)
 * [EduTools in IntelliJ IDEA](edu-tools-learner.md)
 * [Books](books.md)
