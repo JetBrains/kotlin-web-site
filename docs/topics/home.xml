@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/stardust/html-entities.dtd">
+<topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Kotlin Docs"
+       id="home">
+    <section-starting-page>
+        <title>Kotlin docs</title>
+        <description>
+            Latest stable release: %kotlinVersion%
+        </description>
+        <tip-group>
+            <a href="getting-started.md"
+               description="Create your first Kotlin project for a platform of your choice" type="start">Get started with Kotlin</a>
+            <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Playground</a>
+        </tip-group>
+        <main-group>
+            <title>Kotlin basics</title>
+            <a href="basic-syntax.md" description="Take a quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
+            <a href="basic-types.md" description="Get familiar with Kotlin's type system: numbers, strings, arrays, and other built-in types">Basic types</a>
+            <a href="control-flow.md" description="Control the program execution with conditions and loops: if, when, for, while">Control flow</a>
+            <a href="null-safety.md" description="Discover Kotlin ways of handling null values: nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
+            <a href="coroutines-overview.md" description="Learn how to deal with concurrency: coroutines, flows, channels">Coroutines</a>
+            <a href="coding-conventions.md" description="Check out recommendations on the code organization, formatting, and naming">Coding conventions</a>
+        </main-group>
+        <highlighted-group>
+            <title>What's new in Kotlin</title>
+            <a href="whatsnew1530.md" description="Check out the latest features: sealed whens, suspend functions as supertypes, and more">What's New in Kotlin 1.5.30</a>
+            <a href="whatsnew-plugin-20211.md" description="Discover the new IDE capabilities for working with Kotlin projects">What's New in Kotlin IntelliJ plugin 2021.1</a>
+            <a href="roadmap.md" description="Get an overview of the future development plans">Kotlin public roadmap</a>
+        </highlighted-group>
+        <custom-groups>
+            <group type="cards">
+                <title>Kotlin Multiplatform Mobile (KMM)</title>
+                <a href="https://kotlinlang.org/docs/mobile/getting-started.html" description="Create a simple mobile cross-platform application">Get started with KMM in Android Studio</a>
+                <a href="https://kotlinlang.org/docs/mobile/kmm-plugin-releases.html" description="Explore the features of the KMM plugin">KMM plugin releases for Android Studio</a>
+                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Watch videos about KMM on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
+
+            </group>
+            <group type="links" display="normal">
+                <link-collection>
+                    <title>Learn Kotlin</title>
+                    <a href="https://play.kotlinlang.org/byExample/overview" description="A set of small and simple annotated examples for the Kotlin syntax">Kotlin by example</a>
+                    <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
+                    <a href="https://play.kotlinlang.org/hands-on/overview" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
+                    <a href="edu-tools-learner.md" description="An IDE plugin for learning and teaching programming languages">EduTools in IntelliJ IDEA</a>
+                    <a href="books.md" description="The books that we’ve reviewed and recommend for learning Kotlin">Books</a>
+                </link-collection>
+                <link-collection>
+                    <title>Watch Kotlin videos on YouTube</title>
+                    <a href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw" description="Official Kotlin YouTube channel">Kotlin YouTube channel</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x" description="Tutorials on using Kotlin with Spring">Kotlin in Spring Framework</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1" description="Webinars on using Kotlin for server-side development">Webinars with experts</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using KMM">Kotlin Multiplatform Multiverse</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG" description="Kotlin for competitive programming">Competitive programming</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg" description="Tutorials on using the standard library">Kotlin standard library</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB" description="Talking Kotlin podcast">Talking Kotlin podcast</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA" description="Stories about teaching Kotlin">Kotlin for educators</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmztiekWaNlCcjfxvNQbXViP" description="Talks from the Kotlin Online Event 2020">Kotlin Online Event 2020</a>
+                </link-collection>
+                <link-collection>
+                    <title>Stay in touch and contribute</title>
+                    <a href="contribute.md" description="The ways in which you can help the development of Kotlin">Contribute to Kotlin</a>
+                    <a href="eap.md" description="Preview versions for trying out features before their official releases">Participate in Early Access Program</a>
+                    <a href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" description="Official public Kotlin Slack">Join Kotlin Slack</a>
+                    <a href="https://twitter.com/kotlin" description="Official Kotlin Twitter">Follow Kotlin on Twitter</a>
+                    <a href="https://www.reddit.com/r/Kotlin/" description="Kotlin on Reddit">Chat on Reddit</a>
+                    <a href="https://stackoverflow.com/questions/tagged/kotlin" description="Kotlin on Stack Overflow">Participate in Stack Overflow discussions</a>
+                </link-collection>
+            </group>
+        </custom-groups>
+    </section-starting-page>
+</topic>

@@ -7,7 +7,9 @@
                  start-page="home.md"
                  status="release">
 
-    <toc-element id="home.md" toc-title="Home"/>
+    <toc-element id="home.xml" toc-title="Home">
+        <toc-element id="basic-syntax.md"/>
+    </toc-element>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
