@@ -4,7 +4,7 @@
 
 <product-profile id="kr"
                  name="Kotlin"
-                 start-page="home.md"
+                 start-page="home.xml"
                  status="release">
 
     <toc-element id="home.xml" toc-title="Home">
