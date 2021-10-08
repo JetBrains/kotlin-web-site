@@ -1,56 +1,76 @@
-[//]: # (title: Collections and iterating through objects)
+[//]: # (title: Collections and iterating through them)
 
-_Collections_ are groups of a variable number of items (possibly zero) that share significance to the problem being solved and are operated upon commonly. For the introduction to collections, see the [Collections overview](collections-overview.md).
+_Collections_ are groups of a variable number of items (possibly zero) that share significance to the problem being solved and are operated upon commonly. 
+For the introduction to collections, see the [Collections overview](collections-overview.md) or watch a video by Sebastian Aigner, Kotlin Developer Advocate:
+
+<video href="F8jj7e-_jFA" title="Kotlin Collections Overview"/>
 
 ## Operations that are the same in Java and Kotlin
 
 In Kotlin, there are many operations that look absolutely the same as in Java:
 
 | Description | Operation on a list | Operation on a map | Comment |
-|--------------------|-------------------------------|----------------------------------|-----------------|
-| Add an element/elements | `add()`, `addAll()` | `put()`, `putAll()`, `putIfAbsent()`| In Kotlin, the same methods are under the hood. You may also use an assignment: `collection[key] = value` |
-| Replace an element/elements | `set()`,  `replaceAll()` | `put()`, `replace()`, `replaceAll()` | In Kotlin, you may also use indexing operator to set an element in a list in a particular position: `collection[index] = value`, and assignment for a map: `collection[key] = value` |
-| Get an element | `get()` | `get(key)` | In Kotlin, use indexing operator to get an element: `collection[index]` |
+|-------------|---------------------|--------------------|---------|
+| Add an element or elements | `add()`, `addAll()` | `put()`, `putAll()`, `putIfAbsent()`| In Kotlin, the same methods are under the hood of an assignment `collection[key] = value` |
+| Replace an element or elements | `set()`,  `replaceAll()` | `put()`, `replace()`, `replaceAll()` | In Kotlin, it's more idiomatic to use indexing operator: `list[index] = value`, `map[key] = value` |
+| Get an element | `get()` | `get()` | In Kotlin, use indexing operator to get an element: `collection[index]` |
 | Check if a collection contains an element/elements | `contains()`, `containsAll()` | `containsKey()`, `containsValue()` | |
 | Check if a collection is empty | `isEmpty()` |  `isEmpty()` | |
-| Remove an element | Differs, see [Removing elements](#remove-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use `minusAssign()` operator |
+| Remove an element | [differs in Java and Kotlin](#remove-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use [`minusAssign()`](collection-plus-minus.md) operator |
 | Remove all elements from a collection | `clear()` | `clear()` | |
-| Get a stream from a collection | `stream()` | `stream()` on keys or values | |
-| Get an iterator from a collection | `iterator()` | [differs for Java and Kotlin](#operations-differ-a-bit) | |
+| Get a stream from a collection | `stream()` | `stream()` on entries, keys or values | |
+| Get an iterator from a collection | `iterator()` | [differs in Java and Kotlin](#operations-differ-a-bit) | |
 | Get a [Spliterator](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Spliterator.html) | `spliterator()` | `spliterator()` on keys or values | |
 
-There are operations that exist only for lists and are the same:
+There are operations that exist only for lists and are the same in Java and Kotlin:
 
 | Description | Operation |
-|--------------------|-----------------|
+|-------------|-----------|
+| Get an index of some object | `indexOf()` |
+| Get the last index of some object | `lastIndexOf()` |
 | Remove by a condition | `removeIf()` |
 | Leave only selected elements | `retainAll()` |
 | Take a sublist | `sublist()` |
-| Get an index of some object | `indexOf()` |
-| Get the last index of some object | `lastIndexOf()` |
 
 ## Operations differ a bit
 
+For lists:
+
 | Description | Java | Kotlin |
-|-------------------|-----------|----------|
-| Get an iterator from a map | `iterator()` on keys or values | `iterator()` on a whole map |
-| Get a collection’s size | `size()` | `size` |
-| Sort a list | `sort(Comparator<? super E> c)` | `sort()` will sort your collection with the natural order by default |
+|-------------|------|--------|
+| Sort a list | `sort(Comparator<? super E> c)` or `stream().sorted().collect(toList())` | `sort()` will sort your list with the natural order by default |
 | Remove element from a list | `remove(int index)`, `remove(Object o)`| `removeAt(index: Int)`, `remove(element: ElementType)` |
-| Group elements by some condition | `stream().collect(Collectors.groupingBy(YOUR_CONDITION)` | [`groupBy(YOUR_CONDITION)`](collection-grouping.md) |
-| Get flat access to nested collection elements | `collectionOfCollections.forEach(flatCollection::addAll)` | [`flatten()`](collection-transformations.md#flatten) |
+| Fill all elements of a list with some value | `Collections.fill()` | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) |
+| Get unique elements of the list | `stream().distinct().collect(toList())` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
 
-## Operations that don't persist in the Java’s standard library
+For any collection:
 
-* [ `fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) – fill all elements of the list with the provided value.
+| Description | Java | Kotlin |
+|-------------|------|--------|
+| Get a collection's size | `size()` | `count()`, `size` |
+| Get flat access to nested collection elements | `collectionOfCollections.forEach(flatCollection::addAll)` or `collectionOfCollections.stream().flatMap().collect()` | [`flatten()`](collection-transformations.md#flatten) or [`flatMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html) |
+| Map elements by some condition | `stream().map().collect()` | [`map()`](collection-filtering.md) |
+| Apply the provided operation to the collection elements sequentially and return the accumulated result | `stream().reduce()` | [`reduce()`, `fold()`](collection-aggregate.md#fold-and-reduce) |
+| Group elements by some condition | `stream().collect(Collectors.groupingBy())` | [`groupBy()`](collection-grouping.md) |
+| Filter by a predicate | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [ `none()`, `any()`, `all()`](collection-filtering.md) |
+| Sort elements | `stream().sorted().collect()` | [`sorted()`](collection-ordering.md#natural-order) |
+| Take first N elements | `stream().limit(N).collect()` | [`take(N)`](collection-parts.md#take-and-drop) |
+| Skip first N elements | `stream().skip(N).collect()` | [`drop(N)`](collection-parts.md#take-and-drop) |
+
+To perform all operations listed above on maps, get an `entrySet` of a map firstly.
+
+## Operations that don't exist in the Java's standard library
+
 * [ `isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) – check if a collection is not empty.
-* [ `getOrPut()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-put.html) – return the value for the given key. If the key is not found in the map, call the `defaultValue` function, put its result into the map under the given key and return it.
-* [`map()`, `zip()`, `associate()`, `flatten()`](https://kotlinlang.org/docs/collection-transformations.html) – transform a collection.
-* [ `any()`, `none()`, `all()`](https://kotlinlang.org/docs/collection-filtering.html) - filter by a predicate.
-* [`groupBy()`, `eachCount()`, `fold()`, `reduce()`, `aggregate()`](https://kotlinlang.org/docs/collection-grouping.html) – group by some condition.
-* [`slice()`, `take()`, `drop()`, `chunked()`, `windowed()`](https://kotlinlang.org/docs/collection-parts.html) – retrieve collection parts.
-* [Plus and minus operators](https://kotlinlang.org/docs/collection-plus-minus.html) – add or remove elements.
-* TODO Should we add more?
+* [`zip()`, `unzip()`, `associate()`](collection-transformations.md) – transform a collection.
+* [`eachCount()`, `aggregate()`](collection-grouping.md) – group by some condition.
+* [`slice()`, `chunked()`, `windowed()`](collection-parts.md) – retrieve collection parts.
+* [Plus and minus operators](collection-plus-minus.md) – add or remove elements.
+
+If you want to dive deep into `zip()`, `chunked()`, `windowed()`, and some other operations, watch a video by Sebastian Aigner, 
+Kotlin Developer Advocate, about advanced collection operations in Kotlin:
+
+<video href="N4CpLxGJlq0" title="Advanced Collection Operations"/>
 
 Below are examples of differences between the same actions and concepts in Java and Kotlin code.
 
@@ -74,7 +94,8 @@ numbers.add("five");
 
 If you write such code in IDE, it will compile but fail in runtime with `UnsupportedOperationException`.
 
-Apparently from Java, in Kotlin you can explicitly declare mutable or fully immutable collections depending on your needs. If you try to modify an immutable collection, the code won’t compile:
+Apparently from Java, in Kotlin you can explicitly declare mutable or fully immutable collections depending on your needs. 
+If you try to modify an immutable collection, the code won’t compile:
 
 ```kotlin
 fun main() {
@@ -94,7 +115,8 @@ Read more about immutability in the [Kotlin coding conventions](coding-conventio
 
 ## Covariance
 
-In Java, you can’t pass a collection with a descendant’s type, for example, `Rectangle`, to a function that takes this type’s ancestor, for example, `Shape`.To make the code compilable, use the type `? extends Shape`, so the function can take collections with any inheritors of `Shape`:
+In Java, you can’t pass a collection with a descendant’s type, for example, `Rectangle`, to a function that takes this type’s ancestor, for example, `Shape`. 
+To make the code compilable, use the type `? extends Shape`, so the function can take collections with any inheritors of `Shape`:
 
 ```java
 // Java
@@ -102,26 +124,27 @@ class Shape {}
 
 class Rectangle extends Shape {}
 
-public void doSthWithShapes(List<? extends Shape> shapes){ 
-/ *If using just List<Shape>, the code won't compile when calling this function with the List<Rectangle> as the argument as below */
+public void doSthWithShapes(List<? extends Shape> shapes){
+/* If using just List<Shape>, the code won't compile when calling this function with the List<Rectangle> as the argument as below */
 }
 
 @Test
 public void main() {
-   List<Rectangle> rectangles = Arrays.asList(new Rectangle(), new Rectangle());
+   var rectangles = List.of(new Rectangle(), new Rectangle());
    doSthWithShapes(rectangles);
 }
 ```
 
-In Kotlin, the read-only collection types are [covariant](generics.md#variance). This means that, if a `Rectangle` class inherits from the `Shape` class, you can use the type `List<Rectangle>` anywhere the `List<Shape>` type is required. In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on the value type, but not on the key type.
+In Kotlin, the read-only collection types are [covariant](generics.md#variance). This means that, if a `Rectangle` class inherits from the `Shape` class, 
+you can use the type `List<Rectangle>` anywhere the `List<Shape>` type is required. 
+In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on the value type, but not on the key type.
 In turn, mutable collections aren't covariant; otherwise, this would lead to runtime failures.
 
 ```kotlin
 // Kotlin
 open class Shape(val name: String)
 
-class Rectangle(val rectangleName: String) : Shape(rectangleName) {
-}
+class Rectangle(private val rectangleName: String) : Shape(rectangleName)
 
 fun doSthWithShapes(shapes: List<Shape>) {
    println("The shapes are: ${shapes.joinToString { it.name }}")
@@ -134,11 +157,13 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Read more details about [collections types](https://kotlinlang.org/docs/collections-overview.html#collection-types).
+Read more details about [collections types](collections-overview.md#collection-types).
 
 ## Ranges and progressions
 
-In Kotlin, you can create objects using [ranges](https://kotlinlang.org/docs/ranges.html#range). For example, `Version(1, 11)..Version(1, 30)` stays for all the versions from `1.11` to `1.30`. In Java, you would have to create such objects in a loop. Also, in Kotlin, you can check that your version is in the range using the `in` operator: `Version(0, 9) in versionRange`. In Java, you need to iterate over all `Versions` to check if a `Version` suits a condition. Compare the code in Java and in Kotlin. In Java:
+In Kotlin, you can create objects using [ranges](ranges.md#range). For example, `Version(1, 11)..Version(1, 30)` stays for all the versions from `1.11` to `1.30`. 
+In Java, you would have to create such objects in a loop. Also, in Kotlin, you can check that your version is in the range using the `in` operator: `Version(0, 9) in versionRange`. 
+In Java, you need to iterate over all `Versions` to check if a `Version` suits a condition. Compare the code in Java and in Kotlin. In Java:
 
 ```java
 // Java
@@ -161,7 +186,7 @@ class Version implements Comparable<Version> {
 }
 
 public void compareVersions() {
-   List<Version> versions = new ArrayList<>();
+   var versions = new ArrayList<>();
    for (int i = 11; i < 31; i++) {
        versions.add(new Version(1, i));
    }
@@ -184,7 +209,7 @@ public void checkVersion(Version versionToCheck, List<Version> versions) {
 In Kotlin:
 
 ```kotlin
-//Kotlin
+// Kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int {
         if (this.major != other.major) {
@@ -202,6 +227,64 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+## Comparison by several criteria
+
+In Java, to compare objects by several criteria, you need to implement a Comparator and manually describe the logic of the comparison. 
+For example, you want to compare people by their name and age:
+
+```Java
+class Person implements Comparable<Person> {
+        String name;
+        int age;
+
+        Person(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        @Override
+        public int compareTo(Person o) {
+            if (this == o) {
+                return 0;
+            }
+            var namesComparison = this.name.compareTo(o.name);
+            if (namesComparison != 0) {
+                return namesComparison;
+            } else {
+                return this.age - o.age;
+            }
+        }
+
+        @Override
+        public String toString() {
+            return this.name + " " + age;
+        }
+}
+
+public void comparePersons() {
+    var persons = List.of(new Person("Jack", 35), new Person("David", 30), new Person("Jack", 25));
+    System.out.println(persons.stream().sorted().collect(toList()));
+}
+```
+
+In Kotlin, you just enumerate by which fields you want to compare:
+
+```kotlin
+data class Person(
+   val name: String,
+   val age: Int
+)
+
+fun sortPersons(persons: List<Person>) =
+   persons.sortedWith(compareBy(Person::name, Person::age))
+
+fun main() {
+   val persons = listOf(Person("Jack", 35), Person("David", 30), Person("Jack", 25))
+   println(sortPersons(persons))
+}
+```
+{kotlin-runnable="true"}
+
 ## Sequences
 
 In Java, generate a sequence of numbers this way:
@@ -213,7 +296,8 @@ int sum = IntStream.iterate(1, e -> e + 3)
 System.out.println(sum); // Prints 145
 ```
 
-In Kotlin, _sequence_ is the container type. Multi-step processing of sequences is executed lazily when possible: actual computing happens only when the result of the whole processing chain is requested.
+In Kotlin, _sequence_ is the container type. Multi-step processing of sequences is executed lazily when possible: 
+actual computing happens only when the result of the whole processing chain is requested.
 
 ```kotlin
 // Kotlin
@@ -224,13 +308,12 @@ println(sum) // Prints 145
 ```
 {kotlin-runnable="true"}
 
-Sequences may reduce the amount of steps that is needed to perform some filtering operation. See the [sequence processing example](https://kotlinlang.org/docs/sequences.html#sequence-processing-example).
+Sequences may reduce the amount of steps that is needed to perform some filtering operation. See the [sequence processing example](sequences.md#sequence-processing-example).
 
-## Some examples of differences
+## Removal of elements from a list
 
-### Remove elements from a list
-
-In Java, the [`remove()`](https://docs.oracle.com/javase/7/docs/api/java/util/List.html#remove(int)) function accepts an index of an element to remove. It might be easy to mix up when operating with collections of integers. To remove the element, use the `Integer.valueOf()` function as the argument for `remove()` function:
+In Java, the [`remove()`](https://docs.oracle.com/javase/7/docs/api/java/util/List.html#remove(int)) function accepts an index of an element to remove. 
+It might be easy to mix up when operating with collections of integers. To remove the element, use the `Integer.valueOf()` function as the argument for `remove()` function:
 
 ```java
 // Java
@@ -263,7 +346,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-### Traverse a map
+## Traversing a map
 
 In Java, traverse a map via the [`forEach`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html#forEach(java.util.function.BiConsumer)):
 
@@ -275,7 +358,7 @@ numbers.forEach((k,v) -> System.out.println("Key = " + k + ", Value = " + v));
 In Kotlin, you can traverse a map using a `for` loop:
 
 ```kotlin
-fun main {
+fun main() {
 //sampleStart
 // Kotlin
     for ((k, v) in numbers) {
@@ -286,7 +369,7 @@ fun main {
 ```
 {kotlin-runnable="true"}
 
-### Get the first item of a possibly empty collection
+## Getting the first item of a possibly empty collection
 
 In Java, you can safely get the first item using `iterator()`.
 ```java
@@ -299,7 +382,7 @@ if (emails.size() > 0) {
 }
 ```
 
-In Kotlin, there’s a special function `firstOrNull()`, and using the [`Elvis operator`](https://kotlinlang.org/docs/null-safety.html#elvis-operator), you can do further actions right away depending on the result.
+In Kotlin, there's a special function `firstOrNull()`, and using the [`Elvis operator`](null-safety.md#elvis-operator), you can perform further actions right away depending on the result.
 
 ```kotlin
 // Kotlin
@@ -307,7 +390,7 @@ val emails = ... // might be empty
 val mainEmail = emails.firstOrNull() ?: ""
 ```
 
-### Get a set from a list
+## Getting a set from a list
 
 In Java, to create a `Set` from a `List`, you need to pass your list to a set’s constructor:
 
@@ -325,7 +408,7 @@ In Kotlin, use the function `toSet()`:
 ```kotlin
 fun main() {
 //sampleStart
-    //Kotlin
+    // Kotlin
     val sourceList = listOf(1, 2, 3, 1)   
     val copySet = sourceList.toSet()  
     println(copySet)
@@ -334,9 +417,45 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+## Grouping
+
+In Java, you may group elements with the [Collectors](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html)' function `groupingBy`:
+
+```Java
+// Java
+public void analyzeLogs() {
+    var requests = List.of(
+        new Request("https://kotlinlang.org/docs/home.html", 200),
+        new Request("https://kotlinlang.org/docs/home.html", 400),
+        new Request("https://kotlinlang.org/docs/comparison-to-java.html", 200)
+    );
+    var urlsAndRequests = requests.stream().collect(Collectors.groupingBy(Request::getUrl));
+    System.out.println(urlsAndRequests);
+}
+```
+
+In Kotlin, use the function [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html):
+
+```kotlin
+fun main() {
+//sampleStart
+    // Kotlin
+    val requests = listOf(
+        Request("https://kotlinlang.org/docs/home.html", 200),
+        Request("https://kotlinlang.org/docs/comparison-to-java.html", 200)
+    )
+    println(requests.groupBy(Request::url))
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
 ## Filtering
 
-In Java, to filter some elements from a collection, you need to use the [Stream API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html). The Stream API has `intermediate` and `terminal` operations. `filter()` is an intermediate operation, which returns a stream. To receive a collection as the output, you need to use some terminal operation, for example, the `collect()`.For example, you want only those pairs which keys end with `1` and values are greater than `10`:
+In Java, to filter some elements from a collection, you need to use the [Stream API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html). 
+The Stream API has `intermediate` and `terminal` operations. `filter()` is an intermediate operation, which returns a stream. 
+To receive a collection as the output, you need to use some terminal operation, for example, the `collect()`. 
+For example, you want only those pairs which keys end with `1` and values are greater than `10`:
 
 ```java
 // Java
@@ -349,7 +468,8 @@ public void filterEndsWith() {
 }
 ```
 
-In Kotlin, filtering is built-in into collections, and `filter()` returns the same collection type that was filtered. So, all you need to write is the `filter()` and it’s predicate:
+In Kotlin, filtering is built-in into collections, and `filter()` returns the same collection type that was filtered. 
+So, all you need to write is the `filter()` and it’s predicate:
 
 ```kotlin
 fun main() {
@@ -363,11 +483,11 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Learn more about [filtering maps](https://kotlinlang.org/docs/map-operations.html#filter).
+Learn more about [filtering maps](map-operations.md#filter).
 
-### Filter indexed
+### Indexed filtering
 
-In pure Java, to filter some collection by items’ values and indices, you need to use iterator:
+In pure Java, to filter some collection by items' values and indices, you need to use iterator:
 
 ```java
 // Java
@@ -392,14 +512,16 @@ public void streamIndexed() {
 All you need in Kotlin is a `filterIndexed()` function:
 
 ```kotlin
-// Kotlin
 fun main() {
-//Kotlin
+//sampleStart
+// Kotlin
    val numbers = listOf("one", "two", "three", "four")
    val filtered = numbers.filterIndexed { index, s -> (index != 0) && (s.length < 5) }
    println(filtered)
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
 
 The Kotlin code above would also work if the numbers are a set. To make the same in Java, you would need to create a list from the set:
 
@@ -408,16 +530,16 @@ The Kotlin code above would also work if the numbers are a set. To make the same
 var numbers = new ArrayList<>(Set.of("one", "two", "three", "four"));
 ```
 
-Learn more about [collection filtering](https://kotlinlang.org/docs/collection-filtering.html#filter-by-predicate).
+Learn more about [collection filtering](collection-filtering.md#filter-by-predicate).
 
-### Filter by type
+### Filtering by type
 
 In Java, to filter some objects by their type and do some actions on them, you need to check its type with the `instanceof` operator and then do the type cast:
 
 ```java
 // Java
 public void objectIsInstance() {
-//Java
+// Java
    var numbers = new ArrayList<>();
    numbers.add(null);
    numbers.add(1);
@@ -429,8 +551,8 @@ public void objectIsInstance() {
 }
 ```
 
-
-In Kotlin, you just call [`filterIsInstance<String>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-is-instance.html) on your collection, and type cast is done by [Smart casts](https://kotlinlang.org/docs/typecasts.html#smart-casts):
+In Kotlin, you just call [`filterIsInstance<String>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-is-instance.html) on your collection, 
+and type cast is done by [Smart casts](typecasts.md#smart-casts):
 
 ```kotlin
 // Kotlin
@@ -449,7 +571,9 @@ fun main() {
 
 ### Test predicates
 
-There are some tasks like checking if all, none or any elements satisfy some condition. In Java, all these checks may be made via the Stream API functions `allMatch()`, `noneMatch()`, `anyMatch()`:
+There are some tasks like checking if all, none or any elements satisfy some condition. 
+In Java, you can make all these checks via the [Stream API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html) 
+functions `allMatch()`, `noneMatch()`, `anyMatch()`:
 
 ```java
 // Java
@@ -461,7 +585,8 @@ public void testPredicateNone() {
 }
 ```
 
-In Kotlin, there are [extension functions](https://kotlinlang.org/docs/extensions.html) `none()`, `any()`, and `all()` for every [Iterable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/#kotlin.collections.Iterable) object:
+In Kotlin, there are [extension functions](extensions.md) `none()`, `any()`, and `all()` 
+for every [Iterable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/#kotlin.collections.Iterable) object:
 
 ```kotlin
 fun main() {
@@ -476,7 +601,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Learn more about [test predicates](https://kotlinlang.org/docs/collection-filtering.html#test-predicates).
+Learn more about [test predicates](collection-filtering.md#test-predicates).
 
 ## Collection transformation operations
 
@@ -487,7 +612,7 @@ In Java, you can clue two collections iterating simultaneously over them.
 ```java
 // Java
 public void zip() {
-//Java
+// Java
    var colors = List.of("red", "brown");
    var animals = List.of("fox", "bear", "wolf");
 
@@ -504,7 +629,7 @@ public void zip() {
 }
 ```
 
-In Kotlin, use [`zip()`](https://kotlinlang.org/docs/collection-transformations.html#zip) function to do the same in 3 lines instead of 10 lines:
+In Kotlin, use [`zip()`](collection-transformations.md#zip) function to do the same in 3 lines instead of 10 lines:
 
 ```kotlin
 fun main() {
@@ -535,7 +660,7 @@ public void associate() {
 }
 ```
 
-In Kotlin, use [`associate()`](https://kotlinlang.org/docs/collection-transformations.html#associate) function:
+In Kotlin, use [`associate()`](collection-transformations.md#associate) function:
 
 ```kotlin
 fun main() {
