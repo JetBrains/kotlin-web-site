@@ -14,8 +14,6 @@
             <a href="getting-started.md"
                description="Create your first Kotlin project for a platform of your choice" type="start">Get started with Kotlin</a>
             <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Playground</a>
-            <a href="command-line.md" description="Install the command-line compiler" type="install">Compiler</a>
-            <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" description="API reference" type="install">API reference</a>
         </tip-group>
         <main-group>
             <title>Kotlin basics</title>
@@ -33,6 +31,11 @@
             <a href="roadmap.md" description="Get an overview of the future development plans">Kotlin public roadmap</a>
         </highlighted-group>
         <custom-groups>
+            <group type="cards">
+                <title>Need heading for these</title>
+                <a href="command-line.md" description="Install the command-line compiler" type="install">Compiler</a>
+                <a href="command-line.md" description="API reference" type="install">API reference</a>
+            </group>
             <group type="cards">
                 <title>Kotlin Multiplatform Mobile (KMM)</title>
                 <a href="kmm-getting-started.md" description="Create a simple mobile cross-platform application">Get started with KMM in Android Studio</a>
