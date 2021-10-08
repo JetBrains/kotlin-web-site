@@ -190,9 +190,9 @@ nativeTarget.apply {
             libcurl     // NL
         }               // NL
     }                   // NL
-        binaries {
-            executable { 
-                entryPoint = "main"
+    binaries {
+        executable { 
+            entryPoint = "main"
     }
   }
 }
@@ -262,7 +262,7 @@ much the same as the C version. All the calls you'd expect in the `libcurl` libr
 Note that for this tutorial, we've done a line-by-line literal translation. You could also write this in a more Kotlin
 idiomatic way.
 
-## Build and run the application
+## Compile and run the application
 
 The next step is to compile the application. We already covered the basics of compiling a Kotlin/Native application from
 the command line in the [corresponding tutorial](native-command-line-compiler.md) tutorial. The only difference in this
@@ -279,7 +279,7 @@ If there are no errors during compilation, run the build from your IDE. You shou
 You see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could hide
 this using `curl_easy_setopt`.
 
-> You can find the resulting code on [GitHub](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native).
+> You can find the resulting code in our [GitHub](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native) repository.
 >
 
 ## What’s next?
