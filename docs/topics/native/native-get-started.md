@@ -42,15 +42,16 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add code to read the input. Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and assign it to the `name` variable.
+2. Add code to read the input. Use the `readln()` function to read the input value and assign it to the `name` variable.
 
    ```kotlin
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
    }
    ```
+   {kotlin-min-compiler-version="1.6"}
 
 3. Eliminate the whitespaces and count the letters:
    * Check that the provided name is not `null` with the [safe call operator `?.`](null-safety.md#safe-calls).
@@ -63,13 +64,14 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
        }
    }
    ```
+   {kotlin-min-compiler-version="1.6"}
 
 4. Report a null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](null-safety.md#elvis-operator).
 
@@ -77,13 +79,14 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
    ```
+   {kotlin-min-compiler-version="1.6"}
 
 5. Save the changes and run the application.
 
@@ -116,7 +119,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
@@ -125,6 +128,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
    ```
+   {kotlin-min-compiler-version="1.6"}
 
 3. Save the changes and run the application.
 
