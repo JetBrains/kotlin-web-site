@@ -72,7 +72,7 @@ the straightforward imperative version of a solution to the problem can be writt
 
 ```kotlin
 fun main() {
-    var n = readln() // read integer from the input
+    var n = readln().toInt() // read integer from the input
     val reached = HashSet<Int>() // a mutable hash set 
     while (reached.add(n)) n = f(n) // iterate function f
     println(reached.size) // print answer to the output
