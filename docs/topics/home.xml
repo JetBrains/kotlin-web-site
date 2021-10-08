@@ -9,6 +9,10 @@
         <title>Kotlin docs</title>
         <description>
             Latest stable release: %kotlinVersion%
+
+            Kotlin is a modern but already mature programming language aimed to make developers happier. It’s concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
+
+            Pick it up to start building powerful applications!
         </description>
         <tip-group>
             <a href="getting-started.md"
@@ -27,7 +31,7 @@
         <highlighted-group>
             <title>What's new in Kotlin</title>
             <a href="whatsnew1530.md" description="Check out the latest features: sealed whens, suspend functions as supertypes, and more">What's New in Kotlin 1.5.30</a>
-            <a href="whatsnew-plugin-20211.md" description="Discover the new IDE capabilities for working with Kotlin projects">What's New in Kotlin IntelliJ plugin 2021.1</a>
+            <a href="whatsnew-plugin-20212.md" description="Discover the new IDE capabilities for working with Kotlin projects">What's New in Kotlin IntelliJ plugin 2021.2</a>
             <a href="roadmap.md" description="Get an overview of the future development plans">Kotlin public roadmap</a>
         </highlighted-group>
         <custom-groups>
