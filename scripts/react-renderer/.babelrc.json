@@ -13,7 +13,7 @@
     [
       "babel-plugin-transform-import-ignore",
       {
-        "patterns": [ ".css", ".svg", ".png" ]
+        "patterns": [ ".css" ]
       }
     ]
   ]

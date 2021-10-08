@@ -4,18 +4,6 @@ import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/dist/topMenu';
 
-import stanfordLogo from '../../page/education/universities/stanford.png';
-import hopkinsLogo from '../../page/education/universities/hopkins.png';
-import cambridgeLogo from '../../page/education/universities/cambridge.png';
-import imperialLogo from '../../page/education/universities/imperial.png';
-import chicagoLogo from '../../page/education/universities/uchicago.png';
-
-import multiplatformIcon from './icons/teach-multiplatform-icon.svg';
-import academicallyRecognizedIcon from './icons/teach-academically-recognized-icon.svg';
-import industryIcon from './icons/teach-popular-icon.svg';
-import slackIcon from './icons/teach-slack-icon.svg';
-import resourcesIcon from './icons/education-main.png'
-
 import '@jetbrains/kotlin-web-site-ui/dist/ctaBlock.css';
 import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css'
 import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
@@ -69,7 +57,7 @@ const Teach = (props) => {
         >
           <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
              className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
-            <img src={slackIcon} className="teach-button-icon teach-button-icon_small" alt=""/>
+            <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon teach-button-icon_small" alt=""/>
             Join Ed-community
           </a>
         </TopMenu>
@@ -88,7 +76,7 @@ const Teach = (props) => {
         <div className="teach-top-mobile-buttons">
           <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
              className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
-            <img src={slackIcon} className="teach-button-icon teach-button-icon_small" alt=""/>
+            <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon teach-button-icon_small" alt=""/>
             Join Educators Сommunity
           </a>
 
@@ -102,7 +90,7 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src={multiplatformIcon} alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-multiplatform-icon.svg" alt=""/>
               </div>
 
               <a href="#" className="teach-feature__link">
@@ -122,7 +110,7 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src={academicallyRecognizedIcon} alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-academically-recognized-icon.svg" alt=""/>
               </div>
 
               <a href="#" className="teach-feature__link">
@@ -142,7 +130,7 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src={industryIcon} alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-popular-icon.svg" alt=""/>
               </div>
 
               <a href="#" className="teach-feature__link">
@@ -164,7 +152,7 @@ const Teach = (props) => {
           <div className="teach-top-buttons">
             <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
                className="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_primary">
-              <img src={slackIcon} className="teach-button-icon" alt=""/>
+              <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon" alt=""/>
               Join Educators Сommunity
             </a>
 
@@ -223,19 +211,19 @@ const Teach = (props) => {
           <div className="teach-universities__logos ktl-offset-top-m">
             <div className="teach-logos">
               <div className="teach-logos__logo">
-                <img className="teach-logos_stanford" src={stanfordLogo} alt=""/>
+                <img className="teach-logos_stanford" src="/assets/images/ktl-component/teach/universities/stanford.png" alt=""/>
               </div>
               <div className="teach-logos__logo">
-                <img className="teach-logos_hopkins" src={hopkinsLogo} alt=""/>
+                <img className="teach-logos_hopkins" src="/assets/images/ktl-component/teach/universities/hopkins.png" alt=""/>
               </div>
               <div className="teach-logos__logo">
-                <img className="teach-logos_cambridge" src={cambridgeLogo} alt=""/>
+                <img className="teach-logos_cambridge" src="/assets/images/ktl-component/teach/universities/cambridge.png" alt=""/>
               </div>
               <div className="teach-logos__logo">
-                <img className="teach-logos_imperial" src={imperialLogo} alt=""/>
+                <img className="teach-logos_imperial" src="/assets/images/ktl-component/teach/universities/imperial.png" alt=""/>
               </div>
               <div className="teach-logos__logo">
-                <img className="teach-logos_chicago" src={chicagoLogo} alt=""/>
+                <img className="teach-logos_chicago" src="/assets/images/ktl-component/teach/universities/uchicago.png" alt=""/>
               </div>
             </div>
           </div>
@@ -271,7 +259,7 @@ const Teach = (props) => {
       <section className="teach-resources ktl-offset-top-xxl">
         <div className="ktl-container">
           <div className="teach-resources__top ktl-offset-bottom-xl">
-            <img className="teach-resources__top-image" src={resourcesIcon} alt=""/>
+            <img className="teach-resources__top-image" src="/assets/images/ktl-component/teach/icons/education-main.png" alt=""/>
             <h2 className="ktl-h1">
               Start Teaching Kotlin<br/> with These Resources
             </h2>
