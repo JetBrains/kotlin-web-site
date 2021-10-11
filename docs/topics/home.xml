@@ -13,7 +13,7 @@
         <tip-group>
             <a href="getting-started.md"
                description="Create your first Kotlin project for a platform of your choice" type="start">Get started with Kotlin</a>
-            <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Playground</a>
+            <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Try Kotlin online</a>
         </tip-group>
         <main-group>
             <title>First steps</title>
