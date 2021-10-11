@@ -33,7 +33,7 @@ val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this[
 
 ## Create with builder functions
 
-Another way of creating a collection is to call a builder function — [`buildMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html),
+Another way of creating a collection is to call a builder function of the corresponding collection type – [`buildMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html),
 [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html), or [`buildSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-set.html):
 
 ```kotlin
