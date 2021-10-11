@@ -16,7 +16,7 @@
             <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Playground</a>
         </tip-group>
         <main-group>
-            <title>First steps</title>
+            <title>Get familiar</title>
             <a href="basic-syntax.md" description="A quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
             <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
             <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
@@ -29,14 +29,19 @@
         </highlighted-group>
         <custom-groups>
             <group type="cards">
-                <title>Write your Kotlin application</title>
+                <title>Next steps</title>
                 <a href="basic-types.md" description="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
                 <a href="control-flow.md" description="Conditions and loops: if, when, for, while">Control flow</a>
                 <a href="null-safety.md" description="Nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
                 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" description="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
                 <a href="coroutines-overview.md" description="Concurrency: coroutines, flows, channels">Coroutines</a>
-                <a href="kmm-getting-started.md" description="Writing mobile cross-platform applications in Kotlin">Kotlin Multiplatform Mobile</a>
                 <a href="coding-conventions.md" description="Recommendations on the code organization, formatting, and naming">Coding conventions</a>
+            </group>
+            <group type="cards">
+                <title>Kotlin Multiplatform Mobile (KMM)</title>
+                <a href="kmm-getting-started.md" description="A simple mobile cross-platform application">Get started with KMM in Android Studio</a>
+                <a href="kmm-plugin-releases.md" description="Features of the KMM plugin">KMM plugin releases for Android Studio</a>
+                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about KMM on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
             </group>
             <group type="links" display="normal">
                 <link-collection>
