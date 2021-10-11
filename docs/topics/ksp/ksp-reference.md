@@ -52,7 +52,7 @@ the corresponding elements before resolution.
 | `ElementFilter` | `Collection.filterIsInstance` | |
 | `ElementKindVisitor` | `KSVisitor` | |
 | `ElementScanner` | `KSTopDownVisitor` | |
-| `SimpleAnnotationValueVisitor` |  | No needed in KSP |
+| `SimpleAnnotationValueVisitor` |  | Not needed in KSP |
 | `SimpleElementVisitor` | `KSVisitor` | |
 | `SimpleTypeVisitor` |  | |
 | `TypeKindVisitor` |  | |
