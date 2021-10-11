@@ -94,7 +94,7 @@ numbers.add("five");
 
 If you write such code in IDE, it will compile but fail in runtime with `UnsupportedOperationException`.
 
-Apparently from Java, in Kotlin you can explicitly declare mutable or fully immutable collections depending on your needs. 
+Apparently from Java, in Kotlin you explicitly declare mutable or fully immutable collections depending on your needs. 
 If you try to modify an immutable collection, the code won’t compile:
 
 ```kotlin
@@ -109,13 +109,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
 
 Read more about immutability in the [Kotlin coding conventions](coding-conventions.md#immutability).
 
 ## Covariance
 
-In Java, you can’t pass a collection with a descendant’s type, for example, `Rectangle`, to a function that takes this type’s ancestor, for example, `Shape`. 
+In Java, you can't pass a collection with a descendant's type, for example, `Rectangle`, to a function that takes this type’s ancestor, for example, `Shape`. 
 To make the code compilable, use the type `? extends Shape`, so the function can take collections with any inheritors of `Shape`:
 
 ```java
@@ -124,7 +123,7 @@ class Shape {}
 
 class Rectangle extends Shape {}
 
-public void doSthWithShapes(List<? extends Shape> shapes){
+public void doSthWithShapes(List<? extends Shape> shapes) {
 /* If using just List<Shape>, the code won't compile when calling this function with the List<Rectangle> as the argument as below */
 }
 
@@ -176,6 +175,7 @@ class Version implements Comparable<Version> {
        this.major = major;
        this.minor = minor;
    }
+   
    @Override
    public int compareTo(Version o) {
        if (this.major != o.major) {
@@ -300,11 +300,15 @@ In Kotlin, _sequence_ is the container type. Multi-step processing of sequences 
 actual computing happens only when the result of the whole processing chain is requested.
 
 ```kotlin
-// Kotlin
-val sum = generateSequence (1) {
-    it + 3
-}.take(10).sum()
-println(sum) // Prints 145
+fun main() {
+//sampleStart
+    // Kotlin
+    val sum = generateSequence(1) {
+        it + 3
+    }.take(10).sum()
+    println(sum) // Prints 145
+//sampleEnd
+}
 ```
 {kotlin-runnable="true"}
 
@@ -313,7 +317,8 @@ Sequences may reduce the amount of steps that is needed to perform some filterin
 ## Removal of elements from a list
 
 In Java, the [`remove()`](https://docs.oracle.com/javase/7/docs/api/java/util/List.html#remove(int)) function accepts an index of an element to remove. 
-It might be easy to mix up when operating with collections of integers. To remove the element, use the `Integer.valueOf()` function as the argument for `remove()` function:
+It might be easy to mix up when operating with collections of integers. In case of removal an integer element, 
+use the `Integer.valueOf()` function as the argument for `remove()` function:
 
 ```java
 // Java
@@ -367,7 +372,6 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
 
 ## Getting the first item of a possibly empty collection
 
@@ -438,6 +442,11 @@ public void analyzeLogs() {
 In Kotlin, use the function [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html):
 
 ```kotlin
+class Request(
+    val url: String,
+    val responseCode: Int
+)
+
 fun main() {
 //sampleStart
     // Kotlin
@@ -492,7 +501,7 @@ In pure Java, to filter some collection by items' values and indices, you need t
 
 ```java
 // Java
-public void streamIndexed() {
+public void filterIndexed() {
    var numbers = List.of("one", "two", "three", "four");
    var iterator = numbers.listIterator();
    var filtered = new ArrayList<String>();
@@ -541,7 +550,6 @@ the [`instanceof`](https://docs.oracle.com/en/java/javase/17/language/pattern-ma
 ```java
 // Java
 public void objectIsInstance() {
-// Java
    var numbers = new ArrayList<>();
    numbers.add(null);
    numbers.add(1);
@@ -553,7 +561,7 @@ public void objectIsInstance() {
 }
 ```
 
-In Kotlin, you just call [`filterIsInstance<String>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-is-instance.html) on your collection, 
+In Kotlin, you just call [`filterIsInstance<NEEDED_TYPE>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-is-instance.html) on your collection, 
 and type cast is done by [Smart casts](typecasts.md#smart-casts):
 
 ```kotlin
@@ -581,7 +589,7 @@ functions [`allMatch()`](https://docs.oracle.com/en/java/javase/17/docs/api/java
 
 ```java
 // Java
-public void testPredicateNone() {
+public void testPredicates() {
    var numbers = List.of("one", "two", "three", "four");
    System.out.println(numbers.stream().noneMatch(it -> it.endsWith("e"))); // false
    System.out.println(numbers.stream().anyMatch(it -> it.endsWith("e"))); // true
@@ -616,7 +624,6 @@ In Java, you can clue two collections iterating simultaneously over them.
 ```java
 // Java
 public void zip() {
-// Java
    var colors = List.of("red", "brown");
    var animals = List.of("fox", "bear", "wolf");
 
