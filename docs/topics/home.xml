@@ -16,41 +16,40 @@
             <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Playground</a>
         </tip-group>
         <main-group>
-            <title>Kotlin basics</title>
-            <a href="basic-syntax.md" description="Take a quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
-            <a href="basic-types.md" description="Get familiar with Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
-            <a href="control-flow.md" description="Control the program execution with conditions and loops: if, when, for, while">Control flow</a>
-            <a href="null-safety.md" description="Discover Kotlin ways of handling null values: nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
-            <a href="coroutines-overview.md" description="Learn how to deal with concurrency: coroutines, flows, channels">Coroutines</a>
-            <a href="command-line.md" description="Install the compiler and run Kotlin from command line" type="install">Command-line compiler</a>
-            <a href="coding-conventions.md" description="Check out recommendations on the code organization, formatting, and naming">Coding conventions</a>
-        </main-group>
-        <highlighted-group>
             <title>API reference</title>
             <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" description="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library</a>
             <a href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/" description="Classes and functions for asynchronous programming">Coroutines</a>
             <a href="https://kotlinlang.org/api/latest/kotlin.test/" description="Annotations and utility functions for testing Kotlin code">kotlin.test</a>
+        </main-group>
+        <highlighted-group>
+            <title>What's new</title>
+            <a href="whatsnew1530.md" description="Latest features: sealed whens, suspend functions as supertypes, and more">What's New in Kotlin 1.5.30</a>
+            <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
         </highlighted-group>
         <custom-groups>
             <group type="cards">
-                <title>What's new in Kotlin</title>
-                <a href="whatsnew1530.md" description="Check out the latest features: sealed whens, suspend functions as supertypes, and more">What's New in Kotlin 1.5.30</a>
-                <a href="whatsnew-plugin-20212.md" description="Discover the new IDE capabilities for working with Kotlin projects">What's New in Kotlin IntelliJ plugin 2021.2</a>
-                <a href="roadmap.md" description="Get an overview of the future development plans">Kotlin public roadmap</a>
+                <title>Kotlin basics</title>
+                <a href="basic-syntax.md" description="A quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
+                <a href="basic-types.md" description="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
+                <a href="control-flow.md" description="Conditions and loops: if, when, for, while">Control flow</a>
+                <a href="null-safety.md" description="Nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
+                <a href="coroutines-overview.md" description="Concurrency: coroutines, flows, channels">Coroutines</a>
+                <a href="command-line.md" description="Running Kotlin from command line" type="install">Command-line compiler</a>
+                <a href="coding-conventions.md" description="Recommendations on the code organization, formatting, and naming">Coding conventions</a>
             </group>
             <group type="cards">
                 <title>Kotlin Multiplatform Mobile (KMM)</title>
-                <a href="kmm-getting-started.md" description="Create a simple mobile cross-platform application">Get started with KMM in Android Studio</a>
-                <a href="kmm-plugin-releases.md" description="Explore the features of the KMM plugin">KMM plugin releases for Android Studio</a>
-                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Watch videos about KMM on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
+                <a href="kmm-getting-started.md" description="A simple mobile cross-platform application">Get started with KMM in Android Studio</a>
+                <a href="kmm-plugin-releases.md" description="Features of the KMM plugin">KMM plugin releases for Android Studio</a>
+                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about KMM on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
             </group>
             <group type="links" display="normal">
                 <link-collection>
                     <title>Learn Kotlin</title>
-                    <a href="https://play.kotlinlang.org/byExample/overview" description="A set of small and simple annotated examples for the Kotlin syntax">Kotlin by example</a>
+                    <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
                     <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
                     <a href="https://hyperskill.org/tracks/18" description="Kotlin Basics track on JetBrains Academy">JetBrains Academy</a>
-                    <a href="advent-of-code.md" description="Solve code puzzles in idiomatic Kotlin">Advent of Code</a>
+                    <a href="advent-of-code.md" description="Code puzzles in idiomatic Kotlin">Advent of Code</a>
                     <a href="https://play.kotlinlang.org/hands-on/overview" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
                     <a href="edu-tools-learner.md" description="An IDE plugin for learning and teaching programming languages">EduTools in IntelliJ IDEA</a>
                     <a href="books.md" description="The books that we’ve reviewed and recommend for learning Kotlin">Books</a>
