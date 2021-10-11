@@ -32,7 +32,7 @@
             <a href="coroutines-overview.md" description="Concurrency: coroutines, flows, channels">Coroutines</a>
         </highlighted-group>
         <custom-groups>
-            <group type="cards">
+            <group type="cards" display="wide">
                 <title>What's new</title>
                 <a href="whatsnew1530.md" description="Latest features: sealed whens, suspend functions as supertypes, and more">What's New in Kotlin 1.5.30</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
