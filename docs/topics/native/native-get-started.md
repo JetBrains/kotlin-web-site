@@ -51,7 +51,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
        val name = readln()
    }
    ```
-   {kotlin-min-compiler-version="1.6"}
 
 3. Eliminate the whitespaces and count the letters:
    * Check that the provided name is not `null` with the [safe call operator `?.`](null-safety.md#safe-calls).
@@ -71,7 +70,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
        }
    }
    ```
-   {kotlin-min-compiler-version="1.6"}
 
 4. Report a null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](null-safety.md#elvis-operator).
 
@@ -86,7 +84,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
    ```
-   {kotlin-min-compiler-version="1.6"}
 
 5. Save the changes and run the application.
 
@@ -128,7 +125,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
        } ?: error("Error while reading input from the terminal: the value can't be null.")
    }
    ```
-   {kotlin-min-compiler-version="1.6"}
 
 3. Save the changes and run the application.
 
