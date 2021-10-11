@@ -16,7 +16,7 @@ In Kotlin, there are many operations that look absolutely the same as in Java:
 | Get an element | `get()` | `get()` | In Kotlin, use indexing operator to get an element: `collection[index]` |
 | Check if a collection contains an element/elements | `contains()`, `containsAll()` | `containsKey()`, `containsValue()` | |
 | Check if a collection is empty | `isEmpty()` |  `isEmpty()` | |
-| Remove an element | [differs in Java and Kotlin](#remove-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use [`minusAssign()`](collection-plus-minus.md) operator |
+| Remove an element | [differs in Java and Kotlin](#removal-of-elements-from-a-list) | `remove(key)`, `remove(key, value)` | In Kotlin, you may also use [`minusAssign()`](collection-plus-minus.md) operator |
 | Remove all elements from a collection | `clear()` | `clear()` | |
 | Get a stream from a collection | `stream()` | `stream()` on entries, keys or values | |
 | Get an iterator from a collection | `iterator()` | [differs in Java and Kotlin](#operations-differ-a-bit) | |
@@ -301,8 +301,8 @@ actual computing happens only when the result of the whole processing chain is r
 
 ```kotlin
 // Kotlin
-val sum = generateSequence (1) { 
-   e: Int -> e + 3 
+val sum = generateSequence (1) {
+    it + 3
 }.take(10).sum()
 println(sum) // Prints 145
 ```
@@ -371,12 +371,12 @@ fun main() {
 
 ## Getting the first item of a possibly empty collection
 
-In Java, you can safely get the first item using `iterator()`.
+In Java, you can safely get the first item this way:
+
 ```java
 // Java
 List<Email> emails = new LinkedList<>();
 //...
-emails.iterator().next();
 if (emails.size() > 0) {
    System.out.println(emails.getFirst());
 }
@@ -392,7 +392,8 @@ val mainEmail = emails.firstOrNull() ?: ""
 
 ## Getting a set from a list
 
-In Java, to create a `Set` from a `List`, you need to pass your list to a set’s constructor:
+In Java, to create a [`Set`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html) from 
+a [`List`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html), you need to pass your list to a set's constructor:
 
 ```java
 // Java
@@ -487,7 +488,7 @@ Learn more about [filtering maps](map-operations.md#filter).
 
 ### Indexed filtering
 
-In pure Java, to filter some collection by items' values and indices, you need to use iterator:
+In pure Java, to filter some collection by items' values and indices, you need to use an iterator:
 
 ```java
 // Java
@@ -534,7 +535,8 @@ Learn more about [collection filtering](collection-filtering.md#filter-by-predic
 
 ### Filtering by type
 
-In Java, to filter some objects by their type and do some actions on them, you need to check its type with the `instanceof` operator and then do the type cast:
+In Java, to filter some objects by their type and do some actions on them, you need to check its type with 
+the [`instanceof`](https://docs.oracle.com/en/java/javase/17/language/pattern-matching-instanceof-operator.html) operator and then do the type cast:
 
 ```java
 // Java
@@ -573,7 +575,9 @@ fun main() {
 
 There are some tasks like checking if all, none or any elements satisfy some condition. 
 In Java, you can make all these checks via the [Stream API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/package-summary.html) 
-functions `allMatch()`, `noneMatch()`, `anyMatch()`:
+functions [`allMatch()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#allMatch(java.util.function.Predicate)), 
+[`noneMatch()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#noneMatch(java.util.function.Predicate)), 
+[`anyMatch()`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Stream.html#anyMatch(java.util.function.Predicate)):
 
 ```java
 // Java
