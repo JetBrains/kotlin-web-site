@@ -144,7 +144,10 @@ export function initSearch() {
     }
   });
 
-  $closeButton.on('click', closePopup);
+  $closeButton.on('click', event => {
+    event.stopPropagation();
+    closePopup();
+  });
 
   $(".search-popup").click(function () {
     $(".ais-SearchBox-input").select();
