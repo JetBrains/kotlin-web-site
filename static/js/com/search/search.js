@@ -28,9 +28,10 @@ export function openPopup() {
     isInited = true;
   }
 
-  $searchPopup.removeClass('_hidden');
+  $searchPopup.one('transitionend', () => $('.ais-SearchBox-input').focus());
+
+  $searchPopup.addClass('_visible');
   $('body').addClass('_no-scroll');
-  $('.ais-SearchBox-input').focus();
 }
 
 export function initSearch() {
@@ -99,13 +100,10 @@ export function initSearch() {
     $('.ais-InfiniteHits-item:first').addClass('_active')
   });
 
-  const $input = $('.ais-SearchBox-input');
-
   function closePopup() {
-    search.helper.setQuery('').clearRefinements().search();
+    search.helper.setState({focused: false, query: undefined});
     $('body').removeClass('_no-scroll');
-    $searchPopup.addClass('_hidden');
-    $input.val('');
+    $searchPopup.removeClass('_visible');
   }
 
   $searchPopup.keyup(function (e) {
