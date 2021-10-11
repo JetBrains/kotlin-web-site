@@ -41,7 +41,6 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
        println("Hello, $name!")
    }
    ```
-   {kotlin-min-compiler-version="1.6"}
 
    ![Updated main fun](jvm-main-kt-updated.png){width=400}
 

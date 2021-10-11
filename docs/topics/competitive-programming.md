@@ -78,7 +78,6 @@ fun main() {
     println(reached.size) // print answer to the output
 }
 ```
-{kotlin-min-compiler-version="1.6"}
 
 There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
 specified in competitive programming, and the actual input cannot deviate from the input specification in the problem
@@ -131,7 +130,6 @@ fun main() {
     println(ans)
 }
 ```
-{kotlin-min-compiler-version="1.6"}
 
 In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions
 and the [elvis operator](null-safety.md#elvis-operator) `?:`
@@ -155,7 +153,7 @@ specification in the problem statement line by line:
 ```kotlin
     // read input
     val n = readInt()
-    val s = readln() 
+    val s = readln()
     val fl = readInts()
 ```
 
