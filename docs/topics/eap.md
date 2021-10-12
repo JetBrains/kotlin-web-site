@@ -28,6 +28,11 @@ check [our instructions on how to configure your build to support this version](
 
 <table>
     <tr>
+        <th>Build info</th>
+        <th>Build highlights</th>
+        <th>Recommended kotlinx library versions</th>
+    </tr>
+    <tr>
         <td><strong>1.6.0-RC</strong>
             <p>Released: <strong>October 12, 2021</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.0-RC" target="_blank">Release on GitHub</a></p>
@@ -52,11 +57,6 @@ check [our instructions on how to configure your build to support this version](
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
-    </tr>
-    <tr>
-        <th>Build info</th>
-        <th>Build highlights</th>
-        <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
         <td><strong>1.6.0-M1</strong>
