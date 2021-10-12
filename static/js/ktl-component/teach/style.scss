@@ -143,6 +143,9 @@
 
   &__bottom {
     display: none;
+    br {
+      display: none;
+    }
   }
 
   &__mobile-button {
@@ -162,6 +165,14 @@
     }
     &__mobile-button {
       display: none;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    &__bottom {
+      br {
+        display: block;
+      }
     }
   }
 }
@@ -228,6 +239,7 @@
     &__top-image {
       margin-bottom: 0;
       margin-right: 26px;
+      margin-top: 24px;
     }
   }
 }

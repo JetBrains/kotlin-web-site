@@ -65,7 +65,7 @@ const Teach = (props) => {
 
 
       <section className="ktl-container ktl-offset-top-xl">
-        <div className="ktl-row ktl-offset-bottom-l">
+        <div className="ktl-row ktl-offset-bottom-xxl">
           <div className="ktl-col">
             <h1 className="ktl-hero">
               Kotlin is suitable for teaching a wide range of&nbsp;computer science courses
