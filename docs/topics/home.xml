@@ -12,7 +12,7 @@
         </description>
         <tip-group>
             <a href="getting-started.md"
-               description="Create your first Kotlin project for a platform of your choice" type="start">Get started with Kotlin</a>
+               description="Create your first Kotlin project for a platform of your choice in an IDE: IntelliJ IDEA or Android studio" type="start">Get started with Kotlin</a>
             <a href="https://play.kotlinlang.org/" description="Write, edit, run, and share Kotlin code right in the browser" type="install">Try Kotlin online</a>
         </tip-group>
         <main-group>
@@ -20,7 +20,7 @@
             <a href="basic-syntax.md" description="A quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
             <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
             <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
-            <a href="command-line.md" description="Running Kotlin from command line" type="install">Command-line compiler</a>
+            <a href="command-line.md" description="Download and install the Kotlin compiler" type="install">Command-line compiler</a>
         </main-group>
         <highlighted-group>
             <title>Featured topics</title>
