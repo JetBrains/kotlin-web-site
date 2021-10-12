@@ -163,6 +163,11 @@
   resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.7.2.tgz#57cffb144503dcbd7ca9c715a8472947c3b08be6"
   integrity sha512-EJ5JgA+/vnNfh1UQvrTKtTVtVEyGP2xc/d9zaRSI3SBPdDmz/HbeFgyECG6g1wUs2PNrXIpQM1v/XmSGmI+aIg==
 
+"@juggle/resize-observer@3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.0.tgz#2e7a2935adbfae46f9efbd1e1455254ee7ea2219"
+  integrity sha512-P1v2nvK7z2gOLVM/bveIRLG9L99uEahTGgTltyF03zixZAjI9YmKLj5Z9MpS9wBIUt5WDoQORT2lXvLOIF89iA==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -184,10 +189,41 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@rescui/button@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.2.1.tgz#672f218f4f120af1476e07785dee3f783533f2ac"
+  integrity sha512-+QZQOsO2oz/7y3UrTOjwEW6DiNoSN9GkBo3SiqkfxG0RJd2JxiN4cptmVe7Z9tFDoSjsDiz8sxOq3RQpSfWrMA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    "@rescui/icons" "^0.1.2"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/colors@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.4.tgz#d844dd5beba87cdaf2580e3c918050ab24b23076"
   integrity sha512-pgex7fC+IeSkGnDU5PDDbvRPrzV1JIg2GXpc7VwK0E54q7wn3cL4+2QwfkLik0ZJvd4x1txhbGi8bQ/o7SgN1g==
+
+"@rescui/icons@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.1.2.tgz#b1aa5b20f073e293d76257c0aee873889f089739"
+  integrity sha512-oa7IiROJGvicKZ0vAfmCNgQIMqM4jlklkrUpkDBeWXg2ZDI0jBa/aBjNwG6Aiojrf15XjVNvFLlzalZs9VokMA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
+"@rescui/tab-list@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rescui/tab-list/-/tab-list-0.2.1.tgz#7a9540b490114c6fb7e115ff48db69ae3a835660"
+  integrity sha512-tTSxPSnMmaJFNibE4O6A12ASkMXK2ZA2lmuX3PctCw9lGBz2Mse+zDHRhyIdYFVpOyuS1jFmvetil/aCox63uA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    "@juggle/resize-observer" "3.3.0"
+    "@rescui/button" "^0.2.1"
+    "@rescui/icons" "^0.1.2"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
 
 "@rescui/typography@0.2.1":
   version "0.2.1"
@@ -1720,7 +1756,7 @@ classlist-polyfill@^1.0.3:
   resolved "https://registry.yarnpkg.com/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz#935bc2dfd9458a876b279617514638bcaa964a2e"
   integrity sha1-k1vC39lFiodrJ5YXUUY4vKqWSi4=
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==

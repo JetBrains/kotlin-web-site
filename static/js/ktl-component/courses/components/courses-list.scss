@@ -1,0 +1,33 @@
+.ktl-courses-list {
+  &__item {
+    border-top: 1px solid rgba(39, 40, 44, 0.2);
+    padding: 16px 0;
+  }
+}
+
+.ktl-courses-list-header {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ktl-courses-list-header, .ktl-courses-list__item {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 32px;
+  }
+
+  .ktl-courses-list-cell_first {
+    grid-column: 1 / 3;
+    grid-row: row;
+  }
+
+  .ktl-courses-list-cell_second {
+    grid-column: 3 / 5;
+    grid-row: row;
+  }
+
+  .ktl-courses-list-cell_third {
+    grid-column: 5 / 12;
+    grid-row: row;
+  }
+}

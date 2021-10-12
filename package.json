@@ -9,6 +9,7 @@
   "dependencies": {
     "@jetbrains/babel-preset-jetbrains": "^1.0.1",
     "@jetbrains/kotlin-web-site-ui": "^2.7.2",
+    "@rescui/tab-list": "0.2.1",
     "@rescui/typography": "0.2.1",
     "@rescui/ui-contexts": "0.0.2",
     "@rollup/plugin-buble": "0.21.3",
