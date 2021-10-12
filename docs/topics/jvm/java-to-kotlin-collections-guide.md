@@ -11,7 +11,7 @@ In Kotlin, there are many operations that look absolutely the same as in Java:
 
 | Description | Operation on a list | Operation on a map | Comment |
 |-------------|---------------------|--------------------|---------|
-| Add an element or elements | `add()`, `addAll()` | `put()`, `putAll()`, `putIfAbsent()`| In Kotlin, the same methods are under the hood of an assignment `collection[key] = value` |
+| Add an element or elements | `add()`, `addAll()` | `put()`, `putAll()`, `putIfAbsent()`| In Kotlin, the assignment `collection[key] = value` translates into the corresponding method call |
 | Replace an element or elements | `set()`,  `replaceAll()` | `put()`, `replace()`, `replaceAll()` | In Kotlin, it's more idiomatic to use indexing operator: `list[index] = value`, `map[key] = value` |
 | Get an element | `get()` | `get()` | In Kotlin, use indexing operator to get an element: `collection[index]` |
 | Check if a collection contains an element/elements | `contains()`, `containsAll()` | `containsKey()`, `containsValue()` | |
@@ -38,10 +38,10 @@ For lists:
 
 | Description | Java | Kotlin |
 |-------------|------|--------|
-| Sort a list | `sort(Comparator<? super E> c)` or `stream().sorted().collect(toList())` | `sort()` will sort your list with the natural order by default |
+| Sort a list | `sort(Comparator<? super E> c)` or `stream().sorted().toList()` | `sort()` will sort your list with the natural order by default |
 | Remove element from a list | `remove(int index)`, `remove(Object o)`| `removeAt(index: Int)`, `remove(element: ElementType)` |
 | Fill all elements of a list with some value | `Collections.fill()` | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) |
-| Get unique elements of the list | `stream().distinct().collect(toList())` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
+| Get unique elements of the list | `stream().distinct().toList()` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
 
 For any collection:
 
@@ -52,7 +52,7 @@ For any collection:
 | Map elements by some condition | `stream().map().collect()` | [`map()`](collection-filtering.md) |
 | Apply the provided operation to the collection elements sequentially and return the accumulated result | `stream().reduce()` | [`reduce()`, `fold()`](collection-aggregate.md#fold-and-reduce) |
 | Group elements by some condition | `stream().collect(Collectors.groupingBy())` | [`groupBy()`](collection-grouping.md) |
-| Filter by a predicate | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [ `none()`, `any()`, `all()`](collection-filtering.md) |
+| Filter by a predicate | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [`none()`, `any()`, `all()`](collection-filtering.md) |
 | Sort elements | `stream().sorted().collect()` | [`sorted()`](collection-ordering.md#natural-order) |
 | Take first N elements | `stream().limit(N).collect()` | [`take(N)`](collection-parts.md#take-and-drop) |
 | Skip first N elements | `stream().skip(N).collect()` | [`drop(N)`](collection-parts.md#take-and-drop) |
@@ -64,6 +64,7 @@ To perform all operations listed above on maps, get an `entrySet` of a map first
 * [ `isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) – check if a collection is not empty.
 * [`zip()`, `unzip()`, `associate()`](collection-transformations.md) – transform a collection.
 * [`eachCount()`, `aggregate()`](collection-grouping.md) – group by some condition.
+* [`takeLast()`, `takeLastWhile()`, `dropLast()`, `dropWhile()`, `dropLastWhile()`](collection-parts.md#take-and-drop) – take or drop elements by a predicate.
 * [`slice()`, `chunked()`, `windowed()`](collection-parts.md) – retrieve collection parts.
 * [Plus and minus operators](collection-plus-minus.md) – add or remove elements.
 
@@ -263,7 +264,7 @@ class Person implements Comparable<Person> {
 
 public void comparePersons() {
     var persons = List.of(new Person("Jack", 35), new Person("David", 30), new Person("Jack", 25));
-    System.out.println(persons.stream().sorted().collect(toList()));
+    System.out.println(persons.stream().sorted().toList());
 }
 ```
 
@@ -379,7 +380,7 @@ In Java, you can safely get the first item this way:
 
 ```java
 // Java
-List<Email> emails = new LinkedList<>();
+var emails = new LinkedList<>();
 //...
 if (emails.size() > 0) {
    System.out.println(emails.getFirst());
