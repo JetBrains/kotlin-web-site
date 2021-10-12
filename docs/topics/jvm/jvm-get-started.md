@@ -37,7 +37,7 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
    ```kotlin
    fun main() {
        println("What's your name?")
-       val name= readln()
+       val name = readln()
        println("Hello, $name!")
    }
    ```
