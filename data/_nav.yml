@@ -357,6 +357,8 @@ reference:
           title: Compatibility Guide for Kotlin 1.4
         - url: /docs/reference/compatibility-guide-15.html
           title: Compatibility Guide for Kotlin 1.5
+        - url: /docs/reference/compatibility-guide-16.html
+          title: Compatibility Guide for Kotlin 1.6
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
