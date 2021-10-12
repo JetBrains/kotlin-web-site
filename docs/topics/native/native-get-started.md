@@ -48,7 +48,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readln()
+       val name = readlnOrNull()
    }
    ```
 
@@ -63,7 +63,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readln()
+       val name = readlnOrNull()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
@@ -77,7 +77,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readln()
+       val name = readlnOrNull()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
@@ -116,7 +116,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readln()
+       val name = readlnOrNull()
        // Count the letters in the name.
        name?.replace(" ", "")?.let {
            println("Your name contains ${it.length} letters")
