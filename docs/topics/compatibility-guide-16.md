@@ -57,7 +57,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a deprecation warning on the affected expressions
-> - 1.7.0: raise this warning to an error
+> - 1.8.0: raise this warning to an error
 > - \>= 1.8: repurpose some deprecated constructs for new language features
 
 ### Prohibit access to class members in the super constructor call of its companion and nested objects
