@@ -1,6 +1,225 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>tr</lang>
+        <startDate>2021-11-22</startDate>
+        <endDate>2021-11-22</endDate>
+        <location>Besni, Turkey</location>
+        <speaker>Mehmet Ali Sicak</speaker>
+        <title>Turkey KUG</title>
+        <subject>Kotlin 2021 Premiere Online Event/ Kotlin and Android (KMM Roadmap)</subject>
+        <url>https://kotlinveandroid.com/genel/kotlin-2021-premiere-online-event-kotlin-and-android.html</url>
+        <description>
+            <![CDATA[
+<p>Kotlin 2021 Premier Online Event, 19 Ekim 2021-6 Kasım 2021 tarihleri arasında düzenlenecektir. Etkinlik hakkında bildirimler almak ve etkinliğe ücretsiz kayıt olmak için buraya tıklayabilirsiniz. Etkinlik sırasında YouTube veya Twitter’da #kotlin-event-21 ile soru sorabilirsiniz. En iyi soruları olan katılımcılara özel hediyeler verilecektir. Geçen sene katıldığım etkinlikte verdiğim cevaptan memnun olan ekip, Ember markalı piyasa değeri yaklaşık 130$ olan bir mug hediye ettiler.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-30</startDate>
+        <endDate>2021-10-30</endDate>
+        <location>Bauchi, Nigeria</location>
+        <speaker>Joshua Oluwafemi</speaker>
+        <title>Bauchi Kotlin User Group</title>
+        <subject>Bauchi Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.facebook.com/events/860032914716980/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22group%22%7D]%7D</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Kano, Nigeria</location>
+        <speaker>Saadat Aliyu</speaker>
+        <title>Kotlin Kano Usergroup</title>
+        <subject>Kotlin 2021 Premier Event Watch Party</subject>
+        <url>https://www.facebook.com/events/3669169323308341?_rdc=1&amp;_rdr</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>Kampala, Uganda</location>
+        <speaker>Brian Mutebi</speaker>
+        <title>Uganda Kotlin User Group</title>
+        <subject>Kampala Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.meetup.com/en-AU/uganda-kotlin-user-group/events/280891292/</url>
+        <description>
+            <![CDATA[
+<p>Get a glimpse into the future of Kotlin and how Kotlin removes barriers between ideas and working code. You will hear updates from the Kotlin team and news about the whole Kotlin ecosystem.<p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Bonny Island, Nigeria</location>
+        <speaker>Izuchukwu Igbani</speaker>
+        <title>Kotlin Rivers User Group, Nigeria</title>
+        <subject>DevFest - Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.facebook.com/events/471077943870881/?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22unknown%22%2C%22surface%22%3A%22group%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22upcoming_events_for_group%22%2C%22surface%22%3A%22group%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22create_dialog%22%7D]%2C%22ref_notif_type%22%3Anull%7D&amp;onload_action=offline_to_online_regex_conversion_prompt</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Jalandhar, India</location>
+        <speaker>Karan Verma</speaker>
+        <title>Kotlin Jalandhar User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party - Kotlin Minna User Group</subject>
+        <url>https://www.eventbrite.com/e/kotlin-2021-premiere-online-event-watch-party-tickets-179371915227</url>
+        <description>
+            <![CDATA[
+<p>The Kotlin event of the year – big announcements and future Kotlin plans!<p>
+<p> Join our amazing hosts, Ekaterina Petrova and Sebastian Aigner, for updates from the Kotlin team, news on the Kotlin ecosystem, and a special live Q&A session. You can ask questions during the event in the YouTube chat or on Twitter with #kotlin-event-21. Participants with the best questions will get special swag!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Jarle Hansen</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/281266704/</url>
+        <description>
+            <![CDATA[
+<p>- Keynote and Q&A
+Major Kotlin updates, news on the ecosystem, and a live Q&A session with the team. Roman Elizarov, Ekaterina Petrova, Sebastian Aigner, Egor Tolstoy, and Anastasia Kapanina<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Recca Chao</speaker>
+        <title>Taiwan Kotlin User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party with Mini Conference in Taiwan</subject>
+        <url>https://taiwan-kotlin-user-group.github.io/mini-conf-2021</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Karlsruhe, Germany</location>
+        <speaker>Peter Vegh</speaker>
+        <title>Kotlin Karlsruhe User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.meetup.com/Kotlin-Karlsruhe-User-Group/events/281094759/</url>
+        <description>
+            <![CDATA[
+<p>The keynote will stream 16:00 - 19:00. We added some time before and after the stream to be able to chat with each other as well.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Shanghai, China</location>
+        <speaker>Yuang Qiao</speaker>
+        <title>Kotlin Shanghai User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party with Mini Conference in China</subject>
+        <url>https://juejin.cn/user/3844312374718221</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-05</startDate>
+        <endDate>2021-11-05</endDate>
+        <location>Nizhny Novgorod, Russia</location>
+        <speaker>Roman Khlebnov</speaker>
+        <title>Kotlin Nizhny Novgorod User Group</title>
+        <subject>NN Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.meetup.com/kotlin_nn/events/281121157</url>
+        <description>
+            <![CDATA[
+<p>Join us in a cozy place to view and discuss together the latest news from the Kotlin world!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Shady Selim</speaker>
+        <title>Kotlin Cairo User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/281126426/</url>
+        <description>
+            <![CDATA[
+<p>Join us and Kotlin Cairo User Group in this (Watch Party) to be the 1st to learn about Kotlin new updates, announcements, and future plans!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>Desmond Yeung</speaker>
+        <title>GDG HK &amp; Kotlin User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event Watch Party with Mini Conference in Hong Kong</subject>
+        <url>https://fb.me/e/1wB53zyQd</url>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Saúl Buentello Sánchez</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>Kotlin CDMX Octubre - Novedades "Kotlin 2021 Premiere Online Event Watch Party"</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/281157153/</url>
+        <description>
+            <![CDATA[
+<p>¡Qué tal, amigos Kotliners! Del 19 de Octubre al 6 de Noviembre, JetBrains trae para nosotros una serie de charlas sobre Kotlin, de la mano de grandes expertos en la comunidad de desarrollo para mostrar grandes novedades, mejores prácticas, y más.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>Surat, India</location>
+        <speaker>Sanjay Ramani</speaker>
+        <title>Kotlin Surat User Group</title>
+        <subject>Kotlin 2021 Premiere</subject>
+        <url>https://www.meetup.com/kotlinsurat/events/281206228/</url>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2021-11-13</startDate>
+        <endDate>2021-11-13</endDate>
+        <location>Dhaka, India</location>
+        <speaker>S M Mohi Us Sunnat</speaker>
+        <title>Bangladesh Kotlin User Group</title>
+        <subject>Kotlin 2021 Premiere Online Event in BD</subject>
+        <url>https://www.facebook.com/events/836511957010627</url>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2021-10-28</startDate>
         <endDate>2021-10-28</endDate>
