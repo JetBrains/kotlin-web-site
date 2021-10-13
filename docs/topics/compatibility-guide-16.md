@@ -232,7 +232,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Kotlin 1.6 will no longer perform conversion to set for the argument of operations that remove several elements from collection/iterable/array/sequence.
+> **Short summary**: Kotlin 1.6 will no longer perform conversion to set for the argument of functions and operators that remove several elements from collection/iterable/array/sequence.
 >
 > **Deprecation cycle**:
 >
@@ -334,7 +334,7 @@ perspective
 >
 > - 1.6.0: change the replacement pattern handling in `Regex.replace` of the Kotlin/JS stdlib
 
-### Turn on Unicode case folding in JS regexes
+### Use the Unicode case folding in JS Regex
 
 > **Issue**: [KT-45928](https://youtrack.jetbrains.com/issue/KT-45928)
 >
