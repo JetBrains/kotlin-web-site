@@ -16,20 +16,11 @@
       display: block;
     }
   }
-  &__link {
+  &__content {
     display: block;
-    &:hover {
-      text-decoration: none;
-      color: inherit;
-      .rs-link {
-        color: #FFFFFF;
-        color: var(--rs-link-color-hover);
-        background-size: auto calc(100% + 4px);
-      }
-    }
   }
   @media (min-width: 1200px) {
-    &__link {
+    &__content {
       padding-right: 32px;
     }
   }
