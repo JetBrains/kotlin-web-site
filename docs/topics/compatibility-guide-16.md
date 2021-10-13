@@ -37,11 +37,11 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.6 will warn about `when` statement with enum, sealed, or Boolean subject being non-exhaustive
+> **Short summary**: Kotlin 1.6 will warn about the `when` statement with an enum, sealed, or Boolean subject being non-exhaustive
 >
 > **Deprecation cycle**:
 >
-> - 1.6.0: issue a warning when `when` statement with enum, sealed, or Boolean subject is non-exhaustive (error in the progressive mode)
+> - 1.6.0: introduce a warning when the `when` statement with an enum, sealed, or Boolean subject is non-exhaustive (error in the progressive mode)
 > - 1.7.0: raise this warning to an error
 
 ### Deprecate confusing grammar in `when-with-subject`
@@ -56,7 +56,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.6.20: issue a deprecation warning on the affected expressions 
+> - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.7.0: raise this warning to an error
 > - \>= 1.8: repurpose some deprecated constructs for new language features
 
@@ -72,7 +72,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.5.20: introduce a warning for the problematic arguments
+> - 1.5.20: introduce a warning on the problematic arguments
 > - 1.6.0: raise this warning to an error,  
 >  `-XXLanguage:-ProhibitSelfCallsInNestedObjects` can be used to temporarily revert to the pre-1.6 behavior
 
@@ -105,9 +105,9 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5.30: the old behavior in all affected cases
-> - 1.5.30: fix the behavior of downcast in generated property delegate accessors,  
->   `-Xuse-old-backend` can be used to temporarily revert to the behavior before the fix
-> - \>= 1.6.X: fix the behavior of downcast in other affected cases
+> - 1.5.30: fix the downcast behavior in generated property delegate accessors,  
+>   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior 
+> - \>= 1.6.X: fix the downcast behavior in other affected cases
 
 ### Prohibit declarations of repeatable annotation classes whose container annotation violates JLS
 
@@ -117,12 +117,12 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.6 will check that the container annotation of a repeatable annotation satisfies the same requirements as in [JLS 9.6.3](https://docs.oracle.com/javase/specs/jls/se16/html/jls-9.html#jls-9.6.3): array-typed value method, retention and target
+> **Short summary**: Kotlin 1.6 will check that the container annotation of a repeatable annotation satisfies the same requirements as in [JLS 9.6.3](https://docs.oracle.com/javase/specs/jls/se16/html/jls-9.html#jls-9.6.3): array-typed value method, retention, and target
 >
 > **Deprecation cycle**:
 >
-> - 1.5.30: report a warning on repeatable container annotation declarations violating JLS (error in the progressive mode)
-> - 1.6.0: raise the warning to an error,  
+> - 1.5.30: introduce a warning on repeatable container annotation declarations violating JLS requirements (error in the progressive mode)
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
 ### Prohibit declaring a nested class named `Container` in a repeatable annotation class
@@ -138,7 +138,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.30: report warning on nested class named `Container` in a Kotlin-repeatable annotation class (error in the progressive mode)
-> - 1.6.0: raise the warning to an error,  
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
 ### Prohibit @JvmField on a property in the primary constructor that overrides an interface property
@@ -154,7 +154,7 @@ perspective
 > **Deprecation cycle**:
 > 
 > - 1.5.20: introduce a warning on the `@JvmField` annotation on such properties in the primary constructor
-> - 1.6.0: raise the warning to an error,  
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
 ### Prohibit super calls from public-abi inline functions
@@ -165,12 +165,12 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.6 will outlaw calling functions with `super` qualifier from public or protected inline functions and properties
+> **Short summary**: Kotlin 1.6 will outlaw calling functions with a `super` qualifier from public or protected inline functions and properties
 >
 > **Deprecation cycle**:
 >
 > - 1.5.0: introduce a warning on super calls from public or protected inline functions or property accessors
-> - 1.6.0: raise the warning to an error,  
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-ProhibitSuperCallsFromPublicInline` can be used to temporarily disable the error reporting
 
 ### Prohibit protected constructor calls from public inline functions
@@ -186,7 +186,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.30: introduce a warning on protected constructor calls from public or protected inline functions or property accessors
-> - 1.6.0: raise the warning to an error,  
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-ProhibitProtectedConstructorCallFromPublicInline` can be used to temporarily disable the error reporting
 
 ### Prohibit exposing private nested types from private-in-file types
@@ -202,7 +202,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.0: introduce a warning on private types exposed from private-in-file types
-> - 1.6.0: raise the warning to an error,  
+> - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-PrivateInFileEffectiveVisibility` can be used to temporarily disable the error reporting
 
 ### Annotation target is not analyzed in several cases for annotations on a type 
@@ -239,7 +239,7 @@ perspective
 > - < 1.6: the old behavior: the argument is converted to set in some cases
 > - 1.6.0: the argument is no longer converted to `Set` when it's already a collection, and can be converted to `List` instead when it's not a collection.  
 >   The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
-> - \>= 1.7: the system property above will no longer have effect
+> - \>= 1.7: the system property above will no longer have an effect
 
 ### Change value generation algorithm in `Random.nextLong`
 
@@ -272,7 +272,7 @@ perspective
 > - 1.6.0: hide the deprecated functions from the public API
 > - \>= 1.7: reintroduce the affected API but with non-nullable return type
 
-### Deprecate floating-point array operations `contains`, `indexOf`, `lastIndexOf`
+### Deprecate floating-point array functions: `contains`, `indexOf`, `lastIndexOf`
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 >
@@ -280,7 +280,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin deprecates floating-point array operations `contains`, `indexOf`, `lastIndexOf` that compare values using IEEE-754 order instead of the total order
+> **Short summary**: Kotlin deprecates floating-point array functions `contains`, `indexOf`, `lastIndexOf` that compare values using the IEEE-754 order instead of the total order
 >
 > **Deprecation cycle**:
 >
@@ -296,14 +296,14 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: the declarations from `kotlin.dom` and `kotlin.browser` packages are moved to the corresponding `kotlinx.*` packages to prepare extracting them from stdlib
+> **Short summary**: declarations from the `kotlin.dom` and `kotlin.browser` packages are moved to the corresponding `kotlinx.*` packages to prepare for extracting them from stdlib
 >
 > **Deprecation cycle**:
 >
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
 > - 1.4.0: deprecate the API `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to error
-> - \>= 1.7: remove the deprecated functions stdlib
+> - \>= 1.7: remove the deprecated functions from stdlib
 > - \>= 1.7: move the API in kotlinx.* packages to a separate library
 
 ### Make `Regex.replace` function not inline in Kotlin/JS
@@ -314,7 +314,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: the function `Regex.replace` with the functional `transform` parameter will no longer be inline in Kotlin/JS
+> **Short summary**: the `Regex.replace` function with the functional `transform` parameter will no longer be inline in Kotlin/JS
 >
 > **Deprecation cycle**:
 > 
@@ -332,7 +332,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.6.0: change the replacement pattern handling in `Regex.replace` of Kotlin/JS stdlib
+> - 1.6.0: change the replacement pattern handling in `Regex.replace` of the Kotlin/JS stdlib
 
 ### Turn on Unicode case folding in JS regexes
 
@@ -342,11 +342,11 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: `Regex` class in Kotlin/JS will use [`unicode`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) flag when calling the underlying JS Regular expressions engine in order to search/compare characters according to Unicode rules.
+> **Short summary**: the `Regex` class in Kotlin/JS will use [`unicode`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) flag when calling the underlying JS Regular expressions engine to search and compare characters according to the Unicode rules.
 > This brings certain version requirements of JS environment and causes more strict validation of unnecessary escaping in the regex pattern string.
 >
 > **Deprecation cycle**:
 >
-> - 1.5.0: enable Unicode case folding in most functions of the JS `Regex` class
-> - 1.6.0: enable Unicode case folding in `Regex.replaceFirst` function
+> - 1.5.0: enable the Unicode case folding in most functions of the JS `Regex` class
+> - 1.6.0: enable the Unicode case folding in the `Regex.replaceFirst` function
 
