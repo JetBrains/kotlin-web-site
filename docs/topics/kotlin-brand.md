@@ -33,7 +33,7 @@ The mascot is dynamic, positive, and adventurous, which generally makes their mo
 
 There are 2 styles for our mascot – 2D and 3D. In general, the vector mascot is used with a 3D background, while a 3D mascot is used on a flat background.
 
-#### Colors
+#### Mascot colors
 
 **Light background**: white (#FFFFFF), black (#000000), light grey (#BFBFBF)  
 **Neutral background**: white (#FFFFFF), black (#000000)  
@@ -41,11 +41,11 @@ There are 2 styles for our mascot – 2D and 3D. In general, the vector mascot i
 
 ### Guidelines for use
 
-**Where**:
+**Where**
 
 Use the mascot anywhere you think it fits – in your blog post and videos, on swag... anywhere you can imagine. Below you can find some ideas, but feel free to experiment!
 
-**Do**:
+**Do**
 * Use high quality images. Download a file that contains them.
 
 <!-- add a link to a file -->
