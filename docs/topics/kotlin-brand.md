@@ -25,15 +25,25 @@ Let’s choose the name for the Kotlin mascot together. Submit your ideas via th
 
 Our mascot is a robotic creature with clear, stable, and symmetric proportions that capture their personality.
 
+![Kotlin mascot proportions](mascot-proportions-main.png){width=700}
+
+![Kotlin mascot proportions](mascot-proportions.png){width=700}
+
 #### Movements
 
 The mascot is dynamic, positive, and adventurous, which generally makes their movements nimble, quick, and sharp. Keep this in mind when creating animations and dynamic compositions.
+
+![Kotlin mascot movements](mascot-movements.png){width=700}
 
 #### Styles
 
 There are 2 styles for our mascot – 2D and 3D. In general, the vector mascot is used with a 3D background, while a 3D mascot is used on a flat background.
 
+![Kotlin mascot styles](mascot-styles.png){width=700}
+
 #### Mascot colors
+
+![Kotlin mascot colors](mascot-colors.png){width=700}
 
 **Light background**: white (#FFFFFF), black (#000000), light grey (#BFBFBF)  
 **Neutral background**: white (#FFFFFF), black (#000000)  
@@ -45,6 +55,8 @@ There are 2 styles for our mascot – 2D and 3D. In general, the vector mascot i
 
 Use the mascot anywhere you think it fits – in your blog post and videos, on swag... anywhere you can imagine. Below you can find some ideas, but feel free to experiment!
 
+![Kotlin mascot usage examples](mascot-usage.png){width=700}
+
 **Do**
 * Use high quality images. Download a file that contains them.
 
@@ -54,6 +66,8 @@ Use the mascot anywhere you think it fits – in your blog post and videos, on s
 * Change the proportions
 * Change the colors
 * Use a contrasting background
+
+![Kotlin mascot misuses](mascot-misuse.png){width=700}
 
 ## Brand assets
 
@@ -73,6 +87,8 @@ Our logo consists of a mark and a typeface. The full color version is the main o
 **Single color version**: (png) (svg) (ai)  
 
 Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box. The minimum size of the protective field is half the height of the mark.
+
+![Kotlin logo proportions](kotlin-logo-guidelines.png){width=700}
 
 Pay special attention to the following restrictions concerning the use of the logo:
 
