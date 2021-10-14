@@ -301,7 +301,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
-> - 1.4.0: deprecate the API `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
+> - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
 > - \>= 1.7: remove the deprecated functions from stdlib
 > - \>= 1.7: move the API in kotlinx.* packages to a separate library
