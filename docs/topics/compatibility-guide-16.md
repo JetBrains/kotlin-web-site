@@ -237,7 +237,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.6: the old behavior: the argument is converted to set in some cases
-> - 1.6.0: the argument is no longer converted to `Set` when it's already a collection, and can be converted to `List` instead when it's not a collection.  
+> - 1.6.0: if the function argument is a collection, it's no longer converted to `Set`. If it's not a collection, it can be converted to `List` instead.  
 >   The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
 > - \>= 1.7: the system property above will no longer have an effect
 
