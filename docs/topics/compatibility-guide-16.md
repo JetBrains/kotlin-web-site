@@ -137,7 +137,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.5.30: report warning on nested class named `Container` in a Kotlin-repeatable annotation class (error in the progressive mode)
+> - 1.5.30: introduce a warning on nested classes with the name `Container` in a Kotlin-repeatable annotation class (error in the progressive mode)
 > - 1.6.0: raise this warning to an error,  
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
@@ -284,8 +284,8 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.4.0: deprecate the affected functions with warning
-> - 1.6.0: raise the deprecation level to error
+> - 1.4.0: deprecate the affected functions with a warning
+> - 1.6.0: raise the deprecation level to an error
 > - \>= 1.7: hide the deprecated functions from the public API
 
 ### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
@@ -302,7 +302,7 @@ perspective
 >
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
 > - 1.4.0: deprecate the API `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
-> - 1.6.0: raise the deprecation level to error
+> - 1.6.0: raise the deprecation level to an error
 > - \>= 1.7: remove the deprecated functions from stdlib
 > - \>= 1.7: move the API in kotlinx.* packages to a separate library
 
@@ -343,7 +343,7 @@ perspective
 > **Incompatible change type**: behavioral
 >
 > **Short summary**: the `Regex` class in Kotlin/JS will use [`unicode`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode) flag when calling the underlying JS Regular expressions engine to search and compare characters according to the Unicode rules.
-> This brings certain version requirements of JS environment and causes more strict validation of unnecessary escaping in the regex pattern string.
+> This brings certain version requirements of the JS environment and causes more strict validation of unnecessary escaping in the regex pattern string.
 >
 > **Deprecation cycle**:
 >
