@@ -496,7 +496,7 @@ plugins {
 }
 
 kotlin {
-    def xcf = XCFrameworkConfig(project)
+    def xcf = new XCFrameworkConfig(project)
 
     ios {
         binaries.framework {
