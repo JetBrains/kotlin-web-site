@@ -22,6 +22,8 @@ and return an integer value showing which object is greater:
 * Negative values show that it's less than the argument.
 * Zero shows that the objects are equal.
 
+`compareTo()` can be called in the [infix form](functions.md#infix-notation) as well – `a compareTo b`.
+
 Below is a class for ordering versions that consist of the major and the minor part.
 
 ```kotlin
