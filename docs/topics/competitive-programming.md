@@ -84,7 +84,7 @@ specified in competitive programming, and the actual input cannot deviate from t
 statement. That's why we're using Kotlin's `readln()` function. It asserts that the input string is present and throws
 an exception otherwise. Likewise, the [String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html)
 function throws an exception if the input string is not an integer.
- 
+
 All online competitive programming events allow the use of pre-written code, so you can define your own library of 
 utility functions that are geared towards competitive programming to make your actual solution code somewhat easier 
 to read and write. You would then use this code as a template for your solutions. For example, you can define 
