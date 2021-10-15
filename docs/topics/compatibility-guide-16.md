@@ -350,3 +350,32 @@ perspective
 > - 1.5.0: enable the Unicode case folding in most functions of the JS `Regex` class
 > - 1.6.0: enable the Unicode case folding in the `Regex.replaceFirst` function
 
+### Deprecate some JS-only API
+
+> **Issue**: [KT-48587](https://youtrack.jetbrains.com/issue/KT-48587)
+>
+> **Component**: kotlin-stdlib (JS)
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: a number of JS-only functions in stdlib are deprecated for removal. These include: `String.concat(String)`, `String.match(regex: String)`, `String.matches(regex: String)`, `sort` functions on array taking a comparison function, e.g. `Array<out T>.sort(comparison: (a: T, b: T) -> Int)`
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: deprecate the affected functions with a warning
+> - 1.7.0: raise the deprecation level to an error
+> - 1.8.0: remove the deprecated functions from the public API
+
+### Hide implementation- and interop-specific functions from the public API of classes in Kotlin/JS  
+
+> **Issue**: [KT-48587](https://youtrack.jetbrains.com/issue/KT-48587)
+>
+> **Component**: kotlin-stdlib (JS)
+>
+> **Incompatible change type**: source, binary
+>
+> **Short summary**: the functions `HashMap.createEntrySet` and `AbstactMutableCollection.toJSON` change their visibility to internal.
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: make the functions internal thus removing them from the public API
