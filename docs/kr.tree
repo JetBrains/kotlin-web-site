@@ -8,6 +8,7 @@
                  status="release">
 
     <toc-element id="home.xml" toc-title="Home"/>
+    <toc-element id="old-home.md" toc-title="Home" hidden="true"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
