@@ -697,6 +697,9 @@
       position:
         lat: 23.885942
         lng: 45.079162
+    - name: Shanghai Kotlin User Group
+      country: China
+      url: https://juejin.cn/user/3844312374718221
     - name: Shenzhen Kotlin User Group
       country: China
       url: https://korilin.com/KUGshenzhen/
