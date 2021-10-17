@@ -358,7 +358,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: a number of JS-only functions in stdlib are deprecated for removal. These include: `String.concat(String)`, `String.match(regex: String)`, `String.matches(regex: String)`, `sort` functions on array taking a comparison function, e.g. `Array<out T>.sort(comparison: (a: T, b: T) -> Int)`
+> **Short summary**: a number of JS-only functions in stdlib are deprecated for removal. They include: `String.concat(String)`, `String.match(regex: String)`, `String.matches(regex: String)`, and the `sort` functions on arrays taking a comparison function, for example, `Array<out T>.sort(comparison: (a: T, b: T) -> Int)`
 >
 > **Deprecation cycle**:
 >
@@ -378,4 +378,4 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.6.0: make the functions internal thus removing them from the public API
+> - 1.6.0: make the functions internal, thus removing them from the public API
