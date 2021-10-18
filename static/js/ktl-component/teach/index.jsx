@@ -1,10 +1,10 @@
 import React from "react";
-import {CtaBlock} from '@jetbrains/kotlin-web-site-ui/dist/ctaBlock';
 import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer';
-import TopMenu from '@jetbrains/kotlin-web-site-ui/dist/topMenu';
 
-import '@jetbrains/kotlin-web-site-ui/dist/ctaBlock.css';
+import {TeachCtaBlock} from "./components/TeachCtaBlock";
+import {TeachTopMenu} from "./components/TeachTopMenu";
+
 import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css'
 import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
 import '@jetbrains/kotlin-web-site-ui/dist/typography.css';
@@ -14,21 +14,6 @@ import '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer.css';
 import '@rescui/typography';
 
 import './style.scss';
-
-const menuItems = [
-  {
-    url: '/education/',
-    title: 'Overview'
-  },
-  {
-    url: '/education/why-teach-kotlin.html',
-    title: 'Why Teach Kotlin'
-  },
-  {
-    url: 'https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing',
-    title: 'List of Courses'
-  },
-];
 
 const quotes = [
   {
@@ -46,25 +31,10 @@ const quotes = [
 ]
 
 const Teach = (props) => {
+
   return (
-    <nav className="teach-wrapper">
-      <div className="teach-sticky-menu">
-        <TopMenu
-          items={menuItems}
-          homeUrl={'/'}
-          title={'Teach'}
-          activeIndex={0}
-        >
-          <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
-             className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
-            <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg"
-                 className="teach-button-icon teach-button-icon_small" alt=""/>
-            Join educators
-          </a>
-        </TopMenu>
-      </div>
-
-
+    <div className="teach-wrapper">
+      <TeachTopMenu/>
       <section className="ktl-container ktl-offset-top-xl">
         <div className="ktl-row ktl-offset-bottom-xxl">
           <div className="ktl-col">
@@ -501,7 +471,8 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/watch?v=aM-L5_tiVAI&list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA" target="_blank">
+                  <a href="https://www.youtube.com/watch?v=aM-L5_tiVAI&list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA"
+                     target="_blank">
                     <span className="rs-link">Educational webinars</span>
                     <span>↗</span>
                   </a>
@@ -531,24 +502,9 @@ const Teach = (props) => {
       </section>
 
       <section className="ktl-offset-top-xxl">
-        <CtaBlock
-          mainTitle='Connect with us'
-          topTitle='If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'
-          content={
-            <div className="teach-bottom-buttons">
-              <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
-                 className="kto-button kto-button_size_l kto-button_mode_contrast">
-                Slack-channel →
-              </a>
-              <a href="mailto:education@kotlinlang.org"
-                 className="kto-button kto-button_size_l kto-button_mode_contrast">
-                Email
-              </a>
-            </div>
-          }
-        />
+        <TeachCtaBlock/>
       </section>
-    </nav>
+    </div>
   )
     ;
 }
