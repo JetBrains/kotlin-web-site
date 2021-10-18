@@ -77,5 +77,6 @@ Here are some recommendations for configuring Gradle for better compilation perf
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
 
+## Windows OS configuration
 
-
+* **Configure Windows Security**. Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory, which is located in `%USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
