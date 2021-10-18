@@ -103,9 +103,9 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 
 ## Instantiation
 
-In Java, an annotation type is a form of interface, so you can implement it and use an instance.
+In Java, an annotation type is a form of an interface, so you can implement it and use an instance.
 As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
-and similarly use a resulting instance.
+and similarly use the resulting instance.
 
 ```kotlin
 annotation class InfoMarker(val info: String)
