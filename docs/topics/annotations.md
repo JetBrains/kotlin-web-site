@@ -101,6 +101,27 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 @Ann(String::class, Int::class) class MyClass
 ```
 
+## Instantiation
+
+In Java, an annotation type is a form of interface, so you can implement it and use an instance.
+As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
+and similarly use a resulting instance.
+
+```kotlin
+annotation class InfoMarker(val info: String)
+
+fun processInfo(marker: InfoMarker): Unit = TODO()
+
+fun main(args: Array<String>) {
+    if (args.isNotEmpty())
+        processInfo(getAnnotationReflective(args))
+    else
+        processInfo(InfoMarker("default"))
+}
+```
+
+Learn more about instantiation of annotation classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-instantiation.md)
+
 ## Lambdas
 
 Annotations can also be used on lambdas. They will be applied to the `invoke()` method into which the body
