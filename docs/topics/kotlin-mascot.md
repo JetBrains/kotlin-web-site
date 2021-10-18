@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin mascot)
 
-Meet the official Kotlin mascot. Their pronouns are they/them. They don’t have a name yet, but you can help us! Submit your name ideas using this form.
+Meet the official Kotlin mascot. Their pronouns are they/them. They don’t have a name yet, but you can help us! Submit your name ideas using [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
 
 <!-- add link to the form -->
 
@@ -13,9 +13,7 @@ Even though we can’t yet say their name, we can definitely say a few things ab
 
 ## Choosing a name
 
-Let’s choose the name for the Kotlin mascot together. Submit your ideas via this form. We will make a list of the most promising ideas and hold a vote to choose the best one. Stay tuned!
-
-<!-- add link to the form -->
+Let’s choose the name for the Kotlin mascot together. Submit your ideas via [this form](https://forms.gle/yktEz3xCAwKEm9cx9). We will make a list of the most promising ideas and hold a vote to choose the best one. Stay tuned!
 
 ## Tips ans principles
 
