@@ -22,15 +22,8 @@ This can be used to interoperate with JS functions that expect a reference to a 
 
 ## KType and typeOf()
 
-> The `typeOf()` function is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
-
-The [`typeof()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function constructs an instance of [`KType`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/)
-for a given type. To use `typeOf()` in your code, [opt in](opt-in-requirements.md#opt-in-to-using-api) to the experimental
-API of the standard library, for example, add `@OptIn(ExperimentalStdlibApi::class)` to your code.
-
+The [`typeof()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function constructs an instance 
+of [`KType`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) for a given type.
 The `KType` API is fully supported in Kotlin/JS except for Java-specific parts.
 
 ## Example
@@ -41,7 +34,6 @@ Here is an example of the reflection usage in Kotlin/JS.
 open class Shape
 class Rectangle : Shape()
 
-@OptIn(ExperimentalStdlibApi::class) // typeOf() is experimental and requires an opt-in
 inline fun <reified T> accessReifiedTypeArg() =
     println(typeOf<T>().toString())
 
