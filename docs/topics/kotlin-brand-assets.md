@@ -34,12 +34,12 @@ Download the JetBrains Sans
 
 ## Colors
 
-Our style has three main colors:
+Our style has three **main colors**:
 
 * Blue as a display color. We apply this color to important buttons on websites or to our logo in cases where the full color version cannot be used.
 * Black for the dark theme, which is the priority theme. We apply this color to backgrounds and text.
 * White for the light theme, which is a secondary theme. We apply this color to backgrounds and text.
 
-Our style uses two types of gradients:
+Our style uses two types of **gradients**:
 * A linear gradient for the logo and other style constants. It consists of three colors that are equidistant from each other on the gradient scale. Please do not change the sequence of colors on the scale.
 * A gradient mesh for banner backgrounds. It consists of four colors equidistant from each other. Please do not make abrupt transitions between colors.

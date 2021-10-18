@@ -47,7 +47,7 @@ There are 2 styles for our mascot – 2D and 3D. In general, the vector mascot i
 **Neutral background**: white (#FFFFFF), black (#000000)  
 **Dark background**: white (#FFFFFF), black (#000000), dark grey (#7D7D7D)
 
-### Guidelines for use
+## Guidelines for use
 
 **Where**
 

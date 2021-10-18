@@ -4,7 +4,9 @@ Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologi
 
 [Learn more about Kotlin Night event](https://kotlinlang.org/community/events.html#kotlin-nights)
 
-## Kotlin Nights Guidelines
+## Kotlin Nights event
+
+### Event guidelines
 
 * Please use the [branding materials](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
 * Kotlin Night should be a free event. A minimal fee can be charged to cover expenses, but it should remain a non-profit event.
@@ -14,27 +16,29 @@ Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologi
 * The talks should primarily be about Kotlin and should not focus on marketing or sales.
 * The event can serve food and/or drinks optionally.
 
-### Kotlin Night Event Requirements
+### Event requirements
 
 JetBrains is excited to support your Kotlin Night event. Because we want all events to provide the same high-quality experience, we need organizers to make sure that some basic requirements are met for the event to receive JetBrains support. As an organizer, you are responsible for the following aspects of the event:
 
 1. The location and everything required to host the event, including booking a comfortable venue. Please make sure that:
-* All the participants are aware of the exact date, place, and starting time of the event, along with the event
+    * All the participants are aware of the exact date, place, and starting time of the event, along with the event
   schedule and program.
-* There is enough space as well as food and beverages, if you provide them, for everyone.
-* You have a plan with your speakers. This includes a schedule, topics, and abstracts for the talks, as well as any
+    * There is enough space as well as food and beverages, if you provide them, for everyone.
+    * You have a plan with your speakers. This includes a schedule, topics, and abstracts for the talks, as well as any
   necessary equipment for the presentations.
 2. Content and speakers
-* Feel free to invite presenters from your local community, from neighboring countries, or even from all over the
+    * Feel free to invite presenters from your local community, from neighboring countries, or even from all over the
   globe. You don’t have to have any JetBrains representatives or speakers at your event. However we are always happy to hear about more Kotlin Nights, so feel free to notify us.
 3. Announcements and promotion
-* Announce your event at least 3 weeks before the date of a meetup.
-* Include the schedule, topics, abstracts, and speaker bios in the announcement.
-* Spread the word on social media.
+    * Announce your event at least 3 weeks before the date of a meetup.
+    * Include the schedule, topics, abstracts, and speaker bios in the announcement.
+    * Spread the word on social media.
 4. Providing event material to JetBrains after the event
-* We would be glad to announce your event at [kotlinlang.org](https://kotlinlang.org/community/talks.html), and we would appreciate it if you provided slides and video materials for follow-up posting.
+    * We would be glad to announce your event at [kotlinlang.org](https://kotlinlang.org/community/talks.html), and we would appreciate it if you provided slides and video materials for follow-up posting.
 
-### JetBrains provides Support with
+### JetBrains support
+
+JetBrains provides support with:
 
 * Access to Kotlin Night Branding, which includes the name and logos
 * Merchandise, such as stickers and t-shirts for speakers and small souvenirs for attendees

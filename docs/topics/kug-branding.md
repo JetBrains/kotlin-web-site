@@ -16,10 +16,10 @@ We provide new Kotlin user groups with a user group logo and a profile picture.
 
 ![Branding image](kotlin-user-group-logo.png){width=700}
 
-There are two main reasons why we are doing it. 
+There are two main reasons why we are doing it:
 
-Firstly, we received numerous requests from the community asking for special Kotlin style branded materials to help them be recognized as official dedicated user groups.  
-Secondly, we wanted to provide a distinct style for the user group and community content, so that it’s clear which Kotlin-related materials are from the official team and which are created by the community.
+* Firstly, we received numerous requests from the community asking for special Kotlin style branded materials to help them be recognized as official dedicated user groups.  
+* Secondly, we wanted to provide a distinct style for the user group and community content, so that it’s clear which Kotlin-related materials are from the official team and which are created by the community.
 
 ## Create the logo of your user group
 
