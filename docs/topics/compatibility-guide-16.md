@@ -268,7 +268,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.0: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
-> - 1.5.0: raise the deprecation level of the affected API to error
+> - 1.5.0: raise the deprecation level of the affected API to an error
 > - 1.6.0: hide the deprecated functions from the public API
 > - \>= 1.7: reintroduce the affected API but with non-nullable return type
 
@@ -374,7 +374,7 @@ perspective
 >
 > **Incompatible change type**: source, binary
 >
-> **Short summary**: the functions `HashMap.createEntrySet` and `AbstactMutableCollection.toJSON` change their visibility to internal.
+> **Short summary**: the functions `HashMap.createEntrySet` and `AbstactMutableCollection.toJSON` change their visibility to internal
 >
 > **Deprecation cycle**:
 >
