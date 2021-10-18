@@ -122,7 +122,7 @@ fun main(args: Array<String>) {
 
 > Instantiation of annotation classes for Kotlin/Native is not yet available.
 > 
-{type="note"}
+{type="warning"}
 
 Learn more about instantiation of annotation classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-instantiation.md)
 
