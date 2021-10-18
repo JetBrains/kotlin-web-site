@@ -1,6 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-11-18</startDate>
+        <endDate>2021-11-18</endDate>
+        <location>Irvine, USA</location>
+        <speaker>Ryan Simon</speaker>
+        <title>OC Kotlin Krew</title>
+        <subject>Kotlin 2021 Premier Online Event Recap</subject>
+        <url>https://www.meetup.com/OCKotlinKrew/events/281453931</url>
+        <description>
+            <![CDATA[
+<p>I'd like to say our events are for everyone, but it helps to have the following:
+- Previous experience with programming in any language
+- Looking to learn new languages
+- Want to learn about new and existing Kotlin concepts
+- A desire to join a community of passionate Kotlin engineers<p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>tr</lang>
         <startDate>2021-11-22</startDate>
         <endDate>2021-11-22</endDate>
@@ -209,7 +229,7 @@ Major Kotlin updates, news on the ecosystem, and a live Q&A session with the tea
     </event>
 
     <event>
-        <lang>es</lang>
+        <lang>en</lang>
         <startDate>2021-11-13</startDate>
         <endDate>2021-11-13</endDate>
         <location>Dhaka, India</location>
