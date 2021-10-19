@@ -16,29 +16,29 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
    
    By default, your project will use the Gradle build system with Kotlin DSL.
 
-3. Go through and accept the default configuration, then click **Finish**.
+4. Go through and accept the default configuration, then click **Finish**.
   
    ![Configure a console application](jvm-new-project-2.png) 
 
    Your project will open. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
    Wizard based on your configuration. It includes the `kotlin("jvm")` plugin and dependencies required for your console application.
 
-3. Open the `main.kt` file in `src/main/kotlin`.  
+5. Open the `main.kt` file in `src/main/kotlin`.  
    The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print 
    `Hello World!`.
 
    ![main.kt with main fun](jvm-main-kt-initial.png){width=600}
 
-4. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world.  
+6. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world.  
    
-   * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – `readLine()`.
+   * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – `readln()`.
    * Use a string template by adding a dollar sign `$` before this variable name directly in the text output like this – `$name`.
    
    ```kotlin
    fun main() {
        println("What's your name?")
-       val name= readLine()
-       println("Hello $name!")
+       val name = readln()
+       println("Hello, $name!")
    }
    ```
 
