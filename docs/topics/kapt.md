@@ -16,7 +16,8 @@ Apply the `kotlin-kapt` Gradle plugin:
 
 ```kotlin
 plugins {
-    kotlin("kapt") version "%kotlinVersion%" }
+    kotlin("kapt") version "%kotlinVersion%"
+}
 ```
 
 </tab>

@@ -4,10 +4,10 @@
 
 <product-profile id="kr"
                  name="Kotlin"
-                 start-page="home.md"
+                 start-page="home.xml"
                  status="release">
 
-    <toc-element id="home.md" toc-title="Home"/>
+    <toc-element id="home.xml" toc-title="Home"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
@@ -329,6 +329,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-16.md"/>
                 <toc-element id="compatibility-guide-15.md"/>
                 <toc-element id="compatibility-guide-14.md"/>
                 <toc-element id="compatibility-guide-13.md" />
