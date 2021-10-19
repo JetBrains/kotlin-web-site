@@ -1,12 +1,12 @@
 import React from "react";
-import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
+
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer';
 
 import {TeachCtaBlock} from "./components/teach-cta-block";
 import {TeachTopMenu} from "./components/teach-top-menu";
 import {TeachNumbers} from "./components/teach-numbers";
+import {TeachQuotes} from "./components/teach-quotes";
 
-import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css'
 import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
 import '@jetbrains/kotlin-web-site-ui/dist/typography.css';
 import '@jetbrains/kotlin-web-site-ui/dist/grid.css';
@@ -16,20 +16,7 @@ import '@rescui/typography';
 
 import './style.scss';
 
-const quotes = [
-  {
-    title: 'David Vaughn, University of Missouri–St. Louis',
-    text: 'Kotlin is faster to develop and comprehend what is happening; near 100% backwards compatibility makes it easy to show in Java and translate into Kotlin while still utilizing every available library from Java; Students seem to understand it fairly quickly.'
-  },
-  {
-    title: 'Sergey Bratus, Dartmouth College',
-    text: 'I used Kotlin’s features such as nullable types and smart casts as an excuse to discuss broader topics of programming languages design and security. Without Kotlin, the class would have been a lot less interesting for me :)'
-  },
-  {
-    title: 'Luka Pavlič, University of Maribor',
-    text: 'Kotlin offers cleaner code, less violations of object-orientation, some patterns are idioms (object, extension functions, observers...).'
-  },
-]
+
 
 const Teach = (props) => {
 
@@ -472,7 +459,7 @@ const Teach = (props) => {
       <section className="ktl-container ktl-offset-top-xxl">
         <div className="ktl-row">
           <div className="ktl-col-12 ktl-col-md-10 ktl-col-md-offset-1">
-            <QuotesSlider quotes={quotes} large/>
+            <TeachQuotes />
           </div>
         </div>
       </section>
