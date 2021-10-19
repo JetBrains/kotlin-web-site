@@ -119,7 +119,7 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
+        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
