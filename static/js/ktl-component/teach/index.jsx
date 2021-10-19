@@ -2,8 +2,9 @@ import React from "react";
 import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer';
 
-import {TeachCtaBlock} from "./components/TeachCtaBlock";
-import {TeachTopMenu} from "./components/TeachTopMenu";
+import {TeachCtaBlock} from "./components/teach-cta-block";
+import {TeachTopMenu} from "./components/teach-top-menu";
+import {TeachNumbers} from "./components/teach-numbers";
 
 import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css'
 import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
@@ -32,9 +33,11 @@ const quotes = [
 
 const Teach = (props) => {
 
+  const {universities, path} = props;
+
   return (
     <div className="teach-wrapper">
-      <TeachTopMenu/>
+      <TeachTopMenu path={path}/>
       <section className="ktl-container ktl-offset-top-xl">
         <div className="ktl-row ktl-offset-bottom-xxl">
           <div className="ktl-col">
@@ -145,32 +148,7 @@ const Teach = (props) => {
               </div>
 
               <div className="universities-top__numbers">
-                <div className="teach-numbers">
-                  <div className="teach-number">
-                    <div className="teach-number__title">
-                      <div className="ktl-hero">
-                        40
-                      </div>
-                    </div>
-                    <div className="teach-number__subtitle">
-                      <div className="ktl-text-2">
-                        countries
-                      </div>
-                    </div>
-                  </div>
-                  <div className="teach-number">
-                    <div className="teach-number__title">
-                      <div className="ktl-hero">
-                        191
-                      </div>
-                    </div>
-                    <div className="teach-number__subtitle">
-                      <div className="ktl-text-2">
-                        universities
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <TeachNumbers universities={universities} />
               </div>
             </div>
           </div>
@@ -418,30 +396,28 @@ const Teach = (props) => {
             </li>
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Practice Kotlin by solving problems</p>
-              <p>
-                <ul className="teach-list">
-                  <li>
-                    <a target="_blank"
-                       href="https://play.kotlinlang.org/koans/overview">
-                      <span className="rs-link">Koans</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a target="_blank"
-                       href="https://kotlinlang.org/lp/kotlin-heroes/">
-                      <span className="rs-link">Kotlin Heroes</span>
-                      <span>↗</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a target="_blank"
-                       href="https://www.youtube.com/watch?v=o4emra1xm88&list=PLlFc5cFwUnmwfLRLvIM7aV7s73eSTL005">
-                      <span className="rs-link">Idiomatic Kotlin: Solving Advent of Code Puzzles</span>
-                      <span>↗</span>
-                    </a>
-                  </li>
-                </ul>
-              </p>
+              <ul className="teach-list">
+                <li>
+                  <a target="_blank"
+                     href="https://play.kotlinlang.org/koans/overview">
+                    <span className="rs-link">Koans</span>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank"
+                     href="https://kotlinlang.org/lp/kotlin-heroes/">
+                    <span className="rs-link">Kotlin Heroes</span>
+                    <span>↗</span>
+                  </a>
+                </li>
+                <li>
+                  <a target="_blank"
+                     href="https://www.youtube.com/watch?v=o4emra1xm88&list=PLlFc5cFwUnmwfLRLvIM7aV7s73eSTL005">
+                    <span className="rs-link">Idiomatic Kotlin: Solving Advent of Code Puzzles</span>
+                    <span>↗</span>
+                  </a>
+                </li>
+              </ul>
             </li>
             <ul>
               <p className="ktl-h4 ktl-offset-bottom-xs">

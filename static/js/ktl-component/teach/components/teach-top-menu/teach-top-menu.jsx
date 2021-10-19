@@ -18,12 +18,9 @@ const menuItems = [
   },
 ];
 
-export const TeachTopMenu = () => {
+export const TeachTopMenu = ({path}) => {
 
-  const activeIndex = menuItems.findIndex(item =>
-      window.location.pathname.includes(item.url)
-    )
-  ;
+  const activeIndex = menuItems.findIndex(item => item.url === path);
 
   return (
     <nav className="teach-sticky-menu">

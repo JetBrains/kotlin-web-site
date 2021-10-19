@@ -6,7 +6,7 @@
 {% block title %}Kotlin for Education{% endblock %}
 
 {% block page_outer_content %}
-    {% ktl_component "teach" %}
+    {% ktl_component "teach" universities=data.universities path=request.path %}
 {% endblock %}
 
 {% block styles %}
