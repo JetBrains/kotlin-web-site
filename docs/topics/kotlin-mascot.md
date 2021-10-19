@@ -1,8 +1,10 @@
 [//]: # (title: Kotlin mascot)
 
-Meet the official Kotlin mascot. Their pronouns are they/them. They don’t have a name yet, but you can help us! Submit your name ideas using [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
+Meet the official Kotlin mascot. Their pronouns are they/them.
 
-<!-- add link to the form -->
+![Kotlin mascot](mascot-main.png){width=700}
+
+They don’t have a name yet, but you can help us! Submit your name ideas using [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
 
 Even though we can’t yet say their name, we can definitely say a few things about them. They:
 * Are dynamic, motivated, and adventurous.
