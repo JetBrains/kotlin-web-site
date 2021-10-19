@@ -669,8 +669,8 @@ Here is a complete list of options for Gradle tasks:
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
+| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5", "1.6", "1.7" (EXPERIMENTAL) |  |
 
 ### Attributes specific to JS
 
@@ -694,7 +694,7 @@ Here is a complete list of options for Gradle tasks:
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16", "17" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
 
