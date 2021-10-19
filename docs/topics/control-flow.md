@@ -59,7 +59,8 @@ individual branches are ignored. Just like with `if`, each branch can be a block
 is the value of the last expression in the block.
 
 The `else` branch is evaluated if none of the other branch conditions are satisfied.
-If `when` is used as an expression, the `else` branch is mandatory,
+
+If `when` is used as an _expression_, the `else` branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions,
 for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
 
@@ -71,9 +72,33 @@ enum class Bit {
 val numericValue = when (getRandomBit()) {
     Bit.ZERO -> 0
     Bit.ONE -> 1
-    // the 'else' clause is not required because all cases are covered
+    // 'else' is not required because all cases are covered
 }
 ```
+
+In `when` _statements_, the `else` branch is mandatory in the following conditions:
+* `when` has a subject of an `Boolean`, [`enum`](enum-classes.md),
+or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
+* branches of `when` don't cover all possible cases for this subject.
+
+```kotlin
+enum class Color {
+  RED, GREEN, BLUE
+}
+
+when (getColor()) {  
+    Color.RED -> println("red")
+    Color.GREEN -> println("green")   
+    Color.BLUE -> println("blue")
+    // 'else' is not required because all cases are covered
+}
+
+when (getColor()) {
+  Color.RED -> println("red") // no branches for GREEN and BLUE
+  else -> println("not red") // 'else' is required
+}
+```
+
 
 To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
 
