@@ -22,18 +22,15 @@ and return an integer value showing which object is greater:
 * Negative values show that it's less than the argument.
 * Zero shows that the objects are equal.
 
-`compareTo()` can be called in the [infix form](functions.md#infix-notation) as well – `a compareTo b`.
-
-Below is a class for ordering versions that consist of the major and the minor part.
+`compareTo()` can be called in the [infix form](functions.md#infix-notation) as well – `a compareTo b`. Below is a class
+for ordering versions that consist of the major and the minor part:
 
 ```kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
-    override fun compareTo(other: Version): Int {
-        if (this.major != other.major) {
-            return this.major - other.major
-        } else if (this.minor != other.minor) {
-            return this.minor - other.minor
-        } else return 0
+    override fun compareTo(other: Version): Int = when {
+        this.major != other.major -> this.major compareTo other.major
+        this.minor != other.minor -> this.minor compareTo other.minor
+        else -> 0
     }
 }
 
@@ -42,7 +39,7 @@ fun main() {
     println(Version(2, 0) > Version(1, 5))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 _Custom_ orders let you sort instances of any type in a way you like.
 Particularly, you can define an order for non-comparable objects or define an order other than natural for a comparable type.
