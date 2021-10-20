@@ -10,6 +10,8 @@ Our logo consists of a mark and a typeface. The full color version is the main o
 **Monochrome version**: (png) (svg) (ai)  
 **Single color version**: (png) (svg) (ai)  
 
+<!-- TODO: add links to files -->
+
 Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box. The minimum size of the protective field is half the height of the mark.
 
 ![Kotlin logo proportions](kotlin-logo-guidelines.png){width=700}
@@ -31,6 +33,8 @@ It is the property of the company and requires a license to use.
 When we cannot use our font, for example in Google slide presentations, we use Inter Regular.
 
 Download the JetBrains Sans
+
+<!-- TODO: add links to JetBrains Sans-->
 
 ## Colors
 
