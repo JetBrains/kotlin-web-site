@@ -186,11 +186,11 @@ You can add a dependency on a Pod library stored locally with `pod()` to `build.
 
             pod("pod_dependency") {
                 version = "1.0"
-                source = path(project.file("../pod_dependency/pod_dependency.podspec"))
+                source = path(project.file("../pod_dependency"))
             }
             pod("subspec_dependency/Core") {
                 version = "1.0"
-                source = path(project.file("../subspec_dependency/subspec_dependency.podspec"))
+                source = path(project.file("../subspec_dependency"))
             }
             pod("AFNetworking") {
                 version = "~> 4.0.1"
