@@ -2,13 +2,13 @@
 
 ## Kotlin logo
 
-Our logo consists of a mark and a typeface. The full color version is the main one and should be used in the vast majority of cases.
+Our logo consists of a mark and a typeface. The full-color version is the main one and should be used in the vast majority of cases.
 
 ![Kotlin logo](kotlin-logo.png){width=700}
 
 **Full color version**: (png) (svg) (ai)  
 **Monochrome version**: (png) (svg) (ai)  
-**Single color version**: (png) (svg) (ai)  
+**Single color version**: (png) (svg) (ai)
 
 <!-- TODO: add links to files -->
 
@@ -27,10 +27,10 @@ Pay special attention to the following restrictions concerning the use of the lo
 
 ## Font
 
-We use JetBrains Sans in size 400 as our main corporate font.
+We use JetBrains Sans in size 400 as our primary corporate font.
 The font was developed specifically for JetBrains by the designer Philipp Nurullin.
 It is the property of the company and requires a license to use.
-When we cannot use our font, for example in Google slide presentations, we use Inter Regular.
+When we cannot use our font, for example, in Google slide presentations, we use Inter Regular.
 
 Download the JetBrains Sans
 
@@ -40,7 +40,7 @@ Download the JetBrains Sans
 
 Our style has three **main colors**:
 
-* Blue as a display color. We apply this color to important buttons on websites or to our logo in cases where the full color version cannot be used.
+* Blue as a display color. We apply this color to important buttons on websites or to our logo when the full-color version cannot be used.
 * Black for the dark theme, which is the priority theme. We apply this color to backgrounds and text.
 * White for the light theme, which is a secondary theme. We apply this color to backgrounds and text.
 
