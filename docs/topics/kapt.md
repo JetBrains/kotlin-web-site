@@ -1,6 +1,6 @@
 [//]: # (title: Using kapt)
 
-> Note that kapt is in maintenance mode. We are keeping it up-to-date with the recent Kotlin and Java releases, 
+> kapt is in maintenance mode. We keep it up-to-date with the recent Kotlin and Java releases 
 > but have no plans to implement new features. Please use [KSP](ksp-overview.md) for annotation processing.
 > [See the list of libraries supported by KSP](ksp-overview.md#supported-libraries).
 >
