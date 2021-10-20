@@ -221,6 +221,22 @@ perspective
 > - 1.6.0: introduce an error,  
 >   `-XXLanguage:-ProperCheckAnnotationsTargetInTypeUsePositions` can be used to temporarily disable the error reporting
 
+### Prohibit calls to functions named `suspend` with a trailing lambda
+
+> **Issue**: [KT-22562](https://youtrack.jetbrains.com/issue/KT-22562)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.6 will no longer allow calling functions named `suspend` that have the single argument of a functional type passed as a trailing lambda
+>
+> **Deprecation cycle**:
+>
+> - 1.3.0: introduce a warning on such function calls
+> - 1.6.0: raise this warning to an error
+> - \>= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
+
 
 ## Standard library
 
