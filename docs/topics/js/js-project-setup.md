@@ -85,7 +85,7 @@ than creating executable files, and can be a possible optimization when dealing 
 The Kotlin/JS plugin automatically configures its tasks for working with the selected environment.
 This includes downloading and installing the required environment and dependencies for running and testing the application.
 This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
-Node.js, there are also an option to use an existing Node.js installation. Learn how to [disable downloading Node.js](#disable-node-js-downloading).
+Node.js, there are also an option to use an existing Node.js installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
 
 
 
@@ -467,14 +467,14 @@ each of which define a mode, as well as [include](https://webpack.js.org/configu
 ## Node.js
 
 For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and installs the Node.js environment on the
-host. You can also use an existing Node.js installation if you have it.
+host. You can also use an existing Node.js instance if you have it.
 
-### Disable Node.js downloading
+### Use pre-installed Node.js
 
-If you have Node.js already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
-plugin to use this installation. In this case, the plugin won't download and install its own instance.
+If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use it instead of installing its own Node.js instance.
 
-To disable Node.js installation, add the following lines to your `build.gradle(.kts)`:
+To use the pre-installed Node.js instance, add the following lines to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -502,9 +502,9 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJ
 
 ## Yarn
 
-To download and install your declared dependencies at build time, the plugin manages its own installation of the
+To download and install your declared dependencies at build time, the plugin manages its own instance of the
 [Yarn](https://yarnpkg.com/lang/en/) package manager. It works out of the box without additional configuration, but you
-can fine tune it or use Yarn already installed on your host.
+can tune it or use Yarn already installed on your host.
 
 ### Additional Yarn features: .yarnrc
 
@@ -520,12 +520,12 @@ registry "http://my.registry/api/npm/"
 
 To learn more about `.yarnrc`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/en/docs/yarnrc/).
 
-### Disable Yarn downloading
+### Use pre-installed Yarn
 
-If you have Yarn already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
-plugin to use this installation. In this case, the plugin won't download and install its own instance.
+If Yarn is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use it instead of installing its own Yarn instance.
 
-To disable Yarn installation, add the following lines to your `build.gradle(.kts)`:
+To use the pre-installed Yarn instance, add the following lines to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
