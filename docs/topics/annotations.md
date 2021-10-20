@@ -295,3 +295,37 @@ fun foo(ann: Ann) {
 }
 ```
 
+## Repeatable annotations
+
+Just like [in Java](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html), Kotlin has repeatable annotations,
+which can be applied to a single code element multiple times. To make your annotation repeatable, mark its declaration
+with the [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/)
+meta-annotation. This will make it repeatable both in Kotlin and Java. Java repeatable annotations are also supported
+from the Kotlin side.
+
+The main difference with the scheme used in Java is the absence of a _containing annotation_, which the Kotlin compiler
+generates automatically with a predefined name. For an annotation in the example below, it will generate the containing
+annotation `@Tag.Container`:
+
+```kotlin
+@Repeatable
+annotation class Tag(val name: String)
+
+// The compiler generates the @Tag.Container containing annotation
+```
+
+You can set a custom name for a containing annotation by applying the
+[`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvmrepeatable/) meta-annotation
+and passing an explicitly declared containing annotation class as an argument:
+
+```kotlin
+@JvmRepeatable(Tags::class)
+annotation class Tag(val name: String)
+
+annotation class Tags(val value: Array<Tag>)
+```
+
+To extract Kotlin or Java repeatable annotations via reflection, use the [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)
+function.
+
+Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md).
