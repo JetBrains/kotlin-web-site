@@ -1,0 +1,122 @@
+.teach-subscription-form {
+  background: #F4F4F4;
+  padding: 16px;
+  --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
+  --rs-color-primary-light-theme: rgba(127, 82, 255, 1.0);
+
+  &__icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  &__text, &__input, &__checkbox {
+    margin-top: 16px;
+  }
+
+  &__button {
+    margin-top: 32px;
+  }
+
+  &__submitted {
+    background-color: #19191C;
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    letter-spacing: normal;
+    color: #fff;
+    display: inline-block;
+
+    &-text {
+      color: transparent;
+      user-select: none;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 32px;
+    display: grid;
+    grid-gap: 0 16px;
+    grid-template-columns: [start] min-content [col2-start] auto [col3-start] min-content [end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [end];
+
+    &__icon {
+      grid-column: start / col2-start;
+      grid-row: row1-start / end;
+    }
+
+    &__text {
+      grid-column: col2-start / col3-start;
+      grid-row: row1-start / row2-start;
+      align-self: center;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    [class*="_errorMessage"] {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      color: #FFFFFF !important;
+      padding: 4px 6px;
+      border-radius: 2px;
+      background: #3C3D40;
+      margin: 0;
+    }
+
+    &__input {
+      position: relative;
+      grid-column: col2-start / col3-start;
+      grid-row: row2-start / row3-start;
+      margin-top: 0;
+    }
+
+    &__checkbox {
+      position: relative;
+      grid-column: col2-start / col3-start;
+      grid-row: row3-start / end;
+      margin-top: 0;
+      margin-bottom: -12px;
+    }
+
+    &__button {
+      grid-column: col3-start / end;
+      grid-row: row2-start / row3-start;
+      margin-top: 0;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: [start] min-content [col2-start] 1fr [col3-start] 1fr [col4-start] min-content [end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [end];
+
+    &__text {
+      grid-row: row1-start / end;
+      margin-bottom: 0;
+    }
+
+    &__input {
+      grid-row: row2-start / row3-start;
+      grid-column: col3-start / col4-start;
+      align-self: end;
+    }
+
+    &__checkbox {
+      grid-row: row3-start / end;
+      grid-column: col3-start / col4-start;
+    }
+
+    &__button {
+      grid-row: row2-start / row3-start;
+      grid-column: col4-start / end;
+    }
+  }
+}
