@@ -1,6 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>es</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Valencia, Spain</location>
+        <speaker>Carlos Ballesteros</speaker>
+        <title>Valencia Kotlin User Group</title>
+        <subject>Estado de Machine Learning en Kotlin</subject>
+        <url>https://www.meetup.com/kotlin-valencia/events/281267093/</url>
+        <description>
+            <![CDATA[
+<p>Carlos Ballesteros, @cballesterosvel , creador de KorGE, motor de videojuegos en Kotlin, y las korlibs, librerías multiplatforma en Kotlin. Ha trabajado en JetBrains, e inició la comunidad kotlin.es hace ya varios años. A veces pulsa teclas y no se rompen cosas.<p>
+<p>En esta charla daremos un repaso super rápido al machine learning y veremos cómo está el panorama de Machine Learning en Kotlin este 2021. Vamos a intentar aproximarlo a todos los niveles, así que no hace falta tener experiencia en machine learning<p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2021-11-18</startDate>
         <endDate>2021-11-18</endDate>
