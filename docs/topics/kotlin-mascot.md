@@ -58,7 +58,7 @@ Use the mascot anywhere you think they fit — in your blog post and videos, on 
 **Do**
 * Use high-quality images. Download a file that contains them.
 
-<!-- TODO: add a link to a file -->
+[Download](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 **Don't**
 * Change the proportions
