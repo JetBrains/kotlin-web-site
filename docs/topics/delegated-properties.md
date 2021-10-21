@@ -360,7 +360,9 @@ class C<Type> {
 
     var prop: Type
         get() = impl
-        set() = setProp$delegate by ::impl
+        set(value) {
+            impl = value
+        }
 }
 ```
 
