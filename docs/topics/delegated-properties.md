@@ -363,6 +363,7 @@ class C<Type> {
         set(value) {
             impl = value
         }
+    fun getProp$delegate(): Type = impl
 }
 ```
 
