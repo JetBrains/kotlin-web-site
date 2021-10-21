@@ -11,7 +11,7 @@ output = null   // Compilation error
 // Kotlin protects you from mistakenly operating on nullable types
 
 val name: String? = null    // Nullable type
-println(name.length())      // Compilation error
+println(name.length)        // Compilation error
 
 // And if you check a type is right, the compiler will auto-cast it for you
 
