@@ -345,7 +345,13 @@
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
-        <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        <toc-element toc-title="Kotlin brand assets">
+            <toc-element id="kotlin-mascot.md"/>
+            <toc-element id="kotlin-logo.md"/>
+            <toc-element id="kotlin-nights-branding.md"/>
+            <toc-element id="kug-branding.md"/>
+            <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        </toc-element>
     </toc-element>
 
 </product-profile>
