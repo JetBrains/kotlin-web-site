@@ -299,7 +299,7 @@ annotation class ExperimentalDateTime
 The opt-in requirement mechanism is currently [experimental](components-stability.md).
 This means that in future releases it may be changed in ways that make it incompatible.
 
-To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
+To make the use of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
 the compiler raises warnings when compiling the code with these annotations:
 
 ```This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'```
