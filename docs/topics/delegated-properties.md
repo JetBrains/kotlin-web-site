@@ -359,7 +359,7 @@ class C<Type> {
     private var impl: Type = ...
 
     var prop: Type
-        get() = getProp$delegate by ::impl
+        get() = impl
         set() = setProp$delegate by ::impl
 }
 ```
