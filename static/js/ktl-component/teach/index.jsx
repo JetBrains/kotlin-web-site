@@ -16,35 +16,29 @@ import '@rescui/typography';
 
 import './style.scss';
 
-
-
 const Teach = (props) => {
 
-  const {universities, path} = props;
+  const {countriesCount, universitiesCount, path} = props;
 
   return (
     <div className="teach-wrapper">
       <TeachTopMenu path={path}/>
       <section className="ktl-container ktl-offset-top-xl">
-        <div className="ktl-row ktl-offset-bottom-xxl">
-          <div className="ktl-col">
-            <h1 className="ktl-hero">
-              Kotlin is suitable for teaching a wide range of&nbsp;computer science courses
-            </h1>
-          </div>
-        </div>
+        <h1 className="ktl-hero ktl-offset-bottom-xxl">
+          Kotlin is suitable for teaching a wide range of&nbsp;computer science courses
+        </h1>
 
         <div className="teach-top-mobile-buttons">
           <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
              className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
             <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg"
-                 className="teach-button-icon teach-button-icon_small" alt=""/>
+                 className="teach-button-icon teach-button-icon_small" alt="Slack icon"/>
             Join Educators Сommunity
           </a>
 
-          <a href="why-teach-kotlin.html" target="_blank"
+          <a href="/why-teach-kotlin.html" target="_blank"
              className="kto-button kto-button_size_s kto-button_mode_outline">
-            Why Teach Kotlin →
+            Why Teach Kotlin&nbsp;→
           </a>
         </div>
 
@@ -52,7 +46,7 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src="/assets/images/ktl-component/teach/icons/teach-multiplatform-icon.svg" alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-multiplatform-icon.svg" alt="Multiplatform"/>
               </div>
 
               <div className="teach-feature__content">
@@ -70,7 +64,8 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src="/assets/images/ktl-component/teach/icons/teach-academically-recognized-icon.svg" alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-academically-recognized-icon.svg"
+                     alt="Academically recognized"/>
               </div>
 
               <div className="teach-feature__content">
@@ -88,7 +83,8 @@ const Teach = (props) => {
           <div className="ktl-col-12 ktl-col-sm-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
-                <img src="/assets/images/ktl-component/teach/icons/teach-popular-icon.svg" alt=""/>
+                <img src="/assets/images/ktl-component/teach/icons/teach-popular-icon.svg"
+                     alt="Language of the industry"/>
               </div>
 
               <div className="teach-feature__content">
@@ -109,12 +105,12 @@ const Teach = (props) => {
             <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
                className="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_primary">
               <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon"
-                   alt=""/>
+                   alt="Slack icon"/>
               Join Educators Сommunity
             </a>
 
             <a href="why-teach-kotlin.html" className="kto-button kto-button_size_l kto-button_mode_outline">
-              Why Teach Kotlin →
+              Why Teach Kotlin&nbsp;→
             </a>
           </div>
         </div>
@@ -135,7 +131,7 @@ const Teach = (props) => {
               </div>
 
               <div className="universities-top__numbers">
-                <TeachNumbers universities={universities} />
+                <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount} />
               </div>
             </div>
           </div>
@@ -176,7 +172,7 @@ const Teach = (props) => {
                 <a
                   href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
                   target="_blank" className="kto-button kto-button_size_l kto-button_mode_outline">
-                  All universities →
+                  All universities&nbsp;→
                 </a>
               </div>
             </div>
@@ -186,7 +182,7 @@ const Teach = (props) => {
             <a
               href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
               target="_blank" className="kto-button kto-button_size_s kto-button_mode_outline">
-              Learn more →
+              Learn more&nbsp;→
             </a>
           </div>
         </div>
@@ -459,7 +455,7 @@ const Teach = (props) => {
       <section className="ktl-container ktl-offset-top-xxl">
         <div className="ktl-row">
           <div className="ktl-col-12 ktl-col-md-10 ktl-col-md-offset-1">
-            <TeachQuotes />
+            <TeachQuotes/>
           </div>
         </div>
       </section>

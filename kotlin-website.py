@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import threading
+import re
 from os import path
 from urllib.parse import urlparse, urljoin, ParseResult
 
@@ -113,6 +114,14 @@ def get_nav():
     process_nav(request.path, nav)
     return nav
 
+def get_universities_size():
+    return len(site_data['universities'])
+
+def get_countries_size():
+    def match_string(string):
+        return re.search(r'\((.*?)\)', string.get("location")).group(1)
+    matches = set(map(match_string, site_data['universities']))
+    return len(matches)
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
@@ -149,6 +158,8 @@ app.jinja_env.add_extension(KTLComponentExtension)
 @app.context_processor
 def add_data_to_context():
     nav = get_nav()
+    universities_count = get_universities_size()
+    countries_count = get_countries_size()
     return {
         'nav': nav,
         'data': site_data,
@@ -161,7 +172,9 @@ def add_data_to_context():
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
         },
-        'headerCurrentUrl': get_current_url(nav['subnav']['content'])
+        'headerCurrentUrl': get_current_url(nav['subnav']['content']),
+        'universitiesCount': universities_count,
+        'countriesCount': countries_count
     }
 
 @app.template_filter('get_domain')

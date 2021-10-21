@@ -1,0 +1,9 @@
+.teach-numbers {
+  display: flex;
+}
+
+.teach-number {
+  &:not(:last-child) {
+    margin-right: 35px;
+  }
+}

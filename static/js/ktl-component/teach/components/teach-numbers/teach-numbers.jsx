@@ -1,25 +1,15 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
-export const TeachNumbers = ({universities}) => {
+import './style.scss';
 
-  const getUniversitiesCount = () => universities.length;
-
-  const getCountriesCount = () => {
-    const locations = [];
-    universities.forEach(university => {
-      const data = /\(([^)]*)\)/.exec(university.location)[1];
-      locations.push(data);
-    })
-    const countries = new Set(locations);
-    return countries.size;
-  }
+export const TeachNumbers = ({countriesCount, universitiesCount}) => {
 
   return (
     <div className="teach-numbers">
       <div className="teach-number">
         <div className="teach-number__title">
           <div className="ktl-hero">
-            {getCountriesCount()}
+            {countriesCount}
           </div>
         </div>
         <div className="teach-number__subtitle">
@@ -31,7 +21,7 @@ export const TeachNumbers = ({universities}) => {
       <div className="teach-number">
         <div className="teach-number__title">
           <div className="ktl-hero">
-            {getUniversitiesCount()}
+            {universitiesCount}
           </div>
         </div>
         <div className="teach-number__subtitle">
