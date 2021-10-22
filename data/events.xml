@@ -1,6 +1,92 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-11-02</startDate>
+        <endDate>2021-11-02</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Victor Rentea</speaker>
+        <title>Bucharest Software Craftsmanship Community</title>
+        <subject>Introduction to Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/bucharest-software-craftsmanship-community/events/281408189</url>
+        <description>
+            <![CDATA[
+<p>Coroutines are a cool mechanism for orchestrating asynchronous work using 'structured concurrency'.<p>
+<p>Other languages like python, C#, and C++ have supported these techniques for quite a while, but Kotlin was the first language able to run coroutines on JVM. Coroutines have become a strong competitor to Futures, CompletableFutures, and Reactive Programming paradigm (rxjava and reactor), winning great victories on the Android battlefield. Furthermore, some teams are now considering the use of coroutines also on backend systems to optimize thread usage for high-TPS systems.<p>
+<p>This event will demonstrate the core features of coroutines, implemented with Kotlin. Yes, there will be Kotlin code.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-07</startDate>
+        <endDate>2021-11-07</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Alexey Soshin</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Introduction to Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/281373133</url>
+        <description>
+            <![CDATA[
+<p>Ktor is one of the most popular web frameworks for Kotlin at the moment. It is extensible through a system of Plugins, that deal with the different cross-cutting concerns of web systems.<p>
+<p>In this talk, we'll write our own Ktor monitoring Plugin, discuss its lifecycle and cover some of the less obvious aspects of plugin development.<p>
+]]>
+        </description>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-05</startDate>
+        <endDate>2021-11-05</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Jerre van Veluw</speaker>
+        <title>Flock. Meetups</title>
+        <subject>Pragmatic functional programming in Kotlin</subject>
+        <url>https://www.meetup.com/flock-meetups/events/280658055</url>
+        <description>
+            <![CDATA[
+<p>At this meetup Jerre will present a way to do functional programming without the need to know everything about it. Using Kotlin with or without Arrow Jerre will demonstrate how to use typical patterns in a web application backend.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-28</startDate>
+        <endDate>2021-10-28</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Himanshu Singh</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Server-Driven UI in Compose</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/281232729</url>
+        <description>
+            <![CDATA[
+<p>Now, designing server-driven UI using views is a thing of the past. With Compose in the picture, the time has come to start building server-driven UI using Compose!
+We might have seen declarative UI being used to build UI using server response on different platforms. Now it's time to start declarative server-driven UI in the Android ecosystem as well.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-09</startDate>
+        <endDate>2021-11-09</endDate>
+        <location>Dortmund, Germany</location>
+        <speaker>Pascal Meier</speaker>
+        <title>Camunda User Group Ruhrgebiet</title>
+        <subject>Produktiv im Camunda-Kontext</subject>
+        <url>https://www.meetup.com/Camunda-UserGroup-Ruhrgebiet/events/281207830</url>
+        <description>
+            <![CDATA[
+<p>Zusammenfassung: Kotlin ist gereift. Es stehen Effizienzgewinne beim Schreiben (und Lesen) von Quellcodes zur Diskussion, die gerade bei komplexen Business-Anwendungen von Nutzen sein können. IT-Architekten stehen jetzt vor der Frage: „Lohnt sich das? Wie kompliziert ist eine Umstellung mit all unseren Bibliotheken, was kann koexistieren und was wird vorausgesetzt?“<p>
+<p>Der Vortrag beginnt mit einem kurzen Überblick für die Gründe der Einführung. Danach werden wir eine Beispielanwendung von Java nach Kotlin migrieren, welche unsere Erkenntnisse aus dem Kundenprojekt veranschaulicht. Die Anwendung im Status vor der Umstellung kann auf Github angeschaut werden: https://github.com/viadee/kotlin_camunda_webcast_2021<p>
+<p>Die ursprüngliche Java-Anwendung basiert auf Camunda mit Spring Boot. Für Daten-Mappings setzten wir auf MapStruct. Die Intergrationstests nutzen Junit5, Mockito und bmp-assert/assertJ. Das Buildtool ist Maven. Das gezeigte Szenario ist mehr als nur ein Beispiel, vielmehr ist es eine Zusammenstellung von Bibliotheken und Werkzeugen, die wir bei vielen unserer Kunden vorfinden und mit denen wir echte Anwendungen nach Kotlin migriert und erfolgreich in die Produktion gebracht haben. Die Anwendung werden wir im ersten Schritt für die Entwicklung mit Kotlin erweitern und dann die einzelnen Java-Bestandteile nach Kotlin migrieren, bis die gesamte Anwendung auf Kotlin umgestellt ist.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>es</lang>
         <startDate>2021-10-20</startDate>
         <endDate>2021-10-20</endDate>
