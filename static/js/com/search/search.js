@@ -101,7 +101,11 @@ export function initSearch() {
   });
 
   function closePopup() {
-    search.helper.setState({focused: false, query: undefined});
+    const $input = $('.ais-SearchBox-input');
+    $input.val('');
+    $input[0].dispatchEvent(new Event('input'));
+    $input.blur();
+
     $('body').removeClass('_no-scroll');
     $searchPopup.removeClass('_visible');
   }
