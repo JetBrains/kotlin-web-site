@@ -239,7 +239,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {type="note"}
 
-## What's changed since January 2021
+## What's changed since May 2021
 
 ### Completed items
 
