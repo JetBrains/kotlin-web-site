@@ -11,7 +11,7 @@ Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) 
       <td>Popular libraries</td>
       <td>Description</td>
       <td>Features</td>
-      <td>NPM dependencies</td>
+      <td>npm dependencies</td>
       <td>Project type</td>
       <td>Tests</td>
       <td>UI Components</td>
@@ -22,7 +22,11 @@ Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) 
       </td>
       <td>Spring,React, ktor-client-js, Rsocket, kotlinx:kotlinx-serialization-json</td>
       <td>A collaborative to-do list written with Kotlin/JS, Spring, and RSocket</td>
-      <td>RSocket, a fullstack web app for Spring and React</td>
+      <td>
+        <ul>
+          <li>RSocket</li>
+          <li>A fullstack web app for Spring and React</li>
+        </ul>
       <td>✅</td>
       <td>Multiplatform full-stack application</td>
       <td>-</td>
@@ -33,8 +37,13 @@ Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) 
         <strong><a href="https://github.com/Kotlin/react-redux-js-ir-todo-list-sample">react-redux-js-ir-todo-list-sample</a></strong>
       </td>
       <td>React, Redux</td>
-      <td>An implementation (translation) of the react-redux to-do list example project in Kotlin/JS</td>
-      <td>RingUI for Kotlin components, Redux for state management</td>
+      <td>An implementation (translation) of the React Redux to-do list example project in Kotlin/JS</td>
+      <td>
+        <ul>
+          <li>RingUI for Kotlin components</li>
+          <li>Redux for state management</li>
+        </ul>
+      </td>
       <td>✅</td>
       <td>Frontend web app</td>
       <td>-</td>
@@ -46,7 +55,13 @@ Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) 
       </td>
       <td>kotlin-react, kotlinx-serialization, kotlinx-coroutines, ktor (client, server)</td>
       <td>A feed containing user-generated posts and comments. All data is stubbed by the fakeJSON and JSON Placeholder services</td>
-      <td>`expect`/`actual` declarations, modular architecture, NPM dependencies</td>
+      <td>
+        <ul>
+          <li>expect/actual declarations</li>
+          <li>modular architecture</li>
+          <li>npm dependencies</li>
+        </ul>
+      </td>
       <td>✅</td>
       <td>Multiplatform full-stack application</td>
       <td>-</td>

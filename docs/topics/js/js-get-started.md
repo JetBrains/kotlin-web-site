@@ -122,8 +122,11 @@ Enter your name in the text box and accept the greetings from your application!
 
 ## What's next?
 
-Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/JS.
-They include sample projects, which can serve as nice jumping-off points for your own projects, and contain useful snippets and patterns.
+Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/JS
+or check out the list of Kotlin/JS sample projects for inspiration. These projects can serve as nice jumping-off points
+for your own projects and contain useful snippets and patterns.
+
+### Hands-on labs
 
 For Kotlin/JS, the following hands-on labs are currently available:
 
@@ -136,3 +139,17 @@ and how to obtain information from APIs, while writing the whole application log
 teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
 application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
+
+## Sample projects
+
+For Kotlin/JS, the following samples are currently available:
+
+* [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
+shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, the Spring
+framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
+* [Kotlin/JS IR BE and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
+represents implementing the react-redux to-do list using JS libraries (react, react-dom, react-router, redux,
+and react-redux) from npm and Webpack to bundle (and minify)/run the project.
+* [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)
+guides you through the process of building an app with the feed containing user-generated posts and comments. All data
+is stubbed by the fakeJSON and JSON Placeholder services.
