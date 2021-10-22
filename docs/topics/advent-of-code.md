@@ -75,8 +75,9 @@ or watch the video:
 
 ## Day 7: Handy haversacks
 
-Learn how to use regular expressions, explore JVM-specific compute methods for dynamic calculations of the value in the map,
-use the `forEachLine()` function to read files, and compare two types of search algorithms: Depth-first and Breadth-first.
+Learn how to use regular expressions, use Java's compute methods for HashMaps from Kotlin for dynamic calculations
+of the value in the map, use the `forEachLine()` function to read files, and compare two types of search algorithms:
+depth-first and breadth-first.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/7)
 * Check out the solution from Pasha Finkelshteyn on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/09/idiomatic-kotlin-traversing-trees/)
@@ -86,12 +87,13 @@ or watch the video:
 
 ## Day 8: Handheld halting
 
-Use sealed classes and lambdas to represent instructions, apply Kotlin sets to discover loops in the program execution,
-implement sequences and the `sequence()` builder function to construct a lazy collection, and try the experimental
-`measureTimedValue()` function to check the performance metrics.
+Apply sealed classes and lambdas to represent instructions, apply Kotlin sets to discover loops in the program execution,
+use sequences and the `sequence { }` builder function to construct a lazy collection, and try the experimental
+`measureTimedValue()` function to check performance metrics.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/8)
-* Check out the solution from Sebastian Aigner on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-simulating-a-console/) or watch the video:
+* Check out the solution from Sebastian Aigner on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-simulating-a-console/)
+or watch the video:
 
 <video width="560" height="315" href="0GWTTSMatO8" title="Sealed Classes, Sequences, Immutability: Idiomatic Kotlin Solving Advent of Code Puzzles"/>
 
@@ -101,7 +103,8 @@ Explore different ways to manipulate lists in Kotlin using the `any()`, `firstOr
 `windowed()`, `takeIf()`, and `scan()` functions, which exemplify an idiomatic Kotlin style.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/9)
-* Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-working-with-lists/) or watch the video:
+* Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-working-with-lists/)
+or watch the video:
 
 <video width="560" height="315" href="vj3J9MuF1mI" title="Manipulating lists using windowed, scan, firstNotNullOfOrNull: Solving Advent of Code Puzzles"/>
 
