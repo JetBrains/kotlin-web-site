@@ -337,9 +337,9 @@ refers to an instance of the outer class `C`, and `this::prop` is a reflection o
 ### Translation rules when delegating to another property
 
 When delegating to another property, the Kotlin compiler generates immediate access to the referenced property.
-This means that the compiler doesn't generate the field `prop$delegate`.
+This means that the compiler doesn't generate the field `prop$delegate`. This optimization helps save memory.
 
-For example, in following code:
+For example, in the following code:
 
 ```kotlin
 class C<Type> {
@@ -362,7 +362,8 @@ class C<Type> {
         set(value) {
             impl = value
         }
-    fun getProp$delegate(): Type = impl
+    
+    fun getProp$delegate(): Type = impl // This method is needed only for reflection
 }
 ```
 
