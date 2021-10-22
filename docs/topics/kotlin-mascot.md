@@ -13,6 +13,8 @@ Even though we can’t yet say their name, we can definitely tell a few things a
 * Are open-minded and a little bit hip.
 * Are an erudite, intelligent, and curious problem solver.
 
+[Download all assets](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+
 ## Choosing a name
 
 Let’s choose the name for the Kotlin mascot together. Submit your ideas via [this form](https://forms.gle/yktEz3xCAwKEm9cx9). We will make a list of the most promising ideas and hold a vote to choose the best one. Stay tuned!
@@ -56,9 +58,7 @@ Use the mascot anywhere you think they fit — in your blog post and videos, on 
 ![Kotlin mascot usage examples](mascot-usage.png){width=700}
 
 **Do**
-* Use high-quality images. Download a file that contains them.
-
-[Download](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+* Use high-quality images. Download [the file](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU) that contains them.
 
 **Don't**
 * Change the proportions

@@ -35,7 +35,7 @@ You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Z
 
 ## Create your group’s profile picture for different platforms
 
-1. To create your group’s profile picture, make a copy of [the Kotlin user group profile picture file](https://docs.google.com/drawings/d/19AG_SwcAUF-Te9Nv-Gw2U6Rtma--l1MI2napQwX5u1o/edit) to your Google Drive (you have to be signed in to your Google account).
+1. To create your group’s profile picture, make a copy of the Kotlin user group profile [picture file](https://docs.google.com/drawings/d/19AG_SwcAUF-Te9Nv-Gw2U6Rtma--l1MI2napQwX5u1o/edit) to your Google Drive (you have to be signed in to your Google account).
 2. Add a shortened name of the user group’s location (up to 4 capital symbols according to our default sample).
 3. Download the picture and use it for your profiles on Facebook, Twitter, or any other platform.
 
