@@ -13,7 +13,7 @@ Even though we can’t yet say their name, we can definitely tell a few things a
 * Are open-minded and a little bit hip.
 * Are an erudite, intelligent, and curious problem solver.
 
-[Download all assets](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+[Download all assets](https://drive.google.com/file/d/1fJrVCSXTuD9tcVy2BMlmx0B-rxAsdvtN){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ## Choosing a name
 
@@ -37,7 +37,7 @@ The mascot is dynamic, positive, and adventurous, which generally makes their mo
 
 ### Styles
 
-There are two styles for our mascot – 2D and 3D. The vector mascot is generally used with a 3D background, while a 2D mascot is used on a flat background.
+There are two styles for our mascot – 2D and 3D. The vector mascot is generally used with a 3D background, while a 3D mascot is used on a flat background.
 
 ![Kotlin mascot styles](mascot-styles.png){width=700}
 
@@ -58,7 +58,7 @@ Use the mascot anywhere you think they fit — in your blog post and videos, on 
 ![Kotlin mascot usage examples](mascot-usage.png){width=700}
 
 **Do**
-* Use high-quality images. Download [the file](https://drive.google.com/file/d/150waXQQkGrSmQ6cf9RtJA_74RB0yOhbU) that contains them.
+* Use high-quality images. Download [the file](https://drive.google.com/file/d/1fJrVCSXTuD9tcVy2BMlmx0B-rxAsdvtN) that contains them.
 
 **Don't**
 * Change the proportions
