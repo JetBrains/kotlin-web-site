@@ -114,9 +114,6 @@ def get_nav():
     process_nav(request.path, nav)
     return nav
 
-def get_universities_size():
-    return len(site_data['universities'])
-
 def get_countries_size():
     def match_string(string):
         return re.search(r'\((.*?)\)', string.get("location")).group(1)
@@ -158,8 +155,6 @@ app.jinja_env.add_extension(KTLComponentExtension)
 @app.context_processor
 def add_data_to_context():
     nav = get_nav()
-    universities_count = get_universities_size()
-    countries_count = get_countries_size()
     return {
         'nav': nav,
         'data': site_data,
@@ -173,8 +168,6 @@ def add_data_to_context():
             'contenteditable': build_contenteditable
         },
         'headerCurrentUrl': get_current_url(nav['subnav']['content']),
-        'universitiesCount': universities_count,
-        'countriesCount': countries_count
     }
 
 @app.template_filter('get_domain')
@@ -262,7 +255,10 @@ def user_group_list():
 
 @app.route('/education/')
 def education_page():
-    return render_template('pages/education/index.html')
+    return render_template(
+        'pages/education/index.html',
+        universities_count=len(site_data['universities']),
+        countries_count=get_countries_size())
 
 @app.route('/')
 def index_page():
