@@ -263,7 +263,7 @@ perspective
 >
 > **Component**: kotlin-stdlib
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: behavioral
 >
 > **Short summary**: Kotlin 1.6 changes the value generation algorithm in `Random.nextLong` function to avoid producing values out of the specified range.
 >
