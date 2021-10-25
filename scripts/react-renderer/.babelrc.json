@@ -13,7 +13,7 @@
     [
       "babel-plugin-transform-import-ignore",
       {
-        "patterns": [ ".css" ]
+        "patterns": [ ".css", ".scss" ]
       }
     ]
   ]

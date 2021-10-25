@@ -32,11 +32,12 @@ async function renderUniversitiesMap(tag) {
 }
 
 $(function () {
-    const container = $('.edu-universities-top')[0];
+    const container = $('.teach-universities__logos')[0];
 
     if (container) {
+
         const tag = document.createElement('div');
-        tag.className = "edu-universities-map";
+        tag.className = "teach-universities__map";
         tag.textContent = "Loading map...";
 
         renderUniversitiesMap(tag); // async

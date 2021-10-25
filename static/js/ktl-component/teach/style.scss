@@ -1,0 +1,281 @@
+.teach-wrapper {
+  padding: 0;
+  font-family: var(--rs-font-family-inter);
+}
+
+.teach-features {
+  @media (max-width: 768px) {
+    display: grid;
+    grid-gap: 32px;
+  }
+}
+
+.teach-feature {
+  &__icon {
+    img {
+      display: block;
+    }
+  }
+  &__content {
+    display: block;
+  }
+  @media (min-width: 1200px) {
+    &__content {
+      padding-right: 32px;
+    }
+  }
+}
+
+.teach-sticky-menu {
+  position: sticky;
+  top: 0;
+  z-index: 901;
+}
+
+.teach-button-icon {
+  display: block;
+  margin-right: 18px;
+
+  &_small {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+
+.teach-top-mobile-buttons {
+  display: grid;
+  grid-gap: 16px;
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  .kto-button {
+    height: 40px;
+  }
+}
+
+.teach-top-buttons {
+  @media (max-width: 768px) {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-areas: "a a";
+    grid-auto-columns: min-content;
+  }
+}
+
+.ktl-link {
+  text-decoration: underline;
+}
+
+.teach-link {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.universities-top {
+  &__numbers {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    &__numbers {
+      display: flex;
+    }
+  }
+}
+
+.teach-video {
+  .video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #e3e3e3;
+  }
+}
+
+.teach-form {
+  .form {
+    background: #e3e3e3;
+    height: 160px;
+  }
+}
+
+.teach-universities {
+  &__logos {
+    border-top: 1px solid rgba(39, 40, 44, 0.2);
+    display: block;
+    padding: 32px 0;
+  }
+
+  &__map {
+    display: none;
+  }
+
+  &__bottom {
+    display: none;
+    br {
+      display: none;
+    }
+  }
+
+  &__mobile-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    &__bottom {
+      text-align: center;
+      display: block;
+    }
+    &__map {
+      display: block;
+      height: 600px;
+      background: #e3e3e3;
+    }
+    &__mobile-button {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    &__bottom {
+      br {
+        display: block;
+      }
+    }
+  }
+}
+
+.teach-logos {
+  img {
+    display: block;
+  }
+
+  &_stanford {
+    height: 42px;
+  }
+
+  &_hopkins {
+    height: 56px;
+  }
+
+  &_cambridge {
+    height: 26px;
+  }
+
+  &_imperial {
+    height: 32px;
+  }
+
+  &_chicago {
+    height: 26px;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &__logo {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.teach-resources {
+  &__top-image {
+    width: 116px;
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: 768px) {
+    &__top {
+      display: flex;
+      align-items: center;
+    }
+    &__top-image {
+      margin-bottom: 0;
+      margin-right: 26px;
+      margin-top: 24px;
+    }
+  }
+}
+
+.teach-links {
+  display: grid;
+  grid-gap: 32px;
+  font-size: 16px;
+  line-height: 24px;
+
+  a {
+    text-decoration: none;
+    color: rgba(39, 40, 44, 1);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 48px;
+  }
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.teach-list {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.teach-sublist {
+  margin-left: 16px;
+  margin-top: 8px;
+}
+
+.ktl-dimmed-text {
+  color: rgba(39, 40, 44, 0.5);
+}
+
+.teach-bottom-buttons {
+  display: grid;
+  grid-template-areas: "a a";
+  grid-auto-columns: min-content;
+  grid-gap: 16px;
+
+  @media (max-width: 768px) {
+    .kto-button {
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+}

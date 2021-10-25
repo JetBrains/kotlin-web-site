@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import threading
+import re
 from os import path
 from urllib.parse import urlparse, urljoin, ParseResult
 
@@ -113,6 +114,11 @@ def get_nav():
     process_nav(request.path, nav)
     return nav
 
+def get_countries_size():
+    def match_string(string):
+        return re.search(r'\((.*?)\)', string.get("location")).group(1)
+    matches = set(map(match_string, site_data['universities']))
+    return len(matches)
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
@@ -161,7 +167,7 @@ def add_data_to_context():
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
         },
-        'headerCurrentUrl': get_current_url(nav['subnav']['content'])
+        'headerCurrentUrl': get_current_url(nav['subnav']['content']),
     }
 
 @app.template_filter('get_domain')
@@ -249,7 +255,10 @@ def user_group_list():
 
 @app.route('/education/')
 def education_page():
-    return render_template('pages/education/index.html')
+    return render_template(
+        'pages/education/index.html',
+        universities_count=len(site_data['universities']),
+        countries_count=get_countries_size())
 
 @app.route('/')
 def index_page():
