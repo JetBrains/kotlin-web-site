@@ -24,12 +24,10 @@ and return an integer value showing which object is greater:
 
 Below is a class for ordering versions that consist of the major and the minor part.
 
-`compareTo()` can be called in the [infix form](functions.md#infix-notation) as well – `a compareTo b`.
-
 ```kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int = when {
-        this.major != other.major -> this.major compareTo other.major
+        this.major != other.major -> this.major compareTo other.major // compareTo() in the infix form 
         this.minor != other.minor -> this.minor compareTo other.minor
         else -> 0
     }
