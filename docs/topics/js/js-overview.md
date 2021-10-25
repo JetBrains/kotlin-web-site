@@ -133,8 +133,6 @@ and patterns.
 
 ## Hands-on labs for Kotlin/JS
 
-For Kotlin/JS, the following hands-on labs are currently available:
-
 * [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
 guides you through the process of building a simple web application using the React framework, shows how a typesafe
 Kotlin DSL for HTML makes it convenient to build reactive DOM elements, and illustrates how to use third-party React
@@ -145,16 +143,14 @@ teaches the concepts behind building an application that targets Kotlin/JVM and 
 application that makes use of common code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
 
-## Sample projects
-
-For Kotlin/JS, the following samples are currently available:
+## Sample projects for Kotlin/JS
 
 * [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
 shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, the Spring
 framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
 * [Kotlin/JS IR BE and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
-represents implementing the react-redux to-do list using JS libraries (react, react-dom, react-router, redux,
-and react-redux) from npm and Webpack to bundle (and minify)/run the project.
+represents implementing the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`,
+and `react-redux`) from npm and Webpack to bundle (and minify)/run the project.
 * [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)
 guides you through the process of building an app with the feed containing user-generated posts and comments. All data
 is stubbed by the fakeJSON and JSON Placeholder services.
