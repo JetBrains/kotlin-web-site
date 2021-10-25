@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin/JS dead code elimination)
 
-The Kotlin/JS Gradle plugin includes a [dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination) (_DCE_) tool.
+The Kotlin/JS Gradle plugin includes a _[dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination)_ (_DCE_) tool.
 Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
 removing unused properties, functions, and classes.
 
