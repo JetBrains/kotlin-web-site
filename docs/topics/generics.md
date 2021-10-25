@@ -58,7 +58,7 @@ But then, you would not be able to do the following (which is perfectly safe):
 // Java
 void copyAll(Collection<Object> to, Collection<String> from) {
     to.addAll(from);
-    // !!! Would not compile with the naive declaration of addAll:
+    // !!! Would not compile with the native declaration of addAll:
     // Collection<String> is not a subtype of Collection<Object>
 }
 ```
