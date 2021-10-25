@@ -47,7 +47,7 @@ println(e.p)
 This prints:
 
 ```
-Example@33a17727, thank you for delegating ‘p’ to me!
+Example@33a17727, thank you for delegating 'p' to me!
 ```
 
 Similarly, when you assign to `p`, the `setValue()` function is called. The first two parameters are the same, and
@@ -60,7 +60,7 @@ e.p = "NEW"
 This prints:
  
 ```
-NEW has been assigned to ‘p’ in Example@33a17727.
+NEW has been assigned to 'p' in Example@33a17727.
 ```
 
 The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
@@ -311,7 +311,7 @@ val readOnly: Int by resourceDelegate()  // ReadWriteProperty as val
 var readWrite: Int by resourceDelegate()
 ```
 
-### Translation rules
+### Translation rules for delegated properties
 
 Under the hood, the Kotlin compiler generates an auxiliary property for every delegated property and then delegates to it.
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
@@ -333,6 +333,39 @@ class C {
 
 The Kotlin compiler provides all the necessary information about `prop` in the arguments: the first argument `this`
 refers to an instance of the outer class `C`, and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
+
+### Translation rules when delegating to another property
+
+When delegating to another property, the Kotlin compiler generates immediate access to the referenced property.
+This means that the compiler doesn't generate the field `prop$delegate`. This optimization helps save memory.
+
+Take the following code, for example:
+
+```kotlin
+class C<Type> {
+    private var impl: Type = ...
+    var prop: Type by ::impl
+}
+```
+
+Property accessors of the `prop` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`and `setValue` operators, 
+and thus the `KProperty` reference object is not needed.
+
+For the code above, the compiler generates the following code:
+
+```kotlin
+class C<Type> {
+    private var impl: Type = ...
+
+    var prop: Type
+        get() = impl
+        set(value) {
+            impl = value
+        }
+    
+    fun getProp$delegate(): Type = impl // This method is needed only for reflection
+}
+```
 
 ### Providing a delegate
 
