@@ -193,7 +193,7 @@ const Teach = (props) => {
         <div className="ktl-container">
           <div className="teach-resources__top ktl-offset-bottom-xl">
             <img className="teach-resources__top-image"
-                 src="/assets/images/ktl-component/teach/icons/education-main.png" alt=""/>
+                 src="/assets/images/ktl-component/teach/icons/education-main.png" alt="Kotlin resources"/>
             <h2 className="ktl-h1">
               Start Teaching Kotlin<br/> with These Resources
             </h2>
@@ -202,28 +202,28 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Get started</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a href="/docs/getting-started.html" target="_blank">
                     <span className="rs-link">Getting started</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="/docs/basic-syntax.html" target="_blank">
                     <span className="rs-link">Basics</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="https://play.kotlinlang.org/" target="_blank">
                     <span className="rs-link">Playground</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="https://hyperskill.org/tracks/18" target="_blank">
                     <span className="rs-link">Kotin Basics track on JetBrains Academy</span>
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="/docs/books.html" target="_blank">
                     <span className="rs-link">Recommended reading</span>
                   </a>
@@ -234,7 +234,7 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Study materials</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a
                     href="https://docs.google.com/document/d/1XIJaV3zhn-tJhDc_6Kr00lmTo5zCBuES3Yt67wX752M/edit"
                     target="_blank">
@@ -242,22 +242,22 @@ const Teach = (props) => {
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <div className="ktl-text-2 ktl-dimmed-text">Atomic kotlin:</div>
                   <ul className="teach-list teach-sublist">
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://www.atomickotlin.com/exercises/" target="_blank">
                         <span className="rs-link">Hands-on exercises</span>
                         <span>↗</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://github.com/svtk/AtomicKotlinCourse" target="_blank">
                         <span className="rs-link">Course project</span>
                         <span>↗</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank">
                         <span className="rs-link">Educator start guide</span>
                         <span>↗</span>
@@ -271,7 +271,7 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Tools</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a
                     href="https://www.jetbrains.com/community/education/#students" target="_blank">
                       <span className="rs-link">
@@ -280,7 +280,7 @@ const Teach = (props) => {
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a
                     href="https://plugins.jetbrains.com/plugin/10081-edutools" target="_blank">
                       <span className="rs-link">
@@ -289,7 +289,7 @@ const Teach = (props) => {
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a
                     href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k"
                     target="_blank">
@@ -299,7 +299,7 @@ const Teach = (props) => {
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="https://www.jetbrains.com/code-with-me/" target="_blank">
                       <span className="rs-link">
                         Code With Me
@@ -313,7 +313,7 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Online Courses</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/">
                       <span className="rs-link">
@@ -322,14 +322,14 @@ const Teach = (props) => {
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://www.oreilly.com/library/view/advanced-kotlin-programming/9781491964149/">
                     <span className="rs-link">Advanced Kotlin</span>
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://www.coursera.org/learn/kotlin-for-java-developers">
                       <span className="rs-link">
@@ -344,30 +344,30 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Android in Kotlin</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a
                     href="/docs/android-overview.html" target="_blank">
                     <span className="rs-link">Documentation</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <div className="ktl-text-2 ktl-dimmed-text">Recommended by Google's Android Developer Relations
                     team:
                   </div>
                   <ul className="teach-list teach-sublist">
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://developer.android.com/teach" target="_blank">
                         <span className="rs-link">Android Development Resources for Educators</span>
                         <span>↗</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://developer.android.com/teach#for-instructors-teaching-a-course" target="_blank">
                         <span className="rs-link">Android Development with Kotlin curriculum</span>
                         <span>↗</span>
                       </a>
                     </li>
-                    <li>
+                    <li className="teach-list__item">
                       <a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view" target="_blank">
                         <span className="rs-link">Learning materials</span>
                         <span>↗</span>
@@ -380,20 +380,20 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Practice Kotlin by solving problems</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://play.kotlinlang.org/koans/overview">
                     <span className="rs-link">Koans</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://kotlinlang.org/lp/kotlin-heroes/">
                     <span className="rs-link">Kotlin Heroes</span>
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank"
                      href="https://www.youtube.com/watch?v=o4emra1xm88&list=PLlFc5cFwUnmwfLRLvIM7aV7s73eSTL005">
                     <span className="rs-link">Idiomatic Kotlin: Solving Advent of Code Puzzles</span>
@@ -418,18 +418,18 @@ const Teach = (props) => {
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Connect with us</p>
               <ul className="teach-list">
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank" href="mailto:education@kotlinlang.org">
                     <span className="rs-link">Email us</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a target="_blank" href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw">
                     <span className="rs-link">YouTube channel</span>
                     <span>↗</span>
                   </a>
                 </li>
-                <li>
+                <li className="teach-list__item">
                   <a href="https://www.youtube.com/watch?v=aM-L5_tiVAI&list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA"
                      target="_blank">
                     <span className="rs-link">Educational webinars</span>

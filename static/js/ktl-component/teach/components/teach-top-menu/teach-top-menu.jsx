@@ -33,7 +33,7 @@ export const TeachTopMenu = ({path}) => {
         <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
            className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
           <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg"
-               className="teach-button-icon teach-button-icon_small" alt=""/>
+               className="teach-button-icon teach-button-icon_small" alt="Slack icon"/>
           Join educators
         </a>
       </TopMenu>
