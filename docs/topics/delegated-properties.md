@@ -339,7 +339,7 @@ refers to an instance of the outer class `C`, and `this::prop` is a reflection o
 When delegating to another property, the Kotlin compiler generates immediate access to the referenced property.
 This means that the compiler doesn't generate the field `prop$delegate`. This optimization helps save memory.
 
-For example, in the following code:
+Take the following code, for example:
 
 ```kotlin
 class C<Type> {
@@ -348,10 +348,10 @@ class C<Type> {
 }
 ```
 
-property accessors of the `prop` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`/`setValue` operators, 
+Property accessors of the `prop` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`and `setValue` operators, 
 and thus the `KProperty` reference object is not needed.
 
-For the code above the compiler generates the following code:
+For the code above, the compiler generates the following code:
 
 ```kotlin
 class C<Type> {
