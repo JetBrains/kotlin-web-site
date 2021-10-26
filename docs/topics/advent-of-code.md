@@ -75,7 +75,7 @@ or watch the video:
 
 ## Day 7: Handy haversacks
 
-Learn how to use regular expressions, use Java's compute methods for HashMaps from Kotlin for dynamic calculations
+Learn how to use regular expressions, use Java's `compute()` method for HashMaps from Kotlin for dynamic calculations
 of the value in the map, use the `forEachLine()` function to read files, and compare two types of search algorithms:
 depth-first and breadth-first.
 
