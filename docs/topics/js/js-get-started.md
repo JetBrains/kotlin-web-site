@@ -145,7 +145,7 @@ shows how to create a to-do list for collaborative work using `kotlin-multiplatf
 framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
 * [Kotlin/JS IR BE and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
 represents implementing the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`,
-and `react-redux`) from npm and Webpack to bundle (and minify)/run the project.
+and `react-redux`) from npm and Webpack to bundle, minify, and run the project.
 * [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)
 guides you through the process of building an app with the feed containing user-generated posts and comments. All data
 is stubbed by the fakeJSON and JSON Placeholder services.

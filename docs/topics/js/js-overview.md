@@ -127,7 +127,7 @@ main Kotlin/JS benefits to you, share some tips and use cases, and also tell you
 If you're new to Kotlin, a good first step would be to familiarize yourself with the [basic syntax](basic-syntax.md) of the language.
 
 To start using Kotlin for JavaScript, please refer to the [Set up a Kotlin/JS project](js-project-setup.md). You can also 
-pick a [hands-on](#hands-on-labs-for-kotlin-js) lab to work through or check out the list of [Kotlin/JS sample projects](#sample-projects)
+pick a [hands-on](#hands-on-labs-for-kotlin-js) lab to work through or check out the list of [Kotlin/JS sample projects](#sample-projects-for-kotlin-js)
 for inspiration. These projects can serve as nice jumping-off points for your own projects and contain useful snippets
 and patterns.
 
@@ -150,7 +150,7 @@ shows how to create a to-do list for collaborative work using `kotlin-multiplatf
 framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
 * [Kotlin/JS IR BE and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
 represents implementing the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`,
-and `react-redux`) from npm and Webpack to bundle (and minify)/run the project.
+and `react-redux`) from npm and Webpack to bundle, minify, and run the project.
 * [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)
 guides you through the process of building an app with the feed containing user-generated posts and comments. All data
 is stubbed by the fakeJSON and JSON Placeholder services.
