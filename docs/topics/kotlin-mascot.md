@@ -63,6 +63,6 @@ Use the mascot anywhere you think they fit — in your blog post and videos, on 
 **Don't**
 * Change the proportions
 * Change the colors
-* Use a contrasting background
+* Use a low contrast background
 
 ![Kotlin mascot misuses](mascot-misuse.png){width=700}
