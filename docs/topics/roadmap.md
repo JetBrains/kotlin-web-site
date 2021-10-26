@@ -50,11 +50,11 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-26245" target="_blank">🆕 Denotable definitely not-null types</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-11968" target="_blank">🆕 Research and prototype namespace-based solution for statics and static extensions</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">🆕 Design and implement solution for toString on objects</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">🆕 !FIX LINK! Provide modern and performant replacement for Enum.values()</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-48872" target="_blank">🆕 Provide modern and performant replacement for Enum.values()</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-27435" target="_blank">🆕 Allow implementation by delegation to inlined value of inline class</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-27576" target="_blank">🆕 Consider supporting inline sealed classes</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">Release OptIn annotations</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-45618" target="_blank">Stabilize builder inference</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-45618" target="_blank">Release builder inference</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12380" target="_blank">Support sealed (exhaustive) whens</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42435" target="_blank">Prototype multiple receivers</a></li>
             </ul>
@@ -70,20 +70,17 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">Release the new compiler frontend in Alpha for JVM target</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank">Finalize support for jspecify</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank"> !FIX LINK! Scripting improvements</a></li>
             </ul>
         </td>
-        <td>
-            <ul>
-                <li>⏸ Scripting improvements</li>
-            </ul>
-        </td>
+        <td></td>
     </tr>
     <tr>
         <td><strong>Kotlin/JVM</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-131" target="_blank">🆕 Release kotlinx-metadata-jvm as Stable</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-160" target="_blank">🆕 Fix prominent issues related to inline classes on JVM</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-131" target="_blank">🆕 !FIX LINK! Release kotlinx-metadata-jvm as Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-160" target="_blank">🆕 !FIX LINK! Fix issues related to inline classes on JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-17699" target="_blank">🆕 Allow private top-level classes or type aliases with same name in different files on JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-25871" target="_blank">🆕 Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-47939" target="_blank">🆕 Support method references to functional interface constructors</a></li>
@@ -124,16 +121,16 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin/Native</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">🆕 !FIX LINK Promote new memory manager to Alpha</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">🆕 !FIX LINK! Promote new memory manager to Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve compilation time</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">Provide binary compatibility between incremental releases</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">Native: provide binary compatibility between incremental releases</a></li>
             </ul>
          </td>
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
-                <li>⏸ !ADD LINK Direct interoperability with Swift</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ !FIX LINK! Direct interoperability with Swift</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">⏸ Support running Kotlin/Native-produced binaries on Alpine Linux</a></li>
             </ul>
         </td>
@@ -142,9 +139,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin Multiplatform</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-265" target="_blank">🆕 Improve environment setup experience for KMM projects</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 Improve DSL for managing Kotlin/Native binary output</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 !FIX LINK Improve stability and robustness of multiplatform toolchain</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-265" target="_blank">🆕 !FIX LINK! Improve environment setup experience for KMM projects</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 !FIX LINK! Improve DSL for managing Kotlin/Native binary output</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 !FIX LINK! Improve stability and robustness of multiplatform toolchain</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44329" target="_blank">Improve UX of using Native libraries in Kotlin</a></li>
             </ul>
          </td>
@@ -159,9 +156,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>IDE</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46788" target="_blank">🆕 !FIX LINK Fast update of compiler/platform versions</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-198" target="_blank">🆕 MPP support improvement</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-197" target="_blank">🆕 Eclipse plugin stabilization</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46788" target="_blank">🆕 !FIX LINK! Fast update of compiler/platform versions</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-198" target="_blank">🆕 !FIX LINK! MPP support improvement</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-197" target="_blank">🆕 !FIX LINK! Eclipse plugin stabilization</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">Improve IDE performance</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44330" target="_blank">Improve debugging experience</a></li>
@@ -179,8 +176,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Build tools</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-249" target="_blank">🆕 Provide better experience with Kotlin Daemon</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-256" target="_blank">🆕 Make KAPT work out of the box with latest JDKs</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-249" target="_blank">🆕 !FIX LINK! Provide better experience with Kotlin Daemon</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-256" target="_blank">🆕 !FIX LINK! Make KAPT work out of the box with latest JDKs</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46789" target="_blank">Improve user experience with the Kotlin Gradle plugin</a></li>
             </ul>
@@ -196,9 +193,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">🆕 Stable release of Dokka</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-280" target="_blank">🆕 Initial release of kotlinx-kover and its further productization</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-286" target="_blank">🆕 kotlinx-serialization 1.4 release</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-279" target="_blank">🆕 kotlinx-coroutines 1.7 release</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-280" target="_blank">🆕 !FIX LINK! Initial release of kotlinx-kover and its further productization</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-286" target="_blank">🆕 !FIX LINK! kotlinx-serialization 1.4 release</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-279" target="_blank">🆕 !FIX LINK! kotlinx-coroutines 1.7 release</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document atomicfu</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support java.nio.Path extension in the standard library</a></li>
@@ -216,8 +213,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Website</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 Kotlin Playground improvements</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 !FIX LINK Infrastructure for documentation localization by community</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 !FIX LINK! Kotlin Playground improvements</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 !FIX LINK! Infrastructure for documentation localization by community</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44339" target="_blank">Make the Kotlin website mobile friendly</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46791" target="_blank">Make the UI and navigation consistent</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46792" target="_blank">Update community graphic assets to the new Kotlin visual style</a></li>
@@ -276,32 +273,32 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Denotable definitely not-null types](https://youtrack.jetbrains.com/issue/KT-26245)
 * 🆕 Language: [Research and prototype namespace-based solution for statics and static extensions](https://youtrack.jetbrains.com/issue/KT-11968)
 * 🆕 Language: [Design and implement solution for toString on objects](https://youtrack.jetbrains.com/issue/KT-4107)
-* 🆕 Language: [!FIX LINK! Provide modern and performant replacement for Enum.values()](https://youtrack.jetbrains.com/issue/KT-4107)
+* 🆕 Language: [Provide modern and performant replacement for Enum.values()](https://youtrack.jetbrains.com/issue/KT-48872)
 * 🆕 Language: [Allow implementation by delegation to inlined value of inline class](https://youtrack.jetbrains.com/issue/KT-27435)
 * 🆕 Language: [Consider supporting inline sealed classes](https://youtrack.jetbrains.com/issue/KT-27576)
 * 🆕 Compiler core: [!FIX LINK! Stable Compiler Plugin API](https://youtrack.jetbrains.com/issue/KFC-88)
 * 🆕 Compiler core: [!FIX LINK! K2/JS investigation](https://youtrack.jetbrains.com/issue/KFC-105)
-* 🆕 Kotlin/JVM: [Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KFC-131)
-* 🆕 Kotlin/JVM: [Fix prominent issues related to inline classes on JVM](https://youtrack.jetbrains.com/issue/KFC-160)
+* 🆕 Kotlin/JVM: [!FIX LINK! Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KFC-131)
+* 🆕 Kotlin/JVM: [!FIX LINK! Fix prominent issues related to inline classes on JVM](https://youtrack.jetbrains.com/issue/KFC-160)
 * 🆕 Kotlin/JVM: [Allow private top-level classes or type aliases with same name in different files on JVM](https://youtrack.jetbrains.com/issue/KT-17699)
 * 🆕 Kotlin/JVM: [Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection](https://youtrack.jetbrains.com/issue/KT-25871)
 * 🆕 Kotlin/JVM: [Support method references to functional interface constructors](https://youtrack.jetbrains.com/issue/KT-47939)
 * 🆕 Kotlin/JVM: [Support Java synthetic property references](https://youtrack.jetbrains.com/issue/KT-8575)
-* 🆕 Kotlin/Native: [!FIX LINK Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-8575)
-* 🆕 Multiplatform: [Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KFC-265)
-* 🆕 Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 Multiplatform: [!FIX LINK Improve stability and robustness of multiplatform toolchain](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 IDE: [!FIX LINK Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 IDE: [MPP support improvement](https://youtrack.jetbrains.com/issue/KFC-198)
-* 🆕 IDE: [Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KFC-197)
-* 🆕 Build tools: [Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KFC-249)
-* 🆕 Build tools: [Make KAPT work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KFC-256)
+* 🆕 Kotlin/Native: [!FIX LINK! Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-8575)
+* 🆕 Multiplatform: [!FIX LINK! Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KFC-265)
+* 🆕 Multiplatform: [!FIX LINK! Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KFC-266)
+* 🆕 Multiplatform: [!FIX LINK! Improve stability and robustness of multiplatform toolchain](https://youtrack.jetbrains.com/issue/KFC-266)
+* 🆕 IDE: [!FIX LINK! Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KFC-266)
+* 🆕 IDE: [!FIX LINK! MPP support improvement](https://youtrack.jetbrains.com/issue/KFC-198)
+* 🆕 IDE: [!FIX LINK! Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KFC-197)
+* 🆕 Build tools: [!FIX LINK! Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KFC-249)
+* 🆕 Build tools: [!FIX LINK! Make KAPT work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KFC-256)
 * 🆕 Libraries: [Stable release of Dokka](https://youtrack.jetbrains.com/issue/KT-48998)
-* 🆕 Libraries: [Initial release of kotlinx-kover and its further productization](https://youtrack.jetbrains.com/issue/KFC-280)
-* 🆕 Libraries: [kotlinx-serialization 1.4 release](https://youtrack.jetbrains.com/issue/KFC-286)
-* 🆕 Libraries: [kotlinx-coroutines 1.7 release](https://youtrack.jetbrains.com/issue/KFC-279)
-* 🆕 Website: [Kotlin Playground improvements](https://youtrack.jetbrains.com/issue/KFC-83)
-* 🆕 Website: [!FIX LINK Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KFC-83)
+* 🆕 Libraries: [!FIX LINK! Initial release of kotlinx-kover and its further productization](https://youtrack.jetbrains.com/issue/KFC-280)
+* 🆕 Libraries: [!FIX LINK! kotlinx-serialization 1.4 release](https://youtrack.jetbrains.com/issue/KFC-286)
+* 🆕 Libraries: [!FIX LINK! kotlinx-coroutines 1.7 release](https://youtrack.jetbrains.com/issue/KFC-279)
+* 🆕 Website: [!FIX LINK! Kotlin Playground improvements](https://youtrack.jetbrains.com/issue/KFC-83)
+* 🆕 Website: [!FIX LINK! Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KFC-83)
 
 
 ### Removed items
