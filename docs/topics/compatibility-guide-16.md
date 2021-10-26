@@ -84,13 +84,13 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.6 will change how it loads and interprets type nullability annotations in Java code
+> **Short summary**: Kotlin 1.7 will change how it loads and interprets type nullability annotations in Java code
 >
 > **Deprecation cycle**:
 >
 > - 1.4.30: introduce warnings for cases where more precise type nullability could lead to an error
-> - 1.6.0: infer more precise nullability of Java types,  
->   `-XXLanguage:-TypeEnhancementImprovementsInStrictMode` can be used to temporarily revert to the pre-1.6 behavior
+> - 1.7.0: infer more precise nullability of Java types,  
+>   `-XXLanguage:-TypeEnhancementImprovementsInStrictMode` can be used to temporarily revert to the pre-1.7 behavior
 
 ### Prevent implicit coercions between different numeric types
 
