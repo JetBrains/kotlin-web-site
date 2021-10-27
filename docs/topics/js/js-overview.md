@@ -134,13 +134,13 @@ and patterns.
 ## Hands-on labs for Kotlin/JS
 
 * [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
-guides you through the process of building a simple web application using the React framework, shows how a typesafe
-Kotlin DSL for HTML makes it convenient to build reactive DOM elements, and illustrates how to use third-party React
-components, and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+guides you through the process of building a simple web application using the React framework, shows how a typesafe Kotlin
+DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components,
+and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
 
 * [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
 teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
-application that makes use of common code, serialization, and other multiplatform paradigms. It also provides a brief
+application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
 
 ## Sample projects for Kotlin/JS
