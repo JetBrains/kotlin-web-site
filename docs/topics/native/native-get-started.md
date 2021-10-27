@@ -141,4 +141,4 @@ Once you have created your first application, you can go to Kotlin hands-on labs
 For Kotlin/Native, the following hands-on labs are currently available:
 
 * [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
-* [Creating an HTTP Client in Kotlin/Native](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction) explains how to create a native HTTP client and interoperate with C libraries.
+* [Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) explains how to create a native HTTP client and interoperate with C libraries.

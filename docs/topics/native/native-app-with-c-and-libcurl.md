@@ -3,15 +3,15 @@
 This tutorial demonstrates how to use IntelliJ IDEA for creating a command-line application. You'll learn how to create
 a simple HTTP client that can run natively on specified platforms using Kotlin/Native and the `libcurl` library.
 
-The output will be an executable command-line application that allows making simple HTTP GET requests you can run on
-macOS and Linux.
+The output will be an executable command-line app that you can run on macOS and Linux and make simple HTTP GET requests.
 
-While it is possible to use the command line, either directly or by combining it with a script file (such as a `.sh` or
-a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. It is then
-better to use the Kotlin/Native compiler with a build system, as it helps to download and cache the Kotlin/Native
-compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
-[Gradle](gradle.md) build system through the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
-Plugin.
+> While it is possible to use the command line, either directly or by combining it with a script file (such as a `.sh` or
+> a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. It is then
+> better to use the Kotlin/Native compiler with a build system, as it helps to download and cache the Kotlin/Native
+> compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
+> [Gradle](gradle.md) build system through the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
+> Plugin.
+>
 
 To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
@@ -68,7 +68,6 @@ kotlin {
         else throw new FileNotFoundException("Host OS is not supported in Kotlin/Native.")
 
     nativeTarget.with {
-        
         binaries {
             executable {
                 entryPoint = 'main'
@@ -85,8 +84,8 @@ kotlin {
 * The entry itself defines a series of properties to indicate how the binary is generated and the entry
   point of the applications. These can be left as default values.
 * The C interoperability is configured as an additional step of the build. By default, all the symbols from C are
-  imported to the `interop` package; you may want to import the whole package in `.kt` files. Learn more about all
-  the ways on [how to configure](mpp-discover-project.md#multiplatform-plugin) it.
+  imported to the `interop` package; you may want to import the whole package in `.kt` files. Learn more about ways on
+  [how to configure](mpp-discover-project.md#multiplatform-plugin) it.
 
 ## Create a definition file
 
@@ -105,7 +104,7 @@ To generate these bindings, let's create a library definition `.def` file that c
 the necessary headers. In our app, you'll need the `libcurl` library to make some HTTP calls. To create a
 definition file:
 
-1. Select the `src` folder and create a new folder with **File | New | Directory**.
+1. Select the `src` folder and create a new directory with **File | New | Directory**.
 2. Name new directory **nativeInterop/cinterop**. This is the default convention for header file locations, though it can
    be overridden in the `build.gradle` file if you use a different location.
 3. Select this new subfolder and create a new `libcurl.def` file with **File | New | File**.
@@ -127,11 +126,12 @@ relative to the folder where the definition file is or be available on the syste
 one file references another one with the `#include` directive. Sometimes it's not necessary, and you can add this
 parameter [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
 
-> `headerFilter` is an optional argument and is mostly used when the library is being installed as a system
-> library. You don't want to fetch external dependencies (such as system `stdint.h` header) into the interop library.
-> It may be important to optimize the library size and fix potential conflicts between the system and the Kotlin/Native
-> provided compilation environment.
-> 
+> `headerFilter` is an optional argument and is mostly used when the library is installed as a system library. You don't
+> want to fetch external dependencies (such as system `stdint.h` header) into the interop library. It may be important to
+> optimize the library size and fix potential conflicts between the system and the provided Kotlin/Native compilation
+> environment.
+>
+{type="note"}
 
 * The next lines are about providing linker and compiler options, which can vary depending on different target platforms.
 In our case, they are macOS (the `.osx` suffix) and Linux (the `.linux` suffix). Parameters without a suffix are also
@@ -142,7 +142,7 @@ information on all the options available to `cinterop`, see [the Interop section
 
 > You need to have the `curl` library binaries on your system to make the sample work. On macOS and Linux, it is usually
 > included. On Windows, you can build it from [sources](https://curl.haxx.se/download.html) (you'll need Visual Studio or
-> Windows SDK Commandline tools), for more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
+> Windows SDK Commandline tools). For more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
 > Alternatively, you may also want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
 >
 {type="note"}
@@ -164,8 +164,8 @@ nativeTarget.apply {
     binaries {
         executable { 
             entryPoint = "main"
+        }
     }
-  }
 }
     
 ```      
@@ -243,7 +243,7 @@ much the same as the C version. All the calls you'd expect in the `libcurl` libr
 In this case, the `cinterop` generated part is implicitly included in the build.
 
 2. If there are no errors during compilation, run the build by creating a [Run Configuration](https://www.jetbrains.com/help/idea/run-debug-configuration.html#create-permanent).
-IntelliJ IDEA opens the **Run** tab and shows the output, the contents of `https://example.com`:
+IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
 
 ![Application output with HTML-code](native-output.png){width="700"}
 
