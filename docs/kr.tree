@@ -209,6 +209,10 @@
             <toc-element id="native-faq.md"/>
             <toc-element toc-title="Intro to Kotlin/Native – hands-on" href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/"/>
         </toc-element>
+
+        <toc-element toc-title="Scripting">
+            <toc-element id="script-get-started.md"/>
+        </toc-element>
     </toc-element>
 
     <toc-element toc-title="Releases and roadmap">
