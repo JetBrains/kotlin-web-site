@@ -148,7 +148,7 @@ introduction to working with Ktor both as a server- and client-side framework.
 * [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
 shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, the Spring
 framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
-* [Kotlin/JS IR BE and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
+* [Kotlin/JS and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
 represents implementing the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`,
 and `react-redux`) from npm and Webpack to bundle, minify, and run the project.
 * [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)

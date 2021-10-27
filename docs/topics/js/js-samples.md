@@ -1,9 +1,10 @@
 [//]: # (title: Samples)
 
-This is a curated list of Kotlin/JS (KJS) samples.
+This is a curated list of Kotlin/JS samples.
 
 Do you have a great idea for a sample, or one you would like to add to the list?  
-Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) and tell us about it!
+Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) in Kotlin Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up))
+and tell us about it!
 
 <table>
     <tr>
@@ -38,7 +39,7 @@ Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) 
         <strong><a href="https://github.com/Kotlin/react-redux-js-ir-todo-list-sample">react-redux-js-ir-todo-list-sample</a></strong>
       </td>
       <td>React, Redux</td>
-      <td>An implementation (translation) of the `react-redux` to-do list example project in Kotlin/JS</td>
+      <td>An implementation (translation) of the React Redux to-do list example project in Kotlin/JS</td>
       <td>
         <ul>
           <li>RingUI for Kotlin components</li>
