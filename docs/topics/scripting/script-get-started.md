@@ -32,9 +32,48 @@ So, you'll need a Kotlin/JVM Gradle project with two modules.
 
 ## Create a root project
 
-1. 
+Create a Kotlin/JVM Gradle project. TODO: link to tutorial
 
 ## Create a script definition
+
+1. Go to ***File | New | Module** and add a new **Gradle** module with **Kotlin/JVM**. Select the **Kotlin DSL build script**
+checkbox if you want to write the build script in Kotlin.
+
+2. Open the `build.gradle(.kts)` file and add the following dependencies to the Gradle configuration. These dependencies
+provide the APIs you will need for the script definition:
+
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+   ```kotlin
+   dependencies {
+       // Other dependencies.
+       implementation("org.jetbrains.kotlin:kotlin-scripting-common:$kotlinVersion")
+       implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:$kotlinVersion")
+       implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies:$kotlinVersion")
+       implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies-maven:$kotlinVersion")
+   }
+   ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+   ```groovy
+   dependencies {
+       // Other dependencies.
+       implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
+       implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
+       implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies'
+       implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies-maven'
+   }
+   ```
+
+   </tab>
+   </tabs>
+
+3. Create a Kotlin source file in a package of your choice, for example, `scriptDef.kt` in the `org.example.kotlinscript`
+package.
+
 
 ## Create a scripting host
 
