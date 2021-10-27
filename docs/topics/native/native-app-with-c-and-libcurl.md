@@ -253,7 +253,6 @@ this using `curl_easy_setopt`.
 > You can find the resulting code in our [GitHub](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native) repository.
 >
 
-
 ## What’s next?
 
 For a complete example of using the `libcurl`, see the [libcurl sample of the Kotlin/Native project](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/libcurl)
