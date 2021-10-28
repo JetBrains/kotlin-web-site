@@ -124,19 +124,18 @@ main Kotlin/JS benefits to you, share some tips and use cases, and also tell you
 
 ## Get started with Kotlin/JS
 
-If you're new to Kotlin, a good first step would be to familiarize yourself with the [basic syntax](basic-syntax.md) of the language.
+If you're new to Kotlin, a good first step is to familiarize yourself with the [basic syntax](basic-syntax.md) of the language.
 
-To start using Kotlin for JavaScript, please refer to the [Set up a Kotlin/JS project](js-project-setup.md). You can also 
+To start using Kotlin for JavaScript, please refer to [Set up a Kotlin/JS project](js-project-setup.md). You can also
 pick a [hands-on](#hands-on-labs-for-kotlin-js) lab to work through or check out the list of [Kotlin/JS sample projects](#sample-projects-for-kotlin-js)
-for inspiration. These projects can serve as nice jumping-off points for your own projects and contain useful snippets
-and patterns.
+for inspiration. They contain useful snippets and patterns and can serve as nice jump-off points for your own projects.
 
 ## Hands-on labs for Kotlin/JS
 
 * [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
-guides you through the process of building a simple web application using the React framework, shows how a typesafe Kotlin
-DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components,
-and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin
+DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components and
+obtain information from APIs, all while writing the whole application logic in pure Kotlin/JS.
 
 * [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
 teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
@@ -146,14 +145,14 @@ introduction to working with Ktor both as a server- and client-side framework.
 ## Sample projects for Kotlin/JS
 
 * [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
-shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, the Spring
-framework for backend, Kotlin/JS with the React framework for frontend, and RSocket.
-* [Kotlin/JS and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample)
-represents implementing the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`,
-and `react-redux`) from npm and Webpack to bundle, minify, and run the project.
-* [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample)
-guides you through the process of building an app with the feed containing user-generated posts and comments. All data
-is stubbed by the fakeJSON and JSON Placeholder services.
+shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, Spring
+for the backend, Kotlin/JS with React for the frontend, and RSocket.
+* [Kotlin/JS and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample) implements
+the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`, and `react-redux`)
+from npm and Webpack to bundle, minify, and run the project.
+* [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample) guides you through
+the process of building an app with a feed containing user-generated posts and comments. All data is stubbed by
+the fakeJSON and JSON Placeholder services.
 
 ## New Kotlin/JS IR compiler
 

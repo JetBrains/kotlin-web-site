@@ -2,8 +2,8 @@
 
 This is a curated list of Kotlin/JS samples.
 
-Do you have a great idea for a sample, or one you would like to add to the list?  
-Feel free to [reach out to us](https://kotlinlang.slack.com/archives/C0B8L3U69) in Kotlin Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up))
+Do you have a great idea for a sample, or one you would like to add to the list?
+[Reach out](https://kotlinlang.slack.com/archives/C0B8L3U69) in Kotlin Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up))
 and tell us about it!
 
 <table>
