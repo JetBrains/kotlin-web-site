@@ -90,7 +90,8 @@ kotlin {
 ## Create a definition file
 
 When writing native applications, you often need access to certain functionality that is not included in the [Kotlin
-standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), such as making HTTP requests, reading and writing from disk, and so on.
+standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), such as making HTTP requests, reading and writing from
+disk, and so on.
 
 Kotlin/Native helps consume standard C libraries, opening up an entire ecosystem of functionality that exists
 for pretty much anything you may need. Kotlin/Native is already shipped with a set of prebuilt [platform libraries](native-platform-libs.md),
@@ -98,7 +99,7 @@ which provide some additional common functionality to the standard library.
 
 An ideal scenario for interop is to call C functions as if you are calling Kotlin functions, following the same
 signature and conventions. This is when the `cinterop` tool comes in handy. It takes a C library and generates the
-corresponding Kotlin bindings, allowing us to use the library as if it were Kotlin code.
+corresponding Kotlin bindings, so that the library can be used as if it were a Kotlin code.
 
 To generate these bindings, let's create a library definition `.def` file that contains some information about
 the necessary headers. In our app, you'll need the `libcurl` library to make some HTTP calls. To create a
@@ -119,8 +120,8 @@ linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl
 linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 ```
 
-* The first entry is `headers`, the list of header files to generate Kotlin stubs for. You can add multiple files
-to this entry, separating each with a `\` on a new line. In our case, it's only `curl.h`. The referenced files need to be
+* The first entry is `headers`, the list of header files to generate Kotlin stubs for. You can add multiple files to
+this entry, separating each with a `\` on a new line. In our case, it's only `curl.h`. The referenced files need to be
 relative to the folder where the definition file is or be available on the system path (in our case, it's `/usr/include/curl`).
 * The second line is the `headerFilter`. It shows what exactly is included. In C, all the headers are also included when
 one file references another one with the `#include` directive. Sometimes it's not necessary, and you can add this
@@ -206,7 +207,7 @@ See the [Interoperability with C](native-c-interop.md) section for more details 
 Now you have the library and the corresponding Kotlin stubs and can consume them from your application. For this tutorial,
 let's convert the [simple.c](https://curl.haxx.se/libcurl/c/simple.html) example to Kotlin.
 
-In the `src/nativeMain/kotlin/` folder, copy and paste the following code into the `Main.kt` file:
+In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the following code:
 
 ```kotlin
 import kotlinx.cinterop.*
@@ -226,14 +227,13 @@ fun main(args: Array<String>) {
 }
 ```
 
-As you can see, you've eliminated the explicit variable declarations in the Kotlin version, but everything else is pretty
-much the same as the C version. All the calls you'd expect in the `libcurl` library are available in the Kotlin equivalent.
+As you can see, explicit variable declarations are eliminated in the Kotlin version, but everything else is pretty much
+the same as the C version. All the calls you'd expect in the `libcurl` library are available in the Kotlin equivalent.
 
 > This is a line-by-line literal translation. You could also write this in a more Kotlin idiomatic way.
 >
 
 ## Compile and run the application
-
 
 1. Compile the application. To do that, run the following command in the terminal:
 
@@ -247,8 +247,8 @@ IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `ht
 
 ![Application output with HTML-code](native-output.png){width="700"}
 
-You see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could hide
-this using `curl_easy_setopt`.
+You can see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could
+hide this using `curl_easy_setopt`.
 
 > You can find the resulting code in our [GitHub](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native) repository.
 >
@@ -257,4 +257,4 @@ this using `curl_easy_setopt`.
 
 For a complete example of using the `libcurl`, see the [libcurl sample of the Kotlin/Native project](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/libcurl)
 that shows how to abstract the code into Kotlin classes as well as display headers. It also demonstrates how to make
-the steps easier by combining them into a shell script or Gradle build.
+the steps easier by combining them into a shell script or a Gradle build.
