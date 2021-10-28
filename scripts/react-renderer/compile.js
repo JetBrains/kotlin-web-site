@@ -10,9 +10,24 @@ const babelRc = {
       {
         "patterns": [/\.s?css$/]
       }
-    ]
+    ],
+    fixCoreJSPath
   ]
 };
 
 require('@babel/register')(babelRc);
 require('./compile.mjs')['default']();
+
+function fixCoreJSPath() {
+  return {
+    visitor: {
+      ImportDeclaration(path) {
+        const source = path.node.source;
+
+        if (/@babel\/runtime-corejs3\/helpers\/esm/.test(source.value)) {
+          path.node.source.value = source.value.replace('/esm/', '/');
+        }
+      }
+    }
+  };
+}
