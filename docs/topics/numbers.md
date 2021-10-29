@@ -7,10 +7,10 @@ For integer numbers, there are four types with different sizes and, hence, value
 
 | Type	 |Size (bits)| Min value| Max value|
 |--------|-----------|----------|--------- |
-| Byte	 | 8         |-128      |127       |
-| Short	 | 16        |-32768    |32767     |
-| Int	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
-| Long	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
+| `Byte`	 | 8         |-128      |127       |
+| `Short`	 | 16        |-32768    |32767     |
+| `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
+| `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
 All variables initialized with integer values not exceeding the maximum value of `Int`
 have the inferred type `Int`. If the initial value exceeds this value, then the type is `Long`.
@@ -32,8 +32,8 @@ floating point types differ by their _decimal place_, that is, how many decimal 
 
 | Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
 |--------|-----------|--------------- |-------------|--------------|
-| Float	 | 32        |24              |8            |6-7            |
-| Double | 64        |53              |11           |15-16          |    
+| `Float`	 | 32        |24              |8            |6-7            |
+| `Double` | 64        |53              |11           |15-16          |    
 
 You can initialize `Double` and `Float` variables  with numbers having a fractional part.
 It's separated from the integer part by a period (`.`)
@@ -78,7 +78,7 @@ To convert numeric values to different types, use [Explicit conversions](#explic
 There are the following kinds of literal constants for integral values:
 
 * Decimals: `123`
-    * Longs are tagged by a capital `L`: `123L`
+  * Longs are tagged by a capital `L`: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
@@ -183,7 +183,7 @@ All number types support conversions to other types:
 * `toDouble(): Double`
 * `toChar(): Char`
 
-In many cases, there is no need in explicit conversions because the type is inferred from the context,
+In many cases, there is no need for explicit conversions because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
 
 ```kotlin

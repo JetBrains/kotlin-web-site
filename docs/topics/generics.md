@@ -352,7 +352,7 @@ fun handleStrings(list: List<String>) {
 }
 ```
 
-The same syntax with omitted type arguments can be used for casts that do not take type arguments into account: `list as ArrayList`.
+The same syntax but with the type arguments omitted can be used for casts that do not take type arguments into account: `list as ArrayList`.
 
 The type arguments of a generic function calls are also only checked at compile time. Inside the function bodies,
 the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked.
@@ -400,7 +400,7 @@ fun readDictionary(file: File): Map<String, *> = file.inputStream().use {
     TODO("Read a mapping of strings to arbitrary elements.")
 }
 
-// We saved a map with `Int`s into that file
+// We saved a map with `Int`s into this file
 val intsFile = File("ints.dictionary")
 
 // Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
@@ -409,13 +409,13 @@ val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, I
 A warning appears for the cast in the last line. The compiler can't fully check it at runtime and provides
 no guarantee that the values in the map are `Int`.
 
-To avoid unchecked casts, you can redesign the program structure: in the example above, there you could use interfaces
-`DictionaryReader<T>` and `DictionaryWriter<T>` with type-safe implementations for different types.
-You can introduce reasonable abstractions to move unchecked casts from calling code to the implementation details.
+To avoid unchecked casts, you can redesign the program structure. In the example above, you could use the
+`DictionaryReader<T>` and `DictionaryWriter<T>` interfaces with type-safe implementations for different types.
+You can introduce reasonable abstractions to move unchecked casts from the call site to the implementation details.
 Proper use of [generic variance](#variance) can also help.
 
-For generic functions, using [reified type parameters](inline-functions.md#reified-type-parameters) makes the casts
-such as `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
+For generic functions, using [reified type parameters](inline-functions.md#reified-type-parameters) makes casts
+like `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
 
 An unchecked cast warning can be suppressed by [annotating](annotations.md) the statement or the
 declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
@@ -428,10 +428,10 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
         null
 ```
 
->**On JVM**: the [array types](arrays.md) (`Array<Foo>`) retain the information about the erased type of
->their elements, and the type casts to an array type are partially checked: the
->nullability and actual type arguments of the elements type are still erased. For example,
->the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, nullable or not.
+>**On the JVM**: [array types](arrays.md) (`Array<Foo>`) retain information about the erased type of
+>their elements, and type casts to an array type are partially checked: the
+>nullability and actual type arguments of the element type are still erased. For example,
+>the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, whether it is nullable or not.
 >
 {type="note"}
 
