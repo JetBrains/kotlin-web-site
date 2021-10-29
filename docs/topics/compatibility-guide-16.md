@@ -5,7 +5,7 @@
 >
 {type="note"}
 
-[*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in
+_[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
 latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
@@ -73,7 +73,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.20: introduce a warning on the problematic arguments
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >  `-XXLanguage:-ProhibitSelfCallsInNestedObjects` can be used to temporarily revert to the pre-1.6 behavior
 
 ### Type nullability enhancement improvements
@@ -89,7 +89,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.30: introduce warnings for cases where more precise type nullability could lead to an error
-> - 1.7.0: infer more precise nullability of Java types,  
+> - 1.7.0: infer more precise nullability of Java types,
 >   `-XXLanguage:-TypeEnhancementImprovementsInStrictMode` can be used to temporarily revert to the pre-1.7 behavior
 
 ### Prevent implicit coercions between different numeric types
@@ -101,13 +101,13 @@ perspective
 > **Incompatible change type**: behavioral
 >
 > **Short summary**: Kotlin will avoid converting numeric values automatically to a primitive numeric type where only a downcast to that type was needed semantically
-> 
+>
 > **Deprecation cycle**:
 >
 > - < 1.5.30: the old behavior in all affected cases
-> - 1.5.30: fix the downcast behavior in generated property delegate accessors,  
->   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior 
-> - \>= 1.6.X: fix the downcast behavior in other affected cases
+> - 1.5.30: fix the downcast behavior in generated property delegate accessors,
+>   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
+> - \>= 1.6.20: fix the downcast behavior in other affected cases
 
 ### Prohibit declarations of repeatable annotation classes whose container annotation violates JLS
 
@@ -122,7 +122,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.30: introduce a warning on repeatable container annotation declarations violating JLS requirements (error in the progressive mode)
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
 ### Prohibit declaring a nested class named `Container` in a repeatable annotation class
@@ -138,7 +138,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.30: introduce a warning on nested classes with the name `Container` in a Kotlin-repeatable annotation class (error in the progressive mode)
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
 ### Prohibit @JvmField on a property in the primary constructor that overrides an interface property
@@ -152,9 +152,9 @@ perspective
 > **Short summary**: Kotlin 1.6 will outlaw annotating a property declared in the primary constructor that overrides an interface property with the `@JvmField` annotation
 >
 > **Deprecation cycle**:
-> 
+>
 > - 1.5.20: introduce a warning on the `@JvmField` annotation on such properties in the primary constructor
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
 ### Prohibit super calls from public-abi inline functions
@@ -170,7 +170,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.0: introduce a warning on super calls from public or protected inline functions or property accessors
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitSuperCallsFromPublicInline` can be used to temporarily disable the error reporting
 
 ### Prohibit protected constructor calls from public inline functions
@@ -186,7 +186,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.30: introduce a warning on protected constructor calls from public or protected inline functions or property accessors
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitProtectedConstructorCallFromPublicInline` can be used to temporarily disable the error reporting
 
 ### Prohibit exposing private nested types from private-in-file types
@@ -202,10 +202,10 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.0: introduce a warning on private types exposed from private-in-file types
-> - 1.6.0: raise this warning to an error,  
+> - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-PrivateInFileEffectiveVisibility` can be used to temporarily disable the error reporting
 
-### Annotation target is not analyzed in several cases for annotations on a type 
+### Annotation target is not analyzed in several cases for annotations on a type
 
 > **Issue**: [KT-28449](https://youtrack.jetbrains.com/issue/KT-28449)
 >
@@ -217,8 +217,8 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.5.20: introduce an error in the progressive mode 
-> - 1.6.0: introduce an error,  
+> - 1.5.20: introduce an error in the progressive mode
+> - 1.6.0: introduce an error,
 >   `-XXLanguage:-ProperCheckAnnotationsTargetInTypeUsePositions` can be used to temporarily disable the error reporting
 
 ### Prohibit calls to functions named `suspend` with a trailing lambda
@@ -237,7 +237,6 @@ perspective
 > - 1.6.0: raise this warning to an error
 > - \>= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
 
-
 ## Standard library
 
 ### Remove brittle `contains` optimization in minus/removeAll/retainAll
@@ -253,7 +252,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.6: the old behavior: the argument is converted to set in some cases
-> - 1.6.0: if the function argument is a collection, it's no longer converted to `Set`. If it's not a collection, it can be converted to `List` instead.  
+> - 1.6.0: if the function argument is a collection, it's no longer converted to `Set`. If it's not a collection, it can be converted to `List` instead.
 >   The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
 > - \>= 1.7: the system property above will no longer have an effect
 
@@ -265,7 +264,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Kotlin 1.6 changes the value generation algorithm in `Random.nextLong` function to avoid producing values out of the specified range.
+> **Short summary**: Kotlin 1.6 changes the value generation algorithm in the `Random.nextLong` function to avoid producing values out of the specified range.
 >
 > **Deprecation cycle**:
 >
@@ -333,10 +332,10 @@ perspective
 > **Short summary**: the `Regex.replace` function with the functional `transform` parameter will no longer be inline in Kotlin/JS
 >
 > **Deprecation cycle**:
-> 
+>
 > - 1.6.0: remove the `inline` modifier from the affected function
 
-### Different behavior of `Regex.replace` function in JVM and JS when replacement string contains group reference
+### Different behavior of the `Regex.replace` function in JVM and JS when replacement string contains group reference
 
 > **Issue**: [KT-28378](https://youtrack.jetbrains.com/issue/KT-28378)
 >
@@ -395,3 +394,66 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.0: make the functions internal, thus removing them from the public API
+
+## Tools
+
+### Deprecate KotlinGradleSubplugin class
+
+> **Issue**: [KT-48830](https://youtrack.jetbrains.com/issue/KT-48830)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: the class `KotlinGradleSubplugin` will be deprecated in favor of `KotlinCompilerPluginSupportPlugin`
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: raise the deprecation level to an error
+> - \>= 1.7.0: remove the deprecated class
+
+### Remove kotlin.useFallbackCompilerSearch build option
+
+> **Issue**: [KT-46719](https://youtrack.jetbrains.com/issue/KT-46719)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the deprecated 'kotlin.useFallbackCompilerSearch' build option
+>
+> **Deprecation cycle**:
+>
+> - 1.5.0: raise the deprecation level to a warning
+> - 1.6.0: remove the deprecated option
+
+### Remove several compiler options
+
+> **Issue**: [KT-48847](https://youtrack.jetbrains.com/issue/KT-48847)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the deprecated `noReflect` and `includeRuntime` compiler options
+>
+> **Deprecation cycle**:
+>
+> - 1.5.0: raise the deprecation level to an error
+> - 1.6.0: remove the deprecated options
+
+### Deprecate useIR compiler option
+
+> **Issue**: [KT-48847](https://youtrack.jetbrains.com/issue/KT-48847)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: hide the deprecated `useIR` compiler option
+>
+> **Deprecation cycle**:
+>
+> - 1.5.0: raise the deprecation level to a warning
+> - 1.6.0: hide the option
+> - \>= 1.7.0: remove the deprecated option
