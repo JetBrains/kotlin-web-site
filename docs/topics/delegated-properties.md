@@ -432,7 +432,7 @@ fun <T> MyUI.bindResource(
 
 In the generated code, the `provideDelegate` method is called to initialize the auxiliary `prop$delegate` property.
 Compare the generated code for the property declaration `val prop: Type by MyDelegate()` with the generated code
-[above](#translation-rules) (when the `provideDelegate` method is not present):
+[above](#translation-rules-for-delegated-properties) (when the `provideDelegate` method is not present):
 
 ```kotlin
 class C {
