@@ -11,34 +11,35 @@ For the introduction to collections, see the [Collections overview](collections-
 
 ## Operations that are the same in Java and Kotlin
 
-In Kotlin, there are many operations on collections that look absolutely the same as in Java. Let’s look at the
-operations that exist for lists, sets, queues, and dequeues:
+In Kotlin, there are many operations on collections that look absolutely the same as in Java. 
+
+### Operations on lists, sets, queues, and dequeues
 
 | Description | Operation | Kotlin alternatives |
 |-------------|-----------|---------------------|
-| Add an element or elements | `add()`, `addAll()` | Use the [`plus`(`+`) operator](collection-plus-minus.md) to add an element or an entire collection: `collection + element`, `collection + anotherCollection`. |
+| Add an element or elements | `add()`, `addAll()` | Use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `collection += element`, `collection += anotherCollection`. |
 | Check if a collection contains an element or elements | `contains()`, `containsAll()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in collection`. |
-| Check if a collection is empty | `isEmpty()` | Use [ `isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check if a collection is not empty. |
+| Check if a collection is empty | `isEmpty()` | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check if a collection is not empty. |
 | Remove by a condition | `removeIf()` | |
 | Leave only selected elements | `retainAll()` | |
 | Remove all elements from a collection | `clear()` | |
 | Get a stream from a collection | `stream()` | Kotlin has its own way for stream processing – [sequences](#sequences), and methods like [`map`](collection-filtering.md), [`filter`](#filtering). |
 | Get an iterator from a collection | `iterator()` | |
 
-Operations on maps:
+### Operations on maps
 
 | Description | Operation | Kotlin alternatives |
 |-------------|-----------|---------------------|
-| Add an element or elements | `put()`, `putAll()`, `putIfAbsent()`| The assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plus`(`+`) operator](collection-plus-minus.md). |
-| Replace an element or elements | `put()`, `replace()`, `replaceAll()` | It's more idiomatic to use indexing operator: `map[key] = value` instead of `put()` and `replace()`. |
-| Get an element | `get()` | Use indexing operator to get an element: `map[index]`. |
+| Add an element or elements | `put()`, `putAll()`, `putIfAbsent()`| The assignment `map[key] = value` behaves the same as `put(key, value)`. Also, you may use the [`plusAssign`(`+=`) operator](collection-plus-minus.md): `map += Pair(key, value)` or `map += anotherMap`. |
+| Replace an element or elements | `put()`, `replace()`, `replaceAll()` | It's more idiomatic to use the indexing operator: `map[key] = value` instead of `put()` and `replace()`. |
+| Get an element | `get()` | Use the indexing operator to get an element: `map[index]`. |
 | Check if a map contains an element or elements | `containsKey()`, `containsValue()` | Use the [`in` keyword](collection-elements.md#check-element-existence) to call `contains()` in the operator form: `element in map`. |
-| Check if a map is empty |  `isEmpty()` | Use [ `isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check if a map is not empty. |
-| Remove an element | `remove(key)`, `remove(key, value)` | Use the [`minus`(`-`) operator](collection-plus-minus.md): `map - key`. |
+| Check if a map is empty |  `isEmpty()` | Use [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html) to check if a map is not empty. |
+| Remove an element | `remove(key)`, `remove(key, value)` | Use the [`minusAssign`(`-=`) operator](collection-plus-minus.md): `map -= key`. |
 | Remove all elements from a map | `clear()` | |
 | Get a stream from a map | `stream()` on entries, keys or values | |
 
-There are operations that exist only for lists and are the same in Java and Kotlin:
+### Operations that exist only for lists
 
 | Description | Operation | Kotlin alternatives |
 |-------------|-----------|---------------------|
@@ -46,21 +47,11 @@ There are operations that exist only for lists and are the same in Java and Kotl
 | Get the last index of some element | `lastIndexOf()` |
 | Get an element | `get()` | Use the indexing operator to get an element: `list[index]`. |
 | Take a sublist | `subList()` |
-| Replace an element or elements | `set()`,  `replaceAll()` | Use the indexing operator: `list[index] = value`, `map[key] = value`. |
+| Replace an element or elements | `set()`,  `replaceAll()` | Use the indexing operator instead of `set()`: `list[index] = value`. |
 
 ## Operations differ a bit
 
-For lists:
-
-| Description | Java | Kotlin |
-|-------------|------|--------|
-| Sort a list with a natural order | `sort(null)` | `sort()` |
-| Sort a list with a descending order | `sort(Comparator<? super E> c)` | `sortDescending()` |
-| Remove an element from a list | `remove(int index)`, `remove(Object o)`| `removeAt(index: Int)`, `remove(element: ElementType)` |
-| Fill all elements of a list with some value | `Collections.fill()` | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) |
-| Get unique elements of the list | `stream().distinct().toList()` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
-
-For any collection:
+### Operations on any collection
 
 | Description | Java | Kotlin |
 |-------------|------|--------|
@@ -71,7 +62,7 @@ For any collection:
 | Group elements by a classifier | `stream().collect(Collectors.groupingBy(classifier))` | [`groupBy()`](collection-grouping.md) |
 | Group elements by a classifier and count them | `stream().collect(Collectors.groupingBy(classifier, counting()))` | [`eachCount()`](collection-grouping.md) |
 | Filter by a condition | `stream().filter().collect()` | [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) |
-| Check whether collection elements satisfy a condition | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [ `none()`, `any()`, `all()`](collection-filtering.md) |
+| Check whether collection elements satisfy a condition | `stream().noneMatch()`, `stream().anyMatch()`, `stream().allMatch()` | [`none()`, `any()`, `all()`](collection-filtering.md) |
 | Sort elements | `stream().sorted().collect()` | [`sorted()`](collection-ordering.md#natural-order) |
 | Take first N elements | `stream().limit(N).collect()` | [`take(N)`](collection-parts.md#take-and-drop) |
 | Take elements with a predicate | `stream().takeWhile().collect()` | [`takeWhile()`](collection-parts.md#take-and-drop) |
@@ -79,7 +70,17 @@ For any collection:
 | Skip elements with a predicate | `stream().dropWhile().collect()` | [`dropWhile()`](collection-parts.md#take-and-drop) |
 | Build maps from the collection elements and certain values associated with them | `stream().collect(toMap(keyMapper, valueMapper))` | [`associate()`](collection-transformations.md#associate) |
 
-To perform all operations listed above on maps, get an `entrySet` of a map firstly.
+To perform all the operations listed above on maps, get an `entrySet` of a map firstly.
+
+### Operations on lists
+
+| Description | Java | Kotlin |
+|-------------|------|--------|
+| Sort a list with a natural order | `sort(null)` | `sort()` |
+| Sort a list with a descending order | `sort(comparator)` | `sortDescending()` |
+| Remove an element from a list | `remove(index)`, `remove(element)`| `removeAt(index)`, `remove(element)` or [`collection -= element`](collection-plus-minus.md) |
+| Fill all elements of a list with some value | `Collections.fill()` | [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) |
+| Get unique elements of the list | `stream().distinct().toList()` | [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) |
 
 ## Operations that don't exist in the Java's standard library
 
