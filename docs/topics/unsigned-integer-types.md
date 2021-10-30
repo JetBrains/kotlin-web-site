@@ -1,4 +1,4 @@
-[//]: # (title: Unsigned types)
+[//]: # (title: Unsigned integer types)
 
 In addition to [integer types](numbers.md#integer-types), Kotlin provides the following types for unsigned integer numbers:
 

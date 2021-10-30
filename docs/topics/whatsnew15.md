@@ -341,7 +341,7 @@ You can learn more about the standard library changes in [this blog post](https:
 The `UInt`, `ULong`, `UByte`, `UShort` unsigned integer types are now [Stable](components-stability.md). The same goes
 for operations on these types, ranges, and progressions of them. Unsigned arrays and operations on them remain in Beta.
 
-[Learn more about unsigned integer types](unsigned-types.md).
+[Learn more about unsigned integer types](unsigned-integer-types.md).
 
 ### Stable locale-agnostic API for upper/lowercasing text
 

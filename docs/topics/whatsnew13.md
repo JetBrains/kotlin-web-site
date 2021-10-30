@@ -322,7 +322,7 @@ println("x: $x, y: $y, z: $z, range: $range")
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See [reference](unsigned-types.md) for details.
+See [reference](unsigned-integer-types.md) for details.
 
 ## @JvmDefault
 
