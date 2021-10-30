@@ -78,7 +78,7 @@ Or to initialize byte arrays without explicit `toByte()` literal casts:
 val byteOrderMarkUtf8 = ubyteArrayOf(0xEFu, 0xBBu, 0xBFu)
 ```
 
-Another yet use case is interoperability with native APIs. Kotlin allows representing native declarations that contain 
+Another use case is interoperability with native APIs. Kotlin allows representing native declarations that contain 
 unsigned types in the signature. The mapping won't substitute unsigned integers with signed ones keeping the semantics unaltered.
 
 ### Non-goals

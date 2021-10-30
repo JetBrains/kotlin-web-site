@@ -107,7 +107,7 @@ On the JVM platform, numbers are stored as primitive types: `int`, `double`, and
 Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
 In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
 
-Note that nullable references to the same number can be different objects:
+Note that nullable references to the same number can refer to different objects:
 
 ```kotlin
 fun main() {
