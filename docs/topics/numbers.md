@@ -12,8 +12,8 @@ For integer numbers, there are four types with different sizes and, hence, value
 | `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
 | `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
-All variables initialized with integer values not exceeding the maximum value of `Int`
-have the [inferred](type-inference.md) type `Int`. If the initial value exceeds this value, then the type is `Long`.
+If you initialize a variable with an integer value not exceeding the maximum value of `Int`, the compiler will 
+automatically infer the type `Int`. If the initial value exceeds the maximum value, then the type is `Long`.
 To specify the `Long` value explicitly, append the suffix `L` to the value.
 
 ```kotlin
