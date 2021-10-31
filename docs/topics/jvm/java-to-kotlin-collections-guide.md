@@ -135,9 +135,9 @@ try to modify a read-only collection, the code won’t compile:
 ```kotlin
 // Kotlin
 val numbers = mutableListOf("one", "two", "three", "four")
-numbers.add("five")            // this is OK
+numbers.add("five")            // This is OK
 val immutableNumbers = listOf("one", "two")
-//immutableNumbers.add("five") // compilation error - Unresolved reference: add
+//immutableNumbers.add("five") // Compilation error - Unresolved reference: add
 ```
 
 Read more about immutability in the [Kotlin coding conventions](coding-conventions.md#immutability).
@@ -362,7 +362,7 @@ public void remove() {
     numbers.add(2);
     numbers.add(3);
     numbers.add(1);
-    numbers.remove(1); // this removes by index
+    numbers.remove(1); // This removes by index
     System.out.println(numbers); // [1, 3, 1]
     numbers.remove(Integer.valueOf(1));
     System.out.println(numbers); // [3, 1]
@@ -444,7 +444,7 @@ result of, for example, the `firstOrNull()` function:
 
 ```kotlin
 // Kotlin
-val emails = listOf<String>() // might be empty
+val emails = listOf<String>() // Might be empty
 val theOldestEmail = emails.firstOrNull() ?: ""
 val theFreshestEmail = emails.lastOrNull() ?: ""
 ```
@@ -645,7 +645,8 @@ public void zip() {
     for(int i = 0; i < Math.min(colors.size(), animals.size()); i++) {
         String animal = animals.get(i);
         String color = colors.get(i);
-        animalsDescriptions.add("The " + animal.substring(0, 1).toUpperCase() + animal.substring(1) + " is " + color);
+        animalsDescriptions.add("The " + animal.substring(0, 1).toUpperCase() 
+            + animal.substring(1) + " is " + color);
     }
     System.out.println(animalsDescriptions);
 }
@@ -660,7 +661,8 @@ fun main() {
     val colors = listOf("red", "brown")
     val animals = listOf("fox", "bear", "wolf")
 
-    println(colors.zip(animals) { color, animal -> "The ${animal.replaceFirstChar { it.uppercase() }} is $color" })
+    println(colors.zip(animals) { color, animal -> 
+        "The ${animal.replaceFirstChar { it.uppercase() }} is $color" })
 //sampleEnd
 }
 ```
