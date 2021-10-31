@@ -43,10 +43,10 @@ In Kotlin, there are many operations on collections that look absolutely the sam
 
 | Description | Operation | Kotlin alternatives |
 |-------------|-----------|---------------------|
-| Get an index of some element | `indexOf()` |
-| Get the last index of some element | `lastIndexOf()` |
+| Get an index of some element | `indexOf()` | |
+| Get the last index of some element | `lastIndexOf()` | |
 | Get an element | `get()` | Use the indexing operator to get an element: `list[index]`. |
-| Take a sublist | `subList()` |
+| Take a sublist | `subList()` | |
 | Replace an element or elements | `set()`,  `replaceAll()` | Use the indexing operator instead of `set()`: `list[index] = value`. |
 
 ## Operations differ a bit
@@ -112,7 +112,7 @@ Partially mutable:
 ```java
 // Java
 List<String> numbers = Arrays.asList("one", "two", "three", "four");
-numbers.add("five");
+numbers.add("five"); // Fails in runtime with `UnsupportedOperationException`
 ```
 
 And immutable collections:
@@ -122,7 +122,7 @@ And immutable collections:
 List<String> numbers = new LinkedList<>();
 // This list is immutable!
 List<String> immutableCollection = Collections.unmodifiableList(numbers);
-immutableCollection.add("five");
+immutableCollection.add("five"); // Fails in runtime with `UnsupportedOperationException`
 ```
 
 If you write the last two pieces of code in IntellijIDEA, the IDE will warn you that you’re trying to modify an immutable object, but
@@ -133,15 +133,11 @@ Apparently from Java, in Kotlin you explicitly declare mutable or read-only coll
 try to modify a read-only collection, the code won’t compile:
 
 ```kotlin
-fun main() {
-//sampleStart
-    // Kotlin
-    val numbers = mutableListOf("one", "two", "three", "four")
-    numbers.add("five")      // this is OK
-    val immutableNumbers = listOf("one", "two")
-    //immutableNumbers.add("five")      // compilation error - Unresolved reference: add
-//sampleEnd
-}
+// Kotlin
+val numbers = mutableListOf("one", "two", "three", "four")
+numbers.add("five")            // this is OK
+val immutableNumbers = listOf("one", "two")
+//immutableNumbers.add("five") // compilation error - Unresolved reference: add
 ```
 
 Read more about immutability in the [Kotlin coding conventions](coding-conventions.md#immutability).
@@ -225,12 +221,16 @@ public void compareVersions() {
     var minVersion = new Version(1, 11);
     var maxVersion = new Version(1, 31);
 
-   System.out.println(versionIsInRange(new Version(0, 9), minVersion, maxVersion));
-   System.out.println(versionIsInRange(new Version(1, 20), minVersion, maxVersion));
+   System.out.println(
+           versionIsInRange(new Version(0, 9), minVersion, maxVersion));
+   System.out.println(
+           versionIsInRange(new Version(1, 20), minVersion, maxVersion));
 }
 
-public Boolean versionIsInRange(Version versionToCheck, Version minVersion, Version maxVersion) {
-    return versionToCheck.compareTo(minVersion) >= 0 && versionToCheck.compareTo(maxVersion) <= 0;
+public Boolean versionIsInRange(Version versionToCheck, Version minVersion, 
+                                Version maxVersion) {
+    return versionToCheck.compareTo(minVersion) >= 0 
+            && versionToCheck.compareTo(maxVersion) <= 0;
 }
 ```
 
@@ -292,8 +292,10 @@ class Person implements Comparable<Person> {
 }
 
 public void comparePersons() {
-    var persons = List.of(new Person("Jack", 35), new Person("David", 30), new Person("Jack", 25));
-    System.out.println(persons.stream().sorted(Comparator.comparing(Person::getName)
+    var persons = List.of(new Person("Jack", 35), new Person("David", 30), 
+            new Person("Jack", 25));
+    System.out.println(persons.stream().sorted(Comparator
+            .comparing(Person::getName)
             .thenComparingInt(Person::getAge)).collect(toList()));
 }
 ```
@@ -307,7 +309,8 @@ data class Person(
 )
 
 fun main() {
-    val persons = listOf(Person("Jack", 35), Person("David", 30), Person("Jack", 25))
+    val persons = listOf(Person("Jack", 35), Person("David", 30), 
+        Person("Jack", 25))
     println(persons.sortedWith(compareBy(Person::name, Person::age)))
 }
 ```
@@ -414,7 +417,7 @@ var list=new ArrayList<>();
 //...
 if (list.size() > 0) {
     System.out.println(list.get(0));
-    System.out.println(list.get(list.size()-1));
+    System.out.println(list.get(list.size() - 1));
 }
 ```
 
@@ -487,7 +490,8 @@ public void analyzeLogs() {
         new Request("https://kotlinlang.org/docs/home.html", 400),
         new Request("https://kotlinlang.org/docs/comparison-to-java.html", 200)
     );
-    var urlsAndRequests = requests.stream().collect(Collectors.groupingBy(Request::getUrl));
+    var urlsAndRequests = requests.stream().collect(
+            Collectors.groupingBy(Request::getUrl));
     System.out.println(urlsAndRequests);
 }
 ```
@@ -505,6 +509,7 @@ fun main() {
     // Kotlin
     val requests = listOf(
         Request("https://kotlinlang.org/docs/home.html", 200),
+        Request("https://kotlinlang.org/docs/home.html", 400),
         Request("https://kotlinlang.org/docs/comparison-to-java.html", 200)
     )
     println(requests.groupBy(Request::url))
@@ -525,8 +530,9 @@ For example, you want only those pairs which keys end with `1` and values are gr
 public void filterEndsWith() {
     var numbers = Map.of("key1", 1, "key2", 2, "key3", 3, "key11", 11);
     var filteredNumbers = numbers.entrySet().stream()
-            .filter(entry -> entry.getKey().endsWith("1") && entry.getValue() > 10)
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        .filter(entry -> entry.getKey().endsWith("1") 
+        && entry.getValue() > 10)
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     System.out.println(filteredNumbers);
 }
 ```
@@ -539,7 +545,8 @@ fun main() {
 //sampleStart
     // Kotlin
     val numbers = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key11" to 11)
-    val filteredNumbers = numbers.filter { (key, value) -> key.endsWith("1") && value > 10 }
+    val filteredNumbers = numbers.filter { (key, value) -> key.endsWith("1") 
+            && value > 10 }
     println(filteredNumbers)
 //sampleEnd
 }
@@ -563,7 +570,8 @@ public void objectIsInstance() {
     numbers.add(3.0);
     numbers.add("four");
     System.out.println("All String elements in upper case:");
-    numbers.stream().filter(it -> it instanceof String).forEach( it -> System.out.println(((String) it).toUpperCase()));
+    numbers.stream().filter(it -> it instanceof String)
+        .forEach( it -> System.out.println(((String) it).toUpperCase()));
 }
 ```
 
@@ -670,7 +678,8 @@ use the [Stream API](https://docs.oracle.com/en/java/javase/17/docs/api/java.bas
 // Java
 public void associate() {
     var numbers = List.of("one", "two", "three", "four");
-    var wordAndLength = numbers.stream().collect(toMap(number -> number, String::length));
+    var wordAndLength = numbers.stream()
+        .collect(toMap(number -> number, String::length));
     System.out.println(wordAndLength);
 }
 ```
