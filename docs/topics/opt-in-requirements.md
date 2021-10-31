@@ -7,7 +7,7 @@
 {type="warning"}
 
 > `@RequireOptIn` and `@OptIn` annotations were introduced in 1.3.70 to replace previously used `@Experimental` and `@UseExperimental`;
-> at the same time, `-opt-in` compiler option replaced `-Xuse-experimental`.
+> at the same time, `-Xopt-in` compiler option replaced `-Xuse-experimental`.
 >
 {type="note"} 
 
@@ -20,7 +20,7 @@ requires them to opt in before using the API.
 
 ## Opt in to using API
 
-If a library author marks a declaration from a library's API as [requiring opt-in](#require-opt-in-for-api),
+If a library author marks a declaration from a library's API as _[requiring opt-in](#require-opt-in-for-api)_,
 you should give an explicit consent for using it in your code. 
 There are several ways to opt in to such APIs, all applicable without technical limitations.
 You are free to choose the way that you find best for your situation. 
@@ -28,7 +28,7 @@ You are free to choose the way that you find best for your situation.
 ### Propagating opt-in
 
 When you use an API in the code intended for third-party use (a library), you can propagate its opt-in requirement to your API as well.
-To do this, annotate your declaration with the [opt-in requirement annotation](#create-opt-in-requirement-annotations) of the API used in its body.
+To do this, annotate your declaration with the _[opt-in requirement annotation](#create-opt-in-requirement-annotations)_ of the API used in its body.
 This enables you to use API elements that require opt-in.
 
 ```kotlin
@@ -139,8 +139,8 @@ to the top of the file before the package specification and imports.
 ### Module-wide opt-in
 
 If you don't want to annotate every usage of APIs that require opt-in, you can opt in to them for your whole module.
-To opt in to using an API in a module, compile it with the argument `-opt-in`,
-specifying the fully qualified name of the opt-in requirement annotation of the API you use: `-opt-in=org.mylibrary.OptInAnnotation`.
+To opt in to using an API in a module, compile it with the argument `-Xopt-in`,
+specifying the fully qualified name of the opt-in requirement annotation of the API you use: `-Xopt-in=org.mylibrary.OptInAnnotation`.
 Compiling with this argument has the same effect as if every declaration in the module had the annotation`@OptIn(OptInAnnotation::class)`.
 
 If you build your module with Gradle, you can add arguments like this:
@@ -150,7 +150,7 @@ If you build your module with Gradle, you can add arguments like this:
 
 ```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
 }
 ```
 
@@ -160,7 +160,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
     kotlinOptions {
-        freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+        freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
     }
 }
 ```
@@ -209,7 +209,7 @@ For Maven, it would be:
             <executions>...</executions>
             <configuration>
                 <args>
-                    <arg>-opt-in=org.mylibrary.OptInAnnotation</arg>                    
+                    <arg>-Xopt-in=org.mylibrary.OptInAnnotation</arg>                    
                 </args>
             </configuration>
         </plugin>
@@ -302,8 +302,8 @@ This means that in future releases it may be changed in ways that make it incomp
 To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
 the compiler raises warnings when compiling the code with these annotations:
 
-```This class can only be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
+```This class can only be used with the compiler argument '-Xopt-in=kotlin.RequiresOptIn'```
 
-To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
+To remove the warnings, add the compiler argument `-Xopt-in=kotlin.RequiresOptIn`.
 
 Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/d7287626dd4c40c6c89877e266044b83fca38bcd/proposals/opt-in.md).

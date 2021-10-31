@@ -20,7 +20,7 @@ Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle pr
 
 ```kotlin
 plugins {
-     kotlin("js") version "'%kotlinVersion%"
+     kotlin("js") version "%kotlinVersion%"
 }
 ```
 

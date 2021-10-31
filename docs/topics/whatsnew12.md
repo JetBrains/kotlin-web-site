@@ -238,7 +238,7 @@ form (`foo(items = i)`) has been deprecated. Please use the spread operator with
 array factory functions:
 
 ```kotlin
-foo(items = *intArrayOf(1))
+foo(items = *arrayOf(1))
 ```
 
 There is an optimization that removes redundant arrays creation in such cases, which prevents performance degradation.

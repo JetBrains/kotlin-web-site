@@ -8,7 +8,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS with React.
 
-1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **React Application** as the project template, and click **Next**.
    
@@ -122,17 +122,30 @@ Enter your name in the text box and accept the greetings from your application!
 
 ## What's next?
 
-Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/JS.
-They include sample projects, which can serve as nice jumping-off points for your own projects, and contain useful snippets and patterns.
+Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form Kotlin/JS tutorials
+or check out the list of Kotlin/JS sample projects for inspiration. Both types of resources contain useful snippets and
+patterns and can serve as a nice jump-off point for your own projects.
 
-For Kotlin/JS, the following hands-on labs are currently available:
+### Hands-on labs
 
-* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) 
-guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin 
-DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components, 
-and how to obtain information from APIs, while writing the whole application logic in pure Kotlin/JS.
+* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
+guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin
+DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components and
+obtain information from APIs, all while writing the whole application logic in pure Kotlin/JS.
 
-* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
-teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
+* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
+teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
 application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
+
+### Sample projects
+
+* [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
+shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, Spring
+for the backend, Kotlin/JS with React for the frontend, and RSocket.
+* [Kotlin/JS and React Redux to-do list](https://github.com/Kotlin/react-redux-js-ir-todo-list-sample) implements
+the React Redux to-do list using JS libraries (`react`, `react-dom`, `react-router`, `redux`, and `react-redux`)
+from npm and Webpack to bundle, minify, and run the project.
+* [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample) guides you through
+the process of building an app with a feed containing user-generated posts and comments. All data is stubbed by
+the fakeJSON and JSON Placeholder services.

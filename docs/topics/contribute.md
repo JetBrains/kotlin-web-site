@@ -31,7 +31,7 @@ If you have a library that could be useful to other Kotlin developers, let us kn
 ## Contribute to the documentation
 
 If you've found an issue in the Kotlin documentation, 
-feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/pages/docs)
+feel free to check out [the documentation source code on GitHub](https://github.com/JetBrains/kotlin-web-site/tree/master/docs/topics)
 and send us a pull request. Follow [these guidelines on style and formatting](https://docs.google.com/document/d/1mUuxK4xwzs3jtDGoJ5_zwYLaSEl13g_SuhODdFuh2Dc/edit?usp=sharing).
 
 Please keep an open line of communication with us because we may have questions and comments on your changes. 

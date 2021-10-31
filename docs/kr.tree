@@ -4,10 +4,10 @@
 
 <product-profile id="kr"
                  name="Kotlin"
-                 start-page="home.md"
+                 start-page="home.xml"
                  status="release">
 
-    <toc-element id="home.md" toc-title="Home"/>
+    <toc-element id="home.xml" toc-title="Home"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
@@ -180,6 +180,7 @@
                 <toc-element id="typesafe-html-dsl.md"/>
                 <toc-element id="js-external-declarations-with-dukat.md"/>
             </toc-element>
+            <toc-element id="js-samples.md"/>
             <toc-element id="js-hands-ons.md"/>
         </toc-element>
 
@@ -308,6 +309,7 @@
         <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
         <toc-element id="koans.md"/>
         <toc-element href="https://hyperskill.org/tracks/18" toc-title="Kotlin Basics track"/>
+        <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>
         <toc-element id="books.md"/>
         <toc-element toc-title="Learn in IDE (EduTools)">
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
@@ -328,6 +330,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-16.md"/>
                 <toc-element id="compatibility-guide-15.md"/>
                 <toc-element id="compatibility-guide-14.md"/>
                 <toc-element id="compatibility-guide-13.md" />
@@ -343,7 +346,13 @@
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
-        <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        <toc-element toc-title="Kotlin brand assets">
+            <toc-element id="kotlin-mascot.md"/>
+            <toc-element id="kotlin-logo.md"/>
+            <toc-element id="kotlin-nights-branding.md"/>
+            <toc-element id="kug-branding.md"/>
+            <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        </toc-element>
     </toc-element>
 
 </product-profile>

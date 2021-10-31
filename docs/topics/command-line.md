@@ -1,21 +1,28 @@
 [//]: # (title: Kotlin command-line compiler)
 
-Every release ships with a standalone version of the compiler. You can download the latest version (`kotlin-compiler-%kotlinVersion%.zip`)
+Every Kotlin release ships with a standalone version of the compiler. You can download the latest version (`kotlin-compiler-%kotlinVersion%.zip`)
 from [GitHub Releases](%kotlinLatestUrl%).
+
+>Installing the command-line compiler is not an essential step to use Kotlin. A general way to write Kotlin applications is using an
+>IDE - [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [Android Studio](https://developer.android.com/studio).
+>They provide full Kotlin support out of the box without needing additional components. Learn how to 
+[get started with Kotlin in an IDE](getting-started.md).
+> 
+{type="note"}
 
 ## Install the compiler
 
 ### Manual install
 
 Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
-The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X and Linux.
+The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X, and Linux.
 
 ### SDKMAN!
 
-An easier way to install Kotlin on UNIX-based systems such as OS X, Linux, Cygwin, FreeBSD, and Solaris is
+An easier way to install Kotlin on UNIX-based systems, such as OS X, Linux, Cygwin, FreeBSD, and Solaris, is
 [SDKMAN!](https://sdkman.io). It also works in Bash and ZSH shells. [Learn how to install SDKMAN!](https://sdkman.io/install).
 
-To install the Kotlin compiler via SDKMAN!, run the following command in a terminal:
+To install the Kotlin compiler via SDKMAN!, run the following command in the terminal:
 
 ```bash
 $ sdk install kotlin
@@ -41,7 +48,7 @@ $ sudo snap install --classic kotlin
 ## Create and run an application
 
 1. Create a simple application in Kotlin that displays `"Hello, World!"`. In your favorite editor, create a new file called
-`hello.kt` with the following lines:
+   `hello.kt` with the following lines:
 
    ```kotlin
    fun main() {
@@ -74,13 +81,13 @@ library in it.
 ## Compile a library
 
 If you're developing a library to be used by other Kotlin applications, you can build the *.jar* file without including
-the Kotlin runtime into it.
+the Kotlin runtime in it.
 
 ```bash
 $ kotlinc hello.kt -d hello.jar
 ```
 
-Since binaries compiled this way depend on the Kotlin runtime you should make sure the latter is present in the classpath
+Since binaries compiled this way depend on the Kotlin runtime, you should make sure the latter is present in the classpath
 whenever your compiled library is used.
 
 You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
@@ -113,19 +120,20 @@ val folders = File(path).listFiles { file -> file.isDirectory() }
 folders?.forEach { folder -> println(folder) }
 ```
 
-To run a script, we just pass the `-script` option to the compiler with the corresponding script file.
+To run a script, pass the `-script` option to the compiler with the corresponding script file.
 
 ```bash
 $ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 ```
 
-Since 1.3.0, Kotlin has an experimental support for scripts customization, such as adding external properties, 
-providing static or dynamic dependencies, and so on. Customizations are defined by so-called *Script definitions* - 
-annotated kotlin classes with appropriate support code. The script filename extension is used to select appropriate
+Kotlin provides experimental support for script customization, such as adding external properties,
+providing static or dynamic dependencies, and so on. Customizations are defined by so-called *Script definitions* -
+annotated kotlin classes with the appropriate support code. The script filename extension is used to select the appropriate
 definition.
 
 Properly prepared script definitions are detected and applied automatically when the appropriate jars are included
-in the compilation classpath. Alternatively, you can specify definitions manually using `-script-templates` option to the compiler:
+in the compilation classpath. Alternatively, you can specify definitions manually by passing the `-script-templates` option
+to the compiler:
 
 ```bash
 $ kotlinc -script-templates org.example.CustomScriptDefinition -script custom.script1.kts

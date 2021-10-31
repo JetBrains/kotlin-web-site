@@ -23,7 +23,7 @@ patterns. The key feature of Kotlin's design is that the implementation of corou
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
 A coroutine is effectively a light-weight thread that can be suspended and resumed later.
-Coroutines are supported through [suspending functions](coroutines-basics.md#extract-function-refactoring):
+Coroutines are supported through _[suspending functions](coroutines-basics.md#extract-function-refactoring)_:
 a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
 
 Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 

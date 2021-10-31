@@ -28,9 +28,10 @@ export function openPopup() {
     isInited = true;
   }
 
-  $searchPopup.removeClass('_hidden');
+  $searchPopup.one('transitionend', () => $('.ais-SearchBox-input').focus());
+
+  $searchPopup.addClass('_visible');
   $('body').addClass('_no-scroll');
-  $('.ais-SearchBox-input').focus();
 }
 
 export function initSearch() {
@@ -99,13 +100,14 @@ export function initSearch() {
     $('.ais-InfiniteHits-item:first').addClass('_active')
   });
 
-  const $input = $('.ais-SearchBox-input');
-
   function closePopup() {
-    search.helper.setQuery('').clearRefinements().search();
-    $('body').removeClass('_no-scroll');
-    $searchPopup.addClass('_hidden');
+    const $input = $('.ais-SearchBox-input');
     $input.val('');
+    $input[0].dispatchEvent(new Event('input'));
+    $input.blur();
+
+    $('body').removeClass('_no-scroll');
+    $searchPopup.removeClass('_visible');
   }
 
   $searchPopup.keyup(function (e) {
@@ -144,7 +146,10 @@ export function initSearch() {
     }
   });
 
-  $closeButton.on('click', closePopup);
+  $closeButton.on('click', event => {
+    event.stopPropagation();
+    closePopup();
+  });
 
   $(".search-popup").click(function () {
     $(".ais-SearchBox-input").select();
