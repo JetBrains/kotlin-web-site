@@ -31,6 +31,7 @@ initialization fluent here.
 val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this["two"] = "2" }
 ```
 
+<<<<<<< HEAD
 ## Create with collection builder functions
 
 Another way of creating a collection is to call a builder function –
@@ -38,6 +39,12 @@ Another way of creating a collection is to call a builder function –
 or [`buildMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html). They create a new
 mutable collection of the corresponding type, populate it using [write operations](collection-write.md),
 and return a read-only collection with the same elements.
+=======
+## Create with builder functions
+
+Another way of creating a collection is to call a builder function — [`buildMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html),
+[`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html), or [`buildSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-set.html):
+>>>>>>> d107135e (feat: new stable builder functions for creating collections)
 
 ```kotlin
 val map = buildMap {
@@ -45,8 +52,11 @@ val map = buildMap {
     put("b", 1.1)
     put("c", 2f)
 }
+<<<<<<< HEAD
 
 println(map) // {a=1, b=1.1, c=2f}
+=======
+>>>>>>> d107135e (feat: new stable builder functions for creating collections)
 ```
 
 ## Empty collections
