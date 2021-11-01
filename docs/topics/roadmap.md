@@ -33,7 +33,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current) ![YouTrack](youtrack-logo.png){width=30}{type="joined"}
 
-![Roadmap board in YouTrack](roadmap-board.png)
+![Roadmap board in YouTrack](roadmap-board.png){width=700}
 
 ### Roadmap details
 
@@ -213,8 +213,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Website</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 !FIX LINK! Kotlin Playground improvements</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-83" target="_blank">🆕 !FIX LINK! Infrastructure for documentation localization by community</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49536" target="_blank">🆕 Improve Kotlin Playground</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49537" target="_blank">🆕 Infrastructure for documentation localization by community</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44339" target="_blank">Make the Kotlin website mobile friendly</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46791" target="_blank">Make the UI and navigation consistent</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46792" target="_blank">Update community graphic assets to the new Kotlin visual style</a></li>
@@ -300,14 +300,14 @@ We've **added** the following items to the roadmap:
 * 🆕 IDE: [Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KTIJ-20044)
 * 🆕 IDE: [Improved MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
 * 🆕 IDE: [Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KTIJ-20046)
-* 🆕 Build tools: [!FIX LINK! Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KFC-249)
-* 🆕 Build tools: [!FIX LINK! Make KAPT work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KFC-256)
+* 🆕 Build tools: [Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KT-49532)
+* 🆕 Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)
 * 🆕 Libraries: [Stable release of Dokka](https://youtrack.jetbrains.com/issue/KT-48998)
 * 🆕 Libraries: [Initial release of `kotlinx-kover` and its further productization](https://youtrack.jetbrains.com/issue/KT-49527)
 * 🆕 Libraries: [`kotlinx-serialization` 1.4 release](https://youtrack.jetbrains.com/issue/KT-49528)
 * 🆕 Libraries: [`kotlinx-coroutines` 1.7 release](https://youtrack.jetbrains.com/issue/KT-49529)
-* 🆕 Website: [!FIX LINK! Kotlin Playground improvements](https://youtrack.jetbrains.com/issue/KFC-83)
-* 🆕 Website: [!FIX LINK! Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KFC-83)
+* 🆕 Website: [Improve Kotlin Playground](https://youtrack.jetbrains.com/issue/KT-49536)
+* 🆕 Website: [Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KT-49537)
 
 ### Removed items
 
