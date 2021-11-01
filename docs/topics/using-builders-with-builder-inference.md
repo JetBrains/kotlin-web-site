@@ -1,6 +1,6 @@
 [//]: # (title: Using builders with builder type inference)
 
-Kotlin supports _builder type inference_ (or builder inference), which is a type inference flavour that comes in handy 
+Kotlin supports _builder type inference_ (or builder inference), which is a type inference flavor that comes in handy 
 when working with generic builders. It helps the compiler infer the type arguments of a builder call based on the type information 
 about other calls inside its lambda argument.
 
@@ -29,7 +29,7 @@ As you can see, builder inference allows omitting type arguments while using gen
 ### Requirements for enabling builder inference
 
 > Before Kotlin 1.6.0, enabling builder inference for a builder function required the [`@BuilderInference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-builder-inference/) 
-> annotation to be present on a builder lambda parameter. In 1.6.0, you can omit the annotation on condition of using
+> annotation to be present on a builder lambda parameter. In 1.6.0, you can omit the annotation on the condition of using
 > the compiler option `-Xenable-builder-inference` both on your and client's side.
 > 
 {type="note"}
@@ -133,7 +133,7 @@ Builder inference supports:
 ### Postponed type variables
 
 Builder inference works in terms of _postponed type variables_, which appear inside builder lambda during builder 
-inference analysis. Postponed type variable is a type argument's type, which is in the process of inferring. 
+inference analysis. A postponed type variable is a type argument's type, which is in the process of inferring. 
 The compiler uses it for collecting type information about the type argument.
 
 Consider the example with [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html):
@@ -257,7 +257,7 @@ So the resulting type is the most specific type that corresponds to the type inf
 If given type information is contradictory and cannot be merged, the compiler reports an error.
 
 Note that the Kotlin compiler uses builder inference only if regular type inference cannot infer a type argument.
-It means you can contribute a type information outside a builder lambda, and then builder inference analysis is not
+It means you can contribute type information outside a builder lambda, and then builder inference analysis is not
 required. Consider the example:
 
 ```kotlin
