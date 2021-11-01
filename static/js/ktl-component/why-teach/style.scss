@@ -1,9 +1,29 @@
+.why-teach-grid {
+  &__nav {
+    display: none;
+  }
+  @media (min-width: 1200px) {
+    display: flex;
+    &__content {
+      max-width: 70%;
+    }
+    &__nav {
+      display: block;
+      margin-left: 96px;
+    }
+  }
+}
+
+.why-teach-nav {
+  position: sticky;
+  top: 96px;
+}
+
 .quote-section {
   &__info {
     display: none;
   }
   @media (min-width: 768px) {
-    max-width: 70%;
     &__grid {
       display: flex;
     }
@@ -14,5 +34,16 @@
       display: block;
       margin-left: 32px;
     }
+  }
+}
+
+.ktl-with-anchor {
+  &:before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 96px;
+    margin-top: -96px;
   }
 }
