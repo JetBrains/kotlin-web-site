@@ -266,6 +266,17 @@
   color: rgba(39, 40, 44, 0.5);
 }
 
+.ktl-link {
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity .3s;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
 .teach-bottom-buttons {
   display: grid;
   grid-template-areas: "a a";

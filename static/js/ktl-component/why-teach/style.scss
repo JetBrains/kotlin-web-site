@@ -1,0 +1,18 @@
+.quote-section {
+  &__info {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    max-width: 70%;
+    &__grid {
+      display: flex;
+    }
+    &__content {
+      max-width: 70%;
+    }
+    &__info {
+      display: block;
+      margin-left: 32px;
+    }
+  }
+}
