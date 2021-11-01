@@ -45,6 +45,7 @@ val map = buildMap { // this is MutableMap<String, Int>, types of key and value 
     put("b", 0)
     put("c", 4)
 }
+
 println(map) // {a=1, b=0, c=4}
 ```
 
