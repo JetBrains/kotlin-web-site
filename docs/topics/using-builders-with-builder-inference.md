@@ -1,7 +1,7 @@
 [//]: # (title: Using builders with builder type inference)
 
 Kotlin supports _builder type inference_ (or builder inference), which is a type inference flavour that comes in handy 
-when writing generic builders. It helps the compiler infer the type arguments of a builder call based on the type information 
+when working with generic builders. It helps the compiler infer the type arguments of a builder call based on the type information 
 about other calls inside its lambda argument.
 
 Consider the example of the [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html) 
@@ -46,7 +46,8 @@ function type with receiver. There are also two requirements to a receiver type:
    > 
    {type="note"}
 
-2. It should provide public members that contain the corresponding type parameters in their signature. For example:
+2. It should provide public members or extensions that contain the corresponding type parameters in their signature. 
+   For example:
    ```kotlin
    class ItemHolder<T> {
        private val items = mutableListOf<T>()
@@ -57,6 +58,10 @@ function type with receiver. There are also two requirements to a receiver type:
 
        fun getLastItem(): T? = items.lastOrNull()
    }
+   
+   fun <T> ItemHolder<T>.addAllItems(xs: List<T>) {
+       xs.forEach { addItem(it) }
+   }
 
    fun <T> itemHolderBuilder(builder: ItemHolder<T>.() -> Unit): ItemHolder<T> = 
        ItemHolder<T>().apply(builder)
@@ -65,7 +70,10 @@ function type with receiver. There are also two requirements to a receiver type:
        val itemHolder1 = itemHolderBuilder { // Type of itemHolder1 is ItemHolder<String>
            addItem(s)
        }
-       val itemHolder2 = itemHolderBuilder { // Type of itemHolder2 is ItemHolder<String?>
+       val itemHolder2 = itemHolderBuilder { // Type of itemHolder2 is ItemHolder<String>
+           addAllItems(listOf(s)) 
+       }
+       val itemHolder3 = itemHolderBuilder { // Type of itemHolder3 is ItemHolder<String?>
            val lastItem: String? = getLastItem()
            // ...
        }
@@ -126,8 +134,7 @@ Builder inference supports:
 
 Builder inference works in terms of _postponed type variables_, which appear inside builder lambda during builder 
 inference analysis. Postponed type variable is a type argument's type, which is in the process of inferring. 
-This means that the compiler still doesn't associate it with some concrete type but uses it for collecting a type 
-information about the type argument.
+The compiler uses it for collecting type information about the type argument.
 
 Consider the example with [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html):
 
@@ -140,8 +147,8 @@ val result = buildList {
 Here `x` has a type of postponed type variable: the `get()` call returns a value of `E` type but `E` itself is not yet 
 fixed. At this moment, a concrete type for `E` is unknown. 
 
-When a value of postponed type variable gets associated with some concrete type, builder inference uses this association 
-to infer the resulting type of the corresponding type argument. For example:
+When a value of postponed type variable gets associated with some concrete type, builder inference collects this information 
+to infer the resulting type of the corresponding type argument at the end of builder inference analysis. For example:
 
 ```kotlin
 val result = buildList {
@@ -150,16 +157,17 @@ val result = buildList {
 } // result has the List<String> type inferred
 ```
 
-After the postponed type variable gets assigned to a variable of the `String` type, builder inference can infer `E` into
-`String`.
+After the postponed type variable gets assigned to a variable of the `String` type, builder inference gets information
+that `x` is a subtype of `String`. This assignment is the last statement in the builder lambda, so the builder inference 
+analysis ends with the result of inferring the type argument `E` into `String`.
 
 Note that you can always call `equals()`, `hashCode()`, and `toString()` functions with a postponed type variable as a 
-receiver. Once the postponed type variable gets associated with some concrete type, you can use it as a call argument, 
-call available extensions, and access available properties.
+receiver.
 
 ### Contributing to builder inference results
 
-There are multiple options to contribute to builder inference results:
+Builder inference can collect different flavors of type information that contributes to the analysis result.
+It considers:
 * Calling methods on a lambda's receiver that use a type parameter's type:
   ```kotlin
   val result = buildList {
@@ -231,6 +239,22 @@ There are multiple options to contribute to builder inference results:
   }
   ```
 * Using nested interdependent builder inference calls.
+
+At the end of the analysis, builder inference considers all collected type information and tries to merge it into 
+the resulting type. See the example.
+
+```kotlin
+val result = buildList { // Inferring postponed type variable E
+    // Considering E is Number or a subtype of Number
+    val n: Number? = getOrNull(0)
+    // Considering E is Int or a supertype of Int
+    add(1)
+    // E gets inferred into Int
+} // result has the List<Int> type
+```
+
+So the resulting type is the most specific type that corresponds to the type information collected during the analysis.
+If given type information is contradictory and cannot be merged, the compiler reports an error.
 
 Note that the Kotlin compiler uses builder inference only if regular type inference cannot infer a type argument.
 It means you can contribute a type information outside a builder lambda, and then builder inference analysis is not
