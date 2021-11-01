@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td><strong>Last modified on</strong></td>
-        <td>October 2021</td>
+        <td>November 2021</td>
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
@@ -65,12 +65,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler core</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-88" target="_blank">🆕 !FIX LINK! Stable Compiler Plugin API</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-105" target="_blank">🆕 !FIX LINK! K2/JS investigation</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">Release the new compiler frontend in Alpha for JVM target</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">🆕 Stabilize the Compiler Plugin API</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49510" target="_blank">🆕 K2/JS investigation</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">Release the K2/JVM compiler in Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank">Finalize support for jspecify</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank"> !FIX LINK! Scripting improvements</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Scripting improvements</a></li>
             </ul>
         </td>
         <td></td>
@@ -79,14 +79,14 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin/JVM</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-131" target="_blank">🆕 !FIX LINK! Release kotlinx-metadata-jvm as Stable</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-160" target="_blank">🆕 !FIX LINK! Fix issues related to inline classes on JVM</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49513" target="_blank">🆕 Release kotlinx-metadata-jvm as Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49514" target="_blank">🆕 Fix issues related to inline classes on the JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-17699" target="_blank">🆕 Allow private top-level classes or type aliases with same name in different files on JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-25871" target="_blank">🆕 Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-47939" target="_blank">🆕 Support method references to functional interface constructors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-8575" target="_blank">🆕 Support Java synthetic property references</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46767" target="_blank">Maintain the new JVM IR backend</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46768" target="_blank">Improve new JVM IR backend compilation time</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46768" target="_blank">Improve the new JVM IR backend compilation time</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46770" target="_blank">Stabilize JVM-specific experimental features</a></li>
             </ul>
          </td>
@@ -121,7 +121,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin/Native</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">🆕 !FIX LINK! Promote new memory manager to Alpha</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49520" target="_blank">🆕 Promote new memory manager to Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve compilation time</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">Native: provide binary compatibility between incremental releases</a></li>
@@ -130,7 +130,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ !FIX LINK! Direct interoperability with Swift</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49521" target="_blank">⏸ Direct interoperability with Swift</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">⏸ Support running Kotlin/Native-produced binaries on Alpine Linux</a></li>
             </ul>
         </td>
@@ -139,9 +139,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin Multiplatform</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-265" target="_blank">🆕 !FIX LINK! Improve environment setup experience for KMM projects</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 !FIX LINK! Improve DSL for managing Kotlin/Native binary output</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-266" target="_blank">🆕 !FIX LINK! Improve stability and robustness of multiplatform toolchain</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49523" target="_blank">🆕 Improve environment setup experience for KMM projects</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49524" target="_blank">🆕 Improve DSL for managing Kotlin/Native binary output</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49525" target="_blank">🆕 Improve stability and robustness of the multiplatform toolchain</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44329" target="_blank">Improve UX of using Native libraries in Kotlin</a></li>
             </ul>
          </td>
@@ -156,10 +156,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>IDE</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46788" target="_blank">🆕 !FIX LINK! Fast update of compiler/platform versions</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-198" target="_blank">🆕 !FIX LINK! MPP support improvement</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-197" target="_blank">🆕 !FIX LINK! Eclipse plugin stabilization</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype IDE plugin with the new compiler frontend</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Fast update of compiler/platform versions</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improved MPP support</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Eclipse plugin stabilization</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">Improve IDE performance</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44330" target="_blank">Improve debugging experience</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46787" target="_blank">Improve the New Project wizard</a></li>
@@ -167,8 +167,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
          </td>
         <td>
             <ul>
-                <li>⏸ Advanced tooling that users have in Java but is missing in Kotlin</li>
-                <li>⏸ Quality of less frequently used features, except blocking problems</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20047" target="_blank">⏸ Advanced tooling that users have in Java but is missing in Kotlin</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20048" target="_blank">⏸ Quality of less frequently used features, except blocking problems</a></li>
             </ul>
         </td>
     </tr>
@@ -176,15 +176,15 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Build tools</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-249" target="_blank">🆕 !FIX LINK! Provide better experience with Kotlin Daemon</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-256" target="_blank">🆕 !FIX LINK! Make KAPT work out of the box with latest JDKs</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49532" target="_blank">🆕 Provide better experience with Kotlin Daemon</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49533" target="_blank">🆕 Make kapt work out of the box with latest JDKs</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46789" target="_blank">Improve user experience with the Kotlin Gradle plugin</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46789" target="_blank">Improve the user experience with the Kotlin Gradle plugin</a></li>
             </ul>
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46788" target="_blank">⏸ Improve the quality of Gradle import</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18810" target="_blank">⏸ Improve the quality of Gradle import</a></li>
             </ul>
         </td>
     </tr>
@@ -193,12 +193,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">🆕 Stable release of Dokka</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-280" target="_blank">🆕 !FIX LINK! Initial release of kotlinx-kover and its further productization</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-286" target="_blank">🆕 !FIX LINK! kotlinx-serialization 1.4 release</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KFC-279" target="_blank">🆕 !FIX LINK! kotlinx-coroutines 1.7 release</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document atomicfu</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve kotlinx-datetime library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support java.nio.Path extension in the standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">🆕 Initial release of <code>kotlinx-kover</code> and its further productization</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49528" target="_blank">🆕 <code>kotlinx-serialization</code> 1.4 release</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49529" target="_blank">🆕 <code>kotlinx-coroutines</code> 1.7 release</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document <code>atomicfu</code></a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support <code>java.nio.Path</code> extension in the standard library</a></li>
             </ul>
          </td>
         <td>
@@ -242,27 +242,36 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Language: [Allow repeating annotations with runtime retention when compiling under Java 8](https://youtrack.jetbrains.com/issue/KT-12794)
 * ✅ Language: [Support annotations on class type parameters](https://youtrack.jetbrains.com/issue/KT-43714)
 * ✅ Language: [Improve type inference in corner cases for popular Java APIs](https://youtrack.jetbrains.com/issue/KT-40804)
-* ✅ Language: [Support JVM sealed classes](https://youtrack.jetbrains.com/issue/KT-46778)
+* ✅ Language: [Support for JVM sealed classes](https://youtrack.jetbrains.com/issue/KT-46778)
+* ✅ Compiler core: [Inferring types based on self upper bounds](https://youtrack.jetbrains.com/issue/KT-40804)
 * ✅ Compiler core: [Work on services for the new compiler to interact with IDE](https://youtrack.jetbrains.com/issue/KT-44318)
 * ✅ Kotlin/Native: [Implement safe initialization for top-level properties](https://youtrack.jetbrains.com/issue/KT-46771)
 * ✅ Kotlin/Native: [Prototype a new garbage collector](https://youtrack.jetbrains.com/issue/KT-42296)
-* ✅ Multiplatform: [Support the Apple Silicon target in the Kotlin Multiplatform tooling](https://youtrack.jetbrains.com/issue/KT-46772)
+* ✅ Multiplatform: [Support the Apple silicon target in the Kotlin Multiplatform tooling](https://youtrack.jetbrains.com/issue/KT-46772)
 * ✅ Multiplatform: [Improve dependency management for iOS](https://youtrack.jetbrains.com/issue/KT-42301)
 * ✅ IDE: [Move the Kotlin plugin to the IntelliJ platform development infrastructure](https://youtrack.jetbrains.com/issue/KT-42308)
 * ✅ Build tools: [Decrease time for opening Gradle projects](https://youtrack.jetbrains.com/issue/KT-42311)
-* ✅ Libraries: [Improve kotlinx-serialization (release v1.3.0)](https://youtrack.jetbrains.com/issue/KT-46782)
-* ✅ Libraries: [Improve kotlinx-coroutines (release v1.6.0)](https://youtrack.jetbrains.com/issue/KT-46783)
+* ✅ Libraries: [Improve `kotlinx-serialization` (release 1.3.0)](https://youtrack.jetbrains.com/issue/KT-46782)
+* ✅ Libraries: [Improve `kotlinx-coroutines` (release 1.6.0)](https://youtrack.jetbrains.com/issue/KT-46783)
 * ✅ Libraries: [Stabilize Duration API in the standard library](https://youtrack.jetbrains.com/issue/KT-46784)
-* ✅ Libraries: [Get rid of <code>!!</code> for <code>readLine()</code> in the standard library](https://youtrack.jetbrains.com/issue/KT-46785)
+* ✅ Libraries: [Get rid of `!!` for `readLine()` in the standard library](https://youtrack.jetbrains.com/issue/KT-46785)
 * ✅ Libraries: [Improve usability of multi-threaded coroutines library for Kotlin/Native](https://youtrack.jetbrains.com/issue/KT-42314)
 * ✅ Website: [Revamp Kotlin documentation](https://youtrack.jetbrains.com/issue/KT-44338)
-
 
 ### Postponed items
 
 We've decided to **postpone** the following items from the previous roadmap:
 
-* ⏸ Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/KT-46778)
+* ⏸ Kotlin/Native: [Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)](https://youtrack.jetbrains.com/issue/KT-40442)
+* ⏸ Kotlin/Native: [Direct interoperability with Swift](https://youtrack.jetbrains.com/issue/KT-49521)
+* ⏸ Kotlin/Native: [Support running Kotlin/Native-produced binaries on Alpine Linux](https://youtrack.jetbrains.com/issue/KT-38876)
+* ⏸ Kotlin/JS: [Improve Dukat support](https://youtrack.jetbrains.com/issue/KT-42290)
+* ⏸ Kotlin/JS: [JS: support ES6 as compilation target](https://youtrack.jetbrains.com/issue/KT-8373)
+* ⏸ Multiplatform: [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KT-44328)
+* ⏸ Multiplatform: [Sharing code between JVM and Android](https://youtrack.jetbrains.com/issue/KT-42466)
+* ⏸ IDE: [Advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
+* ⏸ IDE: [Quality of less frequently used features, except blocking problems](https://youtrack.jetbrains.com/issue/KTIJ-20048)
+* ⏸ Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/KTIJ-18810)
 
 Other postponed items remain in this state from earlier roadmap versions.
 
@@ -276,30 +285,29 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Provide modern and performant replacement for Enum.values()](https://youtrack.jetbrains.com/issue/KT-48872)
 * 🆕 Language: [Allow implementation by delegation to inlined value of inline class](https://youtrack.jetbrains.com/issue/KT-27435)
 * 🆕 Language: [Consider supporting inline sealed classes](https://youtrack.jetbrains.com/issue/KT-27576)
-* 🆕 Compiler core: [!FIX LINK! Stable Compiler Plugin API](https://youtrack.jetbrains.com/issue/KFC-88)
-* 🆕 Compiler core: [!FIX LINK! K2/JS investigation](https://youtrack.jetbrains.com/issue/KFC-105)
-* 🆕 Kotlin/JVM: [!FIX LINK! Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KFC-131)
-* 🆕 Kotlin/JVM: [!FIX LINK! Fix prominent issues related to inline classes on JVM](https://youtrack.jetbrains.com/issue/KFC-160)
+* 🆕 Compiler core: [Stabilize the Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
+* 🆕 Compiler core: [K2/JS investigation](https://youtrack.jetbrains.com/issue/KT-49510)
+* 🆕 Kotlin/JVM: [Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KT-49513)
+* 🆕 Kotlin/JVM: [Fix issues related to inline classes on the JVM](https://youtrack.jetbrains.com/issue/KT-49514)
 * 🆕 Kotlin/JVM: [Allow private top-level classes or type aliases with same name in different files on JVM](https://youtrack.jetbrains.com/issue/KT-17699)
 * 🆕 Kotlin/JVM: [Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection](https://youtrack.jetbrains.com/issue/KT-25871)
 * 🆕 Kotlin/JVM: [Support method references to functional interface constructors](https://youtrack.jetbrains.com/issue/KT-47939)
 * 🆕 Kotlin/JVM: [Support Java synthetic property references](https://youtrack.jetbrains.com/issue/KT-8575)
-* 🆕 Kotlin/Native: [!FIX LINK! Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-8575)
-* 🆕 Multiplatform: [!FIX LINK! Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KFC-265)
-* 🆕 Multiplatform: [!FIX LINK! Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 Multiplatform: [!FIX LINK! Improve stability and robustness of multiplatform toolchain](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 IDE: [!FIX LINK! Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KFC-266)
-* 🆕 IDE: [!FIX LINK! MPP support improvement](https://youtrack.jetbrains.com/issue/KFC-198)
-* 🆕 IDE: [!FIX LINK! Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KFC-197)
+* 🆕 Kotlin/Native: [Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-49520)
+* 🆕 Multiplatform: [Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KT-49523)
+* 🆕 Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
+* 🆕 Multiplatform: [Improve stability and robustness of the multiplatform toolchain](https://youtrack.jetbrains.com/issue/KT-49525)
+* 🆕 IDE: [Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KTIJ-20044)
+* 🆕 IDE: [Improved MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
+* 🆕 IDE: [Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KTIJ-20046)
 * 🆕 Build tools: [!FIX LINK! Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KFC-249)
 * 🆕 Build tools: [!FIX LINK! Make KAPT work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KFC-256)
 * 🆕 Libraries: [Stable release of Dokka](https://youtrack.jetbrains.com/issue/KT-48998)
-* 🆕 Libraries: [!FIX LINK! Initial release of kotlinx-kover and its further productization](https://youtrack.jetbrains.com/issue/KFC-280)
-* 🆕 Libraries: [!FIX LINK! kotlinx-serialization 1.4 release](https://youtrack.jetbrains.com/issue/KFC-286)
-* 🆕 Libraries: [!FIX LINK! kotlinx-coroutines 1.7 release](https://youtrack.jetbrains.com/issue/KFC-279)
+* 🆕 Libraries: [Initial release of `kotlinx-kover` and its further productization](https://youtrack.jetbrains.com/issue/KT-49527)
+* 🆕 Libraries: [`kotlinx-serialization` 1.4 release](https://youtrack.jetbrains.com/issue/KT-49528)
+* 🆕 Libraries: [`kotlinx-coroutines` 1.7 release](https://youtrack.jetbrains.com/issue/KT-49529)
 * 🆕 Website: [!FIX LINK! Kotlin Playground improvements](https://youtrack.jetbrains.com/issue/KFC-83)
 * 🆕 Website: [!FIX LINK! Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KFC-83)
-
 
 ### Removed items
 
@@ -309,7 +317,6 @@ We've **removed** the following items from the roadmap:
 * ❌ Multiplatform: [Improve Gradle and Compiler error messages](https://youtrack.jetbrains.com/issue/KT-42303)
 * ❌ Build tools: Improvements in Kotlin Maven support
 * ❌ Libraries: Any new multiplatform libraries
-
 
 ### Items in progress
 
