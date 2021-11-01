@@ -47,7 +47,7 @@ You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Z
 
 ## Create meetup.com cover photo
 
-1. To create a cover photo with a group's logo for meetup.com, make a copy of the [picture file](https://docs.google.com/drawings/d/19vj9i4UJz9TPv2RUxa-d3Ex_9XY3R4ypnCMhXJYPa1s/edit) to your Google 
+1. To create a cover photo with a group's logo for meetup.com, make a copy of the [picture file](https://docs.google.com/drawings/d/1GMr406tAicZIa86rMGKUZkHc8rRTls3tB618nDTZKSQ/edit) to your Google 
 Drive (you have to be signed into your Google account).
 2. Add a shortened name of the user group’s location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture click on
  the background pattern-picture, choose 'Replace Image' then 'Upload from Computer' or any other source.
