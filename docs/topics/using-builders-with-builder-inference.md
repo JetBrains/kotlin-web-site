@@ -269,9 +269,9 @@ fun main() {
     val x: Map<in String, String> = buildMap {
         put("", "")
         f(someMap()) // Type mismatch (required String, found CharSequence)
-        // Type mismatch appears because builder inference didn't work here,
-        // the expected Map<in String, String> type is specified outside a builder lambda
     }
 }
 ```
 
+Here a type mismatch appears because builder inference is not required. The expected type of the map is specified outside
+the builder lambda, so the compiler analyzes all statements inside with the fixed receiver type `Map<in String, String>`. 
