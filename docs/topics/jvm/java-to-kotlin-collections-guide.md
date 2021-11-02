@@ -191,7 +191,7 @@ Read more details about [collections types](collections-overview.md#collection-t
 
 ## Ranges and progressions
 
-In Kotlin, you can create objects using [ranges](ranges.md#range). For example, `Version(1, 11)..Version(1, 30)` stays for all the versions from `1.11` to `1.30`.
+In Kotlin, you can create intervals using [ranges](ranges.md#range). For example, `Version(1, 11)..Version(1, 30)` stays for all the versions from `1.11` to `1.30`.
 You can check that your version is in the range using the `in` operator: `Version(0, 9) in versionRange`.
 
 In Java, you need to manually check if a `Version` fits both bounds. Compare the code in Java and in Kotlin. In Java:
@@ -413,7 +413,7 @@ In Java, you can safely get the first and the last items by checking the size of
 
 ```java
 // Java
-var list=new ArrayList<>();
+var list = new ArrayList<>();
 //...
 if (list.size() > 0) {
     System.out.println(list.get(0));
