@@ -13,7 +13,7 @@ const menuItems = [
     title: 'Why Teach Kotlin'
   },
   {
-    url: 'https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing',
+    url: '/education/courses.html',
     title: 'List of Courses'
   },
 ];

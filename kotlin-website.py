@@ -120,6 +120,12 @@ def get_countries_size():
     matches = set(map(match_string, site_data['universities']))
     return len(matches)
 
+
+def get_education_courses():
+    return [{attr: x[attr] for attr in ["title", "location", "courses"]}
+            for x in site_data['universities']]
+
+
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
         nav = yaml.load(stream, Loader=FullLoader)
@@ -253,12 +259,19 @@ def user_group_list():
         user_groups_data=site_data['user-groups'],
         number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
 
+
 @app.route('/education/')
 def education_page():
     return render_template(
         'pages/education/index.html',
         universities_count=len(site_data['universities']),
         countries_count=get_countries_size())
+
+
+@app.route('/education/courses.html')
+def education_courses():
+    return render_template('pages/education/courses.html', universities_data=get_education_courses())
+
 
 @app.route('/')
 def index_page():

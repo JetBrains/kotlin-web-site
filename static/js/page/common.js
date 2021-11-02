@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import 'core-js/es6/promise';
+import 'core-js/stable/promise';
 import 'whatwg-fetch';
 import kotlinPlayground from 'kotlin-playground';
 import { initSearch } from '../com/search/search';
