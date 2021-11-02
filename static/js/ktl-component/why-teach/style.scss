@@ -17,6 +17,17 @@
 .why-teach-nav {
   position: sticky;
   top: 96px;
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+  &__link {
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
 }
 
 .quote-section {
@@ -45,5 +56,23 @@
     width: 0;
     height: 96px;
     margin-top: -96px;
+  }
+}
+
+.ktl-link {
+  text-decoration: none;
+  color: rgba(39, 40, 44, 0.5);
+  transition: color .3s;
+  &:hover {
+    text-decoration: none;
+    color: rgba(39, 40, 44, 1);
+  }
+  .rs-link {
+    --rs-link-color: rgba(39, 40, 44, .5);
+    --rs-underline-color: rgba(39, 40, 44, .5);
+    &:hover {
+      --rs-link-color: rgba(39, 40, 44, 1);
+      --rs-underline-color: rgba(39, 40, 44, 1);
+    }
   }
 }

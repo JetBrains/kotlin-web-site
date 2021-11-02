@@ -44,12 +44,12 @@ export const WhyTeach = ({path}) => {
 
                   <QuotesSlider quotes={[
                     {
-                      title: 'Eamonn De Leastar, Waterford Institute of Technology',
-                      text: 'On numerous courses, where we proceed through Java to Kotlin, we are considering a Kotlin-first approach.'
-                    },
-                    {
                       title: 'Eugeniy Tyumentcev, Omsk State University',
                       text: 'I teach Software Engineering with Kotlin. We also have a separate Android Development course. So I can teach in a language that students can use in other courses.'
+                    },
+                    {
+                      title: 'Eamonn De Leastar, Waterford Institute of Technology',
+                      text: 'On numerous courses, where we proceed through Java to Kotlin, we are considering a Kotlin-first approach.'
                     },
                   ]}
                   />
@@ -65,8 +65,7 @@ export const WhyTeach = ({path}) => {
                   </p>
 
                   <a
-                    href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
-                    target="_blank" className="ktl-text-2 ktl-link">
+                    href="courses.html" className="ktl-text-2 ktl-link">
                     <span className="rs-link">List of universities</span>
                     <span>&nbsp;↗</span>
                   </a>
@@ -84,28 +83,29 @@ export const WhyTeach = ({path}) => {
                 <div className="quote-section__content">
 
                   <p className="ktl-text-1 ktl-offset-bottom-m">
-                    <ul>
-                      <li className="ktl-offset-bottom-s">
-                        — Kotlin is used by top companies such as Google, Twitter, Reddit, Netflix, Uber, BMW, Coursera,
+                    <ul className="rs-ul">
+                      <li>
+                        Kotlin is used by top companies such as Google, Twitter, Reddit, Netflix, Uber, BMW, Coursera,
                         Slack, and Trello, just to name a few.
                       </li>
-                      <li className="ktl-offset-bottom-s">
-                        — Kotlin has consistently ranked among the top 4 most-loved programming languages since 2018,
+                      <li>
+                        Kotlin has consistently ranked among the top 4 most-loved programming languages since 2018,
                         according to the <a className="rs-link"
-                                            href="https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted">Stack
+                                            href="https://insights.stackoverflow.com/survey/2019#most-loved-dreaded-and-wanted"
+                                            target="_blank">Stack
                         Overflow Developer Surveys.</a>
                       </li>
-
-                      <li className="ktl-offset-bottom-s">
-                        — Kotlin is one of the fastest-growing programming languages, ranking fourth in that category
+                      <li>
+                        Kotlin is one of the fastest-growing programming languages, ranking fourth in that category
                         in <a
-                        className="rs-link" href="https://octoverse.github.com/">GitHub’s 2019 State of the Octoverse
+                        className="rs-link" href="https://octoverse.github.com/" target="_blank">GitHub’s 2019 State of
+                        the Octoverse
                         survey.</a>
                       </li>
-
                       <li>
-                        — Kotlin has the fastest growing language community. (<a className="rs-link"
-                                                                                 href="https://developer-economics.cdn.prismic.io/developer-economics/dbf9f36f-a31a-440a-9c22-c599cc235fa4_20th+edition+-+State+of+the+developer+Nation.pdf">SlashData's
+                        Kotlin has the fastest growing language community. (<a className="rs-link"
+                                                                               href="https://developer-economics.cdn.prismic.io/developer-economics/dbf9f36f-a31a-440a-9c22-c599cc235fa4_20th+edition+-+State+of+the+developer+Nation.pdf"
+                                                                               target="_blank">SlashData's
                         State of the Developer Nation 20th
                         edition, Q1 2021</a>)
                       </li>
@@ -597,53 +597,53 @@ export const WhyTeach = ({path}) => {
 
           <div className="why-teach-grid__nav">
             <ul className="ktl-text-2 why-teach-nav">
-              <li className="ktl-offset-bottom-s">
-                <a href="#academically-recognized" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#academically-recognized" className="why-teach-nav__link">
                   <span className="rs-link">Academically recognized</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#language-of-the-industry" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#language-of-the-industry" className="why-teach-nav__link">
                   <span className="rs-link">Language of the industry</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#multiplatform" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#multiplatform" className="why-teach-nav__link">
                   <span className="rs-link">Multiplatform</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#easy-to-learn" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#easy-to-learn" className="why-teach-nav__link">
                   <span className="rs-link">Easy to learn</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#interoperable" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#interoperable" className="why-teach-nav__link">
                   <span className="rs-link">Interoperable</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#supports-multiple-paradigms" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#supports-multiple-paradigms" className="why-teach-nav__link">
                   <span className="rs-link">Supports multiple paradigms</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#modern-concise-and-safe" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#modern-concise-and-safe" className="why-teach-nav__link">
                   <span className="rs-link">Modern, concise, and safe</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#prepares-students-for-careers" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#prepares-students-for-careers" className="why-teach-nav__link">
                   <span className="rs-link">Prepares students for careers</span>
                 </a>
               </li>
-              <li className="ktl-offset-bottom-s">
-                <a href="#tooling-and-learning-materials" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#tooling-and-learning-materials" className="why-teach-nav__link">
                   <span className="rs-link">Tooling and Learning Materials</span>
                 </a>
               </li>
-              <li>
-                <a href="#open-source-community" className="ktl-text-2 ktl-link">
+              <li className="why-teach-nav__item">
+                <a href="#open-source-community" className="why-teach-nav__link">
                   <span className="rs-link">Open Source Community</span>
                 </a>
               </li>

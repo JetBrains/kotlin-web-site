@@ -16,9 +16,11 @@
       display: block;
     }
   }
+
   &__content {
     display: block;
   }
+
   @media (min-width: 1200px) {
     &__content {
       padding-right: 32px;
@@ -124,6 +126,7 @@
 
   &__bottom {
     display: none;
+
     br {
       display: none;
     }
@@ -264,17 +267,6 @@
 
 .ktl-dimmed-text {
   color: rgba(39, 40, 44, 0.5);
-}
-
-.ktl-link {
-  text-decoration: none;
-  opacity: 0.75;
-  transition: opacity .3s;
-  &:hover {
-    opacity: 1;
-    text-decoration: none;
-    color: inherit;
-  }
 }
 
 .teach-bottom-buttons {
