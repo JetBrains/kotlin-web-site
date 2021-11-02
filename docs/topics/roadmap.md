@@ -201,13 +201,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support <code>java.nio.Path</code> extension in the standard library</a></li>
             </ul>
          </td>
-        <td>
-            <ul>
-                <li>⏸ <code>kotlinx-cli</code></li>
-                <li>⏸ <code>binary-compatibility-validator</code></li>
-                <li>⏸ <code>kotlinx-io</code></li>
-            </ul>
-        </td>
+        <td></td>
     </tr>
     <tr>
         <td><strong>Website</strong></td>
@@ -320,5 +314,5 @@ We've **removed** the following items from the roadmap:
 
 ### Items in progress
 
-All other previously identified roadmap items are in progress.
-You can check their [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=Type:%20%7BRoadmap%20Item%7D%20state:%20%7BIn%20Progress%7D%20) for updates.
+All other previously identified roadmap items are in progress. You can check their [YouTrack tickets](https://youtrack.jetbrains.com/issues?q=project:%20KT,%20KTIJ%20tag:%20%7BRoadmap%20Item%7D%20%23Unresolved%20)
+for updates.
