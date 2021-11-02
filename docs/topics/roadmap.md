@@ -147,7 +147,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44328" target="_blank">⏸ Improve Kotlin/Native debugging experience</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18571" target="_blank">⏸ Improve Kotlin/Native debugging experience</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42466" target="_blank">⏸ Sharing code between JVM and Android</a></li>
             </ul>
         </td>
@@ -159,10 +159,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Fast update of compiler/platform versions</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improved MPP support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Eclipse plugin stabilization</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42307" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42304" target="_blank">Improve IDE performance</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-44330" target="_blank">Improve debugging experience</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-46787" target="_blank">Improve the New Project wizard</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18195" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18174" target="_blank">Improve IDE performance</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18572" target="_blank">Improve debugging experience</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18809" target="_blank">Improve the New Project wizard</a></li>
             </ul>
          </td>
         <td>
@@ -249,7 +249,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Kotlin/Native: [Prototype a new garbage collector](https://youtrack.jetbrains.com/issue/KT-42296)
 * ✅ Multiplatform: [Support the Apple silicon target in the Kotlin Multiplatform tooling](https://youtrack.jetbrains.com/issue/KT-46772)
 * ✅ Multiplatform: [Improve dependency management for iOS](https://youtrack.jetbrains.com/issue/KT-42301)
-* ✅ IDE: [Move the Kotlin plugin to the IntelliJ platform development infrastructure](https://youtrack.jetbrains.com/issue/KT-42308)
+* ✅ IDE: [Move the Kotlin plugin to the IntelliJ platform development infrastructure](https://youtrack.jetbrains.com/issue/KTIJ-18196)
 * ✅ Build tools: [Decrease time for opening Gradle projects](https://youtrack.jetbrains.com/issue/KT-42311)
 * ✅ Libraries: [Improve `kotlinx-serialization` (release 1.3.0)](https://youtrack.jetbrains.com/issue/KT-46782)
 * ✅ Libraries: [Improve `kotlinx-coroutines` (release 1.6.0)](https://youtrack.jetbrains.com/issue/KT-46783)
@@ -267,7 +267,7 @@ We've decided to **postpone** the following items from the previous roadmap:
 * ⏸ Kotlin/Native: [Support running Kotlin/Native-produced binaries on Alpine Linux](https://youtrack.jetbrains.com/issue/KT-38876)
 * ⏸ Kotlin/JS: [Improve Dukat support](https://youtrack.jetbrains.com/issue/KT-42290)
 * ⏸ Kotlin/JS: [JS: support ES6 as compilation target](https://youtrack.jetbrains.com/issue/KT-8373)
-* ⏸ Multiplatform: [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KT-44328)
+* ⏸ Multiplatform: [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KTIJ-18571)
 * ⏸ Multiplatform: [Sharing code between JVM and Android](https://youtrack.jetbrains.com/issue/KT-42466)
 * ⏸ IDE: [Advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
 * ⏸ IDE: [Quality of less frequently used features, except blocking problems](https://youtrack.jetbrains.com/issue/KTIJ-20048)
