@@ -72,8 +72,23 @@ internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
 The main rules regarding expected and actual declarations are:
 * An expected declaration is marked with the `expect` keyword; the actual declaration is marked with the `actual` keyword.
 * `expect` and `actual` declarations have the same name and are located in the same package (have the same fully qualified name).
-* `expect` declarations never contain any implementation code.
-* Functions in `expect` interfaces should be marked as `open` to indicate that all `actual` implementations must have a default body.
+* `expect` declarations never contain any implementation code and are abstract by default.
+
+> In interfaces, functions in actual declarations can be non-abstract and have a
+> body. To indicate that in `expect` declarations, explicitly mark functions as `open`:
+>
+> ```kotlin
+> expect interface Mascot {
+>     open fun name()
+> }
+>
+> actual interface Mascot {
+>     fun name(): String {
+>         return "?"
+>    }
+> }
+>
+{type="note"}
 
 During each platform compilation, the compiler ensures that every declaration marked with the `expect` keyword in the common 
 or intermediate source set has the corresponding declarations marked with the `actual` keyword in all platform source sets. 
