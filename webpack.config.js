@@ -110,10 +110,17 @@ module.exports = (params = {}) => {
             {
               loader: 'svgo-loader',
               options: {
+                configFile: false,
                 plugins: [
-                  {removeTitle: true},
-                  {convertPathData: false},
-                  {removeScriptElement:true}
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        removeScriptElement: true,
+                        convertPathData: false,
+                      },
+                    },
+                  }
                 ]
               }
             }
