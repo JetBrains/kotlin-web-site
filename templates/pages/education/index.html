@@ -8,11 +8,3 @@
 {% block page_outer_content %}
     {% ktl_component "teach" path=request.path countriesCount=countries_count universitiesCount=universities_count %}
 {% endblock %}
-
-{% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='education.css')|autoversion }}">
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='education.js')|autoversion }}"></script>
-{% endblock %}

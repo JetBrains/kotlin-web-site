@@ -1120,6 +1120,13 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
+"@googlemaps/js-api-loader@^1.7.0":
+  version "1.12.8"
+  resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.12.8.tgz#1dec39c7ada607270679248662c02d6f0705e8e4"
+  integrity sha512-h1RNVIJkHWL4UrdJo8fwECJwSRg8CSIfTEtPdzvThcji7tAPvVBDVBPzvPKhvl8e8mWEGPhnYOt6kPfSxJL+vQ==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+
 "@jetbrains/babel-preset-jetbrains@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@jetbrains/babel-preset-jetbrains/-/babel-preset-jetbrains-2.3.1.tgz#cb9d0fc9815d24a36e6829a4695574f298d451cd"
@@ -1142,6 +1149,11 @@
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.0.tgz#2e7a2935adbfae46f9efbd1e1455254ee7ea2219"
   integrity sha512-P1v2nvK7z2gOLVM/bveIRLG9L99uEahTGgTltyF03zixZAjI9YmKLj5Z9MpS9wBIUt5WDoQORT2lXvLOIF89iA==
+
+"@mapbox/point-geometry@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
+  integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1204,7 +1216,16 @@
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.4.tgz#d844dd5beba87cdaf2580e3c918050ab24b23076"
   integrity sha512-pgex7fC+IeSkGnDU5PDDbvRPrzV1JIg2GXpc7VwK0E54q7wn3cL4+2QwfkLik0ZJvd4x1txhbGi8bQ/o7SgN1g==
 
-"@rescui/icons@0.1.2", "@rescui/icons@^0.1.2":
+"@rescui/icons@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.3.0.tgz#f37e5ca15b11bb10f0dd9975cfd9d3c02aac4e78"
+  integrity sha512-GjBC7OUvJzdJMMK9jjPN+z8v0Z+61nxU4Gfm/vh3IUfaEabbB0nKDIlCETbbvnXN8Ahx0Rj49KVmmUdzrMGrlA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
+"@rescui/icons@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.1.2.tgz#b1aa5b20f073e293d76257c0aee873889f089739"
   integrity sha512-oa7IiROJGvicKZ0vAfmCNgQIMqM4jlklkrUpkDBeWXg2ZDI0jBa/aBjNwG6Aiojrf15XjVNvFLlzalZs9VokMA==
@@ -1253,10 +1274,10 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/tooltip@0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@rescui/tooltip/-/tooltip-0.1.1.tgz#0fa1bbb2c95927cedbfc0291d8d10b550d6fd1df"
-  integrity sha512-1VclKdDWfdwVYVqT9y//KMqyhO2xA2Viel0je9qPdZSkFlA45K0HE0JJoZlTzxLZJ8RRAX4jo1ymswu363yorA==
+"@rescui/tooltip@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@rescui/tooltip/-/tooltip-0.1.3.tgz#caffd190b0489ea91944ea8ed0c09f244e323f22"
+  integrity sha512-q8P5e9fZiREzA5FA2ZQbLLWTupmrvk17gR8v4Ng+231kYWYS979XHize6CG+FQm3INTTn3GqY7+Bmj4DV0Qa9g==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
     "@popperjs/core" "^2.9.2"
@@ -2832,7 +2853,7 @@ event-emitter@0.3.4:
     d "~0.1.1"
     es5-ext "~0.10.7"
 
-eventemitter3@^4.0.0:
+eventemitter3@^4.0.0, eventemitter3@^4.0.4:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
   integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
@@ -2920,7 +2941,7 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-fast-deep-equal@^3.1.1:
+fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
@@ -3223,6 +3244,16 @@ globule@^1.0.0:
     glob "~7.1.1"
     lodash "~4.17.10"
     minimatch "~3.0.2"
+
+google-map-react@2.1.10:
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-2.1.10.tgz#16b5b699f257d6008dc9333d0bbbf1ab5b31fa42"
+  integrity sha512-cqW2EcygYqF26inp5liM/pAcCwOGXB9LW32oGwf931Iuq8tnasCpyEtq87G+RyQCKCo2P8/QyV+MGHuc7r9AEg==
+  dependencies:
+    "@googlemaps/js-api-loader" "^1.7.0"
+    "@mapbox/point-geometry" "^0.1.0"
+    eventemitter3 "^4.0.4"
+    prop-types "^15.7.2"
 
 graceful-fs@^4.1.2, graceful-fs@^4.2.3, graceful-fs@^4.2.4, graceful-fs@^4.2.6:
   version "4.2.6"
@@ -4782,7 +4813,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-prop-types@^15.5.10:
+prop-types@^15.5.10, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
