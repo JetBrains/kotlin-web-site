@@ -8,7 +8,13 @@ import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css';
 
 import './style.scss'
 
+import quotes from './quotes.json';
+
+
 export const WhyTeach = ({path}) => {
+
+  console.log(quotes.academicallyRecognized)
+
   return (
     <div className="teach-wrapper">
       <TeachTopMenu path={path}/>
@@ -42,16 +48,7 @@ export const WhyTeach = ({path}) => {
                     and scientific programming (Source: internal Teaching Kotlin Study).
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Eugeniy Tyumentcev, Omsk State University',
-                      text: 'I teach Software Engineering with Kotlin. We also have a separate Android Development course. So I can teach in a language that students can use in other courses.'
-                    },
-                    {
-                      title: 'Eamonn De Leastar, Waterford Institute of Technology',
-                      text: 'On numerous courses, where we proceed through Java to Kotlin, we are considering a Kotlin-first approach.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.academicallyRecognized}
                   />
                 </div>
 
@@ -82,7 +79,7 @@ export const WhyTeach = ({path}) => {
               <div className="quote-section__grid">
                 <div className="quote-section__content">
 
-                  <p className="ktl-text-1 ktl-offset-bottom-m">
+                  <div className="ktl-text-1 ktl-offset-bottom-m">
                     <ul className="rs-ul">
                       <li>
                         Kotlin is used by top companies such as Google, Twitter, Reddit, Netflix, Uber, BMW, Coursera,
@@ -110,18 +107,9 @@ export const WhyTeach = ({path}) => {
                         edition, Q1 2021</a>)
                       </li>
                     </ul>
-                  </p>
+                  </div>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Ryan Stansifer, Florida Institute of Technology',
-                      text: 'Students are happy to have the chance to program in something they may have heard about.'
-                    },
-                    {
-                      title: 'Károly Machalik, University of Pannonia',
-                      text: 'The students are so happy. They can produce useful software quickly.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.languageOfTheIndustry}
                   />
                 </div>
 
@@ -154,12 +142,7 @@ export const WhyTeach = ({path}) => {
                     science topics.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Jacob Mass, University of Tartu',
-                      text: 'Decrease in boilerplate helps us to quickly identify which fundamental Android concepts students are missing. The likelihood of issues arising due to some basic syntactic/language problems is lower, allowing students instead to focus on more fundamental software design matters.'
-                    }
-                  ]}
+                  <QuotesSlider quotes={quotes.multiplatform}
                   />
                 </div>
 
@@ -192,20 +175,7 @@ export const WhyTeach = ({path}) => {
                     simple to grasp for those with a Java or Python background.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'San Skulrattanakulchai, Gustavus Adolphus College',
-                      text: 'My students think Kotlin is an easy language to learn. Some students have adopted Kotlin as their main programming language. They use it as their language of choice when they can choose a language for completing an assignment or project.'
-                    },
-                    {
-                      title: 'Scott Stanchfield, Johns Hopkins University',
-                      text: 'Nearly all my students have picked up Kotlin quite easily and really loved it, as compared with Java.'
-                    },
-                    {
-                      title: 'Enrico Denti, University of Bologna',
-                      text: 'I appreciate Kotlin`s diffusion, its innovation while being able to ‘stay in the mainstream’ to soften the learning curve, the way it supports key concepts – in short, its clarity and cleanness.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.easyToLearn}
                   />
                 </div>
 
@@ -237,16 +207,7 @@ export const WhyTeach = ({path}) => {
                     syntax if they are already familiar with Java.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'David Vaughn, University of Missouri–St. Louis',
-                      text: 'Kotlin is faster to develop and comprehend what is happening; near 100% backwards compatibility makes it easy to show in Java and translate into Kotlin while still utilizing every available library from Java; Students seem to understand it fairly quickly.'
-                    },
-                    {
-                      title: 'Paulo Pereira, Lisbon Superior Engineering Institute (ISEL)',
-                      text: 'For the upcoming Introductory Programming course, we chose Kotlin, because we wanted a language that targets the JVM and seamlessly interoperates with its ecosystem: a stack of utmost importance to our market.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.interoperable}
                   />
                 </div>
 
@@ -306,20 +267,7 @@ export const WhyTeach = ({path}) => {
                     Kotlin’s support for coroutines, the concepts of concurrency and parallelism come naturally.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Alexey Mitsyuk, HSE university',
-                      text: 'You are able to teach procedural programming for the very beginners without needing to describe classes. Thus, your course can be more consistent.'
-                    },
-                    {
-                      title: 'Fernando Magno Quintão Pereira, Federal University of Minas Gerais',
-                      text: 'Kotlin has strong support for object-oriented programming, and also support for functional programming.'
-                    },
-                    {
-                      title: 'San Skulrattanakulchai, Gustavus Adolphus College',
-                      text: 'My Kotlin students in fact understand OO concepts better than my Java students do.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.supportsMultipleParadigms}
                   />
                 </div>
 
@@ -358,24 +306,7 @@ export const WhyTeach = ({path}) => {
                     according to our internal Teaching Kotlin study.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Nick Efford, University of Leeds',
-                      text: 'Kotlin`s compactness is my favorite feature. I’ve translated a few of my Java programming courseworks into Kotlin and noticed that code typically shrinks to 50% of its original size. As a teacher, I also get some benefit from being able to use less code when showing students how to do things.'
-                    },
-                    {
-                      title: 'Zaid Altahat, Northwestern University, University of Wisconsin–Parkside',
-                      text: 'Simple syntax. Less code to get more done. At the same time Kotlin has advanced topics such as coroutines.'
-                    },
-                    {
-                      title: 'Mark Zaslavskiy, ITMO University',
-                      text: 'One of Kotlin’s advantages is a good combination of strong typing and nullability.'
-                    },
-                    {
-                      title: 'Jeffrey Paone, Colorado School of Mines',
-                      text: 'Fewer runtime errors are Kotlin’s advantage. Null safety is my favorite Kotlin feature.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.modernConciseAndSafe}
                   />
                 </div>
 
@@ -417,16 +348,7 @@ export const WhyTeach = ({path}) => {
                     2020 Developer Skills Report.</a>
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Ted Herman, University of Iowa',
-                      text: 'Employment prospects and how the language will be on the resume are things to look at when choosing a language to teach.'
-                    },
-                    {
-                      title: 'Fernando Magno Quintão Pereira, Federal University of Minas Gerais',
-                      text: 'Students like the language. It`s less verbose than Java, for instance, and has more market appeal than OCaml and ML.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.preparesStudentsForCareers}
                   />
                 </div>
 
@@ -470,16 +392,7 @@ export const WhyTeach = ({path}) => {
                     Kotlin offers various teaching and learning resources, case studies, and community resources.
                   </p>
 
-                  <QuotesSlider quotes={[
-                    {
-                      title: 'Alexander Nozik, Moscow Institute of Physics and Technology',
-                      text: 'JetBrains equipped Kotlin with the best available tooling to simplify development.'
-                    },
-                    {
-                      title: 'Mariusz Nowostawski, Norwegian University of Science and Technology',
-                      text: 'Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great.'
-                    },
-                  ]}
+                  <QuotesSlider quotes={quotes.toolingAndLearningMaterials}
                   />
                 </div>
 
