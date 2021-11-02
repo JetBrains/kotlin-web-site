@@ -47,12 +47,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Language</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-26245" target="_blank">🆕 Denotable definitely not-null types</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-11968" target="_blank">🆕 Research and prototype namespace-based solution for statics and static extensions</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-27576" target="_blank">🆕 Consider supporting inline sealed classes</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-26245" target="_blank">🆕 Allow denotable definitely not-null types</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">🆕 Design and implement solution for toString on objects</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48872" target="_blank">🆕 Provide modern and performant replacement for Enum.values()</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-27435" target="_blank">🆕 Allow implementation by delegation to inlined value of inline class</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-27576" target="_blank">🆕 Consider supporting inline sealed classes</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-22956" target="_blank">Release OptIn annotations</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-45618" target="_blank">Release builder inference</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12380" target="_blank">Support sealed (exhaustive) whens</a></li>
@@ -66,11 +66,11 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">🆕 Stabilize the Compiler Plugin API</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49510" target="_blank">🆕 K2/JS investigation</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49510" target="_blank">🆕 Investigate JS backend for the K2 compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">Release the K2/JVM compiler in Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46762" target="_blank">Finalize support for jspecify</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Scripting improvements</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting</a></li>
             </ul>
         </td>
         <td></td>
@@ -130,7 +130,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49521" target="_blank">⏸ Direct interoperability with Swift</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49521" target="_blank">⏸ Support direct interoperability with Swift</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">⏸ Support running Kotlin/Native-produced binaries on Alpine Linux</a></li>
             </ul>
         </td>
@@ -148,7 +148,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18571" target="_blank">⏸ Improve Kotlin/Native debugging experience</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-42466" target="_blank">⏸ Sharing code between JVM and Android</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-42466" target="_blank">⏸ Implement code sharing between JVM and Android</a></li>
             </ul>
         </td>
     </tr>
@@ -156,9 +156,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>IDE</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Fast update of compiler/platform versions</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improved MPP support</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Eclipse plugin stabilization</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Make update of compiler/platform versions faster</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improve MPP support</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Stabilize Eclipse plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18195" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18174" target="_blank">Improve IDE performance</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18572" target="_blank">Improve debugging experience</a></li>
@@ -167,8 +167,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20047" target="_blank">⏸ Advanced tooling that users have in Java but is missing in Kotlin</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20048" target="_blank">⏸ Quality of less frequently used features, except blocking problems</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20047" target="_blank">⏸ Implement advanced tooling that users have in Java but is missing in Kotlin</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20048" target="_blank">⏸ Improve the quality of less frequently used features</a></li>
             </ul>
         </td>
     </tr>
@@ -192,10 +192,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Libraries</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">🆕 Stable release of Dokka</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">🆕 Initial release of <code>kotlinx-kover</code> and its further productization</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49528" target="_blank">🆕 <code>kotlinx-serialization</code> 1.4 release</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49529" target="_blank">🆕 <code>kotlinx-coroutines</code> 1.7 release</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">🆕 Release Dokka as Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">🆕 Launch <code>kotlinx-kover</code> and productize it further</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49528" target="_blank">🆕 Release <code>kotlinx-serialization</code> 1.4</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49529" target="_blank">🆕 Release <code>kotlinx-coroutines</code> 1.7</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document <code>atomicfu</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42436" target="_blank">Support <code>java.nio.Path</code> extension in the standard library</a></li>
@@ -257,14 +257,14 @@ We've **completed** the following items from the previous roadmap:
 We've decided to **postpone** the following items from the previous roadmap:
 
 * ⏸ Kotlin/Native: [Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)](https://youtrack.jetbrains.com/issue/KT-40442)
-* ⏸ Kotlin/Native: [Direct interoperability with Swift](https://youtrack.jetbrains.com/issue/KT-49521)
+* ⏸ Kotlin/Native: [Support direct interoperability with Swift](https://youtrack.jetbrains.com/issue/KT-49521)
 * ⏸ Kotlin/Native: [Support running Kotlin/Native-produced binaries on Alpine Linux](https://youtrack.jetbrains.com/issue/KT-38876)
 * ⏸ Kotlin/JS: [Improve Dukat support](https://youtrack.jetbrains.com/issue/KT-42290)
 * ⏸ Kotlin/JS: [JS: support ES6 as compilation target](https://youtrack.jetbrains.com/issue/KT-8373)
 * ⏸ Multiplatform: [Improve Kotlin/Native debugging experience](https://youtrack.jetbrains.com/issue/KTIJ-18571)
-* ⏸ Multiplatform: [Sharing code between JVM and Android](https://youtrack.jetbrains.com/issue/KT-42466)
-* ⏸ IDE: [Advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
-* ⏸ IDE: [Quality of less frequently used features, except blocking problems](https://youtrack.jetbrains.com/issue/KTIJ-20048)
+* ⏸ Multiplatform: [Implement code sharing between JVM and Android](https://youtrack.jetbrains.com/issue/KT-42466)
+* ⏸ IDE: [Implement advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
+* ⏸ IDE: [Improve the quality of less frequently used features](https://youtrack.jetbrains.com/issue/KTIJ-20048)
 * ⏸ Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/KTIJ-18810)
 
 Other postponed items remain in this state from earlier roadmap versions.
@@ -273,14 +273,14 @@ Other postponed items remain in this state from earlier roadmap versions.
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Language: [Denotable definitely not-null types](https://youtrack.jetbrains.com/issue/KT-26245)
 * 🆕 Language: [Research and prototype namespace-based solution for statics and static extensions](https://youtrack.jetbrains.com/issue/KT-11968)
+* 🆕 Language: [Consider supporting inline sealed classes](https://youtrack.jetbrains.com/issue/KT-27576)
+* 🆕 Language: [Allow denotable definitely not-null types](https://youtrack.jetbrains.com/issue/KT-26245)
 * 🆕 Language: [Design and implement solution for toString on objects](https://youtrack.jetbrains.com/issue/KT-4107)
 * 🆕 Language: [Provide modern and performant replacement for Enum.values()](https://youtrack.jetbrains.com/issue/KT-48872)
 * 🆕 Language: [Allow implementation by delegation to inlined value of inline class](https://youtrack.jetbrains.com/issue/KT-27435)
-* 🆕 Language: [Consider supporting inline sealed classes](https://youtrack.jetbrains.com/issue/KT-27576)
 * 🆕 Compiler core: [Stabilize the Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
-* 🆕 Compiler core: [K2/JS investigation](https://youtrack.jetbrains.com/issue/KT-49510)
+* 🆕 Compiler core: [Investigate JS backend for the K2 compiler](https://youtrack.jetbrains.com/issue/KT-49510)
 * 🆕 Kotlin/JVM: [Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KT-49513)
 * 🆕 Kotlin/JVM: [Fix issues related to inline classes on the JVM](https://youtrack.jetbrains.com/issue/KT-49514)
 * 🆕 Kotlin/JVM: [Allow private top-level classes or type aliases with same name in different files on JVM](https://youtrack.jetbrains.com/issue/KT-17699)
@@ -291,26 +291,26 @@ We've **added** the following items to the roadmap:
 * 🆕 Multiplatform: [Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KT-49523)
 * 🆕 Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
 * 🆕 Multiplatform: [Improve stability and robustness of the multiplatform toolchain](https://youtrack.jetbrains.com/issue/KT-49525)
-* 🆕 IDE: [Fast update of compiler/platform versions](https://youtrack.jetbrains.com/issue/KTIJ-20044)
-* 🆕 IDE: [Improved MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
-* 🆕 IDE: [Eclipse plugin stabilization](https://youtrack.jetbrains.com/issue/KTIJ-20046)
+* 🆕 IDE: [Make update of compiler/platform versions faster](https://youtrack.jetbrains.com/issue/KTIJ-20044)
+* 🆕 IDE: [Improve MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
+* 🆕 IDE: [Stabilize Eclipse plugin](https://youtrack.jetbrains.com/issue/KTIJ-20046)
 * 🆕 Build tools: [Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KT-49532)
 * 🆕 Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)
-* 🆕 Libraries: [Stable release of Dokka](https://youtrack.jetbrains.com/issue/KT-48998)
-* 🆕 Libraries: [Initial release of `kotlinx-kover` and its further productization](https://youtrack.jetbrains.com/issue/KT-49527)
-* 🆕 Libraries: [`kotlinx-serialization` 1.4 release](https://youtrack.jetbrains.com/issue/KT-49528)
-* 🆕 Libraries: [`kotlinx-coroutines` 1.7 release](https://youtrack.jetbrains.com/issue/KT-49529)
+* 🆕 Libraries: [Release Dokka as Stable](https://youtrack.jetbrains.com/issue/KT-48998)
+* 🆕 Libraries: [Launch `kotlinx-kover` and productize it further](https://youtrack.jetbrains.com/issue/KT-49527)
+* 🆕 Libraries: [Release `kotlinx-serialization` 1.4](https://youtrack.jetbrains.com/issue/KT-49528)
+* 🆕 Libraries: [Release `kotlinx-coroutines` 1.7](https://youtrack.jetbrains.com/issue/KT-49529)
 * 🆕 Website: [Improve Kotlin Playground](https://youtrack.jetbrains.com/issue/KT-49536)
-* 🆕 Website: [Infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KT-49537)
+* 🆕 Website: [Provide infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KT-49537)
 
 ### Removed items
 
 We've **removed** the following items from the roadmap:
 
-* ❌ Kotlin/Native: Interoperability with C++
+* ❌ Kotlin/Native: Support interoperability with C++
 * ❌ Multiplatform: [Improve Gradle and Compiler error messages](https://youtrack.jetbrains.com/issue/KT-42303)
-* ❌ Build tools: Improvements in Kotlin Maven support
-* ❌ Libraries: Any new multiplatform libraries
+* ❌ Build tools: Improve Kotlin Maven support
+* ❌ Libraries: Implement any new multiplatform libraries
 * ❌ Libraries: `kotlinx-cli`
 * ❌ Libraries: `binary-compatibility-validator`
 * ❌ Libraries: `kotlinx-io`
