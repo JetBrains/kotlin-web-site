@@ -311,6 +311,9 @@ We've **removed** the following items from the roadmap:
 * ❌ Multiplatform: [Improve Gradle and Compiler error messages](https://youtrack.jetbrains.com/issue/KT-42303)
 * ❌ Build tools: Improvements in Kotlin Maven support
 * ❌ Libraries: Any new multiplatform libraries
+* ❌ Libraries: `kotlinx-cli`
+* ❌ Libraries: `binary-compatibility-validator`
+* ❌ Libraries: `kotlinx-io`
 
 ### Items in progress
 
