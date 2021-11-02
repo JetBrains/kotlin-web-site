@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {TabList, Tab} from '@rescui/tab-list';
 import {CoursesMap} from './components/courses-map.jsx';
 import {CoursesList} from './components/courses-list.jsx';
@@ -11,16 +11,15 @@ import {TeachTopMenu} from '../teach/components/teach-top-menu';
 
 const Courses = ({universities, path}) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <React.Fragment>
+    <div>
       <TeachTopMenu path={path} />
 
       <section className="ktl-container">
         <h1 className="ktl-h1 ktl-offset-top-xl">Universities That Teach Kotlin</h1>
 
         <div className="ktl-courses__tabs ktl-offset-top-m">
-          <TabList short value={activeIndex} onChange={v => setActiveIndex(v)}>
+          <TabList short value={activeIndex} onChange={setActiveIndex}>
             <Tab>Table view</Tab>
             <Tab>Map view</Tab>
           </TabList>
@@ -33,7 +32,7 @@ const Courses = ({universities, path}) => {
       <section className="ktl-offset-top-xxl">
         <TeachCtaBlock />
       </section>
-    </React.Fragment>
+    </div>
   );
 }
 

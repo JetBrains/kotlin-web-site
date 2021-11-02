@@ -2,12 +2,8 @@
   --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
 }
 
-.ktl-courses__tabs {
-  display: none;
-}
-
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .ktl-courses__tabs {
-    display: block;
+    display: none;
   }
 }
