@@ -1,0 +1,10 @@
+{% set restyled="v2" %}
+{% set og_image = url_for('asset', path='images/open-graph/education.png') %}
+
+{% extends 'base.html' %}
+
+{% block title %}List of Courses{% endblock %}
+
+{% block page_outer_content %}
+    {% ktl_component "courses" universities=universities_data path=request.path %}
+{% endblock %}

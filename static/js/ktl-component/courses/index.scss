@@ -1,0 +1,9 @@
+:root {
+  --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
+}
+
+@media (max-width: 767px) {
+  .ktl-courses__tabs {
+    display: none;
+  }
+}
