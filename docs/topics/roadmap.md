@@ -254,7 +254,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Libraries: [Improve `kotlinx-serialization` (release 1.3.0)](https://youtrack.jetbrains.com/issue/KT-46782)
 * ✅ Libraries: [Improve `kotlinx-coroutines` (release 1.6.0)](https://youtrack.jetbrains.com/issue/KT-46783)
 * ✅ Libraries: [Stabilize Duration API in the standard library](https://youtrack.jetbrains.com/issue/KT-46784)
-* ✅ Libraries: [Get rid of `!!` for `readLine()` in the standard library](https://youtrack.jetbrains.com/issue/KT-46785)
+* ✅ Libraries: [Get rid of `!!` after `readLine()` in the standard library](https://youtrack.jetbrains.com/issue/KT-46785)
 * ✅ Libraries: [Improve usability of multi-threaded coroutines library for Kotlin/Native](https://youtrack.jetbrains.com/issue/KT-42314)
 * ✅ Website: [Revamp Kotlin documentation](https://youtrack.jetbrains.com/issue/KT-44338)
 
