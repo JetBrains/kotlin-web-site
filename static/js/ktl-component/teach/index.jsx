@@ -15,6 +15,7 @@ import '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer.css';
 import '@rescui/typography';
 
 import './style.scss';
+import {SubscriptionForm} from './components/subscription-form';
 
 const Teach = (props) => {
 
@@ -440,6 +441,10 @@ const Teach = (props) => {
             </li>
           </ul>
         </div>
+      </section>
+
+      <section className="ktl-container ktl-offset-top-xxl teach-subscription-section">
+          <SubscriptionForm />
       </section>
 
       <section className="teach-video ktl-offset-top-xxl">
