@@ -180,6 +180,7 @@
                 <toc-element id="typesafe-html-dsl.md"/>
                 <toc-element id="js-external-declarations-with-dukat.md"/>
             </toc-element>
+            <toc-element id="js-samples.md"/>
             <toc-element id="js-hands-ons.md"/>
         </toc-element>
 

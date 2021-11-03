@@ -2,6 +2,347 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-11-02</startDate>
+        <endDate>2021-11-02</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Victor Rentea</speaker>
+        <title>Bucharest Software Craftsmanship Community</title>
+        <subject>Introduction to Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/bucharest-software-craftsmanship-community/events/281408189</url>
+        <description>
+            <![CDATA[
+<p>Coroutines are a cool mechanism for orchestrating asynchronous work using 'structured concurrency'.<p>
+<p>Other languages like python, C#, and C++ have supported these techniques for quite a while, but Kotlin was the first language able to run coroutines on JVM. Coroutines have become a strong competitor to Futures, CompletableFutures, and Reactive Programming paradigm (rxjava and reactor), winning great victories on the Android battlefield. Furthermore, some teams are now considering the use of coroutines also on backend systems to optimize thread usage for high-TPS systems.<p>
+<p>This event will demonstrate the core features of coroutines, implemented with Kotlin. Yes, there will be Kotlin code.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-07</startDate>
+        <endDate>2021-11-07</endDate>
+        <location>Moscow, Russia</location>
+        <speaker>Alexey Soshin</speaker>
+        <title>Kotlin Moscow</title>
+        <subject>Introduction to Kotlin Coroutines</subject>
+        <url>https://www.meetup.com/KotlinMoscow/events/281373133</url>
+        <description>
+            <![CDATA[
+<p>Ktor is one of the most popular web frameworks for Kotlin at the moment. It is extensible through a system of Plugins, that deal with the different cross-cutting concerns of web systems.<p>
+<p>In this talk, we'll write our own Ktor monitoring Plugin, discuss its lifecycle and cover some of the less obvious aspects of plugin development.<p>
+]]>
+        </description>
+    </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-05</startDate>
+        <endDate>2021-11-05</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Jerre van Veluw</speaker>
+        <title>Flock. Meetups</title>
+        <subject>Pragmatic functional programming in Kotlin</subject>
+        <url>https://www.meetup.com/flock-meetups/events/280658055</url>
+        <description>
+            <![CDATA[
+<p>At this meetup Jerre will present a way to do functional programming without the need to know everything about it. Using Kotlin with or without Arrow Jerre will demonstrate how to use typical patterns in a web application backend.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-10-28</startDate>
+        <endDate>2021-10-28</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Himanshu Singh</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Server-Driven UI in Compose</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/281232729</url>
+        <description>
+            <![CDATA[
+<p>Now, designing server-driven UI using views is a thing of the past. With Compose in the picture, the time has come to start building server-driven UI using Compose. We might have seen declarative UI being used to build UI using server response on different platforms. Now it's time to start declarative server-driven UI in the Android ecosystem as well.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-09</startDate>
+        <endDate>2021-11-09</endDate>
+        <location>Dortmund, Germany</location>
+        <speaker>Pascal Meier</speaker>
+        <title>Camunda User Group Ruhrgebiet</title>
+        <subject>Produktiv im Camunda-Kontext</subject>
+        <url>https://www.meetup.com/Camunda-UserGroup-Ruhrgebiet/events/281207830</url>
+        <description>
+            <![CDATA[
+<p>Zusammenfassung: Kotlin ist gereift. Es stehen Effizienzgewinne beim Schreiben (und Lesen) von Quellcodes zur Diskussion, die gerade bei komplexen Business-Anwendungen von Nutzen sein können. IT-Architekten stehen jetzt vor der Frage: „Lohnt sich das? Wie kompliziert ist eine Umstellung mit all unseren Bibliotheken, was kann koexistieren und was wird vorausgesetzt?“<p>
+<p>Der Vortrag beginnt mit einem kurzen Überblick für die Gründe der Einführung. Danach werden wir eine Beispielanwendung von Java nach Kotlin migrieren, welche unsere Erkenntnisse aus dem Kundenprojekt veranschaulicht. Die Anwendung im Status vor der Umstellung kann auf Github angeschaut werden: https://github.com/viadee/kotlin_camunda_webcast_2021<p>
+<p>Die ursprüngliche Java-Anwendung basiert auf Camunda mit Spring Boot. Für Daten-Mappings setzten wir auf MapStruct. Die Intergrationstests nutzen Junit5, Mockito und bmp-assert/assertJ. Das Buildtool ist Maven. Das gezeigte Szenario ist mehr als nur ein Beispiel, vielmehr ist es eine Zusammenstellung von Bibliotheken und Werkzeugen, die wir bei vielen unserer Kunden vorfinden und mit denen wir echte Anwendungen nach Kotlin migriert und erfolgreich in die Produktion gebracht haben. Die Anwendung werden wir im ersten Schritt für die Entwicklung mit Kotlin erweitern und dann die einzelnen Java-Bestandteile nach Kotlin migrieren, bis die gesamte Anwendung auf Kotlin umgestellt ist.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Valencia, Spain</location>
+        <speaker>Carlos Ballesteros</speaker>
+        <title>Valencia Kotlin User Group</title>
+        <subject>Estado de Machine Learning en Kotlin</subject>
+        <url>https://www.meetup.com/kotlin-valencia/events/281267093/</url>
+        <description>
+            <![CDATA[
+<p>Carlos Ballesteros, @cballesterosvel, creador de KorGE, motor de videojuegos en Kotlin, y las korlibs, librerías multiplatforma en Kotlin. Ha trabajado en JetBrains, e inició la comunidad kotlin.es hace ya varios años. A veces pulsa teclas y no se rompen cosas.<p>
+<p>En esta charla daremos un repaso super rápido al machine learning y veremos cómo está el panorama de Machine Learning en Kotlin este 2021. Vamos a intentar aproximarlo a todos los niveles, así que no hace falta tener experiencia en machine learning<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-18</startDate>
+        <endDate>2021-11-18</endDate>
+        <location>Irvine, USA</location>
+        <speaker>Ryan Simon</speaker>
+        <title>OC Kotlin Krew</title>
+        <subject>Kotlin 2021 Premier Online Event Recap</subject>
+        <url>https://www.meetup.com/OCKotlinKrew/events/281453931</url>
+        <description>
+            <![CDATA[
+<p>I'd like to say our events are for everyone, but it helps to have the following:
+- Previous experience with programming in any language
+- Looking to learn new languages
+- Want to learn about new and existing Kotlin concepts
+- A desire to join a community of passionate Kotlin engineers<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>tr</lang>
+        <startDate>2021-11-22</startDate>
+        <endDate>2021-11-22</endDate>
+        <location>Besni, Turkey</location>
+        <speaker>Mehmet Ali Sicak</speaker>
+        <title>Turkey KUG</title>
+        <subject>Kotlin 2021 Premier Online Event/ Kotlin and Android (KMM Roadmap)</subject>
+        <url>https://kotlinveandroid.com/genel/kotlin-2021-premiere-online-event-kotlin-and-android.html</url>
+        <description>
+            <![CDATA[
+<p>Kotlin 2021 Premier Online Event, 19 Ekim 2021-6 Kasım 2021 tarihleri arasında düzenlenecektir. Etkinlik hakkında bildirimler almak ve etkinliğe ücretsiz kayıt olmak için buraya tıklayabilirsiniz. Etkinlik sırasında YouTube veya Twitter’da #kotlin-event-21 ile soru sorabilirsiniz. En iyi soruları olan katılımcılara özel hediyeler verilecektir. Geçen sene katıldığım etkinlikte verdiğim cevaptan memnun olan ekip, Ember markalı piyasa değeri yaklaşık 130$ olan bir mug hediye ettiler.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-30</startDate>
+        <endDate>2021-10-30</endDate>
+        <location>Bauchi, Nigeria</location>
+        <speaker>Joshua Oluwafemi</speaker>
+        <title>Bauchi Kotlin User Group</title>
+        <subject>Bauchi Kotlin 2021 Premiere Online Event Watch Party</subject>
+        <url>https://www.facebook.com/events/860032914716980/?acontext=%7B%22event_action_history%22%3A[%7B%22surface%22%3A%22group%22%7D]%7D</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Kano, Nigeria</location>
+        <speaker>Saadat Aliyu</speaker>
+        <title>Kotlin Kano Usergroup</title>
+        <subject>Kotlin 2021 Premier Event Watch Party</subject>
+        <url>https://www.facebook.com/events/3669169323308341?_rdc=1&amp;_rdr</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>Kampala, Uganda</location>
+        <speaker>Brian Mutebi</speaker>
+        <title>Uganda Kotlin User Group</title>
+        <subject>Kampala Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.meetup.com/en-AU/uganda-kotlin-user-group/events/280891292/</url>
+        <description>
+            <![CDATA[
+<p>Get a glimpse into the future of Kotlin and how Kotlin removes barriers between ideas and working code. You will hear updates from the Kotlin team and news about the whole Kotlin ecosystem.<p>
+]]>
+        </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Bonny Island, Nigeria</location>
+        <speaker>Izuchukwu Igbani</speaker>
+        <title>Kotlin Rivers User Group, Nigeria</title>
+        <subject>DevFest - Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.facebook.com/events/471077943870881/?acontext=%7B%22event_action_history%22%3A[%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22unknown%22%2C%22surface%22%3A%22group%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22upcoming_events_for_group%22%2C%22surface%22%3A%22group%22%7D%2C%7B%22extra_data%22%3A%22%22%2C%22mechanism%22%3A%22surface%22%2C%22surface%22%3A%22create_dialog%22%7D]%2C%22ref_notif_type%22%3Anull%7D&amp;onload_action=offline_to_online_regex_conversion_prompt</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Jalandhar, India</location>
+        <speaker>Karan Verma</speaker>
+        <title>Kotlin Jalandhar User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party - Kotlin Minna User Group</subject>
+        <url>https://www.eventbrite.com/e/kotlin-2021-premiere-online-event-watch-party-tickets-179371915227</url>
+        <description>
+            <![CDATA[
+<p>The Kotlin event of the year – big announcements and future Kotlin plans!<p>
+<p> Join our amazing hosts, Ekaterina Petrova and Sebastian Aigner, for updates from the Kotlin team, news on the Kotlin ecosystem, and a special live Q&A session. You can ask questions during the event in the YouTube chat or on Twitter with #kotlin-event-21. Participants with the best questions will get special swag!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Oslo, Norway</location>
+        <speaker>Jarle Hansen</speaker>
+        <title>Oslo Kotlin Meetup</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.meetup.com/meetup-group-nWeRbyMu/events/281266704/</url>
+        <description>
+            <![CDATA[
+<p>- Keynote and Q&A
+Major Kotlin updates, news on the ecosystem, and a live Q&A session with the team. Roman Elizarov, Ekaterina Petrova, Sebastian Aigner, Egor Tolstoy, and Anastasia Kapanina<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Recca Chao</speaker>
+        <title>Taiwan Kotlin User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party with Mini Conference in Taiwan</subject>
+        <url>https://taiwan-kotlin-user-group.github.io/mini-conf-2021</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Karlsruhe, Germany</location>
+        <speaker>Peter Vegh</speaker>
+        <title>Kotlin Karlsruhe User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.meetup.com/Kotlin-Karlsruhe-User-Group/events/281094759/</url>
+        <description>
+            <![CDATA[
+<p>The keynote will stream 16:00 - 19:00. We added some time before and after the stream to be able to chat with each other as well.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Shanghai, China</location>
+        <speaker>Yuang Qiao</speaker>
+        <title>Kotlin Shanghai User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party with Mini Conference in China</subject>
+        <url>https://juejin.cn/user/3844312374718221</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-05</startDate>
+        <endDate>2021-11-05</endDate>
+        <location>Nizhny Novgorod, Russia</location>
+        <speaker>Roman Khlebnov</speaker>
+        <title>Kotlin Nizhny Novgorod User Group</title>
+        <subject>NN Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.meetup.com/kotlin_nn/events/281121157</url>
+        <description>
+            <![CDATA[
+<p>Join us in a cozy place to view and discuss together the latest news from the Kotlin world!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-19</startDate>
+        <endDate>2021-10-19</endDate>
+        <location>Cairo, Egypt</location>
+        <speaker>Shady Selim</speaker>
+        <title>Kotlin Cairo User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party</subject>
+        <url>https://www.meetup.com/GDG-Helwan/events/281126426/</url>
+        <description>
+            <![CDATA[
+<p>Join us and Kotlin Cairo User Group in this (Watch Party) to be the 1st to learn about Kotlin new updates, announcements, and future plans!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-06</startDate>
+        <endDate>2021-11-06</endDate>
+        <location>Hong Kong, China</location>
+        <speaker>Desmond Yeung</speaker>
+        <title>GDG HK &amp; Kotlin User Group</title>
+        <subject>Kotlin 2021 Premier Online Event Watch Party with Mini Conference in Hong Kong</subject>
+        <url>https://fb.me/e/1wB53zyQd</url>
+    </event>
+
+    <event>
+        <lang>es</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>México City, Mexico</location>
+        <speaker>Saúl Buentello Sánchez</speaker>
+        <title>Kotlin CDMX User Group</title>
+        <subject>Kotlin CDMX Octubre - Novedades "Kotlin 2021 Premier Online Event Watch Party"</subject>
+        <url>https://www.meetup.com/Kotlin-CDMX/events/281157153/</url>
+        <description>
+            <![CDATA[
+<p>¡Qué tal, amigos Kotliners! Del 19 de Octubre al 6 de Noviembre, JetBrains trae para nosotros una serie de charlas sobre Kotlin, de la mano de grandes expertos en la comunidad de desarrollo para mostrar grandes novedades, mejores prácticas, y más.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-22</startDate>
+        <endDate>2021-10-22</endDate>
+        <location>Surat, India</location>
+        <speaker>Sanjay Ramani</speaker>
+        <title>Kotlin Surat User Group</title>
+        <subject>Kotlin 2021 Premier</subject>
+        <url>https://www.meetup.com/kotlinsurat/events/281206228/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-13</startDate>
+        <endDate>2021-11-13</endDate>
+        <location>Dhaka, India</location>
+        <speaker>S M Mohi Us Sunnat</speaker>
+        <title>Bangladesh Kotlin User Group</title>
+        <subject>Kotlin 2021 Premier Online Event in BD</subject>
+        <url>https://www.facebook.com/events/836511957010627</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-10-28</startDate>
         <endDate>2021-10-28</endDate>
         <location>London, UK</location>

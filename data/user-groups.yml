@@ -367,12 +367,6 @@
       position:
         lat: 47.2125752
         lng: 38.9159658
-    - name: Torino Kotlin User Group
-      country: Italy
-      url: https://www.meetup.com/kotlin-torino-user-group/
-      position:
-        lat: 45.0703393
-        lng: 7.686864
     - name: Tricity Kotlin User Group
       country: Poland
       url: https://www.meetup.com/tricity-kotlin-user-group/
@@ -664,7 +658,7 @@
       position:
         lat: 28.6139391
         lng: 77.2090212
-    - name: Pakistan KotlinUser Group
+    - name: Pakistan Kotlin User Group
       country: Pakistan
       url: https://www.facebook.com/groups/565405337181251/
       position:
@@ -676,6 +670,9 @@
       position:
         lat: 31.952162
         lng: 35.233154
+    - name: Patna Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/kotlinpatna
     - name: Philippines Kotlin
       country: Philippines
       url: https://www.facebook.com/groups/642901202586581/
@@ -700,6 +697,9 @@
       position:
         lat: 23.885942
         lng: 45.079162
+    - name: Shanghai Kotlin User Group
+      country: China
+      url: https://juejin.cn/user/3844312374718221
     - name: Shenzhen Kotlin User Group
       country: China
       url: https://korilin.com/KUGshenzhen/
@@ -732,7 +732,7 @@
         lng: 72.8310607
     - name: Taiwan Kotlin User Group
       country: Taiwan
-      url: https://wetogether.co/kotlin-tw
+      url: https://taiwan-kotlin-user-group.github.io/
       position:
         lat: 23.69781
         lng: 120.960515
