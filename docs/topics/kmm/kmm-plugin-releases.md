@@ -177,7 +177,7 @@ Released: February 15, 2021
 </td>
 <td>
 
-Use this version of the plugin with Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher.
+Use this version of the plugin with Android Studio 4.2.
 * Infrastructure improvements.
 * [Fixes and other improvements](https://youtrack.jetbrains.com/issues?q=tag:%20KMM-0.2.1%20).
 
