@@ -35,12 +35,12 @@ val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this[
 
 Another way of creating a collection is to call a builder function –
 [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html), [`buildSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-set.html),
-or [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html). They create a new
+or [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html). They create a new,
 mutable collection of the corresponding type, populate it using [write operations](collection-write.md),
 and return a read-only collection with the same elements:
 
 ```kotlin
-val map = buildMap { // this is MutableMap<String, Int>, types of key and value are inferred from the 'put' calls below
+val map = buildMap { // this is MutableMap<String, Int>, types of key and value are inferred from the `put()` calls below
     put("a", 1)
     put("b", 0)
     put("c", 4)
