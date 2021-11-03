@@ -5,10 +5,6 @@ import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
 
 const menuItems = [
   {
-    url: '/education/',
-    title: 'Overview'
-  },
-  {
     url: '/education/why-teach-kotlin.html',
     title: 'Why Teach Kotlin'
   },
@@ -26,7 +22,7 @@ export const TeachTopMenu = ({path}) => {
     <nav className="teach-sticky-menu">
       <TopMenu
         items={menuItems}
-        homeUrl={'/'}
+        homeUrl={'/education/'}
         title={'Teach'}
         activeIndex={activeIndex}
       >

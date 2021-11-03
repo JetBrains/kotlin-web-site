@@ -259,13 +259,16 @@ def user_group_list():
         user_groups_data=site_data['user-groups'],
         number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
 
-
 @app.route('/education/')
 def education_page():
     return render_template(
         'pages/education/index.html',
         universities_count=len(site_data['universities']),
         countries_count=get_countries_size())
+
+@app.route('/education/why-teach-kotlin.html')
+def why_teach_page():
+    return render_template('pages/education/why-teach-kotlin.html')
 
 
 @app.route('/education/courses.html')

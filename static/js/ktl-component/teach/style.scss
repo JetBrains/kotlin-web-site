@@ -16,9 +16,11 @@
       display: block;
     }
   }
+
   &__content {
     display: block;
   }
+
   @media (min-width: 1200px) {
     &__content {
       padding-right: 32px;
@@ -124,6 +126,7 @@
 
   &__bottom {
     display: none;
+
     br {
       display: none;
     }
