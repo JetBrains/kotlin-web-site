@@ -2,7 +2,7 @@ from src.markdown.makrdown import jinja_aware_markdown
 
 CACHE_TYPE = "null"
 PREFERRED_URL_SCHEME = 'http'
-SERVER_NAME = 'localhost:5000'
+SERVER_NAME = 'localhost:8080'
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_HTML_RENDERER = jinja_aware_markdown
 FREEZER_IGNORE_404_NOT_FOUND = True

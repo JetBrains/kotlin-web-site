@@ -19,5 +19,5 @@ RUN pip install -r /tmp/requirements.txt
 RUN curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 RUN apt-get install -y nodejs
 
-EXPOSE 5000
+EXPOSE 8080
 ENTRYPOINT ["python", "/src/kotlin-website.py"]

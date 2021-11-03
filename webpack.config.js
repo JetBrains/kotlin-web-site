@@ -12,7 +12,7 @@ module.exports = (params = {}) => {
   const isDevServer = process.env.WEBPACK_SERVE === 'true';
   const sourcemaps = params.sourcemaps || isDevelopment;
 
-  const siteHost = 'localhost:5000';
+  const siteHost = 'localhost:8080';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
