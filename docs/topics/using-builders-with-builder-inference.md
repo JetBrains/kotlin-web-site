@@ -18,10 +18,10 @@ fun addEntryToMap(baseMap: Map<String, Number>, additionalEntry: Pair<String, In
 }
 ```
 
-We don't have enough type information here to infer type arguments in a regular way, but builder inference can
+There is not enough type information here to infer type arguments in a regular way, but builder inference can
 analyze the calls inside the lambda argument. Based on the type information about `putAll()` and `put()` calls,
 the compiler can automatically infer type arguments of the `buildMap()` call into `String` and `Number`. 
-Builder inference allows us to omit type arguments while using generic builders.
+Builder inference allows to omit type arguments while using generic builders.
 
 ## Writing your own builders
 
@@ -167,14 +167,14 @@ receiver.
 
 Builder inference can collect different varieties of type information that contribute to the analysis result.
 It considers:
-* Calling methods on a lambda's receiver that use the type parameter's type:
+* Calling methods on a lambda's receiver that use the type parameter's type
   ```kotlin
   val result = buildList {
       // Type argument is inferred into String based on the passed "value" argument
       add("value")
   } // result has the List<String> type inferred
   ```
-* Specifying the expected type for calls which return type parameter's type:
+* Specifying the expected type for calls that return the type parameter's type
   ```kotlin
   val result = buildList {
       // Type argument is inferred into Float based on the expected type
@@ -195,7 +195,7 @@ It considers:
       } // result has the Foo<CharSequence> type
   }
   ```
-* Passing postponed type variables' types into methods which expect concrete types:
+* Passing postponed type variables' types into methods that expect concrete types
   ```kotlin
   fun takeMyLong(x: Long) { ... }
 
@@ -220,7 +220,7 @@ It considers:
       } // result3 has the List<String> type
   }
   ```
-* Taking a callable reference to the lambda receiver's member:
+* Taking a callable reference to the lambda receiver's member
   ```kotlin
   fun main() {
       val result = buildList {
@@ -237,7 +237,6 @@ It considers:
       } // result has the List<Float> type
   }
   ```
-* Using nested interdependent builder inference calls.
 
 At the end of the analysis, builder inference considers all collected type information and tries to merge it into 
 the resulting type. See the example.
