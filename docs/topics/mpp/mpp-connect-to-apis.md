@@ -73,22 +73,30 @@ The main rules regarding expected and actual declarations are:
 * An expected declaration is marked with the `expect` keyword; the actual declaration is marked with the `actual` keyword.
 * `expect` and `actual` declarations have the same name and are located in the same package (have the same fully qualified name).
 * `expect` declarations never contain any implementation code and are abstract by default.
+* In interfaces, `expect`-functions cannot have bodies, but their `actual`-counterparts can be non-abstract and have a body,
+allowing their inheritors not to implement this function.
 
-> In interfaces, functions in actual declarations can be non-abstract and have a
-> body. To indicate that in `expect` declarations, explicitly mark functions as `open`:
->
-> ```kotlin
-> expect interface Mascot {
->     open fun name()
-> }
->
-> actual interface Mascot {
->     fun name(): String {
->         return "?"
->    }
-> }
->
-{type="note"}
+  To indicate that common inheritors don't need to implement a function, mark it as `open`. All `actual` implementations of
+such functions will be required to have bodies.
+
+```kotlin
+// Common
+expect interface Mascot {
+    open fun display()
+}
+
+class MascotImpl : Mascot {
+    val name: String = "TBD"
+    // it's ok not to implement `display()`: all `actual`s are guaranteed to have a default implementation
+}
+
+// Platform-specific
+actual interface Mascot {
+    fun display(output: MascotImpl): MascotImpl {
+        return MascotImpl()
+    }
+}
+```
 
 During each platform compilation, the compiler ensures that every declaration marked with the `expect` keyword in the common 
 or intermediate source set has the corresponding declarations marked with the `actual` keyword in all platform source sets. 
