@@ -8,7 +8,7 @@
   cursor: pointer;
   position: relative;
 
-  &:hover {
+  &:hover, &_active {
     background: rgba(255, 114, 44, 1);
   }
 }

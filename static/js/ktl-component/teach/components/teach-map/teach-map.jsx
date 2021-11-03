@@ -64,16 +64,15 @@ export const TeachMap = () => {
         return response.json();
       })
       .then(data => {
-        data.forEach(university => {
-          university.id = `${university.title}-${university.location}`;
+        const items = data.map(university => {
+          return {
+            ...university,
+            id: `${university.title}-${university.location}`
+          }
         });
-        setUniversities(data)
+        setUniversities(items)
       });
   }, []);
-
-  if (!universities.length) {
-    return null;
-  }
 
   return (
     <div className="teach-map">
