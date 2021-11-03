@@ -1,48 +1,47 @@
 [//]: # (title: Using builders with builder type inference)
 
-Kotlin supports _builder type inference_ (or builder inference), which is a type inference flavor that comes in handy 
-when working with generic builders. It helps the compiler infer the type arguments of a builder call based on the type information 
+Kotlin supports _builder type inference_ (or builder inference), which can come in useful when you are working with 
+generic builders. It helps the compiler infer the type arguments of a builder call based on the type information
 about other calls inside its lambda argument.
 
-Consider the example of the [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html) 
+Consider this example of [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html)
 usage:
 
 ```kotlin
 fun addEntryToMap(baseMap: Map<String, Number>, additionalEntry: Pair<String, Int>?) {
-    val myMap = buildMap {
-        putAll(baseMap)
-        if (additionalEntry != null) {
-            put(additionalEntry.first, additionalEntry.second)
-        }
-    }
+   val myMap = buildMap {
+       putAll(baseMap)
+       if (additionalEntry != null) {
+           put(additionalEntry.first, additionalEntry.second)
+       }
+   }
 }
 ```
 
-Here we don't have enough type information to infer type arguments in a regular way but builder inference can
-analyze the calls inside the lambda argument. Based on the type information about `putAll()` and `put()` calls, 
-the compiler can automatically infer type arguments of the `buildMap()` call into `String` and `Number`.
+We don't have enough type information here to infer type arguments in a regular way, but builder inference can
+analyze the calls inside the lambda argument. Based on the type information about `putAll()` and `put()` calls,
+the compiler can automatically infer type arguments of the `buildMap()` call into `String` and `Number`. 
+Builder inference allows us to omit type arguments while using generic builders.
 
-As you can see, builder inference allows omitting type arguments while using generic builders.
-
-## Writing own builders
+## Writing your own builders
 
 ### Requirements for enabling builder inference
 
-> Before Kotlin 1.6.0, enabling builder inference for a builder function required the [`@BuilderInference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-builder-inference/) 
-> annotation to be present on a builder lambda parameter. In 1.6.0, you can omit the annotation on the condition of using
-> the compiler option `-Xenable-builder-inference` both on your and client's side.
-> 
+> Before Kotlin 1.6.0, enabling builder inference for a builder function required the [`@BuilderInference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-builder-inference/)
+> annotation to be present on a builder lambda parameter. In 1.6.0, you can omit the annotation if both you and your 
+> builder's clients are using the compiler option `-Xenable-builder-inference`.
+>
 {type="note"}
 
-To let builder inference work for your own builder, make sure its declaration has a builder lambda parameter of a 
-function type with receiver. There are also two requirements to a receiver type:
+To let builder inference work for your own builder, make sure its declaration has a builder lambda parameter of a
+function type with a receiver. There are also two requirements for the receiver type:
 
 1. It should use the type arguments that builder inference is supposed to infer. For example:
    ```kotlin
    fun <V> buildList(builder: MutableList<V>.() -> Unit) { ... }
    ```
    
-   > Note that passing type parameter's type directly like `fun <T> myBuilder(builder: T.() -> Unit)` is not yet supported.
+   > Note that passing the type parameter's type directly like `fun <T> myBuilder(builder: T.() -> Unit)` is not yet supported.
    > 
    {type="note"}
 
@@ -132,9 +131,9 @@ Builder inference supports:
 
 ### Postponed type variables
 
-Builder inference works in terms of _postponed type variables_, which appear inside builder lambda during builder 
-inference analysis. A postponed type variable is a type argument's type, which is in the process of inferring. 
-The compiler uses it for collecting type information about the type argument.
+Builder inference works in terms of _postponed type variables_, which appear inside the builder lambda during builder
+inference analysis. A postponed type variable is a type argument's type, which is in the process of inferring.
+The compiler uses it to collect type information about the type argument.
 
 Consider the example with [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html):
 
@@ -144,11 +143,11 @@ val result = buildList {
 }
 ```
 
-Here `x` has a type of postponed type variable: the `get()` call returns a value of `E` type but `E` itself is not yet 
-fixed. At this moment, a concrete type for `E` is unknown. 
+Here `x` has a type of postponed type variable: the `get()` call returns a value of type `E`, but `E` itself is not yet
+fixed. At this moment, a concrete type for `E` is unknown.
 
-When a value of postponed type variable gets associated with some concrete type, builder inference collects this information 
-to infer the resulting type of the corresponding type argument at the end of builder inference analysis. For example:
+When a value of a postponed type variable gets associated with a concrete type, builder inference collects this information
+to infer the resulting type of the corresponding type argument at the end of the builder inference analysis. For example:
 
 ```kotlin
 val result = buildList {
@@ -157,18 +156,18 @@ val result = buildList {
 } // result has the List<String> type inferred
 ```
 
-After the postponed type variable gets assigned to a variable of the `String` type, builder inference gets information
-that `x` is a subtype of `String`. This assignment is the last statement in the builder lambda, so the builder inference 
+After the postponed type variable gets assigned to a variable of the `String` type, builder inference gets the information
+that `x` is a subtype of `String`. This assignment is the last statement in the builder lambda, so the builder inference
 analysis ends with the result of inferring the type argument `E` into `String`.
 
-Note that you can always call `equals()`, `hashCode()`, and `toString()` functions with a postponed type variable as a 
+Note that you can always call `equals()`, `hashCode()`, and `toString()` functions with a postponed type variable as a
 receiver.
 
 ### Contributing to builder inference results
 
-Builder inference can collect different flavors of type information that contributes to the analysis result.
+Builder inference can collect different varieties of type information that contribute to the analysis result.
 It considers:
-* Calling methods on a lambda's receiver that use a type parameter's type:
+* Calling methods on a lambda's receiver that use the type parameter's type:
   ```kotlin
   val result = buildList {
       // Type argument is inferred into String based on the passed "value" argument
@@ -221,7 +220,7 @@ It considers:
       } // result3 has the List<String> type
   }
   ```
-* Taking a callable reference to lambda receiver's member:
+* Taking a callable reference to the lambda receiver's member:
   ```kotlin
   fun main() {
       val result = buildList {
@@ -253,11 +252,11 @@ val result = buildList { // Inferring postponed type variable E
 } // result has the List<Int> type
 ```
 
-So the resulting type is the most specific type that corresponds to the type information collected during the analysis.
-If given type information is contradictory and cannot be merged, the compiler reports an error.
+The resulting type is the most specific type that corresponds to the type information collected during the analysis.
+If the given type information is contradictory and cannot be merged, the compiler reports an error.
 
 Note that the Kotlin compiler uses builder inference only if regular type inference cannot infer a type argument.
-It means you can contribute type information outside a builder lambda, and then builder inference analysis is not
+This means you can contribute type information outside a builder lambda, and then builder inference analysis is not
 required. Consider the example:
 
 ```kotlin
@@ -273,5 +272,5 @@ fun main() {
 }
 ```
 
-Here a type mismatch appears because builder inference is not required. The expected type of the map is specified outside
-the builder lambda, so the compiler analyzes all statements inside with the fixed receiver type `Map<in String, String>`. 
+Here a type mismatch appears because the expected type of the map is specified outside the builder lambda. 
+The compiler analyzes all the statements inside with the fixed receiver type `Map<in String, String>`.
