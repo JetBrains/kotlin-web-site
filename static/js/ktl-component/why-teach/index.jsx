@@ -13,8 +13,6 @@ import quotes from './quotes.json';
 
 export const WhyTeach = ({path}) => {
 
-  console.log(quotes.academicallyRecognized)
-
   return (
     <div className="teach-wrapper">
       <TeachTopMenu path={path}/>
