@@ -16,6 +16,7 @@ import '@rescui/typography';
 
 import './style.scss';
 import {SubscriptionForm} from './components/subscription-form';
+import {TeachMap} from './components/teach-map/teach-map.jsx';
 
 const Teach = (props) => {
 
@@ -162,6 +163,8 @@ const Teach = (props) => {
             </div>
           </div>
 
+          <TeachMap />
+
           <div className="teach-universities__bottom ktl-offset-top-m">
             <div className="ktl-row">
               <div className="ktl-col-12 ktl-col-sm-8 ktl-col-sm-offset-2">
@@ -171,9 +174,8 @@ const Teach = (props) => {
                   send a Kotlin T-shirt for you and stickers for your students.
                 </p>
                 <a
-                  href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
-                  target="_blank" className="kto-button kto-button_size_l kto-button_mode_outline">
-                  All universities&nbsp;→
+                  href="courses.html" className="kto-button kto-button_size_l kto-button_mode_outline">
+                  All universities
                 </a>
               </div>
             </div>

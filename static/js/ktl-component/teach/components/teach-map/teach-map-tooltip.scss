@@ -1,0 +1,43 @@
+.teach-map-tooltip {
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+  width: 280px;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 200;
+  top: 24px;
+
+  &:before {
+    position: absolute;
+    content: "";
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__header {
+    padding: 8px 12px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__header-text {
+    font-weight: 700;
+  }
+
+  &__content {
+    border-top: 1px solid rgba(39, 40, 44, 0.2);
+    padding: 8px 12px;
+  }
+
+  &__close-icon {
+    flex: 0 0 auto;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+}

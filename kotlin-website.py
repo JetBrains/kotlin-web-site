@@ -264,7 +264,8 @@ def education_page():
     return render_template(
         'pages/education/index.html',
         universities_count=len(site_data['universities']),
-        countries_count=get_countries_size())
+        countries_count=get_countries_size()
+    )
 
 @app.route('/education/why-teach-kotlin.html')
 def why_teach_page():
