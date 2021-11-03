@@ -21,7 +21,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
 1. In IntelliJ IDEA, select **File | New | Project**.
 2. In the panel on the left, select **Kotlin | Native Application**.
 3. Specify the name and select the folder where you'll save your application.
-   ![New project. Native application in IntelliJ IDEA](native-file-new.png){width="700"}
+   ![New project. Native application in IntelliJ IDEA](native-file-new.png){width=700}
 3. Click **Next** and then **Finish**.
 
 IDEA will create a new project with some files and folders to get you started. It's important to understand that
@@ -29,7 +29,7 @@ an application written in Kotlin/Native can target different platforms if the co
 requirements. Your code is placed in a folder named `NativeMain` with its corresponding `NativeTest`. For this tutorial,
 keep the folder structure as is.
 
-![Native application project structure](native-project-structure.png){width="700"}
+![Native application project structure](native-project-structure.png){width=700}
 
 Along with your new project, a `build.gradle(.kts)` file is generated. Pay special attention to the following
 in the build file:
@@ -101,9 +101,8 @@ An ideal scenario for interop is to call C functions as if you are calling Kotli
 signature and conventions. This is when the `cinterop` tool comes in handy. It takes a C library and generates the
 corresponding Kotlin bindings, so that the library can be used as if it were a Kotlin code.
 
-To generate these bindings, let's create a library definition `.def` file that contains some information about
-the necessary headers. In our app, you'll need the `libcurl` library to make some HTTP calls. To create a
-definition file:
+To generate these bindings, create a library definition `.def` file that contains some information about the necessary
+headers. In this app, you'll need the `libcurl` library to make some HTTP calls. To create a definition file:
 
 1. Select the `src` folder and create a new directory with **File | New | Directory**.
 2. Name new directory **nativeInterop/cinterop**. This is the default convention for header file locations, though it can
@@ -120,22 +119,20 @@ linkerOpts.osx = -L/opt/local/lib -L/usr/local/opt/curl/lib -lcurl
 linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
 ```
 
-* The first entry is `headers`, the list of header files to generate Kotlin stubs for. You can add multiple files to
-this entry, separating each with a `\` on a new line. In our case, it's only `curl.h`. The referenced files need to be
-relative to the folder where the definition file is or be available on the system path (in our case, it's `/usr/include/curl`).
-* The second line is the `headerFilter`. It shows what exactly is included. In C, all the headers are also included when
-one file references another one with the `#include` directive. Sometimes it's not necessary, and you can add this
-parameter [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
+* `headers` is the list of header files to generate Kotlin stubs for. You can add multiple files to this entry,
+separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be relative
+to the folder where the definition file is or be available on the system path (in this case, it's `/usr/include/curl`).
+* `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
+another one with the `#include` directive. Sometimes it's not necessary, and you can add this parameter
+[using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
 
-> `headerFilter` is an optional argument and is mostly used when the library is installed as a system library. You don't
-> want to fetch external dependencies (such as system `stdint.h` header) into the interop library. It may be important to
-> optimize the library size and fix potential conflicts between the system and the provided Kotlin/Native compilation
-> environment.
->
-{type="note"}
+  `headerFilter` is an optional argument and is mostly used when the library is installed as a system library. You don't
+want to fetch external dependencies (such as system `stdint.h` header) into the interop library. It may be important to
+optimize the library size and fix potential conflicts between the system and the provided Kotlin/Native compilation
+environment.
 
 * The next lines are about providing linker and compiler options, which can vary depending on different target platforms.
-In our case, they are macOS (the `.osx` suffix) and Linux (the `.linux` suffix). Parameters without a suffix are also
+In this case, they are macOS (the `.osx` suffix) and Linux (the `.linux` suffix). Parameters without a suffix are also
 possible (for example, `linkerOpts=`) and applied to all platforms.
 
 The convention is that each library gets its definition file, usually with the same name as the library. For more
@@ -150,7 +147,7 @@ information on all the options available to `cinterop`, see [the Interop section
 
 ## Add interoperability to the build process
 
-To use header files, let's make sure they are generated as a part of the build process. For this, add the following
+To use header files, make sure they are generated as a part of the build process. For this, add the following
 entry to the `build.gradle(.kts)` file:
 
 <tabs>
@@ -205,7 +202,7 @@ See the [Interoperability with C](native-c-interop.md) section for more details 
 ## Write the application code
 
 Now you have the library and the corresponding Kotlin stubs and can consume them from your application. For this tutorial,
-let's convert the [simple.c](https://curl.haxx.se/libcurl/c/simple.html) example to Kotlin.
+convert the [simple.c](https://curl.haxx.se/libcurl/c/simple.html) example to Kotlin.
 
 In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the following code:
 
@@ -242,10 +239,12 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
 ```
 In this case, the `cinterop` generated part is implicitly included in the build.
 
-2. If there are no errors during compilation, run the build by creating a [Run Configuration](https://www.jetbrains.com/help/idea/run-debug-configuration.html#create-permanent).
-IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
+2. If there are no errors during compilation, click the green **Run** icon in the gutter beside the `main()` method or use the **Alt+Enter** shortcut to invoke
+   the launch menu in IntelliJ IDEA.
 
-![Application output with HTML-code](native-output.png){width="700"}
+   IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
+
+![Application output with HTML-code](native-output.png){width=700}
 
 You can see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could
 hide this using `curl_easy_setopt`.
