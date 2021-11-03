@@ -3,8 +3,8 @@
 
 {% extends 'base.html' %}
 
-{% block title %}Kotlin for Education{% endblock %}
+{% block title %}List of Courses{% endblock %}
 
 {% block page_outer_content %}
-    {% ktl_component "teach" path=request.path countriesCount=countries_count universitiesCount=universities_count %}
+    {% ktl_component "courses" universities=universities_data path=request.path %}
 {% endblock %}

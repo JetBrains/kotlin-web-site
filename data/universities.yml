@@ -205,7 +205,7 @@
     url: https://www3.nd.edu/~pbui/teaching/cse.40842.sp21/progress02.html
   geo:
     lat: '35.9049122'
-    lng: 79.0491021,17
+    lng: '79.0491021'
 - title: TU Dresden
   location: Dresden (Germany)
   courses:
@@ -825,22 +825,6 @@
   geo:
     lat: '32.8800604'
     lng: '-117.2340135'
-- title: Technical University of Munich
-  location: Munich (Germany)
-  courses:
-  - name: Patterns in Software Engineering (WS 2019/20)
-    url: https://ase.in.tum.de/lehrstuhl_1/people/people-archive/122-teaching/winterterm-2018-19/998-patterns-in-software-engineering
-  geo:
-    lat: '48.14966'
-    lng: '11.5678602'
-- title: University of Illinois at Urbana-Champaign
-  location: Champaign, IL (US)
-  courses:
-  - name: CS 125 An Introduction to Computer Science
-    url: https://cs125.cs.illinois.edu/lessons/kotlin/#spring2021-compoundconditionals
-  geo:
-    lat: '40.1019523'
-    lng: '-88.2271615'
 - title: University of North Carolina at Chapel Hill
   location: Chapel Hill, NC (US)
   courses:
@@ -977,14 +961,6 @@
   geo:
     lat: '46.0107081'
     lng: '8.9581559'
-- title: Johannes Gutenberg University of Mainz
-  location: Mainz (Germany)
-  courses:
-  - name: Mobile Computing und Web Entwicklung
-    url: https://www.cs.uni-mainz.de/files/2019/02/Lehrangebot-SS2019-red-.pdf
-  geo:
-    lat: '49.9926403'
-    lng: '8.241555199999999'
 - title: Temple University
   location: Philadelphia, PA (US)
   courses:
@@ -1017,14 +993,6 @@
   geo:
     lat: '33.9480053'
     lng: '-83.3773221'
-- title: Iowa State University
-  location: Ames, IA (US)
-  courses:
-  - name: 'COM S 430: CONCURRENT PROGRAMMING IN PRACTICE'
-    url: http://web.cs.iastate.edu/~smkautz/cs430s19/examples/kotlin/kotlin.pdf
-  geo:
-    lat: '42.0266573'
-    lng: '-93.64645159999999'
 - title: Jordan University of Science and Technology
   location: Irbid (Jordan)
   courses:
@@ -1033,14 +1001,6 @@
   geo:
     lat: '32.4950392'
     lng: '35.9912257'
-- title: Linköping University
-  location: Linkoping (Sweden)
-  courses:
-  - name: TDDC73 Interaction Programming
-    url: https://www.ida.liu.se/~TDDC73/labs/lab1.sv.shtml
-  geo:
-    lat: '58.3978364'
-    lng: '15.5760072'
 - title: Mizzou - University of Missouri-Columbia
   location: Columbia, MO (US)
   courses:
@@ -1394,14 +1354,6 @@
   geo:
     lat: '47.9633321'
     lng: '11.1032012'
-- title: Omsk State University
-  location: Omsk (Russia)
-  courses:
-  - name: Технологии разработки программного обеспечения
-    url: http://pozi.omsu.ru/courses.html
-  geo:
-    lat: '55.02785129999999'
-    lng: '73.26493339999999'
 - title: National University of the South
   location: Bahia Blanca (Argentina)
   courses:
@@ -1410,14 +1362,6 @@
   geo:
     lat: '-38.701727'
     lng: '-62.27019600000001'
-- title: University of the Sinos Valley
-  location: Sao Leopoldo (Brazil)
-  courses:
-  - name: Desenvolvimento de Aplicações para Plataformas Móveis
-    url: http://www.unisinos.br/noticias/minha-pos/especializacao-em-desenvolvimento-de-aplicacoes-para-dispositivos-moveis
-  geo:
-    lat: '-29.7955145'
-    lng: '-51.1521175'
 - title: Universidad Tecnológica Nacional (UTN)
   location: Buenos Aires (Argentina)
   courses:
