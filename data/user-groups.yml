@@ -1124,8 +1124,8 @@
         lat: 26.820553
         lng: 30.802498
     - name: Kaduna Kotlin User Group
-        country: Nigeria
-        url: https://web.facebook.com/Kaduna-Kotlin-User-Group-112766181179860
+      country: Nigeria
+      url: https://web.facebook.com/Kaduna-Kotlin-User-Group-112766181179860
     - name: Kano Kotlin User Group
       country: Nigeria
       url: https://web.facebook.com/groups/193660894904095/about
