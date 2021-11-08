@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     ports:
-      - 5000:5000
+      - 8080:8080
     volumes:
       - ./:/src
     working_dir: /src
