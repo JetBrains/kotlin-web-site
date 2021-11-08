@@ -292,7 +292,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
 * 🆕 Multiplatform: [Improve stability and robustness of the multiplatform toolchain](https://youtrack.jetbrains.com/issue/KT-49525)
 * 🆕 IDE: [Make update of compiler/platform versions faster](https://youtrack.jetbrains.com/issue/KTIJ-20044)
-* 🆕 IDE: [Improve MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
+* 🆕 IDE: [Improve Multiplatform support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
 * 🆕 IDE: [Stabilize Eclipse plugin](https://youtrack.jetbrains.com/issue/KTIJ-20046)
 * 🆕 Build tools: [Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KT-49532)
 * 🆕 Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)
