@@ -19,7 +19,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 * **Fast turnaround**: making the change-test-debug cycle really fast.
 * **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
-* **Fast and smooth IDE**: improving the stability and performance of the Kotlin IDE.
+* **Fast and smooth IDE**: improving the stability and performance of the Kotlin plugin.
 * **Kotlin for JVM server-side development**: expanding support for server-side use cases across the Kotlin ecosystem.
 * **Kotlin Multiplatform Mobile**: improving the user experience and feature set for sharing code on mobile platforms.
 
@@ -157,7 +157,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Make update of compiler/platform versions faster</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improve MPP support</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improve Multiplatform support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Stabilize Eclipse plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18195" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18174" target="_blank">Improve IDE performance</a></li>
