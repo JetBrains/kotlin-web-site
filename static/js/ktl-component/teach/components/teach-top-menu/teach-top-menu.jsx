@@ -5,6 +5,10 @@ import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
 
 const menuItems = [
   {
+    url: '/education/',
+    title: 'Overview'
+  },
+  {
     url: '/education/why-teach-kotlin.html',
     title: 'Why Teach Kotlin'
   },
@@ -25,6 +29,7 @@ export const TeachTopMenu = ({path}) => {
         homeUrl={'/education/'}
         title={'Teach'}
         activeIndex={activeIndex}
+        mobileOverview={false}
       >
         <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
            className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
