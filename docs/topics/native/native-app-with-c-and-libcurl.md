@@ -239,8 +239,8 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
 ```
 In this case, the `cinterop` generated part is implicitly included in the build.
 
-2. If there are no errors during compilation, click the green **Run** icon in the gutter beside the `main()` method or use the **Alt+Enter** shortcut to invoke
-   the launch menu in IntelliJ IDEA.
+2. If there are no errors during compilation, click the green **Run** icon in the gutter beside the `main()` method or
+use the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA.
 
    IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
 
