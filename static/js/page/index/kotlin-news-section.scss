@@ -37,7 +37,7 @@
 }
 
 .kotlin-news-section__title {
-
+  @include kto-link-standalone;
 }
 
 .kotlin-news-section__item .kto-text_size_m {
