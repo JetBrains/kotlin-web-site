@@ -10,7 +10,7 @@ If you aren't familiar with KMM, you can learn how to [create and configure a KM
 
 ## Prepare an environment for development
 
-1. Install Android Studio 4.2 or higher and [other tools for KMM development](kmm-setup.md) on macOS.
+1. Install Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher and [other tools for KMM development](kmm-setup.md) on macOS.
 
    >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
    >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
