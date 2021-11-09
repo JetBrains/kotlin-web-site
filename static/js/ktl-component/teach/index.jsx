@@ -43,7 +43,7 @@ const Teach = (props) => {
         </div>
 
         <div className="teach-features ktl-row">
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-multiplatform-icon.svg" alt="Multiplatform"/>
@@ -61,7 +61,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-academically-recognized-icon.svg"
@@ -80,7 +80,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-popular-icon.svg"
