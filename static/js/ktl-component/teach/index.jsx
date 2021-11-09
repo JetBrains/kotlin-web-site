@@ -17,6 +17,8 @@ import '@rescui/typography';
 import './style.scss';
 import {SubscriptionForm} from './components/subscription-form';
 import {TeachMap} from './components/teach-map/teach-map.jsx';
+import {SlackIcon} from "@rescui/icons";
+import Button from "@rescui/button";
 
 const Teach = (props) => {
 
@@ -31,17 +33,13 @@ const Teach = (props) => {
         </h1>
 
         <div className="teach-top-mobile-buttons">
-          <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-             className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
-            <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg"
-                 className="teach-button-icon teach-button-icon_small" alt="Slack icon"/>
-            Join Educators Сommunity
-          </a>
+          <Button icon={<SlackIcon />}
+                  href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+                  target="_blank" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
-          <a href="/why-teach-kotlin.html" target="_blank"
-             className="kto-button kto-button_size_s kto-button_mode_outline">
-            Why Teach Kotlin&nbsp;→
-          </a>
+          <Button mode="outline"
+                  href="why-teach-kotlin.html"
+                  target="_blank" className="teach-cta-block-button">Why Teach Kotlin&nbsp;→</Button>
         </div>
 
         <div className="teach-features ktl-row">
@@ -104,16 +102,13 @@ const Teach = (props) => {
 
         <div className="ktl-offset-top-l">
           <div className="teach-top-buttons">
-            <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
-               className="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_primary">
-              <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon"
-                   alt="Slack icon"/>
-              Join Educators Сommunity
-            </a>
+            <Button size="l" icon={<SlackIcon />}
+                    href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+                    target="_blank" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
-            <a href="why-teach-kotlin.html" className="kto-button kto-button_size_l kto-button_mode_outline">
-              Why Teach Kotlin&nbsp;→
-            </a>
+            <Button size="l" mode="outline"
+                    href="why-teach-kotlin.html"
+                    className="teach-cta-block-button">Why Teach Kotlin&nbsp;→</Button>
           </div>
         </div>
       </section>
@@ -163,7 +158,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <TeachMap />
+          <TeachMap className="teach-map__wrapper" />
 
           <div className="teach-universities__bottom ktl-offset-top-m">
             <div className="ktl-row">
@@ -173,20 +168,13 @@ const Teach = (props) => {
                   href="mailto:education@kotlinlang.org" className="rs-link">education@kotlinlang.org.</a><br/> We’ll
                   send a Kotlin T-shirt for you and stickers for your students.
                 </p>
-                <a
-                  href="courses.html" className="kto-button kto-button_size_l kto-button_mode_outline">
-                  All universities
-                </a>
+                <Button size="l" mode="outline" href="courses.html">All universities</Button>
               </div>
             </div>
           </div>
 
           <div className="teach-universities__mobile-button">
-            <a
-              href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
-              target="_blank" className="kto-button kto-button_size_s kto-button_mode_outline">
-              Learn more&nbsp;→
-            </a>
+            <Button mode="outline" href="courses.html">Learn more&nbsp;→</Button>
           </div>
         </div>
       </section>
@@ -222,7 +210,7 @@ const Teach = (props) => {
                 </li>
                 <li className="teach-list__item">
                   <a href="https://hyperskill.org/tracks/18" target="_blank">
-                    <span className="rs-link">Kotin Basics track on JetBrains Academy</span>
+                    <span className="rs-link">Kotlin Basics track on JetBrains Academy</span>
                     <span>↗</span>
                   </a>
                 </li>

@@ -11,7 +11,7 @@
     "@babel/register": "7.15.3",
     "@jetbrains/babel-preset-jetbrains": "^2.3.1",
     "@jetbrains/kotlin-web-site-ui": "2.8.1",
-    "@rescui/button": "0.2.1",
+    "@rescui/button": "0.4.0",
     "@rescui/checkbox": "0.1.0",
     "@rescui/colors": "0.0.4",
     "@rescui/icons": "0.3.0",
