@@ -15,7 +15,7 @@ export const TeachMapTooltip = ({university, onClose}) => {
           <div className="teach-map-tooltip__header-text">{university.title}</div>
           {university.location}
         </div>
-        <CloseIcon className="teach-map-tooltip__close-icon" onClick={handleClick}/>
+        <CloseIcon size="s" className="teach-map-tooltip__close-icon" onClick={handleClick}/>
       </div>
       <div className="teach-map-tooltip__content">
         <div>Course:</div>
