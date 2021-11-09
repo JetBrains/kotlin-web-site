@@ -393,7 +393,7 @@ const Teach = (props) => {
                 </li>
               </ul>
             </li>
-            <ul>
+            <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">
                 Slack
               </p>
@@ -405,7 +405,8 @@ const Teach = (props) => {
                 <span className="rs-link">Request to join</span>
                 <span>↗</span>
               </a>
-            </ul>
+            </li>
+
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Connect with us</p>
               <ul className="teach-list">
