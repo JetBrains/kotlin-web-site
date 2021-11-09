@@ -73,11 +73,11 @@ The main rules regarding expected and actual declarations are:
 * An expected declaration is marked with the `expect` keyword; the actual declaration is marked with the `actual` keyword.
 * `expect` and `actual` declarations have the same name and are located in the same package (have the same fully qualified name).
 * `expect` declarations never contain any implementation code and are abstract by default.
-* In interfaces, `expect`-functions cannot have bodies, but their `actual`-counterparts can be non-abstract and have a body,
-allowing their inheritors not to implement this function.
+* In interfaces, functions in `expect` declarations cannot have bodies, but their `actual` counterparts can be non-abstract
+and have a body, allowing the inheritors not to implement a particular function.
 
-  To indicate that common inheritors don't need to implement a function, mark it as `open`. All `actual` implementations of
-such functions will be required to have bodies.
+  To indicate that common inheritors don't need to implement a function, mark it as `open`. All its `actual` implementations
+will be required to have a body.
 
 ```kotlin
 // Common
