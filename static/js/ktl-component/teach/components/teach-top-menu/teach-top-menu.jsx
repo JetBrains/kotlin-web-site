@@ -34,7 +34,7 @@ export const TeachTopMenu = ({path}) => {
         mobileOverview={false}
       >
         <Button icon={<SlackIcon/>} href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                target="_blank" className="teach-sticky-menu__button">Join Educators</Button>
+                target="_blank" rel="noopener" className="teach-sticky-menu__button">Join Educators</Button>
       </TopMenu>
     </nav>
   )

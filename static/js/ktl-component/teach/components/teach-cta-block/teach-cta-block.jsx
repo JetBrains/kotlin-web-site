@@ -15,7 +15,7 @@ export const TeachCtaBlock = () => {
         <div className="teach-cta-block-buttons">
           <Button size="l" mode="transparent"
                   href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                  target="_blank" className="teach-cta-block-button">Slack-channel&nbsp;→</Button>
+                  target="_blank" rel="noopener" className="teach-cta-block-button">Slack-channel&nbsp;→</Button>
           <Button size="l" mode="transparent" href="mailto:education@kotlinlang.org" className="teach-cta-block-button">Email</Button>
         </div>
       </CtaBlock>
