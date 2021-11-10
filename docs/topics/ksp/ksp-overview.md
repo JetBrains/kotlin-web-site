@@ -15,13 +15,13 @@ such as equivalence and assign-compatibility.
 
 The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/docs/reference/grammar.html). 
 When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters are accessible for the
-processors, while things like `if`-blocks and `for`-loops are not.
+processors, while things like `if` blocks and `for` loops are not.
 
 Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) in Kotlin reflection. 
 The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice-versa. 
-Substituting type arguments, specifying variances, applying star projections, and marking nullabilities of types are also possible.
+You can also substitute type arguments, specify variances, apply star projections, and mark nullabilities of types.
 
-Another way to think of KSP is as a pre-processor framework of Kotlin programs. If we refer to KSP-based plugins as 
+Another way to think of KSP is as a preprocessor framework of Kotlin programs. If we consider KSP-based plugins as 
 _symbol processors_, or simply _processors_, then the data flow in a compilation can be described in the following steps:
 
 1. Processors read and analyze source programs and resources.
@@ -137,21 +137,10 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 }
 ```
 
-## Resources
-
-* [Quickstart](ksp-quickstart.md)
-* [Why use KSP?](ksp-why-ksp.md)
-* [Examples](ksp-examples.md)
-* [How KSP models Kotlin code](ksp-additional-details.md)
-* [Reference for Java annotation processor authors](ksp-reference.md)
-* [Incremental processing notes](ksp-incremental.md)
-* [Multiple round processing notes](ksp-multi-round.md)
-* [FAQ](ksp-faq.md)
-
 ## Supported libraries
 
-The table below includes a list of popular libraries on Android and their various stages of support for KSP. 
-If your library is missing, feel free to submit a pull request.
+The table includes a list of popular libraries on Android and their various stages of support for KSP. 
+If your library is missing, feel free to add it to the table.
 
 |Library|Status|Tracking issue for KSP|
 |---|---|---|
@@ -164,3 +153,14 @@ If your library is missing, feel free to submit a pull request.
 |[Hilt](https://developer.android.com/jetpack/androidx/releases/hilt)|Not yet supported|[Link](https://issuetracker.google.com/179057202)|
 |[Glide](https://github.com/bumptech/glide)|Not yet supported|[Link](https://github.com/bumptech/glide/issues/4492)|
 |[DeeplinkDispatch](https://github.com/airbnb/DeepLinkDispatch)|Not yet supported|[Link](https://github.com/airbnb/DeepLinkDispatch/issues/307)|
+
+## What's next
+
+* [Quickstart](ksp-quickstart.md)
+* [Why use KSP?](ksp-why-ksp.md)
+* [Examples](ksp-examples.md)
+* [How KSP models Kotlin code](ksp-additional-details.md)
+* [Reference for Java annotation processor authors](ksp-reference.md)
+* [Incremental processing notes](ksp-incremental.md)
+* [Multiple round processing notes](ksp-multi-round.md)
+* [FAQ](ksp-faq.md)
