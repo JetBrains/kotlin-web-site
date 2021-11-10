@@ -129,7 +129,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49521" target="_blank">⏸ Support direct interoperability with Swift</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">⏸ Support running Kotlin/Native-produced binaries on Alpine Linux</a></li>
             </ul>
