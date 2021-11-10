@@ -249,7 +249,7 @@ In addition to local Pods and Pods from the CocoaPods repository, you can add de
 * A static library.
 * A library with custom cinterop options.
 
-Learn more about [adding CocoaPods dependencies](native-cocoapods.md#add-dependencies-on-pod-libraries) in Kotlin projects.
+Learn more about [adding CocoaPods dependencies](native-cocoapods-libraries.md) in Kotlin projects.
 Find examples in the [KMM with CocoaPods sample](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
 #### Updated integration with Xcode
@@ -262,7 +262,7 @@ To work correctly with Xcode, Kotlin requires some Podfile changes:
 
 Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
 
-Learn more about [creating Kotlin pods](native-cocoapods.md#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
+Learn more about [creating Kotlin pods](native-cocoapods-xcode.md).
 
 ### Support for Xcode 12 libraries
     
