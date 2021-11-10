@@ -1,20 +1,20 @@
 [//]: # (title: Create an app using C Interop and libcurl – tutorial)
 
-This tutorial demonstrates how to use IntelliJ IDEA for creating a command-line application. You'll learn how to create
+This tutorial demonstrates how to use IntelliJ IDEA to create a command-line application. You'll learn how to create
 a simple HTTP client that can run natively on specified platforms using Kotlin/Native and the `libcurl` library.
 
 The output will be an executable command-line app that you can run on macOS and Linux and make simple HTTP GET requests.
 
 > While it is possible to use the command line, either directly or by combining it with a script file (such as a `.sh` or
-> a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. It is then
-> better to use the Kotlin/Native compiler with a build system, as it helps to download and cache the Kotlin/Native
+> a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. In this case, it is
+> better to use the Kotlin/Native compiler with a build system, as it helps download and cache the Kotlin/Native
 > compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
-> [Gradle](gradle.md) build system through the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
+> [Gradle](gradle.md) build system through the [`kotlin-multiplatform`](mpp-discover-project.md#multiplatform-plugin)
 > Plugin.
 >
 
 To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
-The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+The tutorial is suitable for both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate.
 
 ## Create a Kotlin/Native project
 
@@ -24,7 +24,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
    ![New project. Native application in IntelliJ IDEA](native-file-new.png){width=700}
 3. Click **Next** and then **Finish**.
 
-IDEA will create a new project with some files and folders to get you started. It's important to understand that
+IntelliJ IDEA will create a new project with the files and folders you need to get you started. It's important to understand that
 an application written in Kotlin/Native can target different platforms if the code does not have platform-specific
 requirements. Your code is placed in a folder named `NativeMain` with its corresponding `NativeTest`. For this tutorial,
 keep the folder structure as is.
@@ -34,7 +34,8 @@ keep the folder structure as is.
 Along with your new project, a `build.gradle(.kts)` file is generated. Pay special attention to the following
 in the build file:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -55,7 +56,10 @@ kotlin {
         }
     }
 }
+
 ```
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -77,19 +81,20 @@ kotlin {
 }
 ```
 
+</tab>
 </tabs>
 
 * Targets are defined using `macOSX64`, `linuxX64`, and `mingwX64` for macOS, Linux, and Windows. For a complete
   list of supported platforms, see the [Kotlin Native overview](native-overview.md#target-platforms).
 * The entry itself defines a series of properties to indicate how the binary is generated and the entry
   point of the applications. These can be left as default values.
-* The C interoperability is configured as an additional step of the build. By default, all the symbols from C are
-  imported to the `interop` package; you may want to import the whole package in `.kt` files. Learn more about ways on
+* C interoperability is configured as an additional step in the build. By default, all the symbols from C are
+  imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
   [how to configure](mpp-discover-project.md#multiplatform-plugin) it.
 
 ## Create a definition file
 
-When writing native applications, you often need access to certain functionality that is not included in the [Kotlin
+When writing native applications, you often need access to certain functionalities that are not included in the [Kotlin
 standard library](https://kotlinlang.org/api/latest/jvm/stdlib/), such as making HTTP requests, reading and writing from
 disk, and so on.
 
@@ -99,7 +104,7 @@ which provide some additional common functionality to the standard library.
 
 An ideal scenario for interop is to call C functions as if you are calling Kotlin functions, following the same
 signature and conventions. This is when the `cinterop` tool comes in handy. It takes a C library and generates the
-corresponding Kotlin bindings, so that the library can be used as if it were a Kotlin code.
+corresponding Kotlin bindings, so that the library can be used as if it were Kotlin code.
 
 To generate these bindings, create a library definition `.def` file that contains some information about the necessary
 headers. In this app, you'll need the `libcurl` library to make some HTTP calls. To create a definition file:
@@ -119,9 +124,9 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
     linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
     ```
 
-   * `headers` is the list of header files to generate Kotlin stubs for. You can add multiple files to this entry,
+   * `headers` is the list of header files to generate Kotlin stubs. You can add multiple files to this entry,
    separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be relative
-   to the folder where the definition file is or be available on the system path (in this case, it's `/usr/include/curl`).
+   to the folder where the definition file is, or be available on the system path (in this case, it's `/usr/include/curl`).
    * `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
    another one with the `#include` directive. Sometimes it's not necessary, and you can add this parameter
    [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
@@ -141,7 +146,7 @@ information on all the options available to `cinterop`, see [the Interop section
 > You need to have the `curl` library binaries on your system to make the sample work. On macOS and Linux, it is usually
 > included. On Windows, you can build it from [sources](https://curl.haxx.se/download.html) (you'll need Visual Studio or
 > Windows SDK Commandline tools). For more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
-> Alternatively, you may also want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
+> Alternatively, you may want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
 >
 {type="note"}
 
@@ -150,7 +155,8 @@ information on all the options available to `cinterop`, see [the Interop section
 To use header files, make sure they are generated as a part of the build process. For this, add the following
 entry to the `build.gradle(.kts)` file:
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 nativeTarget.apply {
@@ -160,13 +166,15 @@ nativeTarget.apply {
         }               // NL
     }                   // NL
     binaries {
-        executable { 
+        executable {
             entryPoint = "main"
         }
     }
 }
-    
-```      
+```     
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 nativeTarget.with {
@@ -183,6 +191,7 @@ nativeTarget.with {
 }
 ```
 
+</tab>
 </tabs>
 
 The new lines are marked with `// NL`. First, `cinterops` is added, and then an entry for each `def` file. By default,
@@ -201,7 +210,7 @@ See the [Interoperability with C](native-c-interop.md) section for more details 
 
 ## Write the application code
 
-Now you have the library and the corresponding Kotlin stubs and can consume them from your application. For this tutorial,
+Now you have the library and the corresponding Kotlin stubs and can use them from your application. For this tutorial,
 convert the [simple.c](https://curl.haxx.se/libcurl/c/simple.html) example to Kotlin.
 
 In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the following code:
@@ -242,10 +251,10 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
 2. If there are no errors during compilation, click the green **Run** icon in the gutter beside the `main()` method or
 use the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA.
 
-   IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
+    IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
 
     ![Application output with HTML-code](native-output.png){width=700}
-    
+
 You can see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could
 hide this using `curl_easy_setopt`.
 
