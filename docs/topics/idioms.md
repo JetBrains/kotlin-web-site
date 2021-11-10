@@ -225,14 +225,13 @@ fun test() {
 ## if expression
 
 ```kotlin
-fun foo(param: Int) =
-    if (param == 1) {
-        "one"
-    } else if (param == 2) {
-        "two"
-    } else {
-        "three"
-    }
+val y = if (x == 1) {
+    "one"
+} else if (x == 2) {
+    "two"
+} else {
+    "other"
+}
 ```
 
 ## Builder-style usage of methods that return Unit
