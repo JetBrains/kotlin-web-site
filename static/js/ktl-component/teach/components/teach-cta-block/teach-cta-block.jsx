@@ -2,6 +2,8 @@ import React from 'react';
 
 import {CtaBlock} from '@jetbrains/kotlin-web-site-ui/dist/ctaBlock';
 import '@jetbrains/kotlin-web-site-ui/dist/ctaBlock.css';
+import Button from '@rescui/button';
+import './teach-cta-block.scss';
 
 export const TeachCtaBlock = () => {
   return (
@@ -10,15 +12,11 @@ export const TeachCtaBlock = () => {
         mainTitle='Connect with us'
         topTitle='If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'
       >
-        <div className="teach-bottom-buttons">
-          <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
-             className="kto-button kto-button_size_l kto-button_mode_contrast">
-            Slack-channel&nbsp;→
-          </a>
-          <a href="mailto:education@kotlinlang.org"
-             className="kto-button kto-button_size_l kto-button_mode_contrast">
-            Email
-          </a>
+        <div className="teach-cta-block-buttons">
+          <Button size="l" mode="transparent"
+                  href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+                  target="_blank" rel="noopener" className="teach-cta-block-button">Slack-channel&nbsp;→</Button>
+          <Button size="l" mode="transparent" href="mailto:education@kotlinlang.org" className="teach-cta-block-button">Email</Button>
         </div>
       </CtaBlock>
 

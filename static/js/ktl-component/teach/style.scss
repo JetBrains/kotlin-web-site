@@ -28,40 +28,19 @@
   }
 }
 
-.teach-sticky-menu {
-  position: sticky;
-  top: 0;
-  z-index: 901;
-}
-
-.teach-button-icon {
-  display: block;
-  margin-right: 18px;
-
-  &_small {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-  }
-}
-
 .teach-top-mobile-buttons {
   display: grid;
   grid-gap: 16px;
   margin-bottom: 32px;
+
   @media (min-width: 768px) {
     display: none;
-  }
-
-  .kto-button {
-    height: 40px;
   }
 }
 
 .teach-top-buttons {
-  @media (max-width: 768px) {
-    display: none;
-  }
+  display: none;
+
   @media (min-width: 768px) {
     display: grid;
     grid-gap: 16px;
@@ -269,23 +248,15 @@
   color: rgba(39, 40, 44, 0.5);
 }
 
-.teach-bottom-buttons {
-  display: grid;
-  grid-template-areas: "a a";
-  grid-auto-columns: min-content;
-  grid-gap: 16px;
-
-  @media (max-width: 768px) {
-    .kto-button {
-      height: 40px;
-      font-size: 16px;
-    }
-  }
-}
-
 .teach-subscription-section {
   @media (max-width: 768px) {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .teach-map__wrapper {
+    display: none;
   }
 }

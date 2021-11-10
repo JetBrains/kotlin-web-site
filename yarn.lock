@@ -1140,10 +1140,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.8.0.tgz#7573027eb5435e9ccf42128091a60cd33120d74a"
-  integrity sha512-u6Ll+y5bQ9joAUJDF6xiNzxEMs3+Y2Vr+hRKWYH25L8wk649ZDgDDKpMru7tf0syraL0f5EzU4rLKtX9dZcKVA==
+"@jetbrains/kotlin-web-site-ui@2.8.1":
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.8.1.tgz#edd7a2f11472883c1bc21d9ee69b0d567c89616a"
+  integrity sha512-sNLymaJVtOKvTcZgAxUWrG7HcT08ab34+7aBSxT8MG25yULb3DSXiu0Ps7SKSLf4HfQbt5BaHCYPRbHSM2uaaw==
 
 "@juggle/resize-observer@3.3.0":
   version "3.3.0"
@@ -1181,13 +1181,13 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
 
-"@rescui/button@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.2.1.tgz#672f218f4f120af1476e07785dee3f783533f2ac"
-  integrity sha512-+QZQOsO2oz/7y3UrTOjwEW6DiNoSN9GkBo3SiqkfxG0RJd2JxiN4cptmVe7Z9tFDoSjsDiz8sxOq3RQpSfWrMA==
+"@rescui/button@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.4.0.tgz#f91f008bde6ea8c4f1f772638706ec73890da974"
+  integrity sha512-AdQxzfyNUthEsbvGHnzM4xa8xSjnpiAfhSzLk/mJKfJjNq/3wnW+bHbJWf4N2yLltaJqGWFArpS2OGn/vVZqUQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/icons" "^0.1.2"
+    "@rescui/icons" "^0.3.0"
     classnames "^2.2.6"
     core-js "^3.9.1"
 
@@ -1216,7 +1216,7 @@
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.4.tgz#d844dd5beba87cdaf2580e3c918050ab24b23076"
   integrity sha512-pgex7fC+IeSkGnDU5PDDbvRPrzV1JIg2GXpc7VwK0E54q7wn3cL4+2QwfkLik0ZJvd4x1txhbGi8bQ/o7SgN1g==
 
-"@rescui/icons@0.3.0":
+"@rescui/icons@0.3.0", "@rescui/icons@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.3.0.tgz#f37e5ca15b11bb10f0dd9975cfd9d3c02aac4e78"
   integrity sha512-GjBC7OUvJzdJMMK9jjPN+z8v0Z+61nxU4Gfm/vh3IUfaEabbB0nKDIlCETbbvnXN8Ahx0Rj49KVmmUdzrMGrlA==

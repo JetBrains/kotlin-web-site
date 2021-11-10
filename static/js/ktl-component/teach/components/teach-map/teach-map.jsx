@@ -50,7 +50,7 @@ const settings = {
   }
 };
 
-export const TeachMap = () => {
+export const TeachMap = ({className}) => {
   const [universities, setUniversities] = useState([]);
   const [activeId, setActiveId] = useState('');
 
@@ -75,7 +75,7 @@ export const TeachMap = () => {
   }, []);
 
   return (
-    <div className="teach-map">
+    <div className={`teach-map ${className ? className : ''}`}>
       <GoogleMapReact
         bootstrapURLKeys={{key: settings.key}}
         defaultCenter={settings.defaultCenter}

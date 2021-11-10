@@ -17,6 +17,8 @@ import '@rescui/typography';
 import './style.scss';
 import {SubscriptionForm} from './components/subscription-form';
 import {TeachMap} from './components/teach-map/teach-map.jsx';
+import {SlackIcon} from "@rescui/icons";
+import Button from "@rescui/button";
 
 const Teach = (props) => {
 
@@ -31,21 +33,17 @@ const Teach = (props) => {
         </h1>
 
         <div className="teach-top-mobile-buttons">
-          <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-             className="kto-button kto-button_theme_dark kto-button_size_s kto-button_mode_primary">
-            <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg"
-                 className="teach-button-icon teach-button-icon_small" alt="Slack icon"/>
-            Join Educators Сommunity
-          </a>
+          <Button icon={<SlackIcon />}
+                  href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+                  target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
-          <a href="/why-teach-kotlin.html" target="_blank"
-             className="kto-button kto-button_size_s kto-button_mode_outline">
-            Why Teach Kotlin&nbsp;→
-          </a>
+          <Button mode="outline"
+                  href="why-teach-kotlin.html"
+                  className="teach-cta-block-button">Why Teach Kotlin&nbsp;→</Button>
         </div>
 
         <div className="teach-features ktl-row">
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-multiplatform-icon.svg" alt="Multiplatform"/>
@@ -63,7 +61,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-academically-recognized-icon.svg"
@@ -82,7 +80,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <div className="ktl-col-12 ktl-col-sm-4">
+          <div className="ktl-col-12 ktl-col-md-4">
             <div className="teach-feature">
               <div className="teach-feature__icon ktl-offset-bottom-m">
                 <img src="/assets/images/ktl-component/teach/icons/teach-popular-icon.svg"
@@ -104,16 +102,13 @@ const Teach = (props) => {
 
         <div className="ktl-offset-top-l">
           <div className="teach-top-buttons">
-            <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank"
-               className="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_primary">
-              <img src="/assets/images/ktl-component/teach/icons/teach-slack-icon.svg" className="teach-button-icon"
-                   alt="Slack icon"/>
-              Join Educators Сommunity
-            </a>
+            <Button size="l" icon={<SlackIcon />}
+                    href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
+                    target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
-            <a href="why-teach-kotlin.html" className="kto-button kto-button_size_l kto-button_mode_outline">
-              Why Teach Kotlin&nbsp;→
-            </a>
+            <Button size="l" mode="outline"
+                    href="why-teach-kotlin.html"
+                    className="teach-cta-block-button">Why Teach Kotlin&nbsp;→</Button>
           </div>
         </div>
       </section>
@@ -163,7 +158,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <TeachMap />
+          <TeachMap className="teach-map__wrapper" />
 
           <div className="teach-universities__bottom ktl-offset-top-m">
             <div className="ktl-row">
@@ -173,20 +168,13 @@ const Teach = (props) => {
                   href="mailto:education@kotlinlang.org" className="rs-link">education@kotlinlang.org.</a><br/> We’ll
                   send a Kotlin T-shirt for you and stickers for your students.
                 </p>
-                <a
-                  href="courses.html" className="kto-button kto-button_size_l kto-button_mode_outline">
-                  All universities
-                </a>
+                <Button size="l" mode="outline" href="courses.html">All universities</Button>
               </div>
             </div>
           </div>
 
           <div className="teach-universities__mobile-button">
-            <a
-              href="https://docs.google.com/spreadsheets/d/1p77WHo--mxewmxINWMLaTPGXvnEr0JGxgSMcX6C0b_0/edit?usp=sharing"
-              target="_blank" className="kto-button kto-button_size_s kto-button_mode_outline">
-              Learn more&nbsp;→
-            </a>
+            <Button mode="outline" href="courses.html">Learn more&nbsp;→</Button>
           </div>
         </div>
       </section>
@@ -221,8 +209,8 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a href="https://hyperskill.org/tracks/18" target="_blank">
-                    <span className="rs-link">Kotin Basics track on JetBrains Academy</span>
+                  <a href="https://hyperskill.org/tracks/18" target="_blank" rel="noopener">
+                    <span className="rs-link">Kotlin Basics track on JetBrains Academy</span>
                     <span>↗</span>
                   </a>
                 </li>
@@ -249,19 +237,19 @@ const Teach = (props) => {
                   <div className="ktl-text-2 ktl-dimmed-text">Atomic kotlin:</div>
                   <ul className="teach-list teach-sublist">
                     <li className="teach-list__item">
-                      <a href="https://www.atomickotlin.com/exercises/" target="_blank">
+                      <a href="https://www.atomickotlin.com/exercises/" target="_blank" rel="noopener">
                         <span className="rs-link">Hands-on exercises</span>
                         <span>↗</span>
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://github.com/svtk/AtomicKotlinCourse" target="_blank">
+                      <a href="https://github.com/svtk/AtomicKotlinCourse" target="_blank" rel="noopener">
                         <span className="rs-link">Course project</span>
                         <span>↗</span>
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank">
+                      <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank" rel="noopener">
                         <span className="rs-link">Educator start guide</span>
                         <span>↗</span>
                       </a>
@@ -276,7 +264,7 @@ const Teach = (props) => {
               <ul className="teach-list">
                 <li className="teach-list__item">
                   <a
-                    href="https://www.jetbrains.com/community/education/#students" target="_blank">
+                    href="https://www.jetbrains.com/community/education/#students" target="_blank" rel="noopener">
                       <span className="rs-link">
                         Free educational IntelliJ IDEA Ultimate licenses
                       </span>
@@ -285,7 +273,7 @@ const Teach = (props) => {
                 </li>
                 <li className="teach-list__item">
                   <a
-                    href="https://plugins.jetbrains.com/plugin/10081-edutools" target="_blank">
+                    href="https://plugins.jetbrains.com/plugin/10081-edutools" target="_blank" rel="noopener">
                       <span className="rs-link">
                         EduTools plugin
                       </span>
@@ -303,7 +291,7 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a href="https://www.jetbrains.com/code-with-me/" target="_blank">
+                  <a href="https://www.jetbrains.com/code-with-me/" target="_blank" rel="noopener">
                       <span className="rs-link">
                         Code With Me
                       </span>
@@ -317,7 +305,7 @@ const Teach = (props) => {
               <p className="ktl-h4 ktl-offset-bottom-xs">Online Courses</p>
               <ul className="teach-list">
                 <li className="teach-list__item">
-                  <a target="_blank"
+                  <a target="_blank" rel="noopener"
                      href="https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/">
                       <span className="rs-link">
                         Introduction to Kotlin Programming
@@ -326,14 +314,14 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a target="_blank"
+                  <a target="_blank" rel="noopener"
                      href="https://www.oreilly.com/library/view/advanced-kotlin-programming/9781491964149/">
                     <span className="rs-link">Advanced Kotlin</span>
                     <span>↗</span>
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a target="_blank"
+                  <a target="_blank" rel="noopener"
                      href="https://www.coursera.org/learn/kotlin-for-java-developers">
                       <span className="rs-link">
                         Programming Kotlin for Java Developers
@@ -359,19 +347,19 @@ const Teach = (props) => {
                   </div>
                   <ul className="teach-list teach-sublist">
                     <li className="teach-list__item">
-                      <a href="https://developer.android.com/teach" target="_blank">
+                      <a href="https://developer.android.com/teach" target="_blank" rel="noopener">
                         <span className="rs-link">Android Development Resources for Educators</span>
                         <span>↗</span>
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://developer.android.com/teach#for-instructors-teaching-a-course" target="_blank">
+                      <a href="https://developer.android.com/teach#for-instructors-teaching-a-course" target="_blank" rel="noopener">
                         <span className="rs-link">Android Development with Kotlin curriculum</span>
                         <span>↗</span>
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view" target="_blank">
+                      <a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view" target="_blank" rel="noopener">
                         <span className="rs-link">Learning materials</span>
                         <span>↗</span>
                       </a>
@@ -397,7 +385,7 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a target="_blank"
+                  <a target="_blank" rel="noopener"
                      href="https://www.youtube.com/watch?v=o4emra1xm88&list=PLlFc5cFwUnmwfLRLvIM7aV7s73eSTL005">
                     <span className="rs-link">Idiomatic Kotlin: Solving Advent of Code Puzzles</span>
                     <span>↗</span>
@@ -405,7 +393,7 @@ const Teach = (props) => {
                 </li>
               </ul>
             </li>
-            <ul>
+            <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">
                 Slack
               </p>
@@ -413,11 +401,12 @@ const Teach = (props) => {
                 The #education Slack channel is a place to meet fellow educators and the Kotlin team. We post news and
                 announcements there, and you can ask your questions and share your teaching experience.
               </p>
-              <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank">
+              <a href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators" target="_blank" rel="noopener">
                 <span className="rs-link">Request to join</span>
                 <span>↗</span>
               </a>
-            </ul>
+            </li>
+
             <li>
               <p className="ktl-h4 ktl-offset-bottom-xs">Connect with us</p>
               <ul className="teach-list">
@@ -427,14 +416,14 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a target="_blank" href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw">
+                  <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw">
                     <span className="rs-link">YouTube channel</span>
                     <span>↗</span>
                   </a>
                 </li>
                 <li className="teach-list__item">
                   <a href="https://www.youtube.com/watch?v=aM-L5_tiVAI&list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA"
-                     target="_blank">
+                     target="_blank" rel="noopener">
                     <span className="rs-link">Educational webinars</span>
                     <span>↗</span>
                   </a>

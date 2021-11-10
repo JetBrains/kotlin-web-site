@@ -15,13 +15,13 @@ export const TeachMapTooltip = ({university, onClose}) => {
           <div className="teach-map-tooltip__header-text">{university.title}</div>
           {university.location}
         </div>
-        <CloseIcon className="teach-map-tooltip__close-icon" onClick={handleClick}/>
+        <CloseIcon size="s" className="teach-map-tooltip__close-icon" onClick={handleClick}/>
       </div>
       <div className="teach-map-tooltip__content">
         <div>Course:</div>
         {university.courses.map(course => (
           <div key={`${course.url}-${course.name}`}>
-            <a href={course.url} target="_blank">
+            <a href={course.url} target="_blank" rel="noopener">
               {course.name}
             </a>
           </div>
