@@ -140,7 +140,10 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 ## Supported libraries
 
 The table includes a list of popular libraries on Android and their various stages of support for KSP. 
-If your library is missing, feel free to add it to the table.
+
+> If your library is missing, feel free to add it to the table.
+> 
+{type="note"}
 
 |Library|Status|Tracking issue for KSP|
 |---|---|---|
