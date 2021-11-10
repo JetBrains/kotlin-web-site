@@ -1,6 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2021-11-01</startDate>
+        <endDate>2021-11-01</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Bruce Eckel</speaker>
+        <title>Stockholm Java and Kotlin Meetup Group</title>
+        <subject>Comparing Java 17 and Kotlin</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=xU-gbzcToOs</video>
+        </content>
+        <url>https://www.meetup.com/stockholm-java-and-kotlin-meetup-group/events/281598313/</url>
+        <description>
+            <![CDATA[
+<p>"I've been working on updating the "On Java 8" book for the Chinese translation, which includes subsections on new Java features through JDK 17. In the process, I created an example that summarizes a lot of these features, including records, sealed classes and (Preview) pattern matching.<p>
+<p>I have created a complementary example in Kotlin. My plan is to talk through the Java & Kotlin features, and discuss how the Java features are definite improvements to that language, but still fall rather dramatically short of what Kotlin provides (the Java approach also contains what I consider to be fundamental design flaws).<p>
+]]>
+        </description>
+    </event>
+
+    <event>
         <lang>ko</lang>
         <startDate>2021-11-17</startDate>
         <endDate>2021-11-17</endDate>
