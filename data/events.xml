@@ -4,7 +4,7 @@
         <lang>ko</lang>
         <startDate>2021-11-17</startDate>
         <endDate>2021-11-17</endDate>
-        <location>Seoul, South Korea</location>
+        <location>Seoul, Korea</location>
         <speaker>Shengyou Fan</speaker>
         <title>Kotlin Night Seoul 2021</title>
         <subject>Ktor in Action</subject>
@@ -23,7 +23,7 @@ JetBrains에서는 개발자가 백엔드 서비스를 쉽고 빠르게 빌드�
         <lang>ko</lang>
         <startDate>2021-11-17</startDate>
         <endDate>2021-11-17</endDate>
-        <location>Seoul, South Korea</location>
+        <location>Seoul, Korea</location>
         <speaker>Jae-Woong Um</speaker>
         <title>Kotlin Night Seoul 2021</title>
         <subject>견고한 API 디자인을 위한 Kotlin 활용법 </subject>
@@ -40,7 +40,7 @@ JetBrains에서는 개발자가 백엔드 서비스를 쉽고 빠르게 빌드�
         <lang>ko</lang>
         <startDate>2021-11-17</startDate>
         <endDate>2021-11-17</endDate>
-        <location>Seoul, South Korea</location>
+        <location>Seoul, Korea</location>
         <speaker>Kwon Tae-Hwan</speaker>
         <title>Kotlin Night Seoul 2021</title>
         <subject>Look into Kotlin Flow</subject>
@@ -76,7 +76,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Dmitry Kandalov</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Live coding server as a function with http4k</subject>
@@ -92,7 +92,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Anthony Pages, Geoffrey Metais</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>How we moved to KMP at Deezer</subject>
@@ -109,7 +109,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>John O'Reilly</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Using GraphQL in a KMM project with Jetpack Compose and SwiftUI</subject>
@@ -125,7 +125,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Liliia Abdulina</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>What's new in Kotlin Multiplatform</subject>
@@ -141,7 +141,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Julien Salvi</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Building reliable web services with Kotlin Ktor</subject>
@@ -159,7 +159,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Martin Bonnin</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Building reliable web services with Kotlin Ktor</subject>
@@ -177,7 +177,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-01</startDate>
         <endDate>2021-12-01</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Garth Gilmour</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Lies Told By The Kotlin Compiler</subject>
@@ -194,7 +194,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Sergei Rybalkin, Sergey Ryabov</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Kotlin Adoption at Scale</subject>
@@ -211,7 +211,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Dominique Padiou</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>KMM case study, with Phoenix and Bitcoin</subject>
@@ -228,7 +228,7 @@ SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Karin-Aleksandra Monoid</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Extending kotlinx.serialization functionality with Arrow Meta</subject>
@@ -249,7 +249,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Nicolas Fränkel</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>From annotation-based configuration to functional in Spring Boot apps with Kotlin</subject>
@@ -266,7 +266,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Zan Markan</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Winning CI/CD with Kotlin</subject>
@@ -284,7 +284,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Salomon Brys</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Quick start native mobile Kotlin/Multiplatform setup</subject>
@@ -301,7 +301,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Filip Babić</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Exploring Advanced Jetpack Compose Features</subject>
@@ -321,7 +321,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Thomas Pucci</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Intro to Animating things with Jetpack Compose</subject>
@@ -338,7 +338,7 @@ Use case: Adding a global naming strategy to Kotlin Serialization.<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Gaetan Zoritchak</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Kotlin Native from the trenches</subject>
@@ -357,7 +357,7 @@ integration into iOS projects<p>
         <lang>en</lang>
         <startDate>2021-12-02</startDate>
         <endDate>2021-12-02</endDate>
-        <location>Paris,France</location>
+        <location>Paris, France</location>
         <speaker>Aydar Mukhametzyanov</speaker>
         <title>Kotlin KODERS 2021</title>
         <subject>Bridging the gap between Kotlin and Swift</subject>
