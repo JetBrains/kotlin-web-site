@@ -57,8 +57,10 @@
 - from: /docs/mobile/kmm-plugin-releases.html
   to: /docs/kmm-plugin-releases.html
 
-- from: /docs/mobile/whats-new-in-kotlin-for-kmm.html
-  to: /docs/whats-new-in-kotlin-for-kmm.html
+- from:
+   - /docs/mobile/whats-new-in-kotlin-for-kmm.html
+   - /docs/whats-new-in-kotlin-for-kmm.html
+  to: /docs/whatsnew.html
 
 - from: /docs/mobile/faq.html
   to: /docs/kmm-faq.html
