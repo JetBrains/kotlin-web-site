@@ -82,18 +82,17 @@ will be required to have a body.
 ```kotlin
 // Common
 expect interface Mascot {
-    open fun display()
+    open fun display(): String
 }
 
 class MascotImpl : Mascot {
-    val name: String = "TBD"
     // it's ok not to implement `display()`: all `actual`s are guaranteed to have a default implementation
 }
 
 // Platform-specific
 actual interface Mascot {
-    fun display(output: MascotImpl): MascotImpl {
-        return MascotImpl()
+    actual fun display(): String {
+        TODO()
     }
 }
 ```
