@@ -176,7 +176,7 @@ val emails = ... // might be empty
 val mainEmail = emails.firstOrNull() ?: ""
 ```
 
-Learn the difference between [Java and Kotlin first item getting](java-to-kotlin-collections-guide.md#getting-the-first-and-the-last-items-of-a-possibly-empty-collection).
+Learn the difference between [Java and Kotlin first item getting](java-to-kotlin-collections-guide.md#get-the-first-and-the-last-items-of-a-possibly-empty-collection).
 
 ## Execute if not null
 

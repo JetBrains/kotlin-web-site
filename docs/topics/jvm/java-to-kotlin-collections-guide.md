@@ -30,7 +30,7 @@ In Kotlin, there are many operations on collections that look absolutely the sam
 | Remove by a condition | `removeIf()` | |
 | Leave only selected elements | `retainAll()` | |
 | Remove all elements from a collection | `clear()` | |
-| Get a stream from a collection | `stream()` | Kotlin has its own way for stream processing – [sequences](#sequences), and methods like [`map()`](collection-filtering.md), [`filter()`](#filtering). |
+| Get a stream from a collection | `stream()` | Kotlin has its own way for stream processing – [sequences](#sequences), and methods like [`map()`](collection-filtering.md), [`filter()`](#filter-elements). |
 | Get an iterator from a collection | `iterator()` | |
 
 ### Operations on maps
