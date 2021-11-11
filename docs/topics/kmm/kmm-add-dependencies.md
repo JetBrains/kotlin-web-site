@@ -247,7 +247,7 @@ Learn more about adding dependencies on a Pod library:
 * [From the CocoaPods repository](native-cocoapods-libraries.md#from-the-cocoapods-repository)
 * [On a locally stored library](native-cocoapods-libraries.md#on-a-locally-stored-library)
 * [From a custom Git repository](native-cocoapods-libraries.md#from-a-custom-git-repository)
-* [From an archive](native-cocoapods-libraries.md#from-an-archive)
+* [From an archive](native-cocoapods-libraries.md#from-a-zip-tar-or-jar-archive)
 * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
 * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
 * [On a static Pod library](native-cocoapods-libraries.md#on-a-static-pod-library)
