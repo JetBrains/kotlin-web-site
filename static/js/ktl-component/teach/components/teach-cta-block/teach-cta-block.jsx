@@ -13,10 +13,10 @@ export const TeachCtaBlock = () => {
         topTitle='If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'
       >
         <div className="teach-cta-block-buttons">
-          <Button size="l" mode="transparent"
+          <Button size="l" mode="rock"
                   href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                   target="_blank" rel="noopener" className="teach-cta-block-button">Slack-channel&nbsp;→</Button>
-          <Button size="l" mode="transparent" href="mailto:education@kotlinlang.org" className="teach-cta-block-button">Email</Button>
+          <Button size="l" mode="rock" href="mailto:education@kotlinlang.org" className="teach-cta-block-button">Email</Button>
         </div>
       </CtaBlock>
 
