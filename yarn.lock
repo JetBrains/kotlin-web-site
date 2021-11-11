@@ -3766,10 +3766,10 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha512-ZRbnvdg/NxqzC7L9Uyqzf4psi1OM4Cuc+sJAkQPjO6XkQIJTNbfK2Rsmbw8fx1p2mkZdp2FZYo2+LwXYY/uwIA==
 
-kotlin-playground@1.22.0:
-  version "1.22.0"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.22.0.tgz#ad1a34351b3633fdb79c3b88c9b8986deaab126f"
-  integrity sha512-bb1000kZsnHs/qOnRciW26jy1LztxkIKYqEbnhsZLCe2D/R4+jxObAmhNSAxb+yt7Rud34S+H2KD83SFnaH7EA==
+kotlin-playground@^1.26.1:
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.26.1.tgz#dd8c810686508ac491458a9c2436aef9b9aafccf"
+  integrity sha512-49oE9y//SyTzEsuvtLyEtxdTbBiLVg+jltWyp5hJlX58MpBSXo4/1kMpg4YbRUkwqbHx5QHX+wW/5uTWWVEYRQ==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"

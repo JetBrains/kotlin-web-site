@@ -41,7 +41,7 @@
     "in-viewport": "3.4.2",
     "instantsearch.js": "4.24.1",
     "jquery": "3.5.0",
-    "kotlin-playground": "1.22.0",
+    "kotlin-playground": "^1.26.1",
     "mini-css-extract-plugin": "1.6.1",
     "mini-svg-data-uri": "1.1.3",
     "mustache-loader": "1.4.3",
