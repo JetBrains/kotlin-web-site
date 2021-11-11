@@ -1,4 +1,4 @@
-[//]: # (title: Collections and iterating through them)
+[//]: # (title: Migrating from Java to Kotlin: Collections and iterating through them)
 
 _Collections_ are groups of a variable number of items (possibly zero) that share significance to the problem being solved and are operated upon commonly. 
 For the introduction to collections, see the [Collections overview](collections-overview.md) or watch a video by Sebastian Aigner, Kotlin Developer Advocate:
