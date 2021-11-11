@@ -118,7 +118,7 @@ We follow the way towards builder inference full stabilization by making multipl
 
     > Note that clients of these builders will need to specify the same `-Xenable-builder-inference` compiler option.
     >
-    {type=”warning”}
+    {type="warning"}
 
 * With `-Xenable-builder-inference`, builder inference automatically turns on if regular type inference cannot get enough information about a type.
 
@@ -231,9 +231,9 @@ Please check how the new memory manager works on your projects and share feedbac
 
 Kotlin/Native 1.6.0 supports the latest version of Xcode – 13. Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
 
-> Note: new libraries added in Xcode 13 aren’t available for using from Kotlin 1.6.0. We’re going to support them in the nearest versions.
+> New libraries added in Xcode 13 aren’t available for using from Kotlin 1.6.0. We’re going to support them in the nearest versions.
 >
-{type=”note”}
+{type="note"}
 
 ### Compilation of Windows targets on any host
 
@@ -595,9 +595,9 @@ We've deprecated the `Array<out T>.sort()` function and inline functions: `ByteA
 
 ### Kover — code coverage tool for Kotlin
 
->The Kover Gradle plugin is Experimental. We would appreciate your feedback on it in [GitHub](https://github.com/Kotlin/kotlinx-kover/issues).
+> The Kover Gradle plugin is Experimental. We would appreciate your feedback on it in [GitHub](https://github.com/Kotlin/kotlinx-kover/issues).
 >
-{type=”warning”}
+{type="warning"}
 
 With Kotlin 1.6.0, we’re introducing Kover — the Gradle plugin for Kotlin code coverage agents IntelliJ and JaCoCo. It works with all language constructs including inline functions.
 
