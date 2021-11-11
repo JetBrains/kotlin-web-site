@@ -1,14 +1,14 @@
-[//]: # (title: Add a dependency between a Kotlin Pod and Xcode)
+[//]: # (title: Use a Kotlin Gradle project as a CocoaPods dependency)
 
-You can use a Kotlin Multiplatform project with native targets as a CocoaPods dependency (Kotlin Pod). You can include
+You can use a Kotlin Multiplatform project with native targets as a CocoaPods dependency. You can include
 such a dependency in the Podfile of the Xcode project by its name and path to the project directory containing
 the generated Podspec.
 
 This dependency will be automatically built (and rebuilt) along with this project. Such an approach
 simplifies importing to Xcode by removing a need to write the corresponding Gradle tasks and Xcode build steps manually.
 
-You can add dependencies between a Kotlin Pod and an Xcode project with one or several targets. It's also possible to add
-dependencies between a Kotlin Pod and multiple Xcode projects. However, in this case, you need to add a
+You can add dependencies between a Kotlin Gradle project and an Xcode project with one or several targets. It's also possible to add
+dependencies between a Kotlin Gradle project and multiple Xcode projects. However, in this case, you need to add a
 dependency by calling `pod install` manually for each Xcode project. In other cases, it's done automatically.
 
 > * To correctly import the dependencies into the Kotlin/Native module, the `Podfile` must contain either
@@ -24,7 +24,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 1. Create an Xcode project with a `Podfile` if you haven’t done so yet.
 2. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle.kts` (`build.gradle`)
    of your Kotlin project.
-   This step helps synchronize your Xcode project with Kotlin Pod dependencies by calling `pod install` for your `Podfile`.
+   This step helps synchronize your Xcode project with Kotlin project dependencies by calling `pod install` for your `Podfile`.
 3. Specify the minimum target version for the Pod library.
     ```kotlin
     kotlin {
@@ -42,7 +42,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     }
     ```
 
-4. Add the name and path of the Kotlin Pod you want to include in the Xcode project to `Podfile`.
+4. Add the name and path of the Kotlin project you want to include in the Xcode project to `Podfile`.
 
     ```ruby
     use_frameworks!
@@ -61,7 +61,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 1. Create an Xcode project with a `Podfile` if you haven’t done so yet.
 2. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle.kts` (`build.gradle`)
    of your Kotlin project.
-   This step helps synchronize your Xcode project with Kotlin Pod dependencies by calling `pod install` for your `Podfile`.
+   This step helps synchronize your Xcode project with Kotlin project dependencies by calling `pod install` for your `Podfile`.
 3. Add dependencies to the Pod libraries you want to use in your project with `pod()`.
 4. For each target, specify the minimum target version for the Pod library.
 
@@ -84,7 +84,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     }
     ```
 
-5. Add the name and path of the Kotlin Pod you want to include in the Xcode project to the `Podfile`.
+5. Add the name and path of the Kotlin project you want to include in the Xcode project to the `Podfile`.
 
     ```ruby
     target 'iosApp' do

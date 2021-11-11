@@ -1,7 +1,7 @@
 [//]: # (title: CocoaPods overview)
 
 Kotlin/Native provides integration with the [CocoaPods dependency manager](https://cocoapods.org/). You can add dependencies
-on Pod libraries as well as use a multiplatform project with native targets as a CocoaPods dependency (Kotlin Pod).
+on Pod libraries as well as use a multiplatform project with native targets as a CocoaPods dependency.
 
 You can manage Pod dependencies directly in IntelliJ IDEA and enjoy all the additional features such as code highlighting 
 and completion. You can build the whole Kotlin project with Gradle and not ever have to switch to Xcode. 
@@ -10,7 +10,7 @@ Use Xcode only when you need to write Swift/Objective-C code or run your applica
 To work correctly with Xcode, you should [update your Podfile](#update-podfile-for-xcode). 
 
 Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
-as well as [a Kotlin Pod and an Xcode project](native-cocoapods-xcode.md).
+as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
 
 ## Install the CocoaPods dependency manager and plugin
 
