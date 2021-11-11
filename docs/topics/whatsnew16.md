@@ -389,7 +389,11 @@ The new 1.6.0 version has received multiple changes: stabilizing experimental fe
 
 ### New readline functions
 
-Kotlin 1.6.0 introduces new cross-platform functions for handling standard input: `readln()` and `readlnOrNull()`.
+Kotlin 1.6.0 introduces new functions for handling standard input: `readln()` and `readlnOrNull()`.
+
+> New functions are available for JVM and Native target platforms only.
+>
+{type="note"}
 
 |**Earlier versions**|**1.6 alternative**|**Usage**|
 | --- | --- | --- |
@@ -422,7 +426,8 @@ fun main() {
 }
 ```
 
-For now, the existing `readLine()` function will get a lower priority than `readln()` and `readlnOrNull()` in your IDE code completion. Even more, IDE inspections will recommend using new functions instead of the legacy `readLine()`.
+The existing `readLine()` function will get a lower priority than `readln()` and `readlnOrNull()` in your IDE code completion.
+Even more, IDE inspections will recommend using new functions instead of the legacy `readLine()`.
 
 We're planning to gradually deprecate the `readLine()` function in one of the future releases.
 
