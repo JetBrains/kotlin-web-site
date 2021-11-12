@@ -234,7 +234,7 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <div className="ktl-text-2 ktl-dimmed-text">Atomic kotlin:</div>
+                  <div className="ktl-text-2 ktl-dimmed-text">Atomic Kotlin:</div>
                   <ul className="teach-list teach-sublist">
                     <li className="teach-list__item">
                       <a href="https://www.atomickotlin.com/exercises/" target="_blank" rel="noopener">
