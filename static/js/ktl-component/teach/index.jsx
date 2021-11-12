@@ -127,6 +127,10 @@ const Teach = (props) => {
                 </p>
               </div>
 
+              <h2 className="ktl-h1 universities-top__title-mobile">
+                Kotlin is taught at {universitiesCount} universities
+              </h2>
+
               <div className="universities-top__numbers">
                 <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount} />
               </div>

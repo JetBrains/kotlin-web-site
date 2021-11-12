@@ -3,13 +3,6 @@
   font-family: var(--rs-font-family-inter);
 }
 
-.teach-features {
-  @media (max-width: 768px) {
-    display: grid;
-    grid-gap: 32px;
-  }
-}
-
 .teach-feature {
   &__icon {
     img {
@@ -71,8 +64,13 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+
     &__numbers {
       display: flex;
+    }
+
+    &__title-mobile {
+      display: none;
     }
   }
 }
@@ -165,22 +163,6 @@
     height: 26px;
   }
 
-  @media (max-width: 768px) {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    &__logo {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-
-      &:last-child {
-        width: 100%;
-      }
-    }
-  }
-
   @media (min-width: 768px) {
     display: flex;
     justify-content: space-around;
@@ -248,15 +230,40 @@
   color: rgba(39, 40, 44, 0.5);
 }
 
-.teach-subscription-section {
-  @media (max-width: 768px) {
+
+@media (max-width: 767px) {
+  .teach-features {
+    display: grid;
+    grid-gap: 32px;
+  }
+
+  .teach-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &__logo {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 48px;
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  .teach-subscription-section {
     padding-left: 0;
     padding-right: 0;
   }
-}
 
-@media (max-width: 768px) {
   .teach-map__wrapper {
+    display: none;
+  }
+
+  .universities-top__title {
     display: none;
   }
 }
