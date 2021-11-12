@@ -1,7 +1,7 @@
 [//]: # (title: How KSP models Kotlin code)
 
 You can find the API definition in the [KSP GitHub repository](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp).
-The diagram below shows an overview of how Kotlin is [modeled](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/) 
+The diagram shows an overview of how Kotlin is [modeled](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/) 
 in KSP:
 
 ![class diagram](ksp-class-diagram.svg)
