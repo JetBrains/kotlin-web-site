@@ -26,8 +26,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
     $ sudo gem install cocoapods-generate
     ```
     
-3. In `build.gradle.kts` (or `build.gradle`) of your IDEA project, apply the CocoaPods plugin as well as the Kotlin
- Multiplatform plugin.
+3. In `build.gradle(.kts)` of your IDEA project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
     
     ```kotlin
     plugins {
@@ -116,7 +115,7 @@ of specs at the beginning of your Podfile:
     end
     ```
 
-> Re-import the project after making changes in Podfile.
+> Re-import the project after making changes in the Podfile.
 >
 {type="note"}
 

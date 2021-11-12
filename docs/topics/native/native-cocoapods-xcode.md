@@ -79,7 +79,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             pod("AFNetworking") {
                 version = "~> 4.0.0"
             }
-            podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to Podfile
+            podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }
     }
     ```
