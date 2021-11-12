@@ -12,7 +12,7 @@ The second part starting from [Mutability](#mutability) covers several cases tha
 For the introduction to collections, see the [Collections overview](collections-overview.md) or watch 
 a [video](https://www.youtube.com/watch?v=F8jj7e-_jFA) by Sebastian Aigner, Kotlin Developer Advocate.
 
-> All the examples below use Java and Kotlin standard libraries’ APIs only.
+> All the examples below use Java and Kotlin standard libraries' APIs only.
 >
 {type="note"}
 
@@ -132,12 +132,12 @@ immutableCollection.add("five"); // Fails in runtime with `UnsupportedOperationE
 ```
 {id="immutable-java"}
 
-If you write the last two pieces of code in IntelliJ IDEA, the IDE will warn you that you’re trying to modify an immutable object. 
-This code will compile and fail in runtime with `UnsupportedOperationException`. You can’t say if a collection is mutable
+If you write the last two pieces of code in IntelliJ IDEA, the IDE will warn you that you're trying to modify an immutable object. 
+This code will compile and fail in runtime with `UnsupportedOperationException`. You can't say if a collection is mutable
 looking at its type.
 
 Apart from Java, in Kotlin, you explicitly declare mutable or read-only collections depending on your needs. 
-If you try to modify a read-only collection, the code won’t compile:
+If you try to modify a read-only collection, the code won't compile:
 
 ```kotlin
 // Kotlin
@@ -152,7 +152,7 @@ Read more about immutability in the [Kotlin coding conventions](coding-conventio
 
 ## Covariance
 
-In Java, you can’t pass a collection with a descendant type to a function that takes a collection of the ancestor type. 
+In Java, you can't pass a collection with a descendant type to a function that takes a collection of the ancestor type. 
 For example, if `Rectangle` extends `Shape`, you can't pass a collection of `Rectangle` elements to a function that takes a collection of `Shape` elements. 
 To make the code compilable, use the type `? extends Shape`, so the function can take collections with any inheritors of `Shape`:
 
@@ -333,7 +333,7 @@ In Java, you can generate a sequence of numbers this way:
 ```java
 // Java
 int sum = IntStream.iterate(1, e -> e + 3)
-   .limit(10).sum();
+    .limit(10).sum();
 System.out.println(sum); // Prints 145
 ```
 {id="sequences-java"}
@@ -368,7 +368,7 @@ In case of removal an integer element, use the `Integer.valueOf()` function as t
 ```java
 // Java
 public void remove() {
-    List<Integer> numbers = new ArrayList<>();
+    var numbers = new ArrayList<>();
     numbers.add(1);
     numbers.add(2);
     numbers.add(3);
@@ -662,7 +662,7 @@ public void zip() {
     var colors = List.of("red", "brown");
     var animals = List.of("fox", "bear", "wolf");
 
-    for(int i = 0; i < Math.min(colors.size(), animals.size()); i++) {
+    for (int i = 0; i < Math.min(colors.size(), animals.size()); i++) {
         String animal = animals.get(i);
         System.out.println("The " + animal.substring(0, 1).toUpperCase()
                + animal.substring(1) + " is " + colors.get(i));
@@ -727,7 +727,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="associate-elements-kotlin"}
 
-## What’s next?
+## What's next?
 
 * Visit [Kotlin Koans](koans.md) – complete exercises to learn the Kotlin syntax. Each exercise is created as a failing unit test and your job is to make it pass.
 * Look through other [Kotlin idioms](idioms.md).
