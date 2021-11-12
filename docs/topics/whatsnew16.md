@@ -4,8 +4,7 @@ _[Release date: 15 November 2021](releases.md#release-details)_
 
 Kotlin 1.6.0 introduces new language features, optimizations and improvements of existing ones, and a lot of improvements of the Kotlin standard library.
 
-Here some of them:
-* JVM optimization and performance improvements.
+You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/11/kotlin-1-6-0-released/).
 
 ## Language
 
@@ -141,7 +140,7 @@ For motivating use-case, read this [YouTrack ticket](https://youtrack.jetbrains.
 
 Learn more about [annotations](annotations.md).
 
-## New API support flow
+## Supporting previous API versions for a longer period
 
 Starting with Kotlin 1.6.0, we support the development for three previous API versions instead of two, along with the current stable one. Currently, it's 1.3, 1.4, 1.5, and 1.6.
 
@@ -397,8 +396,8 @@ Kotlin 1.6.0 introduces new functions for handling standard input: `readln()` an
 
 |**Earlier versions**|**1.6 alternative**|**Usage**|
 | --- | --- | --- |
-|`readLine()!!`|`readln()`| reads a line from stdin and returns it,<br/>throws a `RuntimeException` if EOF has been reached |
-|`readLine()`|`readlnOrNull()`| reads a line from stdin and returns it,<br/>returns `null` if EOF has been reached |
+|`readLine()!!`|`readln()`| Reads a line from stdin and returns it, throws a `RuntimeException` if EOF has been reached |
+|`readLine()`|`readlnOrNull()`| Reads a line from stdin and returns it, returns `null` if EOF has been reached |
 
 We believe that eliminating the need to use `!!` when reading a line will improve the experience for newcomers and simplify the teaching of Kotlin.
 To make the read-line operation name consistent with its `println()` counterpart, we've decided to shorten the names of new functions to 'ln'.
@@ -482,7 +481,8 @@ duration amounts in different time units is promoted to [Stable](components-stab
 * The `DurationUnit` enum is now standalone and not a type alias of `java.util.concurrent.TimeUnit` on JVM.
   We haven't found convincing cases when having `typealias DurationUnit = TimeUnit` could be useful. Also, exposing the `TimeUnit` API through a type alias may confuse `DurationUnit` users.
 
-* In response to the community feedback, we're bringing back extension properties like `Int.seconds`. But we'd like to limit their applicability, so we put them into the companion of the Duration class. While IDE can still propose extensions in completion and automatically insert an import from the companion, we plan to limit this behavior in the future to cases when the `Duration` type is expected.
+* In response to the community feedback, we're bringing back extension properties like `Int.seconds`. But we'd like to limit their applicability, so we put them into the companion of the `Duration` class. 
+  While IDE can still propose extensions in completion and automatically insert an import from the companion, we plan to limit this behavior in the future to cases when the `Duration` type is expected.
 
 ```kotlin
 import kotlin.time.Duration.Companion.seconds
@@ -506,7 +506,7 @@ like `Int.seconds` with new extensions in `Duration.Companion`.
 
 ### Splitting Regex to a sequence
 
-The `Regex.splitToSequence(CharSequence)` and `CharSequence.splitToSequence(Regex)` functions are promoted to Stable too. They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily.
+The `Regex.splitToSequence(CharSequence)` and `CharSequence.splitToSequence(Regex)` functions are promoted to [Stable](components-stability.md) too. They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily.
 
 ```kotlin
 fun main() {
@@ -544,7 +544,7 @@ fun main() {
 ### Changes for replace() and replaceFirst() in JS
 
 Before Kotlin 1.6.0, the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html)
-and [`replaceFirst()`] (https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace-first.html) Regex functions behaved differently in Java and JS when replacement string contained group reference. To make the behavior predictable for all target platforms, we've changed their implementation in JS.
+and [`replaceFirst()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace-first.html) Regex functions behaved differently in Java and JS when replacement string contained group reference. To make the behavior predictable for all target platforms, we've changed their implementation in JS.
 
 Occurrences of `${name}` or `$index` in the replacement string are substituted with the subsequences corresponding to the captured groups with the specified index or a name:
 * `$index` – the first digit after '$' is always treated as a part of the group reference. Subsequent digits are incorporated into the `index` only if they form a valid group reference. Only digits '0'..'9' are considered potential components of the group reference. Note that indexes of captured groups start from '1'. The group with an index '0' stands for the whole match.
@@ -598,13 +598,13 @@ We've deprecated the `Array<out T>.sort()` function and inline functions: `ByteA
 
 ## Tools
 
-### Kover — code coverage tool for Kotlin
+### Kover – code coverage tool for Kotlin
 
 > The Kover Gradle plugin is Experimental. We would appreciate your feedback on it in [GitHub](https://github.com/Kotlin/kotlinx-kover/issues).
 >
 {type="warning"}
 
-With Kotlin 1.6.0, we’re introducing Kover — the Gradle plugin for Kotlin code coverage agents IntelliJ and JaCoCo. It works with all language constructs including inline functions.
+With Kotlin 1.6.0, we’re introducing Kover – the Gradle plugin for Kotlin code coverage agents IntelliJ and JaCoCo. It works with all language constructs including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover).
 
