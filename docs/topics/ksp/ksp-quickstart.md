@@ -232,7 +232,7 @@ ksp {
 ## Make IDE aware of generated code
 
 By default, IntelliJ IDEA or other IDEs don't know about the generated code. So they will mark references to generated 
-symbols unresolvable. To make, for example, IntelliJ IDEA be able to reason about the generated symbols, mark the 
+symbols unresolvable. To make an IDE be able to reason about the generated symbols, mark the 
 following paths as generated source roots:
 
 ```text
