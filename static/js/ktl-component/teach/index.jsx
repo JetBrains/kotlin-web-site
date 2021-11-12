@@ -390,7 +390,7 @@ const Teach = (props) => {
                 </li>
                 <li className="teach-list__item">
                   <a target="_blank" rel="noopener"
-                     href="https://www.youtube.com/watch?v=o4emra1xm88&list=PLlFc5cFwUnmwfLRLvIM7aV7s73eSTL005">
+                     href="https://kotlinlang.org/docs/advent-of-code.html">
                     <span className="rs-link">Idiomatic Kotlin: Solving Advent of Code Puzzles</span>
                     <span>↗</span>
                   </a>
