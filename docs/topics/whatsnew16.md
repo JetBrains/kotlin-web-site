@@ -23,7 +23,7 @@ It also receives various type inference improvements and the support of annotati
 
 An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of its subject or for some types plus an `else` branch. In other words, it covers all possible cases.
 
-We’re going to prohibit non-exhaustive `when` statements soon to make the behavior consistent with `when` expressions. To ensure smooth migration, Kotlin 1.6 reports warnings about non-exhaustive `when` statements with an enum, a sealed or a Boolean subject. Such warnings will become errors in the future.
+We're going to prohibit non-exhaustive `when` statements soon to make the behavior consistent with `when` expressions. To ensure smooth migration, Kotlin 1.6 reports warnings about non-exhaustive `when` statements with an enum, a sealed or a Boolean subject. Such warnings will become errors in the future.
 
 ```kotlin
 sealed class Mode {
@@ -53,7 +53,7 @@ fun main() {
 Kotlin 1.6.0 makes an implementation of suspending functional types [Stable](components-stability.md). A preview of the feature was available [in 1.5.30](whatsnew1530.md#suspending-functions-as-supertypes).
 
 Note that there are currently two limitations coming from implementation details:
-* You can’t mix ordinary functional types and suspending ones in the list of supertypes.
+* You can't mix ordinary functional types and suspending ones in the list of supertypes.
 * You can't use multiple suspending functional supertypes.
 
 ```kotlin
@@ -164,7 +164,7 @@ class Box<T> {
 ```
 
 Kotlin no longer generates the field `content$delegate`.
-Property accessors of the `content` variable invoke the `impl` variable directly, skipping the delegated property’s `getValue`/`setValue` operators, and thus avoiding the need for the property reference object of the [`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html) type.
+Property accessors of the `content` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`/`setValue` operators, and thus avoiding the need for the property reference object of the [`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html) type.
 
 Thanks to our Google colleagues for their major contribution to the implementation!
 
@@ -176,7 +176,7 @@ Java 8 introduced [repeatable annotations](https://docs.oracle.com/javase/tutori
 
 Kotlin also has repeatable annotations but requires only [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/) to be present on an annotation declaration to make it repeatable. Before 1.6.0, the feature supported only `SOURCE` retention and was incompatible with the Java one. Kotlin 1.6.0 removes these limitations: `@kotlin.annotation.Repeatable` now accepts any retention and makes the annotation repeatable both in Kotlin and Java. Java repeatable annotations are now also supported from the Kotlin side.
 
-Note that you still don’t need to declare a containing annotation, although you can. For example:
+Note that you still don't need to declare a containing annotation, although you can. For example:
 * If an annotation `@Tag` is marked with `@kotlin.annotation.Repeatable`, the Kotlin compiler automatically generates a containing annotation class under the name of `@Tag.Container`.
 
     ```kotlin
@@ -223,27 +223,27 @@ With Kotlin 1.6.0, you can try the development preview of the new Kotlin/Native 
 
 One of the notable changes is the lazy initialization of top-level properties like in Kotlin/JVM. A top-level property gets initialized when a top-level property or function from the same file is accessed for the first time. This mode also includes a global interprocedural optimization (enabled only for release binaries), which removes redundant initialization checks.
 
-We’ve recently published a [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) about the new memory manager. Read it to learn about the current state of the new memory manager and find some demo projects, or jump right to the [migration instructions](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md) to try it yourself.
+We've recently published a [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) about the new memory manager. Read it to learn about the current state of the new memory manager and find some demo projects, or jump right to the [migration instructions](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md) to try it yourself.
 Please check how the new memory manager works on your projects and share feedback in our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
 ### Support for Xcode 13
 
 Kotlin/Native 1.6.0 supports the latest version of Xcode – 13. Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
 
-> New libraries added in Xcode 13 aren’t available for using from Kotlin 1.6.0. We’re going to support them in the nearest versions.
+> New libraries added in Xcode 13 aren't available for using from Kotlin 1.6.0. We're going to support them in the nearest versions.
 >
 {type="note"}
 
 ### Compilation of Windows targets on any host
 
-Starting from 1.6.0, you don’t need a Windows host for compiling Windows targets `mingwX64` and `mingwX86`. They can be compiled on any host that supports Kotlin/Native.
+Starting from 1.6.0, you don't need a Windows host for compiling Windows targets `mingwX64` and `mingwX86`. They can be compiled on any host that supports Kotlin/Native.
 
 ### LLVM and linker updates
 
-We’ve reworked the LLVM dependency that Kotlin/Native uses under the hood. This brings various benefits, including:
+We've reworked the LLVM dependency that Kotlin/Native uses under the hood. This brings various benefits, including:
 * Updated LLVM version to 11.1.0.
-* Decreased dependency size. For example, on macOS it’s now about 300 MB instead of 1200 MB in the previous version.
-* [Excluded dependency on the `ncurses5` library](https://youtrack.jetbrains.com/issue/KT-42693) that isn’t available in modern Linux distributions.
+* Decreased dependency size. For example, on macOS it's now about 300 MB instead of 1200 MB in the previous version.
+* [Excluded dependency on the `ncurses5` library](https://youtrack.jetbrains.com/issue/KT-42693) that isn't available in modern Linux distributions.
 
 In addition to the LLVM update, Kotlin/Native now uses the [LLD](https://lld.llvm.org/) linker (a linker from the LLVM project) for MingGW targets. It provides various benefits over the previously used ld.bfd linker, and will allow us to improve runtime performance of produced binaries and support compiler caches for MinGW targets. Note that LLD [requires import libraries for DLL linkage](whatsnew1530.md#deprecation-of-linkage-against-dlls-without-import-libraries-for-mingw-targets). Learn more in [this Stack Overflow thread](https://stackoverflow.com/questions/3573475/how-does-the-import-library-work-details/3573527/#3573527).
 
@@ -267,9 +267,9 @@ Starting from 1.6.0, Kotlin Multiplatform Gradle plugin is able to use the embed
 
 This is a preview version of such support, and it requires an opt-in. To start using generic compiler plugin artifacts for Kotlin/Native, add the following line to `gradle.properties`: `kotlin.native.useEmbeddableCompilerJar=true`.
 
-We’re planning to use the embeddable compiler jar for Kotlin/Native by default in the future, so it’s vital for us to hear how the preview works for you.
+We're planning to use the embeddable compiler jar for Kotlin/Native by default in the future, so it's vital for us to hear how the preview works for you.
 
-If you are an author of a compiler plugin, please try this mode and check if it works for your plugin. Note that depending on your plugin’s structure, migration steps may be required. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48595) for migration instructions and leave you feedback in comments.
+If you are an author of a compiler plugin, please try this mode and check if it works for your plugin. Note that depending on your plugin's structure, migration steps may be required. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48595) for migration instructions and leave you feedback in comments.
 
 ### Detailed error messages for klib linkage failures
 
@@ -285,9 +285,11 @@ Now the Kotlin/Native compiler provides detailed error messages for klib linkage
 * 1.6.0:
 
     ```text
-    e: The symbol of unexpected type encountered during IR deserialization: IrClassPublicSymbolImpl, kotlinx.coroutines/CancellationException|null[0]. IrTypeAliasSymbol is expected.
+    e: The symbol of unexpected type encountered during IR deserialization: IrClassPublicSymbolImpl, kotlinx.coroutines/CancellationException|null[0].
+    IrTypeAliasSymbol is expected.
     
-    This could happen if there are two libraries, where one library was compiled against the different version of the other library than the one currently used in the project. Please check that the project configuration is correct and has consistent versions of dependencies.
+    This could happen if there are two libraries, where one library was compiled against the different version of the other library than the one currently used in the project.
+    Please check that the project configuration is correct and has consistent versions of dependencies.
     
     The list of libraries that depend on "org.jetbrains.kotlinx:kotlinx-coroutines-core (org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64)" and may lead to conflicts:
     <list of libraries and potential version mismatches>
@@ -308,7 +310,7 @@ Exceptions escaping `main()` and exceptions crossing interop boundary will alway
 
 ## Kotlin/JS
 
-We’re continuing to work on stabilizing the IR backend for Kotlin/JS compiler. Aside from it, Kotlin/JS is receiving one new feature:
+We're continuing to work on stabilizing the IR backend for Kotlin/JS compiler. Aside from it, Kotlin/JS is receiving one new feature:
 * [Option to disable downloading of Node.js and Yarn](#option-to-use-pre-installed-node-js-and-yarn)
 
 ### Option to use pre-installed Node.js and Yarn
@@ -366,7 +368,7 @@ To disable downloading of external components, add the following lines to your `
 
 ## Kotlin Gradle plugin
 
-In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'. This class was used for writing compiler plugins. In the following releases, we’ll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
+In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'. This class was used for writing compiler plugins. In the following releases, we'll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
 
 We removed the `kotlin.useFallbackCompilerSearch` build option and `noReflect` and `includeRuntime` compiler options. We hid the `useIR` compiler option and will remove it in the following releases.
 
@@ -408,22 +410,25 @@ fun main() {
     println("What is your nickname?")
     val nickname = readln()
     println("Hello, $nickname!")
-    //sampleEnd
+//sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ```kotlin
 fun main() {
 //sampleStart
     var sum = 0
     while (true) {
-        val nextLine = readlnOrNull().takeUnless { it.isNullOrEmpty() } ?: break
+        val nextLine = readlnOrNull()
+          .takeUnless { it.isNullOrEmpty() } ?: break
         sum += nextLine.toInt()
     }
     println(sum)
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 The existing `readLine()` function will get a lower priority than `readln()` and `readlnOrNull()` in your IDE code completion.
 Even more, IDE inspections will recommend using new functions instead of the legacy `readLine()`.
@@ -469,6 +474,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Stable Duration API
 
@@ -488,13 +494,14 @@ duration amounts in different time units is promoted to [Stable](components-stab
 import kotlin.time.Duration.Companion.seconds
 
 fun main() {
-// sampleStart
+//sampleStart
     val duration = 10000
     println("There are ${duration.seconds.inWholeMinutes} minutes in $duration seconds")
     // There are 166 minutes in 10000 seconds
-// sampleEnd
+//sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 We suggest replacing previously introduced companion functions, such as `Duration.seconds(Int)`, and deprecated top-level extensions
 like `Int.seconds` with new extensions in `Duration.Companion`.
@@ -535,11 +542,16 @@ In Kotlin 1.6.0, the `rotateLeft()` and `rotateRight()` functions for bit manipu
 fun main() {
 //sampleStart
     val number: Short = 0b10001
-    println(number.rotateRight(2).toString(radix = 2)) // 100000000000100
-    println(number.rotateLeft(2).toString(radix = 2))  // 1000100
+    println(number
+      .rotateRight(2)
+      .toString(radix = 2)) // 100000000000100
+    println(number
+      .rotateLeft(2)
+      .toString(radix = 2))  // 1000100
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 ### Changes for replace() and replaceFirst() in JS
 
@@ -564,6 +576,7 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
     //sampleEnd
     }
     ```
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
 
 You can use [`Regex.escapeReplacement()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/escape-replacement.html) if the replacement string has to be treated as a literal string.
 
@@ -604,7 +617,7 @@ We've deprecated the `Array<out T>.sort()` function and inline functions: `ByteA
 >
 {type="warning"}
 
-With Kotlin 1.6.0, we’re introducing Kover – the Gradle plugin for Kotlin code coverage agents IntelliJ and JaCoCo. It works with all language constructs including inline functions.
+With Kotlin 1.6.0, we're introducing Kover – the Gradle plugin for Kotlin code coverage agents IntelliJ and JaCoCo. It works with all language constructs including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover).
 
