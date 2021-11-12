@@ -79,23 +79,23 @@ and have a body, allowing the inheritors not to implement a particular function.
   To indicate that common inheritors don't need to implement a function, mark it as `open`. All its `actual` implementations
 will be required to have a body.
 
-```kotlin
-// Common
-expect interface Mascot {
-    open fun display(): String
-}
-
-class MascotImpl : Mascot {
-    // it's ok not to implement `display()`: all `actual`s are guaranteed to have a default implementation
-}
-
-// Platform-specific
-actual interface Mascot {
-    actual fun display(): String {
-        TODO()
-    }
-}
-```
+  ```kotlin
+  // Common
+  expect interface Mascot {
+      open fun display(): String
+  }
+  
+  class MascotImpl : Mascot {
+      // it's ok not to implement `display()`: all `actual`s are guaranteed to have a default implementation
+  }
+  
+  // Platform-specific
+  actual interface Mascot {
+      actual fun display(): String {
+          TODO()
+      }
+  }
+  ```
 
 During each platform compilation, the compiler ensures that every declaration marked with the `expect` keyword in the common 
 or intermediate source set has the corresponding declarations marked with the `actual` keyword in all platform source sets. 
