@@ -150,8 +150,8 @@ Starting with Kotlin 1.6.0, we will support development for three previous API v
 ## Kotlin/JVM
 
 For Kotlin/JVM, starting with 1.6.0, the compiler can generate classes with a bytecode version corresponding to JVM 17. The new language version also includes optimized delegated properties repeatable annotations, which we had on the roadmap:
-* [Repeatable annotations with runtime retention for 1.8 JVM target](#repeatable-annotations-with-runtime-retention-for-18-jvm-target)
-* [Optimize delegated properties which call get/set on the given KProperty instance](#optimize-delegated-properties-which-call-getset-on-the-given-kproperty-instance)
+* [Repeatable annotations with runtime retention for 1.8 JVM target](#repeatable-annotations-with-runtime-retention-for-1-8-jvm-target)
+* [Optimize delegated properties which call get/set on the given KProperty instance](#optimize-delegated-properties-which-call-get-set-on-the-given-kproperty-instance)
 
 ### Repeatable annotations with runtime retention for 1.8 JVM target
 
@@ -243,7 +243,7 @@ Kotlin/Native 1.6.0 supports Xcode 13 — the latest version of Xcode. Feel free
 
 > New libraries added in Xcode 13 aren’t available for use in Kotlin 1.6.0 – we’re going to support them in upcoming versions.
 >
-{type=”note”}
+{type="note"}
 
 ### Compilation of Windows targets on any host
 
@@ -643,7 +643,7 @@ See the [collection ordering](collection-ordering.md) section for reference.
 
 > The Kover Gradle plugin is Experimental. We would appreciate your feedback on it in [GitHub](https://github.com/Kotlin/kotlinx-kover/issues).
 >
-{type=”warning”}
+{type="warning"}
 
 With Kotlin 1.6.0, we’re introducing Kover – the Gradle plugin for Kotlin code coverage agents [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](​​https://github.com/jacoco/jacoco). It works with all language constructs including inline functions.
 
