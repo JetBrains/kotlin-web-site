@@ -181,7 +181,7 @@ import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
 ```
 
-## From a `zip`, `tar`, or `jar` archive
+## From a zip, tar, or jar archive
 
 1. Specify the name of a Pod library in the `pod()` function.
    In the configuration block, specify the path to the archive: use the `url()` function with an arbitrary HTTP address in the `source` parameter value.
