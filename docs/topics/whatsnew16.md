@@ -131,7 +131,7 @@ val containerB = PostgreSQLContainer(DockerImageName.parse("postgres:13-alpine")
 
 Builder inference is a type inference flavor which is useful when calling generic builder functions. It can infer the type arguments of a call with the help of type information from calls inside its lambda argument.
 
-We’re making multiple changes that are bringing us closer to fully stable builder inference. Starting with 1.6.0:
+We're making multiple changes that are bringing us closer to fully stable builder inference. Starting with 1.6.0:
 * You can make calls returning an instance of a not yet inferred type inside a builder lambda without specifying the `-Xunrestricted-builder-inference` compiler option [introduced in 1.5.30](whatsnew1530.md#eliminating-builder-inference-restrictions).
 * With `-Xenable-builder-inference`, you can write your own builders without applying the [`@BuilderInference`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-builder-inference/) annotation.
 
@@ -181,7 +181,7 @@ Before 1.6.0, the feature supported only `SOURCE` retention and was incompatible
 `@kotlin.annotation.Repeatable` now accepts any retention and makes the annotation repeatable both in Kotlin and Java.
 Java repeatable annotations are now also supported from the Kotlin side.
 
-While you can declare a containing annotation, it’s not necessary. For example:
+While you can declare a containing annotation, it's not necessary. For example:
 * If an annotation `@Tag` is marked with `@kotlin.annotation.Repeatable`, the Kotlin compiler automatically generates a containing annotation class under the name of `@Tag.Container`:
 
     ```kotlin
@@ -219,7 +219,7 @@ class Box<T> {
 ```
 
 Kotlin no longer generates the field `content$delegate`.
-Property accessors of the `content` variable invoke the `impl` variable directly, skipping the delegated property’s `getValue`/`setValue` operators and thus avoiding the need for the property reference object of the [`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html) type.
+Property accessors of the `content` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`/`setValue` operators and thus avoiding the need for the property reference object of the [`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html) type.
 
 Thanks to our Google colleagues for the implementation!
 
@@ -251,7 +251,7 @@ It moves us closer to eliminating the differences between the JVM and Native pla
 One of the notable changes is the lazy initialization of top-level properties, like in Kotlin/JVM. A top-level property gets initialized when a top-level property or function from the same file is accessed for the first time.
 This mode also includes global interprocedural optimization (enabled only for release binaries), which removes redundant initialization checks.
 
-We’ve recently published a [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) about the new memory manager.
+We've recently published a [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) about the new memory manager.
 Read it to learn about the current state of the new memory manager and find some demo projects, or jump right to the [migration instructions](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md) to try it yourself.
 Please check how the new memory manager works on your projects and share feedback in our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
@@ -259,20 +259,20 @@ Please check how the new memory manager works on your projects and share feedbac
 
 Kotlin/Native 1.6.0 supports Xcode 13 — the latest version of Xcode. Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
 
-> New libraries added in Xcode 13 aren’t available for use in Kotlin 1.6.0 – we’re going to support them in upcoming versions.
+> New libraries added in Xcode 13 aren't available for use in Kotlin 1.6.0 – we're going to support them in upcoming versions.
 >
 {type="note"}
 
 ### Compilation of Windows targets on any host
 
-Starting from 1.6.0, you don’t need a Windows host to compile the Windows targets `mingwX64` and `mingwX86`. They can be compiled on any host that supports Kotlin/Native.
+Starting from 1.6.0, you don't need a Windows host to compile the Windows targets `mingwX64` and `mingwX86`. They can be compiled on any host that supports Kotlin/Native.
 
 ### LLVM and linker updates
 
-We’ve reworked the LLVM dependency that Kotlin/Native uses under the hood. This brings various benefits, including:
+We've reworked the LLVM dependency that Kotlin/Native uses under the hood. This brings various benefits, including:
 * Updated LLVM version to 11.1.0.
-* Decreased dependency size. For example, on macOS it’s now about 300 MB instead of 1200 MB in the previous version.
-* [Excluded dependency on the `ncurses5` library](https://youtrack.jetbrains.com/issue/KT-42693) that isn’t available in modern Linux distributions.
+* Decreased dependency size. For example, on macOS it's now about 300 MB instead of 1200 MB in the previous version.
+* [Excluded dependency on the `ncurses5` library](https://youtrack.jetbrains.com/issue/KT-42693) that isn't available in modern Linux distributions.
 
 In addition to the LLVM update, Kotlin/Native now uses the [LLD](https://lld.llvm.org/) linker (a linker from the LLVM project) for MingGW targets.
 It provides various benefits over the previously used ld.bfd linker, and will allow us to improve runtime performance of produced binaries and support compiler caches for MinGW targets.
@@ -304,10 +304,10 @@ This is a step towards unification of the compiler plugin development experience
 This is a preview version of such support, and it requires an opt-in.
 To start using generic compiler plugin artifacts for Kotlin/Native, add the following line to `gradle.properties`: `kotlin.native.useEmbeddableCompilerJar=true`.
 
-We’re planning to use the embeddable compiler jar for Kotlin/Native by default in the future, so it’s vital for us to hear how the preview works for you.
+We're planning to use the embeddable compiler jar for Kotlin/Native by default in the future, so it's vital for us to hear how the preview works for you.
 
 If you are an author of a compiler plugin, please try this mode and check if it works for your plugin.
-Note that depending on your plugin’s structure, migration steps may be required. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48595) for migration instructions and leave your feedback in the comments.
+Note that depending on your plugin's structure, migration steps may be required. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48595) for migration instructions and leave your feedback in the comments.
 
 ### Detailed error messages for klib linkage failures
 
@@ -349,7 +349,7 @@ Exceptions escaping `main()` and exceptions crossing an interop boundary will al
 
 ## Kotlin/JS
 
-We’re continuing to work on stabilizing the IR backend for the Kotlin/JS compiler.
+We're continuing to work on stabilizing the IR backend for the Kotlin/JS compiler.
 Kotlin/JS is receiving an [option to disable downloading of Node.js and Yarn](#option-to-use-pre-installed-node-js-and-yarn).
 
 ### Option to use pre-installed Node.js and Yarn
@@ -407,7 +407,7 @@ To disable downloading external components, add the following lines to your `bui
 
 ## Kotlin Gradle plugin
 
-In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'. This class was used for writing compiler plugins. In the following releases, we’ll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
+In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'. This class was used for writing compiler plugins. In the following releases, we'll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
 
 We removed the `kotlin.useFallbackCompilerSearch` build option and `noReflect` and `includeRuntime` compiler options. We hid the `useIR` compiler option and will remove it in upcoming releases.
 
@@ -435,7 +435,7 @@ Kotlin 1.6.0 introduces new functions for handling standard input: `readln()` an
 >
 {type="note"}
 
-|**Earlier versions**|**1.6 alternative**|**Usage**|
+|**Earlier versions**|**1.6.0 alternative**|**Usage**|
 | --- | --- | --- |
 |`readLine()!!`|`readln()`| Reads a line from stdin and returns it, throws a `RuntimeException` if EOF has been reached. |
 |`readLine()`|`readlnOrNull()`| Reads a line from stdin and returns it, returns `null` if EOF has been reached. |
@@ -663,7 +663,7 @@ See the [collection ordering](collection-ordering.md) section for reference.
 >
 {type="warning"}
 
-With Kotlin 1.6.0, we’re introducing Kover – the Gradle plugin for Kotlin code coverage agents [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](​​https://github.com/jacoco/jacoco). It works with all language constructs including inline functions.
+With Kotlin 1.6.0, we're introducing Kover – the Gradle plugin for Kotlin code coverage agents [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](​​https://github.com/jacoco/jacoco). It works with all language constructs including inline functions.
 
 Learn more about Kover on its [GitHub repository] (https://github.com/Kotlin/kotlinx-kover).
 
