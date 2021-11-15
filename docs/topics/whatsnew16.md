@@ -19,64 +19,82 @@ It also includes various type inference improvements and support for annotations
 * [Changes to builder inference](#changes-to-builder-inference)
 * [Support for annotations on class type parameters](#support-for-annotations-on-class-type-parameters)
 
-### Stable exhaustive when statements for enum, sealed and Boolean subjects
+### Stable exhaustive when statements for enum, sealed, and Boolean subjects
 
-An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of its subject or for some types plus an `else` branch. In other words, it covers all possible cases.
+An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of 
+its subject, or for some types plus an `else` branch. It covers all possible cases, making your code safer.
 
-We're going to prohibit non-exhaustive `when` statements soon to make the behavior consistent with `when` expressions. To ensure smooth migration, Kotlin 1.6 reports warnings about non-exhaustive `when` statements with an enum, a sealed or a Boolean subject. Such warnings will become errors in the future.
+We will soon prohibit non-exhaustive `when` statements to make the behavior consistent with `when` expressions. 
+To ensure smooth migration, Kotlin 1.6.0 reports warnings about non-exhaustive `when` statements with an enum, sealed, or Boolean subject. 
+These warnings will become errors in future releases.
 
 ```kotlin
-sealed class Mode {
-    object ON : Mode()
-    object OFF : Mode()
+sealed class Contact {
+    data class PhoneCall(val number: String) : Contact()
+    data class TextMessage(val number: String) : Contact()
 }
 
-fun main() {
-    val x: Mode = Mode.ON
-    when (x) { 
-        Mode.ON -> println("ON")
+fun Contact.messageCost(): Int =
+    when(this) { // Error: 'when' expression must be exhaustive
+        is Contact.PhoneCall -> 42
     }
-// WARNING: Non exhaustive 'when' statements on sealed classes/interfaces 
-// will be prohibited in 1.7, add an 'OFF' or 'else' branch instead
 
-    val y: Boolean = true
-    when (y) {  
-        true -> println("true")
+fun sendMessage(contact: Contact, message: String) {
+    // Starting with 1.6.0
+
+    // Warning: Non exhaustive 'when' statements on Boolean will be
+    // prohibited in 1.7, add 'false' branch or 'else' branch instead 
+    when(message.isEmpty()) {
+        true -> return
     }
-// WARNING: Non exhaustive 'when' statements on Booleans will be prohibited 
-// in 1.7, add a 'false' or 'else' branch instead
+    // Warning: Non exhaustive 'when' statements on sealed class/interface will be
+    // prohibited in 1.7, add 'is TextMessage' branch or 'else' branch instead
+    when(contact) {
+        is Contact.PhoneCall -> TODO()
+    }
 }
 ```
+
+See this YouTrack ticket for a more detailed explanation of the change and its effects.
 
 ### Stable suspending functions as supertypes
 
-Kotlin 1.6.0 makes an implementation of suspending functional types [Stable](components-stability.md). A preview of the feature was available [in 1.5.30](whatsnew1530.md#suspending-functions-as-supertypes).
+Kotlin 1.6.0 makes implementation of suspending functional types [Stable](components-stability.md). 
+A preview was available [in 1.5.30](whatsnew1530.md#suspending-functions-as-supertypes).
 
-Note that there are currently two limitations coming from implementation details:
+The feature can be useful when designing APIs that use Kotlin coroutines and accept suspending functional types. 
+You can now streamline your code by enclosing the desired behavior in a separate class that implements a suspending functional type.
+
+```kotlin
+class MyClickAction : suspend () -> Unit {
+    override suspend fun invoke() { TODO() }
+}
+
+fun launchOnClick(action: suspend () -> Unit) {}
+```
+
+You can use an instance of this class where only lambdas and suspending function references were allowed previously: `launchOnClick(MyClickAction())`.
+
+There are currently two limitations coming from implementation details:
 * You can't mix ordinary functional types and suspending ones in the list of supertypes.
 * You can't use multiple suspending functional supertypes.
 
-```kotlin
-class MyClass: suspend () -> Unit {
-    override suspend fun invoke() = TODO()
-}
-```
-
 ### Stable suspend conversions
 
-Kotlin 1.6.0 introduces [Stable](components-stability.md) conversions from regular to suspending functional type.
+Kotlin 1.6.0 introduces [Stable](components-stability.md) conversions from regular to suspending functional types. 
 Starting from 1.4.0, the feature supported functional literals and callable references.
-With 1.6.0, it works with any form of expression. As a call argument, you can now pass any expression of a suitable regular functional type where suspending is expected. The compiler will perform an implicit conversion automatically.
+With 1.6.0, it works with any form of expression. As a call argument, you can now pass any expression of a suitable regular functional type where suspending is expected. 
+The compiler will perform an implicit conversion automatically.
 
 ```kotlin
-fun foo(f: suspend () -> Unit) {}
+fun getSuspending(suspending: suspend () -> Unit) {}
 
-fun bar() {}
+fun suspending() {}
 
-fun test(baz: () -> Unit) {
-    foo { }    // OK
-    foo(::bar) // OK
-    foo(baz)   // OK
+fun test(regular: () -> Unit) {
+    getSuspending { }           // OK
+    getSuspending(::suspending) // OK
+    getSuspending(regular)      // OK
 }
 ```
 
