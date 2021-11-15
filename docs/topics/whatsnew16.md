@@ -55,7 +55,7 @@ fun sendMessage(contact: Contact, message: String) {
 }
 ```
 
-See this YouTrack ticket for a more detailed explanation of the change and its effects.
+See [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-47709) for a more detailed explanation of the change and its effects.
 
 ### Stable suspending functions as supertypes
 
