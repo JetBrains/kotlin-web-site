@@ -167,7 +167,7 @@ Starting with Kotlin 1.6.0, we will support development for three previous API v
 
 ## Kotlin/JVM
 
-For Kotlin/JVM, starting with 1.6.0, the compiler can generate classes with a bytecode version corresponding to JVM 17. The new language version also includes optimized delegated properties repeatable annotations, which we had on the roadmap:
+For Kotlin/JVM, starting with 1.6.0, the compiler can generate classes with a bytecode version corresponding to JVM 17. The new language version also includes optimized delegated properties and repeatable annotations, which we had on the roadmap:
 * [Repeatable annotations with runtime retention for 1.8 JVM target](#repeatable-annotations-with-runtime-retention-for-1-8-jvm-target)
 * [Optimize delegated properties which call get/set on the given KProperty instance](#optimize-delegated-properties-which-call-get-set-on-the-given-kproperty-instance)
 
@@ -418,7 +418,7 @@ Learn more about [currently supported compiler options](gradle.md#compiler-optio
 The new 1.6.0 version has received multiple changes, including stabilizing experimental features, introducing new ones, and unifying behavior across platforms:
 
 * [New readline functions](#new-readline-functions)
-* [Stable `typeOf()`](#stable-typeof)
+* [Stable typeOf()](#stable-typeof)
 * [Stable collection builders](#stable-collection-builders)
 * [Stable Duration API](#stable-duration-api)
 * [Splitting Regex to a sequence](#splitting-regex-to-a-sequence)
@@ -429,7 +429,7 @@ The new 1.6.0 version has received multiple changes, including stabilizing exper
 
 ### New readline functions
 
-Kotlin 1.6.0 introduces new functions for handling standard input: `readln()` and `readlnOrNull()`.
+Kotlin 1.6.0 offers new functions for handling standard input: `readln()` and `readlnOrNull()`.
 
 > For now, new functions are available for JVM and Native target platforms only.
 >
@@ -531,31 +531,31 @@ duration amounts in different time units has been promoted to [Stable](component
 * In response to community feedback, we're bringing back extension properties like `Int.seconds`. But we'd like to limit their applicability, so we put them into the companion of the `Duration` class.
   While the IDE can still propose extensions in completion and automatically insert an import from the companion, we plan to limit this behavior in the future to cases when the `Duration` type is expected.
 
-```kotlin
-import kotlin.time.Duration.Companion.seconds
-
-fun main() {
-//sampleStart
-    val duration = 10000
-    println("There are ${duration.seconds.inWholeMinutes} minutes in $duration seconds")
-    // There are 166 minutes in 10000 seconds
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
-
-We suggest replacing previously introduced companion functions, such as `Duration.seconds(Int)`, and deprecated top-level extensions
-like `Int.seconds` with new extensions in `Duration.Companion`.
-
-> Such replacement may cause ambiguity between old top-level extensions and new companion extensions.
-> Be sure to use the wildcard import of the kotlin.time package: `import kotlin.time.*` before doing automated migration.
->
-{type="note"}
+  ```kotlin
+  import kotlin.time.Duration.Companion.seconds
+  
+  fun main() {
+  //sampleStart
+      val duration = 10000
+      println("There are ${duration.seconds.inWholeMinutes} minutes in $duration seconds")
+      // There are 166 minutes in 10000 seconds
+  //sampleEnd
+  }
+  ```
+  {kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+  
+  We suggest replacing previously introduced companion functions, such as `Duration.seconds(Int)`, and deprecated top-level extensions
+  like `Int.seconds` with new extensions in `Duration.Companion`.
+  
+  > Such replacement may cause ambiguity between old top-level extensions and new companion extensions.
+  > Be sure to use the wildcard import of the kotlin.time package: `import kotlin.time.*` before doing automated migration.
+  >
+  {type="note"}
 
 ### Splitting Regex to a sequence
 
 The `Regex.splitToSequence(CharSequence)` and `CharSequence.splitToSequence(Regex)` functions are promoted to [Stable](components-stability.md).
-They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily.
+They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily:
 
 ```kotlin
 fun main() {
