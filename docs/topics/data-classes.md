@@ -20,6 +20,7 @@ To ensure consistency and meaningful behavior of the generated code, data classe
 * The primary constructor needs to have at least one parameter.
 * All primary constructor parameters need to be marked as `val` or `var`.
 * Data classes cannot be abstract, open, sealed, or inner.
+* Data classes should not have private properties in primary constructor and use them as backing fields in public property.
 
 Additionally, the generation of data class members follows these rules with regard to the members’ inheritance:
 
