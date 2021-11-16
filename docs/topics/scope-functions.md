@@ -112,7 +112,7 @@ fun main() {
 
     // it
     str.let {
-        println("The receiver string's length is ${it.length}")
+        println("The argument string's length is ${it.length}")
     }
 }
 ```
