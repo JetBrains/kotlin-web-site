@@ -1,10 +1,5 @@
 [//]: # (title: Compatibility guide for Kotlin 1.6)
 
-> This page describes changes that will happen in the upcoming version 1.6.0. It isn't released yet. You can try
-> its preview version [1.6.0-RC](eap.md#build-details).
->
-{type="note"}
-
 _[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
 latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
