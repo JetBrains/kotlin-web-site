@@ -42,7 +42,7 @@ Compatible Kotlin version
 
 **0.3.0**
 
-Released: 15 November, 2021
+Released: 16 November, 2021
 
 </td>
 <td>
