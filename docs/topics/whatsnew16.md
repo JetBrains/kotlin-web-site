@@ -177,9 +177,9 @@ Java 8 introduced [repeatable annotations](https://docs.oracle.com/javase/tutori
 The feature requires two declarations to be present in the Java code: the repeatable annotation itself marked with [`@java.lang.annotation.Repeatable`](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html) and the containing annotation to hold its values.
 
 Kotlin also has repeatable annotations, but requires only [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/) to be present on an annotation declaration to make it repeatable.
-Before 1.6.0, the feature supported only `SOURCE` retention and was incompatible with the Java one. Kotlin 1.6.0 removes these limitations.
-`@kotlin.annotation.Repeatable` now accepts any retention and makes the annotation repeatable both in Kotlin and Java.
-Java repeatable annotations are now also supported from the Kotlin side.
+Before 1.6.0, the feature supported only `SOURCE` retention and was incompatible with Java's repeatable annotations.
+Kotlin 1.6.0 removes these limitations. `@kotlin.annotation.Repeatable` now accepts any retention and makes the annotation repeatable both in Kotlin and Java.
+Java's repeatable annotations are now also supported from the Kotlin side.
 
 While you can declare a containing annotation, it's not necessary. For example:
 * If an annotation `@Tag` is marked with `@kotlin.annotation.Repeatable`, the Kotlin compiler automatically generates a containing annotation class under the name of `@Tag.Container`:
@@ -200,7 +200,7 @@ While you can declare a containing annotation, it's not necessary. For example:
     annotation class Tags(val value: Array<Tag>)
     ```
 
-Kotlin reflection also received support for both Kotlin and Java repeatable annotations via a new function, [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html).
+Kotlin reflection now supports both Kotlin's and Java's repeatable annotations via a new function, [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html).
 
 Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md).
 
@@ -208,7 +208,7 @@ Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com
 
 We optimized the generated JVM bytecode by omitting the `$delegate` field and generating immediate access to the referenced property.
 
-For example, in this code
+For example, in the following code
 
 ```kotlin
 class Box<T> {
@@ -257,9 +257,9 @@ Please check how the new memory manager works on your projects and share feedbac
 
 ### Support for Xcode 13
 
-Kotlin/Native 1.6.0 supports Xcode 13 — the latest version of Xcode. Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
+Kotlin/Native 1.6.0 supports Xcode 13 – the latest version of Xcode. Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
 
-> New libraries added in Xcode 13 aren't available for use in Kotlin 1.6.0 – we're going to support them in upcoming versions.
+> New libraries added in Xcode 13 aren't available for use in Kotlin 1.6.0, but we're going to add support for them in upcoming versions.
 >
 {type="note"}
 
@@ -281,7 +281,7 @@ Learn more in [this Stack Overflow thread](https://stackoverflow.com/questions/3
 
 ### Performance improvements
 
-Kotlin/Native 1.6.0 has received the following performance improvements for Kotlin/Native:
+Kotlin/Native 1.6.0 delivers the following performance improvements:
 
 * Compilation time: compiler caches are enabled by default for `linuxX64` and `iosArm64` targets.
 This speeds up most compilations in debug mode (except the first one). Measurements showed about a 200% speed increase on our test projects.
@@ -298,8 +298,8 @@ The compiler caches have been available for these targets since Kotlin 1.5.0 wit
 
 In previous versions, authors of compiler plugins had to provide separate artifacts for Kotlin/Native because of the differences in the ABI.
 
-Starting from 1.6.0, Kotlin Multiplatform Gradle plugin is able to use the embeddable compiler jar – the one used for JVM and JS IR backends – for Kotlin/Native.
-This is a step towards unification of the compiler plugin development experience, as you can now use the same compiler plugin artifacts for Native and other supported platforms.
+Starting from 1.6.0, the Kotlin Multiplatform Gradle plugin is able to use the embeddable compiler jar – the one used for the JVM and JS IR backends – for Kotlin/Native.
+This is a step toward unification of the compiler plugin development experience, as you can now use the same compiler plugin artifacts for Native and other supported platforms.
 
 This is a preview version of such support, and it requires an opt-in.
 To start using generic compiler plugin artifacts for Kotlin/Native, add the following line to `gradle.properties`: `kotlin.native.useEmbeddableCompilerJar=true`.
@@ -311,9 +311,10 @@ Note that depending on your plugin's structure, migration steps may be required.
 
 ### Detailed error messages for klib linkage failures
 
-Now the Kotlin/Native compiler provides detailed error messages for klib linkage errors.
-The messages now have clear error descriptions and also include information about possible causes and ways to fix them. For example:
+The Kotlin/Native compiler now provides detailed error messages for klib linkage errors.
+The messages now have clear error descriptions, and they also include information about possible causes and ways to fix them.
 
+For example:
 * 1.5.30:
 
     ```text
@@ -339,22 +340,23 @@ The messages now have clear error descriptions and also include information abou
 
 ### Reworked unhandled exception handling API
 
-We've unified unhandled exception processing across the Kotlin/Native runtime and exposed the default processing as the function `processUnhandledException(throwable: Throwable)` for use by custom execution environments, like `kotlinx.coroutines`.
-This processing is also applied to exceptions escaping operation in `Worker.executeAfter()`, but only for the new [memory manager](#preview-of-the-new-memory-manager).
+We've unified the processing of unhandled exceptions throughout the Kotlin/Native runtime and exposed the default processing as the function `processUnhandledException(throwable: Throwable)` for use by custom execution environments, like `kotlinx.coroutines`.
+This processing is also applied to exceptions that escape operation in `Worker.executeAfter()`, but only for the new [memory manager](#preview-of-the-new-memory-manager).
 
 API improvements also affected the hooks that have been set by `setUnhandledExceptionHook()`. Previously such hooks were reset after the Kotlin/Native runtime called the hook with an unhandled exception, and the program would always terminate right after.
 Now these hooks may be used more than once, and if you want the program to always terminate on an unhandled exception, either do not set an unhandled exception hook (`setUnhandledExceptionHook()`), or make sure to call `terminateWithUnhandledException()` at the end of your hook.
-This will help you to send exceptions to any third-party crash reporting service (like Firebase Crashlytics) and then terminate the program.
-Exceptions escaping `main()` and exceptions crossing an interop boundary will always terminate the program, even if the hook did not call `terminateWithUnhandledException()`.
+This will help you send exceptions to a third-party crash reporting service (like Firebase Crashlytics) and then terminate the program.
+Exceptions that escape `main()` and exceptions that cross the interop boundary will always terminate the program, even if the hook did not call `terminateWithUnhandledException()`.
 
 ## Kotlin/JS
 
 We're continuing to work on stabilizing the IR backend for the Kotlin/JS compiler.
-Kotlin/JS is receiving an [option to disable downloading of Node.js and Yarn](#option-to-use-pre-installed-node-js-and-yarn).
+Kotlin/JS now has an [option to disable downloading of Node.js and Yarn](#option-to-use-pre-installed-node-js-and-yarn).
 
 ### Option to use pre-installed Node.js and Yarn
 
-You can now disable downloading Node.js and Yarn when building Kotlin/JS projects and use the instances already installed on the host. This is useful for building on servers without internet connections, such as CI servers.
+You can now disable downloading Node.js and Yarn when building Kotlin/JS projects and use the instances already installed on the host.
+This is useful for building on servers without internet connectivity, such as CI servers.
 
 To disable downloading external components, add the following lines to your `build.gradle(.kts)`:
 
@@ -407,38 +409,40 @@ To disable downloading external components, add the following lines to your `bui
 
 ## Kotlin Gradle plugin
 
-In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'. This class was used for writing compiler plugins. In the following releases, we'll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
+In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to 'ERROR'.
+This class was used for writing compiler plugins. In the following releases, we'll remove this class. Use the class `KotlinCompilerPluginSupportPlugin` instead.
 
-We removed the `kotlin.useFallbackCompilerSearch` build option and `noReflect` and `includeRuntime` compiler options. We hid the `useIR` compiler option and will remove it in upcoming releases.
+We removed the `kotlin.useFallbackCompilerSearch` build option and the `noReflect` and `includeRuntime` compiler options.
+The `useIR` compiler option has been hidden and will be removed in upcoming releases.
 
-Learn more about [currently supported compiler options](gradle.md#compiler-options) in the Kotlin Gradle plugin.
+Learn more about the [currently supported compiler options](gradle.md#compiler-options) in the Kotlin Gradle plugin.
 
 ## Standard library
 
-The new 1.6.0 version has received multiple changes, including stabilizing experimental features, introducing new ones, and unifying behavior across platforms:
+The new 1.6.0 version of the standard library stabilizes experimental features, introduces new ones, and unifies its behavior across the platforms:
 
 * [New readline functions](#new-readline-functions)
 * [Stable typeOf()](#stable-typeof)
 * [Stable collection builders](#stable-collection-builders)
 * [Stable Duration API](#stable-duration-api)
-* [Splitting Regex to a sequence](#splitting-regex-to-a-sequence)
+* [Splitting Regex into a sequence](#splitting-regex-into-a-sequence)
 * [Bit rotation operations on integers](#bit-rotation-operations-on-integers)
 * [Changes for replace() and replaceFirst() in JS](#changes-for-replace-and-replacefirst-in-js)
-* [Improving the existing API](#improving-the-existing-api)
+* [Improvements to the existing API](#improvements-to-the-existing-api)
 * [Deprecations](#deprecations)
 
 ### New readline functions
 
 Kotlin 1.6.0 offers new functions for handling standard input: `readln()` and `readlnOrNull()`.
 
-> For now, new functions are available for JVM and Native target platforms only.
+> For now, new functions are available for the JVM and Native target platforms only.
 >
 {type="note"}
 
 |**Earlier versions**|**1.6.0 alternative**|**Usage**|
 | --- | --- | --- |
-|`readLine()!!`|`readln()`| Reads a line from stdin and returns it, throws a `RuntimeException` if EOF has been reached. |
-|`readLine()`|`readlnOrNull()`| Reads a line from stdin and returns it, returns `null` if EOF has been reached. |
+|`readLine()!!`|`readln()`| Reads a line from stdin and returns it, or throws a `RuntimeException` if EOF has been reached. |
+|`readLine()`|`readlnOrNull()`| Reads a line from stdin and returns it, or returns `null` if EOF has been reached. |
 
 We believe that eliminating the need to use `!!` when reading a line will improve the experience for newcomers and simplify teaching Kotlin.
 To make the read-line operation name consistent with its `println()` counterpart, we've decided to shorten the names of new functions to 'ln'.
@@ -526,10 +530,10 @@ duration amounts in different time units has been promoted to [Stable](component
   Веfore, if the value didn't fit into the `Int` range, it was coerced into that range. With the `Long` type, you can decompose any value in the duration range without cutting off the values that don't fit into `Int`.
 
 * The `DurationUnit` enum is now standalone and not a type alias of `java.util.concurrent.TimeUnit` on the JVM.
-  We haven't found convincing cases when having `typealias DurationUnit = TimeUnit` could be useful. Also, exposing the `TimeUnit` API through a type alias may confuse `DurationUnit` users.
+  We haven't found any convincing cases in which having `typealias DurationUnit = TimeUnit` could be useful. Also, exposing the `TimeUnit` API through a type alias might confuse `DurationUnit` users.
 
 * In response to community feedback, we're bringing back extension properties like `Int.seconds`. But we'd like to limit their applicability, so we put them into the companion of the `Duration` class.
-  While the IDE can still propose extensions in completion and automatically insert an import from the companion, we plan to limit this behavior in the future to cases when the `Duration` type is expected.
+  While the IDE can still propose extensions in completion and automatically insert an import from the companion, in the future we plan to limit this behavior to cases when the `Duration` type is expected.
 
   ```kotlin
   import kotlin.time.Duration.Companion.seconds
@@ -546,13 +550,14 @@ duration amounts in different time units has been promoted to [Stable](component
   
   We suggest replacing previously introduced companion functions, such as `Duration.seconds(Int)`, and deprecated top-level extensions
   like `Int.seconds` with new extensions in `Duration.Companion`.
-  
-  > Such replacement may cause ambiguity between old top-level extensions and new companion extensions.
-  > Be sure to use the wildcard import of the kotlin.time package: `import kotlin.time.*` before doing automated migration.
+
+  > Such a replacement may cause ambiguity between old top-level extensions and new companion extensions.
+  > Be sure to use the wildcard import of the kotlin.time package – `import kotlin.time.*` – before doing automated migration.
   >
   {type="note"}
 
-### Splitting Regex to a sequence
+
+### Splitting Regex into a sequence
 
 The `Regex.splitToSequence(CharSequence)` and `CharSequence.splitToSequence(Regex)` functions are promoted to [Stable](components-stability.md).
 They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily:
@@ -576,7 +581,7 @@ fun main() {
 ### Bit rotation operations on integers
 
 In Kotlin 1.6.0, the `rotateLeft()` and `rotateRight()` functions for bit manipulations became [Stable](components-stability.md).
-The functions rotate binary representation of the number left or right by a specified number of bits:
+The functions rotate the binary representation of the number left or right by a specified number of bits:
 
 ```kotlin
 fun main() {
@@ -597,14 +602,14 @@ fun main() {
 
 Before Kotlin 1.6.0, the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html)
 and [`replaceFirst()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace-first.html) Regex functions behaved differently in Java and JS when the replacement string contained a group reference.
-To make the behavior predictable for all target platforms, we've changed their implementation in JS.
+To make the behavior consistent across all target platforms, we've changed their implementation in JS.
 
 Occurrences of `${name}` or `$index` in the replacement string are substituted with the subsequences corresponding to the captured groups with the specified index or a name:
-* `$index` – the first digit after '$' is always treated as a part of the group reference. Subsequent digits are incorporated into the `index` only if they form a valid group reference. Only digits '0'-'9' are considered potential components of the group reference. Note that indexes of captured groups start from '1'.
+* `$index` – the first digit after '$' is always treated as a part of the group reference. Subsequent digits are incorporated into the `index` only if they form a valid group reference.Only digits '0'–'9' are considered potential components of the group reference. Note that indexes of captured groups start from '1'.
   The group with index '0' stands for the whole match.
-* `${name}` – the `name` can consist of Latin letters 'a'-'z', 'A'-'Z', or digits '0'-'9'. The first character must be a letter.
+* `${name}` – the `name` can consist of Latin letters 'a'–'z', 'A'–'Z', or digits '0'–'9'. The first character must be a letter.
 
-    > The support of named groups in replacement patterns is currently available only on JVM.
+    > Named groups in replacement patterns are currently supported only on the JVM.
     >
     {type="note"}
 
@@ -622,7 +627,7 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
 
     You can use [`Regex.escapeReplacement()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/escape-replacement.html) if the replacement string has to be treated as a literal string.
 
-### Improving the existing API
+### Improvements to the existing API
 
 * Version 1.6.0 added the infix extension function for `Comparable.compareTo()`. You can now use the infix form for comparing two objects for order:
 
@@ -635,7 +640,7 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
     {kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 * `Regex.replace()` in JS is now also not inline to unify its implementation across all platforms.
-* The `compareTo()` and `equals()` String functions, as well as the `isBlank()` CharSequence function now behave in JS exactly like on the JVM. 
+* The `compareTo()` and `equals()` String functions, as well as the `isBlank()` CharSequence function now behave in JS exactly the same way they do on the JVM.
   Previously there were deviations when it came to non-ASCII characters.
 
 ### Deprecations
@@ -645,13 +650,14 @@ In Kotlin 1.6.0, we're starting the deprecation cycle with a warning for some JS
 #### concat(), match(), and matches() string functions
 
 * To concatenate the string with the string representation of a given other object, use `plus()` instead of `concat()`.
-* For finding all occurrences of a regular expression within the input, use `findAll()` of the Regex class instead of `String.match(regex: String)`.
+* To find all occurrences of a regular expression within the input, use `findAll()` of the Regex class instead of `String.match(regex: String)`.
 * To check if the regular expression matches the entire input, use `matches()` of the Regex class instead of `String.matches(regex: String)`.
 
 #### sort() on arrays taking comparison functions
 
-We've deprecated the `Array<out T>.sort()` function and inline functions `ByteArray.sort()`, `ShortArray.sort()`,
-`IntArray.sort()`, `LongArray.sort()`, `FloatArray.sort()`, `DoubleArray.sort()`, and `CharArray.sort()` that sorted arrays following the order passed by the comparison function. For array sorting, use other standard library functions.
+We've deprecated the `Array<out T>.sort()` function and the inline functions `ByteArray.sort()`, `ShortArray.sort()`,
+`IntArray.sort()`, `LongArray.sort()`, `FloatArray.sort()`, `DoubleArray.sort()`, and `CharArray.sort()`, which sorted arrays following the order passed by the comparison function.
+Use other standard library functions for array sorting.
 
 See the [collection ordering](collection-ordering.md) section for reference.
 
@@ -663,7 +669,8 @@ See the [collection ordering](collection-ordering.md) section for reference.
 >
 {type="warning"}
 
-With Kotlin 1.6.0, we're introducing Kover – the Gradle plugin for Kotlin code coverage agents [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](​​https://github.com/jacoco/jacoco). It works with all language constructs including inline functions.
+With Kotlin 1.6.0, we're introducing Kover – a Gradle plugin for the [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](https://github.com/jacoco/jacoco) Kotlin code coverage agents.
+It works with all language constructs, including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover).
 
@@ -671,7 +678,7 @@ Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotl
 
 IntelliJ IDEA and Android Studio will suggest updating the Kotlin plugin to 1.6.0 once it is available.
 
-To migrate existing projects to Kotlin 1.6.0, just change the Kotlin version to `1.6.0` and reimport your Gradle or Maven
+To migrate existing projects to Kotlin 1.6.0, change the Kotlin version to `1.6.0` and reimport your Gradle or Maven
 project. [Learn how to update to Kotlin 1.6.0](releases.md#update-to-a-new-release).
 
 To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
@@ -679,4 +686,5 @@ To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the P
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.6.0).
 
-Kotlin 1.6.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can therefore bring incompatible changes to the language. Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.6](compatibility-guide-16.md).
+Kotlin 1.6.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.6](compatibility-guide-16.md).
