@@ -91,7 +91,7 @@ about the current context object and the value of `this` or `it`.
 
 Because the scope functions are all quite similar in nature, it's important to understand the differences between them.
 There are two main differences between each scope function: 
-* The way to refer to the context object
+* The way to refer to the context object.
 * The return value.
 
 ### Context object: this or it
