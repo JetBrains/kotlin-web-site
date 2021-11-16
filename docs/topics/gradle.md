@@ -817,9 +817,10 @@ val customLauncher = service.launcherFor {
     it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
+    .withType<KotlinJvmCompile>()
     .configureEach {
-        it.kotlinJavaToolchain.toolchain.use(customLauncher)
+        if (this !is UsesKotlinJavaToolchain) return@configureEach
+        kotlinJavaToolchain.toolchain.use(customLauncher)
     }
 ```
 
@@ -832,9 +833,11 @@ Provider<JavaLauncher> customLauncher = service.launcherFor {
     it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
 project.tasks
-    .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
-    .configureEach {
-        it.kotlinJavaToolchain.toolchain.use(customLauncher)
+    .withType(KotlinJvmCompile::class)
+    .configureEach { task ->
+        if (task instanceof UsesKotlinJavaToolchain) {
+            task.kotlinJavaToolchain.toolchain.use(customLauncher)
+        }
     }
 ```
 
@@ -845,9 +848,10 @@ Or you can specify the path to your local JDK and replace the placeholder `<LOCA
 
 ```kotlin
 project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
+    .withType<KotlinJvmCompile>()
     .configureEach {
-        it.kotlinJavaToolchain.jdk.use(
+        if (this !is UsesKotlinJavaToolchain) return@configureEach
+        kotlinJavaToolchain.jdk.use(
             "/path/to/local/jdk", // Put a path to your JDK
             JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
         )
@@ -936,9 +940,10 @@ Each of the options in the following list overrides the ones that came before it
   
   ```kotlin
   tasks
-      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
-      .configureEach { 
-          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
+      .withType<KotlinJvmCompile>()
+      .configureEach {
+          if (this !is CompileUsingKotlinDaemon) return@configureEach
+          kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
       }
   ```
   
@@ -947,9 +952,11 @@ Each of the options in the following list overrides the ones that came before it
 
   ```groovy
   tasks
-      .matching { it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon }
-      .configureEach {
-          kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+      .withType(KotlinJvmCompile::class)
+      .configureEach { task ->
+          if (task instanceof CompileUsingKotlinDaemon) {
+              task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+          }
       }
   ```
   
