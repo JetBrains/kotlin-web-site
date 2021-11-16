@@ -816,12 +816,9 @@ val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
     it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
-project.tasks
-    .withType<KotlinJvmCompile>()
-    .configureEach {
-        if (this !is UsesKotlinJavaToolchain) return@configureEach
-        kotlinJavaToolchain.toolchain.use(customLauncher)
-    }
+project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.toolchain.use(customLauncher)
+}
 ```
 
 </tab>
@@ -832,13 +829,9 @@ JavaToolchainService service = project.getExtensions().getByType(JavaToolchainSe
 Provider<JavaLauncher> customLauncher = service.launcherFor {
     it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
 }
-project.tasks
-    .withType(KotlinJvmCompile::class)
-    .configureEach { task ->
-        if (task instanceof UsesKotlinJavaToolchain) {
-            task.kotlinJavaToolchain.toolchain.use(customLauncher)
-        }
-    }
+tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
+    task.kotlinJavaToolchain.toolchain.use(customLauncher)
+}
 ```
 
 </tab>
@@ -847,15 +840,12 @@ project.tasks
 Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
 
 ```kotlin
-project.tasks
-    .withType<KotlinJvmCompile>()
-    .configureEach {
-        if (this !is UsesKotlinJavaToolchain) return@configureEach
-        kotlinJavaToolchain.jdk.use(
-            "/path/to/local/jdk", // Put a path to your JDK
-            JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
-        )
-    }
+tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.jdk.use(
+        "/path/to/local/jdk", // Put a path to your JDK
+        JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
+    )
+}
 ```
 
 ## Generating documentation
@@ -939,11 +929,8 @@ Each of the options in the following list overrides the ones that came before it
   <tab title="Kotlin" group-key="kotlin">
   
   ```kotlin
-  tasks
-      .withType<KotlinJvmCompile>()
-      .configureEach {
-          if (this !is CompileUsingKotlinDaemon) return@configureEach
-          kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
+  tasks.withType<CompileUsingKotlinDaemon>().configureEach {
+      kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
       }
   ```
   
@@ -951,13 +938,9 @@ Each of the options in the following list overrides the ones that came before it
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  tasks
-      .withType(KotlinJvmCompile::class)
-      .configureEach { task ->
-          if (task instanceof CompileUsingKotlinDaemon) {
-              task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
-          }
-      }
+  tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
+      task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+   }
   ```
   
   </tab>
