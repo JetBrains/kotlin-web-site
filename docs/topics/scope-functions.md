@@ -338,7 +338,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 `let` is often used for executing a code block only with non-null values. To perform actions on a non-null object, use
-the safe call operator `?.` on it and call `let` with the actions in its lambda.
+the [safe call operator `?.`](null-safety.md#safe-calls) on it and call `let` with the actions in its lambda.
 
 ```kotlin
 fun processNonNullString(str: String) {}
