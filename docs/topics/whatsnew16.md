@@ -148,7 +148,6 @@ We're making multiple changes that are bringing us closer to fully stable builde
 Support for annotations on class type parameters looks like this:
 
 ```kotlin
-```kotlin
 @Target(AnnotationTarget.TYPE_PARAMETER)
 annotation class BoxContent
 
