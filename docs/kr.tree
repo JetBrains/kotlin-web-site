@@ -24,10 +24,11 @@
 
     <toc-element toc-title="What's new">
         <toc-element toc-title="Kotlin">
-            <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
-            <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
-            <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
+            <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0"/>
             <toc-element toc-title="Earlier versions">
+                <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
+                <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
+                <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
                 <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
                 <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
                 <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
@@ -88,8 +89,11 @@
             <toc-element id="lambdas.md" toc-title="Lambdas"/>
             <toc-element id="inline-functions.md"/>
             <toc-element id="operator-overloading.md"/>
+            <toc-element toc-title="Builders">
+                <toc-element id="type-safe-builders.md"/>
+                <toc-element id="using-builders-with-builder-inference.md"/>
+            </toc-element>
         </toc-element>
-        <toc-element id="type-safe-builders.md"/>
         <toc-element id="null-safety.md"/>
         <toc-element id="equality.md"/>
         <toc-element id="this-expressions.md"/>
