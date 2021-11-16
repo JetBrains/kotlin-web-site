@@ -613,11 +613,12 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
     ```kotlin
     fun main() {
     //sampleStart
-        println(Regex("(.+)").replace("Kotlin", "\$ $1")) // $ Kotlin
-        println(Regex("(.+)").replaceFirst("1.6.0", "\\ $1")) // \ 1.6.0
+        println(Regex("(.+)").replace("Kotlin", """\$ $1""")) // $ Kotlin
+        println(Regex("(.+)").replaceFirst("1.6.0", """\\ $1""")) // \ 1.6.0
     //sampleEnd
     }
     ```
+    {kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
     You can use [`Regex.escapeReplacement()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/escape-replacement.html) if the replacement string has to be treated as a literal string.
 
