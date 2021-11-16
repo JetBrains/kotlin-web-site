@@ -450,13 +450,12 @@ To make the read-line operation name consistent with its `println()` counterpart
 ```kotlin
 fun main() {
 //sampleStart
-  println("What is your nickname?")
-  val nickname = readln()
-  println("Hello, $nickname!")
+    println("What is your nickname?")
+    val nickname = readln()
+    println("Hello, $nickname!")
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 ```kotlin
 fun main() {
@@ -507,15 +506,15 @@ You can now use [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotl
 without the opt-in annotation:
 
 ```kotlin
-fun main(args: Array<String>) {
+fun main() {
 //sampleStart
-   val x = listOf('b', 'c')
-   val y = buildList {
-       add('a')
-       addAll(x)
-       add('d')
-   }
-   println(y)  // [a, b, c, d]
+    val x = listOf('b', 'c')
+    val y = buildList {
+        add('a')
+        addAll(x)
+        add('d')
+    }
+    println(y)  // [a, b, c, d]
 //sampleEnd
 }
 ```
@@ -565,14 +564,14 @@ They split the string around matches of the given regex, but return the result a
 ```kotlin
 fun main() {
 //sampleStart
-  val colorsText = "green, red, brown&blue, orange, pink&green"
-  val regex = "[,\\s]+".toRegex()
-  val mixedColor = regex.splitToSequence(colorsText)
+    val colorsText = "green, red, brown&blue, orange, pink&green"
+    val regex = "[,\\s]+".toRegex()
+    val mixedColor = regex.splitToSequence(colorsText)
     // or
     // val mixedColor = colorsText.splitToSequence(regex)
-    .onEach { println(it) }
-    .firstOrNull { it.contains('&') }
-  println(mixedColor) // "brown&blue"
+        .onEach { println(it) }
+        .firstOrNull { it.contains('&') }
+    println(mixedColor) // "brown&blue"
 //sampleEnd
 }
 ```
@@ -588,11 +587,11 @@ fun main() {
 //sampleStart
     val number: Short = 0b10001
     println(number
-      .rotateRight(2)
-      .toString(radix = 2)) // 100000000000100
+        .rotateRight(2)
+        .toString(radix = 2)) // 100000000000100
     println(number
-      .rotateLeft(2)
-      .toString(radix = 2))  // 1000100
+        .rotateLeft(2)
+        .toString(radix = 2))  // 1000100
 //sampleEnd
 }
 ```
@@ -618,12 +617,11 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
     ```kotlin
     fun main() {
     //sampleStart
-       println(Regex("(.+)").replace("Kotlin", "\$ $1")) // $ Kotlin
-       println(Regex("(.+)").replaceFirst("1.6.0", "\\ $1")) // \ 1.6.0
+        println(Regex("(.+)").replace("Kotlin", "\$ $1")) // $ Kotlin
+        println(Regex("(.+)").replaceFirst("1.6.0", "\\ $1")) // \ 1.6.0
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
     You can use [`Regex.escapeReplacement()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/escape-replacement.html) if the replacement string has to be treated as a literal string.
 
@@ -633,11 +631,10 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
 
     ```kotlin
      class WrappedText(val text: String) : Comparable<WrappedText> {
-       override fun compareTo(other: WrappedText): Int =
-           this.text compareTo other.text
+         override fun compareTo(other: WrappedText): Int =
+             this.text compareTo other.text
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 * `Regex.replace()` in JS is now also not inline to unify its implementation across all platforms.
 * The `compareTo()` and `equals()` String functions, as well as the `isBlank()` CharSequence function now behave in JS exactly the same way they do on the JVM.
