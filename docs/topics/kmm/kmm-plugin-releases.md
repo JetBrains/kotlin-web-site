@@ -48,16 +48,16 @@ Released: 16 November, 2021
 <td>
 
 * [New KMM library project wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
-* Support new type of KMM library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
-* Enable [HMPP](https://kotlinlang.org/docs/mpp-share-on-platforms.html#configure-the-hierarchical-structure-manually) for new KMM projects.
-* Use [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
-* [Enable KMM plugin wizards on nonMac machines](https://youtrack.jetbrains.com/issue/KT-48614).
-* [Support subfolders in KMM module wizard](https://youtrack.jetbrains.com/issue/KT-47923).
-* [Support for Xcode Assets.xcassets file](https://youtrack.jetbrains.com/issue/KT-49571).
-* [Fix plugin classloader exception](https://youtrack.jetbrains.com/issue/KT-48103).
-* Update Cocoapod Gradle Plugin template.
-* K/N debugger type evaluation improvements.
-* Fix iOS device launching with Xcode 13.
+* Support for the new type of KMM library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
+* Enabled [HMPP](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually) for new KMM projects.
+* Support for [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
+* [Enabled KMM plugin wizards on non-Mac machines](https://youtrack.jetbrains.com/issue/KT-48614).
+* [Support for subfolders in the KMM module wizard](https://youtrack.jetbrains.com/issue/KT-47923).
+* [Support for Xcode `Assets.xcassets` file](https://youtrack.jetbrains.com/issue/KT-49571).
+* [Fixed the plugin classloader exception](https://youtrack.jetbrains.com/issue/KT-48103).
+* Updated the CocoaPods Gradle Plugin template.
+* Kotlin/Native debugger type evaluation improvements.
+* Fixed iOS device launching with Xcode 13.
 
 </td>
 <td>
