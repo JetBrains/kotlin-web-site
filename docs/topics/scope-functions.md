@@ -458,7 +458,7 @@ fun main() {
         val hexDigits = "A-Fa-f"
         val sign = "+-"
         
-        Regex("[$sign]?[$digits$hexDigits]+")
+        Regex("[$sign][$digits$hexDigits]+")
     }
     
     for (match in hexNumberRegex.findAll("+1234 -FFFF not-a-number")) {
