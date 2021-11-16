@@ -448,13 +448,9 @@ We believe that eliminating the need to use `!!` when reading a line will improv
 To make the read-line operation name consistent with its `println()` counterpart, we've decided to shorten the names of new functions to 'ln'.
 
 ```kotlin
-fun main() {
-//sampleStart
-    println("What is your nickname?")
-    val nickname = readln()
-    println("Hello, $nickname!")
-//sampleEnd
-}
+println("What is your nickname?")
+val nickname = readln()
+println("Hello, $nickname!")
 ```
 
 ```kotlin
