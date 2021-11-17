@@ -211,7 +211,7 @@
         </toc-element>
 
         <toc-element toc-title="Scripting">
-            <toc-element id="script-get-started.md"/>
+            <toc-element id="custom-script-deps-tutorial.md"/>
         </toc-element>
     </toc-element>
 
