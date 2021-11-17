@@ -67,6 +67,7 @@ concepts behind React may help understand some sample code but is not strictly r
    </body>
    </html>
    ```
+   {validate="false"}
 
    The Kotlin/JS Gradle plugin bundles all of your code and its dependencies into a single JavaScript file with the same
 name as the project: `confexplorer.js`. As a typical [JavaScript convention](https://faqs.skillcrush.com/article/176-where-should-js-script-tags-be-linked-in-html-documents),
@@ -173,14 +174,10 @@ type-checking.
 
 Compare classic HTML code for the future website and its typesafe variant in Kotlin:
 
-<table>
-    <tr>
-      <td>HTML</td>
-      <td>Kotlin</td>
-    </tr>
-    <tr>
-      <td>
-        <code>
+<tabs>
+<tab>
+
+```xml
 <h1>KotlinConf Explorer</h1>
 <div>
     <h3>Videos to watch</h3>
@@ -194,10 +191,14 @@ Compare classic HTML code for the future website and its typesafe variant in Kot
     <h3>John Doe: Building and breaking things</h3>
     <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder">
 </div>
-```</code>
-      </td>
-      <td>
-<code>h1 {
+```
+{validate="false"}
+
+</tab>
+<tab>
+
+```kotlin
+h1 {
    +"KotlinConf Explorer"
 }
 div {
@@ -230,9 +231,10 @@ div {
       }
    }
 }
-</code></td>
-</tr>
-</table>
+```
+
+</tab>
+</tabs>
 
 Type or paste the above Kotlin code as the contents of your `render()` call inside the `main` function,
 replacing the previous `h1` tag.
@@ -539,6 +541,7 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
       var selectedVideo: Video? by useState(null)
    // . . .
    ```
+   {validate="false"}
 
    * The `videoList` functional component keeps state (a value that is independent of the current function invocation). The
    state is nullable, and of type `Video?`. Its default value is `null`.
@@ -1150,6 +1153,7 @@ to start with the following snippet. Don't forget to replace demo values with `e
       }
    // . . .
    ```
+   {validate="false"}
 
    * The [`MainScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-main-scope.html)
    is a part of Kotlin's structured concurrency model and creates the scope for asynchronous tasks to run in.
@@ -1230,6 +1234,7 @@ It's equivalent to the `build` task, and the corresponding alias is already incl
        "root": "build/distributions"
    }
    ```
+   {validate="false"}
 
 7. You can now trigger a deployment, for example, by running the following command:
 
