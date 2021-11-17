@@ -188,9 +188,9 @@ is creating the scripting host – the component that handles the script executi
    </tab>
    </tabs>
 
-7. Create the `src/main/kotlin/` directory in the module and add Kotlin source file, for example, `host.kt`.
+5. Create the `src/main/kotlin/` directory in the module and add Kotlin source file, for example, `host.kt`.
 
-8. Define the `main` function for the application. The application should run with one argument - the path to the script file,
+6. Define the `main` function for the application. The application should run with one argument - the path to the script file,
   and execute the script. You'll define the script execution in a separate function on the next step. Just declare it empty for now.
 
    `main` can look like this:
@@ -207,7 +207,7 @@ is creating the scripting host – the component that handles the script executi
     }
    ```
 
-9. Define the script evaluation function. This is where you'll use the script definition. Obtain it by calling `createJvmCompilationConfigurationFromTemplate`
+7. Define the script evaluation function. This is where you'll use the script definition. Obtain it by calling `createJvmCompilationConfigurationFromTemplate`
   with the script definition as a type parameter. Then call `BasicJvmScriptingHost().eval` passing it the script code and its
   compilation configuration. `eval` returns an instance of `ResultWithDiagnostics`, so set your function's return type to it.
 
@@ -218,6 +218,22 @@ is creating the scripting host – the component that handles the script executi
     }
    ```
 
+8. Adjust the `main` function to print information about the script execution:
+
+   ```kotlin
+    fun main(vararg args: String) {
+        if (args.size != 1) {
+            println("usage: <app> <script file>")
+        } else {
+            val scriptFile = File(args[0])
+            println("Executing script $scriptFile")
+            val res = evalFile(scriptFile)
+            res.reports.forEach {
+                println(" : ${it.message}" + if (it.exception == null) "" else ": ${it.exception}")
+            }
+        }
+    }
+   ```
 
 You can find the full code [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/host/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/host/host.kt)
 
