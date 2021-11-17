@@ -551,6 +551,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Nicolas Fränkel</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Designing a DSL with Kotlin</subject>
@@ -569,6 +570,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Gerard Klijs</speaker>
         <title>Kotlin Dev Day</title>
         <subject>What to do and not to do in coroutines</subject>
@@ -585,6 +587,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Paulien van Alst</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Embrace the Kotlin ecosystem at the back-end side</subject>
@@ -601,6 +604,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Mykola Gurov</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Sugar rush of Kotlin for your tests</subject>
@@ -617,6 +621,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Julien Lengrand Lambert</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Hey Google, bake me a new Kotlin GitHub repository!</subject>
@@ -633,6 +638,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Nico Krijnen</speaker>
         <title>Kotlin Dev Day</title>
         <subject>How the right architecture can simplify migrating to Kotlin</subject>
@@ -649,6 +655,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Urs Peter</speaker>
         <title>Kotlin Dev Day</title>
         <subject>(Early Access) Project Loom vs. Kotlin Coroutines</subject>
@@ -665,6 +672,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Ties van de Ven</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Functional programming in Kotlin: exploring Arrow</subject>
@@ -681,6 +689,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Joost Heijkoop</speaker>
         <title>Kotlin Dev Day</title>
         <subject>More than One Year’s Worth of Real World Experience with Kotlin</subject>
@@ -697,6 +706,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-24</startDate>
         <endDate>2021-11-24</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Sebastian Aigner</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Keep Kotlin Fun</subject>
@@ -713,6 +723,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-25</startDate>
         <endDate>2021-11-25</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Julien Lengrand Lambert</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Introducing Kotlin in your organization: Tips and Tricks</subject>
@@ -729,6 +740,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-25</startDate>
         <endDate>2021-11-25</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Ramandeep Kaur</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Exception handling in Kotlin with Arrow</subject>
@@ -745,6 +757,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-25</startDate>
         <endDate>2021-11-25</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Peter Dekkers</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Interactive Development with Kotlin</subject>
@@ -761,6 +774,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-25</startDate>
         <endDate>2021-11-25</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Bas de Groot</speaker>
         <title>Kotlin Dev Day</title>
         <subject>Kotlin Makes Lombok Obsolete</subject>
@@ -777,6 +791,7 @@ By the end, you'll walk away with the advantages of using COIL and its image loa
         <startDate>2021-11-25</startDate>
         <endDate>2021-11-25</endDate>
         <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
         <speaker>Bart Enkelaar</speaker>
         <title>Kotlin Dev Day</title>
         <subject>The Dangerous Side of Kotlin</subject>
