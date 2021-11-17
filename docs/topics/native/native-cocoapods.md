@@ -85,7 +85,7 @@ file for the project.
 The `Podspec` file includes a path to an output framework and script phases that automate building this framework during 
 the build process of an Xcode project.
 
-### Update Podfile for Xcode
+## Update Podfile for Xcode
 
 If you want to import your Kotlin project in an Xcode project, you need to make some changes to your Podfile:
 

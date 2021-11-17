@@ -22,8 +22,9 @@ You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapod
 ## From the CocoaPods repository
 
 1. Specify the name of a Pod library in the `pod()` function.
+   
    In the configuration block, you can specify the version of the library using the `version` parameter. To use the latest
-   version of the library, you can just omit this parameter altogether.
+version of the library, you can just omit this parameter altogether.
 
    > You can add dependencies on subspecs.
    >
@@ -59,6 +60,7 @@ import cocoapods.AFNetworking.*
 ## On a locally stored library
 
 1. Specify the name of a Pod library in the `pod()` function.
+
    In the configuration block, specify the path to the local Pod library: use the `path()` function in the `source` parameter value.
 
    > You can add local dependencies on subspecs as well.
@@ -112,6 +114,7 @@ import cocoapods.AFNetworking.*
 ## From a custom Git repository
 
 1. Specify the name of a Pod library in the `pod()` function.
+
    In the configuration block, specify the path to the git repository: use the `git()` function in the `source` parameter value.
 
    Additionally, you can specify the following parameters in the block after `git()`:
@@ -184,10 +187,12 @@ import cocoapods.CocoaLumberjack.*
 ## From a zip, tar, or jar archive
 
 1. Specify the name of a Pod library in the `pod()` function.
-   In the configuration block, specify the path to the archive: use the `url()` function with an arbitrary HTTP address in the `source` parameter value.
 
-   Additionally, you can specify the boolean `flatten` parameter as a second argument for the `url()` function.
-   This parameter indicates that all the Pod files are located in the root directory of the archive.
+   In the configuration block, specify the path to the archive: use the `url()` function with an arbitrary HTTP address
+in the `source` parameter value.
+
+   Additionally, you can specify the boolean `flatten` parameter as a second argument for the `url()` function. This
+parameter indicates that all the Pod files are located in the root directory of the archive.
 
 2. Specify the minimum deployment target version for the Pod library.
 
@@ -283,8 +288,8 @@ import cocoapods.example.*
 ## With custom cinterop options
 
 1. Specify the name of a Pod library in the `pod()` function.
-   In the configuration block, specify the cinterop options:
 
+   In the configuration block, specify the cinterop options:
     * `extraOpts` – to specify the list of options for a Pod library. For example, specific flags: `extraOpts = listOf("-compiler-option")`
     * `packageName` – to specify the package name. If you specify this, you can import the library using the package name: `import <packageName>`.
 
