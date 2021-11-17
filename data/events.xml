@@ -2,6 +2,809 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-11-01</startDate>
+        <endDate>2021-11-01</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Bruce Eckel</speaker>
+        <title>Stockholm Java and Kotlin Meetup Group</title>
+        <subject>Comparing Java 17 and Kotlin</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=xU-gbzcToOs</video>
+        </content>
+        <url>https://www.meetup.com/stockholm-java-and-kotlin-meetup-group/events/281598313/</url>
+        <description>
+            <![CDATA[
+<p>"I've been working on updating the "On Java 8" book for the Chinese translation, which includes subsections on new Java features through JDK 17. In the process, I created an example that summarizes a lot of these features, including records, sealed classes and (Preview) pattern matching.<p>
+<p>I have created a complementary example in Kotlin. My plan is to talk through the Java & Kotlin features, and discuss how the Java features are definite improvements to that language, but still fall rather dramatically short of what Kotlin provides (the Java approach also contains what I consider to be fundamental design flaws).<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ko</lang>
+        <startDate>2021-11-17</startDate>
+        <endDate>2021-11-17</endDate>
+        <location>Seoul, Korea</location>
+        <speaker>Shengyou Fan</speaker>
+        <title>Kotlin Night Seoul 2021</title>
+        <subject>Ktor in Action</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-seoul-presents-kotlin-night-seoul-2021/</url>
+        <description>
+            <![CDATA[
+<p>→ Kotlin은 멀티플랫폼 개발을 위한 "생태계"입니다.
+JetBrains에서는 개발자가 백엔드 서비스를 쉽고 빠르게 빌드할 수 있도록 Ktor 프레임워크를 만들었습니다.
+이 발표에서는 Ktor를 소개하고, Exposed SQL 프레임워크와 통합하는 방법과 실제로 API를 빌드하는 방법을 소개합니다.
+백엔드 개발에서 Kotlin 활용에 대해 더 잘 이해할 수 있도록 도와드리려 합니다.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ko</lang>
+        <startDate>2021-11-17</startDate>
+        <endDate>2021-11-17</endDate>
+        <location>Seoul, Korea</location>
+        <speaker>Jae-Woong Um</speaker>
+        <title>Kotlin Night Seoul 2021</title>
+        <subject>견고한 API 디자인을 위한 Kotlin 활용법 </subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-seoul-presents-kotlin-night-seoul-2021/</url>
+        <description>
+            <![CDATA[
+<p>→ Kotlin으로 API를 개발할 때 사용자들에게 호환성의 유연함을 제공하고,
+전반적인 API 가시성을 효율적으로 관리할 수 있는 다양한 기능들을 소개합니다.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ko</lang>
+        <startDate>2021-11-17</startDate>
+        <endDate>2021-11-17</endDate>
+        <location>Seoul, Korea</location>
+        <speaker>Kwon Tae-Hwan</speaker>
+        <title>Kotlin Night Seoul 2021</title>
+        <subject>Look into Kotlin Flow</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-seoul-presents-kotlin-night-seoul-2021/</url>
+        <description>
+            <![CDATA[
+<p>→  Kotlin Flow는 RxJava를 대체할 수 있을까요?
+RxJava는 매우 좋은 라이브러리이지만 Flow는 RxJava보다 더욱 가볍게 사용할 수 있습니다.
+SharedFlow와 상태를 가지는 StateFlow를 활용해 더 많은 활용도를 만들 수 있습니다.
+이 발표에서는 Flow 사용시 주의해야 할 부분을 알아보고, 어떤식으로 접근하면 좋을지 정리합니다.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Sebastian Aigner</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Keep Kotlin Fun</subject>
+        <url>https://kotlin-koders.eu/#/talk/KeepKotlinFun</url>
+        <description>
+            <![CDATA[
+<p>From emoji generators to multiplayer games, tiny printer drivers, IoT-integrations, or Slack message parsers: prototypes for strange ideas are a great driver for learning opportunities – even just to disprove that something is impossible.<p>
+<p>I want to share with you the fun and excitement that comes from building something truly exciting, the small ideas that keep us up at night until the first tiny proof of concept has been hacked together. We’ll explore how Kotlin can empower us in making those things, through a blend of language features, libraries, and use cases that you might not come across every day.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Dmitry Kandalov</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Live coding server as a function with http4k</subject>
+        <url>https://kotlin-koders.eu/#/talk/http4KLiveCoding</url>
+        <description>
+            <![CDATA[
+<p>Http4k is a lightweight HTTP library written in Kotlin that enables serving and consuming of HTTP services in a functional and testable way. Unlike many other libraries and frameworks which have complicated abstractions and workflows, http4k captures the essence of communication over HTTP with a few simple concepts. In this session I will explain and demo the core concepts in http4k by live coding from scratch an HTTP server which will simulate the board from the noughts and crosses game.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Anthony Pages, Geoffrey Metais</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>How we moved to KMP at Deezer</subject>
+        <url>https://kotlin-koders.eu/#/talk/KMPAtDeezer</url>
+        <description>
+            <![CDATA[
+<p>After benchmarking cross-platform technologies, we decide to set up KMP at Deezer.<p>
+<p>How did we integrated this new technology with our three main platforms: Android, iOS and Web? How did we deal with the stacks specific needs? How did the technology been accepted by ours stacks? Here is our Story...<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>John O'Reilly</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Using GraphQL in a KMM project with Jetpack Compose and SwiftUI</subject>
+        <url>https://kotlin-koders.eu/#/talk/KmmGraphQL</url>
+        <description>
+            <![CDATA[
+<p>This is a live coding based talk in which John will show how GraphQL, using the Apollo library, can be used in shared code in a Kotlin Multiplatform project with the UI developed using Jetpack Compose on Android and SwiftUI on iOS.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Liliia Abdulina</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>What's new in Kotlin Multiplatform</subject>
+        <url>https://kotlin-koders.eu/#/talk/NewInKMP</url>
+        <description>
+            <![CDATA[
+<p>To be announced... Stay in touch!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Julien Salvi</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Building reliable web services with Kotlin Ktor</subject>
+        <url>https://kotlin-koders.eu/#/talk/ReliableWebServices</url>
+        <description>
+            <![CDATA[
+<p>Through this live coding session, you will learn how to setup a Kotlin Ktor project with some routes using the framework tools and features (Routing, DataConversion, ContentNegotiation...) and communicate with a sample Android app.<p>
+<p>Let see how we can easily setup a Postgres database connection with Exposed, an ORM library for Kotlin and see how clean architecture can be a good choice for developing your brand new API.<p>
+<p>We can even go further and see that we can actually share code between your backend application and your Android application (say hi to Swagger!).<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Martin Bonnin</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Building reliable web services with Kotlin Ktor</subject>
+        <url>https://kotlin-koders.eu/#/talk/GradleKotlinDSL</url>
+        <description>
+            <![CDATA[
+<p>Originally designed for Groovy, Gradle now supports writing scripts in Kotlin. Writing your scripts in Kotlin brings more compile-type safety and IDE features but also has a few drawbacks.<p>
+<p>In this talk, we will take a look some widely used Groovy constructs, their Kotlin equivalent and what’s happening under the hood. We will explore how Gradle loads scripts and uses Kotlin compiler flags to allow a the Kotlin DSL syntax.<p>
+<p>We will also look at the limitation like compilation time and fixed Kotlin runtime version and how to mitigate them.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-01</startDate>
+        <endDate>2021-12-01</endDate>
+        <location>Paris, France</location>
+        <speaker>Garth Gilmour</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Lies Told By The Kotlin Compiler</subject>
+        <url>https://kotlin-koders.eu/#/talk/CompilerLies</url>
+        <description>
+            <![CDATA[
+<p>In order to interoperate with the JVM, and to implement advanced features, the Kotlin Compiler needs to take some liberties on your behalf.It must translate Kotlin specific constructs into concepts the VM can understand, which requires that it reinterpret your code in unexpected ways.This applies to both simple things like symbol names and complex abstractions like suspending and composable functions.<p>
+<p>In this talk Garth Gilmour will lift the lid on some of the tricks the Kotlin compiler (with plug-ins) uses to keep your coding life simple, plus show when and how you can influence its output.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Sergei Rybalkin, Sergey Ryabov</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Kotlin Adoption at Scale</subject>
+        <url>https://kotlin-koders.eu/#/talk/KotlinAdoptionAtScale</url>
+        <description>
+            <![CDATA[
+<p>Usually, Kotlin adoption is a smooth process: do some initial configuration and then follow the typical flow "writing code → building code → shipping code". But turns out this experience does not scale well for a really big project.<p>
+<p>Two Sergei s will walk you through the Kotlin adoption journey at Facebook. You will learn what problems speakers have encountered while trying to bring a new programming language into the biggest mobile codebase: from infrastructure support to hardcode JVM bytecode optimizations. Contains bloody DEX code.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Dominique Padiou</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>KMM case study, with Phoenix and Bitcoin</subject>
+        <url>https://kotlin-koders.eu/#/talk/KMPLightningNode</url>
+        <description>
+            <![CDATA[
+<p>At ACINQ we have been developing complex Bitcoin mobile applications running on Android and the JVM. In order to also support iOS, we moved to Kotlin Multiplatform.<p>
+<p>We'll talk about our experience of migrating a large codebase from Scala to Kotlin Multiplatform, with some focus on how we leveraged the device's native cryptography API. We'll also look into the KMM module shared between the Android and the iOS apps, and give you some feedback regarding the iOS developers' experience.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Karin-Aleksandra Monoid</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Extending kotlinx.serialization functionality with Arrow Meta</subject>
+        <url>https://kotlin-koders.eu/#/talk/ArrowMetaSerialization</url>
+        <description>
+            <![CDATA[
+<p>Migrating from Jackson to kotlinx.serialization may be quite a challenge due to differences in approaches. One of them is not having a global naming strategy. But can we solve this? Sure, we can with Arrow Meta.<p>
+<p>Arrow Meta is a functional companion to Kotlin's compiler. This library opens a way to write compiler plugins, linters and other source transformations.<p>
+<p>In this talk, we are going to cover the following:
+Setup a multi module project for compiler plugin development with gradle.
+Overview of Arrow Meta features.
+Use case: Adding a global naming strategy to Kotlin Serialization.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Nicolas Fränkel</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>From annotation-based configuration to functional in Spring Boot apps with Kotlin</subject>
+        <url>https://kotlin-koders.eu/#/talk/FunctionalInSpringBoot</url>
+        <description>
+            <![CDATA[
+<p>In the latest years, there has been some push-back against frameworks, and more specifically annotations: some call them magic. Obviously, they make understanding the flow of the application harder.<p>
+<p>Spring and Spring Boot latest versions go along this trend, by offering an additional way to configure beans with explicit code instead of annotations. It’s declarative in the sense it looks like configuration, though it’s based on Domain-Specific Language(s). This talk aims to demo a step-by-step process to achieve that.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Zan Markan</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Winning CI/CD with Kotlin</subject>
+        <url>https://kotlin-koders.eu/#/talk/CICDWithKotlin</url>
+        <description>
+            <![CDATA[
+<p>DevOps teams often have to build and maintain their own CI/CD pipelines. This at first seems straightforward to implement and maintain. Yet it can often quickly become a tedious time sink and a source of universal frustration on many teams.<p>
+<p>From flaky builds, to long running builds, to flaky long running builds, the sources of frustration are endless. With the goal to ship more and faster as well as to compete in an ever changing industry, we can (and must) do better.<p>
+<p>This talk will cover best practices for performance, stability, security, and maintainability of CI/CD pipelines focusing on Kotlin projects, each supported with practical examples and counterexamples.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Salomon Brys</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Quick start native mobile Kotlin/Multiplatform setup</subject>
+        <url>https://kotlin-koders.eu/#/talk/QuickStartKMP</url>
+        <description>
+            <![CDATA[
+<p>Kotlin/Multiplatform is a complicated piece of tech! Because it chose to integrate inside native development tools & workflows, setting up a clean and shareable project can be complicated. Here’s everything you need to set up a production ready architecture.<p>
+<p>In this talk, we will explain how to architecture your code for a multi-platform mobile application, how to efficiently share business & behaviour code between your native apps, and how to configure each project (Common, Android & iOS) to link them to the business library. We’ll discuss various patterns that we can use to standardise communication between the frontend (the UI) and the backend (the business logic) to ensure that the behaviour of our application remains strictly equivalent no matter the actual platform. We’ll also show how to automatically test your common code, and how to deploy the various produced artifacts when working with application specific teams.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Filip Babić</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Exploring Advanced Jetpack Compose Features</subject>
+        <url>https://kotlin-koders.eu/#/talk/ExploringAdvancedCompose</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we’ll dive into more "advanced" Jetpack Compose features that rely on architecture, generics and meaningful motion. These are all topics that go beyond the basics of creating Compose UI, that are crucial in every app!<p>
+<p>W’ll explore state handling and reactive and uniform data flow structures - how to connect Compose components to observable structures such as LiveData, coroutine Flows, Rx and finally State structures from the Compose framework. You’ll learn how to show different types of UI based on state and how Compose reacts to state changes to re-draw the UI.<p>
+<p>Next, you’ll learn about beautiful and easy to implement animations and how to use the Transition API to animate multiple states at the same time. Finally, once you create the animations, you’ll learn how to apply the state from them to your UI for smooth screen transitions.<p>
+<p>And last, but not least, we’ll talk about code reusability through generics and generic Composable functions. With the power of Kotlin and its strong type system, in pair with Compose being fully written in Kotlin and relying on functions, you can create truly reusable generic components, without much code.<p>
+<p>Join me in this talk and you’ll get a better sense of how awesome Compose can be!<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Thomas Pucci</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Intro to Animating things with Jetpack Compose</subject>
+        <url>https://kotlin-koders.eu/#/talk/AnimatingCompose</url>
+        <description>
+            <![CDATA[
+<p>You have probably heard about Jetpack Compose, the Android way to build Declarative UI! How to create SOLID Animations in Jetpack Compose?<p>
+<p>I recreated some famous apps animations in Jetpack Compose. And I share with you what I learned from it.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Gaetan Zoritchak</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Kotlin Native from the trenches</subject>
+        <url>https://kotlin-koders.eu/#/talk/KotlinNativeFromTheTrenches</url>
+        <description>
+            <![CDATA[
+<p>This presentation will share our feedback on the challenges we faced to provide an iOS version of our multiplatform dataviz library:
+interop with low-level objective C APIs
+providing an easy of use library for Kotlin developers
+integration into iOS projects<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-12-02</startDate>
+        <endDate>2021-12-02</endDate>
+        <location>Paris, France</location>
+        <speaker>Aydar Mukhametzyanov</speaker>
+        <title>Kotlin KODERS 2021</title>
+        <subject>Bridging the gap between Kotlin and Swift</subject>
+        <url>https://kotlin-koders.eu/#/talk/BridgingKotlinAndSwift</url>
+        <description>
+            <![CDATA[
+<p>Tooling and technologies around Kotlin Multiplatform always leave Apple platforms a little overboard. After all, Kotlin is a part of Android development, not in iOS. I will tell you what we do to fix it. You will learn about the Kotlin Multiplatform Mobile plugin for AppCode, what it was created for, and what it can do at the moment. I will show the latest developments in the Kotlin Multiplatform, and will tell you how they work from the inside.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Attila Blenesi, Anders Ha</speaker>
+        <title>droidcon berlin</title>
+        <subject>KMM story - from first feature to Mobile mono-repo at Sphere</subject>
+        <url>https://www-berlin-droidcon-com.filesusr.com/html/6e1ab2_b98c336e78878c90a09a86840393fa8b.html#</url>
+        <description>
+            <![CDATA[
+<p>We will share our thought process on the business case of a multiplatform core for mobile apps, and why it might not make sense in some cases. We will also share our experience in incremental transition in a 9-month timeframe alongside product development in parallel, and a high-level glimpse of the architecture.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-10-20</startDate>
+        <endDate>2021-10-20</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>John O'Reilly</speaker>
+        <title>droidcon berlin</title>
+        <subject>Using GraphQL in a KMM project with Jetpack Compose and SwiftUI</subject>
+        <url>https://www-berlin-droidcon-com.filesusr.com/html/6e1ab2_b98c336e78878c90a09a86840393fa8b.html#</url>
+        <description>
+            <![CDATA[
+<p>In this talk John will show how GraphQL, using Apollo library, can be used in shared code in a Kotlin Multiplatform project with the UI developed using Jetpack Compose on Android and SwiftUI on iOS.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Daniele Campogiani, Claudio Paccone</speaker>
+        <title>.droidconitaly</title>
+        <subject>A result for our issues</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>In recent years we saw several approaches to handle asynchronous tasks on Android.<p>
+<p>Now Kotlin coroutines seem the way to go, but by default, they use exceptions to propagate failures making it hard to compose.<p>
+<p>This talk will explore an alternative approach using Kotlin sealed classes to model error more explicitly and how some combinators, like map and flatmap, could help us cover all the cases.<p>
+<p>To do so, we will use a concrete example based on an integration with the Retrofit library.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Marco Gomiero</speaker>
+        <title>.droidconitaly</title>
+        <subject>And that, is how we shared code between android, ios ans the backend</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform is an alpha feature that you can use to share code between different platforms. Even if it is in alpha stage, it is already possible to start using it in production applications.<p>
+<p>In this talk, I will share the discussion that led us to Kotlin Multiplatform, and the following processes we put in place to start using it in production for an Android, iOS, and backend project. I will show you what parts of the code you can (gradually) start to share and how to integrate with existing standalone projects.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Roberto Orgiu, Daniele Bonaldo</speaker>
+        <title>.droidconitaly</title>
+        <subject>Wellnes and Droid</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>The last years took a huge toll on all of us, making us realise our wellbeing is much more important than we would expect. Our smartphones can definitely help, and there are a handful of APIs we can leverage to monitor our health: the Fit platform, for starter, and the Sleep API, for instance. Join us in this exploration of how we can use our smartphones to get the best data about our health!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-11</startDate>
+        <endDate>2021-11-11</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Sagar Viradiya</speaker>
+        <title>.droidconitaly</title>
+        <subject>Uncoiling the coil - understanding modern image loading on android</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>Image loading is hard but luckily this problem has already been addressed on Android. There are many libraries out there that handle image loading seamlessly. COIL is the new kid to the club and you may be wondering why do we need another image loading library?<p>
+<p>COIL is Kotlin first library backed by Kotlin Coroutines. It gives you an easy and concise API to deal with image loading. Oh and also it takes less space! In a nutshell, it's an easy to use, fast, lightweight, and modern library.
+This talk will address:
+- Why you should consider this library for image loading
+- Understanding its API
+- How it works. By covering its entire image loading pipeline.
+By the end, you'll walk away with the advantages of using COIL and its image loading pipeline.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-12</startDate>
+        <endDate>2021-11-12</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Carlos Mota</speaker>
+        <title>.droidconitaly</title>
+        <subject>It just works* (running compose on android, desktop and web along with KMP)</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>These last years had been really exciting for app development. First, Android developers moved to Kotlin, then we had Kotlin Multiplatform where we managed to have our app’s business logic shared across iOS and desktop.<p>
+<p>Now with Compose we can go even further and reuse the UI. In this talk, I’m going to show you can create a library and the UI for your Android application and share it across a Desktop app and the web - it just works*.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-12</startDate>
+        <endDate>2021-11-12</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Filip Babić</speaker>
+        <title>.droidconitaly</title>
+        <subject>Building asynchronous mechnisms in Android applications, using Kotlin coroutines</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>In this talk we'll see how, using a large deal of the Kotlin Coroutines API, we can build asynchronous mechanisms in Android applications, which are testable, scalable and clean.<p>
+<p>We'll touch upon the topic of dispatching, thread switching and synchronisation mechanisms, building operators using coroutines, and creating our own API which abstracts away the threading, contexts and dispatching logic of coroutines.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-12</startDate>
+        <endDate>2021-11-12</endDate>
+        <location>Turin, Italy</location>
+        <speaker>Gianluca Zuddas, Franco Meloni</speaker>
+        <title>.droidconitaly</title>
+        <subject>Formalise your pull request etiquette with danger Kotlin</subject>
+        <url>https://it.droidcon.com/2021/agenda/</url>
+        <description>
+            <![CDATA[
+<p>What if your team could define a set of custom rules for your pull-requests and warn the author, make it fail, or add more information? And what if your team could write these rules in Kotlin?<p>
+<p>Give power to your team by codifying these norms, let Danger automatically pre-review your pull-request and let devs focus on real problems rather than always say: You forgot to...<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Nicolas Fränkel</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Designing a DSL with Kotlin</subject>
+        <url>https://kotlindevday.com/session/designing-a-dsl-with-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>In some particular cases, providing a DSL can greatly improve the productivity of your dev team. Java is not the best language to provide such DSL. But Kotlin has tons of features that can help you there.<p>
+<p>Kotlin is one of those “new” JVM languages that are currently rocking the boat. Although it’s made a great impact on Android, it’s equally good on the server side. As Domain-Specific Languages are constrained by the language they run on, Kotlin frees developers from Java fluent builders to propose something better.<p>
+<p>Using the Vaadin web framework as an example, I’ll demo how one could design its own DSL with Kotlin.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Gerard Klijs</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>What to do and not to do in coroutines</subject>
+        <url>https://kotlindevday.com/session/what-to-do-and-not-to-do-in-coroutines/</url>
+        <description>
+            <![CDATA[
+<p>Coroutines can be a nice abstraction, but sometimes it can work against you. This is especially the case when thread safety becomes an issue. Are there easy alternatives, are there limits?<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Paulien van Alst</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Embrace the Kotlin ecosystem at the back-end side</subject>
+        <url>https://kotlindevday.com/session/embrace-the-kotlin-ecosystem-at-the-back-end-side/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is becoming a mature and established back-end language. The maturity of a language is not only measured by its features but also by its community and ecosystem. Kotlin's ecosystem for server-side development is growing very fast. Coming from the Java development side, Spring would be a default fallback option to build your application. While Spring is also hopping on the Kotlin train, the rest of Kotlin's ecosystem is growing fast. More and more new frameworks are popping up implementing different points of view on how to build your service. Those new frameworks might change our ways of developing back-end applications. Let’s have a look out there!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Mykola Gurov</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Sugar rush of Kotlin for your tests</subject>
+        <url>https://kotlindevday.com/session/sugar-rush-of-kotlin-for-your-tests/</url>
+        <description>
+            <![CDATA[
+<p>Do your automated tests serve you well? Or does it seem like they are deliberately getting in a way, slowing down any change? Has the “given”’s preparation become an arduous journey littered with shortcuts?<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Julien Lengrand Lambert</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Hey Google, bake me a new Kotlin GitHub repository!</subject>
+        <url>https://kotlindevday.com/session/hey-google-bake-me-a-new-kotlin-github-repository/</url>
+        <description>
+            <![CDATA[
+<p>In this session, we will create a voice-controlled bot that will allow Google or Alexa to create new Github repositories automatically! We will be using the Github API as an example of use case to demonstrate how voice-controlled assistants can be useful for us developers.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Nico Krijnen</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>How the right architecture can simplify migrating to Kotlin</subject>
+        <url>https://kotlindevday.com/session/how-the-right-architecture-can-simplify-migrating-to-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Do you want to migrate your Java codebase to Kotlin, but are you not sure where to start? And how to do that in small steps? This talk shows you how architecture patterns like hexagonal, vertical slice, and domain driven design can enable you to do just that, while at the same time increasing your code quality!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Urs Peter</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>(Early Access) Project Loom vs. Kotlin Coroutines</subject>
+        <url>https://kotlindevday.com/session/project-loom-vs-kotlin-coroutines/</url>
+        <description>
+            <![CDATA[
+<p>Project Loom will be a game-changer for the JVM’s concurrency model, delivering ‘reactive’ characteristics out-of-the-box without the need for complex concurrency abstractions. What project Loom tries to achieve is already available in Kotlin through Coroutines. So the nagging question is: What will be the faith of Coroutines once Loom delivers? Will they become obsolete?<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Ties van de Ven</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Functional programming in Kotlin: exploring Arrow</subject>
+        <url>https://kotlindevday.com/session/functional-programming-in-kotlin-exploring-arrow/</url>
+        <description>
+            <![CDATA[
+<p>Functional programming is gaining popularity and partly because of this people have been switching to Kotlin. Although it fits the paradigm better than Java there is still quite a bit missing to unleash the full power of FP. Arrow is here to fill in the missing bits with things like new data types like Try and Either and Optics. Arrow is the most popular functional programming library for Kotlin. In this talk, we will go through what problems Arrow can solve for you and how it can help you with your everyday programming.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Joost Heijkoop</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>More than One Year’s Worth of Real World Experience with Kotlin</subject>
+        <url>https://kotlindevday.com/session/more-than-one-years-worth-of-real-world-experience-with-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Here I will share my experiences with working with Kotlin on a large very ambitious greenfield inspiring project with a great fast expanding team at bol.com. We started out with building a small monolithic POC with just 7 people and have since grown to a multi-service project with almost 40 people with seasoned professionals, which now consist of developers, business analysts, a designer, and other experts racing to meet the deadline of the end of life of the software that is being replaced.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-24</startDate>
+        <endDate>2021-11-24</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Sebastian Aigner</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Keep Kotlin Fun</subject>
+        <url>https://kotlindevday.com/session/keep-kotlin-fun/</url>
+        <description>
+            <![CDATA[
+<p>From emoji generators to multiplayer games, tiny printer drivers, IoT-integrations, or Slack message parsers: prototypes for strange ideas are a great driver for learning opportunities – even just to disprove that something is impossible. I want to share with you the fun and excitement that comes from building something truly exciting, the small ideas that keep us up at night until the first tiny proof of concept has been hacked together. We’ll explore how Kotlin can empower us in making those things, through a blend of language features, libraries, and use cases that you might not come across every day. Even if you're not working on your own silly ideas, you will see some novel approaches to solving problems with Kotlin, presented in such a unique context that they’ll be hard to forget.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-25</startDate>
+        <endDate>2021-11-25</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Julien Lengrand Lambert</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Introducing Kotlin in your organization: Tips and Tricks</subject>
+        <url>https://kotlindevday.com/session/introducing-kotlin-in-your-organization-tips-and-tricks/</url>
+        <description>
+            <![CDATA[
+<p>Your current company context, some minor Kotlin knowledge.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-25</startDate>
+        <endDate>2021-11-25</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Ramandeep Kaur</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Exception handling in Kotlin with Arrow</subject>
+        <url>https://kotlindevday.com/session/exception-handling-in-kotlin-with-arrow/</url>
+        <description>
+            <![CDATA[
+<p>In day-to-day programming, it is fairly common to find ourselves writing functions that can fail. Most of the time we throw exceptions on our code and it gets tricky tracking exactly where an exception came from. Using the Kotlin Arrow library, we can easily communicate errors in the application and makes it far easier to manage errors within your domain.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-25</startDate>
+        <endDate>2021-11-25</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Peter Dekkers</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Interactive Development with Kotlin</subject>
+        <url>https://kotlindevday.com/session/interactive-development-with-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a great choice for working with data and is ideally positioned to power the next generation of data-driven applications. This talk goes over the main pros and cons, and demonstrates that important first step: how to use Kotlin for interactive development with Jupyter Notebooks, so you can explore data and validate new models.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2021-11-25</startDate>
+        <endDate>2021-11-25</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Bas de Groot</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>Kotlin Makes Lombok Obsolete</subject>
+        <url>https://kotlindevday.com/session/kotlin-makes-lombok-obsolete/</url>
+        <description>
+            <![CDATA[
+<p>Our team enjoys coding with Kotlin. In fact, we enjoy it so much we are converting existing Java projects to Kotlin. Most of these Java projects use Lombok, which made us wonder: Would it be possible to use Kotlin’s built-in features to get rid of Lomb<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2021-11-25</startDate>
+        <endDate>2021-11-25</endDate>
+        <location>Amsterdam, The Netherlands</location>
+        <online>true</online>
+        <speaker>Bart Enkelaar</speaker>
+        <title>Kotlin Dev Day</title>
+        <subject>The Dangerous Side of Kotlin</subject>
+        <url>https://kotlindevday.com/session/dangerous-side-of-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin has been the new superhero on the JVM team for the last couple of years now. With significant support from both JetBrains and the community, Kotlin has managed to find a good balance between new features and understandability. However, with great power comes great responsibility.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-11-02</startDate>
         <endDate>2021-11-02</endDate>
         <location>Bucharest, Romania</location>
@@ -93,6 +896,9 @@
         <speaker>Carlos Ballesteros</speaker>
         <title>Valencia Kotlin User Group</title>
         <subject>Estado de Machine Learning en Kotlin</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=k0_ewOxWMm0</video>
+        </content>
         <url>https://www.meetup.com/kotlin-valencia/events/281267093/</url>
         <description>
             <![CDATA[
