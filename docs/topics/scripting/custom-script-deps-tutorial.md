@@ -25,9 +25,9 @@ The specified maven dependency will be downloaded during execution and used for 
 
 A minimal Kotlin custom scripting project contains two parts:
 
-* _Script definition_ - a set of parameters and configurations that define the script type. It includes the file extension
-and location, compilation parameters, and so on.
-* _Scripting host_ - an application or component that handles script execution.
+* _Script definition_ – a set of parameters and configurations that define the script type. It includes the file extension
+and location, compilation parameters, and other aspects.
+* _Scripting host_ – an application or component that handles script execution.
 
 So, you'll need a Kotlin/JVM Gradle project with two modules.
 
