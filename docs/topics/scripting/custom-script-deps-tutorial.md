@@ -23,7 +23,7 @@ The specified maven dependency will be downloaded during execution and used for 
 
 ## Project structure
 
-A minimal Kotlin scripting project contains two parts:
+A minimal Kotlin custom scripting project contains two parts:
 
 * _Script definition_ - a set of parameters and configurations that define the script type. It includes the file extension
 and location, compilation parameters, and so on.
@@ -59,7 +59,6 @@ provide the APIs you will need for the script definition:
 
     ```kotlin
    dependencies {
-       // Other dependencies.
        implementation("org.jetbrains.kotlin:kotlin-scripting-common")
        implementation("org.jetbrains.kotlin:kotlin-scripting-jvm")
        implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies")
@@ -72,7 +71,6 @@ provide the APIs you will need for the script definition:
 
     ```groovy
    dependencies {
-       // Other dependencies.
        implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies'
@@ -92,11 +90,11 @@ provide the APIs you will need for the script definition:
     ```
 
 7. To make the class a script definition, mark it with the `@KotlinScript` annotation. Pass two parameters to the annotation:
-  * `fileExtension` - a string ending with `.kts` that defines a file extension for scripts of this type. 
-  * `compilationConfiguration` - a Kotlin class that extends `ScriptCompilationConfiguration` and defines the compilation
+   * `fileExtension` - a string ending with `.kts` that defines a file extension for scripts of this type. 
+   * `compilationConfiguration` - a Kotlin class that extends `ScriptCompilationConfiguration` and defines the compilation
     specifics for this script definition. You'll create it in the next step.
 
-  ```kotlin
+   ```kotlin
     @KotlinScript(
         fileExtension = "scriptwithdeps.kts",
         compilationConfiguration = ScriptWithMavenDepsConfiguration::class
@@ -104,11 +102,11 @@ provide the APIs you will need for the script definition:
     abstract class ScriptWithMavenDeps
 
     object ScriptWithMavenDepsConfiguration: ScriptCompilationConfiguration()
-  ```
+   ```
 
 8. Define the script compilation configuration as shown below. 
 
-  ```kotlin
+   ```kotlin
     object ScriptWithMavenDepsConfiguration : ScriptCompilationConfiguration(
         {
             defaultImports(DependsOn::class, Repository::class)
@@ -123,11 +121,11 @@ provide the APIs you will need for the script definition:
             }
         }
     )
-  ```
+   ```
 
-  The `configureMavenDepsOnAnnotations` function is as follows:
+   The `configureMavenDepsOnAnnotations` function is as follows:
 
-  ```kotlin
+   ```kotlin
     fun configureMavenDepsOnAnnotations(context: ScriptConfigurationRefinementContext): ResultWithDiagnostics<ScriptCompilationConfiguration> {
         val annotations = context.collectedData?.get(ScriptCollectedData.collectedAnnotations)?.takeIf { it.isNotEmpty() }
             ?: return context.compilationConfiguration.asSuccess()
@@ -141,7 +139,7 @@ provide the APIs you will need for the script definition:
     }
     
     private val resolver = CompoundDependenciesResolver(FileSystemDependenciesResolver(), MavenDependenciesResolver())
-```
+   ```
 
 You can find the full code [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
 
@@ -160,34 +158,32 @@ is creating the scripting host – the component that handles the script executi
    root project's build script.
 
 4. Add the dependencies in the `dependencies` block of `build.gradle(.kts)`:
-  * Kotlin scripting components that provide the APIs you need for the scripting host
-  * The script definition module you've created previously
+   * Kotlin scripting components that provide the APIs you need for the scripting host
+   * The script definition module you've created previously
     
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
 
-    ```kotlin
+   ```kotlin
    dependencies {
-       // Other dependencies.
        implementation("org.jetbrains.kotlin:kotlin-scripting-common:$kotlinVersion")
        implementation("org.jetbrains.kotlin:kotlin-scripting-jvm:$kotlinVersion")
        implementation("org.jetbrains.kotlin:kotlin-scripting-jvm-host:$kotlinVersion")
        implementation(project(":script-definition"))
    }
-    ```
+   ```
 
    </tab>
    <tab title="Groovy" group-key="groovy">
 
-    ```groovy
+   ```groovy
    dependencies {
-       // Other dependencies.
        implementation 'org.jetbrains.kotlin:kotlin-scripting-common'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm-host'
        implementation project(':script-definition')
    }
-    ```
+   ```
 
    </tab>
    </tabs>
@@ -197,9 +193,9 @@ is creating the scripting host – the component that handles the script executi
 8. Define the `main` function for the application. The application should run with one argument - the path to the script file,
   and execute the script. You'll define the script execution in a separate function on the next step. Just declare it empty for now.
 
-  `main` can look like this:
+   `main` can look like this:
 
-  ```kotlin
+   ```kotlin
     fun main(vararg args: String) {
         if (args.size != 1) {
             println("usage: <app> <script file>")
@@ -209,18 +205,18 @@ is creating the scripting host – the component that handles the script executi
             evalFile(scriptFile)
         }
     }
-  ```
+   ```
 
 9. Define the script evaluation function. This is where you'll use the script definition. Obtain it by calling `createJvmCompilationConfigurationFromTemplate`
   with the script definition as a type parameter. Then call `BasicJvmScriptingHost().eval` passing it the script code and its
   compilation configuration. `eval` returns an instance of `ResultWithDiagnostics`, so set your function's return type to it.
 
-  ```kotlin
+   ```kotlin
     fun evalFile(scriptFile: File): ResultWithDiagnostics<EvaluationResult> {
         val compilationConfiguration = createJvmCompilationConfigurationFromTemplate<ScriptWithMavenDeps>()
         return BasicJvmScriptingHost().eval(scriptFile.toScriptSource(), compilationConfiguration, null)
     }
-```
+   ```
 
 
 You can find the full code [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/host/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/host/host.kt)
