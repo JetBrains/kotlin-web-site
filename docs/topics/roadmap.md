@@ -19,7 +19,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 * **Fast turnaround**: making the change-test-debug cycle really fast.
 * **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
-* **Fast and smooth IDE**: improving the stability and performance of the Kotlin IDE.
+* **Fast and smooth IDE**: improving the stability and performance of the Kotlin plugin.
 * **Kotlin for JVM server-side development**: expanding support for server-side use cases across the Kotlin ecosystem.
 * **Kotlin Multiplatform Mobile**: improving the user experience and feature set for sharing code on mobile platforms.
 
@@ -65,7 +65,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler core</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">🆕 Stabilize the Compiler Plugin API</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">🆕 Stabilize the K2 Compiler Plugin API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49510" target="_blank">🆕 Investigate JS backend for the K2 compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46756" target="_blank">Release the K2/JVM compiler in Alpha</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler</a></li>
@@ -129,7 +129,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
          </td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-40422" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-40442" target="_blank">⏸ Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49521" target="_blank">⏸ Support direct interoperability with Swift</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-38876" target="_blank">⏸ Support running Kotlin/Native-produced binaries on Alpine Linux</a></li>
             </ul>
@@ -157,7 +157,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">🆕 Make update of compiler/platform versions faster</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improve MPP support</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">🆕 Improve Multiplatform support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">🆕 Stabilize Eclipse plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18195" target="_blank">Prototype the IDE plugin with the new compiler frontend</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-18174" target="_blank">Improve IDE performance</a></li>
@@ -279,7 +279,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Design and implement solution for toString on objects](https://youtrack.jetbrains.com/issue/KT-4107)
 * 🆕 Language: [Provide modern and performant replacement for Enum.values()](https://youtrack.jetbrains.com/issue/KT-48872)
 * 🆕 Language: [Allow implementation by delegation to inlined value of inline class](https://youtrack.jetbrains.com/issue/KT-27435)
-* 🆕 Compiler core: [Stabilize the Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
+* 🆕 Compiler core: [Stabilize the K2 Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
 * 🆕 Compiler core: [Investigate JS backend for the K2 compiler](https://youtrack.jetbrains.com/issue/KT-49510)
 * 🆕 Kotlin/JVM: [Release `kotlinx-metadata-jvm` as Stable](https://youtrack.jetbrains.com/issue/KT-49513)
 * 🆕 Kotlin/JVM: [Fix issues related to inline classes on the JVM](https://youtrack.jetbrains.com/issue/KT-49514)
@@ -292,7 +292,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
 * 🆕 Multiplatform: [Improve stability and robustness of the multiplatform toolchain](https://youtrack.jetbrains.com/issue/KT-49525)
 * 🆕 IDE: [Make update of compiler/platform versions faster](https://youtrack.jetbrains.com/issue/KTIJ-20044)
-* 🆕 IDE: [Improve MPP support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
+* 🆕 IDE: [Improve Multiplatform support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
 * 🆕 IDE: [Stabilize Eclipse plugin](https://youtrack.jetbrains.com/issue/KTIJ-20046)
 * 🆕 Build tools: [Provide better experience with Kotlin Daemon](https://youtrack.jetbrains.com/issue/KT-49532)
 * 🆕 Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)

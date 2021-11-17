@@ -35,7 +35,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     </tr>
     <tr>
         <td>Android NDK</td>
-        <td><code>androidNativeArm32</code>, <code>androidNativeArm64</code></td>
+        <td><code>androidNativeArm32</code>, <code>androidNativeArm64</code>, <code>androidNativeX86</code>, <code>androidNativeX64</code></td>
         <td>
             <p>The 64-bit target requires a Linux or macOS host.</p>
             <p>You can build the 32-bit target on any supported host.</p>
@@ -72,7 +72,7 @@ Kotlin supports the following platforms and provides target presets for each pla
     <tr>
         <td>Windows</td>
         <td><code>mingwX64</code>, <code>mingwX86</code></td>
-        <td>Requires a Windows host.</td>
+        <td></td>
     </tr>
     <tr>
         <td>WebAssembly</td>

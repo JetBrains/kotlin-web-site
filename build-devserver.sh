@@ -30,7 +30,7 @@ if [[ "${1:-}" == "bash" ]]; then
 
   docker run -it --rm    \
            -v $(pwd):/src  \
-           -p 5000:5000    \
+           -p 8080:8080    \
            --entrypoint bash \
            kotlin-web-site
 
@@ -45,7 +45,7 @@ while true; do
 
     docker run -it --rm    \
            -v $(pwd):/src  \
-           -p 5000:5000    \
+           -p 8080:8080    \
            kotlin-web-site \
            "$@" || true
 

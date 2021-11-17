@@ -8,7 +8,7 @@ They have a concise syntax in Java and save you from having to write boilerplate
 public record Person (String name, int age) {}
 ```
 
-The compiler automatically generates a final class inherited from [`java.lang.Record`](https://download.java.net/java/early_access/jdk16/docs/api/java.base/java/lang/Record.html) with the following members:
+The compiler automatically generates a final class inherited from [`java.lang.Record`](https://docs.oracle.com/en/java/javase/16/docs/api/java.base/java/lang/Record.html) with the following members:
 * a private final field for each record component
 * a public constructor with parameters for all fields
 * a set of methods to implement structural equality: `equals()`, `hashCode()`, `toString()`

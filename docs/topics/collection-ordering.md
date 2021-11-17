@@ -26,12 +26,10 @@ Below is a class for ordering versions that consist of the major and the minor p
 
 ```kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
-    override fun compareTo(other: Version): Int {
-        if (this.major != other.major) {
-            return this.major - other.major
-        } else if (this.minor != other.minor) {
-            return this.minor - other.minor
-        } else return 0
+    override fun compareTo(other: Version): Int = when {
+        this.major != other.major -> this.major compareTo other.major // compareTo() in the infix form 
+        this.minor != other.minor -> this.minor compareTo other.minor
+        else -> 0
     }
 }
 
@@ -40,7 +38,7 @@ fun main() {
     println(Version(2, 0) > Version(1, 5))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 _Custom_ orders let you sort instances of any type in a way you like.
 Particularly, you can define an order for non-comparable objects or define an order other than natural for a comparable type.

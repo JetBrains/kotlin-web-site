@@ -42,18 +42,17 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add code to read the input. Use the [`readLine()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function to read the input value and assign it to the `name` variable.
+2. Add code to read the input. Use the `readln()` function to read the input value and assign it to the `name` variable.
 
    ```kotlin
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
    }
    ```
 
 3. Eliminate the whitespaces and count the letters:
-   * Check that the provided name is not `null` with the [safe call operator `?.`](null-safety.md#safe-calls).
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.
    * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context. 
    * Use a [string template](basic-types.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
@@ -63,33 +62,19 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
        // Count the letters in the name.
-       name?.replace(" ", "")?.let {
+       name.replace(" ", "").let {
            println("Your name contains ${it.length} letters")
        }
    }
    ```
 
-4. Report a null value using the [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function after the [Elvis operator `?:`](null-safety.md#elvis-operator).
-
-   ```kotlin
-   fun main() {
-       // Read the input value.
-       println("Hello, enter your name:")
-       val name = readLine()
-       // Count the letters in the name.
-       name?.replace(" ", "")?.let {
-           println("Your name contains ${it.length} letters")
-       } ?: error("Error while reading input from the terminal: the value can't be null.")
-   }
-   ```
-
-5. Save the changes and run the application.
+4. Save the changes and run the application.
 
    IntelliJ IDEA opens the **Run** tab and shows the output.
 
-6. Enter your name and enjoy the result:
+5. Enter your name and enjoy the result:
 
    ![Application output](native-output-2.png)
 
@@ -116,13 +101,13 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun main() {
        // Read the input value.
        println("Hello, enter your name:")
-       val name = readLine()
+       val name = readln()
        // Count the letters in the name.
-       name?.replace(" ", "")?.let {
+       name.replace(" ", "").let {
            println("Your name contains ${it.length} letters")
            // Print the number of unique letters.
            println("Your name contains ${it.countDistinctCharacters()} unique letters")
-       } ?: error("Error while reading input from the terminal: the value can't be null.")
+       }
    }
    ```
 
@@ -141,4 +126,4 @@ Once you have created your first application, you can go to Kotlin hands-on labs
 For Kotlin/Native, the following hands-on labs are currently available:
 
 * [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
-* [Creating an HTTP Client in Kotlin/Native](https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/01_Introduction) explains how to create a native HTTP client and interoperate with C libraries.
+* [Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) explains how to create a native HTTP client and interoperate with C libraries.
