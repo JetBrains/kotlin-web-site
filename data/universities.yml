@@ -90,7 +90,7 @@
   location: Munich (Germany)
   courses:
   - name: Bachelor's Practical course - Kotlin (IN0012)
-    url: https://www.in.tum.de/en/i02/teaching/winter-semester-2122/lab-courses/bachelors-practical-course-kotlin-in0012/
+    url: https://www.in.tum.de/i02/lehre/wintersemester-2122/praktika/bachelors-practical-course-kotlin-in0012/
   geo:
     lat: '48.137187'
     lng: '11.575691'
