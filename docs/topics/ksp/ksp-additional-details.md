@@ -46,7 +46,7 @@ Type resolution is costly and therefore has explicit form. Some of the informati
 available in `KSReferenceElement`. For example, `KSClassifierReference.referencedName` can filter out a lot of elements 
 that are not interesting. You should resolve type only if you need specific information from `KSDeclaration` or `KSType`.
 
-Note that a `KSTypeReference` pointing to a function type has most of its information in its element. 
+`KSTypeReference` pointing to a function type has most of its information in its element. 
 Although it can be resolved to the family of `Function0`, `Function1`, and so on, these resolutions don‘t bring any
 more information than `KSCallableReference`. One use case for resolving function type references is dealing with the 
 identity of the function's prototype.
