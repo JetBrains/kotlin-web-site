@@ -102,8 +102,6 @@ dependencies {
 
 ## Use your own processor in a project
 
-### Setup
-
 1. Create another module that contains a workload where you want to try out your processor.
 
 <tabs group="build-script">
