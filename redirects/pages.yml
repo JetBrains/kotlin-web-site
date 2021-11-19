@@ -66,7 +66,7 @@
   to: /docs/tutorials/native/using-gradle.html
 
 - from: /docs/tutorials/native/interop-with-c.html
-  to: /docs/tutorials/native/curl.html
+  to: /docs/native-app-with-c-and-libcurl.html
 
 - from: /docs/tutorials/native/using-intellij-idea.html
   to: /docs/native-get-started.html
@@ -84,7 +84,7 @@
   to: /docs/apple-framework.html
 
 - from: /docs/tutorials/native/curl.html
-  to: /docs/curl.html
+  to: /docs/native-app-with-c-and-libcurl.html
 
 - from: /docs/tutorials/native/dynamic-libraries.html
   to: /docs/native-dynamic-libraries.html
@@ -93,7 +93,7 @@
   to: /docs/mapping-struct-union-types-from-c.html
 
 - from: /docs/tutorials/native/intro-to-kotlin-native.html
-  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/
+  to: /docs/native-app-with-c-and-libcurl.html
 
 - from: /docs/tutorials/native/working-with-klib.html
   to: /docs/tutorials/mpp/multiplatform-library.html

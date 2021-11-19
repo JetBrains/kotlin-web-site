@@ -41,3 +41,9 @@ a:hover {
 .hidden {
     display: none !important;
 }
+
+:root {
+    --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
+    --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
+    --rs-font-family-ui: var(--rs-font-family-inter);
+}

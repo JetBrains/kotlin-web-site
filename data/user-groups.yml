@@ -685,6 +685,9 @@
       position:
         lat: 18.5204303
         lng: 73.8567437
+    - name: Punjab Kotlin User Group
+      country: India
+      url: https://www.facebook.com/groups/273508831318313
     - name: Rajkot Kotlin User Group
       country: India
       url: https://sites.google.com/view/kugrajkot/home
@@ -1120,6 +1123,9 @@
       position:
         lat: 26.820553
         lng: 30.802498
+    - name: Kaduna Kotlin User Group
+      country: Nigeria
+      url: https://web.facebook.com/Kaduna-Kotlin-User-Group-112766181179860
     - name: Kano Kotlin User Group
       country: Nigeria
       url: https://web.facebook.com/groups/193660894904095/about

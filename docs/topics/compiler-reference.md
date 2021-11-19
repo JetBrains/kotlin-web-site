@@ -153,7 +153,7 @@ Use a custom JDK home directory to include into the classpath if it differs from
 
 ### -jvm-target _version_
 
-Specify the target version of the generated JVM bytecode. Possible values are `1.6` (DEPRECATED), `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15` and `16`.
+Specify the target version of the generated JVM bytecode. Possible values are `1.6` (DEPRECATED), `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, and `17`.
 The default value is `%defaultJvmTargetVersion%`.
 
 ### -java-parameters

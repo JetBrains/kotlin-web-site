@@ -72,26 +72,17 @@ the straightforward imperative version of a solution to the problem can be writt
 
 ```kotlin
 fun main() {
-    var n = readLine()!!.toInt() // read integer from the input
+    var n = readln().toInt() // read integer from the input
     val reached = HashSet<Int>() // a mutable hash set 
     while (reached.add(n)) n = f(n) // iterate function f
     println(reached.size) // print answer to the output
 }
 ```
 
-Note the use of Kotlin's 
-[null-assertion operator](null-safety.md#the-operator) `!!`
-after the [readLine()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call. 
-Kotlin's `readLine()` function is defined to return a 
-[nullable type](null-safety.md#nullable-types-and-non-null-types)
-`String?` and returns `null` on the end of the input, which explicitly forces the developer to handle the 
-case of missing input.
- 
-There is no need to handle the case of misformatted input in competitive programming. 
-In competitive programming, an input format is always precisely specified and the actual input cannot deviate from 
-the input specification in the problem statement. That's what the null-assertion operator `!!` essentially does &mdash; 
-it asserts that the input string is present and throws an exception otherwise. Likewise, 
-the [String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html) 
+There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
+specified in competitive programming, and the actual input cannot deviate from the input specification in the problem
+statement. That's why we're using Kotlin's `readln()` function. It asserts that the input string is present and throws
+an exception otherwise. Likewise, the [String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html)
 function throws an exception if the input string is not an integer.
 
 All online competitive programming events allow the use of pre-written code, so you can define your own library of 
@@ -100,8 +91,8 @@ to read and write. You would then use this code as a template for your solutions
 the following helper functions for reading inputs in competitive programming:
 
 ```kotlin
-private fun readLn() = readLine()!!
-private fun readInt() = readLn().toInt()
+private fun readInt() = readln().toInt()
+private fun readStr() = readln().toString()
 // etc for other types you'd use in your solutions
 ```
 
@@ -121,9 +112,9 @@ takes a simple greedy algorithm to implement and it can be written using this st
 ```kotlin
 fun main() {
     // read input
-    val n = readLine()!!.toInt()
-    val s = readLine()!!
-    val fl = readLine()!!.split(" ").map { it.toInt() }
+    val n = readln().toInt()
+    val s = readln()
+    val fl = readln().split(" ").map { it.toInt() }
     // define local function f
     fun f(c: Char) = '0' + fl[c - '1']
     // greedily find first and last indices
@@ -151,9 +142,8 @@ To make reading the input in competitive programming tasks like this more concis
 you can have the following list of helper input-reading functions:
 
 ```kotlin
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readInt() = readln().toInt() // single int
+private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 ```
 
@@ -163,7 +153,7 @@ specification in the problem statement line by line:
 ```kotlin
     // read input
     val n = readInt()
-    val s = readLn()
+    val s = readln()
     val fl = readInts()
 ```
 

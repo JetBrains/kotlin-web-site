@@ -89,8 +89,8 @@
 - title: Technical University of Munich
   location: Munich (Germany)
   courses:
-  - name: Patterns in Software Engineering (WS 2019/20)
-    url: https://ase.in.tum.de/lehrstuhl_1/people/people-archive/122-teaching/winterterm-2018-19/998-patterns-in-software-engineering
+  - name: Bachelor's Practical course - Kotlin (IN0012)
+    url: https://www.in.tum.de/i02/lehre/wintersemester-2122/praktika/bachelors-practical-course-kotlin-in0012/
   geo:
     lat: '48.137187'
     lng: '11.575691'
