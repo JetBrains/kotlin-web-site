@@ -9,8 +9,8 @@ in KSP:
 ## Type and resolution
 
 The resolution takes most of the cost of the underlying API implementation. So type references are designed to be 
-resolved by processors explicitly (with a few exceptions). When a _type_, such as `KSFunctionDeclaration.returnType` 
-or `KSAnnotation.annotationType`, is referenced, it is always a `KSTypeReference`, which is a `KSReferenceElement` with
+resolved by processors explicitly (with a few exceptions). When a _type_ (such as `KSFunctionDeclaration.returnType` 
+or `KSAnnotation.annotationType`) is referenced, it is always a `KSTypeReference`, which is a `KSReferenceElement` with
 annotations and modifiers.
 
 ```kotlin
