@@ -59,7 +59,7 @@ See [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-47709) for a 
 
 ### Stable suspending functions as supertypes
 
-Kotlin 1.6.0 makes implementation of suspending functional types [Stable](components-stability.md). 
+Implementation of suspending functional types has become [Stable](components-stability.md) in Kotlin 1.6.0. 
 A preview was available [in 1.5.30](whatsnew1530.md#suspending-functions-as-supertypes).
 
 The feature can be useful when designing APIs that use Kotlin coroutines and accept suspending functional types. 
