@@ -14,7 +14,7 @@ for n, section in enumerate(sections):
         city = user_group.get("name").replace("Kotlin", "").replace("User", "").replace("Group", "").strip()
         location = city + ", " + user_group.get("country")
 
-        if 'position' in user_group:
+        if 'position' in user_group or user_group['isVirtual']:
             print(location + " (saved previous)")
             continue
 
