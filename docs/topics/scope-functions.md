@@ -106,7 +106,7 @@ fun main() {
     val str = "Hello"
     // this
     str.run {
-        println("The receiver string length: $length")
+        println("The receiver's length: $length")
         //println("The receiver's length: ${this.length}") // does the same
     }
 
