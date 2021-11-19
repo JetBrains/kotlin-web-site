@@ -461,7 +461,7 @@ fun main() {
         Regex("[$sign]?[$digits$hexDigits]+")
     }
     
-    for (match in hexNumberRegex.findAll("+1234 -FFFF !!!%*& 88")) {
+    for (match in hexNumberRegex.findAll("+1234 -FFFF !!!%*& 88 XYZ")) {
         println(match.value)
     }
 //sampleEnd
