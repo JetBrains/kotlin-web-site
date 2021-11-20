@@ -9,7 +9,7 @@ The [Kotlin/Native as an Apple Framework](apple-framework.md)
 tutorial explains how to compile Kotlin code into a framework for Swift and Objective-C.
 
 In this tutorial, you will:
- - [Compile a Kotlin code to a dynamic library](#create-a-kotlin-library)
+ - [Compile Kotlin code to a dynamic library](#create-a-kotlin-library)
  - [Examine generated C headers](#generated-headers-file)
  - [Use the Kotlin dynamic library from C](#use-generated-headers-from-c)
  - Compile and run the example on [Linux and Mac](#compile-and-run-the-example-on-linux-and-macos)
