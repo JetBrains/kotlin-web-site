@@ -69,6 +69,8 @@ const initTabs = function () {
                 $tabContentNode.addClass('is_hidden');
             }
         });
+
+        $tabs.trigger('tabs-change', tabId)
     });
 };
 
@@ -146,9 +148,29 @@ const initAnchors = function () {
     })
 };
 
+function queryPlayground(selector) {
+    const instanceNode = $(selector)[0];
+    return instanceNode && instanceNode.KotlinPlayground && instanceNode.KotlinPlayground.view;
+}
+
+const runSelector = 'kotlin-code-examples-section__run';
+
+function initTabsRunButton() {
+    $('.js-tab').on('tabs-change', function(e, tabId) {
+        const instance = queryPlayground(`#${tabId} > .sample`);
+        $(`.${runSelector}`).toggleClass(runSelector + '_hide', Boolean(instance.state.highlightOnly));
+    });
+
+    $('.kotlin-code-examples-section__run').on('click', function () {
+        const instance = queryPlayground(`.${runSelector}:not(.is_hidden) > .sample`);
+        if (instance) instance.execute();
+    });
+}
+
 $(function () {
     initPopups();
     initTabs();
     initJQTabs();
     initAnchors();
+    initTabsRunButton()
 });
