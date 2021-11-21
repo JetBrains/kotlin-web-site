@@ -46,6 +46,16 @@ const initJQTabs = function () {
     });
 }
 
+function scrollTabToCenter($currentTab) {
+    const $container = $('.overview-group');
+    const containerLeft =  $container.scrollLeft();
+    const containerWidth = $container.width() / 2;
+    const tabLeft = $currentTab.position().left;
+    const tabWidth = $currentTab.width() / 2;
+
+    $container.animate({ scrollLeft: containerLeft + tabLeft - containerWidth + tabWidth }, 500);
+}
+
 const initTabs = function () {
     const $tabs = $('.js-tab');
 
@@ -64,6 +74,7 @@ const initTabs = function () {
             if (tabId === currentTabId) {
                 $currentTab.addClass('is_active');
                 $tabContentNode.removeClass('is_hidden');
+                scrollTabToCenter($currentTab)
             } else {
                 $currentTab.removeClass('is_active');
                 $tabContentNode.addClass('is_hidden');
@@ -153,16 +164,26 @@ function queryPlayground(selector) {
     return instanceNode && instanceNode.KotlinPlayground && instanceNode.KotlinPlayground.view;
 }
 
-const runSelector = 'kotlin-code-examples-section__run';
-
 function initTabsRunButton() {
     $('.js-tab').on('tabs-change', function(e, tabId) {
         const instance = queryPlayground(`#${tabId} > .sample`);
-        $(`.${runSelector}`).toggleClass(runSelector + '_hide', Boolean(instance.state.highlightOnly));
+
+        $(`.kotlin-code-examples-section__run`)
+            .toggleClass('kotlin-code-examples-section__run_hide', Boolean(instance.state.highlightOnly));
     });
 
     $('.kotlin-code-examples-section__run').on('click', function () {
-        const instance = queryPlayground(`.${runSelector}:not(.is_hidden) > .sample`);
+        const $node = $(`.kotlin-overview-code-example:not(.is_hidden) > .sample`);
+        const instance = queryPlayground($node);
+
+        $node.one('kotlinPlaygroundRun', function() {
+            $('.output-wrapper')[0].scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+                inline: 'nearest'
+            });
+        });
+
         if (instance) instance.execute();
     });
 }
