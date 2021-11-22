@@ -176,8 +176,22 @@ type-checking.
 
 Compare classic HTML code for the future website and its typesafe variant in Kotlin:
 
-<tabs>
-<tab title="Kotlin" group-key="kotlin">
+```html
+<h1>KotlinConf Explorer</h1>
+<div>
+    <h3>Videos to watch</h3>
+    <p>John Doe: Building and breaking things</p>
+    <p>Jane Smith: The development process</p>
+    <p>Matt Miller: The Web 7.0</p>
+    <h3>Videos watched</h3>
+    <p>Tom Jerry: Mouseless development</p>
+</div>
+<div>
+    <h3>John Doe: Building and breaking things</h3>
+    <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder">
+</div>
+```
+{validate="false"}
 
 ```kotlin
 h1 {
@@ -214,29 +228,6 @@ div {
    }
 }
 ```
-
-</tab>
-<tab title="HTML>
-
-```html
-<h1>KotlinConf Explorer</h1>
-<div>
-    <h3>Videos to watch</h3>
-    <p>John Doe: Building and breaking things</p>
-    <p>Jane Smith: The development process</p>
-    <p>Matt Miller: The Web 7.0</p>
-    <h3>Videos watched</h3>
-    <p>Tom Jerry: Mouseless development</p>
-</div>
-<div>
-    <h3>John Doe: Building and breaking things</h3>
-    <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder">
-</div>
-```
-{validate="false"}
-
-</tab>
-</tabs>
 
 Type or paste the above Kotlin code as the contents of your `render()` call inside the `main()` function,
 replacing the previous `h1` tag.
