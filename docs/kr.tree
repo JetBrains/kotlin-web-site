@@ -180,6 +180,10 @@
             </toc-element>
             <toc-element id="js-samples.md"/>
             <toc-element id="js-react.md"/>
+<<<<<<< HEAD
+=======
+            <toc-element toc-title="Building a Full Stack Web App with Kotlin Multiplatform" href="https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/"/>
+>>>>>>> a0e47a39 (update: new headers)
         </toc-element>
 
         <toc-element toc-title="Native">

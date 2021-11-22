@@ -136,7 +136,7 @@ patterns and can serve as a nice jump-off point for your own projects.
 
 ### Hands-on labs
 
-* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
+* [Build a web application with React and Kotlin/JS — tutorial](js-react.md)
 guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin
 DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components and
 obtain information from APIs, all while writing the whole application logic in pure Kotlin/JS.

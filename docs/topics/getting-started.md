@@ -126,7 +126,7 @@ Here you'll learn how to develop and improve your frontend web application using
 2. **Create your first frontend web application:**
 
    * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
-   * If you prefer more robust examples, complete the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) hands-on tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
+   * If you prefer more robust examples, complete the [Build a web application with React and Kotlin/JS](js-react.md) tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
    * Check out the list of [Kotlin/JS samples](js-samples.md) for more ideas on how to use Kotlin/JS.
 
 3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
