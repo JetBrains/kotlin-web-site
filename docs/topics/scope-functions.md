@@ -106,13 +106,13 @@ fun main() {
     val str = "Hello"
     // this
     str.run {
-        println("The receiver's length: $length")
+        println("The string's length: $length")
         //println("The receiver's length: ${this.length}") // does the same
     }
 
     // it
     str.let {
-        println("The argument's length is ${it.length}")
+        println("The string's length is ${it.length}")
     }
 }
 ```
@@ -461,7 +461,7 @@ fun main() {
         Regex("[$sign]?[$digits$hexDigits]+")
     }
     
-    for (match in hexNumberRegex.findAll("+1234 -FFFF !!!%*& 88 XYZ")) {
+    for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
         println(match.value)
     }
 //sampleEnd
