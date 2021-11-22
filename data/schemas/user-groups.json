@@ -43,13 +43,26 @@
                 "lat",
                 "lng"
               ]
-            }
+            },
+            "isVirtual": { "enum": [ true ] }
           },
           "additionalProperties": false,
           "required": [
             "name",
             "country",
             "url"
+          ],
+          "oneOf": [
+            {
+              "required": [
+                "position"
+              ]
+            },
+            {
+              "required": [
+                "isVirtual"
+              ]
+            }
           ]
         }
       }
