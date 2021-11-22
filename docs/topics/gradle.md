@@ -156,14 +156,14 @@ Control the behavior of this check by setting the `kotlin.jvm.target.validation.
 
 ### Set custom JDK home
 
-> [Setting `jdkHome` option directly is deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
->
-{type="warning"}
-
 By default, Kotlin compile tasks use the current Gradle JDK. 
 If you need to change the JDK by some reason, you can set the JDK home in the following ways:
 * For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
 * For Gradle from 6.1 to 6.6 with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
+
+> The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
+>
+{type="warning"}
 
 When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
 use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
