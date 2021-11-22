@@ -164,6 +164,12 @@ function queryPlayground(selector) {
     return instanceNode && instanceNode.KotlinPlayground && instanceNode.KotlinPlayground.view;
 }
 
+const SCROLL_OPTIONS = {
+    behavior: 'smooth',
+    block: 'end',
+    inline: 'nearest'
+};
+
 function initTabsRunButton() {
     $('.js-tab').on('tabs-change', function(e, tabId) {
         const instance = queryPlayground(`#${tabId} > .sample`);
@@ -177,11 +183,14 @@ function initTabsRunButton() {
         const instance = queryPlayground($node);
 
         $node.one('kotlinPlaygroundRun', function() {
-            $('.output-wrapper')[0].scrollIntoView({
-                behavior: 'smooth',
-                block: 'end',
-                inline: 'nearest'
-            });
+            const output = $node.next().find('.output-wrapper')[0];
+
+            if(output.scrollIntoViewIfNeeded) {
+                output.scrollIntoViewIfNeeded(SCROLL_OPTIONS);
+            }
+            else if (output.getBoundingClientRect().bottom > window.innerHeight) {
+                output.scrollIntoView(SCROLL_OPTIONS);
+            }
         });
 
         if (instance) instance.execute();
