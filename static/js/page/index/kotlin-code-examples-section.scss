@@ -27,6 +27,8 @@
     & {
       display: none;
       cursor: pointer;
+      font-size: 16px;
+      line-height: 24px;
       margin-right: 16px;
 
       .page_js_yes & {
@@ -47,14 +49,16 @@
       border-radius: 24px;
 
       @media (max-width: 720px) {
-        background-position: center center;
-        border-radius: 0 8px 0 0;
-        padding: 0;
-        text-indent: -9999px;
-        margin-right: 0;
-        height: 48px;
-        min-width: 48px;
-        width: 48px;
+        &, &:hover, &:active, &:focus {
+          background-position: center center;
+          border-radius: 0 8px 0 0;
+          padding: 0;
+          text-indent: -9999px;
+          margin-right: 0;
+          height: 48px;
+          min-width: 48px;
+          width: 48px;
+        }
       }
     }
   }
@@ -111,10 +115,18 @@
   .console-close {
     top: 5px;
     right: 5px;
+    height: 16px;
+    width: 16px;
   }
 
-  .compiler-info {
+  .compiler-info > span {
     display: none;
+  }
+
+  .compiler-info__open-editor-link {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   & .is_hidden {
@@ -254,6 +266,17 @@
     border-radius: 100%;
     opacity: 0.2;
   }
+
+  .theme-darcula-wrapper .executable-fragment-wrapper__shorter {
+    &, &:hover, &:active {
+      background-image: url("images/shorter.svg");
+      background-color: #1b1b1b;
+      border: 0 none transparent;
+      border-radius: 27px;
+      height: 40px;
+      width: 40px;
+    }
+  }
 }
 
 .kotlin-overview-code-example-tabs {
@@ -348,7 +371,21 @@
     display: flex;
     flex-grow: 1;
     padding: 0 16px;
-    overflow-y: hidden;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: scroll;
+    overflow: -moz-scrollbars-none;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+
+    &::-webkit-scrollbar, &::scrollbar,
+    &::-webkit-scrollbar-thumb, &::scrollbar-thumb {
+      display: none;
+      background: transparent;
+      opacity: 0;
+      height: 0;
+    }
 
     .tab-text {
       white-space: nowrap;

@@ -3,6 +3,10 @@
   padding-top: var(--xxxl-space);
 }
 
+.kotlin-why-section .kjq-tabs-tab__tabs {
+  overflow-y: hidden;
+}
+
 .kotlin-why-section__section {
   display: flex;
   flex-direction: column;

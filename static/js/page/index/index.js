@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import './index.scss';
+import './wh.theme.scss';
 
 const initJQTabs = function () {
     const $tabsEl = $('.kjq-tabs');
