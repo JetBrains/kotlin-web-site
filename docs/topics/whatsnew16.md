@@ -365,7 +365,7 @@ To disable downloading external components, add the following lines to your `bui
     <tab title="Kotlin" group-key="kotlin">
     
     ```kotlin
-    rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin::class.java> {
+    rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
         rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().download = false // or true for default behavior
     }
     ```
@@ -388,7 +388,7 @@ To disable downloading external components, add the following lines to your `bui
     <tab title="Kotlin" group-key="kotlin">
     
     ```kotlin
-    rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java> {
+    rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
         rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().download = false // or true for default behavior
     }
      
