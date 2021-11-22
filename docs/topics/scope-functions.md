@@ -107,7 +107,7 @@ fun main() {
     // this
     str.run {
         println("The string's length: $length")
-        //println("The receiver's length: ${this.length}") // does the same
+        //println("The string's length: ${this.length}") // does the same
     }
 
     // it
