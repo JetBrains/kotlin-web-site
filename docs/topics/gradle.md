@@ -158,8 +158,8 @@ Control the behavior of this check by setting the `kotlin.jvm.target.validation.
 
 By default, Kotlin compile tasks use the current Gradle JDK. 
 If you need to change the JDK by some reason, you can set the JDK home in the following ways:
-* For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
-* For Gradle from 6.1 to 6.6 with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
+* For Gradle 6.7 and later – with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+* For earlier Gradle versions without Java toolchains (up to 6.6) – with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
 
 > The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
 >
@@ -234,7 +234,7 @@ To set any JDK (even local) for the specific task, use the Task DSL.
 
 ### Setting JDK version with the Task DSL
 
-If you use the Gradle version from 6.1 to 6.6, there is no [Java toolchains support](#gradle-java-toolchains-support). 
+If you use the a Gradle version earlier than 6.7, there is no [Java toolchains support](#gradle-java-toolchains-support). 
 You can use the Task DSL that allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
 At the moment, these tasks are `KotlinCompile` and `KaptTask`.
 If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_VERSION>` placeholder in your build script:
