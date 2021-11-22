@@ -580,7 +580,7 @@ A Java toolchain:
   {type="warning"}
 
 * Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn’t set the `jvmTarget` option explicitly.
-  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility).
+  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
 
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
