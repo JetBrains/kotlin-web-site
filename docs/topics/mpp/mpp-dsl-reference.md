@@ -837,7 +837,7 @@ The `languageSettings` block of a source set defines certain aspects of project 
 |`languageVersion`|Provides source compatibility with the specified version of Kotlin.|
 |`apiVersion`|Allows using declarations only from the specified version of Kotlin bundled libraries.|
 |`enableLanguageFeature`|Enables the specified language feature. The available values correspond to the language features that are currently experimental or have been introduced as such at some point.|
-|`useExperimentalAnnotation`|Allows using the specified [opt-in annotation](opt-in-requirements.md).|
+|`optIn`|Allows using the specified [opt-in annotation](opt-in-requirements.md).|
 |`progressiveMode`|Enables the [progressive mode](whatsnew13.md#progressive-mode).|
 
 <tabs group="build-script">
@@ -850,7 +850,7 @@ kotlin {
             languageVersion = "1.4" // possible values: "1.0", "1.1", "1.2", "1.3", "1.4"
             apiVersion = "1.4" // possible values: "1.0", "1.1", "1.2", "1.3", "1.4"
             enableLanguageFeature("InlineClasses") // language feature name
-            useExperimentalAnnotation("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
+            optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
         }
     }
@@ -867,7 +867,7 @@ kotlin {
             languageVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
             apiVersion = '1.4' // possible values: '1.0', '1.1', '1.2', '1.3', '1.4'
             enableLanguageFeature('InlineClasses') // language feature name
-            useExperimentalAnnotation('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
+            optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
             progressiveMode = true // false by default
         }
     }
