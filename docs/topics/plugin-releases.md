@@ -48,7 +48,7 @@ Released: July 27, 2021
 * Remote development support
 
 Learn more in:
-* [What’s New in IntelliJ IDEA 2021.2](https://www.jetbrains.com/idea/whatsnew/)
+* [What’s New in IntelliJ IDEA 2021.2](https://www.jetbrains.com/idea/whatsnew/2021-2/)
 
 </td>
 </tr>
