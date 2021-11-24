@@ -650,3 +650,12 @@
 
 - from: /security.html
   to: /docs/security.html
+
+- from: /whatsnew-plugin-20212.html
+  to: https://www.jetbrains.com/idea/whatsnew/2021-2/#kotlin-x
+
+- from: /whatsnew-plugin-20211.html
+  to: https://www.jetbrains.com/idea/whatsnew/2021-1/#kotlin-x
+
+- from: /whatsnew-plugin-20203.html
+  to: https://www.jetbrains.com/idea/whatsnew/2020-3/#kotlin-x

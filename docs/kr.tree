@@ -22,28 +22,18 @@
         <toc-element id="competitive-programming.md"/>
     </toc-element>
 
-    <toc-element toc-title="What's new">
-        <toc-element toc-title="Kotlin">
-            <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0"/>
-            <toc-element toc-title="Earlier versions">
-                <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
-                <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
-                <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
-                <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
-                <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
-                <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
-                <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
-                <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
-                <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
-            </toc-element>
-        </toc-element>
-        <toc-element toc-title="Kotlin for KMM">
-            <toc-element id="whats-new-in-kotlin-for-kmm.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin plugin">
-            <toc-element id="whatsnew-plugin-20212.md" toc-title="Kotlin plugin 2021.2"/>
-            <toc-element id="whatsnew-plugin-20211.md" toc-title="Kotlin plugin 2021.1"/>
-            <toc-element id="whatsnew-plugin-20203.md" toc-title="Kotlin plugin 2020.3"/>
+    <toc-element toc-title="What's new in Kotlin">
+        <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0" accepts-web-file-names="whatsnew.html"/>
+        <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
+            <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
+            <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
+            <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
+            <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
+            <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
+            <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
+            <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
+            <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
         </toc-element>
     </toc-element>
 
