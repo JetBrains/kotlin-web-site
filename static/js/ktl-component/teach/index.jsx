@@ -33,7 +33,7 @@ const Teach = (props) => {
         </h1>
 
         <div className="teach-top-mobile-buttons">
-          <Button icon={<SlackIcon/>}
+          <Button icon={<SlackIcon />}
                   href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                   target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
@@ -102,7 +102,7 @@ const Teach = (props) => {
 
         <div className="ktl-offset-top-l">
           <div className="teach-top-buttons">
-            <Button size="l" icon={<SlackIcon/>}
+            <Button size="l" icon={<SlackIcon />}
                     href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                     target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
@@ -132,7 +132,7 @@ const Teach = (props) => {
               </h2>
 
               <div className="universities-top__numbers">
-                <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount}/>
+                <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount} />
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <TeachMap className="teach-map__wrapper"/>
+          <TeachMap className="teach-map__wrapper" />
 
           <div className="teach-universities__bottom ktl-offset-top-m">
             <div className="ktl-row">
@@ -442,7 +442,7 @@ const Teach = (props) => {
       </section>
 
       <section className="ktl-container ktl-offset-top-xxl teach-subscription-section">
-        <SubscriptionForm/>
+        <SubscriptionForm />
       </section>
 
       <section className="teach-video ktl-offset-top-xxl">
