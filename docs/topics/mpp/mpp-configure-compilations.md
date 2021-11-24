@@ -186,7 +186,7 @@ kotlin {
 You also need to create a custom compilation in other cases, for example, if you want to combine compilations for different 
 JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a multiplatform project.
 
-## Include Java sources in JVM compilations
+## Use Java sources in JVM compilations
 
 When [creating a project with the Project Wizard](mpp-create-lib.md), Java sources are included in the compilations of
 the JVM target.

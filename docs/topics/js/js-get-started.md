@@ -16,7 +16,7 @@ Once you've installed IntelliJ IDEA, it's time to create your first frontend app
     
     By default, your project will use Gradle with Kotlin DSL as the build system.
 
-4. Select the **CSS Support** and **Use styled-components** checkboxes and click **Finish**.
+4. Select the **Use styled-components** checkbox and click **Finish**.
   
     ![Configure a frontend application](js-new-project-2.png) 
     
