@@ -33,7 +33,7 @@ const Teach = (props) => {
         </h1>
 
         <div className="teach-top-mobile-buttons">
-          <Button icon={<SlackIcon />}
+          <Button icon={<SlackIcon/>}
                   href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                   target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
@@ -102,7 +102,7 @@ const Teach = (props) => {
 
         <div className="ktl-offset-top-l">
           <div className="teach-top-buttons">
-            <Button size="l" icon={<SlackIcon />}
+            <Button size="l" icon={<SlackIcon/>}
                     href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                     target="_blank" rel="noopener" className="teach-cta-block-button">Join Educators Сommunity</Button>
 
@@ -132,7 +132,7 @@ const Teach = (props) => {
               </h2>
 
               <div className="universities-top__numbers">
-                <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount} />
+                <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount}/>
               </div>
             </div>
           </div>
@@ -162,7 +162,7 @@ const Teach = (props) => {
             </div>
           </div>
 
-          <TeachMap className="teach-map__wrapper" />
+          <TeachMap className="teach-map__wrapper"/>
 
           <div className="teach-universities__bottom ktl-offset-top-m">
             <div className="ktl-row">
@@ -253,7 +253,8 @@ const Teach = (props) => {
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank" rel="noopener">
+                      <a href="https://www.jetbrains.com/help/education/educator-start-guide.html" target="_blank"
+                         rel="noopener">
                         <span className="rs-link">Educator start guide</span>
                         <span>↗</span>
                       </a>
@@ -357,13 +358,15 @@ const Teach = (props) => {
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://developer.android.com/teach#for-instructors-teaching-a-course" target="_blank" rel="noopener">
+                      <a href="https://developer.android.com/teach#for-instructors-teaching-a-course" target="_blank"
+                         rel="noopener">
                         <span className="rs-link">Android Development with Kotlin curriculum</span>
                         <span>↗</span>
                       </a>
                     </li>
                     <li className="teach-list__item">
-                      <a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view" target="_blank" rel="noopener">
+                      <a href="https://drive.google.com/file/d/1zFlIaXXEfGAB0ExVCcwjPXox7rucvV_M/view" target="_blank"
+                         rel="noopener">
                         <span className="rs-link">Learning materials</span>
                         <span>↗</span>
                       </a>
@@ -439,14 +442,18 @@ const Teach = (props) => {
       </section>
 
       <section className="ktl-container ktl-offset-top-xxl teach-subscription-section">
-          <SubscriptionForm />
+        <SubscriptionForm/>
       </section>
 
       <section className="teach-video ktl-offset-top-xxl">
         <div className="ktl-container">
           <div className="ktl-row">
             <div className="ktl-col">
-              <YoutubePlayer id={"MQPeEOf3G7A"}/>
+              <YoutubePlayer
+                mode={1}
+                id="PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA"
+                previewImgSrc="https://img.youtube.com/vi/CQlBQ5tfbHE/maxresdefault.jpg"
+              />
             </div>
           </div>
         </div>
