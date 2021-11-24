@@ -31,7 +31,7 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
 
 6. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world.  
    
-   * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – `readln()`.
+   * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html).
    * Use a string template by adding a dollar sign `$` before this variable name directly in the text output like this – `$name`.
    
    ```kotlin
