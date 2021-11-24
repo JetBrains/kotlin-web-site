@@ -6,7 +6,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 ## Create a new Kotlin/Native project in IntelliJ IDEA
 
-1. In IntelliJ IDEA, select **File** \| **New** \| **Project**.
+1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **Kotlin**.
 3. Enter a project name, select **Native Application** as the project template, and click **Next**.
 

@@ -188,25 +188,18 @@ JVM versions in your final artifact, or you have already set up source sets in G
 
 ## Include Java sources in JVM compilations
 
-By default, the JVM target ignores Java sources and compiles only Kotlin source files.
+When [creating a project with the Project Wizard](mpp-create-lib.md), Java sources are included in the compilations of
+the JVM target.
 
-To include Java sources in the compilations of the JVM target, explicitly enable the Java language support for the target:
+In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
 
-* When [creating a project with the Project Wizard](mpp-create-lib.md). 
-  
-  ![Enable Java language support](enable-java-support.png)
-  
-* In the build script of an existing project.
-
-  ```kotlin
-  kotlin {
-      jvm {
-          withJava()
-      }
-  }
-  ```
-  
-   This applies the Gradle `java` plugin and configures the target to cooperate with it.
+```kotlin
+kotlin {
+    jvm {
+        withJava()
+    }
+}
+```
 
 The Java source files are placed in the child directories of the Kotlin source roots. For example, the paths are:
 
