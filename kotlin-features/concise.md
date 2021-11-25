@@ -1,4 +1,4 @@
-<div class="sample" markdown="1" mode="kotlin" theme="kotlin-docs" Zauto-indent="false">
+<div class="sample" markdown="1" mode="kotlin" theme="kotlin-docs" auto-indent="false">
 ```kotlin
 data class Employee(
    val name: String,
