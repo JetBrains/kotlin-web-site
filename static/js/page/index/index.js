@@ -28,7 +28,10 @@ const initJQTabs = function () {
     $tabsEl.addClass('kjq-tabs_inited');
 
     $tabsWrapper.on('click', '.kjq-tabs-tab__tabs-item', function(e) {
-        const index = $(e.target).index();
+        const $target = $(e.target);
+        const index = $target.index();
+
+        scrollTabToCenter($tabsWrapper, $target);
 
         $tabs.each(function(i, el) {
             const $el = $(this);
@@ -46,10 +49,11 @@ const initJQTabs = function () {
             $el.toggleClass('kjq-tabs-tab__tabs-item_active', $el.index() === index);
         });
     });
+
+    $('.kjq-tabs-tab__tabs').jScroll();
 }
 
-function scrollTabToCenter($currentTab) {
-    const $container = $('.overview-group');
+function scrollTabToCenter($container, $currentTab) {
     const containerLeft =  $container.scrollLeft();
     const containerWidth = $container.width() / 2;
     const tabLeft = $currentTab.position().left;
@@ -59,7 +63,8 @@ function scrollTabToCenter($currentTab) {
 }
 
 const initTabs = function () {
-    $('.overview-group').jScroll();
+    const $tabWrapper = $('.overview-group');
+    $tabWrapper.jScroll();
 
     const $tabs = $('.js-tab');
 
@@ -78,7 +83,7 @@ const initTabs = function () {
             if (tabId === currentTabId) {
                 $currentTab.addClass('is_active');
                 $tabContentNode.removeClass('is_hidden');
-                scrollTabToCenter($currentTab)
+                scrollTabToCenter($tabWrapper, $currentTab)
             } else {
                 $currentTab.removeClass('is_active');
                 $tabContentNode.addClass('is_hidden');

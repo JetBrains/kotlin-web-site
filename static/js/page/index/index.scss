@@ -139,6 +139,19 @@ a.kto-overview-section__title_link:any-link {
 
 .kjq-tabs-tab__tabs {
   display: flex;
+
+  overflow-x: scroll;
+
+  .page_js_yes & {
+    overflow: hidden;
+  }
+
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  user-select:none;
+
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 
 .kjq-tabs-tab__tabs-item {
