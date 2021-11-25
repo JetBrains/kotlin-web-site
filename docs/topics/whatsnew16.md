@@ -432,7 +432,7 @@ The new 1.6.0 version of the standard library stabilizes experimental features, 
 
 ### New readline functions
 
-Kotlin 1.6.0 offers new functions for handling standard input: `readln()` and `readlnOrNull()`.
+Kotlin 1.6.0 offers new functions for handling standard input: [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) and [`readlnOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln-or-null.html).
 
 > For now, new functions are available for the JVM and Native target platforms only.
 >
