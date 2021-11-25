@@ -667,6 +667,20 @@ It works with all language constructs, including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover).
 
+## Coroutines 1.6.0-RC
+
+`kotlinx.coroutines` [1.6.0-RC](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.0-RC) is out with 
+multiple features and improvements:
+
+* [New Kotlin/Native memory manager](#preview-of-the-new-memory-manager) support
+* Introduction of dispatcher _views_ API, which allows limiting parallelism without creating additional threads
+* Migrating from Java 6 to Java 8 target
+* `kotlinx-coroutines-test` with the new reworked API and multiplatform support
+* Introduction of [`CopyableThreadContextElement`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-copyable-thread-context-element/index.html),
+  which gives coroutines a thread-safe write access to [`ThreadLocal`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ThreadLocal.html) variables
+
+Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.0-RC).
+
 ## Migrating to Kotlin 1.6.0
 
 IntelliJ IDEA and Android Studio will suggest updating the Kotlin plugin to 1.6.0 once it is available.
