@@ -98,7 +98,7 @@ inspection will show formatting problems only in modified files. Such files are 
 It's always possible to explicitly set the IntelliJ IDEA code style as the correct code style for the project:
 
 1. In **Settings/Preferences** | **Editor** | **Code Style** | **Kotlin**, switch to the **Project** scheme.
-2. Open the **Load/Save** tab and in the **Use defaults from:** select **Kotlin obsolete IntelliJ IDEA codestyle**.
+2. Open the **Load/Save** tab and in the **Use defaults from** select **Kotlin obsolete IntelliJ IDEA codestyle**.
 
 In order to share the changes across the project developers `.idea/codeStyle` folder, it has to be committed to VCS.
 Alternatively, **kotlin.code.style**=**obsolete** can be used for projects configured with Gradle or Maven.

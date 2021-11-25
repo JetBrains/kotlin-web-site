@@ -15,14 +15,14 @@ The Kotlin plugin for IntelliJ IDEA supports [scratches and worksheets](https://
 _Scratches_ let you create code drafts in the same IDE window with your project and run them on the fly. 
 Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS. 
 
-To create a Kotlin scratch, click **File** | **New** | Scratch File** and select the **Kotlin** type.
+To create a Kotlin scratch, click **File** | **New** | **Scratch File** and select the **Kotlin** type.
 
 In turn, _worksheets_ are project files: they are stored in project directories and tied to the project modules.
 Worksheets are useful for writing code parts that don't actually make a software unit but should still be stored together 
 in a project. For example, you can use worksheets for education or demo materials.
 
 To create a Kotlin worksheet in a project directory, right-click the directory in the project tree and select
-**New | Kotlin Worksheet**.
+**New** | **Kotlin Worksheet**.
 
 In scratches and worksheets, you can write any valid Kotlin code. Syntax highlighting, auto-completion, and the other
 IntelliJ IDEA code editing features are all supported too. Note that there's no need for declaring the `main` function: 

@@ -168,7 +168,7 @@ see how C functions are mapped into Kotlin/Native declarations.
 
 ## C function pointers in Kotlin
 
-With the help of IntelliJ IDEA's __Go to | Declaration__ or
+With the help of IntelliJ IDEA's **Go To** | **Declaration or Usages** or
 compiler errors, see the following declarations for the C functions:
 
 ```kotlin
