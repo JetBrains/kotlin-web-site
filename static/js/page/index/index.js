@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import initJScroll from './jquery.jscroll';
 import './index.scss';
 import './wh.theme.scss';
 
@@ -58,6 +59,8 @@ function scrollTabToCenter($currentTab) {
 }
 
 const initTabs = function () {
+    $('.overview-group').jScroll();
+
     const $tabs = $('.js-tab');
 
     $tabs.on('click', function () {
@@ -199,6 +202,7 @@ function initTabsRunButton() {
 }
 
 $(function () {
+    initJScroll($);
     initPopups();
     initTabs();
     initJQTabs();

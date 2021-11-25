@@ -371,21 +371,18 @@
     display: flex;
     flex-grow: 1;
     padding: 0 16px;
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     overflow-x: scroll;
-    overflow: -moz-scrollbars-none;
+
+    .page_js_yes & {
+      overflow: hidden;
+    }
+
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+
     -webkit-overflow-scrolling: touch;
     overflow-scrolling: touch;
-
-    &::-webkit-scrollbar, &::scrollbar,
-    &::-webkit-scrollbar-thumb, &::scrollbar-thumb {
-      display: none;
-      background: transparent;
-      opacity: 0;
-      height: 0;
-    }
 
     .tab-text {
       white-space: nowrap;
