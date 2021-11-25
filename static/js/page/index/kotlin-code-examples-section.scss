@@ -69,7 +69,6 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     border: 0 none transparent;
-    min-height: 300px;
   }
 
   .sample[theme=darcula] {
@@ -84,6 +83,11 @@
   .CodeMirror pre.CodeMirror-line {
     font-size: 20px;
     line-height: 30px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .run-button {
