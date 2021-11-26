@@ -53,7 +53,7 @@ println(customer.placeOrder())
 
 Adding a Kotlin file to an existing Java project is pretty much the same.
 
-![Add new Kotlin file class](new-kotlin-file.png){width=600}
+![Add new Kotlin file class](new-kotlin-file.png){width=400}
 
 If this is the first time you're adding a Kotlin file to this project, IntelliJ IDEA will prompt you to add the required
 Kotlin runtime. For a Java project, configure the Kotlin runtime as a **Kotlin Java Module**.
