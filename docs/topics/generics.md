@@ -345,7 +345,7 @@ you can make an `is`-check or a cast that involves the non-generic part of the t
 angle brackets are omitted in this case:
 
 ```kotlin
-fun handleStrings(list: List<String>) {
+fun handleStrings(list: MutableList<String>) {
     if (list is ArrayList) {
         // `list` is smart-cast to `ArrayList<String>`
     }
