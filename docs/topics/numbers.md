@@ -25,10 +25,9 @@ val oneByte: Byte = 1
 
 ## Floating-point types
 
-For real numbers, Kotlin provides floating-point types `Float` and `Double`.
-According to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754),
-floating point types differ by their _decimal place_, that is, how many decimal digits they can store.
-`Float` reflects the IEEE 754 _single precision_, while `Double` provides _double precision_.
+For real numbers, Kotlin provides floating-point types `Float` and `Double` that adhere to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754).
+`Float` reflects the IEEE 754 _single precision_, while `Double` reflects _double precision_.
+These types differ in their size and provide storage for floating-point numbers with different precision.
 
 | Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
 |--------|-----------|--------------- |-------------|--------------|
