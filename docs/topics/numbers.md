@@ -23,6 +23,13 @@ val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
 
+> Inside the compiler, there is a priority between built-in integer types. If there is no explicit type specification
+> (such as `val oneByte: Byte = 1`), an integer literal that is in the value range of multiple built-in integer types 
+> receives the type of the highest priority. Thus, the integer literal `1` in the first line of the example receives 
+> the `Int` type, although it can be either `Byte` or `Short`.
+> 
+{type="note"}
+
 ## Floating-point types
 
 For real numbers, Kotlin provides floating-point types `Float` and `Double` that adhere to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754).
