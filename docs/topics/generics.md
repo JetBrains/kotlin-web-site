@@ -328,7 +328,7 @@ At runtime, the instances of generic types do not hold any information about the
 The type information is said to be _erased_. For example, the instances of `Foo<Bar>` and `Foo<Baz?>` are erased to
 just `Foo<*>`.
 
-### Generic type checks and casts
+### Generics type checks and casts
 
 Due to the type erasure, there is no general way to check whether an instance of a generic type was created with certain type
 arguments at runtime, and the compiler prohibits such `is`-checks such as

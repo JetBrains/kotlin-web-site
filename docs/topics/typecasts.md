@@ -94,3 +94,8 @@ val x: String? = y as? String
 ```
 
 Note that despite the fact that the right-hand side of `as?` is a non-null type `String`, the result of the cast is nullable.
+
+## Generics type checks and casts
+
+Please see the corresponding section in the [generics documentation page](generics.md#generics-type-checks-and-casts)
+for information on which type checks and casts you can perform with generics.
