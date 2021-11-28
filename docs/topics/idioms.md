@@ -37,6 +37,12 @@ val positives = list.filter { it > 0 }
 
 Learn the difference between [Java and Kotlin filtering](java-to-kotlin-idioms-strings.md#create-a-string-from-collection-items).
 
+## Ignore nullable mapping results:
+
+```kotlin
+values.mapNotNull { ... }.forEach { ... } 
+```
+
 ## Check the presence of an element in a collection
 
 ```kotlin
