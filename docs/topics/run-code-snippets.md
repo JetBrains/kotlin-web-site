@@ -65,7 +65,7 @@ You can later refer to the results by the names `res*` shown in the correspondin
 
 ## REPL
 
-*REPL* (*Read-Eval-Print-Loop*) is a tool for running Kotlin code interactively. REPL lets you evaluate expressions and 
+_REPL_ (_Read-Eval-Print-Loop_) is a tool for running Kotlin code interactively. REPL lets you evaluate expressions and 
 code chunks without creating projects or even functions if you don't need them. 
 
 To run REPL in IntelliJ IDEA, open **Tools** | **Kotlin** | **Kotlin REPL**.

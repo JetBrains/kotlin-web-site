@@ -8,7 +8,7 @@ in _continuous_ mode:
 ./gradlew run --continuous
 ```
 
-If you are working in IntelliJ IDEA, you can pass the same flag via the *run configuration*. After running the Gradle
+If you are working in IntelliJ IDEA, you can pass the same flag via the _run configuration_. After running the Gradle
 `run` task for the first time from the IDE, IntelliJ IDEA automatically generates a run configuration for it,
 which you can edit:
 

@@ -39,7 +39,7 @@ when the script is loaded for the first time.
 
 [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) provides a powerful set of tools for debugging code during development.
 
-For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **JavaScript Debug** configuration. To add this debug configuration:
+For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **JavaScript Debug** configuration. To add such a debug configuration:
 
 1. Go to **Run | Edit Configurations**.
 2. Click **+** and select **JavaScript Debug**.

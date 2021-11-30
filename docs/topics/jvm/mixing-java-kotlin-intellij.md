@@ -67,7 +67,7 @@ You can also open the Kotlin runtime configuration manually from **Tools** | **K
 
 ## Converting an existing Java file to Kotlin with J2K
 
-The Kotlin plugin also bundles a Java to Kotlin converter (*J2K*) that automatically converts Java files to Kotlin.
+The Kotlin plugin also bundles a Java to Kotlin converter (_J2K_) that automatically converts Java files to Kotlin.
 To use J2K on a file, click **Convert Java File to Kotlin File** in its context menu or in the **Code** menu of IntelliJ IDEA.
 
 ![Convert Java to Kotlin](convert-java-to-kotlin.png){width=500}

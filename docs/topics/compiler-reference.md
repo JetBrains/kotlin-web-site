@@ -14,7 +14,7 @@ in the [Working with command-line compiler](command-line.md) tutorial.
 Kotlin compilers have a number of options for tailoring the compiling process.
 Compiler options for different targets are listed on this page together with a description of each one.
 
-There are several ways to set the compiler options and their values (*compiler arguments*):
+There are several ways to set the compiler options and their values (_compiler arguments_):
 * In IntelliJ IDEA, write in the compiler arguments in the **Additional command line parameters** text box in
   **Settings/Preferences** | **Build, Execution, Deployment** | **Compiler** | **Kotlin Compiler**.
 * If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
