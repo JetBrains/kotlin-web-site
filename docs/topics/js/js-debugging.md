@@ -13,7 +13,7 @@ on it. Refer to your browser's documentation for more details.
 
 To debug Kotlin/JS in the browser:
 
-1. Run the project by calling one of the available `run` Gradle tasks, for example, `browserDevelopmentRun` or
+1. Run the project by calling one of the available _run_ Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Navigate to the page in the browser and launch its developer tools (for example, by right-clicking and
@@ -53,7 +53,7 @@ Learn more about [setting up JavaScript debug configurations](https://www.jetbra
 
 Now you're ready to debug your project!
 
-1. Run the project by calling one of the available `run` Gradle tasks, for example, `browserDevelopmentRun` or
+1. Run the project by calling one of the available _run_ Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Start the debugging session by running the JavaScript debug configuration you've created previously:

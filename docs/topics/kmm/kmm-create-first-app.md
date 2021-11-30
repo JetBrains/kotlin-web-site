@@ -33,6 +33,8 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
     
     > If you want to use KMM module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
     > To learn more about CocoaPods dependencies, see [CocoaPods integration](native-cocoapods.md).
+    >
+    {type="note"}
     
 Now wait while your project is set up. It may take some time to download and set up the required components when you 
 do this for the first time.
