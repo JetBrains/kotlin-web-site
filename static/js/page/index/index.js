@@ -194,10 +194,7 @@ function initTabsRunButton() {
         $node.one('kotlinPlaygroundRun', function() {
             const output = $node.next().find('.output-wrapper')[0];
 
-            if(output.scrollIntoViewIfNeeded) {
-                output.scrollIntoViewIfNeeded(SCROLL_OPTIONS);
-            }
-            else if (output.getBoundingClientRect().bottom > window.innerHeight) {
+            if (output.getBoundingClientRect().bottom > window.innerHeight) {
                 output.scrollIntoView(SCROLL_OPTIONS);
             }
         });
