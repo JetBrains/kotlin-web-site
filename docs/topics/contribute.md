@@ -22,7 +22,7 @@ Please keep an open line of communication with us because we may have questions 
 
 Kotlin IDE plugin is a part of the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
 
-To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/) and follow the [instructions on how to contribute](https://github.com/JetBrains/intellij-community/blob/master/plugins/kotlin/CONTRIBUTING.md).
+To contribute to the Kotlin IDE plugin, clone the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/) and follow the [instructions on how to contribute](https://github.com/JetBrains/intellij-community/blob/master/plugins/kotlin/CONTRIBUTING.md).
 
 ## Contribute to other Kotlin libraries and tools
 
