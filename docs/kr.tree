@@ -97,7 +97,7 @@
     <toc-element toc-title="Multiplatform programming">
         <toc-element id="mpp-intro.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html"/>
         <toc-element toc-title="Kotlin Multiplatform Mobile (KMM)">
-            <toc-element id="kmm-getting-started.md"/>
+            <toc-element id="kmm-getting-started.md" toc-title="Getting started"/>
             <toc-element id="kmm-setup.md"/>
             <toc-element id="kmm-create-first-app.md"/>
             <toc-element id="kmm-understand-project-structure.md"/>
