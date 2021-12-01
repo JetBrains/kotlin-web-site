@@ -7,10 +7,10 @@ see [Getting started with IntellJ IDEA](jvm-get-started.md).
 
 ## Adding Java source code to an existing Kotlin project
 
-Adding Java classes to a Kotlin project is pretty straightforward. All you need to do is create a new Java file
-(__Alt + Insert__/__Cmd + N__) in a directory or package inside your project.
+Adding Java classes to a Kotlin project is pretty straightforward. All you need to do is create a new Java file. Select
+a directory or a package inside your project and go to **File** | **New** | **Java Class** or use the **Alt + Insert**/**Cmd + N** shortcut.
 
-<img src="new-java-class.png" alt="Add new Java class" width="400"/>
+![Add new Java class](new-java-class.png){width=400}
 
 If you already have the Java classes, you can just copy them to the project directories.
 
@@ -53,24 +53,24 @@ println(customer.placeOrder())
 
 Adding a Kotlin file to an existing Java project is pretty much the same.
 
-<img src="new-kotlin-file.png" alt="Add new Kotlin file class" width="600"/>
+![Add new Kotlin file class](new-kotlin-file.png){width=400}
 
 If this is the first time you're adding a Kotlin file to this project, IntelliJ IDEA will prompt you to add the required
-Kotlin runtime. For a Java project, configure the Kotlin runtime as a __Kotlin Java Module__.
+Kotlin runtime. For a Java project, configure the Kotlin runtime as a **Kotlin Java Module**.
 
 The next step is to decide which modules to configure (if the project has more than one module) and whether you want to
 add the runtime library to the project or use those provided by the current Kotlin plugin.
 
-<img src="bundling-kotlin-option.png" alt="Bundling Kotlin runtime" width="600"/>
+![Bundling Kotlin runtime](bundling-kotlin-option.png){width=600}
 
-You can also open the Kotlin runtime configuration manually from __Tools \| Kotlin \| Configure Kotlin in Project__.
+You can also open the Kotlin runtime configuration manually from **Tools** | **Kotlin** | **Configure Kotlin in Project**.
 
 ## Converting an existing Java file to Kotlin with J2K
 
 The Kotlin plugin also bundles a Java to Kotlin converter (_J2K_) that automatically converts Java files to Kotlin.
-To use J2K on a file, click __Convert Java File to Kotlin File__ in its context menu or in the __Code__ menu of IntelliJ IDEA.
+To use J2K on a file, click **Convert Java File to Kotlin File** in its context menu or in the **Code** menu of IntelliJ IDEA.
 
-<img src="convert-java-to-kotlin.png" alt="Convert Java to Kotlin" width="500"/>
+![Convert Java to Kotlin](convert-java-to-kotlin.png){width=500}
 
 While the converter is not fool-proof, it does a pretty decent job of converting most boilerplate code from Java to Kotlin.
 Some manual tweaking however is sometimes required.

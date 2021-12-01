@@ -15,13 +15,13 @@ Kotlin compilers have a number of options for tailoring the compiling process.
 Compiler options for different targets are listed on this page together with a description of each one.
 
 There are several ways to set the compiler options and their values (_compiler arguments_):
-- In IntelliJ IDEA, write in the compiler arguments in the __Additional command-line parameters__ text box in 
-__Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
-- If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
+* In IntelliJ IDEA, write in the compiler arguments in the **Additional command line parameters** text box in
+  **Settings/Preferences** | **Build, Execution, Deployment** | **Compiler** | **Kotlin Compiler**.
+* If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
 For details, see [Gradle](gradle.md#compiler-options).
-- If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
+* If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
 For details, see [Maven](maven.md#specifying-compiler-options).
-- If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
+* If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
 
 For example: 
 

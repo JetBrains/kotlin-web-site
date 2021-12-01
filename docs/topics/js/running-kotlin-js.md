@@ -23,12 +23,12 @@ command line, using the Gradle wrapper:
 
 If you're using IntelliJ IDEA, you can find the `run` action in the Gradle tool window:
 
-![Gradle Run task in IntelliJ IDEA](run-gradle-task.png)
+![Gradle Run task in IntelliJ IDEA](run-gradle-task.png){width=700}
 
 On first start, the `kotlin.js` Gradle plugin will download all required dependencies to get you up and running.
 After the build is completed, the program is executed, and you can see the logging output in the terminal:
 
-![Executing a Kotlin JS program in IntelliJ IDEA](cli-output.png)
+![Executing a Kotlin JS program in IntelliJ IDEA](cli-output.png){width=700}
 
 ## Run the browser target
 
@@ -68,7 +68,7 @@ browser window pointing to the HTML file you specified previously. To validate t
 open the developer tools of your browser (for example by right-clicking and choosing the _Inspect_ action).
 Inside the developer tools, navigate to the console, where you can see the results of the executed JavaScript code:
 
-![Console output in browser developer tools](browser-console-output.png)
+![Console output in browser developer tools](browser-console-output.png){width=700}
 
 With this setup, you can recompile your project after each code change to see your changes. Kotlin/JS also supports
 a more convenient way of automatically rebuilding the application while you are developing it.
