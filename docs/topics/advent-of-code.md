@@ -1,11 +1,19 @@
 [//]: # (title: Advent of Code puzzles in idiomatic Kotlin)
 
+> [Advent of Code 2021](https://adventofcode.com/2021/) is coming!
+> At JetBrains, we’re proud to be supporting Advent of Code this year as one of its top sponsors. To get you in the mood for AoC 2021, we’ve prepared a [primer video](https://www.youtube.com/watch?v=6-XSehwRgSY)
+> and a [blogpost](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/).  
+> Get ready to jingle with Advent of Code in Kotlin! Have fun, learn new things, and win prizes!
+>
+{type="note"}
+
 [Advent of Code](https://adventofcode.com/) is an annual December event, where holiday-themed puzzles are published
 every day from December 1 to December 25. With the permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
 we'll show how to solve these puzzles using the idiomatic Kotlin style.
 
 > You can find all the solutions for the Advent of Code 2020 puzzles in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
 >
+{type="tip"}
 
 ## Day 1: Report repair
 
