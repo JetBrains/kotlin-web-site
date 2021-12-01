@@ -169,6 +169,15 @@ val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
+## Execute a code block if null
+
+```kotlin
+val value = ...
+val email = value ?: run { 
+    ... // execute this block if `value` is null
+}
+```
+
 ## Get first item of a possibly empty collection
 
 ```kotlin
