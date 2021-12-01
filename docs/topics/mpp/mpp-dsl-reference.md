@@ -130,7 +130,7 @@ In addition to [common target configuration](#common-target-configuration), `jvm
 Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
 don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
 has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
-Learn how to [include Java sources in JVM compilations](mpp-configure-compilations.md#include-java-sources-in-jvm-compilations).
+Learn more about [Java sources in JVM compilations](mpp-configure-compilations.md#use-java-sources-in-jvm-compilations).
 
 ```kotlin
 kotlin {

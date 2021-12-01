@@ -37,7 +37,7 @@ settings. The download starts automatically.
 3. Unpack the **.zip** file and open it in IntelliJ IDEA.
 
    The project has the following structure:
-   ![The Spring Boot project structure](spring-boot-project-structure.png){width=500}
+   ![The Spring Boot project structure](spring-boot-project-structure.png){width=350}
  
    There are packages and classes under the `main/kotlin` folder that belong to the application. The entry point to
 the application is the `main()` method of the `DemoApplication.kt` file.

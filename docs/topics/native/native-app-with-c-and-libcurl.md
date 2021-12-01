@@ -22,7 +22,7 @@ The tutorial is suitable for both IntelliJ IDEA Community Edition and IntelliJ I
 2. In the panel on the left, select **Kotlin | Native Application**.
 3. Specify the name and select the folder where you'll save your application.
    ![New project. Native application in IntelliJ IDEA](native-file-new.png){width=700}
-3. Click **Next** and then **Finish**.
+4. Click **Next** and then **Finish**.
 
 IntelliJ IDEA will create a new project with the files and folders you need to get you started. It's important to understand that
 an application written in Kotlin/Native can target different platforms if the code does not have platform-specific

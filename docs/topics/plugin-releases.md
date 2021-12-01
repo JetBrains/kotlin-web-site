@@ -19,8 +19,8 @@ You can learn more about new release cadence in this [blog post](https://blog.je
 ## Update to a new release
 
 IntelliJ IDEA and Android Studio suggest updating to a new release once it is out. When you accept the suggestion,
-it automatically updates the Kotlin plugin to the new version. You can check the Kotlin plugin version in **Tools** \| **Kotlin** 
-\| **Configure Kotlin Plugin Updates**.
+it automatically updates the Kotlin plugin to the new version. You can check the Kotlin plugin version in **Tools** | **Kotlin** 
+| **Configure Kotlin Plugin Updates**.
 
 If you are migrating to the new feature release, Kotlin plugin's migration tools will help you with the migration.
 

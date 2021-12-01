@@ -25,11 +25,16 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
 5. In the window that opens, do the following:
    * Keep the default names for the application and shared folders.
    * Select the checkbox to generate sample tests for your project. 
-   * Select **Xcode build phases (packForXcode task)** in the list of iOS framework distribution options. 
+   * Select **Regular framework** in the list of iOS framework distribution options. 
      
    Click **Finish** to create a new project.
 
-    ![Mobile Multiplatform project - additional settings](kmm-project-wizard-3.png)  
+    ![Mobile Multiplatform project - additional settings](kmm-project-wizard-3.png)
+    
+    > If you want to use KMM module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
+    > To learn more about CocoaPods dependencies, see [CocoaPods integration](native-cocoapods.md).
+    >
+    {type="note"}
     
 Now wait while your project is set up. It may take some time to download and set up the required components when you 
 do this for the first time.

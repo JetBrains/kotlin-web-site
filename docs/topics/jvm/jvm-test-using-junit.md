@@ -62,7 +62,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    </tab>
    </tabs>
 
-   > If you created the project using the **Project Wizard**, the task will be added automatically.
+   > If you created the project using the **New Project** wizard, the task will be added automatically.
    > 
    {type="note"}
 
@@ -85,7 +85,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 ## Create a test
 
-1. In IntelliJ IDEA, select **Code** \| **Generate** \| **Test...** for the `Sample` class.
+1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class.
 
    ![Create a test](create-test.png)
 
