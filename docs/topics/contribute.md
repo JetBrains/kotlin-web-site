@@ -18,9 +18,9 @@ If you want to contribute to the Kotlin compiler and standard library, go to [Je
 You can help us by completing [open tasks](https://youtrack.jetbrains.com/issues/KT?q=tag:%20%7BUp%20For%20Grabs%7D%20and%20State:%20Open). 
 Please keep an open line of communication with us because we may have questions and comments on your changes. Otherwise, we won't be able to incorporate your contributions.
 
-## Contribute to the Kotlin plugin
+## Contribute to the Kotlin IDE plugin
 
-Kotlin plugin is a part of the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
+Kotlin IDE plugin is a part of the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/tree/master/plugins/kotlin).
 
 To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https://github.com/JetBrains/intellij-community/) and follow the [instructions on how to contribute](https://github.com/JetBrains/intellij-community/blob/master/plugins/kotlin/CONTRIBUTING.md).
 
@@ -29,7 +29,7 @@ To contribute to the Kotlin plugin, clone the [IntelliJ IDEA repository](https:/
 Besides the standard library that provides core capabilities, Kotlin has a number of additional (kotlinx) libraries that extend its functionality. 
 Each kotlinx library is developed in a separate repository, has its own versioning and release cycle.
 
-If you want to contribute to a kotlinx library (like [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) or
+If you want to contribute to a kotlinx library (such as [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) or
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)) and tools, go to [Kotlin GitHub](https://github.com/Kotlin), choose the repository you are interested in and clone it.
 
 Follow the contribution process described for each library and tool, such as
