@@ -55,7 +55,7 @@ CocoaPods integration|Beta|1.3| |
 KMM plugin for Android Studio|Experimental|0.1|Versioned separately from the language
 expect/actual language feature|Beta|1.2| |
 KDoc syntax|Stable|1.0| |
-Dokka|Alpha|0.1| |
+Dokka|Beta|1.6| |
 Scripting syntax and semantics|Alpha|1.2|
 Scripting embedding and extension API|Beta|1.5
 Scripting IDE support|Experimental|1.2
