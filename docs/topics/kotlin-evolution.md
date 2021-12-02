@@ -128,9 +128,13 @@ As legacy features get removed and bugs fixed, the source language changes, and 
 
 ### Compatibility flags
 
-We provide the -language-version and -api-version flags that make a new version emulate the behavior of an old one, for compatibility purposes. Normally, at least one previous version is supported. This effectively leaves a time span of two full feature release cycles for migration (which usually amounts to about one year). Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md) when this happens.
+We provide the `-language-version X.Y` and `-api-version X.Y` flags that make a new version emulate the behavior of an old
+one, for compatibility purposes. To give you more time for migration, we support the development for two previous language
+versions and for three previous API versions in addition to the latest stable one.
 
-Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently such project can enable the -progressive flag and get such fixes enabled even in incremental releases.
+Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md) when this happens.
+
+Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the -progressive flag and get such fixes enabled even in incremental releases.
 
 All flags are available on the command line as well as [Gradle](gradle.md#compiler-options) and [Maven](maven.md#specifying-compiler-options).
 
