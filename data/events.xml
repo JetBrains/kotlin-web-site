@@ -1,5 +1,56 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>zh</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Jan Mostert</speaker>
+        <title>.BLD() Tech Talks</title>
+        <subject>Achieving cross-platform architectural nirvana with Kotlin</subject>
+        <url>https://www.meetup.com/bld-tech-talks/events/281224568</url>
+        <description>
+            <![CDATA[
+<p>In this session, we look at how companies can share business logic between platforms while only writing code once and then running it on all platforms. We look at how such an architecture reduces risk, increases productivity and how this can be achieved using a single programming language. We look at hybrid approaches that might be more pragmatic in existing teams and the benefits of going this route. We also look at why Kotlin is such a compelling choice for achieving architectural nirvana.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>zh</lang>
+        <startDate>2021-12-08</startDate>
+        <endDate>2021-12-08</endDate>
+        <location>Bonn, Germany</location>
+        <speaker>Jan Nonnen</speaker>
+        <title>Bonn Code</title>
+        <subject>Kotlin for Java Developers</subject>
+        <url>https://www.meetup.com/Bonn-Code/events/282279137</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a modern language targeting the JVM ecosystem and is becoming more and more attractive for Java developers.
+In this talk we will give you a first insight into Kotlin. We are also going to take a look why you as a Java developer should care for this language and what every Java developer should know about Kotlin.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>zh</lang>
+        <startDate>2021-12-08</startDate>
+        <endDate>2021-12-08</endDate>
+        <location>Bonn, Germany</location>
+        <speaker>Ralf Wehner</speaker>
+        <title>Bonn Code</title>
+        <subject>First Time Experience with Micronaut &amp; Kotlin</subject>
+        <url>https://www.meetup.com/Bonn-Code/events/282279137</url>
+        <description>
+            <![CDATA[
+<p>Switching from Java + Dropwizard to a Micronaut + Kotlin stack is the topic of this talk. What does such a transition mean? How much new stuff does a developer need to learn until he/she is similar productive than before?
+I will show you what I like at most in Kotlin for instance the basics like null safety, data classes or scope functions or the simplification when writing lambdas or using Kotest and Mockk for unit tests.
+In addition to that I will explain some powerful and easy to use Micronaut features which covers the usage of OAuth, multi-tenancy and building simple integration tests.<p>
+]]>
+        </description>
+     </event>
+
      <event>
         <lang>zh</lang>
         <startDate>2021-11-19</startDate>
@@ -106,8 +157,8 @@
 
      <event>
         <lang>en</lang>
-        <startDate>2021-02-09</startDate>
-        <endDate>2021-02-09</endDate>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
         <location>Gdansk,Poland</location>
         <speaker>Andrzej Zabost</speaker>
         <title>Tricity Kotlin User Group</title>
@@ -122,8 +173,8 @@
 
      <event>
         <lang>en</lang>
-        <startDate>2021-02-09</startDate>
-        <endDate>2021-02-09</endDate>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
         <location>Gdansk,Poland</location>
         <speaker>Piotr Prus</speaker>
         <title>Tricity Kotlin User Group</title>
