@@ -17,7 +17,7 @@
     content: '';
     width: 100%;
     height: 1px;
-    background: #fff;
+    background: #ffffff;
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -44,11 +44,18 @@
 }
 
 @mixin kto-link-standalone {
-  text-decoration: underline;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #fff;
+  }
+}
 
+.kto-link-standalone {
+  color: #ffffff;
+  @include kto-link-standalone;
 }
 
 .kto-link_theme_dark {
   @include kto-link_theme_dark;
 }
-
