@@ -105,9 +105,6 @@ to your browser. It allows you to build reactive web user interfaces using the c
 It provides a DOM API to describe your website, as well as an experimental set of multiplatform layout primitives.
 Compose for Web also gives you the option to share parts of your UI code and logic across Android, desktop, and web.
 
-Compose for Web is in [Alpha](components-stability.md), which means it hasn't reached the final shape yet, but you can
-already implement a proof-of-concept for your production applications.
-
 You can find more information about Compose Multiplatform on its [landing page](https://www.jetbrains.com/lp/compose-mpp/).
 
 Join the [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channel on [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
