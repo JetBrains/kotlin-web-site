@@ -123,7 +123,7 @@
     width: 16px;
   }
 
-  .compiler-info > span {
+  .compiler-info__target, .compiler-info__version {
     display: none;
   }
 
