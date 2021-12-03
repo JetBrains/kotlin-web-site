@@ -18,6 +18,7 @@ module.exports = (params = {}) => {
 
   return {
     entry: {
+      //shared
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
       'events': './static/js/page/events/index.js',
@@ -143,17 +144,24 @@ module.exports = (params = {}) => {
       ]
     },
 
+    optimization: {
+      runtimeChunk: {
+        name: 'shared',
+      },
+    },
+
     plugins: [
       new ExtractCssPlugin({
         filename: '[name].css'
       }),
 
-      isProduction &&  new CssoWebpackPlugin(),
+      isProduction && new CssoWebpackPlugin(),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+        'window.jQuery': 'jquery',
+        'window.$': 'jquery',
       }),
 
       new webpack.DefinePlugin({
@@ -162,8 +170,6 @@ module.exports = (params = {}) => {
         'process.env.NODE_ENV': JSON.stringify(env)
       })
     ].filter(Boolean),
-
-    stats: 'minimal',
 
     devServer: {
       port: 9000,

@@ -14,11 +14,65 @@
     margin-bottom: 30px;
   }
 
-  .executable-fragment.darcula {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+  &__run {
+    &, &:hover, &:active, &:focus {
+      color: #fff;
+      background: transparent;
+      box-shadow: 0 0 0 transparent;
+      border: 0 none transparent;
+      text-shadow: 0 0 0 transparent;
+      outline: 0 none transparent;
+    }
+
+    & {
+      display: none;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 24px;
+      margin-right: 16px;
+
+      .page_js_yes & {
+        display: flex;
+
+        &_hide {
+          display: none;
+        }
+      }
+
+      &, &:hover, &:active, &:focus {
+        background: #7F52FF url("./images/run_icon.svg") 29px center no-repeat;
+      }
+
+      align-items: center;
+      box-sizing: border-box;
+      padding: 8px 24px 8px 56px;
+      border-radius: 24px;
+
+      @media (max-width: 720px) {
+        &, &:hover, &:active, &:focus {
+          background-position: center center;
+          border-radius: 0 8px 0 0;
+          padding: 0;
+          text-indent: -9999px;
+          margin-right: 0;
+          height: 48px;
+          min-width: 48px;
+          width: 48px;
+        }
+      }
+    }
+  }
+
+  .executable-fragment.darcula,
+  .sample[theme=darcula] {
+    background: #1b1b1b;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
     border: 0 none transparent;
-    min-height: 300px;
+  }
+
+  .sample[theme=darcula] {
+    padding: 20px 0 0 0;
   }
 
   .cm-s-darcula.CodeMirror,
@@ -29,19 +83,15 @@
   .CodeMirror pre.CodeMirror-line {
     font-size: 20px;
     line-height: 30px;
+
+    @media (max-width: 1024px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .run-button {
-    margin-top: 10px;
-    margin-right: 10px;
-    background: #7F52FF url("./images/run_icon.svg") center center no-repeat;
-    height: 36px;
-    width: 36px;
-    border-radius: 50%;
-    padding: 1.5 * $unit;
-    &:active {
-      transform: scale(0.9, 0.9);
-    }
+    display: none;
   }
 
   .ERRORgutter, .WARNINGgutter {
@@ -69,10 +119,18 @@
   .console-close {
     top: 5px;
     right: 5px;
+    height: 16px;
+    width: 16px;
   }
 
-  .compiler-info {
+  .compiler-info__target, .compiler-info__version {
     display: none;
+  }
+
+  .compiler-info__open-editor-link {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   & .is_hidden {
@@ -212,14 +270,32 @@
     border-radius: 100%;
     opacity: 0.2;
   }
+
+  .theme-darcula-wrapper .executable-fragment-wrapper__shorter {
+    &, &:hover, &:active {
+      background-image: url("images/shorter.svg");
+      background-color: #1b1b1b;
+      border: 0 none transparent;
+      border-radius: 27px;
+      height: 40px;
+      width: 40px;
+    }
+  }
 }
 
 .kotlin-overview-code-example-tabs {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #27282C;
-  font-size: 0;
+
+  &__group {
+    display: flex;
+    align-items: center;
+    background-color: #1b1b1b;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
   &__button {
     align-self: center;
@@ -247,13 +323,22 @@
     display: inline-block;
     cursor: pointer;
 
-    color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, 0.6);
 
     font-family: Inter, Arial, sans-serif;
     font-size: 20px;
     line-height: 32px;
 
+    @media (max-width: 720px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    font-style: normal;
+    font-weight: normal;
+
     margin: 0 0 0 32px;
+    padding-top: 16px;
     padding-bottom: 8px;
 
     z-index: 2;
@@ -287,7 +372,25 @@
   }
 
   .overview-group {
-    margin-bottom: 32px;
+    display: flex;
+    flex-grow: 1;
+    padding: 0 16px;
+    overflow-x: scroll;
+
+    .page_js_yes & {
+      overflow: hidden;
+    }
+
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+
+    .tab-text {
+      white-space: nowrap;
+    }
 
     .overview-examples {
       display: flex !important;
@@ -304,13 +407,6 @@
         margin-left: 1 * $unit;
         background: url("./images/external-link-marker_fff.svg") no-repeat;
         background-size: 10px;
-      }
-    }
-
-    @media (max-width: $breakpoint-xs) {
-      & {
-        display: flex;
-        flex-wrap: wrap;
       }
     }
   }

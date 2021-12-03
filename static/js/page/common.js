@@ -28,6 +28,10 @@ function initSamples () {
       callback: function(from, to) { $(el).trigger('kotlinPlaygroundMount', { from, to }) }
     };
 
+    const heightMobile = window.innerWidth <= 640 && el.getAttribute('data-mobile-shorter-height');
+    el.removeAttribute('data-mobile-shorter-height')
+    if (heightMobile) el.setAttribute('data-shorter-height', heightMobile);
+
     kotlinPlayground(el, kotlinPlaygroundEvents);
   });
 }

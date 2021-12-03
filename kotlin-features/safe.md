@@ -1,23 +1,23 @@
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" mode="kotlin" theme="kotlin-docs" auto-indent="false">
 ``` kotlin
-/*
- Get rid of those pesky NullPointerExceptions,
- you know, The Billion Dollar Mistake
-*/
+fun reply(condition: Boolean): String? =          // Nullability is part of Kotlin’s type system
+   if (condition) "I'm fine" else null
 
-var output: String
-output = null   // Compilation error
+fun error(): Nothing =                            // Always throw an exception
+   throw IllegalStateException("Shouldn't be here")
 
-// Kotlin protects you from mistakenly operating on nullable types
+fun main() {
+   val condition = true                        // Try replacing `true` with `false` and run the sample!
+   val message = reply(condition)              // The result is nullable
+   // println(message.uppercase())             // This line doesn't compile
+   println(message?.replace("fine", "okay"))   // Access a nullable value in a safe manner
+   if (message != null) {                      // If you check that the type is right,
+   println(message.uppercase())                // the compiler will smart-cast it for you
+}
 
-val name: String? = null    // Nullable type
-println(name.length)        // Compilation error
-
-// And if you check a type is right, the compiler will auto-cast it for you
-
-fun calculateTotal(obj: Any) {
-    if (obj is Invoice)
-        obj.calculateTotal()
+val nonNull: String =                             // If the null-case throws an error,
+   reply(condition = true) ?: error()             // Kotlin can infer that the result is non-null
+   println(nonNull)
 }
 ```
 </div>

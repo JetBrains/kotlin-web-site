@@ -1,5 +1,7 @@
 import $ from 'jquery';
+import initJScroll from './jquery.jscroll';
 import './index.scss';
+import './wh.theme.scss';
 
 const initJQTabs = function () {
     const $tabsEl = $('.kjq-tabs');
@@ -26,7 +28,10 @@ const initJQTabs = function () {
     $tabsEl.addClass('kjq-tabs_inited');
 
     $tabsWrapper.on('click', '.kjq-tabs-tab__tabs-item', function(e) {
-        const index = $(e.target).index();
+        const $target = $(e.target);
+        const index = $target.index();
+
+        scrollTabToCenter($tabsWrapper, $target);
 
         $tabs.each(function(i, el) {
             const $el = $(this);
@@ -44,9 +49,23 @@ const initJQTabs = function () {
             $el.toggleClass('kjq-tabs-tab__tabs-item_active', $el.index() === index);
         });
     });
+
+    $('.kjq-tabs-tab__tabs').jScroll();
+}
+
+function scrollTabToCenter($container, $currentTab) {
+    const containerLeft =  $container.scrollLeft();
+    const containerWidth = $container.width() / 2;
+    const tabLeft = $currentTab.position().left;
+    const tabWidth = $currentTab.width() / 2;
+
+    $container.animate({ scrollLeft: containerLeft + tabLeft - containerWidth + tabWidth }, 500);
 }
 
 const initTabs = function () {
+    const $tabWrapper = $('.overview-group');
+    $tabWrapper.jScroll();
+
     const $tabs = $('.js-tab');
 
     $tabs.on('click', function () {
@@ -64,11 +83,14 @@ const initTabs = function () {
             if (tabId === currentTabId) {
                 $currentTab.addClass('is_active');
                 $tabContentNode.removeClass('is_hidden');
+                scrollTabToCenter($tabWrapper, $currentTab)
             } else {
                 $currentTab.removeClass('is_active');
                 $tabContentNode.addClass('is_hidden');
             }
         });
+
+        $tabs.trigger('tabs-change', tabId)
     });
 };
 
@@ -146,9 +168,46 @@ const initAnchors = function () {
     })
 };
 
+function queryPlayground(selector) {
+    const instanceNode = $(selector)[0];
+    return instanceNode && instanceNode.KotlinPlayground && instanceNode.KotlinPlayground.view;
+}
+
+const SCROLL_OPTIONS = {
+    behavior: 'smooth',
+    block: 'end',
+    inline: 'nearest'
+};
+
+function initTabsRunButton() {
+    $('.js-tab').on('tabs-change', function(e, tabId) {
+        const instance = queryPlayground(`#${tabId} > .sample`);
+
+        $(`.kotlin-code-examples-section__run`)
+            .toggleClass('kotlin-code-examples-section__run_hide', Boolean(instance.state.highlightOnly));
+    });
+
+    $('.kotlin-code-examples-section__run').on('click', function () {
+        const $node = $(`.kotlin-overview-code-example:not(.is_hidden) > .sample`);
+        const instance = queryPlayground($node);
+
+        $node.one('kotlinPlaygroundRun', function() {
+            const output = $node.next().find('.output-wrapper')[0];
+
+            if (output.getBoundingClientRect().bottom > window.innerHeight) {
+                output.scrollIntoView(SCROLL_OPTIONS);
+            }
+        });
+
+        if (instance) instance.execute();
+    });
+}
+
 $(function () {
+    initJScroll($);
     initPopups();
     initTabs();
     initJQTabs();
     initAnchors();
+    initTabsRunButton()
 });

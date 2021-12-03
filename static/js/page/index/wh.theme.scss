@@ -1,0 +1,199 @@
+.theme-kotlin-docs-wrapper {
+
+  .executable-fragment {
+    border: 0 none transparent;
+  }
+
+  .executable-fragment-wrapper {
+    margin-bottom: 60px;
+  }
+
+  .compiler-info__open-editor-link {
+    text-decoration: none;
+  }
+
+  .cm-s-kotlin-docs {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+
+    &,
+    &.CodeMirror pre.CodeMirror-line,
+    &.CodeMirror pre.CodeMirror-line-like,
+    &.CodeMirror .CodeMirror-linenumber {
+      color: #999;
+
+      font-size: 15px;
+      line-height: 24px;
+    }
+
+    &.CodeMirror {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+
+      background: #f5f5f5;
+    }
+  }
+
+  .js-code-output-executor,
+  .output-wrapper {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    background: #F4F4F4;
+  }
+
+  .js-code-output-executor {
+    min-height: 8px;
+
+    border: 0;
+  }
+
+  .output-wrapper {
+    border-top: 1px solid  rgba(39, 40, 44, 0.2);
+    border-bottom: 0;
+  }
+
+  .run-button {
+    top: 8px;
+    right: 9px;
+
+    width: 24px;
+    height: 24px;
+
+    background-image: url('./images/kotlin-docs-run.svg');
+    background-position: center;
+    background-size: 24px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .code-area .fold-button {
+    width: 24px;
+    height: 24px;
+
+    background-image: url('./images/kotlin-docs-fold.svg');
+    background-position: center;
+    background-size: 24px;
+
+    &:hover {
+      background-image: url('./images/kotlin-docs-fold-hover.svg');
+    }
+  }
+
+  .code-area._unfolded .fold-button {
+    top: -13px;
+    left: calc(50% - 11px);
+
+    transform: rotate(-45deg);
+  }
+
+  .console-close {
+    top: 7px;
+    right: 6px;
+
+    opacity: 0.75;
+
+    width: 24px;
+    height: 24px;
+
+    cursor: pointer;
+
+    background: url('./images/kotlin-docs-close.svg') 50% no-repeat;
+    background-size: 24px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .console-icon.attention,
+  .ERRORgutter,
+  .WARNINGgutter {
+    width: 16px;
+    height: 16px;
+
+    background: url('./images/kotlin-docs-error.svg') 50% no-repeat;
+    background-size: 16px;
+  }
+
+  .console-icon.attention {
+    margin-left: -20px;
+
+    background-position: -1px -1px;
+  }
+
+  .ERRORgutter,
+  .WARNINGgutter {
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .WARNINGgutter {
+    background-image: url('./images/kotlin-docs-warning.svg');
+  }
+
+  .errors-and-warnings-gutter {
+    width: 24px;
+  }
+
+  .code-output {
+    padding-bottom: 15px;
+    padding-left: 30px;
+  }
+
+  div[label]:hover::after {
+    display: inline-flex;
+
+    margin-top: -1rem;
+    margin-left: 1rem;
+    padding: 4px 6px;
+
+    border-radius: 2px;
+
+    content: attr(label);
+    white-space: pre;
+
+    color: #fff;
+    background: #3C3D40;
+
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .CodeMirror-linebackground.unmodifiable-line {
+    background: rgba(39, 40, 44, 0.05);
+  }
+
+  .cm-s-kotlin-docs .CodeMirror-lines { margin: 0; padding: 12px 0; }
+  .cm-s-kotlin-docs .CodeMirror-gutters { border: 0 none transparent; }
+
+  .cm-s-kotlin-docs .cm-type { color: #27282c; }
+
+  .cm-s-kotlin-docs span.cm-keyword {
+    color: #07a;
+
+    font-weight: 700;
+  }
+  .cm-s-kotlin-docs span.cm-operator { color: #9a6e3a; }
+  .cm-s-kotlin-docs span.cm-number { color: #905; }
+  .cm-s-kotlin-docs span.cm-comment { color: #708090; }
+
+  .cm-s-kotlin-docs span.cm-def { color: #27282c; /* #dd4a68; */ }
+  .cm-s-kotlin-docs span.cm-property { color: #27282c; }
+
+  .cm-s-kotlin-docs .cm-variable { color: #27282c; }
+  .cm-s-kotlin-docs .cm-variable-2 { color: #27282c; }
+  .cm-s-kotlin-docs .cm-variable-3 { color: #27282c; }
+
+  .cm-s-kotlin-docs span.cm-string {
+    color: #690;
+
+    font-weight: 700;
+  }
+  .cm-s-kotlin-docs span.cm-string-2 {
+    color: #690;
+
+    font-weight: 700;
+  }
+}
