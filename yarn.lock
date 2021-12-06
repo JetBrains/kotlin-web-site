@@ -1060,14 +1060,6 @@
     core-js-pure "^3.19.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime-corejs3@^7.13.10":
-  version "7.14.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.14.0.tgz#6bf5fbc0b961f8e3202888cb2cd0fb7a0a9a3f66"
-  integrity sha512-0R0HTZWHLk6G8jIk0FtoX+AatCtKnswS98VhXwGImFc759PJRp4Tru0PQYZofyijTFUr+gT8Mu7sgXVJLQ0ceg==
-  dependencies:
-    core-js-pure "^3.0.0"
-    regenerator-runtime "^0.13.4"
-
 "@babel/runtime-corejs3@^7.14.0":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.15.4.tgz#403139af262b9a6e8f9ba04a6fdcebf8de692bf1"
@@ -1140,10 +1132,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@2.8.1":
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.8.1.tgz#edd7a2f11472883c1bc21d9ee69b0d567c89616a"
-  integrity sha512-sNLymaJVtOKvTcZgAxUWrG7HcT08ab34+7aBSxT8MG25yULb3DSXiu0Ps7SKSLf4HfQbt5BaHCYPRbHSM2uaaw==
+"@jetbrains/kotlin-web-site-ui@2.9.1":
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.9.1.tgz#8c71aa0d535c621030c5f4758351603dd1257850"
+  integrity sha512-4dN5X8Tx3NKoVga7d436lOfiYgzd/iOpPvCJdBDNAh80C50RiTgaT6EV8gLT7WLjmwg9NL4lKDWg195Vgp2YzA==
 
 "@juggle/resize-observer@3.3.0":
   version "3.3.0"
@@ -1211,10 +1203,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/colors@0.0.4", "@rescui/colors@^0.0.4":
+"@rescui/colors@0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.4.tgz#d844dd5beba87cdaf2580e3c918050ab24b23076"
   integrity sha512-pgex7fC+IeSkGnDU5PDDbvRPrzV1JIg2GXpc7VwK0E54q7wn3cL4+2QwfkLik0ZJvd4x1txhbGi8bQ/o7SgN1g==
+
+"@rescui/colors@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.5.tgz#13508ed9e5fc5020059010dc872c54af5af31251"
+  integrity sha512-deucBnfXQTAo42Se458PVB1+M+Ocif9wdvsq1r88DgYKxAoYWX+gyCWPxGsAj66p/RtWlBxnZh3QNXozwDF/4w==
 
 "@rescui/icons@0.3.0", "@rescui/icons@^0.3.0":
   version "0.3.0"
@@ -1285,22 +1282,22 @@
     core-js "^3.9.1"
     react-popper "^2.2.5"
 
-"@rescui/typography@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.2.1.tgz#0496662a58097b6964f8be426416105ca532a9d7"
-  integrity sha512-RgpCthrZhTcljqmi+iz3FTCblZEXZVmFtBma2zrZfzSiIG6nbdiVQNV25bfxcQgRQGqSSg4ftJBkjj+21aO4kg==
+"@rescui/typography@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.3.0.tgz#e0653a9492980c5837c248047f4e17c30a3e26b5"
+  integrity sha512-vfpWUCUA2+BtURPAAQGl/NgbrUOdeCjIOT3I9t0/TJDG+CDUSnoQTijlyknPebMhu4ThsxxhzOpirPyrA42YuA==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/colors" "^0.0.4"
+    "@rescui/colors" "^0.0.5"
     bem-cn-fast "^1.0.2"
     inter-ui "^3.15.1"
 
-"@rescui/ui-contexts@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@rescui/ui-contexts/-/ui-contexts-0.0.2.tgz#899a9077b15fafae027fd277a89d21b74328f10c"
-  integrity sha512-wh+NZdX4iu4Nz/dj2zjqQyBFui2IJEKw2UB5YeqgAKHAa6WcyfVymcBG5hxHsjXP5SrBoSrEsOBx5WZQw+lDlg==
+"@rescui/ui-contexts@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@rescui/ui-contexts/-/ui-contexts-0.1.3.tgz#82bc7e14ba7b3b99a1aed4cff891e03312cf4b87"
+  integrity sha512-9+2GyMCDVKGMC2KknsZmoiWgOBWAtGZ4xIoTUL4AN/DwfqIDCQ4vCO7SKcj1B1f6PgcFVJFyzTpohp8TcZsXdA==
   dependencies:
-    "@babel/runtime-corejs3" "^7.13.10"
+    "@babel/runtime-corejs3" "^7.14.0"
     core-js "^3.9.1"
 
 "@rollup/plugin-buble@0.21.3":
@@ -2304,11 +2301,6 @@ core-js-compat@^3.16.0, core-js-compat@^3.16.2:
   dependencies:
     browserslist "^4.17.5"
     semver "7.0.0"
-
-core-js-pure@^3.0.0:
-  version "3.12.1"
-  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.12.1.tgz#934da8b9b7221e2a2443dc71dfa5bd77a7ea00b8"
-  integrity sha512-1cch+qads4JnDSWsvc7d6nzlKAippwjUlf6vykkTLW53VSV+NkE6muGBToAjEA8pG90cSfcud3JgVmW2ds5TaQ==
 
 core-js-pure@^3.16.0:
   version "3.18.2"
