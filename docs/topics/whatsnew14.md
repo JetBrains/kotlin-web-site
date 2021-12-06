@@ -9,7 +9,7 @@ Below you will find the list of the most important changes in Kotlin 1.4.0.
 
 Kotlin 1.4.0 comes with a variety of different language features and improvements. They include:
 
-* [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)*
+* [SAM conversions for Kotlin interfaces](#sam-conversions-for-kotlin-interfaces)
 * [Explicit API mode for library authors](#explicit-api-mode-for-library-authors)
 * [Mixing named and positional arguments](#mixing-named-and-positional-arguments)
 * [Trailing comma](#trailing-comma)
@@ -1452,7 +1452,7 @@ stable. Libraries for other serialization formats remain experimental, along wit
 We have significantly reworked the API for JSON serialization to make it more consistent and easier to use. From now on,
 we'll continue developing the JSON serialization API in a backward-compatible manner.
 However, if you have used previous versions of it, you'll need to rewrite some of your code when migrating to 1.0.0-RC.
-To help you with this, we also offer the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md) –
+To help you with this, we also offer the **[Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md)** –
 the complete set of documentation for `kotlinx.serialization`. It will guide you through the process of using the most
 important features and it can help you address any issues that you might face.
 
@@ -1519,7 +1519,7 @@ to help you decide which suggestions to accept and which to ignore.
 ![Migration inspections](migration-inspection-wn.png)
 
 Kotlin 1.4.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and therefore can 
-bring incompatible changes to the language. Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.4](compatibility-guide-14.md).
+bring incompatible changes to the language. Find the detailed list of such changes in the **[Compatibility Guide for Kotlin 1.4](compatibility-guide-14.md)**.
 
 <!-- ### Migrating multiplatform projects
 

@@ -10,13 +10,13 @@ Ensure that you have the latest version of the KMM plugin!
 Android Studio will suggest updating to a new KMM plugin release as soon as it is available. If you accept the suggestion, it will automatically update the KMM plugin to the latest version. 
 You’ll need to restart Android Studio to complete the plugin installation.
 
-You can check the KMM plugin version and update the plugin manually in **Preferences** | **Plugins**.
+You can check the KMM plugin version and update the plugin manually in **Settings/Preferences** | **Plugins**.
 
 You need a compatible version of Kotlin for the KMM plugin to work correctly. You can find compatible versions in the [release details](#release-details).
-You can check your Kotlin version and update it in **Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Plugin Updates**.
+You can check your Kotlin version and update it in **Settings/Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**.
 
 >If you do not have a compatible version of Kotlin installed, the KMM plugin will be disabled. You will need to update your Kotlin 
->version, and then enable the KMM plugin in **Preferences** | **Plugins**.
+>version, and then enable the KMM plugin in **Settings/Preferences** | **Plugins**.
 >
 {type="note"}
 
@@ -35,6 +35,35 @@ Release highlights
 <th>
 Compatible Kotlin version
 </th>
+</tr>
+<tr>
+<td>
+
+**0.3.0**
+
+Released: 16 November, 2021
+
+</td>
+<td>
+
+* [New KMM library project wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
+* Support for the new type of KMM library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
+* Enabled [HMPP](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually) for new KMM projects.
+* Support for [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
+* [Enabled KMM plugin wizards on non-Mac machines](https://youtrack.jetbrains.com/issue/KT-48614).
+* [Support for subfolders in the KMM module wizard](https://youtrack.jetbrains.com/issue/KT-47923).
+* [Support for Xcode `Assets.xcassets` file](https://youtrack.jetbrains.com/issue/KT-49571).
+* [Fixed the plugin classloader exception](https://youtrack.jetbrains.com/issue/KT-48103).
+* Updated the CocoaPods Gradle Plugin template.
+* Kotlin/Native debugger type evaluation improvements.
+* Fixed iOS device launching with Xcode 13.
+
+</td>
+<td>
+
+* [Kotlin 1.6.0](releases.md#release-details)
+
+</td>
 </tr>
 <tr>
 <td>
@@ -73,7 +102,7 @@ Released: June 10, 2021
 <td>
 
 * Compatibility with Android Studio Bumblebee Canary 1.
-* Support for [Kotlin 1.5.20](whats-new-in-kotlin-for-kmm.md#kotlin-1-5-20-for-kmm): using the new framework-packing task for Kotlin/Native in the Project Wizard.
+* Support for [Kotlin 1.5.20](whatsnew1520.md): using the new framework-packing task for Kotlin/Native in the Project Wizard.
 
 </td>
 <td>

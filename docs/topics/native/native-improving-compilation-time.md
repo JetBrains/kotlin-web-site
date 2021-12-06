@@ -61,21 +61,12 @@ Here are some recommendations for configuring Gradle for better compilation perf
     * **Local build cache**: Add `org.gradle.caching=true` to your `gradle.properties` or run with `--build-cache` on the command line.
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
 
-* **Use the compiler caches**. Starting from 1.5.0-M1, `linuxX64` and `iosArm64` targets have experimental opt-in support
-  for compiler caches. They improve compilation times for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
-  To enable the compiler caches, add `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
-
-  The following targets already have the compiler caches enabled by default:
-  * `iosX64`
-  * `iosSimulatorArm64`
-  * `macosX64`
-  * `macosArm64`
-
 * **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
   caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
   features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
 
+## Windows OS configuration
 
-
+* **Configure Windows Security**. Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory, which is located in `%\USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).

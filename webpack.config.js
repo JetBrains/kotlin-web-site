@@ -12,19 +12,19 @@ module.exports = (params = {}) => {
   const isDevServer = process.env.WEBPACK_SERVE === 'true';
   const sourcemaps = params.sourcemaps || isDevelopment;
 
-  const siteHost = 'localhost:5000';
+  const siteHost = 'localhost:8080';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
   return {
     entry: {
+      //shared
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
       'events': './static/js/page/events/index.js',
       'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',
       'community': './static/js/page/community/community.js',
-      'education': './static/js/page/education/education.js',
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
@@ -111,9 +111,15 @@ module.exports = (params = {}) => {
               loader: 'svgo-loader',
               options: {
                 plugins: [
-                  {removeTitle: true},
-                  {convertPathData: false},
-                  {removeScriptElement:true}
+                  {
+                    name: 'preset-default',
+                    params: {
+                      overrides: {
+                        convertPathData: false,
+                      },
+                    },
+                  },
+                  'removeScriptElement'
                 ]
               }
             }
@@ -138,17 +144,24 @@ module.exports = (params = {}) => {
       ]
     },
 
+    optimization: {
+      runtimeChunk: {
+        name: 'shared',
+      },
+    },
+
     plugins: [
       new ExtractCssPlugin({
         filename: '[name].css'
       }),
 
-      isProduction &&  new CssoWebpackPlugin(),
+      isProduction && new CssoWebpackPlugin(),
 
       new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+        'window.jQuery': 'jquery',
+        'window.$': 'jquery',
       }),
 
       new webpack.DefinePlugin({
@@ -157,8 +170,6 @@ module.exports = (params = {}) => {
         'process.env.NODE_ENV': JSON.stringify(env)
       })
     ].filter(Boolean),
-
-    stats: 'minimal',
 
     devServer: {
       port: 9000,

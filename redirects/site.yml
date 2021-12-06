@@ -27,3 +27,6 @@
 
 - from: /docs/reference/compatibility.html
   to: /docs/reference/evolution/components-stability.html
+
+- from: /kotlin-premier-event-2021/
+  to: https://pages.jetbrains.com/kotlin-premier-event-2021/website

@@ -496,7 +496,7 @@ plugins {
 }
 
 kotlin {
-    def xcf = XCFrameworkConfig(project)
+    def xcf = new XCFrameworkConfig(project)
 
     ios {
         binaries.framework {
@@ -555,7 +555,7 @@ Previously, we published the [migration guide for the JS IR backend](js-ir-migra
 
 Kotlin 1.5.30 brings JavaScript source map generation for the Kotlin/JS IR backend. This will improve the Kotlin/JS debugging experience when the IR backend is enabled, with full debugging support that includes breakpoints, stepping, and readable stack traces with proper source references.
 
-Learn more about [how to debug Kotlin/JS in the browser or IntelliJ IDEA Ultimate](js-debugging.md).
+Learn how to [debug Kotlin/JS in the browser or IntelliJ IDEA Ultimate](js-debugging.md).
 
 ## Gradle
 
@@ -580,7 +580,7 @@ A Java toolchain:
   {type="warning"}
 
 * Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn’t set the `jvmTarget` option explicitly.
-  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility).
+  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
 
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 

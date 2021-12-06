@@ -91,7 +91,7 @@ about the current context object and the value of `this` or `it`.
 
 Because the scope functions are all quite similar in nature, it's important to understand the differences between them.
 There are two main differences between each scope function: 
-* The way to refer to the context object
+* The way to refer to the context object.
 * The return value.
 
 ### Context object: this or it
@@ -106,13 +106,13 @@ fun main() {
     val str = "Hello"
     // this
     str.run {
-        println("The receiver string length: $length")
-        //println("The receiver string length: ${this.length}") // does the same
+        println("The string's length: $length")
+        //println("The string's length: ${this.length}") // does the same
     }
 
     // it
     str.let {
-        println("The receiver string's length is ${it.length}")
+        println("The string's length is ${it.length}")
     }
 }
 ```
@@ -338,7 +338,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 `let` is often used for executing a code block only with non-null values. To perform actions on a non-null object, use
-the safe call operator `?.` on it and call `let` with the actions in its lambda.
+the [safe call operator `?.`](null-safety.md#safe-calls) on it and call `let` with the actions in its lambda.
 
 ```kotlin
 fun processNonNullString(str: String) {}
@@ -461,7 +461,7 @@ fun main() {
         Regex("[$sign]?[$digits$hexDigits]+")
     }
     
-    for (match in hexNumberRegex.findAll("+1234 -FFFF not-a-number")) {
+    for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
         println(match.value)
     }
 //sampleEnd
@@ -498,7 +498,7 @@ Having the receiver as the return value, you can easily include `apply` into cal
 **The context object** is available as an argument (`it`). **The return value** is the object itself.
 
 `also` is good for performing some actions that take the context object as an argument. Use `also` for actions that need
-a reference rather to the object than to its properties and functions, or when you don't want to shadow `this` reference
+a reference to the object rather than its properties and functions, or when you don't want to shadow `this` reference
 from an outer scope.
 
 When you see `also` in the code, you can read it as “_and also do the following with the object._”

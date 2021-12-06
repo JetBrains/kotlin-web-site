@@ -133,6 +133,152 @@ sourceSets {
 </tab>
 </tabs>
 
+### Check for JVM target compatibility of related compile tasks
+
+In the build module, you may have related compile tasks, for example:
+* `compileKotlin` and `compileJava`
+* `compileTestKotlin` and `compileTestJava`
+
+> `main` and `test` source set compile tasks are not related.
+>
+{type="note"}
+
+For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in the `kotlin` extension
+and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
+in the `java` extension cause incompatibility. For example:
+the `compileKotlin` task has `jvmTarget=1.8`, and
+the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
+
+Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
+* `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
+* `error` – the plugin will fail the build.
+* `ignore` – the plugin will skip the check and won't produce any messages.
+
+### Set custom JDK home
+
+By default, Kotlin compile tasks use the current Gradle JDK. 
+If you need to change the JDK by some reason, you can set the JDK home in the following ways:
+* For Gradle 6.7 and later – with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+* For earlier Gradle versions without Java toolchains (up to 6.6) – with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
+
+> The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
+>
+{type="warning"}
+
+When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
+use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
+and ignore the `kapt.workers.isolation` property.
+
+### Gradle Java toolchains support
+
+Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
+Using this feature, you can:
+* Use a JDK and a JRE that are different from the Gradle ones to run compilations, tests, and executables.
+* Compile and test code with a not-yet-released language version.
+
+With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
+Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support)
+for tasks that depend on a major JDK version.
+
+The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
+The Kotlin compiler always uses the JDK the Gradle daemon is running on.
+A Java toolchain:
+* Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
+  if the user doesn't set the `jvmTarget` option explicitly.
+  If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
+  Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
+* Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
+
+Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
+}
+```
+
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
+
+You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
+
+```kotlin
+java {
+    toolchain {
+      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
+}
+```
+
+To set any JDK (even local) for the specific task, use the Task DSL.
+
+### Setting JDK version with the Task DSL
+
+If you use the a Gradle version earlier than 6.7, there is no [Java toolchains support](#gradle-java-toolchains-support). 
+You can use the Task DSL that allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
+At the moment, these tasks are `KotlinCompile` and `KaptTask`.
+If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_VERSION>` placeholder in your build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val service = project.extensions.getByType<JavaToolchainService>()
+val customLauncher = service.launcherFor {
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+}
+project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.toolchain.use(customLauncher)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
+Provider<JavaLauncher> customLauncher = service.launcherFor {
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+}
+tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
+    task.kotlinJavaToolchain.toolchain.use(customLauncher)
+}
+```
+
+</tab>
+</tabs>
+
+Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
+
+```kotlin
+tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.jdk.use(
+        "/path/to/local/jdk", // Put a path to your JDK
+        JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
+    )
+}
+```
+
 ## Targeting JavaScript
 
 When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
@@ -662,15 +808,25 @@ Here is a complete list of options for Gradle tasks:
 |------|-------------|-----------------|--------------|
 | `allWarningsAsErrors` | Report an error if there are any warnings |  | false |
 | `suppressWarnings` | Don't generate warnings |  | false |
-| `verbose` | Enable verbose logging output |  | false |
+| `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html) |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments |  | [] |
 
 ### Attributes common to JVM and JS
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4", "1.5", "1.6" (EXPERIMENTAL) |  |
+| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5", "1.6", "1.7" (EXPERIMENTAL) |  |
+
+### Attributes specific to JVM
+
+| Name | Description | Possible values |Default value |
+|------|-------------|-----------------|--------------|
+| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
+| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16", "17" | "%defaultJvmTargetVersion%" |
+| `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
+| `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
 
 ### Attributes specific to JS
 
@@ -687,172 +843,6 @@ Here is a complete list of options for Gradle tasks:
 | `sourceMapPrefix` | Add the specified prefix to paths in the source map |  |  |
 | `target` | Generate JS files for specific ECMA version | "v5" | "v5" |
 | `typedArrays` | Translate primitive arrays to JS typed arrays |  | true |
-
-### Attributes specific to JVM
-
-| Name | Description | Possible values |Default value |
-|------|-------------|-----------------|--------------|
-| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.6" (DEPRECATED), "1.8", "9", "10", "11", "12", "13", "14", "15", "16" | "%defaultJvmTargetVersion%" |
-| `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
-| `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
-
-#### Check for JVM target compatibility
-
-In the build module, you may have related compile tasks, for example:
-* `compileKotlin` and `compileJava`
-* `compileTestKotlin` and `compileTestJava`
-
-> `main` and `test` source set compile tasks are not related.
->
-{type="note"}
-
-For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in the `kotlin` extension
-and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension cause incompatibility. For example:
-the `compileKotlin` task has `jvmTarget=1.8`, and
-the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
-
-Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
-* `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
-* `error` – the plugin will fail the build.
-* `ignore` – the plugin will skip the check and won't produce any messages.
-
-#### Set custom JDK home
-
-> [Setting `jdkHome` option directly is deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
->
-{type="warning"}
-
-You can set the JDK home in the following ways:
-* For Gradle from 6.1 to 6.6 with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
-* For Gradle 6.7 and later with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
-
-When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
-use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
-and ignore the `kapt.workers.isolation` property.
-
-As before, if you don't set the toolchain or the `jdkHome` option, the Kotlin/JVM compilation uses the current user's JDK.
-
-> By default, Kotlin compile tasks use the current Gradle JDK.
->
-{type="note"}
-
-#### Gradle Java toolchains support
-
-Gradle 6.7 introduced ["Java toolchains support"](https://docs.gradle.org/current/userguide/toolchains.html).
-Using this feature, you can:
-* Use a JDK and a JRE that are different from the Gradle ones to run compilations, tests, and executables.
-* Compile and test code with a not-yet-released language version.
-
-With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
-Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support)
-for tasks that depend on a major JDK version.
-
-The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
-The Kotlin compiler always uses the JDK the Gradle daemon is running on.
-A Java toolchain:
-* Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
-  if the user doesn't set the `jvmTarget` option explicitly.
-  If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
-  Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility).
-* Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
-
-Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
-    }
-}
-```
-
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
-
-You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
-
-```kotlin
-java {
-    toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
-    }
-}
-```
-
-To set any JDK (even local) for the specific task, use the Task DSL.
-
-#### Setting JDK version with the Task DSL
-
-The Task DSL allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
-At the moment, these tasks are `KotlinCompile` and `KaptTask`.
-If you want Gradle to search for the major JDK version, replace the <MAJOR_JDK_VERSION> placeholder in your build script:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-val service = project.extensions.getByType<JavaToolchainService>()
-val customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-}
-project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-    .configureEach {
-        it.kotlinJavaToolchain.toolchain.use(customLauncher)
-    }
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
-Provider<JavaLauncher> customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-}
-project.tasks
-    .matching { it instanceof UsesKotlinJavaToolchain && it.name == 'compileKotlin' }
-    .configureEach {
-        it.kotlinJavaToolchain.toolchain.use(customLauncher)
-    }
-```
-
-</tab>
-</tabs>
-
-Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
-
-```kotlin
-project.tasks
-    .matching { it is UsesKotlinJavaToolchain && it.name == "compileKotlin" }
-    .configureEach {
-        it.kotlinJavaToolchain.jdk.use(
-            "/path/to/local/jdk", // Put a path to your JDK
-            JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
-        )
-    }
-```
 
 ## Generating documentation
 
@@ -935,10 +925,8 @@ Each of the options in the following list overrides the ones that came before it
   <tab title="Kotlin" group-key="kotlin">
   
   ```kotlin
-  tasks
-      .matching { it.name == "compileKotlin" && it is CompileUsingKotlinDaemon }
-      .configureEach { 
-          (this as CompileUsingKotlinDaemon).kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
+  tasks.withType<CompileUsingKotlinDaemon>().configureEach {
+      kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
       }
   ```
   
@@ -946,10 +934,8 @@ Each of the options in the following list overrides the ones that came before it
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  tasks
-      .matching { it.name == "compileKotlin" && it instanceof CompileUsingKotlinDaemon }
-      .configureEach {
-          kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+  tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
+      task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
       }
   ```
   

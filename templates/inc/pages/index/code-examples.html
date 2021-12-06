@@ -2,56 +2,158 @@
     <div class="g-layout">
         <h2 class="kto-heading kto-heading_size_h1">Try Kotlin</h2>
         <div class="kotlin-overview-code-example-tabs">
-            <div class="overview-group">
-                <div class="tab is_active js-tab" data-tab-id="kotlin-code-example-simplest">
-                    <div class="text">Simplest version</div>
+            <div class="kotlin-overview-code-example-tabs__group">
+                <div class="overview-group">
+                    <div class="tab is_active js-tab" data-tab-id="kotlin-code-example-simple">
+                        <div class="text">Simple</div>
+                    </div>
+                    <div class="tab js-tab" data-tab-id="kotlin-code-example-object-asynchronous">
+                        <div class="tab-text">Asynchronous</div>
+                    </div>
+                    <div class="tab js-tab" data-tab-id="kotlin-code-example-oriented">
+                        <div class="tab-text">Object-oriented</div>
+                    </div>
+                    <div class="tab js-tab" data-tab-id="kotlin-code-example-functional">
+                        <div class="tab-text">Functional</div>
+                    </div>
+                    <div class="tab js-tab" data-tab-id="kotlin-code-example-tests">
+                        <div class="tab-text">Ideal for tests</div>
+                    </div>
                 </div>
-                <div class="tab js-tab" data-tab-id="kotlin-code-example-object-oriented">
-                    <div class="tab-text">An Object-oriented Hello</div>
-                </div>
-                <div class="tab js-tab" data-tab-id="kotlin-code-example-coroutine">
-                    <div class="tab-text">Coroutines</div>
-                </div>
-            </div>
-            <div class="kotlin-overview-code-example" id="kotlin-code-example-simplest">
-                <pre theme="darcula" class="sample" auto-indent="true" data-min-compiler-version="1.3">
-                    fun main() {
-                        println("Hello World")
-                    }
-                </pre>
-            </div>
 
-            <!-- code example -->
-            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-object-oriented">
-                <pre theme="darcula" class="sample" auto-indent="true" data-min-compiler-version="1.3" args="Kotlin">
-                    class Greeter(val name: String) {
-                        fun greet() {
-                            println("Hello, $name")
-                        }
-                    }
-
-                    fun main(args: Array&lt;String&gt;) {
-                        Greeter(args[0]).greet()
-                    }
-                </pre>
+                <button type="button" class="kotlin-code-examples-section__run">Run</button>
             </div>
 
             <!-- code example -->
-            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-coroutine">
-                <pre theme="darcula" class="sample" auto-indent="true" folded-button="false" data-min-compiler-version="1.3">
-                    import kotlinx.coroutines.*
+            <div class="kotlin-overview-code-example" id="kotlin-code-example-simple">
+                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5">
+fun main() {
+    val name = "stranger"        // Declare your first variable
+    println("Hi, $name!")        // ...and use it!
+    print("Current count:")
+    for (i in 0..10) {           // Loop over a range from 0 to 10
+        print(" $i")
+    }
+}</pre>
+            </div>
 
-                    //sampleStart
-                    suspend fun main() = coroutineScope {
-                        for (i in 0 until 10) {
-                            launch {
-                                delay(1000L - i * 10)
-                                print("$i ")
-                            }
-                        }
-                    }
-                    //sampleEnd
-                </pre>
+            <!-- code example -->
+            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-object-asynchronous">
+                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5" args="Kotlin">
+import kotlinx.coroutines.*
+
+suspend fun main() {                                // A function that can be suspended and resumed later
+    val start = System.currentTimeMillis()
+    coroutineScope {                                // Create a scope for starting coroutines
+        for (i in 1..10) {
+            launch {                                // Start 10 concurrent tasks
+                delay(3000L - i * 300)              // Pause their execution
+                log(start, "Countdown: $i")
+            }
+        }
+    }
+    // Execution continues when all coroutines in the scope have finished
+    log(start, "Liftoff!")
+}
+
+fun log(start: Long, msg: String) {
+    println("$msg " +
+            "(on ${Thread.currentThread().name}) " +
+            "after ${(System.currentTimeMillis() - start)/1000F}s")
+}</pre>
+            </div>
+
+            <!-- code example -->
+            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-oriented">
+                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" folded-button="false" data-min-compiler-version="1.5">
+abstract class Person(val name: String) {
+    abstract fun greet()
+}
+
+interface FoodConsumer {
+    fun eat()
+    fun pay(amount: Int) = println("Delicious! Here's $amount bucks!")
+}
+
+class RestaurantCustomer(name: String, val dish: String) : Person(name), FoodConsumer {
+    fun order() = println("$dish, please!")
+    override fun eat() = println("*Eats $dish*")
+    override fun greet() = println("It's me, $name.")
+}
+
+fun main() {
+    val sam = RestaurantCustomer("Sam", "Mixed salad")
+    sam.greet() // An implementation of an abstract function
+    sam.order() // A member function
+    sam.eat() // An implementation of an interface function
+    sam.pay(10) // A default implementation in an interface
+}</pre>
+            </div>
+
+            <!-- code example -->
+            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-functional">
+                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5">
+fun main() {
+    // Who sent the most messages?
+    val frequentSender = messages
+        .groupBy(Message::sender)
+        .maxByOrNull { (_, messages) -> messages.size }
+        ?.key                                                 // Get their names
+    println(frequentSender) // [Ma]
+
+    // Who are the senders?
+    val senders = messages
+        .asSequence()                                         // Make operations lazy (for a long call chain)
+        .filter { it.body.isNotBlank() && !it.isRead }        // Use lambdas...
+        .map(Message::sender)                                 // ...or member references
+        .distinct()
+        .sorted()
+        .toList()                                             // Convert sequence back to a list to get a result
+    println(senders) // [Adam, Ma]
+}
+
+data class Message(                                          // Create a data class
+    val sender: String,
+    val body: String,
+    val isRead: Boolean = false,                              // Provide a default value for the argument
+)
+
+val messages = listOf(                                       // Create a list
+    Message("Ma", "Hey! Where are you?"),
+    Message("Adam", "Everything going according to plan today?"),
+    Message("Ma", "Please reply. I've lost you!"),
+)</pre>
+            </div>
+
+            <!-- code example -->
+            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-tests">
+                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5"  data-target-platform="junit">
+// Tests
+// The following example works for JVM only
+import org.junit.Test
+import kotlin.test.*
+
+class SampleTest {
+    @Test
+    fun `test sum`() {                  // Write test names with whitespaces in backticks
+        val a = 1
+        val b = 41
+        assertEquals(42, sum(a, b), "Wrong result for sum($a, $b)")
+    }
+
+    @Test
+    fun `test computation`() {
+        assertTrue("Computation failed") {
+            setup()                     // Use lambda returning the test subject
+            compute()
+        }
+    }
+}
+
+// Sources
+fun sum(a: Int, b: Int) = a + b
+fun setup() {}
+fun compute() = true</pre>
             </div>
             <a href="https://play.kotlinlang.org/byExample/overview" target="_blank" class="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_outline kotlin-overview-code-example-tabs__button">More examples ↗</a>
         </div>

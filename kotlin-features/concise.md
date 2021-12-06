@@ -1,20 +1,20 @@
-<div class="sample" markdown="1" mode="kotlin" theme="idea" data-highlight-only="1" auto-indent="false">
+<div class="sample" markdown="1" mode="kotlin" theme="kotlin-docs" auto-indent="false">
 ```kotlin
-/*
- Create a POJO with getters, `equals()`, `hashCode()`,
- `toString()` and `copy()` in a single line:
-*/
+data class Employee(
+   val name: String,
+   val email: String,
+   val company: String
+) // + automatically generated equals(), hashCode(), toString(), and copy()
 
-data class Customer(val name: String, val email: String, val company: String)
-
-// Or filter a list using a lambda expression:
-
-val positiveNumbers = list.filter { it > 0 }
-
-// Want a singleton? Create an object:
-
-object ThisIsASingleton {
-    val companyName: String = "JetBrains"
+object MyCompany {                                // A singleton
+   const val name: String = "MyCompany"
 }
+
+fun main() {                                      // Function at the top level
+   val employee = Employee("Alice",               // No `new` keyword
+      "alice@mycompany.com", MyCompany.name)
+   println(employee)
+}
+
 ```
 </div>

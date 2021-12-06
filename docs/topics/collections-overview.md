@@ -70,7 +70,11 @@ Below is a diagram of the Kotlin collection interfaces:
 
 ![Collection interfaces hierarchy](collections-diagram.png){width="500"}
 
-Let's walk through the interfaces and their implementations.
+Let's walk through the interfaces and their implementations. To learn about `Collection`, read the section below. 
+To learn about `List`, `Set`, and `Map`, you can either read the corresponding sections or watch a video 
+by Sebastian Aigner, Kotlin Developer Advocate:
+
+<video href="F8jj7e-_jFA" title="Kotlin Collections Overview"/>
 
 ### Collection
 
@@ -84,9 +88,9 @@ the `Collection`'s inheritors: [`List`](https://kotlinlang.org/api/latest/jvm/st
 
 ```kotlin
 fun printAll(strings: Collection<String>) {
-        for(s in strings) print("$s ")
-        println()
-    }
+    for(s in strings) print("$s ")
+    println()
+}
     
 fun main() {
     val stringList = listOf("one", "two", "one")

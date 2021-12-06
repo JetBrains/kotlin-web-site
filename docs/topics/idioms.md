@@ -98,7 +98,7 @@ for (i in 1..100) { ... }  // closed range: includes 100
 for (i in 1 until 100) { ... } // half-open range: does not include 100
 for (x in 2..10 step 2) { ... }
 for (x in 10 downTo 1) { ... }
-if (x in 1..10) { ... }
+(1..10).forEach { ... }
 ```
 
 ## Lazy property
@@ -176,6 +176,8 @@ val emails = ... // might be empty
 val mainEmail = emails.firstOrNull() ?: ""
 ```
 
+Learn the difference between [Java and Kotlin first item getting](java-to-kotlin-collections-guide.md#get-the-first-and-the-last-items-of-a-possibly-empty-collection).
+
 ## Execute if not null
 
 ```kotlin
@@ -225,14 +227,12 @@ fun test() {
 ## if expression
 
 ```kotlin
-fun foo(param: Int) {
-    val result = if (param == 1) {
-        "one"
-    } else if (param == 2) {
-        "two"
-    } else {
-        "three"
-    }
+val y = if (x == 1) {
+    "one"
+} else if (x == 2) {
+    "two"
+} else {
+    "other"
 }
 ```
 

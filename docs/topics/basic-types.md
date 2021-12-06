@@ -15,10 +15,10 @@ For integer numbers, there are four types with different sizes and, hence, value
 
 | Type	 |Size (bits)| Min value| Max value|
 |--------|-----------|----------|--------- |
-| Byte	 | 8         |-128      |127       |
-| Short	 | 16        |-32768    |32767     |
-| Int	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
-| Long	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
+| `Byte`	 | 8         |-128      |127       |
+| `Short`	 | 16        |-32768    |32767     |
+| `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
+| `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
 All variables initialized with integer values not exceeding the maximum value of `Int`
 have the inferred type `Int`. If the initial value exceeds this value, then the type is `Long`.
@@ -40,8 +40,8 @@ floating point types differ by their _decimal place_, that is, how many decimal 
  
 | Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
 |--------|-----------|--------------- |-------------|--------------|
-| Float	 | 32        |24              |8            |6-7            |
-| Double | 64        |53              |11           |15-16          |    
+| `Float`	 | 32        |24              |8            |6-7            |
+| `Double` | 64        |53              |11           |15-16          |    
   
 You can initialize `Double` and `Float` variables  with numbers having a fractional part.
 It's separated from the integer part by a period (`.`) 
@@ -191,7 +191,7 @@ All number types support conversions to other types:
 * `toDouble(): Double`
 * `toChar(): Char`
 
-In many cases, there is no need in explicit conversions because the type is inferred from the context,
+In many cases, there is no need for explicit conversions because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
 
 ```kotlin
@@ -318,19 +318,19 @@ Unsigned types support most of the operations of their signed counterparts.
 >
 {type="warning"}
 
-Same as for primitives, each of unsigned type has corresponding type that represents arrays of that type:
+As with primitives, each unsigned type has a corresponding type that represents arrays of that type:
 
 * `UByteArray`: an array of unsigned bytes
 * `UShortArray`: an array of unsigned shorts
 * `UIntArray`: an array of unsigned ints
 * `ULongArray`: an array of unsigned longs
 
-Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead. 
+Like signed integer arrays, they provide an API similar to the `Array` class without boxing overhead. 
 
 When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
 To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation. 
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
-array are not a stable feature, so API which uses them can be broken by changes in the language.
+array are not a stable feature, so an API which uses them can be broken by changes in the language.
 [Learn more about opt-in requirements](opt-in-requirements.md).
 
 [Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,

@@ -3,6 +3,13 @@
 Every Kotlin release ships with a standalone version of the compiler. You can download the latest version (`kotlin-compiler-%kotlinVersion%.zip`)
 from [GitHub Releases](%kotlinLatestUrl%).
 
+>Installing the command-line compiler is not an essential step to use Kotlin. A general way to write Kotlin applications is using an
+>IDE - [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [Android Studio](https://developer.android.com/studio).
+>They provide full Kotlin support out of the box without needing additional components. Learn how to 
+[get started with Kotlin in an IDE](getting-started.md).
+> 
+{type="note"}
+
 ## Install the compiler
 
 ### Manual install

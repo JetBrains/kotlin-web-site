@@ -18,8 +18,8 @@ Learn more about [types of Kotlin releases and their compatiblity](kotlin-evolut
 ## Update to a new release
 
 IntelliJ IDEA and Android Studio suggest updating to a new release once it is out. When you accept the suggestion,
-it automatically updates the Kotlin plugin to the new version. You can check the Kotlin version in **Tools** \| **Kotlin** 
-\| **Configure Kotlin Plugin Updates**.
+it automatically updates the Kotlin plugin to the new version. You can check the Kotlin version in **Tools** | **Kotlin** 
+| **Configure Kotlin Plugin Updates**.
 
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
 libraries if necessary – check the [recommended versions](#release-details).
@@ -48,6 +48,53 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build info</th>
         <th>Build highlights</th>
         <th>Recommended kotlinx library versions</th>
+    </tr>
+    <tr>
+        <td><strong>1.6.0</strong>
+            <p>Released: <strong>November 16, 2021</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A feature release with new language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
+            <p>Learn more in:</p>
+            <ul>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/11/kotlin-1-6-0-is-released/" target="_blank">Release blog post</a></li>
+                <li><a href="whatsnew16.md" target="_blank">What's new in Kotlin 1.6.0</a></li>
+                <li><a href="compatibility-guide-16.md" target="_blank">Compatibility Guide</a></li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0" target="_blank">1.3.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.2" target="_blank">1.5.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.3" target="_blank">0.16.3</a></li>          
+                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.6.4" target="_blank">1.6.4</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: 0.0.7</li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>1.5.32</strong>
+            <p>Released: <strong>November 29, 2021</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.5.32" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.5.31.</p>
+            <p>Learn more about <a href="whatsnew1530.md" target="_blank">Kotlin 1.5.30</a>.</p>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.0-RC" target="_blank">1.3.0-RC</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.2" target="_blank">1.5.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.16.3" target="_blank">0.16.3</a></li>          
+                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/1.6.3" target="_blank">1.6.3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>1.5.31</strong>

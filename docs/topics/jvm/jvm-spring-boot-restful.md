@@ -26,7 +26,7 @@ Use Spring Initializr to create a new project:
 >
 {type="note"}
 
-1. Open [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.4.5.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). This link opens the page with the project settings for this tutorial already filled in.
+1. Open [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.6.0&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). This link opens the page with the project settings for this tutorial already filled in.
 This project uses **Gradle**, **Kotlin**, **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
 
    ![Create a new project with Spring Initializr](spring-boot-create-project-with-initializr.png){width=800}
@@ -37,7 +37,7 @@ settings. The download starts automatically.
 3. Unpack the **.zip** file and open it in IntelliJ IDEA.
 
    The project has the following structure:
-   ![The Spring Boot project structure](spring-boot-project-structure.png){width=500}
+   ![The Spring Boot project structure](spring-boot-project-structure.png){width=350}
  
    There are packages and classes under the `main/kotlin` folder that belong to the application. The entry point to
 the application is the `main()` method of the `DemoApplication.kt` file.

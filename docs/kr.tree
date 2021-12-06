@@ -4,10 +4,10 @@
 
 <product-profile id="kr"
                  name="Kotlin"
-                 start-page="home.md"
+                 start-page="home.xml"
                  status="release">
 
-    <toc-element id="home.md" toc-title="Home"/>
+    <toc-element id="home.xml" toc-title="Home"/>
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
@@ -22,27 +22,18 @@
         <toc-element id="competitive-programming.md"/>
     </toc-element>
 
-    <toc-element toc-title="What's new">
-        <toc-element toc-title="Kotlin">
+    <toc-element toc-title="What's new in Kotlin">
+        <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0" accepts-web-file-names="whatsnew.html"/>
+        <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
             <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
             <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
-            <toc-element toc-title="Earlier versions">
-                <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
-                <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
-                <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
-                <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
-                <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
-                <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
-            </toc-element>
-        </toc-element>
-        <toc-element toc-title="Kotlin for KMM">
-            <toc-element id="whats-new-in-kotlin-for-kmm.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin plugin">
-            <toc-element id="whatsnew-plugin-20212.md" toc-title="Kotlin plugin 2021.2"/>
-            <toc-element id="whatsnew-plugin-20211.md" toc-title="Kotlin plugin 2021.1"/>
-            <toc-element id="whatsnew-plugin-20203.md" toc-title="Kotlin plugin 2020.3"/>
+            <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
+            <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
+            <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
+            <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
+            <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
+            <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
         </toc-element>
     </toc-element>
 
@@ -88,8 +79,11 @@
             <toc-element id="lambdas.md" toc-title="Lambdas"/>
             <toc-element id="inline-functions.md"/>
             <toc-element id="operator-overloading.md"/>
+            <toc-element toc-title="Builders">
+                <toc-element id="type-safe-builders.md"/>
+                <toc-element id="using-builders-with-builder-inference.md"/>
+            </toc-element>
         </toc-element>
-        <toc-element id="type-safe-builders.md"/>
         <toc-element id="null-safety.md"/>
         <toc-element id="equality.md"/>
         <toc-element id="this-expressions.md"/>
@@ -155,7 +149,10 @@
             <toc-element id="jvm-test-using-junit.md"/>
             <toc-element id="mixing-java-kotlin-intellij.md"/>
             <toc-element id="jvm-records.md"/>
-            <toc-element id="java-to-kotlin-idioms-strings.md"/>
+            <toc-element toc-title="Java to Kotlin migration guides">
+                <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
+                <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
+            </toc-element>
         </toc-element>
         <toc-element toc-title="JavaScript">
 
@@ -180,6 +177,7 @@
                 <toc-element id="typesafe-html-dsl.md"/>
                 <toc-element id="js-external-declarations-with-dukat.md"/>
             </toc-element>
+            <toc-element id="js-samples.md"/>
             <toc-element id="js-hands-ons.md"/>
         </toc-element>
 
@@ -198,7 +196,6 @@
                 <toc-element id="mapping-struct-union-types-from-c.md"/>
                 <toc-element id="mapping-function-pointers-from-c.md"/>
                 <toc-element id="mapping-strings-from-c.md"/>
-                <toc-element id="curl.md"/>
             </toc-element>
             <toc-element id="native-objc-interop.md" toc-title="Objective-C interop"/>
             <toc-element id="native-cocoapods.md"/>
@@ -207,7 +204,7 @@
             <toc-element id="native-ios-symbolication.md"/>
             <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation times"/>
             <toc-element id="native-faq.md"/>
-            <toc-element toc-title="Intro to Kotlin/Native – hands-on" href="https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Native/"/>
+            <toc-element id="native-app-with-c-and-libcurl.md" accepts-web-file-names="curl.html"/>
         </toc-element>
     </toc-element>
 
@@ -329,6 +326,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-16.md"/>
                 <toc-element id="compatibility-guide-15.md"/>
                 <toc-element id="compatibility-guide-14.md"/>
                 <toc-element id="compatibility-guide-13.md" />
@@ -344,7 +342,13 @@
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
-        <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        <toc-element toc-title="Kotlin brand assets">
+            <toc-element id="kotlin-mascot.md"/>
+            <toc-element id="kotlin-logo.md"/>
+            <toc-element id="kotlin-nights-branding.md"/>
+            <toc-element id="kug-branding.md"/>
+            <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        </toc-element>
     </toc-element>
 
 </product-profile>

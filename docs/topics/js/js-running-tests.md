@@ -55,7 +55,7 @@ class AppTest {
 To run the tests in the browser, execute the `browserTest` task via IntelliJ IDEA, or use the gutter icons to execute all
 or individual tests:
 
-![Gradle browserTest task](browsertest-task.png)
+![Gradle browserTest task](browsertest-task.png){width=700}
 
 Alternatively, if you want to run the tests via the command line, use the Gradle wrapper:
 
@@ -66,15 +66,15 @@ Alternatively, if you want to run the tests via the command line, use the Gradle
 After running the tests from IntelliJ IDEA, the **Run** tool window will show the test results. You can click failed tests
 to see their stack trace, and navigate to the corresponding test implementation via a double-click.
 
-![Test results in IntelliJ IDEA](test-stacktrace-ide.png)
+![Test results in IntelliJ IDEA](test-stacktrace-ide.png){width=700}
 
 After each test run, regardless of how you executed the test, you can find a properly formatted test report from Gradle
 in `build/reports/tests/browserTest/index.html`. Open this file in a browser to see another overview of the test results:
 
-![Gradle test summary](test-summary.png)
+![Gradle test summary](test-summary.png){width=700}
 
 If you are using the set of example tests shown in the snippet above, one test passes, and one test breaks, which gives 
 the resulting total of 50% successful tests. To get more information about individual test cases, you can navigate via
 the provided hyperlinks:
 
-![Stacktrace of failed test in the Gradle summary](failed-test.png)
+![Stacktrace of failed test in the Gradle summary](failed-test.png){width=700}

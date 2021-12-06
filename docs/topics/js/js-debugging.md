@@ -13,7 +13,7 @@ on it. Refer to your browser's documentation for more details.
 
 To debug Kotlin/JS in the browser:
 
-1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
+1. Run the project by calling one of the available _run_ Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Navigate to the page in the browser and launch its developer tools (for example, by right-clicking and
@@ -39,13 +39,13 @@ when the script is loaded for the first time.
 
 [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/) provides a powerful set of tools for debugging code during development.
 
-For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **Debug JavaScript** debug configuration. To add such a configuration:
+For debugging Kotlin/JS in IntelliJ IDEA, you'll need a **JavaScript Debug** configuration. To add such a debug configuration:
 
-1. Go to **Run | Edit configurations**.
-2. Click **+** and select **JavaScript debug**.
+1. Go to **Run | Edit Configurations**.
+2. Click **+** and select **JavaScript Debug**.
 3. Specify the configuration **Name** and provide the **URL** on which the project runs (`http://localhost:8080` by default).
 
-![JavaScript debug configuration](debug-config.png){width="600"}
+![JavaScript debug configuration](debug-config.png){width=700}
 
 4. Save the configuration.
 
@@ -53,17 +53,17 @@ Learn more about [setting up JavaScript debug configurations](https://www.jetbra
 
 Now you're ready to debug your project!
 
-1. Run the project by calling one of the available `*Run` Gradle tasks, for example, `browserDevelopmentRun` or
+1. Run the project by calling one of the available _run_ Gradle tasks, for example, `browserDevelopmentRun` or
    `jsBrowserDevelopmentRun` in a multiplatform project.
    Learn more about [running Kotlin/JS](running-kotlin-js.md#run-the-browser-target).
 2. Start the debugging session by running the JavaScript debug configuration you've created previously:
 
-![JavaScript debug configuration](debug-config-run.png){width="600"}
+![JavaScript debug configuration](debug-config-run.png){width=700}
 
 3. You can see the console output of your program in the **Debug** window in IntelliJ IDEA. The output items reference the
    Kotlin source files and lines they come from:
 
-![JavaScript debug output in the IDE](ide-console-output.png){width="600"}
+![JavaScript debug output in the IDE](ide-console-output.png){width=700}
 
 4. Click the file reference on the right to navigate to the corresponding line of code.
 

@@ -1,3 +1,19 @@
+- name: Dhaka, India
+  geo:
+    lat: 22.792252
+    lng: 81.385137
+- name: Bonny Island, Nigeria
+  geo:
+    lat: 10.445444
+    lng: 8.353578
+- name: Bauchi, Nigeria
+  geo:
+    lat: 10.306362
+    lng: 9.847458
+- name: Besni, Turkey
+  geo:
+    lat: 37.694
+    lng: 37.861699
 - name: Bouville, France
   geo:
     lat: 48.039107

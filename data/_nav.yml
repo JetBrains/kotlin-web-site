@@ -58,6 +58,9 @@ subnav:
         - url: /education/why-teach-kotlin.html
           title: Why Teach Kotlin
 
+        - url: /education/courses.html
+          title: List of Courses
+
 # Reference navigation
 # ====================
 reference:
@@ -357,6 +360,8 @@ reference:
           title: Compatibility Guide for Kotlin 1.4
         - url: /docs/reference/compatibility-guide-15.html
           title: Compatibility Guide for Kotlin 1.5
+        - url: /docs/reference/compatibility-guide-16.html
+          title: Compatibility Guide for Kotlin 1.6
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.

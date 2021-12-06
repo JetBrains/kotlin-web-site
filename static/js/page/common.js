@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import 'core-js/es6/promise';
+import 'core-js/stable/promise';
 import 'whatwg-fetch';
 import kotlinPlayground from 'kotlin-playground';
 import { initSearch } from '../com/search/search';
@@ -27,6 +27,10 @@ function initSamples () {
       onRun: function onRun() { $(el).trigger('kotlinPlaygroundRun') },
       callback: function(from, to) { $(el).trigger('kotlinPlaygroundMount', { from, to }) }
     };
+
+    const heightMobile = window.innerWidth <= 640 && el.getAttribute('data-mobile-shorter-height');
+    el.removeAttribute('data-mobile-shorter-height')
+    if (heightMobile) el.setAttribute('data-shorter-height', heightMobile);
 
     kotlinPlayground(el, kotlinPlaygroundEvents);
   });
