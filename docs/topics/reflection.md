@@ -71,6 +71,8 @@ The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 >
 {type="note"}
 
+### Bound class references
+
 You can get the reference to the class of a specific object with the same `::class` syntax by using the object as a receiver:
 
 ```kotlin
@@ -105,8 +107,8 @@ fun isOdd(x: Int) = x % 2 != 0
 
 fun main() {
 //sampleStart
-   val numbers = listOf(1, 2, 3)
-   println(numbers.filter(::isOdd))
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd))
 //sampleEnd
 }
 ```
@@ -123,11 +125,11 @@ For example:
 ```kotlin
 fun main() {
 //sampleStart
-   fun isOdd(x: Int) = x % 2 != 0
-   fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
-  
-   val numbers = listOf(1, 2, 3)
-   println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
+    fun isOdd(x: Int) = x % 2 != 0
+    fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
+    
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
 //sampleEnd
 }
 ```
