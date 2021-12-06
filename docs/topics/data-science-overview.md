@@ -17,7 +17,7 @@ colleagues, or build up your data science and machine learning skills.
 ### Jupyter Kotlin kernel
 
 The Jupyter Notebook is an open-source web application that allows you to create and share documents 
-(aka "notebooks") that can contain code, visualizations, and markdown text. 
+(aka "notebooks") that can contain code, visualizations, and Markdown text. 
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open source project that brings Kotlin 
 support to Jupyter Notebook. 
 
@@ -110,4 +110,4 @@ library for Java
 * [Tablesaw](https://github.com/jtablesaw/tablesaw) - a Java dataframe. It includes a visualization library based on Plot.ly
 
 If this list doesn’t cover your needs, you can find more options in the 
-**[Kotlin Data Science Resources](https://github.com/thomasnield/kotlin-data-science-resources)** digest from Thomas Nield.
+**[Kotlin Machine Learning Demos](https://github.com/thomasnield/kotlin-machine-learning-demos)** GitHub repository with showcases from Thomas Nield.
