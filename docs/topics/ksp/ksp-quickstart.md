@@ -215,7 +215,7 @@ dependencies {
 </tab>
 </tabs>
 
-## Pass Options to Processors
+## Pass options to processors
 
 Processor options in `SymbolProcessorEnvironment.options` are specified in gradle build scripts:
 
