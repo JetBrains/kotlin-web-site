@@ -79,7 +79,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin/JVM</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49513" target="_blank">🆕 Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">🆕 Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49514" target="_blank">🆕 Fix issues related to inline classes on the JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-17699" target="_blank">🆕 Allow private top-level classes or type aliases with same name in different files on JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-25871" target="_blank">🆕 Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection</a></li>
@@ -281,7 +281,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Language: [Allow implementation by delegation to inlined value of inline class](https://youtrack.jetbrains.com/issue/KT-27435)
 * 🆕 Compiler core: [Stabilize the K2 Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
 * 🆕 Compiler core: [Investigate JS backend for the K2 compiler](https://youtrack.jetbrains.com/issue/KT-49510)
-* 🆕 Kotlin/JVM: [Release `kotlinx-metadata-jvm` as Stable](https://youtrack.jetbrains.com/issue/KT-49513)
+* 🆕 Kotlin/JVM: [Release `kotlinx-metadata-jvm` as Stable](https://youtrack.jetbrains.com/issue/KT-48011)
 * 🆕 Kotlin/JVM: [Fix issues related to inline classes on the JVM](https://youtrack.jetbrains.com/issue/KT-49514)
 * 🆕 Kotlin/JVM: [Allow private top-level classes or type aliases with same name in different files on JVM](https://youtrack.jetbrains.com/issue/KT-17699)
 * 🆕 Kotlin/JVM: [Provide ability to enumerate all direct subclasses of a sealed class at compile-time without reflection](https://youtrack.jetbrains.com/issue/KT-25871)
