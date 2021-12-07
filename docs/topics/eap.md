@@ -38,9 +38,7 @@ check [our instructions on how to configure your build to support this version](
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.10-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-             <ul>
-                <li>Release candidate for a bug fix release for Kotlin 1.6.0.</li>
-            </ul>
+             <p>Release candidate for a bug fix release Kotlin 1.6.10.</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.10-RC">changelog</a>.</p>
         </td>
          <td>
