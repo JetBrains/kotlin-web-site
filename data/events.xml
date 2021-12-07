@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
-        <lang>zh</lang>
+        <lang>en</lang>
         <startDate>2021-12-09</startDate>
         <endDate>2021-12-09</endDate>
         <location>Utrecht, Netherlands</location>
@@ -17,7 +17,7 @@
      </event>
 
      <event>
-        <lang>zh</lang>
+        <lang>en</lang>
         <startDate>2021-12-08</startDate>
         <endDate>2021-12-08</endDate>
         <location>Bonn, Germany</location>
@@ -34,7 +34,7 @@ In this talk we will give you a first insight into Kotlin. We are also going to 
      </event>
 
      <event>
-        <lang>zh</lang>
+        <lang>en</lang>
         <startDate>2021-12-08</startDate>
         <endDate>2021-12-08</endDate>
         <location>Bonn, Germany</location>
@@ -51,18 +51,52 @@ In addition to that I will explain some powerful and easy to use Micronaut featu
         </description>
      </event>
 
-     <event>
+      <event>
         <lang>zh</lang>
         <startDate>2021-11-19</startDate>
         <endDate>2021-11-19</endDate>
         <location>Taipei, Taiwan</location>
         <speaker>Brandy Chang</speaker>
-        <title>SJCConf 2021</title>
+        <title>JCConf 2021</title>
         <subject>Going Reactive with Kotlin and Quarkus</subject>
         <url>https://jcconf.tw/2021/</url>
         <description>
             <![CDATA[
 <p>Introduce Quarkus for cloud native development.  Demo to build small and high concurrent restful service with Kotlin coroutines and Quarkus.<p>
+]]>
+        </description>
+      </event>
+
+      <event>
+        <lang>zh</lang>
+        <startDate>2021-11-19</startDate>
+        <endDate>2021-11-19</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Fan Shengyou</speaker>
+        <title>JCConf 2021</title>
+        <subject>Develop cross-platform mobile applications with Kotlin Multiplatform Mobile (KMM)</subject>
+        <url>https://jcconf.tw/2021/</url>
+        <description>
+            <![CDATA[
+<p>It is not easy to develop and maintain the Mobile App of the two platforms at the same time, but the choice of cross-platform technology development is often a problem of poor performance.
+How to develop dual-platform applications in one language while maintaining the native operating experience and performance of each platform has become the most concerned issue for cross-platform developers.
+In this sharing, the KMM technology launched by the JetBrains team will be introduced, using the features of Kotlin Native cross-platform development and the development of Mobile App for two platforms with the assistance of the KMM plugin, supplemented by actual cases, so that the audience can Basic understanding of KMM development workflow.<p>
+]]>
+        </description>
+      </event>
+
+      <event>
+        <lang>zh</lang>
+        <startDate>2021-11-19</startDate>
+        <endDate>2021-11-19</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Andy Lu</speaker>
+        <title>JCConf 2021</title>
+        <subject>Kotlin's present and future</subject>
+        <url>https://jcconf.tw/2021/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin launched version 1.4.0 in August 2020 and version 1.5.0 in May this year. It is expected that a new version will be launched in November. In these versions, what functions are important , What are the features that have not yet been launched that are worth looking forward to? Let us get to know the current and future versions of Kotlin together.<p>
 ]]>
         </description>
       </event>
