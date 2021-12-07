@@ -61,8 +61,7 @@ process at JetBrains, is written in 100% Kotlin and has been running in producti
 
 ## Next steps
 
-* For a more in-depth introduction to the language, check out the Kotlin documentation on this site and
-[Kotlin Koans](koans.md).
+* For a more in-depth introduction to the language, check out the Kotlin documentation on this site and [Kotlin Koans](koans.md).
 * Watch a webinar ["Micronaut for microservices with Kotlin"](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/) and 
   explore a well-detailed [guide](https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html), 
   showing how you can use [Kotlin extension functions](extensions.md#extension-functions) in the Micronaut framework.
