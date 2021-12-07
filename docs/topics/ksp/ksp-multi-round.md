@@ -55,8 +55,8 @@ deferred symbols.
 ### Files accessible at each round
 
 Both newly generated files and existing files are accessible through a `Resolver`. KSP provides two APIs for accessing
-files: `Resolver.getAllFiles()` and `Resolver.getNewFiles`. `getAllFiles` returns a combined list of both existing files
-and newly generated files, while `getNewFiles` returns only newly generated files.
+files: `Resolver.getAllFiles()` and `Resolver.getNewFiles()`. `getAllFiles()` returns a combined list of both existing files
+and newly generated files, while `getNewFiles()` returns only newly generated files.
 
 ### Changes to `getSymbolsAnnotatedWith()`
 
