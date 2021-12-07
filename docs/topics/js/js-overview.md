@@ -17,7 +17,8 @@ scenarios in which you can use Kotlin/JS:
       with the elements in the Document Object Model (DOM), use Kotlin code to control the rendering of `canvas` or WebGL components,
       and enjoy access to many more features that modern browsers support.
     * Write **full, type-safe React applications with Kotlin/JS** using the [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)
-      provided by JetBrains, which provide convenient abstractions and deep integrations for several popular JavaScript frameworks, including React. `kotlin-wrappers` also provides support for a select number of adjacent technologies, like
+      provided by JetBrains, which provide convenient abstractions and deep integrations for React and other popular JavaScript frameworks.
+      `kotlin-wrappers` also provides support for a select number of adjacent technologies, like
       `react-redux`, `react-router`, and `styled-components`. Interoperability with the JavaScript ecosystem means that
       you can also use third-party React components and component libraries.
     * Use the **[Kotlin/JS frameworks](#kotlin-js-frameworks)**, which take full advantage of Kotlin concepts and its expressive power
@@ -108,8 +109,6 @@ Join the [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) chann
 to discuss Compose for Web, or [#compose](https://kotlinlang.slack.com/archives/CJLTWPH7S) for general Compose Multiplatform discussions.
 
 ## Kotlin/JS, Today and Tomorrow
-
-**Want to know more about Kotlin/JS?**
 
 In [this video](https://www.youtube.com/watch?v=fZUL8_kgHXg), Kotlin Developer Advocate Sebastian Aigner explains the
 main Kotlin/JS benefits, shares some tips and use cases, and talks about the plans and upcoming features for Kotlin/JS.
