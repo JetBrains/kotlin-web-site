@@ -31,11 +31,11 @@ scenarios in which you can use Kotlin/JS:
 
 *  **Use Kotlin's [multiplatform](multiplatform.md) projects to share code with other Kotlin targets**
     * All the functionality of Kotlin/JS can also be accessed when using the Kotlin `multiplatform` Gradle plugin.
-* If your backend is written in Kotlin, you can **share common code** such as data models or validation logic
-  with a frontend written in Kotlin/JS, which allows you to **write and maintain full-stack web applications**.
-* You can also **share business logic between your web interface and mobile apps** for Android and iOS, and avoid
-  duplicating commonly used functionality, like providing abstractions around REST API endpoints, user authentication,
-  or your domain models.
+    * If your backend is written in Kotlin, you can **share common code** such as data models or validation logic
+    with a frontend written in Kotlin/JS, which allows you to **write and maintain full-stack web applications**.
+    * You can also **share business logic between your web interface and mobile apps** for Android and iOS, and avoid
+    duplicating commonly used functionality, like providing abstractions around REST API endpoints, user authentication,
+    or your domain models.
 
 * **Create libraries for use with JavaScript and TypeScript**
     * You don't have to write your whole application in Kotlin/JS – instead, you can **generate libraries from your

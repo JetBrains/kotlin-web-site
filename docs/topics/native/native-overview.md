@@ -6,7 +6,7 @@ library.
 
 ## Why Kotlin/Native?
 
-Kotlin/Native is primarily designed to allow compilation for platforms on which *virtual machines* are not
+Kotlin/Native is primarily designed to allow compilation for platforms on which _virtual machines_ are not
 desirable or possible, such as embedded devices or iOS.
 It is ideal for situations when a developer needs to produce a
 self-contained program that does not require an additional runtime or virtual machine.
