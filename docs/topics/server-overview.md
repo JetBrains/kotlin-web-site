@@ -61,9 +61,10 @@ process at JetBrains, is written in 100% Kotlin and has been running in producti
 
 ## Next steps
 
-* For a more in-depth introduction to the language, check out the Kotlin documentation on this site and
-  [Kotlin Koans](koans.md).
-* Micronaut has a lot of detailed [guides](https://guides.micronaut.io/tags/kotlin.html) showing how you can build microservices in Kotlin.
+* For a more in-depth introduction to the language, check out the Kotlin documentation on this site and [Kotlin Koans](koans.md).
+* Watch a webinar ["Micronaut for microservices with Kotlin"](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/) and 
+  explore a detailed [guide](https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html) 
+  showing how you can use [Kotlin extension functions](extensions.md#extension-functions) in the Micronaut framework.
 * http4k provides the [CLI](https://toolbox.http4k.org) to generate fully formed projects, and a [starter](https://start.http4k.org) repo to generate an entire CD pipeline using GitHub, Travis, and Heroku with a single bash command.
 * Want to migrate from Java to Kotlin? Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
 
