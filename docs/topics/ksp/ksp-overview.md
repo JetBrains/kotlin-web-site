@@ -21,8 +21,8 @@ Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/st
 The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice-versa. 
 You can also substitute type arguments, specify variances, apply star projections, and mark nullabilities of types.
 
-Another way to think of KSP is as a preprocessor framework of Kotlin programs. If we consider KSP-based plugins as 
-_symbol processors_, or simply _processors_, then the data flow in a compilation can be described in the following steps:
+Another way to think of KSP is as a preprocessor framework of Kotlin programs. By considering KSP-based plugins as 
+_symbol processors_, or simply _processors_, the data flow in a compilation can be described in the following steps:
 
 1. Processors read and analyze source programs and resources.
 2. Processors generate code or other forms of output.
