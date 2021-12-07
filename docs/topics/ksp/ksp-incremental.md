@@ -48,9 +48,9 @@ Here's a summary for readers familiar with Java annotation processing:
 * In an isolating Java annotation processor, all the outputs are isolating in KSP.
 * In an aggregating Java annotation processor, some outputs can be isolating and some can be aggregating in KSP.
 
-## Examples
+## Example 1
 
-Consider that a processor generates `outputForA` after reading class `A` in `A.kt` and class `B` in `B.kt`, where `A` extends `B`. 
+A processor generates `outputForA` after reading class `A` in `A.kt` and class `B` in `B.kt`, where `A` extends `B`. 
 The processor got `A` by `Resolver.getSymbolsWithAnnotation` and then got `B` by `KSClassDeclaration.superTypes` from `A`. 
 Because the inclusion of `B` is due to `A`, `B.kt` doesn't need to be specified in `dependencies` for `outputForA`. 
 You can still specify `B.kt` in this case, but it is unnecessary.
@@ -81,7 +81,9 @@ class Example1Processor : SymbolProcessor {
 }
 ```
 
-Consider another example: a processor generates `outputA` after reading `sourceA` and `outputB` after reading `sourceB`.
+## Example 2
+
+Consider that a processor generates `outputA` after reading `sourceA` and `outputB` after reading `sourceB`.
 
 When `sourceA` is changed:
 * If `outputB` is aggregating, both `sourceA` and `sourceB` are reprocessed.
