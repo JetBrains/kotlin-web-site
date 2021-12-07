@@ -293,7 +293,7 @@
             <toc-element id="ksp-reference.md" toc-title="Reference for Java annotation processor authors"/>
             <toc-element id="ksp-incremental.md" toc-title="Incremental processing"/>
             <toc-element id="ksp-multi-round.md" toc-title="Multiple round processing"/>
-            <toc-element id="ksp-faq.md" toc-title="Frequently asked questions"/>
+            <toc-element id="ksp-faq.md" toc-title="FAQ"/>
         </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc and Dokka"/>
