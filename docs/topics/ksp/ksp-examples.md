@@ -1,6 +1,6 @@
 [//]: # (title: KSP examples)
 
-Get all member functions that are declared directly within a class:
+## Get all member functions
 
 ```kotlin
 fun KSClassDeclaration.getDeclaredFunctions(): List<KSFunctionDeclaration> {
@@ -8,7 +8,7 @@ fun KSClassDeclaration.getDeclaredFunctions(): List<KSFunctionDeclaration> {
 }
 ```
 
-Determine whether a class or function is local to another function:
+## Check whether a class or function is local
 
 ```kotlin
 fun KSDeclaration.isLocal(): Boolean {
@@ -16,7 +16,7 @@ fun KSDeclaration.isLocal(): Boolean {
 }
 ```
 
-Find the actual class or interface declaration that the alias points to recursively:
+## Find the actual class or interface declaration that the type alias points to
 
 ```kotlin
 fun KSTypeAlias.findActualType(): KSClassDeclaration {
@@ -29,7 +29,7 @@ fun KSTypeAlias.findActualType(): KSClassDeclaration {
 }
 ```
 
-Find out suppressed names in a file annotation:
+## Collect suppressed names in a file annotation
 
 ```kotlin
 // @file:kotlin.Suppress("Example1", "Example2")
@@ -44,4 +44,4 @@ fun KSFile.suppressedNames(): List<String> {
     }
     return ignoredNames
 }
-```
+```
