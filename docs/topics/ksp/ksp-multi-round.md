@@ -58,9 +58,9 @@ Both newly generated files and existing files are accessible through a `Resolver
 files: `Resolver.getAllFiles()` and `Resolver.getNewFiles`. `getAllFiles` returns a combined list of both existing files
 and newly generated files, while `getNewFiles` returns only newly generated files.
 
-### Changes to getSymbolsAnnotatedWith
+### Changes to `getSymbolsAnnotatedWith()`
 
-To avoid unnecessary reprocessing of symbols, `getSymbolsAnnotatedWith` returns only those symbols found in newly
+To avoid unnecessary reprocessing of symbols, `getSymbolsAnnotatedWith()` returns only those symbols found in newly
 generated files.
 
 ### Processor instantiating
