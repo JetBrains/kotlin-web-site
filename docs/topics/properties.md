@@ -58,13 +58,13 @@ the property (this way you can implement a computed property). Here's an example
 ```kotlin
 //sampleStart
 class Rectangle(val width: Int, val height: Int) {
-    val square: Int
+    val area: Int
         get() = this.width * this.height
 }
 //sampleEnd
 fun main() {
     val rectangle = Rectangle(3, 4)
-    println("Width=${rectangle.width}, height=${rectangle.height}, square=${rectangle.square}")
+    println("Width=${rectangle.width}, height=${rectangle.height}, area=${rectangle.area}")
 }
 ```
 {kotlin-runnable="true"}
@@ -72,7 +72,7 @@ fun main() {
 You can omit the property type if it can be inferred from the getter:
 
 ```kotlin
-val square get() = this.width * this.height
+val area get() = this.width * this.height
 ```
 
 If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
