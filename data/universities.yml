@@ -1459,3 +1459,27 @@
   geo:
     lat: '47.0693'
     lng: '15.4097888'
+- title: IES Luis Vives
+  location: Madrid (Spain)
+  courses:
+  - name: Programming. 1º Degree of Development of Multiplatform Applications
+    url: https://github.com/joseluisgs?tab=repositories&q=Kotlin&type=&language=&sort=
+  geo:
+    lat: '40.339475'
+    lng: '-3.765687'
+- title: Malmö Yrkeshögskola
+  location: Malmo (Sweden)
+  courses:
+  - name: PROGRAMMERARE IPHONE OCH ANDROID
+    url: https://my.se/nyheter/nyhetsarkiv/ny-utbildning-affarsdriven-android-utvecklare-host-2020/
+  geo:
+    lat: '55.6112395'
+    lng: '12.99441'
+- title: Champlain College Lennoxville
+  location: Sherbrooke (Sweden)
+  courses:
+  - name: 420-510-LE Mobile Applications
+    url: https://www.crc-lennox.qc.ca/programs/cst/
+  geo:
+    lat: '45.3663191'
+    lng: '-71.8448678'

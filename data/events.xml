@@ -2,6 +2,227 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Utrecht, Netherlands</location>
+        <speaker>Jan Mostert</speaker>
+        <title>.BLD() Tech Talks</title>
+        <subject>Achieving cross-platform architectural nirvana with Kotlin</subject>
+        <url>https://www.meetup.com/bld-tech-talks/events/281224568</url>
+        <description>
+            <![CDATA[
+<p>In this session, we look at how companies can share business logic between platforms while only writing code once and then running it on all platforms. We look at how such an architecture reduces risk, increases productivity and how this can be achieved using a single programming language. We look at hybrid approaches that might be more pragmatic in existing teams and the benefits of going this route. We also look at why Kotlin is such a compelling choice for achieving architectural nirvana.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-08</startDate>
+        <endDate>2021-12-08</endDate>
+        <location>Bonn, Germany</location>
+        <speaker>Jan Nonnen</speaker>
+        <title>Bonn Code</title>
+        <subject>Kotlin for Java Developers</subject>
+        <url>https://www.meetup.com/Bonn-Code/events/282279137</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is a modern language targeting the JVM ecosystem and is becoming more and more attractive for Java developers.
+In this talk we will give you a first insight into Kotlin. We are also going to take a look why you as a Java developer should care for this language and what every Java developer should know about Kotlin.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-08</startDate>
+        <endDate>2021-12-08</endDate>
+        <location>Bonn, Germany</location>
+        <speaker>Ralf Wehner</speaker>
+        <title>Bonn Code</title>
+        <subject>First Time Experience with Micronaut &amp; Kotlin</subject>
+        <url>https://www.meetup.com/Bonn-Code/events/282279137</url>
+        <description>
+            <![CDATA[
+<p>Switching from Java + Dropwizard to a Micronaut + Kotlin stack is the topic of this talk. What does such a transition mean? How much new stuff does a developer need to learn until he/she is similar productive than before?
+I will show you what I like at most in Kotlin for instance the basics like null safety, data classes or scope functions or the simplification when writing lambdas or using Kotest and Mockk for unit tests.
+In addition to that I will explain some powerful and easy to use Micronaut features which covers the usage of OAuth, multi-tenancy and building simple integration tests.<p>
+]]>
+        </description>
+     </event>
+
+      <event>
+        <lang>zh</lang>
+        <startDate>2021-11-19</startDate>
+        <endDate>2021-11-19</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Brandy Chang</speaker>
+        <title>JCConf 2021</title>
+        <subject>Going Reactive with Kotlin and Quarkus</subject>
+        <url>https://jcconf.tw/2021/</url>
+        <description>
+            <![CDATA[
+<p>Introduce Quarkus for cloud native development.  Demo to build small and high concurrent restful service with Kotlin coroutines and Quarkus.<p>
+]]>
+        </description>
+      </event>
+
+      <event>
+        <lang>zh</lang>
+        <startDate>2021-11-19</startDate>
+        <endDate>2021-11-19</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Fan Shengyou</speaker>
+        <title>JCConf 2021</title>
+        <subject>Develop cross-platform mobile applications with Kotlin Multiplatform Mobile (KMM)</subject>
+        <url>https://jcconf.tw/2021/</url>
+        <description>
+            <![CDATA[
+<p>It is not easy to develop and maintain the Mobile App of the two platforms at the same time, but the choice of cross-platform technology development is often a problem of poor performance.
+How to develop dual-platform applications in one language while maintaining the native operating experience and performance of each platform has become the most concerned issue for cross-platform developers.
+In this sharing, the KMM technology launched by the JetBrains team will be introduced, using the features of Kotlin Native cross-platform development and the development of Mobile App for two platforms with the assistance of the KMM plugin, supplemented by actual cases, so that the audience can Basic understanding of KMM development workflow.<p>
+]]>
+        </description>
+      </event>
+
+      <event>
+        <lang>zh</lang>
+        <startDate>2021-11-19</startDate>
+        <endDate>2021-11-19</endDate>
+        <location>Taipei, Taiwan</location>
+        <speaker>Andy Lu</speaker>
+        <title>JCConf 2021</title>
+        <subject>Kotlin's present and future</subject>
+        <url>https://jcconf.tw/2021/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin launched version 1.4.0 in August 2020 and version 1.5.0 in May this year. It is expected that a new version will be launched in November. In these versions, what functions are important , What are the features that have not yet been launched that are worth looking forward to? Let us get to know the current and future versions of Kotlin together.<p>
+]]>
+        </description>
+      </event>
+
+     <event>
+        <lang>zh</lang>
+        <startDate>2021-11-13</startDate>
+        <endDate>2021-11-13</endDate>
+        <location>Taipei, Hsinchu</location>
+        <speaker>Brandy Chang</speaker>
+        <title>DevFest'21 Hsinchu &amp; Taichung</title>
+        <subject>Quarkus, Kotlin, Arrow KT</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-hsinchu-presents-devfest21-hsinchu-taichung/</url>
+        <description>
+            <![CDATA[
+<p>1) Why Quarkus 2) Is kotlin a FP language 3) Arrow KT 4) Demo Project<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-11-13</startDate>
+        <endDate>2021-11-13</endDate>
+        <location>Jalingo, Nigeria</location>
+        <speaker>Manuel Ernesto</speaker>
+        <title>DevFest Jalingo 2021</title>
+        <subject>The Kotlin Features You've Been Missing Out On</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-jalingo-presents-devfest-jalingo-2021/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin is an open-source, statically-typed programming language that supports both object-oriented and functional programming. Kotlin does not aim to be unique—instead, it draws inspiration from decades of language development. It exists in variants that target the JVM (Kotlin/JVM), JavaScript (Kotlin/JS), and native code (Kotlin/Native).  In this session we will be covering some cool and often overlooked features in Kotlin.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>pt</lang>
+        <startDate>2021-11-27</startDate>
+        <endDate>2021-11-27</endDate>
+        <location>Lisbon, Portugal</location>
+        <speaker>Manuel Ernesto</speaker>
+        <title>GDG DevFestPT 2021</title>
+        <subject>Construindo uma API assíncrona com Ktor e Kotlin</subject>
+        <url>https://devfest.gdgportugal.com</url>
+        <description>
+            <![CDATA[
+<p>In this session we will be covering in practice the creation of an asynchronous API in a simple way, using Kotlin and Ktor.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Victor Rentea</speaker>
+        <title>Bucharest Software Craftsmanship Community</title>
+        <subject>TDD Coding Kata with Kotlin - Parking</subject>
+        <url>https://www.meetup.com/bucharest-software-craftsmanship-community/events/282285495</url>
+        <description>
+            <![CDATA[
+<p>It's been a while since we did a Test-Driven Development (TDD) Coding kata together. Plus, there's this JVM language that spreads every day...<p>
+
+
+<p>This live coding kata has 2 goals:
+1) experience how TDD flow feels like (although we cheat a bit, as the unit tests are already written for us)
+2) play with Kotlin, and be amazed by how functional programming feels in that language.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Bucharest, Romania</location>
+        <speaker>Victor Rentea</speaker>
+        <title>Bucharest Software Craftsmanship Community</title>
+        <subject>TDD Coding Kata with Kotlin - Parking</subject>
+        <url>https://www.meetup.com/bucharest-software-craftsmanship-community/events/282285495</url>
+        <description>
+            <![CDATA[
+<p>It's been a while since we did a Test-Driven Development (TDD) Coding kata together. Plus, there's this JVM language that spreads every day...<p>
+<p>This live coding kata has 2 goals:
+1) experience how TDD flow feels like (although we cheat a bit, as the unit tests are already written for us)
+2) play with Kotlin, and be amazed by how functional programming feels in that language.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Andrzej Zabost</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>Forward compatible enums serialization in Kotlin</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/281497536</url>
+        <description>
+            <![CDATA[
+<p>Thanks to the mandatory exhaustiveness of ‘when’ expressions in Kotlin, enums have become even more convenient to use than before, and they prevent us from writing erroneous code. However, enums don’t work well with system forward-compatibility because they limit the set of possible values that we can send and receive in data payloads. This presentation will show you how we managed to reconcile exhaustiveness and forward-compatibility when deserializing enum values.<p>
+]]>
+        </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-09</startDate>
+        <endDate>2021-12-09</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Piotr Prus</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>Meet Kotlin Multiplatform Mobile (KMM)</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/281497536</url>
+        <description>
+            <![CDATA[
+<p>This talk will cover various topics around KMM, the initial setup, and my opinion about the SDK business values. During the talk, I will try to answer the following questions: What is the difference between KMM and other multiplatform solutions, like Flutter and React Native? Is this a good solution for your business? Why do we think it is a good decision for us? How does iOS read the shared module? How much code can we actually share? What are the most important libraries and what are they doing? Is KMM production-ready? What are the pros and cons of KMM?<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2021-11-01</startDate>
         <endDate>2021-11-01</endDate>
         <location>Stockholm, Sweden</location>

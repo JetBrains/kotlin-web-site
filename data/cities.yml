@@ -1,3 +1,15 @@
+- name: Bonn, Germany
+  geo:
+    lat: 50.736611
+    lng: 7.090358
+- name: Jalingo, Nigeria
+  geo:
+    lat: 8.905112
+    lng: 11.358065
+- name: Taipei, Hsinchu
+  geo:
+    lat: 25.055103
+    lng: 121.159052
 - name: Dhaka, India
   geo:
     lat: 22.792252
