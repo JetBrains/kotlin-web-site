@@ -4,13 +4,13 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.6.0" type="string"/>
+    <var name="kotlinVersion" value="1.6.10" type="string"/>
 
     <var name="kotlinEapVersion" value="1.6.10-RC" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.6.0" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.6.10" type="string"/>
 
-    <var name="kotlinReleaseDate" value="November 16, 2021" type="string"/>
+    <var name="kotlinReleaseDate" value="December 14, 2021" type="string"/>
 
     <var name="coroutinesVersion" value="1.5.2" type="string"/>
 
