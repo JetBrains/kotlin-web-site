@@ -1,7 +1,7 @@
 [//]: # (title: Collections overview)
 
 The Kotlin Standard Library provides a comprehensive set of tools for managing _collections_ – groups of a variable number 
-of items (possibly zero) that share significance to the problem being solved and are operated upon commonly.
+of items (possibly zero) that are significant to the problem being solved and are commonly operated on.
 
 Collections are a common concept for most programming languages, so if you're familiar with, for example, Java or Python 
 collections, you can skip this introduction and proceed to the detailed sections. 
