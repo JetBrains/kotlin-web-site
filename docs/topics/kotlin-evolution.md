@@ -134,7 +134,7 @@ for two previous language versions and for three previous API versions in additi
 
 Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md#binary-compatibility-warnings) when this happens.
 
-Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the -progressive flag and get such fixes enabled even in incremental releases.
+Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the `-progressive` flag and get such fixes enabled even in incremental releases.
 
 All flags are available on the command line as well as [Gradle](gradle.md#compiler-options) and [Maven](maven.md#specifying-compiler-options).
 
