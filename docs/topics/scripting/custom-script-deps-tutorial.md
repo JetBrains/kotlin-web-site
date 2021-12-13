@@ -5,7 +5,7 @@
 >
 {type="warning"}
 
-_Kotlin scripting_ is a technology that enables executing Kotlin code as scripts, without prior compilation or
+_Kotlin scripting_ is the technology that enables executing Kotlin code as scripts, without prior compilation or
 packaging into executables.
 
 For an overview of Kotlin scripting with examples, see the talk [Implementing the Gradle Kotlin DSL](https://kotlinconf.com/2019/talks/video/2019/126701/)
@@ -66,6 +66,7 @@ Create a Kotlin/JVM Gradle project with two modules:
 
 6. Repeat steps 3, 4, and 5 one more time to create a module for the scripting host.
 
+TODO: project structure screenshot
 
 ## Create a script definition
 
