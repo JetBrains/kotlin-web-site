@@ -42,7 +42,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add code to read the input. Use the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function to read the input value and assign it to the `name` variable.
+2. Add code to read the input. Use the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function to read the input value and assign it to the `name` variable:
 
    > The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).  
    > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
@@ -58,7 +58,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-4. Eliminate the whitespaces and count the letters:
+3. Eliminate the whitespaces and count the letters:
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.
    * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context. 
    * Use a [string template](basic-types.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
@@ -76,11 +76,11 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-5. Save the changes and run the application.
+4. Save the changes and run the application.
 
    IntelliJ IDEA opens the **Run** tab and shows the output.
 
-6. Enter your name and enjoy the result:
+5. Enter your name and enjoy the result:
 
    ![Application output](native-output-2.png)
 
