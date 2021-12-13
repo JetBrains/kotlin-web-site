@@ -53,7 +53,8 @@ Create a Kotlin/JVM Gradle project with two modules:
 1. Go to **File | New | Project**.
 2. Create a new **Gradle** project with **Kotlin/JVM**. Select the **Kotlin DSL build script**
    checkbox if you want to write the build script in Kotlin.
-   TODO: screenshot
+
+   ![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
 
    Now you have an empty Kotlin/JVM Gradle project where you will add the required modules: script definition and scripting host.
 
@@ -61,16 +62,19 @@ Create a Kotlin/JVM Gradle project with two modules:
    checkbox if you want to write the build script in Kotlin. This module will be the script definition.
 
 4. Give the module a name and select the root module as its parent.
-   TODO: screenshot
+
+   ![Create script definition module](script-deps-module-definition.png){width=800}
 
 5. In the module's `build.gradle(.kts)` file, remove the `version` of the Kotlin Gradle plugin. You already have it in the
    root project's build script.
 
 6. Repeat steps 3, 4, and 5 one more time to create a module for the scripting host.
 
-TODO: project structure screenshot
+The project should have the following structure:
 
-You can find an example of such project and more Kotlin scripting examples in [this GitHub repository](https://github.com/Kotlin/kotlin-script-examples/tree/master/jvm/basic/jvm-maven-deps).
+![Custom scripting project structure](script-deps-project-structure.png){width=300}
+
+You can find an example of such project and more Kotlin scripting examples in the [kotlin-script-examples GitHub repository](https://github.com/Kotlin/kotlin-script-examples/tree/master/jvm/basic/jvm-maven-deps).
 
 ## Create a script definition
 
@@ -86,6 +90,8 @@ You can find an example of such project and more Kotlin scripting examples in [t
        implementation("org.jetbrains.kotlin:kotlin-scripting-jvm")
        implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies")
        implementation("org.jetbrains.kotlin:kotlin-scripting-dependencies-maven")
+       // coroutines dependency is required for this particular definition
+       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%") 
    }
    ```
 
@@ -98,6 +104,9 @@ You can find an example of such project and more Kotlin scripting examples in [t
        implementation 'org.jetbrains.kotlin:kotlin-scripting-jvm'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies'
        implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies-maven'
+       // coroutines dependency is required for this particular definition
+       implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
+
    }
    ```
 
@@ -127,8 +136,8 @@ You can find an example of such project and more Kotlin scripting examples in [t
     object ScriptWithMavenDepsConfiguration: ScriptCompilationConfiguration()
    ```
    
-   > In this tutorial, we provide only the working code without explaining Kotlin scripting API in general.
-   > You can find the same code with detailed explanation comments [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
+   > In this tutorial, we provide only the working code without explaining Kotlin scripting API.
+   > You can find the same code with detailed explanation comments [on GitHub](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
    > 
    {type="note"}
 
@@ -288,7 +297,8 @@ To check how your scripting host works, prepare a script to execute and a run co
    1. Open `host.kt` and navigate to the `main` function. It has a **Run** gutter icon on the left.
    2. Right-click the gutter icon and select **Modify Run Configuration**.
    3. In the **Create Run Configuration** dialog, add the script file name to **Program arguments** and click **OK**.
-      TODO: screenshot
+   
+      ![Scripting host run configuration](script-deps-run-config.png){width=800}
 
 3. Run the created configuration.
 
