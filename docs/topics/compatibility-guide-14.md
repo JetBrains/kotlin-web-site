@@ -687,7 +687,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 
 ### Compiler arguments with delimiter characters must be passed in double quotes on Windows
 
-> **Issue**: [KT-30211](https://youtrack.jetbrains.com/issue/KT-30211)
+> **Issue**: [KT-41309](https://youtrack.jetbrains.com/issue/KT-41309)
 > 
 > **Component**: CLI
 > 
