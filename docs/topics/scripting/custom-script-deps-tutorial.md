@@ -153,8 +153,7 @@ You can find an example of such project and more Kotlin scripting examples in th
             // Implicit imports for all scripts of this type
             defaultImports(DependsOn::class, Repository::class)
             jvm {
-                // Use whole classpath as dependencies
-                // Alternatively, you can use specific jars
+                // Extract the whole classpath from context classloader and use it as dependencies
                 dependenciesFromCurrentContext(wholeClasspath = true) 
             }
             // Callbacks
