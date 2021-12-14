@@ -79,6 +79,10 @@ fun main() {
 }
 ```
 
+> The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).
+>
+{type="note"}
+
 There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
 specified in competitive programming, and the actual input cannot deviate from the input specification in the problem
 statement. That's why we're using Kotlin's [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function. It asserts that the input string is present and throws

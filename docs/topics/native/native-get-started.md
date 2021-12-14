@@ -42,7 +42,13 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
-2. Add code to read the input. Use the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function to read the input value and assign it to the `name` variable.
+2. Add code to read the input. Use the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function to read the input value and assign it to the `name` variable:
+
+   > The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).  
+   > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
+   >
+   {type="note"}
+
 
    ```kotlin
    fun main() {
