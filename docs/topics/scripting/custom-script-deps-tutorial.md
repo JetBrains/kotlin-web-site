@@ -124,11 +124,14 @@ You can find an example of such project and more Kotlin scripting examples in th
 7. To make the class a script definition, mark it with the `@KotlinScript` annotation. Pass two parameters to the annotation:
    * `fileExtension` - a string ending with `.kts` that defines a file extension for scripts of this type.
    * `compilationConfiguration` - a Kotlin class that extends `ScriptCompilationConfiguration` and defines the compilation
-     specifics for this script definition. You'll create it on the next step.
+     specifics for this script definition. You'll create it in the next step.
 
    ```kotlin
+    // @KotlinScript annotation marks a script definition class
     @KotlinScript(
+        // File extension for the script type
         fileExtension = "scriptwithdeps.kts",
+        // Compilation configuration for the script type
         compilationConfiguration = ScriptWithMavenDepsConfiguration::class
     )
     abstract class ScriptWithMavenDeps
@@ -144,16 +147,18 @@ You can find an example of such project and more Kotlin scripting examples in th
 8. Define the script compilation configuration as shown below.
 
    ```kotlin
+    // ScriptCompilationConfiguration is the base class for compilation configurations
     object ScriptWithMavenDepsConfiguration : ScriptCompilationConfiguration(
         {
+            // Implicit imports for all scripts of this type
             defaultImports(DependsOn::class, Repository::class)
             jvm {
-                dependenciesFromCurrentContext(
-                    "script", // script library jar name
-                    "kotlin-scripting-dependencies" // DependsOn annotation is taken from this jar
-                )
+                // Use whole classpath as dependencies; alternatively, there may be be specific jars
+                dependenciesFromCurrentContext(wholeClasspath = true) 
             }
+            // Callbacks
             refineConfiguration {
+                // Process specified annotations with the provided handler
                 onAnnotations(DependsOn::class, Repository::class, handler = ::configureMavenDepsOnAnnotations)
             }
         }
@@ -163,6 +168,7 @@ You can find an example of such project and more Kotlin scripting examples in th
    The `configureMavenDepsOnAnnotations` function is as follows:
 
    ```kotlin
+    // Handler that reconfigures the compilation on the fly
     fun configureMavenDepsOnAnnotations(context: ScriptConfigurationRefinementContext): ResultWithDiagnostics<ScriptCompilationConfiguration> {
         val annotations = context.collectedData?.get(ScriptCollectedData.collectedAnnotations)?.takeIf { it.isNotEmpty() }
             ?: return context.compilationConfiguration.asSuccess()
@@ -220,7 +226,7 @@ is creating the scripting host – the component that handles the script executi
 2. Create the `src/main/kotlin/` directory in the module and add Kotlin source file, for example, `host.kt`.
 
 3. Define the `main` function for the application. The application should run with one argument – the path to the script file –
-   and execute the script. You'll define the script execution in a separate function `evalFile` on the next step. Declare it empty for now.
+   and execute the script. You'll define the script execution in a separate function `evalFile` in the next step. Declare it empty for now.
 
    `main` can look like this:
 
