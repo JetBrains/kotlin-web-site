@@ -130,7 +130,7 @@ As legacy features get removed and bugs fixed, the source language changes, and 
 
 We provide the `-language-version X.Y` and `-api-version X.Y` flags that make a new version emulate the behavior of an old
 one for compatibility purposes. To give you more time for migration, we [support](compatibility-modes.md) the development
-for two previous language versions and for three previous API versions in addition to the latest stable one.
+for three previous language and API versions in addition to the latest stable one.
 
 Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md#binary-compatibility-warnings) when this happens.
 
