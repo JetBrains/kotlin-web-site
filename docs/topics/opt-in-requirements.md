@@ -6,8 +6,7 @@
 >
 {type="warning"}
 
-> `@RequireOptIn` and `@OptIn` annotations were introduced in 1.3.70 to replace previously used `@Experimental` and `@UseExperimental`;
-> at the same time, `-opt-in` compiler option replaced `-Xuse-experimental`.
+> The `-opt-in` compiler option is available since Kotlin 1.6.0. For earlier Kotlin versions, use `-Xopt-in`.
 >
 {type="note"} 
 
