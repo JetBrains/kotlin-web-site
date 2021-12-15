@@ -22,7 +22,8 @@ You can use record classes with components that are declared in Java the same wa
 To access the record component, just use its name like you do for [Kotlin properties](properties.md):
 
 ```kotlin
-val firstName = person.name
+var newPerson = Person("Kotlin", 10)
+var firstName = newPerson.name
 ```
 
 ## Declare records in Kotlin
