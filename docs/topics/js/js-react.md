@@ -103,7 +103,7 @@ When the project is compiled and bundled, a red, blank page will appear in a bro
 
 ### Enable hot reload / continuous mode
 
-Configure the _continuous_ compilation mode, instead of manually compiling and executing your project every time the changes
+Configure the _[continuous compilation](dev-server-continuous-compilation.md)_ mode, instead of manually compiling and executing your project every time the changes
 are made. Make sure to stop all running development server instances before proceeding.
 
 1. Edit a run configuration that IntelliJ IDEA automatically generates after running the Gradle `run` task for the first time:
@@ -125,7 +125,7 @@ are made. Make sure to stop all running development server instances before proc
 
    The project then recompiles, and after a reload the browser will show the new color.
 
-You can keep the development server running in continuous mode during the development process. It will automatically rebuild
+You can keep the development server running in the continuous mode during the development process. It will automatically rebuild
 and reload the page when you make changes.
 
 > You can find this state of the project on the `master` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/master).
@@ -228,8 +228,7 @@ div {
 }
 ```
 
-Add the Kotlin code to the `render()` function call inside the `main()` function,
-replacing the previous `h1` tag.
+Add the Kotlin code to the `render()` function call inside the `main()` function, replacing the previous `h1` tag.
 
 Wait for the browser to reload. The page should now look like this:
 
@@ -295,7 +294,7 @@ sure that the loop is working.
 The [kotlin-styled](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-styled) library wraps the [styled-components](https://www.styled-components.com/)
 JavaScript library allowing to define styles [globally](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md#global-styles)
 or for individual elements of the DOM. Conceptually, that makes it similar to [CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) – but for Kotlin.
-The benfit of using a DSL is that you can use Kotlin code constructs to express formatting rules.
+The benefit of using a DSL is that you can use Kotlin code constructs to express formatting rules.
 
 The template project for this tutorial already includes everything for using `kotlin-styled`:
 
@@ -339,7 +338,7 @@ Feel free to experiment with some other styles. For example, you could change th
 >
 {type="note"}
 
-## Structure your application
+## Design app components
 
 The basic building blocks in React are called _[components](https://reactjs.org/docs/components-and-props.html)_.
 You build your application by combining these components, which
@@ -356,10 +355,10 @@ each component handles its responsibilities:
 
 ![Structured layout with components](structured-layout.png){width=700}
 
-Сomponents encapsulate a particular functionality. Using components shortens source code and makes it easier to read and
+Components encapsulate a particular functionality. Using components shortens source code and makes it easier to read and
 understand.
 
-### Add component
+### Add the main component
 
 Create the main component for rendering into the `root` element, the `app`:
 
@@ -438,7 +437,7 @@ and contains the code from the `unwatchedVideos` list.
    // . . .
    ```
 
-### Add props
+### Add props to pass data between components
 
 For reusing the `videoList` component, it should be possible to fill it with different content. You can add
 the ability to pass the list of items as an attribute to the component. In React, these attributes are called _props_.
@@ -487,10 +486,8 @@ After a reload the browser will show that the lists render correctly now.
 
 ### Make the list interactive
 
-When the user clicks on a list entry, the video player should actually play that video. To start, add an `alert` to the
-video the user selects.
-
-In the code of `videoList`, add an `onClickFunction` handler that triggers an alert with the current video:
+For start, add an alert message that pops up when users click on a list entry. In the code of `videoList`, add
+the `onClickFunction` handler that triggers an `alert` with the current video:
 
 ```kotlin
 // . . .
@@ -506,7 +503,7 @@ p {
 // . . .
 ```
 
-If you click on one of the list items in the browser window, you'll get the following information inside an `alert`
+If you click on one of the list items in the browser window, you'll get the following information inside an alert
 window:
 
 ![Browser alert window](alert-window.png){width=700}
@@ -518,12 +515,12 @@ window:
 >
 {type="tip"}
 
-### Add state
+### Add state to keep values
 
 You can add a ▶ triangle to highlight the selected video instead of alerting the user. To do that, introduce some
 _state_ specific to this component.
 
-State is one of the other core concepts in React. In modern React (using the so-called _Hooks API_), state is expressed
+State is one of core concepts in React. In modern React (using the so-called _Hooks API_), state is expressed
 using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
 1. Add the following line of code to the top of the `videoList` declaration:
@@ -1189,7 +1186,7 @@ enough for development purposes.
 
 1. [Create an account](https://signup.heroku.com/).
 2. [Install and authenticate the CLI client](https://devcenter.heroku.com/articles/heroku-cli).
-3. Create a git repository and attach a Heroku app by running the following commands in the Terminal while in the project root:
+3. Create a Git repository and attach a Heroku app by running the following commands in the Terminal while in the project root:
 
    ```bash
    git init
@@ -1250,7 +1247,7 @@ If everything's OK, you will see the URL under which it's possible to reach the 
 
 ## What's next
 
-### Add more features
+### Add more features {initial-collapse-state="collapsed"}
 
 You can use the resulting app as a jumping-off point to explore more advanced topics in the realm of React, Kotlin/JS, and more.
 
@@ -1262,22 +1259,22 @@ Alternatively, look into ways of [storing information on the client](https://dev
 * **Complex APIs**. There are lots of datasets and APIs available. You can pull any data into your application, for example,
 build a visualizer for [cat photos](https://thecatapi.com/) or a [royalty-free stock photo API](https://unsplash.com/developers).
 
-### Improve the style: responsiveness and grids
+### Improve the style: responsiveness and grids {initial-collapse-state="collapsed"}
 
 The application design is still very simple and won't look great on mobile devices or in narrow windows. Explore
 some more of the CSS DSL to make the app more accessible.
 
-### Join the community and get help
+### Join the community and get help {initial-collapse-state="collapsed"}
 
 The best way to report problems and get help is the [kotlin-wrappers issue tracker](https://github.com/JetBrains/kotlin-wrappers/issues).
 If you can't find your problem, file a new issue. You can also join the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 There are channels for `#javascript` and `#react`.
 
-### Learn more about coroutines
+### Learn more about coroutines {initial-collapse-state="collapsed"}
 
 If you're interested in finding out more about how you can write concurrent code, check out the hands-on lab on [coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction).
 
-### Learn more about React
+### Learn more about React {initial-collapse-state="collapsed"}
 
 Now that you know the basic concepts and how they translate to Kotlin, you can convert some other concepts outlined
 in the [official guides on React](https://reactjs.org/docs/) into Kotlin.
