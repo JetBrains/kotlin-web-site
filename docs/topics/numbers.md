@@ -12,9 +12,10 @@ For integer numbers, there are four types with different sizes and, hence, value
 | `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
 | `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
-If you initialize a variable with an integer value not exceeding the maximum value of `Int`, the compiler will 
-automatically infer the type `Int`. If the initial value exceeds the maximum value, then the type is `Long`.
-To specify the `Long` value explicitly, append the suffix `L` to the value.
+When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
+smallest range enough to represent the value. If it is not exceeding the range of `Int`, the type is `Int`. If it exceeds,
+the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
+Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
 
 ```kotlin
 val one = 1 // Int
@@ -22,13 +23,6 @@ val threeBillion = 3000000000 // Long
 val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
-
-> Inside the compiler, there is a priority between built-in integer types. If there is no explicit type specification
-> (such as `val oneByte: Byte = 1`), an integer literal that is in the value range of multiple built-in integer types 
-> receives the type of the highest priority. Thus, the integer literal `1` in the first line of the example receives 
-> the `Int` type, although it can be either `Byte` or `Short`.
-> 
-{type="note"}
 
 ## Floating-point types
 
