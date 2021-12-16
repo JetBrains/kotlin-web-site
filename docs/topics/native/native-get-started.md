@@ -23,16 +23,33 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 Your project will open. By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+The `build.gradle.kts` file contains the project settings. Make sure you use the latest Kotlin version:
 
-## Run the application
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+```
+   
+Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
 
-Start the application by clicking **Run** next to the run configuration at the top of the screen.
+## Build and run the application
 
-![Run the application](native-run-app.png){width=600}
+1. Click **Build Project** next to the run configuration at the top of the screen:
 
-IntelliJ IDEA opens the **Run** tab and shows the output:
-![Application output](native-output-1.png){width=600}
+   ![Build the application](native-run-app.png){width=600}
+
+2. On the **Terminal** tab, run the following command:
+   
+   `build/bin/native/debugExecutable/native-project.kexe`
+
+   IntelliJ IDEA prints "Hello, Kotlin/Native!".
+
+You can configure IntelliJ IDEA to build your project automatically every time you make changes.
+
+1. Go to **Settings/Preferences | Build, Execution, Deployment | Compiler**.
+2. On the **Compiler** page, select **Build project automatically**.
+3. Apply the changes.
 
 ## Update the application
 
@@ -48,7 +65,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
    >
    {type="note"}
-
 
    ```kotlin
    fun main() {
@@ -76,9 +92,9 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-4. Save the changes and run the application.
+4. Save the changes and run the build command again:
 
-   IntelliJ IDEA opens the **Run** tab and shows the output.
+   `build/bin/native/debugExecutable/native-project.kexe`.
 
 5. Enter your name and enjoy the result:
 
@@ -117,11 +133,11 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-3. Save the changes and run the application.
+4. Save the changes and and run the build command again:
 
-   IntelliJ IDEA opens the **Run** tab and shows the output.
+   `build/bin/native/debugExecutable/native-project.kexe`.
 
-4. Enter your name and enjoy the result:
+5. Enter your name and enjoy the result:
 
    ![Application output](native-output-3.png)
 
