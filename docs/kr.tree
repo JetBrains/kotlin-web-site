@@ -13,7 +13,6 @@
 
     <toc-element toc-title="Kotlin overview">
         <toc-element id="multiplatform.md"/>
-        <toc-element id="kmm-overview.md"/>
         <toc-element id="server-overview.md" accepts-web-file-names="httpservlets.html"/>
         <toc-element id="android-overview.md"/>
         <toc-element id="js-overview.md"/>
@@ -97,7 +96,7 @@
     <toc-element toc-title="Multiplatform programming">
         <toc-element id="mpp-intro.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html"/>
         <toc-element toc-title="Kotlin Multiplatform Mobile (KMM)">
-            <toc-element id="kmm-getting-started.md"/>
+            <toc-element id="kmm-getting-started.md" accepts-web-file-names="kmm-overview.html"/>
             <toc-element id="kmm-setup.md"/>
             <toc-element id="kmm-create-first-app.md"/>
             <toc-element id="kmm-understand-project-structure.md"/>

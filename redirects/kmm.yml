@@ -5,7 +5,7 @@
    - /docs/mobile/security.html
    - /docs/mobile/organize-process-around-kmm.html
    - /docs/mobile/architect-kmm-app.html
-  to: /docs/kmm-overview.html
+  to: /docs/kmm-getting-started.html
 
 - from: /docs/mobile/getting-started.html
   to: /docs/kmm-getting-started.html
