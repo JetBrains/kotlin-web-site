@@ -1,10 +1,14 @@
 [//]: # (title: Get started with Kotlin Multiplatform Mobile)
 
+<web-description>
+cross platform mobile development, android vs ios development
+</web-description>
+
 > Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
 >
 {type="note"}
 
-Kotlin Multiplatform Mobile is an SDK designed to simplify development of cross-platform mobile applications.
+Kotlin Multiplatform Mobile (KMM) is an SDK designed to simplify development of cross-platform mobile applications.
 You can share common code between iOS and Android apps and write platform-specific code only where it's necessary.
 For example, to implement a native UI or when working with platform-specific APIs.
 
