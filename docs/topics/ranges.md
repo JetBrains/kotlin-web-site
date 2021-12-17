@@ -14,7 +14,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"
+{kotlin-runnable="true"}
 
 Integral type ranges ([`IntRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html),
 [`LongRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-long-range/index.html),
