@@ -5,10 +5,16 @@ function from the `kotlin.ranges` package and its operator form `..`. Usually, `
 `!in` functions.
 
 ```kotlin
-if (i in 1..4) { // equivalent of 1 <= i && i <= 4
-    print(i)
+fun main() {
+    val i = 1 
+//sampleStart
+    if (i in 1..4) { // equivalent of 1 <= i && i <= 4
+        print(i)
+    }
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
 
 Integral type ranges ([`IntRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html),
 [`LongRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-long-range/index.html),
