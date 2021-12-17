@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-16</startDate>
+        <endDate>2021-12-16</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Ragunath Jawahar</speaker>
+        <title>JetBrains India</title>
+        <subject>Meet Kotlin - Building Robust Software - session 3</subject>
+        <url>https://www.meetup.com/JetBrains-India/events/282560914/</url>
+        <description>
+            <![CDATA[
+<p>Join us for the 3rd and final session in the "Building Robust Software with Kotlin" series. This session focusses on writing tests for Kotlin applications by leveraging best practices discussed as part of the previous sessions in the series along with introductions to certain tools and plugins that will help in achieving better testability.<p>
+        </description>
+   </event>
+
    <event>
         <lang>zh</lang>
         <startDate>2021-12-16</startDate>
@@ -116,26 +131,6 @@
    </event>
 
    <event>
-        <lang>ru</lang>
-        <startDate>2021-10-28</startDate>
-        <endDate>2021-10-28</endDate>
-        <online>true</online>
-        <speaker>Karin-Alexandra Monoid</speaker>
-        <title>Joker 2021</title>
-        <subject>Расширяем возможности kotlinx.serialization с помощью Arrow Meta</subject>
-        <url>https://jokerconf.com/talks/extending-kotlinx-serialization-functionality-with-arrow-meta/</url>
-        <description>
-            <![CDATA[
-<p>На проекте, использующим Kotlin, хочется работать с Kotlin-first библиотеками. Например, хочется вместо Jackson использовать kotlinx.serialization. К сожалению, перевести существующий проект на любимые технологии не всегда возможно из-за разницы в подходах или отсутствии фич. Например, global naming strategy.
-<p>Можно ли обойти ограничения библиотеки и добавить недостающее? Можно! С помощью Arrow Meta.
-<p>Arrow Meta — это библиотека, позволяющая писать плагины для компилятора, линтеры и другие преобразователи исходного кода.
-<p>В данном докладе мы поговорим о настройке проекта, возможностях библиотеки и разберём реальный use-case добавления global naming strategy в kotlinx.serialization.
-<p>Данный доклад будет интересен продвинутой аудитории, преимущественно использующей Kotlin для backend-разработки.<p>
-]]>
-        </description>
-    </event>
-
-    <event>
         <lang>ru</lang>
         <startDate>2021-10-28</startDate>
         <endDate>2021-10-28</endDate>
