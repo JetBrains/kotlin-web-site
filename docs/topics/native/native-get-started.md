@@ -40,8 +40,10 @@ Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference
    ![Build the application](native-run-app.png){width=600}
 
 2. On the **Terminal** tab, run the following command:
-   
-   `build/bin/native/debugExecutable/native-project.kexe`
+
+   ```
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
 
    IntelliJ IDEA prints "Hello, Kotlin/Native!".
 
@@ -55,7 +57,7 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 ### Count the letters in your name
 
-1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
+1. Open the file `main.kt` in `src/nativeMain/kotlin`.
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
@@ -94,7 +96,9 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 4. Save the changes and run the build command again:
 
-   `build/bin/native/debugExecutable/native-project.kexe`.
+   ```
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
 
 5. Enter your name and enjoy the result:
 
@@ -102,7 +106,7 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 ### Count the unique letters in your name
 
-1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
+1. Open the file `main.kt` in `src/nativeMain/kotlin`.
 
 2. Declare the new [extension function](extensions.md#extension-functions) `countDistinctCharacters()` for `String`:
 
@@ -135,7 +139,9 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 4. Save the changes and and run the build command again:
 
-   `build/bin/native/debugExecutable/native-project.kexe`.
+   ```
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
 
 5. Enter your name and enjoy the result:
 
