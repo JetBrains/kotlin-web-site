@@ -34,6 +34,8 @@ maintaining full compatibility with existing Java-based technology stacks, all w
 
 * [Javalin](https://javalin.io) is a very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2, and async requests.
 
+* [Quarkus](https://quarkus.io/) Quarkus is a Cloud Native, (Linux) Container First framework for writing Java applications.
+
 * The available options for persistence include direct JDBC access, JPA, and using NoSQL databases through their Java drivers.
   For JPA, the [kotlin-jpa compiler plugin](no-arg-plugin.md#jpa-support) adapts
   Kotlin-compiled classes to the requirements of the framework.
