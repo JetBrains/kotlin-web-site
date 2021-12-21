@@ -23,7 +23,8 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 Your project will open. By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. Make sure you use the latest Kotlin version:
+The `build.gradle.kts` file contains the project settings. Make sure you use the latest version of the Kotlin Multiplatform
+Gradle plugin:
 
 ```kotlin
 plugins {
@@ -47,7 +48,8 @@ Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference
 
    IntelliJ IDEA prints "Hello, Kotlin/Native!".
 
-You can configure IntelliJ IDEA to build your project automatically every time you make changes.
+You can [configure IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-applications.html#auto-build) to build
+your project automatically every time you make changes:
 
 1. Go to **Settings/Preferences | Build, Execution, Deployment | Compiler**.
 2. On the **Compiler** page, select **Build project automatically**.
@@ -119,7 +121,7 @@ You can configure IntelliJ IDEA to build your project automatically every time y
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
    ```
 
-3. Use the `countDistinctCharacters()` function to count the unique letters in your name.
+3. Use the `countDistinctCharacters()` function to count the unique letters in your name:
 
    ```kotlin
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
