@@ -2,8 +2,8 @@
 
 This is a curated list of Kotlin Multiplatform Mobile (KMM) samples.
 
-Do you have a great idea for a sample, or one you would like to add to the list?  
-Feel free to [reach out to us](mailto:kmm.feedback@kotlinlang.org) and tell us about it!
+Do you have a great sample that you would like to add to the list?  
+Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-site/edit/master/docs/topics/kmm/kmm-samples.md) and tell us about it! You can use this [PR example](https://github.com/JetBrains/kotlin-web-site/pull/2723) for reference.
 
 <table>
     <tr>
