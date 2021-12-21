@@ -1,7 +1,11 @@
 [//]: # (title: Get started with Kotlin Multiplatform Mobile)
 [//]: # (description: cross platform mobile development, android vs ios development)
 
-> Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+> Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future
+> Kotlin versions.
+> 
+> Beta is expected in spring 2022. See [KMM Beta Roadmap](https://youtu.be/LE-Dy9XCLxk) video
+> to learn about upcoming features.
 >
 {type="note"}
 
@@ -36,7 +40,7 @@ See [supported platforms for Kotlin multiplatform programming](mpp-supported-pla
 * [Check out the list of sample projects](kmm-samples.md)
 * [Introduce Kotlin for cross-platform mobile app development to your team](kmm-introduce-your-team.md)
 
-## Make an Android application work on iOS
+## Make your Android application work on iOS
 
 If you already have an Android mobile application and want to make it cross-platform:
 
