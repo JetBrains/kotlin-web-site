@@ -31,8 +31,8 @@ print(
 )
 ```
 
-The specified Maven dependency (`kotlinx-html-jvm` for this example) will be downloaded during execution and used for the
-rest of the script.
+The specified Maven dependency (`kotlinx-html-jvm` for this example) will be resolved from the specified maven
+repository or local cache during execution and used for the rest of the script.
 
 
 ## Project structure
@@ -113,15 +113,18 @@ You can find an example of such project and more Kotlin scripting examples in th
    </tab>
    </tabs>
 
-5. Create the `src/main/kotlin/` directory in the module and add a Kotlin source file, for example, `scriptDef.kt`.
+2. Create the `src/main/kotlin/` directory in the module and add a Kotlin source file, for example, `scriptDef.kt`.
 
-6. In `scriptDef.kt`, create an abstract class. It will be the _script definition_.
+3. In `scriptDef.kt`, create a class. It will be a superclass for scripts of this type, so declare it `abstract` or `open`.
 
     ```kotlin
+    // abstract (or open) superclass for scripts of this type
     abstract class ScriptWithMavenDeps
     ```
 
-7. To make the class a script definition, mark it with the `@KotlinScript` annotation. Pass two parameters to the annotation:
+   This class with also serve as a reference to the script definition later.
+
+5. To make the class a script definition, mark it with the `@KotlinScript` annotation. Pass two parameters to the annotation:
    * `fileExtension` - a string ending with `.kts` that defines a file extension for scripts of this type.
    * `compilationConfiguration` - a Kotlin class that extends `ScriptCompilationConfiguration` and defines the compilation
      specifics for this script definition. You'll create it in the next step.
@@ -144,10 +147,9 @@ You can find an example of such project and more Kotlin scripting examples in th
    > 
    {type="note"}
 
-8. Define the script compilation configuration as shown below.
+6. Define the script compilation configuration as shown below.
 
    ```kotlin
-    // ScriptCompilationConfiguration is the base class for compilation configurations
     object ScriptWithMavenDepsConfiguration : ScriptCompilationConfiguration(
         {
             // Implicit imports for all scripts of this type
@@ -187,8 +189,8 @@ You can find an example of such project and more Kotlin scripting examples in th
    You can find the full code [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
 
 
-Now you have the script definition: you know what can be written in the scripts and their file extension. The next step
-is creating the scripting host – the component that handles the script execution.
+On this step, you have defined what developers can write in scripts of this type and how it will be handled.
+The next step is creating the scripting host – the component that handles the script execution.
 
 ## Create a scripting host
 
