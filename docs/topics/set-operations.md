@@ -28,7 +28,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-These operations - `union`, `intersect`, and `subtract` can be applied to `List` as well.
+These operations – `union`, `intersect`, and `subtract` – apply to `List` as well.
 However, their result is _always_ a `Set`, even on lists. In this result, all the duplicate elements are merged into one 
 and the index access is not available.
 
