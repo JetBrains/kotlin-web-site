@@ -41,7 +41,7 @@ Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference
 
 2. On the **Terminal** tab, run the following command:
 
-   ```
+   ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
    ```
 
@@ -96,7 +96,7 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 4. Save the changes and run the build command again:
 
-   ```
+   ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
    ```
 
@@ -139,7 +139,7 @@ You can configure IntelliJ IDEA to build your project automatically every time y
 
 4. Save the changes and and run the build command again:
 
-   ```
+   ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
    ```
 
