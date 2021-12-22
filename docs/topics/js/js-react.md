@@ -443,7 +443,7 @@ For reusing the `videoList` component, it should be possible to fill it with dif
 the ability to pass the list of items as an attribute to the component. In React, these attributes are called _props_.
 When the props of a component are changed in React, the framework automatically re-renders the component. 
 
-For `videoList`, you'll need a prop containing the list of videos to be shown. Define an `external interface`
+For `videoList`, you'll need a prop containing the list of videos to be shown. Define an interface
 that holds all the props which can be passed to a `videoList` component:
 
 1. Add the following definition to the `VideoList.kt` file:
@@ -453,6 +453,8 @@ that holds all the props which can be passed to a `videoList` component:
        var videos: List<Video>
    }
    ```
+   The [external modifier](https://kotlinlang.org/docs/reference/js-interop.html#external-modifier) tells the compiler
+that the interface implementation is provided externally, so it doesn't try to generate any JavaScript code from the declaration.
 
 2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `fc()` block:
 
