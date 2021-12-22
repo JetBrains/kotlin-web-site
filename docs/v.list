@@ -12,7 +12,7 @@
 
     <var name="kotlinReleaseDate" value="December 14, 2021" type="string"/>
 
-    <var name="coroutinesVersion" value="1.5.2" type="string"/>
+    <var name="coroutinesVersion" value="1.6.0" type="string"/>
 
     <var name="coroutinesEapVersion" value="1.6.0-RC3" type="string"/>
 
