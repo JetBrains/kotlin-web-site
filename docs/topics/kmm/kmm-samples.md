@@ -207,6 +207,27 @@ Feel free to [reach out to us](mailto:kmm.feedback@kotlinlang.org) and tell us a
 		</ul>
 	</td>
 </tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/MartinRajniak/CatViewerDemo">CatViewerDemo</a></strong>
+      </td>
+      <td>Models, Networking, Data Storage, ViewModels</td>
+      <td>Ktor, multiplatform-settings, kotlinx.serialization</td>
+      <td>Jetpack Compose, SwiftUI</td>
+      <td>Xcode build phases</td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>
+        <ul>
+            <li>Android Architecture</li>
+            <li>Pagination</li>
+            <li>Works on M1</li>
+            <li>GitHubActions CI</li>
+            <li>Cats 🐈</li>
+        </ul>
+    </td>
+</tr>
     <tr>
       <td>
         <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-sample">kmm-with-cocoapods-sample</a></strong>
