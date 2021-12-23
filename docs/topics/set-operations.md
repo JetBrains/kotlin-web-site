@@ -13,7 +13,6 @@ To find collection elements not present in another collection, use [`subtract()`
 Both these functions can be called in the infix form as well, for example, `a intersect b`.
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val numbers = setOf("one", "two", "three")
@@ -29,5 +28,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Note that set operations are supported by `List` as well.
-However, the result of set operations on lists is still a `Set`, so all the duplicate elements are removed.
+You can also apply `union`, `intersect`, and `subtract` to `List`.
+However, their result is _always_ a `Set`, even on lists. In this result, all the duplicate elements are merged into one 
+and the index access is not available.
+
+```kotlin
+fun main() {
+//sampleStart
+    val list1 = listOf(1, 1, 2 ,3, 5, 8, -1)
+    val list2 = listOf(1, 1, 2, 2 ,3, 5)
+    println(list1 intersect list2) // result on two lists is a Set
+    println(list1 union list2)     // equal elements are merged into one
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
