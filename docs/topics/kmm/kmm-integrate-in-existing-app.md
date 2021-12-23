@@ -385,3 +385,6 @@ should have the same presentation layer.
 * [Add dependencies on libraries](kmm-add-dependencies.md)
 * [Learn about concurrency](kmm-concurrency-overview.md)
 
+## Community resources
+* [Video: 3 ways to get your Kotlin JVM code ready for Kotlin Multiplatform Mobile](https://www.youtube.com/watch?v=X6ckI1JWjqo)
+
