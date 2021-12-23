@@ -28,7 +28,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-These operations – `union`, `intersect`, and `subtract` – apply to `List` as well.
+You can also apply `union`, `intersect`, and `subtract` to `List` as well.
 However, their result is _always_ a `Set`, even on lists. In this result, all the duplicate elements are merged into one 
 and the index access is not available.
 
@@ -37,7 +37,7 @@ fun main() {
 //sampleStart
     val list1 = listOf(1, 1, 2 ,3, 5, 8, -1)
     val list2 = listOf(1, 1, 2, 2 ,3, 5)
-    println(list1 intersect list2) // result on two lists is a Set: 
+    println(list1 intersect list2) // result on two lists is a Set
     println(list1 union list2)     // equal elements are merged into one
 //sampleEnd
 }
