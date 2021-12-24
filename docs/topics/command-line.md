@@ -129,7 +129,7 @@ $ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 Kotlin provides experimental support for script customization, such as adding external properties,
 providing static or dynamic dependencies, and so on. Customizations are defined by so-called *Script definitions* -
 annotated kotlin classes with the appropriate support code. The script filename extension is used to select the appropriate
-definition.
+definition. Learn more about [Kotlin custom scripting](custom-script-deps-tutorial.md).
 
 Properly prepared script definitions are detected and applied automatically when the appropriate jars are included
 in the compilation classpath. Alternatively, you can specify definitions manually by passing the `-script-templates` option
