@@ -23,8 +23,8 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 Your project will open. By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. Make sure you use the latest version of the Kotlin Multiplatform
-Gradle plugin:
+The `build.gradle.kts` file contains the project settings. To create Kotlin/Native applications, you need the Kotlin
+Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
 ```kotlin
 plugins {
@@ -32,7 +32,10 @@ plugins {
 }
 ```
    
-Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+> * Read more about these settings in the [Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+> * Read more about the Gradle build system in the [documentation](gradle.md). 
+>
+{type="tip"}
 
 ## Build and run the application
 
@@ -49,11 +52,14 @@ Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference
    IntelliJ IDEA prints "Hello, Kotlin/Native!".
 
 You can [configure IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-applications.html#auto-build) to build
-your project automatically every time you make changes:
+your project automatically:
 
 1. Go to **Settings/Preferences | Build, Execution, Deployment | Compiler**.
 2. On the **Compiler** page, select **Build project automatically**.
 3. Apply the changes.
+
+Now when you make changes in the class files or save the file (**Ctrl + S**/**Cmd + S**), IntelliJ IDEA automatically
+performs the incremental build of the project.
 
 ## Update the application
 
@@ -96,7 +102,7 @@ your project automatically every time you make changes:
    }
    ```
 
-4. Save the changes and run the build command again:
+4. Save the changes and run the build command:
 
    ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
@@ -139,7 +145,7 @@ your project automatically every time you make changes:
    }
    ```
 
-4. Save the changes and and run the build command again:
+4. Save the changes and run the build command:
 
    ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
