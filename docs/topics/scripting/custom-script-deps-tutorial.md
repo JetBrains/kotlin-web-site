@@ -18,7 +18,9 @@ You'll be able to execute scripts like the following:
 @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
 @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
 
-import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
+import kotlinx.html.*
+import kotlinx.html.stream.*
+import kotlinx.html.attributes.*
 
 val addressee = "World"
 
@@ -46,13 +48,17 @@ A minimal Kotlin custom scripting project contains two parts:
 
 According to this, it’s convenient to organize the project in two modules.
 
+## Before you start
+
+Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+
 ## Set up the project structure
 
 Create a Kotlin/JVM Gradle project with two modules:
 
 1. Go to **File | New | Project**.
 2. Create a new **Gradle** project with **Kotlin/JVM**. Select the **Kotlin DSL build script**
-   checkbox if you want to write the build script in Kotlin.
+   checkbox to write the build script in Kotlin.
 
    ![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
 
@@ -77,6 +83,9 @@ The project should have the following structure:
 You can find an example of such project and more Kotlin scripting examples in the [kotlin-script-examples GitHub repository](https://github.com/Kotlin/kotlin-script-examples/tree/master/jvm/basic/jvm-maven-deps).
 
 ## Create a script definition
+
+First, you'll define the script type: what developers can write in scripts of this type and how it will be handled.
+In this tutorial, this includes the support for the `@Repository` and `@DependsOn` annotations in the scripts.
 
 1. In the script definition module, add the dependencies on the Kotlin scripting components in the `dependencies` block of
    `build.gradle(.kts)`. These dependencies provide the APIs you will need for the script definition:
@@ -189,10 +198,9 @@ You can find an example of such project and more Kotlin scripting examples in th
    You can find the full code [here](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
 
 
-On this step, you have defined what developers can write in scripts of this type and how it will be handled.
-The next step is creating the scripting host – the component that handles the script execution.
-
 ## Create a scripting host
+
+The next step is creating the scripting host – the component that handles the script execution.
 
 1. In the scripting host module, add the dependencies in the `dependencies` block of `build.gradle(.kts)`:
    * Kotlin scripting components that provide the APIs you need for the scripting host
@@ -227,7 +235,7 @@ The next step is creating the scripting host – the component that handles the 
 
 2. Create the `src/main/kotlin/` directory in the module and add Kotlin source file, for example, `host.kt`.
 
-3. Define the `main` function for the application. The application should run with one argument – the path to the script file –
+3. Define the `main` function for the application. In its body, check that it has one argument – the path to the script file –
    and execute the script. You'll define the script execution in a separate function `evalFile` in the next step. Declare it empty for now.
 
    `main` can look like this:
