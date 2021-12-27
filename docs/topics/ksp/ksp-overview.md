@@ -32,6 +32,11 @@ Unlike a full-fledged compiler plugin, processors cannot modify the code.
 A compiler plugin that changes language semantics can sometimes be very confusing.
 KSP avoids that by treating the source programs as read-only.
 
+You can also get an overview of KSP in this video:
+
+<video href="bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
+
+
 ## How KSP looks at source files
 
 Most processors navigate through the various program structures of the input source code.

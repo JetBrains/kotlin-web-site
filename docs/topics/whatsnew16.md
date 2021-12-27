@@ -665,7 +665,9 @@ See the [collection ordering](collection-ordering.md) section for reference.
 With Kotlin 1.6.0, we're introducing Kover – a Gradle plugin for the [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](https://github.com/jacoco/jacoco) Kotlin code coverage agents.
 It works with all language constructs, including inline functions.
 
-Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover).
+Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover) or in this video:
+
+<video href="jNu5LY9HIbw" title="Kover – The Code Coverage Plugin"/>
 
 ## Coroutines 1.6.0-RC
 

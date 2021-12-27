@@ -50,6 +50,10 @@ KMM is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which 
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent KMM changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
+The following video presents our plans on the upcoming stage of the Kotlin Multiplatform Mobile development – its promotion to [Beta](components-stability.md): 
+
+<video href="LE-Dy9XCLxk" title="Kotlin Multiplatform Mobile Beta Roadmap"/>
+
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
 If you want to write iOS-specific code and run an iOS application on a simulated or real device, use a Mac with a macOS
