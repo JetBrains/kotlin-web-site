@@ -110,14 +110,14 @@ The `head` and `body` functions in the `HTML` class are defined similarly to `ht
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ```kotlin
-fun head(init: Head.() -> Unit) : Head {
+fun head(init: Head.() -> Unit): Head {
     val head = Head()
     head.init()
     children.add(head)
     return head
 }
 
-fun body(init: Body.() -> Unit) : Body {
+fun body(init: Body.() -> Unit): Body {
     val body = Body()
     body.init()
     children.add(body)
