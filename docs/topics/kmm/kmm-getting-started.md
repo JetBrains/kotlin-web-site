@@ -5,7 +5,8 @@ for the business logic of your iOS and Android apps.)
 > Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future
 > Kotlin versions.
 > 
-> Beta is expected in spring 2022. See [KMM Beta Roadmap](https://youtu.be/LE-Dy9XCLxk) to learn about upcoming features.
+> Beta is expected in spring 2022. See [Kotlin Multiplatform Mobile Beta Roadmap Video Highlights](https://blog.jetbrains.com/kotlin/2021/10/kmm-beta-roadmap-video-highlights/)
+> to learn about upcoming features.
 >
 {type="note"}
 
@@ -17,7 +18,7 @@ Watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in 
 Petrova explains what Kotlin Multiplatform Mobile is and how to use it in your project. With Ekaterina,
 you'll set up an environment and prepare to create your first cross-platform mobile application:
 
-<video href="mdN6P6RI__k" title="Kotlin Multiplatform Multiverse, Episode 1: Meet KMM!"/>
+<video href="mdN6P6RI__k" title="Meet Kotlin Multiplatform Mobile!"/>
 
 You can also check out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) on YouTube.
 
@@ -28,10 +29,8 @@ You can also check out other videos about [Kotlin Multiplatform Multiverse](http
 * Apple iOS devices (ARM64 and ARM32) and simulators
 * Apple watchOS devices (ARM64 and ARM32) and simulators
 
-[Kotlin Multiplatform](multiplatform.md) technology also supports other platforms, including JavaScript, Linux, WebAssembly,
-and [more](mpp-dsl-reference.md#targets).
-
-See the [full list of supported platforms](mpp-supported-platforms.md) for Kotlin Multiplatform programming.
+[Kotlin Multiplatform](multiplatform.md) technology also supports [other platforms](mpp-supported-platforms.md), including
+JavaScript, Linux, Windows, and WebAssembly.
 
 ## Start from scratch
 
