@@ -23,22 +23,49 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 Your project will open. By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. Read more about these settings in the [Kotlin Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+The `build.gradle.kts` file contains the project settings. To create Kotlin/Native applications, you need the Kotlin
+Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
-## Run the application
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+```
+   
+> * Read more about these settings in the [Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+> * Read more about the Gradle build system in the [documentation](gradle.md). 
+>
+{type="tip"}
 
-Start the application by clicking **Run** next to the run configuration at the top of the screen.
+## Build and run the application
 
-![Run the application](native-run-app.png){width=600}
+1. Click **Build Project** next to the run configuration at the top of the screen:
 
-IntelliJ IDEA opens the **Run** tab and shows the output:
-![Application output](native-output-1.png){width=600}
+   ![Build the application](native-run-app.png){width=600}
+
+2. On the **Terminal** tab, run the following command:
+
+   ```bash
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
+
+   IntelliJ IDEA prints "Hello, Kotlin/Native!".
+
+You can [configure IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-applications.html#auto-build) to build
+your project automatically:
+
+1. Go to **Settings/Preferences | Build, Execution, Deployment | Compiler**.
+2. On the **Compiler** page, select **Build project automatically**.
+3. Apply the changes.
+
+Now when you make changes in the class files or save the file (**Ctrl + S**/**Cmd + S**), IntelliJ IDEA automatically
+performs the incremental build of the project.
 
 ## Update the application
 
 ### Count the letters in your name
 
-1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
+1. Open the file `main.kt` in `src/nativeMain/kotlin`.
 
    The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/stdlib/kotlin.io/println.html) function.
 
@@ -48,7 +75,6 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
    >
    {type="note"}
-
 
    ```kotlin
    fun main() {
@@ -76,9 +102,11 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-4. Save the changes and run the application.
+4. Save the changes and run the build command:
 
-   IntelliJ IDEA opens the **Run** tab and shows the output.
+   ```bash
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
 
 5. Enter your name and enjoy the result:
 
@@ -86,7 +114,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
 
 ### Count the unique letters in your name
 
-1. Open the file `main.kt` in `src/<your_app_name>Main/kotlin`.
+1. Open the file `main.kt` in `src/nativeMain/kotlin`.
 
 2. Declare the new [extension function](extensions.md#extension-functions) `countDistinctCharacters()` for `String`:
 
@@ -99,7 +127,7 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
    ```
 
-3. Use the `countDistinctCharacters()` function to count the unique letters in your name.
+3. Use the `countDistinctCharacters()` function to count the unique letters in your name:
 
    ```kotlin
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
@@ -117,11 +145,13 @@ IntelliJ IDEA opens the **Run** tab and shows the output:
    }
    ```
 
-3. Save the changes and run the application.
+4. Save the changes and run the build command:
 
-   IntelliJ IDEA opens the **Run** tab and shows the output.
+   ```bash
+   build/bin/native/debugExecutable/<your_app_name>.kexe
+   ```
 
-4. Enter your name and enjoy the result:
+5. Enter your name and enjoy the result:
 
    ![Application output](native-output-3.png)
 
