@@ -16,20 +16,28 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
    
    By default, your project will use the Gradle build system with Kotlin DSL.
 
-4. Go through and accept the default configuration, then click **Finish**.
-  
+4. Go through and accept the default configuration, then click **Finish**. Your project will open.
+
    ![Configure a console application](jvm-new-project-2.png){width=700}
 
-   Your project will open. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
-   Wizard based on your configuration. It includes the `kotlin("jvm")` plugin and dependencies required for your console application.
+5. Open the `build.gradle.kts` file, the build script created by default based on your configuration. It includes
+   the `kotlin("jvm")` plugin and dependencies required for your console application. Ensure that you use the latest
+   version of the plugin:
 
-5. Open the `main.kt` file in `src/main/kotlin`.  
+   ```kotlin
+   plugins {
+       kotlin("jvm") version "%kotlinVersion%"
+       application
+   }
+   ```
+
+6. Open the `main.kt` file in `src/main/kotlin`.  
    The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print 
    `Hello World!`.
 
    ![main.kt with main fun](jvm-main-kt-initial.png){width=700}
 
-6. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world:
+7. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world:
    
    * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html).
      

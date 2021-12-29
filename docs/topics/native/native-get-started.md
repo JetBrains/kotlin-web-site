@@ -17,20 +17,20 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
    >
    {type="note"}
 
-4. Accept the default configuration on the next screen and click **Finish**.
+4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
 
    ![Configure a native application](native-new-project-intellij-2.png)
 
-Your project will open. By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
+   By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
-The `build.gradle.kts` file contains the project settings. To create Kotlin/Native applications, you need the Kotlin
-Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
+5. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
+   you need the Kotlin Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
-```
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "%kotlinVersion%"
+   }
+   ```
    
 > * Read more about these settings in the [Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
 > * Read more about the Gradle build system in the [documentation](gradle.md). 

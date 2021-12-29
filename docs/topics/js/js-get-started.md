@@ -16,13 +16,19 @@ Once you've installed IntelliJ IDEA, it's time to create your first frontend app
     
     By default, your project will use Gradle with Kotlin DSL as the build system.
 
-4. Select the **Use styled-components** checkbox and click **Finish**.
+4. Select the **Use styled-components** checkbox and click **Finish**. Your project will open.
   
     ![Configure a frontend application](js-new-project-2.png) 
-    
-Your project opens. By default, you see the file `build.gradle.kts`, which is the build script created by the Project 
-Wizard based on your configuration. It includes the [`kotlin("js")` plugin and dependencies](js-project-setup.md) 
-required for your frontend application.
+
+5. Open the `build.gradle.kts` file, the build script created by default based on your configuration. It includes
+   the [`kotlin("js")` plugin and dependencies](js-project-setup.md) required for your frontend application. Ensure that
+   you use the latest version of the plugin:
+
+   ```kotlin
+   plugins {
+       kotlin("js") version "%kotlinVersion%"
+   }
+   ```
 
 ## Run the application
 
