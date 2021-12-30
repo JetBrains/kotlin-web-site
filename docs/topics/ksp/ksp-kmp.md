@@ -1,7 +1,7 @@
 [//]: # (title: KSP with Kotlin Multiplatform)
 
 For a quick start, see a [sample Kotlin Multiplatform project](https://github.com/google/ksp/tree/main/examples/multiplatform) 
-defining KSP processor.
+defining a KSP processor.
 
 Starting from KSP 1.0.1, applying KSP on a multiplatform project is similar to that on a single platform, JVM project.
 The main difference is that, instead of writing the `ksp(...)` configuration in dependencies, `add(ksp<Target>)` or `add(ksp<SourceSet>)`
