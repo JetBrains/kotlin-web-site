@@ -1,6 +1,6 @@
 [//]: # (title: KSP quickstart)
 
-For a quick start, you can create your own processor or get a [sample one](https://github.com/google/ksp/releases/download/%kspSupportedKotlinVersion%-%kspVersion%/playground.zip).
+For a quick start, you can create your own processor or get a [sample one](https://github.com/google/ksp/releases/download/1.5.30-1.0.0/playground.zip).
 
 ## Create a processor of your own
 
