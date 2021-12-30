@@ -197,14 +197,32 @@ nativeTarget.with {
 The new lines are marked with `// NL`. First, `cinterops` is added, and then an entry for each `def` file. By default,
 the name of the file is used. You can override this with additional parameters:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val libcurl by creating {
+    defFile(project.file("src/nativeInterop/cinterop/libcurl.def"))
+    packageName("com.jetbrains.handson.http")
+    compilerOpts("-I/path")
+    includeDirs.allHeaders("path")
+}
+```     
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
 ```groovy
 libcurl {
-    defFile project.file("libcurl.def")
+    defFile project.file("src/nativeInterop/cinterop/libcurl.def")
     packageName 'com.jetbrains.handson.http'
     compilerOpts '-I/path'
     includeDirs.allHeaders("path")
 }
 ```
+
+</tab>
+</tabs>
 
 See the [Interoperability with C](native-c-interop.md) section for more details on the available options.
 
