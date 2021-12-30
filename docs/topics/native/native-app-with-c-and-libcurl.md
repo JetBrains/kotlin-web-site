@@ -160,11 +160,11 @@ entry to the `build.gradle(.kts)` file:
 
 ```kotlin
 nativeTarget.apply {
-    compilations.main { // NL
-        cinterops {     // NL
-            libcurl     // NL
-        }               // NL
-    }                   // NL
+    compilations.getByName("main") {    // NL
+        cinterops {                     // NL
+            val libcurl by creating     // NL
+        }                               // NL
+    }                                   // NL
     binaries {
         executable {
             entryPoint = "main"
