@@ -48,14 +48,15 @@ Here's a summary for readers familiar with Java annotation processing:
 * In an isolating Java annotation processor, all the outputs are isolating in KSP.
 * In an aggregating Java annotation processor, some outputs can be isolating and some can be aggregating in KSP.
 
-### Aggregating v.s. Isolating: how it is implemented?
-The dependencies are calculated by the association of input and output files, instead of annotations.
-Note that it is a many-to-many relation.
+### How it is implemented
 
-The dirtyness propagation rules due to input-output associations are:
+The dependencies are calculated by the association of input and output files, instead of annotations.
+This is a many-to-many relation.
+
+The dirtiness propagation rules due to input-output associations are:
 1. If an input file is changed, it will always be reprocessed.
 2. If an input file is changed, and it is associated with an output, then all other input files associated with the
-   same output will also be reprocessed. Note that this is transitive, i.e., invalidation happens repeatedly until
+   same output will also be reprocessed. This is transitive, namely, invalidation happens repeatedly until
    there is no new dirty file.
 3. All input files that are associated with one or more aggregating outputs will be reprocessed.
    In other words, if an input file isn't associated with any aggregating outputs, it won't be reprocessed
