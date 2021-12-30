@@ -1,4 +1,5 @@
-[//]: # (title: Migrating from Java to Kotlin: Collections and iterating through them)
+[//]: # (title: Collections in Java and Kotlin)
+[//]: # (description: Learn how to migrate from Java collections to Kotlin collections. This guide covers such data structures as Kotlin and Java List, ArrayList, Map, Set, and others)
 
 _Collections_ are groups of a variable number of items (possibly zero) that are significant to the problem being solved and are commonly operated on. 
 This guide explains and compares collection concepts and operations in Java and Kotlin. 
