@@ -1,40 +1,45 @@
-# Running KSP in command line
+[//]: # (title: Running KSP from command line)
 
-KSP is a Kotlin compiler plugin and needs to run with Kotlin compiler. To download and extract them:
+KSP is a Kotlin compiler plugin and needs to run with Kotlin compiler. Download and extract them.
+
 ```bash
 #!/bin/bash
 
 # Kotlin compiler
-wget https://github.com/JetBrains/kotlin/releases/download/v1.5.30/kotlin-compiler-1.5.30.zip
-unzip kotlin-compiler-1.5.30.zip
+wget https://github.com/JetBrains/kotlin/releases/download/v%kspSupportedKotlinVersion%/kotlin-compiler-%kspSupportedKotlinVersion%.zip
+unzip kotlin-compiler-%kspSupportedKotlinVersion%.zip
 
 # KSP
-wget https://github.com/google/ksp/releases/download/1.5.30-1.0.0/artifacts.zip
+wget https://github.com/google/ksp/releases/download/%kspSupportedKotlinVersion%-%kspVersion%/artifacts.zip
 unzip artifacts.zip
 ```
 
 To run KSP with `kotlinc`, pass the `-Xplugin` option to `kotlinc`.
+
 ```
--Xplugin=/path/to/symbol-processing-cmdline-1.5.30-1.0.0.jar
+-Xplugin=/path/to/symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar
 ```
-This is different from the `symbol-processing-1.5.30-1.0.0.jar`, which is designed to be used with
+
+This is different from the `symbol-processing-%kspSupportedKotlinVersion%-%kspVersion%.jar`, which is designed to be used with
 `kotlin-compiler-embeddable` when running with Gradle.
-The command line `kotlinc` needs `symbol-processing-cmdline-1.5.30-1.0.0.jar`.
+The command line `kotlinc` needs `symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar`.
 
-Note that you'll also need the api jar:
+You'll also need the API jar.
+
 ```
--Xplugin=/path/to/symbol-processing-api-1.5.30-1.0.0.jar
+-Xplugin=/path/to/symbol-processing-api-%kspSupportedKotlinVersion%-%kspVersion%.jar
 ```
 
-Here is complete example:
+See the complete example:
+
 ```bash
 #!/bin/bash
 
 KSP_PLUGIN_ID=com.google.devtools.ksp.symbol-processing
 KSP_PLUGIN_OPT=plugin:$KSP_PLUGIN_ID
 
-KSP_PLUGIN_JAR=./com/google/devtools/ksp/symbol-processing-cmdline/1.5.30-1.0.0/symbol-processing-cmdline-1.5.30-1.0.0.jar
-KSP_API_JAR=./com/google/devtools/ksp/symbol-processing-api/1.5.30-1.0.0/symbol-processing-api-1.5.30-1.0.0.jar
+KSP_PLUGIN_JAR=./com/google/devtools/ksp/symbol-processing-cmdline/%kspSupportedKotlinVersion%-%kspVersion%/symbol-processing-cmdline-%kspSupportedKotlinVersion%-%kspVersion%.jar
+KSP_API_JAR=./com/google/devtools/ksp/symbol-processing-api/%kspSupportedKotlinVersion%-%kspVersion%/symbol-processing-api-%kspSupportedKotlinVersion%-%kspVersion%.jar
 KOTLINC=./kotlinc/bin/kotlinc
 
 AP=/path/to/your-processor.jar
