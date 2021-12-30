@@ -26,11 +26,11 @@ override fun process(resolver: Resolver): List<KSAnnotated> {
 
 ### Deferring symbols to the next round
 
-Processors can defer the processing of certain symbols to the next round. When you defer a symbol, you're waiting for
-other processors to provide additional information. You can continue deferring the symbol as much as needed.
-Once the other processors provide the required information, the processor can then process the symbol.
-You should only defer invalid symbols which are lacking necessary information. Therefore deferring symbols from classpath
-is not possible and will be filtered out by KSP.
+Processors can defer the processing of certain symbols to the next round. When a symbol is deferred, processor is waiting for
+other processors to provide additional information. It can continue deferring the symbol as many rounds as needed.
+Once the other processors provide the required information, the processor can then process the deferred symbol.
+Processor should only defer invalid symbols which are lacking necessary information. Therefore, processors should **not** 
+defer symbols from classpath, KSP will also filter out any deferred symbols that are not from source code.
 
 As an example, a processor that creates a builder for an annotated class might require all parameter types of its
 constructors to be valid (resolved to a concrete type). In the first round, one of the parameter type is not resolvable.
@@ -61,7 +61,7 @@ and newly generated files, while `getNewFiles()` returns only newly generated fi
 ### Changes to `getSymbolsAnnotatedWith()`
 
 To avoid unnecessary reprocessing of symbols, `getSymbolsAnnotatedWith()` returns only those symbols found in newly
-generated files.
+generated files, together with the symbols from deferred symbols from the last round.
 
 ### Processor instantiating
 
