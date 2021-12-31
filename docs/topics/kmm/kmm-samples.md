@@ -279,7 +279,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>✅</td>
       <td>
-		<ul>Targets list:<li>iOS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
+		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
 		</td>
 </tr>
 </table>
