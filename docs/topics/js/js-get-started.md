@@ -29,10 +29,6 @@ Once you've installed IntelliJ IDEA, it's time to create your first frontend app
        kotlin("js") version "%kotlinVersion%"
    }
    ```
-   
-   > To get the latest stable version of the Kotlin plugin: in **Tools | Kotlin | Configure Kotlin Plugin Updates**, select the **Stable** update channel and click **Install**.
-   >
-   {type="note"}
 
 ## Run the application
 
