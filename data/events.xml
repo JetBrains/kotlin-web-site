@@ -1,6 +1,36 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
      <event>
+        <lang>ru</lang>
+        <startDate>2021-12-16</startDate>
+        <endDate>2021-12-16</endDate>
+        <online>true</online>
+        <speaker>Leonid Startsev</speaker>
+        <title>JUG.Online #17</title>
+        <subject>Можно ли написать библиотеку так, чтобы потом не грызть локти?</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=_T9qbP_f2mA</video>
+        </content>
+        <url>https://all-events.ru/events/jug_online_17/</url>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-05-16</startDate>
+        <endDate>2022-05-16</endDate>
+        <location>London, UK</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>SDD (Software Design &amp; Development) 2022</title>
+        <subject>Kotlin for .NET developers</subject>
+        <url>https://sddconf.com/agenda/</url>
+        <description>
+            <![CDATA[
+<p>If the one thing that has kept you from the JVM has been Java, you might be interested to know that there’s now another language, even more concise than C#, that will open up a world of possibilities for you to leverage the JVM. The JVM or Java ecosystem is a vibrant and innovative platform, and many of the libraries and frameworks we see in .NET have originated in Java. In this session we’ll give an introduction to Kotlin and the JVM from the perspective of a .NET developer.<p>
+]]>
+       </description>
+     </event>
+
+     <event>
         <lang>en</lang>
         <startDate>2021-12-16</startDate>
         <endDate>2021-12-16</endDate>
@@ -15,7 +45,7 @@
         </description>
    </event>
 
-   <event>
+    <event>
         <lang>zh</lang>
         <startDate>2021-12-16</startDate>
         <endDate>2021-12-16</endDate>
