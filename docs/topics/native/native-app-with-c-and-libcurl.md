@@ -159,18 +159,20 @@ entry to the `build.gradle(.kts)` file:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-nativeTarget.apply {
-    compilations.main { // NL
-        cinterops {     // NL
-            libcurl     // NL
-        }               // NL
-    }                   // NL
-    binaries {
-        executable {
-            entryPoint = "main"
-        }
-    }
-}
+ nativeTarget.apply {
+     compilations.getByName("main") {
+         cinterops {
+             val curl by cinterops.creating {
+                 defFile(project.file("src/nativeInterop/cinterop/libcurl.def"))
+             }
+         }
+     }
+     binaries {
+         executable {
+             entryPoint = "main"
+         }
+     }
+ }
 ```     
 
 </tab>
