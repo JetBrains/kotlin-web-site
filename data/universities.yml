@@ -1476,10 +1476,18 @@
     lat: '55.6112395'
     lng: '12.99441'
 - title: Champlain College Lennoxville
-  location: Sherbrooke (Sweden)
+  location: Sherbrooke (Сanada)
   courses:
   - name: 420-510-LE Mobile Applications
     url: https://www.crc-lennox.qc.ca/programs/cst/
   geo:
     lat: '45.3663191'
     lng: '-71.8448678'
+- title: Minneapolis College
+  location: Minneapolis, MN (US)
+  courses:
+  - name: ITEC 2417 - Android Mobile Programming
+    url: https://eservices.minnstate.edu/registration/search/detail.html?campusid=305&courseid=000976&yrtr=20225&rcid=0305&localrcid=0305&partnered=false&parent=search
+  geo:
+    lat: '44.9728923'
+    lng: '-93.28327139999999'

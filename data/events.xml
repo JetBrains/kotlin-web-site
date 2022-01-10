@@ -1,5 +1,207 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+     <event>
+        <lang>ru</lang>
+        <startDate>2021-12-16</startDate>
+        <endDate>2021-12-16</endDate>
+        <online>true</online>
+        <speaker>Leonid Startsev</speaker>
+        <title>JUG.Online #17</title>
+        <subject>Можно ли написать библиотеку так, чтобы потом не грызть локти?</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=_T9qbP_f2mA</video>
+        </content>
+        <url>https://all-events.ru/events/jug_online_17/</url>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-05-16</startDate>
+        <endDate>2022-05-16</endDate>
+        <location>London, UK</location>
+        <speaker>Hadi Hariri</speaker>
+        <title>SDD (Software Design &amp; Development) 2022</title>
+        <subject>Kotlin for .NET developers</subject>
+        <url>https://sddconf.com/agenda/</url>
+        <description>
+            <![CDATA[
+<p>If the one thing that has kept you from the JVM has been Java, you might be interested to know that there’s now another language, even more concise than C#, that will open up a world of possibilities for you to leverage the JVM. The JVM or Java ecosystem is a vibrant and innovative platform, and many of the libraries and frameworks we see in .NET have originated in Java. In this session we’ll give an introduction to Kotlin and the JVM from the perspective of a .NET developer.<p>
+]]>
+       </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2021-12-16</startDate>
+        <endDate>2021-12-16</endDate>
+        <location>Bangalore, India</location>
+        <speaker>Ragunath Jawahar</speaker>
+        <title>JetBrains India</title>
+        <subject>Meet Kotlin - Building Robust Software - session 3</subject>
+        <url>https://www.meetup.com/JetBrains-India/events/282560914/</url>
+        <description>
+            <![CDATA[
+<p>Join us for the 3rd and final session in the "Building Robust Software with Kotlin" series. This session focusses on writing tests for Kotlin applications by leveraging best practices discussed as part of the previous sessions in the series along with introductions to certain tools and plugins that will help in achieving better testability.<p>
+        </description>
+   </event>
+
+    <event>
+        <lang>zh</lang>
+        <startDate>2021-12-16</startDate>
+        <endDate>2021-12-16</endDate>
+        <location>Shenzhen, China</location>
+        <speaker>Kori Lin</speaker>
+        <title>Thematic Seminar | KUG Shenzhen</title>
+        <subject>Kotlin Coroutines</subject>
+        <url>https://korilin.com/KUGshenzhen/ThematicSeminar.html</url>
+        <description>
+            <![CDATA[
+<p>本次 Thematic Seminar 的分享主题为 Kotlin 协程，对于在学习 Kotlin 的开发者而已，协程一直是比较难深入的一块内容，因此我们准备在本次活动中探讨各位对于 Kotlin Coroutines 的认识。<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>es</lang>
+        <startDate>2021-12-15</startDate>
+        <endDate>2021-12-15</endDate>
+        <location>Barcelona, Spain</location>
+        <speaker>Yanina Morales, Roger Viñas</speaker>
+        <title>Adevinta Spain</title>
+        <subject>Advent of Code #15 with Kotlin &amp; TDD</subject>
+        <url>https://www.meetup.com/adevinta-Spain/events/282655613</url>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-08-21</startDate>
+        <endDate>2021-08-21</endDate>
+        <location>Innopolis, Russia</location>
+        <speaker>Ekaterina Petrova, Yauheni Katella, Egor Tolstoy, Anna Simonova, Stas Tsyganov</speaker>
+        <title>It Nights</title>
+        <subject>«Рыцари острого стола»</subject>
+        <url>https://www.it-nights.ru/schedule</url>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-08-21</startDate>
+        <endDate>2021-08-21</endDate>
+        <location>Innopolis, Russia</location>
+        <speaker>Tagir Valeev</speaker>
+        <title>It Nights</title>
+        <subject>Традиции или новые языки. Java или Kotlin. Дебаты, в которых участвует каждый</subject>
+        <url>https://www.it-nights.ru/schedule</url>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-10-25</startDate>
+        <endDate>2021-10-25</endDate>
+        <online>true</online>
+        <speaker>Alexander Nozik, Roman Belov</speaker>
+        <title>Joker 2021</title>
+        <subject>Архитектура математических вычислений на Kotlin</subject>
+        <url>https://jokerconf.com/talks/architecture-of-math-calculations-on-kotlin/</url>
+        <description>
+            <![CDATA[
+<p>В этом докладе мы будем говорить про KMath (https://github.com/mipt-npm/kmath) и не только. Вместе с Александром мы рассмотрим разные подходы к математическим API и их реализациям на разных языках программирования (Python, C++, Julia, Java и Kotlin). Также поговорим о том, почему сложно сделать математику одновременно удобной и быстрой. Детально разберем проблему боксинга.<p>
+<p>Вы увидите, каким образом контекстно-ориентированный подход в Kotlin помогает решить не только проблему баланса между скоростью и удобством, но и позволяет сделать математические библиотеки модульными, и обеспечить их совместимость с высокопроизводительными платформными библиотеками.<p>
+<p>В заключение поговорим о том, есть ли будущее у математических библиотек за пределами C++ (и не только в Kotlin).<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-10-26</startDate>
+        <endDate>2021-10-26</endDate>
+        <online>true</online>
+        <speaker>Leonid Startsev</speaker>
+        <title>Joker 2021</title>
+        <subject>Как эволюционировать свою библиотеку на Kotlin безболезненно для клиентов</subject>
+        <url>https://jokerconf.com/talks/how-to-evolve-your-kotlin-library-painlessly-for-clients/</url>
+        <description>
+            <![CDATA[
+<p>Если после релиза open source-библиотеки у вас возникал вопрос как же правильно её поддерживать и обновлять, то этот доклад для вас. Мы поговорим о совместимости между разными версиями и различными инструментами, которые помогают разработчику не сломать её. Также затронем тему эволюции API, как лучше всего добавлять новые функции в библиотеку и отключать старые. Большинство тем будет проиллюстрировано примерами из всем известных библиотек на Kotlin, таких, как kotlinx.coroutines и kotlinx.serialization.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-10-26</startDate>
+        <endDate>2021-10-26</endDate>
+        <online>true</online>
+        <speaker>Pasha Finkelstein</speaker>
+        <title>Joker 2021</title>
+        <subject>Магия Spark: Как высокоуровневые конвейеры становятся распределенным хардкором</subject>
+        <url>https://jokerconf.com/talks/spark-magic-how-high-level-pipelines-become-distributed-hardcore/</url>
+        <description>
+            <![CDATA[
+<p>Spark — самый популярный инструмент для построения конвейеров данных. Каждый дата-инженер знает Spark, бла-бла-бла... Отлично, но Spark всего лишь распределенные Java Streams, так? Но тогда, как это работает? Получается, что нельзя просто вызвать «flatMap» или «groupBy» на удаленную машину. Вступает Codegen! Заинтересовались? Приходите и узнайте больше!<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-10-27</startDate>
+        <endDate>2021-10-27</endDate>
+        <online>true</online>
+        <speaker>Evgeny Mandrikov</speaker>
+        <title>Joker 2021</title>
+        <subject>Decomposing Compose</subject>
+        <url>https://jokerconf.com/talks/decomposing-compose/</url>
+        <description>
+            <![CDATA[
+<p>В этом докладе Евгений подробно рассмотрит, как Jetpack Compose и Compose для Desktop работают под капотом: от пользовательского кода, через среду исполнения, до компиляции и байт-кода. Если вы тоже хотите знать, как повседневные вещи работают изнутри, то приходите — будет весело и интересно.<p>
+]]>
+        </description>
+   </event>
+
+   <event>
+        <lang>ru</lang>
+        <startDate>2021-10-28</startDate>
+        <endDate>2021-10-28</endDate>
+        <online>true</online>
+        <speaker>Karin-Alexandra Monoid</speaker>
+        <title>Joker 2021</title>
+        <subject>Расширяем возможности kotlinx.serialization с помощью Arrow Meta</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=uDJ2mwnlYaE</video>
+        </content>
+        <url>https://jokerconf.com/talks/extending-kotlinx-serialization-functionality-with-arrow-meta/</url>
+        <description>
+            <![CDATA[
+<p>На проекте, использующим Kotlin, хочется работать с Kotlin-first библиотеками. Например, хочется вместо Jackson использовать kotlinx.serialization. К сожалению, перевести существующий проект на любимые технологии не всегда возможно из-за разницы в подходах или отсутствии фич. Например, global naming strategy.
+<p>Можно ли обойти ограничения библиотеки и добавить недостающее? Можно! С помощью Arrow Meta.
+<p>Arrow Meta — это библиотека, позволяющая писать плагины для компилятора, линтеры и другие преобразователи исходного кода.
+<p>В данном докладе мы поговорим о настройке проекта, возможностях библиотеки и разберём реальный use-case добавления global naming strategy в kotlinx.serialization.
+<p>Данный доклад будет интересен продвинутой аудитории, преимущественно использующей Kotlin для backend-разработки.<p>
+]]>
+        </description>
+    </event>
+
+    <event>
+        <lang>ru</lang>
+        <startDate>2021-10-28</startDate>
+        <endDate>2021-10-28</endDate>
+        <online>true</online>
+        <speaker>Pasha Finkelstein, Andrey Kogun, Anton Arhipov</speaker>
+        <title>Joker 2021</title>
+        <subject>Разговор в студии: Kotlin против всех</subject>
+        <content>
+            <video>https://www.youtube.com/watch?v=uDJ2mwnlYaE</video>
+        </content>
+        <url>https://jokerconf.com/talks/conversation-in-the-studio-kotlin-vs-everyone/</url>
+        <description>
+            <![CDATA[
+<p>Прямое включение из главной студии конференции Joker 2021. Обсуждаем Kotlin.<p>
+]]>
+        </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2021-12-09</startDate>

@@ -1,3 +1,7 @@
+- name: Innopolis, Russia
+  geo:
+    lat: 55.752085
+    lng: 48.744618
 - name: Bonn, Germany
   geo:
     lat: 50.736611
