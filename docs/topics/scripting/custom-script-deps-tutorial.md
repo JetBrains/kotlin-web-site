@@ -34,7 +34,7 @@ print(
 )
 ```
 
-The specified Maven dependency (`kotlinx-html-jvm` for this example) will be resolved from the specified maven
+The specified Maven dependency (`kotlinx-html-jvm` for this example) will be resolved from the specified Maven
 repository or local cache during execution and used for the rest of the script.
 
 ## Project structure
