@@ -24,8 +24,8 @@ project, pass a compiler type to the `js` function in your Gradle build script:
 kotlin {
     js(IR) { // or: LEGACY, BOTH
         // ...
+        binaries.executable() // not applicable to BOTH, see details below
     }
-    binaries.executable() // not applicable to BOTH, see details below
 }
 ```
 
