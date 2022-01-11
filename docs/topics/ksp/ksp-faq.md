@@ -22,3 +22,60 @@ is smaller. This is not possible for kapt because it delegates processing to jav
 
 KSP can process Java sources as well. The API is unified, meaning that when you parse a Java class and a Kotlin class
 you get a unified data structure in KSP.
+
+### How to upgrade KSP?
+
+KSP has API and implementation. The API rarely changes and is backward compatible: there can be new interfaces,
+but old interfaces never change. The implementation is tied to a specific compiler version. With the new release, 
+the supported compiler version can change.
+
+Processors only depend on API and therefore are not tied to compiler versions.
+However, users of processors need to bump KSP version when bumping the compiler version in their project.
+Otherwise, the following error will occur:
+
+```text
+ksp-a.b.c is too old for kotlin-x.y.z. Please upgrade ksp or downgrade kotlin-gradle-plugin
+```
+
+> Users of processors don't need to bump processor's version because processors only depend on API.
+>
+{type="note"}
+
+For example, some processor is released and tested with KSP 1.0.1, which depends strictly on Kotlin 1.6.0.
+To make it work with Kotlin 1.6.20, the only thing you need to do is bump KSP to a version (for example, KSP 1.1.0) 
+that is built for Kotlin 1.6.20.
+
+### Can I use a newer KSP implementation with an older Kotlin compiler?
+
+If the language version is the same, Kotlin compiler is supposed to be backward compatible. 
+Bumping Kotlin compiler should be trivial most of the time. If you need a newer KSP implementation, please upgrade 
+the Kotlin compiler accordingly.
+
+### How often do you update KSP?
+
+KSP tries to follow [Semantic Versioning](https://semver.org/) as close as possible.
+With KSP version `major.minor.patch`,
+* `major` is reserved for incompatible API changes. There is no pre-determined schedule for this.
+* `minor` is reserved for new features. This is going to be updated approximately quarterly.
+* `patch` is reserved for bug fixes and new Kotlin releases. It's updated roughly monthly.
+
+Usually a corresponding KSP release is available within a couple of days after a new Kotlin version is released,
+including the pre-releases (e.g., M1/M2/RC).
+
+### Besides Kotlin, are there other version requirements to libraries?
+
+Here is a list of requirements for libraries/infrastructures:
+* Android Gradle Plugin 4.1.0+
+* Gradle 6.5+
+
+### What is KSP’s future roadmap?
+
+The following items have been planned:
+* Support [new Kotlin compiler](https://kotlinlang.org/docs/roadmap.html)
+* Improve support to multiplatform. For example, running KSP on a subset of targets/sharing computations between targets.
+* Improve performance. There are a bunch of optimizations to be done!
+* Keep fixing bugs.
+
+Please feel free to reach out to us on
+[Kotlin Slack workspace](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.185732459.358956950.1590619123-888878822.1567025441)
+if you would like to discuss any ideas. Filing GitHub issues/feature requests or pull requests are also welcome!
