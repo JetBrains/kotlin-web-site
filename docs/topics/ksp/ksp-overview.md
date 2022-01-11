@@ -151,7 +151,7 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 * [Reference for Java annotation processor authors](ksp-reference.md)
 * [Incremental processing notes](ksp-incremental.md)
 * [Multiple round processing notes](ksp-multi-round.md)
-* [KSP on multiplatform projects](ksp-kmp.md)
+* [KSP on multiplatform projects](ksp-multiplatform.md)
 * [Running KSP from command line](ksp-cmdline.md)
 * [FAQ](ksp-faq.md)
 
