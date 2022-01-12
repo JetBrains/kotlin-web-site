@@ -70,12 +70,12 @@ Compilers are complicated software and despite the best effort of their develope
 
 ## Decision making
 
-[JetBrains](https://jetbrains.com), the original creator of Kotlin, is driving its progress with the help of the community and in accord with the [Kotlin Foundation](kotlin-foundation.md).
+[JetBrains](https://jetbrains.com), the original creator of Kotlin, is driving its progress with the help of the community and in accord with the [Kotlin Foundation](https://kotlinfoundation.org/).
 
-All changes to the Kotlin Programming Language are overseen by the [Lead Language Designer](kotlin-foundation.md) (currently Roman Elizarov). The Lead Designer has the final say in all matters related to language evolution. Additionally, incompatible changes to fully stable components have to be approved to by the [Language Committee](kotlin-foundation.md) designated 
-under the [Kotlin Foundation](kotlin-foundation.md) (currently comprised of Jeffrey van Gogh, William R. Cook and Roman Elizarov).
+All changes to the Kotlin Programming Language are overseen by the [Lead Language Designer](https://kotlinfoundation.org/structure/) (currently Roman Elizarov). The Lead Designer has the final say in all matters related to language evolution. Additionally, incompatible changes to fully stable components have to be approved to by the [Language Committee](https://kotlinfoundation.org/structure/) designated 
+under the [Kotlin Foundation](https://kotlinfoundation.org/structure/) (currently comprised of Jeffrey van Gogh, William R. Cook and Roman Elizarov).
 
-The Language Committee makes final decisions on what incompatible changes will be made and what exact measures should be taken to make user updates comfortable. In doing so, it relies on a set of guidelines available [here](language-committee-guidelines.md).
+The Language Committee makes final decisions on what incompatible changes will be made and what exact measures should be taken to make user updates comfortable. In doing so, it relies on a set of guidelines available [here](https://kotlinfoundation.org/language-committee-guidelines/).
 
 ## Feature releases and incremental releases
 

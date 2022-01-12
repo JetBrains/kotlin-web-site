@@ -339,11 +339,11 @@
             </toc-element>
         </toc-element>
         <toc-element toc-title="Kotlin Foundation">
-            <toc-element id="kotlin-foundation.md"/>
-            <toc-element id="language-committee-guidelines.md"/>
-            <toc-element toc-title="Submitting incompatible changes" id="submitting-incompatible-changes.md"/>
-            <toc-element toc-title="Brand usage" id="guidelines.md"/>
-            <toc-element id="foundation-faq.md"/>
+            <toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>
+            <toc-element toc-title="Language Committee guidelines" href="https://kotlinfoundation.org/language-committee-guidelines/"/>
+            <toc-element toc-title="Submitting incompatible changes" href="https://kotlinfoundation.org/submitting-incompatible-changes/"/>
+            <toc-element toc-title="Brand usage" href="https://kotlinfoundation.org/guidelines/"/>
+            <toc-element toc-title="Kotlin Foundation FAQ" href="https://kotlinfoundation.org/faq/"/>
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>

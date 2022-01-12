@@ -30,3 +30,20 @@
 
 - from: /kotlin-premier-event-2021/
   to: https://pages.jetbrains.com/kotlin-premier-event-2021/website
+
+# Moved foundation to separate domain KTL-603
+
+- from: /docs/kotlin-foundation.html
+  to: https://kotlinfoundation.org/
+
+- from: /docs/guidelines.html
+  to: https://kotlinfoundation.org/language-committee-guidelines/
+
+- from: /docs/language-committee-guidelines.html
+  to: https://kotlinfoundation.org/submitting-incompatible-changes/
+
+- from: /docs/submitting-incompatible-changes.html
+  to: https://kotlinfoundation.org/guidelines/
+
+- from: /docs/foundation-faq.html
+  to: https://kotlinfoundation.org/faq/

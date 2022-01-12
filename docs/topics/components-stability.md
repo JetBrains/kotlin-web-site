@@ -23,7 +23,7 @@ We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** le
 
 <a name="stable"></a>
 **Stable** means "use it even in most conservative scenarios":
-  * It’s done. We will be evolving it according to our strict [backward compatibility rules](language-committee-guidelines.md).
+  * It’s done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
 Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
 
