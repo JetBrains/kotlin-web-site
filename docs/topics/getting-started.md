@@ -99,7 +99,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    {type="tip"}
 
 4. **Learn more about KMM:**
-   * Learn more about [Kotlin Multiplatform](mpp-intro.md).
+   * Learn more about [Kotlin Multiplatform](mpp-get-started.md).
    * Look through [KMM samples on GitHub](kmm-samples.md).
    * [Create and publish a multiplatform library](mpp-create-lib.md).
    * Learn how KMM is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
@@ -199,7 +199,7 @@ Here you'll learn how to develop and publish a multiplatform library:
 
 4. **Learn more about Kotlin Multiplatform programming:**
 
-   * [Introduction to Kotlin Multiplatform](mpp-intro.md).
+   * [Introduction to Kotlin Multiplatform](mpp-get-started.md).
    * [Kotlin Multiplatform supported platforms](mpp-supported-platforms.md).
    * [Kotlin Multiplatform programming benefits](multiplatform.md).
 

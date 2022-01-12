@@ -6,7 +6,7 @@
 
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin multiplatform](multiplatform.md)
 projects. Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
-for Kotlin multiplatform projects. Learn the [concepts of Kotlin multiplatform projects, how to create and configure them](mpp-intro.md).
+for Kotlin multiplatform projects. Learn the [concepts of Kotlin multiplatform projects, how to create and configure them](mpp-get-started.md).
 
 ## Id and version
 

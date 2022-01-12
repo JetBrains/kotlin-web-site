@@ -68,7 +68,7 @@ open class CustomError(): Error // can be extended wherever it's visible
 
 ### Inheritance in multiplatform projects
 
-There is one more inheritance restriction in [multiplatform projects](mpp-intro.md): direct subclasses of sealed classes must
+There is one more inheritance restriction in [multiplatform projects](mpp-get-started.md): direct subclasses of sealed classes must
 reside in the same source set. It applies to sealed classes without the [`expect` and `actual` modifiers](mpp-connect-to-apis.md).
 
 If a sealed class is declared as `expect` in a common source set and have `actual` implementations in platform source sets,

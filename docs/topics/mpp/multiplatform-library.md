@@ -386,6 +386,6 @@ In this tutorial, you:
 ## What’s next?
 
 * Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
-* Learn more about [Kotlin Multiplatform](mpp-intro.md).
+* Learn more about [Kotlin Multiplatform](mpp-get-started.md).
 * [Create your first KMM application for Android and iOS – tutorial](kmm-create-first-app.md).
 * [Create a full-stack web app with Kotlin Multiplatform – hands-on tutorial](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).

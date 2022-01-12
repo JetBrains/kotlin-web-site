@@ -1,0 +1,59 @@
+[//]: # (title: Get started with Kotlin Multiplatform)
+
+> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+>
+{type="note"}
+
+Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the 
+same code for [different platforms](mpp-supported-platforms.md) while retaining the flexibility and benefits of native programming.   
+
+Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
+
+## Start from scratch
+
+* [Create a multiplatform library](mpp-create-lib.md) tutorial shows you step by step how to create an empty template for
+  your multiplatform library using the Wizard in IntelliJ IDEA. It's recommended for those who only started their way 
+  in Kotlin Multiplatform and are not much experienced with Kotlin.
+
+* [Discover your project](mpp-discover-project.md) teaches you the structure of your first Kotlin Multiplatform project.
+  It's recommended right after you create your first Kotlin Multiplatform project. 
+
+* [Create and publish a multiplatform library](multiplatform-library.md) teaches how to create a multiplatform 
+library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
+Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
+ provided by a specific platform.
+
+* [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+  teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
+  application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
+  introduction to working with Ktor both as a server- and client-side framework.
+
+* [Create your first Kotlin Multiplatform Mobile (KMM) application](kmm-create-first-app.md) shows how to create a mobile
+  application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+  Create, run, and test your first multiplatform mobile application.
+
+## Dive deep into Kotlin Multiplatform
+
+Once you have experienced with Kotlin Multiplatform and want to know how to solve particular tasks of cross-platform development:
+
+* [Share code on platforms](mpp-share-on-platforms.md) in your Kotlin Multiplatform project.
+
+* [Connect to platform-specific APIs](mpp-connect-to-apis.md) using the Kotlin mechanism of expected and actual declarations.
+
+* [Set up targets manually](mpp-set-up-targets.md) for your Kotlin Multiplatform project. 
+
+* [Add dependencies](mpp-add-dependencies.md) on the standard, test, or other kotlinx library. 
+
+* [Configure compilations](mpp-configure-compilations.md) for production and test purposes in your project.
+
+* [Run tests](mpp-run-tests.md) for JVM, JS, Android, Linux, Windows, macOS as well as iOS, watchOS, and tvOS simulators.
+
+* [Publish a multiplatform library](mpp-publish-lib.md) to Maven repository.
+
+* [Build final native binaries](mpp-build-native-binaries.md) as executables or shared libraries, such as universal frameworks or XCFrameworks.
+
+## Get help
+
+* **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
