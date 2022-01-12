@@ -146,24 +146,7 @@ Such a property needs to fulfil the following requirements:
 * It must be initialized with a value of type `String` or a primitive type
 * It cannot be a custom getter
 
-The compiler will inline usages of the constant, but will not remove the field (this can be useful when using [reflection](reflection.md)). For example, this Kotlin code compiles to the following Java code:
-
-```kotlin
-const val MESSAGE: String = "Hello, World!"
-
-fun main() {
-    println(MESSAGE)
-}
-```
-{kotlin-runnable="true"}
-
-```java
-public static final String MESSAGE = "Hello, World!";
-
-public static void main(String[] args) {
-    System.out.println("Hello, World!");
-}
-```
+The compiler will inline usages of the constant, replacing the reference to the constant with its actual value. However, the field will not be removed and therefore can be interacted with using [reflection](reflection.md).
 
 Such properties can also be used in annotations:
 
