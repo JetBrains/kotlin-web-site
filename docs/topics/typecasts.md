@@ -37,7 +37,7 @@ if (x !is String) return
 print(x.length) // x is automatically cast to String
 ```
 
-or if it is on the right-hand side of `&&` or `||`:
+or if it is on the right-hand side of `&&` or `||` and the proper check (regular or negative) is on the left-hand side:
 
 ```kotlin
 // x is automatically cast to String on the right-hand side of `||`
