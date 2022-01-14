@@ -794,14 +794,14 @@ directly into the documentation comment, and add links to parameters wherever th
  * @param number The number to return the absolute value for.
  * @return The absolute value.
  */
-fun abs(number: Int) { /*...*/ }
+fun abs(number: Int): Int { /*...*/ }
 
 // Do this instead:
 
 /**
  * Returns the absolute value of the given [number].
  */
-fun abs(number: Int) { /*...*/ }
+fun abs(number: Int): Int { /*...*/ }
 ```
 
 ## Avoid redundant constructs
