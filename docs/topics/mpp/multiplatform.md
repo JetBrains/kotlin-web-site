@@ -45,7 +45,7 @@ declarations](mpp-connect-to-apis.md).
 _actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
 functions, classes, interfaces, enumerations, properties, and annotations.
 
-    ![Expect and actual declara tions](expect-actual.png){width=700}
+    ![Expect and actual declarations](expect-actual.png){width=700}
 
     ```kotlin
     // Common
