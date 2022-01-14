@@ -155,7 +155,9 @@ Such a property needs to fulfil the following requirements:
 * It must be initialized with a value of type `String` or a primitive type
 * It cannot be a custom getter
 
-Such properties can be used in annotations:
+The compiler will inline usages of the constant, replacing the reference to the constant with its actual value. However, the field will not be removed and therefore can be interacted with using [reflection](reflection.md).
+
+Such properties can also be used in annotations:
 
 ```kotlin
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
