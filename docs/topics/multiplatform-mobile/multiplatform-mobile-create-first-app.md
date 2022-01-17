@@ -109,7 +109,7 @@ platform-specific code.
 
 ### Run tests on iOS
     
-1. Open the file `iosTest.kt` in `shared/src/iosTest/kotlin/com.example.kmmapplication.shared`.  
+1. Open the file `iosTest.kt` in `shared/src/iosTest/kotlin/com.example.myapplication`.  
     Directories with `Test` in their name contain tests.  
     This file includes a sample test for iOS.  
     
@@ -125,13 +125,13 @@ Tests run on a simulator without UI. Congratulations! The test has passed – se
 
 For Android, follow a procedure that is very similar to the one for running tests on iOS.
 
-1. Open the file `androidTest.kt` in `shared/src/androidTest/kotlin/com.example.kmmapplication.shared`.
+1. Open the file `androidTest.kt` in `shared/src/androidTest/kotlin/com.example.myapplication`.
 
 2. Click the **Run** gutter icon next to the test. 
 
 ## Update your application
 
-1. Open the file `Greeting.kt` in `shared/src/commonMain/kotlin/com.example.kmmapplication.shared`.  
+1. Open the file `Greeting.kt` in `shared/src/commonMain/kotlin/com.example.myapplication`.  
     This directory stores the shared code for both platforms – Android and iOS. If you make changes to the shared code, you will see
     changes in both applications.
 

@@ -59,7 +59,7 @@ In your Android project, create a Kotlin Multiplatform shared module for your cr
 
 1. In Android Studio, click **File** | **New** | **New Module**.
 
-2. In the list of templates, select **KKotlin MultiplatformMM Shared Module**, enter the module name `shared`, and select the 
+2. In the list of templates, select **Kotlin Multiplatform Shared Module**, enter the module name `shared`, and select the 
    **Regular framework** in the list of iOS framework distribution options.  
    This is required for connecting the shared module to the iOS application.
 

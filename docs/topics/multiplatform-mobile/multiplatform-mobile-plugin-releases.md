@@ -15,7 +15,7 @@ You can check the plugin version and update it manually in **Settings/Preference
 You need a compatible version of Kotlin for the plugin to work correctly. You can find compatible versions in the [release details](#release-details).
 You can check your Kotlin version and update it in **Settings/Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**.
 
->If you do not have a compatible version of Kotlin installed, the Multiplatform Mobile plugin will be disabled. You will need to update your Kotlin 
+>If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform Mobile plugin will be disabled. You will need to update your Kotlin 
 >version, and then enable the plugin in **Settings/Preferences** | **Plugins**.
 >
 {type="note"}
@@ -70,7 +70,7 @@ Released: 16 November, 2021
 </td>
 <td>
 
-* [New Kotlin Multiplatform library project wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
+* [New Kotlin Multiplatform Library wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
 * Support for the new type of Kotlin Multiplatform library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
 * Enabled [hierarchical project structure](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually) for new cross-platform mobile projects.
 * Support for [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
@@ -166,7 +166,7 @@ Released: May 5, 2021
 
 Use this version of the plugin with Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher.
 * Compatibility with [Kotlin 1.5.0](whatsnew15.md).
-* [Ability to use the CocoaPods dependency manager in the Kotlin Multiplatform Module for iOS integration](https://youtrack.jetbrains.com/issue/KT-45946).
+* [Ability to use the CocoaPods dependency manager in the Kotlin Multiplatform module for iOS integration](https://youtrack.jetbrains.com/issue/KT-45946).
 
 </td>
 <td>
