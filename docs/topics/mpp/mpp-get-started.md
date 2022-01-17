@@ -1,4 +1,5 @@
 [//]: # (title: Get started with Kotlin Multiplatform)
+[//]: # (description: Learn how to create your first Kotlin cross-platform app or library benefiting from Kotlin Multiplatform.)
 
 > Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
 >
@@ -11,13 +12,6 @@ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
 
 ## Start from scratch
 
-* [Create a multiplatform library](mpp-create-lib.md) tutorial shows you step by step how to create an empty template for
-  your multiplatform library using the Wizard in IntelliJ IDEA. It's recommended for those who only started their way 
-  in Kotlin Multiplatform and are not much experienced with Kotlin.
-
-* [Discover your project](mpp-discover-project.md) teaches you the structure of your first Kotlin Multiplatform project.
-  It's recommended right after you create your first Kotlin Multiplatform project. 
-
 * [Create and publish a multiplatform library](multiplatform-library.md) teaches how to create a multiplatform 
 library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
 Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
@@ -28,7 +22,7 @@ Android and iOS). It also shows how to write tests which will be executed on all
   application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
   introduction to working with Ktor both as a server- and client-side framework.
 
-* [Create your first Kotlin Multiplatform Mobile (KMM) application](kmm-create-first-app.md) shows how to create a mobile
+* [Create your first Kotlin Multiplatform Mobile application](kmm-create-first-app.md) shows how to create a mobile
   application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
   Create, run, and test your first multiplatform mobile application.
 

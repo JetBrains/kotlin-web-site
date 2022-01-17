@@ -1,4 +1,6 @@
 [//]: # (title: Kotlin Multiplatform)
+[//]: # (description: Kotlin Multiplatform allows creating cross-platform apps for desktop, web, and mobile devices.
+Share application logic while keeping native user experience.)
 
 > Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
 >
@@ -6,6 +8,24 @@
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the
  same code for [different platforms](mpp-supported-platforms.md) while retaining the flexibility and benefits of native programming. 
+
+## Kotlin Multiplatform use cases
+
+### Android — iOS
+
+Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile (KMM),
+you can build cross-platform mobile applications, and share common code between Android and iOS, such as business logic, connectivity,
+and more.
+
+See [Kotlin Multiplatform Mobile features, case studies and examples](https://kotlinlang.org/lp/mobile/).
+
+### Client — Server
+
+Another scenario when code sharing may bring benefits is a connected application where the logic can be
+reused on both the server and the client side running in the browser. This is covered by Kotlin
+Multiplatform as well.
+
+See [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) hands-on.
 
 ## How Kotlin Multiplatform works
 
@@ -21,22 +41,18 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
 * Through these platforms you can access the **platform native code** (JVM, JS, and Native) and leverage all native
  capabilities.
 
-## Code sharing between platforms
+### Code sharing between platforms
 
 With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](mpp-supported-platforms.md)
  – just share it using the mechanisms Kotlin provides:
 
 * [Share code among all platforms used in your project](mpp-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
-business logic that applies to all platforms:
-     
-    ![Code shared for all platforms](flat-structure.png)
-    
+business logic that applies to all platforms.
+
 * [Share code among some platforms](mpp-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms:
-    
-    ![Hierarchical structure](hierarchical-structure.png)
 
-    ![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
+    <!-- TODO: add new pic ![Code shared for iOS targets](iosmain-hierarchy.png){width=400} -->
 
 * If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](mpp-connect-to-apis.md).
@@ -45,58 +61,20 @@ declarations](mpp-connect-to-apis.md).
 _actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
 functions, classes, interfaces, enumerations, properties, and annotations.
 
-    ![Expect and actual declarations](expect-actual.png){width=700}
-
-    ```kotlin
-    // Common
-    expect fun randomUUID(): String
-    ```
-
-    ```kotlin
-    // Android
-    import java.util.*
-    actual fun randomUUID() = UUID.randomUUID().toString()
-    ```
-
-    ```kotlin
-    // iOS
-    import platform.Foundation.NSUUID
-    actual fun randomUUID(): String = NSUUID().UUIDString()
-    ```
-
-## Kotlin Multiplatform use cases
-
-### Android — iOS
-
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile (KMM), 
-you can build cross-platform mobile applications, and share common code between Android and iOS, such as business logic, connectivity, 
-and more.
-
-See [KMM features, case studies and examples](https://kotlinlang.org/lp/mobile/)
-
-### Client — Server
-
-Another scenario when code sharing may bring benefits is a connected application where the logic can be 
-reused on both the server and the client side running in the browser. This is covered by Kotlin 
-Multiplatform as well.
-
-The [Ktor framework](https://ktor.io/) is suitable for building asynchronous servers and clients in connected systems.
-
 ## How to get started
 
-New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
+* Look through [our examples and tutorials](mpp-share-on-platforms.md) if you want to create applications or libraries, targeting JVM, JS, and other platforms
+* Start with the [Get started with Kotlin Multiplatform Mobile](kmm-getting-started.md) if you want to create iOS and Android applications with common code 
 
-### Documentation
-
-Visit our Get started pages for Kotlin Multiplatform and Kotlin Multiplatform Mobile:
-
-* [Get started with Kotlin Multiplatform](mpp-share-on-platforms.md)
-* [Get started with Kotlin Multiplatform Mobile (KMM)](kmm-getting-started.md)
+> New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
+> 
+{type="tip"}
 
 ### Sample projects
 
 Look through cross-platform application samples to understand how Kotlin Multiplatform works:
 
-* [Kotlin Multiplatform Mobile (KMM) samples](kmm-samples.md)
+* [Kotlin Multiplatform Mobile samples](kmm-samples.md)
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
+* [Build a Full Stack Web App with Kotlin Multiplatform hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)

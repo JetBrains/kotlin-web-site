@@ -1,4 +1,4 @@
-[//]: # (title: Discover your project)
+[//]: # (title: Understand your Kotlin Multiplatform project)
 
 Discover main parts of your multiplatform project:
 
