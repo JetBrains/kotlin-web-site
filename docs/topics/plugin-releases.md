@@ -36,6 +36,26 @@ The following table lists the details of the latest Kotlin plugin releases:
 <tr>
 <td>
 
+**2021.3**
+
+Released: November 30, 2021
+
+</td>
+<td>
+
+* Better debugging experience
+* Performance improvements
+* Editor inline hints
+* New refactorings and improved inspections and intentions
+
+Learn more in:
+* [What’s New in IntelliJ IDEA 2021.3](https://www.jetbrains.com/idea/whatsnew/2021-3/)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **2021.2**
 
 Released: July 27, 2021
