@@ -16,11 +16,11 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
 2. In Android Studio, select **File** | **New** | **New Project**.
 3. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
-    ![Mobile Multiplatform project template](kmm-project-wizard-1.png)
+    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png)
     
 4. Specify a name for your first application, and click **Next**.  
 
-    ![Mobile Multiplatform project - general settings](kmm-project-wizard-2.png)
+    ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
 5. In the window that opens, do the following:
    * Keep the default names for the application and shared folders.
@@ -29,7 +29,7 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
      
    Click **Finish** to create a new project.
 
-    ![Mobile Multiplatform project - additional settings](kmm-project-wizard-3.png)
+    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
     
     > If you want to use Kotlin Multiplatform module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
     > To learn more about CocoaPods dependencies, see [CocoaPods integration](native-cocoapods.md).
@@ -54,7 +54,7 @@ You can run your multiplatform application on [Android](#run-your-application-on
     
     ![Run multiplatform app on Android](run-android.png){width=400}
     
-    ![First mobile multiplatform app on Android](first-kmm-on-android-1.png){width=300}
+    ![First mobile multiplatform app on Android](first-multiplatform-project-on-android-1.png){width=300}
 
 #### Run on a different Android simulated device
 
@@ -70,7 +70,7 @@ Learn how to [configure and connect a hardware device and run your application o
     
     ![Run multiplatform app on iOS](run-ios.png){width=450}
     
-    ![First mobile multiplatform app on Android](first-kmm-on-ios-1.png){width=300}
+    ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
 #### Run on a different iPhone simulated device
 
@@ -149,11 +149,11 @@ For Android, follow a procedure that is very similar to the one for running test
 
 3. Run the updated application on Android.
 
-    ![Updated mobile multiplatform app on Android](first-kmm-on-android-2.png){width=300}
+    ![Updated mobile multiplatform app on Android](first-multiplatform-project-on-android-2.png){width=300}
     
 4. Run the updated application on iOS.  
 
-    ![Updated mobile multiplatform app on iOS](first-kmm-on-ios-2.png){width=300}
+    ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
     
 5. Run tests on Android and iOS.  
     As you see, the tests fail. Update the tests to pass. You know how to do this, right? ;)

@@ -102,7 +102,7 @@
             <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
             <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
             <toc-element id="multiplatform-mobile-connect-to-platform-specific-apis.md" accepts-web-file-names="kmm-connect-to-platform-specific-apis.html"/>
-            <toc-element id="multiplatform-mobile-add-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html"/>
+            <toc-element id="multiplatform-mobile-add-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html" toc-title="Add dependencies"/>
             <toc-element id="multiplatform-mobile-configure-sqldelight-for-data-storage.md" accepts-web-file-names="kmm-configure-sqldelight-for-data-storage.html"/>
             <toc-element id="multiplatform-mobile-use-ktor-for-networking.md" accepts-web-file-names="kmm-use-ktor-for-networking.html"/>
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>

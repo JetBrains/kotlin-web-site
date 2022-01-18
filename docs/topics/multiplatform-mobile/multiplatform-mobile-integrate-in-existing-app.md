@@ -63,7 +63,7 @@ In your Android project, create a Kotlin Multiplatform shared module for your cr
    **Regular framework** in the list of iOS framework distribution options.  
    This is required for connecting the shared module to the iOS application.
 
-   ![Kotlin Multiplatform shared module](kmm-module-wizard.png)
+   ![Kotlin Multiplatform shared module](multiplatform-mobile-module-wizard.png)
 
 3. Click **Finish**.
 
@@ -238,7 +238,7 @@ Once you've made your Android application cross-platform, you can create an iOS 
 
    ![iOS project settings](ios-project-wizard-2.png)
 
-4. As the location for your project, select the directory that stores your cross-platform application, for example, `kmm-integrate-into-existing-app`.
+4. As the location for your project, select the directory that stores your cross-platform application, for example, `multiplatform-integrate-into-existing-app`.
 
 In Android Studio, you'll get the following structure:
 
