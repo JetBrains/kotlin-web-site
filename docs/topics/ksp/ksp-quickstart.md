@@ -274,3 +274,53 @@ kotlin {
 
 </tab>
 </tabs>
+
+If you are using IntelliJ IDEA and KSP in a Gradle plugin then the above snippet will give the following warning:
+```text
+Execution optimizations have been disabled for task ':publishPluginJar' to ensure correctness due to the following reasons:
+Gradle detected a problem with the following location: '../build/generated/ksp/main/kotlin'. 
+Reason: Task ':publishPluginJar' uses this output of task ':kspKotlin' without declaring an explicit or implicit dependency.
+```
+
+In this case, use the following script instead:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+   // ...
+   idea
+}
+
+idea {
+   module {
+      // Not using += due to https://github.com/gradle/gradle/issues/8749
+      sourceDirs = sourceDirs + file("build/generated/ksp/main/kotlin") // or tasks["kspKotlin"].destination
+      testSourceDirs = testSourceDirs + file("build/generated/ksp/test/kotlin")
+      generatedSourceDirs = generatedSourceDirs + file("build/generated/ksp/main/kotlin") + file("build/generated/ksp/test/kotlin")
+   }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+   // ...
+   id 'idea'
+}
+
+idea {
+   module {
+      // Not using += due to https://github.com/gradle/gradle/issues/8749
+      sourceDirs = sourceDirs + file('build/generated/ksp/main/kotlin') // or tasks["kspKotlin"].destination
+      testSourceDirs = testSourceDirs + file('build/generated/ksp/test/kotlin')
+      generatedSourceDirs = generatedSourceDirs + file('build/generated/ksp/main/kotlin') + file('build/generated/ksp/test/kotlin')
+   }
+}
+```
+
+</tab>
+</tabs>
