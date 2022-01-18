@@ -7,7 +7,7 @@ multiplatform mobile applications and share parts of your applications between A
 business logic, presentation logic, and more.
 
 Kotlin Mobile uses the [multiplatform abilities of Kotlin](multiplatform.md) and the features 
-designed for mobile development, such as CocoaPods integration and the [Android Studio Plugin](#what-is-the-kmm-plugin).
+designed for mobile development, such as CocoaPods integration and the [Android Studio Plugin](#what-is-the-kotlin-multiplatform-mobile-plugin).
 
 You may want to watch this introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in which Kotlin Product Marketing Manager Ekaterina Petrova explains in detail what Kotlin Multiplatform Mobile is and how you can use it in your projects. 
 With Ekaterina, you'll set up an environment and prepare for creating your first cross-platform mobile application with Kotlin Multiplatform Mobile.
@@ -56,7 +56,7 @@ The following video presents our plans on the upcoming stage of the Kotlin Multi
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
 If you want to write iOS-specific code and run an iOS application on a simulated or real device, use a Mac with a macOS
-([use the Kotlin Multiplatform Mobile plugin for it](#what-is-the-kmm-plugin)). This is because iOS simulators can run only on macOS, per 
+([use the Kotlin Multiplatform Mobile plugin for it](#what-is-the-kotlin-multiplatform-mobile-plugin)). This is because iOS simulators can run only on macOS, per 
 the Apple requirement, but cannot run on other operating systems, such as Microsoft Windows or Linux.
 
 If you are going to work with shared code or Android-specific code, you can work on any operating system supported by Android Studio.
@@ -69,7 +69,7 @@ If you are going to work with shared code or Android-specific code, you can work
 ### In which IDE should I work on my cross-platform app?
 
 You can work in [Android Studio](https://developer.android.com/studio). Android Studio allows the use of the 
-[Kotlin Multiplatform Mobile plugin](#what-is-the-kmm-plugin), which is a part of the Kotlin ecosystem. Enable the Kotlin Multiplatform Mobile plugin in Android Studio 
+[Kotlin Multiplatform Mobile plugin](#what-is-the-kotlin-multiplatform-mobile-plugin), which is a part of the Kotlin ecosystem. Enable the Kotlin Multiplatform Mobile plugin in Android Studio 
 if you want to write iOS-specific code and launch an iOS application on a simulated or real device. The plugin can be used only on macOS.
 
 Most of our adopters use Android Studio. However, if there is any reason for you not to use it, there is another option: 
