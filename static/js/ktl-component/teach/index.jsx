@@ -113,7 +113,7 @@ const Teach = (props) => {
         </div>
       </section>
 
-      <section className="teach-universities ktl-offset-top-xxl">
+      <section className="teach-universities ktl-offset-top-xxl ktl-with-anchor" id="kotlin-courses-around-the-world">
         <div className="ktl-container">
           <div className="teach-universities__top">
             <div className="universities-top">
@@ -184,7 +184,7 @@ const Teach = (props) => {
       </section>
 
 
-      <section className="teach-resources ktl-offset-top-xxl">
+      <section className="teach-resources ktl-offset-top-xxl ktl-with-anchor" id="start-teaching-kotlin">
         <div className="ktl-container">
           <div className="teach-resources__top ktl-offset-bottom-xl">
             <img className="teach-resources__top-image"
