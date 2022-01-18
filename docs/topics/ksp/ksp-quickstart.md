@@ -276,11 +276,12 @@ kotlin {
 </tabs>
 
 If you are using IntelliJ IDEA and KSP in a Gradle plugin then the above snippet will give the following warning:
-```text
-Execution optimizations have been disabled for task ':publishPluginJar' to ensure correctness due to the following reasons:
-Gradle detected a problem with the following location: '../build/generated/ksp/main/kotlin'. 
-Reason: Task ':publishPluginJar' uses this output of task ':kspKotlin' without declaring an explicit or implicit dependency.
-```
+
+> Execution optimizations have been disabled for task ':publishPluginJar' to ensure correctness due to the following reasons:
+> Gradle detected a problem with the following location: '../build/generated/ksp/main/kotlin'. 
+> Reason: Task ':publishPluginJar' uses this output of task ':kspKotlin' without declaring an explicit or implicit dependency.
+>
+{type="warning"}
 
 In this case, use the following script instead:
 
