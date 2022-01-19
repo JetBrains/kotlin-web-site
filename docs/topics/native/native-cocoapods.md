@@ -12,21 +12,27 @@ To work correctly with Xcode, you should [update your Podfile](#update-podfile-f
 Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
 as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
 
-## Install the CocoaPods dependency manager and plugin
+## Set up the environment to work with CocoaPods
 
-1. Install the [CocoaPods dependency manager](https://cocoapods.org/).
-    
+1. Install the [CocoaPods dependency manager](https://cocoapods.org/):
+
     ```ruby
     $ sudo gem install cocoapods
     ```
 
-2. Install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate) plugin.
-    
+2. Install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate) plugin:
+
     ```ruby
     $ sudo gem install cocoapods-generate
     ```
-    
-3. In `build.gradle(.kts)` of your IDEA project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
+
+> If you encounter any problems during the installation, follow the [official CocoaPods installation guide](https://guides.cocoapods.org/using/getting-started.html#getting-started)
+> 
+{type="note"}
+
+## Add and configure Kotlin CocoaPods Gradle plugin
+
+1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
     
     ```kotlin
     plugins {
@@ -35,8 +41,8 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
     }
     ```
 
-4. Configure `summary`, `homepage`, and `frameworkName`of the `Podspec` file in the `cocoapods` block.  
-`version` is a version of the Gradle project.
+2. Configure `summary`, `homepage`, and `frameworkName`of the `Podspec` file in the `cocoapods` block.  
+`version` is a version of the Gradle project:
     
     ```kotlin
     plugins {
@@ -51,11 +57,14 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
         cocoapods {
 
             framework {
+                // Mandatory properties
                 // Configure fields required by CocoaPods.
                 summary = "Some description for a Kotlin/Native module"
                 homepage = "Link to a Kotlin/Native module homepage"
                 // Framework name configuration. Use this property instead of deprecated 'frameworkName'
                 baseName = "MyFramework"
+                
+                // Optional properties
                 // (Optional) Dynamic framework support
                 isStatic = false
                 // (Optional) Dependency export
@@ -71,9 +80,13 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
         }
     }
     ```
+
+    > See the full syntax of Kotlin DSL in the [Kotlin Gradle plugin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/main/kotlin/org/jetbrains/kotlin/gradle/targets/native/cocoapods/CocoapodsExtension.kt).
+    >
+    {type="note"}
     
-5. Re-import the project.
-6. Generate the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to avoid compatibility
+3. Re-import the project.
+4. Generate the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to avoid compatibility
 issues during an Xcode build.
 
 When applied, the CocoaPods plugin does the following:
