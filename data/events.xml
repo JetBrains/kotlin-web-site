@@ -2,6 +2,137 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Marco Gomiero</speaker>
+        <title>Fosdem 2022</title>
+        <subject>From Mobile to Backend with Kotlin and Ktor</subject>
+        <url>https://fosdem.org/2022/schedule/event/from_mobile_to_backend/</url>
+        <description>
+            <![CDATA[
+<p>As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<p>
+<p>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Martin Bonnin</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Gradle: a deeper look at the Kotlin DSL (Everything you didn't want to know about Gradle Kotlin APIs)</subject>
+        <url>https://fosdem.org/2022/schedule/event/gradle_a_deeper_look_at_the_kotlin_dsl/</url>
+        <description>
+            <![CDATA[
+<p>Originally designed for Groovy, Gradle now supports writing scripts in Kotlin. Writing your scripts in Kotlin brings more compile-type safety and IDE features but also has a few drawbacks.<p>
+<p>In this talk, we will take a look some widely used Groovy constructs, their Kotlin equivalent and what’s happening under the hood. We will explore how Gradle loads scripts and uses Kotlin compiler flags to allow a the Kotlin DSL syntax.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Nicolas Frankel</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Not only Python: Kotlin for scripts</subject>
+        <url>https://fosdem.org/2022/schedule/event/not_only_python_kotlin_for_scripts/</url>
+        <description>
+            <![CDATA[
+<p>Python is ubiquitous in scripts, and it has definite benefits. However, Kotlin developers don't need to migrate to another stack to create scripts.<p>
+<p>In this talk, I'll show you how I use Kotlin to have an always up-to-date GitHub profile.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Dmitry Kandalov</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Refactoring Gilded Rose Kata</subject>
+        <url>https://fosdem.org/2022/schedule/event/refactoring_glided_rose_kata/</url>
+        <description>
+            <![CDATA[
+<p>Gilded Rose refactoring kata is a coding exercise designed to practice your refactoring and test cases writing skills. In this live coding session I will use the Kotlin version of the kata to show how a sequence of small improvements can make a difference taking program design to a better and more functional place. You will see a few refactoring heuristics, IntelliJ tips and tricks and design emerging from seemingly chaotic code.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Renaud Mathieu</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Live-coding a web server with Ktor (Set up a web server and a client with Ktor in a live coding session)</subject>
+        <url>https://fosdem.org/2022/schedule/event/livecoding_a_web_server_with_ktor/</url>
+        <description>
+            <![CDATA[
+<p>Ktor is a Kotlin framework dedicated to building asynchronous servers and clients in connected systems. In this session, I will explain and demo the core concepts of Ktor 2 by live coding an HTTP server from scratch using Ktor Server. Also, we'll take an overview of Ktor Client, from setting it up to making requests and installing plugins.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <location>Brussels, Belgium</location>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Navigating between Composables</subject>
+        <url>https://fosdem.org/2022/schedule/event/navigating_between_composables/</url>
+        <description>
+            <![CDATA[
+<p>This session will be about how to use Jetpack Compose navigation in your Compose app. It will include the topic of passing arguments through navigation.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2022-01-26</startDate>
+        <endDate>2022-01-26</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Akira Iwatani</speaker>
+        <title>LINE Kotlin Meetup</title>
+        <subject>Server Side Kotlin case study</subject>
+        <url>https://line.connpass.com/event/236243/</url>
+        <description>
+            <![CDATA[
+<p>LIVEBUYとはライブコマースの一種でLINEが新たに打ち出したサービスです。 ライブコマースではタレントやインフルエンサーがライブ形式で商品についての紹介をし、視聴者はそのライブを見ながら欲しいと思った商品をリアルタイムに購入するという新しいオンラインショッピングの形式です。<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2022-01-26</startDate>
+        <endDate>2022-01-26</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Junpei Koyama</speaker>
+        <title>LINE Kotlin Meetup</title>
+        <subject>LINEで予約</subject>
+        <url>https://line.connpass.com/event/236243/</url>
+        <description>
+            <![CDATA[
+<p>「LINEで予約」は、「LINE」上で簡単に店舗の予約ができるサービスです。 LINEが持つ店舗情報ページや店舗が持つLINE公式アカウントのプロフィールから、オンラインでの即時予約やLINEのトークを通じた有⼈または⾃動応答での予約が可能で、ユーザーはアプリを切り替えることなく、LINEの中で予約を完結することができます。 https://www.linebiz.com/jp/service/line-official-account/reservation/<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2022-01-27</startDate>
         <endDate>2022-01-27</endDate>
         <location>Brighton, United Kingdom</location>
