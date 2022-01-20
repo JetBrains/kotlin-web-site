@@ -794,7 +794,7 @@ Depending on your needs, you can add dependencies between:
 Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
 The new dependency will be added automatically. No additional steps are required.
 
-[Learn how to add dependencies](native-cocoapods.md).
+[Learn how to add dependencies](native-cocoapods-libraries.md).
 
 ## Kotlin Multiplatform
 

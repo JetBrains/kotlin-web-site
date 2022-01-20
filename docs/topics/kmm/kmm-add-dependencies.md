@@ -200,9 +200,9 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
 
 ### With CocoaPods
 
-1. Perform [initial CocoaPods integration setup](native-cocoapods.md#install-the-cocoapods-dependency-manager-and-plugin)
-
-2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including `pod()` in the build script of your project.
+1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods).
+2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including the `pod()` function
+call in `build.gradle.kts` (`build.gradle`) of your project.
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
@@ -235,14 +235,22 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
     </tab>
     </tabs>
 
+    You can add the following dependencies on a Pod library:
+    * [From the CocoaPods repository](native-cocoapods-libraries.md#from-the-cocoapods-repository)
+    * [On a locally stored library](native-cocoapods-libraries.md#on-a-locally-stored-library)
+    * [From a custom Git repository](native-cocoapods-libraries.md#from-a-custom-git-repository)
+    * [From an archive](native-cocoapods-libraries.md#from-a-zip-tar-or-jar-archive)
+    * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
+    * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
+    * [On a static Pod library](native-cocoapods-libraries.md#on-a-static-pod-library)
+
 3. Re-import the project.
 
-To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. In the example above, that would be:
+To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
+
 ```kotlin
 import cocoapods.AFNetworking.*
 ```
-
-Learn more about [CocoaPods integration](native-cocoapods.md).
 
 ### Without CocoaPods
 
