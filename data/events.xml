@@ -2,6 +2,60 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2022-01-06</startDate>
+        <endDate>2022-01-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Andy Goldberg</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Kotlin APIs with Flexible Deployment Options</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/mjfhnsydccbhb/</url>
+        <description>
+            <![CDATA[
+<p>Join us as Andy Goldberg talks about two packages, http4k and Hoplite, as used in combination. We'll walk through some code and some actual deployment options to see it in action. Anyone who would like a preview is welcome to read https://cfnine.com/blog/deploying-http4k.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-06</startDate>
+        <endDate>2022-01-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Android Architecture Design with Koin</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/282800639/</url>
+        <description>
+            <![CDATA[
+<p>In this session, I propose to see together how we can structure our components, for the following topics:
+* Classical Components in MVP, MVVM
+* Dealing with Scopes
+* Jetpack Navigation
+* Jetpack Compose
+* Integrating with Multi-Platform<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-06</startDate>
+        <endDate>2022-01-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Andrew Liles, Szaby Gyurko</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Talking about their experience of Validation in Kotlin using Konform.</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/282800639/</url>
+        <description>
+            <![CDATA[
+<p>Want a means to validate input in Kotlin using a Kotlin idiomatic syntax? Andrew & Szaby's team is building server-side Kotlin REST applications and chose Spring as the framework but decided to look beyond the traditional simple Spring annotation-driven approach. They explain the shortcomings they found in Spring and why they selected Konform. In this talk they'll share how Konform is a strong solution to handle complex multi-field validation but where this approach is still imperfect.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
         <location>Brussels, Belgium</location>
