@@ -166,7 +166,7 @@ by providing the path to its JAR file using the `Xplugin` kotlinc option:
 ```
 
 You can specify all-open annotations directly, using the `annotation` plugin option, or enable the "preset".
-The only presets available now for all-open are `spring`, `micronaut`, and `quarkus`.
+The presets available now for all-open are `spring`, `micronaut`, and `quarkus`.
 
 ```bash
 # The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
