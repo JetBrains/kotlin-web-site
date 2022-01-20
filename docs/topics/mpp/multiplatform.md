@@ -52,7 +52,7 @@ business logic that applies to all platforms.
 * [Share code among some platforms](mpp-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms:
 
-    ![Code shared for iOS targets](kotlin-multiplatofrm-hierarchical-structure.png){width=600}
+    ![Code shared for iOS targets](kotlin-multiplatofrm-hierarchical-structure.png){width=700}
 
 * If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](mpp-connect-to-apis.md).
