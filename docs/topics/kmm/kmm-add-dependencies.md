@@ -200,7 +200,7 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
 
 ### With CocoaPods
 
-1. Perform [initial CocoaPods integration setup](native-cocoapods.md#install-the-cocoapods-dependency-manager-and-plugin).
+1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods).
 2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including the `pod()` function
 call in `build.gradle.kts` (`build.gradle`) of your project.
 
