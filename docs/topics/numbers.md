@@ -181,7 +181,6 @@ All number types support conversions to other types:
 * `toLong(): Long`
 * `toFloat(): Float`
 * `toDouble(): Double`
-* `toChar(): Char`
 
 In many cases, there is no need for explicit conversions because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
