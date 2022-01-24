@@ -8,7 +8,7 @@ and build it: check out three handy ways to run Kotlin code instantly in differe
 * [Kotlin Playground](#browser-kotlin-playground) in the browser
 * [ki shell](#command-line-ki-shell) in the command line
 
-## IDE: Scratches and worksheets
+## IDE: scratches and worksheets
 
 IntelliJ IDEA and Android Studio support Kotlin [scratches and worksheets](https://www.jetbrains.com/help/idea/kotlin-repl.html#efb8fb32).
  
