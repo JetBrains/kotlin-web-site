@@ -4,7 +4,7 @@ Kotlin code is typically organized into projects with which you work in an IDE, 
 if you want to quickly check how a function works or find an expression's value, there's no need to create a new project
 and build it: check out three handy ways to run Kotlin code instantly in different environments:
 
-* [Scratches and worksheets](#intellij-idea-scratches-and-worksheets) in the IDE
+* [Scratches and worksheets](#ide-scratches-and-worksheets) in the IDE
 * [Kotlin Playground](#browser-kotlin-playground) in the browser
 * [ki shell](#command-line-ki-shell) in the command line
 
