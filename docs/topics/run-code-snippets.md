@@ -1,4 +1,4 @@
-[//]: # (title: Run code snippets – tutorial)
+[//]: # (title: Run code snippets)
 
 Kotlin code is typically organized into projects with which you work in an IDE, a text editor, or other tools. However,
 if you want to quickly check how a function works or find an expression's value, there's no need to create a new project
