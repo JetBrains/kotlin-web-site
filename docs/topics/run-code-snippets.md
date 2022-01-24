@@ -116,9 +116,9 @@ ki shell provides basic code evaluation capabilites along with advanced features
 * external dependencies
 * paste mode for code snippets
 * scripting support
-* and even plugin-based extensibility.
+* and more. See the [ki shell GitHub repository](https://github.com/Kotlin/kotlin-interactive-shell) for details.
 
-### Installation
+### Install and run ki shell
 
 To install ki shell, download its latest version from [GitHub](https://github.com/Kotlin/kotlin-interactive-shell) and 
 unzip it in a directory of your choice.
@@ -129,14 +129,14 @@ On macOS, you can also install ki shell with Homebrew by running the following c
 brew install ki
 ```
 
-### Features 
-
 To start ki shell, run `bin/ki.sh` on Linux and macOS (or just `ki` if ki shell in installed with Homebrew) or
 `bin\ki.bat` on Windows.
 
 When the shell is started, you can write Kotlin code right away in your terminal.
 
-The shell provides code completion upon pressing **Tab**. It also provides the syntax highlighting as you type;
+### Code completion and highlighting
+
+ki shell shows code completion options upon pressing **Tab**. It also provides the syntax highlighting as you type;
 you can disable it by entering `:syntax off`.
 
 ![ki shell highlighting and completion](ki-shell-highlight-completion.png){width=700}
@@ -151,14 +151,14 @@ three dots and expects the remaining part.
 
 Type in `:help` (or `:h`) to see commands available in ki shell. Below is a quick overview of some helpful ones.
 
-#### Find out an expression's type
+### Find out an expression's type
 
 For complex expressions or APIs you don't know well, ki shell provides the command `:type` (or `:t`) that shows the 
 type of an expression:
 
 ![ki shell type](ki-shell-type.png){width=700}
 
-#### Load code
+### Load code
 
 If the code you need is stored somewhere outside, there are two ways to load it and use in ki shell:
 * load a source file with the `:load` (or `:l`) command
@@ -168,7 +168,7 @@ If the code you need is stored somewhere outside, there are two ways to load it 
 
 The `ls` command shows available symbols (variables and functions).
 
-#### Add external dependencies
+### Add external dependencies
 
 Along with the standard library, ki shell supports external dependencies.
 This lets you use it for trying third-party libraries without creating a whole project. 
@@ -178,12 +178,3 @@ but you can use other repositories if you connect them with the `:repository` co
 
 ![ki shell external dependency](ki-shell-dependency.png){width=700}
 
-### Extensibility
-
-If ki shell's functionality is not enough for a specific case, you can extend it by writing a plugin. To do this,
-implement the [`Plugin`](https://github.com/Kotlin/kotlin-interactive-shell/blob/main/ki-shell/src/main/kotlin/org/jetbrains/kotlinx/ki/shell/Plugin.kt)
-interface. 
-
-Such ki shell functions as help display or paste mode are already implemented in plugins: [`HelpPlugin`](https://github.com/Kotlin/kotlin-interactive-shell/blob/main/ki-shell/src/main/kotlin/org/jetbrains/kotlinx/ki/shell/plugins/HelpPlugin.kt)
-and [`PastePlugin`](https://github.com/Kotlin/kotlin-interactive-shell/blob/main/ki-shell/src/main/kotlin/org/jetbrains/kotlinx/ki/shell/plugins/PastePlugin.kt).
-Check out their code and see how you can create your own plugin for ki shell.
