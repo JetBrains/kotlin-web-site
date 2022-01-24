@@ -61,13 +61,13 @@ declarations](mpp-connect-to-apis.md).
 _actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
 functions, classes, interfaces, enumerations, properties, and annotations.
 
-## How to get started
+## Get started
 
-* Look through [our examples and tutorials](mpp-share-on-platforms.md) if you want to create applications or libraries, targeting JVM, JS, and other platforms
-* Start with the [Get started with Kotlin Multiplatform Mobile](kmm-getting-started.md) if you want to create iOS and Android applications with common code 
+* Look through [our examples and tutorials](mpp-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JavaScript, and other platforms
+* Start with the [Get started with Kotlin Multiplatform Mobile](kmm-getting-started.md) if you want to create iOS and Android applications with shared code
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
-> 
+>
 {type="tip"}
 
 ### Sample projects

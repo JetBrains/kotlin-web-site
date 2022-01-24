@@ -28,23 +28,23 @@ Android and iOS). It also shows how to write tests which will be executed on all
 
 ## Dive deep into Kotlin Multiplatform
 
-Once you have experienced with Kotlin Multiplatform and want to know how to solve particular tasks of cross-platform development:
+Once you have gained some experience with Kotlin Multiplatform and want to know how to solve particular cross-platform development tasks:
 
 * [Share code on platforms](mpp-share-on-platforms.md) in your Kotlin Multiplatform project.
 
 * [Connect to platform-specific APIs](mpp-connect-to-apis.md) using the Kotlin mechanism of expected and actual declarations.
 
-* [Set up targets manually](mpp-set-up-targets.md) for your Kotlin Multiplatform project. 
+* [Set up targets manually](mpp-set-up-targets.md) for your Kotlin Multiplatform project.
 
-* [Add dependencies](mpp-add-dependencies.md) on the standard, test, or other kotlinx library. 
+* [Add dependencies](mpp-add-dependencies.md) on the standard, test, or another kotlinx library.
 
 * [Configure compilations](mpp-configure-compilations.md) for production and test purposes in your project.
 
-* [Run tests](mpp-run-tests.md) for JVM, JS, Android, Linux, Windows, macOS as well as iOS, watchOS, and tvOS simulators.
+* [Run tests](mpp-run-tests.md) for JVM, JavaScript, Android, Linux, Windows, macOS, iOS, watchOS, and tvOS simulators.
 
-* [Publish a multiplatform library](mpp-publish-lib.md) to Maven repository.
+* [Publish a multiplatform library](mpp-publish-lib.md) to the Maven repository.
 
-* [Build final native binaries](mpp-build-native-binaries.md) as executables or shared libraries, such as universal frameworks or XCFrameworks.
+* [Build native binaries](mpp-build-native-binaries.md) as executables or shared libraries, like universal frameworks or XCFrameworks.
 
 ## Get help
 
