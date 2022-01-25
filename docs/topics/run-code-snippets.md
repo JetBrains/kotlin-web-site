@@ -70,21 +70,21 @@ Kotlin code in the browser.
 
 ### Write and edit code
 
-The playground provides a text editor where you write code as you would write in a source file:
+In the Playground editor area, you can write code as you would write in a source file:
 * place your own classes, functions, and top-level declarations in an arbitrary order
 * write the executable part in the body of the `main` function.
 
-Like in usual Kotlin projects, the `main` function in the playground can have the `args` parameter or no parameters at all.
+Like in usual Kotlin projects, the `main` function in the Playground can have the `args` parameter or no parameters at all.
 To pass program arguments upon execution, write them in the **Program arguments** field.
 
 ![Playground: code completion](playground-completion.png){width=700}
 
-The playground provides code completion as you type. It also automatically imports declarations from the standard library
-and [`kotlinx.coroutines`](coroutines-overview.md).
+The Playground highlights the code and shows code completion options as you type. It automatically imports declarations
+from the standard library and [`kotlinx.coroutines`](coroutines-overview.md).
 
 ### Choose execution environment
 
-The playground provides means for customizing the execution environment:
+The Playground provides means for customizing the execution environment:
 * multiple Kotlin versions, including available previews of a future version
 * multiple backends to run the code in: JVM, JS (legacy or [IR compiler](js-ir-compiler.md) or Canvas), or JUnit
 
@@ -94,12 +94,11 @@ For JS backends, you can also see the generated JS code.
 
 ![Playground: generated JS](playground-generated-js.png){width=700}
 
-
 ### Share code online 
 
-Use the playground to share your code with others: click **Copy link** and send it to anyone you want to show the code. 
+Use the Playground to share your code with others: click **Copy link** and send it to anyone you want to show the code. 
 
-You can also use the playground to embed interactive code samples into other websites. Click **Share code** and you will 
+You can also embed code snippets from the Playground into other websites and even make them runnable. Click **Share code** to 
 get the code for embedding your sample into any web page or into a [Medium](https://medium.com/)
 article.
 
