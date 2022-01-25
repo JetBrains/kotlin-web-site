@@ -12,10 +12,10 @@ fun main() {
    // println(message.uppercase())             // This line doesn't compile
    println(message?.replace("fine", "okay"))   // Access a nullable value in a safe manner
    if (message != null) {                      // If you check that the type is right,
-   println(message.uppercase())                // the compiler will smart-cast it for you
-}
+      println(message.uppercase())             // the compiler will smart-cast it for you
+   }
 
-val nonNull: String =                             // If the null-case throws an error,
+   val nonNull: String =                             // If the null-case throws an error,
    reply(condition = true) ?: error()             // Kotlin can infer that the result is non-null
    println(nonNull)
 }
