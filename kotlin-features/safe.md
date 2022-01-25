@@ -15,7 +15,7 @@ fun main() {
       println(message.uppercase())             // the compiler will smart-cast it for you
    }
 
-val nonNull: String =                             // If the null-case throws an error,
+   val nonNull: String =                             // If the null-case throws an error,
    reply(condition = true) ?: error()             // Kotlin can infer that the result is non-null
    println(nonNull)
 }
