@@ -21,7 +21,7 @@ if (a > b) {
 val max = if (a > b) a else b
 ```
 
-Branches of `if` branches can be blocks. In this case, the last expression is the value of a block:
+Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
 
 ```kotlin
 val max = if (a > b) {
