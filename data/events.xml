@@ -2,8 +2,8 @@
 <events>
     <event>
         <lang>en</lang>
-        <startDate>2022-01-06</startDate>
-        <endDate>2022-01-06</endDate>
+        <startDate>2022-01-05</startDate>
+        <endDate>2022-01-05</endDate>
         <location>San Diego, CA</location>
         <speaker>Andy Goldberg</speaker>
         <title>San Diego Kotlin User Group</title>
@@ -18,8 +18,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2022-01-06</startDate>
-        <endDate>2022-01-06</endDate>
+        <startDate>2022-01-05</startDate>
+        <endDate>2022-01-05</endDate>
         <location>San Diego, CA</location>
         <speaker>Arnaud Giuliani</speaker>
         <title>Brighton Kotlin</title>
