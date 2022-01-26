@@ -16,8 +16,8 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 
 1. Create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` Gradle build file with the following content:
 
-   <tabs group="build-script">
-   <tab title="Kotlin" group-key="kotlin">
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
    ```kotlin
    // build.gradle.kts
@@ -45,8 +45,8 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    }
    ```
 
-   </tab>
-   <tab title="Groovy" group-key="groovy">
+</tab>
+<tab title="Groovy" group-key="groovy">
 
    ```groovy
    // build.gradle
@@ -74,8 +74,8 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    }
    ```
 
-   </tab>
-   </tabs>
+</tab>
+</tabs>
 
    You can use different [target presets](mpp-supported-platforms.md), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
    to define corresponding the target platform. The preset name describes a platform for which you are compiling your code.
