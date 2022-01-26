@@ -26,6 +26,9 @@
         <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
         <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
         <config-sideblocks>true</config-sideblocks>
+        <search-algolia-api-key>daee95d7af1f5161a865bcaa39947270</search-algolia-api-key>
+        <search-algolia-id>7961PKYRXV</search-algolia-id>
+        <search-algolia-index-name>prod_KOTLINLANG_WEBHELP</search-algolia-index-name>
         <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
         <noindex-content-in-eap>false</noindex-content-in-eap>
         <noindex-content-in-release>false</noindex-content-in-release>
