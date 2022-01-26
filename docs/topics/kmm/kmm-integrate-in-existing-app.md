@@ -381,10 +381,13 @@ should have the same presentation layer.
 
 ## What's next?
 
+Once you've made your Android application cross-platform, you can move on and:
+
 * [Use Ktor for networking](kmm-use-ktor-for-networking.md)
 * [Add dependencies on libraries](kmm-add-dependencies.md)
 * [Learn about concurrency](kmm-concurrency-overview.md)
 
-## Community resources
+You can also check out community resources:
+
 * [Video: 3 ways to get your Kotlin JVM code ready for Kotlin Multiplatform Mobile](https://www.youtube.com/watch?v=X6ckI1JWjqo)
 
