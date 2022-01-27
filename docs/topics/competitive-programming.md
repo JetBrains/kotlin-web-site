@@ -29,13 +29,13 @@ The simplest problem in the set is the
 It asks to implement a straightforward algorithm described in the problem statement. 
 
 We'd start solving it by creating a Kotlin source file with an arbitrary name. `A.kt` will do well.
-First, we need to implement a function specified in the problem statement as:
+First, you need to implement a function specified in the problem statement as:
 
 Let's denote a function f(x) in such a way: we add 1 to x, then, while there is at least one trailing zero 
 in the resulting number, we remove that zero.
 
 Kotlin is a pragmatic and unopinionated language, supporting both imperative and function programming styles without 
-pushing the developer towards either one. We can implement the function `f` in functional style, using such Kotlin 
+pushing the developer towards either one. You can implement the function `f` in functional style, using such Kotlin 
 features as [tail recursion](functions.md#tail-recursive-functions):
 
 ```kotlin
@@ -45,7 +45,7 @@ tailrec fun removeZeroes(x: Int): Int =
 fun f(x: Int) = removeZeroes(x + 1)
 ```
 
-Alternatively, we can write an imperative implementation of the function `f` using the traditional 
+Alternatively, you can write an imperative implementation of the function `f` using the traditional 
 [while loop](control-flow.md) and mutable variables that are denoted in Kotlin with 
 [var](basic-syntax.md#variables):
 
@@ -85,7 +85,7 @@ fun main() {
 
 There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
 specified in competitive programming, and the actual input cannot deviate from the input specification in the problem
-statement. That's why we're using Kotlin's [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function. It asserts that the input string is present and throws
+statement. That's why you can use Kotlin's [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function. It asserts that the input string is present and throws
 an exception otherwise. Likewise, the [`String.toInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html)
 function throws an exception if the input string is not an integer.
 
