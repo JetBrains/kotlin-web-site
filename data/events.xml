@@ -20,7 +20,7 @@
         <lang>en</lang>
         <startDate>2022-01-05</startDate>
         <endDate>2022-01-05</endDate>
-        <location>San Diego, CA</location>
+        <location>Brighton, United Kingdom</location>
         <speaker>Arnaud Giuliani</speaker>
         <title>Brighton Kotlin</title>
         <subject>Android Architecture Design with Koin</subject>
@@ -42,7 +42,7 @@
         <lang>en</lang>
         <startDate>2022-01-06</startDate>
         <endDate>2022-01-06</endDate>
-        <location>San Diego, CA</location>
+        <location>Brighton, United Kingdom</location>
         <speaker>Andrew Liles, Szaby Gyurko</speaker>
         <title>Brighton Kotlin</title>
         <subject>Talking about their experience of Validation in Kotlin using Konform.</subject>
@@ -58,7 +58,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Marco Gomiero</speaker>
         <title>Fosdem 2022</title>
         <subject>From Mobile to Backend with Kotlin and Ktor</subject>
@@ -75,7 +75,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Martin Bonnin</speaker>
         <title>Fosdem 2022</title>
         <subject>Gradle: a deeper look at the Kotlin DSL (Everything you didn't want to know about Gradle Kotlin APIs)</subject>
@@ -92,7 +92,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Nicolas Frankel</speaker>
         <title>Fosdem 2022</title>
         <subject>Not only Python: Kotlin for scripts</subject>
@@ -109,7 +109,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Dmitry Kandalov</speaker>
         <title>Fosdem 2022</title>
         <subject>Refactoring Gilded Rose Kata</subject>
@@ -125,7 +125,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Renaud Mathieu</speaker>
         <title>Fosdem 2022</title>
         <subject>Live-coding a web server with Ktor (Set up a web server and a client with Ktor in a live coding session)</subject>
@@ -141,7 +141,7 @@
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Maryam Alhuthayfi</speaker>
         <title>Fosdem 2022</title>
         <subject>Navigating between Composables</subject>
@@ -187,29 +187,6 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2022-01-27</startDate>
-        <endDate>2022-01-27</endDate>
-        <location>Brighton, United Kingdom</location>
-        <speaker>Arnaud Giuliani</speaker>
-        <title>Brighton Kotlin</title>
-        <subject>Android Architecture Design with Koin</subject>
-        <url>https://www.meetup.com/Brighton-Kotlin/events/282800639/</url>
-        <description>
-            <![CDATA[
-<p>In this session, I propose to see together how we can structure our components, for the following topics:
-* Classical Components in MVP, MVVM
-* Dealing with Scopes
-* Jetpack Navigation
-* Jetpack Compose
-* Integrating with Multi-Platform
-And an overview of incoming new features.<p>
-]]>
-       </description>
-    </event>
-
-
-    <event>
-        <lang>en</lang>
         <startDate>2022-01-19</startDate>
         <endDate>2022-01-19</endDate>
         <location>Denver, CO, USA</location>
@@ -230,7 +207,7 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-05</startDate>
         <endDate>2022-02-05</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Julien Lengrand-Lambert</speaker>
         <title>Fosdem 2022</title>
         <subject>Introducing Kotlin In Your Organization: From The Ground Up</subject>
@@ -251,7 +228,7 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Nicola Corti,  Martin Bonnin, Marco Gomiero, Holger Steinhauer, Julien Salvi</speaker>
         <title>Fosdem 2022</title>
         <subject>Kotlin DevRoom Welcoming Remarks</subject>
@@ -267,11 +244,11 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Anton Arhipov</speaker>
         <title>Fosdem 2022</title>
         <subject>The State of Kotlin</subject>
-        <url>https://fosdem.org/2022/schedule/event/kotlin_devroom_welcome/</url>
+        <url>https://fosdem.org/2022/schedule/event/the_state_of_kotlin/</url>
         <description>
             <![CDATA[
 <p>In 2021 Kotlin turned 10 and the team delivered 2 major releases (1.5.0 and 1.6.0) and a few minors. The main themes of those releases were Java interoperability and consistency of the language features. Meanwhile, Kotlin/JS has been promoted to Beta and KMM is on its path to reaching Beta status as well. However, one long-running project in Kotlin is the development of the new compiler, K2, which should set a solid foundation for the language and the ecosystem for the years ahead.<p>
@@ -284,8 +261,8 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
-        <speaker>Anton Arhipov</speaker>
+        <online>true</online>
+        <speaker>Marcin Moskala</speaker>
         <title>Fosdem 2022</title>
         <subject>The beauty of Kotlin typing system</subject>
         <url>https://fosdem.org/2022/schedule/event/the_beauty_of_kotlin_typing_system/</url>
@@ -300,10 +277,10 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Romain Boisselle</speaker>
         <title>Fosdem 2022</title>
-        <subject>The beauty of Kotlin typing system</subject>
+        <subject>Advanced multi-platform dependency injection with Kotlin</subject>
         <url>https://fosdem.org/2022/schedule/event/advanced_multiplatform_dependency_injection/</url>
         <description>
             <![CDATA[
@@ -319,7 +296,7 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Holger Brandl</speaker>
         <title>Fosdem 2022</title>
         <subject>Code-first process modeling and analysis with kalasim. Understand and optimize real-world processes at ease.</subject>
@@ -337,7 +314,7 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Dinorah Tovar</speaker>
         <title>Fosdem 2022</title>
         <subject>Kotlin + Maths</subject>
@@ -353,7 +330,7 @@ And an overview of incoming new features.<p>
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Julien Lengrand-Lambert</speaker>
         <title>Fosdem 2022</title>
         <subject>Kotlin, CLIs and StarWars! An introduction to creating CLI applications with Kotlin using Picocli.</subject>
@@ -377,7 +354,7 @@ Finally, we will look into some of the advanced features, and check at packaging
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Sergei Rybalkin</speaker>
         <title>Fosdem 2022</title>
         <subject>DataClassGenerate. Shrinking Kotlin data classes</subject>
@@ -394,7 +371,7 @@ Finally, we will look into some of the advanced features, and check at packaging
         <lang>en</lang>
         <startDate>2022-02-06</startDate>
         <endDate>2022-02-06</endDate>
-        <location>Brussels, Belgium</location>
+        <online>true</online>
         <speaker>Anna Zharkova</speaker>
         <title>Fosdem 2022</title>
         <subject>KSP and Plugins. Optimizing Kotlin Multiplatform common code</subject>
