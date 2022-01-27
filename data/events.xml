@@ -28,11 +28,11 @@
         <description>
             <![CDATA[
 <p>In this session, I propose to see together how we can structure our components, for the following topics:
-* Classical Components in MVP, MVVM
-* Dealing with Scopes
-* Jetpack Navigation
-* Jetpack Compose
-* Integrating with Multi-Platform<p>
+* Classical Components in MVP, MVVM;
+* Dealing with Scopes;
+* Jetpack Navigation;
+* Jetpack Compose;
+* Integrating with Multi-Platform.<p>
 ]]>
          </description>
     </event>
