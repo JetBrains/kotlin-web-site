@@ -6,7 +6,7 @@
 
     <var name="kotlinVersion" value="1.6.10" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.6.10-RC" type="string"/>
+    <var name="kotlinEapVersion" value="1.6.20-M1" type="string"/>
 
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.6.10" type="string"/>
 
