@@ -353,12 +353,16 @@ kotlin {
 </tab>
 </tabs>
 
-Additionally, there is a Gradle task `embedAndSignAppleFrameworkForXcode` that exposes the framework to the Xcode project from which the iOS application is built.
-It uses the configuration of the iOS application project to define the build mode (`debug` or `release`) and provide
-the appropriate framework version to the specified location.
+Additionally, there is a Gradle task `embedAndSignAppleFrameworkForXcode` that exposes the framework to the Xcode project
+from which the iOS application is built. It uses the configuration of the iOS application project to define the build
+mode (`debug` or `release`) and provide the appropriate framework version to the specified location.
 
-The task is built-in in the multiplatform plugin. It executes upon each build of the Xcode project to provide the latest version of the framework for the iOS application.
-For details, see [iOS application](#ios-application).
+The task is built-in in the multiplatform plugin. It executes upon each build of the Xcode project to provide the latest
+version of the framework for the iOS application. For details, see [iOS application](#ios-application).
+
+> Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
+>
+{type="note"}
 
 ## Android application
 
@@ -506,7 +510,14 @@ It resides in a separate directory within the root project.
 
 ![Basic Kotlin Multiplatform Xcode project](basic-xcode-project.png){width=400}
 
-For each build of the iOS application, the project obtains the latest version of the framework. To do this, it uses a **Run Script** build phase that executes the `embedAndSignAppleFrameworkForXcode` Gradle task from the shared module. This task generates the `.framework` with the needed configuration, depending on the Xcode environment settings, and puts the artifact into the `DerivedData` Xcode directory.
+For each build of the iOS application, the project obtains the latest version of the framework. To do this, it uses a
+**Run Script** build phase that executes the `embedAndSignAppleFrameworkForXcode` Gradle task from the shared module.
+This task generates the `.framework` with the needed configuration, depending on the Xcode environment settings, and puts
+the artifact into the `DerivedData` Xcode directory.
+
+> Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
+>
+{type="note"}
 
 ![Execution of `embedAndSignAppleFrameworkForXcode` in the Xcode project settings](packforxcode-in-project-settings.png){width=700}
 
