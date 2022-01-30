@@ -2,6 +2,25 @@
 
 A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it by sending a pull request.
 
+## Place multiple related declarations in one source file
+Kotlin does not require a single class declaration to be placed in a dedicated file of the same name.
+
+```kotlin
+// Example source file name: Staff.kt
+
+interface Payable {...}
+
+enum class Gender {...}
+
+abstract class Person(val name: String, val gender: Gender) {...}
+
+class Employee(name: String, gender: Gender, val hiredAt: Date): Person(name, gender), Payable {...}
+
+data class Team(val id: Int, val members: List<Employee>) {...}
+
+fun Employee.isMemberOf(team: Team): Boolean {...}
+```
+
 ## Create DTOs (POJOs/POCOs)
 
 ```kotlin
