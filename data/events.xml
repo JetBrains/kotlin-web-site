@@ -1,5 +1,388 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-06</startDate>
+        <endDate>2022-01-06</endDate>
+        <location>San Diego, CA</location>
+        <speaker>Andy Goldberg</speaker>
+        <title>San Diego Kotlin User Group</title>
+        <subject>Kotlin APIs with Flexible Deployment Options</subject>
+        <url>https://www.meetup.com/sd-kotlin/events/mjfhnsydccbhb/</url>
+        <description>
+            <![CDATA[
+<p>Join us as Andy Goldberg talks about two packages, http4k and Hoplite, as used in combination. We'll walk through some code and some actual deployment options to see it in action. Anyone who would like a preview is welcome to read https://cfnine.com/blog/deploying-http4k.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-27</startDate>
+        <endDate>2022-01-27</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Android Architecture Design with Koin</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/282800639/</url>
+        <description>
+            <![CDATA[
+<p>In this session, I propose to see together how we can structure our components, for the following topics:
+* Classical Components in MVP, MVVM;
+* Dealing with Scopes;
+* Jetpack Navigation;
+* Jetpack Compose;
+* Integrating with Multi-Platform.<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-27</startDate>
+        <endDate>2022-01-27</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Andrew Liles, Szaby Gyurko</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Talking about their experience of Validation in Kotlin using Konform.</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/282800639/</url>
+        <description>
+            <![CDATA[
+<p>Want a means to validate input in Kotlin using a Kotlin idiomatic syntax? Andrew & Szaby's team is building server-side Kotlin REST applications and chose Spring as the framework but decided to look beyond the traditional simple Spring annotation-driven approach. They explain the shortcomings they found in Spring and why they selected Konform. In this talk they'll share how Konform is a strong solution to handle complex multi-field validation but where this approach is still imperfect.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Marco Gomiero</speaker>
+        <title>Fosdem 2022</title>
+        <subject>From Mobile to Backend with Kotlin and Ktor</subject>
+        <url>https://fosdem.org/2022/schedule/event/from_mobile_to_backend/</url>
+        <description>
+            <![CDATA[
+<p>As mobile developers, we often see the backend world as something magical that "does things". But what if I tell you that you can easily build a backend even if mobile is your thing?<p>
+<p>With this talk, I want to show how it is possible to bring your mobile knowledge (and shift it a little bit) to build a backend with Kotlin and Ktor. I will show how to structure the project, set up Dependency Injection, connect to a database and test everything to have a working backend ready to be deployed.<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Martin Bonnin</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Gradle: a deeper look at the Kotlin DSL (Everything you didn't want to know about Gradle Kotlin APIs)</subject>
+        <url>https://fosdem.org/2022/schedule/event/gradle_a_deeper_look_at_the_kotlin_dsl/</url>
+        <description>
+            <![CDATA[
+<p>Originally designed for Groovy, Gradle now supports writing scripts in Kotlin. Writing your scripts in Kotlin brings more compile-type safety and IDE features but also has a few drawbacks.<p>
+<p>In this talk, we will take a look some widely used Groovy constructs, their Kotlin equivalent and what’s happening under the hood. We will explore how Gradle loads scripts and uses Kotlin compiler flags to allow a the Kotlin DSL syntax.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Nicolas Frankel</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Not only Python: Kotlin for scripts</subject>
+        <url>https://fosdem.org/2022/schedule/event/not_only_python_kotlin_for_scripts/</url>
+        <description>
+            <![CDATA[
+<p>Python is ubiquitous in scripts, and it has definite benefits. However, Kotlin developers don't need to migrate to another stack to create scripts.<p>
+<p>In this talk, I'll show you how i use Kotlin to have an always up-to-date GitHub profile.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Dmitry Kandalov</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Refactoring Gilded Rose Kata</subject>
+        <url>https://fosdem.org/2022/schedule/event/refactoring_glided_rose_kata/</url>
+        <description>
+            <![CDATA[
+<p>Gilded Rose refactoring kata is a coding exercise designed to practice your refactoring and test cases writing skills. In this live coding session I will use the Kotlin version of the kata to show how a sequence of small improvements can make a difference taking program design to a better and more functional place. You will see a few refactoring heuristics, IntelliJ tips and tricks and design emerging from seemingly chaotic code.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Renaud Mathieu</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Live-coding a web server with Ktor (Set up a web server and a client with Ktor in a live coding session)</subject>
+        <url>https://fosdem.org/2022/schedule/event/livecoding_a_web_server_with_ktor/</url>
+        <description>
+            <![CDATA[
+<p>Ktor is a Kotlin framework dedicated to building asynchronous servers and clients in connected systems. In this session, I will explain and demo the core concepts of Ktor 2 by live coding an HTTP server from scratch using Ktor Server. Also, we'll take an overview of Ktor Client, from setting it up to making requests and installing plugins.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Maryam Alhuthayfi</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Navigating between Composables</subject>
+        <url>https://fosdem.org/2022/schedule/event/navigating_between_composables/</url>
+        <description>
+            <![CDATA[
+<p>This session will be about how to use Jetpack Compose navigation in your Compose app. It will include the topic of passing arguments through navigation.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2022-01-26</startDate>
+        <endDate>2022-01-26</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Akira Iwatani</speaker>
+        <title>LINE Kotlin Meetup</title>
+        <subject>Server Side Kotlin case study</subject>
+        <url>https://line.connpass.com/event/236243/</url>
+        <description>
+            <![CDATA[
+<p>LIVEBUYとはライブコマースの一種でLINEが新たに打ち出したサービスです。 ライブコマースではタレントやインフルエンサーがライブ形式で商品についての紹介をし、視聴者はそのライブを見ながら欲しいと思った商品をリアルタイムに購入するという新しいオンラインショッピングの形式です。<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>ja</lang>
+        <startDate>2022-01-26</startDate>
+        <endDate>2022-01-26</endDate>
+        <location>Tokyo, Japan</location>
+        <speaker>Junpei Koyama</speaker>
+        <title>LINE Kotlin Meetup</title>
+        <subject>LINEで予約</subject>
+        <url>https://line.connpass.com/event/236243/</url>
+        <description>
+            <![CDATA[
+<p>「LINEで予約」は、「LINE」上で簡単に店舗の予約ができるサービスです。 LINEが持つ店舗情報ページや店舗が持つLINE公式アカウントのプロフィールから、オンラインでの即時予約やLINEのトークを通じた有⼈または⾃動応答での予約が可能で、ユーザーはアプリを切り替えることなく、LINEの中で予約を完結することができます。 https://www.linebiz.com/jp/service/line-official-account/reservation/<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-01-19</startDate>
+        <endDate>2022-01-19</endDate>
+        <location>Denver, CO, USA</location>
+        <speaker>Erick Garcia</speaker>
+        <title>Denver Droids (aka Denver Android Developers Group)</title>
+        <subject>Kotlin: Getting started</subject>
+        <url>https://www.meetup.com/DenverDroids/events/282870624/</url>
+        <description>
+            <![CDATA[
+<p>Join our free interactive Kotlin online workshop where we will have a collaborative session, where step by step you will learn how to make your first program using an easy to learn, yet powerful programming language.<p>
+<p>In addition to the live programming session we will explain what are the advantages of the Kotlin language, a brief on how it came to existence but most importantly how can you best make use of it for your projects.<p>
+<p>This language can be used for web, mobile and desktop applications and more! Don’t miss this opportunity.<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-05</startDate>
+        <endDate>2022-02-05</endDate>
+        <online>true</online>
+        <speaker>Julien Lengrand-Lambert</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Introducing Kotlin In Your Organization: From The Ground Up</subject>
+        <url>https://fosdem.org/2022/schedule/event/kotlin/</url>
+        <description>
+            <![CDATA[
+<p>A little guide on how to convince management to try out new technologies!<p>
+<p>For you it's obvious, Kotlin is the next big thing and it'll bring your team to the next level. You see clear advantages, but others are not quite there yet. In this talk, I'll describe the ways we found to get Kotlin inside ING, one of the largest European bank. We'll look into simple ways to convince your colleagues, your management and make it a success for everyone!<p>
+<p>Those days, there are so many tools to improve one developer's workflow that it's hard to make a choice, and sometimes convince others. Languages, frameworks, tooling, paradigms, there is so much to try and not everything can be a benefit.<p>
+<p>In this talk, we will have a look at why Kotlin probably makes a lot of sense for your team. We'll have a quick glance at some language features, the ecosystem and the community as well.<p>
+<p>But we'll mostly have a look at various techniques to make Kotlin (or for that matter, any other kind of proposal) a convincing user case for your team. Finding your heroes, making small experiments, using external influence, building in public, defusing possible worries, there are many ways to go about it!<p>
+<p>By the end of this talk, you will have extra information on why Kotlin can be useful for you (or not); and be equipped with strategies to help convince others as well.<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Nicola Corti,  Martin Bonnin, Marco Gomiero, Holger Steinhauer, Julien Salvi</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Kotlin DevRoom Welcoming Remarks</subject>
+        <url>https://fosdem.org/2022/schedule/event/kotlin_devroom_welcome/</url>
+        <description>
+            <![CDATA[
+<p>Welcoming participants to the virtual edition of the Kotlin DevRoom @ FOSDEM<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Anton Arhipov</speaker>
+        <title>Fosdem 2022</title>
+        <subject>The State of Kotlin</subject>
+        <url>https://fosdem.org/2022/schedule/event/the_state_of_kotlin/</url>
+        <description>
+            <![CDATA[
+<p>In 2021 Kotlin turned 10 and the team delivered 2 major releases (1.5.0 and 1.6.0) and a few minors. The main themes of those releases were Java interoperability and consistency of the language features. Meanwhile, Kotlin/JS has been promoted to Beta and KMM is on its path to reaching Beta status as well. However, one long-running project in Kotlin is the development of the new compiler, K2, which should set a solid foundation for the language and the ecosystem for the years ahead.<p>
+<p>This session is an overview of the latest developments in Kotlin: the language, tools, compiler, and the ecosystem around it. We're also going to take a look at Kotlin's roadmap to see where are we heading. Come and learn what's new and exciting!<p>
+]]>
+       </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Marcin Moskala</speaker>
+        <title>Fosdem 2022</title>
+        <subject>The beauty of Kotlin typing system</subject>
+        <url>https://fosdem.org/2022/schedule/event/the_beauty_of_kotlin_typing_system/</url>
+        <description>
+            <![CDATA[
+<p>The Kotlin typing system is amazingly designed. It was designed and constantly improved for years, and it was built based on experiences from other typing systems. As a result it gives us very comfortable nullability support, type inference, universal guards, and much more. In this presentation, we’ll dive deep into Kotlin typing systems and how small design choices lead to a better programming experience.<p>
+]]>
+       </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Romain Boisselle</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Advanced multi-platform dependency injection with Kotlin</subject>
+        <url>https://fosdem.org/2022/schedule/event/advanced_multiplatform_dependency_injection/</url>
+        <description>
+            <![CDATA[
+<p>Dependency Injection is a complicated topic, and when used in a project that compiles to multiple targets through different compilers & runtimes, it can lead to serious headaches. However, the Inversion of Control pattern brings a lot of architecture features and safety.<p>
+<p>In this talk, we will see how to use all the power of Kodein-DI, a popular dependency injection library that works everywhere Kotlin can compile to, in a mobile multi-platform project targeting Android, iOS and the mobile Web.<p>
+<p>We will start by using the dependency injection pattern to abstract and test the behavior of multi-platform business modules. We will then see how to debug common dependency management errors.<p>
+<p>Finally, we will enhance our common code using advanced features of Kodein-DI such as set bindings, lazy access, context, and scopes.<p>
+]]>
+       </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Holger Brandl</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Code-first process modeling and analysis with kalasim. Understand and optimize real-world processes at ease.</subject>
+        <url>https://fosdem.org/2022/schedule/event/kotlin_code_first_process_modelling_kalasim/</url>
+        <description>
+            <![CDATA[
+<p>kalasim is a discrete event simulator written in pure Kotlin that enables complex, performant, dynamic process models. It provides a statically typed API, dependency injection, modern persistence, structured logging and automation capabilities.<p>
+<p>kalasim is designed for simulation practitioners, process analysts and industrial engineers, who need to go beyond the limitations of existing simulation tools to model and optimize their business-critical use-cases. In contrast to many other simulation tools, kalasim is neither low-code nor no-code. It is code-first to enable change tracking, scaling, refactoring, CI/CD, unit-tests, and the rest of the gang that makes simulation development fun.<p>
+<p>In the talk, we will learn about its core concepts and study several examples from different application domains.<p>
+]]>
+       </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Dinorah Tovar</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Kotlin + Maths</subject>
+        <url>https://fosdem.org/2022/schedule/event/kotlin_plus_maths/</url>
+        <description>
+            <![CDATA[
+<p>Grab your notebook cause in this talk, we are gonna talk about Math and Kotlin! Especially in the power that Kotlin has to run long operations and the power to perform some calculations like computing min, max, an average of numbers stored in a list! - from sumOf {} to multi-dimensional arrays to charts!<p>
+]]>
+       </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Julien Lengrand-Lambert</speaker>
+        <title>Fosdem 2022</title>
+        <subject>Kotlin, CLIs and StarWars! An introduction to creating CLI applications with Kotlin using Picocli.</subject>
+        <url>https://fosdem.org/2022/schedule/event/kotlin_clis_and_starwars/</url>
+        <description>
+            <![CDATA[
+<p>picoCLI is a small library that can be used to create JVM based command line interface applications. Within 30 minutes, we'll look at how to setup a project, create a small application and package it for others to use.<p>
+<p>picoCLI is a small library that can be used to create JVM based command line interface applications.<p>
+<p>Within 30 minutes, we'll look at how to setup a project, create a small application and package it for others to use.<p>
+<p>picoCLI is nice for several reasons : CLIs are a great way to automate some commands we run every day. And because it supports Java and Kotlin, we can keep using our main language of choice rather than having to dive into bash or node. Finally, pico applications can be turned into native images using GraalVM, which allows for a nice end user experience.<p>
+<p>By the end of this talk, you'll have a basic knowledge of what picoCLI can do, how to set it up and hopefully ideas of use cases to run it with!<p>
+<p>This is a byte size presentation so it'll have to go fast!<p>
+<p>I'll introduce the project in 5 minutes.
+Then jump into a starter project and the basic features of the library around. We will compile and test it live. - 20 minutes
+Finally, we will look into some of the advanced features, and check at packaging options for end users - 5 minutes<p>
+]]>
+       </description>
+    </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Sergei Rybalkin</speaker>
+        <title>Fosdem 2022</title>
+        <subject>DataClassGenerate. Shrinking Kotlin data classes</subject>
+        <url>https://fosdem.org/2022/schedule/event/dataclassgenerate_shrinking_kotlin_data_classes/</url>
+        <description>
+            <![CDATA[
+<p>This talk is a deep dive into Kotlin data classes optimisations. We will find what optimisations are possible, and how to apply them with Kotlin compiler plugins and Android optimisers.<p>
+<p>This talk: 1. Observes data classes inefficiencies in Android apps 2. Observes state of industry optimisation tooling (compiler plugins, R8, Redex, ProGuard)<p>
+]]>
+       </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-06</startDate>
+        <endDate>2022-02-06</endDate>
+        <online>true</online>
+        <speaker>Anna Zharkova</speaker>
+        <title>Fosdem 2022</title>
+        <subject>KSP and Plugins. Optimizing Kotlin Multiplatform common code</subject>
+        <url>https://fosdem.org/2022/schedule/event/ksp_and_plugins/</url>
+        <description>
+            <![CDATA[
+<p>KSP (Kotlin Symbol Processing) is an API from Google for writing Kotlin compiler plugins. Using KSP we can write annotation processors to reduce boilerplate and solve cross-cutting concerns. Also KSP is more effective than KAPT. Among the advantages of using it is the support of Kotlin Multiplatform. Another way to optimize common code is to use Kotlin plugins. In my talk I would to like to show some samples how to use own plugins and KSP processing in Kotlin Multiplatform app supporting both iOS and Android.<p>
+]]>
+       </description>
+     </event>
+
      <event>
         <lang>ru</lang>
         <startDate>2021-12-16</startDate>
