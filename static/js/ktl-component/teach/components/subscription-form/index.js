@@ -31,8 +31,8 @@ export const SubscriptionForm = () => {
           valuesTransformer: values => {
             return {
               Email: values.Email,
-              kotlinforEducationNewsletter: 'yes',
-              privacyConsent: 'on'
+              kotlinforEducationNewsletter: true,
+              privacyConsent: true
             };
           }
         })(values, formikBag);

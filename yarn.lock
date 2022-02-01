@@ -1132,10 +1132,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@2.9.1":
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-2.9.1.tgz#8c71aa0d535c621030c5f4758351603dd1257850"
-  integrity sha512-4dN5X8Tx3NKoVga7d436lOfiYgzd/iOpPvCJdBDNAh80C50RiTgaT6EV8gLT7WLjmwg9NL4lKDWg195Vgp2YzA==
+"@jetbrains/kotlin-web-site-ui@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-3.0.1.tgz#7e11396ec1288b0f4f898038c74e16301ffa6647"
+  integrity sha512-NnRvgboHmu4uGv49x7U6ocEY+Cen4zG9DFHGpbQ/ph9Y/zfO4snVlsLjfv6AzmSE4umUasYNFlRIzLPV4D4Rug==
 
 "@juggle/resize-observer@3.3.0":
   version "3.3.0"
