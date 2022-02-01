@@ -47,7 +47,7 @@ check [our instructions on how to configure your build to support this version](
                 <li>Kotlin/JS: incremental compilation in the IR backend, lazy initialization of top-level properties by default, inline <code>Char</code> class, ability to use inline classes in external types, export improvements</li>
                 <li>Gradle: new flexible way of defining a Kotlin compiler execution strategy, removed <code>kotlin.parallel.tasks.in.project</code> build option, deprecated <code>kapt.use.worker.api</code> and <code>kotlin.coroutines</code> build options</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://blog.jetbrains.com/kotlin/2022/01/kotlin-1-6-20-m1-released/">blog post</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-M1">changelog</a> or <a href="https://blog.jetbrains.com/kotlin/2022/01/kotlin-1-6-20-m1-released/">this blog post</a>.</p>
         </td>
         <td>
             <ul>
