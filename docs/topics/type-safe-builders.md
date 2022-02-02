@@ -7,7 +7,6 @@ Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) 
 data structures in a semi-declarative way. Sample use cases for the builders are:
 
 * Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML
-* Programmatically laying out UI components: [Anko](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 * Configuring routes for a web server: [Ktor](https://ktor.io/docs/routing.html)
 
 Consider the following code:
