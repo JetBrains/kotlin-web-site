@@ -659,6 +659,3 @@
 
 - from: /docs/whatsnew-plugin-20203.html
   to: https://www.jetbrains.com/idea/whatsnew/2020-3/#kotlin-x
-
-- from: /docs/mpp-intro.html
-  to: /docs/mpp-get-started.html
