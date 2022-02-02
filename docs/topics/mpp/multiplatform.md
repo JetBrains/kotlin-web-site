@@ -11,21 +11,43 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 ## Kotlin Multiplatform use cases
 
-### Android — iOS
+### Android and iOS applications
 
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile (KMM),
-you can build cross-platform mobile applications, and share common code between Android and iOS, such as business logic, connectivity,
+Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile,
+you can build cross-platform mobile applications and share common code between Android and iOS, such as business logic, connectivity,
 and more.
 
-See [Kotlin Multiplatform Mobile features, case studies and examples](https://kotlinlang.org/lp/mobile/).
+Check out the [Get started with Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) section and
+[Kotlin Multiplatform Hands-on: Networking and Data Storage](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction),
+where you will create an application for Android and iOS that includes a module with shared code for both platforms.
 
-### Client — Server
+### Full-stack web applications
 
 Another scenario when code sharing may bring benefits is a connected application where the logic can be
 reused on both the server and the client side running in the browser. This is covered by Kotlin
 Multiplatform as well.
 
-See [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) hands-on.
+See [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
+hands-on, where you will create a connected application consisting of a server part, using Kotlin/JVM and a web client,
+using Kotlin/JS.
+
+### Multiplatform libraries
+
+Kotlin Multiplatform is also useful for library authors. You can create a multiplatform library with common code and its
+platform-specific implementations for JVM, JS, and Native platforms. Once published, a multiplatform library can be used
+in other cross-platform projects as a dependency.
+
+See the [Create and publish a multiplatform library](multiplatform-library.md) tutorial, where you will create
+a multiplatform library, test it, and publish it to Maven.
+
+### Common code for mobile and web applications
+
+One more popular case for using Kotlin Multiplatform is sharing the same code across Android, iOS, and web apps. It
+reduces the amount of business logic coded by frontend developers and helps implement products more efficiently,
+decreasing the coding and testing efforts.
+
+See the [RSS Reader](https://github.com/Kotlin/kmm-production-sample/tree/c6a0d9182802490d17729ae634fb59268f68a447) sample
+project — a cross-platform application for iOS and Android with desktop and web clients implemented as experimental features.
 
 ## How Kotlin Multiplatform works
 
