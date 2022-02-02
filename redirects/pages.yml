@@ -359,7 +359,7 @@
   to: /docs/whatsnew1430.html
 
 - from: /docs/reference/mpp-intro.html
-  to: /docs/mpp-intro.html
+  to: /docs/mpp-get-started.html
 
 - from: /docs/reference/multi-declarations.html
   to: /docs/multi-declarations.html
@@ -446,7 +446,7 @@
   to: /docs/mpp-publish-lib.html
 
 - from: /docs/reference/building-mpp-with-gradle.html
-  to: /docs/reference/mpp-intro.html
+  to: /docs/mpp-get-started.html
 
 - from: /docs/reference/whatsnew-plugin-20203.html
   to: /docs/whatsnew-plugin-20203.html

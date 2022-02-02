@@ -65,7 +65,7 @@ For more complex projects, you can add more modules into the root project by cre
 ## Shared module
 
 Shared module contains the core application logic used in both target platforms: classes, functions, and so on.
-This is a [Kotlin Multiplatform](mpp-intro.md) module that compiles
+This is a [Kotlin Multiplatform](mpp-get-started.md) module that compiles
 into an Android library and an iOS framework. It uses Gradle with the Kotlin Multiplatform plugin applied and 
 has targets for Android and iOS.
 
