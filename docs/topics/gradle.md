@@ -220,16 +220,6 @@ kotlin {
 
 Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
 
-You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
-
-```kotlin
-java {
-    toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
-    }
-}
-```
-
 To set any JDK (even local) for the specific task, use the Task DSL.
 
 ### Setting JDK version with the Task DSL
