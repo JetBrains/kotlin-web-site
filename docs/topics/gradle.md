@@ -234,7 +234,7 @@ To set any JDK (even local) for the specific task, use the Task DSL.
 
 ### Setting JDK version with the Task DSL
 
-If you use the a Gradle version earlier than 6.7, there is no [Java toolchains support](#gradle-java-toolchains-support). 
+If you use a Gradle version earlier than 6.7, there is no [Java toolchains support](#gradle-java-toolchains-support). 
 You can use the Task DSL that allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
 At the moment, these tasks are `KotlinCompile` and `KaptTask`.
 If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_VERSION>` placeholder in your build script:
@@ -890,7 +890,13 @@ Each of the options in the following list overrides the ones that came before it
   org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
   ```
 
-* You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
+  > Gradle ignores these properties if it uses JDK 1.9 or higher, the version of Gradle is between 7.0 and 7.1.1 inclusively,
+  > Gradle compiles Kotlin DSL scripts, and there is no running Kotlin daemon. To overcome this, upgrade Gradle to the version 7.2 
+  > (or higher) or use the `kotlin.daemon.jvmargs` property – see the following item.
+  >
+  {type="warning"}
+
+* You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
  ```properties
   kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
