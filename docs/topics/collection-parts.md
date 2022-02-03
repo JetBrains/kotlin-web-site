@@ -69,7 +69,7 @@ fun main() {
 
 ## Chunked
 
-To break a collection onto parts of a given size, use the [`chunked()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/chunked.html) function.
+To break a collection into parts of a given size, use the [`chunked()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/chunked.html) function.
 `chunked()` takes a single argument – the size of the chunk – and returns a `List` of `List`s of the given size.
 The first chunk starts from the first element and contains the `size` elements, the second chunk holds the next `size` elements,
 and so on. The last chunk may have a smaller size. 
