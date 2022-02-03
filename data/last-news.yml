@@ -1,11 +1,11 @@
-- title: "Improved Kotlin Experience in IntelliJ IDEA 2021.2"
-  link: https://blog.jetbrains.com/kotlin/2021/07/improved-kotlin-experience-intellij-idea-2021-2/
+- title: "Kotlin 1.6.0 is released"
+  link: https://blog.jetbrains.com/kotlin/2021/11/kotlin-1-6-0-is-released/
 
-- title: "Ten Years of Kotlin"
-  link: https://kotlinlang.org/lp/10yearsofkotlin/
+- title: "The new AWS SDK for Kotlin with Coroutines support"
+  link: https://blog.jetbrains.com/kotlin/2022/01/the-new-aws-sdk-for-kotlin-with-coroutines-support/
 
-- title: "Compose Multiplatform Goes Alpha"
-  link: https://blog.jetbrains.com/kotlin/2021/08/compose-multiplatform-goes-alpha/
+- title: "Introducing kotlinx.coroutines 1.6.0"
+  link: https://blog.jetbrains.com/kotlin/2021/12/introducing-kotlinx-coroutines-1-6-0/
 
-- title: "Kotlin News September 2021"
-  link: https://www.youtube.com/watch?v=bCz-Rogcrh8
+- title: "Results of the Kotlin Features Survey 2021"
+  link: https://blog.jetbrains.com/kotlin/2021/12/kotlin-features-survey-2021-results/
