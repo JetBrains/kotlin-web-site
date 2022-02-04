@@ -71,7 +71,7 @@ Recommended documentation:
 
 Recommended tutorials:
 * [Get started with Kotlin/Native](native-get-started.md)
-* [Create your first cross-platform application for Android and iOS](multiplatform-mobile-create-first-app.md)
+* [Create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md)
 * [Types mapping between C and Kotlin/Native](mapping-primitive-data-types-from-c.md)
 * [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
 * [Kotlin/Native as an Apple Framework](apple-framework.md)

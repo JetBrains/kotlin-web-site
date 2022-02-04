@@ -1,9 +1,9 @@
-[//]: # (title: KMM plugin releases)
+[//]: # (title: Kotlin Multiplatform Mobile plugin releases)
 
-Since KMM is now in [Alpha](kotlin-evolution.md), we are working on stabilizing the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
+Since Kotlin Multiplatform Mobile is now in [Alpha](kotlin-evolution.md), we are working on stabilizing the corresponding [plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
 and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
 
-Ensure that you have the latest version of the KMM plugin!
+Ensure that you have the latest version of the Kotlin Multiplatform Mobile plugin!
 
 ## Update to the new release
 

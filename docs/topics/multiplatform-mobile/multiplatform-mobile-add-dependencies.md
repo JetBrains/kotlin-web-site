@@ -1,7 +1,7 @@
-[//]: # (title: Add dependencies to KMM modules)
+[//]: # (title: Add dependencies to Kotlin Multiplatform modules)
 
 Every application requires a set of libraries in order to operate successfully. 
-A KMM application can depend on multiplatform libraries that work on both iOS and Android, and it can depend on platform-specific iOS and Android libraries. 
+A Kotlin Multiplatform Mobile application can depend on multiplatform libraries that work on both iOS and Android, and it can depend on platform-specific iOS and Android libraries. 
 
 Here you can learn how to add:
 * [Multiplatform dependencies](#multiplatform-libraries)
@@ -186,7 +186,7 @@ Pure Swift dependencies are not yet supported.
 
 Integration with the CocoaPods dependency manager is also supported with the same limitation – you cannot use pure Swift pods. 
 
-We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform Mobile (KMM) projects. 
+We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform Mobile projects. 
 [Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you have some other strong reason to do so.
 
 > When using third-party iOS libraries in multiplatform projects with [hierarchical structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms), for example with the `ios()` [target shortcut](mpp-share-on-platforms.md#use-target-shortcuts), 
@@ -447,7 +447,7 @@ in a multiplatform project with [hierarchical structure support](mpp-share-on-pl
 
 This issue applies only to the shared iOS source set. The IDE will correctly support the rest of the code.
 
-> All projects created with the KMM Project Wizard support the hierarchical structure, which means this issue affects them.
+> All projects created with the Kotlin Multiplatform Mobile Project Wizard support the hierarchical structure, which means this issue affects them.
 >
 {type="note"}
 
@@ -494,9 +494,9 @@ There will be no hierarchy of the `iosMain`, `iosArm64`, and `iosX64` source set
 
 ## Android dependencies
 
-The workflow for adding Android-specific dependencies to a KMM module is the same as it is for pure Android projects: add a line to your Gradle build script declaring the dependency you need and import the project. You’ll then be able to use this dependency in your Kotlin code.
+The workflow for adding Android-specific dependencies to a Kotlin Multiplatform module is the same as it is for pure Android projects: add a line to your Gradle build script declaring the dependency you need and import the project. You’ll then be able to use this dependency in your Kotlin code.
 
-We recommend adding Android dependencies to KMM projects by adding them to a specific Android source set:
+We recommend adding Android dependencies to Multiplatform Mobile projects by adding them to a specific Android source set:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -523,7 +523,7 @@ sourceSets {
 </tab>
 </tabs>
 
-Moving what was a top-level dependency in an Android project to a specific source set in a KMM project might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move а `debugImplementation` dependency from the top level of an Android project, you’ll need to add an implementation dependency to the source set named `androidDebug`.
+Moving what was a top-level dependency in an Android project to a specific source set in a Multiplatform Mobile project might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move а `debugImplementation` dependency from the top level of an Android project, you’ll need to add an implementation dependency to the source set named `androidDebug`.
 To minimize the effort you have to put in to deal with migration problems like this, you can add a `dependencies` block inside the `android` block:
 
 <tabs group="build-script">

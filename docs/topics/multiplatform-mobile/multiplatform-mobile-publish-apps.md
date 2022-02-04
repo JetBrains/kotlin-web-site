@@ -1,25 +1,25 @@
-[//]: # (title: Publish KMM apps)
+[//]: # (title: Publish your application)
 
 Once your mobile apps are ready for release, it’s time to deliver them to the users by publishing them in app stores.
 Multiple stores are available for each platform. However, in this article we’ll focus on the official ones:
 [Google Play Store](https://play.google.com/store) and [Apple App Store](https://www.apple.com/ios/app-store/).
-You’ll learn how to prepare Kotlin Multiplatform Mobile (**KMM**) applications for publishing, and we’ll highlight
+You’ll learn how to prepare Kotlin Multiplatform Mobile applications for publishing, and we’ll highlight
 the parts of this process that deserve special attention.
 
 ## Android app
 
 Since [Kotlin is the main language for Android development](https://developer.android.com/kotlin),
-KMM has no obvious effect on compiling the project and building the Android app. Both the Android library produced from
+Kotlin Multiplatform Mobile has no obvious effect on compiling the project and building the Android app. Both the Android library produced from
 the shared module and the Android app itself are typical Android Gradle modules; they are no different from other Android
-libraries and apps. Thus, publishing the Android app from a KMM project is no different from the usual process described
+libraries and apps. Thus, publishing the Android app from a Kotlin Multiplatform project is no different from the usual process described
 in the [Android developer documentation](https://developer.android.com/studio/publish).
 
 ## iOS app
 
-The iOS app from a KMM project is built from a typical Xcode project, so the main stages involved in publishing it are
+The iOS app from a Kotlin Multiplatform project is built from a typical Xcode project, so the main stages involved in publishing it are
 the same as described in the [iOS developer documentation](https://developer.apple.com/ios/submit/).
 
-What is specific to KMM projects is compiling the shared Kotlin module into a framework and linking it to the Xcode project.
+What is specific to Kotlin Multiplatform projects is compiling the shared Kotlin module into a framework and linking it to the Xcode project.
 Generally, all integration between the shared module and the Xcode project is done automatically by the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
 However, if you don’t use the plugin, bear in mind the following when building and bundling the iOS project in Xcode:
 
@@ -30,7 +30,7 @@ However, if you don’t use the plugin, bear in mind the following when building
 
 There are two ways you can connect the shared Kotlin module to the iOS project:
 * Use the [Kotlin/Native Cocoapods plugin](native-cocoapods.md), which allows you to use a multiplatform project with native targets as a CocoaPods dependency in your iOS project.
-* Manually configure your Multiplatform project to create an iOS framework and the XCode project to obtain its latest version. KMM Android Studio Plugin usually does this configuration. [Understand the project structure](multiplatform-mobile-understand-project-structure.md#ios-application) to implement it yourself.
+* Manually configure your Multiplatform project to create an iOS framework and the XCode project to obtain its latest version. The Kotlin Multiplatform Mobile plugin for Android Studio usually does this configuration. [Understand the project structure](multiplatform-mobile-understand-project-structure.md#ios-application) to implement it yourself.
 
 ### Symbolicating crash reports
 

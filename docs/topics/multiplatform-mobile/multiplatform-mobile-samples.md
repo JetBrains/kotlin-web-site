@@ -1,6 +1,6 @@
 [//]: # (title: Samples)
 
-This is a curated list of Kotlin Multiplatform Mobile (KMM) samples.
+This is a curated list of Kotlin Multiplatform Mobile samples.
 
 Do you have a great sample that you would like to add to the list?  
 Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-site/edit/master/docs/topics/kmm/kmm-samples.md) and tell us about it! You can use this [PR example](https://github.com/JetBrains/kotlin-web-site/pull/2723) for reference.
@@ -187,7 +187,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
 	<td>-</td>
 	<td>
 		<ul>
-  			<li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a KMM library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
+  			<li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
 		</ul>
 	</td>
 </tr>

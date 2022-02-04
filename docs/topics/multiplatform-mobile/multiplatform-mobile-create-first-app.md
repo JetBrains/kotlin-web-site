@@ -1,8 +1,8 @@
-[//]: # (title: Create your first multiplatform application – tutorial)
+[//]: # (title: Create your first cross-platform mobile app – tutorial)
 
-Here you will learn how to create and run your first KMM application.
+Here you will learn how to create and run your first Kotlin Multiplatform Mobile application.
 
-1. [Set up your environment for KMM development](multiplatform-mobile-setup.md) by installing the necessary tools on a suitable operating system.  
+1. [Set up an environment](multiplatform-mobile-setup.md) for cross-platform mobile development by installing the necessary tools on a suitable operating system.  
 
     >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
     >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
@@ -14,7 +14,7 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
 <video href="GcqFhoUuNNI" title="Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial"/>
 
 2. In Android Studio, select **File** | **New** | **New Project**.
-3. Select **KMM Application** in the list of project templates, and click **Next**.  
+3. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
     ![Mobile Multiplatform project template](kmm-project-wizard-1.png)
     
@@ -31,7 +31,7 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
 
     ![Mobile Multiplatform project - additional settings](kmm-project-wizard-3.png)
     
-    > If you want to use KMM module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
+    > If you want to use Kotlin Multiplatform module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
     > To learn more about CocoaPods dependencies, see [CocoaPods integration](native-cocoapods.md).
     >
     {type="note"}
@@ -40,7 +40,7 @@ Now wait while your project is set up. It may take some time to download and set
 do this for the first time.
     
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**. 
-You can [understand the KMM project structure](multiplatform-mobile-understand-project-structure.md) and how you can use this. 
+You can [understand the project structure](multiplatform-mobile-understand-project-structure.md) and how you can use this. 
     
 ![Select the Project view](select-project-view.png){width=200}  
     
@@ -162,7 +162,7 @@ For Android, follow a procedure that is very similar to the one for running test
     
 ## Next steps
 
-Once you've played with your first KMM application, you can:
+Once you've played with your first cross-platform mobile application, you can:
 
-* [Understand the KMM project structure](multiplatform-mobile-understand-project-structure.md)
+* [Understand the project structure](multiplatform-mobile-understand-project-structure.md)
 * [Complete a tutorial on making your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)

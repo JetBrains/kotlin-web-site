@@ -1,6 +1,6 @@
-[//]: # (title: Set up an environment for KMM development)
+[//]: # (title: Set up an environment)
 
-Before you begin [creating your first application](multiplatform-mobile-create-first-app.md) to work on both iOS and Android, start by setting up an environment for Kotlin Multiplatform Mobile (KMM) development:
+Before you begin [creating your first application](multiplatform-mobile-create-first-app.md) to work on both iOS and Android, start by setting up an environment for Kotlin Multiplatform Mobile development:
 
 1. If you are going to work with shared code or Android-specific code, you can work on any computer with an operating 
    system supported by [Android Studio](https://developer.android.com/studio).  
@@ -20,7 +20,7 @@ Before you begin [creating your first application](multiplatform-mobile-create-f
     
     ![Kotlin Multiplatform Mobile plugin](mobile-multiplatform-plugin.png){width=500}
     
-    Check out [KMM plugin release notes](multiplatform-mobile-plugin-releases.md).
+    Check out [Kotlin Multiplatform Mobile plugin release notes](multiplatform-mobile-plugin-releases.md).
     
 6. Install the [JDK](https://www.oracle.com/java/technologies/javase-downloads.html) if you haven't already done so.  
     To check if it's installed, run the command `java -version` in the Terminal.       

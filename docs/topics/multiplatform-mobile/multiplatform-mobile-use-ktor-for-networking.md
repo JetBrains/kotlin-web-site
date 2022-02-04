@@ -4,7 +4,7 @@ Conventionally, modern applications with client-server architecture use the HTTP
 
 For Kotlin projects, we recommend [**Ktor**](https://ktor.io/) - a framework for building asynchronous clients and servers. It’s written in Kotlin and leverages its core features such as coroutines or targeting multiple platforms. For more detailed information, see the [Ktor website](https://ktor.io/).
 
-In Kotlin Multiplatform Mobile (KMM) projects, you can use the [**Ktor Http Client**](https://ktor.io/clients/index.html) for interactions with servers. On this page, we’ll take a brief tour on how to connect the Ktor client to a KMM project, create and configure an HTTP client, and perform network requests with it.
+In Kotlin Multiplatform Mobile projects, you can use the [**Ktor Http Client**](https://ktor.io/clients/index.html) for interactions with servers. On this page, we’ll take a brief tour on how to connect the Ktor client to a cross-platform mobile project, create and configure an HTTP client, and perform network requests with it.
 
 ## Connect Ktor
 
@@ -12,7 +12,7 @@ To use the Ktor HTTP client in your project, connect the client as a Gradle depe
 
 Ktor provides separate artifacts for using the HTTP client: a common module and different engines that process the network request. 
 
-To use Ktor KMM module in the common code, add the dependency to io.ktor:ktor-client-core to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file of the KMM module:
+To use Ktor Kotlin Multiplatform module in the common code, add the dependency to io.ktor:ktor-client-core to the `commonMain` source set in the `build.gradle` or `build.gradle.kts` file of the Kotlin Multiplatform module:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -151,7 +151,7 @@ val httpClient: HttpClient = HttpClient()
 
 Ktor offers a special HTTP engine for testing purposes -  `MockEngine`, which simulates HTTP calls without an actual connection to an API endpoint.
 
-There are several platform-specific implementations of `MockEngine`. To use them in your KMM project, connect the corresponding dependencies:
+There are several platform-specific implementations of `MockEngine`. To use them in your cross-platform mobile project, connect the corresponding dependencies:
 `io.ktor:ktor-client-mock-jvm` for Android
 `io.ktor:ktor-client-mock-native` for iOS
 

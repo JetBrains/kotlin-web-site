@@ -173,7 +173,7 @@ If you see `InvalidMutabilityException` related to a coroutine operation, it's v
 >
 {type="note"}
 
-See a [complete example of using multithreaded coroutines in a KMM application](https://github.com/touchlab/KaMPKit).
+See a [complete example of using multithreaded coroutines in a Kotlin Multiplatform application](https://github.com/touchlab/KaMPKit).
 
 ## Alternatives to `kotlinx-coroutines`
 

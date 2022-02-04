@@ -21,7 +21,6 @@ you'll set up an environment and prepare to create your first cross-platform mob
 
 <video href="mdN6P6RI__k" title="Meet Kotlin Multiplatform Mobile!"/>
 
-
 You can also check out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) on YouTube.
 
 ## Supported platforms

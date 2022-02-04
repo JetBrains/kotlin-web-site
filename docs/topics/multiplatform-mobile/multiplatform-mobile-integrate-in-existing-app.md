@@ -6,7 +6,7 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen for entering a username and password.
 The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform application from scratch](multiplatform-mobile-create-first-app.md) first.
+If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform moblie application from scratch](multiplatform-mobile-create-first-app.md) first.
 
 ## Prepare an environment for development
 
@@ -25,7 +25,7 @@ If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [c
 
 ## Make your code cross-platform
 
-To have a KMM application that works on iOS, you'll first make your code cross-platform, and then you’ll reuse your cross-platform code in a new iOS application.
+To make your application work on iOS, you'll first make your code cross-platform, and then you’ll reuse your cross-platform code in a new iOS application.
 
 To make your code cross-platform:
 
@@ -53,22 +53,22 @@ Your future iOS application will use the same logic, so you should make it cross
 ### Create a shared module for cross-platform code
 
 The cross-platform code that is used for both iOS and Android _is stored_ in the shared module.
-KMM provides a special wizard for creating such modules.
+Kotlin Multiplatform provides a special wizard for creating such modules.
 
-In your Android project, create a KMM shared module for your cross-platform code. Later you'll connect it to your existing Android application and your future iOS application.
+In your Android project, create a Kotlin Multiplatform shared module for your cross-platform code. Later you'll connect it to your existing Android application and your future iOS application.
 
 1. In Android Studio, click **File** | **New** | **New Module**.
 
-2. In the list of templates, select **KMM Shared Module**, enter the module name `shared`, and select the 
+2. In the list of templates, select **KKotlin MultiplatformMM Shared Module**, enter the module name `shared`, and select the 
    **Regular framework** in the list of iOS framework distribution options.  
    This is required for connecting the shared module to the iOS application.
 
-   ![KMM shared module](kmm-module-wizard.png)
+   ![Kotlin Multiplatform shared module](kmm-module-wizard.png)
 
 3. Click **Finish**.
 
-The wizard will create the KMM shared module, update the configuration files, and create files with classes that demonstrate the benefits of Kotlin Multiplatform.
-You can learn more about the [KMM project structure](multiplatform-mobile-understand-project-structure.md).
+The wizard will create the Kotlin Multiplatform shared module, update the configuration files, and create files with classes that demonstrate the benefits of Kotlin Multiplatform.
+You can learn more about the [project structure](multiplatform-mobile-understand-project-structure.md).
 
 ### Add a dependency on the shared module to your Android application
 
@@ -107,7 +107,7 @@ To use cross-platform code in your Android application, connect the shared modul
 
 ### Make the business logic cross-platform
 
-You can now extract the business logic code to the KMM shared module and make it platform-independent. This is necessary for reusing the code for both Android and iOS.
+You can now extract the business logic code to the Kotlin Multiplatform shared module and make it platform-independent. This is necessary for reusing the code for both Android and iOS.
 
 1. Move the business logic code `com.jetbrains.simplelogin.androidapp.data` from the `app` directory to the `com.jetbrains.simplelogin.shared` package in the `shared/src/commonMain` directory.
    You can drag and drop the package or refactor it by moving everything from one directory to another.
@@ -303,7 +303,7 @@ Connect your framework to the iOS project manually:
    import shared
    ```
 
-2. To check that it is properly connected, use the `greeting()` function from the KMM module:
+2. To check that it is properly connected, use the `greeting()` function from the Kotlin Multiplatform module:
 
     ```Swift
     import SwiftUI
@@ -317,9 +317,9 @@ Connect your framework to the iOS project manually:
     }
    ```
 
-   ![Greeting from the KMM module](xcode-iphone-hello.png){width=300}
+   ![Greeting from the Kotlin Multiplatform module](xcode-iphone-hello.png){width=300}
 
-3. In `ContentView.swift`, write [code for using data from the KMM module and rendering the application UI](https://github.com/Kotlin/kmm-integration-sample/blob/final/SimpleLoginIOS/SimpleLoginIOS/ContentView.swift).
+3. In `ContentView.swift`, write [code for using data from the Kotlin Multiplatform module and rendering the application UI](https://github.com/Kotlin/kmm-integration-sample/blob/final/SimpleLoginIOS/SimpleLoginIOS/ContentView.swift).
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 

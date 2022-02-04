@@ -88,7 +88,6 @@ declarations](mpp-connect-to-apis.md).
 >
 {type="tip"}
 
-<<<<<<< HEAD
 ### Sample projects
 
 Look through cross-platform application samples to understand how Kotlin Multiplatform works:

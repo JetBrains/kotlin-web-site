@@ -198,7 +198,7 @@ Kotlin/Native's runtime will generally warn you about issues, but it's possible
 to cause concurrency problems in native code that are very, very difficult to track down. It is also very easy to create 
 memory leaks.
 
-Since in the KMM application you are also targeting the JVM, you'll need alternate ways to implement anything you use 
+Since in the Kotlin Multiplatform application you are also targeting the JVM, you'll need alternate ways to implement anything you use 
 platform native code for. This will obviously take more work and may lead to platform inconsistencies.
 
 _This material was prepared by [Touchlab](https://touchlab.co/) for publication by JetBrains._

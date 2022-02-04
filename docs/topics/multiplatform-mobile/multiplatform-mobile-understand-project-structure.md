@@ -1,12 +1,12 @@
-[//]: # (title: Understand the KMM project structure)
+[//]: # (title: Understand the project structure)
 
-The purpose of the Kotlin Multiplatform Mobile (_KMM_) technology is unifying the development of applications with common 
-logic for Android and iOS platforms. To make this possible, KMM uses a mobile-specific structure of
+The purpose of the Kotlin Multiplatform Mobile technology is unifying the development of applications with common 
+logic for Android and iOS platforms. To make this possible, it uses a mobile-specific structure of
 [Kotlin Multiplatform](multiplatform.md) projects.
-This page describes the structure of a basic KMM project. Note that this structure isn’t the only
-possible way to organize a KMM project; however, we recommend it as a starting point.
+This page describes the structure of a basic cross-platform mobile project. Note that this structure isn’t the only
+possible way to organize your project; however, we recommend it as a starting point.
 
-A basic Kotlin Mobile Multiplatform (KMM) project consists of three components:
+A basic Kotlin Mobile Multiplatform project consists of three components:
 
 * _Shared module_ – a Kotlin module that contains common logic for both Android and iOS applications.
 Builds into an Android library and an iOS framework. Uses Gradle as a build system.
@@ -14,10 +14,10 @@ Builds into an Android library and an iOS framework. Uses Gradle as a build syst
 Uses Gradle as a build system.
 * _iOS application_ – an Xcode project that builds into the iOS application.
 
-![Basic KMM project structure](basic-project-structure.png){width=700}
+![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=700}
 
-This is the structure of a KMM project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
-Real-life projects can have more complex structure; we consider these three components essential for a KMM project.
+This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
+Real-life projects can have more complex structure; we consider these three components essential.
 
 Let’s take a closer look at the basic project and its components.
 
@@ -48,13 +48,13 @@ include ':androidApp'
 </tabs>
 
 The iOS application is produced from an Xcode project. It’s stored in a separate directory within the root project.
-Xcode uses its own build system; thus, the iOS application project isn’t connected with other parts of the KMM project
+Xcode uses its own build system; thus, the iOS application project isn’t connected with other parts of the Multiplatform Mobile project
 via Gradle. Instead, it uses the shared module as an external artifact – framework. For details on integration between
 the shared module and the iOS application, see [iOS application](#ios-application).
 
-This is a basic structure of a KMM project:
+This is a basic structure of a cross-platform mobile project:
 
-![Basic KMM project directories](basic-project-dirs.png){width=400}
+![Basic Multiplatform Mobile project directories](basic-project-dirs.png){width=400}
 
 The root project does not hold source code. You can use it to store global configuration in its `build.gradle(.kts)` or 
 `gradle.properties`, for example, add repositories or define global configuration variables.
@@ -362,7 +362,8 @@ For details, see [iOS application](#ios-application).
 
 ## Android application
 
-The Android application part of a KMM project is a typical Android application written in Kotlin. In a basic KMM project, it uses three Gradle plugins: 
+The Android application part of a Multiplatform Mobile project is a typical Android application written in Kotlin.
+In a basic cross-platform mobile project, it uses three Gradle plugins: 
 
 * Kotlin Android
 * Android Application
@@ -501,9 +502,9 @@ To learn more, see the [Android developer documentation](https://developer.andro
 ## iOS application
 
 The iOS application is produced from an Xcode project generated automatically by the Project Wizard.
-It resides in a separate directory within the root KMM project. 
+It resides in a separate directory within the root project. 
 
-![Basic KMM Xcode project](basic-xcode-project.png){width=400}
+![Basic Kotlin Multiplatform Xcode project](basic-xcode-project.png){width=400}
 
 For each build of the iOS application, the project obtains the latest version of the framework. To do this, it uses a **Run Script** build phase that executes the `embedAndSignAppleFrameworkForXcode` Gradle task from the shared module. This task generates the `.framework` with the needed configuration, depending on the Xcode environment settings, and puts the artifact into the `DerivedData` Xcode directory.
 
@@ -527,5 +528,5 @@ To embed framework into the application and make the declarations from the share
 
    ![Configuring **Framework Search Paths** in the Xcode project settings](framework-search-path-in-xcode-project-settings.png){width=700}
 
-In other aspects, the Xcode part of a KMM project is a typical iOS application project.
+In other aspects, the Xcode part of a cross-platform mobile project is a typical iOS application project.
 To learn more about creating iOS application, see the [Xcode documentation](https://developer.apple.com/documentation/xcode#topics).
