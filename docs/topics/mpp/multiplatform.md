@@ -53,7 +53,6 @@ project — a cross-platform application for iOS and Android with desktop and we
 
 ![Kotlin Multiplatform](kotlin-multiplatform.png){width=500}
 
-<<<<<<< HEAD
 * **Common Kotlin** includes the language, core libraries, and basic tools. Code written in common Kotlin works 
 everywhere on all platforms.
 * With Kotlin Multiplatform libraries, you can reuse the multiplatform logic in common and platform-specific code. 
@@ -65,13 +64,6 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
  capabilities.
 
 ### Code sharing between platforms
-=======
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile, 
-you can build multiplatform mobile applications sharing code, such as business logic, connectivity, 
-and more, between Android and iOS.
-
-See features, case studies, and examples on the [landing page](https://kotlinlang.org/lp/mobile/).
->>>>>>> ca24e411 (fix: merge conflict)
 
 With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](mpp-supported-platforms.md)
  – just share it using the mechanisms Kotlin provides:
