@@ -21,7 +21,7 @@ declarations marked with the `actual` keyword in all platform modules. The IDE p
 >
 {type="note"}
 
-Learn how to [add dependencies on platform-specific libraries](kmm-add-dependencies.md).
+Learn how to [add dependencies on platform-specific libraries](multiplatform-mobile-add-dependencies.md).
 
 ## Examples
 

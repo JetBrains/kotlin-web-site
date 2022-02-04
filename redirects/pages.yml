@@ -78,7 +78,7 @@
   to: /docs/mapping-strings-from-c.html
 
 - from: /docs/tutorials/native/mpp-ios-android.html
-  to: /docs/kmm-create-first-app.html
+  to: /docs/multiplatform-mobile-create-first-app.html
 
 - from: /docs/tutorials/native/apple-framework.html
   to: /docs/apple-framework.html

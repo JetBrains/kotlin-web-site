@@ -2,7 +2,7 @@
 
 Here you will learn how to create and run your first KMM application.
 
-1. [Set up your environment for KMM development](kmm-setup.md) by installing the necessary tools on a suitable operating system.  
+1. [Set up your environment for KMM development](multiplatform-mobile-setup.md) by installing the necessary tools on a suitable operating system.  
 
     >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
     >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
@@ -40,7 +40,7 @@ Now wait while your project is set up. It may take some time to download and set
 do this for the first time.
     
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**. 
-You can [understand the KMM project structure](kmm-understand-project-structure.md) and how you can use this. 
+You can [understand the KMM project structure](multiplatform-mobile-understand-project-structure.md) and how you can use this. 
     
 ![Select the Project view](select-project-view.png){width=200}  
     
@@ -164,5 +164,5 @@ For Android, follow a procedure that is very similar to the one for running test
 
 Once you've played with your first KMM application, you can:
 
-* [Understand the KMM project structure](kmm-understand-project-structure.md)
-* [Complete a tutorial on making your Android application work on iOS](kmm-integrate-in-existing-app.md)
+* [Understand the KMM project structure](multiplatform-mobile-understand-project-structure.md)
+* [Complete a tutorial on making your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)

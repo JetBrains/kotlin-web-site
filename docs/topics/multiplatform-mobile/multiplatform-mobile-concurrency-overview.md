@@ -21,7 +21,7 @@ Kotlin/Native introduces rules for sharing states between threads. These rules e
 access to mutable states. If you come from a JVM background and write concurrent code, you may need to change the way 
 you architect your data, but doing so will allow you to achieve the same results without risky side effects.
 
-It is also important to point out that there are [ways to work around these rules](kmm-concurrent-mutability.md). 
+It is also important to point out that there are [ways to work around these rules](multiplatform-mobile-concurrent-mutability.md). 
 The intent is to make working around these rules something that you rarely have to do, if ever.
 
 There are just two simple rules regarding state and concurrency.

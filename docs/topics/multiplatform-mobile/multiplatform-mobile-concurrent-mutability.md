@@ -1,11 +1,11 @@
 [//]: # (title: Concurrent mutability)
 
-When it comes to working with iOS, [Kotlin/Native's state and concurrency model](kmm-concurrency-overview.md) has [two simple rules](kmm-concurrency-overview.md#rules-for-state-sharing).
+When it comes to working with iOS, [Kotlin/Native's state and concurrency model](multiplatform-mobile-concurrency-overview.md) has [two simple rules](multiplatform-mobile-concurrency-overview.md#rules-for-state-sharing).
 
 1. A mutable, non-frozen state is visible to only one thread at a time.
 2. An immutable, frozen state can be shared between threads.
 
-The result of following these rules is that you can't change [global states](kmm-concurrency-overview.md#global-state), 
+The result of following these rules is that you can't change [global states](multiplatform-mobile-concurrency-overview.md#global-state), 
 and you can't change the same shared state from multiple threads. In many cases, simply changing your approach to
 how you design your code will work fine, and you don't need concurrent mutability. States were mutable from multiple threads in 
 JVM code, but they didn't *need* to be.
@@ -67,7 +67,7 @@ object GlobalData {
 }
 ```
 
-According to the [rules of global state](kmm-concurrency-overview.md#global-state), global `object` values are 
+According to the [rules of global state](multiplatform-mobile-concurrency-overview.md#global-state), global `object` values are 
 frozen in Kotlin/Native, so trying to modify `sd` will fail. You could implement it instead with `AtomicReference`:
 
 ```kotlin
@@ -139,7 +139,7 @@ You will need to implement some form of locking or check-and-set logic to ensure
 
 ## Thread-isolated state
 
-[Rule 1 of Kotlin/Native state](kmm-concurrency-overview.md#rule-1-mutable-state-1-thread) is that a mutable state is 
+[Rule 1 of Kotlin/Native state](multiplatform-mobile-concurrency-overview.md#rule-1-mutable-state-1-thread) is that a mutable state is 
 visible to only one thread. Atomics allow mutability from any thread. 
 Isolating a mutable state to a single thread, and allowing other threads to communicate with that state, is an alternative 
 method for achieving concurrent mutability.

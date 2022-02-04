@@ -22,7 +22,7 @@ Android and iOS). It also shows how to write tests which will be executed on all
   application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
   introduction to working with Ktor both as a server- and client-side framework.
 
-* [Create your first Kotlin Multiplatform Mobile application](kmm-create-first-app.md) shows how to create a mobile
+* [Create your first Kotlin Multiplatform Mobile application](multiplatform-mobile-create-first-app.md) shows how to create a mobile
   application that works on Android and iOS with the help of the [KMM plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
   Create, run, and test your first multiplatform mobile application.
 

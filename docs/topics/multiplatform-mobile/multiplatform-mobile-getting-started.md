@@ -21,6 +21,7 @@ you'll set up an environment and prepare to create your first cross-platform mob
 
 <video href="mdN6P6RI__k" title="Meet Kotlin Multiplatform Mobile!"/>
 
+
 You can also check out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C) on YouTube.
 
 ## Supported platforms
@@ -35,18 +36,18 @@ JavaScript, Linux, Windows, and WebAssembly.
 
 ## Start from scratch
 
-* [Set up the environment for cross-platform mobile development](kmm-setup.md)
-* [Create your first app that works both on Android and iOS with IDE](kmm-create-first-app.md)
-* [Check out the list of sample projects](kmm-samples.md)
-* [Introduce cross-platform mobile development to your team](kmm-introduce-your-team.md)
+* [Set up the environment for cross-platform mobile development](multiplatform-mobile-setup.md)
+* [Create your first app that works both on Android and iOS with IDE](multiplatform-mobile-create-first-app.md)
+* [Check out the list of sample projects](multiplatform-mobile-samples.md)
+* [Introduce cross-platform mobile development to your team](multiplatform-mobile-introduce-your-team.md)
 
 ## Make your Android application work on iOS
 
 If you already have an Android mobile application and want to make it cross-platform, here are some resources to help
 you get started:
 
-* [Set up the environment for cross-platform development](kmm-setup.md)
-* [Make a sample Android application work well on iOS](kmm-integrate-in-existing-app.md)
+* [Set up the environment for cross-platform development](multiplatform-mobile-setup.md)
+* [Make a sample Android application work well on iOS](multiplatform-mobile-integrate-in-existing-app.md)
 
 ## Get help
 

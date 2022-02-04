@@ -30,7 +30,7 @@ However, if you don’t use the plugin, bear in mind the following when building
 
 There are two ways you can connect the shared Kotlin module to the iOS project:
 * Use the [Kotlin/Native Cocoapods plugin](native-cocoapods.md), which allows you to use a multiplatform project with native targets as a CocoaPods dependency in your iOS project.
-* Manually configure your Multiplatform project to create an iOS framework and the XCode project to obtain its latest version. KMM Android Studio Plugin usually does this configuration. [Understand the project structure](kmm-understand-project-structure.md#ios-application) to implement it yourself.
+* Manually configure your Multiplatform project to create an iOS framework and the XCode project to obtain its latest version. KMM Android Studio Plugin usually does this configuration. [Understand the project structure](multiplatform-mobile-understand-project-structure.md#ios-application) to implement it yourself.
 
 ### Symbolicating crash reports
 

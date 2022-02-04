@@ -6,11 +6,11 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen for entering a username and password.
 The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with KMM, you can learn how to [create and configure a KMM application from scratch](kmm-create-first-app.md) first.
+If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform application from scratch](multiplatform-mobile-create-first-app.md) first.
 
 ## Prepare an environment for development
 
-1. Install Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher and [other tools for KMM development](kmm-setup.md) on macOS.
+1. Install Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher and [other tools for cross-platform mobile development](multiplatform-mobile-setup.md) on macOS.
 
    >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
    >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
@@ -68,7 +68,7 @@ In your Android project, create a KMM shared module for your cross-platform code
 3. Click **Finish**.
 
 The wizard will create the KMM shared module, update the configuration files, and create files with classes that demonstrate the benefits of Kotlin Multiplatform.
-You can learn more about the [KMM project structure](kmm-understand-project-structure.md).
+You can learn more about the [KMM project structure](multiplatform-mobile-understand-project-structure.md).
 
 ### Add a dependency on the shared module to your Android application
 
@@ -122,7 +122,7 @@ You can now extract the business logic code to the KMM shared module and make it
 
    ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
 
-4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](kmm-connect-to-platform-specific-apis.md). See the following sections for details.
+4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-mobile-connect-to-platform-specific-apis.md). See the following sections for details.
 
 #### Replace Android-specific code with cross-platform code {initial-collapse-state="collapsed"}
 
@@ -174,7 +174,7 @@ val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
 Since the Kotlin standard library doesn't provide functionality for generating UUIDs, you still need to use platform-specific functionality for this case.
 
 Provide the `expect` declaration for the `randomUUID()` function in the shared code and its `actual` implementations for each platform – Android and iOS – in the corresponding source sets.
-You can learn more about [connecting to platform-specific APIs](kmm-connect-to-platform-specific-apis.md).
+You can learn more about [connecting to platform-specific APIs](multiplatform-mobile-connect-to-platform-specific-apis.md).
 
 1. Remove the `java.util.UUID` class from the common code:
 
@@ -391,9 +391,9 @@ should have the same presentation layer.
 
 Once you've made your Android application cross-platform, you can move on and:
 
-* [Use Ktor for networking](kmm-use-ktor-for-networking.md)
-* [Add dependencies on libraries](kmm-add-dependencies.md)
-* [Learn about concurrency](kmm-concurrency-overview.md)
+* [Use Ktor for networking](multiplatform-mobile-use-ktor-for-networking.md)
+* [Add dependencies on libraries](multiplatform-mobile-add-dependencies.md)
+* [Learn about concurrency](multiplatform-mobile-concurrency-overview.md)
 
 You can also check out community resources:
 

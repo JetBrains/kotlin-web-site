@@ -79,24 +79,21 @@ when you can reuse much of the code in similar platforms:
 * If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](mpp-connect-to-apis.md).
 
-  With this mechanism, a common source set defines an _expected declaration_, and platform source sets must provide the 
-_actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as 
-functions, classes, interfaces, enumerations, properties, and annotations.
-
 ## Get started
 
 * Look through [our examples and tutorials](mpp-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JavaScript, and other platforms
-* Start with the [Get started with Kotlin Multiplatform Mobile](kmm-getting-started.md) if you want to create iOS and Android applications with shared code
+* Start with the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) if you want to create iOS and Android applications with shared code
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 >
 {type="tip"}
 
+<<<<<<< HEAD
 ### Sample projects
 
 Look through cross-platform application samples to understand how Kotlin Multiplatform works:
 
-* [Kotlin Multiplatform Mobile samples](kmm-samples.md)
+* [Kotlin Multiplatform Mobile samples](multiplatform-mobile-samples.md)
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 * [Build a Full Stack Web App with Kotlin Multiplatform hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)

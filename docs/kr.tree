@@ -96,24 +96,24 @@
     <toc-element toc-title="Multiplatform development">
         <toc-element id="mpp-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html"/>
         <toc-element toc-title="Kotlin Multiplatform Mobile (KMM)">
-            <toc-element id="kmm-getting-started.md" accepts-web-file-names="kmm-overview.html"/>
-            <toc-element id="kmm-setup.md"/>
-            <toc-element id="kmm-create-first-app.md"/>
-            <toc-element id="kmm-understand-project-structure.md"/>
-            <toc-element id="kmm-integrate-in-existing-app.md"/>
-            <toc-element id="kmm-connect-to-platform-specific-apis.md"/>
-            <toc-element id="kmm-add-dependencies.md"/>
-            <toc-element id="kmm-configure-sqldelight-for-data-storage.md"/>
-            <toc-element id="kmm-use-ktor-for-networking.md"/>
-            <toc-element id="kmm-publish-apps.md"/>
+            <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
+            <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html"/>
+            <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html"/>
+            <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
+            <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
+            <toc-element id="multiplatform-mobile-connect-to-platform-specific-apis.md" accepts-web-file-names="kmm-connect-to-platform-specific-apis.html"/>
+            <toc-element id="multiplatform-mobile-add-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html"/>
+            <toc-element id="multiplatform-mobile-configure-sqldelight-for-data-storage.md" accepts-web-file-names="kmm-configure-sqldelight-for-data-storage.html"/>
+            <toc-element id="multiplatform-mobile-use-ktor-for-networking.md" accepts-web-file-names="kmm-use-ktor-for-networking.html"/>
+            <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
             <toc-element toc-title="Work with concurrency">
-                <toc-element id="kmm-concurrency-overview.md"/>
-                <toc-element id="kmm-concurrent-mutability.md"/>
-                <toc-element id="kmm-concurrency-and-coroutines.md"/>
+                <toc-element id="multiplatform-mobile-concurrency-overview.md" accepts-web-file-names="kmm-concurrency-overview.html"/>
+                <toc-element id="multiplatform-mobile-concurrent-mutability.md" accepts-web-file-names="kmm-concurrent-mutability.html"/>
+                <toc-element id="multiplatform-mobile-concurrency-and-coroutines.md" accepts-web-file-names="kmm-concurrency-and-coroutines.html"/>
             </toc-element>
-            <toc-element id="kmm-samples.md"/>
-            <toc-element id="kmm-faq.md"/>
-            <toc-element id="kmm-introduce-your-team.md"/>
+            <toc-element id="multiplatform-mobile-samples.md" accepts-web-file-names="kmm-samples.html"/>
+            <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html"/>
+            <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team"/>
         </toc-element>
         <toc-element id="mpp-create-lib.md"/>
         <toc-element id="mpp-discover-project.md" toc-title="Understand project structure"/>
@@ -217,7 +217,7 @@
 
     <toc-element toc-title="Releases and roadmap">
         <toc-element id="releases.md"/>
-        <toc-element id="kmm-plugin-releases.md"/>
+        <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases"/>
         <toc-element id="plugin-releases.md"/>
         <toc-element id="roadmap.md"/>
     </toc-element>

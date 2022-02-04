@@ -47,7 +47,7 @@ The theory is good, but putting it into practice is ultimately most important. A
 [Networking & data storage – hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) can guide you well on this process. 
 
 The more relevant examples could be produced by experimenting with your current project. You could take one existing feature implemented in Kotlin and make it cross-platform, or you could even create a new Multiplatform Module in your existing project, take one non-priority feature from the bottom of the backlog, and implement it in the shared module. 
-[Make your Android application work on iOS – tutorial](kmm-integrate-in-existing-app.md) provides a step-by-step guide based on a sample project.
+[Make your Android application work on iOS – tutorial](multiplatform-mobile-integrate-in-existing-app.md) provides a step-by-step guide based on a sample project.
 
 The new [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) will allow you to accomplish either of these tasks in the shortest amount of time by using the _New KMM Application_ or _New KMM Module_ wizards.
 

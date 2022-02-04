@@ -6,7 +6,7 @@ and [alternative solutions](#alternatives-to-kotlinx-coroutines).
 
 Review the pros and cons of each solution and choose the one that works best for your situation.
 
-Learn more about [concurrency, the current approach, and future improvements](kmm-concurrency-overview.md).
+Learn more about [concurrency, the current approach, and future improvements](multiplatform-mobile-concurrency-overview.md).
 
 ## Coroutines
 
@@ -86,7 +86,7 @@ runOnDifferentThread {
 }
 ```
 
-As described in the [concurrency overview](kmm-concurrency-overview.md), a state shared between threads in 
+As described in the [concurrency overview](multiplatform-mobile-concurrency-overview.md), a state shared between threads in 
 Kotlin/Native must be frozen. A function argument is a state itself, which will be frozen along with anything it captures.
 
 Coroutine functions that cross threads use the same pattern. To allow function blocks to be executed on another thread, 
@@ -133,7 +133,7 @@ It may be a problem if a mutable state is isolated in a single thread and corout
 communication. If you attempt to return data that retains a reference to the mutable state, it will also freeze the data by 
 association.
 
-Learn more about the [thread-isolated state](kmm-concurrent-mutability.md#thread-isolated-state).
+Learn more about the [thread-isolated state](multiplatform-mobile-concurrent-mutability.md#thread-isolated-state).
 
 ## Multithreaded coroutines
 
@@ -202,7 +202,7 @@ In production, you can also rely on the platform to handle concurrency.
 This could be helpful if the shared Kotlin code will be used for business logic or data operations rather 
 than architecture. 
 
-To share a state in iOS across threads, that state needs to be [frozen](kmm-concurrency-overview.md#immutable-and-frozen-state). The concurrency libraries mentioned here 
+To share a state in iOS across threads, that state needs to be [frozen](multiplatform-mobile-concurrency-overview.md#immutable-and-frozen-state). The concurrency libraries mentioned here 
 will freeze your data automatically. You will rarely need to do so explicitly, if ever.
 
 If you return data to the iOS platform that should be shared across threads, ensure 

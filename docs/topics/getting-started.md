@@ -74,35 +74,35 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 <tab title="Cross-platform mobile app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile/).
+Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/).
 
-1. **[Set up your environment for cross-platform development](kmm-setup.md).**
+1. **[Set up your environment for cross-platform mobile development](multiplatform-mobile-setup.md).**
 
-2. **Create your first KMM application:**
+2. **Create your first application for iOS and Android:**
 
-   * To start from scratch, [create a basic KMM application with the project wizard](kmm-create-first-app.md).
-   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](kmm-integrate-in-existing-app.md) tutorial.
-   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [KMM sample](kmm-samples.md).
+   * To start from scratch, [create a basic cross-platform mobile application with the project wizard](multiplatform-mobile-create-first-app.md).
+   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md) tutorial.
+   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [sample project](multiplatform-mobile-samples.md).
 
-3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](kmm-add-dependencies.md).
+3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-mobile-add-dependencies.md).
    
    |Library|Details|
    |-------|-------| 
    | Ktor |  [Docs](https://ktor.io/docs/client.html).| 
    | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
-   | Coroutines |  [Docs](kmm-concurrency-overview.md) and [sample](kmm-concurrency-and-coroutines.md).|
+   | Coroutines |  [Docs](multiplatform-mobile-concurrency-overview.md) and [sample](multiplatform-mobile-concurrency-and-coroutines.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](kmm-configure-sqldelight-for-data-storage.md ).|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](multiplatform-mobile-configure-sqldelight-for-data-storage.md ).|
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    > 
    {type="tip"}
 
-4. **Learn more about KMM:**
+4. **Learn more about Kotlin Multiplatform Mobile:**
    * Learn more about [Kotlin Multiplatform](mpp-get-started.md).
-   * Look through [KMM samples on GitHub](kmm-samples.md).
+   * Look through [samples on GitHub](multiplatform-mobile-samples.md).
    * [Create and publish a multiplatform library](mpp-create-lib.md).
-   * Learn how KMM is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
+   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
 
 5. **Join the Kotlin Multiplatform community:**
 

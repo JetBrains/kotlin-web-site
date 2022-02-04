@@ -64,7 +64,7 @@ If you are going to work with shared code or Android-specific code, you can work
 
 ### Where can I get complete examples to play with?
 
-* [Curated samples](kmm-samples.md)
+* [Curated samples](multiplatform-mobile-samples.md)
 * Several [hands-on tutorials](https://play.kotlinlang.org/hands-on/overview)
 
 ### In which IDE should I work on my cross-platform app?
@@ -79,7 +79,7 @@ a multiplatform mobile application from the Project Wizard, but you won’t be a
 
 ### How can I write concurrent code in KMM projects?
 
-You can learn how to work with [concurrency](kmm-concurrency-overview.md) on the documentation portal.
+You can learn how to work with [concurrency](multiplatform-mobile-concurrency-overview.md) on the documentation portal.
 
 Working with concurrent code in KMM projects might not seem straightforward, as different memory management approaches 
 are used in Kotlin/JVM and Kotlin/Native. The current approach for Kotlin/Native has some 
