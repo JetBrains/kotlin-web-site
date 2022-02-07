@@ -232,7 +232,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>
         <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
       </td>
-      <td>Models, Networking, Data Storage,</td>
+      <td>Models, Networking, Data Storage</td>
       <td>kotlinx.serialization, Ktor, Koin, SQLDelight</td>
       <td>Jetpack Compose, SwiftUI, ReactJS</td>
       <td>CocoaPods, Swift Packages</td>
@@ -242,6 +242,21 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>
 		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
 		</td>
+</tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/realm/realm-kotlin-samples/tree/main/Bookshelf">Bookshelf</a></strong>
+      </td>
+      <td>Models, Networking, Data Storage</td>
+      <td>Realm-Kotlin, Ktor, kotlinx.serialization</td>
+      <td>Jetpack Compose, SwiftUI</td>
+      <td>CocoaPods</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>
+<ul><li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li></ul>	
+</td>
 </tr>
 <tr>
       <td>
