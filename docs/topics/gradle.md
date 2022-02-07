@@ -895,7 +895,6 @@ Each of the options in the following list overrides the ones that came before it
   > * The version of Gradle is between 7.0 and 7.1.1 inclusively.
   > * Gradle compiles Kotlin DSL scripts.
   > * There is no running Kotlin daemon.
-  > 
   > To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following item.
   >
   {type="warning"}
