@@ -890,9 +890,12 @@ Each of the options in the following list overrides the ones that came before it
   org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
   ```
 
-  > Gradle ignores these properties if it uses JDK 1.9 or higher, the version of Gradle is between 7.0 and 7.1.1 inclusively,
-  > Gradle compiles Kotlin DSL scripts, and there is no running Kotlin daemon. To overcome this, upgrade Gradle to the version 7.2 
-  > (or higher) or use the `kotlin.daemon.jvmargs` property – see the following item.
+  > Gradle ignores these properties if all the following conditions are satisfied:
+  > * Gradle uses JDK 1.9 or higher.
+  > * The version of Gradle is between 7.0 and 7.1.1 inclusively.
+  > * Gradle compiles Kotlin DSL scripts.
+  > * There is no running Kotlin daemon.
+  > To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following item.
   >
   {type="warning"}
 
