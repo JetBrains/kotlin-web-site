@@ -230,6 +230,21 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
 </tr>
 <tr>
       <td>
+        <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
+      </td>
+      <td>Models, Networking, Data Storage,</td>
+      <td>kotlinx.serialization, Ktor, Koin, SQLDelight</td>
+      <td>Jetpack Compose, SwiftUI, ReactJS</td>
+      <td>CocoaPods, Swift Packages</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>✅</td>
+      <td>
+		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
+		</td>
+</tr>
+<tr>
+      <td>
         <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
       </td>
       <td>Algorithms</td>
@@ -240,20 +255,5 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
-</tr>
-	<tr>
-      <td>
-        <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
-      </td>
-      <td>Github Trending Repositories with sqlite db caching</td>
-      <td>Kotlin, Kotlin Coroutines, Kotlinx Serialization, Ktor client library, Android Architecture Components, Koin, SQLDelight, Jetpack Compose, SwiftUI, KMP-NativeCoroutines</td>
-      <td>Jetpack Compose, SwiftUI, ReactJS</td>
-      <td>CocoaPods, Swift Packages</td>
-      <td>✅</td>
-      <td>-</td>
-      <td>✅</td>
-      <td>
-		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
-		</td>
 </tr>
 </table>
