@@ -297,4 +297,17 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
 </tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/halcyonmobile/MultiplatformPlayground">MultiplatformPlayground</a></strong>
+      </td>
+      <td>ViewModels, Networking, Data Storage</td>
+      <td>SQLDelight, Ktor, Koin, kotlinx.serialization, moko-resources,</td>
+      <td>Jetpack Compose, SwiftUI</td>
+      <td>CocoaPods</td>
+      <td>✅</td>
+      <td>Android only</td>
+      <td>✅</td>
+      <td>File upload in shared, multi-module setup, sharing code between Backend - Mobile & Frontend platforms (macOS, iOS, Android)</td>
+</tr>
 </table>
