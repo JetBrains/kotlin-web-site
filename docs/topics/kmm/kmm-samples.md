@@ -228,7 +228,33 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
         </ul>
     </td>
 </tr>
-<tr>
+    <tr>
+      <td>
+        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-sample">kmm-with-cocoapods-sample</a></strong>
+      </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>CocoaPods</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-multitarget-xcode-sample">kmm-with-cocoapods-multitarget-xcode-sample</a></strong>
+      </td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>CocoaPods</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+	<tr>
       <td>
         <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
       </td>
