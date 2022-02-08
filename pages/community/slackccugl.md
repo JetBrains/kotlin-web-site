@@ -89,6 +89,27 @@ A moderator is a member of the Kotlin Slack community who volunteers to keep the
   * A moderator ignores their responsibilities, which leads to issues in a channel.
   * A moderator violates these guidelines.   
 
+### The list of moderators
+At the moment we have 17 confirmed moderators, and they will be responsible for observing a total of 64 channels. For all other channels, if any issues arise, members can ping any of the moderators or admins directly, or they can post a message in #meta.
+
+* Alexander Nozik	(@altavir) – #mathematics, #science, #datascience, #education
+* Anderson Lameck	(@andylamax) – #coroutines, #kotlin-native, #webassembly, #serialization, #random, #javascript, #react
+* Andrey Mischenko	(@gildor) – #coroutines, #android, #gradle, #multiplatform, #getting-started, #kotlin-asia, #singapore
+* Eric Ampire	(@Eric Ampire) – #events
+* Holger Steinhauer	(@Holger Steinhauer) – #fosdem, #berlin, #vkug, #german-lang, #server
+* Imran Settuba	(@Imran/Malic) – #munich, #arrow
+* Louis CAD	(@louiscad) – #coroutines, #android
+* Magda Miu (@Magda Miu) – #android, #100daysofkotlin
+* Maryam Alhuthayfi (@Maryam Alhuthayfi) – #compose, #books, #ksp, #eap, #dagger, and #kontributors.
+* Nicola Corti	(@gammax) – #feed, #detekt, #appintro, #chucker, #fosdem, #london, #berlin, #hamburg, #sweden, #ktlint, #kug-leads, #kotlinconf, #koin, #koin-dev, #spek, #vkug
+* Paulien van Alst (@Paulien van Alst) – #detekt, #koin, #mockk
+* Qian Jin (@qian) – #kotlin-native, #android-studio, #french
+* Raul Raja	(@raulraja) - #arrow, #arrow-contributors, #arrow-meta
+* Sam Sam	(@sam) – #kotest, #kotest-contributors
+* Simon Vergauwen	(@simon.vergauwen) – #arrow, #arrow-contributors, #arrow-meta
+* Youssef Shoaib	(@Youssef Shoaib)  – #getting-started, #feed, #language-evolution, #language-proposals
+* Zach Klippenstein	(@Zach Klippenstein) – #coroutines, #compose, #compose-desktop, #compose-web, #squarelibraries, #library-development
+
 ## Common Channels
 
 This is a list of some of the most popular channels, as well as a sample of the types of channels available. 
