@@ -82,9 +82,9 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    These target presets optionally take the target name as a parameter, which is `native` in this case.
    The target name is used to generate the source paths and task names in the project.
 
-3. Create an empty `settings.gradle` or `settings.gradle.kts` file in the project folder.
+3. Create an empty `settings.gradle` or `settings.gradle.kts` file in the project directory.
 
-4. Create a folder `src/nativeMain/kotlin` and place inside the `hello.kt` file with the following content:
+4. Create a directory `src/nativeMain/kotlin` and place inside the `hello.kt` file with the following content:
    
    ```kotlin
    fun main() {
@@ -92,27 +92,27 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    }
    ```
 
-   By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders, where `main` is for the source code
+   By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` directories, where `main` is for the source code
    and `test` is for tests. `<target name>` corresponds to the target platform (in this case `native`), as specified in the build file.
 
 Now you are ready to build your project and run the application. 
 
 ## Build and run the application
 
-1. From the root project folder, run the build command:
+1. From the root project directory, run the build command:
 
    ```bash
    gradle nativeBinaries
    ```
 
-   This command creates a folder `build/bin/native` and two subfolders inside: `debugExecutable` and `releaseExecutable`. They contain corresponding binary files.  
+   This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and `releaseExecutable`. They contain corresponding binary files.  
 
-   By default, the name of the binary file is the same as the project folder. 
+   By default, the name of the binary file is the same as the project directory. 
 
 3. To run the project, execute the following command:
 
    ```bash
-   build/bin/native/debugExecutable/<your_project_folder_name>.kexe
+   build/bin/native/debugExecutable/<project_name>.kexe
    ```
 
    Terminal prints "Hello, Kotlin/Native!".
@@ -122,7 +122,7 @@ Now you are ready to build your project and run the application.
 Now you can open your project in any IDE that supports Gradle. If you use IntelliJ IDEA:
 
 1. Select **File** | **Open...**.
-2. Select the project folder and click **Open**.  
+2. Select the project directory and click **Open**.  
    IntelliJ IDEA will automatically detect it as Kotlin/Native project.
 
 > If you face any problem with the project, IntelliJ IDEA will show the error message in the **Build** tab.
