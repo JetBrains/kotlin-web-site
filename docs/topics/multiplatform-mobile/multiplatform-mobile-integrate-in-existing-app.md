@@ -109,7 +109,7 @@ dump the `greeting()` function result to the log by updating the `onCreate()` me
 
 You can now extract the business logic code to the Kotlin Multiplatform shared module and make it platform-independent. This is necessary for reusing the code for both Android and iOS.
 
-1. Move the business logic code `com.jetbrains.simplelogin.androidapp.data` from the `app` directory to the `com.example.shared` package in the `shared/src/commonMain` directory.
+1. Move the business logic code `com.jetbrains.simplelogin.androidapp.data` from the `app` directory to the `com.jetbrains.simplelogin.shared` package in the `shared/src/commonMain` directory.
    You can drag and drop the package or refactor it by moving everything from one directory to another.
 
    ![Drag and drop the package with the business logic code](moving-business-logic.png){width=350}
@@ -122,9 +122,10 @@ You can now extract the business logic code to the Kotlin Multiplatform shared m
 
    ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
 
-4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md). See the following sections for details.
+4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md).
+   See the following sections for details:
 
-#### Replace Android-specific code with cross-platform code
+#### Replace Android-specific code with cross-platform code {initial-collapse-state="collapsed"}
 
 To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the moved `data` directory wherever possible.
 
@@ -163,7 +164,7 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     }
     ```
 
-#### Connect to platform-specific APIs from the cross-platform code
+#### Connect to platform-specific APIs from the cross-platform code {initial-collapse-state="collapsed"}
 
 In the `LoginDataSource` class, a universally unique identifier (UUID) for `fakeUser` is generated using the `java.util.UUID` class, which is not available for iOS.
 
@@ -185,7 +186,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
 1. Create a `Utils.kt` file in the `shared/src/commonMain/kotlin/com/example/shared` directory and provide the `expect` declaration:
 
     ```kotlin
-    package com.example.shared
+    package com.jetbrains.simplelogin.shared
     
     expect fun randomUUID(): String
     ```
@@ -193,7 +194,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
 2. Create a `Utils.kt` file in the `shared/src/androidMain/kotlin/com/example/shared` directory and provide the `actual` implementation for `randomUUID()` in Android:
 
     ```kotlin
-    package com.example.shared
+    package com.jetbrains.simplelogin.shared
     
     import java.util.*
     actual fun randomUUID() = UUID.randomUUID().toString()
@@ -202,7 +203,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
 3. Create a `Utils.kt` file in the `shared/src/iosMain/kotlin/com/example/shared` directory and provide the `actual` implementation for `randomUUID()` in iOS:
 
     ```kotlin
-    package com.example.shared
+    package com.jetbrains.simplelogin.shared
     
     import platform.Foundation.NSUUID
     actual fun randomUUID(): String = NSUUID().UUIDString()
@@ -244,7 +245,7 @@ In Android Studio, you'll get the following structure:
 
 ![iOS project in Android Studio](ios-project-in-as.png){width=194}
 
-You can rename `simpleLoginIOS` to `iosApp` for consistency with other top-level directories of your cross-platform project.
+You can rename the `simpleLoginIOS` directory to `iosApp` for consistency with other top-level directories of your cross-platform project.
 
 ![Renamed iOS project directory in Android Studio](ios-directory-renamed-in-as.png){width=194}
 
@@ -342,7 +343,7 @@ Your code should look like this:
     }
    ```  
 
-   ![Simple login application](xcode-iphone-login.png){width=300}
+![Simple login application](xcode-iphone-login.png){width=300}
 
 ## Enjoy the results – update the logic only once
 
@@ -351,7 +352,7 @@ Now your application is cross-platform. You can update the business logic in one
 1. In Android Studio, change the validation logic for a user's password in the `checkPassword()` function of the `LoginDataValidator` class:
 
     ```kotlin 
-    package com.example.shared.data
+    package com.jetbrains.simplelogin.shared.data
 
     class LoginDataValidator {
     //... 
