@@ -880,6 +880,13 @@ Each of the options in the following list overrides the ones that came before it
   org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
   ```
 
+  > In this case, enumerate arguments according to the following rules:
+  > Use the minus sign `-` before the argument `Xmx` and don't use it before all other arguments.
+  > Separate all arguments with the comma ','.
+  > Don't use spaces between arguments, it will lead to the usage of the arguments after a space for the Gradle daemon, not for the Kotlin daemon.
+  >
+  {type="note"}
+
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
  ```properties
