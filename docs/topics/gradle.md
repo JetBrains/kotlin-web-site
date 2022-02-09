@@ -877,7 +877,7 @@ Each of the options in the following list overrides the ones that came before it
 * If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
  ```properties
-  org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
+  org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
   ```
 
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
