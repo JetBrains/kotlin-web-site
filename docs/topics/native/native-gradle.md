@@ -3,8 +3,8 @@
 [Gradle](https://gradle.org) is a build system that is very commonly used in the Java, Android, and other ecosystems. It is the default choice for Kotlin/Native and Multiplatform
 when it comes to build systems.
 
-While most IDEs including [IntelliJ IDEA](https://www.jetbrains.com/idea) can generate necessary Gradle files,
-this tutorial covers how to create necessary files manually, to provide a better understanding of how things work under the hood.
+While most IDEs, including [IntelliJ IDEA](https://www.jetbrains.com/idea), can generate necessary Gradle files,
+this tutorial covers how to create them manually to provide a better understanding of how things work under the hood.
 
 To get started, install the latest version of [Gradle](https://gradle.org/install/).
 
@@ -78,7 +78,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 </tabs>
 
    You can use different [target presets](mpp-supported-platforms.md), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
-   to define corresponding the target platform. The preset name describes a platform for which you are compiling your code.
+   to define the corresponding target platform. The preset name describes a platform for which you are compiling your code.
    These target presets optionally take the target name as a parameter, which is `native` in this case.
    The target name is used to generate the source paths and task names in the project.
 
@@ -95,7 +95,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders, where `main` is for the source code
    and `test` is for tests. `<target name>` corresponds to the target platform (in this case `native`), as specified in the build file.
 
-Now you are ready build your project and run the application. 
+Now you are ready to build your project and run the application. 
 
 ## Build and run the application
 
