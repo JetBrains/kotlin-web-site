@@ -265,15 +265,37 @@ kotlin {
 </tab>
 </tabs>
 
+For example, assume that you write several modules in Kotlin and then want to access them from Swift. Since usage of
+several Kotlin/Native frameworks in one Swift application is limited, you can create a single umbrella framework and
+export all these modules to it.
+
 > You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.  
 >
 {type="note"}
+
+> Exporting a dependency includes all of its API to the framework API, which, in turn, typically makes the compiler
+> to add all the code from this dependency to the framework, even if you actually use a small fraction of it.
+> So this effectively disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
+>
+{type="note"}
+
 
 By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
 only methods of `foo` are added to the output framework.
 
 You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
 are exported as well. 
+
+> Using `transitiveExport` is not recommended: it causes all transitive dependencies of exported dependencies
+> to be added to the framework. Often it is simply all transitive dependencies used in the project.
+> 
+> This might harm compilation time and binary size.
+> 
+> On the other hand, adding all these dependencies to the framework API is usually not required for your application.
+> So the recommended approach is to add only the dependencies you need to directly access from your Swift or
+> Objective-C code, using `export` explicitly for them.
+>
+{type="warning"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -303,10 +325,6 @@ binaries {
 
 </tab>
 </tabs>
-
-For example, assume that you write several modules in Kotlin and then want to access them from Swift. Since usage of 
-several Kotlin/Native frameworks in one Swift application is limited, you can create a single umbrella framework and 
-export all these modules to it.
 
 ## Build universal frameworks
 

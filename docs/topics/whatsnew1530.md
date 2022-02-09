@@ -349,7 +349,7 @@ cocoapods {
         isStatic = false
         // Dependency export
         export(project(":anotherKMMModule"))
-        transitiveExport = true
+        transitiveExport = false // This is default.
         // Bitcode embedding
         embedBitcode(BITCODE)
     }

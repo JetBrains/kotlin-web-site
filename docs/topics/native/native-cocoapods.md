@@ -69,7 +69,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
                 isStatic = false
                 // (Optional) Dependency export
                 export(project(":anotherKMMModule"))
-                transitiveExport = true
+                transitiveExport = false // This is default.
                 // (Optional) Bitcode embedding
                 embedBitcode(BITCODE)
             }

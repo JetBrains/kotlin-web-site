@@ -57,6 +57,12 @@ Here are some recommendations for configuring Gradle for better compilation perf
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
   by default. When it’s enabled, the same JVM process is used and there is no need to warm it up for each compilation.
 
+* **Don't use [transitiveExport = true](mpp-build-native-binaries.md#export-dependencies-to-binaries)**.
+  Using transitive export effectively disables dead code elimination in many cases, so the compiler has to
+  process a lot of unused code, which takes time.
+  Instead, export the actually required projects and dependencies by explicitly using `export` for them.
+  This might also help to improve the binary size.
+
 * **Use the Gradle [build caches](https://docs.gradle.org/current/userguide/build_cache.html)**:
     * **Local build cache**: Add `org.gradle.caching=true` to your `gradle.properties` or run with `--build-cache` on the command line.
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
