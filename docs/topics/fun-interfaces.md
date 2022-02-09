@@ -65,7 +65,19 @@ You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conve
 
 ## Functional interfaces vs. type aliases
 
-Functional interfaces and [type aliases](type-aliases.md) serve different purposes.
+You can also simply rewrite the above using a [type alias](type-aliases.md) for a functional type:
+
+```kotlin
+typealias IntPredicate = (i: Int) -> Boolean
+
+val isEven: IntPredicate = { it % 2 == 0 }
+
+fun main() {
+   println("Is 7 even? - ${isEven(7)}")
+}
+```
+
+However, functional interfaces and [type aliases](type-aliases.md) serve different purposes.
 Type aliases are just names for existing types – they don't create a new type, while functional interfaces do.
 You can provide extensions that are specific to a particular functional interface to be inapplicable for plain functions or their type aliases.
 
