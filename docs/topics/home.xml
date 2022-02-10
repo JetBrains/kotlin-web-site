@@ -39,9 +39,9 @@
             </group>
             <group type="cards">
                 <title>Kotlin Multiplatform Mobile (KMM)</title>
-                <a href="kmm-getting-started.md" description="A simple mobile cross-platform application">Get started with KMM in Android Studio</a>
-                <a href="kmm-plugin-releases.md" description="Features of the KMM plugin">KMM plugin releases for Android Studio</a>
-                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about KMM on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
+                <a href="kmm-getting-started.md" description="A simple cross-platform mobile application">Get started with KMM in Android Studio</a>
+                <a href="kmm-plugin-releases.md" description="Features of the Kotlin Multiplatform Mobile plugin">KMM plugin releases for Android Studio</a>
+                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about Kotlin Multiplatform Mobile on Kotlin YouTube channel">Kotlin Multiplatform Multiverse</a>
             </group>
             <group type="links" display="normal">
                 <link-collection>
@@ -59,12 +59,12 @@
                     <a href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw" description="Official Kotlin YouTube channel">Kotlin YouTube channel</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x" description="Tutorials on using Kotlin with Spring">Kotlin in Spring Framework</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1" description="Webinars on using Kotlin for server-side development">Webinars with experts</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using KMM">Kotlin Multiplatform Multiverse</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using Kotlin Multiplatform Mobile">Kotlin Multiplatform Multiverse</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG" description="Kotlin for competitive programming">Competitive programming</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg" description="Tutorials on using the standard library">Kotlin standard library</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB" description="Talking Kotlin podcast">Talking Kotlin podcast</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA" description="Stories about teaching Kotlin">Kotlin for educators</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmztiekWaNlCcjfxvNQbXViP" description="Talks from the Kotlin Online Event 2020">Kotlin Online Event 2020</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxS9GQ0HtzUG1a7WQ2cvF6U" description="Talks from the Kotlin Online Event 2021">Kotlin Online Event 2021</a>
                 </link-collection>
                 <link-collection>
                     <title>Stay in touch and contribute</title>
