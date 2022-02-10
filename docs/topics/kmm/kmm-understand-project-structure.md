@@ -511,11 +511,19 @@ For each build of the iOS application, the project obtains the latest version of
 
 To embed framework into the application and make the declarations from the shared module available in the source code of the iOS application, the following build settings should be configured properly:
 
-1. **Other Linker flags** under the **Linking** section: `$(inherited) -framework shared`
+1. **Other Linker flags** under the **Linking** section:
+
+   ```text
+   $(inherited) -framework shared
+   ```
 
    ![Configuring **Other linker flags** in the Xcode project settings](other-linker-flags-in-xcode-project-settings.png){width=700}
 
-2. **Framework Search Paths** under the **Search Paths** section: `$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)`.
+2. **Framework Search Paths** under the **Search Paths** section:
+
+   ```text
+   $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+   ```
 
    ![Configuring **Framework Search Paths** in the Xcode project settings](framework-search-path-in-xcode-project-settings.png){width=700}
 
