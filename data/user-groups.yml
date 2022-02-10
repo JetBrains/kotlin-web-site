@@ -14,12 +14,6 @@
     position:
       lat: 52.3675734
       lng: 4.9041389
-  - name: Amsterdam High-performwarrance Kotlin User Group
-    country: Netherlands
-    url: https://www.meetup.com/High-performance-Kotlin/
-    position:
-      lat: 52.3676789
-      lng: 4.9039003
   - name: Athens Kotlin User Group
     country: Greece
     url: https://www.meetup.com/Kotlin-Athens/
