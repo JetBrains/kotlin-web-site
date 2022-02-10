@@ -203,7 +203,6 @@ kotlin {
 }
 ```
 
-
 </tab>
 <tab title="Groovy" group-key="groovy">
 
@@ -219,6 +218,12 @@ kotlin {
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
+
+> To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
+> and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
+> The part after the colon will be the JDK version from the toolchain.
+>
+{type="note"}
 
 To set any JDK (even local) for the specific task, use the Task DSL.
 
