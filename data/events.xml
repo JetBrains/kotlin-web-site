@@ -2,6 +2,22 @@
 <events>
      <event>
         <lang>en</lang>
+        <startDate>2022-02-17</startDate>
+        <endDate>2022-02-17</endDate>
+        <location>Chicago, USA</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Chicago Kotlin Users Group</title>
+        <subject>Using Jetpack Compose with Square's Molecule Library w/ GDE</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/283312885/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, Mohit Sarveiya will share how to use Square's Molecule library in a multiplatform Compose project. For the past months, he's been working on a complex side project that runs a simulation. He'll share different patterns he explored using Square's Molecule library to manage state. He'll share how to setup the architecture as described in the Square's Molecule library. At the end of the talk, he'll do a live demo of the Compose app and show the architecture of the app.<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
         <startDate>2022-03-16</startDate>
         <endDate>2022-03-16</endDate>
         <online>true</online>
@@ -14,8 +30,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2022-01-17</startDate>
-        <endDate>2022-01-17</endDate>
+        <startDate>2022-02-17</startDate>
+        <endDate>2022-02-17</endDate>
         <location>Berlin, Germany</location>
         <speaker>Anton Arhipov</speaker>
         <title>Virtual Kotlin User Group</title>
@@ -30,8 +46,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2022-01-17</startDate>
-        <endDate>2022-01-17</endDate>
+        <startDate>2022-03-03</startDate>
+        <endDate>2022-03-03</endDate>
         <location>Gdansk,Poland</location>
         <speaker>Piotr Krzemiński</speaker>
         <title>Tricity Kotlin User Group</title>
@@ -47,8 +63,8 @@
 
     <event>
         <lang>en</lang>
-        <startDate>2022-02-17</startDate>
-        <endDate>2022-02-17</endDate>
+        <startDate>2022-03-03</startDate>
+        <endDate>2022-03-03</endDate>
         <location>Gdansk,Poland</location>
         <speaker>Piotr Miankowski</speaker>
         <title>Tricity Kotlin User Group</title>
