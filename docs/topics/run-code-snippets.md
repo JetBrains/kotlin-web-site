@@ -42,7 +42,7 @@ typing, switch on the **Interactive mode**.
 
 ### Use modules
 
-We can use classes or functions from a Kotlin project, in our scratches and worksheets.
+You can use classes or functions from a Kotlin project in your scratches and worksheets.
 
 Worksheets automatically get access to classes and functions from the module where they reside.
 
