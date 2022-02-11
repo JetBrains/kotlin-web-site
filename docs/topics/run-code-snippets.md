@@ -11,22 +11,22 @@ and build it: check out three handy ways to run Kotlin code instantly in differe
 ## IDE: scratches and worksheets
 
 IntelliJ IDEA and Android Studio support Kotlin [scratches and worksheets](https://www.jetbrains.com/help/idea/kotlin-repl.html#efb8fb32).
- 
-_Scratches_ let you create code drafts in the same IDE window with your project and run them on the fly. 
-Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS. 
 
-To create a Kotlin scratch, click **File** | **New** | **Scratch File** and select the **Kotlin** type.
+* _Scratches_ let you create code drafts in the same IDE window with your project and run them on the fly. 
+  Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS. 
 
-In turn, _worksheets_ are project files: they are stored in project directories and tied to the project modules.
-Worksheets are useful for writing code parts that don't actually make a software unit but should still be stored together 
-in a project. For example, you can use worksheets for education or demo materials.
+  To create a Kotlin scratch, click **File** | **New** | **Scratch File** and select the **Kotlin** type.
 
-To create a Kotlin worksheet in a project directory, right-click the directory in the project tree and select
-**New** | **Kotlin Worksheet**.
+* _Worksheets_ are project files: they are stored in project directories and tied to the project modules.
+  Worksheets are useful for writing code parts that don't actually make a software unit but should still be stored together 
+  in a project. For example, education or demo materials.
+
+  To create a Kotlin worksheet in a project directory, right-click the directory in the project tree and select
+  **New** | **Kotlin Worksheet**.
 
 In scratches and worksheets, you can write any valid Kotlin code. Syntax highlighting, auto-completion, and other
-IntelliJ IDEA code editing features are supported too. Note that there's no need for declaring the `main()` function: 
-all the code you write is executed as if it would be in the body of `main`.
+IntelliJ IDEA code editing features are supported too. There's no need for declaring the `main()` function: 
+all the code you write is executed as if it would be in the body of `main()`.
 
 Once you have finished writing your code in a scratch or a worksheet, click **Run**. 
 The execution results will appear in the lines opposite your code.
@@ -71,7 +71,7 @@ Kotlin code in the browser.
 ### Write and edit code
 
 In the Playground editor area, you can write code as you would write in a source file:
-* place your own classes, functions, and top-level declarations in an arbitrary order
+* add your own classes, functions, and top-level declarations in an arbitrary order
 * write the executable part in the body of the `main()` function.
 
 Like in usual Kotlin projects, the `main` function in the Playground can have the `args` parameter or no parameters at all.
@@ -85,8 +85,8 @@ from the standard library and [`kotlinx.coroutines`](coroutines-overview.md).
 ### Choose execution environment
 
 The Playground provides means for customizing the execution environment:
-* multiple Kotlin versions, including available previews of a future version
-* multiple backends to run the code in: JVM, JS (legacy or [IR compiler](js-ir-compiler.md) or Canvas), or JUnit
+* multiple Kotlin versions, including available [previews of a future version](eap.md)
+* multiple backends to run the code in: JVM, JS (legacy or [IR compiler](js-ir-compiler.md), or Canvas), or JUnit
 
 ![Playground: environment setup](playground-env-setup.png){width=700}
 
@@ -115,7 +115,8 @@ ki shell provides basic code evaluation capabilites along with advanced features
 * external dependencies
 * paste mode for code snippets
 * scripting support
-* and more. See the [ki shell GitHub repository](https://github.com/Kotlin/kotlin-interactive-shell) for details.
+
+See the [ki shell GitHub repository](https://github.com/Kotlin/kotlin-interactive-shell) for more details.
 
 ### Install and run ki shell
 
@@ -131,7 +132,8 @@ brew install ki
 To start ki shell, run `bin/ki.sh` on Linux and macOS (or just `ki` if ki shell in installed with Homebrew) or
 `bin\ki.bat` on Windows.
 
-When the shell is started, you can write Kotlin code right away in your terminal.
+When the shell is started, you can write Kotlin code right away in your terminal. Type in `:help` (or `:h`) to see commands
+available in ki shell.
 
 ### Code completion and highlighting
 
@@ -145,10 +147,7 @@ printed as variables with auto-generated names like `res*`. You can later use su
 If the entered construct is incomplete (for example, an `if` with a condition but without the body), the shell prints 
 three dots and expects the remaining part.
 
-
 ![ki shell results](ki-shell-results.png){width=700}
-
-Type in `:help` (or `:h`) to see commands available in ki shell. Below is a quick overview of some helpful ones.
 
 ### Find out an expression's type
 
