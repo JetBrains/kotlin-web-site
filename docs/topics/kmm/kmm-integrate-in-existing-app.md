@@ -277,11 +277,19 @@ Connect your framework to the iOS project manually:
 
    ![Move the Run Script phase](xcode-run-script-phase-3.png)
 
-4. On the **Build Settings** tab, specify the **Framework Search Path** under **Search Paths** – `$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)`.
+4. On the **Build Settings** tab, specify the **Framework Search Path** under **Search Paths**:
+
+   ```text
+   $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+   ```
 
    ![Framework search path](xcode-add-framework-search-path.png)
 
-5. On the **Build Settings** tab, specify the **Other Linker flags** under **Linking** – `$(inherited) -framework shared`
+5. On the **Build Settings** tab, specify the **Other Linker flags** under **Linking**:
+
+   ```text
+   $(inherited) -framework shared
+   ```
 
    ![Linker flag](xcode-add-flag.png)
 
