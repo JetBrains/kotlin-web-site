@@ -50,7 +50,7 @@ Released: 14 February, 2022
 * Improved performance for indexing XcProjects: [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
 * Clean up build scripts: use `kotlin("test")`.
 * Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
-* [Fix problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
+* [Fixed the problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
 * [Fix problem with invalid version after disabling the plugin](https://youtrack.jetbrains.com/issue/KT-50966).
 
 </td>
