@@ -44,7 +44,7 @@ kotlin {
 }
 ```
 
-You can drop the lambda if there is no need for [additional configuration](mpp-dsl-reference.md#native-targets):
+You can drop the lambda if there is no need for [additional configuration](multiplatform-dsl-reference.md#native-targets):
 
 ```kotlin
 binaries {
@@ -121,7 +121,7 @@ produces the files `foo.exe` and `bar.exe`. You can also use the name prefix to 
  
 ## Access binaries
 
-You can access binaries to [configure them](mpp-dsl-reference.md#native-targets) or get their properties (for example, the path to an output file). 
+You can access binaries to [configure them](multiplatform-dsl-reference.md#native-targets) or get their properties (for example, the path to an output file). 
 
 You can get a binary by its unique name. This name is based on the name prefix (if it is specified), build type, and 
 binary kind following the pattern: `<optional-name-prefix><build-type><binary-kind>`, for example, `releaseFramework` or 

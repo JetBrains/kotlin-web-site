@@ -20,7 +20,7 @@ Kotlin/Native supports the following platforms:
 * Windows (MinGW)
 * Android NDK
 
-[The full list of supported targets is available here](mpp-supported-platforms.md).
+[The full list of supported targets is available here](multiplatform-supported-platforms.md).
 
 
 ## Interoperability
@@ -65,7 +65,7 @@ New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 Recommended documentation:
 
 * [Kotlin Multiplatform Mobile documentation](multiplatform-mobile-getting-started.md)
-* [Multiplatform documentation](mpp-get-started.md)
+* [Multiplatform documentation](multiplatform-get-started.md)
 * [C interop](native-c-interop.md)
 * [Swift/Objective-C interop](native-objc-interop.md)
 

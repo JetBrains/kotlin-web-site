@@ -23,7 +23,7 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 2. In the left-hand panel, select **Kotlin**.
 3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
 
-   ![Select a project template](mpp-project-1.png)
+   ![Select a project template](multiplatform-project-1.png)
 
 4. Select the Gradle DSL – Kotlin or Groovy.
 5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
@@ -31,7 +31,7 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 
 The wizard will create a sample multiplatform library with the following structure:
 
-![Multiplatform library structure](mpp-lib-structure.png){width=250}
+![Multiplatform library structure](multiplatform-lib-structure.png){width=250}
 
 ## Write cross-platform code
 
@@ -59,7 +59,7 @@ Define the classes and interfaces you are going to implement in the common code.
 
 The factory object is marked with the `expect` keyword in the cross-platform code.
 For each platform, you should provide an `actual` implementation of the `Base64Factory` object with the platform-specific encoder.
-Learn more about [platform-specific implementations](mpp-connect-to-apis.md).
+Learn more about [platform-specific implementations](multiplatform-connect-to-apis.md).
 
 ## Provide platform-specific implementations
 
@@ -385,7 +385,7 @@ In this tutorial, you:
 
 ## What’s next?
 
-* Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
-* Learn more about [Kotlin Multiplatform](mpp-get-started.md).
+* Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
+* Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
 * [Create your first cross-platform mobile application – tutorial](multiplatform-mobile-create-first-app.md).
 * [Create a full-stack web app with Kotlin Multiplatform – hands-on tutorial](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).

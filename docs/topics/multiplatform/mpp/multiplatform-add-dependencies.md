@@ -1,7 +1,7 @@
 [//]: # (title: Add dependencies for Kotlin Multiplatform project)
 
 To add a dependency on a library, set a dependency of the required [type](gradle.md#dependency-types) (for example, `implementation`) in the 
-[`dependencies`](mpp-dsl-reference.md#dependencies) block in your [Gradle](gradle.md) build script.
+[`dependencies`](multiplatform-dsl-reference.md#dependencies) block in your [Gradle](gradle.md) build script.
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -51,7 +51,7 @@ Learn how to [change the default behavior](gradle.md#dependency-on-the-standard-
 
 ## Set dependencies on test libraries
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you [create a multiplatform project](multiplatform-create-lib.md), 
 the Project Wizard automatically adds test dependencies to common and platform-specific source sets. 
 
 If you didn’t use the Project Wizard to create your project, you can [add the dependencies manually](gradle.md#set-dependencies-on-test-libraries).

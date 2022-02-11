@@ -6,7 +6,7 @@ or test framework.
 
 ## Required dependencies
 
-The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you [create a multiplatform project](mpp-create-lib.md), 
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you [create a multiplatform project](multiplatform-create-lib.md), 
 the Project Wizard automatically adds test dependencies to common and platform-specific source sets. 
 
 If you didn’t use the Project Wizard to create your project, you can [add the dependencies manually](gradle.md#set-dependencies-on-test-libraries).
@@ -19,7 +19,7 @@ To run tests for a particular target suitable for testing, run a test task `<tar
 
 ## Test shared code
 
-For testing shared code, you can use [actual declarations](mpp-connect-to-apis.md) in your tests.
+For testing shared code, you can use [actual declarations](multiplatform-connect-to-apis.md) in your tests.
 
 For example, to test the shared code in `commonMain`:
 

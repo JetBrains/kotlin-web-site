@@ -19,7 +19,7 @@ You can configure how artifacts are produced in:
 * [Compilations for one target](#configure-compilations-for-one-target) since one target can have multiple compilations.
 * [A specific compilation](#configure-one-compilation).
 
-See the [list of compilation parameters](mpp-dsl-reference.md#compilation-parameters) and [compiler options](gradle.md#compiler-options) 
+See the [list of compilation parameters](multiplatform-dsl-reference.md#compilation-parameters) and [compiler options](gradle.md#compiler-options) 
 available for all or specific targets.
 
 ## Configure all compilations
@@ -188,7 +188,7 @@ JVM versions in your final artifact, or you have already set up source sets in G
 
 ## Use Java sources in JVM compilations
 
-When [creating a project with the Project Wizard](mpp-create-lib.md), Java sources are included in the compilations of
+When [creating a project with the Project Wizard](multiplatform-create-lib.md), Java sources are included in the compilations of
 the JVM target.
 
 In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
@@ -227,7 +227,7 @@ compilation.
 | Swift via Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | Kotlin can use only Swift declarations marked with the `@objc` attribute. |
 
 A compilation can interact with several native libraries. Configure interoperability in the `cinterops` block of the 
-compilation with [available parameters](mpp-dsl-reference.md#cinterops).
+compilation with [available parameters](multiplatform-dsl-reference.md#cinterops).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -335,7 +335,7 @@ dependencies {
 
 ## Compilation of the source set hierarchy 
 
-Kotlin can build a [source set hierarchy](mpp-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
+Kotlin can build a [source set hierarchy](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
 
 ![Source set hierarchy](jvm-js-main.png){width=400}
 
@@ -344,11 +344,11 @@ If the source set `jvmMain` depends on a source set `commonMain` then:
 * Whenever `jvmMain` is compiled for a certain target, `commonMain` takes part in that compilation as well and is also 
 compiled into the same target binary form, such as JVM class files.
 * Sources of `jvmMain` 'see' the declarations of `commonMain`, including internal declarations, and also see the 
-[dependencies](mpp-add-dependencies.md) of `commonMain`, even those specified as `implementation` dependencies.
-* `jvmMain` can contain platform-specific implementations for the [expected declarations](mpp-connect-to-apis.md) 
+[dependencies](multiplatform-add-dependencies.md) of `commonMain`, even those specified as `implementation` dependencies.
+* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-connect-to-apis.md) 
 of `commonMain`.
 * The resources of `commonMain` are always processed and copied along with the resources of `jvmMain`.
-* The [language settings](mpp-dsl-reference.md#language-settings) of `jvmMain` and `commonMain` should be consistent.
+* The [language settings](multiplatform-dsl-reference.md#language-settings) of `jvmMain` and `commonMain` should be consistent.
 
 Language settings are checked for consistency in the following ways:
 * `jvmMain` should set a `languageVersion` that is greater than or equal to that of `commonMain`.

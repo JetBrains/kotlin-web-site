@@ -94,7 +94,7 @@
     </toc-element>
 
     <toc-element toc-title="Multiplatform development">
-        <toc-element id="mpp-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html"/>
+        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html"/>
         <toc-element toc-title="Kotlin Multiplatform Mobile (KMM)">
             <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
             <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html"/>
@@ -115,21 +115,21 @@
             <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html"/>
             <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team"/>
         </toc-element>
-        <toc-element id="mpp-create-lib.md"/>
-        <toc-element id="mpp-discover-project.md" toc-title="Understand project structure"/>
-        <toc-element id="mpp-share-on-platforms.md"/>
-        <toc-element id="mpp-connect-to-apis.md" accepts-web-file-names="platform-specific-declarations.html"/>
-        <toc-element id="mpp-set-up-targets.md" toc-title="Set up targets manually"/>
-        <toc-element id="mpp-add-dependencies.md" toc-title="Add dependencies"/>
-        <toc-element id="mpp-configure-compilations.md"/>
-        <toc-element id="mpp-run-tests.md" toc-title="Run tests"/>
-        <toc-element id="mpp-publish-lib.md"/>
+        <toc-element id="multiplatform-create-lib.md" accepts-web-file-names="mpp-create-lib.html"/>
+        <toc-element id="multiplatform-discover-project.md" toc-title="Understand project structure" accepts-web-file-names="mpp-discover-project.html"/>
+        <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
+        <toc-element id="multiplatform-connect-to-apis.md" accepts-web-file-names="platform-specific-declarations.html,mpp-connect-to-apis.html"/>
+        <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
+        <toc-element id="multiplatform-add-dependencies.md" toc-title="Add dependencies" accepts-web-file-names="mpp-add-dependencies.html"/>
+        <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
+        <toc-element id="multiplatform-run-tests.md" toc-title="Run tests" accepts-web-file-names="mpp-run-tests.html"/>
+        <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html"/>
         <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
-        <toc-element id="mpp-build-native-binaries.md"/>
-        <toc-element id="mpp-supported-platforms.md"/>
-        <toc-element id="mpp-dsl-reference.md"/>
+        <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
+        <toc-element id="multiplatform-supported-platforms.md" accepts-web-file-names="mpp-supported-platforms.html"/>
+        <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html"/>
         <toc-element id="migrating-multiplatform-project-to-14.md"/>
-        <toc-element id="mpp-tutorials.md"/>
+        <toc-element id="multiplatform-tutorials.md" accepts-web-file-names="mpp-tutorials.html"/>
 
     </toc-element>
 

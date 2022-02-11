@@ -14,7 +14,7 @@ You can add dependencies on libraries that have adopted Kotlin Multiplatform tec
 [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) and [SQLDelight](https://github.com/cashapp/sqldelight). 
 The authors of these libraries usually provide guides for adding their dependencies to your project.
 
-> When using a multiplatform library that does not have [hierarchical structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms) in a multiplatform project that does, 
+> When using a multiplatform library that does not have [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) in a multiplatform project that does, 
 > you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set. 
 > 
 > This is a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), and we are working on resolving it. In the meantime, you can use [this workaround](#workaround-to-enable-ide-support-for-the-shared-ios-source-set). 
@@ -189,7 +189,7 @@ Integration with the CocoaPods dependency manager is also supported with the sam
 We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform Mobile projects. 
 [Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you have some other strong reason to do so.
 
-> When using third-party iOS libraries in multiplatform projects with [hierarchical structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms), for example with the `ios()` [target shortcut](mpp-share-on-platforms.md#use-target-shortcuts), 
+> When using third-party iOS libraries in multiplatform projects with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), for example with the `ios()` [target shortcut](multiplatform-share-on-platforms.md#use-target-shortcuts), 
 > you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set. 
 > 
 > This is a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), and we are working on resolving it. In the meantime, you can use [this workaround](#workaround-to-enable-ide-support-for-the-shared-ios-source-set). 
@@ -435,12 +435,12 @@ import MyFramework.*
 ```
 
 Learn more about [Objective-C and Swift interop](native-objc-interop.md) and 
-[configuring cinterop from Gradle](mpp-dsl-reference.md#cinterops).
+[configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
 
 ### Workaround to enable IDE support for the shared iOS source set {initial-collapse-state="collapsed"}
 
 Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set 
-in a multiplatform project with [hierarchical structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms) if your project depends on:
+in a multiplatform project with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) if your project depends on:
 
 * Multiplatform libraries that don't support the hierarchical structure.
 * Third-party iOS libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the box.

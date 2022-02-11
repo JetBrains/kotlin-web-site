@@ -34,8 +34,8 @@ The placeholder `<...>` should be replaced with the name of one of the plugins t
 
 ## Targeting multiple platforms
 
-Projects targeting [multiple platforms](mpp-supported-platforms.md), called [multiplatform projects](mpp-get-started.md),
-require the `kotlin-multiplatform` plugin. [Learn more about the plugin](mpp-discover-project.md#multiplatform-plugin).
+Projects targeting [multiple platforms](multiplatform-supported-platforms.md), called [multiplatform projects](multiplatform-get-started.md),
+require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multiplatform-discover-project.md#multiplatform-plugin).
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
 >
@@ -487,7 +487,7 @@ You can choose JUnit 5 or TestNG by calling
 [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the
 test task of your build script.
-The following example is for an MPP project:
+The following example is for a Kotlin Multiplatform project:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

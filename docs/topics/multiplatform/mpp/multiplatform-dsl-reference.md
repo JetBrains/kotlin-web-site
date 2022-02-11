@@ -6,7 +6,7 @@
 
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
-for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](mpp-get-started.md).
+for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-get-started.md).
 
 ## Id and version
 
@@ -44,16 +44,16 @@ Inside `kotlin`, you can write the following blocks:
 | --- | --- |
 | _\<targetName\>_ |Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
 |`targets` |All targets of the project.|
-|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](mpp-supported-platforms.md) at once.|
+|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](multiplatform-supported-platforms.md) at once.|
 |`sourceSets` |Configures predefined and declares custom [source sets](#source-sets) of the project. |
 
 ## Targets
 
 _Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for 
-one of the [supported platforms](mpp-supported-platforms.md). 
+one of the [supported platforms](multiplatform-supported-platforms.md). 
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
-test and production purposes, you can [create custom compilations](mpp-configure-compilations.md#create-a-custom-compilation).
+test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
 The targets of a multiplatform project
  are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
@@ -113,7 +113,7 @@ In any target block, you can use the following declarations:
 
 |**Name**|**Description**| 
 | --- | --- |
-|`attributes`|Attributes used for [disambiguating targets](mpp-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.|
+|`attributes`|Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.|
 |`preset`|The preset that the target has been created from, if any.|
 |`platformType`|Designates the Kotlin platform of this target. Avaiable values: `jvm`, `androidJvm`, `js`, `native`, `common`.|
 |`artifactsTaskName`|The name of the task that builds the resulting artifacts of this target.|
@@ -130,7 +130,7 @@ In addition to [common target configuration](#common-target-configuration), `jvm
 Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
 don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
 has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
-Learn more about [Java sources in JVM compilations](mpp-configure-compilations.md#use-java-sources-in-jvm-compilations).
+Learn more about [Java sources in JVM compilations](multiplatform-configure-compilations.md#use-java-sources-in-jvm-compilations).
 
 ```kotlin
 kotlin {
@@ -317,7 +317,7 @@ binaries {
 </tab>
 </tabs>
 
-Learn more about [building native binaries](mpp-build-native-binaries.md).
+Learn more about [building native binaries](multiplatform-build-native-binaries.md).
 
 #### CInterops
 
@@ -331,7 +331,7 @@ To provide an interop with a library, add an entry to `cinterops` and define its
 |`compilerOpts`|Options to pass to the compiler by the cinterop tool.|
 |`includeDirs`|Directories to look for headers.|
 
-Learn more how to [configure interop with native languages](mpp-configure-compilations.md#configure-interop-with-native-languages).
+Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -407,7 +407,7 @@ Two functions help you configure [build variants](https://developer.android.com/
 
 |**Name**|**Description**| 
 | --- | --- |
-|`publishLibraryVariants()`|Specifies build variants to publish. Learn more about [publishing Android libraries](mpp-publish-lib.md#publish-an-android-library).|
+|`publishLibraryVariants()`|Specifies build variants to publish. Learn more about [publishing Android libraries](multiplatform-publish-lib.md#publish-an-android-library).|
 |`publishAllLibraryVariants()`|Publishes all build variants.|
 
 ```kotlin
@@ -418,7 +418,7 @@ kotlin {
 }
 ```
 
-Learn more about [compilation for Android](mpp-configure-compilations.md#compilation-for-android).
+Learn more about [compilation for Android](multiplatform-configure-compilations.md#compilation-for-android).
 
 >The `android` configuration inside `kotlin` doesn’t replace the build configuration of any Android project.
 Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
@@ -471,7 +471,7 @@ kotlin {
 </tab>
 </tabs>
 
-Learn more about [source sets](mpp-discover-project.md#source-sets).
+Learn more about [source sets](multiplatform-discover-project.md#source-sets).
 
 ### Custom source sets
 
@@ -505,19 +505,19 @@ kotlin {
 </tabs>
 
 Note that a newly created source set isn’t connected to other ones. To use it in the project’s compilations,
-[connect it with other source sets](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually).
+[connect it with other source sets](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).
 
 ### Source set parameters
 
 Configurations of source sets are stored inside the corresponding blocks of `sourceSets`. A source set has the following parameters:
 
-|**Name**|**Description**| 
-| --- | --- |
-|`kotlin.srcDir`|Location of Kotlin source files inside the source set directory.|
-|`resources.srcDir`|Location of resources inside the source set directory.|
-|`dependsOn`|[Connection with another source set.](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually)|
-|`dependencies`|[Dependencies](#dependencies) of the source set.|
-|`languageSettings`|[Language settings](mpp-dsl-reference.md#language-settings) applied to the source set.|
+|**Name**| **Description**                                                                                                                | 
+| --- |--------------------------------------------------------------------------------------------------------------------------------|
+|`kotlin.srcDir`| Location of Kotlin source files inside the source set directory.                                                               |
+|`resources.srcDir`| Location of resources inside the source set directory.                                                                         |
+|`dependsOn`| [Connection with another source set](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).       |
+|`dependencies`| [Dependencies](#dependencies) of the source set.                                                                               |
+|`languageSettings`| [Language settings](multiplatform-dsl-reference.md#language-settings) applied to the source set. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -566,7 +566,7 @@ that are added automatically upon target creation. You can additionally create [
 To refer to all or some particular compilations of a target, use the `compilations` object collection.
 From `compilations`, you can refer to a compilation by its name.
 
-Learn more about [configuring compilations](mpp-configure-compilations.md).
+Learn more about [configuring compilations](multiplatform-configure-compilations.md).
 
 ### Predefined compilations
 
@@ -614,7 +614,7 @@ In addition to predefined compilations, you can create your own custom compilati
 To create a custom compilation, add a new item into the `compilations` collection.
 If using Kotlin Gradle DSL, mark custom compilations `by creating`.
 
-Learn more about creating a [custom compilation](mpp-configure-compilations.md#create-a-custom-compilation).
+Learn more about creating a [custom compilation](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

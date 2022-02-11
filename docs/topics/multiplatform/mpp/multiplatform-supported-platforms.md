@@ -1,6 +1,6 @@
 [//]: # (title: Supported platforms)
 
-Kotlin supports the following platforms and provides target presets for each platform. See how to [use a target preset](mpp-set-up-targets.md).
+Kotlin supports the following platforms and provides target presets for each platform. See how to [use a target preset](multiplatform-set-up-targets.md).
 
 <table>
     <tr>

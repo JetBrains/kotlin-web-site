@@ -31,7 +31,7 @@ which needs an [additional step to configure publishing](#publish-an-android-lib
 
 Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
 whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 
-Learn more about [adding dependencies](mpp-add-dependencies.md).
+Learn more about [adding dependencies](multiplatform-add-dependencies.md).
 
 This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
 

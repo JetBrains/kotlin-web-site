@@ -199,7 +199,7 @@ If you want to disable the escape analysis phase, use the `-Xdisable-phases=Esca
 ### Performance improvements and bug fixes
 
 Kotlin/Native receives performance improvements and bug fixes in various components, including the ones added
-in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.md#share-code-on-similar-platforms). 
+in 1.4.0, for example, the [code sharing mechanism](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
 
 ### Opt-in wrapping of Objective-C exceptions
 
@@ -276,11 +276,11 @@ Starting from Kotlin 1.4.20, there is no longer a separate metadata publication.
 the _root_ publication which stands for the whole library and is automatically resolved to the appropriate platform-specific
 artifacts when added as a dependency to the common source set.
 
-Learn more about [publishing a multiplatform library](mpp-publish-lib.md).
+Learn more about [publishing a multiplatform library](multiplatform-publish-lib.md).
 
 #### Compatibility with earlier versions
 
-This change of structure breaks the compatibility between projects with [hierarchical project structure](mpp-share-on-platforms.md#share-code-on-similar-platforms).
+This change of structure breaks the compatibility between projects with [hierarchical project structure](multiplatform-share-on-platforms.md#share-code-on-similar-platforms).
 If a multiplatform project and a library it depends on both have the hierarchical project structure, then you need to update
 them to Kotlin 1.4.20 or higher simultaneously. Libraries published with Kotlin 1.4.20 are not available for using from
 project published with earlier versions.

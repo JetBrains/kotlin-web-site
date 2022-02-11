@@ -65,7 +65,7 @@ For more complex projects, you can add more modules into the root project by cre
 ## Shared module
 
 Shared module contains the core application logic used in both target platforms: classes, functions, and so on.
-This is a [Kotlin Multiplatform](mpp-get-started.md) module that compiles
+This is a [Kotlin Multiplatform](multiplatform-get-started.md) module that compiles
 into an Android library and an iOS framework. It uses Gradle with the Kotlin Multiplatform plugin applied and 
 has targets for Android and iOS.
 
@@ -158,7 +158,7 @@ kotlin {
 </tabs>
 
 When you write your code, add the dependencies you need to the corresponding source sets.
-Read [Multiplatform documentation on adding dependencies](mpp-add-dependencies.md) for more information.
+Read [Multiplatform documentation on adding dependencies](multiplatform-add-dependencies.md) for more information.
 
 Along with `*Main` source sets, there are three matching test source sets:
 
@@ -219,7 +219,7 @@ kotlin {
 
 The main and test source sets described above are default. The Kotlin Multiplatform plugin generates them
 automatically upon target creation. In your project, you can add more source sets for specific purposes.
-For more information, see [Multiplatform DSL reference](mpp-dsl-reference.md#custom-source-sets).
+For more information, see [Multiplatform DSL reference](multiplatform-dsl-reference.md#custom-source-sets).
 
 ### Android library
 
@@ -316,7 +316,7 @@ The framework configuration is stored in the `ios {}` block of the build script 
 It defines the output type `framework` and the string identifier `baseName` that is used to form the name
 of the output artifact. Its default value matches the Gradle module name. 
 For a real project, it’s likely that you’ll need a more complex configuration of the framework production.
-For details, see [Multiplatform documentation](mpp-build-native-binaries.md).
+For details, see [Multiplatform documentation](multiplatform-build-native-binaries.md).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

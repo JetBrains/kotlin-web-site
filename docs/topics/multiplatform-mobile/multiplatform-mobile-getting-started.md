@@ -30,7 +30,7 @@ You can also check out other videos about [Kotlin Multiplatform Multiverse](http
 * Apple iOS devices (ARM64 and ARM32) and simulators
 * Apple watchOS devices (ARM64 and ARM32) and simulators
 
-[Kotlin Multiplatform](multiplatform.md) technology also supports [other platforms](mpp-supported-platforms.md), including
+[Kotlin Multiplatform](multiplatform.md) technology also supports [other platforms](multiplatform-supported-platforms.md), including
 JavaScript, Linux, Windows, and WebAssembly.
 
 ## Start from scratch

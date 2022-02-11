@@ -9,7 +9,7 @@ Discover main parts of your multiplatform project:
 
 ## Multiplatform plugin
 
-When you [create a multiplatform project](mpp-create-lib.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
+When you [create a multiplatform project](multiplatform-create-lib.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
 plugin in the file `build.gradle`(`.kts`).
 
 You can also apply it manually.
@@ -49,7 +49,7 @@ configuration for [targets](#targets), [source sets](#source-sets), and dependen
 
 A multiplatform project is aimed at multiple platforms that are represented by different targets. A target is part of the 
 build that is responsible for building, testing, and packaging the application for a specific platform, such as macOS, 
-iOS, or Android. See the list of [supported platforms](mpp-supported-platforms.md).
+iOS, or Android. See the list of [supported platforms](multiplatform-supported-platforms.md).
 
 When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle` (`build.gradle.kts`).
 
@@ -62,7 +62,7 @@ kotlin {
  }
 ```
 
-Learn how to [set up targets manually](mpp-set-up-targets.md).
+Learn how to [set up targets manually](multiplatform-set-up-targets.md).
 
 ## Source sets
 
@@ -124,7 +124,7 @@ Windows (`mingwX64`), and macOS (`macosX64`) platforms.
 
 ![Hierarchical structure](hierarchical-structure.png)
 
-Learn how to [build the hierarchy of source sets](mpp-share-on-platforms.md#share-code-on-similar-platforms). 
+Learn how to [build the hierarchy of source sets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
 
 ## Compilations
 
@@ -139,4 +139,4 @@ For each target, default compilations include:
 
 Each compilation has a default source set, which contains sources and dependencies specific to that compilation.
 
-Learn how to [configure compilations](mpp-configure-compilations.md). 
+Learn how to [configure compilations](multiplatform-configure-compilations.md). 

@@ -96,7 +96,7 @@
   to: /docs/native-app-with-c-and-libcurl.html
 
 - from: /docs/tutorials/native/working-with-klib.html
-  to: /docs/tutorials/mpp/multiplatform-library.html
+  to: /docs/multiplatform-library.html
 
 - from: /docs/tutorials/native/basic-kotlin-native-app.html
   to: /docs/tutorials/native/using-command-line-compiler.html
@@ -242,7 +242,7 @@
   to: /docs/set-operations.html
 
 - from: /docs/reference/mpp-supported-platforms.html
-  to: /docs/mpp-supported-platforms.html
+  to: /docs/multiplatform-supported-platforms.html
 
 - from: /docs/reference/object-declarations.html
   to: /docs/object-declarations.html
@@ -269,7 +269,7 @@
   to: /docs/server-overview.html
 
 - from: /docs/reference/mpp-share-on-platforms.html
-  to: /docs/mpp-share-on-platforms.html
+  to: /docs/multiplatform-share-on-platforms.html
 
 - from: /docs/reference/extensions.html
   to: /docs/extensions.html
@@ -278,7 +278,7 @@
   to: /docs/whatsnew12.html
 
 - from: /docs/reference/mpp-set-up-targets.html
-  to: /docs/mpp-set-up-targets.html
+  to: /docs/multiplatform-set-up-targets.html
 
 - from: /docs/reference/equality.html
   to: /docs/equality.html
@@ -308,7 +308,7 @@
   to: /docs/native-objc-interop.html
 
 - from: /docs/reference/native/gradle_plugin.html
-  to: /docs/mpp-dsl-reference.html
+  to: /docs/multiplatform-dsl-reference.html
 
 - from: /docs/reference/native/cocoapods.html
   to: /docs/native-cocoapods.html
@@ -344,7 +344,7 @@
   to: /docs/generics.html
 
 - from: /docs/reference/mpp-add-dependencies.html
-  to: /docs/mpp-add-dependencies.html
+  to: /docs/multiplatform-add-dependencies.html
 
 - from: /docs/reference/compatibility-guide-14.html
   to: /docs/compatibility-guide-14.html
@@ -359,7 +359,7 @@
   to: /docs/whatsnew1430.html
 
 - from: /docs/reference/mpp-intro.html
-  to: /docs/mpp-get-started.html
+  to: /docs/multiplatform-get-started.html
 
 - from: /docs/reference/multi-declarations.html
   to: /docs/multi-declarations.html
@@ -404,7 +404,7 @@
   to: /docs/idioms.html
 
 - from: /docs/reference/mpp-build-native-binaries.html
-  to: /docs/mpp-build-native-binaries.html
+  to: /docs/multiplatform-build-native-binaries.html
 
 - from: /docs/reference/js-interop.html
   to: /docs/js-interop.html
@@ -413,7 +413,7 @@
   to: /docs/type-safe-builders.html
 
 - from: /docs/reference/mpp-run-tests.html
-  to: /docs/mpp-run-tests.html
+  to: /docs/multiplatform-run-tests.html
 
 - from: /docs/reference/javascript-dce.html
   to: /docs/javascript-dce.html
@@ -443,10 +443,10 @@
   to: /docs/properties.html
 
 - from: /docs/reference/mpp-publish-lib.html
-  to: /docs/mpp-publish-lib.html
+  to: /docs/multiplatform-publish-lib.html
 
 - from: /docs/reference/building-mpp-with-gradle.html
-  to: /docs/mpp-get-started.html
+  to: /docs/multiplatform-get-started.html
 
 - from: /docs/reference/whatsnew-plugin-20203.html
   to: /docs/whatsnew-plugin-20203.html
@@ -511,7 +511,7 @@
   to: /docs/js-external-declarations-with-dukat.html
 
 - from: /docs/reference/mpp-configure-compilations.html
-  to: /docs/mpp-configure-compilations.html
+  to: /docs/multiplatform-configure-compilations.html
 
 - from: /docs/reference/basic-types.html
   to: /docs/basic-types.html
@@ -574,7 +574,7 @@
   to: /docs/visibility-modifiers.html
 
 - from: /docs/reference/mpp-discover-project.html
-  to: /docs/mpp-discover-project.html
+  to: /docs/multiplatform-discover-project.html
 
 - from: /docs/reference/null-safety.html
   to: /docs/null-safety.html
@@ -607,13 +607,13 @@
   to: /docs/js-ir-compiler.html
 
 - from: /docs/reference/mpp-create-lib.html
-  to: /docs/mpp-create-lib.html
+  to: /docs/multiplatform-create-lib.html
 
 - from: /docs/reference/collection-ordering.html
   to: /docs/collection-ordering.html
 
 - from: /docs/reference/platform-specific-declarations.html
-  to: /docs/reference/mpp-connect-to-apis.html
+  to: /docs/multiplatform-connect-to-apis.html
 
 - from: /docs/reference/operator-overloading.html
   to: /docs/operator-overloading.html
@@ -622,13 +622,13 @@
   to: /docs/java-to-kotlin-interop.html
 
 - from: /docs/reference/mpp-dsl-reference.html
-  to: /docs/mpp-dsl-reference.html
+  to: /docs/multiplatform-dsl-reference.html
 
 - from: /docs/reference/scope-functions.html
   to: /docs/scope-functions.html
 
 - from: /docs/reference/mpp-connect-to-apis.html
-  to: /docs/mpp-connect-to-apis.html
+  to: /docs/multiplatform-connect-to-apis.html
 
 - from: /docs/reference/type-aliases.html
   to: /docs/type-aliases.html

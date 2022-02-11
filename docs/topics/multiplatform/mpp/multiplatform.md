@@ -7,7 +7,7 @@ Share application logic while keeping native user experience.)
 {type="note"}
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the
- same code for [different platforms](mpp-supported-platforms.md) while retaining the flexibility and benefits of native programming. 
+ same code for [different platforms](multiplatform-supported-platforms.md) while retaining the flexibility and benefits of native programming. 
 
 ## Kotlin Multiplatform use cases
 
@@ -65,23 +65,23 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
 
 ### Code sharing between platforms
 
-With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](mpp-supported-platforms.md)
+With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](multiplatform-supported-platforms.md)
  – just share it using the mechanisms Kotlin provides:
 
-* [Share code among all platforms used in your project](mpp-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
+* [Share code among all platforms used in your project](multiplatform-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms.
 
-* [Share code among some platforms](mpp-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
+* [Share code among some platforms](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms:
 
     ![Code shared for iOS targets](kotlin-multiplatofrm-hierarchical-structure.png){width=700}
 
 * If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](mpp-connect-to-apis.md).
+declarations](multiplatform-connect-to-apis.md).
 
 ## Get started
 
-* Look through [our examples and tutorials](mpp-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JavaScript, and other platforms
+* Look through [our examples and tutorials](multiplatform-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JavaScript, and other platforms
 * Start with the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) if you want to create iOS and Android applications with shared code
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).

@@ -20,7 +20,7 @@ Thus, once you update to such a version, you can remove `enableFeaturePreview("G
 If you use libraries published with metadata, you only have to specify dependencies on them only once in the shared source set, 
 as opposed to specifying dependencies on different variants of the same library in the shared and platform-specific source sets prior to 1.4.0. 
 
-Starting from 1.4.0, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](mpp-add-dependencies.md#dependency-on-the-standard-library). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
+Starting from 1.4.0, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](multiplatform-add-dependencies.md#dependency-on-the-standard-library). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
 
 With these features, you can make your Gradle build file much more concise and easy to read:
 
@@ -45,7 +45,7 @@ Instead, use the library root artifact name, which in the example above is `kotl
 
 ### Try the hierarchical project structure
 
-With [the new hierarchical project structure support](mpp-share-on-platforms.md#share-code-on-similar-platforms), 
+With [the new hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), 
 you can share code among several targets in a multiplatform project. 
 You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix` in source sets shared among several native targets. 
 This can help you share more native code without being limited by platform-specific dependencies.
@@ -72,7 +72,7 @@ kotlin {
 ln -s iosMain iosArm64Main && ln -s iosMain iosX64Main
 ```
 
-Instead of doing this, you can create a hierarchical structure with [target shortcuts](mpp-share-on-platforms.md#use-target-shortcuts) 
+Instead of doing this, you can create a hierarchical structure with [target shortcuts](multiplatform-share-on-platforms.md#use-target-shortcuts) 
 available for typical multi-target scenarios, or you can manually declare and connect the source sets. 
 For example, you can create two iOS targets and a shared source set with the `ios()` shortcut:
 
@@ -98,7 +98,7 @@ In future versions, the hierarchical project structure will become default for K
 
 If you're using `gradle-bintray-plugin` for library publication, migrate your projects to `maven-publish` plugin instead.
 [See how we've done this for `kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization/commit/c5f1af6ad78a77fe5861588d9fb00b7d3a9bc3e5#diff-439aadfed1f3c340acdcc871c00258aeL5).
-Learn more about [publishing multiplatform libraries](mpp-publish-lib.md).
+Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
 
 If for some reason you need to publish to Bintray and use the Gradle Bintray plugin, remember that this plugin doesn’t support
 publishing Gradle module metadata. Use [this workaround](https://github.com/bintray/gradle-bintray-plugin/issues/229#issuecomment-473123891) to fix this.
@@ -108,7 +108,7 @@ publishing Gradle module metadata. Use [this workaround](https://github.com/bint
 The layout of kotlinx libraries has changed and now corresponds to the default layout, which we recommend using:
 The _root_ or _umbrella_ library module now has a name without a suffix (for example,`kotlinx-coroutines-core` instead of `kotlinx-coroutines-core-native`). 
 Publishing libraries with [maven-publish Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html) follows this layout by default.
-Learn more about [publishing multiplatform libraries](mpp-publish-lib.md). 
+Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md). 
 
 ### Migrate to the hierarchical project structure
 

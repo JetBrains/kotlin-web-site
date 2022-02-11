@@ -1,6 +1,6 @@
 [//]: # (title: Tutorials for Kotlin Multiplatform)
 
-A number of tutorials are available to help you get acquainted with [Kotlin Multiplatform](mpp-get-started.md). These tutorials come in two varieties:
+A number of tutorials are available to help you get acquainted with [Kotlin Multiplatform](multiplatform-get-started.md). These tutorials come in two varieties:
 
 * Plain tutorials describe how to complete a specific task from start to finish, with screenshots and code samples.
 * Hands-on tutorials provide a self-contained project related to a specific topic.

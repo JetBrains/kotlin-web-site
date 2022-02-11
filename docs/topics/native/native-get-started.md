@@ -32,7 +32,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
    }
    ```
    
-> * Read more about these settings in the [Multiplatform Gradle DSL reference](mpp-dsl-reference.md).
+> * Read more about these settings in the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
 > * Read more about the Gradle build system in the [documentation](gradle.md). 
 >
 {type="tip"}

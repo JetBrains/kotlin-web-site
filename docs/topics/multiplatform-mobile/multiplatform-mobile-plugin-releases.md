@@ -71,8 +71,8 @@ Released: 16 November, 2021
 <td>
 
 * [New Kotlin Multiplatform Library wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
-* Support for the new type of Kotlin Multiplatform library distribution: [XCFramework](https://kotlinlang.org/docs/mpp-build-native-binaries.html#build-xcframeworks).
-* Enabled [hierarchical project structure](mpp-share-on-platforms.md#configure-the-hierarchical-structure-manually) for new cross-platform mobile projects.
+* Support for the new type of Kotlin Multiplatform library distribution: [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks).
+* Enabled [hierarchical project structure](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually) for new cross-platform mobile projects.
 * Support for [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
 * [Enabled Kotlin Multiplatform Mobile plugin wizards on non-Mac machines](https://youtrack.jetbrains.com/issue/KT-48614).
 * [Support for subfolders in the Kotlin Multiplatform module wizard](https://youtrack.jetbrains.com/issue/KT-47923).

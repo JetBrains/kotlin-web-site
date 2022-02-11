@@ -9,7 +9,7 @@ reuse much of the code in similar platforms using a hierarchical structure. You 
 for common combinations of targets or [create the hierarchical structure manually](#configure-the-hierarchical-structure-manually).
  
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](mpp-connect-to-apis.md).
+declarations](multiplatform-connect-to-apis.md).
 
 ## Share code on all platforms
 
@@ -22,7 +22,7 @@ All platform-specific source sets depend on the common source set by default. Yo
 relations manually for default source sets, such as `jvmMain`, `macosX64Main`, and others. 
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](mpp-connect-to-apis.md).
+declarations](multiplatform-connect-to-apis.md).
 
 ## Share code on similar platforms
 
@@ -248,12 +248,12 @@ Kotlin doesn’t currently support sharing a source set for these combinations:
 
 If you need to access platform-specific APIs from a shared native source set, IntelliJ IDEA will help you detect common 
 declarations that you can use in the shared native code.
-For other cases, use the Kotlin mechanism of [expected and actual declarations](mpp-connect-to-apis.md). 
+For other cases, use the Kotlin mechanism of [expected and actual declarations](multiplatform-connect-to-apis.md). 
 
 ### Share code in libraries
 
 Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. When a 
-[library is published](mpp-publish-lib.md), the API of its intermediate source sets is embedded into the library artifacts 
+[library is published](multiplatform-publish-lib.md), the API of its intermediate source sets is embedded into the library artifacts 
 along with information about the project structure. When you use this library, the intermediate source sets of your project access only those APIs of 
 the library which are available to the targets of each source set.
 
