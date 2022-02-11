@@ -447,7 +447,7 @@ All Kotlin Multiplatform projects can now have XCFrameworks as an output format.
 * Can gather logic for all the target platforms and architectures in a single bundle.
 * Don't need to remove all unnecessary architectures before publishing the application to the App Store.
 
-XCFrameworks is useful if you want to use your KMM framework for devices and simulators on Apple M1.
+XCFrameworks is useful if you want to use your Kotlin Multiplatform framework for devices and simulators on Apple M1.
 
 To use XCFrameworks, update your `build.gradle(.kts)` script:
 

@@ -20,7 +20,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 | [Community](https://kotlinlang.org/community/) | [docs/pages/community](docs/pages/community) | 
 | [Education](https://kotlinlang.org/education/) | [docs/pages/education](docs/pages/education)| 
 
-Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [KMM landing page](https://kotlinlang.org/lp/mobile/) are not publicly available.
+Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [Kotlin Multiplatform Mobile landing page](https://kotlinlang.org/lp/mobile/) are not publicly available.
 
 #### Sources in different repositories
 

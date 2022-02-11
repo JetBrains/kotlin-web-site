@@ -19,7 +19,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     </tr>
     <tr>
       <td>
-        <strong><a href="https://github.com/Kotlin/kmm-basic-sample">kmm-basic-sample</a></strong>
+        <strong><a href="https://github.com/Kotlin/kmm-basic-sample">Kotlin Multiplatform Mobile Sample</a></strong>
       </td>
       <td>Algorithms</td>
       <td>-</td>
@@ -32,7 +32,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     </tr>
     <tr>
       <td>
-        <strong><a href="https://github.com/Kotlin/kmm-production-sample">kmm-production-sample</a></strong>
+        <strong><a href="https://github.com/Kotlin/kmm-production-sample">KMM RSS Reader</a></strong>
       </td>
       <td>Models, Networking, Data Storage, UI State</td>
       <td>SQLDelight, Ktor, DateTime, multiplatform-settings, Napier, kotlinx.serialization</td>
@@ -122,7 +122,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     </tr>
     <tr>
       <td>
-        <strong><a href="https://github.com/mitchtabian/Food2Fork-KMM">Food2Fork-KMM</a></strong>
+        <strong><a href="https://github.com/mitchtabian/Food2Fork-KMM">Food2Fork Recipe App</a></strong>
       </td>
       <td>Models, Networking, Data Storage, Interactors</td>
       <td>SQLDelight, Ktor, DateTime</td>
@@ -260,7 +260,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
 </tr>
     <tr>
       <td>
-        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-sample">kmm-with-cocoapods-sample</a></strong>
+        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-sample">kotlin-with-cocoapods-sample</a></strong>
       </td>
       <td>-</td>
       <td>-</td>
@@ -273,7 +273,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     </tr>
     <tr>
       <td>
-        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-multitarget-xcode-sample">kmm-with-cocoapods-multitarget-xcode-sample</a></strong>
+        <strong><a href="https://github.com/Kotlin/kmm-with-cocoapods-multitarget-xcode-sample">multitarget-xcode-with-kotlin-cocoapods-sample</a></strong>
       </td>
       <td>-</td>
       <td>-</td>

@@ -77,7 +77,7 @@ A: Of course, we can't compare the number of multiplatform libraries with React 
 
 It’s also a great time to be an iOS developer in the Kotlin Multiplatform open-source community because the iOS experience is in demand and there are plenty of opportunities to gain recognition from iOS-specific contributions.
 
-And the more your team digs into the technology, the more interesting and complex their questions will be. Don't worry if you don't have the answers – Kotlin Multiplatform has a large and [supportive community in the Kotlin Slack](https://kotlinlang.slack.com/archives/C3PQML5NU), where a lot of developers who already use it can help you. We would be very thankful if you could [share with us](mailto:kmm.feedback@kotlinlang.org) the most popular questions asked by your team. This information will help us understand what topics need to be covered in the documentation. 
+And the more your team digs into the technology, the more interesting and complex their questions will be. Don't worry if you don't have the answers – Kotlin Multiplatform has a large and [supportive community in the Kotlin Slack](https://kotlinlang.slack.com/archives/C3PQML5NU), where a lot of developers who already use it can help you. We would be very thankful if you could [share with us](mailto:kotlin.multiplatform.feedback@kotlinlang.org) the most popular questions asked by your team. This information will help us understand what topics need to be covered in the documentation. 
 
 ## Be supportive
 
@@ -86,11 +86,11 @@ After you decide to use Kotlin Multiplatform, there will be an adaptation period
 Here are some tips on how you can support your team at this stage:
 
 *   Collect the questions you were asked during the previous stage on the “_Kotlin Multiplatform: Frequently asked questions”_ wiki page and share it with your team.
-*   Create a _#kmm-support_ Slack channel and become the most active user there.
+*   Create a _#kotlin-multiplatform-support_ Slack channel and become the most active user there.
 *   Organize an informal team building event with popcorn and pizza where you watch educational or inspirational videos about Kotlin Multiplatform. [“Shipping a Mobile Multiplatform Project on iOS & Android ” by Ben Asher & Alec Strong](https://www.youtube.com/watch?v=je8aqW48JiA) could be a good choice.
 
 The reality is that you probably will not change people's hearts and minds in a day or even a week. But patience and attentiveness to the needs of your colleagues will undoubtedly bring results. 
 
-The Kotlin Multiplatform Mobile team looks forward to hearing [your story](mailto:kmm.feedback@kotlinlang.org).
+The Kotlin Multiplatform Mobile team looks forward to hearing [your story](mailto:kotlin.multiplatform.feedback@kotlinlang.org).
 
 _We'd like to thank the [Touchlab team](https://touchlab.co) for helping us write this article._
