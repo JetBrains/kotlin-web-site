@@ -25,7 +25,7 @@ To create a Kotlin worksheet in a project directory, right-click the directory i
 **New** | **Kotlin Worksheet**.
 
 In scratches and worksheets, you can write any valid Kotlin code. Syntax highlighting, auto-completion, and other
-IntelliJ IDEA code editing features are supported too. Note that there's no need for declaring the `main` function: 
+IntelliJ IDEA code editing features are supported too. Note that there's no need for declaring the `main()` function: 
 all the code you write is executed as if it would be in the body of `main`.
 
 Once you have finished writing your code in a scratch or a worksheet, click **Run**. 
@@ -72,7 +72,7 @@ Kotlin code in the browser.
 
 In the Playground editor area, you can write code as you would write in a source file:
 * place your own classes, functions, and top-level declarations in an arbitrary order
-* write the executable part in the body of the `main` function.
+* write the executable part in the body of the `main()` function.
 
 Like in usual Kotlin projects, the `main` function in the Playground can have the `args` parameter or no parameters at all.
 To pass program arguments upon execution, write them in the **Program arguments** field.
