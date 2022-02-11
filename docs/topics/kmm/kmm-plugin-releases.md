@@ -48,7 +48,7 @@ Released: 14 February, 2022
 
 * [Enabled M1 iOS simulator in Kotlin Multiplatform Mobile wizards](https://youtrack.jetbrains.com/issue/KT-51105).
 * Improved performance for indexing XcProjects: [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
-* Clean up build scripts: use `kotlin("test")`.
+* Build scripts clean up: use `kotlin("test")` instead of `kotlin("test-common")` and `kotlin("test-annotations-common")`.
 * Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
 * [Fixed the problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
 * [Fixed the problem with the invalid version after disabling the plugin](https://youtrack.jetbrains.com/issue/KT-50966).
