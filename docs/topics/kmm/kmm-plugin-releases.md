@@ -46,7 +46,7 @@ Released: 14 February, 2022
 </td>
 <td>
 
-* [Enable M1 iOS simulator in KMM wizards](https://youtrack.jetbrains.com/issue/KT-51105).
+* [Enabled M1 iOS simulator in Kotlin Multiplatform Mobile wizards](https://youtrack.jetbrains.com/issue/KT-51105).
 * Improve perfomance for indexing XcProjects [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
 * Clean up build scripts: use `kotlin("test")`.
 * Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
