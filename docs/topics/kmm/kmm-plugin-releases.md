@@ -39,6 +39,30 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.1**
+
+Released: 14 February, 2022
+
+</td>
+<td>
+
+* [Enable M1 iOS simulator in KMM wizards](https://youtrack.jetbrains.com/issue/KT-51105).
+* Improve perfomance for indexing XcProjects [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
+* Clean up build scripts: use `kotlin("test")`.
+* Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
+* [Fix problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
+* [Fix problem with invalid version after disabling the plugin](https://youtrack.jetbrains.com/issue/KT-50966).
+
+</td>
+<td>
+
+* [Kotlin 1.5.0](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.0**
 
 Released: 16 November, 2021
