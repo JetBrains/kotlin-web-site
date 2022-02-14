@@ -12,7 +12,7 @@ and build it. Check out these three handy ways to run Kotlin code instantly in d
 
 IntelliJ IDEA and Android Studio support Kotlin [scratch files and worksheets](https://www.jetbrains.com/help/idea/kotlin-repl.html#efb8fb32).
 
-* _Scratch files_ (or just _scratches_)let you create code drafts in the same IDE window as your project and run them on the fly.
+* _Scratch files_ (or just _scratches_) let you create code drafts in the same IDE window as your project and run them on the fly.
   Scratches are not tied to projects; you can access and run all your scratches from any IntelliJ IDEA window on your OS.
 
   To create a Kotlin scratch, click **File** | **New** | **Scratch File** and select the **Kotlin** type.
