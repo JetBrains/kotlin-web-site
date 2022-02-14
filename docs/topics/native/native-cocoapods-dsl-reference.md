@@ -65,13 +65,16 @@ kotlin {
     ios()
    
     cocoapods {
-        version = "1.0"
+        version = "2.0"
         name = "MyCocoaPod"
-        extraSpecAttributes["vendored_frameworks"] = 'CustomFramework.xcframework'
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
-    
-        ios.deploymentTarget = "13.5"
+        
+        extraSpecAttributes["vendored_frameworks"] = 'CustomFramework.xcframework'
+        license = "{ :type => 'MIT', :text => 'License text'}"
+        source = "{ :git => 'git@github.com:vkormushkin/kmmpodlibrary.git', :tag => '$version' }"
+        authors = "Kotlin Dev"
+        
         specRepos {
             url("https://github.com/Kotlin/kotlin-cocoapods-spec.git")
         }
