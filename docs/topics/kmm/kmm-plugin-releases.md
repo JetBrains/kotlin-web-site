@@ -39,6 +39,30 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.1**
+
+Released: 15 February, 2022
+
+</td>
+<td>
+
+* [Enabled M1 iOS simulator in Kotlin Multiplatform Mobile wizards](https://youtrack.jetbrains.com/issue/KT-51105).
+* Improved performance for indexing XcProjects: [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
+* Build scripts clean up: use `kotlin("test")` instead of `kotlin("test-common")` and `kotlin("test-annotations-common")`.
+* Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
+* [Fixed the problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
+* [Fixed the problem with the invalid version after disabling the plugin](https://youtrack.jetbrains.com/issue/KT-50966).
+
+</td>
+<td>
+
+* [Kotlin 1.5.0—1.6.*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.0**
 
 Released: 16 November, 2021
