@@ -36,6 +36,50 @@ kotlin {
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
 
+## Lazy initialization of top-level properties
+
+For better application startup performance, the Kotlin/JS IR compiler initializes top-level properties lazily. This way,
+the application loads without initializing all the top-level properties used in its code. It initializes
+only the ones needed at startup; other properties receive their values later when the code that uses them actually runs.
+
+```kotlin
+val a = run { 
+    val result = // intensive computations
+    println(result)
+    result 
+} // value is computed upon the first usage
+```
+
+If for some reason you need to initialize a property eagerly (upon the application start), mark it with the 
+[`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-eager-initialization/){nullable="true"} annotation.
+
+## Incremental compilation for development binaries
+
+The JS IR compiler provides the _incremental compilation mode for development binaries_ that speeds up the development process.
+In this mode, the compiler caches the results of `compileDevelopmentExecutableKotlinJs` Gradle task on the module level.
+It uses the cached compilation results for unchanged source files during subsequent compilations, making them complete faster,
+especially with small changes.
+
+To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`
+or `local.properties`:
+
+```properties
+kotlin.incremental.js.ir=true // false by default
+```
+
+> The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
+>
+{type="note"}
+
+## Output .js files: one per module or one for the whole project
+
+As a compilation result, the JS IR compiler outputs separate `.js` files for each module of a project. 
+Alternatively, you can compile the whole project into a single `.js` file by adding the following line to `gradle.properties`:
+
+```properties
+kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+```
+
 ## Ignoring compilation errors
 
 >_Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
@@ -49,15 +93,15 @@ For example, when you’re doing a complex refactoring or working on a part of t
 a compilation error in another part.
 
 With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
-that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a 
+that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a
 runtime exception.
 
 Choose between two tolerance policies for ignoring compilation errors in your code:
 - `SEMANTIC`. The compiler will accept code that is syntactically correct but doesn't make sense semantically.
-    For example, assigning a number to a string variable (type mismatch).
+  For example, assigning a number to a string variable (type mismatch).
 - `SYNTAX`. The compiler will accept any code, even if it contains syntax errors. Regardless of what you write, the
-    compiler will still try to generate a runnable executable.
-    
+  compiler will still try to generate a runnable executable.
+
 As an experimental feature, ignoring compilation errors requires an opt-in.
 To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
 
@@ -70,46 +114,6 @@ kotlin {
    }
 }
 ```
-
-## Lazy initialization of top-level properties
-
-> Lazy initialization of top-level properties is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-44320).
->
-{type="warning"}
-
-For better application startup performance, the Kotlin/JS IR compiler offers an option to initialize top-level properties
-lazily. This way, the application loads without initializing all the top-level properties used in its code. It initializes
-only the ones needed at startup; other properties receive their values later when the code that uses them actually runs. 
-
-As an experimental feature, lazy initialization of top-level properties requires an opt-in. To use the lazy initialization
-of top-level properties, add the `-Xir-property-lazy-initialization` option when compiling the code with the JS IR compiler:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks.withType<Kotlin2JsCompile> {
-   kotlinOptions {
-     freeCompilerArgs += "-Xir-property-lazy-initialization"
-   }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-    
-```groovy
-tasks.withType(Kotlin2JsCompile) {
-   kotlinOptions {
-     freeCompilerArgs += "-Xir-property-lazy-initialization"
-   }
-}
-```
-
-</tab>
-</tabs>
-
 ## Preview: generation of TypeScript declaration files (d.ts)
 
 > The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.
