@@ -54,7 +54,7 @@ val a = run {
 ```
 
 If for some reason you need to initialize a property eagerly (upon the application start), mark it with the 
-[`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-eager-initialization/) annotation.
+[`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-eager-initialization/){nullable="true"} annotation.
 
 ```kotlin
 // forced eager init
