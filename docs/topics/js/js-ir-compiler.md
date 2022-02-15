@@ -71,7 +71,7 @@ especially with small changes.
 
 To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`:
 
-```
+```properties
 kotlin.incremental.js.ir=true // false by default
 ```
 
@@ -79,12 +79,12 @@ kotlin.incremental.js.ir=true // false by default
 >
 {type="note"}
 
-## Output .js files: one per module or for the whole project
+## Output .js files: one per module or one for the whole project
 
 As a compilation result, the JS IR compiler outputs separate `.js` files for each module of a project. 
 Alternatively, you can compile the whole project into a single `.js` file by adding the following line to `gradle.properties`:
 
-```
+```properties
 kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
 ```
 
