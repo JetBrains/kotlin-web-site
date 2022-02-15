@@ -880,10 +880,9 @@ Each of the options in the following list overrides the ones that came before it
   org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
   ```
 
-  > In this case, enumerate arguments according to the following rules:
-  > Use the minus sign `-` before the argument `Xmx` and don't use it before all other arguments.
-  > Separate all arguments with the comma ','.
-  > Don't use spaces between arguments, it will lead to the usage of the arguments after a space for the Gradle daemon, not for the Kotlin daemon.
+  > When passing the arguments, follow these rules:
+  > * Use the minus sign `-` before the arguments `Xmx`, `XX:MaxMetaspaceSize`, and `XX:ReservedCodeCacheSize` and don't use it before all other arguments.
+  > * Separate arguments with commas (`,`) _without_ spaces. Arguments that come after a space will be used for the Gradle daemon, not for the Kotlin daemon.
   >
   {type="note"}
 
