@@ -57,7 +57,7 @@ In Kotlin, there are many operations on collections that look exactly the same a
 | Take a sublist | `subList()` | |
 | Replace an element or elements | `set()`,  `replaceAll()` | Use the indexing operator instead of `set()`: `list[index] = value`. |
 
-## Operations differ a bit
+## Operations that differ a bit
 
 ### Operations on any collection type
 
