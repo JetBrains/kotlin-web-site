@@ -431,7 +431,7 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Cloneable`    | `kotlin.Cloneable!`    |
 | `java.lang.Comparable`   | `kotlin.Comparable!`    |
 | `java.lang.Enum`         | `kotlin.Enum!`    |
-| `java.lang.Annotation`   | `kotlin.Annotation!`    |
+| `java.lang.annotation.Annotation`   | `kotlin.Annotation!`    |
 | `java.lang.CharSequence` | `kotlin.CharSequence!`   |
 | `java.lang.String`       | `kotlin.String!`   |
 | `java.lang.Number`       | `kotlin.Number!`     |
