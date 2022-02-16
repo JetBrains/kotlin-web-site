@@ -882,8 +882,14 @@ Each of the options in the following list overrides the ones that came before it
 * If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
  ```properties
-  org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
+  org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
   ```
+
+  > When passing the arguments, follow these rules:
+  > * Use the minus sign `-` before the arguments `Xmx`, `XX:MaxMetaspaceSize`, and `XX:ReservedCodeCacheSize` and don't use it before all other arguments.
+  > * Separate arguments with commas (`,`) _without_ spaces. Arguments that come after a space will be used for the Gradle daemon, not for the Kotlin daemon.
+  >
+  {type="note"}
 
   > Gradle ignores these properties if all the following conditions are satisfied:
   > * Gradle is using JDK 1.9 or higher.
