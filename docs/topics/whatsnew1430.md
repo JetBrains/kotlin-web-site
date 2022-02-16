@@ -237,8 +237,8 @@ Learn more about the changes that the JVM IR backend brings in [this blog post](
 ### Performance improvements
 
 Kotlin/Native has received a variety of performance improvements in 1.4.30, which has resulted in faster compilation times.
-For example, the time required to rebuild the framework in the [KMM Networking and Data Storage sample](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final)
-has decreased from 9.5 seconds (in 1.4.10) to 4.5 seconds (in 1.4.30).
+For example, the time required to rebuild the framework in the [Networking and data storage with Kotlin Multiplatform Mobile](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final)
+sample has decreased from 9.5 seconds (in 1.4.10) to 4.5 seconds (in 1.4.30).
 
 ### Apple watchOS 64-bit simulator target
 

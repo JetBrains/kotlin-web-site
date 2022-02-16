@@ -84,7 +84,7 @@ wrapper {
 
 Next, create an empty `settings.gradle` or `settings.gradle.kts` file in the project folder.
 
-Depending on the target platform, different [functions](mpp-supported-platforms.md),
+Depending on the target platform, different [functions](multiplatform-supported-platforms.md),
 such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
 are used for creating the Kotlin target. The function name is the platform for which you are compiling your code. 
 These functions optionally take the target name as a parameter, which is `"native"` in our case. 
@@ -117,5 +117,5 @@ just open the project folder, and it will automatically detect it as Kotlin/Nati
 
 ## What's next?
 
-Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](mpp-dsl-reference.md).
+Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
 
