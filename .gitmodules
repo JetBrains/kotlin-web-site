@@ -1,3 +1,0 @@
-[submodule "kotlinx.coroutines"]
-	path = kotlinx.coroutines
-	url = https://github.com/Kotlin/kotlinx.coroutines
