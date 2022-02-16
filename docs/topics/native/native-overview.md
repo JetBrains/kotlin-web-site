@@ -20,7 +20,7 @@ Kotlin/Native supports the following platforms:
 * Windows (MinGW)
 * Android NDK
 
-[The full list of supported targets is available here](mpp-supported-platforms.md).
+[The full list of supported targets is available here](multiplatform-supported-platforms.md).
 
 
 ## Interoperability
@@ -54,7 +54,7 @@ are pre-imported and included as Kotlin/Native libraries in the compiler package
 Multiplatform libraries provide required APIs for common Kotlin code and help develop shared parts of a project in
 Kotlin in one place and share it with some or all target platforms.
 
-You can use [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile/) to create multiplatform mobile applications with code shared between Android and iOS.
+You can use [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) to create multiplatform mobile applications with code shared between Android and iOS.
 
 ## How to get started
 
@@ -63,21 +63,22 @@ You can use [Kotlin Multiplatform Mobile (KMM)](https://kotlinlang.org/lp/mobile
 New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 
 Recommended documentation:
-* [Kotlin Multiplatform Mobile documentation](kmm-getting-started.md)
-* [Multiplatform documentation](mpp-get-started.md)
+
+* [Kotlin Multiplatform Mobile documentation](multiplatform-mobile-getting-started.md)
+* [Multiplatform documentation](multiplatform-get-started.md)
 * [C interop](native-c-interop.md)
 * [Swift/Objective-C interop](native-objc-interop.md)
 
 Recommended tutorials:
 * [Get started with Kotlin/Native](native-get-started.md)
-* [Create your first KMM application](kmm-create-first-app.md)
+* [Create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md)
 * [Types mapping between C and Kotlin/Native](mapping-primitive-data-types-from-c.md)
 * [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
 * [Kotlin/Native as an Apple Framework](apple-framework.md)
 
 ## Sample projects
 
-* [Kotlin Multiplatform Mobile samples](kmm-samples.md)
+* [Kotlin Multiplatform Mobile samples](multiplatform-mobile-samples.md)
 * [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples)
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)

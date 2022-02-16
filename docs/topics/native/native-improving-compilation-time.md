@@ -44,8 +44,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
       the `.framework` for only the platform you’re using.
       
-      To build a platform-specific framework, call the  `packForXcode` task generated
-      by the [KMM project wizard](kmm-create-first-app.md). 
+      To build a platform-specific framework, call the `packForXcode` task generated
+      by the [Kotlin Multiplatform Mobile project wizard](multiplatform-mobile-create-first-app.md). 
       
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.

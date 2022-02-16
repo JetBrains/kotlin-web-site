@@ -166,7 +166,7 @@ before publishing, so each threads sees the same value
 unless cyclic frozen structures were attempted to be created
 * enums are always frozen
 
-Combined, these mechanisms allow natural race-free programming with code reuse across platforms in MPP projects.
+Combined, these mechanisms allow natural race-free programming with code reuse across platforms in Multiplatform projects.
 
 ## Atomic primitives and references
 
