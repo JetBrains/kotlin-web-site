@@ -113,7 +113,7 @@
             </toc-element>
             <toc-element id="multiplatform-mobile-samples.md" accepts-web-file-names="kmm-samples.html"/>
             <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html"/>
-            <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team"/>
+            <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team.html"/>
         </toc-element>
         <toc-element id="multiplatform-create-lib.md" accepts-web-file-names="mpp-create-lib.html"/>
         <toc-element id="multiplatform-discover-project.md" toc-title="Understand project structure" accepts-web-file-names="mpp-discover-project.html"/>
@@ -217,7 +217,7 @@
 
     <toc-element toc-title="Releases and roadmap">
         <toc-element id="releases.md"/>
-        <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases"/>
+        <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases.html"/>
         <toc-element id="plugin-releases.md"/>
         <toc-element id="roadmap.md"/>
     </toc-element>
