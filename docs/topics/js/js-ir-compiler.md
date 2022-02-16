@@ -58,7 +58,7 @@ If for some reason you need to initialize a property eagerly (upon the applicati
 
 ```kotlin
 // forced eager init
-@EagerInitilialization
+@EagerInitialization
 val e = 2.71 // receives the value upon startup
 ```
 
@@ -75,7 +75,7 @@ To enable incremental compilation for development binaries, add the following li
 kotlin.incremental.js.ir=true // false by default
 ```
 
-> The clean build in the incremental compilation mode can be slower because of the need to create and populate the caches.
+> The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
 >
 {type="note"}
 
