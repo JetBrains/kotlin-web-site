@@ -187,7 +187,7 @@ fun main() {
 You can also add new entries to maps using the shorthand operator form. There are two ways:
 
 * [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) operator.
-* the `[]` operator alias for `set()`.  
+* the `[]` operator alias for `put()`.  
 
 ```kotlin
 
