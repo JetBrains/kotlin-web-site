@@ -280,6 +280,9 @@
         </toc-element>
         <toc-element toc-title="Serialization (kotlinx.serialization)" id="serialization.md"/>
         <toc-element toc-title="Ktor" href="https://ktor.io/"/>
+        <toc-element toc-title="Lincheck (kotlinx.lincheck)">
+            <include from="kl" target="lincheck" origin="lincheck"/>
+        </toc-element>
     </toc-element>
 
     <toc-element toc-title="API reference">
