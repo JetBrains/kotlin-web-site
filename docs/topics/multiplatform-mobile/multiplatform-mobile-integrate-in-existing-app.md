@@ -336,7 +336,6 @@ Connect your framework to the iOS project manually:
 
    ![Greeting from the KMM module](xcode-iphone-hello.png){width=300}
 
-
 3. In `ContentView.swift`, write code for using data from the shared module and rendering the application UI:
 
 ```kotlin
