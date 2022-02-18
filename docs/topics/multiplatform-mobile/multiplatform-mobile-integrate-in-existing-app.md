@@ -164,14 +164,14 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     private fun isEmailValid(email: String) = emailRegex.matches(email)
     
     companion object {
-       private val emailRegex =
-               ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                       "\\@" +
-                       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                       "(" +
-                       "\\." +
-                       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                       ")+").toRegex()
+       private val emailRegex = 
+           ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+").toRegex()
     }
     ```
 
