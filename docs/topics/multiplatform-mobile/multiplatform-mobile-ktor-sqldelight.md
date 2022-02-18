@@ -574,7 +574,7 @@ Create a class that will connect the application to the API:
 ## Add Android internet access permission
 
 To access the internet, the Android application needs appropriate permission. Since all network requests are made
-from the KMM module, adding internet access permission to this module's manifest makes sense.
+from the shared module, adding internet access permission to this module's manifest makes sense.
 
 Add the following manifest to the `shared/src/androidMain/AndroidManifest.xml` file:
 
@@ -922,7 +922,7 @@ dependencies {
 
 ## Implement presentation logic
 
-1. Create an instance of the `SpaceXSDK` class from the KMM module and inject an instance of `DatabaseDriverFactory` in
+1. Create an instance of the `SpaceXSDK` class from the shared module and inject an instance of `DatabaseDriverFactory` in
    it:
 
    ```kotlin
@@ -1036,7 +1036,7 @@ data.
 
    The list of the launches will be displayed in the `ContentView`, which the project wizard has already created.
 
-2. Create a `ViewModel` class for our `ContentView`, which will prepare and manage data and declare it as an extension
+2. Create a `ViewModel` class for the `ContentView`, which will prepare and manage data and declare it as an extension
    to the `ContentView`, as they are closely connected. Add the following code to the `ContentView.swift`:
 
    ```swift
