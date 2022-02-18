@@ -320,22 +320,22 @@ Connect your framework to the iOS project manually:
    import shared
    ```
 
-2. To check that it is properly connected, use the `greeting()` function from the shared module of your cross-platform app.
-Your code should look like this:
+2. To check that it is properly connected, use the `greeting()` function from the shared module of your cross-platform app:
 
    ```Swift
    import SwiftUI
    import shared
    
    struct ContentView: View {
-     var body: some View {
-         Text(Greeting().greeting())
-         .padding()
-     }   
+       var body: some View {
+           Text(Greeting().greeting())
+           .padding()
+       }
    }
    ```
 
-   ![Greeting from the Kotlin Multiplatform module](xcode-iphone-hello.png){width=300}
+   ![Greeting from the KMM module](xcode-iphone-hello.png){width=300}
+
 
 3. In `ContentView.swift`, write code for using data from the shared module and rendering the application UI:
 
@@ -367,21 +367,21 @@ Now your application is cross-platform. You can update the business logic in one
 
 1. In Android Studio, change the validation logic for a user's password in the `checkPassword()` function of the `LoginDataValidator` class:
 
-    ```kotlin 
-    package com.jetbrains.simplelogin.shared.data
-
-    class LoginDataValidator {
-    //... 
-        fun checkPassword(password: String): Result {
-            return when {
-                password.length < 5 -> Result.Error("Password must be >5 characters")
-                password.lowercase() == "password" -> Result.Error("Password shouldn't be \"password\"")
-                else -> Result.Success
-            }
-    }
-    //...
-    }
-    ``` 
+   ```kotlin
+   package com.jetbrains.simplelogin.shared.data
+   
+   class LoginDataValidator {
+   //...
+      fun checkPassword(password: String): Result {
+          return when {
+              password.length < 5 -> Result.Error("Password must be >5 characters")
+              password.lowercase() == "password" -> Result.Error("Password shouldn't be \"password\"")
+              else -> Result.Success
+          }
+      }
+   //...
+   }
+   ``` 
 
 2. Update `gradle.properties` to connect your iOS application to Android Studio for running it on a simulated or real device right there:
 
