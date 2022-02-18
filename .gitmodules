@@ -1,0 +1,4 @@
+[submodule "kotlinx.lincheck"]
+    path = kotlinx-lincheck
+    url = https://github.com/Kotlin/kotlinx-lincheck
+    branch = guide
