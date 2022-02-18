@@ -230,6 +230,27 @@
   color: rgba(39, 40, 44, 0.5);
 }
 
+.teach-anchor-link {
+  color: inherit;
+  text-decoration: none;
+  &::after {
+    display: inline-block;
+    content: '';
+    background: center;
+    background-size: 32px;
+    margin-left: 20px;
+    height: 32px;
+    width: 32px;
+  }
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    &::after {
+      background-image: url('./icons/anchor.svg')
+    }
+  }
+}
+
 
 @media (max-width: 767px) {
   .teach-features {
