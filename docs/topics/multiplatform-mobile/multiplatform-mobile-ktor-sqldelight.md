@@ -986,7 +986,7 @@ dependencies: `import shared`.
 
 So all it's left to do now is implement the SwiftUI views and fill them with the data.
 
-## Implement the UI: display the list of rocket launches
+## Implement the UI
 
 First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item from the list. It will be based on `HStack`
 and `VStack` views. There will be extensions on the `RocketLaunchRow` structure with useful helpers for displaying the
@@ -1145,7 +1145,7 @@ func loadLaunches(forceReload: Bool) {
 ```
 
    * When you compile a Kotlin module into an Apple
-   framework, [suspending functions](whatsnew14.md##support-for-kotlins-suspending-functions-in-swift-and-objective-c)
+   framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
    are available in it as functions with callbacks (`completionHandler`).
    * Since the `getLaunches` function is marked with the `@Throws(Exception::class)` annotation, any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`. So all such errors can be handled in
