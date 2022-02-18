@@ -10,7 +10,7 @@ The output will be an app that retrieves data over the internet from a
 public [SpaceX API](https://docs.spacexdata.com/?version=latest), saves it in a local database, and displays a list of
 SpaceX rocket launches together with the launch date, results, and a detailed description of the launch:
 
-![Emulator and Simulator](android-and-ios.png){width=700}
+![Emulator and Simulator](android-and-ios.png){width=500}
 
 You will use the following multiplatform libraries in the project:
 
@@ -35,7 +35,7 @@ the corresponding GitHub repository.
 
 For more details, see the [Set up the environment](kmm-setup.md) section.
 
-## Create the Kotlin Multiplatform Mobile project
+## Create a Multiplatform project
 
 1. In Android Studio, select **File** | **New** | **New Project**. In the list of project templates, select **Kotlin
    Multiplatform App** and click **Next**.
@@ -50,7 +50,7 @@ For more details, see the [Set up the environment](kmm-setup.md) section.
 
 5. To view the complete structure of the multiplatform mobile project, switch the view from **Android** to **Project**.
 
-   ![Project view](project-view.png)
+   ![Project view](project-view.png){width=300}
 
 For more on project features and how to use them,
 see [Understand the project structure](kmm-understand-project-structure.md).
@@ -163,49 +163,8 @@ The application data model will have three entity classes with:
 3. Declare all the data classes for basic entities:
 
    ```kotlin
-   package com.jetbrains.handson.kmm.shared.entity
-   
-   import kotlinx.serialization.SerialName
-   import kotlinx.serialization.Serializable
-   
-   @Serializable
-   data class RocketLaunch(
-       @SerialName("flight_number")
-       val flightNumber: Int,
-       @SerialName("mission_name")
-       val missionName: String,
-       @SerialName("launch_year")
-       val launchYear: Int,
-       @SerialName("launch_date_utc")
-       val launchDateUTC: String,
-       @SerialName("rocket")
-       val rocket: Rocket,
-       @SerialName("details")
-       val details: String?,
-       @SerialName("launch_success")
-       val launchSuccess: Boolean?,
-       @SerialName("links")
-       val links: Links
-   )
-   
-   @Serializable
-   data class Rocket(
-       @SerialName("rocket_id")
-       val id: String,
-       @SerialName("rocket_name")
-       val name: String,
-       @SerialName("rocket_type")
-       val type: String
-   )
-   
-   @Serializable
-   data class Links(
-       @SerialName("mission_patch")
-       val missionPatchUrl: String?,
-       @SerialName("article_link")
-       val articleUrl: String?
-   )
    ```
+   {src="codeSnippets/multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-42" }
 
 Each serializable class must be marked with the `@Serializable` annotation. The `kotlinx.serialization` plugin
 automatically generates a default serializer for `@Serializable` classes unless you explicitly pass a link to a
@@ -326,17 +285,18 @@ implementations of the SQLite driver, so you need to create them for each platfo
 1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
    a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside:
 
-```kotlin
-package com.jetbrains.handson.kmm.shared.cache
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.cache
+   
+   import com.squareup.sqldelight.db.SqlDriver
+   //sampleStart
+   expect class DatabaseDriverFactory {
+       fun createDriver(): SqlDriver
+   }
+   //sampleEnd
+   ```
 
-import com.squareup.sqldelight.db.SqlDriver
-
-expect class DatabaseDriverFactory {
-    fun createDriver(): SqlDriver
-}
-```
-
-Now you need to provide `actual` implementations for this expected class.
+   Now you need to provide `actual` implementations for this expected class.
 
 2. On Android, the `AndroidSqliteDriver` class implements the SQLite driver. Pass the database information and the link
    to the context to the `AndroidSqliteDriver` class constructor.
@@ -350,12 +310,13 @@ Now you need to provide `actual` implementations for this expected class.
    import android.content.Context
    import com.squareup.sqldelight.android.AndroidSqliteDriver
    import com.squareup.sqldelight.db.SqlDriver 
-   
+   //sampleStart
    actual class DatabaseDriverFactory(private val context: Context) {
        actual fun createDriver(): SqlDriver {
            return AndroidSqliteDriver(AppDatabase.Schema, context, "test.db")
        }
    }
+   //sampleEnd
    ```
 
 3. On iOS, the SQLite driver implementation is the `NativeSqliteDriver` class. In the `shared/src/iosMain/kotlin`
@@ -368,19 +329,20 @@ Now you need to provide `actual` implementations for this expected class.
    import com.jetbrains.handson.kmm.shared.cache.AppDatabase
    import com.squareup.sqldelight.db.SqlDriver
    import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
-   
+   //sampleStart
    actual class DatabaseDriverFactory {
        actual fun createDriver(): SqlDriver {
            return NativeSqliteDriver(AppDatabase.Schema, "test.db")
        }
    }
+   //sampleEnd
    ```
 
 Instances of these factories will be created later in the code of the Android and iOS projects.
 
 You can navigate through `expect` declarations and `actual` realizations with the handy gutter:
 
-![Expect/Actual gutter](expect-actual.png){width=700}
+![Expect/Actual gutter](expect-actual.png){width=500}
 
 ### Implement cache
 
@@ -398,11 +360,12 @@ a `Database` class, which will wrap the `AppDatabase` class and contain caching 
    import com.jetbrains.handson.kmm.shared.entity.Links
    import com.jetbrains.handson.kmm.shared.entity.Rocket
    import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
-   
+   //sampleStart
    internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
        private val database = AppDatabase(databaseDriverFactory.createDriver())
        private val dbQuery = database.appDatabaseQueries
    }
+   //sampleEnd
    ```
 
    This class's [visibility](visibility-modifiers.md#class-members) is set to internal, which means it is only
@@ -529,7 +492,7 @@ Create a class that will connect the application to the API:
    import io.ktor.client.features.json.serializer.KotlinxSerializer
    import io.ktor.client.request.*
    import kotlinx.serialization.json.Json
-   
+   //sampleStart
    class SpaceXApi {
     private val httpClient = HttpClient {
         install(JsonFeature) {
@@ -541,6 +504,7 @@ Create a class that will connect the application to the API:
             }
         }
    }
+   //sampleEnd
    ```
 
     * This class executes network requests and deserializes JSON responses into entities from the `entity` package. For
@@ -571,7 +535,7 @@ Create a class that will connect the application to the API:
    which includes an asynchronous operation to retrieve data over the internet and can only be called from within a
    coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
-## Add Android internet access permission
+### Add internet access permission
 
 To access the internet, the Android application needs appropriate permission. Since all network requests are made
 from the shared module, adding internet access permission to this module's manifest makes sense.
@@ -604,11 +568,12 @@ public class.
    import com.jetbrains.handson.kmm.shared.cache.DatabaseDriverFactory
    import com.jetbrains.handson.kmm.shared.network.SpaceXApi
    import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
-   
+   //sampleStart
    class SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory) {
        private val database = Database(databaseDriverFactory)
        private val api = SpaceXApi()
    }
+   //sampleEnd
    ```
 
    The class will be the facade over `Database` and `SpaceXApi` classes.
@@ -678,41 +643,11 @@ dependencies {
 
 1. To implement the UI, modify `activity_main.xml` in `androidApp/src/main/res/layout`. The screen is based on
    the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView` and `FrameLayout` with
-   a background with `ProgressBar`
-   across its center.
+   a background with `ProgressBar`across its center:
 
-   You can view copy new layout code here:
-
-#### New layout {initial-collapse-state="collapsed"}
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swipeContainer"
-        android:layout_width="match_parent" android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/launchesListRv" android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <FrameLayout android:id="@+id/progressBar" android:layout_width="0dp" android:layout_height="0dp"
-        android:background="#fff" app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-```
+   ```xml
+   ```
+   {src="codeSnippets/multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
 
 2. In `androidApp/src/main/java`, add the properties for the UI elements to the `MainActivity` class:
 
@@ -763,42 +698,11 @@ dependencies {
    }
    ```
 
-4. Create an `item_launch.xml` resource file in `androidApp/src/main/res/layout/` with the items view layout.
+4. Create an `item_launch.xml` resource file in `androidApp/src/main/res/layout/` with the items view layout:
 
-   You can view copy new layout code here:
-
-#### Items launch layout {initial-collapse-state="collapsed"}
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp" card_view:cardCornerRadius="8dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:paddingBottom="16dp">
-
-        <TextView android:id="@+id/missionName" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_margin="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView android:id="@+id/launchSuccess" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_margin="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/missionName" />
-
-        <TextView android:id="@+id/launchYear" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_margin="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/launchSuccess" />
-
-        <TextView android:id="@+id/details" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_margin="8dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/launchYear" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.cardview.widget.CardView>
-```
+   ```xml
+   ```
+   {src="codeSnippets/multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
 
 5. In `androidApp/src/main/res/values/`, you can create your appearance of the app or copy the following styles:
 
@@ -920,7 +824,7 @@ dependencies {
    }
    ```
 
-## Implement presentation logic
+### Implement presentation logic
 
 1. Create an instance of the `SpaceXSDK` class from the shared module and inject an instance of `DatabaseDriverFactory` in
    it:
@@ -986,7 +890,7 @@ dependencies: `import shared`.
 
 So all it's left to do now is implement the SwiftUI views and fill them with the data.
 
-## Implement the UI
+### Implement the UI
 
 First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item from the list. It will be based on `HStack`
 and `VStack` views. There will be extensions on the `RocketLaunchRow` structure with useful helpers for displaying the
@@ -1101,7 +1005,7 @@ data.
    extension RocketLaunch: Identifiable { }
    ```
 
-## Load data
+### Load data
 
 To retrieve data about the rocket launches in the view model, you'll need an instance of the `SpaceXSDK` from the Multiplatform
 library.
@@ -1174,14 +1078,6 @@ func loadLaunches(forceReload: Bool) {
 
 You can find the final version of the project on the final
 branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
-
-# Summary
-
-You've just created two iOS and Android applications with some of the most common features of mobile clients: retrieving
-data from the network and caching it in a local database. Applications have fully native UIs, and you only had to
-implement the business logic once in the Kotlin Multiplatform Mobile module.
-
-![Emulator and Simulator](android-and-ios.png){width=700}
 
 ## What's next?
 
