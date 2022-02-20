@@ -1,5 +1,85 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Hanna Nerg</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Introduction to how we work and build products at Wolt</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>A short introduction to Wolt and how we build our product.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Jarkko Miettinen</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>I don't remember allocating that...</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>A quick look into spotting and solving memory problems both on JVM and on ART<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Dmitry Aleksandrov</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Going Reactive with Helidon!</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>Helidon is a brave, small but powerful open source framework for writing microservices. If you need to get the maximum performance – making your apps reactive is currently the best way to do it! In this session we will dive deeper and see how to create extremely performant reactive microservices with Helidon “SE” flavor. We’ll explore its Reactive APIs, asynchronous DB access, and reactive Web-Client. Since Helidon has its own powerful Reactive Engine, we’ll learn how to get the most requests served in async operations and Messaging. And of course, all of this written in Kotlin! Welcome to the Danger Zone!<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Mikhail Rykov</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Writing Readable Code</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>While readability is often considered a matter of taste, writing readable code is vital for every software developer. Can we speak about readability in absolute and objective terms? This talk gives it a try.<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-24</startDate>
+        <endDate>2022-02-24</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Andrew Liles, Szaby Gyurko</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Experience of Validation in Kotlin using Konform</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/283500154</url>
+        <description>
+            <![CDATA[
+<p>Want a means to validate input in Kotlin using a Kotlin idiomatic syntax? Andrew & Szaby's team is building server-side Kotlin REST applications and chose Spring as the framework but decided to look beyond the traditional simple Spring annotation-driven approach. They explain the shortcomings they found in Spring and why they selected Konform. In this talk they'll share how Konform is a strong solution to handle complex multi-field validation but where this approach is still imperfect.<p>
+]]>
+         </description>
+     </event>
+
      <event>
         <lang>en</lang>
         <startDate>2022-02-17</startDate>
@@ -26,7 +106,6 @@
         <subject>KSP vs Kotlin plugins. Optimizing Kotlin Multiplatform commomn code.</subject>
         <url>https://community-z.com/events/mobile-z-days</url>
     </event>
-
 
     <event>
         <lang>en</lang>
@@ -86,6 +165,9 @@
         <speaker>Arnaud Giuliani</speaker>
         <title>Func Prog Sweden</title>
         <subject>Android Architecture Design with Koin</subject>
+        <content>
+            <video>https://www.youtube.com/c/FuncProgSweden</video>
+        </content>
         <url>https://www.meetup.com/Func-Prog-Sweden/events/283678183</url>
         <description>
             <![CDATA[
