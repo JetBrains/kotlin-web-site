@@ -41,20 +41,23 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
     }
     ```
 
-2. Configure `summary`, `homepage`, and `frameworkName`of the `Podspec` file in the `cocoapods` block.  
-`version` is a version of the Gradle project:
+2. Configure `version`, `summary`, `homepage`, and `baseName` of the `Podspec` file in the `cocoapods` block:
     
     ```kotlin
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
         kotlin("native.cocoapods") version "%kotlinVersion%"
     }
-    
-    // CocoaPods requires the podspec to have a version.
-    version = "1.0"
-    
+ 
     kotlin {
         cocoapods {
+            // Mandatory properties
+            // Specify the required pod version here. Otherwise, the Gradle project version is used.
+            version = "1.0"
+   
+            // Optional properties
+            // Configure the pod name here instead of changing the Gradle project name
+            name = "MyCocoaPod"
 
             framework {
                 // Mandatory properties

@@ -25,7 +25,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 2. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle.kts` (`build.gradle`)
    of your Kotlin project.
    This step helps synchronize your Xcode project with Gradle project dependencies by calling `pod install` for your `Podfile`.
-3. Specify the minimum target version for the Pod library.
+3. Specify the minimum deployment target version for the Pod library.
     ```kotlin
     kotlin {
         ios()
@@ -63,7 +63,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
    of your Kotlin project.
    This step helps synchronize your Xcode project with Gradle project dependencies by calling `pod install` for your `Podfile`.
 3. Add dependencies to the Pod libraries you want to use in your project with `pod()`.
-4. For each target, specify the minimum target version for the Pod library.
+4. For each target, specify the minimum deployment target version for the Pod library.
 
     ```kotlin
     kotlin {
