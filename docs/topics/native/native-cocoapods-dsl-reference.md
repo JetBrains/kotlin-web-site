@@ -100,6 +100,8 @@ You can configure the framework properties of the pod built from this project in
 kotlin {
     cocoapods {
         framework {
+            summary = "CocoaPods test library"
+            homepage = "https://github.com/JetBrains/kotlin"
             baseName = "MyFramework"
             isStatic = false
             export(project(":anotherKMMModule"))
