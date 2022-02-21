@@ -164,7 +164,7 @@ The application data model will have three entity classes with:
 
    ```kotlin
    ```
-   {src="codeSnippets/multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-42" }
+   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-42" }
 
 Each serializable class must be marked with the `@Serializable` annotation. The `kotlinx.serialization` plugin
 automatically generates a default serializer for `@Serializable` classes unless you explicitly pass a link to a
@@ -647,7 +647,7 @@ dependencies {
 
    ```xml
    ```
-   {src="codeSnippets/multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
+   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
 
 2. In `androidApp/src/main/java`, add the properties for the UI elements to the `MainActivity` class:
 
@@ -702,7 +702,7 @@ dependencies {
 
    ```xml
    ```
-   {src="codeSnippets/multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
+   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
 
 5. In `androidApp/src/main/res/values/`, you can create your appearance of the app or copy the following styles:
 
