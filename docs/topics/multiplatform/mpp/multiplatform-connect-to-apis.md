@@ -33,10 +33,6 @@ Learn how to [add dependencies on platform-specific libraries](multiplatform-add
 For simplicity, the following examples use intuitive target names, like iOS and Android. However, in your Gradle build files,
 you need to use a specific target name from [the list of supported targets](multiplatform-dsl-reference.md#targets).
 
-* [Generate a UUID](#generate-a-uuid)
-* [Implement a logging framework](#implement-a-logging-framework)
-* [Send and receive messages from a WebSocket](#send-and-receive-messages-from-a-websocket)
-
 #### Generate a UUID {initial-collapse-state="collapsed"}
 
 Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform Mobile and you want to
@@ -48,7 +44,7 @@ For this purpose, declare the expected function `randomUUID()` with the `expect`
 Don't include any implementation code.
 
 ```kotlin
-//Common
+// Common
 expect fun randomUUID(): String
 ```
 
@@ -59,14 +55,14 @@ The following examples show the implementation of this for Android and iOS.
 Platform-specific code uses the actual keyword and the expected name for the function.
 
 ```kotlin
-//Android
+// Android
 import java.util.*
 
 actual fun randomUUID() = UUID.randomUUID().toString()
 ```
 
 ```kotlin
-//iOS
+// iOS
 import platform.Foundation.NSUUID
         
 actual fun randomUUID(): String = NSUUID().UUIDString()

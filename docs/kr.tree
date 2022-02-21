@@ -122,7 +122,7 @@
             <toc-element id="multiplatform-mobile-android-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html,multiplatform-mobile-add-dependencies.html" toc-title="For Android target platforms"/>
             <toc-element id="multiplatform-mobile-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
-        <toc-element id="multiplatform-run-tests.md" toc-title="Run tests" accepts-web-file-names="mpp-run-tests.html"/>
+        <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
         <toc-element toc-title="Artifact compilation">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
             <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
@@ -204,7 +204,7 @@
             <toc-element id="native-libraries.md"/>
             <toc-element id="native-platform-libs.md"/>
             <toc-element id="native-dynamic-libraries.md"/>
-            <toc-element id="native-immutability.md" accepts-web-file-names="native-concurrency.html"/>
+            <toc-element id="native-immutability.md" toc-title="Immutability and concurrency" accepts-web-file-names="native-concurrency.html"/>
             <toc-element toc-title="Work with concurrency">
                 <toc-element id="multiplatform-mobile-concurrency-overview.md" accepts-web-file-names="kmm-concurrency-overview.html"/>
                 <toc-element id="multiplatform-mobile-concurrent-mutability.md" accepts-web-file-names="kmm-concurrent-mutability.html"/>

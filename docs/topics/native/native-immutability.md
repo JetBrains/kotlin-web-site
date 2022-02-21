@@ -1,4 +1,4 @@
-[//]: # (title: Immutability in Kotlin/Native)
+[//]: # (title: Immutability and concurrency in Kotlin/Native)
 
 Kotlin/Native implements strict mutability checks, ensuring
 the important invariant that the object is either immutable or

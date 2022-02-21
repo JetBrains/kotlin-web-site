@@ -1,7 +1,7 @@
 [//]: # (title: Adding dependencies on multiplatform libraries)
 
 Every program requires a set of libraries to operate successfully. A Kotlin Multiplatform project can depend on
-multiplatform libraries that work for all target platforms, and it can depend on platform-specific libraries.
+multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
 
 To add a dependency on a library, set a dependency of the required [type](gradle.md#dependency-types) (for
 example, `implementation`) in the
@@ -253,7 +253,7 @@ kotlin {
 >
 {type="note"}
 
-### Dependency on another multiplatform project
+## Dependency on another multiplatform project
 
 You can connect one multiplatform project to another as a dependency. To do this, simply add a project dependency to the
 source set that needs it. If you want to use a dependency in all source sets, add it to the common one. In this case,
