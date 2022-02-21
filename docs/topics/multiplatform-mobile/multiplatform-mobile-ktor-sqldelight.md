@@ -69,9 +69,9 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 1. In the **shared** directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
 
     ```kotlin
-    val coroutinesVersion = "$coroutinesVersion-native-mt"
-    val serializationVersion = "$serializationVersion"
-    val ktorVersion = "$ktorVersion"
+    val coroutinesVersion = "%coroutinesVersion-native-mt%"
+    val serializationVersion = "%serializationVersion%"
+    val ktorVersion = "$ktorVersion%"
     val sqlDelightVersion: String by project
 
     sourceSets {
@@ -122,7 +122,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     ```kotlin
     buildscript {
         // ...
-        val kotlinVersion = "$kotlinVersion"
+        val kotlinVersion = "%kotlinVersion%"
         val sqlDelightVersion: String by project
         
         dependencies {
@@ -137,7 +137,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
    the SQLDelight versions of the plugin and the libraries are the same:
 
     ```
-    sqlDelightVersion=$sqlDelightVersion
+    sqlDelightVersion=%sqlDelightVersion%
     ```
 
 5. Sync the Gradle project.
