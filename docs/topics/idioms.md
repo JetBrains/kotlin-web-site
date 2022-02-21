@@ -160,6 +160,10 @@ println(files?.size) // size is printed if files is not null
 val files = File("Test").listFiles()
 
 println(files?.size ?: "empty") // if files is null, this prints "empty"
+val filesSize = files?.size ?: run { 
+    return someSize // To calculate the fallback value in a code block, use `run`
+}
+println(filesSize)
 ```
 
 ## Execute a statement if null
@@ -167,15 +171,6 @@ println(files?.size ?: "empty") // if files is null, this prints "empty"
 ```kotlin
 val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
-```
-
-## Execute a code block if null
-
-```kotlin
-val value = ...
-val email = value ?: run { 
-    ... // execute this block if `value` is null
-}
 ```
 
 ## Get first item of a possibly empty collection
