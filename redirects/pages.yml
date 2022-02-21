@@ -361,6 +361,9 @@
 - from: /docs/reference/mpp-intro.html
   to: /docs/multiplatform-get-started.html
 
+- from: /docs/mpp-intro.html
+  to: /docs/multiplatform-get-started.html
+
 - from: /docs/reference/multi-declarations.html
   to: /docs/multi-declarations.html
 
