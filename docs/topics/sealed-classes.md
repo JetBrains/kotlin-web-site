@@ -25,7 +25,7 @@ sealed interface Error
 
 sealed class IOError(): Error
 
-class FileReadError(val f: File): IOError()
+class FileReadError(val file: File): IOError()
 class DatabaseError(val source: DataSource): IOError()
 
 object RuntimeError : Error
