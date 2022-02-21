@@ -78,7 +78,7 @@ You can learn more about the [project structure](multiplatform-mobile-understand
 
 To use cross-platform code in your Android application, connect the shared module to it, move the business logic code there, and make this code cross-platform.
 
-1. Ensure that `compileSdkVersion` and `minSdkVersion` in `build.gradle.kts` of the `shared` module are the same as those in the `build.gradle` of your Android application in the `app` module.  
+1. Ensure that `compileSdk` and `minSdk` in `build.gradle.kts` of the `shared` module are the same as those in the `build.gradle` of your Android application in the `app` module.  
    If they are different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a compile error.
 
 2. Add a dependency on the shared module to the `build.gradle` of your Android application.
