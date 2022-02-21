@@ -29,25 +29,23 @@ The plugin versions match the Kotlin release versions. The most recent version i
 The `cocoapods` block is the top-level block for the Cocoapods configuration. Inside it, you can use the following blocks,
 functions and properties:
 
-| **Name**                              | **Description**                                                                                                                                                                                 | 
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `version`                             | The version of the pod. If not specified, a Gradle project version is used. If none of these properties are configured, you'll get an error.                                                    |
-| `authors`                             | Specifies authors of the pod built from this project.                                                                                                                                           |
-| `podfile`                             | Configures the existing pod file.                                                                                                                                                               |
-| `noPodspec()`                         | Sets up plugin not to produce a podspec file for the cocoapods section.                                                                                                                         |
-| `useLibraries()`                      | Sets up `cocoapods-generate` to produce `xcodeproj` compatible with static libraries                                                                                                            |
-| `name`                                | The name of the pod built from this project.                                                                                                                                                    |
-| `license`                             | The license of the pod built from this project.                                                                                                                                                 |
-| `summary`                             | A description of the pod built from this project.                                                                                                                                               |
-| `homepage`                            | A link to the homepage of the pod built from this project.                                                                                                                                      |
-| `framework`                           | The framework of the pod built from this project                                                                                                                                                |
-| `source`                              | The location of the pod built from this project.                                                                                                                                                |
-| `extraSpecAttributes`                 | Configures other podspec attributes, like `libraries` or `vendored_frameworks`.                                                                                                                 |
-| `xcodeConfigurationToNativeBuildType` | Maps custom Xcode configuration to NativeBuildType — "Debug" to `NativeBuildType.DEBUG`, "Release" to `NativeBuildType.RELEASE`                                                                 |
-| `publishDir`                          | Configures the output directory for pod publishing.                                                                                                                                             |
-| `pods`                                | Returns a list of pod dependencies.                                                                                                                                                             |
-| `pod()`                               | Adds a CocoaPods dependency to the pod built from this project.                                                                                                                                 |
-| `specRepos`                           | Adds a CocoaPods dependency from a custom Podspec repository using `url()`. See the [cocoapods documentation](https://guides.cocoapods.org/making/private-cocoapods.html) for more information. |
+| **Name**                              | **Description**                                                                                                                                                                                                               | 
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `version`                             | The version of the pod. If not specified, a Gradle project version is used. If none of these properties are configured, you'll get an error.                                                                                  |
+| `authors`                             | Specifies authors of the pod built from this project.                                                                                                                                                                         |
+| `podfile`                             | Configures the existing pod file.                                                                                                                                                                                             |
+| `noPodspec()`                         | Sets up plugin not to produce a podspec file for the cocoapods section.                                                                                                                                                       |
+| `useLibraries()`                      | Sets up `cocoapods-generate` to produce `xcodeproj` compatible with static libraries                                                                                                                                          |
+| `name`                                | The name of the pod built from this project. If not provided, the project name is used.                                                                                                                                       |
+| `license`                             | The license of the pod built from this project.                                                                                                                                                                               |
+| `framework`                           | The framework block configures the framework produced by the plugin.                                                                                                                                                          |
+| `source`                              | The location of the pod built from this project.                                                                                                                                                                              |
+| `extraSpecAttributes`                 | Configures other podspec attributes, like `libraries` or `vendored_frameworks`.                                                                                                                                               |
+| `xcodeConfigurationToNativeBuildType` | Maps custom Xcode configuration to NativeBuildType — "Debug" to `NativeBuildType.DEBUG`, "Release" to `NativeBuildType.RELEASE`                                                                                               |
+| `publishDir`                          | Configures the output directory for pod publishing.                                                                                                                                                                           |
+| `pods`                                | Returns a list of pod dependencies.                                                                                                                                                                                           |
+| `pod()`                               | Adds a CocoaPods dependency to the pod built from this project.                                                                                                                                                               |
+| `specRepos`                           | Adds a specification repository using `url()`. It's necessary when a private pod is used as a dependency. See the [cocoapods documentation](https://guides.cocoapods.org/making/private-cocoapods.html) for more information. |
 
 ### Targets
 
@@ -90,11 +88,13 @@ kotlin {
 You can configure the framework properties of the pod built from this project in the `framework` block. Note that
 `baseName` is a mandatory field.
 
-| **Name**           | **Description**                                                                  | 
-|--------------------|----------------------------------------------------------------------------------|
-| `baseName`         | The framework name. Use this property instead of the deprecated `frameworkName`. |
-| `isStatic`         | Enables dynamic framework support.                                               |
-| `transitiveExport` | Enables dependency export.                                                       |                                                      
+| **Name**           | **Description**                                                                              | 
+|--------------------|----------------------------------------------------------------------------------------------|
+| `baseName`         | The framework name. Use this property instead of the deprecated `frameworkName` (mandatory). |
+| `summary`          | A description of the pod built from this project (mandatory).                                |
+| `homepage`         | A link to the homepage of the pod built from this project (mandatory).                       |
+| `isStatic`         | Enables dynamic framework support.                                                           |
+| `transitiveExport` | Enables dependency export.                                                                   |                                                      
 
 ```kotlin
 kotlin {
