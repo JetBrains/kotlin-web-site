@@ -22,7 +22,7 @@ The key differences to the old model are:
 
   * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
     Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
-  * There is now a large number of [preset platform configurations](multiplatform-supported-platforms.md) for different supported platforms.
+  * There is now a large number of [preset platform configurations](multiplatform-dsl-reference.md#targets.md) for different supported platforms.
   * The [dependencies configuration](multiplatform-add-dependencies.md) has been changed; dependencies are
     now specified separately for each source root.
   * Source sets can now be shared between an arbitrary subset of platforms 

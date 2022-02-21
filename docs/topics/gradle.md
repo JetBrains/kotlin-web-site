@@ -34,7 +34,7 @@ The placeholder `<...>` should be replaced with the name of one of the plugins t
 
 ## Targeting multiple platforms
 
-Projects targeting [multiple platforms](multiplatform-supported-platforms.md), called [multiplatform projects](multiplatform-get-started.md),
+Projects targeting [multiple platforms](multiplatform-dsl-reference.md#targets), called [multiplatform projects](multiplatform-get-started.md),
 require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multiplatform-discover-project.md#multiplatform-plugin).
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.

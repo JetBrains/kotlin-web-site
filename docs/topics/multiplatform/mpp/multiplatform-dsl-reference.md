@@ -44,52 +44,148 @@ Inside `kotlin`, you can write the following blocks:
 | --- | --- |
 | _\<targetName\>_ |Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
 |`targets` |All targets of the project.|
-|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](multiplatform-supported-platforms.md) at once.|
+|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](multiplatform-dsl-reference.md#targets.md) at once.|
 |`sourceSets` |Configures predefined and declares custom [source sets](#source-sets) of the project. |
 
 ## Targets
 
 _Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed for 
-one of the [supported platforms](multiplatform-supported-platforms.md). 
+one of the supported platforms. Kotlin provides target presets for each platform. See how to [use a target preset](multiplatform-set-up-targets.md).
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
-The targets of a multiplatform project
- are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
+The targets of a multiplatform project are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
 The complete list of available targets is the following:
- 
-|**Name**|**Description**| 
-| --- | --- |
-|`jvm`| Java Virtual Machine|
-|`js`| JavaScript|
-|`android`|Android (APK)|
-|`androidNativeArm32`|[Android NDK](https://developer.android.com/ndk) on ARM (ARM32) platforms|
-|`androidNativeArm64`|[Android NDK](https://developer.android.com/ndk) on ARM64 platforms|
-|`androidNativeX86`|[Android NDK](https://developer.android.com/ndk) on x86 platforms|
-|`androidNativeX64`|[Android NDK](https://developer.android.com/ndk) on x86_64 platforms|
-|`iosArm32`|Apple iOS on ARM (ARM32) platforms (Apple iPhone 5 and earlier)|
-|`iosArm64`|Apple iOS on ARM64 platforms (Apple iPhone 5s and newer)|
-|`iosX64`|Apple iOS simulator on x86_64 platforms|
-|`iosSimulatorArm64`|Apple iOS simulator on Apple Silicon platforms|
-|`watchosArm32`|Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)|
-|`watchosArm64`|Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)|
-|`watchosX86`|Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms|
-|`watchosX64`|Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms|
-|`watchosSimulatorArm64`|Apple watchOS simulator on Apple Silicon platforms|
-|`tvosArm64`|Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)|
-|`tvosX64`|Apple tvOS simulator on x86_64 platforms|
-|`tvosSimulatorArm64`|Apple tvOS simulator on Apple Silicon platforms|
-|`linuxArm64`|Linux on ARM64 platforms, for example, Raspberry Pi|
-|`linuxArm32Hfp`|Linux on hard-float ARM (ARM32) platforms|
-|`linuxMips32`|Linux on MIPS platforms|
-|`linuxMipsel32`|Linux on little-endian MIPS (mipsel) platforms|
-|`linuxX64`|Linux on x86_64 platforms|
-|`macosX64`|Apple macOS on x86_64 platforms|
-|`macosArm64`|Apple macOS on Apple Silicon platforms|
-|`mingwX64`|64-bit Microsoft Windows|
-|`mingwX86`|32-bit Microsoft Windows|
-|`wasm32`|WebAssembly|
+
+<table>
+    <tr>
+        <th>Target platform</th>
+        <th>Target preset</th>
+        <th>Comments</th>
+    </tr>
+    <tr>
+        <td>Kotlin/JVM</td>
+        <td><code>jvm</code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kotlin/JS</td>
+        <td><code>js</code></td>
+        <td>
+            <p>Select the execution environment:</p>
+            <ul>
+                <li><code>browser {}</code> for applications running in the browser.</li>
+                <li><code>nodejs{}</code> for applications running on Node.js.</li>
+            </ul>
+            <p>Learn more in <a href="js-project-setup.md#execution-environments">Setting up a Kotlin/JS project</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Android applications and libraries</td>
+        <td><code>android</code></td>
+        <td>
+            <p>Manually apply an Android Gradle plugin  – <code>com.android.application</code> or <code>com.android.library</code>.</p>
+            <p>You can only create one Android target per Gradle subproject.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Android NDK</td>
+        <td>
+           <ul>
+               <li><code>androidNativeArm32</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on ARM (ARM32) platforms</li>
+               <li><code>androidNativeArm64</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on ARM64 platforms</li>
+               <li><code>androidNativeX86</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on x86 platforms</li>
+               <li><code>androidNativeX64</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on x86_64 platforms</li>
+           </ul>
+        </td>
+        <td>
+            <p>The 64-bit target requires a Linux or macOS host.</p>
+            <p>You can build the 32-bit target on any supported host.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>iOS</td>
+        <td>
+            <ul>
+               <li><code>iosArm32</code> — Apple iOS on ARM (ARM32) platforms (Apple iPhone 5 and earlier)</li>
+               <li><code>iosArm64</code> — Apple iOS on ARM64 platforms (Apple iPhone 5s and newer)</li>
+               <li><code>iosX64</code> — Apple iOS simulator on x86_64 platforms</li>
+               <li><code>iosSimulatorArm64</code> — Apple iOS simulator on Apple Silicon platforms</li>
+            </ul>
+        </td>
+        <td>Requires a macOS host.</td>
+    </tr>
+    <tr>
+        <td>watchOS</td>
+        <td>
+            <ul>
+               <li><code>watchosArm32</code> — Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)</li>
+               <li><code>watchosArm64</code> — Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)</li>
+               <li><code>watchosX86</code> — Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms</li>
+               <li><code>watchosX64</code> — Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms</li>
+               <li><code>watchosSimulatorArm64</code> — Apple watchOS simulator on Apple Silicon platforms</li>
+            </ul>
+        </td>
+        <td>Requires a macOS host.</td>
+    </tr>
+    <tr>
+        <td>tvOS</td>
+        <td>
+            <ul>
+               <li><code>tvosArm64</code> — Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)</li>
+               <li><code>tvosX64</code> — Apple tvOS simulator on x86_64 platforms</li>
+               <li><code>tvosSimulatorArm64</code> — Apple tvOS simulator on Apple Silicon platforms</li>
+            </ul>
+        </td>
+        <td>Requires a macOS host.</td>
+    </tr>
+    <tr>
+        <td>macOS</td>
+        <td>
+            <ul>
+               <li><code>macosX64</code> — Apple macOS on x86_64 platforms</li>
+               <li><code>macosArm64</code> — Apple macOS on Apple Silicon platforms</li>
+            </ul>
+        </td>
+        <td>Requires a macOS host.</td>
+    </tr>
+    <tr>
+        <td>Linux</td>
+        <td>
+            <ul>
+               <li><code>linuxArm64</code> — Linux on ARM64 platforms, for example, Raspberry Pi</li>
+               <li><code>linuxArm32Hfp</code> — Linux on hard-float ARM (ARM32) platforms</li>
+               <li><code>linuxMips32</code> — Linux on MIPS platforms</li>
+               <li><code>linuxMipsel32</code> — Linux on little-endian MIPS (mipsel) platforms</li>
+               <li><code>linuxX64</code> — Linux on x86_64 platforms</li>
+            </ul>
+        </td>
+        <td>
+            <p>Linux MIPS targets (<code>linuxMips32</code> and <code>linuxMipsel32</code>) require a Linux host.</p>
+            <p>You can build other Linux targets on any supported host.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Windows</td>
+        <td>
+            <ul>
+               <li><code>mingwX64</code> — 64-bit Microsoft Windows</li>
+               <li><code>mingwX86</code> — 32-bit Microsoft Windows</li>
+            </ul>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>WebAssembly</td>
+        <td><code>wasm32</code></td>
+        <td></td>
+    </tr>
+</table>
+
+> A target that is not supported by the current host is ignored during building and therefore not published.
+>
+{type="note"}
 
 ```groovy
 kotlin {

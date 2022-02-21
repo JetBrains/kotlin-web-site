@@ -84,7 +84,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md) tutorial.
    * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [sample project](multiplatform-mobile-samples.md).
 
-3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-mobile-add-dependencies.md).
+3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-add-dependencies.md).
    
    |Library|Details|
    |-------|-------| 
@@ -92,7 +92,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
    | Coroutines |  [Docs](multiplatform-mobile-concurrency-overview.md) and [sample](multiplatform-mobile-concurrency-and-coroutines.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/) and [sample](multiplatform-mobile-configure-sqldelight-for-data-storage.md ).|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/).|
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    > 
@@ -200,7 +200,7 @@ Here you'll learn how to develop and publish a multiplatform library:
 4. **Learn more about Kotlin Multiplatform programming:**
 
    * [Introduction to Kotlin Multiplatform](multiplatform-get-started.md).
-   * [Kotlin Multiplatform supported platforms](multiplatform-supported-platforms.md).
+   * [Kotlin Multiplatform supported platforms](multiplatform-dsl-reference.md#targets).
    * [Kotlin Multiplatform programming benefits](multiplatform.md).
 
 5. **Join the Kotlin Multiplatform community:**
