@@ -31,7 +31,7 @@ Learn how to [add dependencies on platform-specific libraries](multiplatform-add
 ## Examples
 
 For simplicity, the following examples use intuitive target names, like iOS and Android. However, in your Gradle build files,
-you need to use a specific target name from [the list of supported targets](multiplatform-dsl-reference.md#targets.md).
+you need to use a specific target name from [the list of supported targets](multiplatform-dsl-reference.md#targets).
 
 * [Generate a UUID](#generate-a-uuid)
 * [Implement a logging framework](#implement-a-logging-framework)

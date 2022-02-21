@@ -49,7 +49,7 @@ configuration for [targets](#targets), [source sets](#source-sets), and dependen
 
 A multiplatform project is aimed at multiple platforms that are represented by different targets. A target is part of the 
 build that is responsible for building, testing, and packaging the application for a specific platform, such as macOS, 
-iOS, or Android. See the list of [supported platforms](multiplatform-dsl-reference.md#targets.md).
+iOS, or Android. See the list of [supported platforms](multiplatform-dsl-reference.md#targets).
 
 When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle` (`build.gradle.kts`).
 
