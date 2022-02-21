@@ -515,6 +515,10 @@ For each build of the iOS application, the project obtains the latest version of
 This task generates the `.framework` with the needed configuration, depending on the Xcode environment settings, and puts
 the artifact into the `DerivedData` Xcode directory.
 
+* If you have a custom name for the Apple framework, use the `embedAndSign<Custom-name>AppleFrameworkForXcode` name for this Gradle task.
+* If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings** tab,
+add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
+
 > Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
 >
 {type="note"}
