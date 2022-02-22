@@ -33,7 +33,7 @@ the corresponding GitHub repository.
    in the Android Studio Marketplace and install it for working with the shared module and Android project.
 3. Download and install [Xcode](https://developer.apple.com/xcode/) for building the iOS application.
 
-For more details, see the [Set up the environment](kmm-setup.md) section.
+For more details, see the [Set up the environment](multiplatform-mobile-setup.md) section.
 
 ## Create a Multiplatform project
 
@@ -53,7 +53,7 @@ For more details, see the [Set up the environment](kmm-setup.md) section.
    ![Project view](project-view.png){width=300}
 
 For more on project features and how to use them,
-see [Understand the project structure](kmm-understand-project-structure.md).
+see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
 
 > You can find the configured project on the `master` branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage)
 >
@@ -164,7 +164,7 @@ The application data model will have three entity classes with:
 
    ```kotlin
    ```
-   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-42" }
+   {src="snippets/multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-42" }
 
 Each serializable class must be marked with the `@Serializable` annotation. The `kotlinx.serialization` plugin
 automatically generates a default serializer for `@Serializable` classes unless you explicitly pass a link to a
@@ -213,7 +213,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 3. The database will contain two tables with data about launches and rockets. To create these tables, add the following
    code to the `AppDatabase.sq` file:
 
-   ```sql
+   ```text
    CREATE TABLE Launch
    (
        flightNumber    INTEGER NOT NULL,
@@ -237,7 +237,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 
 4. To insert data into these tables, declare SQL insert functions:
 
-   ```sql
+   ```text
    insertLaunch:
    INSERT INTO Launch(flightNumber, missionName, launchYear, rocketId, details, launchSuccess, launchDateUTC, missionPatchUrl, articleUrl)
    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -249,7 +249,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 
 5. To clear data in the tables, declare SQL delete functions:
 
-   ```sql
+   ```text
    removeAllLaunches:
    DELETE FROM Launch;
    
@@ -260,7 +260,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 6. In the same way, declare functions to retrieve data. For data about a rocket, use its identifier and select
    information about all its launches using a JOIN statement:
 
-   ```sql
+   ```text
    selectRocketById:
    SELECT * FROM Rocket
    WHERE id = ?;
@@ -274,13 +274,13 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 When the project is compiled, the generated Kotlin code will be stored in the `/shared/build/generated/sqldelight`
 directory. The generator will create an interface named `AppDatabase`, as specified in `build.gradle.kts`.
 
-You can learn more about how to [Configure SQLDelight for data storage](kmm-configure-sqldelight-for-data-storage.md).
+You can learn more about how to [Configure SQLDelight for data storage](multiplatform-mobile-configure-sqldelight-for-data-storage.md).
 
 ### Create platform database drivers
 
 To initialize `AppDatabase`, pass an `SqlDriver` instance to it. SQLDelight provides multiple platform-specific
 implementations of the SQLite driver, so you need to create them for each platform separately. You can do this with
-[expected and actual declarations](mpp-connect-to-apis.md).
+[expected and actual declarations](multiplatform-connect-to-apis.md).
 
 1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
    a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside:
@@ -647,7 +647,7 @@ dependencies {
 
    ```xml
    ```
-   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
+   {src="snippets/multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
 
 2. In `androidApp/src/main/java`, add the properties for the UI elements to the `MainActivity` class:
 
@@ -702,7 +702,7 @@ dependencies {
 
    ```xml
    ```
-   {src="docs/topics/codeSnippets/multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
+   {src="snippets/multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
 
 5. In `androidApp/src/main/res/values/`, you can create your appearance of the app or copy the following styles:
 
@@ -1083,10 +1083,10 @@ branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage
 
 There were some potentially heavy operations in this tutorial, like parsing JSON and making requests to the database in
 the main thread. To learn about how to write concurrent code and optimize your app,
-see [how to work with concurrency](kmm-concurrency-overview.md)
+see [how to work with concurrency](multiplatform-mobile-concurrency-overview.md)
 
 You can also check out these materials if you want to:
 
 * [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-multiplatform.html)
-* [Make your Android application work on iOS](kmm-integrate-in-existing-app.md)
-* [Introduce your team to Kotlin Multiplatform Mobile](kmm-introduce-your-team.md)
+* [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)
+* [Introduce your team to Kotlin Multiplatform Mobile](multiplatform-mobile-introduce-your-team.md)
