@@ -69,7 +69,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 1. In the **shared** directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
 
     ```kotlin
-    val coroutinesVersion = "%coroutinesVersion-native-mt%"
+    val coroutinesVersion = "%coroutinesVersion%-native-mt"
     val serializationVersion = "%serializationVersion%"
     val ktorVersion = "$ktorVersion%"
     val sqlDelightVersion: String by project
