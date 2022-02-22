@@ -340,7 +340,7 @@ Connect your framework to the iOS project manually:
 
 ```kotlin
 ```
-{src="snippets/android-ios-tutorial/ContentView.swift"  lines="1-109" initial-collapse-state="collapsed"}
+{src="android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed" lines="1-109"}
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 
