@@ -334,13 +334,13 @@ Connect your framework to the iOS project manually:
    }
    ```
 
-   ![Greeting from the KMM module](xcode-iphone-hello.png){width=300}
+   ![Greeting from the shared module](xcode-iphone-hello.png){width=300}
 
 3. In `ContentView.swift`, write code for using data from the shared module and rendering the application UI:
 
 ```kotlin
 ```
-{src="android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed" lines="1-109"}
+{src="snippets/android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed" lines="1-109"}
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 
