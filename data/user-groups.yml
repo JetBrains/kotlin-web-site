@@ -1217,3 +1217,9 @@
     position:
       lat: 9.2034963
       lng: 12.4953899
+  - name: Xi'An Kotlin User Group
+    country: China
+    url: https://kotlinxa.com/
+    position:
+      lat: 34.259376
+      lng: 108.947037
