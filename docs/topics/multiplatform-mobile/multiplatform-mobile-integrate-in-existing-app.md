@@ -148,7 +148,7 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     ```
 
     ```kotlin
-    //After
+    // After
     return Result.Error(RuntimeException("Error logging in", e))
     ```
 
