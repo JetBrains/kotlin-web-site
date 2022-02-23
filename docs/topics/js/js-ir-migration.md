@@ -78,50 +78,6 @@ external interface CustomComponentState : State {
 }
 ```
 
-## Make boolean properties nullable in external interfaces
-
-**Issue**: JavaScript treats the `null` or undefined value of a boolean variable as `false`. So, boolean properties can be used
-in expressions without being defined. This is okay in JavaScript, but not in Kotlin.
-
-```kotlin
-external interface ComponentProps: Props {
-   var isInitialized: Boolean
-   var visible: Boolean
-}
-```
-
-```kotlin
-val props = js("{}") as ComponentProps
-props.isInitialized = true
-// visible is not initialized - OK in JS – means it's false
-```
-
-If you try to use such a property in a function overridden in Kotlin (for example, a React `button`), you'll get a `ClassCastException`:
-
-```kotlin
-button {
-   attrs {
-       autoFocus = props.visible // ClassCastException here
-   }
-}
-```
-
-**Solution**: make all `Boolean` properties of external interfaces nullable (`Boolean?`):
-
-```kotlin
-// Replace this
-external interface ComponentProps: Props {
-   var visible: Boolean
-}
-```
-
-```kotlin
-// With this
-external interface ComponentProps: Props {
-   var visible: Boolean?
-}
-```
-
 ## Convert functions with receivers in external interfaces to regular functions
 
 **Issue**: external declarations can't contain functions with receivers, such as extension functions or properties with corresponding
