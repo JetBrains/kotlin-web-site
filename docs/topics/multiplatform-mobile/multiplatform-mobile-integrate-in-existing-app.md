@@ -100,8 +100,10 @@ To use cross-platform code in your Android application, connect the shared modul
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-5. To make sure that the shared module is successfully connected to your application, in the `app/src/main/java/com/jetbrains/simplelogin/adroidapp/ui/login`,
-dump the `greeting()` function result to the log by updating the `onCreate()` method of the `LoginActivity` class:
+5. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+package.
+6. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
+to the log by updating the `onCreate()` method:
 
     ```kotlin
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -111,8 +113,8 @@ dump the `greeting()` function result to the log by updating the `onCreate()` me
    
     }
     ```
-6. Follow Android Studio suggestions to import missing classes.
-7. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
+7. Follow Android Studio suggestions to import missing classes.
+8. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
 
    ![Greeting from the shared module](shared-module-greeting.png)
 
@@ -194,7 +196,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe") 
    ```
 
-1. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package in the `shared/src/commonMain` directory and provide the `expect` declaration:
+1. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -202,21 +204,23 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     expect fun randomUUID(): String
     ```
 
-2. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package in the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
+2. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
     
     import java.util.*
+   
     actual fun randomUUID() = UUID.randomUUID().toString()
     ```
 
-3. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` in the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
+3. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
     
     import platform.Foundation.NSUUID
+   
     actual fun randomUUID(): String = NSUUID().UUIDString()
     ```
 
