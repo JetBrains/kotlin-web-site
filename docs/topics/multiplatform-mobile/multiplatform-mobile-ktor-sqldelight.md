@@ -40,17 +40,17 @@ For more details, see the [Set up the environment](multiplatform-mobile-setup.md
 1. In Android Studio, select **File** | **New** | **New Project**. In the list of project templates, select **Kotlin
    Multiplatform App** and click **Next**.
 
-   ![KMM Plugin wizard](kmm-wizard.png){width=700}
+   ![KMM Plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
 
 2. Specify a name for your first application, and click **Next**.
 3. Select **Regular framework** in the iOS framework distribution options list.
 4. Keep all other options default. Click **Finish**.
 
-   ![KMM Plugin wizard finish](kmm-wizard-finish.png){width=700}
+   ![KMM Plugin wizard finish](multiplatform-mobile-project-wizard-3.png){width=700}
 
 5. To view the complete structure of the multiplatform mobile project, switch the view from **Android** to **Project**.
 
-   ![Project view](project-view.png){width=300}
+   ![Project view](select-project-view.png){width=200}
 
 For more on project features and how to use them,
 see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
@@ -71,7 +71,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     ```kotlin
     val coroutinesVersion = "%coroutinesVersion%-native-mt"
     val serializationVersion = "%serializationVersion%"
-    val ktorVersion = "$ktorVersion%"
+    val ktorVersion = "%ktorVersion%"
     val sqlDelightVersion: String by project
 
     sourceSets {
@@ -342,7 +342,7 @@ Instances of these factories will be created later in the code of the Android an
 
 You can navigate through `expect` declarations and `actual` realizations with the handy gutter:
 
-![Expect/Actual gutter](expect-actual.png){width=500}
+![Expect/Actual gutter](expect-actual-gutter.png){width=500}
 
 ### Implement cache
 
