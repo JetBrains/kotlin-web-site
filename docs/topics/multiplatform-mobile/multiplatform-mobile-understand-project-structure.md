@@ -264,10 +264,10 @@ The configuration of Android library is stored in the `android {}` top-level blo
 
 ```kotlin
 android {
-    compileSdkVersion(29)
+    compileSdk = 29
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdk = 24
+        targetSdk = 29
         versionCode = 1
         versionName = "1.0"
     }
@@ -284,10 +284,10 @@ android {
 
 ```groovy
 android {
-    compileSdkVersion 29
+    compileSdk 29
     defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 29
+        minSdk 24
+        targetSdk 29
         versionCode 1
         versionName '1.0'
     }
@@ -456,11 +456,11 @@ The build configuration of the Android application is located in the `android {}
 
 ```kotlin
 android {
-    compileSdkVersion(29)
+    compileSdk = 29
     defaultConfig {
         applicationId = "org.example.androidApp"
-        minSdkVersion(24)
-        targetSdkVersion(29)
+        minSdk = 24
+        targetSdk = 29
         versionCode = 1
         versionName = "1.0"
     }
@@ -477,11 +477,11 @@ android {
 
 ```groovy
 android {
-    compileSdkVersion 29
+    compileSdk 29
     defaultConfig {
         applicationId 'org.example.androidApp'
-        minSdkVersion 24
-        targetSdkVersion 29
+        minSdk 24
+        targetSdk 29
         versionCode 1
         versionName '1.0'
     }
