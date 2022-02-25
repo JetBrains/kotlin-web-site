@@ -1,4 +1,4 @@
-[//]: # (title: Understand the project structure)
+[//]: # (title: Understand mobile project structure)
 
 The purpose of the Kotlin Multiplatform Mobile technology is unifying the development of applications with common 
 logic for Android and iOS platforms. To make this possible, it uses a mobile-specific structure of
@@ -106,7 +106,7 @@ kotlin {
 
 The shared module contains the code that is common for Android and iOS applications. However, to implement the same logic
  on Android and iOS, you sometimes need to write two platform-specific versions of it. 
- To handle such cases, Kotlin offers the [expect/actual](multiplatform-mobile-connect-to-platform-specific-apis.md) mechanism.
+ To handle such cases, Kotlin offers the [expect/actual](multiplatform-connect-to-apis.md) mechanism.
  The source code of the shared module is organized in three source sets accordingly:
 
 * `commonMain` stores the code that works on both platforms, including the `expect` declarations

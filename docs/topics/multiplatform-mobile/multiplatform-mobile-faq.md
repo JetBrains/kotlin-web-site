@@ -82,7 +82,7 @@ You can learn how to work with [concurrency](multiplatform-mobile-concurrency-ov
 
 Working with concurrent code in cross-platform mobile projects might not seem straightforward, as different memory management approaches 
 are used in Kotlin/JVM and Kotlin/Native. The current approach for Kotlin/Native has some 
-[limitations](native-concurrency.md). The new Kotlin/Native memory management model is on 
+[limitations](native-immutability.md#concurrency-in-kotlin-native). The new Kotlin/Native memory management model is on 
 the [roadmap](https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap) and the team is working 
 on a solution for it.
 

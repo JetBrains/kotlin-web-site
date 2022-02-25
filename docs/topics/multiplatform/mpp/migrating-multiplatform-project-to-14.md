@@ -20,7 +20,7 @@ Thus, once you update to such a version, you can remove `enableFeaturePreview("G
 If you use libraries published with metadata, you only have to specify dependencies on them only once in the shared source set, 
 as opposed to specifying dependencies on different variants of the same library in the shared and platform-specific source sets prior to 1.4.0. 
 
-Starting from 1.4.0, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](multiplatform-add-dependencies.md#dependency-on-the-standard-library). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
+Starting from 1.4.0, you also no longer need to declare a dependency on `stdlib` in each source set manually – it [will now be added by default](multiplatform-add-dependencies.md#standard-library). The version of the automatically added standard library will be the same as the version of the Kotlin Gradle plugin, since they have the same versioning.
 
 With these features, you can make your Gradle build file much more concise and easy to read:
 

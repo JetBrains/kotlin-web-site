@@ -7,7 +7,7 @@ Share application logic while keeping native user experience.)
 {type="note"}
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the
- same code for [different platforms](multiplatform-supported-platforms.md) while retaining the flexibility and benefits of native programming. 
+ same code for [different platforms](multiplatform-dsl-reference.md#targets) while retaining the flexibility and benefits of native programming. 
 
 ## Kotlin Multiplatform use cases
 
@@ -65,7 +65,7 @@ coroutines](https://github.com/Kotlin/kotlinx.coroutines).
 
 ### Code sharing between platforms
 
-With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](multiplatform-supported-platforms.md)
+With Kotlin Multiplatform, spend less time on writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets)
  – just share it using the mechanisms Kotlin provides:
 
 * [Share code among all platforms used in your project](multiplatform-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
