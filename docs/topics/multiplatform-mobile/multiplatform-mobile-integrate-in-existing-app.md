@@ -12,8 +12,8 @@ If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [c
 
 1. Install Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher and [other tools for cross-platform mobile development](multiplatform-mobile-setup.md) on macOS.
 
-   >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
-   >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
+   > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
+   > These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
    >
    {type="note"}
 
@@ -22,6 +22,9 @@ If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [c
    ```text
    https://github.com/Kotlin/kmm-integration-sample
    ```
+
+   The `master` branch contains the project's initial state, a simple Android application. You can find the final state
+   with the iOS application and the shared module in the `final` branch.
 
 3. Switch to the **Project** view.
 
