@@ -79,16 +79,16 @@ import cocoapods.AFNetworking.*
 
 ### Without CocoaPods
 
-If you don’t want to use CocoaPods, you can use the cinterop tool to create Kotlin bindings for Objective-C or Swift
-declarations. This will allow you to call them from Kotlin code. To do this:
+If you don't want to use CocoaPods, you can use the cinterop tool to create Kotlin bindings for Objective-C or Swift
+declarations. This will allow you to call them from the Kotlin code.
+
+The steps differ a bit for [libraries](#add-a-library-without-cocoapods)
+and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the same.
 
 1. Download your dependency.
 2. Build it to get its binaries.
 3. Create a special `.def` file that describes this dependency to cinterop.
 4. Adjust your build script to generate bindings during the build.
-
-The steps differ a bit for [libraries](#add-a-library-without-cocoapods)
-and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the same.
 
 #### Add a library without CocoaPods
 

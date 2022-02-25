@@ -1,10 +1,10 @@
 [//]: # (title: Adding Android dependencies)
 
 The workflow for adding Android-specific dependencies to a Kotlin Multiplatform module is the same as it is for pure
-Android projects: add a line to your Gradle build script declaring the dependency you need and import the project.
-You’ll then be able to use this dependency in your Kotlin code.
+Android projects: declare the dependency in your Gradle file and import the project. After that, you can use this
+dependency in your Kotlin code.
 
-We recommend adding Android dependencies to Multiplatform Mobile projects by adding them to a specific Android source
+We recommend declaring Android dependencies in Multiplatform Mobile projects by adding them to a specific Android source
 set:
 
 <tabs group="build-script">

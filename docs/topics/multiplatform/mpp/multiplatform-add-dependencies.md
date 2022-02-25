@@ -140,7 +140,7 @@ kotlin {
 </tab>
 </tabs>
 
-## Dependency on multiplatform libraries
+## Dependency on Kotlin Multiplatform libraries
 
 You can add dependencies on libraries that have adopted Kotlin Multiplatform technology, such
 as [SQLDelight](https://github.com/cashapp/sqldelight). The authors of these libraries usually provide guides for adding
