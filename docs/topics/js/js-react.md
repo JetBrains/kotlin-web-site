@@ -155,6 +155,7 @@ fun main() {
 }
 //sampleEnd
 ```
+{kotlin-runnable="true"}
 
 * The `render()` function instructs [kotlin-react-dom](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-dom)
   to render out a component into the `#root` element.
