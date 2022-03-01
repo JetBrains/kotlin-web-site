@@ -2,6 +2,45 @@
 <events>
     <event>
         <lang>en</lang>
+        <startDate>2022-03-17</startDate>
+        <endDate>2022-03-17</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Simone de Gijt</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Plugin and play for Kotlin &amp; Just enough Computer Science for devs</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/284205872</url>
+        <description>
+            <![CDATA[
+<p>How to verify your Kotlin project in a Kotlin way? I am talking about test coverage and about style linter. Wouldn’t it be great if we can really use Kotlin in the full spectrum and use tools that support those features?
+Of course, we would also like to check our code with a linter. In Java we have multiple ways to do that, but with the specific Kotlin format, we are in need of a new linter and formatter. Ktlint (spoken as kitty-lint, for the cat-lovers among us) is the perfect plugin to fit your needs.<p>
+<p>Most of us will know or even use test coverage engines like Jacoco or IntelliJ. An advantage of this is that it’s well known and considerably solid. The disadvantage is that it doesn’t support all Kotlin features, like a Kotlin directory structure. Because of that you have to choose to OR don’t use the Kotlin directory structure, OR pick a new test coverage engine. This is where Kover comes in.
+In this talk I will go over both plugins to see what the advantages are, how to configure them, and to determine which child-diseases are still there.<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>fr</lang>
+        <startDate>2022-04-20</startDate>
+        <endDate>2022-04-20</endDate>
+        <location>Paris, France</location>
+        <speaker>Julien Lengrand-Lambert</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Ligne de Commande, Kotlin et Star Wars : Présenter PicoCLI avec le combo gagnant</subject>
+        <url>https://cfp.devoxx.fr/2022/talk/PIH-9907/Ligne_de_Commande,_Kotlin_et_Star_Wars_:_Presenter_PicoCLI_avec_le_combo_gagnant</url>
+        <description>
+            <![CDATA[
+<p>picoCLI est une librairie qui permet de créer simplement et rapidement des applications en ligne de commandes (CLI) pour les applications basées sur la JVM<p>
+<p>Durant cette session, nous allons regarder comment créer un projet, créer une CLI légère et facile à utiliser pour notre utilisateur, et la packager proprement pour faciliter son utilisation.<p>
+<p>Cette session est séparée en trois parties : une introduction au sujet, suivi du live coding incrémental d'une application, et un tiers consacré aux bonnes pratiques pour la création d'applications en ligne de commande en Kotlin.<p>
+<p>picoCLI brille pour de multiple raisons, que nous allons voir ensemble. Documentation, compilation native via GraalVM, où encore support de Kotlin, parfait pour créer des lignes de commandes très rapides et efficaces!<p>
+<p>À la fin du talk, les participants auront une connaissance de base de la librairie et de son utilisation, et devraient avoir une idée concrète de la valeur qu'elle peut leur apporter dans leur quotidien.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
         <startDate>2022-02-28</startDate>
         <endDate>2022-02-28</endDate>
         <location>Helsinki, Finland</location>
