@@ -3,7 +3,7 @@ FROM python:3.10-slim-buster
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
-    apt install -y build-essential xorg gdebi ruby git openssl libssl-dev
+    apt install -y build-essential xorg gdebi ruby git openssl libssl1.0-dev
 
 RUN curl -L -v https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb --output ./wkhtmltox_amd64.deb  && \
     ls -la && \
