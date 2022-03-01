@@ -2,6 +2,7 @@ from subprocess import check_call
 from os import path, remove
 
 from bs4 import BeautifulSoup
+from future.moves import subprocess
 
 root_folder_path = path.dirname(path.dirname(__file__))
 pdf_folder_path = path.join(root_folder_path, 'pdf')
@@ -104,8 +105,11 @@ def generate_pdf(name, data):
 
     print(" ".join(arguments))
 
-    check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
-
+    try:
+        check_call(" ".join(arguments), shell=True, cwd=pdf_folder_path)
+    except subprocess.CalledProcessError as error:
+        print(error)
+        raise error
     # _cleanup
     #if transformed_cover_path != source_cover_path: remove(transformed_cover_path)
     #if transformed_file_path != source_file_path: remove(transformed_file_path)
