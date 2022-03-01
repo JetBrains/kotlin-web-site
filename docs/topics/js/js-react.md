@@ -178,62 +178,67 @@ However, with this markup being Kotlin, you get all the benefits of a statically
 
 Compare classic HTML code for the future website and its typesafe variant in Kotlin:
 
-<compare>
-    <code style="block"
-          lang="HTML">
-        <h1>KotlinConf Explorer</h1>
-        <div>
-            <h3>Videos to watch</h3>
-            <p>John Doe: Building and breaking things</p>
-            <p>Jane Smith: The development process</p>
-            <p>Matt Miller: The Web 7.0</p>
-            <h3>Videos watched</h3>
-            <p>Tom Jerry: Mouseless development</p>
-        </div>
-        <div>
-            <h3>John Doe: Building and breaking things</h3>
-            <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder">
-        </div>
-    </code>
-    <code style="block"
-          lang="Kotlin">
-        h1 {
-            +"KotlinConf Explorer"
-           }
-        div {
-            h3 {
-                + "Videos to watch"
-            }
-            p {
-                + "John Doe: Building and breaking things"
-            }
-            p {
-                + "Jane Smith: The development process"
-            }
-            p {
-                + "Matt Miller: The Web 7.0"
-            }
-            h3 {
-               + "Videos watched"
-            }
-            p {
-               + "Tom Jerry: Mouseless development"
-            }
-        }
-        div {
-            h3 {
-                +"John Doe: Building and breaking things"
-            }
-            img {
-               attrs {
-                   src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-               }
-            }
-        }
-    </code>
-</compare>
+<tabs>
+<tab title="HTML">
 
-Add the Kotlin code to the `render()` function call inside the `main()` function, replacing the previous `h1` tag.
+```html
+<h1>KotlinConf Explorer</h1>
+<div>
+    <h3>Videos to watch</h3>
+    <p>John Doe: Building and breaking things</p>
+    <p>Jane Smith: The development process</p>
+    <p>Matt Miller: The Web 7.0</p>
+    <h3>Videos watched</h3>
+    <p>Tom Jerry: Mouseless development</p>
+</div>
+<div>
+    <h3>John Doe: Building and breaking things</h3>
+    <img src="https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder">
+</div>
+```
+
+</tab>
+<tab>
+
+```kotlin
+h1 {
+   +"KotlinConf Explorer"
+}
+div {
+   h3 {
+       +"Videos to watch"
+   }
+   p {
+       + "John Doe: Building and breaking things"
+   }
+   p {
+       +"Jane Smith: The development process"
+   }
+   p {
+       +"Matt Miller: The Web 7.0"
+   }
+   h3 {
+       +"Videos watched"
+   }
+   p {
+       +"Tom Jerry: Mouseless development"
+   }
+}
+div {
+   h3 {
+       +"John Doe: Building and breaking things"
+   }
+   img {
+      attrs {
+          src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+      }
+   }
+}
+```
+</tab>
+</tabs>
+
+Copy the Kotlin code and update the `render()` function call inside the `main()` function, replacing the previous `h1` tag.
 
 Wait for the browser to reload. The page should now look like this:
 
