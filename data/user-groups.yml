@@ -149,7 +149,6 @@
   - name: Edinburgh Kotlin User Group
     country: Scotland
     url: https://twitter.com/edi_kug
-    position:
   - name: Estonia Kotlin User Group
     country: Estonia
     url: https://www.facebook.com/groups/estoniaKotlin/
@@ -285,7 +284,6 @@
   - name: Porto Alegre Kotlin User Group
     country: Brazil
     url:  https://www.meetup.com/Kotlin-POA/events/
-    position:
   - name: Rhein-Main Kotlin
     country: Germany
     url: https://www.meetup.com/de-DE/Kotlin-Rhein-Main/
