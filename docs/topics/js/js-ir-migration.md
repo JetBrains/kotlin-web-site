@@ -78,50 +78,6 @@ external interface CustomComponentState : State {
 }
 ```
 
-## Make boolean properties nullable in external interfaces
-
-**Issue**: JavaScript treats the `null` or undefined value of a boolean variable as `false`. So, boolean properties can be used
-in expressions without being defined. This is okay in JavaScript, but not in Kotlin.
-
-```kotlin
-external interface ComponentProps: Props {
-   var isInitialized: Boolean
-   var visible: Boolean
-}
-```
-
-```kotlin
-val props = js("{}") as ComponentProps
-props.isInitialized = true
-// visible is not initialized - OK in JS – means it's false
-```
-
-If you try to use such a property in a function overridden in Kotlin (for example, a React `button`), you'll get a `ClassCastException`:
-
-```kotlin
-button {
-   attrs {
-       autoFocus = props.visible // ClassCastException here
-   }
-}
-```
-
-**Solution**: make all `Boolean` properties of external interfaces nullable (`Boolean?`):
-
-```kotlin
-// Replace this
-external interface ComponentProps: Props {
-   var visible: Boolean
-}
-```
-
-```kotlin
-// With this
-external interface ComponentProps: Props {
-   var visible: Boolean?
-}
-```
-
 ## Convert functions with receivers in external interfaces to regular functions
 
 **Issue**: external declarations can't contain functions with receivers, such as extension functions or properties with corresponding
@@ -213,5 +169,53 @@ kotlin {
         }
         binaries.executable()
     }
+}
+```
+
+## Additional style hints recommended when working with the Kotlin/JS IR compiler
+
+These hints may help you when working with projects using the Kotlin/JS IR compiler. They're not strictly required for a migration, but may be worth keeping in mind.
+
+### Make boolean properties nullable in external interfaces
+
+**Issue**: JavaScript treats the `null` or undefined value of a boolean variable as `false`. So, Boolean properties can be used
+in expressions without being defined. If there is a chance that you receive Boolean properties that may be nullable (for example when your code is  called from JavaScript code you have no control over), you may want to avoid this behaviour in Kotlin:
+
+```kotlin
+external interface ComponentProps: Props {
+   var isInitialized: Boolean
+   var visible: Boolean
+}
+```
+
+```kotlin
+val props = js("{}") as ComponentProps
+props.isInitialized = true
+// visible is not initialized - OK in JS – means it's false
+```
+
+If you try to use such a property in a function overridden in Kotlin (for example, a React `button`), you'll get a `ClassCastException`:
+
+```kotlin
+button {
+   attrs {
+       autoFocus = props.visible // ClassCastException here
+   }
+}
+```
+
+**Solution**: you can make your `Boolean` properties of external interfaces nullable (`Boolean?`):
+
+```kotlin
+// Replace this
+external interface ComponentProps: Props {
+   var visible: Boolean
+}
+```
+
+```kotlin
+// With this
+external interface ComponentProps: Props {
+   var visible: Boolean?
 }
 ```
