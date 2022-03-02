@@ -6,7 +6,7 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen for entering a username and password.
 The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform moblie application from scratch](multiplatform-mobile-create-first-app.md) first.
+If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md) first.
 
 ## Prepare an environment for development
 
@@ -347,7 +347,7 @@ Connect your framework to the iOS project manually:
 
    ```kotlin
    ```
-   {src="snippets/android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed"}
+   {src="android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed"}
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 
