@@ -157,17 +157,18 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 
 ## Supported libraries
 
-The table below includes a list of popular libraries on Android and their various stages of support for KSP. If your library is missing, please feel free to submit a pull request.
+The table below includes a list of popular libraries on Android and their various stages of support for KSP.
 
 |Library|Status|Tracking issue for KSP|
 |---|---|---|
-|Room|[Experimentally supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|   |
+|Room|[Officially supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|   |
 |Moshi|[Officially supported](https://github.com/square/moshi/)|   |
 |RxHttp|[Officially supported](https://github.com/liujingxing/rxhttp)|   |
 |Kotshi|[Officially supported](https://github.com/ansman/kotshi)|   |
 |Lyricist|[Officially supported](https://github.com/adrielcafe/lyricist)|   |
 |Lich SavedState|[Officially supported](https://github.com/line/lich/tree/master/savedstate)|   |
 |gRPC Dekorator|[Officially supported](https://github.com/mottljan/grpc-dekorator)|   |
+|EasyAdapter|[Officially supported](https://github.com/AmrDeveloper/EasyAdapter)|   |
 |Auto Factory|Not yet supported|[Link](https://github.com/google/auto/issues/982)|
 |Dagger|Not yet supported|[Link](https://github.com/google/dagger/issues/2349)|
 |Hilt|Not yet supported|[Link](https://issuetracker.google.com/179057202)|
