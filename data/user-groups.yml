@@ -234,8 +234,8 @@
     country: United Kingdom
     url: https://www.facebook.com/kotlinmcr/
     position:
-    lat: 53.4807593
-    lng: -2.2426305
+      lat: 53.4807593
+      lng: -2.2426305
   - name: Marseille Kotlin User Group
     country: France
     url: https://www.meetup.com/Marseille-Kotlin-User-Group/
