@@ -54,26 +54,25 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
             // Mandatory properties
             // Specify the required pod version here. Otherwise, the Gradle project version is used.
             version = "1.0"
+            summary = "Some description for a Kotlin/Native module"
+            homepage = "Link to a Kotlin/Native module homepage"
    
             // Optional properties
             // Configure the pod name here instead of changing the Gradle project name
             name = "MyCocoaPod"
 
             framework {
-                // Mandatory properties
-                // Configure fields required by CocoaPods.
-                summary = "Some description for a Kotlin/Native module"
-                homepage = "Link to a Kotlin/Native module homepage"
+                // Mandatory properties              
                 // Framework name configuration. Use this property instead of deprecated 'frameworkName'
                 baseName = "MyFramework"
                 
                 // Optional properties
-                // (Optional) Dynamic framework support
+                // Dynamic framework support
                 isStatic = false
-                // (Optional) Dependency export
+                // Dependency export
                 export(project(":anotherKMMModule"))
                 transitiveExport = false // This is default.
-                // (Optional) Bitcode embedding
+                // Bitcode embedding
                 embedBitcode(BITCODE)
             }
             

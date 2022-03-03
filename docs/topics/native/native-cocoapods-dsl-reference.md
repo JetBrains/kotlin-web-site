@@ -32,6 +32,8 @@ functions and properties:
 | **Name**                              | **Description**                                                                                                                                                                                                               | 
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `version`                             | The version of the pod. If not specified, a Gradle project version is used. If none of these properties are configured, you'll get an error.                                                                                  |
+| `summary`                             | A description of the pod built from this project (mandatory).                                                                                                                                                                 |
+| `homepage`                            | A link to the homepage of the pod built from this project (mandatory).                                                                                                                                                        |
 | `authors`                             | Specifies authors of the pod built from this project.                                                                                                                                                                         |
 | `podfile`                             | Configures the existing pod file.                                                                                                                                                                                             |
 | `noPodspec()`                         | Sets up plugin not to produce a podspec file for the cocoapods section.                                                                                                                                                       |
@@ -91,8 +93,6 @@ You can configure the framework properties of the pod built from this project in
 | **Name**           | **Description**                                                                              | 
 |--------------------|----------------------------------------------------------------------------------------------|
 | `baseName`         | The framework name. Use this property instead of the deprecated `frameworkName` (mandatory). |
-| `summary`          | A description of the pod built from this project (mandatory).                                |
-| `homepage`         | A link to the homepage of the pod built from this project (mandatory).                       |
 | `isStatic`         | Enables dynamic framework support.                                                           |
 | `transitiveExport` | Enables dependency export.                                                                   |                                                      
 
@@ -100,8 +100,6 @@ You can configure the framework properties of the pod built from this project in
 kotlin {
     cocoapods {
         framework {
-            summary = "CocoaPods test library"
-            homepage = "https://github.com/JetBrains/kotlin"
             baseName = "MyFramework"
             isStatic = false
             export(project(":anotherKMMModule"))
