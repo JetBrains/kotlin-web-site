@@ -172,35 +172,22 @@ kotlin {
 }
 ```
 
-## Additional style hints recommended when working with the Kotlin/JS IR compiler
+## Additional troubleshooting tips when working with the Kotlin/JS IR compiler
 
-These hints may help you when working with projects using the Kotlin/JS IR compiler. They're not strictly required for a migration, but may be worth keeping in mind.
+These hints may help you when troubleshooting problems in your projects using the Kotlin/JS IR compiler.
 
 ### Make boolean properties nullable in external interfaces
 
-**Issue**: JavaScript treats the `null` or undefined value of a boolean variable as `false`. So, Boolean properties can be used
-in expressions without being defined. If there is a chance that you receive Boolean properties that may be nullable (for example when your code is  called from JavaScript code you have no control over), you may want to avoid this behaviour in Kotlin:
+**Issue**: when you call `toString` on a `Boolean` from an external interface, you're getting an error like `Uncaught TypeError: Cannot read properties of undefined (reading 'toString')`. JavaScript treats the `null` or `undefined` values of a boolean variable as `false`. If you rely on calling `toString` on a `Boolean` that may be `null` or `undefined` (for example when your code is called from JavaScript code you have no control over), be aware of this:
 
 ```kotlin
-external interface ComponentProps: Props {
-   var isInitialized: Boolean
-   var visible: Boolean
+external interface SomeExternal {
+    var visible: Boolean
 }
-```
 
-```kotlin
-val props = js("{}") as ComponentProps
-props.isInitialized = true
-// visible is not initialized - OK in JS – means it's false
-```
-
-If you try to use such a property in a function overridden in Kotlin (for example, a React `button`), you'll get a `ClassCastException`:
-
-```kotlin
-button {
-   attrs {
-       autoFocus = props.visible // ClassCastException here
-   }
+fun main() {
+    val empty = js("{}") as SomeExternal
+    println(empty.visible.toString()) // Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
 }
 ```
 
@@ -208,14 +195,14 @@ button {
 
 ```kotlin
 // Replace this
-external interface ComponentProps: Props {
-   var visible: Boolean
+external interface SomeExternal {
+    var visible: Boolean
 }
 ```
 
 ```kotlin
 // With this
-external interface ComponentProps: Props {
-   var visible: Boolean?
+external interface SomeExternal {
+    var visible: Boolean?
 }
 ```
