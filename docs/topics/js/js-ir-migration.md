@@ -186,7 +186,7 @@ external interface SomeExternal {
 }
 
 fun main() {
-    val empty: SomeExternal = js("{}") as SomeExternal
+    val empty: SomeExternal = js("{}")
     println(empty.visible.toString()) // Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
 }
 ```
