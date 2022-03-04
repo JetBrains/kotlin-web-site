@@ -36,13 +36,8 @@ code could be shared between them.
 Evidently, in this setup it would be desirable to have a shared source set for two iOS targets, with Kotlin/Native code 
 that could still directly call any of the APIs that are common to both the iOS device and the simulator.
 
-In this case, you can share code across native targets in your project using the hierarchical structure.
-
-To enable the hierarchy structure support, add the following option to your `gradle.properties`.
-
-```kotlin
-kotlin.mpp.enableGranularSourceSetsMetadata=true
-```
+In this case, you can share code across native targets in your project using the hierarchical structure. Since Kotlin 1.6.20,
+it's enabled by default.
 
 There are two ways you can create the hierarchical structure:
 
@@ -50,19 +45,6 @@ There are two ways you can create the hierarchical structure:
 * [Configure the hierarchical structure manually](#configure-the-hierarchical-structure-manually).
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [using Native libraries in the hierarchical structure](#use-native-libraries-in-the-hierarchical-structure).
-
-> Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as code completion and highlighting, for the shared native source set 
-> in a multiplatform project with hierarchical structure support if your project depends on:
-> 
-> * Multiplatform libraries that don't support the hierarchical structure.
-> * Third-party native libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the box.
->
-> This issue applies only to the shared native source set. The IDE will correctly support the rest of the code.
->
-> Learn how to [work around this issue](multiplatform-mobile-ios-dependencies.md#workaround-to-enable-ide-support-for-the-shared-ios-source-set)
-> for similar source sets, such as `iosArm64` and `iosX64`.
->
-{type="note"}
 
 ### Use target shortcuts
 
@@ -94,6 +76,7 @@ kotlin {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 }
@@ -109,6 +92,7 @@ kotlin {
             dependsOn(commonMain)
             iosX64Main.dependsOn(it)
             iosArm64Main.dependsOn(it)
+            iosSimulatorArm64Main.dependsOn(it)
         }
     }
 }
@@ -116,61 +100,6 @@ kotlin {
 
 </tab>
 </tabs>
-
-#### Target shortcuts and ARM64 (Apple Silicon) simulators
-
-The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
-`iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to build 
-the project for an Apple Silicon simulator, adjust the build script the following way:
-
-1. Add the `*SimulatorArm64` simulator target you need.
-2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    ios()
-    // Add the ARM64 simulator target
-    iosSimulatorArm64()
-    
-    val iosMain by sourceSets.getting
-    val iosTest by sourceSets.getting
-    val iosSimulatorArm64Main by sourceSets.getting
-    val iosSimulatorArm64Test by sourceSets.getting
-
-    // Set up dependencies between the source sets
-    iosSimulatorArm64Main.dependsOn(iosMain)
-    iosSimulatorArm64Test.dependsOn(iosTest)
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    ios()
-    // Add the ARM64 simulator target
-    iosSimulatorArm64()
-
-    // Set up dependencies between the source sets
-    sourceSets {
-        // ...
-        iosSimulatorArm64Main {
-            dependsOn(iosMain)
-        }
-        iosSimulatorArm64Test {
-            dependsOn(iosTest)
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
  
 ### Configure the hierarchical structure manually
 
@@ -271,15 +200,8 @@ it and call `runBlocking` from a source set that is shared between the JVM and n
 You can use platform-dependent libraries like Foundation, UIKit, and POSIX in source sets shared among several native 
 targets. This helps you share more native code without being limited by platform-specific dependencies. 
 
-No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
-that you can use in the shared code.
-
-To enable usage of platform-dependent libraries in shared source sets, add the following to your `gradle.properties`:
-
-```properties
-kotlin.mpp.enableGranularSourceSetsMetadata=true
-kotlin.native.enableDependencyPropagation=false
-```
+The usage of platform-dependent libraries is available in shared source sets by default. No additional steps are required
+– IntelliJ IDEA will help you detect common declarations that you can use in the shared code.
 
 In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 

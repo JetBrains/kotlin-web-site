@@ -1524,4 +1524,4 @@ bring incompatible changes to the language. Find the detailed list of such chang
 <!-- ### Migrating multiplatform projects
 
 To help you start using the new features of [Kotlin multiplatform](#kotlin-multiplatform) in existing projects, we
-publish the TODO: [migration guide for multiplatform projects](migrating-multiplatform-project-to-14.md). -->
+publish the TODO: [migration guide for multiplatform projects](multiplatform-hierarchy.md). -->
