@@ -13,12 +13,12 @@ declarations](multiplatform-connect-to-apis.md).
 
 ## Share code on all platforms
 
-If you have business logic that is common for all platforms, you don’t need to write the same code for each platform – 
+If you have business logic that is common for all platforms, you don't need to write the same code for each platform – 
 just share it in the common source set.
 
 ![Code shared for all platforms](flat-structure.png)
 
-All platform-specific source sets depend on the common source set by default. You don’t need to specify any `dependsOn` 
+All platform-specific source sets depend on the common source set by default. You don't need to specify any `dependsOn` 
 relations manually for default source sets, such as `jvmMain`, `macosX64Main`, and others. 
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
@@ -37,7 +37,7 @@ Evidently, in this setup it would be desirable to have a shared source set for t
 that could still directly call any of the APIs that are common to both the iOS device and the simulator.
 
 In this case, you can share code across native targets in your project using the hierarchical structure. Since Kotlin 1.6.20,
-it's enabled by default.
+it's enabled by default. See [Hierarchical project structure](multiplatform-hierarchy.md) for more details.
 
 There are two ways you can create the hierarchical structure:
 
@@ -197,11 +197,12 @@ it and call `runBlocking` from a source set that is shared between the JVM and n
 
 ### Use native libraries in the hierarchical structure
 
-You can use platform-dependent libraries like Foundation, UIKit, and POSIX in source sets shared among several native 
+You can use platform-dependent libraries like `Foundation`, `UIKit`, and `posix` in source sets shared among several native 
 targets. This helps you share more native code without being limited by platform-specific dependencies. 
 
-The usage of platform-dependent libraries is available in shared source sets by default. No additional steps are required
-– IntelliJ IDEA will help you detect common declarations that you can use in the shared code.
+Since Kotlin 1.6.20, the usage of platform-dependent libraries is available in shared source sets by default. No additional
+steps are required – IntelliJ IDEA will help you detect common declarations that you can use in the shared code.
+See [Hierarchical project structure](multiplatform-hierarchy.md) for more details.
 
 In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
