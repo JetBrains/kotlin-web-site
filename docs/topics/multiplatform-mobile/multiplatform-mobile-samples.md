@@ -240,7 +240,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>✅</td>
       <td>
-		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
+		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (SwiftUI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
 		</td>
 </tr>
 <tr>
@@ -308,7 +308,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>-</td>
       <td>-</td>
-      <td><ul><li>Uses Decompose to decouple business logic from the UI and recreates the <a href="https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample">advanced navigation example</a> with Jetpack Compose and Swift UI with a properly working backstack.</li></ul></td>
+      <td><ul><li>Uses Decompose to decouple business logic from the UI and recreates the <a href="https://github.com/android/architecture-components-samples/tree/master/NavigationAdvancedSample">advanced navigation example</a> with Jetpack Compose and SwiftUI with a properly working backstack.</li></ul></td>
 </tr>
 <tr>
       <td>
@@ -321,6 +321,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>-</td>
       <td>-</td>
-      <td><ul><li>Uses Decompose, MVIKotlin and ktor to decouple business logic from the UI and also uses the MVI architecture to update the UI state rendered via Jetpack Compose or Swift UI.</li></ul></td>
+      <td><ul><li>Uses Decompose, MVIKotlin and Ktor to decouple business logic from the UI and also uses the MVI architecture to update the UI state rendered via Jetpack Compose or SwiftUI.</li></ul></td>
 </tr>
 </table>
