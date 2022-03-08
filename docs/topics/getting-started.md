@@ -102,7 +102,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
    * Look through [samples on GitHub](multiplatform-mobile-samples.md).
    * [Create and publish a multiplatform library](multiplatform-create-lib.md).
-   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VWWare](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
+   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
 
 5. **Join the Kotlin Multiplatform community:**
 
