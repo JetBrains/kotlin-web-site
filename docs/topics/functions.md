@@ -16,10 +16,10 @@ Functions are called using the standard approach:
 val result = double(2)
 ```
 
-Calling member functions uses dot notation:
+Calling member functions by using dot notation:
 
 ```kotlin
-Stream().read() // create instance of class Stream and call read()
+Stream().read() // create instance of class Stream then call read()
 ```
 
 ### Parameters
