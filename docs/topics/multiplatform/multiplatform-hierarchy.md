@@ -94,7 +94,7 @@ The compatibility between multiplatform projects and libraries is as follows:
 
 ## How to opt-out
 
-To disable hierarchical structure support, set the following option to `false` in gradle.properties:
+To disable hierarchical structure support, set the following option to `false` in your `gradle.properties`:
 
 ```properties
 kotlin.mpp.hierarchicalStructureSupport=false

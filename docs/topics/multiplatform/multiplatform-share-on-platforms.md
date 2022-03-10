@@ -2,9 +2,9 @@
 
 With Kotlin Multiplatform, you can share the code using the mechanisms Kotlin provides: 
  
-*   [Share code among all platforms used in your project](#share-code-on-all-platforms). Use it for sharing the common 
+* [Share code among all platforms used in your project](#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms.     
-*   [Share code among some platforms](#share-code-on-similar-platforms) included in your project but not all. You can 
+* [Share code among some platforms](#share-code-on-similar-platforms) included in your project but not all. You can 
 reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](#use-target-shortcuts) 
 for common combinations of targets or [create the hierarchical structure manually](#configure-the-hierarchical-structure-manually).
  
