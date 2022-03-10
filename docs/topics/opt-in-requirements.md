@@ -301,7 +301,7 @@ steps may be required in the future. We'll do our best to minimize any changes y
 To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their pre-stable status,
 the compiler raises warnings when compiling the code with these annotations:
 
-```This class can only be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
+```This annotation should be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
 
 To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
 
