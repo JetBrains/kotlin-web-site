@@ -1,6 +1,97 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>pl</lang>
+        <startDate>2022-03-24</startDate>
+        <endDate>2022-03-24</endDate>
+        <location>Warsaw, Poland</location>
+        <speaker>Marcin Moskała</speaker>
+        <title>Learn programming with Kt. Academy</title>
+        <subject>Kotlin Coroutines open online workshop</subject>
+        <url>https://www.meetup.com/learn-programming-with-Kt-Academy/events/284403071</url>
+        <description>
+            <![CDATA[
+<p>This is a 2-day workshop for experienced developers that covers asynchronous programming in Kotlin using coroutines. It covers both build-in support for coroutines and dives deep into kotlinx.coroutines library.<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-17</startDate>
+        <endDate>2022-03-17</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Simone de Gijt</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Plugin and play</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/284205872</url>
+        <description>
+            <![CDATA[
+<p>How to verify your Kotlin project in a Kotlin way? I am talking about test coverage and about style linter. Wouldn’t it be great if we can really use Kotlin in the full spectrum and use tools that support those features?<p>
+<p>Of course, we would also like to check our code with a linter. In Java we have multiple ways to do that, but with the specific Kotlin format, we are in need of a new linter and formatter. Ktlint (spoken as kitty-lint, for the cat-lovers among us) is the perfect plugin to fit your needs.<p>
+<p>Most of us will know or even use test coverage engines like Jacoco or IntelliJ. An advantage of this is that it’s well known and considerably solid. The disadvantage is that it doesn’t support all Kotlin features, like a Kotlin directory structure. Because of that you have to choose to OR don’t use the Kotlin directory structure, OR pick a new test coverage engine. This is where Kover comes in.<p>
+<pIn this talk I will go over both plugins to see what the advantages are, how to configure them, and to determine which child-diseases are still there.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-07</startDate>
+        <endDate>2022-04-07</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Building web applications with Ktor and Exposed</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/284460004</url>
+        <description>
+            <![CDATA[
+<p>Ktor is a lightweight framework for building asynchronous server and client applications. Exposed is a database access library that is often used with Ktor. In this session, you will learn how to bootstrap a project with Ktor, build interaction between server and client via WebSockets and add database support with Exposed library and run some integration tests too!<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-15</startDate>
+        <endDate>2022-03-15</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Func Prog Sweden</title>
+        <subject>Abstract for Android Architecture Design with Koin</subject>
+        <url>https://www.meetup.com/Func-Prog-Sweden/events/283678183</url>
+        <description>
+            <![CDATA[
+<p>Abstract for Android Architecture Design with Koin
+Koin (https://insert-koin.io) is a pragmatic dependency injection framework for Kotlin/Android developers, well known for its ease of use. In this session, I propose to see together how we can structure our components, for the following topics:<p>
+<p>Classical Components in MVP, MVVM
+Dealing with Scopes
+Jetpack Navigation
+Jetpack Compose
+Integrating with Multi-Platform<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-05-10</startDate>
+        <endDate>2022-05-10</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Stockholm JVM JUG</title>
+        <subject>Web applications development with Kotlin</subject>
+        <url>https://www.meetup.com/stockholm-jvm-jug/events/284463090</url>
+        <description>
+            <![CDATA[
+<p>Kotlin was originally designed as an alternative JVM language. Meaning that Kotlin can be used anywhere JVM runs and of course, we can use it with various JVM frameworks to build web applications. In this presentation, Anton is going to make a brief overview of the Kotlin programming language with the assumption that you're fluent in Java. We will take a look at some of the language features that make Kotlin so exciting and see how it can be applied with the Spring Boot framework.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2022-03-17</startDate>
         <endDate>2022-03-17</endDate>
