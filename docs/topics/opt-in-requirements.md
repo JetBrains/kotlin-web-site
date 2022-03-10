@@ -1,14 +1,11 @@
 [//]: # (title: Opt-in requirements)
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [Experimental](components-stability.md). 
-> They may be dropped or changed at any time. Opt-in is required (see details below).
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [Experimental](components-stability.md).
+> They may be dropped or changed at any time. Opt-in is required. See the details in the 
+> [Experimental status of the opt-in requirements](#experimental-status-of-the-opt-in-requirements) section.
 > Use them only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
+> 
 {type="warning"}
-
-> The `-opt-in` compiler option is available since Kotlin 1.6.0. For earlier Kotlin versions, use `-Xopt-in`.
->
-{type="note"} 
 
 The Kotlin standard library provides a mechanism for requiring and giving explicit consent for using certain elements of APIs.
 This mechanism lets library developers inform users of their APIs about specific conditions that require opt-in,
