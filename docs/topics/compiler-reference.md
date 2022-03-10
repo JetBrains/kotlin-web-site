@@ -125,6 +125,10 @@ If the files reside in locations different from the current directory, use relat
 $ kotlinc @options/compiler.options hello.kt
 ```
 
+### -opt-in _marker_
+
+Enable usages of API that requires opt-in with a requirement marker with the given fully qualified name.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
@@ -215,10 +219,6 @@ see [this](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) art
 ### -no-stdlib (JS)
 
 Don't automatically include the default Kotlin/JS stdlib into the compilation dependencies.
-
-### -opt-in _marker_
-
-Enable usages of API that requires opt-in with an opt-in requirement marker with the given fully qualified name.
 
 ### -output _filepath_
 
