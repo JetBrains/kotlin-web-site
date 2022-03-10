@@ -127,7 +127,8 @@ $ kotlinc @options/compiler.options hello.kt
 
 ### -opt-in _annotation_
 
-Enable usages of API that requires opt-in with a requirement annotation with the given fully qualified name.
+Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
+fully qualified name.
 
 ## Kotlin/JVM compiler options
 
