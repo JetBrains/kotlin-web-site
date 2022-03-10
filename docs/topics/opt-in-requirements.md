@@ -1,9 +1,8 @@
 [//]: # (title: Opt-in requirements)
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [Experimental](components-stability.md).
-> They may be dropped or changed at any time. Opt-in is required. See the details in the 
-> [Experimental status of the opt-in requirements](#experimental-status-of-the-opt-in-requirements) section.
-> Use them only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are in [Beta](components-stability.md).
+> We are working on stabilization. Opt-in is required. See the details in the 
+> [Pre-stable status of the opt-in requirements](#pre-stable-status-of-the-opt-in-requirements) section.
 > 
 {type="warning"}
 
@@ -294,16 +293,16 @@ and provide the explanation in the deprecation message.
 annotation class ExperimentalDateTime
 ```
 
-## Experimental status of the opt-in requirements
+## Pre-stable status of the opt-in requirements
 
-The opt-in requirement mechanism is currently [experimental](components-stability.md).
-This means that in future releases it may be changed in ways that make it incompatible.
+The opt-in requirement mechanism is currently in [Beta](components-stability.md). They are almost stable, but migration 
+steps may be required in the future. We'll do our best to minimize any changes you have to make.
 
-To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
+To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their pre-stable status,
 the compiler raises warnings when compiling the code with these annotations:
 
 ```This class can only be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
 
 To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
 
-Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/d7287626dd4c40c6c89877e266044b83fca38bcd/proposals/opt-in.md).
+Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/e3e9e3c227d78957184aed7585daff2d330543cc/proposals/opt-in.md).
