@@ -51,6 +51,19 @@
   align-self: center;
 }
 
+.kotlin-why-section__button-text-xs {
+  display: none;
+}
+
+@media (min-width: $breakpoint-xs) {
+  .kotlin-why-section__button-text-xxs {
+    display: none;
+  }
+
+  .kotlin-why-section__button-text-xs {
+    display: inline;
+  }
+}
 @media (min-width: $breakpoint-m) {
   .kotlin-why-section__section {
     display: grid;
