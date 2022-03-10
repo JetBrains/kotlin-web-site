@@ -1,8 +1,8 @@
 [//]: # (title: Opt-in requirements)
 
 > The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are in [Beta](components-stability.md).
-> We are working on stabilization. Opt-in is required. See the details in the 
-> [Pre-stable status of the opt-in requirements](#pre-stable-status-of-the-opt-in-requirements) section.
+> It is almost stable, but migration steps may be required in the future. We'll do our best to minimize any changes you 
+> have to make. See the details in the [Beta status of the opt-in requirements](#beta-status-of-the-opt-in-requirements) section.
 > 
 {type="warning"}
 
@@ -293,7 +293,7 @@ and provide the explanation in the deprecation message.
 annotation class ExperimentalDateTime
 ```
 
-## Pre-stable status of the opt-in requirements
+## Beta status of the opt-in requirements
 
 The opt-in requirement mechanism is currently in [Beta](components-stability.md). They are almost stable, but migration 
 steps may be required in the future. We'll do our best to minimize any changes you have to make.
