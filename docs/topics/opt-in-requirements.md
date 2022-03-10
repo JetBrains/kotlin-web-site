@@ -305,4 +305,4 @@ the compiler raises warnings when compiling the code with these annotations:
 
 To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
 
-Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/e3e9e3c227d78957184aed7585daff2d330543cc/proposals/opt-in.md).
+Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/opt-in.md).
