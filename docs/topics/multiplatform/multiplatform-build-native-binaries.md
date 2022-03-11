@@ -30,11 +30,11 @@ two build types are available:
 * `DEBUG`  – produces a non-optimized binary with debug information 
 * `RELEASE`  – produces an optimized binary without debug information
 
-The following snippet creates two executable binaries: debug and release.
+The following snippet creates two executable binaries, debug and release:
 
 ```kotlin
 kotlin {
-    linuxX64 { // Use your target instead.
+    linuxX64 { // Define your target instead.
         binaries {
             executable {
                 // Binary configuration.
@@ -52,7 +52,7 @@ binaries {
 }
 ```
 
-You can specify for which build types to create binaries. In the following example, only the `debug` executable is created.
+You can specify for which build types to create binaries. In the following example, only the `debug` executable is created:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -79,7 +79,7 @@ binaries {
 </tab>
 </tabs>
 
-You can also declare binaries with custom names.
+You can also declare binaries with custom names:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -90,7 +90,8 @@ binaries {
         // Binary configuration.
     }
 
-    // It's possible to drop the list of build types (in which case, all the available build types will be used).
+    // It's possible to drop the list of build types
+    // (in this case, all the available build types will be used).
     executable("bar") {
         // Binary configuration.
     }
@@ -106,7 +107,8 @@ binaries {
         // Binary configuration.
     }
 
-    // It's possible to drop the list of build types (in which case, all the available build types will be used).
+    // It's possible to drop the list of build types
+    // (in this case, all the available build types will be used).
     executable('bar') {
         // Binary configuration.
     }
@@ -265,20 +267,19 @@ kotlin {
 </tab>
 </tabs>
 
-For example, assume that you write several modules in Kotlin and then want to access them from Swift. Since usage of
-several Kotlin/Native frameworks in one Swift application is limited, you can create a single umbrella framework and
+For example, you implement several modules in Kotlin and want to access them from Swift. Usage of
+several Kotlin/Native frameworks in a Swift application is limited, but you can create an umbrella framework and
 export all these modules to it.
 
 > You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.  
 >
 {type="note"}
 
-> Exporting a dependency includes all of its API to the framework API, which, in turn, typically makes the compiler
-> to add all the code from this dependency to the framework, even if you actually use a small fraction of it.
-> So this effectively disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
+> When you export a dependency, it includes all of its API to the framework API.
+> The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
+> This disables dead code elimination for the exported dependency and for its dependencies.
 >
 {type="note"}
-
 
 By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
 only methods of `foo` are added to the output framework.
