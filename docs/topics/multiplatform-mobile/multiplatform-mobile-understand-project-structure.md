@@ -353,11 +353,11 @@ kotlin {
 </tab>
 </tabs>
 
-Additionally, there is a Gradle task `embedAndSignAppleFrameworkForXcode` that exposes the framework to the Xcode project
-from which the iOS application is built. It uses the configuration of the iOS application project to define the build
+Additionally, there is a Gradle task `embedAndSignAppleFrameworkForXcode`, that exposes the framework to the Xcode project
+the iOS application is built from. It uses the iOS application's project configuration to define the build
 mode (`debug` or `release`) and provide the appropriate framework version to the specified location.
 
-The task is built-in in the multiplatform plugin. It executes upon each build of the Xcode project to provide the latest
+The task is built into the multiplatform plugin. It executes upon each build of the Xcode project to provide the latest
 version of the framework for the iOS application. For details, see [iOS application](#ios-application).
 
 > Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
@@ -505,19 +505,20 @@ To learn more, see the [Android developer documentation](https://developer.andro
 
 ## iOS application
 
-The iOS application is produced from an Xcode project generated automatically by the Project Wizard.
-It resides in a separate directory within the root project. 
+The iOS application is produced from an Xcode project generated automatically by the New Project wizard.
+It resides in a separate directory within the root project.
 
 ![Basic Kotlin Multiplatform Xcode project](basic-xcode-project.png){width=400}
 
 For each build of the iOS application, the project obtains the latest version of the framework. To do this, it uses a
 **Run Script** build phase that executes the `embedAndSignAppleFrameworkForXcode` Gradle task from the shared module.
-This task generates the `.framework` with the needed configuration, depending on the Xcode environment settings, and puts
+This task generates the `.framework` with the required configuration, depending on the Xcode environment settings, and puts
 the artifact into the `DerivedData` Xcode directory.
 
-* If you have a custom name for the Apple framework, use the `embedAndSign<Custom-name>AppleFrameworkForXcode` name for this Gradle task.
-* If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings** tab,
-add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
+* If you have a custom name for the Apple framework, use `embedAndSign<Custom-name>AppleFrameworkForXcode` as the name for
+this Gradle task.
+* If you have a custom build configuration that is different from the default `Debug` or `Release`, on the **Build Settings**
+tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
 
 > Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
 >
