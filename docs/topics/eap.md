@@ -42,7 +42,7 @@ check [our instructions on how to configure your build to support this version](
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-RC2">changelog</a>.</p>
         </td>
         <td>
-            <p>Same as for Kotlin 1.6.20-M1, see two rows below.</p>
+            <p>Same as for Kotlin 1.6.20-M1, see below.</p>
         </td>
     </tr>
     <tr>
