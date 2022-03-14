@@ -224,18 +224,8 @@ In this talk I will go over both plugins to see what the advantages are, how to 
 <p>In this talk, Mohit Sarveiya will share how to use Square's Molecule library in a multiplatform Compose project. For the past months, he's been working on a complex side project that runs a simulation. He'll share different patterns he explored using Square's Molecule library to manage state. He'll share how to setup the architecture as described in the Square's Molecule library. At the end of the talk, he'll do a live demo of the Compose app and show the architecture of the app.<p>
 ]]>
          </description>
-     </event>
-
-     <event>
-        <lang>en</lang>
-        <startDate>2022-03-16</startDate>
-        <endDate>2022-03-16</endDate>
-        <online>true</online>
-        <speaker>Anna Zharkova</speaker>
-        <title>Mobile Z-Day</title>
-        <subject>KSP vs Kotlin plugins. Optimizing Kotlin Multiplatform commomn code.</subject>
-        <url>https://community-z.com/events/mobile-z-days</url>
     </event>
+
 
     <event>
         <lang>en</lang>
