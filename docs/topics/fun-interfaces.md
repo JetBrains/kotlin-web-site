@@ -76,3 +76,42 @@ Functional interfaces are more flexible and provide more capabilities than type 
 When you choose which one to use in your code, consider your needs:
 * If your API needs to accept a function (any function) with some specific parameter and return types – use a simple functional type or define a type alias to give a shorter name to the corresponding functional type.
 * If your API accepts a more complex entity than a function – for example, it has non-trivial contracts and/or operations on it that can't be expressed in a functional type's signature – declare a separate functional interface for it.
+
+## Migration from interface with constructor function to functional interface
+
+> Support for callable references to functional interface constructors is [Experimental](components-stability.md).
+> It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47939).
+>
+{type="warning"}
+
+Starting from Kotlin 1.6.20, there is a support for callable references to functional interface constructors. 
+This support adds a source-compatible way to migrate from an interface with a constructor function to a functional interface. 
+Consider this "legacy" code:
+
+```kotlin
+interface A { 
+    fun foo() 
+}
+
+fun A(block: () -> Unit): A = object : A { override fun foo() = block() }
+```
+
+If you want to migrate this code to the functional interface `A`, use the following code:
+
+```kotlin
+fun interface A { 
+    fun foo()
+}
+```
+
+With callable references to functional interface constructors enabled, any code using the `::A` function reference will compile. 
+You can preserve the binary compatibility by marking the legacy function `A` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/) 
+annotation with `DeprecationLevel.HIDDEN`:
+
+```kotlin
+@Deprecated(message = "Your message about the depreciation", level = DeprecationLevel.HIDDEN)
+fun A(...) {...}
+```
+
+Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
