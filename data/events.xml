@@ -96,16 +96,14 @@ Integrating with Multi-Platform<p>
         <startDate>2022-03-17</startDate>
         <endDate>2022-03-17</endDate>
         <location>Vienna, Austria</location>
-        <speaker>Simone de Gijt</speaker>
+        <speaker>Jan Ouwens</speaker>
         <title>OpenValue Vienna - Better Software, Faster</title>
-        <subject>Plugin and play for Kotlin &amp; Just enough Computer Science for devs</subject>
+        <subject>Just enough computer science for the busy developer</subject>
         <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/284205872</url>
         <description>
             <![CDATA[
-<p>How to verify your Kotlin project in a Kotlin way? I am talking about test coverage and about style linter. Wouldn’t it be great if we can really use Kotlin in the full spectrum and use tools that support those features?
-Of course, we would also like to check our code with a linter. In Java we have multiple ways to do that, but with the specific Kotlin format, we are in need of a new linter and formatter. Ktlint (spoken as kitty-lint, for the cat-lovers among us) is the perfect plugin to fit your needs.<p>
-<p>Most of us will know or even use test coverage engines like Jacoco or IntelliJ. An advantage of this is that it’s well known and considerably solid. The disadvantage is that it doesn’t support all Kotlin features, like a Kotlin directory structure. Because of that you have to choose to OR don’t use the Kotlin directory structure, OR pick a new test coverage engine. This is where Kover comes in.
-In this talk I will go over both plugins to see what the advantages are, how to configure them, and to determine which child-diseases are still there.<p>
+<p>A CS degree is not a requirement for software developer roles. Nor should it be! I have worked with biologists, psychologists, and even a historian, who all were excellent coders. And that's great! Diversity of thought leads to better software, after all. Still, there are some super useful CS fundamentals that will make you a better programmer, but that you may not pick up on the job.<p>
+<p>This talk gives an overview of some of these fundamentals, such as De Morgan's Laws, the Big O notation, and how algorithm complexity informs whether you should use an ArrayList or something else. It also introduces you to the remarkable people who came up with these things. They ended wars, sent rockets to the moon, and were made into Lego minifigs. Who said computer science is boring?<p>
 ]]>
          </description>
    </event>
