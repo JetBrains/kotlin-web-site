@@ -469,15 +469,16 @@ When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle t
 * `assembleReleaseXCFramework`
 
 If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
-CocoaPods Gradle plugin. It has the following tasks that build XCFrameworks with all registered targets and generate the podspec file:
-* `podPublishReleaseXCFramework` – generates a release XCFramework along with a podspec file
-* `podPublishDebugXCFramework` – generates a debug XCFramework along with a podspec file
-* `podPublishXCFramework` – generates both debug and release XCFrameworks along with a podspec file
+CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
+generate podspec files:
+* `podPublishReleaseXCFramework`, which generates a release XCFramework along with a podspec file.
+* `podPublishDebugXCFramework`, which generates a debug XCFramework along with a podspec file.
+* `podPublishXCFramework`, which generates both debug and release XCFrameworks along with a podspec file.
 
-This can help you distribute shared parts separately from mobile apps through CocoaPods. You can further use XCFrameworks
+This can help you distribute shared parts of your project separately from mobile apps through CocoaPods. You can also use XCFrameworks
 for publishing to private or public podspec repositories.
 
-> Publishing Kotlin frameworks to public repositories is not recommended if the frameworks are built for different versions
-> of Kotlin. It might lead to conflicts in the end-users projects.
+> Publishing Kotlin frameworks to public repositories is not recommended if those frameworks are built for different versions
+> of Kotlin. Doing so might lead to conflicts in the end-users' projects.
 >
 {type="warning"}
