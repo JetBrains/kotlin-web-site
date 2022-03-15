@@ -245,6 +245,14 @@ kotlin {
 </tab>
 </tabs>
 
+> When using a multiplatform library that does not have [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms)
+> in a multiplatform project that does, you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set.
+>
+> This is a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), and we are working on resolving it. In the meantime,
+> you can use [this workaround](multiplatform-mobile-ios-dependencies.md#workaround-to-enable-ide-support-for-the-shared-ios-source-set).
+>
+{type="note"}
+
 ## Dependency on another multiplatform project
 
 You can connect one multiplatform project to another as a dependency. To do this, simply add a project dependency to the

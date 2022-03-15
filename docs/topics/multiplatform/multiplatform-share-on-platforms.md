@@ -46,6 +46,19 @@ There are two ways you can create the hierarchical structure:
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [using Native libraries in the hierarchical structure](#use-native-libraries-in-the-hierarchical-structure).
 
+> Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as code completion and highlighting, for the shared native source set
+> in a multiplatform project with hierarchical structure support if your project depends on:
+>
+> * Multiplatform libraries that don't support the hierarchical structure.
+> * Third-party native libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the box.
+>
+> This issue applies only to the shared native source set. The IDE will correctly support the rest of the code.
+>
+> Learn how to [work around this issue](multiplatform-mobile-ios-dependencies.md#workaround-to-enable-ide-support-for-the-shared-ios-source-set)
+> for similar source sets, such as `iosArm64` and `iosX64`.
+>
+{type="note"}
+
 ### Use target shortcuts
 
 In a typical multiplatform project with two iOS-related targets – `iosArm64` and `iosX64`, the hierarchical structure 
@@ -55,11 +68,11 @@ includes an intermediate source set (`iosMain`), which is used by the platform-s
 
 The `kotlin-multiplatform` plugin provides target shortcuts for creating structures for common combinations of targets.
 
-| Target shortcut | Targets |
-|-----------------| -------- |
-| `ios` | `iosArm64`, `iosX64` |
-| `watchos` | `watchosArm32`, `watchosArm64`, `watchosX64` |
-| `tvos` | `tvosArm64`, `tvosX64` |
+| Target shortcut | Targets                                      |
+|-----------------|----------------------------------------------|
+| `ios`           | `iosArm64`, `iosX64`                         |
+| `watchos`       | `watchosArm32`, `watchosArm64`, `watchosX64` |
+| `tvos`          | `tvosArm64`, `tvosX64`                       |
 
 All shortcuts create similar hierarchical structures in the code. For example, the `ios` shortcut creates the following hierarchical structure:
 
@@ -76,7 +89,6 @@ kotlin {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
         }
     }
 }
@@ -92,7 +104,6 @@ kotlin {
             dependsOn(commonMain)
             iosX64Main.dependsOn(it)
             iosArm64Main.dependsOn(it)
-            iosSimulatorArm64Main.dependsOn(it)
         }
     }
 }
@@ -100,7 +111,59 @@ kotlin {
 
 </tab>
 </tabs>
- 
+
+#### Target shortcuts and ARM64 (Apple Silicon) simulators
+
+The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon) platforms:
+`iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to build
+the project for an Apple Silicon simulator, adjust the build script the following way:
+
+1. Add the `*SimulatorArm64` simulator target you need.
+2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+    
+    val iosMain by sourceSets.getting
+    val iosTest by sourceSets.getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+    // Set up dependencies between the source sets
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+    // Set up dependencies between the source sets
+    sourceSets {
+        // ...
+        iosSimulatorArm64Main {
+            dependsOn(iosMain)
+        }
+        iosSimulatorArm64Test {
+            dependsOn(iosTest)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
 ### Configure the hierarchical structure manually
 
 To create the hierarchical structure manually, introduce an intermediate source set that holds the shared code for several 
@@ -169,7 +232,7 @@ You can have a shared source set for the following combinations of targets:
 * JVM + JS
 * Native
 
-Kotlin doesn’t currently support sharing a source set for these combinations: 
+Kotlin doesn't currently support sharing a source set for these combinations: 
 
 * Several JVM targets
 * JVM + Android targets
