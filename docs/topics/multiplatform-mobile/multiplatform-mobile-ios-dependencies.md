@@ -299,6 +299,7 @@ val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         ::iosArm64
     else
         ::iosX64
+
 iosTarget("ios")
 ```
 

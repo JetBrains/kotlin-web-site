@@ -134,6 +134,7 @@ kotlin {
     val iosTest by sourceSets.getting
     val iosSimulatorArm64Main by sourceSets.getting
     val iosSimulatorArm64Test by sourceSets.getting
+    
     // Set up dependencies between the source sets
     iosSimulatorArm64Main.dependsOn(iosMain)
     iosSimulatorArm64Test.dependsOn(iosTest)
@@ -148,6 +149,7 @@ kotlin {
     ios()
     // Add the ARM64 simulator target
     iosSimulatorArm64()
+    
     // Set up dependencies between the source sets
     sourceSets {
         // ...
