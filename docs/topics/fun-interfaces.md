@@ -63,20 +63,6 @@ fun main() {
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
-## Functional interfaces vs. type aliases
-
-Functional interfaces and [type aliases](type-aliases.md) serve different purposes.
-Type aliases are just names for existing types – they don't create a new type, while functional interfaces do.
-You can provide extensions that are specific to a particular functional interface to be inapplicable for plain functions or their type aliases.
-
-Type aliases can have only one member, while functional interfaces can have multiple non-abstract members and one abstract member.
-Functional interfaces can also implement and extend other interfaces.
-
-Functional interfaces are more flexible and provide more capabilities than type aliases, but they can be more costly both syntactically and at runtime because they can require conversions to a specific interface.
-When you choose which one to use in your code, consider your needs:
-* If your API needs to accept a function (any function) with some specific parameter and return types – use a simple functional type or define a type alias to give a shorter name to the corresponding functional type.
-* If your API accepts a more complex entity than a function – for example, it has non-trivial contracts and/or operations on it that can't be expressed in a functional type's signature – declare a separate functional interface for it.
-
 ## Migration from interface with constructor function to functional interface
 
 > Support for callable references to functional interface constructors is [Experimental](components-stability.md).
@@ -85,8 +71,8 @@ When you choose which one to use in your code, consider your needs:
 >
 {type="warning"}
 
-Starting from Kotlin 1.6.20, there is a support for callable references to functional interface constructors. 
-This support adds a source-compatible way to migrate from an interface with a constructor function to a functional interface. 
+Starting from Kotlin 1.6.20, there is a support for callable references to functional interface constructors.
+This support adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider this "legacy" code:
 
 ```kotlin
@@ -105,8 +91,8 @@ fun interface A {
 }
 ```
 
-With callable references to functional interface constructors enabled, any code using the `::A` function reference will compile. 
-You can preserve the binary compatibility by marking the legacy function `A` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/) 
+With callable references to functional interface constructors enabled, any code using the `::A` function reference will compile.
+You can preserve the binary compatibility by marking the legacy function `A` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
 annotation with `DeprecationLevel.HIDDEN`:
 
 ```kotlin
@@ -115,3 +101,17 @@ fun A(...) {...}
 ```
 
 Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
+
+## Functional interfaces vs. type aliases
+
+Functional interfaces and [type aliases](type-aliases.md) serve different purposes.
+Type aliases are just names for existing types – they don't create a new type, while functional interfaces do.
+You can provide extensions that are specific to a particular functional interface to be inapplicable for plain functions or their type aliases.
+
+Type aliases can have only one member, while functional interfaces can have multiple non-abstract members and one abstract member.
+Functional interfaces can also implement and extend other interfaces.
+
+Functional interfaces are more flexible and provide more capabilities than type aliases, but they can be more costly both syntactically and at runtime because they can require conversions to a specific interface.
+When you choose which one to use in your code, consider your needs:
+* If your API needs to accept a function (any function) with some specific parameter and return types – use a simple functional type or define a type alias to give a shorter name to the corresponding functional type.
+* If your API accepts a more complex entity than a function – for example, it has non-trivial contracts and/or operations on it that can't be expressed in a functional type's signature – declare a separate functional interface for it.
