@@ -1,8 +1,7 @@
 [//]: # (title: Concurrency overview)
 
 When you extend your development experience from Android to Kotlin Multiplatform Mobile, you will encounter a different state 
-and concurrency model for iOS. This is a Kotlin/Native model. [Kotlin/Native](native-overview.md) 
-is a technology for compiling Kotlin code to native binaries that can run without a virtual machine, for example on iOS. 
+and concurrency model for iOS. This is a Kotlin/Native model that compiles Kotlin code to native binaries that can run without a virtual machine, for example on iOS. 
 
 Having mutable memory available to multiple threads at the same time, if unrestricted, is known to be risky and prone to error. 
 Languages like Java, C++, and Swift/Objective-C let multiple threads access the same state in an unrestricted way. Concurrency issues are unlike other programming issues in that they are 

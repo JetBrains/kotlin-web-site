@@ -55,7 +55,7 @@ Appendable append(CharSequence csq) throws IOException;
 
 This signature says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.),
 I have to catch the `IOExceptions`. Why? Because the implementation might be performing IO operations (`Writer` also implements `Appendable`).
-The result is code like this all over the place.:
+The result is code like this all over the place:
 
 ```kotlin
 try {

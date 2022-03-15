@@ -33,6 +33,19 @@ check [our instructions on how to configure your build to support this version](
         <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.6.20-RC</strong>
+            <p>Released: <strong>March 1, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-RC" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>Stabilization of Kotlin 1.6.20-M1 features.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-RC">changelog</a>.</p>
+        </td>
+        <td>
+            <p>Same as for Kotlin 1.6.20-M1, see the row below.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.6.20-M1</strong>
             <p>Released: <strong>February 8, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.20-M1" target="_blank">Release on GitHub</a></p>

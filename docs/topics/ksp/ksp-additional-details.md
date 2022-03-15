@@ -38,7 +38,8 @@ If the original declaration referenced by a `KSTypeReference` is needed, it can 
 looks like this:
 
 ```kotlin
-KSTypeReference -> .resolve() -> KSType -> .declaration -> KSDeclaration
+val ksType: KSType = ksTypeReference.resolve()
+val ksDeclaration: KSDeclaration = ksType.declaration
 ```
 
 Type resolution is costly and therefore has explicit form. Some of the information obtained from resolution is already

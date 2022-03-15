@@ -22,31 +22,31 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 
 "->" and "<-" indicate that mapping only goes one way.
 
-| Kotlin | Swift | Objective-C | Notes |
-| ------ | ----- |------------ | ----- |
-| `class` | `class` | `@interface` | [note](#name-translation) |
-| `interface` | `protocol` | `@protocol` | |
-| `constructor`/`create` | Initializer | Initializer | [note](#initializers) |
-| Property | Property | Property | [note](#top-level-functions-and-properties) [note](#setters)|
-| Method | Method | Method | [note](#top-level-functions-and-properties) [note](#method-names-translation) |
-| `suspend` -> | `completionHandler:`/ `async` | `completionHandler:` | [note](#errors-and-exceptions) [note](#suspending-functions) |
-| `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
-| Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | Class method or property | Class method or property | |
-| `null` | `nil` | `nil` | |
-| `Singleton` | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons) |
-| Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
-| `Unit` return type | `Void` | `void` | |
-| `String` | `String` | `NSString` | |
-| `String` | `NSMutableString` | `NSMutableString` | [note](#nsmutablestring) |
-| `List` | `Array` | `NSArray` | |
-| `MutableList` | `NSMutableArray` | `NSMutableArray` | |
-| `Set` | `Set` | `NSSet` | |
-| `MutableSet` | `NSMutableSet` | `NSMutableSet` | [note](#collections) |
-| `Map` | `Dictionary` | `NSDictionary` | |
-| `MutableMap` | `NSMutableDictionary` | `NSMutableDictionary` | [note](#collections) |
-| Function type | Function type | Block pointer type | [note](#function-types) |
-| Inline classes | Unsupported| Unsupported| [note](#unsupported) |
+| Kotlin                 | Swift                            | Objective-C                      | Notes                                                                              |
+|------------------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| `class`                | `class`                          | `@interface`                     | [note](#name-translation)                                                          |
+| `interface`            | `protocol`                       | `@protocol`                      |                                                                                    |
+| `constructor`/`create` | Initializer                      | Initializer                      | [note](#initializers)                                                              |
+| Property               | Property                         | Property                         | [note 1](#top-level-functions-and-properties), [note 2](#setters)                  |
+| Method                 | Method                           | Method                           | [note 1](#top-level-functions-and-properties), [note 2](#method-names-translation) |
+| `suspend` ->           | `completionHandler:`/ `async`    | `completionHandler:`             | [note 1](#errors-and-exceptions), [note 2](#suspending-functions)                  |
+| `@Throws fun`          | `throws`                         | `error:(NSError**)error`         | [note](#errors-and-exceptions)                                                     |
+| Extension              | Extension                        | Category member                  | [note](#extensions-and-category-members)                                           |
+| `companion` member <-  | Class method or property         | Class method or property         |                                                                                    |
+| `null`                 | `nil`                            | `nil`                            |                                                                                    |
+| `Singleton`            | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)                                                         |
+| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#nsnumber)                                                                  |
+| `Unit` return type     | `Void`                           | `void`                           |                                                                                    |
+| `String`               | `String`                         | `NSString`                       |                                                                                    |
+| `String`               | `NSMutableString`                | `NSMutableString`                | [note](#nsmutablestring)                                                           |
+| `List`                 | `Array`                          | `NSArray`                        |                                                                                    |
+| `MutableList`          | `NSMutableArray`                 | `NSMutableArray`                 |                                                                                    |
+| `Set`                  | `Set`                            | `NSSet`                          |                                                                                    |
+| `MutableSet`           | `NSMutableSet`                   | `NSMutableSet`                   | [note](#collections)                                                               |
+| `Map`                  | `Dictionary`                     | `NSDictionary`                   |                                                                                    |
+| `MutableMap`           | `NSMutableDictionary`            | `NSMutableDictionary`            | [note](#collections)                                                               |
+| Function type          | Function type                    | Block pointer type               | [note](#function-types)                                                            |
+| Inline classes         | Unsupported                      | Unsupported                      | [note](#unsupported)                                                               |
 
 ### Name translation
 
