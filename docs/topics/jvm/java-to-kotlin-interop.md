@@ -325,6 +325,7 @@ public class BB8 implements Robot {
     }
 }
 ```
+
 > Prior to Kotlin 1.4, to generate default methods, you could use the `@JvmDefault` annotation on these methods.
 > Compiling with `-Xjvm-default=all` in 1.4+ generally works as if you annotated all non-abstract methods of interfaces
 > with `@JvmDefault`and compiled with `-Xjvm-default=enable`. However, there are cases when their behavior differs.
@@ -335,20 +336,20 @@ public class BB8 implements Robot {
 
 ### Compatibility mode for default methods
 
-If there are clients that use your Kotlin interfaces compiled without the new `-Xjvm-default=all` option, then they can
+If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, then they can
 be incompatible with the same code compiled with this option. 
 
-To avoid breaking the compatibility with such clients, compile your Kotlin code in the _compatibility mode_ by specifying
-the `-Xjvm-default=all-compatibility` compiler option. In this case, all the code that uses the previous version will 
- work fine with the new one. However, the compatibility mode adds some overhead to the resulting bytecode size.
+Before Kotlin 1.6.20 to avoid this compatibility issue, 
+[this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/#JvmDefaultWithoutCompatibility) 
+recommended using the `-Xjvm-default=all-compatibility` mode and the `@JvmDefaultWithoutCompatibility` annotation 
+for interfaces that didn't need such compatibility. This approach had some disadvantages:
+* It was easy to forget to add the annotation when a new interface was added.
+* Usually there are more interfaces in non-public parts than in the public API, so a developer was ending up having this annotation in many places in their code.
 
-There is no need to consider compatibility for new interfaces, as no clients have used them before.
-You can minimize the compatibility overhead by excluding these interfaces from the compatibility mode.
-To do this, annotate them with the `@JvmDefaultWithoutCompatibility` annotation. Such interfaces compile the same way as 
-with `-Xjvm-default=all`.
+Now, you can use the `-Xjvm-default=all` mode and mark interfaces with the `@JvmDefaultWithCompatibility` annotation. 
+This way you'll be able to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for a new non-public code.
 
-Additionally, in the `all-compatibility` mode you can use `@JvmDefaultWithoutCompatibility` to annotate all interfaces
-which are not exposed in the public API and therefore aren’t used by the existing clients.
+Learn more about compatibility modes in the [`-Xjvm-default` compiler argument's description](https://github.com/JetBrains/kotlin/blob/1.6.20/compiler/cli/cli-common/src/org/jetbrains/kotlin/cli/common/arguments/K2JVMCompilerArguments.kt).
 
 ## Visibility
 
