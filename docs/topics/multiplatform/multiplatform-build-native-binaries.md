@@ -277,7 +277,7 @@ export all these modules to it.
 
 When you export a dependency, it includes all of its API to the framework API.
 The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
-This disables dead code elimination for the exported dependency and for its dependencies.
+This disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
 
 By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
 only methods of `foo` are added to the output framework.
