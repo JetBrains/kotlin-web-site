@@ -91,7 +91,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
             }
         }
         val iosMain by creating {
-            //..
+            // ...
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
@@ -289,11 +289,10 @@ implementations of the SQLite driver, so you need to create them for each platfo
    package com.jetbrains.handson.kmm.shared.cache
    
    import com.squareup.sqldelight.db.SqlDriver
-   //sampleStart
+
    expect class DatabaseDriverFactory {
        fun createDriver(): SqlDriver
    }
-   //sampleEnd
    ```
 
    Now you need to provide `actual` implementations for this expected class.
@@ -310,13 +309,12 @@ implementations of the SQLite driver, so you need to create them for each platfo
    import android.content.Context
    import com.squareup.sqldelight.android.AndroidSqliteDriver
    import com.squareup.sqldelight.db.SqlDriver 
-   //sampleStart
+   
    actual class DatabaseDriverFactory(private val context: Context) {
        actual fun createDriver(): SqlDriver {
            return AndroidSqliteDriver(AppDatabase.Schema, context, "test.db")
        }
    }
-   //sampleEnd
    ```
 
 3. On iOS, the SQLite driver implementation is the `NativeSqliteDriver` class. In the `shared/src/iosMain/kotlin`
@@ -329,13 +327,12 @@ implementations of the SQLite driver, so you need to create them for each platfo
    import com.jetbrains.handson.kmm.shared.cache.AppDatabase
    import com.squareup.sqldelight.db.SqlDriver
    import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
-   //sampleStart
+
    actual class DatabaseDriverFactory {
        actual fun createDriver(): SqlDriver {
            return NativeSqliteDriver(AppDatabase.Schema, "test.db")
        }
    }
-   //sampleEnd
    ```
 
 Instances of these factories will be created later in the code of the Android and iOS projects.
@@ -360,12 +357,11 @@ a `Database` class, which will wrap the `AppDatabase` class and contain caching 
    import com.jetbrains.handson.kmm.shared.entity.Links
    import com.jetbrains.handson.kmm.shared.entity.Rocket
    import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
-   //sampleStart
+
    internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
        private val database = AppDatabase(databaseDriverFactory.createDriver())
        private val dbQuery = database.appDatabaseQueries
    }
-   //sampleEnd
    ```
 
    This class's [visibility](visibility-modifiers.md#class-members) is set to internal, which means it is only
@@ -492,7 +488,7 @@ Create a class that will connect the application to the API:
    import io.ktor.client.features.json.serializer.KotlinxSerializer
    import io.ktor.client.request.*
    import kotlinx.serialization.json.Json
-   //sampleStart
+
    class SpaceXApi {
     private val httpClient = HttpClient {
         install(JsonFeature) {
@@ -504,7 +500,6 @@ Create a class that will connect the application to the API:
             }
         }
    }
-   //sampleEnd
    ```
 
     * This class executes network requests and deserializes JSON responses into entities from the `entity` package. For
@@ -568,12 +563,11 @@ public class.
    import com.jetbrains.handson.kmm.shared.cache.DatabaseDriverFactory
    import com.jetbrains.handson.kmm.shared.network.SpaceXApi
    import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
-   //sampleStart
+
    class SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory) {
        private val database = Database(databaseDriverFactory)
        private val api = SpaceXApi()
    }
-   //sampleEnd
    ```
 
    The class will be the facade over `Database` and `SpaceXApi` classes.
@@ -622,7 +616,6 @@ the `androidApp/build.gradle.kts`:
 
 ```kotlin
 // ...
-
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.5.0")
@@ -635,7 +628,6 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
 }
-
 // ...
 ```
 
@@ -690,7 +682,6 @@ dependencies {
    
        inner class LaunchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
            // ...
-   
            fun bindData(launch: RocketLaunch) {
                // ...
            }
@@ -763,8 +754,7 @@ dependencies {
 
    ```kotlin
    class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
-       //..
-   
+       // ...
        inner class LaunchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
           private val missionNameTextView = itemView.findViewById<TextView>(R.id.missionName)
           private val launchYearTextView = itemView.findViewById<TextView>(R.id.launchYear)
@@ -801,12 +791,10 @@ dependencies {
    ```kotlin
    class MainActivity : AppCompatActivity() {
        // ...
-   
        private val launchesRvAdapter = LaunchesRvAdapter(listOf())
    
        override fun onCreate(savedInstanceState: Bundle?) {
            // ...
-   
            launchesRecyclerView.adapter = launchesRvAdapter
            launchesRecyclerView.layoutManager = LinearLayoutManager(this)
    
@@ -842,16 +830,12 @@ dependencies {
    ```kotlin
    class MainActivity : AppCompatActivity() {
        private val mainScope = MainScope()
-   
        // ...
-   
        override fun onDestroy() {
            super.onDestroy()
            mainScope.cancel()
        }
-   
        // ...
-   
        private fun displayLaunches(needReload: Boolean) {
            progressBarView.isVisible = true
            mainScope.launch {
@@ -945,7 +929,6 @@ data.
 
    ```swift
    // ...
-   
    extension ContentView {
        enum LoadableLaunches {
            case loading
@@ -1015,7 +998,6 @@ library.
    ```swift
    extension ContentView {
        // ...
-   
        class ViewModel: ObservableObject {
            let sdk: SpaceXSDK
            @Published var launches = LoadableLaunches.loading
