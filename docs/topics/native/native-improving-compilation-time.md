@@ -59,7 +59,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
 
 * **Don't use [transitiveExport = true](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)**.
   Using transitive export disables dead code elimination in many cases: the compiler has to process a lot of unused code. It increases the compilation time.
-  Use `export` explicitly for exploring the required projects and dependencies.
+  Use `export` explicitly for exporting the required projects and dependencies.
 
 * **Use the Gradle [build caches](https://docs.gradle.org/current/userguide/build_cache.html)**:
     * **Local build cache**: Add `org.gradle.caching=true` to your `gradle.properties` or run with `--build-cache` on the command line.
