@@ -275,11 +275,9 @@ export all these modules to it.
 >
 {type="note"}
 
-> When you export a dependency, it includes all of its API to the framework API.
-> The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
-> This disables dead code elimination for the exported dependency and for its dependencies.
->
-{type="note"}
+When you export a dependency, it includes all of its API to the framework API.
+The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
+This disables dead code elimination for the exported dependency and for its dependencies.
 
 By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
 only methods of `foo` are added to the output framework.
@@ -287,14 +285,11 @@ only methods of `foo` are added to the output framework.
 You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
 are exported as well. 
 
-> Using `transitiveExport` is not recommended: it causes all transitive dependencies of exported dependencies
-> to be added to the framework. Often it is simply all transitive dependencies used in the project.
-> 
-> This might harm compilation time and binary size.
-> 
-> On the other hand, adding all these dependencies to the framework API is usually not required for your application.
-> So the recommended approach is to add only the dependencies you need to directly access from your Swift or
-> Objective-C code, using `export` explicitly for them.
+> It is not recommended to use `transitiveExport`: it adds all transitive dependencies of the exported dependencies to the framework.
+> This could increase both compilation time and binary size.
+>
+> In most cases, you don't need to add all these dependencies to the framework API.
+> Use `export` explicitly for the dependencies you need to directly access from your Swift or Objective-C code.
 >
 {type="warning"}
 
