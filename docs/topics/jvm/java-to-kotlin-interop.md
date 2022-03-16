@@ -349,6 +349,11 @@ for interfaces that didn't need such compatibility. This approach had some disad
 Now, you can use the `-Xjvm-default=all` mode and mark interfaces with the `@JvmDefaultWithCompatibility` annotation. 
 This way you'll be able to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for a new non-public code.
 
+> From Kotlin 1.6.20, you can compile modules in the default mode (the `-Xjvm-default=disable` compiler option) against 
+> modules compiled with the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` modes.
+>
+{type="note"}
+
 Learn more about compatibility modes in the [`-Xjvm-default` compiler argument's description](https://github.com/JetBrains/kotlin/blob/1.6.20/compiler/cli/cli-common/src/org/jetbrains/kotlin/cli/common/arguments/K2JVMCompilerArguments.kt).
 
 ## Visibility
