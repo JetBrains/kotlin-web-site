@@ -152,6 +152,21 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
+### Deprecate modes of the compiler option -Xjvm-default
+
+> **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.6.20 will warn about the usage of `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: introduce a warning on the `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+> - \>= 1.7.0: raise this warning to an error
+
 ### Prohibit super calls from public-abi inline functions
 
 > **Issue**: [KT-45379](https://youtrack.jetbrains.com/issue/KT-45379)
