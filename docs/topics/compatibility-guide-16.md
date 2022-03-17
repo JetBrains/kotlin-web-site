@@ -467,3 +467,18 @@ perspective
 >
 > - 1.6.20: raise the deprecation level to a warning
 > - \>= 1.8.0: raise this warning to an error
+
+### Remove kotlin.parallel.tasks.in.project property
+
+> **Issue**: [KT-46406](https://youtrack.jetbrains.com/issue/KT-46406)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlin.parallel.tasks.in.project` property
+>
+> **Deprecation cycle**:
+>
+> - 1.5.20: raise the deprecation level to a warning
+> - 1.6.20: raise this warning to an error
