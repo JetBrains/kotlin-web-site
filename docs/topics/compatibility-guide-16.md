@@ -165,7 +165,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a warning on the `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
-> - \>= 1.7.0: raise this warning to an error
+> - \>= 1.8.0: raise this warning to an error
 
 ### Prohibit super calls from public-abi inline functions
 
