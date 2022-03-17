@@ -482,3 +482,18 @@ perspective
 >
 > - 1.5.20: raise the deprecation level to a warning
 > - 1.6.20: raise this warning to an error
+
+### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines property
+
+> **Issue**: [KT-50369](https://youtrack.jetbrains.com/issue/KT-50369)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.7.0: raise this warning to an error
