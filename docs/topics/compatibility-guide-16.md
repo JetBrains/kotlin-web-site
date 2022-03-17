@@ -452,3 +452,18 @@ perspective
 > - 1.5.0: raise the deprecation level to a warning
 > - 1.6.0: hide the option
 > - \>= 1.7.0: remove the deprecated option
+
+### Deprecate kapt.use.worker.api property
+
+> **Issue**: [KT-48826](https://youtrack.jetbrains.com/issue/KT-48826)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kapt.use.worker.api` property that allowed to run kapt via Kotlin daemon
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.8.0: raise this warning to an error
