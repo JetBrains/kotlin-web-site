@@ -496,4 +496,4 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.7.0: remove DSL option and property
+> - \>= 1.7.0: remove the DSL option and the property
