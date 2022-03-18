@@ -955,7 +955,7 @@ Each of the options in the following list overrides the ones that came before it
   >
   {type="note"}
 
-#### Kotlin daemon's behavior with JVM arguments
+### Kotlin daemon's behavior with JVM arguments
 
 When configuring the Kotlin daemon's JVM arguments, note that:
 
@@ -968,3 +968,51 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   >
   {type="note"}
 * If the `Xmx` is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
+
+## Defining Kotlin compiler execution strategy
+
+_Kotlin compiler execution strategy_ is a set of characteristics describing where Kotlin compiler is executed and some other nuances.
+
+There are three compiler execution strategies:
+
+| Strategy       | Where Kotlin compiler is executed | Support for incremental compilation | Other characteristics                                                |
+|----------------|-----------------------------------|-------------------------------------|----------------------------------------------------------------------|
+| Daemon         | Inside its own daemon process     | Yes                                 | *Enabled by default*. Can be shared between different Gradle daemons |
+| In process     | Inside Gradle daemon process      | No                                  | May share heap with the Gradle daemon                                |
+| Out of process | In separate forked process        | No                                  | -                                                                    |
+
+Before Kotlin 1.6.20 to define a Kotlin compiler execution strategy, you used the system property `-Dkotlin.compiler.execution.strategy`.
+This property may have been inconvenient in some cases. Kotlin 1.6.20 introduces the Gradle property with the same name `kotlin.compiler.execution.strategy`,
+and the compile task property `compilerExecutionStrategy`.
+The system property still works, but it will be removed in future releases. The priority of properties is the following:
+* The task property `compilerExecutionStrategy` takes priority over the system and the Gradle properties `kotlin.compiler.execution.strategy`.
+* The Gradle property takes priority over the system property.
+
+The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
+1. `in-process`
+2. `ouf-of-process`
+3. `daemon` (default)
+
+The available values for the `compilerExecutionStrategy` task property are:
+1. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
+2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
+3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.DAEMON` (default)
+
+Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
+
+```properties
+kotlin.compiler.execution.strategy=out-of-process
+```
+
+Use the task property `compilerExecutionStrategy` in the `build.gradle.kts` buildscript:
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
+
+// Some code
+
+tasks.withType<KotlinCompile>().configureEach {
+    compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+} 
+```
