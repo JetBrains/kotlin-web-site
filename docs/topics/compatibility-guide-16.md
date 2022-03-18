@@ -461,7 +461,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: deprecate the `kapt.use.worker.api` property that allowed to run kapt via Kotlin daemon
+> **Short summary**: deprecate the `kapt.use.worker.api` property that allowed to run kapt via Gradle Workers API (default: true)
 >
 > **Deprecation cycle**:
 >
