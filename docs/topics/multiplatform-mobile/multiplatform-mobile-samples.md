@@ -297,4 +297,17 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
 </tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/AlShevelev/SpaceX_KMM">SpaceX app improvement</a></strong>
+      </td>
+      <td>Models, Networking, Data Storage, View model</td>
+      <td>SQLDelight, Ktor</td>
+      <td>Jetpack Compose, SwiftUI</td>
+      <td>Xcode build phases</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>This app is a small improvement of <a href="https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction">SpaceX demo app of JetBrains</a>.</td>
+</tr>
 </table>
