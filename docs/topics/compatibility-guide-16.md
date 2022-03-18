@@ -481,7 +481,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.5.20: raise the deprecation level to a warning
-> - 1.6.20: raise this warning to an error
+> - 1.6.20: remove this property
 
 ### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines property
 
