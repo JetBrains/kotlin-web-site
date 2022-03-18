@@ -466,7 +466,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.8.0: raise this warning to an error
+> - \>= 1.8.0: remove this property
 
 ### Remove kotlin.parallel.tasks.in.project property
 
