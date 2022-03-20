@@ -1,12 +1,12 @@
 [//]: # (title: Make your Android application work on iOS – tutorial)
 
-Here you can learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
+Learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
 You'll be able to write code and test it for both Android and iOS only once, in one place.
 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen for entering a username and password.
 The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md) first.
+If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md) first.
 
 ## Prepare an environment for development
 
@@ -23,8 +23,8 @@ If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [c
    https://github.com/Kotlin/kmm-integration-sample
    ```
 
-   The `master` branch contains the project's initial state, a simple Android application. You can find the final state
-   with the iOS application and the shared module in the `final` branch.
+   The `master` branch contains the project's initial state — a simple Android application. To see the final state
+   with the iOS application and the shared module, switch to the `final` branch.
 
 3. Switch to the **Project** view.
 
@@ -81,10 +81,11 @@ You can learn more about the [project structure](multiplatform-mobile-understand
 
 To use cross-platform code in your Android application, connect the shared module to it, move the business logic code there, and make this code cross-platform.
 
-1. Ensure that `compileSdk` and `minSdk` in `build.gradle.kts` of the `shared` module are the same as those in the `build.gradle` of your Android application in the `app` module.  
+1. In the `build.gradle.kts` file of the shared module, ensure that `compileSdk` and `minSdk` are the same as those in the `build.gradle` of your Android application in the `app` module.  
+   
    If they are different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a compile error.
 
-2. Add a dependency on the shared module to the `build.gradle` of your Android application.
+3. Add a dependency on the shared module to the `build.gradle` of your Android application.
 
     ```kotlin
     dependencies {
@@ -92,20 +93,20 @@ To use cross-platform code in your Android application, connect the shared modul
     }
     ```
 
-3. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
+4. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
 
    ```text
    kotlin.mpp.enableGranularSourceSetsMetadata=true
    kotlin.native.enableDependencyPropagation=false
    ```
 
-4. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+5. Synchronize the Gradle files by clicking **Sync Now** in the warning.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-5. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+6. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
 package.
-6. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
+7. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
 to the log by updating the `onCreate()` method:
 
     ```kotlin
@@ -116,8 +117,8 @@ to the log by updating the `onCreate()` method:
    
     }
     ```
-7. Follow Android Studio suggestions to import missing classes.
-8. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
+8. Follow Android Studio suggestions to import missing classes.
+9. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
 
    ![Greeting from the shared module](shared-module-greeting.png)
 
@@ -145,7 +146,7 @@ You can now extract the business logic code to the Kotlin Multiplatform shared m
 
 To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the moved `data` directory wherever possible.
 
-1.  In the `LoginDataSource` class, replace `IOException` in the `login()` function, which is not available in Kotlin, with `RuntimeException`.
+1.  In the `LoginDataSource` class, replace `IOException` in the `login()` function with `RuntimeException`. `IOException` is not available in Kotlin.
 
     ```kotlin
     // Before
@@ -157,7 +158,7 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     return Result.Error(RuntimeException("Error logging in", e))
     ```
 
-2. In the `LoginDataValidator` class, for email validation, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern:
+2.  In the `LoginDataValidator` class, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern for email validation:
 
     ```kotlin
     // Before
@@ -199,7 +200,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe") 
    ```
 
-1. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
+1. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -207,7 +208,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     expect fun randomUUID(): String
     ```
 
-2. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
+2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -217,7 +218,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     actual fun randomUUID() = UUID.randomUUID().toString()
     ```
 
-3. Create a `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
+3. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
