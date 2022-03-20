@@ -155,10 +155,10 @@ You can capture *when* subject in a variable using following syntax:
 
 ```kotlin
 fun Request.getBody() =
-        when (val response = executeRequest()) {
-            is Success -> response.body
-            is HttpError -> throw HttpException(response.status)
-        }
+    when (val response = executeRequest()) {
+        is Success -> response.body
+        is HttpError -> throw HttpException(response.status)
+    }
 ```
 
 The scope of variable introduced in *when* subject is restricted to the body of this *when*.
