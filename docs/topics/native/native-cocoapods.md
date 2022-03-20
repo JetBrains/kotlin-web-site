@@ -41,7 +41,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
     }
     ```
 
-2. Configure `version`, `summary`, `homepage`, and `baseName` of the `Podspec` file in the `cocoapods` block:
+2. Configure `version`, `summary`, `homepage`, and `baseName` of the Podspec file in the `cocoapods` block:
     
     ```kotlin
     plugins {
@@ -51,18 +51,18 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
  
     kotlin {
         cocoapods {
-            // Mandatory properties
-            // Specify the required pod version here. Otherwise, the Gradle project version is used.
+            // Required properties
+            // Specify the required Pod version here. Otherwise, the Gradle project version is used.
             version = "1.0"
             summary = "Some description for a Kotlin/Native module"
             homepage = "Link to a Kotlin/Native module homepage"
    
             // Optional properties
-            // Configure the pod name here instead of changing the Gradle project name
+            // Configure the Pod name here instead of changing the Gradle project name
             name = "MyCocoaPod"
 
             framework {
-                // Mandatory properties              
+                // Required properties              
                 // Framework name configuration. Use this property instead of deprecated 'frameworkName'
                 baseName = "MyFramework"
                 
