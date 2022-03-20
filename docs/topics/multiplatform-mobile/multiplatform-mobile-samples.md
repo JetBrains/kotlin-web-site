@@ -297,4 +297,24 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
 </tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/huynn109/ninety_minutes">soccer-fixtures-app</a></strong>
+      </td>
+      <td>Models, Networking</td>
+      <td>Ktor, kotlinx.serialization</td>
+      <td>Jetpack Compose, SwiftUI</td>
+      <td>CocoaPods</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>-</td>
+	<td>
+        <ul>
+		<li><code>expect</code>/<code>actual</code> declarations</li>
+            <li>Android</li>
+            <li>iOS</li>
+            <li>Jetpack Media3 (Android)</li>
+        </ul>
+    </td>
+</tr>
 </table>
