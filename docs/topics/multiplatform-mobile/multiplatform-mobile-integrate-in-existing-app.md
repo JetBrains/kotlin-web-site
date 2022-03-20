@@ -85,7 +85,7 @@ To use cross-platform code in your Android application, connect the shared modul
    
    If they are different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a compile error.
 
-3. Add a dependency on the shared module to the `build.gradle` of your Android application.
+2. Add a dependency on the shared module to the `build.gradle` of your Android application.
 
     ```kotlin
     dependencies {
@@ -93,20 +93,20 @@ To use cross-platform code in your Android application, connect the shared modul
     }
     ```
 
-4. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
+3. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
 
    ```text
    kotlin.mpp.enableGranularSourceSetsMetadata=true
    kotlin.native.enableDependencyPropagation=false
    ```
 
-5. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+4. Synchronize the Gradle files by clicking **Sync Now** in the warning.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-6. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+5. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
 package.
-7. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
+6. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
 to the log by updating the `onCreate()` method:
 
     ```kotlin
@@ -117,8 +117,8 @@ to the log by updating the `onCreate()` method:
    
     }
     ```
-8. Follow Android Studio suggestions to import missing classes.
-9. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
+7. Follow Android Studio suggestions to import missing classes.
+8. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
 
    ![Greeting from the shared module](shared-module-greeting.png)
 
@@ -146,7 +146,7 @@ You can now extract the business logic code to the Kotlin Multiplatform shared m
 
 To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the moved `data` directory wherever possible.
 
-1.  In the `LoginDataSource` class, replace `IOException` in the `login()` function with `RuntimeException`. `IOException` is not available in Kotlin.
+1. In the `LoginDataSource` class, replace `IOException` in the `login()` function with `RuntimeException`. `IOException` is not available in Kotlin.
 
     ```kotlin
     // Before
@@ -158,7 +158,7 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     return Result.Error(RuntimeException("Error logging in", e))
     ```
 
-2.  In the `LoginDataValidator` class, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern for email validation:
+2. In the `LoginDataValidator` class, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern for email validation:
 
     ```kotlin
     // Before
