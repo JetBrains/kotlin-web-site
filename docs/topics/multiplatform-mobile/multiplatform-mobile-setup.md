@@ -8,7 +8,7 @@ on other operating systems, such as Microsoft Windows. This is an Apple requirem
 * To work with shared code or Android-specific code, you can use any computer with an operating
   system supported by Android Studio.
 
-To set up an environment for cross-platform mobile development, install and check all the listed tools:
+## Install all the necessary tools
 
 <table>
    <tr>
@@ -53,6 +53,8 @@ To set up an environment for cross-platform mobile development, install and chec
    </tr>
 </table>
 
+## Check your environment
+
 To make sure everything works as expected, install and run the KDoctor tool:
 
 > KDoctor works on macOS only.
@@ -79,7 +81,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
    * Fix failed checks ([x]). You can find problem description and potential solution after the `*` symbol.
    * Check warnings ([!]) and successful messages ([v]). They may contain useful notes and tips as well.
 
-## Troubleshooting
+## Possible issues and solutions
 
 <deflist collapsible="true">
    <def title="Android Studio">
@@ -90,9 +92,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
          <ul>
             <li>Make sure that you have JDK installed. You can get it on the <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
             <li>Android Studio uses bundled JDK for Gradle tasks execution. To configure Gradle JDK, in Android Studio, select <b>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</b>.</li>
-            <li><p>You may encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary necessary for Xcode and Gradle.</p>
-            <p>Follow KDoctor's tips to fix such issues.</p>
-            </li>
+            <li>You may encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary necessary for Xcode and Gradle. Follow KDoctor's tips to fix such issues.</li>
          </ul>
       </list>
    </def>

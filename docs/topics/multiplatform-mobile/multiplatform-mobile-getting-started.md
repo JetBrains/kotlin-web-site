@@ -30,10 +30,10 @@ For example, to implement a native UI or when working with platform-specific API
 
 ## Get help
 
-* **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
-* **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
-* **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
-* **Kotlin YouTube channel**: watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k)
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **StackOverflow**. Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
+* **Kotlin YouTube channel**. Watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k)
 with a general explanation on what Kotlin Multiplatform Mobile is and how to use it in your project. You can also check
 out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
 
