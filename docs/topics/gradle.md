@@ -989,14 +989,14 @@ The system property still works, but it will be removed in future releases. The 
 * The Gradle property takes priority over the system property.
 
 The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
-1. `in-process`
-2. `ouf-of-process`
-3. `daemon` (default)
+1. `daemon` (default)
+2. `in-process`
+3. `ouf-of-process`
 
 The available values for the `compilerExecutionStrategy` task property are:
-1. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
-2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
-3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.DAEMON` (default)
+1. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.DAEMON` (default)
+2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
+3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
