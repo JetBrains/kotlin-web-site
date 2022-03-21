@@ -971,7 +971,7 @@ When configuring the Kotlin daemon's JVM arguments, note that:
 
 ## Defining Kotlin compiler execution strategy
 
-_Kotlin compiler execution strategy_ is a set of characteristics describing where Kotlin compiler is executed and some other nuances.
+_Kotlin compiler execution strategy_ defines a set of characteristics describing where Kotlin compiler is executed and some other nuances.
 
 There are three compiler execution strategies:
 
