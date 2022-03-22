@@ -76,28 +76,28 @@ This support adds a source-compatible way to migrate from an interface with a co
 Consider this "legacy" code:
 
 ```kotlin
-interface A { 
-    fun foo() 
+interface KRunnable { 
+    fun invoke() 
 }
 
-fun A(block: () -> Unit): A = object : A { override fun foo() = block() }
+fun KRunnable(block: () -> Unit): KRunnable = object : KRunnable { override fun invoke() = block() }
 ```
 
-If you want to migrate this code to the functional interface `A`, use the following code:
+To migrate this code to the functional interface `KRunnable`, use the following code:
 
 ```kotlin
-fun interface A { 
-    fun foo()
+fun interface KRunnable { 
+    fun invoke()
 }
 ```
 
-With callable references to functional interface constructors enabled, any code using the `::A` function reference will compile.
-You can preserve the binary compatibility by marking the legacy function `A` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
+With callable references to functional interface constructors enabled, any code using the `::KRunnable` function reference will compile.
+Preserve the binary compatibility by marking the legacy function `KRunnable` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
 annotation with `DeprecationLevel.HIDDEN`:
 
 ```kotlin
 @Deprecated(message = "Your message about the depreciation", level = DeprecationLevel.HIDDEN)
-fun A(...) {...}
+fun KRunnable(...) {...}
 ```
 
 Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
