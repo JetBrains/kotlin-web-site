@@ -1031,7 +1031,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType(KotlinCompile.class)
+tasks.withType(KotlinCompile)
     .configureEach {
          compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }
