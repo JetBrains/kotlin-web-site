@@ -71,7 +71,7 @@ You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conve
 >
 {type="warning"}
 
-Starting from Kotlin 1.6.20, there is a support for callable references to functional interface constructors.
+Starting from 1.6.20, Kotlin supports callable references to functional interface constructors.
 This support adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider this "legacy" code:
 
