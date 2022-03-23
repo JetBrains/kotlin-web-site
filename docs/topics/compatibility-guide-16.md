@@ -452,3 +452,48 @@ perspective
 > - 1.5.0: raise the deprecation level to a warning
 > - 1.6.0: hide the option
 > - \>= 1.7.0: remove the deprecated option
+
+### Deprecate kapt.use.worker.api Gradle property
+
+> **Issue**: [KT-48826](https://youtrack.jetbrains.com/issue/KT-48826)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kapt.use.worker.api` property that allowed to run kapt via Gradle Workers API (default: true)
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.8.0: remove this property
+
+### Remove kotlin.parallel.tasks.in.project Gradle property
+
+> **Issue**: [KT-46406](https://youtrack.jetbrains.com/issue/KT-46406)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlin.parallel.tasks.in.project` property
+>
+> **Deprecation cycle**:
+>
+> - 1.5.20: raise the deprecation level to a warning
+> - 1.6.20: remove this property
+
+### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
+
+> **Issue**: [KT-50369](https://youtrack.jetbrains.com/issue/KT-50369)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.7.0: remove the DSL option and the property
