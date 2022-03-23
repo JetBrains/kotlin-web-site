@@ -453,7 +453,7 @@ perspective
 > - 1.6.0: hide the option
 > - \>= 1.7.0: remove the deprecated option
 
-### Deprecate kapt.use.worker.api property
+### Deprecate kapt.use.worker.api Gradle property
 
 > **Issue**: [KT-48826](https://youtrack.jetbrains.com/issue/KT-48826)
 >
@@ -468,7 +468,7 @@ perspective
 > - 1.6.20: raise the deprecation level to a warning
 > - \>= 1.8.0: remove this property
 
-### Remove kotlin.parallel.tasks.in.project property
+### Remove kotlin.parallel.tasks.in.project Gradle property
 
 > **Issue**: [KT-46406](https://youtrack.jetbrains.com/issue/KT-46406)
 >
@@ -483,7 +483,7 @@ perspective
 > - 1.5.20: raise the deprecation level to a warning
 > - 1.6.20: remove this property
 
-### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines property
+### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
 
 > **Issue**: [KT-50369](https://youtrack.jetbrains.com/issue/KT-50369)
 >
