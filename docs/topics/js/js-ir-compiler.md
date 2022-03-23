@@ -43,9 +43,6 @@ the application loads without initializing all the top-level properties used in 
 only the ones needed at startup; other properties receive their values later when the code that uses them actually runs.
 
 ```kotlin
-// lazy init by default
-val pi = 3.14
-
 val a = run { 
     val result = // intensive computations
     println(result)
@@ -55,12 +52,6 @@ val a = run {
 
 If for some reason you need to initialize a property eagerly (upon the application start), mark it with the 
 [`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-eager-initialization/){nullable="true"} annotation.
-
-```kotlin
-// forced eager init
-@EagerInitialization
-val e = 2.71 // receives the value upon startup
-```
 
 ## Incremental compilation for development binaries
 
