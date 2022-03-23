@@ -106,20 +106,38 @@ kapt {
 
 ### Running kapt tasks in parallel
 
-To improve the speed of builds that use kapt, you can enable the [Gradle worker API](https://guides.gradle.org/using-the-worker-api/)
-for kapt tasks. Using the worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
-which in some cases significantly decreases the execution time. 
-However, running kapt with Gradle worker API enabled can result in increased memory consumption due to parallel execution. 
-
-To use the Gradle worker API for parallel execution of kapt tasks, add this line to your `gradle.properties` file:
-
-```
-kapt.use.worker.api=true
-```
+To improve the speed of builds that use kapt, you can enable the [Gradle Worker API](https://guides.gradle.org/using-the-worker-api/)
+for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
+which in some cases significantly decreases the execution time.
 
 When you use the [custom JDK home](gradle.md#set-custom-jdk-home) feature in the Kotlin Gradle plugin,
 kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode).
 Note that the `kapt.workers.isolation` property is ignored.
+
+If you want to provide additional JVM arguments for a kapt worker process, use the input `kaptProcessJvmArgs` of the `KaptWithoutKotlincTask`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask>()
+    .configureEach {
+        kaptProcessJvmArgs.add("-Xmx512m")
+    }
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class)
+    .configureEach {
+         kaptProcessJvmArgs.add('-Xmx512m')
+    }
+```
+
+</tab>
+</tabs>
 
 ### Caching for annotation processors' classloaders
 
