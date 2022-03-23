@@ -3,10 +3,12 @@
 Before you create your first application that works on both iOS and Android, prepare an environment for Kotlin Multiplatform
 Mobile development.
 
-* To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS. These cannot be performed
-on other operating systems, such as Microsoft Windows. This is an Apple requirement.
-* To work with shared code or Android-specific code, you can use any computer with an operating
-  system supported by Android Studio.
+> * To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
+> These cannot be performed on other operating systems, such as Microsoft Windows. This is an Apple requirement.
+> * To work with shared code or Android-specific code, you can use any computer with an operating system supported by
+> Android Studio.
+> 
+{type="note"}
 
 ## Install all the necessary tools
 
