@@ -60,7 +60,8 @@ In this mode, the compiler caches the results of `compileDevelopmentExecutableKo
 It uses the cached compilation results for unchanged source files during subsequent compilations, making them complete faster,
 especially with small changes.
 
-To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`:
+To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`
+or `local.properties`:
 
 ```properties
 kotlin.incremental.js.ir=true // false by default
