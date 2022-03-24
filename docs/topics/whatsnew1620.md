@@ -224,16 +224,19 @@ The new memory manager will become the default in future versions, so we encoura
 
 Please check how the new memory manager works on your projects and share feedback in our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
-### Changed behavior for Kotlin/Native executables
+### Concurrent implementation for the sweep phase in new memory manger
 
-Android Native executables are currently built as shared libraries with a `Konan_main` entry point, whose signature is specific to [Android NDK types](https://developer.android.com/ndk/reference/group/native-activity#anativeactivity_createfunc). 
-Such executables can't be executed from command line. In this release the behavior has been preserved, but it also introduces the following:
+If you have already switched to our new memory manager, which [was announced in Kotlin 1.6](whatsnew16.md#preview-of-the-new-memory-manager), you might notice a huge execution time improvement: our benchmarks show 35% improvement on average.
+Since this release, there is also a concurrent implementation for the sweep phase available for the new memory manager.
+This should also improve the performance and decrease the duration of garbage collector pauses.
 
-* a new BinaryOption:
-  * `AndroidProgramType.Standalone` – builds a real command-line executable.
-  * `AndroidProgramType.NativeActivity` – preserves the current behavior.
-* a new `Konan_main_standalone` function in the Android runtime to be used for real executables.
-* special compiler warning that encouraging users to be explicit about their choice as the default behavior is going to change.
+To enable the feature for the new Kotlin/Native memory manager, pass the following compiler option:
+
+```bash
+-Xgc=cms 
+```
+
+Feel free to share your feedback on the new memory manager performance in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48526).
 
 ### Instantiation of annotation classes
 
@@ -395,21 +398,7 @@ These changes also provide a 10% reduction in compilation time for a debug binar
 
 To achieve this, we've implemented static initialization for some of the compiler-generated synthetic objects, improved the way we structure LLVM IR for every function, and optimized the compiler caches.
 
-### Concurrent implementation for the sweep phase in new memory manger
-
-If you have already switched to our new memory manager, which [was announced in Kotlin 1.6](whatsnew16.md#preview-of-the-new-memory-manager), you might notice a huge execution time improvement: our benchmarks show 35% improvement on average.
-Since this release, there is also a concurrent implementation for the sweep phase available for the new memory manager.
-This should also improve the performance and decrease the duration of garbage collector pauses. 
-
-To enable the feature for the new Kotlin/Native memory manager, pass the following compiler option:
-
-```
--Xgc=cms 
-```
-
-Feel free to share your feedback on the new memory manager performance in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48526).
-
-### Improved error handling with cinterop modules
+### Improved error handling during cinterop modules import
 
 This release introduces improved error handling for cases when you import an Objective-C module using `cinterop` tool (as it usually happens for CocoaPods pods).
 Before, if you got an error while trying to work with Objective-C module (for instance, when you face a compilation error in a header), you received an uninformative error message, such as `fatal error: could not build module $name`.
