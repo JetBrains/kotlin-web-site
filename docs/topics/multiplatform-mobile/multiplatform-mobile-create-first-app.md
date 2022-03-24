@@ -1,14 +1,14 @@
-[//]: # (title: 1. Create your first cross-platform app)
+[//]: # (title: 2. Create your first cross-platform app)
 
 Here you will learn how to create and run your first Kotlin Multiplatform Mobile application using Android Studio.
+
+> This is the second step for **Getting started with Kotlin Multiplatform Mobile**. Start with [Setting up an environment](multiplatform-mobile-setup.md).
+>
+{type="note"}
 
 You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin Product Marketing Manager.
 
 <video href="GcqFhoUuNNI" title="Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial"/>
-
-> This is the second step for **Getting started with Kotlin Multiplatform Mobile**. Start with [Setting up an environment](multiplatform-mobile-setup.md).
-> 
-{type="note"}
 
 1. In Android Studio, select **File** | **New** | **New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  

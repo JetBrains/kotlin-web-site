@@ -12,45 +12,43 @@ Mobile development.
 
 ## Install all the necessary tools
 
+We recommend that you install the latest stable versions for compatibility and better performance.
+
 <table>
    <tr>
       <td>Tool</td>
-      <td>Version</td>
       <td>Comments</td>
    </tr>
     <tr>
         <td><a href="https://developer.android.com/studio">Android Studio</a></td>
-        <td>4.2 or 2020.3.1 Canary 8 or higher</td>
         <td>You will use Android Studio for creating your multiplatform applications and running them on simulated or hardware devices.</td>
     </tr>
     <tr>
         <td><a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a></td>
-        <td>11.3 or higher</td>
         <td>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</td>
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
-        <td></td>
-        <td>To check if it's installed, run the command <code>java -version</code> in the terminal.</td>
-   </tr>
-   <tr>
-        <td><a href="https://kotlinlang.org/docs/plugin-releases.html#update-to-a-new-release">Kotlin plugin</a></td>
-        <td>%kotlinVersion%</td>
-        <td><p>You can check the current Kotlin plugin version. In Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
-            <p>If needed, update to the latest version in the <strong>Stable</strong> update channel.</p></td>
+        <td>To check if it's installed, in the terminal, run the following command: <code style="block"
+            lang="bash">java -version</code></td>
    </tr>
    <tr>
         <td><a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html">Kotlin Multiplatform Mobile plugin</a></td>
-        <td></td>
         <td><p>In Android Studio, select <strong>Settings/Preferences | Plugins</strong> and search for <i>Kotlin Multiplatform Mobile</i> in <strong>Marketplace</strong> and install it.</p></td>
    </tr>
    <tr>
+        <td><a href="https://kotlinlang.org/docs/plugin-releases.html#update-to-a-new-release">Kotlin plugin</a></td>
+        <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Check the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">compatibility table</a>.</p>
+            <p>If needed, in Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>. Update to the latest version in the <strong>Stable</strong> channel.</p></td>
+   </tr>
+   <tr>
         <td>CocoaPods</td>
-        <td></td>
         <td><p>CocoaPods is useful for adding iOS dependencies in Kotlin Multiplatform Mobile projects. CocoaPods is built with Ruby; you can install it with the default Ruby available on macOS.</p>
             <p>In the terminal, run the following commands:</p>
-            <p><code lang="ruby">$ sudo gem install cocoapods</code></p>
-            <p><code lang="ruby">$ sudo gem install cocoapods-generate</code></p>
+            <p><code style="block"
+               lang="ruby">$ sudo gem install cocoapods</code></p>
+            <p><code style="block"
+               lang="ruby">$ sudo gem install cocoapods-generate</code></p>
          </td>
    </tr>
 </table>
@@ -93,7 +91,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
       <list>
          <ul>
             <li>Make sure that you have JDK installed. You can get it on the <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
-            <li>Android Studio uses bundled JDK for Gradle tasks execution. To configure Gradle JDK, in Android Studio, select <b>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</b>.</li>
+            <li>Android Studio uses bundled JDK for Gradle tasks execution. To configure Gradle JDK, in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
             <li>You may encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary necessary for Xcode and Gradle. Follow KDoctor's tips to fix such issues.</li>
          </ul>
       </list>
@@ -107,12 +105,12 @@ To make sure everything works as expected, install and run the KDoctor tool:
    <def title="Kotlin plugins">
         <list>
             <ul>
-               <li>Make sure that both Kotlin and Kotlin Mobile Multiplatform plugins are installed and enabled. In Android Studio, select <b>Settings/Preferences | Tools | Plugins</b>,
-               check that you have both plugins enabled in the <b>Installed</b> tab. Otherwise, go to <b>Marketplace</b> and search for the missing plugins.
+               <li>Make sure that both Kotlin and Kotlin Mobile Multiplatform plugins are installed and enabled. In Android Studio, select <strong>Settings/Preferences | Tools | Plugins</strong>,
+               check that you have both plugins enabled in the <strong>Installed</strong> tab. Otherwise, go to <strong>Marketplace</strong> and search for the missing plugins.
                </li>
-               <li><p>Current version of the Kotlin Multiplatform Mobile plugin may be incompatible with your version of Kotlin. To update
-               the Kotlin version, in Android Studio, select <b>Tools | Kotlin | Configure Kotlin Plugin Updates</b>.</p>
-               <p>To update the Kotlin Multiplatform Mobile plugin, select <b>Settings/Preferences | Tools | Plugins</b>. Next to the plugin name, click <b>Update</b>.</p>
+               <li><p>Current version of the Kotlin Multiplatform Mobile plugin may be incompatible with your version of Kotlin. Check the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">compatibility table</a>.</p>
+               <p>To update the Kotlin version, in Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+               <p>To update the Kotlin Multiplatform Mobile plugin, select <strong>Settings/Preferences | Tools | Plugins</strong>. Next to the plugin name, click <strong>Update</strong>.</p>
                </li>
             </ul>
          </list>
@@ -138,4 +136,4 @@ To make sure everything works as expected, install and run the KDoctor tool:
 
 ## What's next?
 
-Now it's time to [create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
+Once the setup is ready,you can move on and [create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
