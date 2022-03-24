@@ -979,7 +979,7 @@ There are three compiler execution strategies:
 |----------------|-----------------------------------|-------------------------------------|------------------------------------------------------------------------|
 | Daemon         | Inside its own daemon process     | Yes                                 | *The default strategy*. Can be shared between different Gradle daemons |
 | In process     | Inside the Gradle daemon process  | No                                  | May share heap with the Gradle daemon                                  |
-| Out of process | In a separate forked process      | No                                  | -                                                                      |
+| Out of process | In a separate process for each call      | No                                  | -                                                                      |
 
 To define a Kotlin compiler execution strategy, you can use one of the following properties:
 * The `kotlin.compiler.execution.strategy` Gradle property.
