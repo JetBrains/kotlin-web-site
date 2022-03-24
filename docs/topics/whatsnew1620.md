@@ -272,9 +272,17 @@ We plan to make this behavior the default in future versions.
 Kotlin/Native is now able to produce detailed stack traces with file locations and line numbers
 
 for better debugging of `linux*` (except `linuxMips32` and  `linuxMipsel32`) and `androidNative*` targets. 
-This feature uses the  [libbacktrace]([https://github.com/ianlancetaylor/libbacktrace](https://github.com/ianlancetaylor/libbacktrace)) library under the hood.
+This feature uses the [libbacktrace]([https://github.com/ianlancetaylor/libbacktrace](https://github.com/ianlancetaylor/libbacktrace)) library under the hood.
 
-See the difference on an example:
+See the difference on an example for the following code:
+
+```kotlin
+fun main() = bar()
+fun bar() = baz()
+inline fun baz() {
+error("")
+}
+```
 
 * **Before 1.6.20:**
 
@@ -392,15 +400,20 @@ To achieve this, we've implemented static initialization for some of the compile
 If you have already switched to our new memory manager, which [was announced in Kotlin 1.6](whatsnew16.md#preview-of-the-new-memory-manager), you might notice a huge execution time improvement: our benchmarks show 35% improvement on average.
 Since this release, there is also a concurrent implementation for the sweep phase available for the new memory manager.
 This should also improve the performance and decrease the duration of garbage collector pauses. 
-Use the `-Xgc=cms` flag to enable it for the new Kotlin/Native memory manager.
+
+To enable the feature for the new Kotlin/Native memory manager, pass the following compiler option:
+
+```
+-Xgc=cms 
+```
 
 Feel free to share your feedback on the new memory manager performance in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48526).
 
 ### Improved error handling with cinterop modules
 
-This release introduces improved error handling while you are working with module cinterop (it enables everytime you working with CocoaPods pods).
-Before, if you get an error while trying to work with cinterop module (for instance, when you face a compilation error in a header), you receive an uninformative error message.
-We elaborated this part of the `cinterop` tool, so you'll get an error message with an extended description.
+This release introduces improved error handling for cases when you import an Objective-C module using `cinterop` tool (as it usually happens for CocoaPods pods).
+Before, if you got an error while trying to work with Objective-C module (for instance, when you face a compilation error in a header), you received an uninformative error message, such as `fatal error: could not build module $name`.
+We elaborated this part of the `cinterop` tool, so you’ll get an error message with an extended description.
 
 ### Support for Xcode 13 libraries
 
