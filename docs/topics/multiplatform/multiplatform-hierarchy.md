@@ -19,7 +19,7 @@ kotlin.native.enableDependencyPropagation=false
 With the new hierarchical project structure support, you can share code among some, but not
 all [targets](multiplatform-dsl-reference.md#targets) in a multiplatform project.
 
-You can also use platform-dependent libraries, such as `UIKit`, and `posix` in source sets shared among several native
+You can also use platform-dependent libraries, such as `UIKit`, and `POSIX` in source sets shared among several native
 targets. One popular case is having access to iOS-specific dependencies like `Foundation` when sharing code across all
 iOS targets. New structure helps you share more native code without being limited by platform-specific dependencies.
 
@@ -28,8 +28,8 @@ need to use certain workarounds to get IDE support for sharing source sets among
 example `iosArm64` and `iosX64`:
 
 ```kotlin
+// workaround 1: select iOS target platform depending on the Xcode environment variables
 kotlin {
-    // workaround 1: select iOS target platform depending on the Xcode environment variables
     val iOSTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
         if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
             ::iosArm64
@@ -39,11 +39,13 @@ kotlin {
     iOSTarget("ios")
 }
 ```
+{initial-collapse-state="collapsed"}
 
 ```bash
 # workaround 2: make symbolic links to use one source set for two targets
 ln -s iosMain iosArm64Main && ln -s iosMain iosX64Main
 ```
+{initial-collapse-state="collapsed"}
 
 Instead of doing this, you can create a hierarchical structure
 with [target shortcuts](multiplatform-share-on-platforms.md#use-target-shortcuts)
@@ -71,12 +73,17 @@ unsafe usages, like using an API meant for the JVM in JS code.
   project structure. To enable compatibility with non-hierarchical projects, add the following to
   the `gradle.properties` file in your library project:
 
-   ```properties
-   kotlin.mpp.enableCompatibilityMetadataVariant=true
-   ```
+  ```properties
+  kotlin.mpp.enableCompatibilityMetadataVariant=true
+  ```
+  
+  > In this case, only source code from the `commonMain` source set is compiled with the legacy metadata compiler. If you
+  > use platform-specific code in `commonMain`, its compilation to legacy format will fail.
+  >
+  {type="warning"}
 
-* Libraries published without the hierarchical project structure can’t be used in a shared native source set. For
-  example, users with `ios()` shortcuts in their `build.gradle.(kts)` files won’t be able to use your library in their
+* Libraries published without the hierarchical project structure can't be used in a shared native source set. For
+  example, users with `ios()` shortcuts in their `build.gradle.(kts)` files won't be able to use your library in their
   iOS-shared code.
 
 See [Compatibility](#compatibility) for more details.
@@ -85,12 +92,12 @@ See [Compatibility](#compatibility) for more details.
 
 The compatibility between multiplatform projects and libraries is as follows:
 
-| Library with hierarchical project structure | Project with hierarchical project structure | Compatibility                                            |
-|---------------------------------------------|---------------------------------------------|----------------------------------------------------------|
-| Yes                                         | Yes                                         | ✅                                                        |
-| Yes                                         | No                                          | Need to enable with `enableCompatibilityMetadataVariant` |
-| No                                          | Yes                                         | Library can't be used in a shared native source set      |
-| No                                          | No                                          | ✅                                                        |
+| Library with hierarchical project structure | Project with hierarchical project structure | Compatibility                                                                   |
+|---------------------------------------------|---------------------------------------------|---------------------------------------------------------------------------------|
+| Yes                                         | Yes                                         | ✅                                                                               |
+| Yes                                         | No                                          | Need to enable with `enableCompatibilityMetadataVariant` in the library project |
+| No                                          | Yes                                         | Library can't be used in a shared native source set                             |
+| No                                          | No                                          | ✅                                                                               |
 
 ## How to opt-out
 
@@ -101,8 +108,4 @@ kotlin.mpp.hierarchicalStructureSupport=false
 ```
 
 As for the `kotlin.mpp.enableCompatibilityMetadataVariant` option that enables compatibility of libraries published with
-the hierarchical project structure and non-hierarchical projects, you should disable it separately:
-
-```properties
-kotlin.mpp.enableCompatibilityMetadataVariant=false
-```
+the hierarchical project structure and non-hierarchical projects, it's disabled by default. No additional steps are required.

@@ -910,7 +910,7 @@ about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code
 
 ### Leveraging native libs in the hierarchical structure 
 
-You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix`, in source sets shared among several 
+You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `POSIX`, in source sets shared among several 
 native targets. This can help you share more native code without being limited by platform-specific dependencies. 
 
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 

@@ -262,7 +262,7 @@ it and call `runBlocking` from a source set that is shared between the JVM and n
 
 ### Use native libraries in the hierarchical structure
 
-You can use platform-dependent libraries like `Foundation`, `UIKit`, and `posix` in source sets shared among several native 
+You can use platform-dependent libraries like `Foundation`, `UIKit`, and `POSIX` in source sets shared among several native 
 targets. This helps you share more native code without being limited by platform-specific dependencies. 
 
 Since Kotlin 1.6.20, the usage of platform-dependent libraries is available in shared source sets by default. No additional
