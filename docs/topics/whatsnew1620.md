@@ -592,7 +592,7 @@ Learn more about [exporting Kotlin declarations to JavaScript](https://example.c
 ### @AfterTest guarantees for asynchronous tests
 
 Kotlin 1.6.20 makes [`@AfterTest`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-after-test/) functions work properly with asynchronous tests on Kotlin/JS.
-If a test function return type is statically resolved to [`Promise`]((https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/), the compiler now schedules the execution of `@AfterTest` function to the corresponding [`then()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/then.html) callback.
+If a test function return type is statically resolved to [`Promise`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/), the compiler now schedules the execution of `@AfterTest` function to the corresponding [`then()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/then.html) callback.
 
 ## Security
 
