@@ -63,7 +63,7 @@ fun main() {
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
-## Migration from interface with constructor function to functional interface
+## Migration from an interface with constructor function to a functional interface
 
 > Support for callable references to functional interface constructors is [Experimental](components-stability.md).
 > It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
@@ -71,9 +71,9 @@ You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conve
 >
 {type="warning"}
 
-Starting from 1.6.20, Kotlin supports callable references to functional interface constructors.
-This support adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
-Consider this "legacy" code:
+Starting from 1.6.20, Kotlin supports callable references to functional interface constructors, which
+adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
+Consider this code:
 
 ```kotlin
 interface KRunnable { 
@@ -83,7 +83,7 @@ interface KRunnable {
 fun KRunnable(block: () -> Unit): KRunnable = object : KRunnable { override fun invoke() = block() }
 ```
 
-To migrate this code to the functional interface `KRunnable`, use the following code:
+Functional interfaces make the same code more concise. To migrate this code to the functional interface `KRunnable`, use the following code:
 
 ```kotlin
 fun interface KRunnable { 
@@ -96,7 +96,7 @@ Preserve the binary compatibility by marking the legacy function `KRunnable` wit
 annotation with `DeprecationLevel.HIDDEN`:
 
 ```kotlin
-@Deprecated(message = "Your message about the depreciation", level = DeprecationLevel.HIDDEN)
+@Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
 fun KRunnable(...) {...}
 ```
 
