@@ -103,7 +103,7 @@
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
         </toc-element>
         <toc-element toc-title="Kotlin Multiplatform for other platforms">
-            <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,kmm-configure-sqldelight-for-data-storage.html,multiplatform-mobile-configure-sqldelight-for-data-storage.html,multiplatform-tutorials.html"/>
+            <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
             <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
             <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
         </toc-element>
