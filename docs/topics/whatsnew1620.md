@@ -633,6 +633,9 @@ Tools like [Dependabot](https://github.com/dependabot) can also parse the `yarn.
 
 If needed, you can change both directory and lockfile names in the build script:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
@@ -640,6 +643,20 @@ rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileName = "my-yarn.lock"
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileDirectory =
+          file("my-kotlin-js-store")
+  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
+}
+``` 
+
+</tab>
+</tabs>
 
 Keep in mind, however, that changing the name of the lockfile may cause dependency inspection tools to no longer pick up the file.
 
@@ -656,11 +673,26 @@ The change is aimed at reducing the likelihood of executing malicious code from 
 
 To roll back to the old configuration, you can explicitly enable lifecycle scripts execution by adding these lines to `build.gradle(.kts)`:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
+}
+``` 
+
+</tab>
+</tabs>
 
 Learn more about [npm dependencies of a Kotlin/JS Gradle project](https://kotlinlang.org/docs/js-project-setup.html#npm-dependencies).
 
