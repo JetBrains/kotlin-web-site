@@ -165,3 +165,5 @@ Kotlin supports the following operators and special symbols:
  * `_`
      - substitutes an unused parameter in a [lambda expression](lambdas.md#underscore-for-unused-variables).
      - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#underscore-for-unused-variables).
+
+For operator precedence, see [this reference](https://kotlinlang.org/docs/reference/grammar.html#expressions) on Kotlin Grammar.
