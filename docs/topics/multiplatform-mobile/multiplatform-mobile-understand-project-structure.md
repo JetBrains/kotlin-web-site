@@ -6,6 +6,10 @@ logic for Android and iOS platforms. To make this possible, it uses a mobile-spe
 This page describes the structure of a basic cross-platform mobile project. Note that this structure isn’t the only
 possible way to organize your project; however, we recommend it as a starting point.
 
+To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+
+![Select the Project view](select-project-view.png){width=200}
+
 A basic Kotlin Mobile Multiplatform project consists of three components:
 
 * _Shared module_ – a Kotlin module that contains common logic for both Android and iOS applications.
