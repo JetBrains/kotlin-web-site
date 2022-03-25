@@ -20,8 +20,12 @@ Kotlin/Native supports the following platforms:
 * Windows (MinGW)
 * Android NDK
 
-[The full list of supported targets is available here](multiplatform-dsl-reference.md).
+> To compile Apple targets, macOS, iOS, tvOS, and watchOS, you need [Xcode](https://apps.apple.com/us/app/xcode/id497799835)
+> and its command-line tools installed. Otherwise, you'll get an error.
+> 
+{type="note"}
 
+[The full list of supported targets is available here](multiplatform-dsl-reference.md#targets).
 
 ## Interoperability
 
