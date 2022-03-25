@@ -70,6 +70,9 @@ hash-based maps and sets (`HashMap`/`HashSet`), tree-based ordered maps and sets
 Using a hash-set of integers to track values that were already reached while applying function `f`, 
 the straightforward imperative version of a solution to the problem can be written as shown below:
 
+<tabs>
+<tab title="Kotlin 1.6.0 and later">
+
 ```kotlin
 fun main() {
     var n = readln().toInt() // read integer from the input
@@ -77,11 +80,8 @@ fun main() {
     while (reached.add(n)) n = f(n) // iterate function f
     println(reached.size) // print answer to the output
 }
-```
 
-> The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).
->
-{type="note"}
+```
 
 There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
 specified in competitive programming, and the actual input cannot deviate from the input specification in the problem
@@ -89,16 +89,60 @@ statement. That's why you can use Kotlin's [`readln()`](https://kotlinlang.org/a
 an exception otherwise. Likewise, the [`String.toInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html)
 function throws an exception if the input string is not an integer.
 
+</tab>
+<tab title="Earlier versions">
+
+```kotlin
+fun main() {
+    var n = readLine()!!.toInt() // read integer from the input
+    val reached = HashSet<Int>() // a mutable hash set 
+    while (reached.add(n)) n = f(n) // iterate function f
+    println(reached.size) // print answer to the output
+}
+```
+
+Note the use of Kotlin's
+[null-assertion operator](null-safety.md#the-operator) `!!`
+after the [readLine()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call.
+Kotlin's `readLine()` function is defined to return a
+[nullable type](null-safety.md#nullable-types-and-non-null-types)
+`String?` and returns `null` on the end of the input, which explicitly forces the developer to handle the
+case of missing input.
+
+There is no need to handle the case of misformatted input in competitive programming.
+In competitive programming, an input format is always precisely specified and the actual input cannot deviate from
+the input specification in the problem statement. That's what the null-assertion operator `!!` essentially does &mdash;
+it asserts that the input string is present and throws an exception otherwise. Likewise,
+the [String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html).
+
+</tab>
+</tabs>
+
 All online competitive programming events allow the use of pre-written code, so you can define your own library of 
 utility functions that are geared towards competitive programming to make your actual solution code somewhat easier 
 to read and write. You would then use this code as a template for your solutions. For example, you can define 
 the following helper functions for reading inputs in competitive programming:
 
+<tabs>
+<tab title="Kotlin 1.6.0 and later">
+
 ```kotlin
 private fun readInt() = readln().toInt()
 private fun readStr() = readln().toString()
-// etc for other types you'd use in your solutions
+// etc. for other types you'd use in your solutions
 ```
+
+</tab>
+<tab title="Earlier versions">
+
+```kotlin
+private fun readInt() = readLn().toInt()
+private fun readStr() = readLn().toString()
+// etc. for other types you'd use in your solutions
+```
+
+</tab>
+</tabs>
 
 Note the use of `private` [visibility modifier](visibility-modifiers.md) here.
 While the concept of visibility modifier is not relevant for competitive programming at all, 
@@ -112,6 +156,9 @@ minimize the boilerplate and turn the code into a linear top-to-bottom and left-
 pipeline. For example, the 
 [Problem B: Long Number](https://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
+
+<tabs>
+<tab title="Kotlin 1.6.0 and later">
 
 ```kotlin
 fun main() {
@@ -129,11 +176,39 @@ fun main() {
     // compose and write the answer
     val ans =
         s.substring(0, i) +
-        s.substring(i, j).map { c -> f(c) }.joinToString("") +
-        s.substring(j)
+                s.substring(i, j).map { c -> f(c) }.joinToString("") +
+                s.substring(j)
     println(ans)
 }
 ```
+
+</tab>
+<tab title="Earlier versions">
+
+```kotlin
+fun main() {
+    // read input
+    val n = readLine()!!.toInt()
+    val s = readLine()!!
+    val fl = readLine()!!.split(" ").map { it.toInt() }
+    // define local function f
+    fun f(c: Char) = '0' + fl[c - '1']
+    // greedily find first and last indices
+    val i = s.indexOfFirst { c -> f(c) > c }
+        .takeIf { it >= 0 } ?: s.length
+    val j = s.withIndex().indexOfFirst { (j, c) -> j > i && f(c) < c }
+        .takeIf { it >= 0 } ?: s.length
+    // compose and write the answer
+    val ans =
+        s.substring(0, i) +
+                s.substring(i, j).map { c -> f(c) }.joinToString("") +
+                s.substring(j)
+    println(ans)
+}
+```
+
+</tab>
+</tabs>
 
 In this dense code, in addition to collection transformations, you can see such handy Kotlin features as local functions
 and the [elvis operator](null-safety.md#elvis-operator) `?:`
@@ -145,26 +220,57 @@ variables and express the same code in imperative style, too.
 To make reading the input in competitive programming tasks like this more concise, 
 you can have the following list of helper input-reading functions:
 
+<tabs>
+<tab title="Kotlin 1.6.0 and later">
+
 ```kotlin
 private fun readInt() = readln().toInt() // single int
 private fun readStrings() = readln().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 ```
 
+</tab>
+<tab title="Earlier versions">
+
+```kotlin
+private fun readLn() = readLine()!! // string line
+private fun readInt() = readLn().toInt() // single int
+private fun readStrings() = readLn().split(" ") // list of strings
+```
+
+</tab>
+</tabs>
+
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
+<tabs>
+<tab title="Kotlin 1.6.0 and later">
+
 ```kotlin
-    // read input
-    val n = readInt()
-    val s = readln()
-    val fl = readInts()
+// read input
+val n = readInt()
+val s = readln()
+val fl = readInts()
 ```
+
+</tab>
+<tab title="Earlier versions">
+
+```kotlin
+// read input
+val n = readInt()
+val s = readLn()
+val fl = readInts()
+```
+
+</tab>
+</tabs>
 
 Note that in competitive programming it is customary to give variables shorter names than it is 
 typical in industrial programming practice, since the code is to be written just once and not supported thereafter. 
 However, these names are usually still mnemonic &mdash; `a` for arrays,
-`i`, `j`, etc for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, etc.
+`i`, `j`, etc. for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, etc.
 It is easier to keep the same names for input data as it is given in the problem statement. 
 However, more complex problems require more code which leads to using longer self-explanatory
 variable and function names.
@@ -207,12 +313,12 @@ println(a.joinToString("\n")) // each element of array/list of a separate line
 
 Kotlin is easy to learn, especially for those who already know Java.
 A short introduction to the basic syntax of Kotlin for software developers can be found directly in the
-reference section of the web site starting from [basic syntax](basic-syntax.md). 
+reference section of the website starting from [basic syntax](basic-syntax.md). 
 
 IDEA has built-in 
 [Java-to-Kotlin converter](https://www.jetbrains.com/help/idea/converting-a-java-file-to-kotlin-file.html). 
 It can be used by people familiar with Java to learn the corresponding Kotlin syntactic constructions, but it
-is not perfect and it is still worth familiarizing yourself with Kotlin and learning the 
+is not perfect, and it is still worth familiarizing yourself with Kotlin and learning the 
 [Kotlin idioms](idioms.md).
 
 A great resource to study Kotlin syntax and API of the Kotlin standard library are
