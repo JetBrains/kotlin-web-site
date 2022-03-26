@@ -609,12 +609,30 @@ Before Kotlin 1.6.20, stored file paths were absolute. Since sharing absolute pa
 
 If you are publishing a `klib` and want to use only relative paths of source files in the artifact, you can now pass the `-Xklib-relative-path-base` compiler option with one or multiple base paths of source files:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {
-   // $base is a base path of source files
-   kotlinOptions.freeCompilerArgs += listOf("-Xklib-relative-path-base=$base")
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
+  // $base is a base path of source files
+  kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+  kotlinOptions {
+    // $base is a base path of source files
+    freeCompilerArgs += "-Xklib-relative-path-base=$base"
+  }
+}
+``` 
+
+</tab>
+</tabs>
 
 ### Persisting yarn.lock for Kotlin/JS Gradle projects
 
