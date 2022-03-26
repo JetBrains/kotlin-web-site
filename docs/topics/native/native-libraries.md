@@ -29,7 +29,7 @@ $ cinterop -def samples/gitchurn/src/nativeInterop/cinterop/libgit2.def -compile
 
 we will obtain `libgit2.klib`.
 
-See more details in [C Interop](native-c-interop.md)
+See more details in [C Interop](native-c-interop.md).
 
 ## klib utility
 
