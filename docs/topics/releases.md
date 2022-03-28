@@ -60,7 +60,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li>Prototype of context receivers</li>
                 <li>Callable references to functional interface constructors</li>
                 <li>Kotlin/Native: concurrent sweep phase in the new memory manager</li>
-                <li>Kotlin Multiplatform: hierarchical structure support enabled by default for all new multiplatform projects</li>
+                <li>Kotlin Multiplatform: hierarchical project structure by default</li>
                 <li>Kotlin/JS: incremental compilation for development binaries with IR compiler</li>
                 <li>Gradle: new properties for defining Kotlin compiler execution strategy</li>
             </ul>
