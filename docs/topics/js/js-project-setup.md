@@ -550,6 +550,82 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 </tab>
 </tabs>
 
+### Version locking via kotlin-js-store
+
+> Version locking via `kotlin-js-store` is available since Kotlin 1.6.10.
+>
+{type="note"}
+
+The `kotlin-js-store` directory in a Kotlin/JS project root is necessary for version locking because it holds the 
+`yarn.lock` file inside. To follow a [recommended practice](https://classic.yarnpkg.com/blog/2016/11/24/lockfiles-for-all/), 
+commit `kotlin-js-store` and its contents to your version control system. It ensures that your application is being 
+built with the exact same dependency tree on all machines.
+
+If needed, you can change both directory and lockfile names in the build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
+       project.rootDir.resolve("my-kotlin-js-store")
+   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileName = "my-yarn.lock"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileDirectory =
+           file("my-kotlin-js-store")
+ rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
+}
+``` 
+
+</tab>
+</tabs>
+
+> Changing the name of the lockfile may cause dependency inspection tools to no longer pick up the file.
+> 
+{type="warning"}
+
+To learn more about `yarn.lock`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/).
+
+### Installation of npm dependencies with --ignore-scripts by default
+
+> Installation of npm dependencies with --ignore-scripts by default is available since Kotlin 1.6.10.
+>
+{type="note"}
+
+To reduce the likelihood of executing malicious code from compromised npm packages, the Kotlin/JS Gradle plugin prevents 
+the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts) 
+during npm dependencies installation by default.
+
+You can explicitly enable lifecycle scripts execution by adding these lines to `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
+}
+``` 
+
+</tab>
+</tabs>
 
 ## Distribution target directory
 
