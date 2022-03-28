@@ -76,28 +76,33 @@ adds a source-compatible way to migrate from an interface with a constructor fun
 Consider this code:
 
 ```kotlin
-interface KRunnable { 
-    fun invoke() 
+interface Printer { 
+    fun print() 
 }
 
-fun KRunnable(block: () -> Unit): KRunnable = object : KRunnable { override fun invoke() = block() }
+fun Printer(block: () -> Unit): Printer = object : Printer { override fun print() = block() }
 ```
 
-Functional interfaces make the same code more concise. To migrate this code to the functional interface `KRunnable`, use the following code:
+Functional interfaces make the same code more concise. To migrate this code to the functional interface `Printer`, use the following code:
 
 ```kotlin
-fun interface KRunnable { 
-    fun invoke()
+fun interface Printer { 
+    fun print()
 }
 ```
 
-With callable references to functional interface constructors enabled, any code using the `::KRunnable` function reference will compile.
-Preserve the binary compatibility by marking the legacy function `KRunnable` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
+With callable references to functional interface constructors enabled, any code using the `::Printer` function reference will compile. For example:
+
+```kotlin
+documentsStorage.addPrinter(::Printer)
+```
+
+Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
 annotation with `DeprecationLevel.HIDDEN`:
 
 ```kotlin
 @Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
-fun KRunnable(...) {...}
+fun Printer(...) {...}
 ```
 
 Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
