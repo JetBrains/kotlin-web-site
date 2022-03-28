@@ -8,13 +8,13 @@ Kotlin 1.6.20 reveals previews of the future language features, makes the hierar
 
 In Kotlin 1.6.20, you can try two new language features:
 
-* [Prototype of context receivers](#prototype-of-context-receivers)
+* [Prototype of context receivers for Kotlin/JVM](#prototype-of-context-receivers-for-kotlin-jvm)
 * [Definitely non-nullable types](#definitely-non-nullable-types)
 
-### Prototype of context receivers
+### Prototype of context receivers for Kotlin/JVM
 
-> The feature is a prototype. With `-Xcontext-receivers` enabled, the compiler will produce
-> pre-release binaries that cannot be used in production code.
+> The feature is a prototype available only for Kotlin/JVM. With `-Xcontext-receivers` enabled,
+> the compiler will produce pre-release binaries that cannot be used in production code.
 > Use context receivers only in your toy projects.
 > We appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
