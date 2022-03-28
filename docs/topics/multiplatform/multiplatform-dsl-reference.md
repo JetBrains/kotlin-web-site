@@ -114,7 +114,10 @@ The complete list of available targets is the following:
                <li><code>iosSimulatorArm64</code> — Apple iOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>
+            <p>Requires a macOS host.</p>
+            <p>To compile iOS targets, you need <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</p>
+        </td>
     </tr>
     <tr>
         <td>watchOS</td>
@@ -127,7 +130,10 @@ The complete list of available targets is the following:
                <li><code>watchosSimulatorArm64</code> — Apple watchOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>
+            <p>Requires a macOS host.</p>
+            <p>To compile watchOS targets, you need <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</p>
+        </td>
     </tr>
     <tr>
         <td>tvOS</td>
@@ -138,7 +144,10 @@ The complete list of available targets is the following:
                <li><code>tvosSimulatorArm64</code> — Apple tvOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>
+            <p>Requires a macOS host.</p>
+            <p>To compile tvOS targets, you need <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</p>
+        </td>
     </tr>
     <tr>
         <td>macOS</td>
@@ -148,7 +157,10 @@ The complete list of available targets is the following:
                <li><code>macosArm64</code> — Apple macOS on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>
+            <p>Requires a macOS host.</p>
+            <p>To compile macOS targets, you need <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</p>
+        </td>
     </tr>
     <tr>
         <td>Linux</td>
