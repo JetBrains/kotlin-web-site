@@ -58,7 +58,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>An incremental release with various improvements such as:</p>
             <ul>
                 <li>Prototype of context receivers</li>
-                <li>Support for callable references to function interface constructors</li>
+                <li>Callable references to functional interface constructors</li>
                 <li>Kotlin/Native: new memory manager</li>
                 <li>Kotlin Multiplatform: hierarchical structure support enabled by default for all new multiplatform projects</li>
                 <li>Kotlin/JS: Incremental compilation for development binaries with IR compiler</li>
