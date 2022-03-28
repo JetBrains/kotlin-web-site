@@ -1,14 +1,10 @@
 [//]: # (title: Opt-in requirements)
 
-> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are [Experimental](components-stability.md). 
-> They may be dropped or changed at any time. Opt-in is required (see details below).
-> Use them only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
+> The opt-in requirement annotations `@RequiresOptIn` and `@OptIn` are in [Beta](components-stability.md).
+> It is almost stable, but migration steps may be required in the future. We'll do our best to minimize any changes you 
+> have to make. See the details in the [Beta status of the opt-in requirements](#beta-status-of-the-opt-in-requirements) section.
+> 
 {type="warning"}
-
-> The `-opt-in` compiler option is available since Kotlin 1.6.0. For earlier Kotlin versions, use `-Xopt-in`.
->
-{type="note"} 
 
 The Kotlin standard library provides a mechanism for requiring and giving explicit consent for using certain elements of APIs.
 This mechanism lets library developers inform users of their APIs about specific conditions that require opt-in,
@@ -297,16 +293,16 @@ and provide the explanation in the deprecation message.
 annotation class ExperimentalDateTime
 ```
 
-## Experimental status of the opt-in requirements
+## Beta status of the opt-in requirements
 
-The opt-in requirement mechanism is currently [experimental](components-stability.md).
-This means that in future releases it may be changed in ways that make it incompatible.
+The opt-in requirement mechanism is currently in [Beta](components-stability.md). They are almost stable, but migration 
+steps may be required in the future. We'll do our best to minimize any changes you have to make.
 
-To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their experimental status,
+To make the users of annotations `@OptIn` and `@RequiresOptIn` aware of their pre-stable status,
 the compiler raises warnings when compiling the code with these annotations:
 
-```This class can only be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
+```This annotation should be used with the compiler argument '-opt-in=kotlin.RequiresOptIn'```
 
 To remove the warnings, add the compiler argument `-opt-in=kotlin.RequiresOptIn`.
 
-Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/d7287626dd4c40c6c89877e266044b83fca38bcd/proposals/opt-in.md).
+Learn more about recent changes to opt-in requirements in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/opt-in.md).

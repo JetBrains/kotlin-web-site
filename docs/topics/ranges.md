@@ -181,7 +181,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-If you already have a progression, you can iterate it in reverse order with the `reversed` function:
+If you already have a progression, you can iterate it in reverse order with the [`reversed`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/reversed.html) function:
 
 ```kotlin
 fun main() {
