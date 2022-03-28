@@ -67,7 +67,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>Learn more in:</p>
             <ul>
                 <li><a href="whatsnew1620.md" target="_blank">What's new in Kotlin 1.6.20</a></li>
-                <li><a href="https://blog.jetbrains.com/kotlin/2022/03/kotlin-1-6-20-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2022/03/kotlin-1-6-20-is-released/" target="_blank">Release blog post</a></li>
             </ul>
         </td>
         <td>
