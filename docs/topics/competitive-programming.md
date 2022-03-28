@@ -176,8 +176,8 @@ fun main() {
     // compose and write the answer
     val ans =
         s.substring(0, i) +
-                s.substring(i, j).map { c -> f(c) }.joinToString("") +
-                s.substring(j)
+        s.substring(i, j).map { c -> f(c) }.joinToString("") +
+        s.substring(j)
     println(ans)
 }
 ```
@@ -201,8 +201,8 @@ fun main() {
     // compose and write the answer
     val ans =
         s.substring(0, i) +
-                s.substring(i, j).map { c -> f(c) }.joinToString("") +
-                s.substring(j)
+        s.substring(i, j).map { c -> f(c) }.joinToString("") + 
+        s.substring(j)
     println(ans)
 }
 ```
