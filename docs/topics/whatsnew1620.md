@@ -676,7 +676,9 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 </tab>
 </tabs>
 
-Keep in mind, however, that changing the name of the lockfile may cause dependency inspection tools to no longer pick up the file.
+> Changing the name of the lockfile may cause dependency inspection tools to no longer pick up the file.
+>
+{type="warning"}
 
 Learn more about [version locking in a Kotlin/JS project](https://example.com).
 
