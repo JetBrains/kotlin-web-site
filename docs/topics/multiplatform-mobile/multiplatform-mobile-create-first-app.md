@@ -51,7 +51,9 @@ You can run your multiplatform application on [Android](#run-your-application-on
 
 ### Run your application on Android
 
-* In the list of run configurations, select **androidApp** and then click **Run**.  
+1. Create an [Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
+2. In the list of run configurations, select **androidApp**.
+3. Choose your Android virtual device and click **Run**.  
     
     ![Run multiplatform app on Android](run-android.png){width=400}
     
@@ -133,7 +135,7 @@ If you want to run your application on another simulated device, you can add a n
 
 Learn how to [add dependencies to your project](multiplatform-mobile-setup.md).
 
-## What else?
+## Learn more
 
-* See how to [run tests to check that the code works correctly](multiplatform-run-tests.md).
+* See how to [run tests](multiplatform-run-tests.md) to check that the code works correctly.
 * Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md) and how you can use it.

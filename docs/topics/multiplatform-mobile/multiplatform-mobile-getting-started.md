@@ -26,8 +26,6 @@ For example, to implement a native UI or when working with platform-specific API
 
 5️⃣ Wrap up your project
 
-6️⃣
-
 ## Get help
 
 * **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
@@ -41,7 +39,7 @@ out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com
 
 Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin Multiplatform Mobile development.
 
-## What else?
+## Learn more
 
 If you already have an Android mobile application, [set up an environment](multiplatform-mobile-setup.md) 
 and follow [this tutorial](multiplatform-mobile-integrate-in-existing-app.md) to make it cross-platform.
