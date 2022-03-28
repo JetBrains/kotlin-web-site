@@ -761,6 +761,9 @@
     position:
       lat: 16.5061743
       lng: 80.6480153
+  - name: Yemen Kotlin User Group
+    country: Yemen
+    url: https://www.facebook.com/YemenKotlin
   - name: Yerevan Kotlin User Group
     country: Armenia
     url: https://www.meetup.com/Kotlin-Yerevan/
@@ -776,6 +779,9 @@
     position:
       lat: 30.267153
       lng: -97.7430608
+  - name: Baton Rouge Kotlin User Group
+    country: USA
+    url: https://baton-rouge-kotlin-user-group.github.io/
   - name: Brooklyn (NY) Kotlin User Group
     country: USA
     url: https://www.meetup.com/Brooklyn-Kotlin/
