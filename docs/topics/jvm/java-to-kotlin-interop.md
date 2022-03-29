@@ -380,7 +380,7 @@ In case of inheritance from a Kotlin interface compiled in `all` or `all-compati
 Perform additional compatibility checks for classes inheriting generic interfaces where in some cases additional implicit method 
 with specialized signatures was generated in the `disable` mode:
 unlike in the `disable` mode, the compiler will report an error if you don't override such method explicitly and don't annotate the class 
-with `@JvmDefaultWithoutCompatibility` (see [this YouTrack task](https://youtrack.jetbrains.com/issue/KT-39603) for more details).
+with `@JvmDefaultWithoutCompatibility` (see [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-39603) for more details).
 
 ## Visibility
 
