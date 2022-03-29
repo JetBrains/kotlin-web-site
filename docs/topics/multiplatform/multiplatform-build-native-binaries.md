@@ -329,9 +329,9 @@ frameworks into a single universal (fat) binary using the [`lipo` tool](https://
 This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal 
 framework on both 32-bit and 64-bit devices.
  
-> The fat framework must have the same base name as the initial frameworks.
+> The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
 >
-{type="note"}
+{type="warning"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
