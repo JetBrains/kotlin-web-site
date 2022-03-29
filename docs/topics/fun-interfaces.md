@@ -83,7 +83,7 @@ interface Printer {
 fun Printer(block: () -> Unit): Printer = object : Printer { override fun print() = block() }
 ```
 
-Functional interfaces make the same code more concise. To migrate this code to the functional interface `Printer`, use the following code:
+With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
 
 ```kotlin
 fun interface Printer { 
