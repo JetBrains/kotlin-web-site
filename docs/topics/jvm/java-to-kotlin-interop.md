@@ -368,7 +368,7 @@ __Breaks binary compatibility__ if some client code relies on the presence of `D
 
 #### all-compatibility {initial-collapse-state="collapsed"}
 
-In addition to the `all` mode, generate compatibility stubs in the `DefaultImpls` classes. Compatibility stubs could be useful for 
+In addition to the `all` mode, generate compatibility stubs in the [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/) classes. Compatibility stubs could be useful for 
 library and runtime authors to keep backward binary compatibility for existing clients compiled against previous library versions. 
 `all` and `all-compatibility` modes are changing the library ABI surface that clients will use after the recompilation of the library. 
 In that sense, clients might be incompatible with previous library versions. 
