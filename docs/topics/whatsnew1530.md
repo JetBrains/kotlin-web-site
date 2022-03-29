@@ -149,7 +149,7 @@ The feature has the following restrictions:
 ### Requiring opt-in on implicit usages of experimental APIs
 
 > The opt-in requirement mechanism is [Experimental](components-stability.md).
-> It may change at any time. [See how to opt-in](opt-in-requirements.md#experimental-status-of-the-opt-in-requirements).
+> It may change at any time. [See how to opt-in](opt-in-requirements.md#beta-status-of-the-opt-in-requirements).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
@@ -185,7 +185,7 @@ Learn more about [opt-in requirements](opt-in-requirements.md).
 ### Changes to using opt-in requirement annotations with different targets
 
 > The opt-in requirement mechanism is [Experimental](components-stability.md).
-> It may change at any time. [See how to opt-in](opt-in-requirements.md#experimental-status-of-the-opt-in-requirements).
+> It may change at any time. [See how to opt-in](opt-in-requirements.md#beta-status-of-the-opt-in-requirements).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
@@ -349,7 +349,7 @@ cocoapods {
         isStatic = false
         // Dependency export
         export(project(":anotherKMMModule"))
-        transitiveExport = true
+        transitiveExport = false // This is default.
         // Bitcode embedding
         embedBitcode(BITCODE)
     }

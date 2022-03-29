@@ -125,6 +125,11 @@ If the files reside in locations different from the current directory, use relat
 $ kotlinc @options/compiler.options hello.kt
 ```
 
+### -opt-in _annotation_
+
+Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
+fully qualified name.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
@@ -265,7 +270,7 @@ Produce an application for running unit tests from the project.
 
 ### -generate-worker-test-runner (-trw)
 
-Produce an application for running unit tests in a [worker thread](native-concurrency.md#workers).
+Produce an application for running unit tests in a [worker thread](native-immutability.md#concurrency-in-kotlin-native).
 
 ### -generate-no-exit-test-runner (-trn)
 

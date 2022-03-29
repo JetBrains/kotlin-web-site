@@ -89,8 +89,8 @@ as identifiers in other contexts:
 The following tokens act as keywords in modifier lists of declarations, and they can be used as identifiers
 in other contexts:
 
- * `actual` denotes a platform-specific implementation in [multiplatform projects](multiplatform.md).
  * `abstract` marks a class or member as [abstract](classes.md#abstract-classes).
+ * `actual` denotes a platform-specific implementation in [multiplatform projects](multiplatform.md).
  * `annotation` declares an [annotation class](annotations.md).
  * `companion` declares a [companion object](object-declarations.md#companion-objects).
  * `const` marks a property as a [compile-time constant](properties.md#compile-time-constants).
@@ -165,3 +165,5 @@ Kotlin supports the following operators and special symbols:
  * `_`
      - substitutes an unused parameter in a [lambda expression](lambdas.md#underscore-for-unused-variables).
      - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#underscore-for-unused-variables).
+
+For operator precedence, see [this reference](https://kotlinlang.org/docs/reference/grammar.html#expressions) in Kotlin grammar.

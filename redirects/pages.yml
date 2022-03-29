@@ -659,3 +659,8 @@
 
 - from: /docs/whatsnew-plugin-20203.html
   to: https://www.jetbrains.com/idea/whatsnew/2020-3/#kotlin-x
+
+- from:
+    - /docs/multiplatform-mobile-use-ktor-for-networking.html
+    - /docs/kmm-use-ktor-for-networking.html
+  to: https://ktor.io/docs/http-client-multiplatform.html

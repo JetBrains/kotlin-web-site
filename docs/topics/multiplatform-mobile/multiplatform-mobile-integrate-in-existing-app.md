@@ -122,7 +122,7 @@ You can now extract the business logic code to the Kotlin Multiplatform shared m
 
    ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
 
-4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-mobile-connect-to-platform-specific-apis.md). See the following sections for details.
+4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md). See the following sections for details.
 
 #### Replace Android-specific code with cross-platform code {initial-collapse-state="collapsed"}
 
@@ -174,7 +174,7 @@ val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
 Since the Kotlin standard library doesn't provide functionality for generating UUIDs, you still need to use platform-specific functionality for this case.
 
 Provide the `expect` declaration for the `randomUUID()` function in the shared code and its `actual` implementations for each platform – Android and iOS – in the corresponding source sets.
-You can learn more about [connecting to platform-specific APIs](multiplatform-mobile-connect-to-platform-specific-apis.md).
+You can learn more about [connecting to platform-specific APIs](multiplatform-connect-to-apis.md).
 
 1. Remove the `java.util.UUID` class from the common code:
 
@@ -391,11 +391,11 @@ should have the same presentation layer.
 
 Once you've made your Android application cross-platform, you can move on and:
 
-* [Use Ktor for networking](multiplatform-mobile-use-ktor-for-networking.md)
-* [Add dependencies on libraries](multiplatform-mobile-add-dependencies.md)
+* [Add dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
+* [Add Android dependencies](multiplatform-mobile-android-dependencies.md)
+* [Add iOS dependencies](multiplatform-mobile-ios-dependencies.md)
 * [Learn about concurrency](multiplatform-mobile-concurrency-overview.md)
 
 You can also check out community resources:
 
 * [Video: 3 ways to get your Kotlin JVM code ready for Kotlin Multiplatform Mobile](https://www.youtube.com/watch?v=X6ckI1JWjqo)
-

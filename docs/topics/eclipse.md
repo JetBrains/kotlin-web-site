@@ -1,7 +1,7 @@
 [//]: # (title: Eclipse IDE)
 
 [Eclipse IDE](https://www.eclipse.org/downloads/) is a widely known IDE that offers various packages for development in
-different languages and for different platforms. You can use is for writing Kotlin code. On this page, you will learn
+different languages and for different platforms. You can use it for writing Kotlin code. On this page, you will learn
 how to get started with Kotlin in Eclipse IDE. 
 
 ## Set up the environment

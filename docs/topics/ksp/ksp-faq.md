@@ -76,6 +76,7 @@ The following items have been planned:
 * Improve performance. There are a bunch of optimizations to be done!
 * Keep fixing bugs.
 
-Please feel free to reach out to us on
-[Kotlin Slack workspace](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_ga=2.185732459.358956950.1590619123-888878822.1567025441)
-if you would like to discuss any ideas. Filing GitHub issues/feature requests or pull requests are also welcome!
+Please feel free to reach out to us in the [#ksp channel in Kotlin Slack](https://kotlinlang.slack.com/archives/C013BA8EQSE)
+([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)) 
+if you would like to discuss any ideas. Filing [GitHub issues/feature requests](https://github.com/google/ksp/issues)
+or pull requests are also welcome!

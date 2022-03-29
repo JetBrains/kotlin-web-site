@@ -1,6 +1,306 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>pl</lang>
+        <startDate>2022-03-24</startDate>
+        <endDate>2022-03-24</endDate>
+        <location>Warsaw, Poland</location>
+        <speaker>Marcin Moskała</speaker>
+        <title>Learn programming with Kt. Academy</title>
+        <subject>Kotlin Coroutines open online workshop</subject>
+        <url>https://www.meetup.com/learn-programming-with-Kt-Academy/events/284403071</url>
+        <description>
+            <![CDATA[
+<p>This is a 2-day workshop for experienced developers that covers asynchronous programming in Kotlin using coroutines. It covers both build-in support for coroutines and dives deep into kotlinx.coroutines library.<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-17</startDate>
+        <endDate>2022-03-17</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Simone de Gijt</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Plugin and play</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/284205872</url>
+        <description>
+            <![CDATA[
+<p>How to verify your Kotlin project in a Kotlin way? I am talking about test coverage and about style linter. Wouldn’t it be great if we can really use Kotlin in the full spectrum and use tools that support those features?<p>
+<p>Of course, we would also like to check our code with a linter. In Java we have multiple ways to do that, but with the specific Kotlin format, we are in need of a new linter and formatter. Ktlint (spoken as kitty-lint, for the cat-lovers among us) is the perfect plugin to fit your needs.<p>
+<p>Most of us will know or even use test coverage engines like Jacoco or IntelliJ. An advantage of this is that it’s well known and considerably solid. The disadvantage is that it doesn’t support all Kotlin features, like a Kotlin directory structure. Because of that you have to choose to OR don’t use the Kotlin directory structure, OR pick a new test coverage engine. This is where Kover comes in.<p>
+<pIn this talk I will go over both plugins to see what the advantages are, how to configure them, and to determine which child-diseases are still there.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-07</startDate>
+        <endDate>2022-04-07</endDate>
+        <location>Frankfurt, Germany</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Kotlin Meetup Rhein-Main</title>
+        <subject>Building web applications with Ktor and Exposed</subject>
+        <url>https://www.meetup.com/Kotlin-Rhein-Main/events/284460004</url>
+        <description>
+            <![CDATA[
+<p>Ktor is a lightweight framework for building asynchronous server and client applications. Exposed is a database access library that is often used with Ktor. In this session, you will learn how to bootstrap a project with Ktor, build interaction between server and client via WebSockets and add database support with Exposed library and run some integration tests too!<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-15</startDate>
+        <endDate>2022-03-15</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Func Prog Sweden</title>
+        <subject>Abstract for Android Architecture Design with Koin</subject>
+        <url>https://www.meetup.com/Func-Prog-Sweden/events/283678183</url>
+        <description>
+            <![CDATA[
+<p>Abstract for Android Architecture Design with Koin
+Koin (https://insert-koin.io) is a pragmatic dependency injection framework for Kotlin/Android developers, well known for its ease of use. In this session, I propose to see together how we can structure our components, for the following topics:<p>
+<p>Classical Components in MVP, MVVM
+Dealing with Scopes
+Jetpack Navigation
+Jetpack Compose
+Integrating with Multi-Platform<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-05-10</startDate>
+        <endDate>2022-05-10</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Stockholm JVM JUG</title>
+        <subject>Web applications development with Kotlin</subject>
+        <url>https://www.meetup.com/stockholm-jvm-jug/events/284463090</url>
+        <description>
+            <![CDATA[
+<p>Kotlin was originally designed as an alternative JVM language. Meaning that Kotlin can be used anywhere JVM runs and of course, we can use it with various JVM frameworks to build web applications. In this presentation, Anton is going to make a brief overview of the Kotlin programming language with the assumption that you're fluent in Java. We will take a look at some of the language features that make Kotlin so exciting and see how it can be applied with the Spring Boot framework.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-17</startDate>
+        <endDate>2022-03-17</endDate>
+        <location>Vienna, Austria</location>
+        <speaker>Jan Ouwens</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Just enough computer science for the busy developer</subject>
+        <url>https://www.meetup.com/OpenValue-Vienna-Java-Better-Software-Development-Digital/events/284205872</url>
+        <description>
+            <![CDATA[
+<p>A CS degree is not a requirement for software developer roles. Nor should it be! I have worked with biologists, psychologists, and even a historian, who all were excellent coders. And that's great! Diversity of thought leads to better software, after all. Still, there are some super useful CS fundamentals that will make you a better programmer, but that you may not pick up on the job.<p>
+<p>This talk gives an overview of some of these fundamentals, such as De Morgan's Laws, the Big O notation, and how algorithm complexity informs whether you should use an ArrayList or something else. It also introduces you to the remarkable people who came up with these things. They ended wars, sent rockets to the moon, and were made into Lego minifigs. Who said computer science is boring?<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>fr</lang>
+        <startDate>2022-04-20</startDate>
+        <endDate>2022-04-20</endDate>
+        <location>Paris, France</location>
+        <speaker>Julien Lengrand-Lambert</speaker>
+        <title>OpenValue Vienna - Better Software, Faster</title>
+        <subject>Ligne de Commande, Kotlin et Star Wars : Présenter PicoCLI avec le combo gagnant</subject>
+        <url>https://cfp.devoxx.fr/2022/talk/PIH-9907/Ligne_de_Commande,_Kotlin_et_Star_Wars_:_Presenter_PicoCLI_avec_le_combo_gagnant</url>
+        <description>
+            <![CDATA[
+<p>picoCLI est une librairie qui permet de créer simplement et rapidement des applications en ligne de commandes (CLI) pour les applications basées sur la JVM<p>
+<p>Durant cette session, nous allons regarder comment créer un projet, créer une CLI légère et facile à utiliser pour notre utilisateur, et la packager proprement pour faciliter son utilisation.<p>
+<p>Cette session est séparée en trois parties : une introduction au sujet, suivi du live coding incrémental d'une application, et un tiers consacré aux bonnes pratiques pour la création d'applications en ligne de commande en Kotlin.<p>
+<p>picoCLI brille pour de multiple raisons, que nous allons voir ensemble. Documentation, compilation native via GraalVM, où encore support de Kotlin, parfait pour créer des lignes de commandes très rapides et efficaces!<p>
+<p>À la fin du talk, les participants auront une connaissance de base de la librairie et de son utilisation, et devraient avoir une idée concrète de la valeur qu'elle peut leur apporter dans leur quotidien.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Hanna Nerg</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Introduction to how we work and build products at Wolt</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>A short introduction to Wolt and how we build our product.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Jarkko Miettinen</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>I don't remember allocating that</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>A quick look into spotting and solving memory problems both on JVM and on ART<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Dmitry Aleksandrov</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Going Reactive with Helidon!</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>Helidon is a brave, small but powerful open source framework for writing microservices. If you need to get the maximum performance – making your apps reactive is currently the best way to do it! In this session we will dive deeper and see how to create extremely performant reactive microservices with Helidon “SE” flavor. We’ll explore its Reactive APIs, asynchronous DB access, and reactive Web-Client. Since Helidon has its own powerful Reactive Engine, we’ll learn how to get the most requests served in async operations and Messaging. And of course, all of this written in Kotlin! Welcome to the Danger Zone!<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-28</startDate>
+        <endDate>2022-02-28</endDate>
+        <location>Helsinki, Finland</location>
+        <speaker>Mikhail Rykov</speaker>
+        <title>Wolt Tech Talks</title>
+        <subject>Writing Readable Code</subject>
+        <url>https://www.meetup.com/wolt-tech-talks/events/284015207</url>
+        <description>
+            <![CDATA[
+<p>While readability is often considered a matter of taste, writing readable code is vital for every software developer. Can we speak about readability in absolute and objective terms? This talk gives it a try.<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-24</startDate>
+        <endDate>2022-02-24</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Andrew Liles, Szaby Gyurko</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Experience of Validation in Kotlin using Konform</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/283500154</url>
+        <description>
+            <![CDATA[
+<p>Want a means to validate input in Kotlin using a Kotlin idiomatic syntax? Andrew & Szaby's team is building server-side Kotlin REST applications and chose Spring as the framework but decided to look beyond the traditional simple Spring annotation-driven approach. They explain the shortcomings they found in Spring and why they selected Konform. In this talk they'll share how Konform is a strong solution to handle complex multi-field validation but where this approach is still imperfect.<p>
+]]>
+         </description>
+     </event>
+
+     <event>
+        <lang>en</lang>
+        <startDate>2022-02-17</startDate>
+        <endDate>2022-02-17</endDate>
+        <location>Chicago, USA</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>Chicago Kotlin Users Group</title>
+        <subject>Using Jetpack Compose with Square's Molecule Library w/ GDE</subject>
+        <url>https://www.meetup.com/Chicago-Kotlin/events/283312885/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, Mohit Sarveiya will share how to use Square's Molecule library in a multiplatform Compose project. For the past months, he's been working on a complex side project that runs a simulation. He'll share different patterns he explored using Square's Molecule library to manage state. He'll share how to setup the architecture as described in the Square's Molecule library. At the end of the talk, he'll do a live demo of the Compose app and show the architecture of the app.<p>
+]]>
+         </description>
+    </event>
+
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-02-17</startDate>
+        <endDate>2022-02-17</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Anton Arhipov</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Idiomatic Kotlin</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/283763057</url>
+        <description>
+            <![CDATA[
+<p>It's easy to start using Kotlin — it's like Java, so your experience will easily let you start programming in Java style. However, to take full advantage of the language, learning Kotlin best practices is a must. Kotlin provides a number of features for writing concise and readable code. In this session, we'll take a look at Kotlin features that make the programs look beautiful and more readable.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-03</startDate>
+        <endDate>2022-03-03</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Piotr Krzemiński</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>KSP for lazy devs</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/283522089</url>
+        <description>
+            <![CDATA[
+<p>Introduction to Kotlin Symbol Processing using a real-life scenario. We'll show what KSP is and how to use it to remove tedious work. The example scenario is going to touch on infrastructure as code methodology and how using KSP can reduce a little of day-to-day tedious work.<p>
+<p>Piotr is a backend developer and architect with over 12 years of professional experience. He has jumped on the Kotlin bandwagon since its beta version and never looked back. Currently, he explores opportunities to use languages developers love to close the gap between infrastructure and application code.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-03</startDate>
+        <endDate>2022-03-03</endDate>
+        <location>Gdansk,Poland</location>
+        <speaker>Piotr Miankowski</speaker>
+        <title>Tricity Kotlin User Group</title>
+        <subject>Non-functional aspects of Kotlin</subject>
+        <url>https://www.meetup.com/tricity-kotlin-user-group/events/283522089</url>
+        <description>
+            <![CDATA[
+<p>The technical features of Kotlin and related tools are the main topic of most talks. While this is needed, there's a bunch of other characteristics that come into play in practice: compatibility with existing ecosystem(s), maturity, support, policy of backward compatibility, and many more. We'll try to enumerate such features of interest, and then see how Kotlin looks comparing to other technologies.<p>
+<p>Piotr is a senior software development engineer at Dynatrace, and a leader of this user group. With his love to strongly typed code, he's happy to use Kotlin in a variety of use cases, where normally JavaScript, Python or Bash would be found.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-03-15</startDate>
+        <endDate>2022-03-15</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Func Prog Sweden</title>
+        <subject>Android Architecture Design with Koin</subject>
+        <content>
+            <video>https://www.youtube.com/c/FuncProgSweden</video>
+        </content>
+        <url>https://www.meetup.com/Func-Prog-Sweden/events/283678183</url>
+        <description>
+            <![CDATA[
+<p>Abstract for Android Architecture Design with Koin
+Koin (https://insert-koin.io) is a pragmatic dependency injection framework for Kotlin/Android developers, well known for its ease of use. In this session, I propose to see together how we can structure our components, for the following topics:
+<p>Classical Components in MVP, MVVM<p>
+Dealing with Scopes
+Jetpack Navigation
+Jetpack Compose
+Integrating with Multi-Platform<p>
+]]>
+         </description>
+    </event>
+
+    <event>
         <lang>en</lang>
         <startDate>2022-01-06</startDate>
         <endDate>2022-01-06</endDate>
