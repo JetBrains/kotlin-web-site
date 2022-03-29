@@ -21,7 +21,7 @@ Kotlin/Native supports the following platforms:
 * Android NDK
 
 > To compile Apple targets, macOS, iOS, tvOS, and watchOS, you need [Xcode](https://apps.apple.com/us/app/xcode/id497799835)
-> and its command-line tools installed. Otherwise, you'll get an error.
+> and its command-line tools installed.
 > 
 {type="note"}
 
