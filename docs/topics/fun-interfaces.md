@@ -91,7 +91,7 @@ fun interface Printer {
 }
 ```
 
-Its constructor will be created implicitly,  and any code using the `::Printer` function reference will compile. For example:
+Its constructor will be created implicitly, and any code using the `::Printer` function reference will compile. For example:
 
 ```kotlin
 documentsStorage.addPrinter(::Printer)
