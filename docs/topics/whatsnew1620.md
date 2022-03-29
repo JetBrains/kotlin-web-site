@@ -83,7 +83,36 @@ fun main() {
 ```
 {validate="false"}
 
-Set the language version to 1.7 to enable the feature.
+Set the language version to 1.7 to enable the feature:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+   sourceSets.all {
+       languageSettings.apply {
+           languageVersion = "1.7"
+       }
+   }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+   sourceSets.all {
+       languageSettings {
+           languageVersion = '1.7'
+       }
+   }
+}
+```
+
+</tab>
+</tabs>
 
 Learn more about definitely non-nullable types in [this KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb474a6d1d1a8/proposals/definitely-non-nullable-types.md).
 
