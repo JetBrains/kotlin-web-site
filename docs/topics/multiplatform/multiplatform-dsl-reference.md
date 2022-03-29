@@ -114,7 +114,7 @@ The complete list of available targets is the following:
                <li><code>iosSimulatorArm64</code> — Apple iOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>watchOS</td>
@@ -127,7 +127,7 @@ The complete list of available targets is the following:
                <li><code>watchosSimulatorArm64</code> — Apple watchOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>tvOS</td>
@@ -138,7 +138,7 @@ The complete list of available targets is the following:
                <li><code>tvosSimulatorArm64</code> — Apple tvOS simulator on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>macOS</td>
@@ -148,7 +148,7 @@ The complete list of available targets is the following:
                <li><code>macosArm64</code> — Apple macOS on Apple Silicon platforms</li>
             </ul>
         </td>
-        <td>Requires a macOS host.</td>
+        <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>Linux</td>
