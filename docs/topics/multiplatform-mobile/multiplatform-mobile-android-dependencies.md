@@ -5,7 +5,7 @@ Android projects: declare the dependency in your Gradle file and import the proj
 dependency in your Kotlin code.
 
 We recommend declaring Android dependencies in Multiplatform Mobile projects by adding them to a specific Android source
-set:
+set. For that, update your `build.gradle(.kts)` file in the `shared` directory of your project:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
