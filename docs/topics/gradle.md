@@ -971,7 +971,7 @@ When configuring the Kotlin daemon's JVM arguments, note that:
 
 ## Defining Kotlin compiler execution strategy
 
-_Kotlin compiler execution strategy_ defines where Kotlin compiler is executed and if incremental compilation is supported in each case.
+_Kotlin compiler execution strategy_ defines where the Kotlin compiler is executed and if incremental compilation is supported in each case.
 
 There are three compiler execution strategies:
 
