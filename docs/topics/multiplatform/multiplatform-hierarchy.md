@@ -1,13 +1,13 @@
 [//]: # (title: Hierarchical project structure)
 
-Since Kotlin 1.6.20, every new multiplatform project comes with hierarchical project structure. It means that source
+Since Kotlin 1.6.20, every new multiplatform project has been deliveredcomes with a hierarchical project structure. This means that source
 sets form a hierarchy for sharing the common code among several targets. It opens up a variety of opportunities,
-including usage of platform-dependent libraries in common source sets and the ability to share code when creating multiplatform
+including using platform-dependent libraries in common source sets and the ability to share code when creating multiplatform
 libraries.
 
-To get default hierarchical project structure in your
-projects, [update to the latest release](releases.md#update-to-a-new-release). If you need to keep using a version
-previous to 1.6.20, you can still enable this feature manually. For this, add the following to you `gradle.properties`:
+To get a default hierarchical project structure in your
+projects, [update to the latest release](releases.md#update-to-a-new-release). If you need to keep using an earlier version
+than 1.6.20, you can still enable this feature manually. For this, add the following to your `gradle.properties`:
 
 ```properties
 kotlin.mpp.enableGranularSourceSetsMetadata=true
@@ -17,9 +17,9 @@ kotlin.native.enableDependencyPropagation=false
 ## For multiplatform project authors
 
 With the new hierarchical project structure support, you can share code among some, but not
-all [targets](multiplatform-dsl-reference.md#targets) in a multiplatform project.
+all, [targets](multiplatform-dsl-reference.md#targets) in a multiplatform project.
 
-You can also use platform-dependent libraries, such as `UIKit`, and `POSIX` in source sets shared among several native
+You can also use platform-dependent libraries, such as `UIKit` and `POSIX`, in source sets shared among several native
 targets. One popular case is having access to iOS-specific dependencies like `Foundation` when sharing code across all
 iOS targets. The new structure helps you share more native code without being limited by platform-specific dependencies.
 
@@ -59,17 +59,17 @@ kotlin {
 ```
 
 The Kotlin toolchain will provide the correct default dependencies and locate the API surface area available in the shared
-code. This prevents such cases as, for example, the use of a macOS-specific function in code shared for Windows.
+code. This prevents cases like the use of a macOS-specific function in code shared for Windows.
 
 ## For library authors
 
-A hierarchical project structure allows for the reusing of code in similar targets, as well as publishing and consuming libraries
+A hierarchical project structure allows for reusing code in similar targets, as well as publishing and consuming libraries
 with granular APIs targeting similar platforms.
 
 The Kotlin toolchain will automatically figure out the API available in the consumer source set while checking for
 unsafe usages, like using an API meant for the JVM in JS code.
 
-* Libraries published with the hierarchical project structure are only compatible with projects that already have hierarchical
+* Libraries published with the new hierarchical project structure are only compatible with projects that already have a hierarchical
   project structure. To enable compatibility with non-hierarchical projects, add the following to
   the `gradle.properties` file in your library project:
 
@@ -78,7 +78,7 @@ unsafe usages, like using an API meant for the JVM in JS code.
   ```
 
  > In this case, only source code from the `commonMain` source set is compiled with the legacy metadata compiler. If you
- > use platform-specific code in `commonMain`, its compilation to legacy format will fail.
+ > use platform-specific code in `commonMain`, its compilation to the legacy format will fail.
  >
  {type="warning"}
 
