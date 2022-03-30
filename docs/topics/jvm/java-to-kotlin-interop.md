@@ -336,10 +336,10 @@ public class BB8 implements Robot {
 
 ### Compatibility modes for default methods
 
-If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, then they can
+If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, then they may
 be incompatible with some code compiled with this option. To avoid breaking the compatibility with such clients, 
 use the `-Xjvm-default=all` mode and mark interfaces with the `@JvmDefaultWithCompatibility` annotation. 
-This way you'll be able to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for a new non-public code.
+This allows you to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for new non-public code.
 
 > Starting from Kotlin 1.6.20, you can compile modules in the default mode (the `-Xjvm-default=disable` compiler option) against 
 > modules compiled with the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` modes.
