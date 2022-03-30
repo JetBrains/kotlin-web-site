@@ -227,10 +227,7 @@ The configuration of the Android library produced from the shared module is typi
 To learn about Android libraries creation, see [Create an Android library](https://developer.android.com/studio/projects/android-library)
 in the Android developer documentation.
 
-To produce the Android library, two more Gradle plugins are used in addition to Kotlin Multiplatform:
-
-* Android library
-* Kotlin Android extensions
+To produce the Android library, a separate Gradle plugin is used in addition to Kotlin Multiplatform:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -239,7 +236,6 @@ To produce the Android library, two more Gradle plugins are used in addition to 
 plugins {
     // ...
     id("com.android.library")
-    id("kotlin-android-extensions")
 }
 ```
 
@@ -250,7 +246,6 @@ plugins {
 plugins {
     // ...
     id 'com.android.library'
-    id 'kotlin-android-extensions'
 }
 ```
 
@@ -363,11 +358,10 @@ For details, see [iOS application](#ios-application).
 ## Android application
 
 The Android application part of a Multiplatform Mobile project is a typical Android application written in Kotlin.
-In a basic cross-platform mobile project, it uses three Gradle plugins: 
+In a basic cross-platform mobile project, it uses two Gradle plugins: 
 
 * Kotlin Android
 * Android Application
-* Kotlin Android Extensions
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -376,7 +370,6 @@ In a basic cross-platform mobile project, it uses three Gradle plugins:
 plugins {
     id("com.android.application")
     kotlin("android")
-    id("kotlin-android-extensions")
 } 
 ```
 
@@ -387,7 +380,6 @@ plugins {
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
 }
 ```
 
