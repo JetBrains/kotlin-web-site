@@ -76,7 +76,7 @@ The complete list of available targets is the following:
             <p>Select the execution environment:</p>
             <ul>
                 <li><code>browser {}</code> for applications running in the browser.</li>
-                <li><code>nodejs{}</code> for applications running on Node.js.</li>
+                <li><code>nodejs {}</code> for applications running on Node.js.</li>
             </ul>
             <p>Learn more in <a href="js-project-setup.md#execution-environments">Setting up a Kotlin/JS project</a>.</p>
         </td>
