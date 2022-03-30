@@ -14,7 +14,7 @@ class BaseImpl(val x: Int) : Base {
     override fun print() { print(x) }
 }
 
-class Derived(b: Base) : Base by b
+class Derived(b: BaseImpl) : Base by b
 
 fun main() {
     val b = BaseImpl(10)
@@ -43,7 +43,7 @@ class BaseImpl(val x: Int) : Base {
     override fun printMessageLine() { println(x) }
 }
 
-class Derived(b: Base) : Base by b {
+class Derived(b: BaseImpl) : Base by b {
     override fun printMessage() { print("abc") }
 }
 
@@ -69,7 +69,7 @@ class BaseImpl(val x: Int) : Base {
     override fun print() { println(message) }
 }
 
-class Derived(b: Base) : Base by b {
+class Derived(b: BaseImpl) : Base by b {
     // This property is not accessed from b's implementation of `print`
     override val message = "Message of Derived"
 }
