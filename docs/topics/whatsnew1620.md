@@ -84,7 +84,7 @@ fun main() {
 ```
 {validate="false"}
 
-Set the language version to 1.7 to enable the feature:
+Set the language version to `1.7` to enable the feature:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -234,14 +234,20 @@ Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to
 Kotlin/Native 1.6.20 marks continued development of its new components. We’ve taken another step toward consistent experience with Kotlin on other platforms:
 
 * [An update on the new memory manager](#an-update-on-the-new-memory-manager)
+* [Concurrent implementation for the sweep phase in new memory manager](#concurrent-implementation-for-the-sweep-phase-in-new-memory-manager)
 * [Instantiation of annotation classes](#instantiation-of-annotation-classes)
 * [Interop with Swift async/await: returning Swift's Void instead of KotlinUnit](#interop-with-swift-async-await-returning-void-instead-of-kotlinunit)
 * [Better stack traces with libbacktrace](#better-stack-traces-with-libbacktrace)
 * [Support for standalone Android executables](#support-for-standalone-android-executables)
+* [Performance improvements](#performance-improvements)
+* [Improved error handling during cinterop modules import](#improved-error-handling-during-cinterop-modules-import)
+* [Support for Xcode 13 libraries](#support-for-xcode-13-libraries)
 
 ### An update on the new memory manager 
 
-> The new Kotlin/Native memory manager is in [Alpha](components-stability.md). It may change incompatibly and require manual migration in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
+> The new Kotlin/Native memory manager is in [Alpha](components-stability.md). 
+> It may change incompatibly and require manual migration in the future.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 >
 {type="note"}
 
@@ -257,7 +263,7 @@ Check out our [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-
 
 Try using the new memory manager on your projects to see how it works and share feedback in our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
-### Concurrent implementation for the sweep phase in new memory manger
+### Concurrent implementation for the sweep phase in new memory manager
 
 If you have already switched to our new memory manager, which was [announced in Kotlin 1.6](whatsnew16.md#preview-of-the-new-memory-manager), you might notice a huge execution time improvement: our benchmarks show 35% improvement on average.
 Starting with 1.6.20, there is also a concurrent implementation for the sweep phase available for the new memory manager.
@@ -471,11 +477,8 @@ Learn more about [project-library compatibility](migrating-multiplatform-project
 
 #### Better code-sharing in your project
 
-Without hierarchical structure support, there is no straightforward way to share code across _some_ but not _all_ Kotlin targets.
-<!--TODO: [Kotlin targets](multiplatform-dsl-reference.md#targets).-->
-One popular example is sharing code across all iOS targets and having access to iOS-specific dependencies
-<!-- TODO: [dependencies](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure) -->
-, like `Foundation`.
+Without hierarchical structure support, there is no straightforward way to share code across _some_ but not _all_ [Kotlin targets](multiplatform-dsl-reference.md#targets).
+One popular example is sharing code across all iOS targets and having access to iOS-specific [dependencies](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure), like `Foundation`.
 
 Thanks to the hierarchical project structure support, you can now achieve this out of the box.
 In the new structure, source sets form a hierarchy.
@@ -600,7 +603,7 @@ val a = run {
 } // run is executed upon the first usage of the variable
 ```
 
-If for some reason you need to initialize a property eagerly (upon the application start), mark it with the [`@EagerInitialization`](https://example.com) annotation.
+If for some reason you need to initialize a property eagerly (upon the application start), mark it with the [`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-eager-initialization/) annotation.
 
 <!-- TODO: fix the link -->
 
