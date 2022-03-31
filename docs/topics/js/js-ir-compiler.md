@@ -134,8 +134,9 @@ un-webpacked JavaScript code.
 ## Current limitations of the IR compiler
 
 A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend.
-A lack of such compatibility between the two backends for Kotlin/JS means that a library created with the new IR compiler
-backend can’t be used from the default backend, and vice versa.
+A library created with the new IR compiler uses a [`klib` format](native-libraries.md#library-format) and can’t be used 
+from the default backend. In the meantime, a library created with the old compiler is a `jar` with `js` files, which 
+can’t be used from the IR backend.
 
 If you want to use the IR compiler backend for your project, you need to **update all Kotlin dependencies to versions
 that support this new backend**. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all
