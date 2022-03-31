@@ -119,7 +119,9 @@ const Teach = (props) => {
             <div className="universities-top">
               <div className="universities-top__title">
                 <h2 className="ktl-h1">
-                  Kotlin Courses Around the World
+                  <a href="#kotlin-courses-around-the-world" className="kto-anchor-link kto-anchor-link--small">
+                    Kotlin Courses Around the World
+                  </a>
                 </h2>
 
                 <p className="ktl-text-1 ktl-offset-top-l">
@@ -190,7 +192,9 @@ const Teach = (props) => {
             <img className="teach-resources__top-image"
                  src="/assets/images/ktl-component/teach/icons/education-main.png" alt="Kotlin resources"/>
             <h2 className="ktl-h1">
-              Start Teaching Kotlin<br/> with These Resources
+              <a href="#start-teaching-kotlin" className="kto-anchor-link kto-anchor-link--small">
+                Start Teaching Kotlin<br/> with These Resources
+              </a>
             </h2>
           </div>
           <ul className="teach-links">

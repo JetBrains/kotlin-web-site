@@ -59,3 +59,43 @@
 .kto-link_theme_dark {
   @include kto-link_theme_dark;
 }
+
+.kto-anchor-link {
+  color: inherit;
+  text-decoration: none;
+  &:any-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  &::after {
+    display: inline-block;
+    content: '';
+    background: center;
+    background-size: 40px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+  }
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    &::after {
+      background-image: url('./anchor.svg')
+    }
+  }
+  &--small {
+    &::after {
+      background-size: 32px;
+      margin-left: 20px;
+      height: 32px;
+      width: 32px;
+    }
+  }
+  &--hover-white {
+    &:hover {
+      &:after {
+        background-image: url("./anchor_fff.svg");
+      }
+    }
+  }
+}

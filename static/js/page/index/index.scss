@@ -84,29 +84,6 @@ a, a:hover  {
   line-height: 52px;
 }
 
-a.kto-overview-section__title_link,
-a.kto-overview-section__title_link:any-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.kto-overview-section__title_link::after {
-  display: inline-block;
-  content: '';
-
-  background: transparent center;
-  background-size: 40px;
-
-  margin-left: 10px;
-
-  height: 40px;
-  width: 40px;
-}
-
-.kto-overview-section__title_link:hover::after {
-  background-image: url("./images/anchor.svg");
-}
-
 .kto-overview-section__title_size_s {
   margin-bottom: var(--m-space);
 }
