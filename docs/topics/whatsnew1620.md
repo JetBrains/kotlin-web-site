@@ -150,8 +150,7 @@ You can leave your feedback in this [YouTrack issue](https://youtrack.jetbrains.
 
 Kotlin 1.6.20 deprecates the `compatibility` and `enable` modes of the compiler option `-Xjvm-default`.
 There are changes in other modes’ descriptions regarding the compatibility, but the overall logic remains the same.
-You can check out the 
-<!-- [updated descriptions](java-to-kotlin-interop.md#compatibility-modes-for-default-methods). -->
+You can check out the [updated descriptions](java-to-kotlin-interop.md#compatibility-modes-for-default-methods).
 
 For more information about default methods in the Java interop, see the [interoperability documentation](java-to-kotlin-interop.md#default-methods-in-interfaces) and
 [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
@@ -488,7 +487,7 @@ You can use platform-specific language features and dependencies available for e
 For example, consider a typical multiplatform project with two targets — `iosArm64` and `iosX64` for iOS devices and simulators.
 The Kotlin tooling understands that both targets have the same function and allows you to access that function from the intermediate source set, `iosMain`.
 
-<!-- TODO: move pic here -->
+![iOS hierarchy example](ios-hierarchy-example.jpg){width=700}
 
 The Kotlin toolchain provides the correct default dependencies, like Kotlin/Native stdlib or native libraries.
 Moreover, Kotlin tooling will try its best to find exactly the API surface area available in the shared code.
@@ -554,9 +553,7 @@ kotlin {
 }
 ```
 
-<!-- See the full Kotlin CocoaPods Gradle plugin [DSL reference](native-cocoapods-dsl-reference.md). -->
-
-<!-- TODO: fix the link -->
+See the full Kotlin CocoaPods Gradle plugin [DSL reference](native-cocoapods-dsl-reference.md).
 
 ## Kotlin/JS
 
@@ -605,8 +602,6 @@ val a = run {
 ```
 
 If for some reason you need to initialize a property eagerly (upon the application start), mark it with the [`@EagerInitialization`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-eager-initialization/) annotation.
-
-<!-- TODO: fix the link -->
 
 ### Separate JS files for project modules by default with IR compiler
 
@@ -783,7 +778,7 @@ The system property still works, but it will be removed in future releases.
 
 The current priority of properties is the following:
 
-* The task property `compilerExecutionStrategy` takes priority over the system and the Gradle properties `kotlin.compiler.execution.strategy`.
+* The task property `compilerExecutionStrategy` takes priority over the system property and the Gradle property `kotlin.compiler.execution.strategy`.
 * The Gradle property takes priority over the system property.
 
 There are three compiler execution strategies that you can assign to these properties:
