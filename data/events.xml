@@ -1,6 +1,155 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>sk</lang>
+        <startDate>2022-03-30</startDate>
+        <endDate>2022-03-30</endDate>
+        <location>Zhilina, Slovakia</location>
+        <speaker>Jozef Kňažko</speaker>
+        <title>Kotlin Slovakia</title>
+        <subject>Interné fungovanie suspend funkcií</subject>
+        <url>https://www.meetup.com/Kotlin-Slovakia/events/284797974</url>
+        <description>
+            <![CDATA[
+<p>- Ako na pozadí fungujú suspend funkcie?
+- Čo je to Continuation a CoroutineContext.
+- Ako a či vôbec tieto veci využívať vo vlastnom kóde.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-28</startDate>
+        <endDate>2022-04-28</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Julien Lengrand-Lambert</speaker>
+        <title>Virtual Kotlin User Group</title>
+        <subject>Introducing Kotlin in Your Organization</subject>
+        <url>https://www.meetup.com/Virtual-Kotlin-User-Group/events/284825796</url>
+        <description>
+            <![CDATA[
+<p>A little guide on how to convince management to try out new technologies! For you, it's obvious, Kotlin is the next big thing, and it'll bring your team to the next level. You see clear advantages, but others are not quite there yet. In this talk, I'll describe the ways we found to get Kotlin inside ING, one of the largest European bank. We'll look into simple ways to convince your colleagues, your management and make it a success for everyone! Those days, there are so many tools to improve one developer's workflow that it's hard to make a choice, and sometimes convince others. Languages, frameworks, tooling, paradigms, there is so much to try and not everything can be a benefit. In this talk, we will have a look at why Kotlin probably makes a lot of sense for your team. We'll have a quick glance at some language features, the ecosystem and the community as well. But we'll mostly have a look at various techniques to make Kotlin (or, for that matter, any other kind of proposal) a convincing user case for your team.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Krynica-Zdrój, Poland</location>
+        <speaker>Jarek Ratajski</speaker>
+        <title>TypeVille</title>
+        <subject>Pure Kotlin</subject>
+        <url>https://www.typeville.io/event/pure-kotlin</url>
+        <description>
+            <![CDATA[
+<p>You can write Haskell in any language. In this talk, I am going to show you how to do that in Kotlin.You will see a beautiful world without loops, variables, and other impure monsters. You will see monads that work on production. On top of that an insane linter that enables you to gradually enforce purity in your projects.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Krynica-Zdrój, Poland</location>
+        <speaker>Anton Keks</speaker>
+        <title>TypeVille</title>
+        <subject>Klite - how Kotlin enables small, light, non-blocking server app framework with zero dependencies</subject>
+        <url>https://www.typeville.io/event/klite-how-kotlin-enables-small-light-non-blocking-server-app-framework-with-zero-dependencies</url>
+        <description>
+            <![CDATA[
+<p>After trying Kotlin years ago I quickly realized that you can do a lot more with much less code. It hits the right balance of language features and complexity, so that a lot can be achieved without any frameworks or libraries at all. However, because of good Java-interop, people still use many server frameworks and libraries that are written in Java and for Java. These contain lots of complex code, many dependencies waiting to prove vulnerable (like log4j) and other unnecessary bloat. Moreover, Kotlin type system is stronger than Java’s and thus many modern patterns that Java developers use seem unnecessary when writing in Kotlin.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-22</startDate>
+        <endDate>2022-04-22</endDate>
+        <location>Krynica-Zdrój, Poland</location>
+        <speaker>Jakub Pierzchlewicz</speaker>
+        <title>TypeVille</title>
+        <subject>Ubiquitous Language with Kotlin</subject>
+        <url>https://www.typeville.io/event/ubiquitous-language-with-kotlin</url>
+        <description>
+            <![CDATA[
+<p>Throughout history we have used languages as a means of communication. They are part of our identity. Something that makes us feel that we belong. Languages have structure, vocabulary, grammar. With irregularities. With words having different meanings in different contexts. The rise of computers has brought us strictly defined programming languages that conflict with the, often loosely defined, human language. A translation layer is needed. I want to explore how we can use Kotlin to create such a translation within our bounded contexts and how we can use grammar to define our domains.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Lisbon, Portugal</location>
+        <speaker>Carlos Mota</speaker>
+        <title>droidconlisbon</title>
+        <subject>The Adventures of Kotlin And Compose Through the Multiplatform World</subject>
+        <url>https://www.lisbon.droidcon.com/session/the-adventures-of-kotlin-and-compose-through-the-multiplatform-world</url>
+        <description>
+            <![CDATA[
+<p>Join me in this adventure through Kotlin and Compose Multiplatform and learn how you can develop apps using these technologies. You’ve got your Android app already developed? See how you can make it run on your watch and on the Desktop effortlessly. Or how you can share your business logic with iOS and speed up your development. Perhaps, you want to develop for the Web? See how you can give the first steps into Compose for the Web while also sharing your logic.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Lisbon, Portugal</location>
+        <speaker>Nuno Alves de Sousa</speaker>
+        <title>droidconlisbon</title>
+        <subject>"Kotlinifying" UI Testing</subject>
+        <url>https://www.lisbon.droidcon.com/session/%22kotlinifying%22-ui-testing</url>
+        <description>
+            <![CDATA[
+<p>Let’s face it, ui testing is probably not on top of every developer's wishlist. Even though it is an important part of the development process, it can be a tedious and monotonous job.<p>
+<p>This talk describes CTW’s effort to make writing test cases more efficient, safe, and expressive by leveraging Kotlin-specific features such as function types with receivers, extension and infix functions.<p>
+<p>We’ll present a lightweight and type safe Kotlin DSL for ui testing that is being used as an alternative to frameworks such as Cucumber, while still achieving highly readable test cases directly in Kotlin code. We’ll also show how this approach can reduce code duplication, speedup writing test cases and improve productivity by building a repository of reusable actions and assertions that can take advantage of syntax autocompletion provided by the IDE. We’ll even get our feet wet with popular testing frameworks Espresso and UiAutomator and see how we're able to completely abstract away these implementations details.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Lisbon, Portugal</location>
+        <speaker>Hari Vignesh Jayapalan</speaker>
+        <title>droidconlisbon</title>
+        <subject>Functional Programming in Kotlin for AndroidDevs</subject>
+        <url>https://www.lisbon.droidcon.com/session/functional-programming-in-kotlin-for-androiddevs</url>
+        <description>
+            <![CDATA[
+<p>This talk is anyone who is curious about functional programming and to understand how this is possible with Kotlin and how it enables us to write pure functions for our everyday Android chores.<p>
+<p>The talk will start from the basics - understanding the functional programming paradigm with mathematical models, why we need it and how different it is from regular functions. We'll then do a postmortem of few default functions offered by Kotlin OOTB to grasp the basics. Then we'll cover something a bit intermediate - composing our own functions with some aesthetics (demo, yes!) with examples to also some advanced concepts like Currying. Finally, we'll end the talk with small quiz like for audience to find pure and impure functions written in Kotlin.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-21</startDate>
+        <endDate>2022-04-21</endDate>
+        <location>Lisbon, Portugal</location>
+        <speaker>Lena Stepanova</speaker>
+        <title>droidconlisbon</title>
+        <subject>Kotlin Multiplatform Mobile in production: key takeaways from developing two cross-platform apps</subject>
+        <url>https://www.lisbon.droidcon.com/session/kotlin-multiplatform-mobile-in-production%3A-key-takeaways-from-developing-two-cross-platform-apps</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform Mobile is a young promising technology, but is it there to stay? And is it worth trying out? This talk is based on the experience of developing two very different cross-platform apps with KMM. The goal of this talk is to introduce KMM, discuss the pitfalls that a new KMM developer may encounter and share some valuable tips that were collected along the way of KMM development: from preferable app architecture to team requirements.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
         <lang>pl</lang>
         <startDate>2022-03-24</startDate>
         <endDate>2022-03-24</endDate>
