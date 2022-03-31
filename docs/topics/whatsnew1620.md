@@ -150,7 +150,8 @@ You can leave your feedback in this [YouTrack issue](https://youtrack.jetbrains.
 
 Kotlin 1.6.20 deprecates the `compatibility` and `enable` modes of the compiler option `-Xjvm-default`.
 There are changes in other modes’ descriptions regarding the compatibility, but the overall logic remains the same.
-You can check out the [updated descriptions](java-to-kotlin-interop.md#compatibility-modes-for-default-methods).
+You can check out the 
+<!-- [updated descriptions](java-to-kotlin-interop.md#compatibility-modes-for-default-methods). -->
 
 For more information about default methods in the Java interop, see the [interoperability documentation](java-to-kotlin-interop.md#default-methods-in-interfaces) and
 [this blog post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/).
@@ -291,7 +292,7 @@ Learn more about [instantiation of annotation classes](annotations.md#instantiat
 >
 {type="warning"}
 
-We’ve continued working on the [experimental interop with Swift’s async/await](#experimental-interoperability-with-swift-5-5-async-await) (available since Swift 5.5).
+We’ve continued working on the [experimental interop with Swift’s async/await](whatsnew1530.md#experimental-interoperability-with-swift-5-5-async-await) (available since Swift 5.5).
 Kotlin 1.6.20 differs from previous versions in the way it works with `suspend` functions with the `Unit` return type.
 
 Previously, such functions were presented in Swift as `async` functions returning `KotlinUnit`. However, the proper return type for them is `Void`, similar to non-suspending functions.
@@ -553,7 +554,7 @@ kotlin {
 }
 ```
 
-See the full Kotlin CocoaPods Gradle plugin [DSL reference](native-cocoapods-dsl-reference.md).
+<!-- See the full Kotlin CocoaPods Gradle plugin [DSL reference](native-cocoapods-dsl-reference.md). -->
 
 <!-- TODO: fix the link -->
 
