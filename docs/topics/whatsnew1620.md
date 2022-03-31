@@ -770,7 +770,7 @@ Learn more about [npm dependencies of a Kotlin/JS Gradle project](js-project-set
 Kotlin 1.6.20 brings the following changes for the Kotlin Gradle Plugin:
 
 * New [properties `kotlin.compiler.execution.strategy` and `compilerExecutionStrategy`](#properties-for-defining-kotlin-compiler-execution-strategy) for defining a Kotlin compiler execution strategy.
-* [Deprecation of the options `kapt.use.worker.api`, `kotlin.experimental.coroutines`, and `kotlin.coroutines`](#deprecation-of-some-build-options)
+* [Deprecation of the options `kapt.use.worker.api`, `kotlin.experimental.coroutines`, and `kotlin.coroutines`](#deprecation-of-build-options-for-kapt-and-coroutines)
 * [Removal of the `kotlin.parallel.tasks.in.project` build option](#removal-of-the-kotlin-parallel-tasks-in-project-build-option)
 
 ### Properties for defining Kotlin compiler execution strategy
