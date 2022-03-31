@@ -217,7 +217,7 @@ import DateTools.*
                     // Path to .def file
                     defFile("src/nativeInterop/cinterop/DateTools.def")
 
-                   compilerOpts("-framework", "MyFramework", "-F/path/to/framework/"
+                   compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
                }
                val anotherInterop by cinterops.creating { /* ... */ }
             }
@@ -281,8 +281,7 @@ project depends on:
 * Multiplatform libraries that don't support the hierarchical structure.
 * Third-party iOS libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the
   box.
-
-This issue applies only to the shared iOS source set. The IDE will correctly support the rest of the code.
+  This issue applies only to the shared iOS source set. The IDE will correctly support the rest of the code.
 
 > All projects created with the Kotlin Multiplatform Mobile Project Wizard support the hierarchical structure, which means this issue affects them.
 >
@@ -323,7 +322,16 @@ In this code sample, the configuration of iOS targets depends on the environment
 by Xcode. For each build, you'll have only one iOS target, named `ios`, that uses the `iosMain` source set. There will
 be no hierarchy of the `iosMain`, `iosArm64`, and `iosX64` source sets.
 
-> This is a temporary workaround. If you are a library author, we recommend that you [migrate to the hierarchical structure](migrating-multiplatform-project-to-14.md#migrate-to-the-hierarchical-project-structure) as soon as possible.
+Alternatively, you can enable the support of platform-dependent interop libraries in shared source sets. In addition to
+[platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also
+handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets.
+To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
+
+```properties
+kotlin.mpp.enableCInteropCommonization=true
+```
+
+> This is a temporary workaround. If you are a library author, we recommend that you [enable the hierarchical structure](multiplatform-hierarchy.md).
 >
 > With this workaround, Kotlin Multiplatform tooling analyzes your code against only the one native target that is active during the current build.
 > This might lead to various errors during the complete build with all targets, and errors are more likely if your project contains other native targets in addition to the iOS ones.
