@@ -597,24 +597,24 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 To learn more about `yarn.lock`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/).
 
-### Installation of npm dependencies with --ignore-scripts by default
+### Installing npm dependencies with --ignore-scripts by default
 
-> Installation of npm dependencies with --ignore-scripts by default is available since Kotlin 1.6.10.
+> Installing npm dependencies with `--ignore-scripts` by default is available since Kotlin 1.6.10.
 >
 {type="note"}
 
 To reduce the likelihood of executing malicious code from compromised npm packages, the Kotlin/JS Gradle plugin prevents 
-the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts) 
-during npm dependencies installation by default.
+the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts)
+during the installation of npm dependencies by default.
 
-You can explicitly enable lifecycle scripts execution by adding these lines to `build.gradle(.kts)`:
+You can explicitly enable lifecycle scripts execution by adding the following lines to `build.gradle(.kts)`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
-   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> { 
+  rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
 }
 ```
 
