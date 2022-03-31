@@ -252,7 +252,7 @@ You can rename the `simpleLoginIOS` directory to `iosApp` for consistency with o
 
 Once you have the framework, you can connect it to your iOS project manually.
 
-> An alternative is to [configure integration via Cocoapods](native-cocoapods.md), but that integration is beyond the scope of this tutorial.
+> An alternative is to [configure integration via CocoaPods](native-cocoapods.md), but that integration is beyond the scope of this tutorial.
 >
 {type="note"}
 

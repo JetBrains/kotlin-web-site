@@ -256,7 +256,7 @@ Find examples in the [Koltin with CocoaPods sample](https://github.com/Kotlin/km
 
 To work correctly with Xcode, Kotlin requires some Podfile changes:
 
-* If your Kotlin Pod has any Git, HTTP, or specRepo pod dependency, you should also specify it in the Podfile.
+* If your Kotlin Pod has any Git, HTTP, or specRepo Pod dependency, you should also specify it in the Podfile.
 * When you add a library from the custom spec, you also should specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
     of specs at the beginning of your Podfile.
 
