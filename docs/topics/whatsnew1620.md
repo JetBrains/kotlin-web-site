@@ -50,8 +50,8 @@ You can find a detailed description of the feature and its syntax in the [KEEP](
 
 Please note that the implementation is a prototype:
 
-* With `-Xcontext-receivers` enabled, the compiler will produce pre-release binaries that cannot be used in production code.
-* The IDE support for context receivers is minimal for now.
+* With `-Xcontext-receivers` enabled, the compiler will produce pre-release binaries that cannot be used in production code
+* The IDE support for context receivers is minimal for now
 
 Try the feature in your toy projects and share your thoughts and experience with us in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-42435).
 If you run into any problems, please [file a new issue](https://kotl.in/issue).
@@ -121,8 +121,8 @@ Learn more about definitely non-nullable types in [the KEEP](https://github.com/
 
 In Kotlin 1.6.20 introduces:
 
-* Compatibility improvements of default methods in JVM interfaces: [new `@JvmDefaultWithCompatibility` annotation for interfaces](#new-jvmdefaultwithcompatibility-annotation-for-interfaces) and [compatibility changes in the `-Xjvm-default` modes](#compatibility-changes-in-the-xjvm-default-modes).
-* [Support for parallel compilation of a single module in the JVM backend](#support-for-parallel-compilation-of-a-single-module-in-the-jvm-backend).
+* Compatibility improvements of default methods in JVM interfaces: [new `@JvmDefaultWithCompatibility` annotation for interfaces](#new-jvmdefaultwithcompatibility-annotation-for-interfaces) and [compatibility changes in the `-Xjvm-default` modes](#compatibility-changes-in-the-xjvm-default-modes)
+* [Support for parallel compilation of a single module in the JVM backend](#support-for-parallel-compilation-of-a-single-module-in-the-jvm-backend)
 * [Support for callable references to function interface constructors](#support-for-callable-references-to-function-interface-constructors)
 
 ### New @JvmDefaultWithCompatibility annotation for interfaces
@@ -170,16 +170,16 @@ Parallel compilation can reduce the total compilation time by up to 15%.
 Enable the experimental parallel backend mode with the [compiler option](compiler-reference.md#compiler-options) `-Xbackend-threads`.
 Use the following arguments for this option:
 
-* `N` is the number of threads you want to use. It should not be greater than your number of CPU cores; otherwise, parallelization stops being effective because of switching context between threads.
-* `0` to use a separate thread for each CPU core.
+* `N` is the number of threads you want to use. It should not be greater than your number of CPU cores; otherwise, parallelization stops being effective because of switching context between threads
+* `0` to use a separate thread for each CPU core
 
 [Gradle](gradle.md) can run tasks in parallel, but this type of parallelization doesn't help a lot when a project (or a major part of a project) is just one big task from Gradle's perspective.
 If you have a very big monolithic module, use parallel compilation to compile more quickly.
 If your project consists of lots of small modules and has a build parallelized by Gradle, adding another layer of parallelization may hurt performance because of context switching.
 
 > Parallel compilation has some constraints:
-> * It doesn't work with [kapt](kapt.md) because kapt disables the IR backend.
-> * It requires more JVM heap by design. The amount of heap is proportional to the number of threads.
+> * It doesn't work with [kapt](kapt.md) because kapt disables the IR backend
+> * It requires more JVM heap by design. The amount of heap is proportional to the number of threads
 >
 {type="note"}
 
@@ -767,7 +767,7 @@ Learn more about [npm dependencies of a Kotlin/JS Gradle project](js-project-set
 
 Kotlin 1.6.20 brings the following changes for the Kotlin Gradle Plugin:
 
-* New [properties `kotlin.compiler.execution.strategy` and `compilerExecutionStrategy`](#properties-for-defining-kotlin-compiler-execution-strategy) for defining a Kotlin compiler execution strategy.
+* New [properties `kotlin.compiler.execution.strategy` and `compilerExecutionStrategy`](#properties-for-defining-kotlin-compiler-execution-strategy) for defining a Kotlin compiler execution strategy
 * [Deprecation of the options `kapt.use.worker.api`, `kotlin.experimental.coroutines`, and `kotlin.coroutines`](#deprecation-of-build-options-for-kapt-and-coroutines)
 * [Removal of the `kotlin.parallel.tasks.in.project` build option](#removal-of-the-kotlin-parallel-tasks-in-project-build-option)
 
