@@ -138,7 +138,7 @@ This approach had some disadvantages:
 * Usually there are more interfaces in non-public parts than in the public API, so you end up having this annotation in many places in your code.
 
 Now, you can use the `-Xjvm-default=all` mode and mark interfaces with the `@JvmDefaultWithCompatibility` annotation.
-This allows you to add this annotation to all interfaces in the public API once, and you won’t need to use any annotations for new non-public code.
+This allows you to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for new non-public code.
 
 Leave your feedback about this new annotation in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-48217).
 
@@ -149,7 +149,7 @@ As before, compilations will also be successful if all modules have the `-Xjvm-d
 You can leave your feedback in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47000).
 
 Kotlin 1.6.20 deprecates the `compatibility` and `enable` modes of the compiler option `-Xjvm-default`.
-There are changes in other modes’ descriptions regarding the compatibility, but the overall logic remains the same.
+There are changes in other modes' descriptions regarding the compatibility, but the overall logic remains the same.
 You can check out the [updated descriptions](java-to-kotlin-interop.md#compatibility-modes-for-default-methods).
 
 For more information about default methods in the Java interop, see the [interoperability documentation](java-to-kotlin-interop.md#default-methods-in-interfaces) and
@@ -173,7 +173,7 @@ Use the following arguments for this option:
 * `N` is the number of threads you want to use. It should not be greater than your number of CPU cores; otherwise, parallelization stops being effective because of switching context between threads.
 * `0` to use a separate thread for each CPU core.
 
-[Gradle](gradle.md) can run tasks in parallel, but this type of parallelization doesn't help a lot when a project (or a major part of a project) is just one big task from Gradle’s perspective.
+[Gradle](gradle.md) can run tasks in parallel, but this type of parallelization doesn't help a lot when a project (or a major part of a project) is just one big task from Gradle's perspective.
 If you have a very big monolithic module, use parallel compilation to compile more quickly.
 If your project consists of lots of small modules and has a build parallelized by Gradle, adding another layer of parallelization may hurt performance because of context switching.
 
@@ -231,7 +231,7 @@ Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to
 
 ## Kotlin/Native
 
-Kotlin/Native 1.6.20 marks continued development of its new components. We’ve taken another step toward consistent experience with Kotlin on other platforms:
+Kotlin/Native 1.6.20 marks continued development of its new components. We've taken another step toward consistent experience with Kotlin on other platforms:
 
 * [An update on the new memory manager](#an-update-on-the-new-memory-manager)
 * [Concurrent implementation for the sweep phase in new memory manager](#concurrent-implementation-for-the-sweep-phase-in-new-memory-manager)
@@ -253,10 +253,10 @@ Kotlin/Native 1.6.20 marks continued development of its new components. We’ve 
 
 With Kotlin 1.6.20, you can try the Alpha version of the new Kotlin/Native memory manager.
 It eliminates the differences between the JVM and Native platforms to provide a consistent developer experience in multiplatform projects.
-For example, you’ll have a much easier time creating new cross-platform mobile applications that work on both Android and iOS.
+For example, you'll have a much easier time creating new cross-platform mobile applications that work on both Android and iOS.
 
 The new Kotlin/Native memory manager lifts restrictions on object-sharing between threads.
-It also provides leak-free concurrent programming primitives that are safe and don’t require any special management or annotations.
+It also provides leak-free concurrent programming primitives that are safe and don't require any special management or annotations.
 
 The new memory manager will become the default in future versions, so we encourage you to try it now.
 Check out our [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) to learn more about the new memory manager and explore demo projects, or jump right to the [migration instructions](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md) to try it yourself.
@@ -291,12 +291,12 @@ Learn more about [instantiation of annotation classes](annotations.md#instantiat
 >
 {type="warning"}
 
-We’ve continued working on the [experimental interop with Swift’s async/await](whatsnew1530.md#experimental-interoperability-with-swift-5-5-async-await) (available since Swift 5.5).
+We've continued working on the [experimental interop with Swift's async/await](whatsnew1530.md#experimental-interoperability-with-swift-5-5-async-await) (available since Swift 5.5).
 Kotlin 1.6.20 differs from previous versions in the way it works with `suspend` functions with the `Unit` return type.
 
 Previously, such functions were presented in Swift as `async` functions returning `KotlinUnit`. However, the proper return type for them is `Void`, similar to non-suspending functions.
 
-To avoid breaking the existing code, we’re introducing a Gradle property that makes the compiler translate `Unit`-returning suspend functions to `async` Swift with the `Void` return type:
+To avoid breaking the existing code, we're introducing a Gradle property that makes the compiler translate `Unit`-returning suspend functions to `async` Swift with the `Void` return type:
 
 ```properties
 # gradle.properties
@@ -437,13 +437,13 @@ According to the benchmarks on our internal projects, we achieved the following 
 
 These changes also provide a 10% reduction in compilation time for a debug binary on a large internal project.
 
-To achieve this, we’ve implemented static initialization for some of the compiler-generated synthetic objects, improved the way we structure LLVM IR for every function, and optimized the compiler caches.
+To achieve this, we've implemented static initialization for some of the compiler-generated synthetic objects, improved the way we structure LLVM IR for every function, and optimized the compiler caches.
 
 ### Improved error handling during cinterop modules import
 
 This release introduces improved error handling for cases where you import an Objective-C module using the `cinterop` tool (as is typical for CocoaPods pods).
 Previously, if you got an error while trying to work with an Objective-C module (for instance, when dealing with a compilation error in a header), you received an uninformative error message, such as `fatal error: could not build module $name`.
-We expanded upon this part of the `cinterop` tool, so you’ll get an error message with an extended description.
+We expanded upon this part of the `cinterop` tool, so you'll get an error message with an extended description.
 
 ### Support for Xcode 13 libraries
 
@@ -570,13 +570,13 @@ Kotlin/JS improvements in 1.6.20 mainly affect the IR compiler:
 
 ### Incremental compilation for development binaries with IR compiler
 
-To make Kotlin/JS development with the IR compiler more efficient, we’re introducing a new _incremental compilation_ mode.
+To make Kotlin/JS development with the IR compiler more efficient, we're introducing a new _incremental compilation_ mode.
 
 When building **development binaries** with the `compileDevelopmentExecutableKotlinJs` Gradle task in this mode, the compiler caches the results of previous compilations on the module level.
 It uses the cached compilation results for unchanged source files during subsequent compilations, making them complete more quickly, especially with small changes.
 Note that this improvement exclusively targets the development process (shortening the edit-build-debug cycle) and doesn't affect the building of production artifacts.
 
-To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`:
+To enable incremental compilation for development binaries, add the following line to the project's `gradle.properties`:
 
 ```properties
 # gradle.properties
@@ -591,9 +591,9 @@ Please tell us what you think of using incremental compilation with your Kotlin/
 
 In Kotlin 1.4.30, we presented a prototype of [lazy initialization of top-level properties](whatsnew1430.md#lazy-initialization-of-top-level-properties) in the JS IR compiler.
 By eliminating the need to initialize all properties when the application launches, lazy initialization reduces the startup time.
-Our measurements showed about a 10% speed-up on a real-life Kotlin/JS application
+Our measurements showed about a 10% speed-up on a real-life Kotlin/JS application.
 
-Now, having polished and properly tested this mechanism, we’re making lazy initialization the default for top-level properties in the IR compiler.
+Now, having polished and properly tested this mechanism, we're making lazy initialization the default for top-level properties in the IR compiler.
 
 ```kotlin
 // lazy initialization
@@ -627,12 +627,12 @@ kotlin.js.ir.output.granularity=whole-program // `per-module` is the default
 The `Char` class is now handled by the Kotlin/JS compiler without introducing boxing (similar to [inline classes](inline-classes.md)).
 This speeds up operations on chars in Kotlin/JS code.
 
-Aside from the performance improvement, this changes the way `Char` is exported to JavaScript: it’s now translated to `Number`.
+Aside from the performance improvement, this changes the way `Char` is exported to JavaScript: it's now translated to `Number`.
 
 ### Improvements to export and TypeScript declaration generation
 
 Kotlin 1.6.20 is bringing multiple fixes and improvements to the export mechanism (the [`@JsExport`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) annotation), including the [generation of TypeScript declarations (`.d.ts`)](js-ir-compiler.md#preview-generation-of-typescript-declaration-files-d-ts).
-We’ve added the ability to export interfaces and enums, and we’ve fixed the export behavior in some corner cases that were reported to us previously.
+We've added the ability to export interfaces and enums, and we've fixed the export behavior in some corner cases that were reported to us previously.
 For more details, see the [list of export improvements in YouTrack](https://youtrack.jetbrains.com/issues?q=Project:%20Kotlin%20issue%20id:%20KT-45434,%20KT-44494,%20KT-37916,%20KT-43191,%20KT-46961,%20KT-40236).
 
 Learn more about [using Kotlin code from JavaScript](js-to-kotlin-interop.md).
@@ -640,7 +640,7 @@ Learn more about [using Kotlin code from JavaScript](js-to-kotlin-interop.md).
 ### @AfterTest guarantees for asynchronous tests
 
 Kotlin 1.6.20 makes [`@AfterTest`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-after-test/) functions work properly with asynchronous tests on Kotlin/JS.
-If a test function’s return type is statically resolved to [`Promise`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/), the compiler now schedules the execution of the `@AfterTest` function to the corresponding [`then()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/then.html) callback.
+If a test function's return type is statically resolved to [`Promise`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/), the compiler now schedules the execution of the `@AfterTest` function to the corresponding [`then()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-promise/then.html) callback.
 
 ## Security
 
@@ -793,7 +793,7 @@ There are three compiler execution strategies that you can assign to these prope
 | Out of process | In a separate process for each call  | No                                  | -                                                                      |
 
 
-Accordingly, the available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle’s) are:
+Accordingly, the available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
 1. `daemon` (default)
 2. `in-process`
 3. `ouf-of-process`
@@ -830,7 +830,7 @@ Please leave your feedback in [this YouTrack task](https://youtrack.jetbrains.co
 
 In Kotlin 1.6.20, we changed deprecation levels of the properties:
 
-* We deprecated the ability to run [kapt](kapt.md) via the Kotlin daemon with `kapt.use.worker.api` – now it produces a warning to Gradle’s output. 
+* We deprecated the ability to run [kapt](kapt.md) via the Kotlin daemon with `kapt.use.worker.api` – now it produces a warning to Gradle's output. 
   By default, [kapt has been using Gradle workers](kapt.md#running-kapt-tasks-in-parallel) since the 1.3.70 release, and we recommend sticking to this method.
 
   We are going to remove the option `kapt.use.worker.api` in future releases.
