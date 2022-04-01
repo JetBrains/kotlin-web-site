@@ -27,21 +27,21 @@ With Kotlin 1.6.20, you are no longer limited to having one receiver. If you nee
 
 ```kotlin
 interface LoggingContext {
-   val log: Logger // This context provides a reference to a logger 
+    val log: Logger // This context provides a reference to a logger 
 }
 
 context(LoggingContext)
 fun startBusinessOperation() {
-   // You can access the log property since LoggingContext is an implicit receiver
-   log.info("Operation has started")
+    // You can access the log property since LoggingContext is an implicit receiver
+    log.info("Operation has started")
 }
 
 fun test(loggingContext: LoggingContext) {
-   with(loggingContext) {
-       // You need to have LoggingContext in a scope as an implicit receiver
-       // to call startBusinessOperation()
-       startBusinessOperation()
-   }
+    with(loggingContext) {
+        // You need to have LoggingContext in a scope as an implicit receiver
+        // to call startBusinessOperation()
+        startBusinessOperation()
+    }
 }
 ```
 
@@ -71,15 +71,15 @@ The syntactic form comes from a notation of [intersection types](https://en.wiki
 fun <T> elvisLike(x: T, y: T & Any): T & Any = x ?: y
 
 fun main() {
-   // OK
-   elvisLike<String>("", "").length
-   // Error: 'null' cannot be a value of a non-null type
-   elvisLike<String>("", null).length
+    // OK
+    elvisLike<String>("", "").length
+    // Error: 'null' cannot be a value of a non-null type
+    elvisLike<String>("", null).length
 
-   // OK
-   elvisLike<String?>(null, "").length
-   // Error: 'null' cannot be a value of a non-null type
-   elvisLike<String?>(null, null).length
+    // OK
+    elvisLike<String?>(null, "").length
+    // Error: 'null' cannot be a value of a non-null type
+    elvisLike<String?>(null, null).length
 }
 ```
 {validate="false"}
@@ -91,11 +91,11 @@ Set the language version to `1.7` to enable the feature:
 
 ```kotlin
 kotlin {
-   sourceSets.all {
-       languageSettings.apply {
-           languageVersion = "1.7"
-       }
-   }
+    sourceSets.all {
+        languageSettings.apply {
+            languageVersion = "1.7"
+        }
+    }
 }
 ```
 
@@ -104,11 +104,11 @@ kotlin {
 
 ```groovy
 kotlin {
-   sourceSets.all {
-       languageSettings {
-           languageVersion = '1.7'
-       }
-   }
+    sourceSets.all {
+        languageSettings {
+            languageVersion = '1.7'
+        }
+    }
 }
 ```
 
@@ -299,7 +299,7 @@ Previously, such functions were presented in Swift as `async` functions returnin
 To avoid breaking the existing code, we’re introducing a Gradle property that makes the compiler translate `Unit`-returning suspend functions to `async` Swift with the `Void` return type:
 
 ```properties
-#gradle.properties
+# gradle.properties
 kotlin.native.binary.unitSuspendFunctionObjCExport=proper
 ```
 
@@ -390,7 +390,7 @@ Uncaught Kotlin exception: kotlin.IllegalStateException:
 To produce better stack traces with libbacktrace, add the following line to `gradle.properties`:
 
 ```properties
-#gradle.properties
+# gradle.properties
 kotlin.native.binary.sourceInfoType=libbacktrace
 ```
 
@@ -405,13 +405,13 @@ Add the following binary option:
 
 ```kotlin
 kotlin {
-  androidNativeX64("android") {
-    binaries {
-      executable {
-        binaryOptions["androidProgramType"] = "standalone"
-      }
+    androidNativeX64("android") {
+        binaries {
+            executable {
+                binaryOptions["androidProgramType"] = "standalone"
+            }
+        }
     }
-  }
 }
 ```
 
@@ -506,6 +506,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 * If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties:`
 
 ```properties
+# gradle.properties
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=true
 ```
@@ -515,6 +516,7 @@ kotlin.native.enableDependencyPropagation=true
 * You can also opt-out. To disable hierarchical structure support, set the following options in` gradle.properties`:
 
 ```properties
+# gradle.properties
 kotlin.mpp.hierarchicalStructureSupport=false
 ```
 
@@ -543,13 +545,13 @@ To simplify CocoaPods integration, Kotlin 1.6.20 delivers the following features
 
 ```kotlin
 kotlin {
-   cocoapods {
-       version = "1.0"
-       name = "MyCocoaPod"
-       extraSpecAttributes["social_media_url"] = 'https://twitter.com/kotlin'
-       extraSpecAttributes["vendored_frameworks"] = 'CustomFramework.xcframework'
-       extraSpecAttributes["libraries"] = 'xml'
-   }
+    cocoapods {
+        version = "1.0"
+        name = "MyCocoaPod"
+        extraSpecAttributes["social_media_url"] = 'https://twitter.com/kotlin'
+        extraSpecAttributes["vendored_frameworks"] = 'CustomFramework.xcframework'
+        extraSpecAttributes["libraries"] = 'xml'
+    }
 }
 ```
 
@@ -577,6 +579,7 @@ Note that this improvement exclusively targets the development process (shorteni
 To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`:
 
 ```properties
+# gradle.properties
 kotlin.incremental.js.ir=true // false by default
 ```
 
@@ -595,9 +598,9 @@ Now, having polished and properly tested this mechanism, we’re making lazy ini
 ```kotlin
 // lazy initialization
 val a = run {
-  val result = // intensive computations
-          println(result)
-  result
+    val result = // intensive computations
+        println(result)
+    result
 } // run is executed upon the first usage of the variable
 ```
 
@@ -615,7 +618,7 @@ Starting from 1.6.20, the JS IR compiler generates separate `.js` files for proj
 Compiling the project into a single `.js` file is now available with the following Gradle property:
 
 ```properties
-// gradle.properties
+# gradle.properties
 kotlin.js.ir.output.granularity=whole-program // `per-module` is the default
 ```
 
@@ -659,8 +662,8 @@ If you are publishing a `klib` and want to use only relative paths of source fil
 
 ```kotlin
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
-  // $base is a base path of source files
-  kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
+    // $base is a base path of source files
+    kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
 }
 ```
 
@@ -669,10 +672,10 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configure
 
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-  kotlinOptions {
-    // $base is a base path of source files
-    freeCompilerArgs += "-Xklib-relative-path-base=$base"
-  }
+    kotlinOptions {
+        // $base is a base path of source files
+        freeCompilerArgs += "-Xklib-relative-path-base=$base"
+    }
 }
 ``` 
 
@@ -798,6 +801,7 @@ Accordingly, the available values for `kotlin.compiler.execution.strategy` prope
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
 ```properties
+# gradle.properties
 kotlin.compiler.execution.strategy=out-of-process
 ```
 
@@ -816,7 +820,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 // …
 
 tasks.withType<KotlinCompile>().configureEach {
-  compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+    compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
 }
 ```
 
