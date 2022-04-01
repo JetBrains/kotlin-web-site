@@ -6,6 +6,7 @@ import Footer from './footer/index.jsx';
 import Teach from './teach/index.jsx';
 import Courses from './courses/index.jsx';
 import WhyTeach from "./why-teach/index.jsx";
+import CommunityPage from "./community-page/index.jsx";
 import {openPopup} from '../com/search/search';
 
 export const initComponents = () => {
@@ -25,6 +26,9 @@ export const initComponents = () => {
         break;
       case 'why-teach':
         initKTLComponent(node.nextElementSibling, WhyTeach, props);
+        break;
+      case 'community':
+        initKTLComponent(node.nextElementSibling, CommunityPage, props);
         break;
       case 'courses':
         initKTLComponent(node.nextElementSibling, Courses, props);

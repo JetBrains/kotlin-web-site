@@ -1,0 +1,22 @@
+.community-keep-in-touch-wrapper {
+  background: #F4F4F4;
+  padding: 64px 0;
+  @media (min-width: 768px) {
+    padding: 96px 0;
+  }
+}
+
+.community-keep-in-touch-grid {
+  display: grid;
+  grid-gap: 16px;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.community-keep-in-touch-other-resources {
+  @media (min-width: 768px) {
+    display: flex;
+    grid-gap: 16px;
+  }
+}

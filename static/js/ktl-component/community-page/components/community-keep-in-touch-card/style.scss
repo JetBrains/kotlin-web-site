@@ -1,0 +1,37 @@
+.community-keep-in-touch-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(#27282C, 0.2);
+  border-radius: 8px;
+  min-height: 170px;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid #19191C;
+  }
+  &__bottom {
+    margin-top: auto;
+  }
+  @media (max-width: 767px) {
+    &__title {
+      .ktl-h3 {
+        font-size: 13px;
+        line-height: 24px;
+      }
+    }
+    &__description {
+      .ktl-text-1 {
+        font-size: 13px;
+        line-height: 24px;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    min-height: 240px;
+  }
+}
