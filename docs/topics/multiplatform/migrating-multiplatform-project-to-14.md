@@ -129,7 +129,7 @@ The compatibility between multiplatform projects and libraries is as follows:
 |Yes|Yes|✅|
 |Yes|No|Need to enable with `enableCompatibilityMetadataVariant`|
 |No|Yes|Library can’t be used in a shared native source set|
-|No|Yes|✅|
+|No|No|✅|
 
 In future versions, the hierarchical project structure with the usage of platform-dependent libraries in shared source sets will be the default in multiplatform projects. So the sooner you support it, the sooner users will be able to migrate. We’ll also be very grateful if you report any bugs you find to our issue tracker.
 

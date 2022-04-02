@@ -311,11 +311,11 @@ binaries {
 
 ```groovy
 binaries {
-   framework {
-       export project(':dependency')
-       // Export transitively.
-       transitiveExport = true
-   }
+    framework {
+        export project(':dependency')
+        // Export transitively.
+        transitiveExport = true
+    }
 }
 ```
 
@@ -356,8 +356,8 @@ kotlin {
         destinationDir = buildDir.resolve("fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
-                ios32.binaries.getFramework("DEBUG"),
-                ios64.binaries.getFramework("DEBUG")
+            ios32.binaries.getFramework("DEBUG"),
+            ios64.binaries.getFramework("DEBUG")
         )
     }
 }
@@ -388,8 +388,8 @@ kotlin {
         destinationDir = file("$buildDir/fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
-                targets.ios32.binaries.getFramework("DEBUG"),
-                targets.ios64.binaries.getFramework("DEBUG")
+            targets.ios32.binaries.getFramework("DEBUG"),
+            targets.ios64.binaries.getFramework("DEBUG")
         )
     }
 }

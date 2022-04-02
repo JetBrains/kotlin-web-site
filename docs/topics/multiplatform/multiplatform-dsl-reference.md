@@ -547,9 +547,9 @@ With Kotlin Gradle DSL, the sections of predefined source sets should be marked 
 
 ```kotlin
 kotlin {
- sourceSets {
-  val commonMain by getting { /* ... */ }
- }
+    sourceSets {
+        val commonMain by getting { /* ... */ }
+    }
 }
 ```
 
