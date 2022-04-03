@@ -274,7 +274,7 @@ data class ShoppingListItem(val desc: String, val priority: Int) {
 > with real data, it would be preferable to include tried and tested mechanisms to generate identifiers for your objects –
 > from UUIDs to auto-incrementing IDs backed by the database of your choice.
 >
-{type=" note"}
+{type="note"}
 
 ### A small item store
 
@@ -851,7 +851,7 @@ window to navigate to your collection and have a look at everything stored in it
 
 ![Use the Database tool for collection analysis](database-tool.png)
 
-### Relevant Gradle configuration
+### Relevant Gradle configuration for Kmongo
 
 Kmongo is added with a single dependency to the project, a specific version that includes coroutine and serialization
 support out of the box:
