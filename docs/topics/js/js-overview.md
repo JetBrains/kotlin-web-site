@@ -130,7 +130,7 @@ guides you through the process of building a simple web application using the Re
 DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components and
 obtain information from APIs, all while writing the whole application logic in pure Kotlin/JS.
 
-* [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
+* [Building a Full Stack Web App with Kotlin Multiplatform](multiplatform-full-stack-app.md)
 teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
 application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
