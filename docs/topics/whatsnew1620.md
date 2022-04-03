@@ -505,20 +505,20 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 
 * If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties:`
 
-```properties
-# gradle.properties
-kotlin.mpp.enableGranularSourceSetsMetadata=true
-kotlin.native.enableDependencyPropagation=true
-```
+  ```properties
+  # gradle.properties
+  kotlin.mpp.enableGranularSourceSetsMetadata=true
+  kotlin.native.enableDependencyPropagation=true
+  ```
 
 * For Kotlin 1.6.20, we recommend using [Android Studio 2021.1.1](https://developer.android.com/studio) (Bumblebee) or later to get the best experience.
 
 * You can also opt-out. To disable hierarchical structure support, set the following options in` gradle.properties`:
 
-```properties
-# gradle.properties
-kotlin.mpp.hierarchicalStructureSupport=false
-```
+  ```properties
+  # gradle.properties
+  kotlin.mpp.hierarchicalStructureSupport=false
+  ```
 
 #### Leave your feedback
 
