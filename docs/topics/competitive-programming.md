@@ -61,17 +61,17 @@ Types in Kotlin are optional in many places due to pervasive use of type-inferen
 a well-defined static type that is known at compilation.
 
 Now, all is left is to write the main function that reads the input and implements the rest of the algorithm that the problem 
-statement asks for &mdash; to compute the number of different integers that are produced while repeatedly applying 
+statement asks for — to compute the number of different integers that are produced while repeatedly applying 
 function `f` to the initial number `n` that is given in the standard input.
 
 By default, Kotlin runs on JVM and gives direct access to a rich and efficient collections library with 
 general-purpose collections and data-structures like dynamically-sized arrays (`ArrayList`), 
-hash-based maps and sets (`HashMap`/`HashSet`), tree-based ordered maps and sets (`TreeMap`/`TreeSet`), etc. 
+hash-based maps and sets (`HashMap`/`HashSet`), tree-based ordered maps and sets (`TreeMap`/`TreeSet`). 
 Using a hash-set of integers to track values that were already reached while applying function `f`, 
 the straightforward imperative version of a solution to the problem can be written as shown below:
 
-<tabs>
-<tab title="Kotlin 1.6.0 and later">
+<tabs group="build-script">
+<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
 fun main() {
@@ -90,7 +90,7 @@ an exception otherwise. Likewise, the [`String.toInt()`](https://kotlinlang.org/
 function throws an exception if the input string is not an integer.
 
 </tab>
-<tab title="Earlier versions">
+<tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
 fun main() {
@@ -111,7 +111,7 @@ case of missing input.
 
 There is no need to handle the case of misformatted input in competitive programming.
 In competitive programming, an input format is always precisely specified and the actual input cannot deviate from
-the input specification in the problem statement. That's what the null-assertion operator `!!` essentially does &mdash;
+the input specification in the problem statement. That's what the null-assertion operator `!!` essentially does —
 it asserts that the input string is present and throws an exception otherwise. Likewise,
 the [String.toInt()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int.html).
 
@@ -123,22 +123,22 @@ utility functions that are geared towards competitive programming to make your a
 to read and write. You would then use this code as a template for your solutions. For example, you can define 
 the following helper functions for reading inputs in competitive programming:
 
-<tabs>
-<tab title="Kotlin 1.6.0 and later">
+<tabs group="build-script">
+<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
 private fun readInt() = readln().toInt()
 private fun readStr() = readln().toString()
-// etc. for other types you'd use in your solutions
+// similar for other types you'd use in your solutions
 ```
 
 </tab>
-<tab title="Earlier versions">
+<tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
 private fun readInt() = readLn().toInt()
 private fun readStr() = readLn().toString()
-// etc. for other types you'd use in your solutions
+// similar for other types you'd use in your solutions
 ```
 
 </tab>
@@ -157,8 +157,8 @@ pipeline. For example, the
 [Problem B: Long Number](https://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
 
-<tabs>
-<tab title="Kotlin 1.6.0 and later">
+<tabs group="build-script">
+<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
 fun main() {
@@ -183,7 +183,7 @@ fun main() {
 ```
 
 </tab>
-<tab title="Earlier versions">
+<tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
 fun main() {
@@ -220,8 +220,8 @@ variables and express the same code in imperative style, too.
 To make reading the input in competitive programming tasks like this more concise, 
 you can have the following list of helper input-reading functions:
 
-<tabs>
-<tab title="Kotlin 1.6.0 and later">
+<tabs group="build-script">
+<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
 private fun readInt() = readln().toInt() // single int
@@ -230,7 +230,7 @@ private fun readInts() = readStrings().map { it.toInt() } // list of ints
 ```
 
 </tab>
-<tab title="Earlier versions">
+<tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
 private fun readLn() = readLine()!! // string line
@@ -244,8 +244,8 @@ private fun readStrings() = readLn().split(" ") // list of strings
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
-<tabs>
-<tab title="Kotlin 1.6.0 and later">
+<tabs group="build-script">
+<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
 // read input
@@ -269,8 +269,8 @@ val fl = readInts()
 
 Note that in competitive programming it is customary to give variables shorter names than it is 
 typical in industrial programming practice, since the code is to be written just once and not supported thereafter. 
-However, these names are usually still mnemonic &mdash; `a` for arrays,
-`i`, `j`, etc. for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, etc.
+However, these names are usually still mnemonic — `a` for arrays,
+`i`, `j`, and others for indices, `r`, and `c` for row and column numbers in tables, `x` and `y` for coordinates, and so on.
 It is easier to keep the same names for input data as it is given in the problem statement. 
 However, more complex problems require more code which leads to using longer self-explanatory
 variable and function names.
