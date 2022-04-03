@@ -70,7 +70,7 @@ hash-based maps and sets (`HashMap`/`HashSet`), tree-based ordered maps and sets
 Using a hash-set of integers to track values that were already reached while applying function `f`, 
 the straightforward imperative version of a solution to the problem can be written as shown below:
 
-<tabs group="build-script">
+<tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
@@ -123,7 +123,7 @@ utility functions that are geared towards competitive programming to make your a
 to read and write. You would then use this code as a template for your solutions. For example, you can define 
 the following helper functions for reading inputs in competitive programming:
 
-<tabs group="build-script">
+<tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
@@ -157,7 +157,7 @@ pipeline. For example, the
 [Problem B: Long Number](https://codeforces.com/contest/1157/problem/B) problem 
 takes a simple greedy algorithm to implement and it can be written using this style without a single mutable variable:
 
-<tabs group="build-script">
+<tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
@@ -220,7 +220,7 @@ variables and express the same code in imperative style, too.
 To make reading the input in competitive programming tasks like this more concise, 
 you can have the following list of helper input-reading functions:
 
-<tabs group="build-script">
+<tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
@@ -244,7 +244,7 @@ private fun readStrings() = readLn().split(" ") // list of strings
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
-<tabs group="build-script">
+<tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
