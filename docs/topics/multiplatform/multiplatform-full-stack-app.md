@@ -372,7 +372,7 @@ Now you have a backend that can support all operations needed for a functional s
 JavaScript frontend for the application, which will allow users to easily inspect, add, and check off elements from
 their shopping list.
 
-#### Related Gradle configuration
+#### Related Gradle configuration for Ktor
 
 The artifacts required to use Ktor are a part of the `jvmMain` `dependencies` block in the `build.gradle.kts` file. It
 includes the server, logging, and supporting libraries for providing type-safe serialization support
@@ -418,7 +418,7 @@ frontend – an HTML page and the corresponding `.js` file.
 
 _In the template project, the adjustments to the Gradle file are already made_.
 Whenever you run the server with the `run` Gradle task, the frontend is also built and included in the resulting
-artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration)
+artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration-for-jvm)
 section.
 
 The template also already comes with a boilerplate `index.html` file to the `src/commonMain/resources` folder. It has
@@ -492,7 +492,7 @@ Subsequent builds with this run configuration will perform all optimizations ava
 application, including dead code elimination. Still, they will be slower than development builds, so it would be good to
 remove this flag again while you are developing.
 
-### Relevant Gradle configuration
+### Relevant Gradle configuration for JVM
 
 The Gradle configuration for the application contains a snippet that binds the execution and packaging of the
 server-side JVM application to depend on the build of your frontend application, respecting the settings
@@ -761,7 +761,7 @@ the list elements:
 There's one issue with the application. It doesn't save data, meaning that the shopping list vanishes when you terminate
 the server process.
 
-### Relevant Gradle configuration
+### Relevant Gradle configuration for MongoDB
 
 You'll use the MongoDB database to store and retrieve shopping list items even when the server shuts down.
 
@@ -930,7 +930,7 @@ To turn on a compilation with optimizations for the JavaScript assets, pass anot
 process: `ORG_GRADLE_PROJECT_isProduction` should be set to `true`. You can set this environment variable when you
 deploy the application to the target environment.
 
-### Relevant Gradle configuration
+### Relevant Gradle configuration for `installDist`
 
 The `stage` task is an alias for `installDist`:
 
