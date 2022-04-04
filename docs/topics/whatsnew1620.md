@@ -119,11 +119,11 @@ Learn more about definitely non-nullable types in [the KEEP](https://github.com/
 
 ## Kotlin/JVM
 
-In Kotlin 1.6.20 introduces:
+Kotlin 1.6.20 introduces:
 
 * Compatibility improvements of default methods in JVM interfaces: [new `@JvmDefaultWithCompatibility` annotation for interfaces](#new-jvmdefaultwithcompatibility-annotation-for-interfaces) and [compatibility changes in the `-Xjvm-default` modes](#compatibility-changes-in-the-xjvm-default-modes)
 * [Support for parallel compilation of a single module in the JVM backend](#support-for-parallel-compilation-of-a-single-module-in-the-jvm-backend)
-* [Support for callable references to function interface constructors](#support-for-callable-references-to-function-interface-constructors)
+* [Support for callable references to functional interface constructors](#support-for-callable-references-to-functional-interface-constructors)
 
 ### New @JvmDefaultWithCompatibility annotation for interfaces
 
@@ -184,7 +184,7 @@ If your project consists of lots of small modules and has a build parallelized b
 {type="note"}
 
 
-### Support for callable references to function interface constructors
+### Support for callable references to functional interface constructors
 
 > Support for callable references to functional interface constructors is [Experimental](components-stability.md).
 > It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
@@ -787,11 +787,11 @@ The current priority of properties is the following:
 
 There are three compiler execution strategies that you can assign to these properties:
 
-| Strategy       | Where Kotlin compiler is executed    | Support for incremental compilation | Other characteristics                                                  |
-|----------------|--------------------------------------|-------------------------------------|------------------------------------------------------------------------|
-| Daemon         | Inside its own daemon process        | Yes                                 | *The default strategy*. Can be shared between different Gradle daemons |
-| In process     | Inside the Gradle daemon process     | No                                  | May share the heap with the Gradle daemon                              |
-| Out of process | In a separate process for each call  | No                                  | —                                                                      |
+| Strategy       | Where Kotlin compiler is executed    | Incremental compilation | Other characteristics                                                  |
+|----------------|--------------------------------------|-------------------------|------------------------------------------------------------------------|
+| Daemon         | Inside its own daemon process        | Yes                     | *The default strategy*. Can be shared between different Gradle daemons |
+| In process     | Inside the Gradle daemon process     | No                      | May share the heap with the Gradle daemon                              |
+| Out of process | In a separate process for each call  | No                      | —                                                                      |
 
 
 Accordingly, the available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
