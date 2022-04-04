@@ -39,6 +39,25 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.2**
+
+Released: 4 April, 2022
+
+</td>
+<td>
+
+* Fixed the perfomance problem with the iOS application debug on 2021.2 and 2021.3 Android Studios.
+
+</td>
+<td>
+
+* [Kotlin 1.5.0—1.6.*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.1**
 
 Released: 15 February, 2022
