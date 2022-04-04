@@ -41,8 +41,6 @@ repository or local cache during execution and used for the rest of the script.
 
 A minimal Kotlin custom scripting project contains two parts:
 
-A minimal Kotlin custom scripting project contains two parts:
-
 * _Script definition_ – a set of parameters and configurations that define how this script type should be recognized,
   handled, compiled, and executed.
 * _Scripting host_ – an application or component that handles script compilation and execution – actually
