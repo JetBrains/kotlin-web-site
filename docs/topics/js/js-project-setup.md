@@ -123,9 +123,9 @@ of the build script.
 
 ```kotlin
 kotlin {
-  sourceSets["main"].dependencies {
-    implementation("org.example.myproject", "1.1.0")
-  }
+    sourceSets["main"].dependencies {
+        implementation("org.example.myproject", "1.1.0")
+    }
 }
 ```
 
