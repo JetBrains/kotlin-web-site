@@ -975,7 +975,7 @@ _Kotlin compiler execution strategy_ defines where the Kotlin compiler is execut
 
 There are three compiler execution strategies:
 
-| Strategy       | Where Kotlin compiler is executed    | Support for incremental compilation | Other characteristics                                                  |
+| Strategy       | Where Kotlin compiler is executed    | Incremental compilation | Other characteristics                                                  |
 |----------------|--------------------------------------|-------------------------------------|------------------------------------------------------------------------|
 | Daemon         | Inside its own daemon process        | Yes                                 | *The default strategy*. Can be shared between different Gradle daemons |
 | In process     | Inside the Gradle daemon process     | No                                  | May share the heap with the Gradle daemon                                  |
