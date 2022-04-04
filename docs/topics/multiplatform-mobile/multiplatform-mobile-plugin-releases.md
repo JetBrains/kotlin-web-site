@@ -46,7 +46,7 @@ Released: 4 April, 2022
 </td>
 <td>
 
-* Fixed the perfomance problem with the iOS application debug on 2021.2 and 2021.3 Android Studios.
+* Fixed the performance problem with the iOS application debug on Android Studio 2021.2 and 2021.3.
 
 </td>
 <td>
