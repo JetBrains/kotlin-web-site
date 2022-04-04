@@ -255,7 +255,7 @@ val fl = readInts()
 ```
 
 </tab>
-<tab title="Earlier versions">
+<tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
 // read input
