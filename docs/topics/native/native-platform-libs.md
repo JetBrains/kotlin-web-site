@@ -7,7 +7,7 @@ each target. We call them **Platform Libraries**.
 ### POSIX bindings
 
 For all Unix- or Windows-based targets (including Android and
-iOS targets) we provide the `posix` platform lib. It contains bindings
+iOS targets) we provide the `POSIX` platform lib. It contains bindings
 to platform's implementation of the [POSIX standard](https://en.wikipedia.org/wiki/POSIX).
 
 To use the library, just import it: 

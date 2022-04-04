@@ -910,7 +910,7 @@ about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code
 
 ### Leveraging native libs in the hierarchical structure 
 
-You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `posix`, in source sets shared among several 
+You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `POSIX`, in source sets shared among several 
 native targets. This can help you share more native code without being limited by platform-specific dependencies. 
 
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
@@ -1524,4 +1524,4 @@ bring incompatible changes to the language. Find the detailed list of such chang
 <!-- ### Migrating multiplatform projects
 
 To help you start using the new features of [Kotlin multiplatform](#kotlin-multiplatform) in existing projects, we
-publish the TODO: [migration guide for multiplatform projects](migrating-multiplatform-project-to-14.md). -->
+publish the TODO: [migration guide for multiplatform projects](multiplatform-hierarchy.md). -->

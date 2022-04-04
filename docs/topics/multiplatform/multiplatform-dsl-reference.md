@@ -44,7 +44,7 @@ Inside `kotlin`, you can write the following blocks:
 | --- | --- |
 | _\<targetName\>_ |Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.|
 |`targets` |All targets of the project.|
-|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](multiplatform-dsl-reference.md#targets) at once.|
+|`presets` |All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.|
 |`sourceSets` |Configures predefined and declares custom [source sets](#source-sets) of the project. |
 
 ## Targets
@@ -76,7 +76,7 @@ The complete list of available targets is the following:
             <p>Select the execution environment:</p>
             <ul>
                 <li><code>browser {}</code> for applications running in the browser.</li>
-                <li><code>nodejs{}</code> for applications running on Node.js.</li>
+                <li><code>nodejs {}</code> for applications running on Node.js.</li>
             </ul>
             <p>Learn more in <a href="js-project-setup.md#execution-environments">Setting up a Kotlin/JS project</a>.</p>
         </td>
@@ -547,9 +547,9 @@ With Kotlin Gradle DSL, the sections of predefined source sets should be marked 
 
 ```kotlin
 kotlin {
- sourceSets {
-  val commonMain by getting { /* ... */ }
- }
+    sourceSets {
+        val commonMain by getting { /* ... */ }
+    }
 }
 ```
 

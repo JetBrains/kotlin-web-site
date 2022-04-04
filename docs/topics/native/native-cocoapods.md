@@ -41,36 +41,38 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
     }
     ```
 
-2. Configure `summary`, `homepage`, and `frameworkName`of the `Podspec` file in the `cocoapods` block.  
-`version` is a version of the Gradle project:
+2. Configure `version`, `summary`, `homepage`, and `baseName` of the Podspec file in the `cocoapods` block:
     
     ```kotlin
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
         kotlin("native.cocoapods") version "%kotlinVersion%"
     }
-    
-    // CocoaPods requires the podspec to have a version.
-    version = "1.0"
-    
+ 
     kotlin {
         cocoapods {
+            // Required properties
+            // Specify the required Pod version here. Otherwise, the Gradle project version is used.
+            version = "1.0"
+            summary = "Some description for a Kotlin/Native module"
+            homepage = "Link to a Kotlin/Native module homepage"
+   
+            // Optional properties
+            // Configure the Pod name here instead of changing the Gradle project name
+            name = "MyCocoaPod"
 
             framework {
-                // Mandatory properties
-                // Configure fields required by CocoaPods.
-                summary = "Some description for a Kotlin/Native module"
-                homepage = "Link to a Kotlin/Native module homepage"
+                // Required properties              
                 // Framework name configuration. Use this property instead of deprecated 'frameworkName'
                 baseName = "MyFramework"
                 
                 // Optional properties
-                // (Optional) Dynamic framework support
+                // Dynamic framework support
                 isStatic = false
-                // (Optional) Dependency export
+                // Dependency export
                 export(project(":anotherKMMModule"))
                 transitiveExport = false // This is default.
-                // (Optional) Bitcode embedding
+                // Bitcode embedding
                 embedBitcode(BITCODE)
             }
             

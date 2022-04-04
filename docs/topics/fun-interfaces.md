@@ -63,6 +63,50 @@ fun main() {
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
+## Migration from an interface with constructor function to a functional interface
+
+> Support for callable references to functional interface constructors is [Experimental](components-stability.md).
+> It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47939).
+>
+{type="warning"}
+
+Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callable-references) to functional interface constructors, which
+adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
+Consider the following code:
+
+```kotlin
+interface Printer { 
+    fun print() 
+}
+
+fun Printer(block: () -> Unit): Printer = object : Printer { override fun print() = block() }
+```
+
+With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
+
+```kotlin
+fun interface Printer { 
+    fun print()
+}
+```
+
+Its constructor will be created implicitly, and any code using the `::Printer` function reference will compile. For example:
+
+```kotlin
+documentsStorage.addPrinter(::Printer)
+```
+
+Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
+annotation with `DeprecationLevel.HIDDEN`:
+
+```kotlin
+@Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
+fun Printer(...) {...}
+```
+
+Use the compiler option `-XXLanguage:+KotlinFunInterfaceConstructorReference` to enable this feature.
+
 ## Functional interfaces vs. type aliases
 
 Functional interfaces and [type aliases](type-aliases.md) serve different purposes.

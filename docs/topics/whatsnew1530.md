@@ -370,7 +370,7 @@ cocoapods {
 }
 ```
 
-This parameter will not appear in the podspec file. When Xcode runs the Gradle build process, the Kotlin CocoaPods Gradle plugin will select the necessary native build type.
+This parameter will not appear in the Podspec file. When Xcode runs the Gradle build process, the Kotlin CocoaPods Gradle plugin will select the necessary native build type.
 
 > There’s no need to declare the `Debug` and `Release` configurations because they are supported by default.
 >

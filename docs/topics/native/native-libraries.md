@@ -29,7 +29,7 @@ $ cinterop -def samples/gitchurn/src/nativeInterop/cinterop/libgit2.def -compile
 
 we will obtain `libgit2.klib`.
 
-See more details in [C Interop](native-c-interop.md)
+See more details in [C Interop](native-c-interop.md).
 
 ## klib utility
 
@@ -172,3 +172,38 @@ directory structure, with the following layout:
 
 An example layout can be found in `klib/stdlib` directory of your installation.
 
+### Using relative paths in klibs
+
+> Using relative paths in klibs is available since Kotlin 1.6.20.
+> 
+{type="note"}
+
+A serialized IR representation of source files is [a part of](#library-format) a `klib` library. It includes paths of 
+files for generating proper debug information. By default, stored paths are absolute.
+With the `-Xklib-relative-path-base` compiler option, you can change the format and use only relative path in the 
+artifact. To make it work, pass one or multiple base paths of source files as an argument:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
+  // $base is a base path of source files
+  kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+  kotlinOptions {
+    // $base is a base path of source files
+    freeCompilerArgs += "-Xklib-relative-path-base=$base"
+  }
+}
+``` 
+
+</tab>
+</tabs>

@@ -152,6 +152,21 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
+### Deprecate the `enabled` and the `compatibility` modes of the compiler option -Xjvm-default
+
+> **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.6.20 will warn about the usage of `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: introduce a warning on the `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+> - \>= 1.8.0: raise this warning to an error
+
 ### Prohibit super calls from public-abi inline functions
 
 > **Issue**: [KT-45379](https://youtrack.jetbrains.com/issue/KT-45379)
@@ -452,3 +467,48 @@ perspective
 > - 1.5.0: raise the deprecation level to a warning
 > - 1.6.0: hide the option
 > - \>= 1.7.0: remove the deprecated option
+
+### Deprecate kapt.use.worker.api Gradle property
+
+> **Issue**: [KT-48826](https://youtrack.jetbrains.com/issue/KT-48826)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kapt.use.worker.api` property that allowed to run kapt via Gradle Workers API (default: true)
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.8.0: remove this property
+
+### Remove kotlin.parallel.tasks.in.project Gradle property
+
+> **Issue**: [KT-46406](https://youtrack.jetbrains.com/issue/KT-46406)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlin.parallel.tasks.in.project` property
+>
+> **Deprecation cycle**:
+>
+> - 1.5.20: raise the deprecation level to a warning
+> - 1.6.20: remove this property
+
+### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
+
+> **Issue**: [KT-50369](https://youtrack.jetbrains.com/issue/KT-50369)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - \>= 1.7.0: remove the DSL option and the property
