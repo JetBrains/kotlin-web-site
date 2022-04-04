@@ -130,7 +130,7 @@ In Kotlin 1.6.20 introduces:
 Kotlin 1.6.20 introduces the [new annotation `@JvmDefaultWithCompatibility`](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/src/kotlin/jvm/JvmDefault.kt#L53): use it along with the `-Xjvm-default=all` compiler option [to create the default method in JVM interface](java-to-kotlin-interop.md#default-methods-in-interfaces) for any non-abstract member in any Kotlin interface.
 
 If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, they may be binary-incompatible with the code compiled with this option.
-Before Kotlin 1.6.20, to avoid this compatibility issue,  [the recommended approach](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/#JvmDefaultWithoutCompatibility) was to use the `-Xjvm-default=all-compatibility` mode and also the `@JvmDefaultWithoutCompatibility` annotation for interfaces that didn't need this type of compatibility.
+Before Kotlin 1.6.20, to avoid this compatibility issue, the [recommended approach](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/#JvmDefaultWithoutCompatibility) was to use the `-Xjvm-default=all-compatibility` mode and also the `@JvmDefaultWithoutCompatibility` annotation for interfaces that didn't need this type of compatibility.
 
 This approach had some disadvantages:
 
@@ -503,7 +503,7 @@ Learn more about [sharing code in libraries](multiplatform-share-on-platforms.md
 
 Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hierarchical project structure. No additional setup is required.
 
-* If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties:`
+* If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties`:
 
   ```properties
   # gradle.properties
@@ -531,6 +531,7 @@ Try it now and report any difficulties you encounter to [our issue tracker](http
 To simplify CocoaPods integration, Kotlin 1.6.20 delivers the following features:
 
 * The CocoaPods plugin now has tasks that build XCFrameworks with all registered targets and generate the Podspec file. This can be useful when you don't want to integrate with Xcode directly, but you want to build artifacts and deploy them to your local CocoaPods repository.
+  
   Learn more about [building XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks).
 
 * If you use [CocoaPods integration](native-cocoapods.md) in your projects, you're used to specifying the required Pod version for the entire Gradle project. Now you have more options:
@@ -790,7 +791,7 @@ There are three compiler execution strategies that you can assign to these prope
 |----------------|--------------------------------------|-------------------------------------|------------------------------------------------------------------------|
 | Daemon         | Inside its own daemon process        | Yes                                 | *The default strategy*. Can be shared between different Gradle daemons |
 | In process     | Inside the Gradle daemon process     | No                                  | May share the heap with the Gradle daemon                              |
-| Out of process | In a separate process for each call  | No                                  | -                                                                      |
+| Out of process | In a separate process for each call  | No                                  | —                                                                      |
 
 
 Accordingly, the available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
