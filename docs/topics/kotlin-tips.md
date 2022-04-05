@@ -1,51 +1,35 @@
 [//]: # (title: Kotlin tips)
 
-[Advent of Code](https://adventofcode.com/) is an annual December event, where holiday-themed puzzles are published
-every day from December 1 to December 25. With the permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
-we'll show how to solve these puzzles using the idiomatic Kotlin style.
+Kotlin Tips is a series of short videos where members of the Kotlin team show how to use Kotlin in a more efficient and idiomatic way to have more fun when writing code.
 
-https://www.youtube.com/watch?v=IL3RLKvWJF4&list=PLlFc5cFwUnmyDrc-mwwAL9cYFkSHoHHz7
-
-## Kotlin collections
-
-
-<video width="560" height="315" href="ApXbm1T_eI4" title="Kotlin Tips: Kotlin Collections"/>
-
-## Strings
-
-Explore input handling, iterating over a list, different ways of building a map, and using the [`let`](scope-functions.md#let)
-function to simplify your code.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/1)
-* Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/07/advent-of-code-in-idiomatic-kotlin/)
-or watch the video:
-
-<video width="560" height="315" href="IL3RLKvWJF4" title="Kotlin Tips: Strings"/>
-
+[Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), to not miss new Kotlin Tips videos.
 
 ## Improving loops
 
-Explore string utility functions, regular expressions, operations on collections, and how the [`let`](scope-functions.md#let)
-function can be helpful to transform your expressions.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/2)
-* Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/07/advent-of-code-in-idiomatic-kotlin-day2/)
-or watch the video:
+In this video, Sebastian will demonstrate how to improve loops to make your code more readable, understandable, and concise.
 
 <video width="560" height="315" href="i-kyPp1qFBA" title="Kotlin Tips: Improving Loops"/>
 
-## Elvis operator
+## Strings
 
-Compare imperative and more functional code styles, work with pairs and the [`reduce()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce.html)
-function, edit code in the column selection mode, and fix integer overflows.
+In this episode, Kate Petrova shows three tips to help you work with Strings in Kotlin.
 
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/3)
-* Check out the solution from Mikhail Dvorkin on [GitHub](https://github.com/kotlin-hands-on/advent-of-code-2020/blob/master/src/day03/day3.kt)
-or watch the video:
+<video width="560" height="315" href="IL3RLKvWJF4" title="Kotlin Tips: Strings"/>
+
+## Doing more with the Elvis operator
+
+In this video, Sebastian will show how to add more logic to the Elvis operator, such as logging to the right part of the operator.
 
 <video width="560" height="315" href="L9wqYQ-fXaM" title="Kotlin Tips: The Elvis Operator"/>
 
+## Kotlin collections
+
+In this episode, Kate Petrova shows three tips to help you work with Kotlin Collections.
+
+<video width="560" height="315" href="ApXbm1T_eI4" title="Kotlin Tips: Kotlin Collections"/>
+
+
 ## What’s next?
 
-* Complete more tasks with [Kotlin Koans](koans.md) 
-* Create working applications with the free [Kotlin Basics track](https://hyperskill.org/tracks/18/)
+* See the complete list of Kotlin Tips in our [YouTube playlist](https://youtube.com/playlist?list=PLlFc5cFwUnmyDrc-mwwAL9cYFkSHoHHz7)
+* Learn how to write [idiomatic Kotlin code for popular cases](idioms.md)
