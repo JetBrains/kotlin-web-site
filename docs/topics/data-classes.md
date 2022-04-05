@@ -75,6 +75,14 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+## Use data class as property type of data class.
+```kotlin
+data class Person(val name: String)
+data class Street(val name: String, val buildingsCount: Long)
+
+data class City(val name: String, persons: List<Person>)
+```
+
 ## Copying
 
 Use the `copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
@@ -89,6 +97,8 @@ You can then write the following:
 val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
+
+In case when data class has fields, which are lists. A copy method does not create copy of list items.  The method just create new list object, with new pointers to old item objects.
 
 ## Data classes and destructuring declarations
 
