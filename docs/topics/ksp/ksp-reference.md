@@ -324,7 +324,7 @@ if (ksTypeArgument.variance == Variance.CONTRAVARIANT) ksTypeArgument.type else 
 
 ```kotlin
 KsDeclaration.annotations.any { 
-    it.annotationType.resolve()!!.declaration.quailifiedName!!.asString() == Deprecated::class.quailifiedName 
+    it.annotationType.resolve()!!.declaration.qualifiedName!!.asString() == Deprecated::class.qualifiedName
 }
 ```
 
