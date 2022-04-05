@@ -133,7 +133,7 @@ Here you'll learn how to develop and improve your frontend web application using
     
    |Library | Details |
    |--------|---------|
-   |[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/) | The Kotlin standard library included in all projects by default. |
+   |[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/) | The Kotlin standard library is included in all projects by default. |
    |[kotlinx.browser](browser-api-dom.md)| The Kotlin library for accessing browser-specific functionality, including typical top-level objects such as document and window. |
    |[kotlinx.html](typesafe-html-dsl.md) | The Kotlin library for generating DOM elements using statically-typed HTML builders.|
    |[Ktor](https://ktor.io/) | The Kotlin multiplatform library for networking. |
@@ -188,8 +188,8 @@ Here you'll learn how to develop and publish a multiplatform library:
 
    |Library|Details|
    |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/docs/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
-   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
+   | Ktor |  [Docs](https://ktor.io/docs/) and [samples](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
+   | Serialization |  [Docs](serialization.md) and [samples](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
    | Coroutines |  [Docs](coroutines-overview.md).|
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
    
