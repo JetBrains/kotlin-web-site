@@ -4,6 +4,12 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Timing Code
+
+Watch Seb give a quick overview of the measureTimedValue function, and learn how you can time your code:
+
+<video width="560" height="315" href="j_LEcry7Pms" title="Kotlin Tips: Timing Code"/>
+
 ## Improving loops
 
 In this video, Sebastian will demonstrate how to improve loops to make your code more readable, understandable, and concise:
