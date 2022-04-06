@@ -30,18 +30,18 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    }
 
    kotlin {
-     macosX64("native") { // on macOS
-     // linuxX64("native") // on Linux
-     // mingwX64("native") // on Windows
-       binaries {
-         executable()
+       macosX64("native") { // on macOS
+       // linuxX64("native") // on Linux
+       // mingwX64("native") // on Windows
+           binaries {
+               executable()
+           }
        }
-     }
    }
 
    tasks.withType<Wrapper> {
-     gradleVersion = "%gradleVersion%"
-     distributionType = Wrapper.DistributionType.BIN
+       gradleVersion = "%gradleVersion%"
+       distributionType = Wrapper.DistributionType.BIN
    }
    ```
 
@@ -59,18 +59,18 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    }
 
    kotlin {
-     macosX64('native') { // on macOS
-     // linuxX64('native') // on Linux
-     // mingwX64('native') // on Windows
-       binaries {
-         executable()
+       macosX64('native') { // on macOS
+       // linuxX64('native') // on Linux
+       // mingwX64('native') // on Windows
+           binaries {
+               executable()
+           }
        }
-     }
    }
 
    wrapper {
-     gradleVersion = '%gradleVersion%'
-     distributionType = 'BIN'
+       gradleVersion = '%gradleVersion%'
+       distributionType = 'BIN'
    }
    ```
 
@@ -88,7 +88,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
    
    ```kotlin
    fun main() {
-     println("Hello, Kotlin/Native!")
+       println("Hello, Kotlin/Native!")
    }
    ```
 
