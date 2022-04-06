@@ -183,8 +183,7 @@ kotlin {
         // ...
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test-common"))
-                implementation(kotlin("test-annotations-common"))
+                implementation(kotlin("test"))
             }
         }
         val androidTest by getting
@@ -204,8 +203,7 @@ kotlin {
 
         commonTest {
             dependencies {
-                implementation kotlin('test-common')
-                implementation kotlin('test-annotations-common')
+                implementation kotlin('test')
             }
         }
         androidTest {
@@ -264,16 +262,10 @@ The configuration of Android library is stored in the `android {}` top-level blo
 ```kotlin
 android {
     compileSdk = 29
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
         targetSdk = 29
-        versionCode = 1
-        versionName = "1.0"
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
     }
 }
 ```
@@ -284,16 +276,10 @@ android {
 ```groovy
 android {
     compileSdk 29
+    sourceSets.main.manifest.srcFile 'src/androidMain/AndroidManifest.xml'
     defaultConfig {
         minSdk 24
         targetSdk 29
-        versionCode 1
-        versionName '1.0'
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
     }
 }
 ```
