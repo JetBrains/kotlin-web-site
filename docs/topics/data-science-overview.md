@@ -58,10 +58,12 @@ exploratory and production statistics. It supports basic numeric list/sequence/a
 slicing operators (such as `countBy`, `simpleRegressionBy`), binning operations, discrete PDF sampling,
 naive bayes classifier, clustering, linear regression, and much more.
 
-* [kmath](https://github.com/mipt-npm/kmath) is a library inspired by [NumPy](https://numpy.org/).
-This library supports algebraic structures and operations, array-like structures, math expressions, histograms,
-streaming operations, a wrapper around [commons-math](https://commons.apache.org/proper/commons-math/) and
-[koma](https://github.com/kyonifer/koma), and more.
+* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was intially inspired by
+[NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
+algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
+provides interchangeable wrappers over existing Java and Kotlin libraries including
+[ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
+[Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), etc.
 
 * [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
 and Python's [pandas](https://pandas.pydata.org/). This library provides functionality for data manipulation using
@@ -80,9 +82,9 @@ R's [ggplot](https://ggplot2.tidyverse.org/).
 Since Kotlin provides first-class interop with Java, you can also use Java libraries for data science in your Kotlin code.
 Here are some examples of such libraries:
 
-* [DeepLearning4J](https://deeplearning4j.org/) - a deep learning library for Java
+* [DeepLearning4J](https://deeplearning4j.konduit.ai) - a deep learning library for Java
 
-* [ND4J](https://github.com/deeplearning4j/nd4j) - an efficient matrix math library for JVM
+* [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j) - an efficient matrix math library for JVM
 
 * [Dex](https://github.com/PatMartin/Dex) - a Java-based data visualization tool
 
