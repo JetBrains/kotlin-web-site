@@ -16,75 +16,75 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 
 1. Create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` Gradle build file with the following content:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
-   ```kotlin
-   // build.gradle.kts
-   plugins {
-       kotlin("multiplatform") version "%kotlinVersion%"
-   }
+    ```kotlin
+    // build.gradle.kts
+    plugins {
+        kotlin("multiplatform") version "%kotlinVersion%"
+    }
 
-   repositories {
-       mavenCentral()
-   }
+    repositories {
+        mavenCentral()
+    }
 
-   kotlin {
-       macosX64("native") { // on macOS
-       // linuxX64("native") // on Linux
-       // mingwX64("native") // on Windows
-           binaries {
-               executable()
-           }
-       }
-   }
+    kotlin {
+        macosX64("native") { // on macOS
+        // linuxX64("native") // on Linux
+        // mingwX64("native") // on Windows
+            binaries {
+                executable()
+            }
+        }
+    }
 
-   tasks.withType<Wrapper> {
-       gradleVersion = "%gradleVersion%"
-       distributionType = Wrapper.DistributionType.BIN
-   }
-   ```
+    tasks.withType<Wrapper> {
+        gradleVersion = "%gradleVersion%"
+        distributionType = Wrapper.DistributionType.BIN
+    }
+    ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+    </tab>
+    <tab title="Groovy" group-key="groovy">
 
-   ```groovy
-   // build.gradle
-   plugins {
-       id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-   }
+    ```groovy
+    // build.gradle
+    plugins {
+        id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    }
 
-   repositories {
-       mavenCentral()
-   }
+    repositories {
+        mavenCentral()
+    }
 
-   kotlin {
-       macosX64('native') { // on macOS
-       // linuxX64('native') // on Linux
-       // mingwX64('native') // on Windows
-           binaries {
-               executable()
-           }
-       }
-   }
+    kotlin {
+        macosX64('native') { // on macOS
+        // linuxX64('native') // on Linux
+        // mingwX64('native') // on Windows
+            binaries {
+                executable()
+            }
+        }
+    }
 
-   wrapper {
-       gradleVersion = '%gradleVersion%'
-       distributionType = 'BIN'
-   }
-   ```
+    wrapper {
+        gradleVersion = '%gradleVersion%'
+        distributionType = 'BIN'
+    }
+    ```
 
-</tab>
-</tabs>
+    </tab>
+    </tabs>
 
    You can use different [target presets](multiplatform-dsl-reference.md#targets), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
    to define the corresponding target platform. The preset name describes a platform for which you are compiling your code.
    These target presets optionally take the target name as a parameter, which is `native` in this case.
    The target name is used to generate the source paths and task names in the project.
 
-3. Create an empty `settings.gradle` or `settings.gradle.kts` file in the project directory.
+2. Create an empty `settings.gradle` or `settings.gradle.kts` file in the project directory.
 
-4. Create a directory `src/nativeMain/kotlin` and place inside the `hello.kt` file with the following content:
+3. Create a directory `src/nativeMain/kotlin` and place inside the `hello.kt` file with the following content:
    
    ```kotlin
    fun main() {
@@ -109,7 +109,7 @@ Now you are ready to build your project and run the application.
 
    By default, the name of the binary file is the same as the project directory. 
 
-3. To run the project, execute the following command:
+2. To run the project, execute the following command:
 
    ```bash
    build/bin/native/debugExecutable/<project_name>.kexe
