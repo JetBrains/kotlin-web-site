@@ -1,6 +1,151 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
     <event>
+        <lang>en</lang>
+        <startDate>2022-05-17</startDate>
+        <endDate>2022-05-17</endDate>
+        <location>Zurich, Switzerland</location>
+        <speaker>Sebastian Brunnre</speaker>
+        <title>Voxxed Days Zürich 2022</title>
+        <subject>9 Java Patterns That Kotlin Made Obsolete</subject>
+        <url>https://voxxeddays.com/zurich/schedule/speaker-details/?id=4001</url>
+        <description>
+            <![CDATA[
+<p>Are you a Kotlin expert? Or maybe you have never worked with it before?  Either way, there's a lot for you to learn because Kotlin isn't just a fancy, new Java syntax, but another way of programming!  Come with me on a quick journey comparing Java's beloved design patterns and how they were simplified or even replaced by Kotlin quirks and features.  Amongst those patterns are Singleton, Factory, Builder, Util and more. Even if you're not interested in patterns, you can still learn about the features of Kotlin like extension properties or delegates. There's something new for everyone.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-05-22</startDate>
+        <endDate>2022-05-22</endDate>
+        <location>San Jose, Costa Rica</location>
+        <speaker>Alejandra Gil</speaker>
+        <title>Kotlin Day</title>
+        <subject>Intro to kotlin on Android</subject>
+        <url>https://gdg.community.dev/events/details/google-gdg-pura-vida-presents-kotlin-day/</url>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-06-02</startDate>
+        <endDate>2022-06-02</endDate>
+        <location>San Francisco, United States</location>
+        <speaker>Mohit Sarveiya</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>Migrating to Kotlin State &amp; Shared Flows</subject>
+        <url>https://www.sf.droidcon.com/speaker/mohit-sarveiya/migrating-to-kotlin-state-%26-shared-flows</url>
+        <description>
+            <![CDATA[
+<p>State Flows and Shared Flows were introduced to broadcast events to multiple consumers with coroutines. You might have been using Broadcast Channels and are starting to migrate to Shared Flows. Or, you might be converting your RxJava code to Flows.<p>
+<p>We’ll dive deep into the Shared & State Flow APIs. A Shared Flow provides you with ability to replay and cache events. How does it compare and map to existing RxJava constructs like publisher subjects? Or, how is it different from a Broadcast Channel? How do you handle back pressure? We’ll look into simple to complex use cases for migrating to Shared Flows and explore these questions in detail.<p>
+<p>By the end of this talk, you’ll have a good starting point to begin to migrate to State Flows and Shared Flows.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-06-02</startDate>
+        <endDate>2022-06-02</endDate>
+        <location>San Francisco, United States</location>
+        <speaker>Anna Zharkova</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>KSP and Plugins. Optimizing Kotlin Multiplatform common code</subject>
+        <url>https://www.sf.droidcon.com/speaker/anna-zharkova/ksp-and-plugins.-optimizing-kotlin-multiplatform-common-code</url>
+        <description>
+            <![CDATA[
+<p>KSP (Kotlin Symbol Processing) is an API from Google for writing Kotlin compiler plugins. Using KSP we can write annotation processors to reduce boilerplate and solve cross-cutting concerns. Also KSP is more effective than KAPT. Among the advantages of using it is the support of Kotlin Multiplatform. Another way to optimize common code is to use Kotlin plugins. In my talk I would to like to show some samples how to use own plugins and KSP processing in Kotlin Multiplatform app supporting both iOS and Android.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-25</startDate>
+        <endDate>2022-04-25</endDate>
+        <location>Paris, France</location>
+        <speaker>Marton Braun</speaker>
+        <title>AndroidMakers 2022</title>
+        <subject>Untangling Coroutine Testing</subject>
+        <url>https://androidmakers.fr/speakers/5498b37176004d47f01ecb6d61bdead82ff63d9b</url>
+        <description>
+            <![CDATA[
+<p>Coroutines are embraced on Android as a tool to perform asynchronous operations and manage threading in your apps. Testing them requires some extra work and a solid understanding of scopes and dispatchers. In this talk, we’ll look at how to test coroutines with the latest available testing APIs introduced in kotlinx.coroutines 1.6, from the simplest cases all the way to Flows.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-26</startDate>
+        <endDate>2022-04-26</endDate>
+        <location>Paris, France</location>
+        <speaker>Carlos Mota</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>The Adventures of Kotlin And Compose Through the Multiplatform World</subject>
+        <url>https://androidmakers.fr/speakers/aaec18080e28068c1d725fb7747a77a26df8dcd8</url>
+        <description>
+            <![CDATA[
+<p>Join me in this adventure through Kotlin and Compose Multiplatform and learn how you can develop apps using these technologies. You’ve got your Android app already developed? See how you can make it run on your watch and on the Desktop effortlessly. Or how you can share your business logic with iOS and speed up your development. Perhaps, you want to develop for the Web? See how you can give the first steps into Compose for the Web while also sharing your logic.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-25</startDate>
+        <endDate>2022-04-25</endDate>
+        <location>Paris, France</location>
+        <speaker>Martin Bonnin, Bennoit Lubek</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>Caching your data Graph - Offline &amp; Reactive apps using Apollo Kotlin</subject>
+        <url>https://androidmakers.fr/speakers/efd0a931724dbd49a6e5b9e6883cc57230a26149</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we'll look at GraphQL, how it differs from REST and how having a type system for your data can help with caching.<p>
+<p>We'll explore normalized databases, how using them as source of truth keeps your UI state always consistent and make sure state changes are reflected in all your screens.<p>
+<p>Finally, we'll put that to practice by looking at how that can be done in the Android Makers app.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-19</startDate>
+        <endDate>2022-04-19</endDate>
+        <online>true</online>
+        <speaker>Anna Zharkova</speaker>
+        <title>Android Worldwide 2022</title>
+        <subject>KSP and Plugins. Optimizing Kotlin Multiplatform common code</subject>
+        <url>https://www.airmeet.com/e/b175b620-a460-11ec-8379-23dfd175322a</url>
+        <description>
+            <![CDATA[
+<p>KSP (Kotlin Symbol Processing) is an API from Google for writing Kotlin compiler plugins. Using KSP we can write annotation processors to reduce boilerplate and solve cross-cutting concerns. Also KSP is more effective than KAPT. Among the advantages of using it is the support of Kotlin Multiplatform. Another way to optimize common code is to use Kotlin plugins. In my talk I would to like to show some samples how to use own plugins and KSP processing in Kotlin Multiplatform app supporting both iOS and Android.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-04-19</startDate>
+        <endDate>2022-04-19</endDate>
+        <online>true</online>
+        <speaker>Martin Bonnin, Bennoit Lubek</speaker>
+        <title>Android Worldwide 2022</title>
+        <subject>Caching your data Graph - Offline &amp; Reactive apps using Apollo Kotlin</subject>
+        <url>https://www.airmeet.com/e/b175b620-a460-11ec-8379-23dfd175322a</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we'll look at GraphQL, how it differs from REST and how having a type system for your data can help with caching.<p>
+<p>We'll explore normalized databases, how using them as source of truth keeps your UI state always consistent and make sure state changes are reflected in all your screens.
+<p>Finally, we'll put that to practice by looking at how that can be done in a demo conference app.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
         <lang>sk</lang>
         <startDate>2022-03-30</startDate>
         <endDate>2022-03-30</endDate>
