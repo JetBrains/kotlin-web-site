@@ -4,6 +4,10 @@ _[Release date: 4 April 2022](releases.md#release-details)_
 
 Kotlin 1.6.20 reveals previews of the future language features, makes the hierarchical structure the default for multiplatform projects, and brings evolutionary improvements to other components.
 
+You can also find a short overview of the changes in this video:
+
+<video href="8F19ds109-o" title="What's new in Kotlin 1.6.20"/>
+
 ## Language
 
 In Kotlin 1.6.20, you can try two new language features:
