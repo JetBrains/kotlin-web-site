@@ -16,30 +16,35 @@ Kotlin Multiplatform Mobile (KMM) is an SDK designed to simplify the development
 You can share common code between iOS and Android apps and write platform-specific code only where it's necessary.
 For example, to implement a native UI or when working with platform-specific APIs.
 
-1️⃣ [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
+Get to know Kotlin Multiplatform Mobile and complete these steps to create a mobile app the works on both Android and iOS:
 
-2️⃣ [Create your first app that works both on Android and iOS with IDE](multiplatform-mobile-create-first-app.md)
+![First step](icon-1.svg){width=25}{type="joined"} [Set up environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
-3️⃣ Add dependencies
+![Second step](icon-2.svg){width=25}{type="joined"} [Create your first app that works both on Android and iOS with IDE](multiplatform-mobile-create-first-app.md)
 
-4️⃣ Update your app
+![Third step](icon-3.svg){width=25}{type="joined"} Add dependencies
 
-5️⃣ Wrap up your project
+![Fourth step](icon-4.svg){width=25}{type="joined"} Update your app
+
+![Fifth step](icon-5.svg){width=25}{type="joined"} Wrap up your project
 
 ## Get help
 
 * **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
-* **StackOverflow**. Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **StackOverflow**. Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
 * **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
 * **Kotlin YouTube channel**. Watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k)
 with a general explanation on what Kotlin Multiplatform Mobile is and how to use it in your project. You can also check
 out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
 
-## What's next?
+## Next step
 
 Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin Multiplatform Mobile development.
 
-## Learn more
+### [Advanced] Make an Android app cross-platform
 
-If you already have an Android mobile application, [set up an environment](multiplatform-mobile-setup.md) 
-and follow [this tutorial](multiplatform-mobile-integrate-in-existing-app.md) to make it cross-platform.
+If you already have experience with mobile development and an Android mobile application, you can make it work on iOS:
+
+![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
+
+![Second step](icon-2.svg){width=25}{type="joined"} [Complete this tutorial to make it cross-platform](multiplatform-mobile-integrate-in-existing-app.md)

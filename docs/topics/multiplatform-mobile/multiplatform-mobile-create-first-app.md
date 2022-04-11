@@ -1,14 +1,19 @@
 [//]: # (title: 2. Create your first cross-platform app)
 
+<microformat>
+    <p>This is a part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed the previous steps:</p>
+    <p><img src="icon-1.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up environment</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/><img src="icon-3.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4.svg" width="20" alt="Fourth step"/> Update your app<br/><img src="icon-5.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
+    
+    
+</microformat>
+
 Here you will learn how to create and run your first Kotlin Multiplatform Mobile application using Android Studio.
 
-> This is the second step for **Getting started with Kotlin Multiplatform Mobile**. Start with [Setting up an environment](multiplatform-mobile-setup.md).
+## Create the project from template
+
+> You can also watch a [video of this tutorial](https://www.youtube.com/watch?v=GcqFhoUuNNI) created by Ekaterina Petrova, Kotlin Product Marketing Manager.
 >
-{type="note"}
-
-You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin Product Marketing Manager.
-
-<video href="GcqFhoUuNNI" title="Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial"/>
+{type="tip"}
 
 1. In Android Studio, select **File** | **New** | **New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
@@ -27,7 +32,7 @@ You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin
 Wait for the project to set up. It may take some time to download and set up the required components when you 
 do this for the first time.
 
-## Explore the project structure
+## Check the project structure
 
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
 
@@ -43,7 +48,7 @@ Your Kotlin Mobile Multiplatform project consists of three components:
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
 
 This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
-Real-life projects can have more complex structure; we consider these three components essential.
+Real-life projects can have more complex structure.
     
 ## Run your application 
 
@@ -59,11 +64,11 @@ You can run your multiplatform application on [Android](#run-your-application-on
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-android-1.png){width=300}
 
-#### Run on a different Android simulated device
+#### Run on a different Android simulated device  {initial-collapse-state="collapsed"}
 
 Learn how to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
     
-#### Run on a real Android device
+#### Run on a real Android device {initial-collapse-state="collapsed"}
 
 Learn how to [configure and connect a hardware device and run your application on it](https://developer.android.com/studio/run/device).
 
@@ -75,7 +80,7 @@ Learn how to [configure and connect a hardware device and run your application o
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
-#### Run on a different iPhone simulated device
+#### Run on a different iPhone simulated device {initial-collapse-state="collapsed"}
 
 If you want to run your application on another simulated device, you can add a new run configuration.
 
@@ -95,7 +100,7 @@ If you want to run your application on another simulated device, you can add a n
     
 6. Click **Run** to run your application on the new simulated device.
     
-#### Run on a real iPhone device
+#### Run on a real iPhone device {initial-collapse-state="collapsed"}
 
 1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
 2. [Create a run configuration](#run-on-a-different-iphone-simulated-device) by selecting iPhone in the **Execution target** list.
@@ -113,7 +118,7 @@ If you want to run your application on another simulated device, you can add a n
 
     ![Common Kotlin file](common-kotlin-file.png)
     
-2. Update the shared code – use the Kotlin standard library function that works on all platforms and reverts text: `reversed()`.
+2. Update the shared code – use the Kotlin standard library function that works on all platforms and reverts text: `[reversed()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html)`.
 
     ```kotlin
     class Greeting {
@@ -131,11 +136,15 @@ If you want to run your application on another simulated device, you can add a n
 
     ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
 
-## What's next?
+## Next step
 
-Learn how to [add dependencies to your project](multiplatform-mobile-setup.md).
+Go on and [add dependencies to your project](multiplatform-mobile-setup.md).
 
-## Learn more
+### [Advanced] Run tests
 
-* See how to [run tests](multiplatform-run-tests.md) to check that the code works correctly.
-* Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md) and how you can use it.
+See how to [create and run multiplatform tests](multiplatform-run-tests.md) to check that the code works correctly.
+
+### [Advanced] Explore project structure
+
+Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md): the shared module's artifacts,
+an Android library and an iOS framework and how the Android and iOS apps are produced.

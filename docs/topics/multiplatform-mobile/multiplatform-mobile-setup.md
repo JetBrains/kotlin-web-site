@@ -1,14 +1,12 @@
-[//]: # (title: 1. Set up an environment)
+[//]: # (title: 1. Set up environment)
 
 Before you create your first application that works on both iOS and Android, prepare an environment for Kotlin Multiplatform
 Mobile development.
 
-> * To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
+> To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
 > These cannot be performed on other operating systems, such as Microsoft Windows. This is an Apple requirement.
-> * To work with shared code or Android-specific code, you can use any computer with an operating system supported by
-> Android Studio.
 > 
-{type="note"}
+{type="warning"}
 
 ## Install all the necessary tools
 
@@ -33,22 +31,22 @@ We recommend that you install the latest stable versions for compatibility and b
             lang="bash">java -version</code></td>
    </tr>
    <tr>
-        <td><a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html">Kotlin Multiplatform Mobile plugin</a></td>
+        <td><a href="multiplatform-mobile-plugin-releases.md">Kotlin Multiplatform Mobile plugin</a></td>
         <td><p>In Android Studio, select <strong>Settings/Preferences | Plugins</strong> and search for <i>Kotlin Multiplatform Mobile</i> in <strong>Marketplace</strong> and install it.</p></td>
    </tr>
    <tr>
-        <td><a href="https://kotlinlang.org/docs/plugin-releases.html#update-to-a-new-release">Kotlin plugin</a></td>
-        <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Check the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">compatibility table</a>.</p>
+        <td><a href="plugin-releases.md#update-to-a-new-release">Kotlin plugin</a></td>
+        <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Check the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p>
             <p>If needed, in Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>. Update to the latest version in the <strong>Stable</strong> channel.</p></td>
    </tr>
    <tr>
-        <td>CocoaPods</td>
-        <td><p>CocoaPods is useful for adding iOS dependencies in Kotlin Multiplatform Mobile projects. CocoaPods is built with Ruby; you can install it with the default Ruby available on macOS.</p>
+        <td><a href="https://cocoapods.org/">CocoaPods</a></td>
+        <td><p>CocoaPods is useful for adding iOS dependencies (you'll make use of them in later steps). CocoaPods is built with Ruby; you can install it with the default Ruby available on macOS.</p>
             <p>In the terminal, run the following commands:</p>
             <p><code style="block"
-               lang="ruby">$ sudo gem install cocoapods</code></p>
+               lang="ruby" prompt="$">sudo gem install cocoapods</code></p>
             <p><code style="block"
-               lang="ruby">$ sudo gem install cocoapods-generate</code></p>
+               lang="ruby" prompt="$">sudo gem install cocoapods-generate</code></p>
          </td>
    </tr>
 </table>
@@ -61,15 +59,15 @@ To make sure everything works as expected, install and run the KDoctor tool:
 >
 {type="note"}
 
-1. In the terminal, run the following command to install the tool using [Homebrew](https://brew.sh/):
+1. In the terminal, run the following command to install the tool using Homebrew:
 
     ```bash
     brew install kdoctor
     ```
-   
-    For other ways to install KDoctor, see its [README on GitHub](https://github.com/Kotlin/kdoctor).
 
-2. If the installation was successful, call KDoctor in the console: 
+
+   If you don't have Homebrew yet, [install it](https://brew.sh/) or check other ways to get Kdoctor [here](https://github.com/Kotlin/kdoctor#installation).
+2. After the installation is completed, call KDoctor in the console: 
 
     ```bash
     kdoctor
@@ -132,8 +130,21 @@ To make sure everything works as expected, install and run the KDoctor tool:
          </list>
          <p>If you have Ruby 3.0.0 and later, you may encounter a compatibility error with <code>cocoapods-generate</code>. In this case, downgrade Ruby.</p>
     </def>
+   <def title="Command line">
+         <list>
+            <p>Make sure you have all the necessary tools installed:</p>
+            <ul>
+               <li><code>command not found: brew</code> —  <a href="https://brew.sh/">install Homebrew</a>.</li>
+               <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
+               <li>
+                  <p><code>command not found: gem</code> — RubyGems come built-in with Ruby 1.9 and later. Ruby should be available on macOS by default.</p>
+                  <p>If you don't have Ruby on your device, <a href="https://www.ruby-lang.org/en/documentation/installation/">installing it</a>. You can get the RubyGems package management on the <a href="https://rubygems.org/pages/download/">official website</a>.</p>
+               </li>
+            </ul>
+         </list>
+    </def>
 </deflist>
 
-## What's next?
+## Next step
 
-Once the setup is ready,you can move on and [create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
+Once the setup is ready, you can move on and [create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
