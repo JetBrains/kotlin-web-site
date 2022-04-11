@@ -30,6 +30,10 @@ New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
 - [Debug coroutines using IntelliJ IDEA](debug-coroutines-with-idea.md)
 - [Debug Kotlin Flow using IntelliJ IDEA – tutorial](debug-flow-with-idea.md)
 
+### Books
+
+- [Kotlin Coroutines: Deep Dive](https://kt.academy/book/coroutines)
+
 ## Sample projects
 
 - [kotlinx.coroutines examples and sources](https://github.com/Kotlin/kotlin-coroutines/tree/master/examples)
