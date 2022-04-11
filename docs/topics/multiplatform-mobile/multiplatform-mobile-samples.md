@@ -297,4 +297,17 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
 </tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/NichitaFerelin/Stock_Price">Stock Price</a></strong>
+      </td>
+      <td>Models, Networking, Data Storage, ViewModels, UI state</td>
+      <td>Koin, SQLDelight, Ktor, kotlinx.serialization</td>
+      <td>Jetpack Compose</td>
+      <td>-</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>-</td>
+      <td><ul><li>Android</li><li>Desktop (JVM)</li><li>Shared UI components via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li></ul></td>
+</tr>
 </table>
