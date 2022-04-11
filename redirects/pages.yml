@@ -663,7 +663,7 @@
 - from:
     - /docs/multiplatform-mobile-use-ktor-for-networking.html
     - /docs/kmm-use-ktor-for-networking.html
-  to: https://ktor.io/docs/http-client-multiplatform.html
+  to: https://ktor.io/docs/getting-started-ktor-client-multiplatform-mobile.html
 
 - from:
     - /docs/kmm-configure-sqldelight-for-data-storage.html
