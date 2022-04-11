@@ -5,6 +5,7 @@
     <categories src="c.list"/>
     <topics dir="topics"/>
     <module name="kotlin-reference"/>
+    <snippets src="snippets"/>
     <images dir="images" web-path="images/"/>
     <vars src="v.list"/>
     <product id="help/kotlin-reference" src="kr.tree" web-path="/kotlin-reference/"/>

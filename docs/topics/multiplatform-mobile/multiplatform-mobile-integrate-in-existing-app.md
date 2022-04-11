@@ -1,23 +1,30 @@
 [//]: # (title: Make your Android application work on iOS – tutorial)
 
-Here you can learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
+Learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
 You'll be able to write code and test it for both Android and iOS only once, in one place.
 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen for entering a username and password.
 The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with Kotlin Multiplatform Mobile, you can learn how to [create and configure a cross-platform moblie application from scratch](multiplatform-mobile-create-first-app.md) first.
+If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md) first.
 
 ## Prepare an environment for development
 
 1. Install Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher and [other tools for cross-platform mobile development](multiplatform-mobile-setup.md) on macOS.
 
-   >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
-   >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
+   > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
+   > These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
    >
    {type="note"}
 
-2. In Android Studio, create a new project from version control: `https://github.com/Kotlin/kmm-integration-sample`.
+2. In Android Studio, create a new project from version control:
+
+   ```text
+   https://github.com/Kotlin/kmm-integration-sample
+   ```
+
+   The `master` branch contains the project's initial state — a simple Android application. To see the final state
+   with the iOS application and the shared module, switch to the `final` branch.
 
 3. Switch to the **Project** view.
 
@@ -74,7 +81,8 @@ You can learn more about the [project structure](multiplatform-mobile-understand
 
 To use cross-platform code in your Android application, connect the shared module to it, move the business logic code there, and make this code cross-platform.
 
-1. Ensure that `compileSdkVersion` and `minSdkVersion` in `build.gradle.kts` of the `shared` module are the same as those in the `build.gradle` of your Android application in the `app` module.  
+1. In the `build.gradle.kts` file of the shared module, ensure that `compileSdk` and `minSdk` are the same as those in the `build.gradle` of your Android application in the `app` module.  
+   
    If they are different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a compile error.
 
 2. Add a dependency on the shared module to the `build.gradle` of your Android application.
@@ -85,12 +93,21 @@ To use cross-platform code in your Android application, connect the shared modul
     }
     ```
 
-3. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+3. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
+
+   ```text
+   kotlin.mpp.enableGranularSourceSetsMetadata=true
+   kotlin.native.enableDependencyPropagation=false
+   ```
+
+4. Synchronize the Gradle files by clicking **Sync Now** in the warning.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-4. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result to the log
-   by updating the `onCreate()` method of the `LoginActivity` class.
+5. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+package.
+6. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
+to the log by updating the `onCreate()` method:
 
     ```kotlin
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -100,8 +117,8 @@ To use cross-platform code in your Android application, connect the shared modul
    
     }
     ```
-
-5. Search for `Hello` in the log, and you'll find the greeting from the shared module.
+7. Follow Android Studio suggestions to import missing classes.
+8. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
 
    ![Greeting from the shared module](shared-module-greeting.png)
 
@@ -122,13 +139,14 @@ You can now extract the business logic code to the Kotlin Multiplatform shared m
 
    ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
 
-4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md). See the following sections for details.
+4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md).
+   See the following sections for details:
 
 #### Replace Android-specific code with cross-platform code {initial-collapse-state="collapsed"}
 
-To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies wherever possible.
+To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the moved `data` directory wherever possible.
 
-1.  In the `login()` function of the `LoginDataSource` class, replace `IOException`, which is not available in Kotlin, with `RuntimeException`.
+1. In the `LoginDataSource` class, replace `IOException` in the `login()` function with `RuntimeException`. `IOException` is not available in Kotlin.
 
     ```kotlin
     // Before
@@ -136,11 +154,11 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     ```
 
     ```kotlin
-    //After
+    // After
     return Result.Error(RuntimeException("Error logging in", e))
     ```
 
-2. For email validation, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern in the `LoginDataValidator` class:
+2. In the `LoginDataValidator` class, replace the `Patterns` class from the `android.utils` package with a Kotlin regular expression matching the pattern for email validation:
 
     ```kotlin
     // Before
@@ -152,20 +170,20 @@ To make your code work well on both Android and iOS, replace all JVM dependencie
     private fun isEmailValid(email: String) = emailRegex.matches(email)
     
     companion object {
-       private val emailRegex =
-               ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                       "\\@" +
-                       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                       "(" +
-                       "\\." +
-                       "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                       ")+").toRegex()
+       private val emailRegex = 
+           ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+").toRegex()
     }
     ```
 
 #### Connect to platform-specific APIs from the cross-platform code {initial-collapse-state="collapsed"}
 
-A universally unique identifier (UUID) for `fakeUser` in `LoginDataSource` is generated using the `java.util.UUID` class, which is not available for iOS.
+In the `LoginDataSource` class, a universally unique identifier (UUID) for `fakeUser` is generated using the `java.util.UUID` class, which is not available for iOS.
 
 ```kotlin
 val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
@@ -182,7 +200,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe") 
    ```
 
-1. Create a `Utils.kt` file in the `shared/src/commonMain` directory and provide the `expect` declaration:
+1. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -190,21 +208,23 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     expect fun randomUUID(): String
     ```
 
-2. Create a `Utils.kt` file in the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
+2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
     
     import java.util.*
+   
     actual fun randomUUID() = UUID.randomUUID().toString()
     ```
 
-3. Create a `Utils.kt` file in the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
+3. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
     
     import platform.Foundation.NSUUID
+   
     actual fun randomUUID(): String = NSUUID().UUIDString()
     ```
 
@@ -232,13 +252,13 @@ Once you've made your Android application cross-platform, you can create an iOS 
 
 2. Select a template for an iOS app and click **Next**.
 
-   ![iOS project template](ios-project-wizard-1.png)
+   ![iOS project template](ios-project-wizard-1.png){width=700}
 
 3. As the product name, specify **simpleLoginIOS** and click **Next**.
 
-   ![iOS project settings](ios-project-wizard-2.png)
+   ![iOS project settings](ios-project-wizard-2.png){width=700}
 
-4. As the location for your project, select the directory that stores your cross-platform application, for example, `multiplatform-integrate-into-existing-app`.
+4. As the location for your project, select the directory that stores your cross-platform application, for example, `kmm-integration-sample`.
 
 In Android Studio, you'll get the following structure:
 
@@ -262,7 +282,7 @@ Connect your framework to the iOS project manually:
 
 2. On the **Build Phases** tab of the project settings, click the **+** and add **New Run Script Phase**.
 
-   ![Add run script phase](xcode-run-script-phase-1.png)
+   ![Add run script phase](xcode-run-script-phase-1.png){width=700}
 
 3. Add the following script:
 
@@ -271,29 +291,34 @@ Connect your framework to the iOS project manually:
     ./gradlew :shared:embedAndSignAppleFrameworkForXcode
     ```
 
-   ![Add the script](xcode-add-run-phase-2.png)
+   ![Add the script](xcode-add-run-phase-2.png){width=700}
 
-3. Move the **Run Script** phase before the **Compile Sources** phase.
+4. Move the **Run Script** phase before the **Compile Sources** phase.
 
-   ![Move the Run Script phase](xcode-run-script-phase-3.png)
+   ![Move the Run Script phase](xcode-run-script-phase-3.png){width=700}
 
-4. On the **Build Settings** tab, specify the **Framework Search Path** under **Search Paths**:
+5. On the **Build Settings** tab, switch to **All** build settings and specify the **Framework Search Path** under **Search Paths**:
 
    ```text
    $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
    ```
 
-   ![Framework search path](xcode-add-framework-search-path.png)
+   ![Framework search path](xcode-add-framework-search-path.png){width=700}
 
-5. On the **Build Settings** tab, specify the **Other Linker flags** under **Linking**:
+6. On the **Build Settings** tab, specify the **Other Linker flags** under **Linking**:
 
    ```text
    $(inherited) -framework shared
    ```
 
-   ![Linker flag](xcode-add-flag.png)
+   ![Linker flag](xcode-add-flag.png){width=700}
 
-6. Build the project in Xcode. If everything is set up correctly, the project will successfully build.
+7. Build the project in Xcode. If everything is set up correctly, the project will successfully build.
+
+> If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings** tab,
+> add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
+>
+{type="note"}
 
 ### Use the shared module from Swift
 
@@ -303,23 +328,27 @@ Connect your framework to the iOS project manually:
    import shared
    ```
 
-2. To check that it is properly connected, use the `greeting()` function from the Kotlin Multiplatform module:
+2. To check that it is properly connected, use the `greeting()` function from the shared module of your cross-platform app:
 
-    ```Swift
-    import SwiftUI
-    import shared
-    
-    struct ContentView: View {
-        var body: some View {
-            Text(Greeting().greeting())
-            .padding()
-        }   
-    }
+   ```Swift
+   import SwiftUI
+   import shared
+   
+   struct ContentView: View {
+       var body: some View {
+           Text(Greeting().greeting())
+           .padding()
+       }
+   }
    ```
 
-   ![Greeting from the Kotlin Multiplatform module](xcode-iphone-hello.png){width=300}
+   ![Greeting from the shared module](xcode-iphone-hello.png){width=300}
 
-3. In `ContentView.swift`, write [code for using data from the Kotlin Multiplatform module and rendering the application UI](https://github.com/Kotlin/kmm-integration-sample/blob/final/SimpleLoginIOS/SimpleLoginIOS/ContentView.swift).
+3. In `ContentView.swift`, write code for using data from the shared module and rendering the application UI:
+
+   ```kotlin
+   ```
+   {src="android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed"}
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 
@@ -335,9 +364,9 @@ Connect your framework to the iOS project manually:
             }
         }
     }
-   ```  
+   ```
 
-   ![Simple login application](xcode-iphone-login.png){width=300}
+![Simple login application](xcode-iphone-login.png){width=300}
 
 ## Enjoy the results – update the logic only once
 
@@ -345,21 +374,21 @@ Now your application is cross-platform. You can update the business logic in one
 
 1. In Android Studio, change the validation logic for a user's password in the `checkPassword()` function of the `LoginDataValidator` class:
 
-    ```kotlin 
-    package com.jetbrains.simplelogin.shared.data
-
-    class LoginDataValidator {
-    //... 
-        fun checkPassword(password: String): Result {
-            return when  {
-                password.length < 5 -> Result.Error("Password must be >5 characters")
-                password.toLowerCase() == "password" -> Result.Error("Password shouldn't be \"password\"")
-                else -> Result.Success
-            }
-    }
-    //...
-    }
-    ``` 
+   ```kotlin
+   package com.jetbrains.simplelogin.shared.data
+   
+   class LoginDataValidator {
+   //...
+      fun checkPassword(password: String): Result {
+          return when {
+              password.length < 5 -> Result.Error("Password must be >5 characters")
+              password.lowercase() == "password" -> Result.Error("Password shouldn't be \"password\"")
+              else -> Result.Success
+          }
+      }
+   //...
+   }
+   ``` 
 
 2. Update `gradle.properties` to connect your iOS application to Android Studio for running it on a simulated or real device right there:
 
