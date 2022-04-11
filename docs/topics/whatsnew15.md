@@ -532,7 +532,7 @@ The property [`Char.category`](https://kotlinlang.org/api/latest/jvm/stdlib/kotl
 enum class [`CharCategory`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-char-category/), which indicates
 a char's general category according to Unicode, are now also available in multiplatform projects.
 
-[Learn more about characters](https://kotlinlang.org/docs/basic-types.html#characters).
+[Learn more about characters](basic-types.md#characters).
 
 ### New collections function firstNotNullOf()
 
