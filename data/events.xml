@@ -31,7 +31,7 @@
         <lang>en</lang>
         <startDate>2022-06-02</startDate>
         <endDate>2022-06-02</endDate>
-        <location>San Francisco, United States</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Mohit Sarveiya</speaker>
         <title>droidconsanfrancisco</title>
         <subject>Migrating to Kotlin State &amp; Shared Flows</subject>
@@ -49,7 +49,7 @@
         <lang>en</lang>
         <startDate>2022-06-02</startDate>
         <endDate>2022-06-02</endDate>
-        <location>San Francisco, United States</location>
+        <location>San Francisco, CA, USA</location>
         <speaker>Anna Zharkova</speaker>
         <title>droidconsanfrancisco</title>
         <subject>KSP and Plugins. Optimizing Kotlin Multiplatform common code</subject>
