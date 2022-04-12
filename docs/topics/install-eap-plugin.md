@@ -5,6 +5,8 @@
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
 </microformat>
 
+> Are you participating in any of the Kotlin Early Access Programs? [Take the survey](https://surveys.jetbrains.com/s3/kotlin-eaps-survey).
+
 You can follow these instructions to install [the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio](eap.md#build-details).
 
 1. Select **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**. 
