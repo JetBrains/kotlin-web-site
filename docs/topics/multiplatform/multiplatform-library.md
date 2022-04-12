@@ -187,7 +187,7 @@ interface Base64Encoder {
     fun encodeToString(src: ByteArray): String {
         val encoded = encode(src)
         return buildString(encoded.size) {
-            encoded.forEach { append(it.toChar()) }
+            encoded.forEach { append(it.toInt().toChar()) }
         }
     }
 }
@@ -214,8 +214,9 @@ Now you have a string-based API that you can cover with basic tests.
 
     ```kotlin
     package org.jetbrains.base64
-   
+
     import kotlin.test.Test
+    import kotlin.test.assertEquals
    
     class Base64Test {
         @Test
@@ -237,7 +238,7 @@ Now you have a string-based API that you can cover with basic tests.
         }
     
         private fun String.asciiToByteArray() = ByteArray(length) {
-            get(it).toByte()
+            get(it).code.toByte()
         }
     }
     ```
@@ -256,24 +257,27 @@ The tests will run on all platforms (JVM, JS, and Native).
 
 ### Add platform-specific tests
 
-You can also add tests that will be run only for a specific platform.
-For example, you can add UTF-16 tests on JVM. Just follow the same steps as for common tests, but create the `Base64Test` file in `jvmTest/kotlin/org/jetbrains/base64`:
+You can also add tests that will be run only for a specific platform. For example, you can add UTF-16 tests on JVM:
 
-```kotlin
-package org.jetbrains.base64
+1. In the `jvmTest/kotlin` directory, create the `org.jetbrains.base64` package.
+2. Create the `Base64Test.kt` file in the new package.
+3. Add tests to this file:
 
-import org.junit.Test
-import kotlin.test.assertEquals
-
-class Base64JvmTest {
-    @Test
-    fun testNonAsciiString() {
-        val utf8String = "Gödel"
-        val actual = Base64Factory.createEncoder().encodeToString(utf8String.toByteArray())
-        assertEquals("R8O2ZGVs", actual)
-    }
-}
-```
+   ```kotlin
+   package org.jetbrains.base64
+   
+   import org.junit.Test
+   import kotlin.test.assertEquals
+   
+   class Base64JvmTest {
+       @Test
+       fun testNonAsciiString() {
+           val utf8String = "Gödel"
+           val actual = Base64Factory.createEncoder().encodeToString(utf8String.toByteArray())
+           assertEquals("R8O2ZGVs", actual)
+       }
+   }
+   ```
 
 This test will automatically run on the JVM platform in addition to the common tests.
 
@@ -285,34 +289,34 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
 
 1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-    id("maven-publish")
-}
-
-group = "org.jetbrains.base64"
-version = "1.0.0"
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-   id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-   id 'maven-publish'
-}
-
-group = 'org.jetbrains.base64'
-version = '1.0.0'
-```
-
-</tab>
-</tabs>
+   <tabs group="build-script">
+   <tab title="Kotlin" group-key="kotlin">
+   
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "%kotlinVersion%"
+       id("maven-publish")
+   }
+   
+   group = "org.jetbrains.base64"
+   version = "1.0.0"
+   ```
+   
+   </tab>
+   <tab title="Groovy" group-key="groovy">
+   
+   ```groovy
+   plugins {
+      id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+      id 'maven-publish'
+   }
+   
+   group = 'org.jetbrains.base64'
+   version = '1.0.0'
+   ```
+   
+   </tab>
+   </tabs>
 
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
@@ -346,7 +350,7 @@ kotlin {
    sourceSets {
       val commonMain by getting {
          dependencies {
-            implementation("org.jetbrains.base64:Base64:1.0.0")
+            implementation("org.jetbrains.base64:multiplatform-lib:1.0.0")
          }
       }
    }
@@ -366,7 +370,7 @@ kotlin {
    sourceSets {
       commonMain {
          dependencies {
-            implementation 'org.jetbrains.base64:Base64:1.0.0'
+            implementation 'org.jetbrains.base64:multiplatform-lib:1.0.0'
          }
       }
    }
@@ -376,12 +380,12 @@ kotlin {
 </tab>
 </tabs>
 
-## Summary
+The `implementation` dependency consists of:
 
-In this tutorial, you:
-* Created a multiplatform library with platform-specific implementations.
-* Wrote common tests that are executed on all platforms.
-* Published your library to the local Maven repository.
+* The group ID and version — specified earlier in the `build.gradle(.kts)` file
+* The artifact ID — by default, it's your project's name specified in the `settings.gradle(.kts)` file
+
+For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
 
 ## What’s next?
 
