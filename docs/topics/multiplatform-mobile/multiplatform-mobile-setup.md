@@ -1,4 +1,4 @@
-[//]: # (title: 1. Set up environment)
+[//]: # (title: Set up environment)
 
 Before you create your first application that works on both iOS and Android, prepare an environment for Kotlin Multiplatform
 Mobile development.

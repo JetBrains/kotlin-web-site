@@ -28,23 +28,23 @@ Get to know Kotlin Multiplatform Mobile and complete these steps to create a mob
 
 ![Fifth step](icon-5.svg){width=25}{type="joined"} Wrap up your project
 
-## Get help
-
-* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
-* **StackOverflow**. Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
-* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
-* **Kotlin YouTube channel**. Watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k)
-with a general explanation on what Kotlin Multiplatform Mobile is and how to use it in your project. You can also check
-out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
-
 ## Next step
 
 Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin Multiplatform Mobile development.
 
-### [Advanced] Make an Android app cross-platform
+### Advanced step
 
 If you already have experience with mobile development and an Android mobile application, you can make it work on iOS:
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
 ![Second step](icon-2.svg){width=25}{type="joined"} [Complete this tutorial to make your Android app cross-platform](multiplatform-mobile-integrate-in-existing-app.md)
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **StackOverflow**. Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
+* **Kotlin YouTube channel**. Watch the introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k)
+  with a general explanation on what Kotlin Multiplatform Mobile is and how to use it in your project. You can also check
+  out other videos about [Kotlin Multiplatform Multiverse](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
