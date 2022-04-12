@@ -47,4 +47,4 @@ If you already have experience with mobile development and an Android mobile app
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
-![Second step](icon-2.svg){width=25}{type="joined"} [Complete this tutorial to make it cross-platform](multiplatform-mobile-integrate-in-existing-app.md)
+![Second step](icon-2.svg){width=25}{type="joined"} [Complete this tutorial to make your Android app cross-platform](multiplatform-mobile-integrate-in-existing-app.md)
