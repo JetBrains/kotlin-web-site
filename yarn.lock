@@ -1132,10 +1132,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.0.0-alpha.1":
-  version "4.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.0.0-alpha.1.tgz#a2e47ce6260d1a0785afc0a331682e829bd54a2c"
-  integrity sha512-0fNI/ZIWL/QlYgqXj0DfYFT+lLYUwtgkou6uJiDZCuFUoKSXFNkkyCWfVJdfPD/N4XEFxkakQseq56BrTCfEFw==
+"@jetbrains/kotlin-web-site-ui@4.0.0-alpha.2":
+  version "4.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.0.0-alpha.2.tgz#88f4d873f7661d89c9092e952228212bea673dab"
+  integrity sha512-AksEh2LWZFR0QFq5cAIF2ZR/Se2Bh5e6lygBLFrcUr0fTTwCsBU4/Dx1sgnNrn9VrNwCkF80FISXBHjvAzbiIQ==
 
 "@juggle/resize-observer@3.3.0":
   version "3.3.0"
@@ -2246,7 +2246,7 @@ classlist-polyfill@^1.0.3:
   resolved "https://registry.yarnpkg.com/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz#935bc2dfd9458a876b279617514638bcaa964a2e"
   integrity sha1-k1vC39lFiodrJ5YXUUY4vKqWSi4=
 
-classnames@^2.2.5, classnames@^2.2.6:
+classnames@2.3.1, classnames@^2.2.5, classnames@^2.2.6:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
