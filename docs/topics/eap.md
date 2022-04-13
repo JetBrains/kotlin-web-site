@@ -1,5 +1,7 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
+> Are you participating in any of the Kotlin Early Access Programs? [Take the survey](https://surveys.jetbrains.com/s3/kotlin-eaps-survey).
+
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
 We ship a few Milestone (_M_) builds before every feature (_1.x_) and incremental (_1.x.y_) release. 
