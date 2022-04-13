@@ -186,7 +186,7 @@ fun main() {
 
 The upper bound of `Derived` is set to `Base<String?>`, which is different from `Base<String>`.
 
-Learn more about [Java generics in Kotlin](https://kotlinlang.org/docs/java-interop.html#java-generics-in-kotlin).
+Learn more about [Java generics in Kotlin](java-interop.md#java-generics-in-kotlin).
 
 #### Type parameters
 
