@@ -104,7 +104,7 @@ for (x in 10 downTo 1) { ... }
 ## Lazy property
 
 ```kotlin
-val p: String by lazy {
+val p: String by lazy { // the value is computed only on first access
     // compute the string
 }
 ```
