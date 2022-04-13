@@ -8,6 +8,8 @@ import Button from "@rescui/button";
 
 import {useTextStyles} from '@rescui/typography';
 import {Theme, ThemeProvider} from "@rescui/ui-contexts";
+import {CommunityBanner} from '../../components/community-banner/community-banner';
+import Head from 'next/head';
 
 const items = [
     {
@@ -30,15 +32,32 @@ function Index() {
 
     return (
         <div>
-            <GlobalHeader/>
+            <Head>
+                <title>Community</title>
+            </Head>
+
+            <GlobalHeader />
+
             <TopMenu
                 homeUrl={'/'}
                 title={"Community"}
                 activeIndex={0}
                 items={items}
             />
+
+            <CommunityBanner title="Get involved in the community!">
+                The Kotlin community is becoming more active all the time,
+                and we want to do whatever we can to foster this community and help it grow.
+                Here you can find online resources and information about activities in your area.
+                If you can't find any, we encourage you to organize one yourself!
+                JetBrains is here to provide help and support.
+            </CommunityBanner>
+
+            <div style={{background: 'grey', height: '100px'}}></div>
+
             <div className={textCn('rs-h1')}>H1 Header</div>
             <div className={textCn('rs-h2')}>H2 Header</div>
+
             <CtaBlock
                 topTitle={"Help us improve"}
                 buttons={

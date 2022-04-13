@@ -8,7 +8,7 @@ let transpiledPackages = [
   ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/')))
 ];
 
-const withTranspile = require('next-transpile-modules')(transpiledPackages, {debug: true});
+const withTranspile = require('next-transpile-modules')(transpiledPackages);
 
 module.exports = withTranspile(withConfigCss({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
