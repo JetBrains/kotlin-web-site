@@ -627,7 +627,7 @@ Compiling the project into a single `.js` file is now available with the followi
 kotlin.js.ir.output.granularity=whole-program // `per-module` is the default
 ```
 
-In previous releases the experimental per-module mode (available via the `-Xir-per-module=true` flag) invoked `main` functions in each module. This is inconsistent with the regular 'single .js' mode. Starting with 1.6.20, only the main module `main` function will be invoked in both cases. If you do need to run some code when a module loaded, you can use top-local properties annotated with the `@EagerInitialization` annotation (see [Lazy initialization of top-level properties by default (IR)](#lazy-initialization-of-top-level-properties-by-default-with-ir-compiler))
+In previous releases, the experimental per-module mode (available via the `-Xir-per-module=true` flag) invoked `main` functions in each module. This is inconsistent with the regular 'single .js' mode. Starting with 1.6.20,  the `main` function will be invoked in the main module only in both cases. If you do need to run some code when a module is loaded, you can use top-local properties annotated with the `@EagerInitialization` annotation. See [Lazy initialization of top-level properties by default (IR)](#lazy-initialization-of-top-level-properties-by-default-with-ir-compiler).
 
 ### Char class optimization
 
