@@ -4,23 +4,33 @@ This tutorial demonstrates how to use IntelliJ IDEA for creating a console appli
 
 To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
-## Create an application 
-
-Once you've installed IntelliJ IDEA, it's time to create your first Kotlin application.
+## Create a project
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin**.
-3. Enter a project name, select **Console Application** as the project template, and click **Next**.
+2. In the panel on the left, select **New Project**.
+3. Name the new project and change its location if necessary.
+4. Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do it
+later at any time.
+5. From the **Language** list, select **Kotlin**.
    
-   ![Create a console application](jvm-new-project-1.png){width=700}
-   
-   By default, your project will use the Gradle build system with Kotlin DSL.
+   ![Create a console application](jvm-new-project.png){width=700}
 
-4. Go through and accept the default configuration, then click **Finish**. Your project will open.
+6. Select the **IntelliJ** build system. It's a native builder that doesn't require downloading additional artifacts.
 
-   ![Configure a console application](jvm-new-project-2.png){width=700}
+   If you want to create a more complex project that needs further configuration, select Maven or Gradle. For Gradle,
+   choose a language for the build script: Kotlin or Groovy.
+7. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
+   your project.
+   * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
+   JDK home directory. 
+   * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-5. Open the `build.gradle.kts` file, the build script created by default based on your configuration. It includes
+8. Enable the **Add sample code** option to create a file with a sample `Hello World!` application.
+9. Click **Create**.
+
+## Create an application
+
+1. If you chose the Gradle build system, you have `build.gradle(.kts)`, a build script file, in your project. It includes
    the `kotlin("jvm")` plugin and dependencies required for your console application. Ensure that you use the latest
    version of the plugin:
 
@@ -31,13 +41,13 @@ Once you've installed IntelliJ IDEA, it's time to create your first Kotlin appli
    }
    ```
 
-6. Open the `main.kt` file in `src/main/kotlin`.  
+2. Open the `main.kt` file in `src/main/kotlin`.  
    The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print 
    `Hello World!`.
 
    ![main.kt with main fun](jvm-main-kt-initial.png){width=700}
 
-7. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world:
+3. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world:
    
    * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html).
      

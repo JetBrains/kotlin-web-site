@@ -9,16 +9,16 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 Once you've installed IntelliJ IDEA, it's time to create your first frontend application based on Kotlin/JS with React.
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin**.
+2. In the panel on the left, select **Kotlin Multiplatform**.
 3. Enter a project name, select **React Application** as the project template, and click **Next**.
    
-    ![Create a react application](js-new-project-1.png)
+    ![Create a react application](js-new-project-1.png){width=700}
     
     By default, your project will use Gradle with Kotlin DSL as the build system.
 
-4. Select the **Use styled-components** checkbox and click **Finish**. Your project will open.
+4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
   
-    ![Configure a frontend application](js-new-project-2.png) 
+    ![Configure a frontend application](js-new-project-2.png){width=700}
 
 5. Open the `build.gradle.kts` file, the build script created by default based on your configuration. It includes
    the [`kotlin("js")` plugin and dependencies](js-project-setup.md) required for your frontend application. Ensure that

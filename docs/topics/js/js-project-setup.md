@@ -10,7 +10,7 @@ directly from the Gradle build file, with the option to override automatically g
 To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin** and choose a 
 Kotlin/JS target that suits you best. Don't forget to choose the language for the build script: Groovy or Kotlin.
 
-![New project wizard](js-project-wizard.png){width=700}
+![New project wizard](js-new-project-1){width=700}
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file
 (`build.gradle` or `build.gradle.kts`).

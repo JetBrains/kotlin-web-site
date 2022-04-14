@@ -52,29 +52,44 @@ With all of this in mind, it’s best to split the project into two modules.
 
 Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
-## Set up the project structure
+## Create a project
 
-Create a Kotlin/JVM Gradle project with two modules:
+1. In IntelliJ IDEA, select **File** | **New** | **Project**.
+2. In the panel on the left, select **New Project**.
+3. Name the new project and change its location if necessary.
+4. Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do it
+   later at any time.
+5. From the **Language** list, select **Kotlin**.
+6. Select the **Gradle** build system.
+7. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
+   your project.
+   * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
+     JDK home directory.
+   * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-1. Go to **File | New | Project**.
-2. Create a new **Gradle** project with **Kotlin/JVM**. Select the **Kotlin DSL build script**
-   checkbox to write the build script in Kotlin.
+8. Select the Kotlin or Gradle language for the **Gradle DSL**.
+9. Click **Create**.
 
-   ![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
+![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
 
-   Now you have an empty Kotlin/JVM Gradle project where you will add the required modules: script definition and scripting host.
+## Add scripting modules
 
-3. Go to **File | New | Module** and add a new **Gradle** module with **Kotlin/JVM**. Select the **Kotlin DSL build script**
-   checkbox if you want to write the build script in Kotlin. This module will be the script definition.
+Now you have an empty Kotlin/JVM Gradle project. Add the required modules, script definition and scripting host:
 
-4. Give the module a name and select the root module as its parent.
+1. In IntelliJ IDEA, select **File | New | Module**.
+2. In the panel on the left, select **New Module**. This module will be the script definition.
+3. Name the new module and change its location if necessary. 
+4. From the **Language** list, select **Java**.
+5. Select the **Gradle** build system and Kotlin for the **Gradle DSL** if you want to write the build script in Kotlin.
+6. As a module's parent, select the root module.
+7. Click **Create**.
 
    ![Create script definition module](script-deps-module-definition.png){width=800}
 
-5. In the module's `build.gradle(.kts)` file, remove the `version` of the Kotlin Gradle plugin. It is already in the
+8. In the module's `build.gradle(.kts)` file, remove the `version` of the Kotlin Gradle plugin. It is already in the
    root project's build script.
 
-6. Repeat steps 3, 4, and 5 one more time to create a module for the scripting host.
+9. Repeat previous steps one more time to create a module for the scripting host.
 
 The project should have the following structure:
 
