@@ -1,7 +1,7 @@
 import React from "react";
 
 import 'normalize.css';
-
+import './global.css';
 import '@jetbrains/kotlin-web-site-ui/out/components/typography/index.css';
 import '@jetbrains/kotlin-web-site-ui/out/components/grid/index.css';
 
