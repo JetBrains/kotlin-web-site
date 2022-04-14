@@ -1,6 +1,6 @@
 import React from "react";
-import {CommunityLayout} from "../../components/layout/community-layout";
-import {KugsBanner} from "../../components/kugs-banner/kugs-banner";
+import {CommunityLayout} from "../../layouts/community-layout";
+import {KugsBanner} from "../../blocks/community/kugs-banner/kugs-banner";
 
 function UserGroups() {
     return (

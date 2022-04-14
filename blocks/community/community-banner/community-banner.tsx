@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 
 import styles from './community-banner.module.css';
-import communityBanner from '../../public/images/community-banner.png';
+import communityBanner from '../../../public/images/community-banner.png';
 
 interface CommunityBannerProps {
     title: string;

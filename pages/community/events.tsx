@@ -1,5 +1,5 @@
 import React from "react";
-import {CommunityLayout} from "../../components/layout/community-layout";
+import {CommunityLayout} from "../../layouts/community-layout";
 
 function UserGroups() {
     return (

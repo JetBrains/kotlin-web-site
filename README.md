@@ -80,3 +80,13 @@ You can:
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
 [project-badge]: http://jb.gg/badges/official.svg
 [slack-url]: http://slack.kotlinlang.org
+
+## Pages on Next.js
+
+You can find all pages in the "pages" directory.
+
+Projects Structure:
+- **Components**. The building blocks.
+- **Blocks**. Blocks are groups of components joined together to form a relatively complex, distinct section of an interface.
+- **Layouts**. Layouts consist mostly of groups of Blocks and Components stitched together to form pages.
+- **Pages**. Each page is associated with a route based on its file name.
