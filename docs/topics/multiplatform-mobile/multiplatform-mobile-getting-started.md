@@ -22,17 +22,17 @@ Get to know Kotlin Multiplatform Mobile and complete these steps to create a mob
 
 ![Second step](icon-2.svg){width=25}{type="joined"} [Create your first app that works both on Android and iOS with IDE](multiplatform-mobile-create-first-app.md)
 
-![Third step](icon-3.svg){width=25}{type="joined"} Add dependencies
+![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies](multiplatform-mobile-add-dependencies.md)
 
-![Fourth step](icon-4.svg){width=25}{type="joined"} Update your app
+![Fourth step](icon-4.svg){width=25}{type="joined"} [Update your app](multiplatform-mobile-update-app.md)
 
-![Fifth step](icon-5.svg){width=25}{type="joined"} Wrap up your project
+![Fifth step](icon-5.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
 
 ## Next step
 
 Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin Multiplatform Mobile development.
 
-### Advanced step
+### See also
 
 If you already have experience with mobile development and an Android mobile application, you can make it work on iOS:
 
