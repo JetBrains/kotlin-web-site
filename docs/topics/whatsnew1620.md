@@ -512,7 +512,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
   ```properties
   # gradle.properties
   kotlin.mpp.enableGranularSourceSetsMetadata=true
-  kotlin.native.enableDependencyPropagation=true
+  kotlin.native.enableDependencyPropagation=false // or 'true', depending on your previous setup
   ```
 
 * For Kotlin 1.6.20, we recommend using [Android Studio 2021.1.1](https://developer.android.com/studio) (Bumblebee) or later to get the best experience.
