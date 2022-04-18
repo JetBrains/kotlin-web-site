@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {privacy} from '@jetbrains/kotlin-web-site-ui/dist/dataServices.js';
-import '@jetbrains/kotlin-web-site-ui/dist/typography.css';
-import '@jetbrains/kotlin-web-site-ui/dist/formikWrappers.css';
-import {FormikInput, FormikSubmitButton, FormikPrivacyCheckbox} from '@jetbrains/kotlin-web-site-ui/dist/formikWrappers.js';
+import {privacy} from '@jetbrains/kotlin-web-site-ui/out/packages/data-services';
+import '@jetbrains/kotlin-web-site-ui/out/components/typography';
+import {FormikInput, FormikSubmitButton, FormikPrivacyCheckbox} from '@jetbrains/kotlin-web-site-ui/out/blocks/formik-wrapper';
 
 import {Formik, Form} from 'formik';
 import {validateForm} from './forms-validation';

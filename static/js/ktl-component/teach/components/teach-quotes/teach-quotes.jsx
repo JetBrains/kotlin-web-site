@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
-import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css';
+import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
 
 const quotes = [
   {

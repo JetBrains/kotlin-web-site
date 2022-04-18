@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {CtaBlock} from '@jetbrains/kotlin-web-site-ui/dist/ctaBlock';
-import '@jetbrains/kotlin-web-site-ui/dist/ctaBlock.css';
+import CtaBlock from '@jetbrains/kotlin-web-site-ui/out/components/cta-block';
 import Button from '@rescui/button';
 import './teach-cta-block.scss';
 

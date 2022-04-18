@@ -1,6 +1,5 @@
 import React from "react";
-import GlobalFooter from '@jetbrains/kotlin-web-site-ui/dist/footer.js';
-import '@jetbrains/kotlin-web-site-ui/dist/footer.css';
+import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 const Footer = (props) => {

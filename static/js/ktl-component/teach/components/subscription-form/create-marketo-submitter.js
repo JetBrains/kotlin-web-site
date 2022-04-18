@@ -1,4 +1,4 @@
-import {privacy, submitToMarketo} from '@jetbrains/kotlin-web-site-ui/dist/dataServices.js';
+import {privacy, submitToMarketo} from '@jetbrains/kotlin-web-site-ui/out/packages/data-services';
 
 const createMarketoSubmitter =
   ({onSubmitted, consentIds, formId, valuesTransformer = arg => arg}) =>
