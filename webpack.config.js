@@ -96,7 +96,7 @@ module.exports = (params = {}) => {
           loader: 'mustache-loader'
         },
         {
-          test: /\.svg/,
+          test: /\.svg(?:\?\w+)?$/,
           use: [
             {
               loader: 'url-loader',
