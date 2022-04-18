@@ -1,6 +1,9 @@
 const packageJSON = require('./package.json');
 
+const withPlugins = require('next-compose-plugins');
 const { withGlobalCss } = require('next-global-css');
+const optimizedImages = require('next-optimized-images');
+const nextTranspileModules = require('next-transpile-modules');
 const withConfigCss = withGlobalCss();
 
 let transpiledPackages = [
@@ -8,9 +11,23 @@ let transpiledPackages = [
   ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/')))
 ];
 
-const withTranspile = require('next-transpile-modules')(transpiledPackages);
+const withTranspile = nextTranspileModules(transpiledPackages);
 
-module.exports = withTranspile(withConfigCss({
+const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  inlineImageLimit: 0
-}));
+  fileExtensions: ["jpg", "jpeg", "png", "gif"],
+  inlineImageLimit: 0,
+  images: {
+    disableStaticImages: true,
+  }
+};
+
+module.exports = withPlugins([
+  [withConfigCss],
+  [withTranspile],
+  [optimizedImages, {
+    handleImages: ['jpeg', 'png'],
+    imagesFolder: 'images',
+    optimizeImagesInDev: true
+  }]
+], nextConfig);

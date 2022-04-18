@@ -3,8 +3,7 @@ import React from 'react';
 import {TeachTopMenu} from "../teach/components/teach-top-menu";
 import {TeachCtaBlock} from "../teach/components/teach-cta-block";
 
-import {QuotesSlider} from '@jetbrains/kotlin-web-site-ui/dist/quotesSlider';
-import '@jetbrains/kotlin-web-site-ui/dist/quotesSlider.css';
+import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
 
 import './style.scss'
 
