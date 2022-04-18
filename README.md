@@ -90,3 +90,7 @@ Projects Structure:
 - **Blocks**. Blocks are groups of components joined together to form a relatively complex, distinct section of an interface.
 - **Layouts**. Layouts consist mostly of groups of Blocks and Components stitched together to form pages.
 - **Pages**. Each page is associated with a route based on its file name.
+
+### Images in Next.js
+Notice that using 'next/image' is not possible because Next.js does not support importing images to HTML files (SSG).
+Use the IMG tag instead.    
