@@ -2,9 +2,9 @@ import React from "react";
 
 import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
 import {CommunityLayout} from "../../layouts/community-layout";
-import {CommunityKeepInTouch} from "../../blocks/community/community-keep-in-touch/community-keep-in-touch";
+import {KeepInTouch} from "../../blocks/community/keep-in-touch/keep-in-touch";
 
-import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg';
+import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg'
 import TwitterIcon from '../../public/community/icons/keep-in-touch-twitter-icon.svg';
 import KotlinIcon from '../../public/community/icons/keep-in-touch-kotlin-icon.svg';
 import RedditIcon from '../../public/community/icons/keep-in-touch-reddit-icon.svg';
@@ -25,7 +25,7 @@ function Index() {
                 JetBrains is here to provide help and support.
             </CommunityBanner>
 
-            <CommunityKeepInTouch links={[
+            <KeepInTouch links={[
                 {
                     icon: SlackIcon,
                     title: 'Slack',
@@ -66,7 +66,7 @@ function Index() {
                     icon: TalkingKotlinIcon,
                     title: 'Talking Kotlin',
                     description: 'Let’s chat with us in real time',
-                    link: 'http://talkingkotlin.com/?_gl=1*e9nbis*_ga*MjAxODgxMzAwNi4xNjQ4MzA1Nzg2*_ga_J6T75801PF*MTY0ODgxOTM3MS44LjEuMTY0ODgxOTM4Ny4w'
+                    link: 'http://talkingkotlin.com/'
                 },
                 {
                     icon: LinkedInIcon,
@@ -78,7 +78,7 @@ function Index() {
                     icon: YoutrackIcon,
                     title: 'Issue Tracker',
                     description: 'Find the issues',
-                    link: 'https://youtrack.jetbrains.com/issues/KT?_gl=1*e9nbis*_ga*MjAxODgxMzAwNi4xNjQ4MzA1Nzg2*_ga_J6T75801PF*MTY0ODgxOTM3MS44LjEuMTY0ODgxOTM4Ny4w'
+                    link: 'https://youtrack.jetbrains.com/issues/'
                 },
             ]}/>
         </CommunityLayout>

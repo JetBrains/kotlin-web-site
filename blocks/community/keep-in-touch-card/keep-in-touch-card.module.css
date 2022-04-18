@@ -1,0 +1,33 @@
+.card {
+    min-height: 170px;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+@media (max-width: 767px) {
+    .title {
+        font-size: 13px;
+        line-height: 24px;
+    }
+
+    .description {
+        font-size: 13px;
+        line-height: 24px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .card {
+        min-height: 240px;
+    }
+}

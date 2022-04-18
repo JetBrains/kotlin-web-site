@@ -1,23 +1,24 @@
 import React, {FC} from 'react';
-import {CommunityKeepInTouchCard} from "../../../components/community/community-keep-in-touch-card/community-keep-in-touch-card";
+import {KeepInTouchCard} from "../keep-in-touch-card/keep-in-touch-card";
 import classNames from 'classnames';
 
-import styles from './community-keep-in-touch.module.css';
+import styles from './keep-in-touch.module.css';
 
-import {CommunityKeepInTouchCardProps} from '../../../components/community/community-keep-in-touch-card/community-keep-in-touch-card'
+import {KeepInTouchCardProps} from '../keep-in-touch-card/keep-in-touch-card'
 
-interface CommunityKeepInTouchProps {
-    links: CommunityKeepInTouchCardProps[]
+interface KeepInTouchProps {
+    links: KeepInTouchCardProps[]
 }
 
-export const CommunityKeepInTouch: FC<CommunityKeepInTouchProps> = ({links}) => {
+export const KeepInTouch: FC<KeepInTouchProps> = ({links}) => {
     return (
         <div className={classNames(styles.wrapper)}>
             <section className="ktl-container">
                 <h2 className="ktl-h1">Keep in Touch</h2>
                 <div className={classNames(styles.grid, 'ktl-offset-top-l')}>
                     {links.map(link => (
-                        <CommunityKeepInTouchCard
+                        <KeepInTouchCard
+                            key={link.title}
                             icon={link.icon}
                             title={link.title}
                             description={link.description}
