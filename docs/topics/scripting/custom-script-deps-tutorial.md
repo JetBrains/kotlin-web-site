@@ -57,18 +57,22 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **New Project**.
 3. Name the new project and change its location if necessary.
-4. Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do it
-   later at any time.
-5. From the **Language** list, select **Kotlin**.
-6. Select the **Gradle** build system.
-7. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
+
+   > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
+   > it later at any time.
+   >
+   {type="tip"}
+
+4. From the **Language** list, select **Kotlin**.
+5. Select the **Gradle** build system.
+6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
    your project.
    * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
      JDK home directory.
    * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-8. Select the Kotlin or Gradle language for the **Gradle DSL**.
-9. Click **Create**.
+7. Select the Kotlin or Gradle language for the **Gradle DSL**.
+8. Click **Create**.
 
 ![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
 

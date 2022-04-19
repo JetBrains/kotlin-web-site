@@ -9,24 +9,28 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **New Project**.
 3. Name the new project and change its location if necessary.
-4. Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do it
-later at any time.
-5. From the **Language** list, select **Kotlin**.
+
+   > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
+   > it later at any time.
+   >
+   {type="tip"}
+
+4. From the **Language** list, select **Kotlin**.
    
    ![Create a console application](jvm-new-project.png){width=700}
 
-6. Select the **IntelliJ** build system. It's a native builder that doesn't require downloading additional artifacts.
+5. Select the **IntelliJ** build system. It's a native builder that doesn't require downloading additional artifacts.
 
    If you want to create a more complex project that needs further configuration, select Maven or Gradle. For Gradle,
    choose a language for the build script: Kotlin or Groovy.
-7. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
+6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
    your project.
    * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
    JDK home directory. 
    * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-8. Enable the **Add sample code** option to create a file with a sample `Hello World!` application.
-9. Click **Create**.
+7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
+8. Click **Create**.
 
 ## Create an application
 
@@ -88,6 +92,6 @@ Congratulations! You have just run your first Kotlin application.
 
 Once you’ve created this application, you can start to dive deeper into Kotlin syntax:
 
-*   Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
-*   Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 
+* Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
+* Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 
 from the [Kotlin Koans course](https://www.jetbrains.com/help/education/learner-start-guide.html?section=Kotlin%20Koans)
