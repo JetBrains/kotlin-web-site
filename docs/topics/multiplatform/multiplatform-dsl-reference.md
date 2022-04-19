@@ -211,7 +211,7 @@ In any target block, you can use the following declarations:
 | --- | --- |
 |`attributes`|Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.|
 |`preset`|The preset that the target has been created from, if any.|
-|`platformType`|Designates the Kotlin platform of this target. Avaiable values: `jvm`, `androidJvm`, `js`, `native`, `common`.|
+|`platformType`|Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `native`, `common`.|
 |`artifactsTaskName`|The name of the task that builds the resulting artifacts of this target.|
 |`components`|The components used to setup Gradle publications.|
 
