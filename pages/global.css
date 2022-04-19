@@ -4,6 +4,10 @@
     --rs-font-family-ui: var(--ktl-font-family-inter);
 }
 
+html {
+    font-family: var(--ktl-font-family-inter);
+}
+
 img {
     max-width: 100%;
 }
