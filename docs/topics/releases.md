@@ -13,7 +13,7 @@ For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
 For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try 
 new features before they are released. See [Early Access Preview](eap.md) for details.
 
-Learn more about [types of Kotlin releases and their compatiblity](kotlin-evolution.md#feature-releases-and-incremental-releases). 
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#feature-releases-and-incremental-releases). 
 
 ## Update to a new release
 
@@ -31,7 +31,7 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 The IDE support for the latest version of the language is available for the following versions of IntelliJ IDEA and Android Studio:
 * IntelliJ IDEA:
   * Latest stable ([IntelliJ IDEA %kotlinPluginVersion%](https://www.jetbrains.com/idea/whatsnew/) version)
-  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2021-2/) version)
+  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2021-3/) version)
   * [Early access](https://www.jetbrains.com/resources/eap/) versions
 * Android Studio:
   * [Latest released](https://developer.android.com/studio) version
@@ -39,7 +39,7 @@ The IDE support for the latest version of the language is available for the foll
 
 ## Release details
 
-The following table lists details of latest Kotlin releases.
+The following table lists details of the latest Kotlin releases.
 
 You can also use [preview versions of Kotlin](eap.md#build-details).
 

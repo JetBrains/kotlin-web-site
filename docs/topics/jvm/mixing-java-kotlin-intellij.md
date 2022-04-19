@@ -3,7 +3,7 @@
 Kotlin provides the first-class interoperability with Java, and modern IDEs make it even better.
 In this tutorial, you'll learn how to use both Kotlin and Java sources in the same project in 
 IntelliJ IDEA. To learn how to start a new Kotlin project in IntelliJ IDEA, 
-see [Getting started with IntellJ IDEA](jvm-get-started.md). 
+see [Getting started with IntelliJ IDEA](jvm-get-started.md). 
 
 ## Adding Java source code to an existing Kotlin project
 
@@ -55,13 +55,10 @@ Adding a Kotlin file to an existing Java project is pretty much the same.
 
 ![Add new Kotlin file class](new-kotlin-file.png){width=400}
 
-If this is the first time you're adding a Kotlin file to this project, IntelliJ IDEA will prompt you to add the required
-Kotlin runtime. For a Java project, configure the Kotlin runtime as a **Kotlin Java Module**.
+If this is the first time you're adding a Kotlin file to this project, IntelliJ IDEA will automatically add the required
+Kotlin runtime.
 
-The next step is to decide which modules to configure (if the project has more than one module) and whether you want to
-add the runtime library to the project or use those provided by the current Kotlin plugin.
-
-![Bundling Kotlin runtime](bundling-kotlin-option.png){width=600}
+![Bundling Kotlin runtime](bundling-kotlin-option.png){width=350}
 
 You can also open the Kotlin runtime configuration manually from **Tools** | **Kotlin** | **Configure Kotlin in Project**.
 

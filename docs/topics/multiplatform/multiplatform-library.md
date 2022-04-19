@@ -20,7 +20,7 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 ## Create a project
 
 1. In IntelliJ IDEA, select **File | New | Project**.
-2. In the left-hand panel, select **Kotlin**.
+2. In the left-hand panel, select **Kotlin Multiplatform**.
 3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
 
    ![Select a project template](multiplatform-project-1.png)

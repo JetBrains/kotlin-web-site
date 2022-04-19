@@ -7,10 +7,10 @@ for managing [npm](https://www.npmjs.com/) dependencies in background and can bu
 using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part
 directly from the Gradle build file, with the option to override automatically generated configurations for full control.
 
-To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin** and choose a 
+To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin Multiplatform** and choose a 
 Kotlin/JS target that suits you best. Don't forget to choose the language for the build script: Groovy or Kotlin.
 
-![New project wizard](js-project-wizard.png){width=700}
+![New project wizard](js-new-project-1.png){width=700}
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file
 (`build.gradle` or `build.gradle.kts`).
@@ -54,7 +54,6 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Target directory](#distribution-target-directory) and [module name](#module-name)
 * [Project's `package.json` file](#package-json-customization)
 
-
 ## Execution environments
 
 Kotlin/JS projects can target two different execution environments: 
@@ -86,8 +85,6 @@ The Kotlin/JS plugin automatically configures its tasks for working with the sel
 This includes downloading and installing the required environment and dependencies for running and testing the application.
 This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
 Node.js, there are also an option to use an existing Node.js installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
-
-
 
 ## Dependencies
 
