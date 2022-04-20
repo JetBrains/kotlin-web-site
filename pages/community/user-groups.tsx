@@ -1,5 +1,5 @@
 import React from "react";
-import {CommunityLayout} from "../../layouts/community-layout";
+import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 import {KugsBanner} from "../../blocks/community/kugs-banner/kugs-banner";
 import userGroupsDataRaw from "../../data/user-groups.yml";
 const userGroupsData = userGroupsDataRaw as UserGroupsData;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
-import {CommunityLayout} from "../../layouts/community-layout";
+import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 
 function Index() {
     return (
