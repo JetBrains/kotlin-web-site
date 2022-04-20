@@ -39,7 +39,7 @@ IDEA. This template already includes all the configuration and required dependen
 common code.
 
 You don't need to change the Gradle configuration throughout this tutorial. So if you want to get right to programming,
-feel free to move on directly to the [next section](#create-a-simple-api-server).
+feel free to move on directly to the [next section](#build-the-backend).
 
 Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file. Check
 out the sections below about Gradle structure to help you understand and prepare for other projects.

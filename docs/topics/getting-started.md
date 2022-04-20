@@ -194,7 +194,7 @@ Here you'll learn how to develop and publish a multiplatform library:
 
    |Library| Details                                                                                                 |
    |---------------------------------------------------------------------------------------------------------|-------|
-   | Ktor | [Docs](https://ktor.io/docs/) and [sample](multiplatform-full-stack-app.md#create-a-simple-api-server). | 
+   | Ktor | [Docs](https://ktor.io/docs/) and [sample](multiplatform-full-stack-app.md#build-the-backend). | 
    | Serialization | [Docs](serialization.md) and [sample](multiplatform-full-stack-app.md).                                 |
    | Coroutines | [Docs](coroutines-overview.md).                                                                         |
    | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).                                              |
