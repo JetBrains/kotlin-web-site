@@ -181,7 +181,7 @@ Now Gradle itself can run on any JDK and still reuse the [remote build cache fea
 for tasks that depend on a major JDK version.
 
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
-The Kotlin compiler always uses the JDK the Gradle daemon is running on.
+The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
 * Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
