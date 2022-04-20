@@ -30,17 +30,19 @@ The output will be a simple shopping list application that allows planning your 
 > For this tutorial, you are expected to have an understanding of Kotlin. Some knowledge about basic concepts in React
 > and Kotlin Coroutines may help understand some sample code but is not strictly required.
 >
-{type=tip}
+{type="tip"}
 
-## Set up your project
+## Create the project
 
 Clone the [project repository](https://github.com/kotlin-hands-on/jvm-js-fullstack) from GitHub and open it in IntelliJ
 IDEA. This template already includes all the configuration and required dependencies for all project parts: JVM, JS, and the
 common code.
 
 You don't need to change the Gradle configuration throughout this tutorial. So if you want to get right to programming,
-feel free to move on directly to the [next section](#create-a-simple-api-server). Alternatively, you can get an understanding
-of the configuration and project setup. Check out the sections below about Gradle structure to help you understand and prepare for other projects.
+feel free to move on directly to the [next section](#create-a-simple-api-server).
+
+Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file. Check
+out the sections below about Gradle structure to help you understand and prepare for other projects.
 
 #### Multiplatform Gradle Structure {initial-collapse-state="collapsed"}
 
@@ -57,9 +59,9 @@ Additionally, you'll need two more plugins:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "1.4.0"
+    kotlin("multiplatform") version "%kotlinVersion%"
     application //to run JVM part
-    kotlin("plugin.serialization") version "1.4.0"
+    kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
 
@@ -114,10 +116,10 @@ folders, `commonMain`, `jsMain`, and `jvmMain`, which contain their own `resourc
 For detailed information on source sets,
 see [Understand Multiplatform project structure](multiplatform-discover-project.md#source-sets).
 
-## Create a simple API server
+## Build the backend
 
 Begin by writing the server side of the application. The typical simple API server implements
-the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – Create, Read, Update and Delete.
+the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – create, read, update and delete.
 For the simple shopping list, you can focus solely on:
 
 * Creating new entries in the list
@@ -131,7 +133,7 @@ You can find more information about Ktor in its [documentation](https://ktor.io/
 
 ### Run the embedded server
 
-Instantiating a server with Ktor is simple. You need to tell
+Instantiate a server with Ktor. You need to tell
 the [embedded server](https://ktor.io/docs/create-server.html#embedded-server) that ships with Ktor to use the `Netty`
 engine on a port, in this case, `9090`.
 
@@ -170,15 +172,15 @@ engine on a port, in this case, `9090`.
 2. To start the application and see that everything works, execute the Gradle `run` task. You can use
    the `./gradlew run` command in the terminal or run from the Gradle tool window:
 
-    ![Execute the Gradle run task](gradle-run-task.png)
+    ![Execute the Gradle run task](gradle-run-task.png){width=700}
 
 3. Once the application has finished compiling and the server has started up, use a web browser to navigate
 to [`http://localhost:9090/hello`](http://localhost:9090/hello) to see the first route in action:
 
-    ![Hello, API output](hello-api-output.png)
+    ![Hello, API output](hello-api-output.png){width=350}
 
 Later, like with the endpoint for GET requests to `/hello`, you'll be able to configure all endpoints for the API inside
-the [routing](https://ktor.io/docs/routing-in-ktor.html) block.
+the [`routing`](https://ktor.io/docs/routing-in-ktor.html) block.
 
 ### Install Ktor plugins
 
@@ -201,8 +203,9 @@ install(CORS) {
 install(Compression) {
     gzip()
 }
-
-// . . .
+routing {
+    // . . .
+}
 ```
 
 Each call to `install` adds one feature to the Ktor application:
@@ -216,146 +219,7 @@ Each call to `install` adds one feature to the Ktor application:
 * [`Compression`](https://ktor.io/docs/compression.html) greatly reduces the amount of data to be sent to the client
   by `gzip`-ping outgoing content when applicable.
 
-### Create a data model for a shopping list item
-
-Thanks to Kotlin Multiplatform, you can define the data model once as a common abstraction and refer to it from both the
-backend and the frontend.
-
-The data model for `ShoppingListItem` should have:
-
-* A textual description of an item
-* A numeric priority for an item
-* An identifier
-
-Create a file called `src/commonMain/kotlin/ShoppingListItem.kt` with the following content:
-
-```kotlin
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class ShoppingListItem(val desc: String, val priority: Int) {
-    val id: Int = desc.hashCode()
-
-    companion object {
-        const val path = "/shoppingList"
-    }
-}
-```
-
-* The `@Serializable` annotation comes from the multiplatform `kotlinx.serialization` library, which allows defining
-  models directly in common code.
-* Once you use this serializable 'ShoppingListItem` class from the JVM and JS platforms, code for each platform will be
-  generated. This code takes care of serialization and deserialization.
-* The `companion object` stores additional information about the model – in this case, the `path` under which you will
-  be able to access it in the API. By referring to this variable instead of defining routes and requests as strings, you
-  can change the `path` to model operations. Any changes to the endpoint name only need to be done here - client and
-  server are adjusted automatically.
-
-> This sample computes a simple `id` from the `hashCode()` of its description. For this case it's enough, but when working
-> with real data, it would be preferable to include tried and tested mechanisms to generate identifiers for your objects –
-> from UUIDs to auto-incrementing IDs backed by the database of your choice.
->
-{type="tip"}
-
-### Add items to store
-
-You can now use the `ShoppingListItem` model to instantiate some example items and keep track of any additions or
-deletions made through the API.
-
-Because there's currently no database, create a `MutableList`, temporary storage for
-the `ShoppingListItem`s. For that, add the following file-level declaration to `src/jvmMain/kotlin/Server.kt`:
-
-```kotlin
-val shoppingList = mutableListOf(
-    ShoppingListItem("Cucumbers 🥒", 1),
-    ShoppingListItem("Tomatoes 🍅", 2),
-    ShoppingListItem("Orange Juice 🍊", 3)
-)
-```
-
-`common` classes are referred to as any other class in Kotlin – they are shared between all the targets.
-
-### Create routes for the JSON API
-
-Add the routes that support the creation, retrieval, and deletion of `ShoppingListItem`s.
-
-1. Inside `/src/jvmMain/kotlin/Server.kt`, change your `routing` block to look as follows:
-
-    ```kotlin
-    routing {
-        route(ShoppingListItem.path) {
-            get {
-                call.respond(shoppingList)
-            }
-            post {
-                shoppingList += call.receive<ShoppingListItem>()
-                call.respond(HttpStatusCode.OK)
-            }
-            delete("/{id}") {
-                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
-                shoppingList.removeIf { it.id == id }
-                call.respond(HttpStatusCode.OK)
-            }
-        }
-    }
-    ```
-
-    Routes are grouped based on a common path. You don't have to specify the `route` path as a `String`. Instead, use
-    the `path` from the `ShoppingListItem` model. The code behaves predictably:
-     * A `GET` request to the model's path (`/shoppingList`) will respond with the whole shopping list
-     * A `POST` request to the model's path (`/shoppingList`) will add an entry to the shopping list.
-     * A `DELETE` request to the model's path and a provided `id`  (`shoppingList/47`) will remove an entry from the
-       shopping list.
-
-   > You can receive objects directly from requests and respond to requests with objects (and even lists of
-   > objects) directly. Because you've set up `ContentNegotiation` with `json()` support earlier, the objects marked
-   > as `@Serializable` are automatically turned into JSON before being sent (in the case of a GET request) or received (in
-   > the case of a POST request).
-   >
-   {type="note"}
-
-2. Check if everything is working as planned. Restart the application, head over
-   to [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList), and validate that the data is properly
-   served. You should see the example items in JSON formatting:
-
-    ![Shopping list in JSON formatting](shopping-list-json.png)
-
-To test the `POST` and `DELETE` requests, use an HTTP client that supports `.http` files. For example, if you're
-using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
-
-1. Create a file called `AddShoppingListElement.http` and add the declaration of the HTTP POST request as follows:
-
-    ```http
-    POST http://localhost:9090/shoppingList
-    Content-Type: application/json
-    
-    {
-     "desc": "Peppers 🌶",
-     "priority": 5
-    }
-    ```
-
-2. With the server running, execute the request using the run button in the gutter.
-
-    If everything goes well, the "run" tool window should show `HTTP/1.1 200 OK`, and you can
-    visit [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList) again to validate that the entry has been
-    added properly:
-    
-    ![Successful connection to localhost](connection-to-localhost.png)
-
-3. Repeat this process for a file called `RemoveShoppingListElement.http`, which contains the following:
-
-    ```http
-    DELETE http://localhost:9090/shoppingList/AN_ID_GOES_HERE
-    ```
-
-    To try this request, replace `AN_ID_GOES_HERE` with an existing ID.
-
-Now you have a backend that can support all operations needed for a functional shopping list. Move on to building a
-JavaScript frontend for the application, which will allow users to easily inspect, add, and check off elements from
-their shopping list.
-
-#### Related Gradle configuration for Ktor 
+#### Related Gradle configuration for Ktor {initial-collapse-state="collapsed"}
 
 The artifacts required to use Ktor are a part of the `jvmMain` `dependencies` block in the `build.gradle.kts` file. It
 includes the server, logging, and supporting libraries for providing type-safe serialization support
@@ -385,6 +249,145 @@ val commonMain by getting {
 }
 ```
 
+### Create a data model
+
+Thanks to Kotlin Multiplatform, you can define the data model once as a common abstraction and refer to it from both the
+backend and the frontend.
+
+The data model for `ShoppingListItem` should have:
+
+* A textual description of an item
+* A numeric priority for an item
+* An identifier
+
+In `src/commonMain/`, create a `kotlin/ShoppingListItem.kt` file with the following content:
+
+```kotlin
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ShoppingListItem(val desc: String, val priority: Int) {
+    val id: Int = desc.hashCode()
+
+    companion object {
+        const val path = "/shoppingList"
+    }
+}
+```
+
+* The `@Serializable` annotation comes from the multiplatform `kotlinx.serialization` library, which allows defining
+  models directly in common code.
+* Once you use this serializable `ShoppingListItem` class from the JVM and JS platforms, code for each platform will be
+  generated. This code takes care of serialization and deserialization.
+* The `companion object` stores additional information about the model – in this case, the `path` under which you will
+  be able to access it in the API. By referring to this variable instead of defining routes and requests as strings, you
+  can change the `path` to model operations. Any changes to the endpoint name only need to be done here - client and
+  server are adjusted automatically.
+
+> This sample computes a simple `id` from the `hashCode()` of its description. For this case, it's enough, but when working
+> with real data, it would be preferable to include tried and tested mechanisms to generate identifiers for your objects –
+> from [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) to auto-incrementing IDs backed by the database of your choice.
+>
+{type="tip"}
+
+### Add items to store
+
+You can now use the `ShoppingListItem` model to instantiate some example items and keep track of any additions or
+deletions made through the API.
+
+Because there's currently no database, create a `MutableList` to temporary storage the `ShoppingListItem`s. For that,
+add the following file-level declaration to `src/jvmMain/kotlin/Server.kt`:
+
+```kotlin
+val shoppingList = mutableListOf(
+    ShoppingListItem("Cucumbers 🥒", 1),
+    ShoppingListItem("Tomatoes 🍅", 2),
+    ShoppingListItem("Orange Juice 🍊", 3)
+)
+```
+
+The `common` classes are referred to as any other class in Kotlin – they are shared between all the targets.
+
+### Create routes for the JSON API
+
+Add the routes that support the creation, retrieval, and deletion of `ShoppingListItem`s.
+
+1. Inside `/src/jvmMain/kotlin/Server.kt`, change your `routing` block to look as follows:
+
+    ```kotlin
+    routing {
+        route(ShoppingListItem.path) {
+            get {
+                call.respond(shoppingList)
+            }
+            post {
+                shoppingList += call.receive<ShoppingListItem>()
+                call.respond(HttpStatusCode.OK)
+            }
+            delete("/{id}") {
+                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
+                shoppingList.removeIf { it.id == id }
+                call.respond(HttpStatusCode.OK)
+            }
+        }
+    }
+    ```
+
+    Routes are grouped based on a common path. You don't have to specify the `route` path as a `String`. Instead,
+    the `path` from the `ShoppingListItem` model is used. The code behaves as follows:
+     * A `get` request to the model's path (`/shoppingList`) responds with the whole shopping list
+     * A `post` request to the model's path (`/shoppingList`) adds an entry to the shopping list.
+     * A `delete` request to the model's path and a provided `id`  (`shoppingList/47`) removes an entry from the
+       shopping list.
+
+   > You can receive objects directly from requests and respond to requests with objects (and even lists of
+   > objects) directly. Because you've set up `ContentNegotiation` with `json()` support earlier, the objects marked
+   > as `@Serializable` are automatically turned into JSON before being sent (in case of a GET request) or received
+   > (in case of a POST request).
+   >
+   {type="note"}
+
+2. Check if everything is working as planned. Restart the application, head over
+   to [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList), and validate that the data is properly
+   served. You should see the example items in JSON formatting:
+
+    ![Shopping list in JSON formatting](shopping-list-json.png){width=700}
+
+To test the `post` and `delete` requests, use an HTTP client that supports `.http` files. For example, if you're
+using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
+
+1. In the project root, create a file called `AddShoppingListElement.http` and add the declaration of the HTTP POST request as follows:
+
+    ```http
+    POST http://localhost:9090/shoppingList
+    Content-Type: application/json
+    
+    {
+    "desc": "Peppers 🌶",
+    "priority": 5
+    }
+    ```
+
+2. With the server running, execute the request using the run button in the gutter.
+
+    If everything goes well, the "run" tool window should show `HTTP/1.1 200 OK`, and you can
+    visit [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList) again to validate that the entry has been
+    added properly:
+    
+    ![Successful connection to localhost](connection-to-localhost.png){width=700}
+
+3. Repeat this process for a file called `DeleteShoppingListElement.http`, which contains the following:
+
+    ```http
+    DELETE http://localhost:9090/shoppingList/AN_ID_GOES_HERE
+    ```
+
+    To try this request, replace `AN_ID_GOES_HERE` with an existing ID.
+
+Now you have a backend that can support all operations needed for a functional shopping list. Move on to building a
+JavaScript frontend for the application, which will allow users to easily inspect, add, and check off elements from
+their shopping list.
+
 ## Set up the frontend
 
 To make your version of the server usable, build a small Kotlin/JS web app that can query the server's API, display them
@@ -399,7 +402,7 @@ frontend – an HTML page and the corresponding `.js` file.
 
 _In the template project, the adjustments to the Gradle file are already made_.
 Whenever you run the server with the `run` Gradle task, the frontend is also built and included in the resulting
-artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration-for-jvm)
+artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration-for-the-frontend)
 section.
 
 The template also already comes with a boilerplate `index.html` file to the `src/commonMain/resources` folder. It has
@@ -427,58 +430,7 @@ you need to run only the browser application without the backend.
 While you don't need to make sure the file is properly available on the server, you still need to instruct Ktor to
 provide the `.html` and `.js` files to a browser when requested.
 
-### Serve HTML and JavaScript files from Ktor
-
-For simplicity, the `index.html` file will be served on the root route `/` and expose the JavaScript artifact in the
-root directory.
-
-1. In `src/jvmMain/kotlin/Server.kt`, add the corresponding routes to the `routing` block:
-
-    ```kotlin
-    get("/") {
-        call.respondText(
-            this::class.java.classLoader.getResource("index.html")!!.readText(),
-            ContentType.Text.Html
-        )
-    }
-    static("/") {
-        resources("")
-    }
-    ```
-
-2. To confirm that everything went as planned, run the application again with the Gradle `run` task.
-3. Navigate to [`http://localhost:9090/`](http://localhost:9090/). You should see a page saying "Hello, Kotlin/JS".
-
-    ![Hello, Kotlin/JS output](hello-kotlin-js-output.png)
-
-### Edit configuration
-
-While you are developing, the build system generates _development_ artifacts. This means that no optimizations are
-applied when the Kotlin code gets turned into JavaScript. That makes compile times faster but also means larger JS
-files. When you deploy your application to the web, this is something you want to avoid.
-
-To instruct Gradle to generate optimized production assets, set the necessary environment
-variable. If you are running your application on a deployment system, you can
-configure it to set this environment variable during the build. Suppose you want to try out production mode locally. In
-that case, you can do it in the terminal or by adding the variable to the run configuration:
-
-1. In IntelliJ IDEA, select the **Edit Configurations** action:
-
-    ![Edit run configuration in IntelliJ IDEA](edit-run-configurations.png)
-
-2. In the **Run/Debug Configurations** menu, set the environment variable:
-
-    ```properties
-    ORG_GRADLE_PROJECT_isProduction=true
-    ```
-
-    ![Set the environment variable](set-environment-variable.png)
-
-Subsequent builds with this run configuration will perform all optimizations available for the frontend part of the
-application, including dead code elimination. Still, they will be slower than development builds, so it would be good to
-remove this flag again while you are developing.
-
-#### Relevant Gradle configuration for JVM {initial-collapse-state="collapsed"}
+#### Relevant Gradle configuration for the frontend {initial-collapse-state="collapsed"}
 
 The Gradle configuration for the application contains a snippet that binds the execution and packaging of the
 server-side JVM application to depend on the build of your frontend application, respecting the settings
@@ -506,13 +458,67 @@ the `distributions` plugin, which is responsible for the `installDist` task (amo
 combined build will work when you `run` your application, and also when you prepare it for deployment to another target
 system or cloud platform.
 
-To ensure that the `run` task properly recognizes the JS artifacts, adjust its classpath:
+To ensure that the `run` task properly recognizes the JS artifacts, the classpath is adjusted as follows:
 
 ```kotlin
 tasks.getByName<JavaExec>("run") {
     classpath(tasks.getByName<Jar>("jvmJar")) // so that the JS artifacts generated by `jvmJar` can be found and served
 }
 ```
+
+### Serve HTML and JavaScript files from Ktor
+
+For simplicity, the `index.html` file will be served on the root route `/` and expose the JavaScript artifact in the
+root directory.
+
+1. In `src/jvmMain/kotlin/Server.kt`, add the corresponding routes to the `routing` block:
+
+    ```kotlin
+    get("/") {
+        call.respondText(
+            this::class.java.classLoader.getResource("index.html")!!.readText(),
+            ContentType.Text.Html
+        )
+    }
+    static("/") {
+        resources("")
+    }
+    route(ShoppingListItem.path) {
+    // ...
+    }
+    ```
+
+2. To confirm that everything went as planned, run the application again with the Gradle `run` task.
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/). You should see a page saying "Hello, Kotlin/JS".
+
+    ![Hello, Kotlin/JS output](hello-kotlin-js-output.png){width=350}
+
+### Edit configuration
+
+While you are developing, the build system generates _development_ artifacts. This means that no optimizations are
+applied when the Kotlin code gets turned into JavaScript. That makes compile times faster but also means larger JS
+files. When you deploy your application to the web, this is something you want to avoid.
+
+To instruct Gradle to generate optimized production assets, set the necessary environment
+variable. If you are running your application on a deployment system, you can
+configure it to set this environment variable during the build. Suppose you want to try out production mode locally. In
+that case, you can do it in the terminal or by adding the variable to the run configuration:
+
+1. In IntelliJ IDEA, select the **Edit Configurations** action:
+
+    ![Edit run configuration in IntelliJ IDEA](edit-run-configurations.png){width=700}
+
+2. In the **Run/Debug Configurations** menu, set the environment variable:
+
+    ```properties
+    ORG_GRADLE_PROJECT_isProduction=true
+    ```
+
+    ![Set the environment variable](set-environment-variable.png){width=700}
+
+Subsequent builds with this run configuration will perform all optimizations available for the frontend part of the
+application, including dead code elimination. Still, they will be slower than development builds, so it would be good to
+remove this flag again while you are developing.
 
 ## Build the frontend
 
@@ -523,7 +529,7 @@ applications.
 
 For a more in-depth view of typical workflows and how apps are developed with React and Kotlin/JS, see
 the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
-hands-on.
+tutorial.
 
 ### Write the API client
 
@@ -581,14 +587,13 @@ Instead of rendering a simple "Hello, Kotlin/JS" string, make the application re
 that, replace the content inside `src/jsMain/kotlin/Main.kt` with the following:
 
 ```kotlin
-import react.child
 import react.dom.render
 import kotlinx.browser.document
+import react.create
 
 fun main() {
-    render(document.getElementById("root")) {
-        child(App)
-    }
+    val container = document.getElementById("root") ?: error("Couldn't find container!")
+    render(App.create(), container)
 }
 ```
 
@@ -600,21 +605,21 @@ Next, implement the `app` component. For the shopping list application, it needs
 * Load the shopping list elements from the server and set the state accordingly
 * Provide React with instructions on how to render the list
 
-Based on these requirements, you can implement the `app` component as follows:
+Based on these requirements, you can implement the `App` component as follows:
 
 1. Create and fill the `src/jsMain/kotlin/App.kt` file:
 
     ```kotlin
     import react.*
-    import react.dom.*
-    import kotlinext.js.*
-    import kotlinx.html.js.*
     import kotlinx.coroutines.*
+    import react.dom.html.ReactHTML.h1
+    import react.dom.html.ReactHTML.li
+    import react.dom.html.ReactHTML.ul
     
     private val scope = MainScope()
     
-    val app = functionalComponent<RProps> { _ ->
-        var shoppingList by useState(emptyList<ShoppingListItem>())
+    val App = FC<Props> {
+    var shoppingList by useState(emptyList<ShoppingListItem>())
     
         useEffectOnce {
             scope.launch {
@@ -634,73 +639,74 @@ Based on these requirements, you can implement the `app` component as follows:
             }
         }
     }
-    
     ```
 
    * Here, the Kotlin DSL is used to define the HTML representation of the application.
    * `launch` is used to obtain the list of `ShoppingListItem`s from the API when the component is first initialized.
    * React hooks, `useEffectOnce` and `useState`, help use React's functionality concisely. For more information on how
      React hooks work, check out the [official React documentation](https://reactjs.org/docs/hooks-overview.html). To learn
-     more about React with Kotlin/JS, check out the
-     corresponding [hands-on](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction).
-
+     more about React with Kotlin/JS, see the
+     [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/)
+     tutorial.
 2. Start the application using the Gradle `run` task.
 3. Navigate to [`http://localhost:9090/`](http://localhost:9090/) to see the list:
 
-    ![New shopping list rendering](new-shopping-list-rendering.png)
+    ![New shopping list rendering](new-shopping-list-rendering.png){width=700}
 
 #### Add an input field component
 
 Next, allow users to add new entries to the shopping list using a text input field. You'll need an input component that
-provides a callback for when the user submits their entry to the shopping list to receive input.
+provides a callback when users submit their entry to the shopping list to receive input.
 
 1. Create the `src/jsMain/kotlin/InputComponent.kt` file and fill it with the following definition:
 
     ```kotlin
+    import org.w3c.dom.HTMLFormElement
     import react.*
-    import react.dom.*
-    import kotlinx.html.js.*
-    import kotlinx.html.InputType
-    import org.w3c.dom.events.Event
     import org.w3c.dom.HTMLInputElement
+    import react.dom.events.ChangeEventHandler
+    import react.dom.events.FormEventHandler
+    import react.dom.html.InputType
+    import react.dom.html.ReactHTML.form
+    import react.dom.html.ReactHTML.input
     
     external interface InputProps : Props {
-        var onSubmit: (String) -> Unit
+    var onSubmit: (String) -> Unit
     }
     
-    val inputComponent = fc<InputProps> { props ->
-        val (text, setText) = useState("")
+    val InputComponent = FC<InputProps> { props ->
+    val (text, setText) = useState("")
     
-        val submitHandler: (Event) -> Unit = {
+        val submitHandler: FormEventHandler<HTMLFormElement> = {
             it.preventDefault()
             setText("")
             props.onSubmit(text)
         }
     
-        val changeHandler: (Event) -> Unit = {
-            val value = (it.target as HTMLInputElement).value
-            setText(value)
+        val changeHandler: ChangeEventHandler<HTMLInputElement> = {
+            setText(it.target.value)
         }
     
         form {
-            attrs.onSubmitFunction = submitHandler
-            input(InputType.text) {
-                attrs.onChangeFunction = changeHandler
-                attrs.value = text
+            onSubmit = submitHandler
+            input {
+                type = InputType.text
+                onChange = changeHandler
+                value = text
             }
         }
     }
     ```
 
-    The `inputComponent` keeps track of its internal state (what the user has typed so far) and exposes an `onSubmit`
+    The `InputComponent` keeps track of its internal state (what the user has typed so far) and exposes an `onSubmit`
     handler that gets called when the user submits the form (usually by pressing the `Enter` key).
 
-2. To use this `inputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
-   bottom of the `functionalComponent` block (after the closing brace for the `ul` element):
+2. To use this `InputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
+   bottom of the `App` component (after the closing brace for the `ul` element):
 
     ```kotlin
-    child(inputComponent) {
-        attrs.onSubmit = { input ->
+    InputComponent {
+        onSubmit = { input ->
             val cartItem = ShoppingListItem(input.replace("!", ""), input.count { it == '!' })
             scope.launch {
                 addShoppingListItem(cartItem)
@@ -722,16 +728,20 @@ provides a callback for when the user submits their entry to the shopping list t
 Add the ability to remove items from the list so that it doesn't get too long. You can modify an existing list rather
 than add another UI element (like a "delete" button). When users click one of the items in the list, the app deletes it.
 
-To achieve this, pass a corresponding handler to the `attrs.onClickFunction` of the list elements:
+To achieve this, pass a corresponding handler to `onClick` of the list elements:
 
-1. In `src/jsMain/kotlin/App.kt`, add the following to the `li` block (inside the `ul` block):
+1. In `src/jsMain/kotlin/App.kt`, update the `li` block (inside the `ul` block):
 
     ```kotlin
-    attrs.onClickFunction = {
-        scope.launch {
-            deleteShoppingListItem(item)
-            shoppingList = getShoppingList()
+    li {
+        key = item.toString()
+        onClick = {
+            scope.launch {
+                deleteShoppingListItem(item)
+                shoppingList = getShoppingList()
+            }
         }
+        +"[${item.priority}] ${item.desc} "
     }
     ```
 
@@ -743,30 +753,28 @@ To achieve this, pass a corresponding handler to the `attrs.onClickFunction` of 
 
     ![Final shopping list](finished-shopping-list.gif)
 
-### Store data with MongoDB
+## Include a database to store data
 
-There's one issue with the application. It doesn't save data, meaning that the shopping list vanishes when you terminate
+Currently, the application doesn't save data, meaning that the shopping list vanishes when you terminate
 the server process. To fix that, use the MongoDB database for storing and retrieving shopping list items even when
 the server shuts down.
 
-MongoDB is simple, fast to set up, has library support for Kotlin, and provides simple, NoSQL document storage, which is
-more than enough for a basic application. You are free to equip your application with a different mechanism for data
-storage.
+MongoDB is simple, fast to set up, has library support for Kotlin, and provides simple, [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
+document storage, which is more than enough for a basic application. You are free to equip your application with a different
+mechanism for data storage.
 
 To provide all the functionality used in this section, you'll need to include several libraries from the Kotlin and
 JavaScript (npm) ecosystems. See the `jsMain` dependency block in the `build.gradle.kts` file with the full setup.
 
-#### Set up MongoDB
+### Set up MongoDB
 
-To set up MongoDB Community Edition on your local machine, refer to the
-official [MongoDB website](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials)
-for your operating system. Alternatively, you can use a containerization tool like [podman](https://podman.io/) to run a
-containerized instance of MongoDB.
+Install MongoDB Community Edition on your local machine from the [official MongoDB website](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials).
+Alternatively, you can use a containerization tool like [podman](https://podman.io/) to run a containerized instance of MongoDB.
 
 After installation, ensure that you are running the `mongodb-community` service for the rest of the tutorial. You'll use
 it to store and retrieve list entries.
 
-#### Include KMongo in the process
+### Include KMongo in the process
 
 [KMongo](https://litote.org/kmongo/) is a community-created Kotlin framework that makes it easy to work with MongoDB
 from Kotlin/JVM code. It also works nicely with `kotlinx.serialization`, which is used to facilitate communication
@@ -805,36 +813,35 @@ server. Instead, set up a database client and obtain a database and a collection
     In the DELETE request, KMongo's [type-safe queries](https://litote.org/kmongo/typed-queries/) are used to
     obtain and remove the correct `ShoppingListItem` from the database.
 
-3. Start the server using the `run` task, and navigate to [`http://localhost:9090/`](http://localhost:9090/).
-    * At first start, you'll be greeted by an empty shopping list – as is expected when querying an empty database.
-    * The server will save any new entries you make to the database. To check this, restart the server and reload the
-      page.
+3. Start the server using the `run` task, and navigate to [`http://localhost:9090/`](http://localhost:9090/). At first
+start, you'll be greeted by an empty shopping list – as is expected when querying an empty database.
+4. Add some items to your shopping list. The server will save them to the database.
+5. To check this, restart the server and reload the page.
 
 ### Inspect MongoDB
 
 To see what kind of information is actually saved in the database, you can inspect the database using external tools.
 
 If you have IntelliJ IDEA Ultimate Edition or DataGrip, you can inspect the database contents with these tools.
-Alternatively, you can use the `mongo` command-line client.
+Alternatively, you can use the [`mongosh`](https://www.mongodb.com/docs/mongodb-shell/) command-line client.
 
-1. To connect to the local MongoDB instance, create a data source in the **Database** tab in IntelliJ IDEA Ultimate or
-DataGrip:
+1. To connect to the local MongoDB instance, in IntelliJ IDEA Ultimate or
+   DataGrip, go to the **Database** tab and select **+** | **Data Source** | **MongoDB**:
 
-    ![Create a MongoDB data source](mongodb-data-source.png)
+    ![Create a MongoDB data source](mongodb-data-source.png){width=700}
 
 2. If it's your first time connecting to a MongoDB database this way, you might be prompted to download missing drivers:
 
-    ![Download missing drivers for MongoDB](download-missing-drivers.png)
+    ![Download missing drivers for MongoDB](download-missing-drivers.png){width=700}
 
 3. When working with a local MongoDB installation that uses default settings, no adjustments need to be made to the
 configuration.
    You can test the connection with the **Test Connection** button, which should output the MongoDB version,
 as well as some additional information.
 
-4. Click **OK**. Now you can use the **Database tool**
-window to navigate to your collection and have a look at everything stored in it.
+4. Click **OK**. Now you can use the **Database** window to navigate to your collection and have a look at everything stored in it.
 
-    ![Use the Database tool for collection analysis](database-tool.png)
+    ![Use the Database tool for collection analysis](database-tool.png){width=700}
 
 #### Relevant Gradle configuration for Kmongo {initial-collapse-state="collapsed"}
 
@@ -850,7 +857,7 @@ val jvmMain by getting {
 }
 ```
 
-## Prepare for deployment
+## Deploy to the cloud
 
 Instead of opening your app on `localhost`, you can bring it onto the web by deploying it to the cloud.
 
@@ -902,8 +909,8 @@ Otherwise (for instance, on `localhost`), the database connection is instantiate
 
 Managed cloud platforms like Heroku or PaaS implementations like [Dokku](https://github.com/dokku/dokku) also handle
 the lifecycle of your application. To do so, they require an "entry point" definition. These two platforms use
-a file called `Procfile` in the project root directory, which should point to the output generated by the `stage` task (
-which is included in the Gradle template already):
+a file called `Procfile` that you have in the project root directory. It points to the output generated by the `stage` task
+(which is included in the Gradle template already):
 
 ```properties
 web: ./build/install/shoppingList/bin/shoppingList
@@ -912,8 +919,8 @@ web: ./build/install/shoppingList/bin/shoppingList
 ### Turn on production mode
 
 To turn on a compilation with optimizations for the JavaScript assets, pass another flag to the build
-process: `ORG_GRADLE_PROJECT_isProduction` should be set to `true`. You can set this environment variable when you
-deploy the application to the target environment.
+process. In the **Run/Debug Configurations** menu, set the environment variable `ORG_GRADLE_PROJECT_isProduction` to `true`.
+You can set this environment variable when you deploy the application to the target environment.
 
 #### Relevant Gradle configuration {initial-collapse-state="collapsed"}
 
@@ -938,7 +945,7 @@ distributions {
 }
 ```
 
-> You can also find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
+> You can find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
 >
 {type="note"}
 
