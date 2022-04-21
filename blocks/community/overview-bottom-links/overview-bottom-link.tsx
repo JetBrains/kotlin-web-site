@@ -1,8 +1,9 @@
 import React, {FC} from "react";
 import classnames from 'classnames';
 import Button from '@rescui/button';
+import Link from 'next/link'
 
-import styles from './text-with-image-block.module.css';
+import styles from './overview-bottom-link.module.css';
 
 interface Props {
     title: string,
@@ -12,7 +13,7 @@ interface Props {
     reversed?: boolean
 }
 
-export const TextWithImageBlock: FC<Props> = ({title, buttonTitle, buttonLink, imageSrc, reversed}) => {
+export const OverviewBottomLink: FC<Props> = ({title, buttonTitle, buttonLink, imageSrc, reversed}) => {
 
     const rowClassName = classnames('ktl-row', reversed && 'ktl-row--reverse', styles.row)
 
@@ -24,7 +25,9 @@ export const TextWithImageBlock: FC<Props> = ({title, buttonTitle, buttonLink, i
                         <h2 className={classnames('ktl-h1', styles.title)}>
                             {title}
                         </h2>
-                        <Button size="l" mode="outline" href={buttonLink}>{buttonTitle}</Button>
+                        <Link href={buttonLink}>
+                            <Button size="l" mode="outline">{buttonTitle}</Button>
+                        </Link>
                     </div>
                     <div className='ktl-col-12 ktl-col-sm-6'>
                         <div className={styles.image}>

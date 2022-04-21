@@ -3,7 +3,7 @@ import React from "react";
 import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
 import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 import {KeepInTouch} from "../../blocks/community/keep-in-touch/keep-in-touch";
-import {OverviewBottomLinks} from '../../blocks/community/overview-bottom-links/overview-bottom-links';
+import {OverviewBottomLink} from '../../blocks/community/overview-bottom-links/overview-bottom-link';
 
 import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg';
 import TwitterIcon from '../../public/community/icons/keep-in-touch-twitter-icon.svg';
@@ -14,6 +14,9 @@ import YoutubeIcon from '../../public/community/icons/keep-in-touch-youtube-icon
 import TalkingKotlinIcon from '../../public/community/icons/keep-in-touch-talking-kotlin-icon.svg';
 import LinkedInIcon from '../../public/community/icons/keep-in-touch-linkedin-icon.svg';
 import YoutrackIcon from '../../public/community/icons/keep-in-touch-youtrack-icon.svg';
+
+import mascot1 from '../../public/community/images/maskot1.svg';
+import mascot2 from '../../public/community//images/maskot2.svg';
 
 function Index() {
     return (
@@ -82,7 +85,20 @@ function Index() {
                     link: 'https://youtrack.jetbrains.com/issues/'
                 },
             ]}/>
-            <OverviewBottomLinks />
+
+            <OverviewBottomLink
+                title={"Join a Kotlin User Group\nor start your own"}
+                buttonLink={"/community/user-groups/"}
+                buttonTitle={"All KUGs →"}
+                imageSrc={mascot1}
+            />
+            <OverviewBottomLink
+                title={"Get inspired at a Kotlin event\nor host one yourself"}
+                buttonLink={"/community/events"}
+                buttonTitle={"Talks and Events →"}
+                imageSrc={mascot2}
+                reversed
+            />
         </CommunityLayout>
     )
 }
