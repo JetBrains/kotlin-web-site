@@ -10,14 +10,8 @@ interface UserGroup {
     name: string;
     country: string;
     url: string;
-}
-
-interface UserGroupVirtual extends UserGroup {
+    position?: UserGroupPosition;
     isVirtual: boolean;
-}
-
-interface UserGroupLocal extends UserGroup {
-    position: UserGroupPosition
 }
 
 interface UserGroupPosition {

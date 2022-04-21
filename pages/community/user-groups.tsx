@@ -2,6 +2,8 @@ import React from "react";
 import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 import {KugsBanner} from "../../blocks/community/kugs-banner/kugs-banner";
 import userGroupsDataRaw from "../../data/user-groups.yml";
+import {KugMap} from "../../blocks/community/kug-map/kug-map";
+
 const userGroupsData = userGroupsDataRaw as UserGroupsData;
 
 function UserGroups() {
@@ -12,9 +14,9 @@ function UserGroups() {
                     A Kotlin User Group (or “KUG”) is a community of people who come together
                     to share their programming experience involving Kotlin and its ecosystem.
                 </KugsBanner>
-                {userGroupsData.map((item) => (
-                    <div key={item.anchorId}>{item.section}</div>
-                ))}
+
+                <KugMap userGroupData={userGroupsData} />
+
             </div>
         </CommunityLayout>
     );
