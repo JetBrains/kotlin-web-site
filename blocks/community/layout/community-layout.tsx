@@ -46,7 +46,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <Head>
                 <title>{title}</title>
                 <Favicon />
-                <meta name="viewport" content="viewport-fit=cover" />
+                <meta name="viewport" content="width=device-width" />
             </Head>
 
             <GlobalHeader
