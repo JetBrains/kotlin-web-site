@@ -94,12 +94,11 @@
     "yaml-loader": "0.7.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && next-build-static",
     "build:production": "NODE_ENV=production webpack  --mode production",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
-    "next-build": "next build",
     "next-build-static": "next build && next export"
   }
 }
