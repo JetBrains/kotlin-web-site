@@ -27,6 +27,11 @@ const nextConfig = {
       use: 'yaml-loader'
     });
 
+    config.module.rules.push({
+      test: /\.mustache$/,
+      loader: 'mustache-loader'
+    })
+
     return config
   },
 };
@@ -34,7 +39,7 @@ const nextConfig = {
 module.exports = withPlugins([
   [withTranspile],
   [optimizedImages, {
-    handleImages: ['jpeg', 'png', 'svg'],
+    handleImages: ['jpeg', 'png', "svg"],
     imagesFolder: 'images',
     optimizeImagesInDev: true
   }]

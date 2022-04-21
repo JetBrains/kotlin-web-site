@@ -13,6 +13,7 @@
     "@jetbrains/kotlin-web-site-ui": "4.0.0-alpha.3",
     "@react-hook/resize-observer": "1.2.5",
     "@rescui/button": "0.4.0",
+    "@rescui/card": "0.5.0",
     "@rescui/checkbox": "0.1.0",
     "@rescui/colors": "0.0.4",
     "@rescui/icons": "0.3.0",
@@ -43,6 +44,7 @@
     "highlight.js": "10.5.0",
     "in-viewport": "3.4.2",
     "instantsearch.js": "4.24.1",
+    "inter-ui": "3.19.3",
     "jquery": "3.5.0",
     "kotlin-playground": "^1.27.0",
     "mini-css-extract-plugin": "1.6.1",
@@ -93,12 +95,11 @@
     "yaml-loader": "0.7.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && next-build-static",
     "build:production": "NODE_ENV=production webpack  --mode production",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
-    "next-build": "next build",
     "next-build-static": "next build && next export"
   }
 }

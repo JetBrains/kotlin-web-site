@@ -36,6 +36,25 @@ The following table lists the details of the latest Kotlin plugin releases:
 <tr>
 <td>
 
+**2022.1**
+
+Released: April 12, 2022
+
+</td>
+<td>
+
+* Debugger improvements
+* Improved IDE performance
+* [Kover plugin](https://github.com/Kotlin/kotlinx-kover) integration
+
+Learn more in:
+* [What's New in IntelliJ IDEA 2022.1](https://www.jetbrains.com/idea/whatsnew/2022-1/)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **2021.3**
 
 Released: November 30, 2021
