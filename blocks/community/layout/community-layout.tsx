@@ -10,6 +10,7 @@ import Button from "@rescui/button";
 import {Theme, ThemeProvider } from "@rescui/ui-contexts";
 import { useRouter } from "next/router";
 import {Favicon} from "../../../components/favicon/favicon";
+import {Search, onSearch} from "../../../components/search/search";
 
 const items = [
     {
@@ -53,7 +54,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
                 currentTitle={COMMUNITY_TITLE}
                 productWebUrl={''}
                 hasSearch={true}
-                onSearchClick={() => {}}
+                onSearchClick={onSearch}
             />
 
             <TopMenu
@@ -80,6 +81,8 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <ThemeProvider theme={theme}>
                 <GlobalFooter/>
             </ThemeProvider>
+
+            <Search />
         </>
     );
 }
