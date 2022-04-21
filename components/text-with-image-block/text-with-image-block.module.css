@@ -1,0 +1,34 @@
+.wrapper {
+    display: block;
+    padding: 64px 0;
+}
+
+.wrapper:not(:last-child) {
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+}
+
+.row {
+    align-items: center;
+}
+
+.title {
+    white-space: pre-line;
+    margin-bottom: 32px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .row {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .title {
+        margin-top: 32px;
+    }
+}

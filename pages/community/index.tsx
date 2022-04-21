@@ -2,6 +2,7 @@ import React from "react";
 
 import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
 import {CommunityLayout} from "../../layouts/community-layout";
+import {OverviewBottomLinks} from '../../blocks/community/overview-bottom-links/overview-bottom-links'
 
 function Index() {
     return (
@@ -13,6 +14,7 @@ function Index() {
                 If you can't find any, we encourage you to organize one yourself!
                 JetBrains is here to provide help and support.
             </CommunityBanner>
+            <OverviewBottomLinks />
         </CommunityLayout>
     )
 }
