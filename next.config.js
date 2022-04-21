@@ -14,7 +14,7 @@ const withTranspile = nextTranspileModules(transpiledPackages);
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  fileExtensions: ["jpg", "jpeg", "png", "gif"],
+  fileExtensions: ["jpg", "jpeg", "png", "gif", "svg"],
   inlineImageLimit: 0,
   images: {
     disableStaticImages: true,
@@ -39,7 +39,7 @@ const nextConfig = {
 module.exports = withPlugins([
   [withTranspile],
   [optimizedImages, {
-    handleImages: ['jpeg', 'png'],
+    handleImages: ['jpeg', 'png', "svg"],
     imagesFolder: 'images',
     optimizeImagesInDev: true
   }]
