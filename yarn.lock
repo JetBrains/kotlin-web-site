@@ -1332,6 +1332,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/card@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@rescui/card/-/card-0.5.0.tgz#25ac29fdeabf80029593f1b54516d2f982c5da0e"
+  integrity sha512-r6grVbMnI9Wg4ksBrWzZ2sFkagVn20LkKPQ22cWmpMwjyZeOhgGxzctz8hRpJpimJiqwiFTHneaMLUPnds3aaA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/checkbox@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@rescui/checkbox/-/checkbox-0.1.0.tgz#5d85eb4f0a93eafede7bf44dedb34dd4ea8ce043"
