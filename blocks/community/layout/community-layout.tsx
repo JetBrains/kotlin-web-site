@@ -9,7 +9,7 @@ import CtaBlock from '@jetbrains/kotlin-web-site-ui/out/components/cta-block';
 import Button from "@rescui/button";
 import {Theme, ThemeProvider } from "@rescui/ui-contexts";
 import { useRouter } from "next/router";
-import {Favicon} from "../components/favicon/favicon";
+import {Favicon} from "../../../components/favicon/favicon";
 
 const items = [
     {

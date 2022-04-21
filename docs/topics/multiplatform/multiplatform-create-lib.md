@@ -4,7 +4,7 @@ This section provides steps for creating a multiplatform library. You can also c
 where you will create a multiplatform library, test it, and publish it to Maven.
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin**.
+2. In the panel on the left, select **Kotlin Multiplatform**.
 3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
 
     ![Select a project template](multiplatform-project-1.png){width=700}
@@ -14,20 +14,22 @@ where you will create a multiplatform library, test it, and publish it to Maven.
 
 You can finish creating the project by clicking **Finish** on the next screen or configure it if necessary:
 
-6. Add the target platforms and modules by clicking the **+** icon.
+6. To add modules, select **Project** and click the **+** icon. Choose the module type.
 
-7. Configure target settings, such as the target JVM version and test framework.    
+7. To add target platforms, select **library** and click the **+** icon. Choose the target.
+
+8. Configure target settings, such as the target JVM version and test framework.    
 
     ![Configure the project](multiplatform-project-2.png){width=700}
 
-8. If necessary, specify dependencies between modules:
+9. If necessary, specify dependencies between modules:
     *   Multiplatform and Android modules
     *   Multiplatform and iOS modules
     *   JVM modules  
     
     ![Add module dependencies](multiplatform-project-3.png){width=700}
 
-9. Click **Finish**.
+10. Click **Finish**.
 
 The new project opens. 
 

@@ -44,6 +44,7 @@
     "highlight.js": "10.5.0",
     "in-viewport": "3.4.2",
     "instantsearch.js": "4.24.1",
+    "inter-ui": "3.19.3",
     "jquery": "3.5.0",
     "kotlin-playground": "^1.27.0",
     "mini-css-extract-plugin": "1.6.1",
@@ -90,15 +91,15 @@
     "next-optimized-images": "2.6.2",
     "next-transpile-modules": "9.0.0",
     "typescript": "4.6.3",
-    "webpack-dev-server": "4.3.1"
+    "webpack-dev-server": "4.3.1",
+    "yaml-loader": "0.7.0"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && next-build-static",
     "build:production": "NODE_ENV=production webpack  --mode production",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
-    "next-build": "next build",
     "next-build-static": "next build && next export"
   }
 }

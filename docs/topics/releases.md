@@ -13,7 +13,7 @@ For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
 For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try 
 new features before they are released. See [Early Access Preview](eap.md) for details.
 
-Learn more about [types of Kotlin releases and their compatiblity](kotlin-evolution.md#feature-releases-and-incremental-releases). 
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#feature-releases-and-incremental-releases). 
 
 ## Update to a new release
 
@@ -31,7 +31,7 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 The IDE support for the latest version of the language is available for the following versions of IntelliJ IDEA and Android Studio:
 * IntelliJ IDEA:
   * Latest stable ([IntelliJ IDEA %kotlinPluginVersion%](https://www.jetbrains.com/idea/whatsnew/) version)
-  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2021-2/) version)
+  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2021-3/) version)
   * [Early access](https://www.jetbrains.com/resources/eap/) versions
 * Android Studio:
   * [Latest released](https://developer.android.com/studio) version
@@ -39,7 +39,7 @@ The IDE support for the latest version of the language is available for the foll
 
 ## Release details
 
-The following table lists details of latest Kotlin releases.
+The following table lists details of the latest Kotlin releases.
 
 You can also use [preview versions of Kotlin](eap.md#build-details).
 
@@ -48,6 +48,27 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build info</th>
         <th>Build highlights</th>
         <th>Recommended kotlinx library versions</th>
+    </tr>
+    <tr>
+        <td><strong>1.6.21</strong>
+            <p>Released: <strong>April 20, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.6.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.6.20.</p>
+            <p>Learn more about <a href="whatsnew1620.md" target="_blank">Kotlin 1.6.20</a>.</p>
+        </td>
+        <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.0" target="_blank">1.6.0</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank">kotlinx.atomicfu</a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.17.1" target="_blank">0.17.1</a></li>          
+                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.0-beta-1" target="_blank">2.0.0-beta-1</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank">kotlinx.html</a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.5" target="_blank">0.7.5</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>1.6.20</strong>
@@ -64,7 +85,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li>Kotlin/JS: IR compiler improvements</li>
                 <li>Gradle: compiler execution strategies</li>
             </ul>
-            <p>Learn more about <a href="whatsnew1620.md" target="_blank">What's new in Kotlin 1.6.20</a>.</p>
+            <p>Learn more about <a href="whatsnew1620.md" target="_blank">Kotlin 1.6.20</a>.</p>
         </td>
         <td>
             <ul>
