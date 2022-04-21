@@ -27,8 +27,13 @@ const nextConfig = {
       use: 'yaml-loader'
     });
 
+    config.module.rules.push({
+      test: /\.mustache$/,
+      loader: 'mustache-loader'
+    })
+
     return config
-  },
+  }
 };
 
 module.exports = withPlugins([
