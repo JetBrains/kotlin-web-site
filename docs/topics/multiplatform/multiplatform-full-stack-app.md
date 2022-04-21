@@ -44,7 +44,7 @@ feel free to move on directly to the [next section](#build-the-backend).
 Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file. Check
 out the sections below about Gradle structure to help you understand and prepare for other projects.
 
-#### Multiplatform Gradle Structure {initial-collapse-state="collapsed"}
+#### Plugins {initial-collapse-state="collapsed"}
 
 Like all Kotlin projects targeting more than one platform, your project uses the Kotlin Multiplatform Gradle plugin. It
 provides a single point to configure the targets needed for the application (in this case, Kotlin/JVM and Kotlin/JS) and
@@ -94,17 +94,17 @@ belong to one or more targets. You use them to set up platform-specific and comm
 sourceSets {
     val commonMain by getting {
         dependencies {
-            //...
+            // ...
         }
     }
     val jvmMain by getting {
         dependencies {
-            //...
+            // ...
         }
     }
     val jsMain by getting {
         dependencies {
-            //...
+            // ...
         }
     }
 }
@@ -118,7 +118,7 @@ see [Understand Multiplatform project structure](multiplatform-discover-project.
 
 ## Build the backend
 
-Begin by writing the server side of the application. The typical simple API server implements
+Begin by writing the server side of the application. The typical API server implements
 the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – create, read, update and delete.
 For the simple shopping list, you can focus solely on:
 
@@ -177,7 +177,7 @@ engine on a port, in this case, `9090`.
 3. Once the application has finished compiling and the server has started up, use a web browser to navigate
 to [`http://localhost:9090/hello`](http://localhost:9090/hello) to see the first route in action:
 
-    ![Hello, API output](hello-api-output.png){width=350}
+    ![Hello, API output](hello-api-output.png){width=500}
 
 Later, like with the endpoint for GET requests to `/hello`, you'll be able to configure all endpoints for the API inside
 the [`routing`](https://ktor.io/docs/routing-in-ktor.html) block.
@@ -204,7 +204,7 @@ install(Compression) {
     gzip()
 }
 routing {
-    // . . .
+    // ...
 }
 ```
 
@@ -351,7 +351,7 @@ Add the routes that support the creation, retrieval, and deletion of `ShoppingLi
    to [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList), and validate that the data is properly
    served. You should see the example items in JSON formatting:
 
-    ![Shopping list in JSON formatting](shopping-list-json.png){width=700}
+    ![Shopping list in JSON formatting](shopping-list-json.png){width=500}
 
 To test the `post` and `delete` requests, use an HTTP client that supports `.http` files. For example, if you're
 using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
@@ -484,14 +484,14 @@ root directory.
         resources("")
     }
     route(ShoppingListItem.path) {
-    // ...
+        // ...
     }
     ```
 
 2. To confirm that everything went as planned, run the application again with the Gradle `run` task.
-3. Navigate to [`http://localhost:9090/`](http://localhost:9090/). You should see a page saying "Hello, Kotlin/JS".
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/). You should see a page saying "Hello, Kotlin/JS":
 
-    ![Hello, Kotlin/JS output](hello-kotlin-js-output.png){width=350}
+    ![Hello, Kotlin/JS output](hello-kotlin-js-output.png){width=500}
 
 ### Edit configuration
 
@@ -599,7 +599,7 @@ fun main() {
 
 #### Build and render the shopping list
 
-Next, implement the `app` component. For the shopping list application, it needs to:
+Next, implement the `App` component. For the shopping list application, it needs to:
 
 * Keep the "local state" of the shopping list to understand which elements to display
 * Load the shopping list elements from the server and set the state accordingly
@@ -651,7 +651,7 @@ Based on these requirements, you can implement the `App` component as follows:
 2. Start the application using the Gradle `run` task.
 3. Navigate to [`http://localhost:9090/`](http://localhost:9090/) to see the list:
 
-    ![New shopping list rendering](new-shopping-list-rendering.png){width=700}
+    ![New shopping list rendering](new-shopping-list-rendering.png){width=500}
 
 #### Add an input field component
 
@@ -749,9 +749,9 @@ To achieve this, pass a corresponding handler to `onClick` of the list elements:
     re-renders the user interface.
 
 2. Start the application using the Gradle `run` task.
-3. Navigate to [`http://localhost:9090/`](http://localhost:9090/), and try adding and removing elements in the list.
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/), and try adding and removing elements in the list:
 
-    ![Final shopping list](finished-shopping-list.gif)
+    ![Final shopping list](finished-shopping-list.gif){width=500}
 
 ## Include a database to store data
 
@@ -839,7 +839,7 @@ configuration.
    You can test the connection with the **Test Connection** button, which should output the MongoDB version,
 as well as some additional information.
 
-4. Click **OK**. Now you can use the **Database** window to navigate to your collection and have a look at everything stored in it.
+4. Click **OK**. Now you can use the **Database** window to navigate to your collection and have a look at everything stored in it:
 
     ![Use the Database tool for collection analysis](database-tool.png){width=700}
 
@@ -851,7 +851,7 @@ support out of the box:
 ```kotlin
 val jvmMain by getting {
     dependencies {
-        // . . .
+        // ...
         implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
     }
 }
@@ -922,6 +922,10 @@ To turn on a compilation with optimizations for the JavaScript assets, pass anot
 process. In the **Run/Debug Configurations** menu, set the environment variable `ORG_GRADLE_PROJECT_isProduction` to `true`.
 You can set this environment variable when you deploy the application to the target environment.
 
+> You can find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
+>
+{type="note"}
+
 #### Relevant Gradle configuration {initial-collapse-state="collapsed"}
 
 The `stage` task is an alias for `installDist`:
@@ -944,10 +948,6 @@ distributions {
     }
 }
 ```
-
-> You can find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
->
-{type="note"}
 
 ## What's next
 
