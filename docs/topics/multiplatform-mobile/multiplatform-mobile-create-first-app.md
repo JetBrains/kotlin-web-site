@@ -41,6 +41,9 @@ Your Kotlin Mobile Multiplatform project consists of three components:
 * _iOS application_ – an Xcode project that builds into the iOS application.
 
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
+
+This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
+Real-life projects can have more complex structure; we consider these three components essential.
     
 ## Run your application 
 
@@ -133,4 +136,4 @@ Learn how to [add dependencies to your project](multiplatform-mobile-setup.md).
 ## What else?
 
 * See how to [run tests to check that the code works correctly](multiplatform-run-tests.md).
-* Learn more about [the project structure](multiplatform-mobile-understand-project-structure.md) and how you can use it.
+* Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md) and how you can use it.

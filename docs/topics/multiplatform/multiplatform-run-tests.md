@@ -4,33 +4,6 @@ By default, Kotlin supports running tests for JVM, JS, Android, Linux, Windows, 
 To run tests for other Kotlin/Native targets, you need to configure them manually in an appropriate environment, emulator, 
 or test framework.
 
-## Run tests
-
-You can run tests to check that the shared code works correctly on both platforms. Of course, you can also write and run tests to check the
-platform-specific code.
-
-### Run tests on iOS
-
-1. Open the file `iosTest.kt` in `shared/src/iosTest/kotlin/com.example.kmmapplication.shared`.  
-   Directories with `Test` in their name contain tests.  
-   This file includes a sample test for iOS.
-
-   ![iOS test Kotlin file](ios-test-kt.png)
-
-2. Click the **Run** icon in the gutter next to the test.
-
-Tests run on a simulator without UI. Congratulations! The test has passed – see test results in the console.
-
-![iOS test result](ios-test-result.png){width=300}
-
-### Run tests on Android
-
-For Android, follow a procedure that is very similar to the one for running tests on iOS.
-
-1. Open the file `androidTest.kt` in `shared/src/androidTest/kotlin/com.example.kmmapplication.shared`.
-
-2. Click the **Run** gutter icon next to the test.
-
 ## Required dependencies
 
 The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When you
