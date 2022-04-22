@@ -217,7 +217,7 @@ Each call to `install` adds one feature to the Ktor application:
   configures [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). CORS is needed to
   make calls from arbitrary JavaScript clients and helps prevent issues later.
 * [`Compression`](https://ktor.io/docs/compression.html) greatly reduces the amount of data to be sent to the client
-  by `gzip`-ping outgoing content when applicable.
+  by gzipping outgoing content when applicable.
 
 #### Related Gradle configuration for Ktor {initial-collapse-state="collapsed"}
 
@@ -702,7 +702,7 @@ provides a callback when users submit their entry to the shopping list to receiv
     handler that gets called when the user submits the form (usually by pressing the `Enter` key).
 
 2. To use this `InputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
-   bottom of the `App` component (after the closing brace for the `ul` element):
+   bottom of the `FC` block (after the closing brace for the `ul` element):
 
     ```kotlin
     InputComponent {
@@ -864,6 +864,11 @@ Instead of opening your app on `localhost`, you can bring it onto the web by dep
 To get the application running on managed infrastructure (such as cloud providers), you need to integrate it with the
 environment variables provided by the selected platform and add any required configuration to the project. Specifically,
 pass the application port and MongoDB connection string.
+
+> During the application deployment, you might need to change the firewall rules to allow the application to access the
+> database. For more details, see the [MongoDB documentation](https://docs.atlas.mongodb.com/security/ip-access-list/).
+> 
+{type="note"}
 
 ### Specify the PORT variable
 
