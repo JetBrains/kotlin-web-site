@@ -22,7 +22,7 @@ Get to know Kotlin Multiplatform Mobile and complete these steps to create a mob
 
 ![Second step](icon-2.svg){width=25}{type="joined"} [Create your first app that works both on Android and iOS with IDE](multiplatform-mobile-create-first-app.md)
 
-![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-add-dependencies.md)
+![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-dependencies.md)
 
 ![Fourth step](icon-4.svg){width=25}{type="joined"} [Upgrade your app](multiplatform-mobile-update-app.md)
 

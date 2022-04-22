@@ -136,7 +136,7 @@ If you want to run your application on another simulated device, you can add a n
 
 ## Next step
 
-Go on and [add dependencies to your project](multiplatform-mobile-add-dependencies.md).
+Go on and [add dependencies to your project](multiplatform-mobile-dependencies.md).
 
 ### See also
 

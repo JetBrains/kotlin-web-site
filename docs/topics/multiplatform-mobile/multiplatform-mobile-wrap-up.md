@@ -2,7 +2,7 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-add-dependencies.md">Add dependencies</a><br/><img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-update-app.md">Upgrade your app</a><br/><img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Wrap up your project</strong></p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-update-app.md">Upgrade your app</a><br/><img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Wrap up your project</strong></p>
 </microformat>
 
 You've created your first Multiplatform Mobile app that works both on iOS and Android. Now you know how
