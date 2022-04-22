@@ -1,6 +1,5 @@
 import React from "react";
-import GlobalHeader from '@jetbrains/kotlin-web-site-ui/dist/header.js';
-import '@jetbrains/kotlin-web-site-ui/dist/header.css';
+import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
 const Header = (props) => {
   return (

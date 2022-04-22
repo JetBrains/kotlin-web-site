@@ -1,16 +1,13 @@
 import React from "react";
 
-import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer';
+import '@jetbrains/kotlin-web-site-ui/out/components/typography';
+import '@jetbrains/kotlin-web-site-ui/out/components/grid';
+import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 
 import {TeachCtaBlock} from "./components/teach-cta-block";
 import {TeachTopMenu} from "./components/teach-top-menu";
 import {TeachNumbers} from "./components/teach-numbers";
 import {TeachQuotes} from "./components/teach-quotes";
-
-import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
-import '@jetbrains/kotlin-web-site-ui/dist/typography.css';
-import '@jetbrains/kotlin-web-site-ui/dist/grid.css';
-import '@jetbrains/kotlin-web-site-ui/dist/youtubePlayer.css';
 
 import '@rescui/typography';
 

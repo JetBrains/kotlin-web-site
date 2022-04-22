@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {TabList, Tab} from '@rescui/tab-list';
 import {CoursesList} from './components/courses-list.jsx';
 
-import '@jetbrains/kotlin-web-site-ui/dist/typography.css';
-import '@jetbrains/kotlin-web-site-ui/dist/grid.css';
+import '@jetbrains/kotlin-web-site-ui/out/components/typography';
+import '@jetbrains/kotlin-web-site-ui/out/components/grid';
 import './index.scss';
 import {TeachCtaBlock} from '../teach/components/teach-cta-block';
 import {TeachTopMenu} from '../teach/components/teach-top-menu';

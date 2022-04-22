@@ -46,3 +46,4 @@ pages/docs/tutorials/kotlin-for-py/
 _teamcity
 dist
 generated
+.next
