@@ -24,7 +24,7 @@ Get to know Kotlin Multiplatform Mobile and complete these steps to create a mob
 
 ![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-add-dependencies.md)
 
-![Fourth step](icon-4.svg){width=25}{type="joined"} [Update your app](multiplatform-mobile-update-app.md)
+![Fourth step](icon-4.svg){width=25}{type="joined"} [Upgrade your app](multiplatform-mobile-update-app.md)
 
 ![Fifth step](icon-5.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
 
