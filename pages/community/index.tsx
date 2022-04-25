@@ -15,9 +15,6 @@ import TalkingKotlinIcon from '../../public/community/icons/keep-in-touch-talkin
 import LinkedInIcon from '../../public/community/icons/keep-in-touch-linkedin-icon.svg';
 import YoutrackIcon from '../../public/community/icons/keep-in-touch-youtrack-icon.svg';
 
-import mascot1 from '../../public/community/images/maskot1.svg';
-import mascot2 from '../../public/community//images/maskot2.svg';
-
 function Index() {
     return (
         <CommunityLayout title={"Community"}>
@@ -90,14 +87,11 @@ function Index() {
                 title={"Join a Kotlin User Group\nor start your own"}
                 buttonLink={"/community/user-groups/"}
                 buttonTitle={"All KUGs →"}
-                imageSrc={mascot1}
             />
             <OverviewBottomLink
                 title={"Get inspired at a Kotlin event\nor host one yourself"}
                 buttonLink={"/community/events"}
                 buttonTitle={"Talks and Events →"}
-                imageSrc={mascot2}
-                reversed
             />
         </CommunityLayout>
     )

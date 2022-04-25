@@ -9,30 +9,21 @@ interface Props {
     title: string,
     buttonTitle: string,
     buttonLink: string,
-    imageSrc: string,
-    reversed?: boolean
 }
 
-export const OverviewBottomLink: FC<Props> = ({title, buttonTitle, buttonLink, imageSrc, reversed}) => {
-
-    const rowClassName = classnames('ktl-row', reversed && 'ktl-row--reverse', styles.row)
+export const OverviewBottomLink: FC<Props> = ({title, buttonTitle, buttonLink}) => {
 
     return (
         <div className={styles.wrapper}>
             <div className="ktl-container">
-                <div className={rowClassName}>
-                    <div className='ktl-col-12 ktl-col-sm-6'>
+                <div className="ktl-row">
+                    <div className='ktl-col'>
                         <h2 className={classnames('ktl-h1', styles.title)}>
                             {title}
                         </h2>
                         <Link href={buttonLink}>
                             <Button size="l" mode="outline">{buttonTitle}</Button>
                         </Link>
-                    </div>
-                    <div className='ktl-col-12 ktl-col-sm-6'>
-                        <div className={styles.image}>
-                            <img src={imageSrc} alt=""/>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 .wrapper {
     display: block;
-    padding: 64px 0;
+    padding: 108px 0 84px 0;
+    text-align: center;
 }
 
 .wrapper:not(:last-child) {
@@ -22,13 +23,7 @@
 }
 
 @media (max-width: 767px) {
-    .row {
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: flex-start;
-    }
-
-    .title {
-        margin-top: 32px;
+    .wrapper {
+        padding: 84px 0 60px 0;
     }
 }
