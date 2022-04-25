@@ -27,10 +27,10 @@ a self-contained project related to a specific topic.
 
 * [Kotlin Multiplatform Hands-on: Networking and Data Storage](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/)
   guides you through the process of building a simple application for Android and iOS. Business logic and data
-  access layers are implemented only once in the shared module, while the UI of both applications will be native. The
-  application uses Ktor as an HTTP client for retrieving data, `kotlinx.serialization` to deserialize JSON responses into
-  objects of entity classes, `kotlinx.coroutines` to write asynchronous code, and SQLDelight to generate the Kotlin code
-  from SQL queries to create a type-safe.
+  access layers are implemented once in the shared module, while the UI of both applications are native. The
+  application uses Ktor as an HTTP client for retrieving data, the `kotlinx.serialization` library to deserialize JSON
+  responses into objects of entity classes, `kotlinx.coroutines` to write asynchronous code, and SQLDelight to generate
+  the Kotlin code from SQL queries to create a type-safe database API.
 
 * [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/)
   teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
