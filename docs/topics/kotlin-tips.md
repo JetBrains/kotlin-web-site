@@ -4,6 +4,12 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Operator Functions With Nullable Values
+
+In Kotlin, you can override operators like addition and subtraction for your classes and supply your own logic. But what if you want to allow null values, both on their left and right sides? In this video, Sebastian answers this question.
+
+<video width="560" height="315" href="x2bZJv8i0vw" title="Kotlin Tips: Operator Functions With Nullable Values"/>
+
 ## Timing Code
 
 Watch Seb give a quick overview of the [`measureTimedValue()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/measure-timed-value.html) function, and learn how you can time your code:
