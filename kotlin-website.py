@@ -257,6 +257,12 @@ def static_file(path):
 def community_page():
     return send_file('out/community.html')
 
+
+@app.route('/community/events')
+def community_events_page():
+    return send_file('out/community/events.html')
+
+
 @app.route('/user-groups/user-group-list.html')
 def user_group_list():
     return render_template(

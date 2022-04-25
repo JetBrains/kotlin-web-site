@@ -6,6 +6,7 @@
 
 html {
     font-family: var(--ktl-font-family-inter);
+    min-width: 320px;
 }
 
 img {
