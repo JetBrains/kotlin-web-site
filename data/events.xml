@@ -1,5 +1,107 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
+   <event>
+        <lang>sv</lang>
+        <startDate>2022-05-20</startDate>
+        <endDate>2022-05-20</endDate>
+        <location>Stockholm, Sweden</location>
+        <speaker>Petrus</speaker>
+        <title>Apputveckling Sverige</title>
+        <subject>Kotlin Multiplatform - erfarenheter från 5 Appar under 2021</subject>
+        <url>https://www.meetup.com/Apputveckling-sverige/events/284973447/</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform Mobile har väckt mer och mer intresse sedan första lansering för ca 2,5 år sedan. Språket är utvecklat av JetBrains och stöds av Google samt är Open Source. I praktiken är det ett SDK för iOS- och Android-apputveckling.<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-05-09</startDate>
+        <endDate>2022-05-09</endDate>
+        <location>Tel Aviv-Yafo, Israel</location>
+        <speaker>Ronel Girat</speaker>
+        <title>Full Stack Developers Israel</title>
+        <subject>Asynchronous Data Streams with Kotlin Flow</subject>
+        <url>https://www.meetup.com/full-stack-developer-il/events/285268669/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will discuss how Kotlin Flows can overcome the challenges of working with asynchronous streams.<p>
+<p>We will go through the basics of Kotlin Flow design, see their typical usage patterns, and how they enable writing safe, reliable, and leak-free systems.<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-06-30</startDate>
+        <endDate>2022-06-30</endDate>
+        <location>Brighton, United Kingdom</location>
+        <speaker>Arnaud Giuliani</speaker>
+        <title>Brighton Kotlin</title>
+        <subject>Android Architecture Design with Koin</subject>
+        <url>https://www.meetup.com/Brighton-Kotlin/events/285386453/</url>
+        <description>
+            <![CDATA[
+<p>In this session, I propose to see together how we can structure our components, for the following topics:<p>
+<p>Classical Components in MVP, MVVM
+Dealing with Scopes
+Jetpack Navigation
+Jetpack Compose
+Integrating with Multi-Platform<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-06-15</startDate>
+        <endDate>2022-06-15</endDate>
+        <location>Berlin, Germany</location>
+        <speaker>Urs Peter</speaker>
+        <title>WeAreDevelopers World Congress</title>
+        <subject>Moving from Java to Kotlin</subject>
+        <url>https://www.wearedevelopers.com/world-congress/topics#/</url>
+        <description>
+            <![CDATA[
+<p>In this talk, we will explore the journey you embark on when moving from Java to Kotlin. Based on real-world experience, code statistics, and many code samples, light will be shed on questions like ‘What were the benefits and drawbacks?’, ‘How did we approach it?’ …and most of all: ‘Was it worth it and why?’ At the end of this talk, you know in detail the differences between Java and Kotlin. You have learned what to expect when embracing Kotlin and which best practices you can apply, providing you with the information and tools to evaluate whether Kotlin is worth a try.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-05-05</startDate>
+        <endDate>2022-05-05</endDate>
+        <location>Philadelphia, PA, USA</location>
+        <speaker>Kevin Galligan</speaker>
+        <title>Philly Mobile Developer Conference</title>
+        <subject>Kotlin Multiplatform iOS Interop Overview</subject>
+        <url>https://www.comcastlabsconnect.com/2022-mobile-abstracts/kotlin-multiplatform-ios-interop-overview</url>
+        <description>
+            <![CDATA[
+<p>Everybody knows that Kotlin Multiplatform for native mobile will allow you to export code that can be called from iOS. However, within that statement, there are many details to learn and decisions to be made. As many KMP/KMM developers are coming from an Android background, these details are often missing background knowledge that everybody learns “the hard way”. Static or dynamic frameworks? Linking? Cocoapods vs SPM? This talk is an introduction to what the Kotlin compiler actually produces, what choices you’ll need to make, and things you may want to consider before attempting to integrate Kotlin shared-native code into a production iOS environment.<p>
+]]>
+         </description>
+    </event>
+
+    <event>
+        <lang>en</lang>
+        <startDate>2022-05-05</startDate>
+        <endDate>2022-05-05</endDate>
+        <location>Philadelphia, PA, USA</location>
+        <speaker>Mohit Sarveiya </speaker>
+        <title>Philly Mobile Developer Conference</title>
+        <subject>Building Android Infrastructure Teams at Scale</subject>
+        <url>https://www.comcastlabsconnect.com/2022-mobile-abstracts/building-android-infrastructure-teams-at-scale</url>
+        <description>
+            <![CDATA[
+<p>In this talk, I will share with you the purpose of a Infrastructure team, the responsibilities and how to build it. I’ll share my experiences of working on Infrastructure teams and the challenges you’ll encounter. Lastly, I’ll cover fragmentation of large codebases and what role an Infrastructure team could play to improve it. At various companies, such a team is called an platform or foundations team.<p>
+]]>
+         </description>
+    </event>
+
     <event>
         <lang>en</lang>
         <startDate>2022-05-17</startDate>
