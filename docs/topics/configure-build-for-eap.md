@@ -15,7 +15,7 @@ The EAP version of Kotlin may not work with the libraries of the previously rele
 The following procedures describe how to configure your build in Gradle and Maven:
 
 * [Configure in Gradle](#configure-in-gradle)
-* [Configure in Maven](#configure-in-maven)  
+* [Configure in Maven](#configure-in-maven)
 
 ## Configure in Gradle 
 
