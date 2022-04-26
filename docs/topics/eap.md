@@ -42,11 +42,11 @@ check [our instructions on how to configure your build to support this version](
         <td>
              <ul>
                  <li>Language: changes in builder inference, allowed implementation by delegation to inlined value of inline class, changes in Opt-in annotations</li>
-                 <li>Kotlin/JVM: performance improvements, removed `1.6` target version</li>
-                 <li>Kotlin/Native: performance improvement for the new memory manager, embeddable compiler jar for Kotlin/Native by default, returning `Void` instead of `KotlinUnit` by default, generation standalone executable for androidNative targets by default, prohibited exceptions through ObjCExport bridges, custom Kotlin/Native compiler URL</li>
-                 <li>Kotlin/JS: performance improvements, smaller bundle size, generated `.js` compatible with old browsers and engines</li>
-                 <li>Libraries: extensions for `java.util.Optional` in stdlib, min/max(By/With) functions for non-nullable types, stable `Regex.matchAt()`, `Regex.matchesAt()`, ` findAnnotations()`, `DeepRecursiveFunction` functions, changes in `Regex` class functions</li>
-                 <li>Gradle: minimal supported Android Gradle plugin is `3.6.4`, deprecate `kotlin.compiler.execution.strategy`, removed `useExperimentalAnnotation`, `experimentalAnnotationInUse`, `kotlin.coroutines`, `kotlin.experimental.coroutines` properties</li>
+                 <li>Kotlin/JVM: performance improvements, removed <code>1.6</code> target version</li>
+                 <li>Kotlin/Native: performance improvement for the new memory manager, embeddable compiler jar for Kotlin/Native by default, returning <code>Void</code> instead of <code>KotlinUnit</code> by default, generation standalone executable for androidNative targets by default, prohibited exceptions through ObjCExport bridges, custom Kotlin/Native compiler URL</li>
+                 <li>Kotlin/JS: performance improvements, smaller bundle size, generated <code>.js</code> compatible with old browsers and engines</li>
+                 <li>Libraries: extensions for <code>java.util.Optional</code> in stdlib, min/max(By/With) functions for non-nullable types, stable <code>Regex.matchAt()</code>, <code>Regex.matchesAt()</code>>, <code>findAnnotations()</code>>, <code>DeepRecursiveFunction</code> functions, changes in <code>Regex</code> class functions</li>
+                 <li>Gradle: minimal supported Android Gradle plugin is <code>3.6.4</code>>, deprecate <code>kotlin.compiler.execution.strategy</code>, removed <code>useExperimentalAnnotation</code>>, <code>experimentalAnnotationInUse</code>>, <code>kotlin.coroutines</code>>, <code>kotlin.experimental.coroutines</code>> properties</li>
             </ul>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-Beta">changelog</a>.</p>
         </td>
