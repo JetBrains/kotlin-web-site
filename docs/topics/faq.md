@@ -123,8 +123,7 @@ The best place to start is [this website](https://kotlinlang.org). From there yo
 
 ### Are there any books on Kotlin?
 
-There are a number of books available for Kotlin. Some of them we have reviewed and can recommend to start with. They are listed
-on the [Books](books.md) page. For more books, see the community-maintained list at [kotlin.link](https://kotlin.link/). 
+There are a number of books available for Kotlin and its libraries. See the community-maintained list at [kotlin.link](https://kotlin.link/). 
 
 ### Are any online courses available for Kotlin?
 
