@@ -3,8 +3,9 @@ import React from "react";
 import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
 import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 import {KeepInTouch} from "../../blocks/community/keep-in-touch/keep-in-touch";
+import {OverviewBottomLink} from '../../blocks/community/overview-bottom-links/overview-bottom-link';
 
-import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg'
+import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg';
 import TwitterIcon from '../../public/community/icons/keep-in-touch-twitter-icon.svg';
 import KotlinIcon from '../../public/community/icons/keep-in-touch-kotlin-icon.svg';
 import RedditIcon from '../../public/community/icons/keep-in-touch-reddit-icon.svg';
@@ -81,6 +82,17 @@ function Index() {
                     link: 'https://youtrack.jetbrains.com/issues/'
                 },
             ]}/>
+
+            <OverviewBottomLink
+                title={"Join a Kotlin User Group\nor start your own"}
+                buttonLink={"/community/user-groups/"}
+                buttonTitle={"All KUGs →"}
+            />
+            <OverviewBottomLink
+                title={"Get inspired at a Kotlin event\nor host one yourself"}
+                buttonLink={"/community/events"}
+                buttonTitle={"Talks and Events →"}
+            />
         </CommunityLayout>
     )
 }

@@ -24,6 +24,7 @@
     .resources {
         display: flex;
         grid-gap: 16px;
+        align-items: center;
     }
 }
 
