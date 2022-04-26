@@ -38,8 +38,8 @@ Here is an example for the Multiplatform project.
 
 ```kotlin
 plugins {
-   java
-   kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
+    java
+    kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
 }
 
 repositories {
@@ -52,12 +52,12 @@ repositories {
 
 ```groovy
 plugins {
-   id 'java'
-   id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
+    id 'java'
+    id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
 }
 
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
 ```
 
@@ -147,4 +147,3 @@ In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the ac
     </build>
 </project>
 ```
-
