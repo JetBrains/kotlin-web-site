@@ -5,15 +5,15 @@ import {CommunityLayout} from "../../blocks/community/layout/community-layout";
 import {KeepInTouch} from "../../blocks/community/keep-in-touch/keep-in-touch";
 import {OverviewBottomLink} from '../../blocks/community/overview-bottom-links/overview-bottom-link';
 
-import SlackIcon from '../../public/community/icons/keep-in-touch-slack-icon.svg';
-import TwitterIcon from '../../public/community/icons/keep-in-touch-twitter-icon.svg';
-import KotlinIcon from '../../public/community/icons/keep-in-touch-kotlin-icon.svg';
-import RedditIcon from '../../public/community/icons/keep-in-touch-reddit-icon.svg';
-import StackOverflowIcon from '../../public/community/icons/keep-in-touch-so-icon.svg';
-import YoutubeIcon from '../../public/community/icons/keep-in-touch-youtube-icon.svg';
-import TalkingKotlinIcon from '../../public/community/icons/keep-in-touch-talking-kotlin-icon.svg';
-import LinkedInIcon from '../../public/community/icons/keep-in-touch-linkedin-icon.svg';
-import YoutrackIcon from '../../public/community/icons/keep-in-touch-youtrack-icon.svg';
+import SlackIcon from '../../public/images/community/icons/keep-in-touch-slack-icon.svg';
+import TwitterIcon from '../../public/images/community/icons/keep-in-touch-twitter-icon.svg';
+import KotlinIcon from '../../public/images/community/icons/keep-in-touch-kotlin-icon.svg';
+import RedditIcon from '../../public/images/community/icons/keep-in-touch-reddit-icon.svg';
+import StackOverflowIcon from '../../public/images/community/icons/keep-in-touch-so-icon.svg';
+import YoutubeIcon from '../../public/images/community/icons/keep-in-touch-youtube-icon.svg';
+import TalkingKotlinIcon from '../../public/images/community/icons/keep-in-touch-talking-kotlin-icon.svg';
+import LinkedInIcon from '../../public/images/community/icons/keep-in-touch-linkedin-icon.svg';
+import YoutrackIcon from '../../public/images/community/icons/keep-in-touch-youtrack-icon.svg';
 
 function Index() {
     return (

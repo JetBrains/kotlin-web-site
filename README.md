@@ -93,4 +93,4 @@ Projects Structure:
 
 ### Images in Next.js
 Notice that using 'next/image' is not possible because Next.js does not support importing images to HTML files (SSG).
-Use the IMG tag instead.    
+Use our custom Image component instead.    

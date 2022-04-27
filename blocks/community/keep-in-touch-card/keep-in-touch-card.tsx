@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import classNames from 'classnames';
 import {cardCn} from "@rescui/card";
 import styles from './keep-in-touch-card.module.css'
+import {Image} from "../../../components/image/image";
 
 export interface KeepInTouchCardProps {
     icon: string;
@@ -18,7 +19,7 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({icon, title, descript
         <a href={link} target="_blank" rel="noopener noreferrer" className={cardClassName}>
             <div className={styles.wrapper}>
                 <div className={classNames(styles.icon)}>
-                    <img src={icon} alt={title}/>
+                    <Image src={icon} alt={title} />
                 </div>
                 <div className={classNames(styles.bottom)}>
                     <div className={classNames(styles.title, 'ktl-h3')}>

@@ -2,7 +2,6 @@ const packageJSON = require('./package.json');
 
 const withPlugins = require('next-compose-plugins');
 const { patchWebpackConfig } = require('next-global-css');
-const optimizedImages = require('next-optimized-images');
 const nextTranspileModules = require('next-transpile-modules');
 
 let transpiledPackages = [
@@ -16,10 +15,18 @@ const withTranspile = nextTranspileModules(transpiledPackages);
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  fileExtensions: ["jpg", "jpeg", "png", "gif", "svg"],
-  inlineImageLimit: 0,
   images: {
-    disableStaticImages: true,
+    loader: "custom",
+    imageSizes: [380, 768, 1280, 2360],
+    deviceSizes: [380, 768, 1280, 3840],
+    nextImageExportOptimizer: {
+      imageFolderPath: "public/images",
+      exportFolderPath: "out",
+      quality: 90,
+    },
+  },
+  env: {
+    storePicturesInWEBP: true,
   },
   webpack: (config, options) => {
     patchWebpackConfig(config, options);
@@ -39,10 +46,5 @@ const nextConfig = {
 };
 
 module.exports = withPlugins([
-  [withTranspile],
-  [optimizedImages, {
-    handleImages: ['jpeg', 'png', "svg"],
-    imagesFolder: 'images',
-    optimizeImagesInDev: true
-  }]
+  [withTranspile]
 ], nextConfig);
