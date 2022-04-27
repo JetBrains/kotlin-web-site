@@ -1,6 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <events>
    <event>
+        <lang>en</lang>
+        <startDate>2022-06-02</startDate>
+        <endDate>2022-06-02</endDate>
+        <location>San Francisco, CA, USA</location>
+        <speaker>Kevin Galligan</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>Troubled Waters: Bridging platform-native SDKs with Kotlin Multiplatform</subject>
+        <url>https://www.sf.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>One of the most valuable features of Kotlin Multiplatform is being able to interop with existing platform-native SDKs from Kotlin code. This allows you to take existing code from Android and iOS, and rather than "rewrite it", simply create a common Kotlin SDK surface that delegates to the platform-native SDK code. Then you can call everything from Kotlin!<p>
+<p>This is not always so easy. There are a number of considerations you should keep in mind when planning your shared code utopian vision. In this talk we'll discuss:
+<p>* When to bridge and when to rewrite (if possible)
+* Interfaces or expect/actual? (Almost always interfaces, but no spoilers here)
+* cinterop basics
+* Packaging and deployment related topics.<p>
+<p>Some of this ground was covered at Droidcon SF 2019, but we've learned and refined so, so much since then!<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-06-03</startDate>
+        <endDate>2022-06-03</endDate>
+        <location>San Francisco, CA, USA</location>
+        <speaker>Lena Stepanova</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>Kotlin Multiplatform Mobile in production: key takeaways from developing two cross-platform apps</subject>
+        <url>https://www.sf.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>Kotlin Multiplatform Mobile is a young promising technology, but is it there to stay? And is it worth trying out? This talk is based on the experience of developing two very different cross-platform apps with KMM. The goal of this talk is to introduce KMM, discuss the pitfalls that a new KMM developer may encounter and share some valuable tips that were collected along the way of KMM development: from preferable app architecture to team requirements.<p>
+]]>
+         </description>
+   </event>
+
+   <event>
+        <lang>en</lang>
+        <startDate>2022-06-02</startDate>
+        <endDate>2022-06-02</endDate>
+        <location>San Francisco, CA, USA</location>
+        <speaker>Bree Hoffman</speaker>
+        <title>droidconsanfrancisco</title>
+        <subject>Kotlin Generics In Depth</subject>
+        <url>https://www.sf.droidcon.com/schedule</url>
+        <description>
+            <![CDATA[
+<p>When writing more powerful abstractions with Kotlin it becomes necessary to have a strong grasp of how to use generics. This talk covers a variety of concepts surrounding generic types & type parameters.
+Key points:
+* variance (covariance, contravariance, invariance)
+* type projection (+star projection, aka wildcard)
+* type constraints
+* reification (with inline modifier)<p>
+]]>
+         </description>
+   </event>
+
+   <event>
         <lang>sv</lang>
         <startDate>2022-05-20</startDate>
         <endDate>2022-05-20</endDate>
