@@ -7,7 +7,9 @@ const nextTranspileModules = require('next-transpile-modules');
 
 let transpiledPackages = [
   '@jetbrains/kotlin-web-site-ui',
-  ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/')))
+  ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/'))),
+  // transitive deps needed too:
+  '@rescui/dropdown'
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);

@@ -1361,6 +1361,34 @@
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.0.5.tgz#13508ed9e5fc5020059010dc872c54af5af31251"
   integrity sha512-deucBnfXQTAo42Se458PVB1+M+Ocif9wdvsq1r88DgYKxAoYWX+gyCWPxGsAj66p/RtWlBxnZh3QNXozwDF/4w==
 
+"@rescui/colors@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.0.tgz#6b6dc935153b68df8a83044d684c0725426e9db8"
+  integrity sha512-JQYTt17JMqiBVWowk2CW90e/5b0/J+lLIw5gWMj+YEK8cBCjKW9EEhijRDXPsCSSNW+a/BntVFs6fOa232jbag==
+
+"@rescui/dropdown-menu@0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@rescui/dropdown-menu/-/dropdown-menu-0.2.4.tgz#73a28b6d6fb05b0770e66e252b5b6b62e882bca5"
+  integrity sha512-OwzcwnHlSsH7iLksqKi42Z0l4broI9lUxBHtRyv5Jx73Nl3HTAM2/iMtgjkTJlxAh3VIuLs+wvPCGEgB+/tUCA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@rescui/dropdown" "^0.2.4"
+    "@rescui/menu" "^0.4.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
+"@rescui/dropdown@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@rescui/dropdown/-/dropdown-0.2.4.tgz#83467f3c014f7f958a0c32301286b0c52ecb20e9"
+  integrity sha512-OoX1tT3EUxkq5A391tIXuykODykjjPtCFC4a4lhOB/gVuzEzfA0E/ZVYrFyv9rctKFSJRJm7Nz81v7GTh+Ffjg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@popperjs/core" "^2.9.2"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+    popper-max-size-modifier "^0.2.0"
+    react-popper "^2.2.5"
+
 "@rescui/icons@0.3.0", "@rescui/icons@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.3.0.tgz#f37e5ca15b11bb10f0dd9975cfd9d3c02aac4e78"
@@ -1388,6 +1416,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/icons@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.6.1.tgz#df1036fac0b4403d43039c0c5acce151ea299c4b"
+  integrity sha512-0bkfR506vQ2yZ5SlHKYJdxmk+LYBU7KVv98gjLe9E6kjmGi4cXourAX1iA2gGt+ugZ5iG8RyK47Qp+AKgtJQyg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/input@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@rescui/input/-/input-0.1.1.tgz#f7de1ac79a33c454442b705b1df66faa9373aa05"
@@ -1407,6 +1444,25 @@
     classnames "^2.2.6"
     core-js "^3"
 
+"@rescui/menu@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@rescui/menu/-/menu-0.4.0.tgz#384f1e5a412b5eec048a03aa68730f0a8f8c9c99"
+  integrity sha512-Xy/hvXpc0kRbfAAIhOeHtAXlzYzvKapgwl+yqDlhwYXW1i7HboLQBylKYHflvIZZOqcydZ3nf+gaBrlO43ATSw==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    classnames "^2.2.6"
+    core-js "^3"
+
+"@rescui/switcher@0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@rescui/switcher/-/switcher-0.2.1.tgz#c1904755b10e702ba956d848d530c0d09c586c58"
+  integrity sha512-YjqPh+ggzqcGBEGbrz1wt7rg4trjb79J6WSRkauUfL5C1A33EKDNXG7mfHH70OBQQ0HfWS5csDVnqSYTHqYwZw==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+    react-resize-detector "^6.7.3"
+
 "@rescui/tab-list@0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@rescui/tab-list/-/tab-list-0.3.0.tgz#a9408064bb8657f298bf1c1780d9c32470e3f640"
@@ -1417,6 +1473,17 @@
     "@rescui/button" "^0.3.0"
     "@rescui/icons" "^0.2.0"
     classnames "^2.2.6"
+    core-js "^3.9.1"
+
+"@rescui/tag@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@rescui/tag/-/tag-0.3.0.tgz#758f16fe619e060024cd5f47d3a71ee2738d7f2b"
+  integrity sha512-bRExMD4uTbGZLx5zYB//vaC5qxcMzFLJllR30NPIdFckTIkLOCSb9+LDngMplfD5i2t0NvhgVdHNcgCE8PM+tA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    "@rescui/colors" "^0.1.0"
+    "@rescui/icons" "^0.6.1"
+    classnames "^2.3.1"
     core-js "^3.9.1"
 
 "@rescui/tooltip@0.1.3":
@@ -1584,6 +1651,11 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/resize-observer-browser@^0.1.6":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@types/resize-observer-browser/-/resize-observer-browser-0.1.7.tgz#294aaadf24ac6580b8fbd1fe3ab7b59fe85f9ef3"
+  integrity sha512-G9eN0Sn0ii9PWQ3Vl72jDPgeJwRWhv2Qk/nQkJuWmRmOB4HX3/BhD5SE1dZs/hzPZL/WKnvF0RHdTSG54QJFyg==
 
 "@types/retry@^0.12.0":
   version "0.12.0"
@@ -2578,7 +2650,7 @@ classlist-polyfill@^1.0.3:
   resolved "https://registry.yarnpkg.com/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz#935bc2dfd9458a876b279617514638bcaa964a2e"
   integrity sha1-k1vC39lFiodrJ5YXUUY4vKqWSi4=
 
-classnames@2.3.1, classnames@^2.2.5, classnames@^2.2.6:
+classnames@2.3.1, classnames@^2.2.5, classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
@@ -5008,6 +5080,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+iso-639-1@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/iso-639-1/-/iso-639-1-2.1.13.tgz#bfca6c6b49be6f92815f1985e892d497770ea1dc"
+  integrity sha512-stYt3u6OnVDNcK4IWARGXmTOOY5Wa5g4bUmBsttZp/55ZiEjDUibR3C59ZnorKoSS0tfJmFuGMST3ksnY1zu7Q==
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
@@ -5703,6 +5780,11 @@ nanocolors@^0.1.12:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/nanocolors/-/nanocolors-0.1.12.tgz#8577482c58cbd7b5bb1681db4cf48f11a87fd5f6"
   integrity sha512-2nMHqg1x5PU+unxX7PGY7AuYxl2qDx7PSrTRjizr8sxdd3l/3hBuWWaki62qmtYm2U5i4Z5E7GbjlyDFhs9/EQ==
+
+nanoid@3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.3.tgz#fd8e8b7aa761fe807dba2d1b98fb7241bb724a25"
+  integrity sha512-p1sjXuopFs0xg+fPASzQ28agW1oHD7xDsd9Xkf3T15H3c/cifrFHVwrh74PdoklAPi+i7MdRsE47vm2r6JoB+w==
 
 nanoid@^3.1.23:
   version "3.2.0"
@@ -6407,6 +6489,11 @@ pkg-dir@^4.1.0, pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+popper-max-size-modifier@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/popper-max-size-modifier/-/popper-max-size-modifier-0.2.0.tgz#1574744401296a488b4974909d130a85db94256f"
+  integrity sha512-UerPt9pZfTFnpSpIBVJrR3ibHMuU1k5K01AyNLfMUWCr4z1MFH+dsayPlAF9ZeYExa02HPiQn5OIMqUSVtJEbg==
+
 portfinder@^1.0.28:
   version "1.0.28"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -6735,6 +6822,15 @@ react-popper@^2.2.5:
     react-fast-compare "^3.0.1"
     warning "^4.0.2"
 
+react-resize-detector@^6.7.3:
+  version "6.7.8"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-6.7.8.tgz#318c85d1335e50f99d4fb8eb9ec34e066db597d0"
+  integrity sha512-0FaEcUBAbn+pq3PT5a9hHRebUfuS1SRLGLpIw8LydU7zX429I6XJgKerKAMPsJH0qWAl6o5bVKNqFJqr6tGPYw==
+  dependencies:
+    "@types/resize-observer-browser" "^0.1.6"
+    lodash "^4.17.21"
+    resize-observer-polyfill "^1.5.1"
+
 react-swipeable-views-core@^0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-swipeable-views-core/-/react-swipeable-views-core-0.14.0.tgz#6ac443a7cc7bc5ea022fbd549292bb5fff361cce"
@@ -6999,6 +7095,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"

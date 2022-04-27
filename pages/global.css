@@ -6,8 +6,16 @@
 
 html {
     font-family: var(--ktl-font-family-inter);
+    min-width: 320px;
 }
 
 img {
     max-width: 100%;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: inherit;
 }
