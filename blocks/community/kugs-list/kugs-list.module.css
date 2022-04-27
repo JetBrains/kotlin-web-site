@@ -1,5 +1,5 @@
 .wrapper {
-    padding: 120px 0;
+    padding: 64px 0;
 }
 
 .logo {
@@ -47,6 +47,11 @@
 }
 
 @media (min-width: 768px) {
+
+    .wrapper {
+        padding: 96px 0;
+    }
+
     .countriesList {
         column-count: 4;
         column-gap: 32px;
