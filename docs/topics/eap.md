@@ -4,7 +4,7 @@
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
-We ship a few Milestone (_M_) builds before every feature (_1.x_) and incremental (_1.x.y_) release. 
+We ship a few Beta (_Beta_) and Release Candidate (_RC_) builds before every feature (_1.x_) and incremental (_1.x.y_) release. 
 
 We’ll be very thankful if you find and report bugs to our issue tracker [YouTrack](https://kotl.in/issue). 
 It is very likely that we’ll be able to fix them before the final release, which means you won’t need to wait until the next Kotlin release for your issues to be addressed. 
@@ -45,8 +45,8 @@ check [our instructions on how to configure your build to support this version](
                  <li>Kotlin/JVM: performance improvements, removed <code>1.6</code> target version</li>
                  <li>Kotlin/Native: performance improvement for the new memory manager, embeddable compiler jar for Kotlin/Native by default, returning <code>Void</code> instead of <code>KotlinUnit</code> by default, generation standalone executable for androidNative targets by default, prohibited exceptions through ObjCExport bridges, custom Kotlin/Native compiler URL</li>
                  <li>Kotlin/JS: performance improvements, smaller bundle size, generated <code>.js</code> compatible with old browsers and engines</li>
-                 <li>Libraries: extensions for <code>java.util.Optional</code> in stdlib, min/max(By/With) functions for non-nullable types, stable <code>Regex.matchAt()</code>, <code>Regex.matchesAt()</code>>, <code>findAnnotations()</code>>, <code>DeepRecursiveFunction</code> functions, changes in <code>Regex</code> class functions</li>
-                 <li>Gradle: minimal supported Android Gradle plugin is <code>3.6.4</code>>, deprecate <code>kotlin.compiler.execution.strategy</code>, removed <code>useExperimentalAnnotation</code>>, <code>experimentalAnnotationInUse</code>>, <code>kotlin.coroutines</code>>, <code>kotlin.experimental.coroutines</code>> properties</li>
+                 <li>Libraries: extensions for <code>java.util.Optional</code> in stdlib, min/max(By/With) functions for non-nullable types, stable <code>Regex.matchAt()</code>, <code>Regex.matchesAt()</code>, <code>findAnnotations()</code>, <code>DeepRecursiveFunction</code> functions, changes in <code>Regex</code> class functions</li>
+                 <li>Gradle: minimal supported Android Gradle plugin is <code>3.6.4</code>, deprecate <code>kotlin.compiler.execution.strategy</code>, removed <code>useExperimentalAnnotation</code>, <code>experimentalAnnotationInUse</code>, <code>kotlin.coroutines</code>, <code>kotlin.experimental.coroutines</code> properties</li>
             </ul>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-Beta">changelog</a>.</p>
         </td>
