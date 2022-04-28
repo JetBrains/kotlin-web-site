@@ -93,20 +93,13 @@ To use cross-platform code in your Android application, connect the shared modul
     }
     ```
 
-3. Ensure that in `gradle.properties` you have hierarchical project structure enabled:
-
-   ```text
-   kotlin.mpp.enableGranularSourceSetsMetadata=true
-   kotlin.native.enableDependencyPropagation=false
-   ```
-
-4. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+3. Synchronize the Gradle files by clicking **Sync Now** in the warning.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-5. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+4. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
 package.
-6. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
+5. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function result
 to the log by updating the `onCreate()` method:
 
     ```kotlin
@@ -117,8 +110,8 @@ to the log by updating the `onCreate()` method:
    
     }
     ```
-7. Follow Android Studio suggestions to import missing classes.
-8. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
+6. Follow Android Studio suggestions to import missing classes.
+7. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared module.
 
    ![Greeting from the shared module](shared-module-greeting.png)
 

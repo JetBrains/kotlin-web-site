@@ -62,7 +62,7 @@ val empty = emptyList<String>()
 
 ## Initializer functions for lists
 
-For lists, there is a constructor that takes the list size and the initializer function that defines the element value
+For lists, there is a constructor-like function that takes the list size and the initializer function that defines the element value
 based on its index.
 
 ```kotlin
