@@ -12,7 +12,7 @@ from urllib.parse import urlparse, urljoin, ParseResult
 import xmltodict
 import yaml
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, Response, send_from_directory, request
+from flask import Flask, render_template, Response, send_from_directory, request, redirect
 from flask.views import View
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
@@ -263,12 +263,15 @@ def community_events_page():
     return send_file('out/community/events.html')
 
 
+@app.route('/community/user-groups')
+def community_user_groups_page():
+    return send_file('out/community/user-groups.html')
+
+
 @app.route('/user-groups/user-group-list.html')
 def user_group_list():
-    return render_template(
-        'pages/user-groups/user-group-list.html',
-        user_groups_data=site_data['user-groups'],
-        number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
+    return redirect(url_for('community_user_groups_page'), 301)
+
 
 @app.route('/education/')
 def education_page():
