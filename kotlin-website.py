@@ -198,12 +198,6 @@ def autoversion_filter(filename):
     original.update(query=original.get('query') + '&v=' + asset_version)
     return ParseResult(**original).geturl()
 
-@app.route('/data/events.json')
-def get_events():
-    with open(path.join(data_folder, "events.xml"), encoding="UTF-8") as events_file:
-        events = xmltodict.parse(events_file.read())['events']['event']
-        return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
-
 
 @app.route('/data/cities.json')
 def get_cities():
@@ -218,11 +212,6 @@ def get_kotlinconf():
 @app.route('/data/universities.json')
 def get_universities():
     return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/data/user-groups.json')
-def get_user_groups():
-    return Response(json.dumps(site_data['user-groups'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/docs/reference/grammar.html')
