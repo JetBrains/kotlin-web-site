@@ -29,7 +29,9 @@ export const KeepInTouch: FC<KeepInTouchProps> = ({links}) => {
                 <div className={classNames(styles.resources, 'ktl-offset-top-l')}>
                     <h3 className="ktl-h3">Other resources:</h3>
                     <a href="https://kotlin.link/" target="_blank" rel="noreferrer noopener"
-                       className="ktl-text-1 rs-link rs-link_external">Awesome Kotlin</a>
+                       className="rs-link rs-link_external ktl-text-1">
+                        Awesome Kotlin
+                    </a>
                 </div>
 
             </section>

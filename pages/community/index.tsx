@@ -31,7 +31,7 @@ function Index() {
                     icon: SlackIcon,
                     title: 'Slack',
                     description: 'Let’s chat with us in real time',
-                    link: 'https://kotlinlang.slack.com/'
+                    link: 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up'
                 },
                 {
                     icon: TwitterIcon,
