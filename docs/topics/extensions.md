@@ -1,6 +1,6 @@
 [//]: # (title: Extensions)
 
-Kotlin provides the ability to extend a class with new functionality
+Kotlin provides the ability to extend a class or an interface with new functionality
 without having to inherit from the class or use design patterns such as _Decorator_.
 This is done via special declarations called _extensions_.
 
