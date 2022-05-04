@@ -262,6 +262,16 @@ def user_group_list():
     return redirect(url_for('community_user_groups_page'), 301)
 
 
+@app.route('/community/kotlin-nights/guidelines.html')
+def kotlin_nights_guidelines():
+    return redirect('/docs/kotlin-nights-branding.html', 301)
+
+
+@app.route('/community/kotlin-nights/branding.html')
+def kotlin_nights_branding():
+    return redirect('/docs/kotlin-nights-branding.html', 301)
+
+
 @app.route('/education/')
 def education_page():
     return render_template(

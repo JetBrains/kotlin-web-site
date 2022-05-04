@@ -2,8 +2,6 @@
 
 Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies.
 
-[Learn more about the Kotlin Night event](https://kotlinlang.org/community/events.html#kotlin-nights)
-
 ## Kotlin Night event
 
 ### Event guidelines
