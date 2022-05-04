@@ -26,7 +26,7 @@ const nextConfig = {
     },
   },
   env: {
-    storePicturesInWEBP: true,
+    storePicturesInWEBP: false,
   },
   webpack: (config, options) => {
     patchWebpackConfig(config, options);
