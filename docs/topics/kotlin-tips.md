@@ -4,6 +4,12 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Destructuring Declarations
+
+With destructuring declarations in Kotlin, you can create multiple variables from a single object, all at once. In this video Sebastian shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin’s component functions provide an answer for those as well.
+
+<video width="560" height="315" href="zu1PUAvk_Lw" title="Kotlin Tips: Destructuring Declarations"/>
+
 ## Operator functions with nullable values
 
 In Kotlin, you can override operators like addition and subtraction for your classes and supply your own logic. But what if you want to allow null values, both on their left and right sides? In this video, Sebastian answers this question.
