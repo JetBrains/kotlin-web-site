@@ -11,6 +11,9 @@ import {Theme, ThemeProvider } from "@rescui/ui-contexts";
 import { useRouter } from "next/router";
 import {Favicon} from "../../../components/favicon/favicon";
 import {Search, onSearch} from "../../../components/search/search";
+import releasesDataRaw from '../../../data/releases.yml';
+
+const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const items = [
     {
@@ -52,7 +55,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <GlobalHeader
                 currentUrl={COMMUNITY_URL}
                 currentTitle={COMMUNITY_TITLE}
-                productWebUrl={''}
+                productWebUrl={releasesData.latest.url}
                 hasSearch={true}
                 onSearchClick={onSearch}
             />
