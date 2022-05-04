@@ -25,6 +25,7 @@
         display: flex;
         grid-gap: 16px;
         align-items: center;
+        font-size: 20px;
     }
 }
 
