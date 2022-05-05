@@ -85,12 +85,12 @@ function Index() {
 
             <OverviewBottomLink
                 title={"Join a Kotlin User Group\nor start your own"}
-                buttonLink={"/community/user-groups/"}
+                buttonLink={"/community/user-groups.html"}
                 buttonTitle={"All KUGs →"}
             />
             <OverviewBottomLink
                 title={"Get inspired at a Kotlin event\nor host one yourself"}
-                buttonLink={"/community/events"}
+                buttonLink={"/community/events.html"}
                 buttonTitle={"Talks and Events →"}
             />
         </CommunityLayout>

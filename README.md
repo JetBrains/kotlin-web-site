@@ -85,10 +85,10 @@ You can:
 
 You can find all pages in the "pages" directory.
 
-Projects Structure:
+### Projects Structure
+
 - **Components**. The building blocks.
 - **Blocks**. Blocks are groups of components joined together to form a relatively complex, distinct section of an interface.
-- **Layouts**. Layouts consist mostly of groups of Blocks and Components stitched together to form pages.
 - **Pages**. Each page is associated with a route based on its file name.
 
 ### Images in Next.js

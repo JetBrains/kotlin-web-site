@@ -12,7 +12,7 @@ from urllib.parse import urlparse, urljoin, ParseResult
 import xmltodict
 import yaml
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, Response, send_from_directory, request, redirect
+from flask import Flask, render_template, Response, send_from_directory, request
 from flask.views import View
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
@@ -244,32 +244,17 @@ def static_file(path):
 
 @app.route('/community/')
 def community_page():
-    return send_file('out/community.html')
+    return send_file(path.join(root_folder, 'out', 'community.html'))
 
 
-@app.route('/community/events')
+@app.route('/community/events.html')
 def community_events_page():
-    return send_file('out/community/events.html')
+    return send_file(path.join(root_folder, 'out', 'community/events.html'))
 
 
-@app.route('/community/user-groups')
+@app.route('/community/user-groups.html')
 def community_user_groups_page():
-    return send_file('out/community/user-groups.html')
-
-
-@app.route('/user-groups/user-group-list.html')
-def user_group_list():
-    return redirect(url_for('community_user_groups_page'), 301)
-
-
-@app.route('/community/kotlin-nights/guidelines.html')
-def kotlin_nights_guidelines():
-    return redirect('/docs/kotlin-nights-branding.html', 301)
-
-
-@app.route('/community/kotlin-nights/branding.html')
-def kotlin_nights_branding():
-    return redirect('/docs/kotlin-nights-branding.html', 301)
+    return send_file(path.join(root_folder, 'out', 'community/user-groups.html'))
 
 
 @app.route('/education/')

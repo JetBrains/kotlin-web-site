@@ -21,11 +21,11 @@ const items = [
         title: 'Overview',
     },
     {
-        url: '/community/user-groups',
+        url: '/community/user-groups.html',
         title: 'Kotlin User Groups',
     },
     {
-        url: '/community/events',
+        url: '/community/events.html',
         title: 'Events',
     },
 ];
