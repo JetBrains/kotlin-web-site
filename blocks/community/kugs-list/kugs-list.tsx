@@ -1,6 +1,6 @@
 import React, {FC, useMemo} from "react";
 import classnames from 'classnames';
-import kugsLogo from "../../../public/community/images/kugs-logo.svg"
+import kugsLogo from "../../../public/images/community/kugs-logo.svg"
 import styles from './kugs-list.module.css';
 import {Image} from "../../../components/image/image";
 
