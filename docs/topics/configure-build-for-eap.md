@@ -15,7 +15,7 @@ The EAP version of Kotlin may not work with the libraries of the previously rele
 The following procedures describe how to configure your build in Gradle and Maven:
 
 * [Configure in Gradle](#configure-in-gradle)
-* [Configure in Maven](#configure-in-maven)  
+* [Configure in Maven](#configure-in-maven)
 
 ## Configure in Gradle 
 
@@ -38,8 +38,8 @@ Here is an example for the Multiplatform project.
 
 ```kotlin
 plugins {
-   java
-   kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
+    java
+    kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
 }
 
 repositories {
@@ -52,12 +52,12 @@ repositories {
 
 ```groovy
 plugins {
-   id 'java'
-   id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
+    id 'java'
+    id 'org.jetbrains.kotlin.multiplatform' version 'KOTLIN-EAP-VERSION'
 }
 
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
 ```
 
@@ -147,4 +147,3 @@ In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the ac
     </build>
 </project>
 ```
-
