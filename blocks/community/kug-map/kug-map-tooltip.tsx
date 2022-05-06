@@ -17,13 +17,13 @@ export const KugMapTooltip: FC<KugMapTooltipProps> = ({group, onClose}) => {
     const handleClick = useCallback(event => {
         event.stopPropagation();
         onClose('');
-    }, []);
+    }, [onClose]);
 
     return (
         <div className={cn('ktl-text-3', styles.tooltip)}>
             <div className={styles.content}>
                 <div>
-                    <a href={group.url} target="_blank" className={linkClass}>{group.name}</a>
+                    <a href={group.url} target="_blank" rel="noopener noreferrer" className={linkClass}>{group.name}</a>
                     <div className={styles.appendix}>{group.country}</div>
                 </div>
 

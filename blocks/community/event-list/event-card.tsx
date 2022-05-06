@@ -21,7 +21,7 @@ export const EventCard: FC<EventCardProps> = ({event}) => {
     const cardClassName = cn(cardCn({paddings: 16, isClickable: true}), `${styles.card} ktl-text-3`);
 
     return (
-        <a className={cardClassName} href={event.url} target={'_blank'}>
+        <a className={cardClassName} href={event.url} target={'_blank'} rel="noopener noreferrer">
             <div className={styles.header}>
                 <div>
                     {event.formattedDate}
@@ -40,9 +40,21 @@ export const EventCard: FC<EventCardProps> = ({event}) => {
 
                     {event.content && (
                         <div className={styles.materials}>
-                            {event.content.video && <Button href={event.content.video} target={'_blank'} size={'s'} icon={<YoutubeIcon />} />}
+                            {event.content.video && <Button
+                              href={event.content.video}
+                              target={'_blank'}
+                              /** @ts-ignore **/
+                              rel="noopener noreferrer"
+                              size={'s'}
+                              icon={<YoutubeIcon /> } />}
 
-                            {event.content.slides && <Button href={event.content.slides} target={'_blank'} size={'s'} icon={<FilesIcon />} />}
+                            {event.content.slides && <Button
+                              href={event.content.slides}
+                              target={'_blank'}
+                                /** @ts-ignore **/
+                              rel="noopener noreferrer"
+                              size={'s'}
+                              icon={<FilesIcon />} />}
                         </div>
                     )}
                 </div>

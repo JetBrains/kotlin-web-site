@@ -24,7 +24,7 @@ export const ModeSelect: FC<ModeSelectProps> = ({label, value, options, classNam
     const handleSelect = useCallback(value => {
         onSelect(value);
         toggleIsOpen();
-    }, [onSelect]);
+    }, [onSelect, toggleIsOpen]);
 
     return (
       <div className={cn(styles.wrapper, className)}>

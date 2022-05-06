@@ -42,7 +42,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
     const linkHandler = useCallback((event, url) => {
         event.preventDefault();
         router.push(url);
-    }, []);
+    }, [router]);
 
     return (
         <>
