@@ -17,15 +17,15 @@ const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const items = [
     {
-        url: '/community',
+        url: '/community/',
         title: 'Overview',
     },
     {
-        url: '/community/user-groups.html',
+        url: '/community/user-groups/',
         title: 'Kotlin User Groups',
     },
     {
-        url: '/community/events.html',
+        url: '/community/events/',
         title: 'Events',
     },
 ];
@@ -38,7 +38,7 @@ interface CommunityLayoutProps {
 export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => {
     const [theme, setTheme] = useState<Theme>('dark');
     const router = useRouter();
-    const activeIndex = useMemo(() => items.map(item => item.url).indexOf(router.pathname), [router.pathname]);
+    const activeIndex = useMemo(() => items.map(item => item.url).indexOf(addTrailingSlash(router.pathname)), [router.pathname]);
     const linkHandler = useCallback((event, url) => {
         event.preventDefault();
         router.push(url);
@@ -88,4 +88,8 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <Search />
         </>
     );
+}
+
+function addTrailingSlash(path: string): string {
+    return path.endsWith('/') ? path : `${path}/`
 }

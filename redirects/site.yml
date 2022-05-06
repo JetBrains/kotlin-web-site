@@ -18,13 +18,16 @@
 - from: /community.html
   to: /community/
 
-- from: /user-groups/user-group-list.html
-  to: /community/user-groups.html
+- from:
+   - /user-groups/user-group-list.html
+   - /community/user-groups.html
+  to: /community/user-groups/
 
 - from:
    - /docs/events.html
    - /community/talks.html
-  to: /community/events.html
+   - /community/events.html
+  to: /community/events/
 
 - from:
    - /community/kotlin-nights/guidelines.html

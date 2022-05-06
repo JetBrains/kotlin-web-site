@@ -102,7 +102,6 @@
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
-    "next-build-static": "next build && next export && yarn run normalize-nextjs-html-names",
-    "normalize-nextjs-html-names": "node ./scripts/normalize-nextjs-html-names.js"
+    "next-build-static": "next build && next export"
   }
 }

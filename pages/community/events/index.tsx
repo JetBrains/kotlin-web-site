@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@rescui/button";
-import { EventList } from "../../blocks/community/event-list/event-list";
-import {CommunityLayout} from "../../blocks/community/layout/community-layout";
+import { EventList } from "../../../blocks/community/event-list/event-list";
+import {CommunityLayout} from "../../../blocks/community/layout/community-layout";
 
 function UserGroups() {
     return (

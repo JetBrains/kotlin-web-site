@@ -21,6 +21,8 @@ const nextConfig = {
     disableStaticImages: true
   },
 
+  trailingSlash: true,
+
   webpack: (config, options) => {
     patchWebpackConfig(config, options);
 

@@ -244,17 +244,17 @@ def static_file(path):
 
 @app.route('/community/')
 def community_page():
-    return send_file(path.join(root_folder, 'out', 'community.html'))
+    return send_file(path.join(root_folder, 'out', 'community/index.html'))
 
 
-@app.route('/community/events.html')
+@app.route('/community/events/')
 def community_events_page():
-    return send_file(path.join(root_folder, 'out', 'community/events.html'))
+    return send_file(path.join(root_folder, 'out', 'community/events/index.html'))
 
 
-@app.route('/community/user-groups.html')
+@app.route('/community/user-groups/')
 def community_user_groups_page():
-    return send_file(path.join(root_folder, 'out', 'community/user-groups.html'))
+    return send_file(path.join(root_folder, 'out', 'community/user-groups/index.html'))
 
 
 @app.route('/education/')
