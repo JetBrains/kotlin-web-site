@@ -13,7 +13,6 @@ module.exports = (params = {}) => {
   const sourcemaps = params.sourcemaps || isDevelopment;
 
   const siteHost = 'localhost:8080';
-  const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
   return {
@@ -163,7 +162,6 @@ module.exports = (params = {}) => {
       }),
 
       new webpack.DefinePlugin({
-        webDemoURL: JSON.stringify(webDemoURL),
         indexName: JSON.stringify(indexName),
         'process.env.NODE_ENV': JSON.stringify(env)
       })
