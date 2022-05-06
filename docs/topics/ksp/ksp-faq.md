@@ -60,7 +60,7 @@ With KSP version `major.minor.patch`,
 * `patch` is reserved for bug fixes and new Kotlin releases. It's updated roughly monthly.
 
 Usually a corresponding KSP release is available within a couple of days after a new Kotlin version is released,
-including the pre-releases (e.g., M1/M2/RC).
+including the [pre-releases (Beta or RC)](eap.md).
 
 ### Besides Kotlin, are there other version requirements to libraries?
 
