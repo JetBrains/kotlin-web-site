@@ -23,6 +23,10 @@ const nextConfig = {
 
   trailingSlash: true,
 
+  eslint: {
+    dirs: ['blocks', 'components', 'pages'],
+  },
+
   webpack: (config, options) => {
     patchWebpackConfig(config, options);
 

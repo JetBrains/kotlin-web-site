@@ -85,14 +85,9 @@
   },
   "devDependencies": {
     "@types/react": "17.0.43",
-    "@typescript-eslint/eslint-plugin": "5.21.0",
-    "@typescript-eslint/parser": "5.21.0",
     "eslint": "8.14.0",
+    "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-jsx-a11y": "6.5.1",
-    "eslint-plugin-react": "7.29.4",
-    "eslint-plugin-react-hooks": "4.5.0",
     "glob": "7.1.1",
     "minimist": "1.2.6",
     "next": "12.1.4",
@@ -111,6 +106,7 @@
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
-    "next-build-static": "next build && next export"
+    "next-build-static": "next build && next export",
+    "lint": "next lint"
   }
 }
