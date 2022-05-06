@@ -506,24 +506,3 @@ foundation:
       title: Kotlin Brand Usage Guidelines
     - url: /foundation/faq.html
       title: FAQ
-
-groups:
-  content:
-    - url: /user-groups/user-group-list.html
-      title: Kotlin User Groups List
-    - url: /user-groups/support.html
-      title: Guidelines and Support
-    - url: /user-groups/branding.html
-      title: Branding materials
-    - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
-      title: Code of Conduct
-
-
-events:
-  content:
-    - url: /community/events.html
-      title: Kotlin Events
-    - url: /community/kotlin-nights/guidelines.html
-      title: Guidelines and Support
-    - url: /community/kotlin-nights/branding.html
-      title: Branding materials

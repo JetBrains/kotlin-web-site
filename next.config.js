@@ -2,8 +2,8 @@ const packageJSON = require('./package.json');
 
 const withPlugins = require('next-compose-plugins');
 const { patchWebpackConfig } = require('next-global-css');
-const optimizedImages = require('next-optimized-images');
 const nextTranspileModules = require('next-transpile-modules');
+const optimizedImages = require('next-optimized-images');
 
 let transpiledPackages = [
   '@jetbrains/kotlin-web-site-ui',
@@ -16,11 +16,13 @@ const withTranspile = nextTranspileModules(transpiledPackages);
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  fileExtensions: ["jpg", "jpeg", "png", "gif", "svg"],
-  inlineImageLimit: 0,
+
   images: {
-    disableStaticImages: true,
+    disableStaticImages: true
   },
+
+  trailingSlash: true,
+
   webpack: (config, options) => {
     patchWebpackConfig(config, options);
 
@@ -40,9 +42,5 @@ const nextConfig = {
 
 module.exports = withPlugins([
   [withTranspile],
-  [optimizedImages, {
-    handleImages: ['jpeg', 'png', "svg"],
-    imagesFolder: 'images',
-    optimizeImagesInDev: true
-  }]
+  [optimizedImages]
 ], nextConfig);

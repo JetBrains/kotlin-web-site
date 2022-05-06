@@ -1,0 +1,11 @@
+{
+  "presets":  [
+    [
+      "@jetbrains/babel-preset-jetbrains",
+      {
+        "corejs": 3,
+        "transformRuntime": true
+      }
+    ]
+  ]
+}

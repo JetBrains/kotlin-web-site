@@ -2,7 +2,8 @@ import React, {FC} from "react";
 import classNames from 'classnames';
 
 import styles from './community-banner.module.css';
-import communityBanner from '../../../public/images/community-banner.png';
+import communityBanner from '../../../public/images/community/community-banner.png';
+import {Img} from 'react-optimized-image';
 
 interface CommunityBannerProps {
     title: string;
@@ -19,7 +20,7 @@ export const CommunityBanner: FC<CommunityBannerProps> = ({title, children}) => 
                 </div>
             </div>
             <div className={styles.image}>
-                <img src={communityBanner} alt="Community banner image" />
+                <Img src={communityBanner} sizes={[720]} densities={[1, 2]}/>
             </div>
         </div>
     );

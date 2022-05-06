@@ -11,18 +11,21 @@ import {Theme, ThemeProvider } from "@rescui/ui-contexts";
 import { useRouter } from "next/router";
 import {Favicon} from "../../../components/favicon/favicon";
 import {Search, onSearch} from "../../../components/search/search";
+import releasesDataRaw from '../../../data/releases.yml';
+
+const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const items = [
     {
-        url: '/community',
+        url: '/community/',
         title: 'Overview',
     },
     {
-        url: '/community/user-groups',
+        url: '/community/user-groups/',
         title: 'Kotlin User Groups',
     },
     {
-        url: '/community/events',
+        url: '/community/events/',
         title: 'Events',
     },
 ];
@@ -35,7 +38,7 @@ interface CommunityLayoutProps {
 export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => {
     const [theme, setTheme] = useState<Theme>('dark');
     const router = useRouter();
-    const activeIndex = useMemo(() => items.map(item => item.url).indexOf(router.pathname), [router.pathname]);
+    const activeIndex = useMemo(() => items.map(item => item.url).indexOf(addTrailingSlash(router.pathname)), [router.pathname]);
     const linkHandler = useCallback((event, url) => {
         event.preventDefault();
         router.push(url);
@@ -52,7 +55,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <GlobalHeader
                 currentUrl={COMMUNITY_URL}
                 currentTitle={COMMUNITY_TITLE}
-                productWebUrl={''}
+                productWebUrl={releasesData.latest.url}
                 hasSearch={true}
                 onSearchClick={onSearch}
             />
@@ -85,4 +88,8 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({title, children}) => 
             <Search />
         </>
     );
+}
+
+function addTrailingSlash(path: string): string {
+    return path.endsWith('/') ? path : `${path}/`
 }

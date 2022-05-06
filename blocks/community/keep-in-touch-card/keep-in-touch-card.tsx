@@ -4,7 +4,7 @@ import {cardCn} from "@rescui/card";
 import styles from './keep-in-touch-card.module.css'
 
 export interface KeepInTouchCardProps {
-    icon: string;
+    icon: ImgSrc;
     title: string;
     description: string;
     link: string;
@@ -18,7 +18,7 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({icon, title, descript
         <a href={link} target="_blank" rel="noopener noreferrer" className={cardClassName}>
             <div className={styles.wrapper}>
                 <div className={classNames(styles.icon)}>
-                    <img src={icon} alt={title}/>
+                    <img src={icon.src} alt={title} />
                 </div>
                 <div className={classNames(styles.bottom)}>
                     <div className={classNames(styles.title, 'ktl-h3')}>
