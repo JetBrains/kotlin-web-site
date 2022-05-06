@@ -13,6 +13,7 @@ module.exports = (params = {}) => {
   const sourcemaps = params.sourcemaps || isDevelopment;
 
   const siteHost = 'localhost:8080';
+  const nextJSHost = 'localhost:3000';
   const indexName = params['index-name'] || 'dev_KOTLINLANG';
 
   return {
@@ -171,6 +172,18 @@ module.exports = (params = {}) => {
       port: 9000,
       hot: true,
       proxy: {
+        '/community/**': {
+          target: `http://${nextJSHost}`,
+          bypass: function (req) {
+            req.headers.host = nextJSHost;
+          }
+        },
+        '/_next/**': {
+          target: `http://${nextJSHost}`,
+          bypass: function (req) {
+            req.headers.host = nextJSHost;
+          }
+        },
         '/**': {
           target: `http://${siteHost}`,
           bypass: function (req) {
