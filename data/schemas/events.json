@@ -42,6 +42,14 @@
           }
         },
         "additionalProperties": false
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "__cdata": {
+            "type": "string"
+          }
+        }
       }
     },
     "additionalProperties": false,
