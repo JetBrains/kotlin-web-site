@@ -93,4 +93,4 @@ You can find all pages in the "pages" directory.
 
 ### Images in Next.js
 Notice that using 'next/image' is not possible because Next.js does not support importing images to HTML files (SSG).
-Use our custom Image component instead.    
+Use Img and Svg components from "next-optimized-images" instead.

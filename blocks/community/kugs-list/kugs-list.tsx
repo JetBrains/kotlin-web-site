@@ -2,7 +2,7 @@ import React, {FC, useMemo} from "react";
 import classnames from 'classnames';
 import kugsLogo from "../../../public/images/community/kugs-logo.svg"
 import styles from './kugs-list.module.css';
-import {Image} from "../../../components/image/image";
+import {Svg} from 'react-optimized-image';
 
 interface KugsListProps {
     userGroupData: UserGroupsData
@@ -49,7 +49,7 @@ export const KugsList: FC<KugsListProps> = ({userGroupData}) => {
     return (
         <div className={styles.wrapper}>
             <h2 className={classnames(styles.title, "ktl-hero ktl-offset-bottom-l")}>
-                <Image className={styles.logo} src={kugsLogo} alt="Kotlin User Groups"/>
+                <Svg className={styles.logo} src={kugsLogo} />
                 {countUserGroups} KUGs around the world
             </h2>
             <ul className={styles.list}>
