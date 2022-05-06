@@ -6,6 +6,7 @@ import {ModeSelect, SelectOption} from "./mode-select";
 import {EventCard} from "./event-card";
 import styles from "./event-list.module.css";
 import {communityEvents} from "./community-events";
+import {CommunityEvent} from "./community-event";
 
 interface EventType {
     value: string;
@@ -57,7 +58,9 @@ export const EventList = () => {
     }, [router]);
 
     const events = useMemo(() => {
-        return communityEvents.filter(event => eventMode === upcomingEvent.value ? event.isUpcoming() : !event.isUpcoming());
+        return communityEvents
+            .filter(event => eventMode === upcomingEvent.value ? event.isUpcoming() : !event.isUpcoming())
+            .sort(sortBy(eventMode === upcomingEvent.value ? 'desc' : 'asc'));
     }, [eventMode]);
 
     const visibleEvents = useMemo(() => {
@@ -155,3 +158,17 @@ export const EventList = () => {
         </div>
     );
 };
+
+function sortBy(direction: 'asc' | 'desc') {
+    return ({ endDate: first }: CommunityEvent, { endDate: second }: CommunityEvent) => {
+        if (first === second) {
+            return 0;
+        }
+
+        if (direction === 'asc') {
+            return first < second ? 1 : -1;
+        } else {
+            return first < second ? -1 : 1;
+        }
+    };
+}
