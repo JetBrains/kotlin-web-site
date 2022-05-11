@@ -1,11 +1,11 @@
-import React from "react";
-import Button from "@rescui/button";
-import { EventList } from "../../../blocks/community/event-list/event-list";
-import {CommunityLayout} from "../../../blocks/community/layout/community-layout";
+import React from 'react';
+import Button from '@rescui/button';
+import { EventList } from '../../../blocks/community/event-list/event-list';
+import { CommunityLayout } from '../../../blocks/community/layout/community-layout';
 
 function UserGroups() {
     return (
-        <CommunityLayout title={"Community Events"}>
+        <CommunityLayout title={'Community Events'}>
             <EventList />
 
             <div className={'ktl-container ktl-offset-bottom-xxl'}>
@@ -14,34 +14,37 @@ function UserGroups() {
                         <h3 className={'ktl-h2 ktl-offset-top-xxl'}>Support for Kotlin speakers</h3>
 
                         <p className={'ktl-text-1 ktl-offset-top-s ktl-offset-bottom-m'}>
-                            If you are planning to give a presentation about Kotlin at an event,
-                            please let us know about your upcoming talk by filling out this form.
-                            We'll be glad to ship a t-shirt for you,
+                            If you are planning to give a presentation about Kotlin at an event, please let us know
+                            about your upcoming talk by filling out this form. We'll be glad to ship a t-shirt for you,
                             along with some stickers and swag for the participants of the event you’ll be speaking at.
                         </p>
 
                         <Button
-                            href={"https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk"}
+                            href={'https://surveys.jetbrains.com/s3/Submit-a-Kotlin-Talk'}
                             target="_blank"
                             mode={'outline'}
                             size={'l'}
-                        >I am a Speaker →</Button>
+                        >
+                            I am a Speaker →
+                        </Button>
                     </div>
 
                     <div className="ktl-col-12 ktl-col-md-6 ktl-col-lg-5 ktl-col-lg-offset-1">
                         <h3 className={'ktl-h2 ktl-offset-top-xxl'}>Organize a Kotlin Night</h3>
 
                         <p className={'ktl-text-1 ktl-offset-top-s ktl-offset-bottom-m'}>
-                            A Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies,
-                            and you can get support from JetBrains to organize one.
+                            A Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies, and
+                            you can get support from JetBrains to organize one.
                         </p>
 
                         <Button
-                            href={"https://kotlinlang.org/docs/kotlin-nights-branding.html#kotlin-night-event"}
+                            href={'https://kotlinlang.org/docs/kotlin-nights-branding.html#kotlin-night-event'}
                             target="_blank"
                             mode={'outline'}
                             size={'l'}
-                        >Organize a Kotlin Night →</Button>
+                        >
+                            Organize a Kotlin Night →
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -22,10 +22,16 @@
 }
 
 @media (min-width: 768px) {
+
+    .wrapper {
+        padding: 64px 0 96px;
+    }
+
     .actions {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 32px;
     }
 
     .list {

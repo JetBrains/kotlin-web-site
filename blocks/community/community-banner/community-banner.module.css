@@ -1,6 +1,6 @@
 .content {
-    margin: 24px 0 var(--ktl-grid-gutter);
-    max-width: 720px;
+    margin: 24px 0 calc(2 * var(--ktl-grid-gutter));
+    max-width: 724px;
 }
 
 .text {
@@ -13,7 +13,7 @@
 
 @media (min-width: 768px) {
     .content {
-        margin-top: var(--ktl-grid-gutter);
+        margin: calc(2 * var(--ktl-grid-gutter)) 0;
     }
 }
 
@@ -27,6 +27,6 @@
         display: block;
         width: 640px;
         right: 0;
-        top: 0;
+        top: -32px;
     }
 }
