@@ -59,15 +59,15 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, children }) =
                 <meta name="viewport" content="width=device-width" />
             </Head>
 
-            <StickyHeader>
-                <GlobalHeader
-                    currentUrl={COMMUNITY_URL}
-                    currentTitle={COMMUNITY_TITLE}
-                    productWebUrl={releasesData.latest.url}
-                    hasSearch={true}
-                    onSearchClick={onSearch}
-                />
+            <GlobalHeader
+                currentUrl={COMMUNITY_URL}
+                currentTitle={COMMUNITY_TITLE}
+                productWebUrl={releasesData.latest.url}
+                hasSearch={true}
+                onSearchClick={onSearch}
+            />
 
+            <StickyHeader>
                 <TopMenu
                     homeUrl={COMMUNITY_URL}
                     title={COMMUNITY_TITLE}
