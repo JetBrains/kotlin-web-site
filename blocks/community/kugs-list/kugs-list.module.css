@@ -56,6 +56,10 @@
         column-count: 4;
         column-gap: 32px;
     }
+
+    .region:not(:last-child) {
+        margin-bottom: 88px;
+    }
 }
 
 @media (min-width: 1024px) {
