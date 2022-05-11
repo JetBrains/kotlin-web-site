@@ -20,7 +20,7 @@ particular cross-platform mobile development tasks:
 * [Check out the list of sample projects](multiplatform-mobile-samples.md)
 * [Introduce cross-platform mobile development to your team](multiplatform-mobile-introduce-your-team.md)
 
-### Hands-on labs
+## Hands-on labs
 
 Hands-on labs are long-form tutorials that help you get to know a technology by guiding you through
 a self-contained project related to a specific topic.
@@ -36,3 +36,10 @@ a self-contained project related to a specific topic.
   teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server
   application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
   introduction to working with Ktor both as a server- and client-side framework.
+
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **StackOverflow**. Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
