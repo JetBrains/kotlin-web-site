@@ -21,6 +21,23 @@ you can omit the type arguments:
 val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
 ```
 
+## Where
+
+Whenever you want your generic type to have some bounds or constraints like your generic type must inherit from a particular class or interface, you define that to ensure your passed types meet your constraints:
+
+```
+fun <T: Comparable<T>> findMax(vararg items: T): T?{
+    return items.maxOrNull()
+}
+```
+
+For multiple upper bounds, you should define them after the signature of the function with `where` keyword and separate each with a comma:
+```
+fun <T> sortList(list: List<T>) where T: CharSequence, T:Comparable<T>{
+    // sort list
+}
+```
+
 ## Variance
 
 One of the trickiest aspects of Java's type system is the wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
