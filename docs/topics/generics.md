@@ -321,6 +321,12 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type
 must implement _both_ `CharSequence` and `Comparable`.
 
+```
+fun <T> sortList(list: List<T>) where T: CharSequence, T: Comparable<T>{
+    // sort list
+}
+```
+
 ## Type erasure
 
 The type safety checks that Kotlin performs for generic declaration usages are done at compile time.
