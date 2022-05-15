@@ -142,7 +142,7 @@
       lng: 6.7734556
   - name: Dutch Kotlin User Group
     country: Netherlands
-    url: http://kotlin.nl/
+    url: https://kotlin.nl/
     position:
       lat: 52.132633
       lng: 5.291266
