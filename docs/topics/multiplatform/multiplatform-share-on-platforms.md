@@ -276,3 +276,8 @@ To enable this support, specify the additional `kotlin.mpp.enableCInteropCommoni
 ```properties
 kotlin.mpp.enableCInteropCommonization=true
 ```
+
+## What's next?
+
+* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-connect-to-apis.md)
+* Learn more about [hierarchical project structure](multiplatform-hierarchy.md)
