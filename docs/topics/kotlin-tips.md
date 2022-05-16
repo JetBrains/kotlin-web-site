@@ -8,7 +8,7 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 ## Return and throw with the Elvis operator
 
-Elvis has entered the building once more! Seb explains why the operator is named after the famous singer, and how you can use `?:` in Kotlin to return or throw. The magic behind the scenes? [The Nothing type](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html).
+[Elvis](null-safety.md#elvis-operator) has entered the building once more! Seb explains why the operator is named after the famous singer, and how you can use `?:` in Kotlin to return or throw. The magic behind the scenes? [The Nothing type](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html).
 
 <video width="560" height="315" href="L8aFK7QrbA8" title="Kotlin Tips: Return and Throw with the Elvis Operator"/>
 
