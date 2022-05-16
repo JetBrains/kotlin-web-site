@@ -4,6 +4,14 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+
+
+## Return and throw with the Elvis operator
+
+[Elvis](null-safety.md#elvis-operator) has entered the building once more! Seb explains why the operator is named after the famous singer, and how you can use `?:` in Kotlin to return or throw. The magic behind the scenes? [The Nothing type](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html).
+
+<video width="560" height="315" href="L8aFK7QrbA8" title="Kotlin Tips: Return and Throw with the Elvis Operator"/>
+
 ## Destructuring declarations
 
 With [destructuring declarations](destructuring-declarations.md) in Kotlin, you can create multiple variables from a single object, all at once. In this video Sebastian shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin’s component functions provide an answer for those as well:
