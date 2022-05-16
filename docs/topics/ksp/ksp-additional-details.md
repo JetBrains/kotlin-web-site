@@ -10,7 +10,6 @@ in KSP:
 >
 {type="note"}
 
-
 ## Type and resolution
 
 The resolution takes most of the cost of the underlying API implementation. So type references are designed to be
