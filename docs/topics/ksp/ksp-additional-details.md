@@ -6,7 +6,7 @@ in KSP:
 
 ![class diagram](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
 
-> [See the full-sized svg image](images/ksp-class-diagram.svg).
+> [See the full-sized svg image](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
 >
 {type="note"}
 
