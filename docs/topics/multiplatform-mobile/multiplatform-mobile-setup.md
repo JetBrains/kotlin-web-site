@@ -148,3 +148,8 @@ To make sure everything works as expected, install and run the KDoctor tool:
 ## Next step
 
 Once the setup is ready, you can move on and [create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
