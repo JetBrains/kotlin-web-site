@@ -1,7 +1,7 @@
 [//]: # (title: Interfaces)
 
 Interfaces in Kotlin can contain declarations of abstract methods, as well as method
-implementations. What makes them different from abstract classes is that interfaces cannot store a state. They can have
+implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
 properties, but these need to be abstract or provide accessor implementations.
 
 An interface is defined using the keyword `interface`:
