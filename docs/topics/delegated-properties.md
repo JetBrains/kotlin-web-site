@@ -311,7 +311,7 @@ val readOnly: Int by resourceDelegate()  // ReadWriteProperty as val
 var readWrite: Int by resourceDelegate()
 ```
 
-### Translation rules for delegated properties
+## Translation rules for delegated properties
 
 Under the hood, the Kotlin compiler generates an auxiliary property for every delegated property and then delegates to it.
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
@@ -367,7 +367,7 @@ class C<Type> {
 }
 ```
 
-### Providing a delegate
+## Providing a delegate
 
 By defining the `provideDelegate` operator, you can extend the logic for creating the object to which the property implementation
 is delegated. If the object used on the right-hand side of `by` defines `provideDelegate` as a member or extension function,
