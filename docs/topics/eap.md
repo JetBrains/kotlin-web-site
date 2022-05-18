@@ -35,6 +35,19 @@ check [our instructions on how to configure your build to support this version](
         <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
+        <td><strong>1.7.0-RC</strong>
+            <p>Released: <strong>May 19, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-RC" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>Stabilization of Kotlin 1.7.0-Beta features.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-RC">changelog</a>.</p>
+        </td>
+        <td>
+            <p>Same as for Kotlin 1.7.0-Beta, see the row below.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.7.0-Beta</strong>
             <p>Released: <strong>May 5, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-Beta" target="_blank">Release on GitHub</a></p>
