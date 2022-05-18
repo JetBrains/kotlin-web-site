@@ -44,7 +44,7 @@ check [our instructions on how to configure your build to support this version](
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-RC">changelog</a>.</p>
         </td>
         <td>
-            <p>Same as for Kotlin 1.7.0-Beta, see the row below.</p>
+            <p>Same as for Kotlin 1.7.0-Beta, see below.</p>
         </td>
     </tr>
     <tr>
