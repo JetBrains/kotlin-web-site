@@ -104,6 +104,12 @@
     position:
       lat: 50.937531
       lng: 6.9602786
+  - name: Cosenza Kotlin User Group
+    country: Italy
+    url: https://www.facebook.com/groups/251720265392355/
+    position:
+      lat: 39.3048613
+      lng: 16.217289
   - name: Croatia Kotlin User Group
     country: Croatia
     url: https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/
