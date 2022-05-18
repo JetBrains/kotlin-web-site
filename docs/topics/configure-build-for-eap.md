@@ -1,7 +1,5 @@
 [//]: # (title: Configure your build for EAP)
 
-> Are you participating in any of the Kotlin Early Access Programs? [Take the survey](https://surveys.jetbrains.com/s3/kotlin-eaps-survey).
-
 If you create new projects using the EAP version of Kotlin, you don’t need to perform any additional steps. The [Kotlin Plugin](install-eap-plugin.md) will do everything for you!
 
 You only need to configure your build manually for existing projects — projects that were created before installing the EAP version.
