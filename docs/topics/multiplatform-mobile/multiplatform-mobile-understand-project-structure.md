@@ -13,9 +13,9 @@ To view the complete structure of your mobile multiplatform project, switch the 
 A basic Kotlin Mobile Multiplatform project consists of three components:
 
 * _Shared module_ – a Kotlin module that contains common logic for both Android and iOS applications.
-Builds into an Android library and an iOS framework. Uses Gradle as a build system.
+Builds into an Android library and an iOS framework. Uses Gradle as the build system.
 * _Android application_ – a Kotlin module that builds into the Android application.
-Uses Gradle as a build system.
+Uses Gradle as the build system.
 * _iOS application_ – an Xcode project that builds into the iOS application.
 
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=700}
