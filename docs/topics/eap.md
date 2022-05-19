@@ -36,7 +36,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.7.0-RC</strong>
-            <p>Released: <strong>May 19, 2022</strong></p>
+            <p>Released: <strong>May 20, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
