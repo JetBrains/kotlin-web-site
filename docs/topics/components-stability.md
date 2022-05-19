@@ -32,7 +32,7 @@ Please note that stability levels do not say anything about how soon a component
 
 ## GitHub badges for Kotlin components
 
-Kotlin GitHub organization hosts many Kotlin-related projects. Some of them are developed fulltime by a dedicated team, and others are some team member side project.
+Kotlin GitHub organization hosts many Kotlin-related projects. Some of them are developed full-time by a dedicated team, and others are some team member side project.
 We want Kotlin users to understand the stability and support status of each of the libraries we provide.
 That’s why we explicitly state two statuses for each library:
 
