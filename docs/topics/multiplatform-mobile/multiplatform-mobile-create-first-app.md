@@ -143,3 +143,8 @@ Go on and [add dependencies to your project](multiplatform-mobile-dependencies.m
 * See how to [create and run multiplatform tests](multiplatform-run-tests.md) to check that the code works correctly.
 * Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md), the shared module's
 artifacts and how the Android and iOS apps are produced.
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
