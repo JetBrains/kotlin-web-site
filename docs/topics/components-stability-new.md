@@ -7,42 +7,37 @@ Among such stable components are, for example, the Kotlin compiler for the JVM, 
 Following the _Feedback Loop_ principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**.
 Some of them are very early stage, some are more mature. We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving and how much risk the users are taking when adopting it. 
 
-## Stability levels explained
+## Stability and support levels explained
 
-Here's a quick guide to these stability levels and their meaning:
+* **Stability**. How quickly each project is evolving and how much risk the users are taking when adopting it.
+    <deflist style="narrow">
+        <def title="Experimental">
+            <p>GitHub badge: ![Experimental stability level](project-experimental-kotlin.svg){type="joined"}</p>
+            <p>Means "try it only in toy projects".</p>
+            <p>We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.</p>
+        </def>
+        <def title="Alpha">
+            <p>GitHub badge: ![Alpha stability level](project-alpha-kotlin.svg){type="joined"}</p>
+            <p>Means "use at your own risk, expect migration issues".</p>
+            <p>We decided to productize this idea, but it hasn't reached the final shape yet.</p>
+        </def>
+        <def title="Beta">
+            <p>GitHub badge: ![Beta stability level](project-beta-kotlin.svg){type="joined"}</p>
+            <p>Means "you can use it, we'll do our best to minimize migration issues for you"</p>
+            <p>It’s almost done, user feedback is especially important now. Still, it's not 100% finished, so changes are possible (including ones based on your own feedback). Watch for deprecation warnings in advance for the best update experience.</p>
+        </def>
+        <def title="Stable">
+            <p>GitHub badge: ![Stable stability level](project-stable-kotlin.svg){type="joined"}</p>
+            <p>Means "use it even in most conservative scenarios".</p>
+            <p>It’s done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).</p>
+        </def>
+    </deflist>
 
-**Experimental** means "try it only in toy projects":
-  * We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
-
-**Alpha** means "use at your own risk, expect migration issues": 
-  * We decided to productize this idea, but it hasn't reached the final shape yet.
-
-**Beta** means "you can use it, we'll do our best to minimize migration issues for you": 
-  * It’s almost done, user feedback is especially important now.
-  * Still, it's not 100% finished, so changes are possible (including ones based on your own feedback).
-  * Watch for deprecation warnings in advance for the best update experience.
-
-We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** levels.
-
-<a name="stable"></a>
-**Stable** means "use it even in most conservative scenarios":
-  * It’s done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
-
-Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
-
-## GitHub badges for Kotlin components
-
-Kotlin GitHub organization hosts many Kotlin-related projects. Some of them are developed fulltime by a dedicated team, and others are some team member side project.
-We want Kotlin users to understand the stability and support status of each of the libraries we provide.
-That’s why we explicitly state two statuses for each library:
-
-* **Stability**. How quickly each project is evolving and how much risk the users are taking when adopting it:
-    * ![Experimental stability level](project-experimental-kotlin.svg){type="joined"}
-    * ![Alpha stability level](project-alpha-kotlin.svg){type="joined"}
-    * ![Beta stability level](project-beta-kotlin.svg){type="joined"}
-    * ![Stable stability level](project-stable-kotlin.svg){type="joined"}
 * **Support**. What is our commitment to maintaining each project and helping users to solve their problems.
-  The level of support is unified for all JetBrains products. [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
+  The level of support is unified for all JetBrains products.  
+
+  [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
+
 
 ## Stability of subcomponents
 
