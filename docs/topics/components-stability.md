@@ -33,7 +33,7 @@ Please note that stability levels do not say anything about how soon a component
 ## GitHub badges for Kotlin components
 
 [Kotlin GitHub organization](https://github.com/Kotlin) hosts different Kotlin-related projects.
-Some of them we develop full-time, some of them are our side projects.
+Some of them we develop full-time, others are side projects.
 
 Each Kotlin project has two GitHub badges describing its stability and support status:
 
