@@ -14,21 +14,24 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 ## Set up the environment to work with CocoaPods
 
-1. Install the [CocoaPods dependency manager](https://cocoapods.org/):
+Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-    ```ruby
-    $ sudo gem install cocoapods
-    ```
+```ruby
+sudo gem install cocoapods
+```
 
-2. Install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate) plugin:
+* If you use Kotlin prior to version 1.7.0, install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
+plugin:
 
-    ```ruby
-    $ sudo gem install cocoapods-generate
-    ```
+  ```ruby
+  sudo gem install cocoapods-generate
+  ```
+  
+  > `cocoapods-generate` couldn't be installed on Ruby 3 and later.
+  > 
+  {type="note"}
 
-> If you encounter any problems during the installation, follow the [official CocoaPods installation guide](https://guides.cocoapods.org/using/getting-started.html#getting-started)
-> 
-{type="note"}
+* If you encounter any problems during the installation, follow the [official CocoaPods installation guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
 
