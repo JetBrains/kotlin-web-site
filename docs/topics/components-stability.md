@@ -32,17 +32,21 @@ Please note that stability levels do not say anything about how soon a component
 
 ## GitHub badges for Kotlin components
 
-Kotlin GitHub organization hosts many Kotlin-related projects. Some of them are developed full-time by a dedicated team, and others are some team member side project.
-We want Kotlin users to understand the stability and support status of each of the libraries we provide.
-That’s why we explicitly state two statuses for each library:
+[Kotlin GitHub organization](https://github.com/Kotlin) hosts different Kotlin-related projects.
+Some of them we develop full-time, some of them are our side projects.
 
-* **Stability**. How quickly each project is evolving and how much risk the users are taking when adopting it:
-    * ![Experimental stability level](project-experimental-kotlin.svg){type="joined"}
-    * ![Alpha stability level](project-alpha-kotlin.svg){type="joined"}
-    * ![Beta stability level](project-beta-kotlin.svg){type="joined"}
-    * ![Stable stability level](project-stable-kotlin.svg){type="joined"}
-* **Support**. What is our commitment to maintaining each project and helping users to solve their problems.
-  The level of support is unified for all JetBrains products. [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
+Each Kotlin project has two GitHub badges describing its stability and support status:
+
+* **Stability**. Shows how quickly each project is evolving and how much risk the users are taking when adopting it.
+  The stability status completely coincides with the [stability level of the Kotlin language features and its components](#stability-levels-explained):
+    * ![Experimental stability level](project-experimental-kotlin.svg){type="joined"} stands for **Experimental**
+    * ![Alpha stability level](project-alpha-kotlin.svg){type="joined"} stands for **Alpha**
+    * ![Beta stability level](project-beta-kotlin.svg){type="joined"} stands for **Beta**
+    * ![Stable stability level](project-stable-kotlin.svg){type="joined"} stands for **Stable**
+
+* **Support**. Shows our commitment to maintaining a project and helping users to solve their problems.
+  The level of support is unified for all JetBrains products.  
+  [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
 
 ## Stability of subcomponents
 
