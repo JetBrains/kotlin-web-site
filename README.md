@@ -50,7 +50,7 @@ The [Kotlin grammar reference](https://kotlinlang.org/docs/reference/grammar.htm
 
 ### Templates
 
-The Kotlin website uses [Jinja2](http://jinja.pocoo.org/docs/dev/) templates from the [templates](templates) directory.
+The Kotlin website uses [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates from the [templates](templates) directory.
 Note that all Markdown files, except for [docs](docs), are processed as Jinja templates before HTML conversion. 
 This allows using all Jinja benefits for Markdown (for example, building URLs with the `url_for` function).
 
@@ -60,8 +60,8 @@ You can contribute to the Kotlin website by sending us a pull request. If you're
 
 For the Kotlin documentation, follow [these guidelines on style and formatting](https://docs.google.com/document/d/1mUuxK4xwzs3jtDGoJ5_zwYLaSEl13g_SuhODdFuh2Dc/edit?usp=sharing).
 
-For other pages, follow the complete syntax reference at the [kramdown site](http://kramdown.gettalong.org/syntax.html).
-You can also include metadata fields. Learn more in the [Jekyll docs](http://jekyllrb.com/docs/frontmatter/).
+For other pages, follow the complete syntax reference at the [kramdown site](https://kramdown.gettalong.org/syntax.html).
+You can also include metadata fields. Learn more in the [Jekyll docs](https://jekyllrb.com/docs/front-matter/).
 
 ## Local deployment
 
@@ -78,5 +78,5 @@ You can:
 * Email us at [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
 
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
-[project-badge]: http://jb.gg/badges/official.svg
-[slack-url]: http://slack.kotlinlang.org
+[project-badge]: https://jb.gg/badges/official.svg
+[slack-url]: https://slack.kotlinlang.org

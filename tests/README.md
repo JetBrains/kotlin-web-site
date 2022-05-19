@@ -18,9 +18,9 @@ Visual regression testing
     npm run file-scanner -- --pattern "api/**/kotlin.jvm/*.html" --output=paths.txt
     ```
 
-3. Tell visual regression service to collect reference screenshots from http://kotlinlang.org:
+3. Tell visual regression service to collect reference screenshots from https://kotlinlang.org:
    ```
-    npm run visual-regression-test -- --paths=paths.txt --baseUrl=http://kotlinlang.org
+    npm run visual-regression-test -- --paths=paths.txt --baseUrl=https://kotlinlang.org
     ```
 
 4. Run visual regression service again to compare actual site screenshots with references:
