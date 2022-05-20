@@ -1,8 +1,11 @@
 [//]: # (title: Stability of Kotlin components)
 
-The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets, the Standard Library, various accompanying tools and so on. Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution.md) of _Comfortable Updates_ and _Keeping the Language Modern_. Among such stable components are, for example, the Kotlin compiler for the JVM, the Standard Library, and Coroutines.
+The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets, the Standard Library, various accompanying tools and so on.
+Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution.md) of _Comfortable Updates_ and _Keeping the Language Modern_.
+Among such stable components are, for example, the Kotlin compiler for the JVM, the Standard Library, and Coroutines.
 
-Following the _Feedback Loop_ principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**. Some of them are very early stage, some are more mature. We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving and how much risk the users are taking when adopting it. 
+Following the _Feedback Loop_ principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**.
+Some of them are very early stage, some are more mature. We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving and how much risk the users are taking when adopting it. 
 
 ## Stability levels explained
 
@@ -26,6 +29,24 @@ We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** le
   * It’s done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
 Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
+
+## GitHub badges for Kotlin components
+
+The [Kotlin GitHub organization](https://github.com/Kotlin) hosts different Kotlin-related projects.
+Some of them we develop full-time, while others are side projects.
+
+Each Kotlin project has two GitHub badges describing its stability and support status:
+
+* **Stability** status. This shows how quickly each project is evolving and how much risk the users are taking when adopting it.
+  The stability status completely coincides with the [stability level of the Kotlin language features and its components](#stability-levels-explained):
+    * ![Experimental stability level](project-experimental-kotlin.svg){type="joined"} stands for **Experimental**
+    * ![Alpha stability level](project-alpha-kotlin.svg){type="joined"} stands for **Alpha**
+    * ![Beta stability level](project-beta-kotlin.svg){type="joined"} stands for **Beta**
+    * ![Stable stability level](project-stable-kotlin.svg){type="joined"} stands for **Stable**
+
+* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems
+  The level of support is unified for all JetBrains products.  
+  [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
 
 ## Stability of subcomponents
 
