@@ -32,19 +32,19 @@ Please note that stability levels do not say anything about how soon a component
 
 ## GitHub badges for Kotlin components
 
-[Kotlin GitHub organization](https://github.com/Kotlin) hosts different Kotlin-related projects.
-Some of them we develop full-time, others are side projects.
+The [Kotlin GitHub organization](https://github.com/Kotlin) hosts different Kotlin-related projects.
+Some of them we develop full-time, while others are side projects.
 
 Each Kotlin project has two GitHub badges describing its stability and support status:
 
-* **Stability**. Shows how quickly each project is evolving and how much risk the users are taking when adopting it.
+* **Stability** status. This shows how quickly each project is evolving and how much risk the users are taking when adopting it.
   The stability status completely coincides with the [stability level of the Kotlin language features and its components](#stability-levels-explained):
     * ![Experimental stability level](project-experimental-kotlin.svg){type="joined"} stands for **Experimental**
     * ![Alpha stability level](project-alpha-kotlin.svg){type="joined"} stands for **Alpha**
     * ![Beta stability level](project-beta-kotlin.svg){type="joined"} stands for **Beta**
     * ![Stable stability level](project-stable-kotlin.svg){type="joined"} stands for **Stable**
 
-* **Support**. Shows our commitment to maintaining a project and helping users to solve their problems.
+* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems
   The level of support is unified for all JetBrains products.  
   [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
 
