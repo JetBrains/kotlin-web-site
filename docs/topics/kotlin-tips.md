@@ -4,7 +4,11 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Unshadowing declarations with their fully qualified name
 
+Shadowing means having two declarations in a scope have the same name. So, how do you pick? In this episode of Kotlin Tips Sebastian shows you a simple Kotlin trick to call exactly the function that you need, using the power of fully qualified names:
+
+<video width="560" height="315" href="mJRzF9WtCpU" title="Kotlin Tips: Unshadowing Declarations"/>
 
 ## Return and throw with the Elvis operator
 
