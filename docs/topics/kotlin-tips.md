@@ -4,7 +4,15 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Unshadowing Declarations with their Fully Qualified Name
 
+Shadowing means having two declarations in a scope have the same name. So, how do you pick? In this episode of Kotlin Tips Sebastian shows you a simple Kotlin trick to call exactly the function that you need, using the power of fully qualified names!
+
+<video width="560" height="315" href="mJRzF9WtCpU" title="Kotlin Tips: Unshadowing Declarations"/>
+
+[Elvis](null-safety.md#elvis-operator) has entered the building once more! Seb explains why the operator is named after the famous singer, and how you can use `?:` in Kotlin to return or throw. The magic behind the scenes? [The Nothing type](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html).
+
+<video width="560" height="315" href="L8aFK7QrbA8" title="Kotlin Tips: Return and Throw with the Elvis Operator"/>
 
 ## Return and throw with the Elvis operator
 
