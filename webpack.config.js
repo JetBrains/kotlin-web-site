@@ -14,7 +14,7 @@ module.exports = (params = {}) => {
 
   const siteHost = 'localhost:8080';
   const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
-  const indexName = params['index-name'] || 'dev_KOTLINLANG';
+  const indexName = params['index-name'] || process.env.INDEX_NAME || 'dev_KOTLINLANG';
 
   return {
     entry: {
