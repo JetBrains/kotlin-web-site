@@ -34,7 +34,7 @@
   location: Los Angeles, CA (US)
   courses:
   - name: Computer Science 131. Programming Languages
-    url: http://web.cs.ucla.edu/classes/winter19/cs131/homework.html
+    url: https://web.cs.ucla.edu/classes/winter19/cs131/homework.html
   geo:
     lat: '33.770015'
     lng: '-117.980202'
@@ -250,7 +250,7 @@
   location: Tel Aviv (Israel)
   courses:
   - name: Concepts in Programming Languages
-    url: http://cs.tau.ac.il/~msagiv/courses/pl19.html
+    url: https://cs.tau.ac.il/~msagiv/courses/pl19.html
   geo:
     lat: '32.109584'
     lng: '34.805064'

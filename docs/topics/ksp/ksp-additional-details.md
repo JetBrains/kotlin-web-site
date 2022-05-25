@@ -4,7 +4,11 @@ You can find the API definition in the [KSP GitHub repository](https://github.co
 The diagram shows an overview of how Kotlin is [modeled](https://github.com/google/ksp/tree/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/)
 in KSP:
 
-![class diagram](ksp-class-diagram.svg)
+![class diagram](ksp-class-diagram.svg){thumbnail="true" width="800" thumbnail-same-file="true"}
+
+> [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
+>
+{type="note"}
 
 ## Type and resolution
 

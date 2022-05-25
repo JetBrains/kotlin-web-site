@@ -94,7 +94,3 @@ The reality is that you probably will not change people's hearts and minds in a 
 The Kotlin Multiplatform Mobile team looks forward to hearing [your story](mailto:kotlin.multiplatform.feedback@kotlinlang.org).
 
 _We'd like to thank the [Touchlab team](https://touchlab.co) for helping us write this article._
-
-## Community resources 
-
-*   [Kotlin Multiplatform vs Flutter. What Should You Choose to Build a Software Project?](https://surf.dev/kotlin-multiplatform-vs-flutter-what-should-you-choose-to-build-a-software-project/)
