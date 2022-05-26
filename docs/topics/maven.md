@@ -31,7 +31,7 @@ If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin 
 additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use `kotlin-stdlib-jdk7`
 or `kotlin-stdlib-jdk8`, depending on your JDK version. 
 
->For Kotlin versions older that  1.2, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`.
+>For Kotlin versions older than 1.2, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`.
 >
 {type="note"} 
 
