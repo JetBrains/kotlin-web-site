@@ -55,10 +55,12 @@ templates to automatically mark interfaces as `external`:
 ## Convert properties of external interfaces to var
 
 **Issue**: properties of external interfaces in Kotlin/JS code can't be read-only (`val`) properties because their values can be
-assigned only after the object is created with `js()` or `jsObject()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
+assigned only after the object is created with `js()` or `jso()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
 ```kotlin
-val myState = js("{}") as CustomComponentState
+import kotlinx.js.jso
+
+val myState = jso<CustomComponentState>()
 myState.name = "name"
 ```
 
