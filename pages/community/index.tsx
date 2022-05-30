@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import {CommunityBanner} from '../../blocks/community/community-banner/community-banner';
-import {CommunityLayout} from "../../blocks/community/layout/community-layout";
-import {KeepInTouch} from "../../blocks/community/keep-in-touch/keep-in-touch";
-import {OverviewBottomLink} from '../../blocks/community/overview-bottom-links/overview-bottom-link';
+import { CommunityBanner } from '../../blocks/community/community-banner/community-banner';
+import { CommunityLayout } from '../../blocks/community/layout/community-layout';
+import { KeepInTouch } from '../../blocks/community/keep-in-touch/keep-in-touch';
+import { OverviewBottomLink } from '../../blocks/community/overview-bottom-links/overview-bottom-link';
 
 import SlackIcon from '../../public/images/community/icons/keep-in-touch-slack-icon.svg';
 import TwitterIcon from '../../public/images/community/icons/keep-in-touch-twitter-icon.svg';
@@ -17,84 +17,83 @@ import YoutrackIcon from '../../public/images/community/icons/keep-in-touch-yout
 
 function Index() {
     return (
-        <CommunityLayout title={"Community"}>
-            <CommunityBanner title="Get involved in the community!">
-                The Kotlin community is becoming more active all the time,
-                and we want to do whatever we can to foster this community and help it grow.
-                Here you can find online resources and information about activities in your area.
-                If you can't find any, we encourage you to organize one yourself!
-                JetBrains is here to provide help and support.
+        <CommunityLayout title={'Community'}>
+            <CommunityBanner title="Get involved in&nbsp;the&nbsp;community!">
+                Find online resources and information about community activities. Can’t find any? Organize your own –
+                JetBrains is always here to support you!
             </CommunityBanner>
 
-            <KeepInTouch links={[
-                {
-                    icon: SlackIcon,
-                    title: 'Slack',
-                    description: 'Let’s chat with us in real time',
-                    link: 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up'
-                },
-                {
-                    icon: TwitterIcon,
-                    title: 'Twitter',
-                    description: 'Stay tuned with the latest news',
-                    link: 'https://twitter.com/kotlin'
-                },
-                {
-                    icon: KotlinIcon,
-                    title: 'Kotlin Blog',
-                    description: 'Official language blog',
-                    link: 'https://blog.jetbrains.com/kotlin/'
-                },
-                {
-                    icon: RedditIcon,
-                    title: 'Reddit',
-                    description: 'Join the online Kotlin community',
-                    link: 'https://www.reddit.com/r/Kotlin/'
-                },
-                {
-                    icon: StackOverflowIcon,
-                    title: 'StackOverflow',
-                    description: 'Find the best solutions',
-                    link: 'https://stackoverflow.com/questions/tagged/kotlin'
-                },
-                {
-                    icon: YoutubeIcon,
-                    title: 'YouTube',
-                    description: 'All latest videos',
-                    link: 'https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw'
-                },
-                {
-                    icon: TalkingKotlinIcon,
-                    title: 'Talking Kotlin',
-                    description: 'Let’s chat with us in real time',
-                    link: 'http://talkingkotlin.com/'
-                },
-                {
-                    icon: LinkedInIcon,
-                    title: 'LinkedIn',
-                    description: 'Mostly for job related post',
-                    link: 'https://www.linkedin.com/groups/7417237/profile'
-                },
-                {
-                    icon: YoutrackIcon,
-                    title: 'Issue Tracker',
-                    description: 'Find the issues',
-                    link: 'https://youtrack.jetbrains.com/issues/'
-                },
-            ]}/>
+            <KeepInTouch
+                links={[
+                    {
+                        icon: SlackIcon,
+                        title: 'Slack',
+                        description: 'Get answers to your questions.',
+                        link: 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up',
+                    },
+                    {
+                        icon: TwitterIcon,
+                        title: 'Twitter',
+                        description: 'Quick tips and news, straight to your feed.',
+                        link: 'https://twitter.com/kotlin',
+                    },
+                    {
+                        icon: KotlinIcon,
+                        title: 'Kotlin Blog',
+                        description: 'Extra, extra! Get the details for new releases.',
+                        link: 'https://blog.jetbrains.com/kotlin/',
+                    },
+                    {
+                        icon: RedditIcon,
+                        title: 'Reddit',
+                        description: 'Community-curated Kotlin content.',
+                        link: 'https://www.reddit.com/r/Kotlin/',
+                    },
+                    {
+                        icon: StackOverflowIcon,
+                        title: 'StackOverflow',
+                        description: 'Got a question? Get your answer!',
+                        link: 'https://stackoverflow.com/questions/tagged/kotlin',
+                    },
+                    {
+                        icon: YoutubeIcon,
+                        title: 'YouTube',
+                        description: 'Video content for visual learners!',
+                        link: 'https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw',
+                    },
+                    {
+                        icon: TalkingKotlinIcon,
+                        title: 'Talking Kotlin',
+                        description: 'Interviews with community members.',
+                        link: 'http://talkingkotlin.com/',
+                    },
+                    {
+                        icon: LinkedInIcon,
+                        title: 'LinkedIn',
+                        description: 'Join the professional community.',
+                        link: 'https://www.linkedin.com/groups/7417237/profile',
+                    },
+                    {
+                        icon: YoutrackIcon,
+                        title: 'Issue Tracker',
+                        description: 'Share feedback and report bugs.',
+                        link: 'https://youtrack.jetbrains.com/issues/',
+                    },
+                ]}
+            />
 
             <OverviewBottomLink
-                title={"Join a Kotlin User Group\nor start your own"}
-                buttonLink={"/community/user-groups/"}
-                buttonTitle={"All KUGs →"}
+                title={'Join a Kotlin User Group\nor start your own'}
+                buttonLink={'/community/user-groups/'}
+                buttonTitle={'All KUGs →'}
             />
             <OverviewBottomLink
-                title={"Get inspired at a Kotlin event\nor host one yourself"}
-                buttonLink={"/community/events/"}
-                buttonTitle={"Talks and Events →"}
+                title={'Get inspired at a Kotlin event\nor host one yourself'}
+                buttonLink={'/community/events/'}
+                buttonTitle={'Talks and Events →'}
             />
         </CommunityLayout>
-    )
+    );
 }
 
 export default Index;
