@@ -212,7 +212,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Multiplatform: [Improve UX of using Native libraries in Kotlin](https://youtrack.jetbrains.com/issue/KT-44329)
 * ✅ Multiplatform: [Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KT-49523)
 * ✅ Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
-* ✅ IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/KTIJ-46787)
+* ✅ IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/KTIJ-18809)
 * ✅ Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)
 * ✅ Build tools: [Improve the user experience with the Kotlin Gradle plugin](https://youtrack.jetbrains.com/issue/KT-46789)
 * ✅ Website: [Update community graphic assets to the new Kotlin visual style](https://youtrack.jetbrains.com/issue/KT-46792)
