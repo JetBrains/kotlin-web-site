@@ -64,6 +64,8 @@ same name but different package in the same framework. This algorithm is not sta
 releases.
 As a workaround, you can rename the conflicting Kotlin classes in the framework.
 
+The methods of `kotlin.Any`(`toString`, `hashCode` and `equals`) are mapped to `description`, `hash` and `isEquals` in Objective-C.
+
 ### Initializers
 
 Swift/Objective-C initializers are imported to Kotlin as constructors and factory methods
