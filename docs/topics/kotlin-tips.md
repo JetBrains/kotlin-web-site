@@ -8,7 +8,7 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren’t coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: it has something to do with the inline modifier:
 
-<video width="560" height="315" href="R2395u7SdcI" title="Kotlin Tips: The Suspend & Inline Mystery"/>
+<video width="560" height="315" href="R2395u7SdcI" title="Kotlin Tips: The Suspend and Inline Mystery"/>
 
 ## Unshadowing declarations with their fully qualified name
 
