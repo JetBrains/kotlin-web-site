@@ -166,7 +166,7 @@ If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
 * [in Gradle](gradle.md#attributes-specific-to-jvm)
 * [in Maven](maven.md#attributes-specific-to-jvm)
-* [in the command-line compiler](compiler-reference.md#-jvm-target-_version_)
+* [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
 ### SAM adapters via invokedynamic
 
