@@ -39,6 +39,25 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.3**
+
+Released: 9 June, 2022
+
+</td>
+<td>
+
+* Updated dependency on Kotlin IDE plugin 1.7.0.
+
+</td>
+<td>
+
+* [Kotlin 1.7.0—1.7.*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.2**
 
 Released: 4 April, 2022
