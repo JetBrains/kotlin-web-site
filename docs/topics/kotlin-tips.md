@@ -4,12 +4,11 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
-## The Suspend & Inline Mystery
+## The suspend and inline mystery
 
-How come functions like `repeat`, `map` and `filter` accept suspending functions in their lambdas, even though their signatures aren’t coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: It has something to do with the inline modifier:
+How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren’t coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: it has something to do with the inline modifier:
 
 <video width="560" height="315" href="R2395u7SdcI" title="Kotlin Tips: The Suspend & Inline Mystery"/>
-
 
 ## Unshadowing declarations with their fully qualified name
 
