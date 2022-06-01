@@ -17,8 +17,8 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 |------------|--------|
 | [Main page](https://kotlinlang.org/) | [templates/pages/index.html](templates/pages/index.html) |
 | [Kotlin docs](https://kotlinlang.org/docs/home.html) |[docs/topics](docs/topics)| 
-| [Community](https://kotlinlang.org/community/) | [docs/pages/community](docs/pages/community) | 
-| [Education](https://kotlinlang.org/education/) | [docs/pages/education](docs/pages/education)| 
+| [Community](https://kotlinlang.org/community/) | [pages/community](pages/community) | 
+| [Education](https://kotlinlang.org/education/) | [templates/pages/education](templates/pages/education)| 
 
 Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [Kotlin Multiplatform Mobile landing page](https://kotlinlang.org/lp/mobile/) are not publicly available.
 
@@ -41,12 +41,12 @@ The [Kotlin grammar reference](https://kotlinlang.org/docs/reference/grammar.htm
 
 ### Configuration files
 
-|Configuration| File|
-|-----|----|
-|Navigation and structure| [kr.tree](docs/kr.tree) for docs and [_nav.yml](data/_nav.yml) for other pages |
+|Configuration| File                                                                                 |
+|-----|--------------------------------------------------------------------------------------|
+|Navigation and structure| [kr.tree](docs/kr.tree) for docs and [_nav.yml](data/_nav.yml) for other pages       |
 |Variables, such as release version | [v.list](docs/v.list) for docs and [releases.yml](data/releases.yml) for other pages |
-|Community events on the map | [events.xml](data/events.xml) |
-|Video list (outdated) | [videos.yml](data/videos.yml) |
+|Community events on the map | [events.xml](data/events.yml)                                                          |
+|Video list (outdated) | [videos.yml](data/videos.yml)                                                        |
 
 ### Templates
 
@@ -62,6 +62,48 @@ For the Kotlin documentation, follow [these guidelines on style and formatting](
 
 For other pages, follow the complete syntax reference at the [kramdown site](https://kramdown.gettalong.org/syntax.html).
 You can also include metadata fields. Learn more in the [Jekyll docs](https://jekyllrb.com/docs/front-matter/).
+
+### Kotlin User Group
+To add a Kotlin User Group, proceed the following way:
+1) open the configuration file [user-groups.yml](/data/user-groups.yml);
+2) find a suitable section among existing ones;
+3) add into the selected section a new group with followed keys:
+    - `name`, the name of the group.
+    - `country`, the name of the country where the group is located. In the case of a virtual group, please use "International" for that. 
+    - `url`, the link to the group's web page.
+    - `isVirtual`, set this key with `true` value if the group is online only.
+    - `position`, the geo-position of the group, defined by pair of keys: `lat` and `lng`. It better to run `scripts/user_group`
+4) If the group is not virtual, you also need to specify a group's position.
+   You can do it manually adding `position` key with the `lat` and `lng` values, as next: 
+   ```yaml
+   position:
+     lat: 1.1111111
+     lng: 1.1111111
+   ```
+   or, to run the geo script (`scripts/user_groups_geolocator.py`) that will do it for you.
+   You need to obtain GOOGLE_API_KEY and then run the following script:
+   ```
+   $ GOOGLE_API_KEY="..." python scripts/universities_geolocator.py
+   ```
+   More details about GOOGLE_API_KEY param you can find in [this article](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+   The manual way sometimes is better, because it allows you to specify the position more precisely.  
+
+You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/user-groups.json).
+Once you publish a Pull Request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
+
+### Community Events
+To add an event to the Community Events, follow the instruction below. 
+1) Fill the event info in the [events.yml](/data/events.yml) with the next:
+   - `lang`, two-letter code considering [ISO 639-1 format](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   - `startDate`, in the format 'yyyy-mm-dd'.
+   - `endDate`, in the format 'yyyy-mm-dd'. For the on day event fill the same date as in the startDate.
+   - `location`, in form of 'City, Country'.
+   - `speaker`, the speaker's name.
+   - `title`, event's title.
+   - `subject` event's subject.
+   - `url` link to the event web page.
+   You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
+2) Publish the changes creating a Pull Request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
 
 ## Local deployment
 
