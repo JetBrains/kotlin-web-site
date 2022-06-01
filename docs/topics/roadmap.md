@@ -60,7 +60,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler core</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">Stabilize the Compiler Plugin API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42286" target="_blank">Maintain the current compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting</a></li>
             </ul>
@@ -74,6 +73,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52594" target="_blank">🆕 Provide Alpha support for Native in the K2 platform</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52593" target="_blank">🆕 Provide Alpha support for JS in the K2 platform</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52597" target="_blank">🆕 Support Multiplatform in the K2 platform</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">Stabilize the K2 Compiler Plugin API</a></li>
             </ul>
         </td>
         <td></td>
@@ -185,7 +185,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 
 > * This roadmap is not an exhaustive list of all things the team is working on, only the biggest projects.
 > * There’s no commitment to delivering specific features or fixes in specific versions.
-> * It lists some things that are postponed and will NOT get the team’s attention in the nearest future.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
 {type="note"}
@@ -202,8 +201,8 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Language: [Release builder inference](https://youtrack.jetbrains.com/issue/KT-45618)
 * ✅ Language: [Support sealed (exhaustive) whens](https://youtrack.jetbrains.com/issue/KT-12380)
 * ✅ Language: [Prototype multiple receivers](https://youtrack.jetbrains.com/issue/KT-42435)
-* ✅ Compiler core: [Release the K2/JVM compiler in Alpha](https://youtrack.jetbrains.com/issue/KT-46756)
 * ✅ Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/KT-46762)
+* ✅ K2 compiler: [Release the K2/JVM compiler in Alpha](https://youtrack.jetbrains.com/issue/KT-46756)
 * ✅ K2 compiler: [Implement support for basic compile-time evaluation](https://youtrack.jetbrains.com/issue/KT-49303)
 * ✅ Kotlin/JVM: [Support method references to functional interface constructors](https://youtrack.jetbrains.com/issue/KT-47939)
 * ✅ Kotlin/JS: [JS IR BE: Add an ability to generate separate JS files for each module](https://youtrack.jetbrains.com/issue/KT-44319)
