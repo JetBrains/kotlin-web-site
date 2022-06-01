@@ -108,7 +108,7 @@ class D : A, B {
 ```
 
 Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements
-*bar()* (*bar()* is not marked as abstract in *A*, because this is the default for interfaces if the function has no body).
+*bar()* (*bar()* is marked as abstract in *A*, because this is the default for interfaces if the function has no body).
 Now, if you derive a concrete class *C* from *A*, you have to override *bar()* and provide an implementation.
 
 However, if you derive *D* from *A* and *B*, you need to implement all the methods that you have
