@@ -64,8 +64,6 @@ same name but different package in the same framework. This algorithm is not sta
 releases.
 As a workaround, you can rename the conflicting Kotlin classes in the framework.
 
-The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped to `isEquals(_:)`, `description` and `hash` in Objective-C.
-
 ### Initializers
 
 Swift/Objective-C initializers are imported to Kotlin as constructors and factory methods
@@ -114,6 +112,10 @@ in Kotlin it would be:
 player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
+
+The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped 
+to the methods `isEquals:`, `description` and `hash` in Objective-C, and to the method
+`isEquals(_:)` and the properties `description`, `hash` in Swift.
 
 ### Errors and exceptions
 
