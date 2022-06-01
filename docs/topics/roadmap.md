@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td><strong>Last modified on</strong></td>
-        <td>May 2022</td>
+        <td>June 2022</td>
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
@@ -70,11 +70,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>K2 compiler</strong></td>
         <td>
             <ul>
-                <li>🆕 Release K2 Beta</li>
-                <li>🆕 Provide Alpha support for Native in the K2 platform</li>
-                <li>🆕 Provide Alpha support for JS in the K2 platform</li>
-                <li>🆕 Support Multiplatform in the K2 platform</li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49303" target="_blank">Implement support for basic compile-time evaluation</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52604" target="_blank">🆕 Release K2 Beta</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52594" target="_blank">🆕 Provide Alpha support for Native in the K2 platform</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52593" target="_blank">🆕 Provide Alpha support for JS in the K2 platform</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52597" target="_blank">🆕 Support Multiplatform in the K2 platform</a></li>
             </ul>
         </td>
         <td></td>
@@ -114,7 +113,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin/Native</strong></td>
         <td>
             <ul>
-                <li>🆕 Promote new memory manager to Beta and enable it by default </li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52595" target="_blank">🆕 Promote new memory manager to Beta and enable it by default</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve compilation time</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42293" target="_blank">Native: provide binary compatibility between incremental releases</a></li>
@@ -125,9 +124,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Kotlin Multiplatform</strong></td>
         <td>
             <ul>
-                <li>🆕 Promote Kotlin Multiplatform Mobile to Beta</li>
-                <li>🆕 Improve Android support in Multiplatform projects</li>
-                <li>🆕 Stabilize klib</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52596" target="_blank">🆕 Promote Kotlin Multiplatform Mobile to Beta</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52599" target="_blank">🆕 Improve Android support in Multiplatform projects</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">🆕 Stabilize klib</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49525" target="_blank">Improve stability and robustness of the multiplatform toolchain</a></li>
             </ul>
          </td>
@@ -136,7 +135,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>IDE</strong></td>
         <td>
             <ul>
-                <li>🆕 Stabilize code analysis</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-21906" target="_blank">🆕 Stabilize code analysis</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20044" target="_blank">Make update of compiler/platform versions faster</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20045" target="_blank">Improve Multiplatform project support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-20046" target="_blank">Stabilize Eclipse plugin</a></li>
@@ -150,7 +149,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Build tools</strong></td>
         <td>
             <ul>
-                <li>🆕 Make compilation avoidance support Stable for Gradle</li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52603" target="_blank">🆕 Make compilation avoidance support Stable for Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49532" target="_blank">Provide better experience with Kotlin Daemon</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
             </ul>
@@ -160,14 +159,14 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Libraries</strong></td>
         <td>
             <ul>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49513" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">🆕 Continue development and stabilization of standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Launch <code>kotlinx-kover</code> and productize it further</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49528" target="_blank">Release <code>kotlinx-serialization</code> 1.4</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49529" target="_blank">Release <code>kotlinx-coroutines</code> 1.7</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document <code>atomicfu</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
-                <li>Continue development and stabilization of standard library</li>
             </ul>
          </td>
     </tr>
@@ -177,7 +176,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-44339" target="_blank">Make the Kotlin website mobile friendly</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46791" target="_blank">Make the UI and navigation consistent</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49537" target="_blank">Provide infrastructure for documentation localization by community</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49536" target="_blank">Improve Kotlin Playground</a></li>
             </ul>
         </td>
@@ -206,6 +204,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Language: [Prototype multiple receivers](https://youtrack.jetbrains.com/issue/KT-42435)
 * ✅ Compiler core: [Release the K2/JVM compiler in Alpha](https://youtrack.jetbrains.com/issue/KT-46756)
 * ✅ Compiler core: [Finalize support for jspecify](https://youtrack.jetbrains.com/issue/KT-46762)
+* ✅ K2 compiler: [Implement support for basic compile-time evaluation](https://youtrack.jetbrains.com/issue/KT-49303)
 * ✅ Kotlin/JVM: [Support method references to functional interface constructors](https://youtrack.jetbrains.com/issue/KT-47939)
 * ✅ Kotlin/JS: [JS IR BE: Add an ability to generate separate JS files for each module](https://youtrack.jetbrains.com/issue/KT-44319)
 * ✅ Kotlin/Native: [Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-49520)
@@ -222,16 +221,17 @@ We've **completed** the following items from the previous roadmap:
 We've **added** the following items to the roadmap:
 
 * 🆕 Language: [Introduce special syntax for `until` operator](https://youtrack.jetbrains.com/issue/KT-15613)
-* 🆕 K2 compiler: Release K2 Beta
-* 🆕 K2 compiler: Provide Alpha support for Native in the K2 platform
-* 🆕 K2 compiler: Provide Alpha support for JS in the K2 platform
-* 🆕 K2 compiler: Support Multiplatform in the K2 platform
-* 🆕 Kotlin/Native: Promote new memory manager to Beta and enable it by default
-* 🆕 Multiplatform: Promote Kotlin Multiplatform Mobile to Beta
-* 🆕 Multiplatform: Improve Android support in Multiplatform projects
-* 🆕 Multiplatform: Stabilize klib
-* 🆕 IDE: Stabilize code analysis
-* 🆕 Build tools: Make compilation avoidance support Stable for Gradle
+* 🆕 K2 compiler: [Release K2 Beta](https://youtrack.jetbrains.com/issue/KT-52604)
+* 🆕 K2 compiler: [Provide Alpha support for Native in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52594)
+* 🆕 K2 compiler: [Provide Alpha support for JS in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52593)
+* 🆕 K2 compiler: [Support Multiplatform in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52597)
+* 🆕 Kotlin/Native: [Promote new memory manager to Beta and enable it by default](https://youtrack.jetbrains.com/issue/KT-52595)
+* 🆕 Multiplatform: [Promote Kotlin Multiplatform Mobile to Beta](https://youtrack.jetbrains.com/issue/KT-52596)
+* 🆕 Multiplatform: [Improve Android support in Multiplatform projects](https://youtrack.jetbrains.com/issue/KT-52599)
+* 🆕 Multiplatform: [Stabilize klib](https://youtrack.jetbrains.com/issue/KT-52600/)
+* 🆕 IDE: [Stabilize code analysis](https://youtrack.jetbrains.com/issue/KTIJ-21906)
+* 🆕 Libraries: [Continue development and stabilization of standard library](https://youtrack.jetbrains.com/issue/KT-52601)
+* 🆕 Build tools: [Make compilation avoidance support Stable for Gradle](https://youtrack.jetbrains.com/issue/KT-52603)
 
 ### Removed items
 
@@ -250,6 +250,7 @@ We've **removed** the following items from the roadmap:
 * ❌ IDE: [Implement advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
 * ❌ IDE: [Improve the quality of less frequently used features](https://youtrack.jetbrains.com/issue/KTIJ-20048)
 * ❌ Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/KT-46788)
+* ❌ Website: [Provide infrastructure for documentation localization by community](https://youtrack.jetbrains.com/issue/KT-49537)
 
 ### Items in progress
 
