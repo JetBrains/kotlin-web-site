@@ -55,10 +55,12 @@ templates to automatically mark interfaces as `external`:
 ## Convert properties of external interfaces to var
 
 **Issue**: properties of external interfaces in Kotlin/JS code can't be read-only (`val`) properties because their values can be
-assigned only after the object is created with `js()` or `jsObject()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
+assigned only after the object is created with `js()` or `jso()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
 ```kotlin
-val myState = js("{}") as CustomComponentState
+import kotlinx.js.jso
+
+val myState = jso<CustomComponentState>()
 myState.name = "name"
 ```
 
@@ -123,7 +125,7 @@ fun main() {
 }
 ```
 
-**Solution 1**: create plain JavaScript objects with `js()` or `jsObject()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
+**Solution 1**: create plain JavaScript objects with `js()` or `jso()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
 ```kotlin
 external interface AppProps { var name: String }
@@ -137,7 +139,7 @@ val ktApp = AppPropsImpl("App1") // Kotlin object
 
 ```kotlin
 // With this
-val jsApp = js("{name: 'App1'}") as AppProps // or jsObject {}
+val jsApp = js("{name: 'App1'}") as AppProps // or jso {}
 ```
 
 **Solution 2**: create objects with `kotlin.js.json()`:
