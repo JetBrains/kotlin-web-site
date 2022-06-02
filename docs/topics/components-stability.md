@@ -41,6 +41,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 |**Component**|**Status**|**Status since version**|**Comment**|
 | --- | --- | --- | --- |
 Kotlin/JVM|Stable|1.0| |
+Kotlin K2 (JVM)|Alpha|1.7| |
 kotlin-stdlib (JVM)|Stable|1.0| |
 Coroutines|Stable|1.3| |
 kotlin-reflect (JVM)|Beta|1.0| |
@@ -56,10 +57,10 @@ Kotlin Multiplatform Mobile plugin for Android Studio|Alpha|0.3.0|[Versioned sep
 expect/actual language feature|Beta|1.2| |
 KDoc syntax|Stable|1.0| |
 Dokka|Beta|1.6| |
-Scripting syntax and semantics|Alpha|1.2|
-Scripting embedding and extension API|Beta|1.5
-Scripting IDE support|Experimental|1.2
-CLI scripting|Alpha|1.2
+Scripting syntax and semantics|Alpha|1.2| |
+Scripting embedding and extension API|Beta|1.5| |
+Scripting IDE support|Experimental|1.2| |
+CLI scripting|Alpha|1.2| |
 Compiler Plugin API|Experimental|1.0| |
 Serialization Compiler Plugin|Stable|1.4| |
 Serialization Core Library|Stable|1.0.0|Versioned separately from the language
