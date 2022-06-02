@@ -1,5 +1,5 @@
 .wrapper {
-    background: #F4F4F4;
+    background: #f4f4f4;
     padding: 32px 0 64px;
 }
 
@@ -26,7 +26,6 @@
 }
 
 @media (min-width: 768px) {
-
     .wrapper {
         padding: 64px 0 96px;
     }

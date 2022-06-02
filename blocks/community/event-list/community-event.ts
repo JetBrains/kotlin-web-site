@@ -1,5 +1,5 @@
-import {formatDate} from "../../../static/js/util/date";
-import { nanoid } from 'nanoid'
+import { formatDate } from '../../../static/js/util/date';
+import { nanoid } from 'nanoid';
 
 const DEFAULT_LANG = 'en';
 
@@ -30,8 +30,8 @@ export class CommunityEvent {
         this.online = !!data.online;
         this.lang = data.lang || DEFAULT_LANG;
         this.content = data.content;
-        this.startDate = new Date(data.startDate + "T00:00:00");
-        this.endDate = new Date(data.endDate + "T00:00:00");
+        this.startDate = new Date(data.startDate + 'T00:00:00');
+        this.endDate = new Date(data.endDate + 'T00:00:00');
         this.formattedDate = formatDate(this.startDate, this.endDate);
     }
 

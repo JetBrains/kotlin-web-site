@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import {initSearch, openPopup} from '../../static/js/com/search/search';
+import React, { useEffect } from 'react';
+import { initSearch, openPopup } from '../../static/js/com/search/search';
 
 export const onSearch = openPopup;
 
@@ -24,4 +24,4 @@ export const Search = () => {
             </div>
         </div>
     );
-}
+};

@@ -1,12 +1,12 @@
-import React, {useCallback, useEffect, useMemo, useState} from "react";
-import {useRouter} from "next/router";
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import Switcher from '@rescui/switcher';
 import ISO6391 from 'iso-639-1';
-import {ModeSelect, SelectOption} from "./mode-select";
-import {EventCard} from "./event-card";
-import styles from "./event-list.module.css";
-import {communityEvents} from "./community-events";
-import {CommunityEvent} from "./community-event";
+import { ModeSelect, SelectOption } from './mode-select';
+import { EventCard } from './event-card';
+import styles from './event-list.module.css';
+import { communityEvents } from './community-events';
+import { CommunityEvent } from './community-event';
 
 interface EventType {
     value: string;
@@ -15,25 +15,25 @@ interface EventType {
 
 const upcomingEvent: EventType = {
     value: 'upcoming',
-    label: 'Upcoming'
-}
+    label: 'Upcoming',
+};
 
 const pastEvent: EventType = {
     value: 'past',
-    label: 'Past'
-}
+    label: 'Past',
+};
 
 const materialTypes = {
     examples: 'Examples',
     slides: 'Slides',
     video: 'Video',
     pdf: 'PDF',
-    article: 'Article'
+    article: 'Article',
 };
 
 const defaultOption: SelectOption = {
     id: 'all',
-    label: 'All'
+    label: 'All',
 };
 
 export const EventList = () => {
@@ -46,20 +46,23 @@ export const EventList = () => {
         setMode(router.query.time === pastEvent.value ? pastEvent.value : upcomingEvent.value);
     }, [router.query]);
 
-    const switchMode = useCallback((value: string) => {
-        if (value === pastEvent.value) {
-            router.push({
-                query: {time: pastEvent.value}
-            });
-        } else {
-            router.push({});
-        }
-        setMaterial(defaultOption);
-    }, [router]);
+    const switchMode = useCallback(
+        (value: string) => {
+            if (value === pastEvent.value) {
+                router.push({
+                    query: { time: pastEvent.value },
+                });
+            } else {
+                router.push({});
+            }
+            setMaterial(defaultOption);
+        },
+        [router]
+    );
 
     const events = useMemo(() => {
         return communityEvents
-            .filter(event => eventMode === upcomingEvent.value ? event.isUpcoming() : !event.isUpcoming())
+            .filter((event) => (eventMode === upcomingEvent.value ? event.isUpcoming() : !event.isUpcoming()))
             .sort(sortBy(eventMode === upcomingEvent.value ? 'desc' : 'asc'));
     }, [eventMode]);
 
@@ -81,10 +84,10 @@ export const EventList = () => {
 
     const visibleLanguages: SelectOption[] = useMemo(() => {
         const arr = events
-            .map(event => event.lang)
+            .map((event) => event.lang)
             .filter((value, index, array) => array.indexOf(value) === index)
-            .map(id => ({id: id, label: (ISO6391.getName(id) || id)}));
-        arr.sort((a, b) => a.label.localeCompare(b.label))
+            .map((id) => ({ id: id, label: ISO6391.getName(id) || id }));
+        arr.sort((a, b) => a.label.localeCompare(b.label));
         arr.unshift(defaultOption);
 
         return arr;
@@ -95,11 +98,11 @@ export const EventList = () => {
     }, [visibleLanguages]);
 
     const visibleMaterials: SelectOption[] = useMemo(() => {
-        const allValues: {[key: string]: SelectOption} = events.reduce((dict, event) => {
+        const allValues: { [key: string]: SelectOption } = events.reduce((dict, event) => {
             if (event?.content) {
                 for (let materialKey in event.content) {
                     if (materialTypes[materialKey] && !dict[materialKey]) {
-                        dict[materialKey] = {id: materialKey, label: materialTypes[materialKey]};
+                        dict[materialKey] = { id: materialKey, label: materialTypes[materialKey] };
                     }
                 }
             }
@@ -118,28 +121,25 @@ export const EventList = () => {
     return (
         <div className={styles.wrapper}>
             <div className={'ktl-container'}>
-                <h1 className={"ktl-h1"}>Events</h1>
+                <h1 className={'ktl-h1'}>Events</h1>
 
                 <div className={styles.actions}>
                     <Switcher
                         mode={'rock'}
                         value={eventMode}
                         onChange={switchMode}
-                        options={[
-                            upcomingEvent,
-                            pastEvent
-                        ]}
+                        options={[upcomingEvent, pastEvent]}
                     />
 
                     <div className={styles.selects}>
-                        {!!visibleMaterials.length &&
-                          <ModeSelect
-                            options={visibleMaterials}
-                            value={material}
-                            label={'Material'}
-                            onSelect={setMaterial}
-                          />
-                        }
+                        {!!visibleMaterials.length && (
+                            <ModeSelect
+                                options={visibleMaterials}
+                                value={material}
+                                label={'Material'}
+                                onSelect={setMaterial}
+                            />
+                        )}
 
                         <ModeSelect
                             options={visibleLanguages}
@@ -152,7 +152,9 @@ export const EventList = () => {
                 </div>
 
                 <div className={styles.list}>
-                    {visibleEvents.map(communityEvent => <EventCard key={communityEvent.id} event={communityEvent}/>)}
+                    {visibleEvents.map((communityEvent) => (
+                        <EventCard key={communityEvent.id} event={communityEvent} />
+                    ))}
                 </div>
             </div>
         </div>

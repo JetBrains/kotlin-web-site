@@ -9,6 +9,7 @@
     position: relative;
 }
 
-.marker:hover, .active {
-  background: rgba(255, 114, 44, 1);
+.marker:hover,
+.active {
+    background: rgba(255, 114, 44, 1);
 }

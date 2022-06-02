@@ -28,7 +28,7 @@ a.card {
 }
 
 .dot {
-    color: #EF341E;
+    color: #ef341e;
     margin-right: 4px;
     display: inline-block;
 }
@@ -45,7 +45,7 @@ a.card {
 }
 
 .speaker:after {
-    content: "·";
+    content: '·';
     margin-left: 4px;
 }
 
@@ -55,13 +55,11 @@ a.card {
     align-items: center;
 }
 
-
 .materials {
     margin-left: 8px;
     display: flex;
     align-items: center;
 }
-
 
 @media (min-width: 768px) {
     .card {

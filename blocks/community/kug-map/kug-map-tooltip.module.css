@@ -11,7 +11,7 @@
 
 .tooltip:before {
     position: absolute;
-    content: "";
+    content: '';
     border-bottom: 8px solid #fff;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;

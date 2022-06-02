@@ -1,30 +1,32 @@
-import React, {FC, useCallback, useMemo, useState} from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import {KugMapMarker} from "./kug-map-marker";
-import styles from "./kug-map.module.css";
-import {settings} from "../../../static/js/util/map-settings";
+import { KugMapMarker } from './kug-map-marker';
+import styles from './kug-map.module.css';
+import { settings } from '../../../static/js/util/map-settings';
 
 interface KugMap {
-    userGroupData: UserGroupsData
+    userGroupData: UserGroupsData;
 }
 
 export interface UserGroupEntity extends UserGroup {
     id: string;
 }
 
-export const KugMap: FC<KugMap> = ({userGroupData}) => {
+export const KugMap: FC<KugMap> = ({ userGroupData }) => {
     const [activeId, setActiveId] = useState('');
     const userGroups: UserGroupEntity[] = useMemo(() => {
         const groups: UserGroupEntity[] = [];
 
-        userGroupData.forEach(region => region.groups.map((group: UserGroup) => {
-            if (!!group?.position) {
-                groups.push({
-                    ...group,
-                    id: `${group.name}-${group.country}-${group.url}`
-                });
-            }
-        }));
+        userGroupData.forEach((region) =>
+            region.groups.map((group: UserGroup) => {
+                if (!!group?.position) {
+                    groups.push({
+                        ...group,
+                        id: `${group.name}-${group.country}-${group.url}`,
+                    });
+                }
+            })
+        );
 
         return groups;
     }, [userGroupData]);
@@ -36,23 +38,23 @@ export const KugMap: FC<KugMap> = ({userGroupData}) => {
     return (
         <div className={styles.map}>
             <GoogleMapReact
-              bootstrapURLKeys={{key: settings.key}}
-              defaultCenter={settings.defaultCenter}
-              defaultZoom={settings.defaultZoom}
-              options={settings.options}
-              onChildClick={handleChildClick}
+                bootstrapURLKeys={{ key: settings.key }}
+                defaultCenter={settings.defaultCenter}
+                defaultZoom={settings.defaultZoom}
+                options={settings.options}
+                onChildClick={handleChildClick}
             >
-              {userGroups.map(group =>
-                  <KugMapMarker
-                      key={group.id}
-                      lat={group.position.lat}
-                      lng={group.position.lng}
-                      group={group}
-                      showTooltip={group.id === activeId}
-                      onClose={handleChildClick}
-                  />
-              )}
-          </GoogleMapReact>
+                {userGroups.map((group) => (
+                    <KugMapMarker
+                        key={group.id}
+                        lat={group.position.lat}
+                        lng={group.position.lng}
+                        group={group}
+                        showTooltip={group.id === activeId}
+                        onClose={handleChildClick}
+                    />
+                ))}
+            </GoogleMapReact>
         </div>
     );
-}
+};

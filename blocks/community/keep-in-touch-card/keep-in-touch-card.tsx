@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
-import {cardCn} from "@rescui/card";
-import styles from './keep-in-touch-card.module.css'
+import { cardCn } from '@rescui/card';
+import styles from './keep-in-touch-card.module.css';
 
 export interface KeepInTouchCardProps {
     icon: ImgSrc;
@@ -10,9 +10,8 @@ export interface KeepInTouchCardProps {
     link: string;
 }
 
-export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({icon, title, description, link}) => {
-
-    const cardClassName = classNames(cardCn({paddings: 16, isClickable: true}), styles.card);
+export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({ icon, title, description, link }) => {
+    const cardClassName = classNames(cardCn({ paddings: 16, isClickable: true }), styles.card);
 
     return (
         <a href={link} target="_blank" rel="noopener noreferrer" className={cardClassName}>
@@ -21,10 +20,8 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({icon, title, descript
                     <img src={icon.src} alt={title} />
                 </div>
                 <div className={classNames(styles.bottom)}>
-                    <div className={classNames(styles.title, 'ktl-h4')}>
-                        {title}
-                    </div>
-                    <div className={"ktl-offset-top-xs"}>
+                    <div className={classNames(styles.title, 'ktl-h4')}>{title}</div>
+                    <div className={'ktl-offset-top-xs'}>
                         <div className={classNames(styles.description, 'ktl-text-2', 'ktl-dimmed-text')}>
                             {description}
                         </div>
@@ -32,5 +29,5 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({icon, title, descript
                 </div>
             </div>
         </a>
-    )
-}
+    );
+};
