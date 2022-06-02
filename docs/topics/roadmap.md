@@ -25,7 +25,7 @@ The goal of this roadmap is to give you a big picture. Here’s a list of our ke
 
 ## Kotlin roadmap by subsystem
 
-To view the biggest projects we're working on, visit the [YouTrack board](https://youtrack.jetbrains.com/agiles/153-1251/current) or the [Roadmap details](#roadmap-details) table.
+To view the biggest projects we're working on, visit the [YouTrack board](https://youtrack.jetbrains.com/issues?q=project:%20KT,%20KTIJ%20tag:%20%7BRoadmap%20Item%7D%20%23Unresolved%20) or the [Roadmap details](#roadmap-details) table.
 
 If you have any questions or feedback about the roadmap or the items on it, feel free to post them to [YouTrack tickets](https://youtrack.jetbrains.com/issues/KT?q=%23%7BRoadmap%20Item%7D%20) or in the [#kotlin-roadmap](https://kotlinlang.slack.com/archives/C01AAJSG3V4) channel of Kotlin Slack ([request an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
@@ -245,7 +245,6 @@ We've **removed** the following items from the roadmap:
 * ❌ Kotlin/Native: [Support building Kotlin/Native for Mac Catalyst (x86-64 and arm64)](https://youtrack.jetbrains.com/issue/KT-40442)
 * ❌ Kotlin/Native: [Support direct interoperability with Swift](https://youtrack.jetbrains.com/issue/KT-49521)
 * ❌ Kotlin/Native: [Support running Kotlin/Native-produced binaries on Alpine Linux](https://youtrack.jetbrains.com/issue/KT-38876)
-* ❌ Kotlin/Native: Support interoperability with C++
 * ❌ IDE: [Implement advanced tooling that users have in Java but is missing in Kotlin](https://youtrack.jetbrains.com/issue/KTIJ-20047)
 * ❌ IDE: [Improve the quality of less frequently used features](https://youtrack.jetbrains.com/issue/KTIJ-20048)
 * ❌ Build tools: [Improve the quality of Gradle import](https://youtrack.jetbrains.com/issue/KT-46788)
