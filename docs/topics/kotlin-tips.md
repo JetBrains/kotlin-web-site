@@ -4,7 +4,7 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
-## Deduplicating Collection Items
+## Deduplicating collection items
 
 Got a Kotlin collection that contains duplicates? Need a collection with only unique items? Let Sebastian show you how to remove duplicates from your lists, or turn them into sets in this Kotlin tip: 
 
