@@ -144,7 +144,7 @@ However, you can still use the multithreaded version of `kotlinx.coroutines` in 
 
 The current version for Kotlin %kotlinVersion% is `%coroutinesVersion%-native-mt`. 
 
-To use the multithreaded version, add a dependency for the `commonMain` source set in `build.gradle.kts`:
+To use the multithreaded version, add a dependency for the `commonMain` source set in `build.gradle`:
 
 ```kotlin
 commonMain {
@@ -212,7 +212,7 @@ Kotlin has the concept of frozen only for Kotlin/Native platforms including iOS.
 you can create expect and actual implementations for `freeze`, or use [`stately-common`](https://github.com/touchlab/Stately#stately-common), which provides this functionality. 
 In Kotlin/Native, `freeze` will freeze your state, while on the JVM it'll do nothing.
 
-To use `stately-common`, add a dependency for the `commonMain` source set in `build.gradle.kts`:
+To use `stately-common`, add a dependency for the `commonMain` source set in `build.gradle`:
 
 ```kotlin
 commonMain {
