@@ -39,10 +39,10 @@ Each Kotlin project has two GitHub badges describing its stability and support s
 
 * **Stability** status. This shows how quickly each project is evolving and how much risk the users are taking when adopting it.
   The stability status completely coincides with the [stability level of the Kotlin language features and its components](#stability-levels-explained):
-    * ![Experimental stability level](https://kotl.in/badges/experimental.svg){type="joined"} **/** ![Experimental stability level](https://kotl.in/badges/experimental-square.svg){type="joined"} stands for **Experimental**
-    * ![Alpha stability level](https://kotl.in/badges/alpha.svg){type="joined"} **/** ![Alpha stability level](https://kotl.in/badges/alpha-square.svg){type="joined"} stands for **Alpha**
-    * ![Beta stability level](https://kotl.in/badges/beta.svg){type="joined"} **/** ![Beta stability level](https://kotl.in/badges/beta-square.svg){type="joined"} stands for **Beta**
-    * ![Stable stability level](https://kotl.in/badges/stable.svg){type="joined"} **/** ![Stable stability level](https://kotl.in/badges/stable-square.svg){type="joined"} stands for **Stable**
+    * ![Experimental stability level](https://kotl.in/badges/experimental.svg){type="joined"} stands for **Experimental**
+    * ![Alpha stability level](https://kotl.in/badges/alpha.svg){type="joined"} stands for **Alpha**
+    * ![Beta stability level](https://kotl.in/badges/beta.svg){type="joined"} stands for **Beta**
+    * ![Stable stability level](https://kotl.in/badges/stable.svg){type="joined"} stands for **Stable**
 
 * **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems
   The level of support is unified for all JetBrains products.  
@@ -69,6 +69,7 @@ Kotlin/JS (Classic back-end)|Stable|1.3| |
 Kotlin/JVM (IR-based)|Stable|1.5| |
 Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
+Kotlin/Native new memory manager|Alpha|1.6.20| |
 klib binaries|Alpha|1.4| |
 Multiplatform Projects|Alpha|1.3| |
 Kotlin/Native interop with C and Objective C|Beta|1.3| |
