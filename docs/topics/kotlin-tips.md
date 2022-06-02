@@ -4,6 +4,12 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## Deduplicating Collection Items
+
+Got a Kotlin collection that contains duplicates? Need a collection with only unique items? Let Sebastian show you how to remove duplicates from your lists, or turn them into sets in this Kotlin tip: 
+
+<video width="560" height="315" href="ECOf0PeSANw" title="Kotlin Tips: Deduplicating Collection Items"/>
+
 ## The suspend and inline mystery
 
 How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren’t coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: it has something to do with the inline modifier:
