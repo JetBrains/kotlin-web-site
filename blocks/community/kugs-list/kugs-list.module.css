@@ -64,7 +64,7 @@
 
 @media (min-width: 1024px) {
     .countriesList {
-        column-count: 6;
+        column-count: 5;
     }
 
     .title {

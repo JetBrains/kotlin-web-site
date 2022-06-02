@@ -7,18 +7,22 @@
     margin-top: 16px;
 }
 
-.selects {
-    display: none;
-}
-
-.selectEnd {
-    margin-left: 32px;
-}
-
 .list {
     display: grid;
     grid-gap: 16px;
     margin-top: 32px;
+}
+
+@media (max-width: 767px) {
+    .selects {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selectEnd {
+        margin-top: 24px;
+    }
 }
 
 @media (min-width: 768px) {
@@ -41,6 +45,10 @@
     .selects {
         display: flex;
         align-items: center;
+    }
+
+    .selectEnd {
+        margin-left: 32px;
     }
 }
 @media (min-width: 1200px) {
