@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin custom scripting – tutorial)
 
-> Kotlin scripting in [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Kotlin scripting is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
