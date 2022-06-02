@@ -113,6 +113,10 @@ player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
 
+The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped 
+to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the method
+`isEquals(_:)` and the properties `hash`, `description` in Swift.
+
 ### Errors and exceptions
 
 Kotlin has no concept of checked exceptions, all Kotlin exceptions are unchecked.
