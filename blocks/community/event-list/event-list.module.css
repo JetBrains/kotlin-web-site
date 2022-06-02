@@ -7,10 +7,6 @@
     margin-top: 16px;
 }
 
-/*.selects {*/
-/*    display: none;*/
-/*}*/
-
 .list {
     display: grid;
     grid-gap: 16px;
