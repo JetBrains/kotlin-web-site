@@ -5,9 +5,10 @@ for the business logic of your iOS and Android apps.)
 > Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future
 > Kotlin versions.
 > 
-> Beta is expected in spring 2022. Check out [Kotlin Multiplatform Mobile Beta Roadmap Video Highlights](https://blog.jetbrains.com/kotlin/2021/10/kmm-beta-roadmap-video-highlights/)
-> to learn about upcoming features. You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies/)
-> already use Kotlin for cross-platform app development.
+> * Check out our update on the [Kotlin Multiplatform Mobile Beta Roadmap](https://blog.jetbrains.com/kotlin/2022/05/kotlin-multiplatform-mobile-beta-roadmap-update/)
+> to learn about the steps we are taking to move toward the Beta release.
+> * You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies/) already use Kotlin for
+> cross-platform app development.
 >
 {type="note"}
 
