@@ -22,7 +22,7 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({ icon, title, descrip
                 <div className={classNames(styles.bottom)}>
                     <div className={classNames(styles.title, 'ktl-h4')}>{title}</div>
                     <div className={'ktl-offset-top-xs'}>
-                        <div className={classNames(styles.description, 'ktl-text-2', 'ktl-dimmed-text')}>
+                        <div className={classNames(styles.description, 'ktl-dimmed-text')}>
                             {description}
                         </div>
                     </div>

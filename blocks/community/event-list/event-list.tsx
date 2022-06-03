@@ -7,6 +7,7 @@ import { EventCard } from './event-card';
 import styles from './event-list.module.css';
 import { communityEvents } from './community-events';
 import { CommunityEvent } from './community-event';
+import cn from 'classnames';
 
 interface EventType {
     value: string;
@@ -138,6 +139,7 @@ export const EventList = () => {
                                 value={material}
                                 label={'Material'}
                                 onSelect={setMaterial}
+                                className={styles.select}
                             />
                         )}
 
@@ -146,7 +148,7 @@ export const EventList = () => {
                             value={language}
                             label={'Language'}
                             onSelect={setLanguage}
-                            className={styles.selectEnd}
+                            className={cn(styles.select, styles.selectEnd)}
                         />
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 .content {
-    margin: 24px 0 calc(2 * var(--ktl-grid-gutter));
-    max-width: 724px;
+    margin: 48px 0;
+    max-width: 712px;
 }
 
 .text {
@@ -20,7 +20,7 @@
 @media (min-width: 1280px) {
     .content {
         margin: 96px 710px 108px 0;
-        max-width: none;
+        max-width: 724px;
     }
 
     .banner {

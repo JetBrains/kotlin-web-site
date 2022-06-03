@@ -19,9 +19,9 @@ import {DesktopBreak} from "../../components/desktop-break/desktop-break";
 function Index() {
     return (
         <CommunityLayout title={'Community'}>
-            <CommunityBanner title="Get involved in the&nbsp;community!">
-                Find online resources and information about community activities. Can’t find any? Organize your own –
-                JetBrains is always here to support you!
+            <CommunityBanner title="Get involved&nbsp;in<br/> the&nbsp;community">
+                Find online resources and information about community activities. Can&rsquo;t find any? Organize your own &mdash;
+                JetBrains is&nbsp;always here to&nbsp;support you!
             </CommunityBanner>
 
             <KeepInTouch
