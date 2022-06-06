@@ -160,52 +160,52 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td><ul><li>Logic shared with the backend</li></ul></td>
     </tr>
 <tr>
-	<td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
-	<td>Models, Networking, Presentation, Navigation and UI </td>
-	<td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
-	<td>Jetpack Compose, SwiftUI</td>
-	<td>Xcode build phases</td>
-	<td>-</td>
-	<td>✅</td>
-	<td>✅</td>
-	<td>
-		<ul>
-  			<li>99% of the code is shared</li>
-  			<li>MVI architectural pattern</li>
-			<li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
-		</ul>
-	</td>
+ <td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
+ <td>Models, Networking, Presentation, Navigation and UI </td>
+ <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
+ <td>Jetpack Compose, SwiftUI</td>
+ <td>Xcode build phases</td>
+ <td>-</td>
+ <td>✅</td>
+ <td>✅</td>
+ <td>
+  <ul>
+     <li>99% of the code is shared</li>
+     <li>MVI architectural pattern</li>
+   <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
+  </ul>
+ </td>
 </tr>
 <tr>
-	<td><strong><a href="https://github.com/fededri/kmm-demo">kmm-arch-demo</a></strong></td>
-	<td>Models, Networking, ViewModels, UI State</td>
-	<td>Ktor, kotlinx.serialization</td>
-	<td>XML, SwiftUI</td>
-	<td>CocoaPods</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>
-		<ul>
-  			<li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
-		</ul>
-	</td>
+ <td><strong><a href="https://github.com/fededri/kmm-demo">kmm-arch-demo</a></strong></td>
+ <td>Models, Networking, ViewModels, UI State</td>
+ <td>Ktor, kotlinx.serialization</td>
+ <td>XML, SwiftUI</td>
+ <td>CocoaPods</td>
+ <td>-</td>
+ <td>-</td>
+ <td>-</td>
+ <td>
+  <ul>
+     <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
+  </ul>
+ </td>
 </tr>
 <tr>
-	<td><strong><a href="https://github.com/xorum-io/codeforces_watcher">Codeforces WatchR</a></strong></td>
-	<td>Models, Networking, Data Storage, UI State</td>
-	<td>SQLDelight, Ktor, kotlinx.serialization</td>
-	<td>XML, UIKit</td>
-	<td>CocoaPods</td>
-	<td>✅</td>
-	<td>✅</td>
-	<td>-</td>
-	<td>
-		<ul>
-  			<li>Uses Redux (<a href="https://github.com/xorum-io/ReKamp">ReKamp</a>) for sharing UI State</li>
-  			<li>Published to Google Play and App Store</li>
-		</ul>
-	</td>
+ <td><strong><a href="https://github.com/xorum-io/codeforces_watcher">Codeforces WatchR</a></strong></td>
+ <td>Models, Networking, Data Storage, UI State</td>
+ <td>SQLDelight, Ktor, kotlinx.serialization</td>
+ <td>XML, UIKit</td>
+ <td>CocoaPods</td>
+ <td>✅</td>
+ <td>✅</td>
+ <td>-</td>
+ <td>
+  <ul>
+     <li>Uses Redux (<a href="https://github.com/xorum-io/ReKamp">ReKamp</a>) for sharing UI State</li>
+     <li>Published to Google Play and App Store</li>
+  </ul>
+ </td>
 </tr>
 <tr>
       <td>
@@ -228,7 +228,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
         </ul>
     </td>
 </tr>
-	<tr>
+ <tr>
       <td>
         <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
       </td>
@@ -240,8 +240,8 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>✅</td>
       <td>
-		<ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
-		</td>
+  <ul>Targets list:<li>iOS</li><li>Android</li><li>Android Wear OS</li><li>watchOS</li><li>macOS Desktop (Swift UI)</li><li>Web (Kotlin/JS + React Wrapper)</li></ul>
+  </td>
 </tr>
 <tr>
       <td>
@@ -255,7 +255,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>-</td>
       <td>
-<ul><li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li></ul>	
+<ul><li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li></ul> 
 </td>
 </tr>
     <tr>
@@ -296,5 +296,18 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <td>-</td>
       <td>✅</td>
       <td><ul><li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li></ul></td>
+</tr>
+<tr>
+      <td>
+        <strong><a href="https://github.com/VictorKabata/Notflix">Notflix</a></strong>
+      </td>
+      <td>Models, Networking, Caching, ViewModels</td>
+      <td>Koin, Ktor, Multiplatform settings, kotlinx.coroutines, kotlinx.serialization, kotlinx.datetime, Napier</td>
+      <td>Jetpack Compose-Android, Compose Multiplatform-Desktop</td>
+      <td>-</td>
+      <td>✅</td>
+      <td>-</td>
+      <td>✅</td>
+      <td><ul><li>Modular architecture</li><li>Runs on desktop</li><li>Sharing viewmodel</li></ul></td>
 </tr>
 </table>
