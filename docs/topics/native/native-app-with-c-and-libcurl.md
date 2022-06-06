@@ -125,8 +125,8 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
     ```
 
    * `headers` is the list of header files to generate Kotlin stubs. You can add multiple files to this entry,
-   separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be relative
-   to the folder where the definition file is, or be available on the system path (in this case, it's `/usr/include/curl`).
+   separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be available
+   on the system path (in this case, it's `/usr/include/curl`).
    * `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
    another one with the `#include` directive. Sometimes it's not necessary, and you can add this parameter
    [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
