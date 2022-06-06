@@ -985,3 +985,37 @@ tasks.withType(KotlinCompile)
 
 </tab>
 </tabs>
+
+## Triggering configuration actions with the KotlinBasePlugin interface
+
+When you want to trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, MPP, Native, and others) is applied, 
+use the `KotlinBasePlugin` interface that all Kotlin plugins inherit from:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
+
+// ...
+
+project.plugins.withType<KotlinBasePlugin>() {
+// Configure your action here
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
+
+// ...
+
+project.plugins.withType<KotlinBasePlugin>() {
+// Configure your action here
+}
+```
+
+</tab>
+</tabs>
