@@ -616,8 +616,8 @@ The latest variant will support the widest Gradle feature set.
 With such an approach, there will be a longer support for older Gradle versions with limited functionality.
 
 There are two variants of the Kotlin Gradle plugin:
-`main` for Gradle versions 6.7.1–6.9.2.
-`gradle70` for Gradle versions 7.0 and higher.
+* `main` for Gradle versions 6.7.1–6.9.2.
+* `gradle70` for Gradle versions 7.0 and higher.
 
 To check which variant your build uses, enable the [`--info` log level](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) 
 and find a string in the output starting with: `Using Kotlin Gradle plugin`. For example: `Using Kotlin Gradle plugin main variant`.
