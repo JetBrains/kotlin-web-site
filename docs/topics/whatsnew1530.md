@@ -623,8 +623,6 @@ java {
 }
 ```
 
-For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
-
 For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface).
 
 ### Ability to specify JDK home with UsesKotlinJavaToolchain interface
