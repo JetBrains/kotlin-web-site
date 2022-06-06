@@ -323,7 +323,7 @@ To run tests, execute the standard lifecycle `check` task:
 ./gradlew check
 ```
          
-To specify envirnoment variables used by your Node.js test runners (e.g. to pass external information to your tests, or to fine-tune package resolution), use the `environment` function with a key-value pair inside the `testTask` block in your build script:
+To specify envirnoment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment` function with a key-value pair inside the `testTask` block in your build script:
          
 ```groovy
 kotlin {
