@@ -133,27 +133,6 @@ sourceSets {
 </tab>
 </tabs>
 
-### Check for JVM target compatibility of related compile tasks
-
-In the build module, you may have related compile tasks, for example:
-* `compileKotlin` and `compileJava`
-* `compileTestKotlin` and `compileTestJava`
-
-> `main` and `test` source set compile tasks are not related.
->
-{type="note"}
-
-For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in the `kotlin` extension
-and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension cause incompatibility. For example:
-the `compileKotlin` task has `jvmTarget=1.8`, and
-the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
-
-Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
-* `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
-* `error` – the plugin will fail the build.
-* `ignore` – the plugin will skip the check and won't produce any messages.
-
 ### Set custom JDK home
 
 By default, Kotlin compile tasks use the current Gradle JDK. 
@@ -184,7 +163,6 @@ A Java toolchain:
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
-  Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
