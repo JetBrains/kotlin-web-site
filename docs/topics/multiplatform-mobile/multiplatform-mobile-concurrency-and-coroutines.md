@@ -144,26 +144,60 @@ However, you can still use the multithreaded version of `kotlinx.coroutines` in 
 
 The current version for Kotlin %kotlinVersion% is `%coroutinesVersion%-native-mt`. 
 
-To use the multithreaded version, add a dependency for the `commonMain` source set in `build.gradle.kts`:
+To use the multithreaded version, add a dependency for the `commonMain` source set in `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-commonMain {
+val commonMain by getting {
     dependencies {
-        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt"
+        implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt")
     }
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+commonMain {
+    dependencies {
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt'
+    }
+}
+```
+
+</tab>
+</tabs>
+
 When using other libraries that also depend on `kotlinx.coroutines`, such as Ktor, make sure to specify the multithreaded version
 of `kotlinx-coroutines`. You can do this with `strictly`:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
-implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt"){
+implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt") {
     version {
         strictly("%coroutinesVersion%-native-mt")
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt' {
+    version {
+        strictly '%coroutinesVersion%-native-mt'
+    }
+}
+```
+
+</tab>
+</tabs>
 
 Because the main version of `kotlinx.coroutines` is a single-threaded one, libraries will almost certainly rely on this version. 
 If you see `InvalidMutabilityException` related to a coroutine operation, it's very likely that you are using the wrong version.
@@ -212,15 +246,32 @@ Kotlin has the concept of frozen only for Kotlin/Native platforms including iOS.
 you can create expect and actual implementations for `freeze`, or use [`stately-common`](https://github.com/touchlab/Stately#stately-common), which provides this functionality. 
 In Kotlin/Native, `freeze` will freeze your state, while on the JVM it'll do nothing.
 
-To use `stately-common`, add a dependency for the `commonMain` source set in `build.gradle.kts`:
+To use `stately-common`, add a dependency for the `commonMain` source set in `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-commonMain {
+val commonMain by getting {
     dependencies {
-        implementation "co.touchlab:stately-common:1.0.x"
+        implementation ("co.touchlab:stately-common:1.0.x")
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+commonMain {
+    dependencies {
+        implementation 'co.touchlab:stately-common:1.0.x'
+    }
+}
+```
+
+</tab>
+</tabs>
 
 _This material was prepared by [Touchlab](https://touchlab.co/) for publication by JetBrains._
 
