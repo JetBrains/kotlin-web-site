@@ -15,26 +15,26 @@ from [GitHub Releases](%kotlinLatestUrl%).
 ### Manual install
 
 Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
-The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, OS X, and Linux.
+The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
 
 ### SDKMAN!
 
-An easier way to install Kotlin on UNIX-based systems, such as OS X, Linux, Cygwin, FreeBSD, and Solaris, is
+An easier way to install Kotlin on UNIX-based systems, such as macOS, Linux, Cygwin, FreeBSD, and Solaris, is
 [SDKMAN!](https://sdkman.io). It also works in Bash and ZSH shells. [Learn how to install SDKMAN!](https://sdkman.io/install).
 
 To install the Kotlin compiler via SDKMAN!, run the following command in the terminal:
 
 ```bash
-$ sdk install kotlin
+sdk install kotlin
 ```
 
 ### Homebrew
 
-Alternatively, on OS X you can install the compiler via [Homebrew](https://brew.sh/).
+Alternatively, on macOS you can install the compiler via [Homebrew](https://brew.sh/):
 
 ```bash
-$ brew update
-$ brew install kotlin
+brew update
+brew install kotlin
 ```
 
 ### Snap package
@@ -42,7 +42,7 @@ $ brew install kotlin
 If you use [Snap](https://snapcraft.io/) on Ubuntu 16.04 or later, you can install the compiler from the command line:
 
 ```bash
-$ sudo snap install --classic kotlin
+sudo snap install --classic kotlin
 ```
 
 ## Create and run an application
@@ -59,7 +59,7 @@ $ sudo snap install --classic kotlin
 2. Compile the application using the Kotlin compiler:
 
    ```bash
-   $ kotlinc hello.kt -include-runtime -d hello.jar
+   kotlinc hello.kt -include-runtime -d hello.jar
    ```
 
    The `-d` option indicates the output path for generated class files, which may be either a directory or a *.jar* file.
@@ -69,22 +69,22 @@ library in it.
    To see all available options, run
 
    ```bash
-   $ kotlinc -help
+   kotlinc -help
    ```
 
 3. Run the application.
 
    ```bash
-   $ java -jar hello.jar
+   java -jar hello.jar
    ```
 
 ## Compile a library
 
 If you're developing a library to be used by other Kotlin applications, you can build the *.jar* file without including
-the Kotlin runtime in it.
+the Kotlin runtime in it:
 
 ```bash
-$ kotlinc hello.kt -d hello.jar
+kotlinc hello.kt -d hello.jar
 ```
 
 Since binaries compiled this way depend on the Kotlin runtime, you should make sure the latter is present in the classpath
@@ -93,7 +93,7 @@ whenever your compiled library is used.
 You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
 
 ```bash
-$ kotlin -classpath hello.jar HelloKt
+kotlin -classpath hello.jar HelloKt
 ```
 
 `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
@@ -120,10 +120,10 @@ val folders = File(path).listFiles { file -> file.isDirectory() }
 folders?.forEach { folder -> println(folder) }
 ```
 
-To run a script, pass the `-script` option to the compiler with the corresponding script file.
+To run a script, pass the `-script` option to the compiler with the corresponding script file:
 
 ```bash
-$ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
+kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 ```
 
 Kotlin provides experimental support for script customization, such as adding external properties,
@@ -136,8 +136,7 @@ in the compilation classpath. Alternatively, you can specify definitions manuall
 to the compiler:
 
 ```bash
-$ kotlinc -script-templates org.example.CustomScriptDefinition -script custom.script1.kts
+kotlinc -script-templates org.example.CustomScriptDefinition -script custom.script1.kts
 ```
 
-For additional details, please consult the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md). 
-                                                                                          
+For additional details, please consult the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md).
