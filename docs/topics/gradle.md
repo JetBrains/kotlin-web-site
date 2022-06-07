@@ -816,7 +816,7 @@ Here is a complete list of options for Gradle tasks:
 ### Attributes specific to JVM
 
 | Name | Description | Possible values |Default value |
-|------|-------------|--|--------------|
+|------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
 | `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is deprecated sinсe 1.5.30, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18" | "%defaultJvmTargetVersion%" |
