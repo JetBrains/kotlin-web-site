@@ -22,6 +22,16 @@
     margin-top: 24px;
 }
 
+.empty {
+    display: flex;
+    width: 100%;
+    min-height: 280px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(39, 40, 44, 0.5);
+    font-size: 19px;
+}
+
 @media (min-width: 768px) {
     .wrapper {
         padding: 64px 0 96px;

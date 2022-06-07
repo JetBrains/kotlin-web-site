@@ -153,11 +153,15 @@ export const EventList = () => {
                     </div>
                 </div>
 
-                <div className={styles.list}>
-                    {visibleEvents.map((communityEvent) => (
-                        <EventCard key={communityEvent.id} event={communityEvent} />
-                    ))}
-                </div>
+                {visibleEvents.length ? (
+                    <div className={styles.list}>
+                        {visibleEvents.map((communityEvent) => (
+                            <EventCard key={communityEvent.id} event={communityEvent} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className={cn('ktl-t1', styles.empty)}>No Events Found</div>
+                )}
             </div>
         </div>
     );
