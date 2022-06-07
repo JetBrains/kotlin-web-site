@@ -606,11 +606,11 @@ dependencies {
 ## Support for Gradle plugin variants
 
 Gradle 7.0 introduced a new feature for Gradle plugin authors – [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants). 
-This feature makes it easier to add support for new Gradle features while maintaining compatibility for Gradle versions less than 7.1. 
+This feature makes it easier to add support for new Gradle features while maintaining compatibility for Gradle versions below 7.1. 
 Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
 
 With Gradle plugin variants, it is possible to ship different Kotlin Gradle plugin variants for different Gradle versions. 
-The goal is to support base Kotlin compilation in the `main` variant, which will correspond to the oldest supported Gradle versions. 
+The goal is to support the base Kotlin compilation in the `main` variant, which corresponds to the oldest supported Gradle versions. 
 Each variant will have implementations for Gradle features from a corresponding release. 
 The latest variant will support the widest Gradle feature set. 
 With such an approach, there will be a longer support for older Gradle versions with limited functionality.

@@ -198,7 +198,7 @@ sample/src/main/
 The `kotlin-kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
 This is useful to track if there are unused annotation processors as a part of the build. 
-You can use the generated report for finding modules that trigger unnecessary annotation processors and update the modules to prevent that.
+You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to prevent that.
 
 Enable the statistics in two steps:
 * Set the `showProcessorStats` flag to `true` in your `build.gradle.kts`:
@@ -220,7 +220,7 @@ Enable the statistics in two steps:
 > {type=”note”}
 
 The statistics will appear in the logs with the [`info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) level. 
-You'll see the `Annotation processor stats:` line and then statistics on each annotation processor execution time. 
+You'll see the `Annotation processor stats:` line, and then statistics on each annotation processor execution time. 
 After these lines, there will be the `Generated files report:` line, and then statistics on the amount of generated files for each annotation processor. 
 For example:
 
