@@ -164,7 +164,7 @@ Possible values are `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, 
 
 ### -jvm-target _version_
 
-Specify the target version of the generated JVM bytecode. Possible values are `1.6` (DEPRECATED), `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, and `18`.
+Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, and `18`.
 The default value is `%defaultJvmTargetVersion%`.
 
 ### -java-parameters
