@@ -7,6 +7,7 @@ import { EventCard } from './event-card';
 import styles from './event-list.module.css';
 import { communityEvents } from './community-events';
 import { CommunityEvent } from './community-event';
+import cn from 'classnames';
 
 interface EventType {
     value: string;
@@ -138,6 +139,7 @@ export const EventList = () => {
                                 value={material}
                                 label={'Material'}
                                 onSelect={setMaterial}
+                                className={styles.select}
                             />
                         )}
 
@@ -146,16 +148,20 @@ export const EventList = () => {
                             value={language}
                             label={'Language'}
                             onSelect={setLanguage}
-                            className={styles.selectEnd}
+                            className={cn(styles.select, styles.selectEnd)}
                         />
                     </div>
                 </div>
 
-                <div className={styles.list}>
-                    {visibleEvents.map((communityEvent) => (
-                        <EventCard key={communityEvent.id} event={communityEvent} />
-                    ))}
-                </div>
+                {visibleEvents.length ? (
+                    <div className={styles.list}>
+                        {visibleEvents.map((communityEvent) => (
+                            <EventCard key={communityEvent.id} event={communityEvent} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className={cn('ktl-t1', styles.empty)}>No Events Found</div>
+                )}
             </div>
         </div>
     );

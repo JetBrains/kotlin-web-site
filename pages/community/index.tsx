@@ -14,13 +14,14 @@ import YoutubeIcon from '../../public/images/community/icons/keep-in-touch-youtu
 import TalkingKotlinIcon from '../../public/images/community/icons/keep-in-touch-talking-kotlin-icon.svg';
 import LinkedInIcon from '../../public/images/community/icons/keep-in-touch-linkedin-icon.svg';
 import YoutrackIcon from '../../public/images/community/icons/keep-in-touch-youtrack-icon.svg';
+import {DesktopBreak} from "../../components/desktop-break/desktop-break";
 
 function Index() {
     return (
         <CommunityLayout title={'Community'}>
-            <CommunityBanner title="Get involved in&nbsp;the&nbsp;community!">
-                Find online resources and information about community activities. Can’t find any? Organize your own –
-                JetBrains is always here to support you!
+            <CommunityBanner title="Get involved&nbsp;in<br/> the&nbsp;community">
+                Find online resources and information about community activities. Can&rsquo;t find any? Organize your own &mdash;
+                JetBrains is&nbsp;always here to&nbsp;support you!
             </CommunityBanner>
 
             <KeepInTouch
@@ -83,15 +84,15 @@ function Index() {
             />
 
             <OverviewBottomLink
-                title={'Join a Kotlin User Group\nor start your own'}
                 buttonLink={'/community/user-groups/'}
-                buttonTitle={'All KUGs →'}
-            />
+                buttonTitle={'All KUGs →'}>
+                Join a&nbsp;Kotlin User Group<DesktopBreak /> or&nbsp;start your own
+            </OverviewBottomLink>
             <OverviewBottomLink
-                title={'Get inspired at a Kotlin event\nor host one yourself'}
                 buttonLink={'/community/events/'}
-                buttonTitle={'Talks and Events →'}
-            />
+                buttonTitle={'Talks and Events →'}>
+                Get inspired at&nbsp;a&nbsp;Kotlin event<DesktopBreak /> or&nbsp;host one yourself
+            </OverviewBottomLink>
         </CommunityLayout>
     );
 }

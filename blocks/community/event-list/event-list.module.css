@@ -4,25 +4,32 @@
 }
 
 .actions {
-    margin-top: 16px;
+    margin-top: 24px;
 }
 
 .list {
     display: grid;
     grid-gap: 16px;
-    margin-top: 32px;
+    margin-top: 24px;
 }
 
-@media (max-width: 767px) {
-    .selects {
-        margin-top: 24px;
-        display: flex;
-        flex-direction: column;
-    }
+.selects {
+    display: flex;
+    flex-direction: column-reverse;
+}
 
-    .selectEnd {
-        margin-top: 24px;
-    }
+.select {
+    margin-top: 24px;
+}
+
+.empty {
+    display: flex;
+    width: 100%;
+    min-height: 280px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(39, 40, 44, 0.5);
+    font-size: 19px;
 }
 
 @media (min-width: 768px) {
@@ -38,12 +45,19 @@
     }
 
     .list {
+        margin-top: 32px;
         grid-template-columns: repeat(2, 1fr);
     }
 
     .selects {
         display: flex;
+        flex-direction: row;
         align-items: center;
+        margin-top: 0;
+    }
+
+    .select {
+        margin-top: 0;
     }
 
     .selectEnd {

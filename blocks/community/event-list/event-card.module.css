@@ -21,6 +21,7 @@ a.card {
 
 .tag {
     border-radius: 20px;
+    font-weight: normal;
 }
 
 .tag:last-child {

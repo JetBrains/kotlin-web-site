@@ -15,6 +15,7 @@
 
 .description {
     color: rgba(39, 40, 44, 0.5);
+    font-size: 13px;
 }
 
 @media (max-width: 767px) {
@@ -22,9 +23,10 @@
         font-size: 16px;
         line-height: 24px;
     }
+}
 
+@media (min-width: 1024px) {
     .description {
         font-size: 16px;
-        line-height: 24px;
     }
 }
