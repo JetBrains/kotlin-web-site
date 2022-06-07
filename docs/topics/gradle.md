@@ -181,6 +181,7 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
+* Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
@@ -791,6 +792,7 @@ Here is a complete list of options for Gradle tasks:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
+| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is not possible, use [other ways to set this option](#set-custom-jdk-home).  |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", "11", "12", "13", "14", "15", "16", "17" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 | `useOldBackend` | Use the [old JVM backend](whatsnew15.md#stable-jvm-ir-backend) |  | false |
