@@ -4,6 +4,12 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 [Subscribe to our YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw) to not miss new Kotlin Tips videos.
 
+## null + null in Kotlin
+
+What happens when you add `null + null` in Kotlin, and what does it return? Sebastian addresses this mystery in our latest quick tip. Along the way, he also shows why there’s no reason to be scared of nullables: 
+
+<video width="560" height="315" href="wwplVknTza4" title="Kotlin Tips: null + null in Kotlin"/>
+
 ## Deduplicating collection items
 
 Got a Kotlin collection that contains duplicates? Need a collection with only unique items? Let Sebastian show you how to remove duplicates from your lists, or turn them into sets in this Kotlin tip: 
