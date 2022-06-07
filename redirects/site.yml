@@ -3,9 +3,6 @@
    - /docs/reference/coroutines.html
   to: /docs/reference/coroutines-overview.html
 
-- from: /community/user-groups.html
-  to: /user-groups/user-group-list.html
-
 - from: /docs/tutorials/coroutines-basic-jvm.html
   to: /docs/tutorials/coroutines/coroutines-basic-jvm.html
 
@@ -18,12 +15,24 @@
 - from: /docs/resources.html
   to: https://kotlin.link/
 
-
 - from: /community.html
   to: /community/
 
-- from: /docs/events.html
-  to: /community/talks.html
+- from:
+   - /user-groups/user-group-list.html
+   - /community/user-groups.html
+  to: /community/user-groups/
+
+- from:
+   - /docs/events.html
+   - /community/talks.html
+   - /community/events.html
+  to: /community/events/
+
+- from:
+   - /community/kotlin-nights/guidelines.html
+   - /community/kotlin-nights/branding.html
+  to: /docs/kotlin-nights-branding.html
 
 - from: /docs/reference/compatibility.html
   to: /docs/reference/evolution/components-stability.html

@@ -198,12 +198,6 @@ def autoversion_filter(filename):
     original.update(query=original.get('query') + '&v=' + asset_version)
     return ParseResult(**original).geturl()
 
-@app.route('/data/events.json')
-def get_events():
-    with open(path.join(data_folder, "events.xml"), encoding="UTF-8") as events_file:
-        events = xmltodict.parse(events_file.read())['events']['event']
-        return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
-
 
 @app.route('/data/cities.json')
 def get_cities():
@@ -218,11 +212,6 @@ def get_kotlinconf():
 @app.route('/data/universities.json')
 def get_universities():
     return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/data/user-groups.json')
-def get_user_groups():
-    return Response(json.dumps(site_data['user-groups'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/docs/reference/grammar.html')
@@ -248,16 +237,25 @@ def kotlin_docs_pdf():
     return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
 
 
+@app.route('/_next/<path:path>')
+def static_file(path):
+    return send_from_directory('out/_next/', path)
+
+
 @app.route('/community/')
 def community_page():
-    return render_template('pages/community.html')
+    return send_file(path.join(root_folder, 'out', 'community/index.html'))
 
-@app.route('/user-groups/user-group-list.html')
-def user_group_list():
-    return render_template(
-        'pages/user-groups/user-group-list.html',
-        user_groups_data=site_data['user-groups'],
-        number_of_groups=sum(map(lambda section: len(section['groups']), site_data['user-groups'])))
+
+@app.route('/community/events/')
+def community_events_page():
+    return send_file(path.join(root_folder, 'out', 'community/events/index.html'))
+
+
+@app.route('/community/user-groups/')
+def community_user_groups_page():
+    return send_file(path.join(root_folder, 'out', 'community/user-groups/index.html'))
+
 
 @app.route('/education/')
 def education_page():

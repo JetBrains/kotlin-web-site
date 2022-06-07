@@ -1,0 +1,29 @@
+.wrapper {
+    display: block;
+    padding: 108px 0 84px 0;
+    text-align: center;
+}
+
+.wrapper:not(:last-child) {
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+}
+
+.row {
+    align-items: center;
+}
+
+.title {
+    white-space: pre-line;
+    margin-bottom: 32px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+    .wrapper {
+        padding: 84px 0 60px 0;
+    }
+}

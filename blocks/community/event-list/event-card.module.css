@@ -1,0 +1,69 @@
+/** add more weight to selector **/
+a.card {
+    display: flex;
+}
+
+.card {
+    min-height: 170px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tags {
+    display: flex;
+}
+
+.tag {
+    border-radius: 20px;
+    font-weight: normal;
+}
+
+.tag:last-child {
+    margin-left: 4px;
+}
+
+.dot {
+    color: #ef341e;
+    margin-right: 4px;
+    display: inline-block;
+}
+
+.footerInfo {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    color: rgba(39, 40, 44, 0.5);
+}
+
+.speaker {
+    margin-right: 4px;
+}
+
+.speaker:after {
+    content: '·';
+    margin-left: 4px;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.materials {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .card {
+        min-height: 234px;
+    }
+}

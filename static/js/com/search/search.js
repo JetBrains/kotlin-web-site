@@ -1,8 +1,7 @@
 import $ from "jquery";
 import "./search.scss";
-import algoliasearch from "algoliasearch/lite";
-import instantsearch from "instantsearch.js/es";
-import {configure, searchBox, infiniteHits} from "instantsearch.js/es/widgets";
+const algoliasearch = require("algoliasearch/lite");
+const instantsearch = require("instantsearch.js/cjs").default;
 
 import resultTemplate from "./search-result.mustache"
 import emptyResultsTemplate from "./empty-result.mustache"
@@ -33,6 +32,8 @@ export function openPopup() {
   $searchPopup.addClass('_visible');
   $('body').addClass('_no-scroll');
 }
+
+const indexName = 'beta_KOTLINLANG';//process.env.INDEX_NAME;
 
 export function initSearch() {
   $searchPopup = $('.search-popup');
@@ -73,19 +74,19 @@ export function initSearch() {
   });
 
   search.addWidgets([
-      configure({
+    instantsearch.widgets.configure({
         attributesToSnippet: ['content:90'],
         snippetEllipsisText: '...',
         typoTolerance: true
       }),
-      searchBox({
+    instantsearch.widgets.searchBox({
         container: '.search-popup__input',
         placeholder: 'Search',
         showReset: false,
         showSubmit: false,
         showLoadingIndicator: false
       }),
-      infiniteHits({
+    instantsearch.widgets.infiniteHits({
         container: '.search-popup__results',
         templates: {
           empty: emptyResultsTemplate,

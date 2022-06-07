@@ -13,7 +13,7 @@ module.exports = (params = {}) => {
   const sourcemaps = params.sourcemaps || isDevelopment;
 
   const siteHost = 'localhost:8080';
-  const webDemoURL = params['webdemo-url'] || 'http://kotlin-web-demo-cloud.passive.aws.intellij.net';
+  const nextJSHost = 'localhost:3000';
   const indexName = params['index-name'] || process.env.INDEX_NAME || 'dev_KOTLINLANG';
 
   return {
@@ -21,10 +21,8 @@ module.exports = (params = {}) => {
       //shared
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
-      'events': './static/js/page/events/index.js',
       'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',
-      'community': './static/js/page/community/community.js',
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
@@ -96,7 +94,7 @@ module.exports = (params = {}) => {
           loader: 'mustache-loader'
         },
         {
-          test: /\.svg/,
+          test: /\.svg(?:\?\w+)?$/,
           use: [
             {
               loader: 'url-loader',
@@ -165,7 +163,6 @@ module.exports = (params = {}) => {
       }),
 
       new webpack.DefinePlugin({
-        webDemoURL: JSON.stringify(webDemoURL),
         indexName: JSON.stringify(indexName),
         'process.env.NODE_ENV': JSON.stringify(env)
       })
@@ -175,6 +172,18 @@ module.exports = (params = {}) => {
       port: 9000,
       hot: true,
       proxy: {
+        '/community/**': {
+          target: `http://${nextJSHost}`,
+          bypass: function (req) {
+            req.headers.host = nextJSHost;
+          }
+        },
+        '/_next/**': {
+          target: `http://${nextJSHost}`,
+          bypass: function (req) {
+            req.headers.host = nextJSHost;
+          }
+        },
         '/**': {
           target: `http://${siteHost}`,
           bypass: function (req) {

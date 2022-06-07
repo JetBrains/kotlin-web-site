@@ -1,7 +1,7 @@
 /* eslint-disable import/no-dynamic-require,prefer-template,comma-dangle */
 
 const babelRc = {
-  extends: './../../.babelrc',
+  extends: './.babelrc',
   extensions: ['.mjs', '.js', '.jsx'],
   ignore: [],
   plugins: [

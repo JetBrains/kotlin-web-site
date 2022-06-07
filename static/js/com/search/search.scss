@@ -103,11 +103,15 @@ body._no-scroll {
     height: 28px;
     cursor: pointer;
     margin-bottom: 5px;
-    background: url("./icons/button_close.svg");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25.3 25.3' style='enable-background:new 0 0 25.3 25.3' xml:space='preserve'%3E%3Cpath style='fill:%23221f3a' d='M25.3 4.3 21.1 0l-8.4 8.4L4.3 0 0 4.3l8.4 8.4L0 21.1l4.3 4.2 8.4-8.4 8.4 8.4 4.2-4.2-8.4-8.4z'/%3E%3C/svg%3E");
 
     &:hover {
       opacity: 0.7;
     }
+  }
+
+  .ais-InfiniteHits-list {
+    list-style: none;
   }
 
   .ais-InfiniteHits {

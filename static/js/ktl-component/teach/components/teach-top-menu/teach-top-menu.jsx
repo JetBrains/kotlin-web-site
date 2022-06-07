@@ -1,7 +1,6 @@
 import React from 'react';
 
-import TopMenu from '@jetbrains/kotlin-web-site-ui/dist/topMenu';
-import '@jetbrains/kotlin-web-site-ui/dist/topMenu.css';
+import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import Button from '@rescui/button';
 import {SlackIcon} from '@rescui/icons';
 import './teach-top-menu.scss';

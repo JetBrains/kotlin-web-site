@@ -1,0 +1,32 @@
+.card {
+    min-height: 156px;
+}
+
+.wrapper {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom {
+    margin-top: auto;
+}
+
+.description {
+    color: rgba(39, 40, 44, 0.5);
+    font-size: 13px;
+}
+
+@media (max-width: 767px) {
+    .title {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .description {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "lang": {
+        "type": "string"
+      },
+      "startDate": {
+        "type": "string"
+      },
+      "endDate": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "speaker": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "url": {
+        "type": "string"
+      },
+      "online": {
+        "type": "boolean"
+      },
+      "content": {
+        "type": "object",
+        "properties": {
+          "slides": {
+            "type": "string"
+          },
+          "video": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": {
+        "type": "object",
+        "properties": {
+          "__cdata": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "lang",
+      "startDate",
+      "endDate",
+      "speaker",
+      "title",
+      "subject",
+      "url"
+    ]
+  }
+}
