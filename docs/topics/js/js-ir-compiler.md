@@ -114,6 +114,23 @@ kotlin {
    }
 }
 ```
+
+## Minification of member names in production
+
+The Kotlin/JS IR compiler uses its internal information about the relationships of your Kotlin classes and functions to apply more efficient minification, shortening the names of functions, properties, and classes. This reduces the size of resulting bundled applications.
+
+This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode, and enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
+
+```
+kotlin {
+   js(IR) {
+       compilations.all {
+           compileKotlinTask.kotlinOptions.freeCompilerArgs += listOf("-Xir-minimized-member-names=false")
+       }
+   }
+}
+```
+
 ## Preview: generation of TypeScript declaration files (d.ts)
 
 > The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.

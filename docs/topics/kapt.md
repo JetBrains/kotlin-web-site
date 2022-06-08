@@ -167,6 +167,69 @@ If you run into any problems with caching for annotation processors, disable cac
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
+### Measuring performance of annotation processors
+
+Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
+An example output:
+
+```kotlin
+Kapt Annotation Processing performance report:
+com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 97 ms, 0 ms
+com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
+```
+
+You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
+The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
+
+```kotlin
+kotlinc -cp $MY_CLASSPATH \
+-Xplugin=kotlin-annotation-processing-SNAPSHOT.jar -P \
+plugin:org.jetbrains.kotlin.kapt3:aptMode=stubsAndApt,\
+plugin:org.jetbrains.kotlin.kapt3:apclasspath=processor/build/libs/processor.jar,\
+plugin:org.jetbrains.kotlin.kapt3:dumpProcessorTimings=ap-perf-report.file \
+-Xplugin=$JAVA_HOME/lib/tools.jar \
+-d cli-tests/out \
+-no-jdk -no-reflect -no-stdlib -verbose \
+sample/src/main/
+```
+
+### Measuring the number of files generated with annotation processors
+
+The `kotlin-kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
+
+This is useful to track if there are unused annotation processors as a part of the build. 
+You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to prevent that.
+
+Enable the statistics in two steps:
+* Set the `showProcessorStats` flag to `true` in your `build.gradle.kts`:
+
+  ```kotlin
+  kapt {
+      showProcessorStats = true
+  }
+  ```
+
+* Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
+
+  ```properties
+  kapt.verbose=true
+  ```
+
+> You can also enable verbose output via the [command line option `verbose`](#using-in-cli).
+>
+> {type=”note”}
+
+The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
+statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
+followed by statistics on the number of generated files for each annotation processor. For example:
+
+```kotlin
+[INFO] Annotation processor stats:
+[INFO] org.mapstruct.ap.MappingProcessor: total: 290 ms, init: 1 ms, 3 round(s): 289 ms, 0 ms, 0 ms
+[INFO] Generated files report:
+[INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
+```
+
 ## Compile avoidance for kapt
 
 To improve the times of incremental builds with kapt, it can use the Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
