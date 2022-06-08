@@ -1055,7 +1055,7 @@ project.plugins.withType<KotlinBasePlugin>() {
 }
 ```
 
-</tab>roovy script
+</tab>
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
