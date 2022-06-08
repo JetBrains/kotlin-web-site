@@ -1057,7 +1057,7 @@ project.plugins.withType<KotlinBasePlugin>() {
 }
 ```
 
-</tab>
+</tab>roovy script
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
@@ -1065,7 +1065,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 
 // ...
 
-project.plugins.withType<KotlinBasePlugin>() {
+project.plugins.withType(KotlinBasePlugin.class) {
 // Configure your action here
 }
 ```
