@@ -40,13 +40,13 @@ For more details, see the [Set up the environment](multiplatform-mobile-setup.md
 1. In Android Studio, select **File** | **New** | **New Project**. In the list of project templates, select **Kotlin
    Multiplatform App** and click **Next**.
 
-   ![KMM Plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
+   ![Kotlin Multiplatform Mobile plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
 
 2. Specify a name for your first application, and click **Next**.
 3. Select **Regular framework** in the iOS framework distribution options list.
 4. Keep all other options default. Click **Finish**.
 
-   ![KMM Plugin wizard finish](multiplatform-mobile-project-wizard-3.png){width=700}
+   ![Kotlin Multiplatform Mobile plugin wizard. Final step](multiplatform-mobile-project-wizard-3.png){width=700}
 
 5. To view the complete structure of the multiplatform mobile project, switch the view from **Android** to **Project**.
 
@@ -142,8 +142,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 
 5. Sync the Gradle project.
 
-You can read more about adding dependencies in
-the [documentation](https://kotlinlang.org/docs/kmm-add-dependencies.html).
+Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
 
 > You can find this state of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
@@ -273,8 +272,6 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 
 When the project is compiled, the generated Kotlin code will be stored in the `/shared/build/generated/sqldelight`
 directory. The generator will create an interface named `AppDatabase`, as specified in `build.gradle.kts`.
-
-You can learn more about how to [Configure SQLDelight for data storage](multiplatform-mobile-configure-sqldelight-for-data-storage.md).
 
 ### Create platform database drivers
 
