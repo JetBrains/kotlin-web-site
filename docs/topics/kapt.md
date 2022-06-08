@@ -193,7 +193,7 @@ plugin:org.jetbrains.kotlin.kapt3:dumpProcessorTimings=ap-perf-report.file \
 sample/src/main/
 ```
 
-### Measuring number of files generated with annotation processors
+### Measuring the number of files generated with annotation processors
 
 The `kotlin-kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
