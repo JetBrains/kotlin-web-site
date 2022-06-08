@@ -18,7 +18,7 @@ export const CommunityBanner: FC<CommunityBannerProps> = ({ title, children }) =
                 <div className={classNames('ktl-text-1', styles.text)}>{children}</div>
             </div>
             <div className={styles.image}>
-                <Img src={communityBanner} sizes={[723]} densities={[1, 2]} />
+                <Img src={communityBanner} sizes={[723]} densities={[1, 2]} alt={'Community Banner Image'}/>
             </div>
         </div>
     );
