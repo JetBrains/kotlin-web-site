@@ -677,31 +677,6 @@ dependencies {
 </tab>
 </tabs>
 
-## Support for Gradle plugin variants
-
-Gradle 7.0 introduced a new feature for Gradle plugin authors – [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants). 
-This feature makes it easier to add support for new Gradle features while maintaining compatibility for Gradle versions below 7.1. 
-Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
-
-With Gradle plugin variants, it is possible to ship different Kotlin Gradle plugin variants for different Gradle versions. 
-The goal is to support the base Kotlin compilation in the `main` variant, which corresponds to the oldest supported Gradle versions. 
-Each variant will have implementations for Gradle features from a corresponding release. 
-The latest variant will support the widest Gradle feature set. 
-With such an approach, there will be a longer support for older Gradle versions with limited functionality.
-
-There are two variants of the Kotlin Gradle plugin:
-* `main` for Gradle versions 6.7.1–6.9.2.
-* `gradle70` for Gradle versions 7.0 and higher.
-
-To check which variant your build uses, enable the [`--info` log level](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) 
-and find a string in the output starting with: `Using Kotlin Gradle plugin`. For example: `Using Kotlin Gradle plugin main variant`.
-
-> You can find workarounds for some known Gradle issues with variant selection:
-> * [ResolutionStrategy in pluginManagement for plugins with multivariants](https://github.com/gradle/gradle/issues/20545).
-> * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847).
->
-> {type=”note”}
-
 ## Annotation processing
 
 Kotlin supports annotation processing via the Kotlin annotation processing tool [`kapt`](kapt.md).
