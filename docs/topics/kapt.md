@@ -172,7 +172,7 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 You can get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
 
-```
+```kotlin
 Kapt Annotation Processing performance report:
 com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 97 ms, 0 ms
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
