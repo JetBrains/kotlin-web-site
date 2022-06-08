@@ -157,7 +157,9 @@ Control the behavior of this check by setting the `kotlin.jvm.target.validation.
 ### Set custom JDK home
 
 By default, Kotlin compile tasks use the current Gradle JDK. 
-If you need to change the JDK by some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support).
+If you need to change the JDK by some reason, you can set the JDK home in the following ways:
+* For Gradle 6.7 and later – with [Java toolchains](#gradle-java-toolchains-support) or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+* For earlier Gradle versions without Java toolchains (up to 6.6) – with the [`UsesKotlinJavaToolchain` interface and the Task DSL](#setting-jdk-version-with-the-task-dsl).
 
 > The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
 >
@@ -222,6 +224,55 @@ Note that setting a toolchain via the `kotlin` extension will update the toolcha
 > The part after the colon will be the JDK version from the toolchain.
 >
 {type="note"}
+
+To set any JDK (even local) for the specific task, use the Task DSL.
+
+### Setting JDK version with the Task DSL
+
+If you use a Gradle version earlier than 6.7, there is no [Java toolchains support](#gradle-java-toolchains-support). 
+You can use the Task DSL that allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
+At the moment, these tasks are `KotlinCompile` and `KaptTask`.
+If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_VERSION>` placeholder in your build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val service = project.extensions.getByType<JavaToolchainService>()
+val customLauncher = service.launcherFor {
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+}
+project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.toolchain.use(customLauncher)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
+Provider<JavaLauncher> customLauncher = service.launcherFor {
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+}
+tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
+    task.kotlinJavaToolchain.toolchain.use(customLauncher)
+}
+```
+
+</tab>
+</tabs>
+
+Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
+
+```kotlin
+tasks.withType<UsesKotlinJavaToolchain>().configureEach {
+    kotlinJavaToolchain.jdk.use(
+        "/path/to/local/jdk", // Put a path to your JDK
+        JavaVersion.<LOCAL_JDK_VERSION> // For example, JavaVersion.17
+    )
+}
+```
 
 ## Targeting JavaScript
 
