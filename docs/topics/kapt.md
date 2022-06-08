@@ -167,7 +167,7 @@ If you run into any problems with caching for annotation processors, disable cac
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
-### Measuring performance statistics for each processor
+### Measuring performance of each processor
 
 You can get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
