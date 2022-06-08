@@ -5,7 +5,7 @@ import { CommunityLayout } from '../../../blocks/community/layout/community-layo
 
 function UserGroups() {
     return (
-        <CommunityLayout title={'Community Events'}>
+        <CommunityLayout title={'Community Events'} ogImageName={'community.png'}>
             <EventList />
 
             <div className={'ktl-container ktl-offset-bottom-xxl'}>

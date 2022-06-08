@@ -14,14 +14,14 @@ import YoutubeIcon from '../../public/images/community/icons/keep-in-touch-youtu
 import TalkingKotlinIcon from '../../public/images/community/icons/keep-in-touch-talking-kotlin-icon.svg';
 import LinkedInIcon from '../../public/images/community/icons/keep-in-touch-linkedin-icon.svg';
 import YoutrackIcon from '../../public/images/community/icons/keep-in-touch-youtrack-icon.svg';
-import {DesktopBreak} from "../../components/desktop-break/desktop-break";
+import { DesktopBreak } from '../../components/desktop-break/desktop-break';
 
 function Index() {
     return (
-        <CommunityLayout title={'Community'}>
+        <CommunityLayout title={'Community'} ogImageName={'community.png'}>
             <CommunityBanner title="Get involved&nbsp;in<br/> the&nbsp;community">
-                Find online resources and information about community activities. Can&rsquo;t find any? Organize your own &mdash;
-                JetBrains is&nbsp;always here to&nbsp;support you!
+                Find online resources and information about community activities. Can&rsquo;t find any? Organize your
+                own &mdash; JetBrains is&nbsp;always here to&nbsp;support you!
             </CommunityBanner>
 
             <KeepInTouch
@@ -83,15 +83,13 @@ function Index() {
                 ]}
             />
 
-            <OverviewBottomLink
-                buttonLink={'/community/user-groups/'}
-                buttonTitle={'All KUGs →'}>
-                Join a&nbsp;Kotlin User Group<DesktopBreak /> or&nbsp;start your own
+            <OverviewBottomLink buttonLink={'/community/user-groups/'} buttonTitle={'All KUGs →'}>
+                Join a&nbsp;Kotlin User Group
+                <DesktopBreak /> or&nbsp;start your own
             </OverviewBottomLink>
-            <OverviewBottomLink
-                buttonLink={'/community/events/'}
-                buttonTitle={'Talks and Events →'}>
-                Get inspired at&nbsp;a&nbsp;Kotlin event<DesktopBreak /> or&nbsp;host one yourself
+            <OverviewBottomLink buttonLink={'/community/events/'} buttonTitle={'Talks and Events →'}>
+                Get inspired at&nbsp;a&nbsp;Kotlin event
+                <DesktopBreak /> or&nbsp;host one yourself
             </OverviewBottomLink>
         </CommunityLayout>
     );
