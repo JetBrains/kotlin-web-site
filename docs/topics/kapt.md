@@ -169,7 +169,7 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 
 ### Measuring performance of annotation processors
 
-You can get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
+Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
 
 ```kotlin
