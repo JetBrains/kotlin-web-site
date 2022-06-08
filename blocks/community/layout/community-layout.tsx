@@ -10,7 +10,6 @@ import Button from '@rescui/button';
 import { Theme, ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
-import { Favicon } from '../../../components/favicon/favicon';
 import { Search, onSearch } from '../../../components/search/search';
 import releasesDataRaw from '../../../data/releases.yml';
 
@@ -33,10 +32,12 @@ const items = [
 
 interface CommunityLayoutProps {
     title: string;
+    description?: string;
+    ogImageName?: string;
     children: React.ReactNode;
 }
 
-export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, children }) => {
+export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children }) => {
     const [theme, setTheme] = useState<Theme>('dark');
     const router = useRouter();
     const activeIndex = useMemo(
@@ -51,12 +52,35 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, children }) =
         [router]
     );
 
+    const ogImagePath = useMemo(
+        () => `https://kotlinlang.org/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
+        [ogImageName]
+    );
+
+    const ogImageTwitterPath = useMemo(
+        () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
+        [ogImageName, ogImagePath]
+    );
+
     return (
         <>
             <Head>
                 <title>{title}</title>
-                <Favicon />
-                <meta name="viewport" content="width=device-width" />
+
+                <meta property="og:title" content={title} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />
+
+                <meta property="og:image" content={ogImagePath} />
+
+                {description && <meta property="og:description" content={description} />}
+                <meta property="og:site_name" content="Kotlin" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@kotlin" />
+                <meta name="twitter:title" content={title} />
+                {description && <meta name="twitter:description" content={description} />}
+                <meta name="twitter:image:src" content={ogImageTwitterPath} />
             </Head>
 
             <GlobalHeader
