@@ -179,7 +179,7 @@ com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 9
 ```
 
 You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
-The following command will run kapt and dump the statistics to the file `ap-perf-report.file`:
+The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
 
 ```kotlin
 kotlinc -cp $MY_CLASSPATH \
