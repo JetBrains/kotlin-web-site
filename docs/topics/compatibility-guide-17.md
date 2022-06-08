@@ -330,15 +330,15 @@ perspective
 
 ## Tools
 
-### Deprecate KotlinGradleSubplugin class
+### Remove KotlinGradleSubplugin class
 
-> **Issue**: [KT-48830](https://youtrack.jetbrains.com/issue/KT-48830)
+> **Issue**: [KT-48831](https://youtrack.jetbrains.com/issue/KT-48831)
 >
 > **Component**: Gradle
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: the class `KotlinGradleSubplugin` will be removed in Kotlin 1.7. Use `KotlinCompilerPluginSupportPlugin` instead
+> **Short summary**: remove the `KotlinGradleSubplugin` class. Use the `KotlinCompilerPluginSupportPlugin` class instead
 >
 > **Deprecation cycle**:
 >
@@ -376,15 +376,15 @@ perspective
 > - 1.6.20: raise the deprecation level to a warning
 > - \>= 1.8.0: remove this property
 
-### Deprecate kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
+### Remove kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
 
-> **Issue**: [KT-50369](https://youtrack.jetbrains.com/issue/KT-50369)
+> **Issue**: [KT-50494](https://youtrack.jetbrains.com/issue/KT-50494)
 >
 > **Component**: Gradle
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: deprecate the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property
+> **Short summary**: remove the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property
 >
 > **Deprecation cycle**:
 >
@@ -406,3 +406,85 @@ perspective
 > 
 > - 1.6.0: hide the deprecation option
 > - 1.7.0: remove the deprecated option
+
+### Deprecate kotlin.compiler.execution.strategy system property
+
+> **Issue**: [KT-51830](https://youtrack.jetbrains.com/issue/KT-51830)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kotlin.compiler.execution.strategy` system property used to choose a compiler execution strategy. 
+> `use the Gradle property `kotlin.compiler.execution.strategy` or the compile task property `compilerExecutionStrategy` instead
+>
+> **Deprecation cycle:**
+>
+> - 1.7.0: raise the deprecation level to a warning
+> - \> 1.7.0: remove the property
+
+### Remove kotlinOptions.jdkHome compiler option
+
+> **Issue**: [KT-46541](https://youtrack.jetbrains.com/issue/KT-46541)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlinOptions.jdkHome` compiler option used to include a custom JDK from the specified location 
+> into the classpath instead of the default `JAVA_HOME`. Use [Java toolchains](gradle.md#gradle-java-toolchains-support) instead
+>
+> **Deprecation cycle:**
+>
+> - 1.5.30: raise the deprecation level to a warning
+> - \> 1.7.0: remove the option
+
+### Remove noStdlib compiler option
+
+> **Issue**: [KT-49011](https://youtrack.jetbrains.com/issue/KT-49011)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `noStdlib` compiler option. The Gradle plugin uses the `kotlin.stdlib.default.dependency=true` property to control whether the Kotlin standard library is present
+>
+> **Deprecation cycle:**
+>
+> - 1.5.0: raise the deprecation level to a warning
+> - 1.7.0: remove the option
+
+### Remove kotlin2js and kotlin-dce-plugin plugins
+
+> **Issue**: [KT-48276](https://youtrack.jetbrains.com/issue/KT-48276)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlin2js` and `kotlin-dce-plugin` plugins. Instead of `kotlin2js`, use the new `org.jetbrains.kotlin.js` plugin. 
+> Dead code elimination (DCE) works when the Kotlin/JS Gradle plugin is [properly configured](http://javascript-dce.md)
+
+>
+> **Deprecation cycle:**
+>
+> - 1.4.0: raise the deprecation level to a warning
+> - 1.7.0: remove the plugins
+
+### Changes in compile tasks
+
+> **Issue**: [KT-32805](https://youtrack.jetbrains.com/issue/KT-32805)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin compile tasks no longer inherit the Gradle `AbstractCompile` task and that's why 
+> the `sourceCompatibility` and `targetCompatibility` inputs are no longer available in Kotlin users' scripts. 
+> The `SourceTask.stableSources` input is no longer available. The `sourceFilesExtensions` input was removed. 
+> The deprecated `Gradle destinationDir: File` output was replaced with the `destinationDirectory: DirectoryProperty` output. 
+> The `setClasspath(FileCollection)` and `getClasspath(): FileCollection` methods are deprecated
+>
+> **Deprecation cycle:**
+>
+> - 1.7.0: inputs are not available, the output is replaced, a couple of methods are deprecated
