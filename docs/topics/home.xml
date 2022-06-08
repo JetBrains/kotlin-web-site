@@ -34,7 +34,7 @@
         <custom-groups>
             <group type="cards" display="wide">
                 <title>What's new</title>
-                <a href="whatsnew1620.md" description="Latest features: prototype of context receivers on JVM, definitely non-nullable types, performance improvements for JVM, Native, and JS, and more">What's New in Kotlin 1.6.20</a>
+                <a href="whatsnew17.md" description="Latest features: Kotlin K2 compiler in Alpha on JVM, stable opt-in requirement annotations, definitely non-nullable types, builder inference, performance improvements for JVM, Native, and JS, and more">What's New in Kotlin 1.7.0</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
             <group type="cards">
