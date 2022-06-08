@@ -224,7 +224,7 @@ You'll see the `Annotation processor stats:` line, and then statistics on each a
 After these lines, there will be the `Generated files report:` line, and then statistics on the amount of generated files for each annotation processor. 
 For example:
 
-```
+```kotlin
 [INFO] Annotation processor stats:
 [INFO] org.mapstruct.ap.MappingProcessor: total: 290 ms, init: 1 ms, 3 round(s): 289 ms, 0 ms, 0 ms
 [INFO] Generated files report:
