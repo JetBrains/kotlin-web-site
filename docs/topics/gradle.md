@@ -974,16 +974,16 @@ _Kotlin compiler execution strategy_ defines where the Kotlin compiler is execut
 
 There are three compiler execution strategies:
 
-| Strategy       | Where Kotlin compiler is executed    | Incremental compilation | Other characteristics                                                  |
-|----------------|--------------------------------------|-------------------------------------|------------------------------------------------------------------------|
-| Daemon         | Inside its own daemon process        | Yes                                 | *The default strategy*. Can be shared between different Gradle daemons |
-| In process     | Inside the Gradle daemon process     | No                                  | May share the heap with the Gradle daemon                                  |
-| Out of process | In a separate process for each call  | No                                  | -                                                                      |
+| Strategy       | Where Kotlin compiler is executed          | Incremental compilation | Other characteristics and notes                                                                                                                                                                                                                                                |
+|----------------|--------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Daemon         | Inside its own daemon process              | Yes                     | *The default and the fastest strategy*. Can be shared between different Gradle daemons and multiple parallel compilations.                                                                                                                                                     |
+| In process     | Inside the Gradle daemon process           | No                      | May share the heap with the Gradle daemon. The "In process" execution strategy is *slower* than the "Daemon" execution strategy. Each [worker](https://docs.gradle.org/current/userguide/worker_api.html) creates a separate Kotlin compiler classloader for each compilation. |
+| Out of process | In a separate process for each compilation | No                      | The slowest execution strategy. Similar to the "In process", but additionally creates a separate Java process within a Gradle worker for each compilation.                                                                                                                     |
 
 To define a Kotlin compiler execution strategy, you can use one of the following properties:
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
-* The `-Dkotlin.compiler.execution.strategy` system property, which will be removed in future releases. 
+* The deprecated `-Dkotlin.compiler.execution.strategy` system property, which will be removed in future releases. 
 
 The priority of properties is the following:
 * The task property `compilerExecutionStrategy` takes priority over the system property and the Gradle property `kotlin.compiler.execution.strategy`.
