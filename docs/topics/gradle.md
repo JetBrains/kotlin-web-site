@@ -1041,7 +1041,7 @@ tasks.withType(KotlinCompile)
 
 ## Triggering configuration actions with the KotlinBasePlugin interface
 
-When you want to trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, MPP, Native, and others) is applied, 
+To trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, MPP, Native, and others) is applied, 
 use the `KotlinBasePlugin` interface that all Kotlin plugins inherit from:
 
 <tabs group="build-script">
