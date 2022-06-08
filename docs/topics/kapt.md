@@ -219,10 +219,9 @@ Enable the statistics in two steps:
 >
 > {type=”note”}
 
-The statistics will appear in the logs with the [`info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) level. 
-You'll see the `Annotation processor stats:` line, and then statistics on each annotation processor execution time. 
-After these lines, there will be the `Generated files report:` line, and then statistics on the amount of generated files for each annotation processor. 
-For example:
+The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
+statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
+followed by statistics on the number of generated files for each annotation processor. For example:
 
 ```kotlin
 [INFO] Annotation processor stats:
