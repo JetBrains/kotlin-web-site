@@ -19,6 +19,7 @@ export default function MyApp({ Component, pageProps }) {
             </Head>
 
             <Script
+                id={'google-tag-manager-inline-script'}
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
                     __html: `
