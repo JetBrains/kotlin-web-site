@@ -194,7 +194,7 @@ version for Kotlin/JVM compilations is now `1.8`.
 * [Compiler performance optimizations](#compiler-performance-optimizations)
 * [New compiler option `-Xjdk-release`](#new-compiler-option-xjdk-release)
 * [Stable callable references to functional interface constructors](#stable-callable-references-to-functional-interface-constructors)
-* [Removed the JVM target version 1.6](#removed-jvm-target-version-1.6)
+* [Removed the JVM target version 1.6](#removed-jvm-target-version-1-6)
 
 ### Compiler performance optimizations
 
@@ -246,13 +246,13 @@ target version for:
 Kotlin 1.7.0 includes changes to Objective-C and Swift interoperability and stabilizes features that were introduced in
 previous releases. It also brings performance improvements for the new memory manager along with other updates:
 
-* [Performance improvements for the new memory manager](#performance-improvements-for-new-memory-manager)
+* [Performance improvements for the new memory manager](#performance-improvements-for-the-new-memory-manager)
 * [Unified compiler plugin ABI with JVM and JS IR backends](#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends)
 * [Support for standalone Android executables](#support-for-standalone-android-executables)
 * [Interop with Swift async/await: returning `Void` instead of `KotlinUnit`](#interop-with-swift-async-await-returning-void-instead-of-kotlinunit)
 * [Prohibited undeclared exceptions through Objective-C bridges](#prohibited-undeclared-exceptions-through-objective-c-bridges)
 * [Improved CocoaPods integration](#improved-cocoapods-integration)
-* [Overriding of the Kotlin/Native compiler download URL](#overriding-of-the-kotlin-native-compiler-download-url)
+* [Overriding of the Kotlin/Native compiler download URL](#overriding-the-kotlin-native-compiler-download-url)
 
 ### Performance improvements for the new memory manager
 
@@ -371,8 +371,8 @@ kotlin.native.distribution.baseDownloadUrl=https://example.com
 Kotlin/JS is receiving further improvements to the [JS IR compiler backend](js-ir-compiler.md) along with other
 updates that can make your development experience better:
 
-* [Performance improvements for the new IR backend](#performance-improvements-for-new-ir-backend)
-* [Support for older browsers via polyfills in the IR backend](#support-for-older-browsers-via-polyfills-in-ir-backend)
+* [Performance improvements for the new IR backend](#performance-improvements-for-the-new-ir-backend)
+* [Support for older browsers via polyfills in the IR backend](#support-for-older-browsers-via-polyfills-in-the-ir-backend)
 * [Dynamically load JavaScript modules from `js` expressions](#dynamically-load-javascript-modules-from-js-expressions)
 * [Specify environment variables for JavaScript test runners](#specify-environment-variables-for-javascript-test-runners)
 * [Minification for member names when using IR](#minification-for-member-names-when-using-ir)
@@ -455,7 +455,7 @@ stabilize experimental ones, and unify support for named capturing groups for Na
 
 * [min() and max() collection functions return as non-nullable](#min-and-max-collection-functions-return-as-non-nullable)
 * [Regular expression matching at specific indices](#regular-expression-matching-at-specific-indices)
-* [Extended support of previous language and API versions](#extended-support-of-previous-language-and-api-versions)
+* [Extended support of previous language and API versions](#extended-support-for-previous-language-and-api-versions)
 * [Access to annotations via reflection](#access-to-annotations-via-reflection)
 * [Stable deep recursive functions](#stable-deep-recursive-functions)
 * [Time marks based on inline classes for default time source](#time-marks-based-on-inline-classes-for-default-time-source)
