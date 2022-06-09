@@ -7,15 +7,21 @@ features, and brings performance improvements for the JVM, JS, and Native platfo
 
 Here is a list of the major updates in this version:
 
-* The new Kotlin К2 compiler is in Alpha now, and it offers serious performance improvements. It is available only for
+* [The new Kotlin К2 compiler is in Alpha now](#new-kotlin-k2-compiler-for-the-jvm-in-alpha), and it offers serious
+  performance improvements. It is available only for
   the JVM, and none of the compiler plugins, including kapt, work with it.
-* A new approach to the incremental compilation in Gradle. Incremental compilation is now also supported for changes
+* [A new approach to the incremental compilation in Gradle](#a-new-approach-to-incremental-compilation). Incremental
+  compilation is now also supported for changes
   made inside dependent non-Kotlin modules and is compatible with Gradle.
-* We've stabilized opt-in requirement annotations, definitely non-nullable types, and builder inference.
-* There's now an underscore operator for type args. You can use it to automatically infer a type of argument when other
-  types are specified
-* This release allows implementation by delegation to an inlined value of an inline class. You can now create
-  lightweight wrappers that do not allocate memory in most cases
+* We've stabilized [opt-in requirement annotations](#stable-opt-in-requirements)
+  , [definitely non-nullable types](#stable-definitely-non-nullable-types),
+  and [builder inference](#stable-builder-inference).
+* [There's now an underscore operator for type args](#underscore-operator-for-type-arguments). You can use it to
+  automatically infer a type of argument when other
+  types are specified.
+* [This release allows implementation by delegation to an inlined value of an inline class](#allow-implementation-by-delegation-to-an-inlined-value-of-an-inline-class)
+  . You can now create
+  lightweight wrappers that do not allocate memory in most cases.
 
 You can also find a short overview of the changes in this video:
 
@@ -24,8 +30,8 @@ You can also find a short overview of the changes in this video:
 ## New Kotlin K2 compiler for the JVM in Alpha
 
 This Kotlin release introduces the **Alpha** version of the new Kotlin K2 compiler. The new compiler aims to speed up
-the development of new language features, unify all of the platforms Kotlin supports, bring performance improvements,
-and provide an API for compiler extensions.
+the development of new language features, unify all of the platforms Kotlin supports, bring performance improvements, and
+provide an API for compiler extensions.
 
 We've already published some detailed explanations of our new compiler and its benefits:
 
@@ -58,8 +64,8 @@ enable the Kotlin K2 compiler, use the following compiler option:
 ```
 
 Also, the K2 compiler includes a number of bugfixes. You can use this list as a
-reference: [https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated](https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated)
-. Please note that even issues with State: Open from this list are in fact fixed in K2.
+reference: [https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated](https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated).
+Please note that even issues with State: Open from this list are in fact fixed in K2.
 
 The next Kotlin releases will improve the stability of the K2 compiler and provide more features, so stay tuned and
 provide your feedback!
@@ -87,10 +93,10 @@ interface Bar {
 }
 
 @JvmInline
-value class BarWrapper(val bar: Bar): Bar by bar
+value class BarWrapper(val bar: Bar) : Bar by bar
 
 fun main() {
-    val bw = BarWrapper(object: Bar {})
+    val bw = BarWrapper(object : Bar {})
     println(bw.foo())
 }
 ```
@@ -102,7 +108,7 @@ argument when other types are specified:
 
 ```kotlin
 abstract class SomeClass<T> {
-    abstract fun execute() : T
+    abstract fun execute(): T
 }
 
 class SomeImplementation : SomeClass<String>() {
@@ -114,7 +120,7 @@ class OtherImplementation : SomeClass<Int>() {
 }
 
 object Runner {
-    inline fun <reified S: SomeClass<T>, T> run() : T {
+    inline fun <reified S : SomeClass<T>, T> run(): T {
         return S::class.java.getDeclaredConstructor().newInstance().execute()
     }
 }
@@ -139,7 +145,7 @@ fun main() {
 Builder inference is a special kind of type inference that is useful when calling generic builder functions. It helps
 the compiler infer the type arguments of a call using the type information about other calls inside its lambda argument.
 
-Starting with 1.7.0, builder inference is automatically activateds if a regular type inference cannot get enough
+Starting with 1.7.0, builder inference is automatically activated if a regular type inference cannot get enough
 information about a type without specifying the `-Xenable-builder-inference` compiler option, which
 was [introduced in 1.6.0](whatsnew16.md#changes-to-builder-inference).
 
@@ -150,18 +156,17 @@ was [introduced in 1.6.0](whatsnew16.md#changes-to-builder-inference).
 [Opt-in requirements](opt-in-requirements.md) are now [Stable](components-stability.md) and do not require
 additional compiler configuration.
 
-Before 1.7.0, the opt-in facility itself required the argument `-opt-in=kotlin.RequiresOptIn` in order was required to
-avoid a warning for the opt-in facility itself. It no longer requires this argument; Hhowever, you can still use the
-compiler argument `-opt-in` to opt-in for other annotations, [module-wise](opt-in-requirements.md#module-wide-opt-in).
+Before 1.7.0, the opt-in feature itself required the argument `-opt-in=kotlin.RequiresOptIn` to avoid a warning. It no
+longer requires this; however, you can still use the compiler argument `-opt-in` to opt-in for other
+annotations, [module-wise](opt-in-requirements.md#module-wide-opt-in).
 
 ### Stable definitely non-nullable types
 
-In Kotlin 1.7.0, definitely non-nullable types have been promoted
-to [Stable](components-stability.md)
-. They provide better interoperability when extending generic Java classes and interfaces.
+In Kotlin 1.7.0, definitely non-nullable types have been promoted to [Stable](components-stability.md). They provide
+better interoperability when extending generic Java classes and interfaces.
 
 You can mark a generic type parameter as definitely non-nullable at the use site with the new syntax `T & Any.` The
-syntactic form comes from the notation for [intersection types](https://en.wikipedia.org/wiki/Intersection_type) and is
+syntactic form comes from the notation for [intersection types](https://en.wikipedia.org/wiki/Intersection_type)and is
 now limited to a type parameter with nullable upper bounds on the left side of `&` and a non-nullable `Any` on the right
 side:
 
@@ -182,8 +187,7 @@ fun main() {
 ```
 
 Learn more about definitely non-nullable types
-in [this KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb474a6d1d1a8/proposals/definitely-non-nullable-types.md)
-.
+in [this KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb474a6d1d1a8/proposals/definitely-non-nullable-types.md).
 
 ## Kotlin/JVM
 
@@ -199,11 +203,10 @@ version for Kotlin/JVM compilations is now `1.8`.
 ### Compiler performance optimizations
 
 Kotlin 1.7.0 introduces performance improvements for the Kotlin/JVM compiler. According to our benchmarks, compilation
-times haves
-been [reduced by 10% on average](https://youtrack.jetbrains.com/issue/KT-48233/Switching-to-JVM-IR-backend-increases-compilation-time-by-more-t#focus=Comments-27-6114542.0-0)
+time has been [reduced by 10% on average](https://youtrack.jetbrains.com/issue/KT-48233/Switching-to-JVM-IR-backend-increases-compilation-time-by-more-t#focus=Comments-27-6114542.0-0)
 compared to Kotlin 1.6.0. Projects with lots of usages of inline functions, for
-example, [projects using `kotlinx.html`](https://youtrack.jetbrains.com/issue/KT-51416/Compilation-of-kotlinx-html-DSL-should-still-be-faster)
-, will compile faster thanks to the improvements to the bytecode postprocessing.
+example, [projects using `kotlinx.html`](https://youtrack.jetbrains.com/issue/KT-51416/Compilation-of-kotlinx-html-DSL-should-still-be-faster),
+will compile faster thanks to the improvements to the bytecode postprocessing.
 
 ### New compiler option: -Xjdk-release
 
@@ -218,8 +221,7 @@ version 9 or higher.
 > {type="note"}
 
 Please leave your feedback
-in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-29974/Add-a-compiler-option-Xjdk-release-similar-to-javac-s-release-to)
-.
+on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-29974/Add-a-compiler-option-Xjdk-release-similar-to-javac-s-release-to).
 
 ### Stable callable references to functional interface constructors
 
@@ -234,8 +236,7 @@ Please report any issues you find in [YouTrack](https://youtrack.jetbrains.com/n
 
 The default target version for Kotlin/JVM compilations is `1.8`. The `1.6` target has been removed.
 
-Please migrate to JVM target 1.8 or above. You can consult these resources for information onLearn how to update the JVM
-target version for:
+Please migrate to JVM target 1.8 or above. Learn how to update the JVM target version for:
 
 * [Gradle](gradle.md#attributes-specific-to-jvm)
 * [Maven](maven.md#attributes-specific-to-jvm)
@@ -264,9 +265,9 @@ previous releases. It also brings performance improvements for the new memory ma
 
 The new memory manager is still in Alpha, but it is on its way to becoming [Stable](components-stability.md).
 This release delivers significant performance improvements for the new memory manager, especially in garbage
-collection (GC). In particular, concurrent implementation of the sweep phase, introduced in [Kotlin
-1.6.20](whatsnew1620.md), is now enabled by default. This helps reduce the time the application is paused for GC. The new GC scheduler is
-better at choosing the GC frequency, especially for larger heaps.
+collection (GC). In particular, concurrent implementation of the sweep phase, [introduced in 1.6.20](whatsnew1620.md),
+is now enabled by default. This helps reduce the time the application is paused for GC. The new GC scheduler is better
+at choosing the GC frequency, especially for larger heaps.
 
 Also, we've specifically optimized debug binaries, ensuring that the proper optimization level and link-time
 optimizations are used in the implementation code of the memory manager. This helped us improve execution time by
@@ -278,8 +279,7 @@ in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 ### Unified compiler plugin ABI with JVM and JS IR backends
 
 Starting with Kotlin 1.7.0, the Kotlin Multiplatform Gradle plugin uses the embeddable compiler jar for Kotlin/Native by
-default.
-This [feature was announced in 1.6.0](whatsnew16.md#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends) as
+default. This [feature was announced in 1.6.0](whatsnew16.md#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends)as
 Experimental, and now it's stable and ready to use.
 
 This improvement is very handy for library authors, as it improves the compiler plugin development experience. Before
@@ -296,8 +296,7 @@ artifacts for Native and other supported platforms.
 ### Support for standalone Android executables
 
 Kotlin 1.7.0 provides full support for generating standard executables for Android Native targets.
-
-It [was introduced in Kotlin 1.6.20](whatsnew1620.md#support-for-standalone-android-executables), and now it's enabled
+It was [introduced in 1.6.20](whatsnew1620.md#support-for-standalone-android-executables), and now it's enabled
 by default.
 
 If you want to roll back to the previous behavior when Kotlin/Native generated shared libraries, use the following
@@ -310,9 +309,9 @@ binaryOptions["androidProgramType"] = "nativeActivity"
 ### Interop with Swift async/await: returning Void instead of KotlinUnit
 
 Kotlin `suspend` functions now return the `Void` type instead of `KotlinUnit` in Swift. This is the result of the
-improved interop with Swift's `async`/`await`.
-This [feature was introduced in Kotlin 1.6.20](whatsnew1620.md#interop-with-swift-async-await-returning-void-instead-of-kotlinunit)
-, and this release enables this behavior by default.
+improved interop with Swift's `async`/`await`. This feature
+was [introduced in 1.6.20](whatsnew1620.md#interop-with-swift-async-await-returning-void-instead-of-kotlinunit),
+and this release enables this behavior by default.
 
 You don't need to use the `kotlin.native.binary.unitSuspendFunctionObjCExport=proper` property anymore to return the
 proper type for such functions.
@@ -323,7 +322,7 @@ When you call Kotlin code from Swift/Objective-C code (or vice versa) and this c
 handled by the code where the exception occurred, unless you specifically allowed the forwarding of exceptions between
 languages with proper conversion (for example, using the `@Throws` annotation).
 
-Previously, Kotlin had another unintended behavior where undeclared exceptions could "leak" from one language to another
+Previously, Kotlin had another unintended behavior where undeclared exceptions could “leak” from one language to another
 in some cases. Kotlin 1.7.0 fixes that issue, and now such cases lead to program termination.
 
 So, for example, if you have a `{ throw Exception() }` lambda in Kotlin and call it from Swift, in Kotlin 1.7.0 it will
@@ -337,17 +336,15 @@ The `@Throws` annotation continues to work as before.
 Starting with Kotlin 1.7.0, you no longer need to install the `cocoapods-generate` plugin if you want to integrate
 CocoaPods in your projects.
 
-Previously, you needed to install both the CocoaPods dependency manager and the `cocoapods-generate` plugins to use
-CocoaPods, for example, to
-handle [iOS dependencies](multiplatform-mobile-ios-dependencies.md#with-cocoapods) in
+Previously, you needed to install both the CocoaPods dependency manager and the `cocoapods-generate` plugin to use
+CocoaPods, for example, to handle [iOS dependencies](multiplatform-mobile-ios-dependencies.md#with-cocoapods) in
 Kotlin Multiplatform Mobile projects.
 
 Now setting up the CocoaPods integration is easier, and we've resolved the issue when `cocoapods-generate` couldn't be
-installed on Ruby 3 and later. Now the newest Ruby versions that work better on Apple M1 are also available.
+installed on Ruby 3 and later. Now the newest Ruby versions that work better on Apple M1 are also supported.
 
 See how to set up
-the [initial CocoaPods integration](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods)
-.
+the [initial CocoaPods integration](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods).
 
 ### Overriding the Kotlin/Native compiler download URL
 
@@ -361,21 +358,21 @@ property:
 kotlin.native.distribution.baseDownloadUrl=https://example.com
 ```
 
-> The downloader will append the native version and target OS to this base URL to ensure it downloads download the
-> actual compiler distribution.
+> The downloader will append the native version and target OS to this base URL to ensure it downloads the actual
+> compiler distribution.
 >
 {type="note"}
 
 ## Kotlin/JS
 
-Kotlin/JS is receiving further improvements to the [JS IR compiler backend](js-ir-compiler.md) along with other
-updates that can make your development experience better:
+Kotlin/JS is receiving further improvements to the [JS IR compiler backend](js-ir-compiler.md) along with other updates
+that can make your development experience better:
 
 * [Performance improvements for the new IR backend](#performance-improvements-for-the-new-ir-backend)
+* [Minification for member names when using IR](#minification-for-member-names-when-using-ir)
 * [Support for older browsers via polyfills in the IR backend](#support-for-older-browsers-via-polyfills-in-the-ir-backend)
 * [Dynamically load JavaScript modules from `js` expressions](#dynamically-load-javascript-modules-from-js-expressions)
 * [Specify environment variables for JavaScript test runners](#specify-environment-variables-for-javascript-test-runners)
-* [Minification for member names when using IR](#minification-for-member-names-when-using-ir)
 
 ### Performance improvements for the new IR backend
 
@@ -389,6 +386,25 @@ This release has some major updates that should improve your development experie
 * Type checking for interfaces has been improved by orders of magnitude.
 * Kotlin generates higher-quality JS code
 
+### Minification for member names when using IR
+
+The Kotlin/JS IR compiler now uses its internal information about the relationships of your Kotlin classes and functions
+to apply more efficient minification, shortening the names of functions, properties, and classes. This shrinks the
+resulting bundled applications.
+
+This type of minification is automatically applied when you build your Kotlin/JS application in production mode and is
+enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler flag:
+
+```kotlin
+kotlin {
+    js(IR) {
+        compilations.all {
+            compileKotlinTask.kotlinOptions.freeCompilerArgs += listOf("-Xir-minimized-member-names=false")
+        }
+    }
+}
+```
+
 ### Support for older browsers via polyfills in the IR backend
 
 The IR compiler backend for Kotlin/JS now includes the same polyfills as the legacy backend. This allows code compiled
@@ -398,11 +414,11 @@ their potential impact on the bundle size.
 
 This feature is enabled by default when using the IR compiler, and you don't need to configure it.
 
-### Dynamically load JavaScript modules from `js` expressions
+### Dynamically load JavaScript modules from js expressions
 
 When working with the JavaScript modules, most applications use static imports, whose use is covered with
-the [JavaScript module integration](js-modules.md). However, Kotlin/JS was missing a
-mechanism to load JavaScript modules dynamically at runtime in your applications.
+the [JavaScript module integration](js-modules.md). However, Kotlin/JS was missing a mechanism to load JavaScript
+modules dynamically at runtime in your applications.
 
 Starting with Kotlin 1.7.0, the `import` statement from JavaScript is supported in `js` blocks, allowing you to
 dynamically bring packages into your application at runtime:
@@ -429,25 +445,6 @@ kotlin {
 }
 ```
 
-### Minification for member names when using IR
-
-The Kotlin/JS IR compiler now uses its internal information about the relationships of your Kotlin classes and functions
-to apply more efficient minification, shortening the names of functions, properties, and classes. This shrinks the
-resulting bundled applications.
-
-This type of minification is automatically applied when you build your Kotlin/JS application in production mode and is
-enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler flag:
-
-```kotlin
-kotlin {
-    js(IR) {
-        compilations.all {
-            compileKotlinTask.kotlinOptions.freeCompilerArgs += listOf("-Xir-minimized-member-names=false")
-        }
-    }
-}
-```
-
 ## Standard library
 
 In Kotlin 1.7.0, the standard library has received a range of changes and improvements. They introduce new features,
@@ -464,10 +461,9 @@ stabilize experimental ones, and unify support for named capturing groups for Na
 
 ### min() and max() collection functions return as non-nullable
 
-In [Kotlin 1.4.0](whatsnew14.md), we renamed the `min()` and `max()` collection functions
-to `minOrNull()` and `maxOrNull()`. These new names better reflect their behavior – returning null if the receiver
-collection is empty. It also helped align the functions' behavior with naming conventions used throughout the Kotlin
-collections API.
+In [Kotlin 1.4.0](whatsnew14.md), we renamed the `min()` and `max()` collection functions to `minOrNull()`
+and `maxOrNull()`. These new names better reflect their behavior – returning null if the receiver collection is empty.
+It also helped align the functions' behavior with naming conventions used throughout the Kotlin collections API.
 
 The same was true of `minBy()`, `maxBy()`, `minWith()`, and `maxWith()`, which all got their *OrNull() synonyms in
 Kotlin 1.4.0. Older functions affected by this change were gradually deprecated.
@@ -487,9 +483,9 @@ fun main() {
 ### Regular expression matching at specific indices
 
 The `Regex.matchAt()` and `Regex.matchesAt()`
-functions, [introduced in 1.5.30](whatsnew1530.md#matching-with-regex-at-a-particular-position)
-, are now Stable. They provide a way to check whether a regular expression has an exact match at a particular position
-in a `String` or `CharSequence`.
+functions, [introduced in 1.5.30](whatsnew1530.md#matching-with-regex-at-a-particular-position), are now Stable. They
+provide a way to check whether a regular expression has an exact match at a particular position in a `String`
+or `CharSequence`.
 
 `matchesAt()` checks for a match and returns a boolean result:
 
@@ -498,7 +494,7 @@ fun main() {
     val releaseText = "Kotlin 1.7.0 is on its way!"
     // regular expression: one digit, dot, one digit, dot, one or more digits
     val versionRegex = "\\d[.]\\d[.]\\d+".toRegex()
-    
+
     println(versionRegex.matchesAt(releaseText, 0)) // "false"
     println(versionRegex.matchesAt(releaseText, 7)) // "true"
 }
@@ -510,15 +506,13 @@ fun main() {
 fun main() {
     val releaseText = "Kotlin 1.7.0 is on its way!"
     val versionRegex = "\\d[.]\\d[.]\\d+".toRegex()
-    
+
     println(versionRegex.matchAt(releaseText, 0)) // "null"
     println(versionRegex.matchAt(releaseText, 7)?.value) // "1.7.0"
 }
 ```
 
-We'd be grateful for your feedback in
-this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-34021)
-.
+We'd be grateful for your feedback on this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-34021).
 
 ### Extended support for previous language and API versions
 
@@ -528,14 +522,13 @@ language and API versions.
 
 With Kotlin 1.7.0, we're supporting three previous language and API versions rather than two. This means Kotlin 1.7.0
 supports the development of libraries targeting Kotlin versions down to 1.4.0. For more information on backward
-compatibility, [check out the compatibility modes documentation](compatibility-modes.md).
+compatibility, see [Compatibility modes](compatibility-modes.md).
 
 ### Access to annotations via reflection
 
 The `KAnnotatedElement.`[`findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)
-extension function, which was first introduced
-in [Kotlin 1.6.0](whatsnew16.md#repeatable-annotations-with-runtime-retention-for-1-8-jvm-target)
-, is now [Stable](components-stability.md). This [reflection](reflection.md)
+extension function, which was first [introduced in 1.6.0](whatsnew16.md#repeatable-annotations-with-runtime-retention-for-1-8-jvm-target),
+is now [Stable](components-stability.md). This [reflection](reflection.md)
 function returns all annotations of a given type on an element, including individually applied and repeated annotations.
 
 ```kotlin
@@ -559,10 +552,10 @@ fun main() {
 ### Stable deep recursive functions
 
 Deep recursive functions have been available as an experimental feature
-since [Kotlin 1.4.0](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/#Defining_deep_recursive_functions_using_coroutines)
-, and they are now [Stable](components-stability.md) in Kotlin 1.7.0. Using `DeepRecursiveFunction`, you can
-define a function that keeps its stack on the heap instead of using the actual call stack. This allows you to run very
-deep recursive computations. To call a deep recursive function, `invoke` it.
+since [Kotlin 1.4.0](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-rc-debugging-coroutines/#Defining_deep_recursive_functions_using_coroutines),
+and they are now [Stable](components-stability.md) in Kotlin 1.7.0. Using `DeepRecursiveFunction`, you can define a
+function that keeps its stack on the heap instead of using the actual call stack. This allows you to run very deep
+recursive computations. To call a deep recursive function, `invoke` it.
 
 In this example, a deep recursive function is used to calculate the depth of a binary tree recursively. Even though this
 sample function calls itself recursively 100,000 times, no `StackOverflowError` is thrown:
@@ -612,12 +605,12 @@ fun main() {
 
 ### New experimental extension functions for Java Optionals
 
-Kotlin 1.7.0 comes with new convenience functions that simplify working with Java's `Optional` classess. These new
+Kotlin 1.7.0 comes with new convenience functions that simplify working with `Optional` classes in Java. These new
 functions can be used to unwrap and convert optional objects on the JVM and help make working with Java APIs more
 concise.
 
 The `getOrNull()`, `getOrDefault()`, and `getOrElse()` extension functions allow you to get the value of an `Optional`
-if it's present. Otherwise, you get a default value `null` or a value returned by a function, respectively:
+if it's present. Otherwise, you get a default value, `null`, or a value returned by a function,
 
 ```kotlin
 val presentOptional = Optional.of("I'm here!")
@@ -671,10 +664,9 @@ the [Kotlin issue tracker](https://kotl.in/issue).
 Starting with Kotlin 1.7.0, named capturing groups are supported not only on the JVM, but on the JS and Native platforms
 as well.
 
-To give a name to a capturing group, use the (`?<name>group`) syntax in your regular expression. To get the text
-matched by a group, call the newly
-introduced [`MatchGroupCollection.get()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/get.html) function
-and pass the group name.
+To give a name to a capturing group, use the (`?<name>group`) syntax in your regular expression. To get the text matched
+by a group, call the newly introduced [`MatchGroupCollection.get()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/get.html)
+function and pass the group name.
 
 #### Retrieve matched group value by name
 
@@ -708,9 +700,9 @@ fun backRef() {
 
 #### Named groups in replacement expressions
 
-Finally, named group references can be used with replacement expressions. For example, Consider
-the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html) function that
-substitutes all occurrences of the specified regular expression in the input with a replacement expression, and
+Named group references can be used with replacement expressions. Consider
+the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html) function substitutes all
+occurrences of the specified regular expression in the input with a replacement expression, and
 the [`replaceFirst()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace-first.html) function that
 swaps the first match only.
 
@@ -721,8 +713,8 @@ groups with the specified name. You can compare replacements in group references
 fun dateReplace() {
     val dateRegex = Regex("(?<dd>\\d{2})-(?<mm>\\d{2})-(?<yyyy>\\d{4})")
     val input = "Date of birth: 27-04-2022"
-    println(dateRegex.replace(input, "\${yyyy}-\${mm}-\${dd}")) // "Date of birth: 2022-04-27"  -- by name
-    println(dateRegex.replace(input, "\$3-\$2-\$1")) // "Date of birth: 2022-04-27" -- by number
+    println(dateRegex.replace(input, "\${yyyy}-\${mm}-\${dd}")) // "Date of birth: 2022-04-27" — by name
+    println(dateRegex.replace(input, "\$3-\$2-\$1")) // "Date of birth: 2022-04-27" — by number
 }
 ```
 
@@ -752,13 +744,13 @@ This release introduces new build reports, support for Gradle plugin variants, n
 >
 {type="warning"}
 
-In Kotlin 1.7.0, we've reworked the incremental compilation for cross-module changes. Now incremental compilation is
-also supported for changes made inside dependent non-Kotlin modules, and it is compatible with
-the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html). Support for compilation avoidance
+In Kotlin 1.7.0, we've reworked incremental compilation for cross-module changes. Now incremental compilation is also
+supported for changes made inside dependent non-Kotlin modules, and it is compatible with
+the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html) Support for compilation avoidance
 has also been improved.
 
 We expect you'll see the most significant benefit of the new approach if you use the build cache or frequently make
-changes in non-Kotlin Gradle modules. Our tests for the Kotlin project on the kotlin-gradle-plugin module show an
+changes in non-Kotlin Gradle modules. Our tests for the Kotlin project on the `kotlin-gradle-plugin` module show an
 improvement of greater than 80% for the changes after the cache hit.
 
 To try this new approach, set the following option in your `gradle.properties`:
@@ -776,17 +768,14 @@ Our plan is to stabilize this technology and add support for other backends (JS,
 appreciate your reports in [YouTrack](https://youtrack.jetbrains.com/issues/KT) about any issues or strange behavior you
 encounter in this compilation scheme. Thank you!
 
-The Kotlin team is very grateful to [Ivan Gavrilovic](https://github.com/gavra0)
-, [Hung Nguyen](https://github.com/hungvietnguyen), [Cédric Champeau](https://github.com/melix), and other external
-contributors for their help.
+The Kotlin team is very grateful to [Ivan Gavrilovic](https://github.com/gavra0), [Hung Nguyen](https://github.com/hungvietnguyen),
+[Cédric Champeau](https://github.com/melix), and other external contributors for their help.
 
 ### Build reports for Kotlin compiler tasks
 
 > Kotlin build reports are [Experimental](components-stability.md). They may be dropped or changed at any time.
-
 > Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them
 > in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
-
 >
 {type="warning"}
 
@@ -796,7 +785,7 @@ compilation phases and reasons why compilation couldn't be incremental.
 Build reports come in handy when you want to investigate issues with compiler tasks, for example:
 
 * When the Gradle build takes too much time and you want to understand the root cause of the poor performance.
-* When the compilation times for the same project differs, sometimes taking seconds, sometimes taking minutes.
+* When the compilation time for the same project differs, sometimes taking seconds, sometimes taking minutes.
 
 To enable build reports, declare where to save the build report output in `gradle.properties`:
 
@@ -822,7 +811,7 @@ The following values (and their combinations) are available:
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
 
 * The build wasn't incremental. Analyze the reasons and fix underlying problems.
-* The build was incremental, but took too much time. Try to reorganize source files – split big files, save separate
+* The build was incremental, but took too much time. Try to reorganize source files — split big files, save separate
   classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 You are welcome to try using build reports in your infrastructure. If you have any feedback, encounter any issues, or
@@ -842,7 +831,7 @@ Also, the minimal supported Android Gradle plugin version is now 3.6.4.
 ### Support for Gradle plugin variants
 
 Gradle 7.0 introduced a new feature for Gradle plugin authors
-– [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants).
+— [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants).
 This feature makes it easier to add support for new Gradle features while maintaining compatibility for Gradle versions
 below 7.1. Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
 
@@ -854,41 +843,40 @@ functionality.
 
 Currently, there are only two variants of the Kotlin Gradle plugin:
 
-* `main` for Gradle versions 6.7.1–6.9.2.
-* `gradle70` for Gradle versions 7.0 and higher.
+* `main` for Gradle versions 6.7.1–6.9.2
+* `gradle70` for Gradle versions 7.0 and higher
 
 In future Kotlin releases, we may add more.
 
 To check which variant your build uses, enable
 the [`--info` log level](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) and find a
-string in the output starting with: `Using Kotlin Gradle plugin`,. Ffor
-example,: `Using Kotlin Gradle plugin main variant`.
+string in the output starting with `Using Kotlin Gradle plugin`, for example, `Using Kotlin Gradle plugin main variant`.
 
-> Here are workarounds for some known issues with variant selection in Gradle: \
+> Here are workarounds for some known issues with variant selection in Gradle:
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
 > {type="note"}
 
 Leave your feedback
-inon [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-49227/Support-Gradle-plugins-variants).
+on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-49227/Support-Gradle-plugins-variants).
 
 ### Updates in the Kotlin Gradle plugin API
 
 The Kotlin Gradle plugin API artifact has received several improvements:
 
-* There are new interfaces for Kotlin/JVM and Kotlin/kapt tasks with all configurable inputs.
+* There are new interfaces for Kotlin/JVM and Kotlin/kapt tasks with user-configurable inputs.
 * There is a new `KotlinBasePlugin` interface that all Kotlin plugins inherit from. Use this interface when you want to
-  trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, Multiplatform, Native, and others) is
-  applied:
+  trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, Multiplatform, Native, and other
+  platforms) is applied:
 
   ```kotlin
   project.plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin>() {
       // Configure your action here
   }
   ```
-    You can leave your feedback about the `KotlinBasePlugin` in
-on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-48008/Consider-offering-a-KotlinBasePlugin).
+  You can leave your feedback about the `KotlinBasePlugin`
+  in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-48008/Consider-offering-a-KotlinBasePlugin).
 
 * We've laid the groundwork for the Android Gradle plugin to configure Kotlin compilation within itself, meaning you
   won't need to add the Kotlin Android Gradle plugin to your build.
@@ -914,7 +902,7 @@ Compile tasks have received lots of changes in this release:
 * The `AbstractCompile` task has the `sourceCompatibility` and `targetCompatibility` inputs. Since the `AbstractCompile`
   task is no longer inherited, these inputs are no longer available in Kotlin users' scripts.
 * The `SourceTask.stableSources` input is no longer available, and you should use the `sources` input. `setSource(...)`
-  methods that are still available instead.
+  methods that are still available.
 * All compile tasks now use the `libraries` input for a list of libraries required for compilation. The `KotlinCompile`
   task still has the deprecated Kotlin property `classpath`, which will be removed in future releases.
 * Compile tasks still implement the `PatternFilterable` interface, which allows the filtering of Kotlin sources.
@@ -924,7 +912,7 @@ Compile tasks have received lots of changes in this release:
 * The Kotlin/Native `AbstractNativeCompile` task now inherits the `AbstractKotlinCompileTool` base class. This is an
   initial step toward integrating Kotlin/Native build tools into all the other tools.
 
-Please leave your feedback in on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-32805).
+Please leave your feedback in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-32805).
 
 ### Statistics of generated files by each annotation processor in kapt
 
@@ -948,7 +936,7 @@ Enable the statistics in two steps:
   ```properties
   kapt.verbose=true
   ```
-  
+
 > You can also enable verbose output via the [command line option `verbose`](kapt.md#using-in-cli).
 >
 > {type="note"}
@@ -958,7 +946,7 @@ by statistics on the execution time of each annotation processor. After these li
 the `Generated files report:` line followed by statistics on the number of generated files for each annotation
 processor. For example:
 
-```kotlin
+```text
 [INFO] Annotation processor stats:
 [INFO] org.mapstruct.ap.MappingProcessor: total: 290 ms, init: 1 ms, 3 round(s): 289 ms, 0 ms, 0 ms
 [INFO] Generated files report:
@@ -966,14 +954,13 @@ processor. For example:
 ```
 
 Please leave your feedback
-inon [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-51132/KAPT-Support-reporting-the-number-of-generated-files-by-each-ann)
-.
+in [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-51132/KAPT-Support-reporting-the-number-of-generated-files-by-each-ann).
 
 ### Deprecation of the kotlin.compiler.execution.strategy system property
 
 Kotlin 1.6.20
-introduced [new properties for defining a Kotlin compiler execution strategy](whatsnew1620.md#properties-for-defining-kotlin-compiler-execution-strategy)
-. In Kotlin 1.7.0, a deprecation cycle has started for the old system property `kotlin.compiler.execution.strategy` in
+introduced [new properties for defining a Kotlin compiler execution strategy](whatsnew1620.md#properties-for-defining-kotlin-compiler-execution-strategy).
+In Kotlin 1.7.0, a deprecation cycle has started for the old system property `kotlin.compiler.execution.strategy` in
 favor of the new properties.
 
 When using the `kotlin.compiler.execution.strategy` system property, you'll receive a warning. This property will be
@@ -1012,10 +999,9 @@ We've completed the deprecation cycle for several compiler options:
 
 * The `kotlinOptions.jdkHome` compiler option was deprecated in 1.5.30 and has been removed in the current release.
   Gradle builds now fail if they contain this option. We encourage you to
-  use [Java toolchains](whatsnew1530.md#support-for-java-toolchains), which have been supported since Kotlin
-  1.5.30.
-* The deprecated 'noStdlib' compiler option has also been removed. Gradle always resolves the Kotlin standard library
-  and adds it to the compiler classpath.
+  use [Java toolchains](whatsnew1530.md#support-for-java-toolchains), which have been supported since Kotlin 1.5.30.
+* The deprecated 'noStdlib' compiler option has also been removed. The Gradle plugin uses
+  the `kotlin.stdlib.default.dependency=true` property to control whether the Kotlin standard library is present.
 
 > The compiler arguments `-jdkHome` and `-no-stdlib` are still available.
 >
@@ -1036,11 +1022,10 @@ the `KotlinCompilerPluginSupportPlugin` class instead.
 >
 > {type="tip"}
 
-#### Removal of the deprecated coroutines DSL option and property **
+#### Removal of the deprecated coroutines DSL option and property
 
 We removed the deprecated `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used
-in `gradle.properties`. Instead of them, just
-use _[suspending functions](coroutines-basics.md#extract-function-refactoring)_
+in `gradle.properties`. Now you can just use _[suspending functions](coroutines-basics.md#extract-function-refactoring)_
 or [add the `kotlinx.coroutines` dependency](gradle.md#set-a-dependency-on-a-kotlinx-library) to your build
 script.
 
@@ -1048,13 +1033,13 @@ Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).
 
 #### Removal of the type cast in the toolchain extension method
 
-Before Kotlin 1.7.0, to configure the Gradle toolchain, you had to use the Kotlin DSL to performdo the type cast into
-the `JavaToolchainSpec` class whento configuringe the Gradle toolchain by using Kotlin DSL:
+Before Kotlin 1.7.0, you had to do the type cast into the `JavaToolchainSpec` class when configuring the Gradle
+toolchain with Kotlin DSL:
 
 ```kotlin
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(< MAJOR_JDK_VERSION >)
     }
 }
 ```
@@ -1064,7 +1049,7 @@ Now, you can omit the `(this as JavaToolchainSpec)` part:
 ```kotlin
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
+        languageVersion.set(JavaLanguageVersion.of(< MAJOR_JDK_VERSION >)
     }
 }
 ```
