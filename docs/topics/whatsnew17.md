@@ -365,7 +365,7 @@ that can make your development experience better:
 * [Performance improvements for the new IR backend](#performance-improvements-for-the-new-ir-backend)
 * [Minification for member names when using IR](#minification-for-member-names-when-using-ir)
 * [Support for older browsers via polyfills in the IR backend](#support-for-older-browsers-via-polyfills-in-the-ir-backend)
-* [Dynamically load JavaScript modules from `js` expressions](#dynamically-load-javascript-modules-from-js-expressions)
+* [Dynamically load JavaScript modules from js expressions](#dynamically-load-javascript-modules-from-js-expressions)
 * [Specify environment variables for JavaScript test runners](#specify-environment-variables-for-javascript-test-runners)
 
 ### Performance improvements for the new IR backend
@@ -520,7 +520,7 @@ compatibility, see [Compatibility modes](compatibility-modes.md).
 
 ### Access to annotations via reflection
 
-The `KAnnotatedElement.`[`findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)
+The `KAnnotatedElement.[findAnnotations()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)`
 extension function, which was first [introduced in 1.6.0](whatsnew16.md#repeatable-annotations-with-runtime-retention-for-1-8-jvm-target),
 is now [Stable](components-stability.md). This [reflection](reflection.md)
 function returns all annotations of a given type on an element, including individually applied and repeated annotations.
@@ -673,8 +673,8 @@ fun main() {
     val regex = "\\b(?<city>[A-Za-z\\s]+),\\s(?<state>[A-Z]{2}):\\s(?<areaCode>[0-9]{3})\\b".toRegex()
     val input = "Coordinates: Austin, TX: 123"
     val match = regex.find(input)!!
-    println(match.groups["city"]?.value) // "Austin" -- by name
-    println(match.groups[2]?.value) // "TX" -- by number
+    println(match.groups["city"]?.value) // "Austin" — by name
+    println(match.groups[2]?.value) // "TX" — by number
 }
 ```
 
@@ -794,10 +794,8 @@ The following values (and their combinations) are available:
   >
   {type="note"}
 
-* `http` posts build reports using HTTP(S). The POST method sends metrics in the JSON format. Data may change from
-  version to version. – yYou can see the current version of the sent data in
-  the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt)
-  .
+* `http` posts build reports using HTTP(S). The POST method sends metrics in the JSON format. Data may change from version
+  to version. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt).
 
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
 
