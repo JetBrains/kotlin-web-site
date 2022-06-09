@@ -50,7 +50,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
-        <td><strong>1.7.0/strong>
+        <td><strong>1.7.0</strong>
             <p>Released: <strong>June 9, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Release on GitHub</a></p>
         </td>
@@ -60,7 +60,6 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="whatsnew17.md" target="_blank">What's new in Kotlin 1.7.0</a></li>
                 <li><a href="https://youtu.be/54WEfLKtCGk" target="_blank">What's new in Kotlin YouTube video</a></li>
-                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility Guide</a></li>
             </ul></td>
         <td>
             <ul>
