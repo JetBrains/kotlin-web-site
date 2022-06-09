@@ -58,9 +58,8 @@ enable the Kotlin K2 compiler, use the following compiler option:
 -Xuse-k2
 ```
 
-Also, the K2 compiler includes a number of bugfixes. You can use this list as a
-reference: [https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated](https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated).
-Please note that even issues with State: Open from this list are in fact fixed in K2.
+Also, the K2 compiler [includes a number of bugfixes](https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated).
+Please note that even issues with **State: Open** from this list are in fact fixed in K2.
 
 The next Kotlin releases will improve the stability of the K2 compiler and provide more features, so stay tuned and
 provide your feedback!
@@ -133,7 +132,7 @@ fun main() {
 
 > You can use the underscore operator in any position in the variables list to infer a type argument.
 >
-> {type="note"}
+{type="note"}
 
 ### Stable builder inference
 
@@ -213,7 +212,7 @@ version 9 or higher.
 
 > This option works only for OpenJDK distributions.
 >
-> {type="note"}
+{type="note"}
 
 Please leave your feedback
 on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-29974/Add-a-compiler-option-Xjdk-release-similar-to-javac-s-release-to).
@@ -730,12 +729,9 @@ This release introduces new build reports, support for Gradle plugin variants, n
 
 ### A new approach to incremental compilation
 
-> The new approach to incremental compilation is [Experimental](components-stability.md). It may be dropped or
-> changed at any time.
-
-> Opt-in is required (see the details below). We encourage you to Uuse it only for evaluation purposes, and. Wwe would
+> The new approach to incremental compilation is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Opt-in is required (see the details below). We encourage you to use it only for evaluation purposes, and we would
 > appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
-
 >
 {type="warning"}
 
@@ -851,7 +847,7 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
-> {type="note"}
+{type="note"}
 
 Leave your feedback
 on [this YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-49227/Support-Gradle-plugins-variants).
@@ -934,7 +930,7 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](kapt.md#using-in-cli).
 >
-> {type="note"}
+{type="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed
 by statistics on the execution time of each annotation processor. After these lines, there will be
@@ -1000,7 +996,7 @@ We've completed the deprecation cycle for several compiler options:
 
 > The compiler arguments `-jdkHome` and `-no-stdlib` are still available.
 >
-> {type="note"}
+{type="note"}
 
 #### Removal of deprecated plugins
 
@@ -1015,7 +1011,7 @@ the `KotlinCompilerPluginSupportPlugin` class instead.
 
 > The best practice is to use Kotlin plugins with versions 1.7.0 and higher throughout your project.
 >
-> {type="tip"}
+{type="tip"}
 
 #### Removal of the deprecated coroutines DSL option and property
 
