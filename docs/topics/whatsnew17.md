@@ -8,19 +8,14 @@ features, and brings performance improvements for the JVM, JS, and Native platfo
 Here is a list of the major updates in this version:
 
 * [The new Kotlin К2 compiler is in Alpha now](#new-kotlin-k2-compiler-for-the-jvm-in-alpha), and it offers serious
-  performance improvements. It is available only for
-  the JVM, and none of the compiler plugins, including kapt, work with it.
+  performance improvements. It is available only for the JVM, and none of the compiler plugins, including kapt, work with it.
 * [A new approach to the incremental compilation in Gradle](#a-new-approach-to-incremental-compilation). Incremental
-  compilation is now also supported for changes
-  made inside dependent non-Kotlin modules and is compatible with Gradle.
-* We've stabilized [opt-in requirement annotations](#stable-opt-in-requirements)
-  , [definitely non-nullable types](#stable-definitely-non-nullable-types),
+  compilation is now also supported for changes made inside dependent non-Kotlin modules and is compatible with Gradle.
+* We've stabilized [opt-in requirement annotations](#stable-opt-in-requirements), [definitely non-nullable types](#stable-definitely-non-nullable-types),
   and [builder inference](#stable-builder-inference).
 * [There's now an underscore operator for type args](#underscore-operator-for-type-arguments). You can use it to
-  automatically infer a type of argument when other
-  types are specified.
-* [This release allows implementation by delegation to an inlined value of an inline class](#allow-implementation-by-delegation-to-an-inlined-value-of-an-inline-class)
-  . You can now create
+  automatically infer a type of argument when other types are specified.
+* [This release allows implementation by delegation to an inlined value of an inline class](#allow-implementation-by-delegation-to-an-inlined-value-of-an-inline-class). You can now create
   lightweight wrappers that do not allocate memory in most cases.
 
 You can also find a short overview of the changes in this video:
@@ -93,10 +88,10 @@ interface Bar {
 }
 
 @JvmInline
-value class BarWrapper(val bar: Bar) : Bar by bar
+value class BarWrapper(val bar: Bar): Bar by bar
 
 fun main() {
-    val bw = BarWrapper(object : Bar {})
+    val bw = BarWrapper(object: Bar {})
     println(bw.foo())
 }
 ```
@@ -120,7 +115,7 @@ class OtherImplementation : SomeClass<Int>() {
 }
 
 object Runner {
-    inline fun <reified S : SomeClass<T>, T> run(): T {
+    inline fun <reified S: SomeClass<T>, T> run(): T {
         return S::class.java.getDeclaredConstructor().newInstance().execute()
     }
 }
@@ -166,7 +161,7 @@ In Kotlin 1.7.0, definitely non-nullable types have been promoted to [Stable](co
 better interoperability when extending generic Java classes and interfaces.
 
 You can mark a generic type parameter as definitely non-nullable at the use site with the new syntax `T & Any.` The
-syntactic form comes from the notation for [intersection types](https://en.wikipedia.org/wiki/Intersection_type)and is
+syntactic form comes from the notation for [intersection types](https://en.wikipedia.org/wiki/Intersection_type) and is
 now limited to a type parameter with nullable upper bounds on the left side of `&` and a non-nullable `Any` on the right
 side:
 
@@ -279,7 +274,7 @@ in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 ### Unified compiler plugin ABI with JVM and JS IR backends
 
 Starting with Kotlin 1.7.0, the Kotlin Multiplatform Gradle plugin uses the embeddable compiler jar for Kotlin/Native by
-default. This [feature was announced in 1.6.0](whatsnew16.md#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends)as
+default. This [feature was announced in 1.6.0](whatsnew16.md#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends) as
 Experimental, and now it's stable and ready to use.
 
 This improvement is very handy for library authors, as it improves the compiler plugin development experience. Before
@@ -322,7 +317,7 @@ When you call Kotlin code from Swift/Objective-C code (or vice versa) and this c
 handled by the code where the exception occurred, unless you specifically allowed the forwarding of exceptions between
 languages with proper conversion (for example, using the `@Throws` annotation).
 
-Previously, Kotlin had another unintended behavior where undeclared exceptions could “leak” from one language to another
+Previously, Kotlin had another unintended behavior where undeclared exceptions could "leak" from one language to another
 in some cases. Kotlin 1.7.0 fixes that issue, and now such cases lead to program termination.
 
 So, for example, if you have a `{ throw Exception() }` lambda in Kotlin and call it from Swift, in Kotlin 1.7.0 it will
@@ -610,7 +605,7 @@ functions can be used to unwrap and convert optional objects on the JVM and help
 concise.
 
 The `getOrNull()`, `getOrDefault()`, and `getOrElse()` extension functions allow you to get the value of an `Optional`
-if it's present. Otherwise, you get a default value, `null`, or a value returned by a function,
+if it's present. Otherwise, you get a default value, `null`, or a value returned by a function, respectively:
 
 ```kotlin
 val presentOptional = Optional.of("I'm here!")
@@ -701,7 +696,7 @@ fun backRef() {
 #### Named groups in replacement expressions
 
 Named group references can be used with replacement expressions. Consider
-the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html) function substitutes all
+the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace.html) function that substitutes all
 occurrences of the specified regular expression in the input with a replacement expression, and
 the [`replaceFirst()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/replace-first.html) function that
 swaps the first match only.
@@ -1039,7 +1034,7 @@ toolchain with Kotlin DSL:
 ```kotlin
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(< MAJOR_JDK_VERSION >)
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
     }
 }
 ```
@@ -1049,7 +1044,7 @@ Now, you can omit the `(this as JavaToolchainSpec)` part:
 ```kotlin
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(< MAJOR_JDK_VERSION >)
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
     }
 }
 ```
