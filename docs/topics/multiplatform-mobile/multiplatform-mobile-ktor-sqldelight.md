@@ -14,7 +14,7 @@ SpaceX rocket launches together with the launch date, results, and a detailed de
 
 You will use the following multiplatform libraries in the project:
 
-* [Ktor](https://ktor.io/docs/client.html) as an HTTP client for retrieving data over the internet.
+* [Ktor](https://ktor.io/docs/create-client.html) as an HTTP client for retrieving data over the internet.
 * [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects
   of entity classes
 * [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) to write asynchronous code
@@ -69,18 +69,17 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 1. In the **shared** directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
 
     ```kotlin
-    val coroutinesVersion = "%coroutinesVersion%-native-mt"
-    val serializationVersion = "%serializationVersion%"
+    val coroutinesVersion = "%coroutinesVersion%"
     val ktorVersion = "%ktorVersion%"
-    val sqlDelightVersion: String by project
+    val sqlDelightVersion = "%sqlDelightVersion%"
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
-                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
                 }
             }
@@ -93,7 +92,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
         val iosMain by creating {
             // ...
             dependencies {
-                implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation("io.ktor:ktor-client-darwin:$ktorVersion")
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
             }
         }
@@ -102,7 +101,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 
     * All libraries require a core artifact in the common source set.
     * Both SQLDelight and Ktor libraries need platform drivers in the iOS and Android source sets as well.
-    * In addition, Ktor needs the serialization [feature](https://ktor.io/docs/json.html) to use
+    * In addition, Ktor needs the serialization [feature](https://ktor.io/docs/serialization-client.html) to use
       `kotlinx.serialization` for processing network requests and responses.
 
 2. At the very beginning of the `build.gradle.kts` file in the same **shared** directory, add the following lines to the
@@ -111,7 +110,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
    ```kotlin
        plugins {
        // ...
-       kotlin("plugin.serialization")
+       kotlin("plugin.serialization") version "1.6.21"
        id("com.squareup.sqldelight")
    }
    ```
@@ -122,12 +121,10 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     ```kotlin
     buildscript {
         // ...
-        val kotlinVersion = "%kotlinVersion%"
-        val sqlDelightVersion: String by project
+        val sqlDelightVersion = "%sqlDelightVersion%"
         
         dependencies {
             // ...
-            classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
             classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
         }
     }
@@ -321,7 +318,6 @@ implementations of the SQLite driver, so you need to create them for each platfo
    ```kotlin
    package com.jetbrains.handson.kmm.shared.cache
    
-   import com.jetbrains.handson.kmm.shared.cache.AppDatabase
    import com.squareup.sqldelight.db.SqlDriver
    import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
 
@@ -478,54 +474,46 @@ Create a class that will connect the application to the API:
 
    ```kotlin
    package com.jetbrains.handson.kmm.shared.network
-   
+
    import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
-   import io.ktor.client.HttpClient
-   import io.ktor.client.features.json.JsonFeature
-   import io.ktor.client.features.json.serializer.KotlinxSerializer
+   import io.ktor.client.*
+   import io.ktor.client.call.*
+   import io.ktor.client.plugins.contentnegotiation.*
    import io.ktor.client.request.*
+   import io.ktor.serialization.kotlinx.json.*
    import kotlinx.serialization.json.Json
 
    class SpaceXApi {
-    private val httpClient = HttpClient {
-        install(JsonFeature) {
-            val json = Json {
-                ignoreUnknownKeys = true
-                useAlternativeNames = false
-            }
-            serializer = KotlinxSerializer(json)
-            }
-        }
+      private val httpClient = HttpClient {
+          install(ContentNegotiation) {
+              json(Json {
+                  ignoreUnknownKeys = true
+                  useAlternativeNames = false
+              })
+          }
+      }
    }
    ```
 
     * This class executes network requests and deserializes JSON responses into entities from the `entity` package. For
       this, the Ktor `HttpClient` instance initializes and stores the `httpClient` property.
 
-    * To deserialize the `GET` request result, the JSON [Ktor client feature](https://ktor.io/docs/json.html) is
-      installed. It processes the request and the response payload as JSON, serializing and deserializing them using a
-      specific serializer. The `KotlinxSerializer` instance is provided to the feature
-      builder for using `kotlinx.serialization`.
+    * To deserialize the `GET` request result, the [Ktor `ContentNegotiation` plugin](https://ktor.io/docs/serialization-client.html)
+      is installed. It processes the request and the response payload as JSON, serializing and deserializing them using a
+      specific serializer.
 
-3. Define the URL as a constant within the companion object class to send requests:
-
-   ```kotlin
-   companion object {
-       private const val LAUNCHES_ENDPOINT = "https://api.spacexdata.com/v3/launches"
-   }
-   ```
-
-4. Declare the data retrieval method that will return the list of `RocketLaunch`:
+2. Declare the data retrieval function that will return the list of `RocketLaunch`:
 
    ```kotlin
    suspend fun getAllLaunches(): List<RocketLaunch> {
-       return httpClient.get(LAUNCHES_ENDPOINT)
+       return httpClient.get("https://api.spacexdata.com/v3/launches").body()
    }
    ```
 
-   The `getAllLaunches` function has the `suspend` modifier because it contains a call of the suspend function `get()`,
+   * The `getAllLaunches` function has the `suspend` modifier because it contains a call of the suspend function `get()`,
    which includes an asynchronous operation to retrieve data over the internet and can only be called from within a
    coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   * To send requests, the URL is defined inside the `get()` function.
 
 ### Add internet access permission
 
@@ -615,13 +603,13 @@ the `androidApp/build.gradle.kts`:
 // ...
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation("com.google.android.material:material:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.4.2")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
-    implementation("androidx.core:core-ktx:1.3.1")
-    implementation("androidx.recyclerview:recyclerview:1.1.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
+    implementation("androidx.core:core-ktx:1.8.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
 }
@@ -1066,6 +1054,6 @@ see [how to work with concurrency](multiplatform-mobile-concurrency-overview.md)
 
 You can also check out these materials if you want to:
 
-* [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-multiplatform.html)
+* [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-engines.html#mpp-config)
 * [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)
 * [Introduce your team to Kotlin Multiplatform Mobile](multiplatform-mobile-introduce-your-team.md)
