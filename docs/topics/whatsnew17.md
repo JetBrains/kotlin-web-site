@@ -1063,7 +1063,7 @@ project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-relea
 * To start a new project with Kotlin 1.7.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
 **Project**.
 
-### Compatibility Guide for Kotlin 1.7.0
+### Compatibility guide for Kotlin 1.7.0
 
 Kotlin 1.7.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
-Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.7.0](compatibility-guide-17.md).
+Find the detailed list of such changes in the [Compatibility guide for Kotlin 1.7.0](compatibility-guide-17.md).

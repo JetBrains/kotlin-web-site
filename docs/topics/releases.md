@@ -60,7 +60,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="whatsnew17.md" target="_blank">What's new in Kotlin 1.7.0</a></li>
                 <li><a href="https://youtu.be/54WEfLKtCGk" target="_blank">What's new in Kotlin YouTube video</a></li>
-                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility Guide for Kotlin 1.7.0</a></li>
+                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility guide for Kotlin 1.7.0</a></li>
             </ul>
         </td>
         <td>
@@ -158,7 +158,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="https://blog.jetbrains.com/kotlin/2021/11/kotlin-1-6-0-is-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew16.md" target="_blank">What's new in Kotlin 1.6.0</a></li>
-                <li><a href="compatibility-guide-16.md" target="_blank">Compatibility Guide</a></li>
+                <li><a href="compatibility-guide-16.md" target="_blank">Compatibility guide</a></li>
             </ul>
         </td>
         <td>
@@ -333,7 +333,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew15.md" target="_blank">What's new in Kotlin 1.5.0</a></li>
-                <li><a href="compatibility-guide-15.md" target="_blank">Compatibility Guide</a></li>
+                <li><a href="compatibility-guide-15.md" target="_blank">Compatibility guide</a></li>
             </ul>
         </td>
         <td>
@@ -504,7 +504,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew14.md" target="_blank">What's new in Kotlin 1.4.0</a></li>
-                <li><a href="compatibility-guide-14.md" target="_blank">Compatibility Guide</a></li>
+                <li><a href="compatibility-guide-14.md" target="_blank">Compatibility guide</a></li>
                 <li><a href="whatsnew14.md#migrating-to-kotlin-1-4-0" target="_blank">Migrating to Kotlin 1.4.0</a></li>
             </ul>
         </td>
