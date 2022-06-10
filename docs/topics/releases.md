@@ -60,7 +60,9 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <ul>
                 <li><a href="whatsnew17.md" target="_blank">What's new in Kotlin 1.7.0</a></li>
                 <li><a href="https://youtu.be/54WEfLKtCGk" target="_blank">What's new in Kotlin YouTube video</a></li>
-            </ul></td>
+                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility Guide for Kotlin 1.7.0</a></li>
+            </ul>
+        </td>
         <td>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>

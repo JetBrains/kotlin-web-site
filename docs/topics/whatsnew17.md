@@ -1042,3 +1042,28 @@ kotlin {
     }
 }
 ```
+
+## Migrating to Kotlin 1.7.0
+
+### Install Kotlin 1.7.0
+
+IntelliJ IDEA 2022.1 and Android Studio Chipmunk (212) will suggest updating the Kotlin plugin to 1.7.0 once it is available.
+
+> For Intellij IDEA 2022.2, and Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.0 will be delivered with upcoming Intellij IDEA and Android Studios updates.
+> 
+{type="note"}
+
+The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.7.0).
+
+### Migrate existing or start a new project with Kotlin 1.7.0
+
+* To migrate existing projects to Kotlin 1.7.0, change the Kotlin version to `1.7.0` and reimport your Gradle or Maven
+project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-release).
+
+* To start a new project with Kotlin 1.7.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
+**Project**.
+
+### Compatibility Guide for Kotlin 1.7.0
+
+Kotlin 1.7.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.7.0](compatibility-guide-17.md).
