@@ -483,8 +483,8 @@ perspective
 > the `sourceCompatibility` and `targetCompatibility` inputs are no longer available in Kotlin users' scripts. 
 > The `SourceTask.stableSources` input is no longer available. The `sourceFilesExtensions` input was removed. 
 > The deprecated `Gradle destinationDir: File` output was replaced with the `destinationDirectory: DirectoryProperty` output. 
-> The `setClasspath(FileCollection)` and `getClasspath(): FileCollection` methods are deprecated
+> The `classpath` property of the `KotlinCompile` task is deprecated
 >
 > **Deprecation cycle:**
 >
-> - 1.7.0: inputs are not available, the output is replaced, a couple of methods are deprecated
+> - 1.7.0: inputs are not available, the output is replaced, the `classpath` property is deprecated
