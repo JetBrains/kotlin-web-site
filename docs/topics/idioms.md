@@ -184,6 +184,16 @@ val mainEmail = emails.firstOrNull() ?: ""
 
 Learn the difference between [Java and Kotlin first item getting](java-to-kotlin-collections-guide.md#get-the-first-and-the-last-items-of-a-possibly-empty-collection).
 
+## Smart cast to non-null type
+
+```kotlin
+val value = ...
+
+value ?: return "..."
+
+// value is smart casted to a non-null type
+```
+
 ## Execute if not null
 
 ```kotlin
