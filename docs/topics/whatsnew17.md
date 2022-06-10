@@ -1047,7 +1047,7 @@ kotlin {
 
 ### Install Kotlin 1.7.0
 
-IntelliJ IDEA 2022.1 and Android Studio Chipmunk (212) will suggest updating the Kotlin plugin to 1.7.0 once it is available.
+IntelliJ IDEA 2022.1 and Android Studio Chipmunk (212) automatically suggest updating the Kotlin plugin to 1.7.0.
 
 > For Intellij IDEA 2022.2, and Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.0 will be delivered with upcoming Intellij IDEA and Android Studios updates.
 > 
