@@ -14,7 +14,7 @@ Most built-in types are comparable:
 * `Char` and `String` use the [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order): `b` is greater
    than `a`; `world` is greater than `hello`.
 
-To define a natural order for a user-defined type, make the type an inheritor of `Comparable`.
+To define a natural order for a user-defined type, make the type an implementer of `Comparable`.
 This requires implementing the `compareTo()` function. `compareTo()` must take another object of the same type as an argument
 and return an integer value showing which object is greater:
 
