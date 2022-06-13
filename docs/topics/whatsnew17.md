@@ -737,12 +737,11 @@ This release introduces new build reports, support for Gradle plugin variants, n
 
 In Kotlin 1.7.0, we've reworked incremental compilation for cross-module changes. Now incremental compilation is also
 supported for changes made inside dependent non-Kotlin modules, and it is compatible with
-the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html) Support for compilation avoidance
+the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html). Support for compilation avoidance
 has also been improved.
 
 We expect you'll see the most significant benefit of the new approach if you use the build cache or frequently make
-changes in non-Kotlin Gradle modules. Our tests for the Kotlin project on the `kotlin-gradle-plugin` module show an
-improvement of greater than 80% for the changes after the cache hit.
+changes in non-Kotlin Gradle modules.
 
 To try this new approach, set the following option in your `gradle.properties`:
 
