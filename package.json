@@ -76,6 +76,7 @@
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
+    "@playwright/test": "1.22.2",
     "@types/react": "17.0.43",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
@@ -97,6 +98,19 @@
     "start": "webpack serve",
     "next-dev": "next dev",
     "next-build-static": "next build && next export",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test test",
+    "test:e2e:ci": "CI=true playwright test test/e2e",
+    "test:e2e": "playwright test test/e2e",
+    "test:e2e:headed": "playwright test test/e2e --headed --project=chromium",
+    "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e --project=chromium",
+    "test:e2e:new": "playwright codegen localhost:9001",
+    "test:visual": "playwright test test/visual",
+    "test:visual:headed": "playwright test test/visual --headed",
+    "test:visual:update": "playwright test test/visual --update-snapshots",
+    "test:visual:ci": "CI=true playwright test test/visual",
+    "ci:e2e": "start-test 'yarn ci:server' http-get://localhost:9000 'yarn test:e2e:ci'",
+    "ci:visual": "start-test 'yarn ci:server' http-get://localhost:9000 'yarn test:visual:ci'",
+    "ci:server": "NODE_ENV=production webpack serve --no-client-overlay --no-hot --no-static-watch --no-live-reload"
   }
 }

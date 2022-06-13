@@ -138,3 +138,32 @@ You can find all pages in the "pages" directory.
 ### Images in Next.js
 Notice that using 'next/image' is not possible because Next.js does not support importing images to HTML files (SSG).
 Use Img and Svg components from "next-optimized-images" instead.
+
+# Tests
+We use Playwright for writing e2e and Screenshot tests.
+See https://playwright.dev/ for more details.
+
+## Prerequirements
+To run tests locally:
+1. Install supported browsers:
+```
+npx playwright install
+```
+2. Start Dev Server.
+
+## Run Tests
+- `yarn test` to run all tests in headless mode locally.
+- `yarn test:e2e` to run e2e tests.
+- `yarn test:e2e:headed` to run e2e tests in headed mode.
+- `yarn test:e2e:debug` to run e2e tests in headed mode with debug.
+- `yarn test:e2e:new` to generate the test for the user interactions.
+- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in test/visual.
+- `yarn test:visual:headed` to run visual test in headed mode.
+- `yarn test:visual:update` to update all screenshots, for example when the page has changed.
+- `yarn ci:e2e` to run e2e test in CI environments.
+- `yarn ci:visual` to run visual test in CI environments.
+
+## Write Tests
+
+To write e2e test:
+Create spec file /test/e2e/*your-page*.spec.js
