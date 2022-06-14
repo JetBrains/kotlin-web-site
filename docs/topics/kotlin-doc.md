@@ -1,7 +1,7 @@
 [//]: # (title: Document Kotlin code: KDoc and Dokka)
 
-The language used to document Kotlin code (the equivalent of Java's JavaDoc) is called **KDoc**. In its essence, KDoc
-combines JavaDoc's syntax for block tags (extended to support Kotlin's specific constructs) and Markdown for
+The language used to document Kotlin code (the equivalent of Java's Javadoc) is called **KDoc**. In its essence, KDoc
+combines Javadoc's syntax for block tags (extended to support Kotlin's specific constructs) and Markdown for
 inline markup.
 
 ## Generate the documentation
@@ -13,7 +13,7 @@ Dokka has plugins for Gradle, Maven, and Ant, so you can integrate documentation
 
 ## KDoc syntax
 
-Just like with JavaDoc, KDoc comments start with `/**` and end with `*/`. Every line of the comment may begin with
+Just like with Javadoc, KDoc comments start with `/**` and end with `*/`. Every line of the comment may begin with
 an asterisk, which is not considered part of the contents of the comment.
 
 By convention, the first paragraph of the documentation text (the block of text until the first blank line) is the
@@ -126,7 +126,7 @@ If you want to specify a custom label for the link, use the Markdown reference-s
 Use [this method][foo] for this purpose.
 ```
 
-You can also use qualified names in the links. Note that, unlike JavaDoc, qualified names always use the dot character
+You can also use qualified names in the links. Note that, unlike Javadoc, qualified names always use the dot character
 to separate the components, even before a method name:
 
 ```
