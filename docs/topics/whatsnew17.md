@@ -741,7 +741,8 @@ the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.h
 has also been improved.
 
 We expect you'll see the most significant benefit of the new approach if you use the build cache or frequently make
-changes in non-Kotlin Gradle modules.
+changes in non-Kotlin Gradle modules. Our tests for the Kotlin project on the `kotlin-gradle-plugin` module show an
+improvement of greater than 80% for the changes after the cache hit.
 
 To try this new approach, set the following option in your `gradle.properties`:
 
