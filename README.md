@@ -97,7 +97,8 @@ To add an event to the Community Events, follow the instruction below.
    - `lang`, two-letter code considering [ISO 639-1 format](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
    - `startDate`, in the format 'yyyy-mm-dd'.
    - `endDate`, in the format 'yyyy-mm-dd'. For the on day event fill the same date as in the startDate.
-   - `location`, in form of 'City, Country'.
+   - `location`, in the form of 'City, Country'. You can omit it for an online event.
+   - `online`, set this key with `true` value in case of online event.
    - `speaker`, the speaker's name.
    - `title`, event's title.
    - `subject`, a title of a talk.
