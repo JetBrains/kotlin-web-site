@@ -775,7 +775,7 @@ To enable build reports, declare where to save the build report output in `gradl
 kotlin.build.report.output=file
 ```
 
-The following values (and their combinations) are available:
+The following values and their combinations are available for the output:
 
 | Option       | Description                                                                                                                                                                                                                                                                                                                                     |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
