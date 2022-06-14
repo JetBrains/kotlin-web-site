@@ -10,7 +10,7 @@
     "@babel/core": "7.15.8",
     "@babel/register": "7.15.3",
     "@jetbrains/babel-preset-jetbrains": "^2.3.1",
-    "@jetbrains/kotlin-web-site-ui": "4.0.0-alpha.3",
+    "@jetbrains/kotlin-web-site-ui": "4.0.0",
     "@react-hook/resize-observer": "1.2.5",
     "@rescui/button": "0.4.0",
     "@rescui/card": "0.5.0",
