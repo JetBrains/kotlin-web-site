@@ -100,7 +100,7 @@ To add an event to the Community Events, follow the instruction below.
    - `location`, in form of 'City, Country'.
    - `speaker`, the speaker's name.
    - `title`, event's title.
-   - `subject` event's subject.
+   - `subject` a title of a talk.
    - `url` link to the event web page.
    You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
 2) Publish the changes creating a Pull Request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
