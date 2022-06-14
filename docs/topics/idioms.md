@@ -35,7 +35,7 @@ Or alternatively, even shorter:
 val positives = list.filter { it > 0 }
 ```
 
-Learn the difference between [Java and Kotlin filtering](java-to-kotlin-collections-guide.html#filter-elements).
+Learn the difference between [Java and Kotlin filtering](java-to-kotlin-collections-guide.md#filter-elements).
 
 ## Check the presence of an element in a collection
 
