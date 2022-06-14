@@ -148,7 +148,7 @@ which contains an example of Xcode integration with an existing Xcode project na
 ### Module not found
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
-While we're working on fixing this issue altogether, try these workarounds to avoid this error:
+Try these workarounds to avoid this error:
 
 #### Specify the framework name {initial-collapse-state="collapsed"}
 
@@ -166,7 +166,7 @@ name, specify it explicitly:
       moduleName = "AppsFlyerLib"
     }
     ```
-#### Check the definition file  {initial-collapse-state="collapsed"}
+#### Check the definition file {initial-collapse-state="collapsed"}
 
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
 modules with headers with the pointing main header:
