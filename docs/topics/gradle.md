@@ -841,7 +841,7 @@ Here is a complete list of options for Gradle tasks:
 To generate documentation for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka);
 please refer to the [Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md#using-the-gradle-plugin)
 for configuration instructions. Dokka supports mixed-language projects and can generate output in multiple
-formats, including standard JavaDoc.
+formats, including standard Javadoc.
 
 ## OSGi
 
