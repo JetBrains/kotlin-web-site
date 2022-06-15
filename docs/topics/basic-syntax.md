@@ -3,7 +3,7 @@
 This is a collection of basic syntax elements with examples. At the end of every section, you'll find a link to
 a detailed description of the related topic.
 
-You can also learn all the Kotlin essentials with the free [Kotlin Basics track](https://hyperskill.org/tracks/18)
+You can also learn all the Kotlin essentials with the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18)
 on JetBrains Academy.
 
 ## Package definition and imports

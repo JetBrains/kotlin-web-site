@@ -112,4 +112,4 @@ or watch the video:
 ## What’s next?
 
 * Complete more tasks with [Kotlin Koans](koans.md) 
-* Create working applications with the free [Kotlin Basics track](https://hyperskill.org/tracks/18/)
+* Create working applications with the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18)

@@ -214,7 +214,7 @@ const Teach = (props) => {
                   </a>
                 </li>
                 <li className="teach-list__item">
-                  <a href="https://hyperskill.org/tracks/18" target="_blank" rel="noopener">
+                  <a href="https://hyperskill.org/join/fromeducationtoJetSalesStat?redirect=true&next=/tracks/18" target="_blank" rel="noopener">
                     <span className="rs-link">Kotlin Basics track on JetBrains Academy</span>
                     <span>↗</span>
                   </a>
