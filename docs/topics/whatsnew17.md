@@ -210,7 +210,7 @@ target bytecode version and limits the API of the JDK in the classpath to the sp
 example, `kotlinc -Xjdk-release=1.8` won't allow referencing `java.lang.Module` even if the JDK in the dependencies is
 version 9 or higher.
 
-> This option works only for OpenJDK distributions.
+> The effect of use is [guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) only for [OpenJDK distributions](https://openjdk.java.net/projects/jdk/18/).
 >
 {type="note"}
 
