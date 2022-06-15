@@ -18,16 +18,16 @@
   startDate: '2022-07-18'
   endDate: '2022-07-19'
   location: Barcelona, Spain
-  speaker: Mario Gray, Georgios Andrianakis,
-  title: Joaquin Azcarate, and many more
+  speaker: Mario Gray, Georgios Andrianakis, Joaquin Azcarate, and many more
+  title: ''
   subject: JBCNConf
   url: https://www.jbcnconf.com/2022/talks.html
 - lang: en
   startDate: '2022-07-06'
   endDate: '2022-07-08'
   location: Berlin, Germany
-  speaker: Florina Muntenescu, Simanti Olive,
-  title: James Swinton-Bland, Wojtek Kalicinski, and many more
+  speaker: Florina Muntenescu, Simanti Olive, James Swinton-Bland, Wojtek Kalicinski, and many more
+  title: ''
   subject: droidcon Berlin
   url: https://berlin.droidcon.com/
 - lang: en
@@ -66,8 +66,8 @@
   startDate: '2022-06-14'
   endDate: '2022-06-15'
   online: true
-  speaker: Florina Muntenescu, Chet Haase,
-  title: Romain Guy and many more
+  speaker: Florina Muntenescu, Chet Haase, Romain Guy and many more
+  title: ''
   subject: DevFest for Ukraine
   url: https://gdg.community.dev/events/details/google-gdg-lviv-presents-devfest-for-ukraine/
 - lang: en
