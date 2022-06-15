@@ -1,4 +1,140 @@
 - lang: en
+  startDate: '2022-07-27'
+  endDate: '2022-07-27'
+  location: Wisconsin Dells, WI, USA
+  speaker: Michael Fazio
+  title: THAT Conference
+  subject: 'Kotlin Multiplatform - The Power of Common Kotlin'
+  url: https://that.us/activities/nVHorb2jfoOzAxsmgm2p
+- lang: en
+  startDate: '2022-07-26'
+  endDate: '2022-07-26'
+  online: true
+  speaker: Gerald Soriano
+  title: THAT Conference
+  subject: 'Jetpack 🚀 Compose - Creating a List (RecyclerView & Adapters no more!)'
+  url: https://that.us/activities/8DIt7kf7DtcAxawg3Br1
+- lang: en
+  startDate: '2022-07-18'
+  endDate: '2022-07-19'
+  location: Barcelona, Spain
+  speaker: Mario Gray, Georgios Andrianakis, Joaquin Azcarate, and many more
+  title: ''
+  subject: JBCNConf
+  url: https://www.jbcnconf.com/2022/talks.html
+- lang: en
+  startDate: '2022-07-06'
+  endDate: '2022-07-08'
+  location: Berlin, Germany
+  speaker: Florina Muntenescu, Simanti Olive, James Swinton-Bland, Wojtek Kalicinski, and many more
+  title: ''
+  subject: droidcon Berlin
+  url: https://berlin.droidcon.com/
+- lang: en
+  startDate: '2022-06-28'
+  endDate: '2022-06-28'
+  location: Munich, Germany
+  speaker: Hauke Brammer
+  title: ML Munich Hybrid Conference
+  subject: 'Kotlin? For Machine Learning?'
+  url: https://mlconference.ai/tools-apis-frameworks/kotlin-fur-machine-learning/
+- lang: en
+  startDate: '2022-06-22'
+  endDate: '2022-06-24'
+  location: Krakow, Poland
+  speaker: Ties van de Ven
+  title: Devoxx Poland
+  subject: 'Functional programming in Kotlin: exploring Arrow'
+  url: https://devoxx.pl/schedule-friday/
+- lang: en
+  startDate: '2022-06-22'
+  endDate: '2022-06-24'
+  location: Krakow, Poland
+  speaker: Margarita Nedzelska
+  title: Devoxx Poland
+  subject: 'SonarKotlin - a better static code analysis tool for Kotlin'
+  url: https://devoxx.pl/schedule-friday/
+- lang: en
+  startDate: '2022-06-21'
+  endDate: '2022-06-22'
+  location: Mondorf-les-Bains, Luxembourg
+  speaker: Ties van de Ven
+  title: Voxxed Days Luxembourg
+  subject: 'Functional programming in Kotlin: exploring Arrow'
+  url: https://cfp-voxxed-lux.yajug.org/2022/talk/OYZ-9351/Functional_programming_in_Kotlin:_exploring_Arrow
+- lang: en
+  startDate: '2022-06-14'
+  endDate: '2022-06-15'
+  online: true
+  speaker: Florina Muntenescu, Chet Haase, Romain Guy and many more
+  title: ''
+  subject: DevFest for Ukraine
+  url: https://gdg.community.dev/events/details/google-gdg-lviv-presents-devfest-for-ukraine/
+- lang: en
+  startDate: '2022-06-15'
+  endDate: '2022-06-15'
+  location: Berlin, Germany
+  speaker: Lothar Schulz
+  title: WeAreDevelopers World Congress
+  subject: 'Java Sealed Classes vs. Kotlin Sealed Classes #Slideless'
+  url: https://www.wearedevelopers.com/world-congress/program#sz-tab-44727
+- lang: es
+  startDate: '2022-06-15'
+  endDate: '2022-06-15'
+  online: true
+  speaker: Carlos de Tena Bellmont
+  title: KeepCoding
+  subject: 'Webinar: Aprende Kotlin desde cero'
+  url: https://www.meetup.com/KeepCoding/events/286435598/
+- lang: en
+  startDate: '2022-06-16'
+  endDate: '2022-06-16'
+  online: true
+  speaker: Anthony Accioly
+  title: 'Source Talks: On Kotlin'
+  subject: 'On Kotlin #3: with Anthony Accioly'
+  url: https://www.meetup.com/source-talks-on-kotlin/events/285678485/
+- lang: en
+  startDate: '2022-06-15'
+  endDate: '2022-06-15'
+  online: true
+  speaker: Artem Koshelev
+  title: Apputveckling Sverige
+  subject: Kotlin Multiplatform Mobile at SCALE by Electrolux!
+  url: https://www.meetup.com/Apputveckling-sverige/events/286328722/
+- lang: en
+  startDate: '2022-06-21'
+  endDate: '2022-06-21'
+  online: true
+  speaker: Karin-Aleksandra Monoid
+  title: Sixth Func Prog Sweden MeetUp 2022
+  subject: Functional Kotlin with Arrow
+  url: https://www.meetup.com/Func-Prog-Sweden/events/286465453/
+- lang: de
+  startDate: '2022-06-28'
+  endDate: '2022-06-28'
+  online: true
+  speaker: Benjamin Schmid
+  title: Java User Group Augsburg Meetup
+  subject: Kotlin ist auch eine Insel
+  url: https://www.meetup.com/Java-User-Group-Augsburg/events/285798986/
+- lang: sk
+  startDate: '2022-06-21'
+  endDate: '2022-06-21'
+  online: true
+  speaker: Janči Kandráč
+  title: Kotlin Talks 4
+  subject: Problém immutability v Jave, Kotline a iných jazykoch
+  url: https://www.meetup.com/Kotlin-Slovakia/events/286439623/
+- lang: en
+  startDate: '2022-07-02'
+  endDate: '2022-07-02'
+  location: Yola, Nigeria
+  speaker: Munnir Abdulhamid
+  title: I/O Extended Yola 2022
+  subject: Getting Started with Kotlin
+  url: https://gdg.community.dev/events/details/google-gdg-yola-presents-io-extended-yola-2022/#event-info
+- lang: en
   startDate: '2022-06-02'
   endDate: '2022-06-02'
   location: San Francisco, CA, USA
