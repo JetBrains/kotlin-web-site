@@ -18,15 +18,11 @@ There are two types of dependencies that you can use in Multiplatform Mobile pro
   common
   source set. A lot of modern Android libraries already have multiplatform support, for
   example, [Koin](https://insert-koin.io/), [Appolo](https://www.apollographql.com/), [Okio](https://square.github.io/okio/).
-* _Native dependencies_. These are regular libraries, you usually work with in native iOS (using CocoaPods or other
+* _Native dependencies_. These are regular libraries from relevant ecosystems, you usually work with in native iOS (using CocoaPods or other
   dependency managers) or Android projects using Gradle.
 
   When you work with a common module, you can also depend on them and use them in native source sets. Typically, this is
   needed when you want to work with platform API, for example, security storage, and there is a common logic around it.
-    * For Android.
-    * For iOS. You reuse libraries and frameworks from the iOS ecosystem in your iOS source sets. Kotlin supports
-      interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C
-      with the `@objc` attribute.
 
 For both types of dependencies, you can use local and external repositories.
 

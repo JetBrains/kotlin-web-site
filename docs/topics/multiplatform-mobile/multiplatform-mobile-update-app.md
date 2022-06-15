@@ -72,7 +72,7 @@ dependency in the common source set, you also need to:
 * Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets.
 
 ```kotlin
-val ktorVersion = "1.6.1"
+val ktorVersion = "2.0.2"
 
 sourceSets {
     val commonMain by getting {
@@ -111,7 +111,7 @@ First, create a data class which stores data from the SpaceX API:
 
 ```kotlin
 @Serializable
-data class RocketLaunch(
+data class RocketLaunch (
     SerialName("flight_number")
     val flightNumber: Int,
     @SerialName("mission_name")
@@ -230,7 +230,7 @@ straightforward:
 
 For the iOS part of the project, you'll need SwiftUI to build the user interface and an MVVM pattern to connect the UI
 to the shared module, which contains all the business logic. The module is already connected to the iOS project — the
-Android Studio plugin wizard did all the configuration. The module is already imported and used in `ContentView.swift`.
+Android Studio plugin wizard did all the configuration. The module is already imported and used in `ContentView.swift`:
 
 ```Swift
 import shared
@@ -265,13 +265,14 @@ extension ContentView {
 ```
 
 And now all you have to do is to call the `greeting() function`, which now also loads data from the SpaceX API, and save
-the result in the `text**`** property.
+the result in the `text` property.
 
-The code will be simple, as
-Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings).
+The code will be simple, as Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings).
 Kotlin concepts, including `suspend` functions, are mapped to appropriate Swift/Objective-C and vice versa. When you
 compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
-callbacks (`completionHandler`). Also, the `greeting()` function was marked with the `@Throws(Exception::class)`
+callbacks (`completionHandler`).
+
+Also, the `greeting()` function was marked with the `@Throws(Exception::class)`
 annotation. So any exceptions that are instances of the `Exception` class or its subclass will be propagated
 as `NSError`, so you can handle them in the `completionHandler`:
 
@@ -293,13 +294,14 @@ class ViewModel: ObservableObject {
 }
 ```
 
-
 When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than the main,
 see the [new memory manager migration guide](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#new-memory-manager-migration-guide).
 That's why `DispatchQueue.main.async` is used to update `text` property, as all UI updates on other threads than main
 are now allowed in Swift.
 
 Now you can run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+
+![Final results](multiplatform-mobile-upgrade.png)
 
 ## Next step
 
