@@ -714,9 +714,9 @@ Starting with [Kotlin 1.7.0](whatsnew17.md#a-new-approach-to-incremental-compila
 compilation is available. It supports changes made inside dependent non-Kotlin modules and is compatible with
 the [Gradle build cache](#gradle-build-cache-support). Support for compilation avoidance has also been improved.
 
-All these advancements decrease the number of necessary full-module and file recompilations, making the overall
-compilation time faster. The most significant benefit of the new approach is expected if you use the build cache or frequently
-make changes in non-Kotlin Gradle modules.
+All these advancements decrease the number of non-incremental builds, making the overall compilation time faster. The most
+significant benefit of the new approach is expected if you use the build cache or frequently make changes in non-Kotlin
+Gradle modules.
 
 To enable this new approach, set the following option in your `gradle.properties`:
 
@@ -782,12 +782,6 @@ The following values and their combinations are available for the output:
 | `file`       | Saves build reports in a local file                                                                                                                                                                                                                                                                                                             |
 | `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                               |
 | `http`       | Posts build reports using HTTP(S). The POST method sends metrics in the JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt) |
-
-When analyzing build reports, you may encounter two cases:
-
-* The build wasn't incremental. Analyze the reasons and fix underlying problems.
-* The build was incremental but took too much time. Try to reorganize source files — split big files, save separate
-  classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 Here's the full list of available options for `kotlin.build.report`:
 
