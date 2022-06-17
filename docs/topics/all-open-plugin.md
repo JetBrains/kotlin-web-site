@@ -116,7 +116,7 @@ Or using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
+  id "org.jetbrains.kotlin.plugin.spring" version "%kotlinSpringPluginVersion%"
 }
 ```
 
