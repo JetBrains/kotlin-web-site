@@ -131,7 +131,7 @@ Kotlin 1.6.20 introduces:
 
 ### New @JvmDefaultWithCompatibility annotation for interfaces
 
-Kotlin 1.6.20 introduces the [new annotation `@JvmDefaultWithCompatibility`](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/jvm/src/kotlin/jvm/JvmDefault.kt#L53): use it along with the `-Xjvm-default=all` compiler option [to create the default method in JVM interface](java-to-kotlin-interop.md#default-methods-in-interfaces) for any non-abstract member in any Kotlin interface.
+Kotlin 1.6.20 introduces the new annotation [`@JvmDefaultWithCompatibility`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default-with-compatibility/): use it along with the `-Xjvm-default=all` compiler option [to create the default method in JVM interface](java-to-kotlin-interop.md#default-methods-in-interfaces) for any non-abstract member in any Kotlin interface.
 
 If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, they may be binary-incompatible with the code compiled with this option.
 Before Kotlin 1.6.20, to avoid this compatibility issue, the [recommended approach](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/#JvmDefaultWithoutCompatibility) was to use the `-Xjvm-default=all-compatibility` mode and also the `@JvmDefaultWithoutCompatibility` annotation for interfaces that didn't need this type of compatibility.
