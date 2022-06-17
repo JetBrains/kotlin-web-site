@@ -38,7 +38,7 @@ interface CommunityLayoutProps {
 }
 
 export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children }) => {
-    const [theme] = useState<Theme>('dark');
+    const theme = 'dark';
     const router = useRouter();
     const activeIndex = useMemo(
         () => items.map((item) => item.url).indexOf(addTrailingSlash(router.pathname)),
