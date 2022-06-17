@@ -39,9 +39,9 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 
 ### Source file names
 
-If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
-as the name of the class, with the `.kt` extension appended. If a file contains multiple classes, or only top-level declarations,
-choose a name describing what the file contains, and name the file accordingly.
+If a Kotlin file contains a single class or interface (potentially with related top-level declarations), its name should be the same
+as the name of the class, with the `.kt` extension appended. It applies to all types of classes and interfaces.
+If a file contains multiple classes, or only top-level declarations, choose a name describing what the file contains, and name the file accordingly.
 Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
 for example, `ProcessDeclarations.kt`.
 
