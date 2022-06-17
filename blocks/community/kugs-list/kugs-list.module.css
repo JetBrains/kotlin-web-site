@@ -74,5 +74,6 @@
     .logo {
         display: block;
         margin-right: 24px;
+        width: 100px;
     }
 }
