@@ -24,16 +24,16 @@ if you’re doing or exploring functional programming.
 ### What advantages does Kotlin give me over the Java programming language?
 
 Kotlin is more concise. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
-It’s also more type-safe, e.g. support for non-nullable types makes applications less prone to NPE’s. 
+It’s also more type-safe, for example, support for non-nullable types makes applications less prone to NPE’s. 
 Other features including smart casting, higher-order functions, extension functions and lambdas with receivers provide 
 the ability to write expressive code as well as facilitating creation of DSL.
  
 ### Is Kotlin compatible with the Java programming language?
 
 Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure
-that your existing codebase  can interact properly with Kotlin. You can easily call Kotlin code from Java and Java code
-from Kotlin. This makes adoption much easier and lower-risk. There’s also an automated Java-to-Kotlin converter built
-into the IDE that simplifies migration of existing code.
+that your existing codebase  can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
+from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There’s also an automated [Java-to-Kotlin converter built
+into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
 
@@ -44,20 +44,20 @@ and server-side applications, client-side with JavaScript or JavaFX, and data sc
 ### Can I use Kotlin for Android development?
 
 Yes. Kotlin is supported as a first-class language on Android. There are hundreds of applications already using Kotlin 
-for Android, such as Basecamp, Pinterest and more. For more information check out [the resource on Android development](android-overview.md).
+for Android, such as Basecamp, Pinterest and more. For more information, check out [the resource on Android development](android-overview.md).
 
 ### Can I use Kotlin for server-side development?
 
 Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing frameworks such as Spring Boot, 
-vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
-For more information check out [the resource on server-side development](server-overview.md).
+vert.x or JSF. In addition, there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
+For more information, check out [the resource on server-side development](server-overview.md).
 
 ### Can I use Kotlin for web development?
 
 Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
 [DefinitelyTyped](https://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible
 with existing module systems such as AMD and CommonJS. 
-For more information check out [the resource on client-side development](js-overview.md).
+For more information, check out [the resource on client-side development](js-overview.md).
 
 ### Can I use Kotlin for desktop development?
 
@@ -102,7 +102,8 @@ version from 9 to 18. Note that in this case the resulting bytecode might not ru
 Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala and Groovy. We've tried to ensure that
 Kotlin is easy to learn, so that people can easily jump on board, reading and writing Kotlin in a matter of days. 
 Learning idiomatic Kotlin and using some more of its advanced features can take a little longer, but overall it is not
-a complicated language.
+a complicated language.  
+For more information, check out [our learning materials](learning-materials-overview.md).
  
 ### What companies are using Kotlin?
  
@@ -118,7 +119,7 @@ Kotlin is primarily developed by a team of engineers at JetBrains (current team 
 
 ### Where can I learn more about Kotlin?
 
-The best place to start is [this website](https://kotlinlang.org). From there you can download the compiler, 
+The best place to start is [our website](https://kotlinlang.org). From there you can [download the compiler](command-line.md), 
 [try it online](https://play.kotlinlang.org) as well as get access to resources. 
 
 ### Are there any books on Kotlin?
