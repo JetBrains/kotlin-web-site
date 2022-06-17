@@ -162,7 +162,7 @@ Specify the target version of the generated JVM bytecode. Limit the API of the J
 Automatically sets [`-jvm-target version`](#jvm-target-version).
 Possible values are `1.8`, `9`, `10`, ..., `18`. The default value is `%defaultJvmTargetVersion%`.
 
-> This option is not [guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
+> This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
 {type="note"}
 
