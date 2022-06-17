@@ -159,8 +159,12 @@ Use a custom JDK home directory to include into the classpath if it differs from
 ### -Xjdk-release=version
 
 Specify the target version of the generated JVM bytecode. Limit the API of the JDK in the classpath to the specified Java version. 
-Automatically sets [`-jvm-target version`](#jvm-target-version). Works only for [OpenJDK distributions](https://openjdk.java.net/projects/jdk/18/).
+Automatically sets [`-jvm-target version`](#jvm-target-version).
 Possible values are `1.8`, `9`, `10`, ..., `18`. The default value is `%defaultJvmTargetVersion%`.
+
+> This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
+>
+{type="note"}
 
 ### -jvm-target _version_
 
