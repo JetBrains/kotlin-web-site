@@ -70,8 +70,8 @@ There are two main reasons why we are doing it:
 ### Create the logo of your user group
 
 To create a logo of your users group:
-1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1CQ5CrEuQhYubcPkAjTBcy6lnY7mcrgd8pUr2NAh0qE8/edit) to your Google drive (you have to be signed in to your Google account).
-2. Replace the ‘Groupname’ text with the name of your user group.
+1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google drive (you have to be signed in to your Google account).
+2. Replace the ‘Your City’ text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 
 ![Belarusian Kotlin User Group sample](kotlin-user-group-avatar.png){width=300}
@@ -83,14 +83,14 @@ You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Z
 ### Create your group’s profile picture for different platforms
 
 To create your group’s profile picture:
-1. Make a copy of the Kotlin user group profile [picture file](https://docs.google.com/drawings/d/19AG_SwcAUF-Te9Nv-Gw2U6Rtma--l1MI2napQwX5u1o/edit) to your Google Drive (you have to be signed in to your Google account).
+1. Make a copy of the Kotlin user group profile [picture file](https://docs.google.com/drawings/d/1buhwccmllb7wFS0OIAub0WC4DIuSHRiDpjEQhB4tkPs/edit) to your Google Drive (you have to be signed in to your Google account).
 2. Add a shortened name of the user group’s location (up to 4 capital symbols according to our default sample).
 3. Download the picture and use it for your profiles on Facebook, Twitter, or any other platform.
 
 ### Create meetup.com cover photo
 
 To create a cover photo with a group's logo for meetup.com:
-1. Make a copy of the [picture file](https://docs.google.com/drawings/d/1GMr406tAicZIa86rMGKUZkHc8rRTls3tB618nDTZKSQ/edit) to your Google
+1. Make a copy of the [picture file](https://drive.google.com/file/d/1g_0Plf_do6vrXvy1R-Hx430vfV2CPVKN/view) to your Google
    Drive (you have to be signed in to your Google account).
 2. Add a shortened name of the user group’s location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture, click on
    the background pattern-picture, choose 'Replace Image', then 'Upload from Computer' or any other source.
