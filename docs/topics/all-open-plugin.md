@@ -120,11 +120,6 @@ plugins {
 }
 ```
 
-> kotlin-spring plugin's version falls behind the current Kotlin version because Kotlin 1.7+ will be supported only by Spring 6. 
-> Learn the current Spring requirements to Kotlin versions in the [official Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.kotlin.requirements).
->
-{type="note"}
-
 In Maven, the `spring` plugin is provided by the `kotlin-maven-allopen` plugin dependency, so to enable it:
 
 ```xml
