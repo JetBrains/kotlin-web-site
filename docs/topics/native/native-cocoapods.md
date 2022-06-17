@@ -142,3 +142,45 @@ an error message in the log.
 
 Check out the `withXcproject` branch of the [sample project](https://github.com/Kotlin/kmm-with-cocoapods-sample),
 which contains an example of Xcode integration with an existing Xcode project named `kotlin-cocoapods-xcproj`.
+
+## Possible issues and solutions
+
+### Module not found
+
+You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
+Try these workarounds to avoid this error:
+
+#### Specify the framework name {initial-collapse-state="collapsed"}
+
+1. Find the `module.modulemap` file in the downloaded Pod directory:
+
+    ```text
+    [shared_module_name]/build/cocoapods/synthetic/IOS/Pods/[pod_name]
+    ```
+
+2. Check the framework name inside the module, for example `AppsFlyerLib {}`. If the framework name doesn't match the Pod
+name, specify it explicitly:
+
+    ```kotlin
+    pod("AFNetworking") {
+      moduleName = "AppsFlyerLib"
+    }
+    ```
+#### Check the definition file {initial-collapse-state="collapsed"}
+
+If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
+modules with headers with the pointing main header:
+
+```kotlin
+tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMessages").configure {
+    doLast {
+        outputFile.writeText("""
+            language = Objective-C
+            headers = GNSMessages.h
+        """.trimIndent())
+    }
+}
+```
+
+Check the [CocoaPods documentation](https://guides.cocoapods.org/) for more information. If nothing works, and you still
+encounter this error, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
