@@ -90,7 +90,7 @@ Congratulations! You have just run your first Kotlin application.
 
 ## What's next?
 
-Once you’ve created this application, you can start to dive deeper into Kotlin syntax:
+Once you've created this application, you can start to dive deeper into Kotlin syntax:
 
 * Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
 * Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 

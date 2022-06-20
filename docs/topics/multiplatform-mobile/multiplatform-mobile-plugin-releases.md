@@ -8,7 +8,7 @@ Ensure that you have the latest version of the Kotlin Multiplatform Mobile plugi
 ## Update to the new release
 
 Android Studio will suggest updating to a new Kotlin Multiplatform Mobile plugin release as soon as it is available. If you accept the suggestion, it will automatically update the plugin to the latest version. 
-You’ll need to restart Android Studio to complete the plugin installation.
+You'll need to restart Android Studio to complete the plugin installation.
 
 You can check the plugin version and update it manually in **Settings/Preferences** | **Plugins**.
 

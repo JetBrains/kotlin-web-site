@@ -1,9 +1,9 @@
 [//]: # (title: Publish your application)
 
-Once your mobile apps are ready for release, it’s time to deliver them to the users by publishing them in app stores.
-Multiple stores are available for each platform. However, in this article we’ll focus on the official ones:
+Once your mobile apps are ready for release, it's time to deliver them to the users by publishing them in app stores.
+Multiple stores are available for each platform. However, in this article we'll focus on the official ones:
 [Google Play Store](https://play.google.com/store) and [Apple App Store](https://www.apple.com/ios/app-store/).
-You’ll learn how to prepare Kotlin Multiplatform Mobile applications for publishing, and we’ll highlight
+You'll learn how to prepare Kotlin Multiplatform Mobile applications for publishing, and we'll highlight
 the parts of this process that deserve special attention.
 
 ## Android app
@@ -21,7 +21,7 @@ the same as described in the [iOS developer documentation](https://developer.app
 
 What is specific to Kotlin Multiplatform projects is compiling the shared Kotlin module into a framework and linking it to the Xcode project.
 Generally, all integration between the shared module and the Xcode project is done automatically by the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
-However, if you don’t use the plugin, bear in mind the following when building and bundling the iOS project in Xcode:
+However, if you don't use the plugin, bear in mind the following when building and bundling the iOS project in Xcode:
 
 * The shared Kotlin library compiles down to the native framework.
 * You need to connect the framework compiled for the specific platform to the iOS app project.
@@ -39,7 +39,7 @@ it uses special debug symbol (`.dSYM`) files that match memory addresses in cras
 such as functions or line numbers.
 
 By default, the release versions of iOS frameworks produced from the shared Kotlin module have an accompanying `.dSYM`
-file. This helps you analyze crashes that happen in the shared module’s code.
+file. This helps you analyze crashes that happen in the shared module's code.
 
 When an iOS app is rebuilt from bitcode, its `dSYM` file becomes invalid. For such cases, you can compile the shared module
 to a static framework that stores the debug information inside itself. For instructions on setting up crash report

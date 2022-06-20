@@ -256,7 +256,7 @@ System.out.println(answer);
 {id="take-substring-java"}
 
 In Kotlin, you use the [substringAfter()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/substring-after.html) function 
-and don’t need to calculate the index of the character you want to take a substring after:
+and don't need to calculate the index of the character you want to take a substring after:
 
 ```kotlin
 fun main() {
@@ -355,7 +355,7 @@ fun main() {
 
 Learn more about [multiline strings](coding-conventions.md#strings).
 
-## What’s next?
+## What's next?
 
 * Look through other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with

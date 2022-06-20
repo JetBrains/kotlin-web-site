@@ -6,7 +6,7 @@ Meet the official Kotlin mascot!
 
 It doesn't have a name yet, but you can help us! Submit your name ideas using [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
 
-Even though we can’t say its name yet, we can definitely tell a few things about it. It:
+Even though we can't say its name yet, we can definitely tell a few things about it. It:
 * Is dynamic, motivated, and adventurous.
 * Is rational and practical.
 * Can be a bit childish.
@@ -17,7 +17,7 @@ Even though we can’t say its name yet, we can definitely tell a few things abo
 
 ## Choosing a name
 
-Let’s choose the name for the Kotlin mascot together. Submit your ideas via [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
+Let's choose the name for the Kotlin mascot together. Submit your ideas via [this form](https://forms.gle/yktEz3xCAwKEm9cx9).
 We will make a list of the most promising ideas and hold a vote to choose the best one. Stay tuned!
 
 ## Tips and principles

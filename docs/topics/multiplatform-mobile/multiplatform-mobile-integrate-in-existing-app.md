@@ -32,7 +32,7 @@ If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create an
 
 ## Make your code cross-platform
 
-To make your application work on iOS, you'll first make your code cross-platform, and then you’ll reuse your cross-platform code in a new iOS application.
+To make your application work on iOS, you'll first make your code cross-platform, and then you'll reuse your cross-platform code in a new iOS application.
 
 To make your code cross-platform:
 

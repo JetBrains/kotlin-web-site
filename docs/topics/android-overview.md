@@ -21,6 +21,6 @@ According to Google, over 60% of the top 1000 apps on the Play Store use Kotlin.
 
 Many startups and Fortune 500 companies have already developed Android applications using Kotlin – see the list at [the Google website for Kotlin developers](https://developer.android.com/kotlin).
 
-If you want to start using Kotlin for Android development, read [Google’s recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
+If you want to start using Kotlin for Android development, read [Google's recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
 
 If you're new to Android and want to learn to create applications with Kotlin, check out [this Udacity course](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).

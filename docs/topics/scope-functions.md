@@ -381,7 +381,7 @@ A non-extension function: **the context object** is passed as an argument, but i
 receiver (`this`). **The return value** is the lambda result. 
 
 We recommend `with` for calling functions on the context object without providing the lambda result. In the code, `with`
-can be read as “_with this object, do the following._”
+can be read as "_with this object, do the following._"
 
 ```kotlin
 fun main() {
@@ -474,7 +474,7 @@ fun main() {
 **The context object** is available as a receiver (`this`). **The return value** is the object itself.
 
 Use `apply` for code blocks that don't return a value and mainly operate on the members of the receiver object. The common
-case for `apply` is the object configuration. Such calls can be read as “_apply the following assignments to the object._”
+case for `apply` is the object configuration. Such calls can be read as "_apply the following assignments to the object._"
 
 ```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "")
@@ -501,7 +501,7 @@ Having the receiver as the return value, you can easily include `apply` into cal
 a reference to the object rather than its properties and functions, or when you don't want to shadow the `this` reference
 from an outer scope.
 
-When you see `also` in the code, you can read it as “_and also do the following with the object._”
+When you see `also` in the code, you can read it as "_and also do the following with the object._"
 
 ```kotlin
 fun main() {

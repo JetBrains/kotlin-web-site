@@ -65,7 +65,7 @@ Here are a few examples of popular web frameworks for Kotlin/JS written by diffe
 ### KVision
 
 _KVision_ is an object-oriented web framework that makes it possible to write applications in Kotlin/JS with ready-to-use components
-that can be used as building blocks for your application’s user interface. You can use both reactive and imperative programming
+that can be used as building blocks for your application's user interface. You can use both reactive and imperative programming
 models to build your frontend, use connectors for Ktor, Spring Boot, and other frameworks to integrate it with your server-side
 applications, and share code using [Kotlin Multiplatform](multiplatform.md).
 
@@ -77,7 +77,7 @@ For updates and discussions about the framework, join the [#kvision](https://kot
 ### fritz2
 
 _fritz2_ is a standalone framework for building reactive web user interfaces. It provides its own type-safe DSL for building
-and rendering HTML elements, and it makes use of Kotlin’s coroutines and flows to express components and their data bindings.
+and rendering HTML elements, and it makes use of Kotlin's coroutines and flows to express components and their data bindings.
 It provides state management, validation, routing, and more out of the box, and integrates with Kotlin Multiplatform projects.
 
 Visit [https://www.fritz2.dev](https://www.fritz2.dev) for documentation, tutorials, and examples.
@@ -87,7 +87,7 @@ For updates and discussions about the framework, join the [#fritz2](https://kotl
 
 ### Doodle
 
-_Doodle_ is a vector-based UI framework for Kotlin/JS. Doodle applications use the browser’s graphics capabilities to draw
+_Doodle_ is a vector-based UI framework for Kotlin/JS. Doodle applications use the browser's graphics capabilities to draw
 user interfaces instead of relying on DOM, CSS, or Javascript. By using this approach, Doodle gives you precise control
 over the rendering of arbitrary UI elements, vector shapes, gradients, and custom visualizations.
 
@@ -152,7 +152,7 @@ the fakeJSON and JSON Placeholder services.
 The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Beta](components-stability.md) stability) comes with
 a number of improvements over the current default compiler. For example, it reduces the size of generated executables
 via dead code elimination and provides smoother interoperability with the JavaScript ecosystem and its tooling.
-By generating TypeScript declaration files (d.ts) from Kotlin code, the new compiler makes it easier to create “hybrid”
+By generating TypeScript declaration files (d.ts) from Kotlin code, the new compiler makes it easier to create "hybrid"
 applications that mix TypeScript and Kotlin code and to leverage code-sharing functionality using Kotlin Multiplatform.
 
 To learn more about the available features in the new Kotlin/JS IR compiler and how to try it for your project, visit the

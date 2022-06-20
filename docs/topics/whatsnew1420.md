@@ -210,7 +210,7 @@ in 1.4.0, for example, the [code sharing mechanism](multiplatform-share-on-platf
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
 
-You can opt in to wrap `NSException`’s into Kotlin exceptions of type `ForeignException`. They hold the references to the
+You can opt in to wrap `NSException`'s into Kotlin exceptions of type `ForeignException`. They hold the references to the
 original `NSException`'s. This lets you get the information about the root cause and handle it properly.
 
 To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-mode objc-wrap` option in the `cinterop`
@@ -219,7 +219,7 @@ specify the option in the `pod {}` build script block of a dependency like this:
 
 ```kotlin
 pod("foo") {
-   extraOpts = listOf("-Xforeign-exception-mode”, “objc-wrap")
+   extraOpts = listOf("-Xforeign-exception-mode", "objc-wrap")
 }
 ```
 
@@ -339,7 +339,7 @@ and we're deprecating synthetic views in favor of those.
 
 We extract the Parcelable implementations generator from `kotlin-android-extensions` and start the deprecation cycle
 for the rest of it - synthetic views. For now, they will keep working with a deprecation warning. 
-In the future, you’ll need to switch your project to another solution. Here are the [guidelines](https://goo.gle/kotlin-android-extensions-deprecation)
+In the future, you'll need to switch your project to another solution. Here are the [guidelines](https://goo.gle/kotlin-android-extensions-deprecation)
 that will help you migrate your Android project from synthetics to view bindings.
 
 ### New plugin for Parcelable implementation generator

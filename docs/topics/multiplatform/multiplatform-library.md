@@ -410,7 +410,7 @@ The `implementation` dependency consists of:
 
 For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
 
-## What’s next?
+## What's next?
 
 * Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
 * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).

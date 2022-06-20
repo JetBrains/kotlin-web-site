@@ -43,8 +43,8 @@ fun main() {
 ### Explicit API mode for library authors
 
 Kotlin compiler offers _explicit API mode_ for library authors. In this mode, the compiler performs additional checks that
-help make the library’s API clearer and more consistent. It adds the following requirements for declarations exposed
-to the library’s public API:
+help make the library's API clearer and more consistent. It adds the following requirements for declarations exposed
+to the library's public API:
 
 * Visibility modifiers are required for declarations if the default visibility exposes them to the public API.
 This helps ensure that no declarations are exposed to the public API unintentionally.
@@ -245,7 +245,7 @@ fun test() {
 
 In Kotlin 1.3, you could not use unqualified `break` and `continue` inside `when` expressions included in loops. The reason was that these keywords were reserved for possible [fall-through behavior](https://en.wikipedia.org/wiki/Switch_statement#Fallthrough) in `when` expressions. 
 
-That’s why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.md#break-and-continue-labels) them, which became rather cumbersome.
+That's why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.md#break-and-continue-labels) them, which became rather cumbersome.
 
 ```kotlin
 fun test(xs: List<Int>) {
@@ -291,7 +291,7 @@ projects, including multiplatform projects, which can be difficult to configure 
 
 The new Kotlin Project Wizard is both simple and flexible:
 
-1. *Select the project template*, depending on what you’re trying to do. More templates will be added in the future.
+1. *Select the project template*, depending on what you're trying to do. More templates will be added in the future.
 2. *Select the build system* – Gradle (Kotlin or Groovy DSL), Maven, or IntelliJ IDEA.  
     The Kotlin Project Wizard will only show the build systems supported on the selected project template.
 3. *Preview the project structure* directly on the main screen.
@@ -316,7 +316,7 @@ You can try out the new Kotlin Project Wizard by working through these tutorials
 Many people already use [coroutines](coroutines-guide.md) for asynchronous programming.
 But when it came to debugging, working with coroutines before Kotlin 1.4, could be a real pain. Since coroutines jumped between threads, 
 it was difficult to understand what a specific coroutine was doing and check its context. In some cases, tracking steps 
-over breakpoints simply didn’t work. As a result, you had to rely on logging or mental effort to debug code that used coroutines. 
+over breakpoints simply didn't work. As a result, you had to rely on logging or mental effort to debug code that used coroutines. 
 
 In Kotlin 1.4, debugging coroutines is now much more convenient with the new functionality shipped with the Kotlin plugin.
 
@@ -336,7 +336,7 @@ Now you can:
 variable values, even those that would be lost during standard debugging.
 
 If you need a full report containing the state of each coroutine and its stack, right-click inside the **Coroutines** tab, and then
-click **Get Coroutines Dump**. Currently, the coroutines dump is rather simple, but we’re going to make it more readable 
+click **Get Coroutines Dump**. Currently, the coroutines dump is rather simple, but we're going to make it more readable 
 and helpful in future versions of Kotlin.
 
 ![Coroutines Dump](coroutines-dump-wn.png)
@@ -355,12 +355,12 @@ an API for compiler extensions. It's a long-term project, and we've already comp
 ### New more powerful type inference algorithm
 
 Kotlin 1.4 uses a new, more powerful type inference algorithm. This new algorithm was already available to try in 
-Kotlin 1.3 by specifying a compiler option, and now it’s used by default. You can find the full list of issues fixed in 
+Kotlin 1.3 by specifying a compiler option, and now it's used by default. You can find the full list of issues fixed in 
 the new algorithm in [YouTrack](https://youtrack.jetbrains.com/issues/KT?q=Tag:%20fixed-in-new-inference%20). Here
 you can find some of the most noticeable improvements:
 
 * [More cases where type is inferred automatically](#more-cases-where-type-is-inferred-automatically)
-* [Smart casts for a lambda’s last expression](#smart-casts-for-a-lambda-s-last-expression)
+* [Smart casts for a lambda's last expression](#smart-casts-for-a-lambda-s-last-expression)
 * [Smart casts for callable references](#smart-casts-for-callable-references)
 * [Better inference for delegated properties](#better-inference-for-delegated-properties)
 * [SAM conversion for Java interfaces with different arguments](#sam-conversion-for-java-interfaces-with-different-arguments)
@@ -391,9 +391,9 @@ fun main() {
 In Kotlin 1.3, you needed to introduce an explicit lambda parameter or replace `to` with a `Pair` constructor with 
 explicit generic arguments to make it work.
 
-#### Smart casts for a lambda’s last expression
+#### Smart casts for a lambda's last expression
 
-In Kotlin 1.3, the last expression inside a lambda wasn’t  smart cast unless you specified the expected type. Thus, in the 
+In Kotlin 1.3, the last expression inside a lambda wasn't  smart cast unless you specified the expected type. Thus, in the 
 following example, Kotlin 1.3 infers `String?` as the type of the `result` variable:
 
 ```kotlin
@@ -415,7 +415,7 @@ and now these casts have become unnecessary.
 
 #### Smart casts for callable references
 
-In Kotlin 1.3, you couldn’t access a member reference of a smart cast type. Now in Kotlin 1.4 you can:
+In Kotlin 1.3, you couldn't access a member reference of a smart cast type. Now in Kotlin 1.4 you can:
 
 ```kotlin
 import kotlin.reflect.KFunction
@@ -454,8 +454,8 @@ to specific types `Cat` and `Dog`. After type checks, you can access member refe
 
 #### Better inference for delegated properties
 
-The type of a delegated property wasn’t taken into account while analyzing the delegate expression which follows the `by` 
-keyword. For instance, the following code didn’t compile before, but now the compiler correctly infers the types of the 
+The type of a delegated property wasn't taken into account while analyzing the delegate expression which follows the `by` 
+keyword. For instance, the following code didn't compile before, but now the compiler correctly infers the types of the 
 `old` and `new` parameters as `String?`:
 
 ```kotlin
@@ -473,13 +473,13 @@ fun main() {
 
 #### SAM conversion for Java interfaces with different arguments
 
-Kotlin has supported SAM conversions for Java interfaces from the beginning, but there was one case that wasn’t supported, 
+Kotlin has supported SAM conversions for Java interfaces from the beginning, but there was one case that wasn't supported, 
 which was sometimes annoying when working with existing Java libraries. If you called a Java method that took two SAM interfaces 
 as parameters, both arguments needed to be either lambdas or regular objects. You couldn't pass one argument as a lambda and 
 another as an object. 
 
 The new algorithm fixes this issue, and you can pass a lambda instead of a SAM interface in any case, 
-which is the way you’d naturally expect it to work.
+which is the way you'd naturally expect it to work.
 
 ```java
 // FILE: A.java
@@ -585,12 +585,12 @@ For more information about default methods in the Java interop, see the [interop
 Starting from Kotlin 1.4.0, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
 `IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
 null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
-This doesn’t apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
+This doesn't apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
 
 This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler
 or by various kinds of bytecode processing tools, such as the Android [R8 optimizer](https://developer.android.com/studio/build/shrink-code).
 
-Note that from a developer’s perspective, things won’t change that much: the Kotlin code will throw exceptions with the
+Note that from a developer's perspective, things won't change that much: the Kotlin code will throw exceptions with the
 same error messages as before. The type of exception changes, but the information passed stays the same.
 
 ### Type annotations in the JVM bytecode
@@ -598,14 +598,14 @@ same error messages as before. The type of exception changes, but the informatio
 Kotlin can now generate type annotations in the JVM bytecode (target version 1.8+), so that they become available in Java reflection at runtime.
 To emit the type annotation in the bytecode, follow these steps:
 
-1. Make sure that your declared annotation has a proper annotation target (Java’s `ElementType.TYPE_USE` or Kotlin’s
+1. Make sure that your declared annotation has a proper annotation target (Java's `ElementType.TYPE_USE` or Kotlin's
 `AnnotationTarget.TYPE`) and retention (`AnnotationRetention.RUNTIME`).
 2. Compile the annotation class declaration to JVM bytecode target version 1.8+. You can specify it with `-jvm-target=1.8`
 compiler option.
 3. Compile the code that uses the annotation to JVM bytecode target version 1.8+ (`-jvm-target=1.8`) and add the
 `-Xemit-jvm-type-annotations` compiler option.
 
-Note that the type annotations from the standard library aren’t emitted in the bytecode for now because the standard library is compiled
+Note that the type annotations from the standard library aren't emitted in the bytecode for now because the standard library is compiled
 with the target version 1.6.
 
 So far, only the basic cases are supported:
@@ -675,11 +675,11 @@ In 1.4.0, Kotlin/Native got a significant number of new features and improvement
 * [Performance improvements](#performance-improvements)
 * [Simplified management of CocoaPods dependencies](#simplified-management-of-cocoapods-dependencies)
 
-### Support for Kotlin’s suspending functions in Swift and Objective-C
+### Support for Kotlin's suspending functions in Swift and Objective-C
 
 In 1.4.0, we add the basic support for suspending functions in Swift and Objective-C. Now, when you compile a Kotlin module
 into an Apple framework, suspending functions are available in it as functions with callbacks (`completionHandler` in 
-the Swift/Objective-C terminology). When you have such functions in the generated framework’s header, you can call them
+the Swift/Objective-C terminology). When you have such functions in the generated framework's header, you can call them
 from your Swift or Objective-C code and even override them.
 
 For example, if you write this Kotlin function:
@@ -761,7 +761,7 @@ Here are some examples:
 memory allocator as an alternative to the system allocator. mimalloc works up to two times faster on some benchmarks.
 Currently, the usage of mimalloc in Kotlin/Native is experimental; you can switch to it using the `-Xallocator=mimalloc` compiler option.
 
-- We’ve reworked how C interop libraries are built. With the new tooling, Kotlin/Native produces interop libraries up to
+- We've reworked how C interop libraries are built. With the new tooling, Kotlin/Native produces interop libraries up to
 4 times as fast as before, and artifacts are 25% to 30% the size they used to be.
 
 - Overall runtime performance has improved because of optimizations in GC. This improvement will be especially apparent
@@ -769,18 +769,18 @@ in projects with a large number of long-lived objects. `HashMap` and `HashSet` c
 
 - In 1.3.70 we introduced two new features for improving the performance of Kotlin/Native compilation:
 [caching project dependencies and running the compiler from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
-Since that time, we’ve managed to fix numerous issues and improve the overall stability of these features.
+Since that time, we've managed to fix numerous issues and improve the overall stability of these features.
 
 ### Simplified management of CocoaPods dependencies
 
 Previously, once you integrated your project with the dependency manager CocoaPods, you could build an iOS, macOS, watchOS, 
 or tvOS part of your project only in Xcode, separate from other parts of your multiplatform project. These other parts could 
-be built in Intellij IDEA. 
+be built in IntelliJ IDEA. 
 
 Moreover, every time you added a dependency on an Objective-C library stored in CocoaPods (Pod library), you had to switch 
 from IntelliJ IDEA to Xcode, call `pod install`, and run the Xcode build there. 
 
-Now you can manage Pod dependencies right in Intellij IDEA while enjoying the benefits it provides for working with code, 
+Now you can manage Pod dependencies right in IntelliJ IDEA while enjoying the benefits it provides for working with code, 
 such as code highlighting and completion. You can also build the whole Kotlin project with Gradle, without having to 
 switch to Xcode. This means you only have to go to Xcode when you need to write Swift/Objective-C code or run your application 
 on a simulator or device.
@@ -821,7 +821,7 @@ With the new hierarchical project structure support, you can share code among [s
  in a [multiplatform project](multiplatform-discover-project.md).
 
 Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
-limited to one target and can’t be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
+limited to one target and can't be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
 which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
 API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-connect-to-apis.md).
 
@@ -956,10 +956,10 @@ kotlin {
 </tab>
 </tabs>
 
-Don’t use kotlinx library artifact names with suffixes specifying the platform, such as  `-common`, `-native`, or similar, 
+Don't use kotlinx library artifact names with suffixes specifying the platform, such as  `-common`, `-native`, or similar, 
 as they are NOT supported anymore. Instead, use the library base artifact name, which in the example above is `kotlinx-coroutines-core`. 
 
-However, the change doesn’t currently affect:
+However, the change doesn't currently affect:
 * The `stdlib` library – starting from Kotlin 1.4.0, [the stdlib dependency is added automatically](#dependency-on-the-standard-library-added-by-default).
 * The `kotlin.test` library – you should still use `test-common` and `test-annotations-common`. These dependencies will be
 addressed later.
@@ -1013,7 +1013,7 @@ configuration in 1.4.0. Now the IDE loads the changes only when you explicitly a
   In Gradle 6.0 and above, you can explicitly apply changes by clicking **Load Gradle Changes** or by reimporting the
 Gradle project.
  
-  We’ve added one more action in IntelliJ IDEA 2020.1 with Gradle 6.0 and above – **Load Script Configurations**, which loads changes
+  We've added one more action in IntelliJ IDEA 2020.1 with Gradle 6.0 and above – **Load Script Configurations**, which loads changes
 to the script configurations without updating the whole project. This takes much less time than reimporting the whole project.
 
   ![*.gradle.kts – Load Script Changes and Load Gradle Changes](gradle-kts.png)
@@ -1190,7 +1190,7 @@ They return `null` on empty collections.
     There are also `minOfWith()` and `maxOfWith()`, which take a `Comparator` as an argument, and `*OrNull()` versions
 of all four functions that return `null` on empty collections.
 
-* New overloads for `flatMap` and `flatMapTo` let you use transformations with return types that don’t match the receiver type, namely:
+* New overloads for `flatMap` and `flatMapTo` let you use transformations with return types that don't match the receiver type, namely:
     * Transformations to `Sequence` on `Iterable`, `Array`, and `Map`
     * Transformations to `Iterable` on `Sequence`
 
@@ -1212,7 +1212,7 @@ of these functions.
 
 #### Arrays
 
-To provide a consistent experience when working with different container types, we’ve also added new functions for **arrays**:
+To provide a consistent experience when working with different container types, we've also added new functions for **arrays**:
 
 * `shuffle()` puts the array elements in a random order.
 * `onEach()` performs the given action on each array element and returns the array itself.
@@ -1389,7 +1389,7 @@ fun main() {
 Starting from 1.4.0, we have embedded Proguard/R8 configurations for Kotlin Reflection in `kotlin-reflect.jar`. With this
 in place, most Android projects using R8 or Proguard should work with kotlin-reflect without needing any additional configuration.
 You no longer need to copy-paste the Proguard rules for kotlin-reflect internals. But note that you still need to explicitly 
-list all the APIs you’re going to reflect on.
+list all the APIs you're going to reflect on.
 
 ### Improving the existing API
 
@@ -1411,7 +1411,7 @@ Kotlin 1.4.0 adds `module-info.java` module information to default standard libr
 [jlink tool](https://docs.oracle.com/en/java/javase/11/tools/jlink.html), which generates custom Java runtime images
 containing only the platform modules that are required for your app.
 You could already use jlink with Kotlin standard library artifacts, but you had to use separate artifacts to do so – the
-ones with the “modular” classifier – and the whole setup wasn’t straightforward.  
+ones with the "modular" classifier – and the whole setup wasn't straightforward.  
 In Android, make sure you use the Android Gradle plugin version 3.2 or higher, which can correctly process jar files with module-info.
 
 ### Deprecations
@@ -1438,7 +1438,7 @@ See [this issue](https://youtrack.jetbrains.com/issue/KT-38854) for details.
 
 ### Exclusion of the deprecated experimental coroutines
  
-The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.coroutines in 1.3.0. In 1.4.0, we’re completing
+The `kotlin.coroutines.experimental` API was deprecated in favor of kotlin.coroutines in 1.3.0. In 1.4.0, we're completing
 the deprecation cycle for `kotlin.coroutines.experimental` by removing it from the standard library. For those who still
 use it on the JVM, we've provided a compatibility artifact `kotlin-coroutines-experimental-compat.jar` with all the experimental
 coroutines APIs. We've published it to Maven, and we include it in the Kotlin distribution alongside the standard library.
@@ -1470,13 +1470,13 @@ Here are some of the key changes:
 - [Compiled scripts cache](#compiled-scripts-cache)
 - [Artifacts renaming](#artifacts-renaming)
 
-To help you become more familiar with scripting in Kotlin, we’ve prepared a [project with examples](https://github.com/Kotlin/kotlin-script-examples).
+To help you become more familiar with scripting in Kotlin, we've prepared a [project with examples](https://github.com/Kotlin/kotlin-script-examples).
 It contains examples of the standard scripts (`*.main.kts`) and examples of uses of the Kotlin Scripting API and custom
 script definitions. Please give it a try and share your feedback using our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 ### New dependencies resolution API
 
-In 1.4.0, we’ve introduced a new API for resolving external dependencies (such as Maven artifacts), along with implementations
+In 1.4.0, we've introduced a new API for resolving external dependencies (such as Maven artifacts), along with implementations
 for it. This API is published in the new artifacts `kotlin-scripting-dependencies` and `kotlin-scripting-dependencies-maven`.
 The previous dependency resolution functionality in `kotlin-script-util` library is now deprecated.
 
@@ -1494,9 +1494,9 @@ executions of unchanged scripts. Our default advanced script implementation `kot
 
 ### Artifacts renaming
 
-In order to avoid confusion about artifact names, we’ve renamed `kotlin-scripting-jsr223-embeddable` and `kotlin-scripting-jvm-host-embeddable`
+In order to avoid confusion about artifact names, we've renamed `kotlin-scripting-jsr223-embeddable` and `kotlin-scripting-jvm-host-embeddable`
 to just `kotlin-scripting-jsr223` and `kotlin-scripting-jvm-host`. These artifacts depend on the `kotlin-compiler-embeddable`
-artifact, which shades the bundled third-party libraries to avoid usage conflicts. With this renaming, we’re making the usage of
+artifact, which shades the bundled third-party libraries to avoid usage conflicts. With this renaming, we're making the usage of
 `kotlin-compiler-embeddable` (which is safer in general) the default for scripting artifacts.
 If, for some reason, you need artifacts that depend on the unshaded `kotlin-compiler`, use the artifact versions with the 
 `-unshaded` suffix, such as `kotlin-scripting-jsr223-unshaded`. Note that this renaming affects only the scripting artifacts
@@ -1504,7 +1504,7 @@ that are supposed to be used directly; names of other artifacts remain unchanged
 
 ## Migrating to Kotlin 1.4.0
 
-The Kotlin plugin’s migration tools help you migrate your projects from earlier versions of Kotlin to 1.4.0.
+The Kotlin plugin's migration tools help you migrate your projects from earlier versions of Kotlin to 1.4.0.
 
 Just change the Kotlin version to `1.4.0` and re-import your Gradle or Maven project. The IDE will then ask you about migration.
  

@@ -81,7 +81,7 @@ Released: November 30, 2021
 * New refactorings and improved inspections and intentions
 
 Learn more in:
-* [What’s New in IntelliJ IDEA 2021.3](https://www.jetbrains.com/idea/whatsnew/2021-3/)
+* [What's New in IntelliJ IDEA 2021.3](https://www.jetbrains.com/idea/whatsnew/2021-3/)
 
 </td>
 </tr>
@@ -100,7 +100,7 @@ Released: July 27, 2021
 * Remote development support
 
 Learn more in:
-* [What’s New in IntelliJ IDEA 2021.2](https://www.jetbrains.com/idea/whatsnew/2021-2/)
+* [What's New in IntelliJ IDEA 2021.2](https://www.jetbrains.com/idea/whatsnew/2021-2/)
 
 </td>
 </tr>
@@ -121,7 +121,7 @@ Released: April 7, 2021
 * UML diagrams for Kotlin classes
 
 Learn more in:
-* [What’s New in IntelliJ IDEA 2021.1](https://www.jetbrains.com/idea/whatsnew/2021-1/)
+* [What's New in IntelliJ IDEA 2021.1](https://www.jetbrains.com/idea/whatsnew/2021-1/)
 
 </td>
 </tr>

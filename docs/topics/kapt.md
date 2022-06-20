@@ -217,7 +217,7 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](#using-in-cli).
 >
-> {type=”note”}
+> {type="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
 statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
@@ -320,7 +320,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 ```
 
 
-Please note that kapt is still not supported for IntelliJ IDEA’s own build system. Launch the build from the “Maven Projects”
+Please note that kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI

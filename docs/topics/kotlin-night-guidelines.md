@@ -26,7 +26,7 @@ JetBrains is excited to support your Kotlin Night event. Because we want all eve
     * There is enough space as well as food and beverages, if you provide them, for everyone.
     * You have a plan with your speakers. This includes a schedule, topics, abstracts for the talks, and any necessary equipment for the presentations.
 2. Content and speakers
-    * Feel free to invite presenters from your local community, from neighboring countries, or even from all over the globe. You don’t have to have any JetBrains representatives or speakers at your event. However, we are always happy to hear about more Kotlin Nights, so feel free to notify us.
+    * Feel free to invite presenters from your local community, from neighboring countries, or even from all over the globe. You don't have to have any JetBrains representatives or speakers at your event. However, we are always happy to hear about more Kotlin Nights, so feel free to notify us.
 3. Announcements and promotion
     * Announce your event at least three weeks before the date of a meetup.
     * Include the schedule, topics, abstracts, and speaker bios in the announcement.

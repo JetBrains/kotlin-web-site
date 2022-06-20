@@ -258,7 +258,7 @@ For example, check out the following source set hierarchy from the `kotlinx.coro
 The `concurrent` source set declares the function runBlocking and is compiled for the JVM and the native targets. 
 Once the `kotlinx.coroutines` library is updated and published with the hierarchical project structure, you can depend on 
 it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
-“targets signature” of the library’s `concurrent` source set.
+"targets signature" of the library's `concurrent` source set.
 
 ### Use native libraries in the hierarchical structure
 
