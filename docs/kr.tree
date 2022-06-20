@@ -339,7 +339,6 @@
             <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
             <toc-element id="configure-build-for-eap.md"/>
         </toc-element>
-        <toc-element id="contribute.md"/>
         <toc-element toc-title="Kotlin evolution">
             <toc-element toc-title="Evolution principles" id="kotlin-evolution.md"/>
             <toc-element id="components-stability.md"/>
@@ -362,13 +361,15 @@
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
-        <toc-element toc-title="Kotlin brand assets">
-            <toc-element id="kotlin-mascot.md" hidden="true"/>
-            <toc-element id="kotlin-logo.md"/>
-            <toc-element id="kotlin-nights-branding.md"/>
-            <toc-element id="kug-branding.md"/>
-            <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        <toc-element toc-title="Community">
+            <toc-element id="contribute.md"/>
+            <toc-element id="kug-guidelines.md"/>
+            <toc-element id="kotlin-night-guidelines.md"/>
         </toc-element>
+
+        <toc-element id="kotlin-brand-assets.md"/>
+        <toc-element id="kotlin-mascot.md" hidden="true"/>
+        <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
     </toc-element>
 
 </product-profile>

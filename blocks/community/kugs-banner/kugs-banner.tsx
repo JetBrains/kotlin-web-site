@@ -32,7 +32,7 @@ export const KugsBanner: FC<KugsBannerProps> = function ({ title, children }) {
                     </Button>
                     <a
                         className={classnames(linkClass, styles.link)}
-                        href={'https://kotlinlang.org/docs/kug-branding.html'}
+                        href={'https://kotlinlang.org/docs/kug-guidelines.html'}
                     >
                         KUG Guidelines
                     </a>

@@ -38,8 +38,7 @@ function UserGroups() {
                         </p>
 
                         <Button
-                            href={'https://kotlinlang.org/docs/kotlin-nights-branding.html#kotlin-night-event'}
-                            target="_blank"
+                            href={'https://kotlinlang.org/docs/kotlin-night-guidelines.html'}
                             mode={'outline'}
                             size={'l'}
                         >
