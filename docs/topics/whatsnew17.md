@@ -7,7 +7,7 @@ features, and brings performance improvements for the JVM, JS, and Native platfo
 
 Here is a list of the major updates in this version:
 
-* [The new Kotlin К2 compiler is in Alpha now](#new-kotlin-k2-compiler-for-the-jvm-in-alpha), and it offers serious
+* [The new Kotlin K2 compiler is in Alpha now](#new-kotlin-k2-compiler-for-the-jvm-in-alpha), and it offers serious
   performance improvements. It is available only for the JVM, and none of the compiler plugins, including kapt, work with it.
 * [A new approach to the incremental compilation in Gradle](#a-new-approach-to-incremental-compilation). Incremental
   compilation is now also supported for changes made inside dependent non-Kotlin modules and is compatible with Gradle.
