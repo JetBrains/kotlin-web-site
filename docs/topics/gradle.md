@@ -710,9 +710,8 @@ The first build is never incremental.
 >
 {type="warning"}
 
-Starting with [Kotlin 1.7.0](whatsnew17.md#a-new-approach-to-incremental-compilation), a new approach to incremental
-compilation is available. It supports changes made inside dependent non-Kotlin modules and is compatible with
-the [Gradle build cache](#gradle-build-cache-support). Support for compilation avoidance has also been improved.
+The new approach to incremental compilation supports changes made inside dependent non-Kotlin modules, includes an improved
+compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
 
 All these advancements decrease the number of non-incremental builds, making the overall compilation time faster. The most
 significant benefit of the new approach is expected if you use the build cache or frequently make changes in non-Kotlin
@@ -724,8 +723,8 @@ To enable this new approach, set the following option in your `gradle.properties
 kotlin.incremental.useClasspathSnapshot=true
 ```
 
-> The new approach to incremental compilation is currently available for the JVM backend in the Gradle build system
-> only.
+> The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle
+> build system only.
 >
 {type="note"}
 
@@ -762,9 +761,8 @@ start using it.
 >
 {type="warning"}
 
-Starting with [Kotlin 1.7.0](whatsnew17.md#build-reports-for-kotlin-compiler-tasks), build reports for tracking compiler
-performance are available. Reports contain the durations of different compilation phases and reasons why compilation
-couldn't be incremental.
+Build reports for tracking compiler performance are available for Kotlin 1.7.0. Reports contain the durations of different
+compilation phases and reasons why compilation couldn't be incremental.
 
 Use build reports to investigate performance issues, when the compilation time is too long or when it differs for the same
 project.
