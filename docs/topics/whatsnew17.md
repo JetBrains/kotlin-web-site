@@ -811,9 +811,8 @@ our [issue tracker](https://youtrack.jetbrains.com/newIssue). Thank you!
 
 Starting with Kotlin 1.7.0, the minimum supported Gradle version is 6.7.1. We had
 to [raise the version](https://youtrack.jetbrains.com/issue/KT-49733/Bump-minimal-supported-Gradle-version-to-6-7-1) to
-support [Gradle plugin variants](https://docs.google.com/document/d/1tOacnL6-ef8oVIWV0hUynvXq5zqadkTOadvysMLWF5w/edit#support-for-gradle-plugin-variants)
-and the new Gradle API. In the future, we should not have to raise the minimum supported version as often, thanks to the
-Gradle plugin variants feature.
+support [Gradle plugin variants](#support-for-gradle-plugin-variants) and the new Gradle API. In the future, we should
+not have to raise the minimum supported version as often, thanks to the Gradle plugin variants feature.
 
 Also, the minimal supported Android Gradle plugin version is now 3.6.4.
 
