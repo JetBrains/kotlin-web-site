@@ -27,7 +27,24 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 
 4. Select the Gradle DSL – Kotlin or Groovy.
 5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
-5. Click **Next**, and then click **Finish**.
+6. Click **Next**.
+7. You can finish creating the project by clicking **Finish** on the next screen or configure it if necessary:
+
+   * To add modules, select **Project** and click the **+** icon. Choose the module type.
+   * To add target platforms, select **library** and click the **+** icon. Choose the target.
+   * Configure target settings, such as the target JVM version and test framework.
+
+    ![Configure the project](multiplatform-project-2.png){width=700}
+
+   * Specify dependencies between modules:
+   
+     * Multiplatform and Android modules
+     * Multiplatform and iOS modules
+     * JVM modules
+
+       ![Add module dependencies](multiplatform-project-3.png){width=700}
+
+9. Click **Finish**.
 
 The wizard will create a sample multiplatform library with the following structure:
 
