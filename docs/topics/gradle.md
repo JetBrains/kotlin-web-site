@@ -697,6 +697,37 @@ There are several ways to switch off incremental compilation:
 
 The first build is never incremental.
 
+> Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
+> to track the history of changes and compilations. Doing so may also help you provide reproducible bug reports.
+> 
+{type="tip"}
+
+### A new approach to incremental compilation
+
+> The new approach to incremental compilation is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Opt-in is required (see the details below). We encourage you to use it only for evaluation purposes, and we would
+> appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>
+{type="warning"}
+
+The new approach to incremental compilation supports changes made inside dependent non-Kotlin modules, includes an improved
+compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
+
+All these advancements decrease the number of non-incremental builds, making the overall compilation time faster. The most
+significant benefit of the new approach is expected if you use the build cache or frequently make changes in non-Kotlin
+Gradle modules.
+
+To enable this new approach, set the following option in your `gradle.properties`:
+
+```properties
+kotlin.incremental.useClasspathSnapshot=true
+```
+
+> The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle
+> build system only.
+>
+{type="note"}
+
 ## Gradle build cache support
 
 The Kotlin plugin uses the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html), which stores
@@ -721,6 +752,54 @@ which speeds up the build process by reusing the results of the configuration ph
 See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
 to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin will automatically
 start using it.
+
+## Build reports
+
+> Build reports are [Experimental](components-stability.md). They may be dropped or changed at any time.
+> Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them
+> in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
+>
+{type="warning"}
+
+Build reports for tracking compiler performance are available for Kotlin 1.7.0. Reports contain the durations of different
+compilation phases and reasons why compilation couldn't be incremental.
+
+Use build reports to investigate performance issues, when the compilation time is too long or when it differs for the same
+project.
+
+To enable build reports, declare where to save the build report output in `gradle.properties`:
+
+```properties
+kotlin.build.report.output=file
+```
+
+The following values and their combinations are available for the output:
+
+| Option       | Description                                                                                                                                                                                                                                                                                                                                     |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `file`       | Saves build reports in a local file                                                                                                                                                                                                                                                                                                             |
+| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                               |
+| `http`       | Posts build reports using HTTP(S). The POST method sends metrics in the JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt) |
+
+Here's the full list of available options for `kotlin.build.report`:
+
+```properties
+# Required outputs. Any combinations are allowed
+kotlin.build.report.output=file,http,build_scan
+
+# Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
+kotlin.build.report.file.output_dir=kotlin-reports
+
+# Mandatory if http output is used. Where to post HTTP(S)-based reports
+kotlin.build.report.http.url=http://127.0.0.1:8080
+
+# Optional. User and password if the HTTP endpoint requires authentication
+kotlin.build.report.http.user=someUser
+kotlin.build.report.http.password=somePassword
+
+# Optional. Label for marking your build report (e.g. debug parameters)
+kotlin.build.report.label=some_label
+```
 
 ## Compiler options
 
