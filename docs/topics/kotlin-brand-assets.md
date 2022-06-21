@@ -75,11 +75,11 @@ To create a cover photo with a group's logo for meetup.com:
 
 ![User Group examples](kotlin-user-group.png){width=700}
 
-## Kotlin Nights brand assets
+## Kotlin Night brand assets
 
 JetBrains provides branding and materials for Kotlin Night events. Our team will prepare digital assets for the event promotion and ship your merchandise pack containing stickers and t-shirts. Check out what we have to make your Kotlin Night fun!
 
-[Download all](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+[Download all assets](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ### Social media
 

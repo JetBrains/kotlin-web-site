@@ -2,9 +2,13 @@
 
 Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologies.
 
-### Event guidelines
+> For Kotlin Night brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-night-brand-assets).
+> 
+{type="note"}
 
-* Please use the [branding materials](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
+## Event guidelines
+
+* Please use the [branding materials](kotlin-brand-assets.md#kotlin-night-brand-assets) we’ve provided. Having all events and materials in the same style will help keep the Kotlin Night experience consistent.
 * Kotlin Night should be a free event. A minimal fee can be charged to cover expenses, but it should remain a non-profit event.
 * The event should be announced publicly and open for all people to attend without any kind of discrimination.
 * If you publish the contents of the talks online after the event, they must be free and accessible to everyone, without any sign-up or registration procedures.
@@ -12,7 +16,7 @@ Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologi
 * The talks should primarily be about Kotlin and should not focus on marketing or sales.
 * The event can serve food and drinks optionally.
 
-### Event requirements
+## Event requirements
 
 JetBrains is excited to support your Kotlin Night event. Because we want all events to provide the same high-quality experience, we need organizers to ensure that some basic requirements are met for the event to receive JetBrains support. As an organizer, you are responsible for the following aspects of the event:
 
@@ -30,7 +34,7 @@ JetBrains is excited to support your Kotlin Night event. Because we want all eve
 4. Providing event material to JetBrains after the event
     * We would be glad to announce your event at [kotlinlang.org](https://kotlinlang.org/community/talks.html), and we would appreciate it if you provided slides and video materials for a follow-up posting.
 
-### JetBrains support
+## JetBrains support
 
 JetBrains provides support with:
 

@@ -14,10 +14,14 @@ To become an KUG, your community should have some specific features shared by ev
 There are no limits regarding the format for KUG meetups. They can take place in whatever fashion works best for the
 community, whether that includes presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers.
 
-### How to run a KUG?
+> For Kotlin User Group brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-user-group-brand-assets).
+>
+{type="note"}
+
+## How to run a KUG?
 
 * In order to promote group cohesion and prevent miscommunication, we recommend keeping to a limit of one KUG per city. Check out [the list of KUGs](https://kotlinlang.org/community/user-groups) to see if there is already a KUG in your area.
-* Use the official KUG logo and branding. Check out [the branding guidelines](#kotlin-user-group-brand-assets).
+* Use the official KUG logo and branding. Check out [the branding guidelines](kotlin-brand-assets.md#kotlin-user-group-brand-assets).
 * Keep your user group active. Run meetups regularly, at least once every 3 months.
 * Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks
   and the names of the speakers, as well as the location, timing, and any other crucial info about the event.
@@ -29,7 +33,7 @@ KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group).
 
 Have a question? [Contact us](mailto:kug@jetbrains.com)
 
-### Support for KUGs from JetBrains
+## Support for KUGs from JetBrains
 
 Active KUGs that host at least 1 meetup every 3 months can apply for the community support program, which includes:
 * Official KUG branding.
@@ -38,6 +42,6 @@ Active KUGs that host at least 1 meetup every 3 months can apply for the communi
 * Priority support for Kotlin events and campaigns.
 * Help recruiting speakers for events.
 
-### Support from JetBrains for other tech communities
+## Support from JetBrains for other tech communities
 
 If you organize any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
