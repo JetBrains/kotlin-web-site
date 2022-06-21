@@ -88,7 +88,7 @@ fun main() {
 ```
 
 It is forbidden for inline classes to participate in a class hierarchy. This means that inline classes cannot extend 
-other classes and must be `final`.
+other classes and are always `final`.
 
 ## Representation
 
