@@ -742,8 +742,6 @@
   to: /api/latest/jvm/stdlib/kotlin.ranges/-char-range/is-empty.html
 - from: /api/latest/jvm/stdlib/kotlin/-char-range/end-inclusive.html
   to: /api/latest/jvm/stdlib/kotlin.ranges/-char-range/end-inclusive.html
-- from: /api/latest/jvm/stdlib/kotlin/get-or-else.html
-  to: /api/latest/jvm/stdlib/kotlin.collections/get-or-else.html
 - from: /api/latest/jvm/stdlib/kotlin/to-sorted-map.html
   to: /api/latest/jvm/stdlib/kotlin.collections/to-sorted-map.html
 - from: /api/latest/jvm/stdlib/kotlin/require-no-nulls.html
