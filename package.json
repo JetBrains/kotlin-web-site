@@ -112,6 +112,7 @@
     "test:visual:ci": "CI=true playwright test test/visual",
     "ci:e2e": "start-test 'yarn ci:server' http-get://localhost:9000 'yarn test:e2e:ci'",
     "ci:visual": "start-test 'yarn ci:server' http-get://localhost:9000 'yarn test:visual:ci'",
-    "ci:server": "NODE_ENV=production webpack serve --no-client-overlay --no-hot --no-static-watch --no-live-reload"
+    "ci:server": "NODE_ENV=production webpack serve --no-client-overlay --no-hot --no-static-watch --no-live-reload",
+    "сi:e2e:prod": "CI=true BASE_URL=https://kotlinlang.org playwright test test/e2e --headed --project=chromium"
   }
 }
