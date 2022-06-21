@@ -1,4 +1,4 @@
-[//]: # (title: Cross-platform mobile development: key aspects)
+[//]: # (title: What is cross-platform mobile development?)
 
 [//]: # (description: Cross-platform mobile development helps you save much time and effort. See why many developers have already switched to technology that is cost efficient.)
 
@@ -8,7 +8,7 @@ According to [Statista](https://www.statista.com/statistics/276623/number-of-app
 
 How do you go about creating a mobile app that can reach Android and iOS audiences? In this article, you will find out why more and more mobile engineers are choosing a cross-platform, or multiplatform, mobile development approach.
 
-## What is cross-platform mobile development?
+## Cross-platform mobile development: definition and solutions
 
 Multiplatform mobile development is an approach that allows you to build a single mobile application that runs smoothly on several operating systems. In cross-platform apps, some or even all of the source code can be shared. This means that developers can create and deploy mobile assets that work on both Android and iOS without having to recode them for each individual platform.
 
@@ -149,7 +149,6 @@ Kotlin Multiplatform Mobile is an SDK for cross-platform mobile development prov
 
 > Share the logic of your iOS and Android apps. Get started with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html).
 >
-{type=”note”}
 
 Global companies and start-ups alike have already leveraged Kotlin Multiplatform Mobile to optimize and accelerate their mobile development efforts. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
 
