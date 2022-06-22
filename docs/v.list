@@ -18,7 +18,9 @@
 
     <var name="coroutinesEapVersion" value="1.6.0-RC3" type="string"/>
 
-    <var name="minGradleVersion" value="6.1" type="string"/>
+    <var name="minGradleVersion" value="6.7.1" type="string"/>
+
+    <var name="minAndroidGradleVersion" value="3.6.4" type="string"/>
 
     <var name="gradleVersion" value="6.7.1" type="string"/>
 
