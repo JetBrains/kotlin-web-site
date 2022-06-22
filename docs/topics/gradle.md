@@ -1,5 +1,10 @@
 [//]: # (title: Gradle)
 
+<microformat>
+    <p>Minimum supported Gradle version: <strong>%minGradleVersion%</strong></p>
+    <p>Minimum supported Android Gradle plugin version: <strong>%minAndroidGradleVersion%</strong></p>
+</microformat>
+
 In order to build a Kotlin project with Gradle, you should [apply the Kotlin Gradle plugin to your project](#plugin-and-versions)
 and [configure the dependencies](#configuring-dependencies).
 
