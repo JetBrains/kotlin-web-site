@@ -803,6 +803,8 @@ There are two common cases that analyzing build reports for long-running compila
 * The build was incremental, but took too much time. Try to reorganize source files — split big files, save separate
   classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
+Learn more about new build reports in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/).
+
 You are welcome to try using build reports in your infrastructure. If you have any feedback, encounter any issues, or
 want to suggest improvements, please don't hesitate to report them in
 our [issue tracker](https://youtrack.jetbrains.com/newIssue). Thank you!
