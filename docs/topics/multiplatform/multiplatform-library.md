@@ -266,7 +266,7 @@ You can also add tests that will be run only for a specific platform. For exampl
    ```kotlin
    package org.jetbrains.base64
    
-   import org.junit.Test
+   import kotlin.test.Test
    import kotlin.test.assertEquals
    
    class Base64JvmTest {
