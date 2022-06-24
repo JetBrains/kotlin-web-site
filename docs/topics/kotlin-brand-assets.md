@@ -1,48 +1,25 @@
-[//]: # (title: KUG branding)
+[//]: # (title: Kotlin brand assets)
 
-A Kotlin User Group, or KUG, is a community that is  dedicated to Kotlin and that offers you a place to share your
-Kotlin programming experience with like-minded people.
+## Kotlin Logo
 
-## Kotlin User Group
+Our logo consists of a mark and a typeface. The full-color version is the main one and should be used in the vast majority of cases.
 
-To become an KUG, your community should have some specific features shared by every KUG. It should:
-* Provide Kotlin-related content, with regular meetups as the main form of activity.
-* Host regular events (at least once every 3 months) with open registration and without any restriction for attendance.
-* Be driven and organized by the community, and it should not use events to earn money or gain any other business
-  benefits from members and attendees.
-* Follow and ensure a code of conduct in order to provide a welcoming environment for attendees of any background and
-  experience (check-out our recommended [Code of Conduct](https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct)).
+[Download all versions](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
-There are no limits regarding the format for KUG meetups. They can take place in whatever fashion works best for the
-community, whether that includes presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers.
+![Kotlin logo](kotlin-logo.png){width=700}
 
-### How to run a KUG?
+Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box. The minimum size of the protective field is half the height of the mark.
 
-* In order to promote group cohesion and prevent miscommunication, we recommend keeping to a limit of one KUG per city. Check out [the list of KUGs](https://kotlinlang.org/community/user-groups) to see if there is already a KUG in your area.
-* Use the official KUG logo and branding. Check out [the branding guidelines](#kotlin-user-group-brand-assets).
-* Keep your user group active. Run meetups regularly, at least once every 3 months.
-* Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks
-  and the names of the speakers, as well as the location, timing, and any other crucial info about the event.
-* KUG events should be free or, if you need to cover organizing expenses, limit prices to a maximum of 10 USD.
-* Your group should have a code of conduct available for all members.
+![Kotlin logo proportions](kotlin-logo-guidelines.png){width=700}
 
-If your community has all the necessary features and follows these guidelines, you are ready to [Apply to be a new
-KUG](https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group).
+Pay special attention to the following restrictions concerning the use of the logo:
 
-Have a question? [Contact us](mailto:kug@jetbrains.com)
-
-### Support for KUGs from JetBrains
-
-Active KUGs that host at least 1 meetup every 3 months can apply for the community support program, which includes:
-* Official KUG branding.
-* A special entry on the Kotlin website.
-* Free licenses for JetBrains products to raffle off at meetups.
-* Priority support for Kotlin events and campaigns.
-* Help recruiting speakers for events.
-
-### Support from JetBrains for other tech communities
-
-If you organize any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
+* Do not separate the mark from the text. Do not swap elements.
+* Do not change the transparency of the logo.
+* Do not outline the logo.
+* Do not repaint the logo in third-party colors.
+* Do not change the text.
+* Do not set the logo against a complex background. Do not place the logo in front of a bright background.
 
 ## Kotlin User Group brand assets
 
@@ -97,3 +74,47 @@ To create a cover photo with a group's logo for meetup.com:
 3. Download the picture and use it for your profile on [meetup.com](https://meetup.com).
 
 ![User Group examples](kotlin-user-group.png){width=700}
+
+## Kotlin Night brand assets
+
+JetBrains provides branding and materials for Kotlin Night events. Our team will prepare digital assets for the event promotion and ship your merchandise pack containing stickers and t-shirts. Check out what we have to make your Kotlin Night fun!
+
+[Download all assets](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+
+### Social media
+
+Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It’s fun!
+
+![Cover/Logo](kotlin-night-cover.svg){width=700}
+
+![Cover Social](kotlin-night-fb.svg){width=700}
+
+### Branding stickers
+
+Stickers can be used to brand assets for a Kotlin Night. Just stick them on anything you can get your hands on. It is funny!
+
+![Stickers](kotlin-night-stickers.svg){width=700}
+
+<!-- ![Stickers usage](kotlin-night-stickers-usage.svg){width=700} -->
+
+### Press-wall
+
+You can decorate a press wall with stickers for unforgettable event pictures.
+
+![Press Wall](kotlin-night-press-wall.svg){width=700}
+
+### Sticky badges
+
+Use stickers as badges for the attendees and boost networking at the event!
+
+### Board for stickers
+
+Or you can provide a board where your guests can paste stickers with their impressions, feedback, and wishes.
+
+![board pack](kotlin-night-board.svg){width=700}
+
+### T-shirts
+
+Guests of the event are offered to paste stickers on the board with their impressions of the meeting. What does it mean for you?
+
+![Sticker pack](kotlin-night-t-shirt.svg){width=700}

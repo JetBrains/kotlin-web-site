@@ -32,7 +32,7 @@
 - from:
    - /community/kotlin-nights/guidelines.html
    - /community/kotlin-nights/branding.html
-  to: /docs/kotlin-nights-branding.html
+  to: /docs/kotlin-night-guidelines.html
 
 - from: /docs/reference/compatibility.html
   to: /docs/reference/evolution/components-stability.html
