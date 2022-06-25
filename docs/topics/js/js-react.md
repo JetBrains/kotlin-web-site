@@ -29,26 +29,25 @@ concepts behind React may help understand some sample code but is not strictly r
    
    ```kotlin
    dependencies {
-   
        // React, React DOM + Wrappers
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.264-kotlin-1.5.31")
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.264-kotlin-1.5.31")
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.297-kotlin-1.6.10")
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.297-kotlin-1.6.10")
        implementation(npm("react", "17.0.2"))
        implementation(npm("react-dom", "17.0.2"))
    
        // Kotlin Styled
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:5.3.3-pre.264-kotlin-1.5.31")
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-css:17.0.2-pre.298-kotlin-1.6.10")
        implementation(npm("styled-components", "~5.3.3"))
    
        // Video Player
-       implementation(npm("react-youtube-lite", "1.1.0"))
+       implementation(npm("react-youtube-lite", "1.5.0"))
    
        // Share Buttons
        implementation(npm("react-share", "4.4.0"))
    
        // Coroutines & serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
    }
    ```
 
@@ -77,7 +76,7 @@ before the scripts.
 * A code snippet in `src/main/kotlin/Main.kt`:
 
    ```kotlin
-   // . . .
+   import kotlinx.browser.document
    
    fun main() {
        document.bgColor = "red"
@@ -136,27 +135,35 @@ and reload the page when you make changes.
 
 ### Add the first static page with React
 
-Change the code in the `Main.kt` file as follows:
+Replace the code in the `Main.kt` file as follows:
 
 ```kotlin
-import react.dom.*
 import kotlinx.browser.document
-import kotlinx.css.*
+import react.*
+import react.css.css
+import react.dom.render
+import csstype.Position
+import csstype.px
+import react.dom.html.ReactHTML.h1
+import react.dom.html.ReactHTML.h3
+import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.p
+import react.dom.html.ReactHTML.img
 import kotlinx.serialization.Serializable
-import styled.*
 
 fun main() {
-   render(document.getElementById("root")) {
-      h1 {
-         +"Hello, React+Kotlin/JS!"
-      }
-   }
+    val container = document.getElementById("root") ?: error("Couldn't find root container!")
+    render(Fragment.create {
+        h1 {
+            +"Hello, React+Kotlin/JS!"
+        }
+    }, container)
 }
 ```
 {validate="false"}
 
 * The `render()` function instructs [kotlin-react-dom](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-dom)
-  to render out a component into the `#root` element.
+  to render a first HTML element inside a [fragment](https://reactjs.org/docs/fragments.html) to the `#root` element.
   This element is a container defined in `/src/main/resources/index.html`, which was included in the template.
 * The content is an `<h1>` header and uses a typesafe DSL to render HTML.
 * `h1` is a function that takes a lambda parameter. When you add the `+` sign in front of the string literal,
@@ -200,43 +207,41 @@ Compare classic HTML code for the future website and its typesafe variant in Kot
 
 ```kotlin
 h1 {
-   +"KotlinConf Explorer"
+    +"Hello, React+Kotlin/JS!"
 }
 div {
-   h3 {
-       +"Videos to watch"
-   }
-   p {
-       + "John Doe: Building and breaking things"
-   }
-   p {
-       +"Jane Smith: The development process"
-   }
-   p {
-       +"Matt Miller: The Web 7.0"
-   }
-   h3 {
-       +"Videos watched"
-   }
-   p {
-       +"Tom Jerry: Mouseless development"
-   }
+    h3 {
+        +"Videos to watch"
+    }
+    p {
+        + "John Doe: Building and breaking things"
+    }
+    p {
+        +"Jane Smith: The development process"
+    }
+    p {
+        +"Matt Miller: The Web 7.0"
+    }
+    h3 {
+        +"Videos watched"
+    }
+    p {
+        +"Tom Jerry: Mouseless development"
+    }
 }
 div {
-   h3 {
-       +"John Doe: Building and breaking things"
-   }
-   img {
-      attrs {
-          src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-      }
-   }
+    h3 {
+        +"John Doe: Building and breaking things"
+    }
+    img {
+       src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+    }
 }
 ```
 </tab>
 </tabs>
 
-Copy the Kotlin code and update the `render()` function call inside the `main()` function, replacing the previous `h1` tag.
+Copy the Kotlin code and update the `Fragment.create()` function call inside the `main()` function, replacing the previous `h1` tag.
 
 Wait for the browser to reload. The page should now look like this:
 
@@ -263,13 +268,13 @@ Replace the hardcoded list of videos with a list of Kotlin objects:
 
    ```kotlin
    val unwatchedVideos = listOf(
-       Video(1, "Building and breaking things", "John Doe", "https://youtu.be/PsaFVLr8t4E"),
-       Video(2, "The development process", "Jane Smith", "https://youtu.be/PsaFVLr8t4E"),
-       Video(3, "The Web 7.0", "Matt Miller", "https://youtu.be/PsaFVLr8t4E")
+       Video(1, "Opening Keynote", "Andrey Breslav", "https://youtu.be/PsaFVLr8t4E"),
+       Video(2, "Dissecting the stdlib", "Huyen Tue Dao", "https://youtu.be/Fzt_9I733Yg"),
+       Video(3, "Kotlin and Spring Boot", "Nicolas Frankel", "https://youtu.be/pSiZVAeReeg")
    )
    
    val watchedVideos = listOf(
-       Video(4, "Mouseless development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
+       Video(4, "Creating Internal DSLs in Kotlin", "Venkat Subramaniam", "https://youtu.be/JzTeAM8N1-o")
    )
    ```
 
@@ -277,17 +282,17 @@ Replace the hardcoded list of videos with a list of Kotlin objects:
 Replace the three `p` tags under "Videos to watch" with the following snippet:
 
    ```kotlin
-   for(video in unwatchedVideos) {
-      p {
-          +"${video.speaker}: ${video.title}"
-      }
+   for (video in unwatchedVideos) {
+       p {
+           +"${video.speaker}: ${video.title}"
+       }
    }
    ```
    
 4. Apply the same process to modify the code for the single tag following "Videos watched" as well:
 
    ```kotlin
-   for(video in watchedVideos) {
+   for (video in watchedVideos) {
        p {
            +"${video.speaker}: ${video.title}"
        }
@@ -299,44 +304,40 @@ sure that the loop is working.
 
 ### Add styles with typesafe CSS
 
-The [kotlin-styled](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-styled) library wraps the [styled-components](https://www.styled-components.com/)
-JavaScript library allowing to define styles [globally](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-styled/README.md#global-styles)
-or for individual elements of the DOM. Conceptually, that makes it similar to [CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) – but for Kotlin.
-The benefit of using a DSL is that you can use Kotlin code constructs to express formatting rules.
+The [kotlin-react-css](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-css) library allows specifying
+CSS attributes – even dynamic ones – right alongside HTML. Conceptually, that makes it similar to
+[CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) – but for Kotlin. The benefit of using a DSL is
+that you can use Kotlin code constructs to express formatting rules.
 
-The template project for this tutorial already includes everything for using `kotlin-styled`:
+The template project for this tutorial already includes everything for using `kotlin-react-css`:
 
 ```kotlin
 dependencies {
-   // ...
-   // Kotlin Styled
-   implementation("org.jetbrains.kotlin-wrappers:kotlin-styled:5.3.3-pre.264-kotlin-1.5.31")
-   implementation(npm("styled-components", "~5.3.3"))
-   // ...
+    // ...
+    // Kotlin React CSS
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-css:17.0.2-pre.298-kotlin-1.6.10")
+    // ...
 }
 ```
 
-Use styled HTML elements, like `styledDiv` or `styledH3`, instead of HTML elements, like `div` or `h3`, to specify a `css`
-block for defining styles.
+With `kotlin-react-css`, you can specify a `css` block inside HTML elements `div` and `h3`, where you can define the styles.
 
-To move the video player to the top right corner of the page, use `styledDiv` and adjust the code for the video player
+To move the video player to the top right corner of the page, use CSS and adjust the code for the video player
 (the last `div` in the snippet):
 
 ```kotlin
-styledDiv {
-   css {
-      position = Position.absolute
-      top = 10.px
-      right = 10.px
-   }
-   h3 {
-      +"John Doe: Building and breaking things"
-   }
-   img {
-      attrs {
-         src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-      }
-   }
+div {
+    css {
+        position = Position.absolute
+        top = 10.px
+        right = 10.px
+    }
+    h3 {
+        +"John Doe: Building and breaking things"
+    }
+    img {
+        src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+    }
 }
 ```
 
@@ -353,7 +354,7 @@ You build your application by combining these components, which
 can also be composed of other smaller components. If you structure components to be generic and reusable,
 you'll be able to use them in multiple parts of the application without duplicating code or logic.
 
-The content of the `render()` function already describes a basic component. The current layout of your application looks
+The content of the `render()` function generally describes a basic component. The current layout of your application looks
 like this:
 
 ![Current layout](current-layout.png){width=700}
@@ -368,37 +369,45 @@ understand.
 
 ### Add the main component
 
-Create the main component for rendering into the `root` element, the `app`:
+Create the main component for rendering into the `root` element, the `App`:
 
 1. Create a new `App.kt` file in the `src/main/kotlin` folder.
-2. Inside this file, add the following snippet, and move the typesafe HTML from `Main.kt` inside the snippet:
+2. Inside this file, add the following snippet, and move the typesafe HTML from `Main.kt` into the snippet:
 
    ```kotlin
    import kotlinx.coroutines.async
-   import kotlinx.css.*
    import react.*
    import react.dom.*
    import kotlinx.browser.window
    import kotlinx.coroutines.*
    import kotlinx.serialization.decodeFromString
    import kotlinx.serialization.json.Json
+   import react.css.css
+   import csstype.Position
+   import csstype.px
+   import react.dom.html.ReactHTML.h1
+   import react.dom.html.ReactHTML.h3
+   import react.dom.html.ReactHTML.div
+   import react.dom.html.ReactHTML.p
+   import react.dom.html.ReactHTML.img
    
-   val app = fc<Props> {
-       // typesafe HTML goes here!
+   val App = FC<Props> {
+       // typesafe HTML goes here, starting with the first h1 tag!
    }
    ```
    
-   The `fc()` function creates a [function component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
+   The `FC` function creates a [function component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
 
 3. In the `Main.kt` file, update the `main()` function as follows:
 
    ```kotlin
    fun main() {
-       render(document.getElementById("root")) {
-           child(app)
-       }
+       val container = document.getElementById("root") ?: error("Couldn't find root container!")
+       render(App.create(), container)
    }
    ```
+
+   Now the program creates an instance of the `App` component and renders it to the specified container.
 
 For more information on React concepts, see its [documentation and guides](https://reactjs.org/docs/hello-world.html#how-to-read-this-guide).
 
@@ -407,52 +416,53 @@ For more information on React concepts, see its [documentation and guides](https
 Since the `watchedVideos` and `unwatchedVideos` lists both contain a list of videos, it makes sense to create a single
 reusable component.
 
-The `videoList` component follows the same pattern as the `app` component. It uses the `fc()` builder function,
+The `VideoList` component follows the same pattern as the `App` component. It uses the `FC` builder function,
 and contains the code from the `unwatchedVideos` list.
 
 1. Create a new `VideoList.kt` file in the `src/main/kotlin` folder and add the following code:
 
    ```kotlin
-   import kotlinx.html.js.onClickFunction
    import kotlinx.browser.window
    import react.*
    import react.dom.*
    
-   val videoList = fc<Props> {
-      for (video in unwatchedVideos) {
-         p {
-            +"${video.speaker}: ${video.title}"
-         }
-      }
+   val VideoList = FC<Props> {
+       for (video in unwatchedVideos) {
+           p {
+               +"${video.speaker}: ${video.title}"
+           }
+       }
    }
    ```
 
-2. In `App.kt`, specify the `videoList` component by using the `child()` function:
+2. In `App.kt`, use the `VideoList` component by invoking the component without parameters:
 
    ```kotlin
    // . . .
    div {
-      h3 {
-         +"Videos to watch"
-      }
-      child(videoList)
+       h3 {
+           +"Videos to watch"
+       }
+       VideoList()
    
-      h3 {
-         +"Videos watched"
-      }
-      child(videoList)
+       h3 {
+           +"Videos watched"
+       }
+       VideoList()
    }
    // . . .
    ```
+   
+   For now, the `App` component has no control over the content that is shown by the `VideoList` component.
 
 ### Add props to pass data between components
 
-For reusing the `videoList` component, it should be possible to fill it with different content. You can add
+For reusing the `VideoList` component, it should be possible to fill it with different content. You can add
 the ability to pass the list of items as an attribute to the component. In React, these attributes are called _props_.
 When the props of a component are changed in React, the framework automatically re-renders the component. 
 
-For `videoList`, you'll need a prop containing the list of videos to be shown. Define an interface
-that holds all the props which can be passed to a `videoList` component:
+For `VideoList`, you'll need a prop containing the list of videos to be shown. Define an interface
+that holds all the props which can be passed to a `VideoList` component:
 
 1. Add the following definition to the `VideoList.kt` file:
 
@@ -464,15 +474,15 @@ that holds all the props which can be passed to a `videoList` component:
    The [external modifier](https://kotlinlang.org/docs/reference/js-interop.html#external-modifier) tells the compiler
 that the interface implementation is provided externally, so it doesn't try to generate any JavaScript code from the declaration.
 
-2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `fc()` block:
+2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `FC` block as a parameter::
 
    ```kotlin
-   val videoList = fc<VideoListProps> { props ->
+   val VideoList = FC<VideoListProps> { props ->
        for (video in props.videos) {
            p {
                key = video.id.toString()
                +"${video.speaker}: ${video.title}"
-          }
+           }
        }
    }
    ```
@@ -481,34 +491,31 @@ that the interface implementation is provided externally, so it doesn't try to g
 the key to determine which parts of a list need to refresh and which ones stay the same. You can find more information
 about lists and keys in the [React guide](https://reactjs.org/docs/lists-and-keys.html).
 
-3. In the `app` component, make sure that the child components are instantiated with proper attributes. In `App.kt`,
-replace the two loops underneath the `h3` elements with the respective attributes for `unwatchedVideos` and `watchedVideos`:
+3. In the `App` component, make sure that the child components are instantiated with proper attributes. In `App.kt`,
+replace the two loops underneath the `h3` elements with an invocation of `VideoList` together with the attributes for
+`unwatchedVideos` and `watchedVideos`. In the Kotlin DSL, you assign them inside a block belonging to the `VideoList` component:
 
    ```kotlin
-   child(videoList) {
-       attrs {
-           videos = unwatchedVideos // repeat with watchedVideos
-       }
+   VideoList {
+       videos = unwatchedVideos // repeat with watchedVideos
    }
    ```
 
-After a reload the browser will show that the lists render correctly now.
+After a reload, the browser will show that the lists render correctly now.
 
 ### Make the list interactive
 
-For start, add an alert message that pops up when users click on a list entry. In the code of `videoList`, add
-the `onClickFunction` handler that triggers an `alert` with the current video:
+For start, add an alert message that pops up when users click on a list entry. In the code of our `VideoList`, add an
+`onClick` handler function that triggers an alert with the current video:
 
 ```kotlin
 // . . .
 p {
-   key = video.id.toString()
-   attrs {
-      onClickFunction = {
-         window.alert("Clicked $video!")
-      }
-   }
-   +"${video.speaker}: ${video.title}"
+    key = video.id.toString()
+    onClick = {
+        window.alert("Clicked $video!")
+    }
+    +"${video.speaker}: ${video.title}"
 }
 // . . .
 ```
@@ -518,7 +525,7 @@ window:
 
 ![Browser alert window](alert-window.png){width=700}
 
-> Defining an `onClickFunction` directly as lambda is concise and very useful for prototyping. However, the way equality
+> Defining an `onClick` function directly as lambda is concise and very useful for prototyping. However, the way equality
 > [currently works](https://youtrack.jetbrains.com/issue/KT-15101) in Kotlin/JS is not the most performance-optimized way
 > of passing click handlers. If you want to optimize rendering performance, consider storing your functions in a variable
 > and passing them.
@@ -533,16 +540,16 @@ _state_ specific to this component.
 State is one of core concepts in React. In modern React (using the so-called _Hooks API_), state is expressed
 using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
-1. Add the following line of code to the top of the `videoList` declaration:
+1. Add the following line of code to the top of the `VideoList` declaration:
 
    ```kotlin
-   val videoList = fc<VideoListProps> { props ->
-      var selectedVideo: Video? by useState(null)
+   val VideoList = FC<VideoListProps> { props ->
+       var selectedVideo: Video? by useState(null)
    // . . .
    ```
    {validate="false"}
 
-   * The `videoList` functional component keeps state (a value that is independent of the current function invocation). The
+   * The `VideoList` functional component keeps state (a value that is independent of the current function invocation). The
    state is nullable, and of type `Video?`. Its default value is `null`.
    * The `useState()` function from React instructs the framework to keep track of state across multiple invocations
    of the function. For example, even though you specify a default value, React makes sure that the default value is only
@@ -553,25 +560,23 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
    To learn more about the State Hook, check out the [React documentation](https://reactjs.org/docs/hooks-state.html).
 
-2. Change your implementation of the `videoList` component to look as follows:
+2. Change your implementation of the `VideoList` component to look as follows:
 
    ```kotlin
-   val videoList = fc<VideoListProps> { props ->
-      var selectedVideo: Video? by useState(null)
-      for (video in props.videos) {
-         p {
-            key = video.id.toString()
-            attrs {
-               onClickFunction = {
-                  selectedVideo = video
+   val VideoList = FC<VideoListProps> { props ->
+       var selectedVideo: Video? by useState(null)
+       for (video in props.videos) {
+           p {
+               key = video.id.toString()
+               onClick = {
+                   selectedVideo = video
                }
-            }
-            if (video == selectedVideo) {
-               +"▶ "
-            }
-            +"${video.speaker}: ${video.title}"
-         }
-      }
+               if (video == selectedVideo) {
+                   +"▶ "
+               }
+               +"${video.speaker}: ${video.title}"
+           }
+       }
    }
    ```
 
@@ -607,21 +612,21 @@ If a component wants to change the state of a sibling component, it needs to do 
 At that point, the state also no longer belongs to any of the child components but to the overarching parent component.
 
 The process of migrating state from components to their parents is called _lifting state_. For your app, add `currentVideo`
-as state to the `app` component:
+as state to the `App` component:
 
-1. In `App.kt`, add the following to the top of the definition of the `app` component:
+1. In `App.kt`, add the following to the top of the definition of the `App` component:
 
    ```kotlin
-   val app = fc<Props> {
+   val App = FC<Props> {
        var currentVideo: Video? by useState(null)
        // . . .
    }
    ```
 
-   The`videoList` component does not need to keep track of the state anymore. It will receive the current video as a prop instead.
+   The `VideoList` component does not need to keep track of the state anymore. It will receive the current video as a prop instead.
 
-2. Remove the `useState()` call in `videoList`.
-3. Prepare the `videoList` component to receive the selected video as a prop. For that, expand the `VideoListProps`
+2. Remove the `useState()` call in `VideoList`.
+3. Prepare the `VideoList` component to receive the selected video as a prop. For that, expand the `VideoListProps`
 interface to contain the `selectedVideo`:
 
    ```kotlin
@@ -634,14 +639,14 @@ interface to contain the `selectedVideo`:
 4. Fix the condition for the triangle highlight to use `props` instead of `state`:
 
    ```kotlin
-   if(video == props.selectedVideo) {
+   if (video == props.selectedVideo) {
        +"▶ "
    }
    ```
 
 ### Pass handlers
 
-Now there's no way to assign a value to a prop, so the `onClickFunction` won't work the way it currently does. To change
+Now there's no way to assign a value to a prop, so the `onClick` function won't work the way it currently does. To change
 the state of a parent component, you need the state lifting again.
 
 In React, state always flows from parent to child. So, to change the _application_ state from one of the child components,
@@ -659,25 +664,23 @@ Remember that in Kotlin, variables can have the [type of a function](https://kot
    }
    ```
 
-2. In the `videoList` component, use the new prop in the `onClickFunction` handler:
+2. In the `VideoList` component, use the new prop in the `onClick` handler:
 
    ```kotlin
-   onClickFunction = {
+   onClick = {
        props.onSelectVideo(video)
    }
    ```
 
-3. You can now go back to the `app` component and pass the `selectedVideo` and a handler for `onSelectVideo`
+3. You can now go back to the `App` component and pass the `selectedVideo` and a handler for `onSelectVideo`
 for each of the two video lists:
 
    ```kotlin
-   child(videoList) {
-       attrs {
-           videos = unwatchedVideos
-           selectedVideo = currentVideo
-           onSelectVideo = { video ->
-               currentVideo = video
-           }
+   VideoList {
+   videos = unwatchedVideos // and watchedVideos respectively
+   selectedVideo = currentVideo
+   onSelectVideo = { video ->
+       currentVideo = video
        }
    }
    ```
@@ -698,54 +701,52 @@ You can now create another self-contained unit, a video player, that is currentl
 needs to know the talk title, the author of the talk, and the link to the video. This information is already contained
 in a `Video` object, so you can pass it as a prop and access its attributes.
 
-1. Create a new `VideoPlayer.kt` file and add the following implementation for the `videoPlayer` component:
+1. Create a new `VideoPlayer.kt` file and add the following implementation for the `VideoPlayer` component:
 
    ```kotlin
-   import kotlinx.css.*
-   import kotlinx.html.js.onClickFunction
+   import csstype.*
    import react.*
-   import react.dom.*
-   import styled.*
+   import react.css.css
+   import react.dom.html.ReactHTML.button
+   import react.dom.html.ReactHTML.div
+   import react.dom.html.ReactHTML.h3
+   import react.dom.html.ReactHTML.img
    
    external interface VideoPlayerProps : Props {
-      var video: Video
+       var video: Video
    }
    
-   val videoPlayer = fc<VideoPlayerProps> { props ->
-      styledDiv {
-         css {
-            position = Position.absolute
-            top = 10.px
-            right = 10.px
-         }
-         h3 {
-            +"${props.video.speaker}: ${props.video.title}"
-         }
-         img {
-            attrs {
-               src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
-            }
-         }
-      }
-   }
-   ```
-
-2. Because the `VideoPlayerProps` interface specifies that the `videoPlayer` component takes a non-null `Video`, make sure
-to handle this in the `app` component accordingly. 
-
-   In `App.kt`, replace the previous `styledDiv` snippet for the video player with the following:
-
-   ```kotlin
-   currentVideo?.let { curr ->
-       child(videoPlayer) {
-           attrs {
-               video = curr
+   val VideoPlayer = FC<VideoPlayerProps> { props ->
+       div {
+           css {
+               position = Position.absolute
+               top = 10.px
+               right = 10.px
+           }
+           h3 {
+               +"${props.video.speaker}: ${props.video.title}"
+           }
+           img {
+               src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"              
            }
        }
    }
    ```
 
-   The [`let` scope function](https://kotlinlang.org/docs/scope-functions.html#let), ensures that the `videoPlayer` component
+2. Because the `VideoPlayerProps` interface specifies that the `VideoPlayer` component takes a non-null `Video`, ensure
+to handle this in the `App` component accordingly. 
+
+   In `App.kt`, replace the previous `div` snippet for the video player with the following:
+
+   ```kotlin
+   currentVideo?.let { curr ->
+       VideoPlayer {
+           video = curr
+       }
+   }
+   ```
+
+   The [`let` scope function](https://kotlinlang.org/docs/scope-functions.html#let), ensures that the `VideoPlayer` component
    is only added when `state.currentVideo` is not null.
 
 Now clicking an entry in the list will bring up the video player and populate it with the information from the clicked entry.
@@ -756,7 +757,7 @@ To make it possible for users to mark a video as watched or unwatched and to mov
 add a button to the `VideoPlayer` component.
 
 Since this button will move videos between two different lists, the logic handling the state change needs to be _lifted_
-out of the `videoPlayer` and passed in from the parent as a prop. The button should look different based on whether the
+out of the `VideoPlayer` and passed in from the parent as a prop. The button should look different based on whether the
 video has been watched or not. This is also information you need to pass as a prop.
 
 1. Expand the `VideoPlayerProps` interface in `VideoPlayer.kt` to include properties for those two cases::
@@ -769,24 +770,21 @@ video has been watched or not. This is also information you need to pass as a pr
    }
    ```
 
-2. You can now add the button to the actual component. Copy the following snippet to the body of the `videoPlayer`
+2. You can now add the button to the actual component. Copy the following snippet to the body of the `VideoPlayer`
 component, between the `h3` and `img` tags:
 
    ```kotlin
-   styledButton {
+   button {
        css {
            display = Display.block
-           backgroundColor = if(props.unwatchedVideo) Color.lightGreen else Color.red
+           backgroundColor = if (props.unwatchedVideo) NamedColor.lightgreen else NamedColor.red
        }
-       attrs {
-           onClickFunction = {
-               props.onWatchedButtonPressed(props.video)
-           }
+       onClick = {
+           props.onWatchedButtonPressed(props.video)
        }
-       if(props.unwatchedVideo) {
+       if (props.unwatchedVideo) {
            +"Mark as watched"
-       }
-       else {
+       } else {
            +"Mark as unwatched"
        }
    }
@@ -795,47 +793,44 @@ component, between the `h3` and `img` tags:
 
 ### Move video lists to the application state
 
-Now it's time to adjust the `VideoPlayer` usage site in the `app` component. When the button is clicked, a video
+Now it's time to adjust the `VideoPlayer` usage site in the `App` component. When the button is clicked, a video
 should be moved from the unwatched list to the watched list or vice versa. Since these lists can now actually
 change, move them into the application state:
 
-1. In `App.kt`, add the following `useState()` calls to the top of the `app` component:
+1. In `App.kt`, add the following `useState()` calls to the top of the `App` component:
 
    ```kotlin
-   val app = fc<Props> {
+   val App = FC<Props> {
        var currentVideo: Video? by useState(null)
        var unwatchedVideos: List<Video> by useState(listOf(
-           Video(1, "Building and breaking things", "John Doe", "https://youtu.be/PsaFVLr8t4E"),
-           Video(2, "The development process", "Jane Smith", "https://youtu.be/PsaFVLr8t4E"),
-           Video(3, "The Web 7.0", "Matt Miller", "https://youtu.be/PsaFVLr8t4E")
+           Video(1, "Opening Keynote", "Andrey Breslav", "https://youtu.be/PsaFVLr8t4E"),
+           Video(2, "Dissecting the stdlib", "Huyen Tue Dao", "https://youtu.be/Fzt_9I733Yg"),
+           Video(3, "Kotlin and Spring Boot", "Nicolas Frankel", "https://youtu.be/pSiZVAeReeg")
        ))
        var watchedVideos: List<Video> by useState(listOf(
-           Video(4, "Mouseless development", "Tom Jerry", "https://youtu.be/PsaFVLr8t4E")
+           Video(4, "Creating Internal DSLs in Kotlin", "Venkat Subramaniam", "https://youtu.be/JzTeAM8N1-o")
        ))
        // . . .
    }
    ```
 
-2. Since all of the demo data is included in the default values for `watchedVideos` and `unwatchedVideos` directly,
+2. Since all the demo data is included in the default values for `watchedVideos` and `unwatchedVideos` directly,
 you no longer need the file-level declarations. In `Main.kt`, delete the declarations for `watchedVideos` and `unwatchedVideos`.
 
-3. Change the call-site for `videoPlayer` in the `app` component that belongs to the video player to look as follows:
+3. Change the call-site for `VideoPlayer` in the `App` component that belongs to the video player to look as follows:
 
    ```kotlin
-   child(videoPlayer) {
-       attrs {
-           video = curr
-           unwatchedVideo = curr in unwatchedVideos
-           onWatchedButtonPressed = {
-               if (video in unwatchedVideos) {
-                   unwatchedVideos = unwatchedVideos - video
-                   watchedVideos = watchedVideos + video
-               } else {
-                   watchedVideos = watchedVideos - video
-                   unwatchedVideos = unwatchedVideos + video
-               }
+   VideoPlayer {
+       video = curr
+       unwatchedVideo = curr in unwatchedVideos
+       onWatchedButtonPressed = {
+           if (video in unwatchedVideos) {
+               unwatchedVideos = unwatchedVideos - video
+               watchedVideos = watchedVideos + video
+           } else {
+               watchedVideos = watchedVideos - video
+               unwatchedVideos = unwatchedVideos + video
            }
-   
        }
    }
    ```
@@ -855,8 +850,8 @@ React has a rich ecosystem with a lot of pre-made components you can use instead
 
 ### Add the video player component
 
-To replace the placeholder video component with an actual YouTube player, use the [react-youtube-lite](https://www.npmjs.com/package/react-youtube-lite) package from npm.
-It can show video and control the appearance of the player.
+To replace the placeholder video component with an actual YouTube player, use the [react-youtube-lite](https://www.npmjs.com/package/react-youtube-lite)
+package from npm. It can show video and control the appearance of the player.
 
 For the component documentation and the API description, see its [README](https://www.npmjs.com/package/react-youtube-lite)
 in GitHub.
@@ -867,7 +862,7 @@ in GitHub.
    dependencies {
        // ...
        // Video Player
-       implementation(npm("react-youtube-lite", "1.1.0"))
+       implementation(npm("react-youtube-lite", "1.5.0"))
        // ...
    }
    ```
@@ -888,16 +883,16 @@ do so, it uses its own bundled installation of the [`yarn`](https://yarnpkg.com/
    import react.*
    
    @JsName("ReactYouTubeLite")
-   external val reactPlayer: ComponentClass<dynamic>
+   external val ReactPlayer: ComponentClass<dynamic>
    ```
 
-   When the compiler sees an external declaration like `reactPlayer`, it assumes that the implementation for the
+   When the compiler sees an external declaration like `ReactPlayer`, it assumes that the implementation for the
 corresponding class is provided by the dependency and doesn't generate code for it.
 
    The last two lines are equivalent to a JavaScript import like `require("react-youtube-lite").default;`. It tells
 the compiler that it's certain that there'll be a component conforming to `ComponentClass<dynamic>` at runtime.
 
-However, in this configuration, the generic type for the props accepted by `reactPlayer` is set to `dynamic`. That means
+However, in this configuration, the generic type for the props accepted by `ReactPlayer` is set to `dynamic`. That means
 the compiler will accept any code, at the risk of breaking things at runtime.
 
 A better alternative would be to create an `external interface`, which specifies what kind of properties belong to the
@@ -913,19 +908,19 @@ for the component — `react-youtube-lite` takes a prop called `url` of type `St
    import react.*
    
    @JsName("ReactYouTubeLite")
-   external val reactPlayer: ComponentClass<ReactYouTubeProps>
+   external val ReactPlayer: ComponentClass<ReactYouTubeProps>
    
    external interface ReactYouTubeProps : Props {
        var url: String
    }
    ```
 
-2. You can now use the new `reactPlayer` to replace the gray placeholder rectangle in the `videoPlayer` component. In
+2. You can now use the new `ReactPlayer` to replace the gray placeholder rectangle in the `VideoPlayer` component. In
 `VideoPlayer.kt`, replace the `img` tag with the following snippet:
 
    ```kotlin
-   reactPlayer {
-       attrs.url = props.video.videoUrl
+   ReactPlayer {
+       url = props.video.videoUrl
    }
    ```
 
@@ -945,8 +940,8 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
    }
    ```
 
-2. To use `react-share` from Kotlin, you'll need to write some basic external declarations. [Examples on GitHub](https://github.com/nygardk/react-share/blob/master/demo/Demo.jsx#L61)
-show that a share button consists of two react components: `EmailShareButton` and `EmailIcon`, for example. Different types
+2. To use `react-share` from Kotlin, you'll need to write some basic external declarations. [Examples on GitHub](https://github.com/nygardk/react-share/blob/master/demo/Demo.tsx#L61)
+show that a share button consists of two React components: `EmailShareButton` and `EmailIcon`, for example. Different types
 of share buttons and icons all have the same kind of interface.
    Creating the external declarations for each component happens the same way as you already did for the video player.
 
@@ -960,16 +955,16 @@ of share buttons and icons all have the same kind of interface.
    import react.Props
    
    @JsName("EmailIcon")
-   external val emailIcon: ComponentClass<IconProps>
+   external val EmailIcon: ComponentClass<IconProps>
    
    @JsName("EmailShareButton")
-   external val emailShareButton: ComponentClass<ShareButtonProps>
+   external val EmailShareButton: ComponentClass<ShareButtonProps>
    
    @JsName("TelegramIcon")
-   external val telegramIcon: ComponentClass<IconProps>
+   external val TelegramIcon: ComponentClass<IconProps>
    
    @JsName("TelegramShareButton")
-   external val telegramShareButton: ComponentClass<ShareButtonProps>
+   external val TelegramShareButton: ComponentClass<ShareButtonProps>
    
    external interface ShareButtonProps : Props {
        var url: String
@@ -981,28 +976,28 @@ of share buttons and icons all have the same kind of interface.
    }
    ```
 
-3. Add new components into the user interface of the application. In `VideoPlayer.kt`, add two share buttons in a `styledDiv`
-right above the usage of `reactPlayer`:
+3. Add new components into the user interface of the application. In `VideoPlayer.kt`, add two share buttons in a `div`
+right above the usage of `ReactPlayer`:
 
    ```kotlin
    // . . .
-   styledDiv {
+   div {
        css {
            display = Display.flex
            marginBottom = 10.px
        }
-       emailShareButton {
-           attrs.url = props.video.videoUrl
-           emailIcon {
-               attrs.size = 32
-               attrs.round = true
+       EmailShareButton {
+           url = props.video.videoUrl
+           EmailIcon {
+               size = 32
+               round = true
            }
        }
-       telegramShareButton {
-           attrs.url = props.video.videoUrl
-           telegramIcon {
-               attrs.size = 32
-               attrs.round = true
+       TelegramShareButton {
+           url = props.video.videoUrl
+           TelegramIcon {
+               size = 32
+               round = true
            }
        }
    }
@@ -1049,7 +1044,7 @@ Check the `build.gradle(.kts)` file. The relevant snippet should already exist:
 dependencies {
     // . . .
     // Coroutines & serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
 }
 ```
 
@@ -1066,13 +1061,13 @@ types of conversions: from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "1.5.31"
+       kotlin("plugin.serialization") version "1.6.10"
    }
    
    dependencies {
        // . . .
        // Serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
    }
    ```
 
@@ -1108,7 +1103,7 @@ suspend fun fetchVideo(id: Int): Video {
 the result. Next, `text()`, which uses a callback, reads the body from the response. Then you `await()` for it to complete as well.
 * Before returning the value of the function, you pass it to `Json.decodeFromString`, a function from `kotlinx.coroutines`.
 It converts the JSON text you received from the request into a Kotlin object with the appropriate fields.
-* A function call like `window.fetch` returns a `Promise` object. You would have to define a callback handler that gets
+* The `window.fetch` function call returns a `Promise` object. You would have to define a callback handler that gets
 invoked once the `Promise` is resolved and a result is available. However, with coroutines, you can `await()` those promises.
 Whenever a function like `await()` is called, the method stops (suspends) its execution. It continues execution once
 the `Promise` can be resolved.
@@ -1133,22 +1128,22 @@ functionality provided by Kotlin's coroutines:
    the implementation is wrapped in a `coroutineScope`. You can then start 25 asynchronous tasks (one per request) and wait
    for all of them to complete.
 
-2. You can now add the data to your application. Add the definition for a `mainScope`, and change your `app` component
-to start with the following snippet. Don't forget to replace demo values with `emptyLists` as well:
+2. You can now add the data to your application. Add the definition for a `mainScope`, and change your `App` component
+to start with the following snippet. Don't forget to replace demo values with `emptyLists` instances as well:
 
    ```kotlin
    val mainScope = MainScope()
    
-   val app = fc<Props> {
-      var currentVideo: Video? by useState(null)
-      var unwatchedVideos: List<Video> by useState(emptyList())
-      var watchedVideos: List<Video> by useState(emptyList())
+   val App = FC<Props> {
+       var currentVideo: Video? by useState(null)
+       var unwatchedVideos: List<Video> by useState(emptyList())
+       var watchedVideos: List<Video> by useState(emptyList())
    
-      useEffectOnce {
-         mainScope.launch {
-            unwatchedVideos = fetchVideos()
-         }
-      }
+       useEffectOnce {
+           mainScope.launch {
+               unwatchedVideos = fetchVideos()
+           }
+       }
    // . . .
    ```
    {validate="false"}
@@ -1164,10 +1159,10 @@ Check your browser. The application should show actual data:
 
 When you load the page:
 
-* The code of the `app` component will be invoked. This starts the code in the `useEffectOnce` block.
-* The `app` component is rendered with empty lists for the watched and unwatched videos.
-* When the API requests finish, the `useEffectOnce` block assigns it to the state of the `app` component. This triggers a re-render.
-* The code of the `app` component will be invoked again, but the `useEffectOnce` block _will not_ run for a second time.
+* The code of the `App` component will be invoked. This starts the code in the `useEffectOnce` block.
+* The `App` component is rendered with empty lists for the watched and unwatched videos.
+* When the API requests finish, the `useEffectOnce` block assigns it to the state of the `App` component. This triggers a re-render.
+* The code of the `App` component will be invoked again, but the `useEffectOnce` block _will not_ run for a second time.
 
 If you want to get an in-depth understanding of how coroutines work, check this [hands-on on coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/).
 
