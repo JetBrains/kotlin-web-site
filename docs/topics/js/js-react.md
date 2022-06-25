@@ -36,11 +36,11 @@ concepts behind React may help understand some sample code but is not strictly r
        implementation(npm("react-dom", "17.0.2"))
    
        // Kotlin Styled
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-css:17.0.2-pre.298-kotlin-1.6.10")
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:11.8.2-pre.325-kotlin-1.6.10")
        implementation(npm("styled-components", "~5.3.3"))
    
        // Video Player
-       implementation(npm("react-youtube-lite", "1.5.0"))
+       implementation(npm("react-lite-youtube-embed", "2.2.2"))
    
        // Share Buttons
        implementation(npm("react-share", "4.4.0"))
@@ -51,7 +51,7 @@ concepts behind React may help understand some sample code but is not strictly r
    }
    ```
 
-   * An HTML template page in `/src/main/resources/index.html` for inserting the HTML code:
+   * An HTML template page in `src/main/resources/index.html` for inserting the HTML code:
 
    ```html
    <!doctype html>
@@ -164,7 +164,7 @@ fun main() {
 
 * The `render()` function instructs [kotlin-react-dom](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-dom)
   to render a first HTML element inside a [fragment](https://reactjs.org/docs/fragments.html) to the `#root` element.
-  This element is a container defined in `/src/main/resources/index.html`, which was included in the template.
+  This element is a container defined in `src/main/resources/index.html`, which was included in the template.
 * The content is an `<h1>` header and uses a typesafe DSL to render HTML.
 * `h1` is a function that takes a lambda parameter. When you add the `+` sign in front of the string literal,
   the `unaryPlus()` function is actually invoked using [operator overloading](https://kotlinlang.org/docs/reference/operator-overloading.html).
@@ -203,7 +203,7 @@ Compare classic HTML code for the future website and its typesafe variant in Kot
 ```
 
 </tab>
-<tab>
+<tab title="Kotlin">
 
 ```kotlin
 h1 {
@@ -238,6 +238,7 @@ div {
     }
 }
 ```
+
 </tab>
 </tabs>
 
@@ -382,7 +383,7 @@ Create the main component for rendering into the `root` element, the `App`:
    import kotlinx.coroutines.*
    import kotlinx.serialization.decodeFromString
    import kotlinx.serialization.json.Json
-   import react.css.css
+   import emotion.react.css
    import csstype.Position
    import csstype.px
    import react.dom.html.ReactHTML.h1
@@ -474,7 +475,7 @@ that holds all the props which can be passed to a `VideoList` component:
    The [external modifier](https://kotlinlang.org/docs/reference/js-interop.html#external-modifier) tells the compiler
 that the interface implementation is provided externally, so it doesn't try to generate any JavaScript code from the declaration.
 
-2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `FC` block as a parameter::
+2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `FC` block as a parameter:
 
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
@@ -493,11 +494,21 @@ about lists and keys in the [React guide](https://reactjs.org/docs/lists-and-key
 
 3. In the `App` component, make sure that the child components are instantiated with proper attributes. In `App.kt`,
 replace the two loops underneath the `h3` elements with an invocation of `VideoList` together with the attributes for
-`unwatchedVideos` and `watchedVideos`. In the Kotlin DSL, you assign them inside a block belonging to the `VideoList` component:
+`unwatchedVideos` and `watchedVideos`.
+   In the Kotlin DSL, you assign them inside a block belonging to the `VideoList` component:
 
    ```kotlin
+   h3 {
+       +"Videos to watch"
+   }
    VideoList {
-       videos = unwatchedVideos // repeat with watchedVideos
+       videos = unwatchedVideos
+   }
+   h3 {
+       +"Videos watched"
+   }
+   VideoList {
+       videos = watchedVideos
    }
    ```
 
@@ -505,7 +516,7 @@ After a reload, the browser will show that the lists render correctly now.
 
 ### Make the list interactive
 
-For start, add an alert message that pops up when users click on a list entry. In the code of our `VideoList`, add an
+For start, add an alert message that pops up when users click on a list entry. In `VideoList.kt`, add an
 `onClick` handler function that triggers an alert with the current video:
 
 ```kotlin
@@ -625,7 +636,7 @@ as state to the `App` component:
 
    The `VideoList` component does not need to keep track of the state anymore. It will receive the current video as a prop instead.
 
-2. Remove the `useState()` call in `VideoList`.
+2. Remove the `useState()` call in `VideoList.kt`.
 3. Prepare the `VideoList` component to receive the selected video as a prop. For that, expand the `VideoListProps`
 interface to contain the `selectedVideo`:
 
@@ -677,10 +688,10 @@ for each of the two video lists:
 
    ```kotlin
    VideoList {
-   videos = unwatchedVideos // and watchedVideos respectively
-   selectedVideo = currentVideo
-   onSelectVideo = { video ->
-       currentVideo = video
+       videos = unwatchedVideos // and watchedVideos respectively
+       selectedVideo = currentVideo
+       onSelectVideo = { video ->
+           currentVideo = video
        }
    }
    ```
@@ -706,7 +717,7 @@ in a `Video` object, so you can pass it as a prop and access its attributes.
    ```kotlin
    import csstype.*
    import react.*
-   import react.css.css
+   import emotion.react.css
    import react.dom.html.ReactHTML.button
    import react.dom.html.ReactHTML.div
    import react.dom.html.ReactHTML.h3
@@ -760,7 +771,7 @@ Since this button will move videos between two different lists, the logic handli
 out of the `VideoPlayer` and passed in from the parent as a prop. The button should look different based on whether the
 video has been watched or not. This is also information you need to pass as a prop.
 
-1. Expand the `VideoPlayerProps` interface in `VideoPlayer.kt` to include properties for those two cases::
+1. Expand the `VideoPlayerProps` interface in `VideoPlayer.kt` to include properties for those two cases:
 
    ```kotlin
    external interface VideoPlayerProps : Props {
@@ -850,19 +861,19 @@ React has a rich ecosystem with a lot of pre-made components you can use instead
 
 ### Add the video player component
 
-To replace the placeholder video component with an actual YouTube player, use the [react-youtube-lite](https://www.npmjs.com/package/react-youtube-lite)
+To replace the placeholder video component with an actual YouTube player, use the [react-lite-youtube-embed](https://www.npmjs.com/package/react-lite-youtube-embed)
 package from npm. It can show video and control the appearance of the player.
 
-For the component documentation and the API description, see its [README](https://www.npmjs.com/package/react-youtube-lite)
+For the component documentation and the API description, see its [README](https://www.npmjs.com/package/react-lite-youtube-embed)
 in GitHub.
 
-1. Check the `build.gradle(.kts)` file. The `react-youtube-lite` package should be already included:
+1. Check the `build.gradle(.kts)` file. The `react-lite-youtube-embed` package should be already included:
 
    ```kotlin
    dependencies {
        // ...
        // Video Player
-       implementation(npm("react-youtube-lite", "1.5.0"))
+       implementation(npm("react-lite-youtube-embed", "2.2.2"))
        // ...
    }
    ```
@@ -877,7 +888,7 @@ do so, it uses its own bundled installation of the [`yarn`](https://yarnpkg.com/
    Create a new `ReactYouTube.kt` file and add the following content:
 
    ```kotlin
-   @file:JsModule("react-youtube-lite")
+   @file:JsModule("react-lite-youtube-embed")
    @file:JsNonModule
    
    import react.*
@@ -889,20 +900,20 @@ do so, it uses its own bundled installation of the [`yarn`](https://yarnpkg.com/
    When the compiler sees an external declaration like `ReactPlayer`, it assumes that the implementation for the
 corresponding class is provided by the dependency and doesn't generate code for it.
 
-   The last two lines are equivalent to a JavaScript import like `require("react-youtube-lite").default;`. It tells
+   The last two lines are equivalent to a JavaScript import like `require("react-lite-youtube-embed").default;`. It tells
 the compiler that it's certain that there'll be a component conforming to `ComponentClass<dynamic>` at runtime.
 
 However, in this configuration, the generic type for the props accepted by `ReactPlayer` is set to `dynamic`. That means
 the compiler will accept any code, at the risk of breaking things at runtime.
 
 A better alternative would be to create an `external interface`, which specifies what kind of properties belong to the
-props for this external component. You can infer the props interface based on the [README](https://www.npmjs.com/package/react-youtube-lite)
-for the component — `react-youtube-lite` takes a prop called `url` of type `String`:
+props for this external component. You can infer the props interface based on the [README](https://www.npmjs.com/package/react-lite-youtube-embed)
+for the component — `react-lite-youtube-embed` takes a prop called `url` of type `String`:
 
 1. Adjust the content of `ReactPlayer.kt` accordingly:
 
    ```kotlin
-   @file:JsModule("react-youtube-lite")
+   @file:JsModule("react-lite-youtube-embed")
    @file:JsNonModule
    
    import react.*
@@ -983,9 +994,10 @@ right above the usage of `ReactPlayer`:
    // . . .
    div {
        css {
-           display = Display.flex
-           marginBottom = 10.px
-       }
+            position = Position.absolute
+            top = 10.px
+            right = 10.px
+        }
        EmailShareButton {
            url = props.video.videoUrl
            EmailIcon {
