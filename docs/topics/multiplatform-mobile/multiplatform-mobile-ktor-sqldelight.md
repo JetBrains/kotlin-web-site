@@ -21,9 +21,11 @@ You will use the following multiplatform libraries in the project:
 * [SQLDelight](https://github.com/cashapp/sqldelight) to generate the Kotlin code from SQL queries to create a type-safe
   database API
 
-You can find the [template project](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage) as well as the
-source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final) on
-the corresponding GitHub repository.
+> You can find the [template project](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage) as well as the
+> source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final) on
+> the corresponding GitHub repository.
+>
+{type="note"}
 
 ## Before you start
 
@@ -42,12 +44,12 @@ For more details, see the [Set up the environment](multiplatform-mobile-setup.md
 
    ![Kotlin Multiplatform Mobile plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
 
-2. Specify a name for your first application, and click **Next**.
-3. Select **Regular framework** in the iOS framework distribution options list.
-4. Keep all other options default. Click **Finish**.
+2. Name your application and click **Next**.
+3. Select **Regular framework** in the list of **iOS framework distribution** options.
 
    ![Kotlin Multiplatform Mobile plugin wizard. Final step](multiplatform-mobile-project-wizard-3.png){width=700}
 
+4. Keep all other options default. Click **Finish**.
 5. To view the complete structure of the multiplatform mobile project, switch the view from **Android** to **Project**.
 
    ![Project view](select-project-view.png){width=200}
@@ -66,7 +68,7 @@ libraries to the `dependencies` block of the relevant source sets in the `build.
 
 Also, both `kotlinx.serialization` and SQLDelight libraries require additional configurations.
 
-1. In the **shared** directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
+1. In the `shared` directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
 
     ```kotlin
     val coroutinesVersion = "%coroutinesVersion%"
@@ -104,7 +106,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     * In addition, Ktor needs the serialization [feature](https://ktor.io/docs/serialization-client.html) to use
       `kotlinx.serialization` for processing network requests and responses.
 
-2. At the very beginning of the `build.gradle.kts` file in the same **shared** directory, add the following lines to the
+2. At the very beginning of the `build.gradle.kts` file in the same `shared` directory, add the following lines to the
    `plugins` block:
 
    ```kotlin
@@ -133,7 +135,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 4. Finally, define the SQLDelight version in the `gradle.properties` file in the project _root directory_ to ensure that
    the SQLDelight versions of the plugin and the libraries are the same:
 
-    ```
+    ```properties
     sqlDelightVersion=%sqlDelightVersion%
     ```
 
@@ -181,7 +183,7 @@ to declare properties in data classes with more easily readable names.
 The SQLDelight library allows generating a type-safe Kotlin database API from SQL queries. During compilation, the
 generator validates the SQL queries and turns them into Kotlin code that can be used in the shared module.
 
-The library is already in the project. To configure it, in the **shared** directory, add the `sqldelight` block, which
+The library is already in the project. To configure it, in the `shared` directory, add the `sqldelight` block, which
 will contain a list of databases and their parameters, to the end of the `build.gradle.kts` file:
 
 ```kotlin
@@ -267,7 +269,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
    LEFT JOIN Rocket ON Rocket.id == Launch.rocketId;
    ```
 
-When the project is compiled, the generated Kotlin code will be stored in the `/shared/build/generated/sqldelight`
+When the project is compiled, the generated Kotlin code will be stored in the `shared/build/generated/sqldelight`
 directory. The generator will create an interface named `AppDatabase`, as specified in `build.gradle.kts`.
 
 ### Create platform database drivers
@@ -484,14 +486,14 @@ Create a class that will connect the application to the API:
    import kotlinx.serialization.json.Json
 
    class SpaceXApi {
-      private val httpClient = HttpClient {
-          install(ContentNegotiation) {
-              json(Json {
-                  ignoreUnknownKeys = true
-                  useAlternativeNames = false
-              })
-          }
-      }
+       private val httpClient = HttpClient {
+           install(ContentNegotiation) {
+               json(Json {
+                   ignoreUnknownKeys = true
+                   useAlternativeNames = false
+               })
+           }
+       }
    }
    ```
 
@@ -610,7 +612,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("androidx.cardview:cardview:1.0.0")
 }
 // ...
@@ -618,9 +619,10 @@ dependencies {
 
 ### Implement the UI: display the list of rocket launches
 
-1. To implement the UI, modify `activity_main.xml` in `androidApp/src/main/res/layout`. The screen is based on
-   the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView` and `FrameLayout` with
-   a background with `ProgressBar`across its center:
+1. To implement the UI, modify `activity_main.xml` in `androidApp/src/main/res/layout`.
+
+   The screen is based on the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView`
+   and `FrameLayout` with a background with `ProgressBar`across its center:
 
    ```xml
    ```
@@ -688,13 +690,13 @@ dependencies {
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
    <resources>
-      <color name="colorPrimary">#37474f</color>
-      <color name="colorPrimaryDark">#102027</color>
-      <color name="colorAccent">#62727b</color>
+       <color name="colorPrimary">#37474f</color>
+       <color name="colorPrimaryDark">#102027</color>
+       <color name="colorAccent">#62727b</color>
    
-      <color name="colorSuccessful">#4BB543</color>
-      <color name="colorUnsuccessful">#FC100D</color>
-      <color name="colorNoData">#615F5F</color>
+       <color name="colorSuccessful">#4BB543</color>
+       <color name="colorUnsuccessful">#FC100D</color>
+       <color name="colorNoData">#615F5F</color>
    </resources>
    ```
 
@@ -722,13 +724,13 @@ dependencies {
 
    ```xml
    <resources>
-      <!-- Base application theme. -->
-      <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-         <!-- Customize your theme here. -->
-         <item name="colorPrimary">@color/colorPrimary</item>
-         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-         <item name="colorAccent">@color/colorAccent</item>
-      </style>
+       <!-- Base application theme. -->
+       <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+           <!-- Customize your theme here. -->
+           <item name="colorPrimary">@color/colorPrimary</item>
+           <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+           <item name="colorAccent">@color/colorAccent</item>
+       </style>
    </resources>
    ```
 
@@ -741,30 +743,30 @@ dependencies {
    class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
        // ...
        inner class LaunchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-          private val missionNameTextView = itemView.findViewById<TextView>(R.id.missionName)
-          private val launchYearTextView = itemView.findViewById<TextView>(R.id.launchYear)
-          private val launchSuccessTextView = itemView.findViewById<TextView>(R.id.launchSuccess)
-          private val missionDetailsTextView = itemView.findViewById<TextView>(R.id.details)
+           private val missionNameTextView = itemView.findViewById<TextView>(R.id.missionName)
+           private val launchYearTextView = itemView.findViewById<TextView>(R.id.launchYear)
+           private val launchSuccessTextView = itemView.findViewById<TextView>(R.id.launchSuccess)
+           private val missionDetailsTextView = itemView.findViewById<TextView>(R.id.details)
 
-          fun bindData(launch: RocketLaunch) {
-              val ctx = itemView.context
-              missionNameTextView.text = ctx.getString(R.string.mission_name_field, launch.missionName)
-              launchYearTextView.text = ctx.getString(R.string.launch_year_field, launch.launchYear.toString())
-              missionDetailsTextView.text = ctx.getString(R.string.details_field, launch.details ?: "")
-              val launchSuccess = launch.launchSuccess
-              if (launchSuccess != null ) {
-                  if (launchSuccess) {
-                      launchSuccessTextView.text = ctx.getString(R.string.successful)
-                      launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorSuccessful)))
-                  } else {
-                      launchSuccessTextView.text = ctx.getString(R.string.unsuccessful)
-                      launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorUnsuccessful)))
-                  }
-              } else {
-                  launchSuccessTextView.text = ctx.getString(R.string.no_data)
-                  launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorNoData)))
-              }
-          }
+           fun bindData(launch: RocketLaunch) {
+               val ctx = itemView.context
+               missionNameTextView.text = ctx.getString(R.string.mission_name_field, launch.missionName)
+               launchYearTextView.text = ctx.getString(R.string.launch_year_field, launch.launchYear.toString())
+               missionDetailsTextView.text = ctx.getString(R.string.details_field, launch.details ?: "")
+               val launchSuccess = launch.launchSuccess
+               if (launchSuccess != null ) {
+                   if (launchSuccess) {
+                       launchSuccessTextView.text = ctx.getString(R.string.successful)
+                       launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorSuccessful)))
+                   } else {
+                       launchSuccessTextView.text = ctx.getString(R.string.unsuccessful)
+                       launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorUnsuccessful)))
+                   }
+               } else {
+                   launchSuccessTextView.text = ctx.getString(R.string.no_data)
+                   launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorNoData)))
+               }
+           }
        }
    }
    ```
