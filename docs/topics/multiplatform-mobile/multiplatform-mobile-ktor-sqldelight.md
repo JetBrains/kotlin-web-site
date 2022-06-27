@@ -212,8 +212,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
    code to the `AppDatabase.sq` file:
 
    ```text
-   CREATE TABLE Launch
-   (
+   CREATE TABLE Launch (
        flightNumber    INTEGER NOT NULL,
        missionName     TEXT    NOT NULL,
        launchYear      INTEGER AS Int NOT NULL DEFAULT 0,
@@ -225,8 +224,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
        articleUrl      TEXT
    );
    
-   CREATE TABLE Rocket
-   (
+   CREATE TABLE Rocket (
        id   TEXT NOT NULL PRIMARY KEY,
        name TEXT NOT NULL,
        type TEXT NOT NULL
@@ -854,12 +852,11 @@ module.
 
 # Create the iOS application
 
-For the iOS part of the project, you'll need SwiftUI to build the user interface and the MVVM pattern to connect the UI
-to the shared module, which contains all the business logic. The shared module is already connected to the iOS project —
-the Android Studio plugin wizard did all the configuration. You can import it the same way as with regular iOS
-dependencies: `import shared`.
+For the iOS part of the project, you'll make use of [SwiftUI](https://developer.apple.com/xcode/swiftui/) to build the user
+interface and the "Model View View-Model" pattern to connect the UI to the shared module, which contains all the business logic.
 
-So all it's left to do now is implement the SwiftUI views and fill them with the data.
+The shared module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration.
+You can import it the same way as with regular iOS dependencies: `import shared`.
 
 ### Implement the UI
 
@@ -929,7 +926,8 @@ data.
    }
    ```
 
-    * To connect the `ContentView.ViewModel` with the`ContentView`, use **Combine**.
+    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
+      with the view (ContentView).
     * `ContentView.ViewModel` is declared as an `ObservableObject` and `@Published` wrapper is used for the `launches`
       property, so the view model will emit signals whenever this property changes.
 
