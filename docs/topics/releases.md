@@ -45,6 +45,28 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
 
 <table>
     <tr>
+        <td><strong>1.7.10</strong>
+            <p>Released: <strong>June 27, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.7.0.</p>
+            <p>Learn more about <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Kotlin 1.7.0</a>.</p>
+        </td>
+         <td>
+            <ul>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.2" target="_blank">1.6.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank">kotlinx.atomicfu</a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.17.1" target="_blank">0.17.1</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-datetime" target="_blank"><strong>kotlinx-datetime</strong></a> version: <a href="https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.3.3" target="_blank">0.3.3</a></li>
+                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.2" target="_blank">2.0.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank">kotlinx.html</a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.5" target="_blank">0.7.5</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
+            </ul>
+            <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <th>Build info</th>
         <th>Build highlights</th>
         <th>Recommended kotlinx library versions</th>
@@ -69,7 +91,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.2" target="_blank">1.6.2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank">kotlinx.atomicfu</a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.17.1" target="_blank">0.17.1</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx-datetime" target="_blank"><strong>kotlinx-datetime</strong></a> version: <a href="https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.3.3" target="_blank">0.3.3</a></li>
-                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.0-beta-1" target="_blank">2.0.0-beta-1</a></li>
+                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.2" target="_blank">2.0.2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank">kotlinx.html</a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.5" target="_blank">0.7.5</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
             </ul>
