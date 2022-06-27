@@ -1,6 +1,6 @@
 [//]: # (title: Set up environment)
 
-Before you create your first application that works on both iOS and Android, prepare an environment for Kotlin Multiplatform
+Before you create your first application that works both on iOS and Android, set up an environment for Kotlin Multiplatform
 Mobile development.
 
 > To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
@@ -27,7 +27,7 @@ We recommend that you install the latest stable versions for compatibility and b
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
-        <td>To check if it's installed, in the terminal, run the following command: <code style="block"
+        <td>To check if it's installed, in the Android Studio terminal or your command-line tool, run the following command: <code style="block"
             lang="bash">java -version</code></td>
    </tr>
    <tr>
@@ -42,11 +42,9 @@ We recommend that you install the latest stable versions for compatibility and b
    <tr>
         <td><a href="https://cocoapods.org/">CocoaPods</a></td>
         <td><p>CocoaPods is useful for adding iOS dependencies (you'll make use of them in later steps). CocoaPods is built with Ruby; you can install it with the default Ruby available on macOS.</p>
-            <p>In the terminal, run the following commands:</p>
+            <p>In the Android Studio terminal or your command-line tool, run the following commands:</p>
             <p><code style="block"
                lang="ruby" prompt="$">sudo gem install cocoapods</code></p>
-            <p><code style="block"
-               lang="ruby" prompt="$">sudo gem install cocoapods-generate</code></p>
          </td>
    </tr>
 </table>
@@ -59,7 +57,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
 >
 {type="note"}
 
-1. In the terminal, run the following command to install the tool using Homebrew:
+1. In the Android Studio terminal or your command-line tool, run the following command to install the tool using Homebrew:
 
     ```bash
     brew install kdoctor
@@ -73,11 +71,10 @@ To make sure everything works as expected, install and run the KDoctor tool:
     kdoctor
     ```
 
-3. When the process is finished, you'll see a report. If KDoctor has diagnosed problems while checking your environment,
-   review the output for issues and possible solutions:
+3. If KDoctor has diagnosed problems while checking your environment, review the output for issues and possible solutions:
 
-   * Fix failed checks ([x]). You can find problem description and potential solution after the `*` symbol.
-   * Check warnings ([!]) and successful messages ([v]). They may contain useful notes and tips as well.
+   * Fix failed checks (`[x]`). You can find problem description and potential solution after the `*` symbol.
+   * Check warnings (`[!]`) and successful messages (`[v]`). They may contain useful notes and tips as well.
 
 ## Possible issues and solutions
 
@@ -114,13 +111,8 @@ To make sure everything works as expected, install and run the KDoctor tool:
          </list>
    </def>
    <def title="CocoaPods">
-        <p>Make sure you have all the necessary tools installed:</p>
-         <list>
-            <ul>
-               <li><a href="https://guides.cocoapods.org/using/getting-started.html#installation">The CocoaPods dependency manager</a></li>
-               <li><a href="https://github.com/square/cocoapods-generate#installation">The <code>cocoapods-generate</code> plugin</a></li>
-            </ul>
-         </list>
+        <p>Make sure you have the <a href="https://guides.cocoapods.org/using/getting-started.html#installation">CocoaPods dependency manager</a> installed.</p>
+         <note><p>We recommend to use the latest Kotlin version. However, if you have Kotlin prior to version 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate#installation"><code>cocoapods-generate</code> plugin</a>.</p></note>
          <p>If you don't have Ruby installed on your device or have issues with CocoaPods installation, use these guides:</p>
          <list>
             <ul>
@@ -134,11 +126,11 @@ To make sure everything works as expected, install and run the KDoctor tool:
          <list>
             <p>Make sure you have all the necessary tools installed:</p>
             <ul>
-               <li><code>command not found: brew</code> —  <a href="https://brew.sh/">install Homebrew</a>.</li>
+               <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
                <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
                <li>
                   <p><code>command not found: gem</code> — RubyGems come built-in with Ruby 1.9 and later. Ruby should be available on macOS by default.</p>
-                  <p>If you don't have Ruby on your device, <a href="https://www.ruby-lang.org/en/documentation/installation/">installing it</a>. You can get the RubyGems package management on the <a href="https://rubygems.org/pages/download/">official website</a>.</p>
+                  <p>If you don't have Ruby, follow <a href="https://www.ruby-lang.org/en/documentation/installation/">this guide</a> to install it. You can get the RubyGems package management on the <a href="https://rubygems.org/pages/download/">official website</a>.</p>
                </li>
             </ul>
          </list>

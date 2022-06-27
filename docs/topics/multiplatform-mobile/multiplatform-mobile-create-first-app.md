@@ -13,7 +13,7 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 >
 {type="tip"}
 
-1. In Android Studio, select **File** | **New** | **New Project**.
+1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
     ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png)
@@ -22,15 +22,16 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 
     ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
-4. In the list of iOS framework distribution options, select **Regular framework**.
+4. In the **iOS framework distribution** list, select **Regular framework**.
+
+   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
-    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
-    
 Wait for the project to set up. It may take some time to download and set up the required components when you 
 do this for the first time.
 
-## Check the project structure
+## Examine the project structure
 
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
 
@@ -38,15 +39,17 @@ To view the complete structure of your mobile multiplatform project, switch the 
 
 Your Kotlin Mobile Multiplatform project consists of three components:
 
-* _Shared module_ – a Kotlin module that contains common logic for both Android and iOS applications.
-  Builds into an Android library and an iOS framework. Uses Gradle as a build system.
-* _Android application_ – a Kotlin module that builds into the Android application. Uses Gradle as a build system.
-* _iOS application_ – an Xcode project that builds into the iOS application.
+* _Shared module_ is a Kotlin module that contains common logic for both Android and iOS applications. It builds into an
+Android library and an iOS framework. Uses Gradle as a build system that helps you automate your building process.
+* _Android application_ is a Kotlin module that builds into an Android application. It uses [Gradle](gradle.md) as a build system.
+* _iOS application_ is an Xcode project that builds into an iOS application.
 
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
 
-This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
-Real-life projects can have more complex structure.
+> This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android
+> Studio. Real-life projects can have more complex structure.
+>
+{type="note"}
     
 ## Run your application 
 
@@ -136,7 +139,8 @@ If you want to run your application on another simulated device, you can add a n
 
 ## Next step
 
-Go on and [add dependencies to your project](multiplatform-mobile-dependencies.md).
+Go on and [learn about dependencies and add a third-party library to your project](multiplatform-mobile-dependencies.md)
+to expand its functionality.
 
 ### See also
 
