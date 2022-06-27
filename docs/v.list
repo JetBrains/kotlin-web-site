@@ -40,7 +40,7 @@
 
     <var name="kspSupportedKotlinVersion" value="1.6.10" type="string"/>
 
-    <var name="kspVersion" value="1.0.2" type="string"/>
+    <var name="kspVersion" value="1.0.6" type="string"/>
 
     <var name="ktorVersion" value="2.0.0-beta-1" type="string"/>
 
