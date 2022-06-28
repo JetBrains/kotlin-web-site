@@ -290,11 +290,13 @@
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
         </toc-element>
-        <toc-element toc-title="IntelliJ IDEA" >
-            <toc-element id="code-style-migration-guide.md"/>
+        <toc-element toc-title="IDEs">
+            <toc-element toc-title="Overview" id="ide-overview.md"/>
+            <toc-element id="intellij-idea.md"/>
+            <toc-element toc-title="Android Studio" href="https://developer.android.com/studio"/>
+            <toc-element id="eclipse.md" accepts-web-file-names="getting-started-eclipse.html"/>
         </toc-element>
-        <toc-element toc-title="Android Studio" href="https://developer.android.com/studio"/>
-        <toc-element id="eclipse.md" accepts-web-file-names="getting-started-eclipse.html"/>
+        <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
         <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
         <toc-element toc-title="Compiler">
             <toc-element toc-title="Command-line compiler" id="command-line.md"/>
