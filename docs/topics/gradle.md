@@ -757,7 +757,7 @@ If you use [kapt](kapt.md), note that kapt annotation processing tasks are not c
 {type="note"}
 
 The Kotlin plugin uses the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
-which speeds up the build process by reusing the results of the configuration phase. It works only on JVM and JS platforms.
+which speeds up the build process by reusing the results of the configuration phase.
 
 See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
 to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin will automatically
