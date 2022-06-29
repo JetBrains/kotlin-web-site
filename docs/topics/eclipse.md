@@ -17,7 +17,7 @@ how to get started with Kotlin in Eclipse.
 
 2. To add the Kotlin support to your Eclipse, install the **Kotlin Plugin for Eclipse**.
    It's recommended to install the Kotlin plugin from [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).   
-   Open the **Help \| Eclipse Marketplace...** menu and search for **Kotlin Plugin for Eclipse**: 
+   Open the **Help** | **Eclipse Marketplace...** menu and search for **Kotlin Plugin for Eclipse**: 
 
    ![Eclipse Marketplace](eclipse-marketplace.png){width="500"}
 
@@ -72,7 +72,7 @@ Now you are ready to create a new Kotlin project:
 
 ## Run the application
 
-To run the application, right-click somewhere in the main file and select **Run As | Kotlin Application**.
+To run the application, right-click somewhere in the main file and select **Run As** | **Kotlin Application**.
 
 ![Run Kotlin application](eclipse-run-as.png){width="700"}
 
