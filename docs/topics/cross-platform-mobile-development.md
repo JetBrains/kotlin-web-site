@@ -57,6 +57,8 @@ However, many modern businesses need to reduce the time to market and the cost o
 > led us to experiment with a multiplatform architecture. Now we’re taking this one step further 
 > by using Kotlin Multiplatform to write platform agnostic business logic once in Kotlin 
 > and compiling to a Kotlin library for Android and a native Universal Framework for iOS.
+>
+{type="tip"}
 
 ## Is cross-platform mobile development right for you?
 
