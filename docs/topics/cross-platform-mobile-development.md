@@ -149,6 +149,7 @@ Kotlin Multiplatform Mobile is an SDK for cross-platform mobile development prov
 
 > Share the logic of your iOS and Android apps. Get started with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html).
 >
+{type="note"}
 
 Global companies and start-ups alike have already leveraged Kotlin Multiplatform Mobile to optimize and accelerate their mobile development efforts. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
 
