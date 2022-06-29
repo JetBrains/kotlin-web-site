@@ -10,16 +10,17 @@ requests and data serialization are the [most popular cases](https://kotlinlang.
 Multiplatform. Learn how to implement them in your first application so that after completing this onboarding journey,
 you can use them in future projects.
 
-The updated app that retrieves data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
-and displays the date of the last successful launch of a SpaceX rocket.
+The updated app will retrieve data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
+and display the date of the first successful launch of a SpaceX rocket.
 
 ## Add more dependencies
 
 You'll need the following multiplatform libraries in your project:
 
-* `kotlinx.coroutines` for using coroutines in asynchronous code
-* `kotlinx.serialization` for deserializing JSON responses into objects of entity classes
-* Ktor as an HTTP client for retrieving data over the internet
+* `kotlinx.coroutines` for using coroutines to write asynchronous code, thus allowing simultaneous operations
+* `kotlinx.serialization` for deserializing JSON responses into objects of entity classes used to process
+network operations
+* [Ktor](https://ktor.io/) framework as an HTTP client for retrieving data over the internet
 
 ### kotlinx.coroutines
 
@@ -165,7 +166,7 @@ with more readable names.
     the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
     serializer are used.
 
-2. In the `greeting()` function, retrieve the information about the last rocket launches by calling the `httpClient` get()
+2. In the `greeting()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
    method and find the latest one:
 
     ```kotlin
@@ -174,10 +175,10 @@ with more readable names.
         @Throws(Exception::class)
         suspend fun greeting(): String {
             val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v3/launches").body()
-            val lastSuccessLaunch = rockets.first { it.launchSuccess == true }
+            val firstSuccessLaunch = rockets.first { it.launchSuccess == true }
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
                 "\nThere are only ${daysUntilNewYear()} left! 🎅🏼 " +
-                "\nThe last success launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+                "\nThe first success launch was ${firstSuccessLaunch.launchDateUTC} 🚀"
         }
     }
     ```
@@ -339,3 +340,8 @@ Now it's time to [wrap up your project](multiplatform-mobile-wrap-up.md) and see
 * Explore various approaches to [composition of suspending functions](composing-suspending-functions.md).
 * Learn more about the [interoperability with Objective-C frameworks and libraries](native-objc-interop.md).
 * Complete this tutorial on [networking and data storage](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction).
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)

@@ -65,7 +65,7 @@ You can run your multiplatform application on [Android](#run-your-application-on
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-android-1.png){width=300}
 
-#### Run on a different Android simulated device  {initial-collapse-state="collapsed"}
+#### Run on a different Android simulated device {initial-collapse-state="collapsed"}
 
 Learn how to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
     

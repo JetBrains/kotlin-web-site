@@ -77,7 +77,6 @@ support, is the most convenient way to work with dates in your shared code.
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 
-
 ## Next step
 
 Go on and [add more dependencies and more complex logic to your project](multiplatform-mobile-upgrade-app.md).
@@ -91,3 +90,8 @@ Go on and [add more dependencies and more complex logic to your project](multipl
   platform-specific source sets
 * Check out the examples of [how to use Android and iOS libraries](multiplatform-mobile-samples.md) in sample projects
   (check the Platform APIs column)
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
