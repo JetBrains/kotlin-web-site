@@ -10464,3 +10464,38 @@
       implemented under the hood by customizing LiveData. While the talk
       discusses this specific framework, the ideas in it are universal and
       can be used independently in any project.</p>
+- lang: en
+  startDate: '2022-07-13'
+  endDate: '2022-07-13'
+  location: Lisbon, Portugal
+  speaker: Carlos Mota, Android GDE
+  title: Kotlin Lisboa Meetup #8
+  subject: Going Serverless with Kotlin
+  url: https://www.meetup.com/pt-BR/kotlin-lisboa/events/286848420/  
+  description:
+    __cdata: >
+      <p>The Adventure of Kotlin and Compose Through The Multiplatform World</p>
+      <p>Join Carlos in his adventure through Kotlin and Compose Multiplatform and learn
+      how you can develop apps using these technologies. You’ve got your Android app already developed?
+      See how you can make it run on your watch and on the Desktop effortlessly.
+      Or how you can share your business logic with iOS and speed up your development.
+      Perhaps, you want to develop for the Web?
+      See how you can give the first steps into Compose for the Web while also sharing your logic.</p>
+- lang: en
+  startDate: '2022-07-13'
+  endDate: '2022-07-13'
+  location: Lisbon, Portugal
+  speaker: Nuno Alves de Sousa, Critical TechWorks
+  title:  Kotlin Lisboa Meetup #8
+  subject:  "Kotlinifying" UI Testing
+  url: https://www.meetup.com/pt-BR/kotlin-lisboa/events/286848420/   
+  description:
+    __cdata: >
+      <p>Ui testing is probably not on top of every developer's wish-list.
+      Even though it is an important part of the development process, it can be a tedious and monotonous job.
+      In this talk we'll present a lightweight DSL we developed at CTW to make writing acceptance tests more efficient,
+      safe, and expressive by leveraging Kotlin-specific features such as function types with receivers,
+      extension and infix functions, context receivers and more.
+      You'll learn how to extend and customise the DSL and how to integrate it with different testing frameworks.
+      You might even reuse some of the techniques presented, should you want to develop a Kotlin DSL for other domains.
+      Your imagination is the limit!</p>
