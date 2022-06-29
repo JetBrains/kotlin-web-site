@@ -678,7 +678,7 @@ multiple features and improvements:
 * Introduction of dispatcher _views_ API, which allows limiting parallelism without creating additional threads
 * Migrating from Java 6 to Java 8 target
 * `kotlinx-coroutines-test` with the new reworked API and multiplatform support
-* Introduction of [`CopyableThreadContextElement`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-copyable-thread-context-element/index.html),
+* Introduction of [`CopyableThreadContextElement`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-copyable-thread-context-element/index.html),
   which gives coroutines a thread-safe write access to [`ThreadLocal`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ThreadLocal.html) variables
 
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.0-RC).
