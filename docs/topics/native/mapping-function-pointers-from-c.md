@@ -148,7 +148,7 @@ Check out the [kotlin-multiplatform](multiplatform-discover-project.md#multiplat
 plugin documentation to learn about all the different ways you could configure it.
 
 Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
-to see how C primitive type declarations are visible from Kotlin:
+to see how C function pointer declarations are visible from Kotlin:
 
 ```kotlin
 import interop.*

@@ -147,7 +147,7 @@ Check out the [kotlin-multiplatform](multiplatform-discover-project.md#multiplat
 plugin documentation to learn about all the different ways you could configure it.
 
 Create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
-to see how C declarations are visible from Kotlin:
+to see how C struct and union declarations are visible from Kotlin:
 
 ```kotlin
 import interop.*
@@ -165,9 +165,9 @@ fun main() {
 Now you are ready to
 [open the project in IntelliJ IDEA](native-get-started.md)
 and to see how to fix the example project. While doing that,
-see how C primitive types are mapped into Kotlin/Native.
+see how C struct and union types are mapped into Kotlin/Native.
 
-## Primitive types in Kotlin
+## Struct and union types in Kotlin
 
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions, `struct`, and `union`:
@@ -401,4 +401,3 @@ Continue exploring the C language types and their representation in Kotlin/Nativ
 - [Mapping strings from C](mapping-strings-from-c.md)
 
 The [C Interop documentation](native-c-interop.md) covers more advanced scenarios of the interop.
-
