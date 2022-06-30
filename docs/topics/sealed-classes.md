@@ -1,7 +1,7 @@
 [//]: # (title: Sealed classes)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
-All direct subclasses s are known when a sealed class is declared. No other subclasses may appear outside
+All direct subclasses are known when a sealed class is declared. No other subclasses may appear outside
 a module within which the sealed class is defined. For example, third-party clients can't extend your sealed class in
 their code. Thus, each instance of a sealed class has a type from a limited set that is known when this class is defined.
 
