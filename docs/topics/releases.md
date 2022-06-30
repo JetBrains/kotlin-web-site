@@ -55,7 +55,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A feature release with Kotlin K2 compiler in Alpha for JVM, stabilzed language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
+            <p>A feature release with Kotlin K2 compiler in Alpha for JVM, stabilized language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
             <p>Learn more in:</p>
             <ul>
                 <li><a href="whatsnew17.md" target="_blank">What's new in Kotlin 1.7.0</a></li>
