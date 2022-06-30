@@ -4,7 +4,7 @@
 
 Nowadays, many companies are facing the challenge of needing to build mobile apps for multiple platforms, specifically for both Android and iOS. This is why cross-platform mobile development solutions have emerged as one of the most popular software development trends.
 
-According to [Statista](https://www.statista.com/statistics/276623/number-of-apps-available-in-leading-app-stores/#:~:text=As%20of%20the%20first%20quarter,million%20available%20apps%20for%20iOS.), there were 3.48 million mobile apps available on the Google Play Store and 2.22 million apps on the App Store in the first quarter of 2021, with Android and iOS now accounting for [99%](https://gs.statcounter.com/os-market-share/mobile/worldwide) of the worldwide mobile operating system market.
+According to Statista, there were 3.48 million mobile apps available on the Google Play Store and 2.22 million apps on the App Store in the first quarter of 2021, with Android and iOS now accounting for [99% of the worldwide mobile operating system market](https://gs.statcounter.com/os-market-share/mobile/worldwide).
 
 How do you go about creating a mobile app that can reach Android and iOS audiences? In this article, you will find out why more and more mobile engineers are choosing a cross-platform, or multiplatform, mobile development approach.
 
@@ -46,7 +46,7 @@ The only similarity between cross-platform and hybrid development is code sharea
 
 ### Native or cross-platform app development: a longstanding debate
 
-The debate around native vs. cross-platform development remains unresolved in the tech community. Both of these technologies are in constant evolution and come with their own benefits and limitations.
+The debate around native and cross-platform development remains unresolved in the tech community. Both of these technologies are in constant evolution and come with their own benefits and limitations.
 
 Some experts still prefer native mobile development over multiplatform solutions, identifying the stronger performance and better user experience of native apps as some of the most important benefits.
 
@@ -139,7 +139,7 @@ You should consider using React Native for your app in the following cases:
 * Your application is relatively simple and is expected to be lightweight.
 * The development team is fluent in JavaScript or React.
 
-Applications built with React Native include Facebook, Instagram, Skype, Airbnb, and Uber Eats.
+Applications built with React Native include Facebook, Instagram, Skype, and Uber Eats.
 
 ### Kotlin Multiplatform Mobile
 
