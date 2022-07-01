@@ -22,6 +22,8 @@ const pagesWithGlobalSearch = [
     },
 ];
 
+test.describe.configure({ mode: 'parallel' });
+
 test.describe('Global Search Component', async () => {
     test.beforeEach(async ({ context , baseURL}) => {
         await closeCookiesConsentBanner(context, baseURL);

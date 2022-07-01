@@ -1,4 +1,8 @@
-**
-!requirements.txt
-
-
+.github
+.idea
+.next
+_assets
+build
+node_modules
+out
+venv

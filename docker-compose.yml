@@ -1,23 +1,27 @@
-version: '2.1'
+version: "3.7"
 
 services:
-  website:
+  app:
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: dockerfiles/app/Dockerfile
       context: .
-    env_file:
-      - .env
     ports:
-      - 8080:8080
+      - "8080:8080"
+    working_dir: /var/www
     volumes:
-      - ./:/src
-    working_dir: /src
+      - ./:/var/www
+    environment:
+      - PYTHONUNBUFFERED=1
+  e2e-tests:
+    build:
+      dockerfile: dockerfiles/e2e-tests/Dockerfile
+      context: .
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    environment:
+      - BASE_URL=http://app:8080
+      - ipc=host
+    depends_on:
+      - app
 
-  frontend:
-    command: /bin/bash scripts/build-frontend.sh
-    env_file:
-      - .env
-    image: node:12
-    volumes:
-      - ./:/src
-    working_dir: /src
