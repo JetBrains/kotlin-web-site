@@ -3,7 +3,6 @@
 # Waits until request to given URI returns 200 or timeout threshold is reached.
 # Can be given a command to run when done waiting.
 #
-
 SCRIPT_NAME=${0##*/}
 
 echoerr() { if [[ $QUIET -ne 1 ]]; then echo "$@" 1>&2; fi }

@@ -8,6 +8,7 @@ const config = {
     use: {
         baseURL: process.env.BASE_URL || 'http://localhost:9000',
         trace: 'off',
+        ignoreHTTPSErrors: true,
     },
     projects: [
         {
@@ -16,12 +17,6 @@ const config = {
                 ...devices['Desktop Chrome'],
             },
         },
-        {
-            name: 'webkit',
-            use: {
-                ...devices['iPhone SE'],
-            },
-        }
     ],
 };
 

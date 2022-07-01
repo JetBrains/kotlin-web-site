@@ -12,16 +12,3 @@ services:
       - ./:/var/www
     environment:
       - PYTHONUNBUFFERED=1
-  e2e-tests:
-    build:
-      dockerfile: dockerfiles/e2e-tests/Dockerfile
-      context: .
-    volumes:
-      - ./:/var/www
-    working_dir: /var/www
-    environment:
-      - BASE_URL=http://app:8080
-      - ipc=host
-    depends_on:
-      - app
-
