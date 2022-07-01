@@ -136,7 +136,7 @@ def get_nav_impl():
 def get_kotlin_features():
     features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
     features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
+    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml")), Loader=FullLoader):
         file_path = path.join(features_dir, feature_meta['content_file'])
         with open(file_path, encoding='utf-8') as f:
             content = f.read()
