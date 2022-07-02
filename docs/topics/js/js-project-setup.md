@@ -401,6 +401,10 @@ config.module.rules.push({
 });
 ```
 
+> The object you need to modify is called `config`. Other examples for webpack might use `module.exports` or something else.
+>
+{type="note"}
+         
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
