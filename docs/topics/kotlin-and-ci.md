@@ -45,7 +45,7 @@ Basically this step is limited to defining the Step Name and the version of Kotl
 
 <img src="teamcity-setupkotlin.png" alt="Setup Kotlin Compiler" width="700"/>
 
-The runner will set the value for the property system.path.macro.KOTLIN.BUNDLED to the correct one based on the path settings
+The runner will set the value for the property `system.path.macro.KOTLIN.BUNDLED` to the correct one based on the path settings
 from the IntelliJ IDEA project. However, this value needs to be defined in TeamCity (and can be set to any value).
 Therefore, you need to define it as a system variable.
 
@@ -61,4 +61,3 @@ With that, our project should now build and produce the corresponding artifacts.
 
 If using a continuous integration tool different to TeamCity, as long as it supports any of the build tools,
 or calling command line tools, compiling Kotlin and automating things as part of a CI process should be possible.
-

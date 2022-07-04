@@ -100,7 +100,7 @@ Enter your name in the text box and accept the greetings from your application!
 4. Go to the browser and enjoy the result.  
     You will only see the changes if your previous application is still running. If you've stopped your application, [run it again](#run-the-application).
    
-![Web page with with an image](js-output-3.png){width=600}
+![Web page with an image](js-output-3.png){width=600}
 
 ### Add a button that changes text
 

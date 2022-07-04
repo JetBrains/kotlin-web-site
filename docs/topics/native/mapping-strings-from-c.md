@@ -174,7 +174,7 @@ Check out the [kotlin-multiplatform](multiplatform-discover-project.md#multiplat
 plugin documentation to learn about all the different ways you could configure it.
 
 Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
-to see how C primitive type declarations are visible from Kotlin:
+to see how C string declarations are visible from Kotlin:
 
 ```kotlin
 import interop.*
@@ -191,9 +191,9 @@ fun main() {
 Now you are ready to
 [open the project in IntelliJ IDEA](native-get-started.md)
 and to see how to fix the example project. While doing that,
-see how C primitive types are mapped into Kotlin/Native.
+see how C strings are mapped into Kotlin/Native.
 
-## Primitive types in Kotlin
+## Strings in Kotlin
 
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions:
