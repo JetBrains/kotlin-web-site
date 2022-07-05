@@ -22,7 +22,6 @@
     </toc-element>
 
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-Beta"/>
         <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0" accepts-web-file-names="whatsnew.html"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1620.md" toc-title="Kotlin 1.6.20"/>
@@ -37,6 +36,13 @@
             <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
             <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
         </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Early Access Preview">
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-Beta1"/>
+        <toc-element toc-title="Participate" id="eap.md"/>
+        <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
+        <toc-element id="configure-build-for-eap.md"/>
     </toc-element>
 
     <toc-element toc-title="Basics">
@@ -336,11 +342,6 @@
 
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
-        <toc-element toc-title="Early Access Preview">
-            <toc-element toc-title="Participate" id="eap.md"/>
-            <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
-            <toc-element id="configure-build-for-eap.md"/>
-        </toc-element>
         <toc-element toc-title="Kotlin evolution">
             <toc-element toc-title="Evolution principles" id="kotlin-evolution.md"/>
             <toc-element id="components-stability.md"/>
