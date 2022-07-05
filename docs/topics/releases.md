@@ -54,6 +54,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>Learn more about <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Kotlin 1.7.0</a>.</p>
         </td>
          <td>
+            <p>Please find information about the supported Kotlin version on corresponding libraries GitHub pages</p>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.2" target="_blank">1.6.2</a></li>
