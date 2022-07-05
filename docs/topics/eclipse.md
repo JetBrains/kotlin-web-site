@@ -84,8 +84,6 @@ Congratulations! You now have your Kotlin application running in Eclipse.
 
 ## What's next
 
-Once you’ve created this application, you can start to dive deeper into Kotlin syntax:
-
 * Look through other [IDEs for Kotlin development](ide-overview.md)
 * Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview)
 * Look through [Kotlin idioms](idioms.md) to write Kotlin idiomatic code
