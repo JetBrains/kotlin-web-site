@@ -394,17 +394,17 @@ files will automatically be merged into the `build/js/packages/projectName/webpa
 To add a new [webpack loader](https://webpack.js.org/loaders/), for example, add the following to
 a `.js` file inside the `webpack.config.d`:
 
+> In this case, you need to modify the `config` object. Other examples for webpack might use `module.exports` or other names.
+>
+{type="note"}
+
 ```groovy
 config.module.rules.push({
     test: /\.extension$/,
     loader: 'loader-name'
 });
 ```
-
-> The object you need to modify is called `config`. Other examples for webpack might use `module.exports` or something else.
->
-{type="note"}
-         
+     
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
