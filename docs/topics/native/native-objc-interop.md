@@ -409,6 +409,47 @@ this library would disable these compiler checks.
 See [Interoperability with C](native-c-interop.md) for an example case where the library uses some plain C features,
 such as unsafe pointers, structs, and so on.
 
+## Experimental features
+
+### Export KDoc to generated Objective-C headers
+
+By default, [KDocs](../kotlin-doc.md) are not translated into corresponding commentaries when generating an Objective-C header.
+For example, the following Kotlin code with KDoc: 
+```kotlin
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
+fun printSum(a: Int, b: Int) = println(a.toLong() + b)
+```
+will produce an Objective-C declaration without a commentary:
+```objective-c
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+KDoc export can be enabled by adding the following lines to `build.gradle.kts`:
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+    }
+}
+```
+Now the produced header will contain a proper commentary:
+```objective-c
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+Known limitations:
+* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself.
+* Commentaries are mostly exported "as is" and many KDoc features (for example, `@property`) are not supported.
+* The feature is not properly tested, so it might break generated header.
+
 ## Unsupported
 
 Some features of Kotlin programming language are not yet mapped into respective features of Objective-C or Swift.
