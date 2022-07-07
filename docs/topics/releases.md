@@ -70,7 +70,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
-            <note>Check the supported Kotlin version on corresponding libraries GitHub pages.</note>
+            <note>Check the supported Kotlin version on corresponding libraries' GitHub pages.</note>
         </td>
     </tr>
     <tr>
