@@ -4,15 +4,15 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.7.0" type="string"/>
+    <var name="kotlinVersion" value="1.7.10" type="string"/>
 
     <var name="kotlinSpringPluginVersion" value="1.6.21" type="string"/>
 
     <var name="kotlinEapVersion" value="1.7.0-RC2" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" type="string"/>
 
-    <var name="kotlinReleaseDate" value="June 9, 2022" type="string"/>
+    <var name="kotlinReleaseDate" value="July 7, 2022" type="string"/>
 
     <var name="coroutinesVersion" value="1.6.0" type="string"/>
 
@@ -42,6 +42,6 @@
 
     <var name="kspVersion" value="1.0.6" type="string"/>
 
-    <var name="ktorVersion" value="2.0.0-beta-1" type="string"/>
+    <var name="ktorVersion" value="2.0.2" type="string"/>
 
 </vars>
