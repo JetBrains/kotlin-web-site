@@ -45,6 +45,11 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
 
 <table>
     <tr>
+        <th>Build info</th>
+        <th>Build highlights</th>
+        <th>Recommended kotlinx library versions</th>
+    </tr>
+    <tr>
         <td><strong>1.7.10</strong>
             <p>Released: <strong>July 6, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" target="_blank">Release on GitHub</a></p>
@@ -52,9 +57,9 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <td>
             <p>A bug fix release for Kotlin 1.7.0.</p>
             <p>Learn more about <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Kotlin 1.7.0</a>.</p>
+            <note>For IntelliJ IDEA 2022.2, and Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.10 will be delivered with upcoming IntelliJ IDEA and Android Studios updates.</note>
         </td>
          <td>
-            <p>Please find information about the supported Kotlin version on corresponding libraries GitHub pages</p>
             <ul>
                 <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>
                 <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.2" target="_blank">1.6.2</a></li>
@@ -65,12 +70,8 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
                 <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
+            <note>Check the supported Kotlin version on corresponding libraries GitHub pages.</note>
         </td>
-    </tr>
-    <tr>
-        <th>Build info</th>
-        <th>Build highlights</th>
-        <th>Recommended kotlinx library versions</th>
     </tr>
     <tr>
         <td><strong>1.7.0</strong>
