@@ -23,9 +23,7 @@ Read more about IntelliJ IDEA in the [official documentation](https://www.jetbra
 
 ## Android Studio
 
-[Android Studio](https://developer.android.com/studio) is the official Integrated Development Environment (IDE) for Android app development, based on [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
-On top of IntelliJ's powerful code editor and developer tools, Android Studio offers even more features that enhance your productivity when building Android apps.
-
+https://developer.android.com/studio
 
 ## Eclipse
 
@@ -47,4 +45,6 @@ Kotlin plugin for Eclipse should be installed manually.
 
 ## What's next?
 
+
+* Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
