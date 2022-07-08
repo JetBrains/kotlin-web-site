@@ -190,7 +190,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                //dependency to platform part of kotlinx.coroutines will be added automatically
+                //dependency to platform part of ktor-client will be added automatically
             }
         }
     }
@@ -218,13 +218,13 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 // kotlinx.coroutines will be available in all source sets
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
             }
         }
         val androidMain by getting {
             dependencies {}
         }
-        val iosX64Main by getting {
+        val iosMain by getting {
             dependencies {
                 // SQLDelight will be available only in the iOS source set, but not in Android or common
                 implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%")
