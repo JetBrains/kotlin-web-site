@@ -15,7 +15,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.example:my-library:1.0")
+                implementation("com.example:my-library:1.0") // library shared for all source sets
             }
         }
     }
@@ -153,16 +153,26 @@ Check out this [community-maintained list of Kotlin Multiplatform libraries](htt
 If you want to use a library from all source sets, you can add it only to the common source set. The Kotlin
 Multiplatform Mobile plugin will automatically add the corresponding parts to any other source sets.
 
+> You cannot set dependencies on platform-specific libraries in the common source set.
+>
+{type="warning"}
+
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-    sourceSets["commonMain"].dependencies {
-        implementation("io.ktor:ktor-client-core:%ktorVersion%")
-    }
-    sourceSets["androidMain"].dependencies {
-        //dependency to platform part of kotlinx.coroutines will be added automatically
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-core:%ktorVersion%")
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                // dependency to a platform part of ktor-client will be added automatically
+            }
+        }
     }
 }
 ```
@@ -180,7 +190,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                //dependency to platform part of kotlinx.coroutines will be added automatically
+                // dependency to platform part of ktor-client will be added automatically
             }
         }
     }
@@ -204,15 +214,22 @@ specified library declarations will then be available only in those source sets.
 
 ```kotlin
 kotlin {
-    sourceSets["commonMain"].dependencies {
-        //kotlinx.coroutines will be available in all source sets
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-    }
-    sourceSets["androidMain"].dependencies {
-    }
-    sourceSets["iosX64Main"].dependencies {
-        //SQLDelight will be available only in the iOS source set, but not in Android or common
-        implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%")
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                // kotlinx.coroutines will be available in all source sets
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            }
+        }
+        val androidMain by getting {
+            dependencies {}
+        }
+        val iosMain by getting {
+            dependencies {
+                // SQLDelight will be available only in the iOS source set, but not in Android or common
+                implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%")
+            }
+        }
     }
 }
 ```
@@ -264,11 +281,17 @@ other source sets will get their versions automatically.
 
 ```kotlin
 kotlin {
-    sourceSets["commonMain"].dependencies {
-        implementation(project(":some-other-multiplatform-module"))
-    }
-    sourceSets["androidMain"].dependencies {
-        //platform part of :some-other-multiplatform-module will be added automatically
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(project(":some-other-multiplatform-module"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                // platform part of :some-other-multiplatform-module will be added automatically
+            }
+        }
     }
 }
 ```
@@ -286,7 +309,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                //platform part of :some-other-multiplatform-module will be added automatically
+                // platform part of :some-other-multiplatform-module will be added automatically
             }
         }
     }
