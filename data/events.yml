@@ -10489,13 +10489,3 @@
   title:  'Kotlin Lisboa Meetup #8'
   subject:  '"Kotlinifying" UI Testing'
   url: https://www.meetup.com/pt-BR/kotlin-lisboa/events/286848420/   
-  description:
-    __cdata: >
-      <p>Ui testing is probably not on top of every developer's wish-list.
-      Even though it is an important part of the development process, it can be a tedious and monotonous job.
-      In this talk we'll present a lightweight DSL we developed at CTW to make writing acceptance tests more efficient,
-      safe, and expressive by leveraging Kotlin-specific features such as function types with receivers,
-      extension and infix functions, context receivers and more.
-      You'll learn how to extend and customise the DSL and how to integrate it with different testing frameworks.
-      You might even reuse some of the techniques presented, should you want to develop a Kotlin DSL for other domains.
-      Your imagination is the limit!</p>
