@@ -170,7 +170,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                //dependency to a platform part of ktor-client will be added automatically
+                // dependency to a platform part of ktor-client will be added automatically
             }
         }
     }
@@ -190,7 +190,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                //dependency to platform part of ktor-client will be added automatically
+                // dependency to platform part of ktor-client will be added automatically
             }
         }
     }
@@ -289,7 +289,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                //platform part of :some-other-multiplatform-module will be added automatically
+                // platform part of :some-other-multiplatform-module will be added automatically
             }
         }
     }
@@ -309,7 +309,7 @@ kotlin {
         }
         androidMain {
             dependencies {
-                //platform part of :some-other-multiplatform-module will be added automatically
+                // platform part of :some-other-multiplatform-module will be added automatically
             }
         }
     }
