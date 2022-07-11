@@ -1,5 +1,10 @@
 [//]: # (title: Set up environment)
 
+<microformat>
+    <p>This is a part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step:</p>
+    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up environment</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Create your first cross-platform app<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
+</microformat>
+
 Before you create your first application that works both on iOS and Android, set up an environment for Kotlin Multiplatform
 Mobile development.
 
@@ -37,7 +42,7 @@ We recommend that you install the latest stable versions for compatibility and b
    <tr>
         <td><a href="plugin-releases.md#update-to-a-new-release">Kotlin plugin</a></td>
         <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Check the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p>
-            <p>If needed, in Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>. Update to the latest version in the <strong>Stable</strong> channel.</p></td>
+            <p>To update the plugin, in Android Studio, select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>. Select the latest version in the <strong>Stable</strong> channel.</p></td>
    </tr>
    <tr>
         <td><a href="https://cocoapods.org/">CocoaPods</a></td>
@@ -64,7 +69,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
     ```
 
 
-   If you don't have Homebrew yet, [install it](https://brew.sh/) or check other ways to get Kdoctor [here](https://github.com/Kotlin/kdoctor#installation).
+   If you don't have Homebrew yet, [install it](https://brew.sh/) or check other ways to get Kdoctor in its [README](https://github.com/Kotlin/kdoctor#installation).
 2. After the installation is completed, call KDoctor in the console: 
 
     ```bash

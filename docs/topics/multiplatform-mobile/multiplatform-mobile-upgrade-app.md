@@ -17,8 +17,8 @@ and display the date of the first successful launch of a SpaceX rocket.
 
 You'll need the following multiplatform libraries in your project:
 
-* `kotlinx.coroutines` for using coroutines to write asynchronous code, thus allowing simultaneous operations
-* `kotlinx.serialization` for deserializing JSON responses into objects of entity classes used to process
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) for using coroutines to write asynchronous code, thus allowing simultaneous operations
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) for deserializing JSON responses into objects of entity classes used to process
 network operations
 * [Ktor](https://ktor.io/) framework as an HTTP client for retrieving data over the internet
 
@@ -108,7 +108,7 @@ sourceSets {
 
 Now you have all the necessary dependencies for your Kotlin Multiplatform Mobile module.
 
-## Make API requests
+## Create API requests
 
 You'll need the [SpaceX public API](https://docs.spacexdata.com/?version=latest) to retrieve data and a single method to
 get the list of all launches from the **v3/launches** endpoint.
@@ -183,9 +183,9 @@ with more readable names.
     }
     ```
 
-    The `suspend` modifier in the `greeting()` function is necessary because it now contains a call of the suspend function
-    `get()`, which has an asynchronous operation to retrieve data over the internet and can only be called from within a
-    coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+    The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
+    a suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
+    within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
 
@@ -257,7 +257,8 @@ straightforward:
 ### iOS app
 
 For the iOS part of the project, you'll make use of [SwiftUI](https://developer.apple.com/xcode/swiftui/) to build the user
-interface and the "Model View View-Model" pattern to connect the UI to the shared module, which contains all the business logic.
+interface and the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model–view–viewmodel) pattern to connect the UI to
+the shared module, which contains all the business logic.
 
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.

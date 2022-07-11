@@ -53,7 +53,6 @@ particular cross-platform mobile development tasks:
    </td>
     <td>
      <ul>
-        <li><a href="multiplatform-mobile-understand-project-structure.md">Kotlin Multiplatform Mobile project structure</a></li>
         <li><a href="https://kotlinlang.slack.com/archives/C3PQML5NU">Join the #multiplatform channel in Kotlin Slack</a></li>
         <li><a href="https://stackoverflow.com/questions/tagged/kotlin-multiplatform">Subscribe to the "kotlin-multiplatform" tag on StackOverflow</a></li>        
         <li><a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C">Subscribe to the Kotlin YouTube channel</a></li>
