@@ -43,7 +43,7 @@ If the enum class defines any members, separate the constant definitions from th
 ## Implementing interfaces in enum classes
 
 An enum class can implement an interface (but it cannot derive from a class), providing either a common implementation of
-interface members for all of the entries, or separate implementations for each entry within its anonymous class.
+interface members for all the entries, or separate implementations for each entry within its anonymous class.
 This is done by adding the interfaces you want to implement to the enum class declaration as follows:
 
 ```kotlin
@@ -73,6 +73,9 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+All enum constants implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
+interface by default. Constants in the enum class are defined in the natural order. For more information, see [Ordering](collection-ordering.md).
+
 ## Working with enum constants
 
 Enum classes in Kotlin have synthetic methods for listing
@@ -100,13 +103,9 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
-Every enum constant has properties for obtaining its name and position in the enum class declaration:
+Every enum constant has properties for obtaining its name and position (starting with 0) in the enum class declaration:
 
 ```kotlin
 val name: String
 val ordinal: Int
 ```
-
-The enum constants also implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html) interface,
-with the natural order being the order in which they are defined in the enum class.
-
