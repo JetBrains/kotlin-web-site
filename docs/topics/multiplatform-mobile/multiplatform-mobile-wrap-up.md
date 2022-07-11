@@ -40,7 +40,7 @@ particular cross-platform mobile development tasks:
 <table>
    <tr>
       <th>Tutorials and samples</th>
-      <th>Join the community and get help</th>
+      <th>Community and feedback</th>
    </tr>
    <tr>
    <td>
