@@ -4,8 +4,8 @@ This tutorial will teach you how to build a browser application with Kotlin/JS a
 framework using the Gradle plugin. You will:
 
 * Complete usual kinds of tasks associated with building a typical React application.
-* Explore how [Kotlin's DSLs](https://kotlinlang.org/docs/type-safe-builders.html) can be used to help express concepts
-concisely and uniformly without sacrificing readability, allowing to write a fully-fledged application completely in Kotlin.
+* Explore how [Kotlin's DSLs](type-safe-builders.md) can be used to help express concepts concisely and uniformly without
+sacrificing readability, allowing to write a fully-fledged application completely in Kotlin.
 * Learn how to use ready-made components created by the community, use external libraries, and publish the final application.
 
 The output will be a website _KotlinConf Explorer_ with an overview of the [KotlinConf](https://kotlinconf.com/) event
@@ -30,24 +30,22 @@ concepts behind React may help understand some sample code but is not strictly r
    ```kotlin
    dependencies {
        // React, React DOM + Wrappers
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-react:17.0.2-pre.297-kotlin-1.6.10")
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:17.0.2-pre.297-kotlin-1.6.10")
-       implementation(npm("react", "17.0.2"))
-       implementation(npm("react-dom", "17.0.2"))
+       implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.354"))
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
    
-       // Kotlin Styled
-       implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:11.8.2-pre.325-kotlin-1.6.10")
-       implementation(npm("styled-components", "~5.3.3"))
+       // Kotlin React Emotion (CSS)
+       implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion")
    
        // Video Player
-       implementation(npm("react-lite-youtube-embed", "2.2.2"))
+       implementation(npm("react-player", "2.10.1"))
    
        // Share Buttons
        implementation(npm("react-share", "4.4.0"))
    
        // Coroutines & serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
    }
    ```
 
@@ -140,8 +138,7 @@ Replace the code in the `Main.kt` file as follows:
 ```kotlin
 import kotlinx.browser.document
 import react.*
-import react.css.css
-import react.dom.render
+import emotion.react.css
 import csstype.Position
 import csstype.px
 import react.dom.html.ReactHTML.h1
@@ -149,15 +146,16 @@ import react.dom.html.ReactHTML.h3
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.img
+import react.dom.client.createRoot
 import kotlinx.serialization.Serializable
 
 fun main() {
     val container = document.getElementById("root") ?: error("Couldn't find root container!")
-    render(Fragment.create {
+    createRoot(container).render(Fragment.create {
         h1 {
             +"Hello, React+Kotlin/JS!"
         }
-    }, container)
+    })
 }
 ```
 {validate="false"}
@@ -167,7 +165,7 @@ fun main() {
   This element is a container defined in `src/main/resources/index.html`, which was included in the template.
 * The content is an `<h1>` header and uses a typesafe DSL to render HTML.
 * `h1` is a function that takes a lambda parameter. When you add the `+` sign in front of the string literal,
-  the `unaryPlus()` function is actually invoked using [operator overloading](https://kotlinlang.org/docs/reference/operator-overloading.html).
+  the `unaryPlus()` function is actually invoked using [operator overloading](operator-overloading.md).
   It appends the string to the enclosed HTML element.
 
 When the project recompiles, the browser displays this HTML page:
@@ -177,7 +175,7 @@ When the project recompiles, the browser displays this HTML page:
 ### Convert HTML to Kotlin
 
 The Kotlin [wrappers](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md) for React come
-with a [domain-specific language (DSL)](https://kotlinlang.org/docs/type-safe-builders.html) that allows writing HTML in
+with a [domain-specific language (DSL)](type-safe-builders.md) that allows writing HTML in
 pure Kotlin code. In this way, it's similar to [JSX](https://reactjs.org/docs/introducing-jsx.html) from JavaScript.
 However, with this markup being Kotlin, you get all the benefits of a statically typed language, such as autocomplete or type checking.
 
@@ -305,23 +303,23 @@ sure that the loop is working.
 
 ### Add styles with typesafe CSS
 
-The [kotlin-react-css](https://github.com/JetBrains/kotlin-wrappers/tree/master/kotlin-react-css) library allows specifying
-CSS attributes – even dynamic ones – right alongside HTML. Conceptually, that makes it similar to
-[CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) – but for Kotlin. The benefit of using a DSL is
-that you can use Kotlin code constructs to express formatting rules.
+The [kotlin-emotion](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-emotion/) wrapper for the [Emotion](https://emotion.sh/docs/introduction)
+library allows specifying CSS attributes – even dynamic ones – right alongside HTML with JavaScript. Conceptually, that
+makes it similar to [CSS-in-JS](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js) – but for Kotlin.
+The benefit of using a DSL is that you can use Kotlin code constructs to express formatting rules.
 
-The template project for this tutorial already includes everything for using `kotlin-react-css`:
+The template project for this tutorial already includes everything for using `kotlin-emotion`:
 
 ```kotlin
 dependencies {
     // ...
-    // Kotlin React CSS
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-css:17.0.2-pre.298-kotlin-1.6.10")
+    // Kotlin React Emotion (CSS) (chapter 3)
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion")
     // ...
 }
 ```
 
-With `kotlin-react-css`, you can specify a `css` block inside HTML elements `div` and `h3`, where you can define the styles.
+With `kotlin-emotion`, you can specify a `css` block inside HTML elements `div` and `h3`, where you can define the styles.
 
 To move the video player to the top right corner of the page, use CSS and adjust the code for the video player
 (the last `div` in the snippet):
@@ -404,7 +402,7 @@ Create the main component for rendering into the `root` element, the `App`:
    ```kotlin
    fun main() {
        val container = document.getElementById("root") ?: error("Couldn't find root container!")
-       render(App.create(), container)
+       createRoot(container).render(App.create())
    }
    ```
 
@@ -426,6 +424,7 @@ and contains the code from the `unwatchedVideos` list.
    import kotlinx.browser.window
    import react.*
    import react.dom.*
+   import react.dom.html.ReactHTML.p
    
    val VideoList = FC<Props> {
        for (video in unwatchedVideos) {
@@ -436,7 +435,7 @@ and contains the code from the `unwatchedVideos` list.
    }
    ```
 
-2. In `App.kt`, use the `VideoList` component by invoking the component without parameters:
+2. In `App.kt`, use the `VideoList` component by invoking it without parameters:
 
    ```kotlin
    // . . .
@@ -472,8 +471,8 @@ that holds all the props which can be passed to a `VideoList` component:
        var videos: List<Video>
    }
    ```
-   The [external modifier](https://kotlinlang.org/docs/reference/js-interop.html#external-modifier) tells the compiler
-that the interface implementation is provided externally, so it doesn't try to generate any JavaScript code from the declaration.
+   The [external](js-interop.md#external-modifier) modifier tells the compiler that the interface implementation is provided
+   externally, so it doesn't try to generate any JavaScript code from the declaration.
 
 2. Adjust the class definition of `VideoList` to make use of those props, which are passed into the `FC` block as a parameter:
 
@@ -531,8 +530,8 @@ p {
 // . . .
 ```
 
-If you click on one of the list items in the browser window, you'll get the following information inside an alert
-window:
+If you click on one of the list items in the browser window, you'll get the information about the video in an alert
+window like this:
 
 ![Browser alert window](alert-window.png){width=700}
 
@@ -551,7 +550,7 @@ _state_ specific to this component.
 State is one of core concepts in React. In modern React (using the so-called _Hooks API_), state is expressed
 using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
-1. Add the following line of code to the top of the `VideoList` declaration:
+1. Add the following code to the top of the `VideoList` declaration:
 
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
@@ -565,7 +564,7 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
    * The `useState()` function from React instructs the framework to keep track of state across multiple invocations
    of the function. For example, even though you specify a default value, React makes sure that the default value is only
    assigned in the beginning. When the state changes, the component will re-render based on the new state.
-   * The `by` keyword indicates that `useState()` acts as a [delegated property](https://kotlinlang.org/docs/delegated-properties.html).
+   * The `by` keyword indicates that `useState()` acts as a [delegated property](delegated-properties.md).
    Like with any other variable, you read and write values. The implementation behind `useState()` takes care of the machinery
    required to make state work.
 
@@ -662,15 +661,14 @@ the state of a parent component, you need the state lifting again.
 
 In React, state always flows from parent to child. So, to change the _application_ state from one of the child components,
 you need to move the logic for handling user interaction to the parent component and then pass the logic in as a prop.
-Remember that in Kotlin, variables can have the [type of a function](https://kotlinlang.org/docs/reference/lambdas.html#function-types).
+Remember that in Kotlin, variables can have the [type of a function](lambdas.md#function-types).
 
-1. Expand the `VideoListProps` interface so that it contains a variable `onSelectVideo`, which is a function taking a
+1. Expand the `VideoListProps` interface again so that it contains a variable `onSelectVideo`, which is a function taking a
 `Video` and returning `Unit`:
 
    ```kotlin
    external interface VideoListProps : Props {
-       var videos: List<Video>
-       var selectedVideo: Video?
+       // ...
        var onSelectVideo: (Video) -> Unit
    }
    ```
@@ -757,8 +755,8 @@ to handle this in the `App` component accordingly.
    }
    ```
 
-   The [`let` scope function](https://kotlinlang.org/docs/scope-functions.html#let), ensures that the `VideoPlayer` component
-   is only added when `state.currentVideo` is not null.
+   The [`let` scope function](scope-functions.md#let), ensures that the `VideoPlayer` component is only added
+   when `state.currentVideo` is not null.
 
 Now clicking an entry in the list will bring up the video player and populate it with the information from the clicked entry.
 
@@ -861,19 +859,19 @@ React has a rich ecosystem with a lot of pre-made components you can use instead
 
 ### Add the video player component
 
-To replace the placeholder video component with an actual YouTube player, use the [react-lite-youtube-embed](https://www.npmjs.com/package/react-lite-youtube-embed)
-package from npm. It can show video and control the appearance of the player.
+To replace the placeholder video component with an actual YouTube player, use the `react-player` package from npm.
+It can show video and control the appearance of the player.
 
-For the component documentation and the API description, see its [README](https://www.npmjs.com/package/react-lite-youtube-embed)
+For the component documentation and the API description, see its [README](https://www.npmjs.com/package/react-player)
 in GitHub.
 
-1. Check the `build.gradle(.kts)` file. The `react-lite-youtube-embed` package should be already included:
+1. Check the `build.gradle(.kts)` file. The `react-player` package should be already included:
 
    ```kotlin
    dependencies {
        // ...
        // Video Player
-       implementation(npm("react-lite-youtube-embed", "2.2.2"))
+       implementation(npm("react-player", "2.10.1"))
        // ...
    }
    ```
@@ -883,46 +881,47 @@ block of the build file. The Gradle plugin then takes care of downloading and in
 do so, it uses its own bundled installation of the [`yarn`](https://yarnpkg.com/) package manager.
 
 2. To use the JavaScript package from inside the React application, it's necessary to tell the Kotlin compiler what to expect.
-   For this, provide it with [external declarations](https://kotlinlang.org/docs/js-interop.html). 
+   For this, provide it with [external declarations](js-interop.md). 
 
    Create a new `ReactYouTube.kt` file and add the following content:
 
    ```kotlin
-   @file:JsModule("react-lite-youtube-embed")
+   @file:JsModule("react-player")
    @file:JsNonModule
    
    import react.*
    
-   @JsName("ReactYouTubeLite")
+   @JsName("default")
    external val ReactPlayer: ComponentClass<dynamic>
    ```
 
    When the compiler sees an external declaration like `ReactPlayer`, it assumes that the implementation for the
 corresponding class is provided by the dependency and doesn't generate code for it.
 
-   The last two lines are equivalent to a JavaScript import like `require("react-lite-youtube-embed").default;`. It tells
+   The last two lines are equivalent to a JavaScript import like `require("react-player").default;`. It tells
 the compiler that it's certain that there'll be a component conforming to `ComponentClass<dynamic>` at runtime.
 
 However, in this configuration, the generic type for the props accepted by `ReactPlayer` is set to `dynamic`. That means
 the compiler will accept any code, at the risk of breaking things at runtime.
 
 A better alternative would be to create an `external interface`, which specifies what kind of properties belong to the
-props for this external component. You can infer the props interface based on the [README](https://www.npmjs.com/package/react-lite-youtube-embed)
-for the component — `react-lite-youtube-embed` takes a prop called `url` of type `String`:
+props for this external component. You can infer the props interface based on the [README](https://www.npmjs.com/package/react-player)
+for the component. Use props `url` of the `String` type and a Boolean `controls`:
 
 1. Adjust the content of `ReactPlayer.kt` accordingly:
 
    ```kotlin
-   @file:JsModule("react-lite-youtube-embed")
+   @file:JsModule("react-player")
    @file:JsNonModule
    
    import react.*
    
-   @JsName("ReactYouTubeLite")
-   external val ReactPlayer: ComponentClass<ReactYouTubeProps>
+   @JsName("default")
+   external val ReactPlayer: ComponentClass<ReactPlayerProps>
    
-   external interface ReactYouTubeProps : Props {
+   external interface ReactPlayerProps : Props {
        var url: String
+       var controls: Boolean
    }
    ```
 
@@ -932,6 +931,7 @@ for the component — `react-lite-youtube-embed` takes a prop called `url` of ty
    ```kotlin
    ReactPlayer {
        url = props.video.videoUrl
+       controls = true
    }
    ```
 
@@ -1056,7 +1056,7 @@ Check the `build.gradle(.kts)` file. The relevant snippet should already exist:
 dependencies {
     // . . .
     // Coroutines & serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
 }
 ```
 
@@ -1073,13 +1073,13 @@ types of conversions: from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "1.6.10"
+       kotlin("plugin.serialization") version "1.7.10"
    }
    
    dependencies {
        // . . .
        // Serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
    }
    ```
 
@@ -1120,8 +1120,8 @@ invoked once the `Promise` is resolved and a result is available. However, with 
 Whenever a function like `await()` is called, the method stops (suspends) its execution. It continues execution once
 the `Promise` can be resolved.
 
-To give users a selection of videos, you can define the `fetchVideos()` function, which will fetch 25 videos from the
-same API as above. To run all the requests concurrently, use the [`async`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)
+To give users a selection of videos, define the `fetchVideos()` function, which will fetch 25 videos from the same API
+as above. To run all the requests concurrently, use the [`async`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html)
 functionality provided by Kotlin's coroutines:
 
 1. Add the following implementation to your `App.kt`:
@@ -1136,7 +1136,7 @@ functionality provided by Kotlin's coroutines:
    }
    ```
 
-   For reasons of [structured concurrency](https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency),
+   For reasons of [structured concurrency](https://kotlinlang.org/docs/coroutines-basics.html#structured-concurrency),
    the implementation is wrapped in a `coroutineScope`. You can then start 25 asynchronous tasks (one per request) and wait
    for all of them to complete.
 
