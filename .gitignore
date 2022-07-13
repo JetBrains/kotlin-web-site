@@ -47,3 +47,4 @@ _teamcity
 dist
 generated
 .next
+.teamcity/*.iml

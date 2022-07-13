@@ -1,0 +1,11 @@
+The archive contains settings for a TeamCity project.
+
+To edit the settings in IntelliJ Idea, open the pom.xml and
+select the 'Open as a project' option.
+
+If you want to move this dsl to version control, save it in the
+.teamcity directory.
+
+## Branch specific settings
+Bear in mind that not all the changes there will be applied. For instance, if you add a new project or a build configuration, such changes will be ignored. This happens because TeamCity does not support different sets of projects and build configurations in feature branches.
+You can read more about it [here](https://blog.jetbrains.com/teamcity/2018/01/branch-specific-settings-in-teamcity/).
