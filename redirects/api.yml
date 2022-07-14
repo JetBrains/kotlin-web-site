@@ -182,8 +182,6 @@
   to: /api/latest/jvm/stdlib/kotlin.text/is-not-blank.html
 - from: /api/latest/jvm/stdlib/kotlin/any.html
   to: /api/latest/jvm/stdlib/kotlin.collections/any.html
-- from: /api/latest/jvm/stdlib/kotlin/map.html
-  to: /api/latest/jvm/stdlib/kotlin.collections/map.html
 - from: /api/latest/jvm/stdlib/kotlin/sorted.html
   to: /api/latest/jvm/stdlib/kotlin.collections/sorted.html
 - from: /api/latest/jvm/stdlib/kotlin/to-byte.html
@@ -440,8 +438,6 @@
   to: /api/latest/jvm/stdlib/kotlin/
 - from: /api/latest/jvm/stdlib/kotlin/java.util.regex.-pattern/to-regex.html
   to: /api/latest/jvm/stdlib/kotlin.text/java.util.regex.-pattern/to-regex.html
-- from: /api/latest/jvm/stdlib/kotlin/compare-to.html
-  to: /api/latest/jvm/stdlib/kotlin.text/compare-to.html
 - from: /api/latest/jvm/stdlib/kotlin/remove-suffix.html
   to: /api/latest/jvm/stdlib/kotlin.text/remove-suffix.html
 - from: /api/latest/jvm/stdlib/kotlin/sorted-by.html
@@ -1034,8 +1030,6 @@
   to: /api/latest/jvm/stdlib/kotlin.collections/find-last.html
 - from: /api/latest/jvm/stdlib/kotlin/step.html
   to: /api/latest/jvm/stdlib/kotlin.ranges/step.html
-- from: /api/latest/jvm/stdlib/kotlin/fold.html
-  to: /api/latest/jvm/stdlib/kotlin.collections/fold.html
 - from: /api/latest/jvm/stdlib/kotlin/-char-category/-o-t-h-e-r_-s-y-m-b-o-l.html
   to: /api/latest/jvm/stdlib/kotlin.text/-char-category/-o-t-h-e-r_-s-y-m-b-o-l.html
 - from: /api/latest/jvm/stdlib/kotlin/-char-category/-n-o-n_-s-p-a-c-i-n-g_-m-a-r-k.html
@@ -1160,8 +1154,6 @@
   to: /api/latest/jvm/stdlib/kotlin.collections/add-all.html
 - from: /api/latest/jvm/stdlib/kotlin/join-to-string.html
   to: /api/latest/jvm/stdlib/kotlin.collections/join-to-string.html
-- from: /api/latest/jvm/stdlib/kotlin/-throwable/print-stack-trace.html
-  to: /api/latest/jvm/stdlib/kotlin/print-stack-trace.html
 - from: /api/latest/jvm/stdlib/kotlin/is-null-or-blank.html
   to: /api/latest/jvm/stdlib/kotlin.text/is-null-or-blank.html
 - from: /api/latest/jvm/stdlib/kotlin/split-to-sequence.html
