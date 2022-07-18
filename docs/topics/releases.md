@@ -42,7 +42,6 @@ The IDE support for the latest version of the language is available for the foll
 >
 {type="warning"}
 
-
 ## Release details
 
 The following table lists details of the latest Kotlin releases.
