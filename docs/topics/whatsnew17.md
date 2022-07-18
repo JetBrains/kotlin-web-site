@@ -756,6 +756,9 @@ kotlin.incremental.useClasspathSnapshot=true
 >
 {type="note"}
 
+Learn how the new approach to incremental compilation is implemented under the hood in
+[this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
+
 Our plan is to stabilize this technology and add support for other backends (JS, for instance) and build systems. We'd
 appreciate your reports in [YouTrack](https://youtrack.jetbrains.com/issues/KT) about any issues or strange behavior you
 encounter in this compilation scheme. Thank you!
