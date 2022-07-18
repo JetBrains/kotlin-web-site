@@ -13,6 +13,6 @@
 
 ## What's next?
 
-* Look through other [IDEs for Kotlin development](ide-overview.md)
+* Look through other [IDEs for Kotlin development](kotlin-ide.md)
 * Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview)
 * Look through [Kotlin idioms](idioms.md) to write Kotlin idiomatic code

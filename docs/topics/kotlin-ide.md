@@ -7,44 +7,45 @@ JetBrains provides an official Kotlin plugin for the following Integrated Develo
 * [Android Studio](#android-studio)
 * [Eclipse](#eclipse)
 
-> The Kotlin Plugin for Eclipse has limited support.  
-> Use other IDEs for full support of new Kotlin features.
->
-{type="warning"}
-
-While 
-
 ## IntelliJ IDEA
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) is an Integrated Development Environment (IDE) for JVM languages designed to maximize developer productivity.
 It does the routine and repetitive tasks for you by providing clever code completion, static code analysis, and refactorings, and lets you focus on the bright side of software development, making it not only productive but also an enjoyable experience.
 
+Kotlin plugin is bundled with each IntelliJ IDEA release.
+
 Read more about IntelliJ IDEA in the [official documentation](https://www.jetbrains.com/help/idea/discover-intellij-idea.html).
 
 ## Android Studio
 
-https://developer.android.com/studio
+[Android Studio](https://developer.android.com/studio) is the official Integrated Development Environment (IDE) for Android app development, based on [IntelliJ IDEA](https://www.jetbrains.com/idea/). 
+On top of IntelliJ's powerful code editor and developer tools, Android Studio offers even more features that enhance your productivity when building Android apps.
+
+Kotlin plugin is bundled with each Android Studio release.
+
+Read more about Android Studio in the [official documentation](https://developer.android.com/studio/intro).
 
 ## Eclipse
 
 [Eclipse](https://www.eclipse.org/downloads/) is a widely known IDE that offers various packages for development in
-different languages and for different platforms. You can use it for writing Kotlin code. On this page, you will learn
-how to get started with Kotlin in Eclipse.
+different languages and for different platforms.
 
 > Kotlin Plugin for Eclipse has limited support.  
 > Use [other IDEs for Kotlin development](ide-overview.md) to get full support of new Kotlin features.
 >
 {type="warning"}
 
+The Kotlin plugin for Eclipse should be installed manually install from [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
+
 Read more about Eclipse in the [official documentation](https://www.eclipse.org/documentation/).
 
-## Compatibility
+## Compatibility with the Kotlin language versions
 
-Kotlin plugin is bundled into IntelliJ IDEA and Android studio. You can check the compatibility.
-Kotlin plugin for Eclipse should be installed manually.
+For IntelliJ IDEA and Android Studio the Kotlin plugin is bundled each IDE release.
+When the new Kotlin version is released these IDEs will suggest updating Kotlin to the latest version automatically.
+The Kotlin plugin for Eclipse should be installed manually.
 
 ## What's next?
 
-
-* Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
+* [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)

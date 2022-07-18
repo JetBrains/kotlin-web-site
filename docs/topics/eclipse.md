@@ -5,7 +5,7 @@ different languages and for different platforms. You can use it for writing Kotl
 how to get started with Kotlin in Eclipse.
 
 > Kotlin Plugin for Eclipse has limited support.  
-> Use [other IDEs for Kotlin development](ide-overview.md) to get full support of new Kotlin features.
+> Use [other IDEs for Kotlin development](kotlin-ide.md) to get full support of new Kotlin features.
 >
 {type="warning"}
 
@@ -84,6 +84,6 @@ Congratulations! You now have your Kotlin application running in Eclipse.
 
 ## What's next
 
-* Look through other [IDEs for Kotlin development](ide-overview.md)
+* Look through other [IDEs for Kotlin development](kotlin-ide.md)
 * Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview)
 * Look through [Kotlin idioms](idioms.md) to write Kotlin idiomatic code
