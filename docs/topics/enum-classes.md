@@ -73,7 +73,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-All enum constants implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
+All enum classes implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface by default. Constants in the enum class are defined in the natural order. For more information, see [Ordering](collection-ordering.md).
 
 ## Working with enum constants
