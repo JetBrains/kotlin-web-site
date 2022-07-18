@@ -158,6 +158,12 @@
     position:
       lat: 55.953252
       lng: -3.188267
+  - name: Eindhoven KUG
+    country: Netherlands
+    url: https://www.meetup.com/en-AU/eindhoven-kotlin-user-group/
+    position:
+      lat: 51.4485716
+      lng: 5.3812984
   - name: Estonia KUG
     country: Estonia
     url: https://www.facebook.com/groups/estoniaKotlin/
@@ -212,6 +218,12 @@
     position:
       lat: 53.8007554
       lng: -1.5490774
+  - name: Leiria KUG
+    country: Portugal
+    url: https://www.meetup.com/leiria-kotlin-user-group/
+    position:
+      lat: 39.7475828
+      lng: -8.8318111
   - name: Lisboa KUG
     country: Portugal
     url: https://meetup.com/kotlin-lisboa/
