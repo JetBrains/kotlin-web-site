@@ -27,8 +27,6 @@ kotlin {
 
 It will produce a platform-specific shared object (`.so` on Linux, `.dylib` on macOS, and `.dll` on Windows targets) and a
 C language header, allowing the use of all public APIs available in your Kotlin/Native program from C/C++ code.
-See [this example](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/python_extension) of using such a
-shared object to provide a bridge between Python and Kotlin/Native.
 
 ## How do I create a static library or an object file?
 

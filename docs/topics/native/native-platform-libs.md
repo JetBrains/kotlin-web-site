@@ -44,10 +44,3 @@ On the other hand, the platform libs in the distribution are merely
 just wrappers and bindings to the native libraries.  That means the
 native libraries themselves (`.so`, `.a`, `.dylib`, `.dll` etc)
 should be installed on the machine.
-
-## Examples
-
-The Kotlin/Native repository provides a wide spectrum of examples
-demonstrating the use of platform libraries. 
-See [samples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples) for details.
-
