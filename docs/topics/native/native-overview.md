@@ -79,12 +79,3 @@ Recommended tutorials:
 * [Types mapping between C and Kotlin/Native](mapping-primitive-data-types-from-c.md)
 * [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
 * [Kotlin/Native as an Apple Framework](apple-framework.md)
-
-## Sample projects
-
-* [Kotlin Multiplatform Mobile samples](multiplatform-mobile-samples.md)
-* [Kotlin/Native sources and examples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples)
-* [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
-* [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
-* [Kotlin/Native sources and examples (.tgz)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.tar.gz)
-* [Kotlin/Native sources and examples (.zip)](https://download.jetbrains.com/kotlin/native/kotlin-native-samples-1.0.1.zip)

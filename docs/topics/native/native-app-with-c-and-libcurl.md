@@ -279,9 +279,3 @@ hide this using `curl_easy_setopt`.
 > You can get the full code [here](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native).
 >
 {type="note"}
-
-## What’s next?
-
-For a complete example of using the `libcurl`, see the [libcurl sample of the Kotlin/Native project](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/libcurl)
-that shows how to abstract the code into Kotlin classes as well as display headers. It also demonstrates how to make
-the steps easier by combining them into a shell script or a Gradle build.
