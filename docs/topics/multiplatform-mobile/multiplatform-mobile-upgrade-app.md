@@ -11,7 +11,7 @@ Multiplatform. Learn how to implement them in your first application so that aft
 you can use them in future projects.
 
 The updated app will retrieve data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
-and display the date of the first successful launch of a SpaceX rocket.
+and display the date of the last successful launch of a SpaceX rocket.
 
 ## Add more dependencies
 
@@ -29,7 +29,7 @@ line to the `build.gradle.kts` file of the shared module:
 
 ```kotlin
 sourceSets {
-    commonMain {
+    val commonMain by getting {
         dependencies {
             // ...
            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
@@ -41,14 +41,10 @@ sourceSets {
 Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-You'll also use the new memory manager for Kotlin/Native, which will become default soon.
-Enable it in the same `build.gradle.kts` file:
+You'll also use the new memory manager for Kotlin/Native, which will become default soon. For this, add the following
+at the end `build.gradle.kts` file:
 
 ```kotlin
-val commonMain by getting {
-    // ...
-}
-
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
     binaries.all {
         binaryOptions["memoryModel"] = "experimental"
@@ -74,11 +70,14 @@ plugins {
 ### Ktor
 
 You can add Ktor the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
-dependency in the common source set, you also need to:
+dependency (`ktor-client-core`) in the common source set, you also need to:
 
-* Add the ContentNegotiation plugin with a special artifact to use `kotlinx.serialization` to deserialize JSON data into
-  a data class when receiving responses.
-* Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets.
+* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`) responsible for serializing/deserializing
+  the content in a specific format.
+* Add the `ktor-serialization-kotlinx-json` depencency to instruct Ktor to use the JSON format and `kotlinx.serialization`
+  as a serialisation library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
+* Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets
+  (`ktor-client-android`, `ktor-client-darwin`).
 
 ```kotlin
 val ktorVersion = "2.0.2"
@@ -106,16 +105,15 @@ sourceSets {
 }
 ```
 
-Now you have all the necessary dependencies for your Kotlin Multiplatform Mobile module.
-
 ## Create API requests
 
 You'll need the [SpaceX public API](https://docs.spacexdata.com/?version=latest) to retrieve data and a single method to
-get the list of all launches from the **v3/launches** endpoint.
+get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
 
-In `Greeting.kt`, create a data class which stores data from the SpaceX API:
+In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file
+and add a data class which stores data from the SpaceX API:
 
 ```kotlin
 import kotlinx.serialization.SerialName
@@ -123,13 +121,13 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RocketLaunch (
-    SerialName("flight_number")
+    @SerialName("flight_number")
     val flightNumber: Int,
-    @SerialName("mission_name")
+    @SerialName("name")
     val missionName: String,
-    @SerialName("launch_date_utc")
+    @SerialName("date_utc")
     val launchDateUTC: String,
-    @SerialName("launch_success")
+    @SerialName("success")
     val launchSuccess: Boolean?,
 )
 ```
@@ -141,7 +139,7 @@ with more readable names.
 
 ### Connect HTTP client
 
-1. Create a Ktor `HTTPClient` instance to execute network requests and parse the resulting JSON:
+1. In `Greeting.kt`, create a Ktor `HTTPClient` instance to execute network requests and parse the resulting JSON:
 
     ```kotlin
     import io.ktor.client.*
@@ -174,11 +172,11 @@ with more readable names.
         // ...
         @Throws(Exception::class)
         suspend fun greeting(): String {
-            val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v3/launches").body()
-            val firstSuccessLaunch = rockets.first { it.launchSuccess == true }
+            val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
+            val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
-                "\nThere are only ${daysUntilNewYear()} left! 🎅🏼 " +
-                "\nThe first success launch was ${firstSuccessLaunch.launchDateUTC} 🚀"
+                "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
+                "\nThe last success launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
     ```
@@ -197,8 +195,8 @@ Update your `shared/src/androidMain/AndroidManifest.xml` file the following way:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.jetbrains.onboarding" >
-<uses-permission android:name="android.permission.INTERNET"/>
+          package="com.jetbrains.simplelogin.kotlinmultiplatformsandbox" >
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
 ```
 
@@ -226,12 +224,18 @@ straightforward:
 2. In `androidApp/src/main`, update the `MainActivity` class replacing previous implementation:
 
     ```kotlin
-   import kotlinx.coroutines.MainScope
-   import kotlinx.coroutines.launch
-
-    class MainActivity : AppCompatActivity() {
-        private val mainScope = MainScope()
+    import kotlinx.coroutines.MainScope
+    import kotlinx.coroutines.cancel
+    import kotlinx.coroutines.launch
     
+    class MainActivity : AppCompatActivity() {
+        private val scope = MainScope()
+    
+        override fun onDestroy() {
+            super.onDestroy()
+            scope.cancel()
+        }
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
@@ -239,7 +243,7 @@ straightforward:
             val tv: TextView = findViewById(R.id.text_view)
             tv.text = "Loading..."
     
-            mainScope.launch {
+            scope.launch {
                 kotlin.runCatching {
                     Greeting().greeting()
                 }.onSuccess {
@@ -263,7 +267,21 @@ the shared module, which contains all the business logic.
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
-1. In `iosApp/iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
+1. Launch your Xcode app and select **Open a project or file**.
+2. Navigate to your project, for example KotlinMultiplatformSandbox, and select the `iosApp` folder. Click **Open**.
+3. In `iosApp/iosApp.swift`, update the entry point for your app:
+   
+   ```Swift
+   struct iOSApp: App {
+       var body: some Scene {
+           WindowGroup {
+               ContentView(viewModel: ContentView.ViewModel())
+           }
+       }
+   }
+   ```
+
+4. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
    for it:
 
     ```Swift
@@ -297,19 +315,18 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
     Now the view model will emit signals whenever this property changes.
 
-2. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
+5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
     ```Swift
     class ViewModel: ObservableObject {
         @Published var text = "Loading..."
-            init() {
-                Greeting().greeting { greeting, error in
-                    DispatchQueue.main.async {
-                        if let greeting = greeting {
-                            self.text = greeting
-                        } else {
-                            self.text = error?.localizedDescription ?? "error"
-                        }
+        init() {
+            Greeting().greeting { greeting, error in
+                DispatchQueue.main.async {
+                    if let greeting = greeting {
+                        self.text = greeting
+                    } else {
+                        self.text = error?.localizedDescription ?? "error"
                     }
                 }
             }
@@ -328,7 +345,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    That's why `DispatchQueue.main.async` is used to update `text` property, as all UI updates on other threads than main
    are now allowed in Swift.
 
-3. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width="500"}
 

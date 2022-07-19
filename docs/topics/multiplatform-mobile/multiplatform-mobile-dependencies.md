@@ -5,9 +5,8 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies</strong><br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
-You've already created your first cross-platform application, but one thing is still missing. It's hard to imagine
-modern mobile development without a third-party library. Learn how to work with dependencies in Kotlin Multiplatform Mobile
-projects.
+You've already created your first cross-platform Kotlin Multiplatform Mobile project! Let's now learn how to add dependencies
+to third-party libraries, which are necessary for building any successful cross-platform application.
 
 ## Dependency types
 
@@ -42,7 +41,7 @@ support, is the most convenient way to work with dates in your shared code.
    ```kotlin
    kotlin {
        sourceSets {
-           commonMain {
+           val commonMain by getting {
                dependencies {
                    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3")
                }
@@ -51,11 +50,9 @@ support, is the most convenient way to work with dates in your shared code.
    }
    ```
 
-3. In `shared/src/commonMain/kotlin`, create a short function for the `Greeting` class that calculates the number of
-   days from today until the new year using the `date-time` date arithmetic.
+3. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
+the number of days from today until the new year using the `date-time` date arithmetic:
    
-   The result of this function will update the `greeting()` function:
-
    ```kotlin
    import kotlinx.datetime.*
    
@@ -64,16 +61,20 @@ support, is the most convenient way to work with dates in your shared code.
        val closestNewYear = LocalDate(today.year + 1, 1, 1)
        return today.daysUntil(closestNewYear)
    }
+   ```
 
+4. In `Greeting.kt`, update the `greeting()` function to see the result:
+    
+    ```kotlin
     class Greeting {
         fun greeting(): String {
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
-            "\nThere are only ${daysUntilNewYear()} left! 🎅🏼 "
+            "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 "
         }
     }
-   ```
+    ```
 
-4. Run the updated application on Android and iOS and see the results:
+5. Run the updated application on Android and iOS and see the results:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 

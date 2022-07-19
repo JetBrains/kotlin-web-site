@@ -39,10 +39,14 @@ To view the complete structure of your mobile multiplatform project, switch the 
 
 There are three modules in a Kotlin Mobile Multiplatform project:
 
-* _Shared module_ is a Kotlin module that contains common logic for both Android and iOS applications. It builds into an
-Android library and an iOS framework. Uses [Gradle](gradle.md) as a build system that helps you automate your building process.
-* _Android application_ is a Kotlin module that builds into an Android application. It uses Gradle as a build system.
-* _iOS application_ is an Xcode project that builds into an iOS application.
+* _shared_ is a Kotlin module that contains common logic for both Android and iOS applications. It builds into an Android
+  library and an iOS framework. Uses [Gradle](gradle.md) as a build system that helps you automate your building process.
+* _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as a build system.
+  The _androidApp_ module depends on and uses the shared module as a regular Android library.
+* _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+  framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md)
+  based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
+  framework dependency.
 
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
 
@@ -113,9 +117,8 @@ If you want to run your application on another simulated device, you can add a n
 
 ## Update your application
 
-1. Open the file `Greeting.kt` in `shared/src/commonMain/kotlin/com.example.kmmapplication.shared`.  
-    This directory stores the shared code for both platforms – Android and iOS. If you make changes to the shared code, you will see
-    changes in both applications.
+1. Open the `Greeting.kt` file in `shared/src/commonMain/kotlin`. This directory stores the shared code for both
+   platforms – Android and iOS. If you make changes to the shared code, you will see changes in both applications.
 
     ![Common Kotlin file](common-kotlin-file.png)
     

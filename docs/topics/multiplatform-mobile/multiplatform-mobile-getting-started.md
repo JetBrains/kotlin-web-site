@@ -39,8 +39,7 @@ Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin M
 
 ### See also
 
-If you already have experience with mobile development, or you have an existing Android application, you can make it work
-on iOS:
+If you want to convert your existing Android project into a cross-platform app, follow this steps to make it work on iOS:
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
