@@ -35,17 +35,19 @@ different languages and for different platforms.
 >
 {type="warning"}
 
-The Kotlin plugin for Eclipse should be installed manually install from [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
+The Kotlin plugin for Eclipse should be installed manually from the [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
 
 Read more about Eclipse in the [official documentation](https://www.eclipse.org/documentation/).
 
 ## Compatibility with the Kotlin language versions
 
-For IntelliJ IDEA and Android Studio the Kotlin plugin is bundled each IDE release.
-When the new Kotlin version is released these IDEs will suggest updating Kotlin to the latest version automatically.
+For IntelliJ IDEA and Android Studio the Kotlin plugin is bundled with each IDE release.
+When the new Kotlin version is released, these IDEs will suggest updating Kotlin to the latest version automatically. See the latest supported language version for each IDE in [Kotlin releases](releases.md#ide-support)
+
 The Kotlin plugin for Eclipse should be installed manually.
 
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
+* [Create your first cross-platform mobile app using Android Studio](multiplatform-mobile-create-first-app.md)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
