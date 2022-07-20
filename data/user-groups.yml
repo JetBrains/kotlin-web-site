@@ -785,6 +785,12 @@
     position:
       lat: 40.1872023
       lng: 44.515209
+  - name: Xi'An KUG
+    country: China
+    url: https://kotlinxa.com/
+    position:
+      lat: 34.259376
+      lng: 108.947037
 - section: North & South America
   anchorId: north-south-america
   groups:
@@ -1190,9 +1196,3 @@
     position:
       lat: 9.2034963
       lng: 12.4953899
-  - name: Xi'An KUG
-    country: China
-    url: https://kotlinxa.com/
-    position:
-      lat: 34.259376
-      lng: 108.947037
