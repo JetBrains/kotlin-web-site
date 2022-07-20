@@ -169,7 +169,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>
       <ul>
-        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg&amp;list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C&amp;index=2">Video tutorial</a></li>
+        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
       </ul>
     </td>
   </tr>
@@ -334,7 +334,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
         <li>Shared file upload</li>
         <li>Multi-module setup</li>
         <li>Shared file upload</li>
-        <li>sharing code between Backend - Mobile & Frontend platforms (macOS, iOS, Android)</li>
+        <li>sharing code between Backend - Mobile &amp; Frontend platforms (macOS, iOS, Android)</li>
       </ul>
     </td>
   </tr>
