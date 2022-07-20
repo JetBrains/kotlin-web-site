@@ -39,24 +39,24 @@ check [our instructions on how to configure your build to support this version](
         </td>
         <td>
              <ul>
-                 <li>Language: changes in builder inference, allowed implementation by delegation to inlined value of inline class, changes in Opt-in annotations</li>
-                 <li>Kotlin/JVM: performance improvements, removed <code>1.6</code> target version</li>
-                 <li>Kotlin/Native: performance improvement for the new memory manager, embeddable compiler jar for Kotlin/Native by default, returning <code>Void</code> instead of <code>KotlinUnit</code> from <code>suspend</code> functions by default, generation of standalone executable for androidNative targets by default, prohibited exceptions through Objective-C bridges</li>
-                 <li>Kotlin/JS: performance improvements, smaller bundle size, generated <code>.js</code> compatible with old browsers and engines</li>
-                 <li>Libraries: extensions for <code>java.util.Optional</code> in stdlib, min/max(By/With) functions for non-empty collections, stable <code>Regex.matchAt()</code>, <code>Regex.matchesAt()</code>, <code>findAnnotations()</code>, <code>DeepRecursiveFunction</code> functions, getting named groups of a regex match in JS and Native</li>
-                 <li>Gradle: minimal supported Gradle version is <code>6.7.1</code> and Android Gradle plugin is <code>3.6.4</code>, allow to override default Kotlin/Native compiler download URL, deprecated <code>kotlin.compiler.execution.strategy</code>, removed <code>useExperimentalAnnotation</code>, <code>experimentalAnnotationInUse</code>, <code>kotlin.coroutines</code> (and related <code>kotlin.experimental.coroutines</code> Gradle DSL option) properties</li>
+                 <li>K2 compiler: support for the <code>all-open</code>, <code>no-arg</code>, SAM-with-receiver, Lombok, Parcelize, AtomicFU, and <code>jvm-abi-gen</code> compiler plugins</li>
+                 <li>Language: experimental <code>..&lt;</code> (<code>rangeUntil</code>) operator for ranges with the excluded end bound, deprecated inferring type variables into an empty intersection type, warning on potentially empty intersection types, improved script handling in source roots</li>
+                 <li>Kotlin/JVM: experimental generic inline classes, more optimized cases of delegated properties</li>
+                 <li>Kotlin/Native: the new memory manager enabled by default (with deprecated freezing API and an ability to run Kotlin <code>suspend</code> functions on non-main threads from Swift), customizable bundle identifier of the generated framework, improved documentation generated to the Objective-C header</li>
+                 <li>Kotlin/JS IR: improved speed on the first build when using the incremental compilation, faster klib generation</li>
+                 <li>Gradle: simplified configuration method for the JVM Toolchain, fixed Gradle 7.1 deprecations</li>
             </ul>
             <p>For more details, please refer to the <a href ="whatsnew-eap.md">What's new in EAP</a> or <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-Beta">changelog</a>.</p>
         </td>
         <td>
             <ul>
-                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank"><strong>kotlinx.serialization</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.2" target="_blank">1.3.2</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank"><strong>kotlinx.coroutines</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.0" target="_blank">1.6.0</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank"><strong>kotlinx.atomicfu</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.17.1" target="_blank">0.17.1</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx-datetime" target="_blank"><strong>kotlinx-datetime</strong></a> version: <b>no compatible version</b></li>
-                <li><a href="https://ktor.io/" target="_blank"><strong>ktor</strong></a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.0-beta-1" target="_blank">2.0.0-beta-1</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank"><strong>kotlinx.html</strong></a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.2" target="_blank">0.7.2</a></li>
-                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank"><strong>kotlinx-nodejs</strong></a> version: 0.0.7</li>
+                <li><a href="https://github.com/Kotlin/kotlinx.serialization" target="_blank">kotlinx.serialization</a> version: <a href="https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.3.3" target="_blank">1.3.3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.coroutines" target="_blank">kotlinx.coroutines</a> version: <a href="https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.6.3" target="_blank">1.6.3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.atomicfu" target="_blank">kotlinx.atomicfu</a> version: <a href="https://github.com/Kotlin/kotlinx.atomicfu/releases/tag/0.18.2" target="_blank">0.18.2</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-datetime" target="_blank"><strong>kotlinx-datetime</strong></a> version: <a href="https://github.com/Kotlin/kotlinx-datetime/releases/tag/v0.4.0" target="_blank">0.4.0</a></li>
+                <li><a href="https://ktor.io/" target="_blank">ktor</a> version: <a href="https://github.com/ktorio/ktor/releases/tag/2.0.3" target="_blank">2.0.3</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx.html" target="_blank">kotlinx.html</a> version: <a href="https://github.com/Kotlin/kotlinx.html/releases/tag/0.7.5" target="_blank">0.7.5</a></li>
+                <li><a href="https://github.com/Kotlin/kotlinx-nodejs" target="_blank">kotlinx-nodejs</a> version: <a href="https://bintray.com/kotlin/kotlinx/kotlinx.nodejs/0.0.7" target="_blank">0.0.7</a></li>
             </ul>
             <p>The versions of libraries from <code>kotlin-wrappers</code> (such as <code>kotlin-react</code>) can be found in the <a href="https://github.com/JetBrains/kotlin-wrappers" target="_blank">corresponding repository</a>.</p>
         </td>
