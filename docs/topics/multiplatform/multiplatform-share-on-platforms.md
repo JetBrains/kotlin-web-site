@@ -228,10 +228,10 @@ kotlin {
 
 You can have a shared source set for the following combinations of targets:
 
-* JVM + JS + Native
-* JVM + Native
+* JVM or Android + JS + Native
+* JVM or Android + Native
 * JS + Native
-* JVM + JS
+* JVM or Android + JS
 * Native
 
 Kotlin doesn't currently support sharing a source set for these combinations: 
