@@ -197,7 +197,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="covariance-kotlin"}
 
-Read more about [collection types](collections-overview.md#collection-types)here.
+Read more about [collection types](collections-overview.md#collection-types) here.
 
 ## Ranges and progressions
 
