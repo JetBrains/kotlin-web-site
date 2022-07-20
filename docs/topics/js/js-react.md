@@ -6,7 +6,7 @@ framework. You will:
 * Complete usual kinds of tasks associated with building a typical React application.
 * Explore how [Kotlin's DSLs](type-safe-builders.md) can be used to help express concepts concisely and uniformly without
 sacrificing readability, allowing to write a fully-fledged application completely in Kotlin.
-* Learn how to use ready-made NPM components, use external libraries, and publish the final application.
+* Learn how to use ready-made npm components, use external libraries, and publish the final application.
 
 The output will be a _KotlinConf Explorer_ web app dedicated to the [KotlinConf](https://kotlinconf.com/) event
 with links to conference talks. Users will be able to watch all the talks on one page and mark them as seen or unseen.
@@ -173,7 +173,7 @@ When the project recompiles, the browser displays this HTML page:
 
 ![An HTML page example](hello-react-js.png){width=700}
 
-### Convert HTML to a typesafe HTML
+### Convert HTML to Kotlin's typesafe HTML DSL
 
 The Kotlin [wrappers](https://github.com/JetBrains/kotlin-wrappers/blob/master/kotlin-react/README.md) for React come
 with a [domain-specific language (DSL)](type-safe-builders.md) that allows writing HTML in
@@ -857,7 +857,7 @@ Go back to the browser, select a video, and press the button a few times. The vi
 >
 {type="note"}
 
-## Use packages from NPM
+## Use packages from npm
 
 To make the app usable, you still need a video player that actually plays videos and some social share buttons to help people
 share the content.
@@ -913,7 +913,7 @@ the compiler will accept any code, at the risk of breaking things at runtime.
 
 A better alternative would be to create an `external interface`, which specifies what kind of properties belong to the
 props for this external component. You can infer the props interface based on the [README](https://www.npmjs.com/package/react-player)
-for the component. In this case, use props `url` and `controls`:
+for the component. In this case, use the `url` and `controls` props:
 
 1. Adjust the content of `ReactPlayer.kt` accordingly:
 
