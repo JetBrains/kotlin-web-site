@@ -44,7 +44,7 @@ check [our instructions on how to configure your build to support this version](
                  <li>Kotlin/JVM: experimental generic inline classes, more optimized cases of delegated properties</li>
                  <li>Kotlin/Native: the new memory manager enabled by default (with deprecated freezing API and an ability to run Kotlin <code>suspend</code> functions on non-main threads from Swift), customizable bundle identifier of the generated framework, improved documentation generated to the Objective-C header</li>
                  <li>Kotlin/JS IR: improved speed on the first build when using the incremental compilation, faster klib generation</li>
-                 <li>Gradle: simplified configuration method for the JVM Toolchain, fixed Gradle 7.1 deprecations</li>
+                 <li>Gradle: simplified configuration method for the JVM Toolchain, fixed deprecations and ensured compatibility with Gradle 7.1</li>
             </ul>
             <p>For more details, please refer to the <a href ="whatsnew-eap.md">What's new in EAP</a> or <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-Beta">changelog</a>.</p>
         </td>
