@@ -13,14 +13,16 @@ to third-party libraries, which are necessary for building any successful cross-
 There are two types of dependencies that you can use in Multiplatform Mobile projects:
 
 * _Multiplatform dependencies_. These are multiplatform libraries that support multiple targets and can be used in a
-  common
-  source set. A lot of modern Android libraries already have multiplatform support, for
-  example, [Koin](https://insert-koin.io/), [Appolo](https://www.apollographql.com/), [Okio](https://square.github.io/okio/).
+  common source set, `commonMain`.
+  
+  A lot of modern Android libraries already have multiplatform
+  support, for example, [Koin](https://insert-koin.io/), [Appolo](https://www.apollographql.com/), [Okio](https://square.github.io/okio/).
 * _Native dependencies_. These are regular libraries from relevant ecosystems, you usually work with in native iOS (using CocoaPods or other
   dependency managers) or Android projects using Gradle.
 
-  When you work with a common module, you can also depend on them and use them in native source sets. Typically, this is
-  needed when you want to work with platform API, for example, security storage, and there is a common logic around it.
+  When you work with a shared module, you can also depend on them and use them in native source sets, `androidMain`
+  and `iosMain`. Typically, you'll need these dependencies when you want to work with platform API, for example security
+  storage, and there is a common logic around it.
 
 For both types of dependencies, you can use local and external repositories.
 

@@ -42,7 +42,7 @@ Multiplatform Gradle plugin automatically adds a dependency to the platform-spec
 of `kotlinx.coroutines`.
 
 You'll also use the new memory manager for Kotlin/Native, which will become default soon. For this, add the following
-at the end `build.gradle.kts` file:
+at the end of the `build.gradle.kts` file:
 
 ```kotlin
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
@@ -176,7 +176,7 @@ with more readable names.
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
                 "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
-                "\nThe last success launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+                "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
     ```
@@ -340,10 +340,9 @@ is already imported and used in `ContentView.swift` with `import shared`.
    callbacks (`completionHandler`).
    * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
-   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than the main,
+   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
    see the [new memory manager migration guide](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#new-memory-manager-migration-guide).
-   That's why `DispatchQueue.main.async` is used to update `text` property, as all UI updates on other threads than main
-   are now allowed in Swift.
+   That's why `DispatchQueue.main.async` is used to update `text` property.
 
 6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
 

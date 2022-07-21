@@ -33,14 +33,15 @@ do this for the first time.
 
 ## Examine the project structure
 
-To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+To view the full structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
 
 ![Select the Project view](select-project-view.png){width=200}  
 
 There are three modules in a Kotlin Mobile Multiplatform project:
 
-* _shared_ is a Kotlin module that contains common logic for both Android and iOS applications. It builds into an Android
-  library and an iOS framework. Uses [Gradle](gradle.md) as a build system that helps you automate your building process.
+* _shared_ is a Kotlin module that contains common logic for both Android and iOS applications, the code you share between
+  platforms. It uses [Gradle](gradle.md) as a build system that helps you automate your building process. The _shared_
+  module builds into an Android library and an iOS framework. 
 * _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as a build system.
   The _androidApp_ module depends on and uses the shared module as a regular Android library.
 * _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
@@ -50,11 +51,17 @@ There are three modules in a Kotlin Mobile Multiplatform project:
 
 ![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
 
+The shared module consists of three source sets: `androidMain`, `commonMain`, and `iosMain`. _Source set_ is a Gradle
+concept for a number of files logically grouped together, where each group has its own dependencies. In Kotlin Multiplatform,
+different source sets in a shared module can target different platforms.
+
+![Source sets and modules structure](basic-project-structure-2.png){width=500}
+
 > This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android
-> Studio. Real-life projects can have more complex structure.
+> Studio. Real-life projects can have a more complex structure.
 >
 {type="note"}
-    
+
 ## Run your application 
 
 You can run your multiplatform application on [Android](#run-your-application-on-android) or [iOS](#run-your-application-on-ios).
