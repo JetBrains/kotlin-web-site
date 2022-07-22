@@ -110,9 +110,8 @@
             <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
         </toc-element>
         <toc-element toc-title="Creating multiplatform libraries">
-            <toc-element id="multiplatform-create-lib.md" accepts-web-file-names="mpp-create-lib.html"/>
+            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
             <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html"/>
-            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
         </toc-element>
         <toc-element toc-title="Sharing code principles">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>

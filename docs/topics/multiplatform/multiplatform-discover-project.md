@@ -9,7 +9,7 @@ Discover main parts of your multiplatform project:
 
 ## Multiplatform plugin
 
-When you [create a multiplatform project](multiplatform-create-lib.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
+When you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
 plugin in the file `build.gradle`(`.kts`).
 
 You can also apply it manually.

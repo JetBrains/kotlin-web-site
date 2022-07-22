@@ -58,7 +58,7 @@ Learn how to [change the default behavior](gradle.md#dependency-on-the-standard-
 ### Test libraries
 
 The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When
-you [create a multiplatform project](multiplatform-create-lib.md), the Project Wizard automatically adds test
+you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically adds test
 dependencies to common and platform-specific source sets.
 
 If you didn't use the Project Wizard to create your project, you
