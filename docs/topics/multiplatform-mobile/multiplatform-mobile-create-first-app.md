@@ -55,7 +55,7 @@ The shared module consists of three source sets: `androidMain`, `commonMain`, an
 concept for a number of files logically grouped together, where each group has its own dependencies. In Kotlin Multiplatform,
 different source sets in a shared module can target different platforms.
 
-![Source sets and modules structure](basic-project-structure-2.png){width=500}
+![Source sets and modules structure](basic-project-structure-2.png){width=200}
 
 > This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android
 > Studio. Real-life projects can have a more complex structure.
