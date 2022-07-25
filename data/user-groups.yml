@@ -457,7 +457,7 @@
       lng: 77.5940323
   - name: Beijing KUG
     country: China
-    url: http://www.kotliner.cn/
+    url: https://beijing-kug.github.io/
     position:
       lat: 39.9041999
       lng: 116.4073963
