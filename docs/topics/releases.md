@@ -31,7 +31,7 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 The IDE support for the latest version of the language is available for the following versions of IntelliJ IDEA and Android Studio:
 * IntelliJ IDEA:
   * Latest stable ([IntelliJ IDEA %kotlinPluginVersion%](https://www.jetbrains.com/idea/whatsnew/) version)
-  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2021-3/) version)
+  * Previous stable ([IntelliJ IDEA %kotlinPreviousPluginVersion%](https://www.jetbrains.com/idea/whatsnew/2022-1/) version)
   * [Early access](https://www.jetbrains.com/resources/eap/) versions
 * Android Studio:
   * [Latest released](https://developer.android.com/studio) version
@@ -57,7 +57,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <td>
             <p>A bug fix release for Kotlin 1.7.0.</p>
             <p>Learn more about <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.0" target="_blank">Kotlin 1.7.0</a>.</p>
-            <note>For IntelliJ IDEA 2022.2, and Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.10 will be delivered with upcoming IntelliJ IDEA and Android Studios updates.</note>
+            <note>For Android Studio Dolphin (213) and Android Studio Electric Eel (221), the Kotlin plugin 1.7.10 will be delivered with upcoming Android Studios updates.</note>
         </td>
          <td>
             <ul>
