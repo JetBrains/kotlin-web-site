@@ -30,6 +30,25 @@ The following table lists the details of the latest Kotlin plugin releases:
 <tr>
 <td>
 
+**2022.2**
+
+Released: July 26, 2022
+
+</td>
+<td>
+
+* Data Flow Analysis in the debugger
+* Fixed inconsistency between local and CI builds caused by the compiler versions mismatch
+* Improved IDE performance
+
+Learn more in:
+* [What's New in IntelliJ IDEA 2022.2](https://www.jetbrains.com/idea/whatsnew/2022-2/)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **2022.1**
 
 Released: April 12, 2022
@@ -103,26 +122,6 @@ Released: April 7, 2021
 
 Learn more in:
 * [What’s New in IntelliJ IDEA 2021.1](https://www.jetbrains.com/idea/whatsnew/2021-1/)
-
-</td>
-</tr>
-<tr>
-<td>
-    
-**2020.3**
-
-Released: December 1, 2020
-
-</td>
-<td>
-
-* New types of inline refactorings
-* Structural search and replace
-* EditorConfig support
-* Project templates for Jetpack Compose for Desktop
-
-Learn more in:
-* [IntelliJ IDEA 2020.3 release blog post](https://blog.jetbrains.com/idea/2020/12/intellij-idea-2020-3/)
 
 </td>
 </tr>
