@@ -125,4 +125,24 @@ Learn more in:
 
 </td>
 </tr>
+<tr>
+<td>
+
+**2020.3**
+
+Released: December 1, 2020
+
+</td>
+<td>
+
+* New types of inline refactorings
+* Structural search and replace
+* EditorConfig support
+* Project templates for Jetpack Compose for Desktop
+
+Learn more in:
+* [IntelliJ IDEA 2020.3 release blog post](https://blog.jetbrains.com/idea/2020/12/intellij-idea-2020-3/)
+
+</td>
+</tr>
 </table>
