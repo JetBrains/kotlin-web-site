@@ -67,7 +67,7 @@
   startDate: '2022-08-02'
   endDate: '2022-08-02'
   location: Vienna, Austria
-  speaker:
+  speaker: ''
   title: Vienna Kotlin User Group
   subject: 'Kotlin meetups in Vienna are back! Social evening'
   url: https://www.meetup.com/kotlin-vienna/events/286706117/
