@@ -1,4 +1,77 @@
 - lang: en
+  startDate: '2022-07-30'
+  endDate: '2022-07-30'
+  location: Chicago, IL, USA
+  speaker: Amanda Hinchman-Dominguez, Maia Grotepass
+  title: Chicago Kotlin Users Group
+  subject: 'Dear Amanda, help me fix my memory leaks'
+  url: https://www.meetup.com/chicago-kotlin/events/287169344/
+- lang: en
+  startDate: '2022-07-28'
+  endDate: '2022-07-28'
+  online: true
+  speaker: Jilles van Gurp
+  title: Virtual Kotlin Users Group
+  subject: 'Full-stack Kotlin at FORMATION'
+  url: https://www.meetup.com/kotlin-berlin/events/286992665/
+- lang: en
+  startDate: '2022-08-04'
+  endDate: '2022-08-04'
+  online: true
+  speaker: Ian Brandt
+  title: San Diego Kotlin User Group
+  subject: 'Monthly Kotlin Online!'
+  url: https://www.meetup.com/sd-kotlin/events/mjfhnsydclbfb/
+- lang: en
+  startDate: '2022-09-08'
+  endDate: '2022-09-08'
+  online: true
+  speaker: Ian Brandt
+  title: San Diego Kotlin User Group
+  subject: 'Monthly Kotlin Online!'
+  url: https://www.meetup.com/sd-kotlin/events/mjfhnsydclbfb/
+- lang: zh
+  startDate: '2022-07-30'
+  endDate: '2022-07-31'
+  location: Taipei, Taiwan
+  speaker: Shengyou Fan, Wig, Andy Lu
+  title: ''
+  subject: COSCUP 2022
+  url: https://coscup.org/2022/en/
+- lang: en
+  startDate: '2022-10-06'
+  endDate: '2022-10-07'
+  location: Turin, Italy
+  online: true
+  speaker: Nate Ebel
+  title: droidcon Italy 2022
+  subject: 'Adopting kotlin multiplatform in brownfield applications'
+  url: https://it.droidcon.com/2022/
+- lang: de
+  startDate: '2022-09-12'
+  endDate: '2022-09-13'
+  online: true
+  speaker: Amanda Hinchman-Dominguez, Sebastian Aigner, Annyce Davis, Benedikt Jerat and many more!
+  title: ''
+  subject: Rheinwerk Konferenz für Kotlin
+  url: https://rheinwerk-kkon.de/
+- lang: en
+  startDate: '2022-09-28'
+  endDate: '2022-09-28'
+  location: Orlando, FL, USA
+  speaker: Justin Reock
+  title: DevOps World
+  subject: 'Speeding up Jenkins, Maven, and Gradle with a Build Cache'
+  url: https://reg.devopsworld.com/flow/cloudbees/devopsworld22/Landing/page/welcome
+- lang: de
+  startDate: '2022-08-02'
+  endDate: '2022-08-02'
+  location: Vienna, Austria
+  speaker: ''
+  title: Vienna Kotlin User Group
+  subject: 'Kotlin meetups in Vienna are back! Social evening'
+  url: https://www.meetup.com/kotlin-vienna/events/286706117/
+- lang: en
   startDate: '2022-07-27'
   endDate: '2022-07-27'
   location: Wisconsin Dells, WI, USA
@@ -26,7 +99,7 @@
   startDate: '2022-07-06'
   endDate: '2022-07-08'
   location: Berlin, Germany
-  speaker: Florina Muntenescu, Simanti Olive, James Swinton-Bland, Wojtek Kalicinski, and many more
+  speaker: Florina Muntenescu, Simanti Olive, James Swinton-Bland, Wojtek Kalicinski, and many more!
   title: ''
   subject: droidcon Berlin
   url: https://berlin.droidcon.com/
