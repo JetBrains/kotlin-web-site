@@ -1,4 +1,4 @@
-[//]: # (title:Native and cross-platform app development: how to choose?)
+[//]: # (title: Native and cross-platform app development: how to choose?)
 
 [//]: # (description: When choosing between native and cross-platform app development, consider these six key things and pick the best solution for your next app.)
 
