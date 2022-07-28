@@ -15,5 +15,5 @@ jobs:
         with:
           yq-version: 'v4.9.5'
       - run: |
-         jsonschema -i <(yq eval --tojson -j data/events.yml) data/schemas/events.json
+         jsonschema -o pretty -i <(yq eval --tojson -j data/events.yml) data/schemas/events.json
          echo "community events data is valid!"
