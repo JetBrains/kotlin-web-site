@@ -2,7 +2,7 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
 You've already implemented common logic using external dependencies. Now you can add more complex logic. Network 
@@ -360,5 +360,5 @@ Now it's time to [wrap up your project](multiplatform-mobile-wrap-up.md) and see
 
 ## Get help
 
-* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
-* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
