@@ -25,7 +25,7 @@ Here are the core benefits and limitations.
 
 Cross-platform app development, also called multiplatform development, is the process of building mobile apps that are compatible with several operating systems. Instead of creating separate applications for iOS and Android, mobile engineers can share some or all of the source code between multiple platforms. This way, the applications will work the same on both iOS and Android.
 
-There are various open-source frameworks for cross-platform mobile app development available today. Some of the most popular are Flutter, React Native, and Kotlin Multiplatform Mobile. Below are some of the key pros and cons.
+There are various open-source frameworks for [cross-platform mobile app development](cross-platform-mobile-development.md) available today. Some of the most popular are Flutter, React Native, and Kotlin Multiplatform Mobile. Below are some of the key pros and cons.
 
 |**Benefits**|**Limitations**|
 | ---- | --- |
@@ -45,7 +45,7 @@ Multiplatform technology is constantly evolving. Some cross-platform development
 
 Poor performance was long considered to be one of the main disadvantages of multiplatform applications. However, the performance and quality of your product largely depend on the tools you use to build the app. The latest cross-platform frameworks provide all the tools necessary to develop apps with a native-like user experience.
 
-By using different compiler backends, [Kotlin](https://kotlinlang.org/docs/multiplatform.html#code-sharing-between-platforms) is compiled to platform formats – JVM bytecode for Android and native binaries for iOS. As a result, the performance of your shared code is the same as if you write them natively.
+By using different compiler backends, [Kotlin](multiplatform.md#code-sharing-between-platforms) is compiled to platform formats – JVM bytecode for Android and native binaries for iOS. As a result, the performance of your shared code is the same as if you write them natively.
 
 #### 2. Cross-platform frameworks are unsafe.
 
@@ -59,7 +59,7 @@ It is true that not all cross-platform frameworks allow you to build apps with f
 
 In fact, it’s the opposite. Cross-platform solutions help you more effectively manage resources. Your development teams can learn how to write and reuse shared code. Android and iOS developers can achieve high efficiency and transparency by interacting and sharing knowledge.
 
-## 6 key aspects to help you choose between cross-platform app development and the native approach
+## Six key aspects to help you choose between cross-platform app development and the native approach
 
 Now, let’s take a look at important factors you need to consider when choosing between native and cross-platform solutions for mobile app development.
 
@@ -108,7 +108,7 @@ In a nutshell, you should to opt for cross-platform solutions if:
 * You want to have a single codebase for the app logic while keeping full control over UI elements. Not all cross-platform frameworks allow you to do this, but some, like Kotlin Multiplatform Mobile, provide this capability.
 * You’re eager to embrace a modern technology that continues to evolve.
 
-> Share the logic of your iOS and Android apps. See [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) in action.
+> Share the logic of your iOS and Android apps. See [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) in action.
 >
 {type="note"}
 
