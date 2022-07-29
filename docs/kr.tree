@@ -361,6 +361,7 @@
         </toc-element>
         <toc-element toc-title="Journal">
             <toc-element toc-title="Cross-platform mobile development" id="cross-platform-mobile-development.md"/>
+            <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
