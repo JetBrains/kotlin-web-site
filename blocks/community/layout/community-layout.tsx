@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
 import { Search, onSearch } from '../../../components/search/search';
 import releasesDataRaw from '../../../data/releases.yml';
+import searchConfig from '../../../search-config.json'
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -89,6 +90,7 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                 productWebUrl={releasesData.latest.url}
                 hasSearch={true}
                 onSearchClick={onSearch}
+                searchConfig={searchConfig}
             />
 
             <StickyHeader>
