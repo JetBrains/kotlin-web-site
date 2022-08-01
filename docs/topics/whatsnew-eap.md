@@ -42,7 +42,7 @@ Learn more about the new compiler and its benefits in the following videos:
 * [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
 * [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
 
-### Leave your feedback
+### Leave your feedback on the new K2 compiler
 
 We really appreciate your feedback in any form:
 * Provide your feedback directly to K2 developers in Kotlin Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw) and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel
