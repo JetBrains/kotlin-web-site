@@ -22,13 +22,13 @@ You can follow [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-526
 
 Starting with this preview version, the Kotlin K2 compiler supports the following plugins:
 
-* [All-open](all-open-plugin.md)
-* [No-Arg](no-arg-plugin.md)
+* [`all-open`](all-open-plugin.md)
+* [`no-arg`](no-arg-plugin.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [Lombok](lombok.md)
 * Parcelize
-* atomicfu
-* jvm-abi-gen
+* AtomicFU
+* `jvm-abi-gen`
 
 The Alpha version of the new K2 compiler only works with JVM projects. It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
 
@@ -120,7 +120,7 @@ Alternatively, you could use a compiler option: `-opt-in=kotlin.ExperimentalStdl
 
 [Read more about the new operator in this KEEP document](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md).
 
-## The new Kotlin/Native memory manager enabled by default
+## The new Kotlin/Native memory manager is enabled by default
 
 Kotlin 1.7.20 comes with the new Kotlin/Native memory manager enabled by default.
 This release brings further stability and performance improvements, allowing us to promote the new memory manager to [Beta](components-stability.md#stability-levels-explained).
@@ -139,7 +139,7 @@ Starting with Kotlin 1.7.20, the new memory manager is the default. Not much add
 
 If you've already turned it on manually, you can remove the `kotlin.native.binary.memoryModel=experimental` option from your `gradle.properties` or `binaryOptions["memoryModel"] = "experimental"` from the `build.gradle(.kts)` file.
 
-If it’s necessary, you can switch back to the legacy memory manager with the `kotlin.native.binary.memoryModel=strict` option in your `gradle.properties`.
+If it's necessary, you can switch back to the legacy memory manager with the `kotlin.native.binary.memoryModel=strict` option in your `gradle.properties`.
 However, compiler cache support is not available for the legacy memory manager anymore, so compilation times might become worse.
 
 #### Freezing
@@ -157,7 +157,7 @@ In such cases, you can temporarily support code for both new and legacy memory m
 
 The new memory manager still has a restriction on calling Kotlin `suspend` functions from Swift and Objective-C from threads other than the main one, but you can lift it with a new Gradle option.
 
-This restriction was originally introduced in the legacy memory manager due to cases where the code dispatched a continuation to be resumed on the original thread. If this thread didn’t have a supported event loop, the task would never run, and the coroutine would never be resumed.
+This restriction was originally introduced in the legacy memory manager due to cases where the code dispatched a continuation to be resumed on the original thread. If this thread didn't have a supported event loop, the task would never run, and the coroutine would never be resumed.
 
 In certain cases, this restriction is no longer required, but a check of all the necessary conditions can't be easily implemented.
 Because of this, we decided to keep it in the new memory manager, while introducing an option for you to disable it.
@@ -208,6 +208,6 @@ To enable this feature, use the `-language-version 1.8` compiler option.
 Install Kotlin 1.7.0-Beta in any of the following ways:
 
 * If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.7.20-Beta as soon as it becomes available.
-* If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You’ll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
+* If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
 
-Once you’ve installed 1.7.20-Beta, don’t forget to [change the Kotlin version](configure-build-for-eap.md) to 1.7.20-Beta in your build scripts.
+Once you've installed 1.7.20-Beta, don't forget to [change the Kotlin version](configure-build-for-eap.md) to 1.7.20-Beta in your build scripts.
