@@ -38,19 +38,21 @@ To enable the Kotlin K2 compiler and test it, use the following compiler option:
 -Xuse-k2
 ```
 
-We really appreciate your feedback in any form:
-* Provide your feedback directly to K2 developers in Kotlin Slack: get an invite and join the #k2-early-adopters channel
-* Report any problems you faced with the new K2 compiler to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Performance%20Problem&c=Subsystems%20Frontend.%20IR).
-
 Learn more about the new compiler and its benefits in the following videos:
 * [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
 * [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
+
+### Leave your feedback
+
+We really appreciate your feedback in any form:
+* Provide your feedback directly to K2 developers in Kotlin Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw) and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel
+* Report any problems you faced with the new K2 compiler to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Performance%20Problem&c=Subsystems%20Frontend.%20IR)
 
 ## Preview of the ..< operator for creating open-ended ranges
 
 > The new operator is [Experimental](components-stability.md#stability-levels-explained), and it has limited support in the IDE.
 >
-{type="note"}
+{type="warning"}
 
 This beta release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values.
 The new `..<` operator acts like the `until` function, and helps you define the open-ended range.  
@@ -171,7 +173,7 @@ kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 
 The Kotlin team is very grateful to [Ahmed El-Helw](https://github.com/ahmedre) for implementing this option.
 
-#### Leave your feedback
+### Leave your feedback
 
 This is a significant change to our ecosystem. We would appreciate your feedback to help make it even better.
 
