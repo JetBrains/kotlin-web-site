@@ -1,66 +1,87 @@
-[//]: # (title: Create your first cross-platform mobile app – tutorial)
+[//]: # (title: Create your first cross-platform app)
 
-Here you will learn how to create and run your first Kotlin Multiplatform Mobile application.
+<microformat>
+    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
+</microformat>
 
-1. [Set up an environment](multiplatform-mobile-setup.md) for cross-platform mobile development by installing the necessary tools on a suitable operating system.  
+Here you will learn how to create and run your first Kotlin Multiplatform Mobile application using Android Studio.
 
-    >You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application.  
-    >These steps cannot be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.
-    >
-    {type="note"}
+## Create the project from a template
 
-You can also watch a video of this tutorial created by Ekaterina Petrova, Kotlin Developer Advocate.
+> You can also watch the [video version of this tutorial](https://www.youtube.com/watch?v=GcqFhoUuNNI) created by Ekaterina
+> Petrova, Kotlin Product Marketing Manager.
+>
+{type="tip"}
 
-<video href="GcqFhoUuNNI" title="Kotlin Multiplatform Multiverse, Episode 2: Your First Kotlin Multiplatform Mobile App Tutorial"/>
-
-2. In Android Studio, select **File** | **New** | **New Project**.
-3. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
+1. In Android Studio, select **File | New | New Project**.
+2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
     ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png)
     
-4. Specify a name for your first application, and click **Next**.  
+3. Specify a name for your first application, and click **Next**.  
 
     ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
-5. In the window that opens, do the following:
-   * Keep the default names for the application and shared folders.
-   * Select the checkbox to generate sample tests for your project. 
-   * Select **Regular framework** in the list of iOS framework distribution options. 
-     
-   Click **Finish** to create a new project.
+4. In the **iOS framework distribution** list, select **Regular framework**.
 
-    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
-    
-    > If you want to use Kotlin Multiplatform module as a CocoaPods dependency, select the **CocoaPods dependency manager** option.
-    > To learn more about CocoaPods dependencies, see [CocoaPods integration](native-cocoapods.md).
-    >
-    {type="note"}
-    
-Now wait while your project is set up. It may take some time to download and set up the required components when you 
+   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+
+5. Keep the default names for the application and shared folders. Click **Finish**.
+
+The project will be set up automatically. It may take some time to download and set up the required components when you
 do this for the first time.
-    
-To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**. 
-You can [understand the project structure](multiplatform-mobile-understand-project-structure.md) and how you can use this. 
-    
+
+## Examine the project structure
+
+To view the full structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+
 ![Select the Project view](select-project-view.png){width=200}  
-    
-## Run your application 
+
+Each Kotlin Mobile Multiplatform project includes three modules:
+
+* _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
+  between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process. The _shared_
+  module builds into an Android library and an iOS framework.
+* _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
+  The _androidApp_ module depends on and uses the shared module as a regular Android library.
+* _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+  framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md),
+  based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
+  framework dependency.
+
+![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
+
+The shared module consists of three source sets: `androidMain`, `commonMain`, and `iosMain`. _Source set_ is a Gradle
+concept for a number of files logically grouped together where each group has its own dependencies. In Kotlin Multiplatform,
+different source sets in a shared module can target different platforms.
+
+![Source sets and modules structure](basic-project-structure-2.png){width=200}
+
+> This is an example structure of a Multiplatform Mobile project that you create with the project wizard in IntelliJ IDEA
+> or Android Studio. Real-life projects can have more complex structures.
+>
+{type="note"}
+
+## Run your application
 
 You can run your multiplatform application on [Android](#run-your-application-on-android) or [iOS](#run-your-application-on-ios).
 
 ### Run your application on Android
 
-* In the list of run configurations, select **androidApp** and then click **Run**.  
+1. Create an [Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
+2. In the list of run configurations, select **androidApp**.
+3. Choose your Android virtual device and click **Run**.  
     
     ![Run multiplatform app on Android](run-android.png){width=400}
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-android-1.png){width=300}
 
-#### Run on a different Android simulated device
+#### Run on a different Android simulated device {initial-collapse-state="collapsed"}
 
 Learn how to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
     
-#### Run on a real Android device
+#### Run on a real Android device {initial-collapse-state="collapsed"}
 
 Learn how to [configure and connect a hardware device and run your application on it](https://developer.android.com/studio/run/device).
 
@@ -72,7 +93,7 @@ Learn how to [configure and connect a hardware device and run your application o
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
-#### Run on a different iPhone simulated device
+#### Run on a different iPhone simulated device {initial-collapse-state="collapsed"}
 
 If you want to run your application on another simulated device, you can add a new run configuration.
 
@@ -84,15 +105,15 @@ If you want to run your application on another simulated device, you can add a n
 
     ![New run configuration for iOS application](ios-new-configuration.png)
 
-4. Name your configuration.
+3. Name your configuration.
 
-5. Select a simulated device in the **Execution target** list, and then click **OK**.
+4. Select a simulated device in the **Execution target** list, and then click **OK**.
 
     ![New run configuration with iOS simulator](ios-new-simulator.png)
     
-6. Click **Run** to run your application on the new simulated device.
+5. Click **Run** to run your application on the new simulated device.
     
-#### Run on a real iPhone device
+#### Run on a real iPhone device {initial-collapse-state="collapsed"}
 
 1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
 2. [Create a run configuration](#run-on-a-different-iphone-simulated-device) by selecting iPhone in the **Execution target** list.
@@ -102,42 +123,15 @@ If you want to run your application on another simulated device, you can add a n
 >
 {type="note"}
 
-## Run tests
-
-You can run tests to check that the shared code works correctly on both platforms. Of course, you can also write and run tests to check the 
-platform-specific code.
-
-### Run tests on iOS
-    
-1. Open the file `iosTest.kt` in `shared/src/iosTest/kotlin/com.example.kmmapplication.shared`.  
-    Directories with `Test` in their name contain tests.  
-    This file includes a sample test for iOS.  
-    
-    ![iOS test Kotlin file](ios-test-kt.png)
-   
-2. Click the **Run** icon in the gutter next to the test.  
-
-Tests run on a simulator without UI. Congratulations! The test has passed – see test results in the console.
-
-![iOS test result](ios-test-result.png){width=300}
-
-### Run tests on Android
-
-For Android, follow a procedure that is very similar to the one for running tests on iOS.
-
-1. Open the file `androidTest.kt` in `shared/src/androidTest/kotlin/com.example.kmmapplication.shared`.
-
-2. Click the **Run** gutter icon next to the test. 
-
 ## Update your application
 
-1. Open the file `Greeting.kt` in `shared/src/commonMain/kotlin/com.example.kmmapplication.shared`.  
-    This directory stores the shared code for both platforms – Android and iOS. If you make changes to the shared code, you will see
-    changes in both applications.
+1. Open the `Greeting.kt` file in `shared/src/commonMain/kotlin`. This directory stores the shared code for both Android
+and iOS. If you make changes to the shared code, you will see them reflected in both applications.
 
-    ![Common Kotlin file](common-kotlin-file.png)
-    
-2. Update the shared code – use the Kotlin standard library function that works on all platforms and reverts text: `reversed()`.
+   ![Common Kotlin file](common-kotlin-file.png)
+
+2. Update the shared code by using `[reversed()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html)`,
+the Kotlin standard library function for reverting text that works on all platforms:
 
     ```kotlin
     class Greeting {
@@ -154,15 +148,19 @@ For Android, follow a procedure that is very similar to the one for running test
 4. Run the updated application on iOS.  
 
     ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
-    
-5. Run tests on Android and iOS.  
-    As you see, the tests fail. Update the tests to pass. You know how to do this, right? ;)
-    
-    ![iOS test failed](ios-test-failed.png)
-    
-## Next steps
 
-Once you've played with your first cross-platform mobile application, you can:
+## Next step
 
-* [Understand the project structure](multiplatform-mobile-understand-project-structure.md)
-* [Complete a tutorial on making your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)
+[Learn about dependencies and add a third-party library to your project](multiplatform-mobile-dependencies.md)
+to expand its functionality.
+
+### See also
+
+* See how to [create and run multiplatform tests](multiplatform-run-tests.md) to check that the code works correctly.
+* Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md), the shared module's
+artifacts, and how the Android and iOS apps are produced.
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
