@@ -26,7 +26,7 @@ for example security storage, and there is common logic.
 
 For both types of dependencies, you can use local and external repositories.
 
-## Adding a multiplatform dependency
+## Add a multiplatform dependency
 
 > If you have experience developing Android apps, adding a multiplatform dependency is similar to adding a
 > Gradle dependency in a regular Android project. The only difference is that you need to specify the source set.

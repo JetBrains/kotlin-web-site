@@ -1,7 +1,7 @@
 [//]: # (title: Upgrade your app)
 
 <microformat>
-    <p>This is the forth part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p>This is the fourth part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
@@ -74,7 +74,7 @@ dependency (`ktor-client-core`) in the common source set, you also need to:
 
 * Add the ContentNegotiation functionality (`ktor-client-content-negotiation`) responsible for serializing/deserializing
   the content in a specific format.
-* Add the `ktor-serialization-kotlinx-json` depencency to instruct Ktor to use the JSON format and `kotlinx.serialization`
+* Add the `ktor-serialization-kotlinx-json` dependency to instruct Ktor to use the JSON format and `kotlinx.serialization`
   as a serialisation library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
 * Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets
   (`ktor-client-android`, `ktor-client-darwin`).
@@ -182,7 +182,7 @@ with more readable names.
     ```
 
     The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
-    a suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
+    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
     within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
