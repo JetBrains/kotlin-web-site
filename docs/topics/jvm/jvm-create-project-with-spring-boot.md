@@ -3,13 +3,11 @@
 This tutorial walks you through the process of creating a simple application with Spring Boot and adding a database
 to store the information.
 
-New super intro will be here.
-
 ## Before you start
 
 Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
-## Bootstrap the Spring Boot project
+## Create the Spring Boot project
 
 create a new Spring Boot project with Kotlin by using the project wizard in IntelliJ IDEA Ultimate Edition:
 
@@ -25,9 +23,10 @@ create a new Spring Boot project with Kotlin by using the project wizard in Inte
    * **Build system**: Gradle
    * **JDK**: Java 17 JDK
      
-     > This tutorial has been created using **Amazon Corretto version 17**.
+     > Use **Amazon Corretto version 17** for this tutorial.
      >
      {type="note"}
+   
    * **Java**: 17
 
 4. Ensure that all the fields are specified and click **Next**.
@@ -154,4 +153,4 @@ It works! (the aha moment)
 
 ## What's next
 
-You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-restful-2.md)
+You ready to upgrade the project: [proceed to the next chapter](jvm-create-project-with-spring-boot.md)

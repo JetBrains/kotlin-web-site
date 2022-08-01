@@ -2,7 +2,7 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p>
-    <p><a href="jvm-spring-boot-restful-2.md">Create a Spring Boot project with Kotlin</a><br/><strong>Add an HTTP request controller to your Spring Boot project</strong><br/>Add a data class to Spring Boot project<br/>Add database support for Spring Boot project<br/>Wrap up your project</p>
+    <p><a href="docs/topics/jvm/jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><strong>Add an HTTP request controller to your Spring Boot project</strong><br/>Add a data class to Spring Boot project<br/>Add database support for Spring Boot project<br/>Wrap up your project</p>
 </microformat>
 
 ## Create a controller
