@@ -1079,7 +1079,7 @@ The priority of properties is the following:
 The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
 1. `daemon` (default)
 2. `in-process`
-3. `ouf-of-process`
+3. `out-of-process`
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
