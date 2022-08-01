@@ -1,11 +1,11 @@
 [//]: # (title: Set up an environment)
 
 <microformat>
-    <p>This is a part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial:</p>
+    <p>This is the first part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial:</p>
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up an environment</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Create your first cross-platform app<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
-Before you create your first application that works on both iOS and Android, first you'll need to set up an environment for Kotlin Multiplatform
+Before you create your first application that works on both iOS and Android, you'll need to set up an environment for Kotlin Multiplatform
 Mobile development.
 
 > To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
@@ -98,7 +98,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
    <def title="Xcode">
       <ul>
          <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
-        <li>Xcode also requires you to accept its license and performs some initial tasks on the first launch. To do so, launch Xcode in a separate window.</li>
+         <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
       </ul>
    </def>
    <def title="Kotlin plugins">
@@ -117,8 +117,8 @@ To make sure everything works as expected, install and run the KDoctor tool:
    </def>
    <def title="CocoaPods">
         <p>Make sure you have the <a href="https://guides.cocoapods.org/using/getting-started.html#installation">CocoaPods dependency manager</a> installed.</p>
-        <note><p>We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you should also install the <a href="https://github.com/square/cocoapods-generate#installation"><code>cocoapods-generate</code> plugin</a>.</p></note>
-        <p>If you don't have Ruby installed on your device or have issues with CocoaPods installation, use these guides:</p>
+        <note><p>We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you'll need to additionally install the <a href="https://github.com/square/cocoapods-generate#installation"><code>cocoapods-generate</code> plugin</a> before proceeding.</p></note>
+        <p>If you don't have Ruby installed on your device, or you're experiencing problems installing CocoaPods and getting it to work, use these guides:</p>
         <list>
             <ul>
                <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Installing Ruby</a>. You can install Ruby with Homebrew, RVM, or other package managers.</li>
