@@ -46,7 +46,7 @@ Learn more about the new compiler and its benefits in the following videos:
 * [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
 * [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
 
-## Preview of the `..<` operator for creating open-ended ranges
+## Preview of the ..< operator for creating open-ended ranges
 
 > The new operator is [Experimental](components-stability.md#stability-levels-explained), and it has limited support in the IDE.
 >
@@ -167,7 +167,7 @@ kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 
 > Do not add this option if you use the `native-mt` version of `kotlinx.coroutines` or other libraries that have the same "dispatch to the original thread" approach.
 >
-{type=”warning”}
+{type="warning"}
 
 The Kotlin team is very grateful to [Ahmed El-Helw](https://github.com/ahmedre) for implementing this option.
 
