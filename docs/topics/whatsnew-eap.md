@@ -11,7 +11,7 @@ The Kotlin 1.7.20-Beta release is out! Here are some highlights from this previe
 
 * [The new Kotlin K2 compiler supports Lombok, `all-open`, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
-* [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-enabled-by-default)
+* [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
 
 ## Support for Kotlin K2 compiler plugins
@@ -130,7 +130,7 @@ This blocked the adoption of Kotlin Multiplatform Mobile because concurrency lim
 The new memory manager finally paves the way to [promote Kotlin Multiplatform Mobile to Beta](https://blog.jetbrains.com/kotlin/2022/05/kotlin-multiplatform-mobile-beta-roadmap-update/).
 
 The new memory manager also supports the compiler cache that makes compilation times comparable to previous releases.
-For more on the benefits of the new memory manager, see our original [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/?_ga=2.78056339.62647407.1657550793-1365835714.1628072746&_gl=1*1dslhfh*_ga*MTM2NTgzNTcxNC4xNjI4MDcyNzQ2*_ga_9J976DJZ68*MTY1Nzg2NDY5NS4yMDIuMS4xNjU3ODY1MTU0LjA.) for the preview version.
+For more on the benefits of the new memory manager, see our original [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) for the preview version.
 You can find more technical details in the [migration instructions on GitHub](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md).
 
 ### Configuration and setup
