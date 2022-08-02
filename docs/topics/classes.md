@@ -158,7 +158,7 @@ with no arguments. The visibility of the constructor will be public.
 If you don't want your class to have a public constructor, declare an empty primary constructor with non-default visibility:
 
 ```kotlin
-class DontCreateMe private constructor () { /*...*/ }
+class DontCreateMe private constructor() { /*...*/ }
 ```
 
 > On the JVM, if all of the primary constructor parameters have default values, the compiler will generate an additional parameterless constructor which will use the default values. This makes it easier to use Kotlin with libraries such as Jackson or JPA that create class instances through parameterless constructors.
