@@ -205,7 +205,7 @@ To enable this feature, use the `-language-version 1.8` compiler option.
 
 ## How to update to the Kotlin 1.7.20-Beta
 
-Install Kotlin 1.7.0-Beta in any of the following ways:
+Install Kotlin 1.7.20-Beta in any of the following ways:
 
 * If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.7.20-Beta as soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
