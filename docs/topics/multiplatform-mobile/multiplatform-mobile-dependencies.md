@@ -82,7 +82,7 @@ the number of days from today until the new year using the `date-time` date arit
 
 ## Next step
 
-Add more dependencies and more complex logic to your project](multiplatform-mobile-upgrade-app.md).
+[Add more dependencies and more complex logic to your project](multiplatform-mobile-upgrade-app.md).
 
 ### See also
 
