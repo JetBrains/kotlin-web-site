@@ -3,7 +3,7 @@ package tests
 import jetbrains.buildServer.configs.kotlin.Project
 
 
-object Project : Project({
+object TestsProject : Project({
   name = "Site Tests"
 
   buildType(tests.buildTypes.E2ETests)
