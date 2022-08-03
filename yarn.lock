@@ -1383,10 +1383,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.1.0-alpha.9":
-  version "4.1.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.1.0-alpha.9.tgz#8037f073b84d21231fd3f3f4f03bbefc9e799bef"
-  integrity sha512-HkVlZZ/ySHIVA61sqQb5XX525u/tThk7eJCudQ0I4xxZ+BhsIheuE8YcGSXoG6LfKDPVjV5DBbhW/hxShTYEdA==
+"@jetbrains/kotlin-web-site-ui@4.1.0-alpha.10":
+  version "4.1.0-alpha.10"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.1.0-alpha.10.tgz#87217c558c9500acd1d147c42bb479af20f9720f"
+  integrity sha512-QK6qEPJDlhWsrdJA4yGYEOFvPlJFL7s+M0XL/aMCLRyvtRnSqBJb16jQsXMQ1tTjb6VQZZQfdwPH6pfKHOc2Xw==
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
@@ -7455,6 +7455,11 @@ react-resize-detector@^6.7.3:
     "@types/resize-observer-browser" "^0.1.6"
     lodash "^4.17.21"
     resize-observer-polyfill "^1.5.1"
+
+react-scrollbar-size@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-scrollbar-size/-/react-scrollbar-size-5.0.0.tgz#29892779dfcb9077ce18e2483d1dba6400c58fb0"
+  integrity sha512-Ly3OuRMz4yDFViTh+ANH6TrG8EqrgjC1uxxm2a/95+2Ijy3XT+bWtzm4QmgZUcUVg+8BCKzmPMM7z39ZtucDIQ==
 
 react-swipeable-views-core@^0.14.0:
   version "0.14.0"
