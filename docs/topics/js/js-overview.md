@@ -120,12 +120,12 @@ main Kotlin/JS benefits, shares some tips and use cases, and talks about the pla
 If you're new to Kotlin, a good first step is to familiarize yourself with the [basic syntax](basic-syntax.md) of the language.
 
 To start using Kotlin for JavaScript, please refer to [Set up a Kotlin/JS project](js-project-setup.md). You can also
-pick a [hands-on](#hands-on-labs-for-kotlin-js) lab to work through or check out the list of [Kotlin/JS sample projects](#sample-projects-for-kotlin-js)
+complete a [tutorial](#tutorials-for-kotlin-js) to work through or check out the list of [Kotlin/JS sample projects](#sample-projects-for-kotlin-js)
 for inspiration. They contain useful snippets and patterns and can serve as nice jump-off points for your own projects.
 
-## Hands-on labs for Kotlin/JS
+### Tutorials for Kotlin/JS
 
-* [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
+* [Build a web application with React and Kotlin/JS — tutorial](js-react.md)
 guides you through the process of building a simple web application using the React framework, shows how a type-safe Kotlin
 DSL for HTML makes it easy to build reactive DOM elements, and illustrates how to use third-party React components and
 obtain information from APIs, all while writing the whole application logic in pure Kotlin/JS.
@@ -135,7 +135,7 @@ teaches the concepts behind building an application that targets Kotlin/JVM and 
 application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
 introduction to working with Ktor both as a server- and client-side framework.
 
-## Sample projects for Kotlin/JS
+### Sample projects for Kotlin/JS
 
 * [Full-stack Spring collaborative to-do list](https://github.com/Kotlin/full-stack-spring-collaborative-todo-list-sample)
 shows how to create a to-do list for collaborative work using `kotlin-multiplatform` with JS and JVM targets, Spring

@@ -170,7 +170,10 @@
   to: /docs/tutorials/javascript/setting-up.html
 
 - from: /docs/tutorials/javascript/react-and-kotlin-js.html
-  to: https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction
+  to: /docs/js-react.html
+
+- from: /docs/js-hands-ons.html
+  to: /docs/js-overview.html#get-started-with-kotlin-js
 
 - from: /docs/tutorials/javascript/debugging-javascript/debugging-javascript.html
   to: /docs/tutorials/javascript/debugging-kotlin-in-browser.html
