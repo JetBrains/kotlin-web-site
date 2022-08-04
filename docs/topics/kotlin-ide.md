@@ -1,5 +1,5 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: Learn what IDE you could choose for Kotlin development.)
+[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA, Android Studio, and Eclipse)
 
 JetBrains provides the official Kotlin plugin for the following Integrated Development Environments (IDEs):
 
