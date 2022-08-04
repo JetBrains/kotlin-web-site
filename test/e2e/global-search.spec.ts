@@ -30,22 +30,27 @@ test.describe('Global Search Component', async () => {
     });
 
     for (const pageWithGlobalSearch of pagesWithGlobalSearch) {
-        test(`Regular Page Search on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
+
+        test(`Quick Search on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
             const currentPage = pageWithGlobalSearch.getInstance(page);
             await currentPage.init();
-            await currentPage.globalSearch.openSearch();
-            await currentPage.globalSearch.inputSearch(SEARCH_STRING);
-            await currentPage.globalSearch.closeSearch();
+            await currentPage.globalSearch.openQuickSearch();
+            await currentPage.globalSearch.inputQuickSearch(SEARCH_STRING);
+            await currentPage.globalSearch.closeQuickSearch();
         });
 
-        test(`Search with Query Params on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
+        test(`Full Search on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
             const currentPage = pageWithGlobalSearch.getInstance(page);
             await currentPage.init();
-            await currentPage.globalSearch.openSearch();
-            await currentPage.globalSearch.inputSearch(SEARCH_STRING);
-            await currentPage.page.reload();
-            await currentPage.globalSearch.searchIsVisible();
-            await currentPage.globalSearch.closeSearch();
+            await currentPage.globalSearch.openFullSearch(SEARCH_STRING);
+            await currentPage.globalSearch.closeFullSearch();
+        });
+
+        test(`Full Search with keyboard shortcut on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
+            const currentPage = pageWithGlobalSearch.getInstance(page);
+            await currentPage.init();
+            await currentPage.globalSearch.openFullSearchWithShortcut(SEARCH_STRING);
+            await currentPage.globalSearch.closeFullSearch();
         });
     }
 });
