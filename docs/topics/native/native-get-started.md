@@ -21,7 +21,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
    ![Configure a native application](native-new-project-intellij-2.png){width=700}
 
-   By default, the wizard creates the necessary `main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
+   By default, the wizard creates the necessary `Main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
 
 5. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
    you need the Kotlin Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
@@ -43,7 +43,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
    ![Build the application](native-run-app.png){width=600}
 
-2. On the **Terminal** tab, run the following command:
+2. In the IntelliJ IDEA terminal or your command-line tool, run the following command:
 
    ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
@@ -65,16 +65,11 @@ performs the incremental build of the project.
 
 ### Count the letters in your name
 
-1. Open the file `main.kt` in `src/nativeMain/kotlin`.
+1. Open the file `Main.kt` in `src/nativeMain/kotlin`.
 
-   The `src` directory contains the Kotlin source files and resources. The file `main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
+   The `src` directory contains the Kotlin source files and resources. The file `Main.kt` includes sample code that prints "Hello, Kotlin/Native!" using the [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) function.
 
 2. Add code to read the input. Use the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function to read the input value and assign it to the `name` variable:
-
-   > The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).  
-   > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
-   >
-   {type="note"}
 
    ```kotlin
    fun main() {
@@ -102,7 +97,7 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the build command:
+4. Save the changes and run the following command in the IntelliJ IDEA terminal or your command-line tool:
 
    ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
@@ -114,7 +109,7 @@ performs the incremental build of the project.
 
 ### Count the unique letters in your name
 
-1. Open the file `main.kt` in `src/nativeMain/kotlin`.
+1. Open the file `Main.kt` in `src/nativeMain/kotlin`.
 
 2. Declare the new [extension function](extensions.md#extension-functions) `countDistinctCharacters()` for `String`:
 
@@ -145,7 +140,7 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the build command:
+4. Save the changes and run the following command in the IntelliJ IDEA terminal or your command-line tool:
 
    ```bash
    build/bin/native/debugExecutable/<your_app_name>.kexe
