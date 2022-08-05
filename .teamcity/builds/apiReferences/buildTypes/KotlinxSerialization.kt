@@ -18,7 +18,7 @@ object KotlinxSerialization : BuildType({
 
   triggers {
     vcs {
-      branchFilter = BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG
+      branchFilter = "+:<default>"
     }
   }
 })

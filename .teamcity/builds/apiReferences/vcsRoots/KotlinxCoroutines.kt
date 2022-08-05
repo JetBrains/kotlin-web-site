@@ -7,7 +7,6 @@ object KotlinxCoroutines : GitVcsRoot({
   url = "git@github.com:Kotlin/kotlinx.coroutines.git"
   branch = "refs/tags/${BuildParams.KOTLINX_COROUTINES_RELEASE_TAG}"
   branchSpec = """
-        +:refs/heads/(*)
         +:refs/tags/(*)
     """.trimIndent()
   useTagsAsBranches = true

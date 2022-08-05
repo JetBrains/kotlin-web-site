@@ -30,4 +30,8 @@ object DokkaReferenceTemplate : Template({
   requirements {
     contains("docker.server.osType", "linux")
   }
+
+  params {
+    param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
+  }
 })

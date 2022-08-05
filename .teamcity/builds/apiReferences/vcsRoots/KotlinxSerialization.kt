@@ -7,7 +7,6 @@ object KotlinxSerialization: GitVcsRoot({
   url = "git@github.com:Kotlin/kotlinx.serialization.git"
   branch = "refs/tags/${BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG}"
   branchSpec = """
-        +:refs/heads/(*)
         +:refs/tags/(*)
     """.trimIndent()
   useTagsAsBranches = true

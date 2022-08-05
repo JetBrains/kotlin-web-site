@@ -18,7 +18,7 @@ object KotlinxCoroutines: BuildType({
 
   triggers {
     vcs {
-      branchFilter = BuildParams.KOTLINX_COROUTINES_RELEASE_TAG
+      branchFilter = "+:<default>"
     }
   }
 })
