@@ -75,11 +75,12 @@ default source sets for the `main` and `test` compilations of the common code an
 
 ![Source sets](source-sets.png){width=300}
 
->Source set names are case sensitive.
+> Source set names are case-sensitive.
 >
 {type="note"}
 
-Source sets are added to the `sourceSets` block of the top-level `kotlin` block.
+Source sets are added to the `sourceSets` block of the top-level `kotlin` block. For example, this is the source sets
+structure you get when creating a multiplatform library with the IntelliJ IDEA project wizard:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -87,12 +88,18 @@ Source sets are added to the `sourceSets` block of the top-level `kotlin` block.
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting { /* ... */ }
-        val commonTest by getting { /* ... */ }
-        val jvmMain by getting { /* ... */ }
-        val jvmTest by getting { /* ... */ } 
-        val jsMain by getting { /* ... */ }
-        val jsTest by getting { /* ... */ } 
+        val commonMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting
+        val jsMain by getting
+        val jsTest by getting
+        val nativeMain by getting
+        val nativeTest by getting
     }
 }
 ```
@@ -103,12 +110,32 @@ kotlin {
 ```groovy
 kotlin {
     sourceSets {
-        commonMain { /* ... */} 
-        commonTest { /* ... */}
-        jvmMain { /* ... */}
-        jvmTest { /* ... */ }
-        jsMain { /* ... */}
-        jsTest { /* ... */}    
+        commonMain {
+
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin('test')
+            }
+        }
+        jvmMain {
+
+        }
+        jvmTest {
+
+        }
+        jsMain {
+
+        }
+        jsTest {
+
+        }
+        nativeMain {
+
+        }
+        nativeTest {
+
+        }
     }
 }
 ```
