@@ -9,7 +9,7 @@ _[Release date: 1 August 2022](eap.md#build-details)_
 
 The Kotlin 1.7.20-Beta release is out! Here are some highlights from this preview version of Kotlin:
 
-* [The new Kotlin K2 compiler supports Lombok, `all-open`, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
+* [The new Kotlin K2 compiler supports `all-open`, `no-arg`, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
 * [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
