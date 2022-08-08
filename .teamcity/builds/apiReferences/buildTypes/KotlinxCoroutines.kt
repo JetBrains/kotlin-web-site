@@ -1,6 +1,7 @@
 package builds.apiReferences.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxCoroutines: BuildType({
@@ -19,6 +20,15 @@ object KotlinxCoroutines: BuildType({
   triggers {
     vcs {
       branchFilter = "+:<default>"
+    }
+  }
+
+  steps {
+    script {
+      name = "Test branch"
+      scriptContent = """
+                echo "TEST BRANCH"
+            """.trimIndent()
     }
   }
 })
