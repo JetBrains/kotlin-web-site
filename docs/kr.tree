@@ -47,7 +47,8 @@
 
     <toc-element toc-title="Concepts">
         <toc-element toc-title="Types">
-            <toc-element toc-title="Basic types" id="basic-types.md">
+            <toc-element toc-title="Basic types">
+                <toc-element id="basic-types.md" toc-title="Overview"/>
                 <toc-element id="numbers.md"/>
                 <toc-element id="booleans.md"/>
                 <toc-element id="characters.md"/>

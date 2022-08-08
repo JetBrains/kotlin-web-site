@@ -1,6 +1,6 @@
 [//]: # (title: Strings)
 
-Strings in Kotlin are represented by the type `String`. Generally, a string value is a sequence of characters in double quotes (`"`).
+Strings in Kotlin are represented by the type `String`. Generally, a string value is a sequence of characters in double quotes (`"`):
 
 ```kotlin
 val str = "abcd 123"
@@ -22,14 +22,14 @@ for (c in str) {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 Strings are immutable. Once you initialize a string, you can't change its value or assign a new value to it.
-All operations that transform strings return their results in a new `String` object, leaving the original string unchanged.
+All operations that transform strings return their results in a new `String` object, leaving the original string unchanged:
 
 ```kotlin
 fun main() {
 //sampleStart
     val str = "abcd"
     println(str.uppercase()) // Create and print a new String object
-    println(str) // the original string remains the same
+    println(str) // The original string remains the same
 //sampleEnd
 }
 ```
@@ -48,24 +48,32 @@ println(s + "def")
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Note that in most cases using [string templates](#string-templates) or raw strings is preferable to string concatenation.
+> In most cases using [string templates](#string-templates) or [raw strings](#raw-strings) is preferable to string concatenation.
+> 
+{type="note"}
 
 ## String literals
 
 Kotlin has two types of string literals:
 
-* _escaped_ strings that may contain escaped characters
-* _raw_ strings that can contain newlines and arbitrary text
+* [Escaped strings](#escaped-strings)
+* [Raw strings](#raw-strings)
 
+### Escaped strings
+
+_Escaped strings_ can contain escaped characters.  
 Here's an example of an escaped string:
 
 ```kotlin
 val s = "Hello, world!\n"
 ```
 
-Escaping is done in the conventional way, with a backslash (`\`). See [Characters](characters.md) page for the list of supported escape sequences.
+Escaping is done in the conventional way, with a backslash (`\`).  
+See [Characters](characters.md) page for the list of supported escape sequences.
 
-A raw string is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
+### Raw strings
+
+_Raw strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
 ```kotlin
 val text = """
@@ -85,18 +93,18 @@ val text = """
     """.trimMargin()
 ```
 
-By default, `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
+By default, a pipe symbol `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
 
 ## String templates
 
-String literals may contain _template_ expressions - pieces of code that are evaluated and whose results are concatenated into the string.
+String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign (`$`) and consists of either a name:
 
 ```kotlin
 fun main() {
 //sampleStart
     val i = 10
-    println("i = $i") // prints "i = 10"
+    println("i = $i") // Prints "i = 10"
 //sampleEnd
 }
 ```
@@ -108,14 +116,16 @@ or an expression in curly braces:
 fun main() {
 //sampleStart
     val s = "abc"
-    println("$s.length is ${s.length}") // prints "abc.length is 3"
+    println("$s.length is ${s.length}") // Prints "abc.length is 3"
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can use templates both in raw and escaped strings.
-To insert the `$` character in a raw string (which doesn't support backslash escaping) before any symbol, which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers), use the following syntax:
+To insert the dollar sign `$`  in a raw string (which doesn't support backslash escaping) before any symbol,
+which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
+use the following syntax:
 
 ```kotlin
 val price = """

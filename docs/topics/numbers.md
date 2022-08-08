@@ -3,7 +3,7 @@
 ## Integer types
 
 Kotlin provides a set of built-in types that represent numbers.  
-For integer numbers, there are four types with different sizes and, hence, value ranges.
+For integer numbers, there are four types with different sizes and, hence, value ranges:
 
 | Type	 |Size (bits)| Min value| Max value|
 |--------|-----------|----------|--------- |
@@ -28,7 +28,8 @@ val oneByte: Byte = 1
 
 For real numbers, Kotlin provides floating-point types `Float` and `Double` that adhere to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754).
 `Float` reflects the IEEE 754 _single precision_, while `Double` reflects _double precision_.
-These types differ in their size and provide storage for floating-point numbers with different precision.
+
+These types differ in their size and provide storage for floating-point numbers with different precision:
 
 | Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
 |--------|-----------|--------------- |-------------|--------------|
@@ -37,7 +38,7 @@ These types differ in their size and provide storage for floating-point numbers 
 
 You can initialize `Double` and `Float` variables  with numbers having a fractional part.
 It's separated from the integer part by a period (`.`)
-For variables initialized with fractional numbers, the compiler infers the `Double` type.
+For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
 ```kotlin
 val pi = 3.14 // Double
@@ -46,16 +47,16 @@ val oneDouble = 1.0 // Double
 ```
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
-If such a value contains more than 6-7 decimal digits, it will be rounded.
+If such a value contains more than 6-7 decimal digits, it will be rounded:
 
 ```kotlin
 val e = 2.7182818284 // Double
 val eFloat = 2.7182818284f // Float, actual value is 2.7182817
 ```
 
-Note that unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
+Unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
 For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`,
-`Int`, or other numeric values.
+`Int`, or other numeric values:
 
 ```kotlin
 fun main() {
@@ -71,9 +72,9 @@ fun main() {
 }
 ```
 
-To convert numeric values to different types, use [Explicit conversions](#explicit-conversions).
+To convert numeric values to different types, use [explicit conversions](#explicit-number-conversions).
 
-## Literal constants
+## Literal constants for numbers
 
 There are the following kinds of literal constants for integral values:
 
@@ -82,7 +83,7 @@ There are the following kinds of literal constants for integral values:
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
->Octal literals are not supported.
+> Octal literals are not supported in Kotlin.
 >
 {type="note"}
 
@@ -107,7 +108,7 @@ On the JVM platform, numbers are stored as primitive types: `int`, `double`, and
 Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
 In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
 
-Note that nullable references to the same number can refer to different objects:
+Nullable references to the same number can refer to different objects:
 
 ```kotlin
 fun main() {
@@ -145,22 +146,22 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-## Explicit conversions
+## Explicit number conversions
 
-Due to different representations, smaller types *are not subtypes* of bigger ones.
+Due to different representations, smaller types _are not subtypes_ of bigger ones.
 If they were, we would have troubles of the following sort:
 
 ```kotlin
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
-val b: Long? = a // implicit conversion yields a boxed Long (java.lang.Long)
+val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
 print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
 ```
 
 So equality would have been lost silently, not to mention identity.
 
 As a consequence, smaller types _are NOT implicitly converted_ to bigger types.
-This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion.
+This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
 ```kotlin
 fun main() {
@@ -189,10 +190,10 @@ and arithmetical operations are overloaded for appropriate conversions, for exam
 val l = 1L + 3 // Long + Int => Long
 ```
 
-## Operations
+## Operations on numbers
 
 Kotlin supports the standard set of arithmetical operations over numbers: `+`, `-`, `*`, `/`, `%`. They are declared
-as members of appropriate classes.
+as members of appropriate classes:
 
 ```kotlin
 fun main() {
@@ -223,7 +224,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-This is true for a division between any two integer types.
+This is true for a division between any two integer types:
 
 ```kotlin
 fun main() {
@@ -235,7 +236,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-To return a floating-point type, explicitly convert one of the arguments to a floating-point type.
+To return a floating-point type, explicitly convert one of the arguments to a floating-point type:
 
 ```kotlin
 fun main() {
@@ -251,7 +252,7 @@ fun main() {
 
 Kotlin provides a set of _bitwise operations_ on integer numbers. They operate on the binary level directly with
 bits of the numbers' representation.
-Bitwise operations are represented by functions that can be called in infix form. They can be applied only to `Int` and `Long`.
+Bitwise operations are represented by functions that can be called in infix form. They can be applied only to `Int` and `Long`:
 
 ```kotlin
 val x = (1 shl 2) and 0x000FF000
@@ -262,12 +263,12 @@ Here is the complete list of bitwise operations:
 * `shl(bits)` – signed shift left
 * `shr(bits)` – signed shift right
 * `ushr(bits)` – unsigned shift right
-* `and(bits)` – bitwise __and__
-* `or(bits)` – bitwise __or__
-* `xor(bits)` – bitwise __xor__
+* `and(bits)` – bitwise **AND**
+* `or(bits)` – bitwise **OR**
+* `xor(bits)` – bitwise **XOR**
 * `inv()` – bitwise inversion
 
-## Floating-point numbers comparison
+### Floating-point numbers comparison
 
 The operations on floating-point numbers discussed in this section are:
 
@@ -280,7 +281,7 @@ declared or inferred or is a result of a [smart cast](typecasts.md#smart-casts))
 numbers and the range that they form follow the [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754).
 
 However, to support generic use cases and provide total ordering, when the operands are **not** statically typed as
-floating point numbers (e.g. `Any`, `Comparable<...>`, a type parameter), the operations use the
+floating point numbers (for example, `Any`, `Comparable<...>`, a type parameter), the operations use the
 `equals` and `compareTo` implementations for `Float` and `Double`, which disagree with the standard, so that:
 
 * `NaN` is considered equal to itself

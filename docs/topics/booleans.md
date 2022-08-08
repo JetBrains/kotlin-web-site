@@ -8,7 +8,7 @@ Built-in operations on booleans include:
 
 * `||` – disjunction (logical _OR_)
 * `&&` – conjunction (logical _AND_)
-* `!` - negation (logical _NOT_)
+* `!` – negation (logical _NOT_)
 
 `||` and `&&` work lazily.
 
@@ -27,6 +27,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
->**On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
+> **On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
 {type="note"}
