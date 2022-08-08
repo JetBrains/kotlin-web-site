@@ -28,7 +28,7 @@ instructions, documentation, and examples.
 
 ### Kotlin Notebooks in Datalore
 
-With Datalore, you can start using Kotlin in the browser straight out of the box, no installation required. You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports. Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
+With Datalore, you can use Kotlin in the browser straight out of the box, no installation required. You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports. Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
 
 <!--<img src="kotlin_in_datalore.png" alt="Kotlin in Datalore" width="800"/>-->
 ![kotlin_in_datalore](https://user-images.githubusercontent.com/73881741/181792090-9c9e0d75-1c2c-4e53-8e56-349b8bfe9921.png)
