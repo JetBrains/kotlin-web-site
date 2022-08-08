@@ -24,8 +24,6 @@ Starting with this preview version, the Kotlin K2 compiler supports the followin
 
 * [`all-open`](all-open-plugin.md)
 * [`no-arg`](no-arg-plugin.md)
-* [SAM with receiver](sam-with-receiver-plugin.md)
-* [Lombok](lombok.md)
 * Parcelize
 * AtomicFU
 * `jvm-abi-gen`
