@@ -157,7 +157,7 @@
     <toc-element toc-title="Spring Boot with Kotlin development">
         <toc-element id="jvm-get-started-spring-boot.md" toc-title="Get started with Spring Boot and Kotlin"/>
         <toc-element id="jvm-create-project-with-spring-boot.md" toc-title="Create a Spring Boot project"/>
-        <toc-element id="jvm-spring-boot-restful-3.md" toc-title="Add a web requests controller"/>
+        <toc-element id="jvm-add-http-to-spring-boot-project.md" toc-title="Add a web requests controller"/>
         <toc-element id="jvm-spring-boot-restful-4.md" toc-title="Upgrade your project with data classes"/>
         <toc-element id="jvm-spring-boot-restful-5.md" toc-title="Add database support for Spring Boot project"/>
     </toc-element>
