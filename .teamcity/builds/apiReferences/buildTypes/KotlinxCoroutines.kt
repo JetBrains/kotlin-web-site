@@ -22,13 +22,4 @@ object KotlinxCoroutines: BuildType({
       branchFilter = "+:<default>"
     }
   }
-
-  steps {
-    script {
-      name = "Test branch"
-      scriptContent = """
-                echo "TEST BRANCH"
-            """.trimIndent()
-    }
-  }
 })
