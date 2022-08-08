@@ -32,7 +32,7 @@ With Datalore, you can use Kotlin in the browser straight out of the box, no ins
 You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports.
 Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
 
-![Kotlin_in_Datalore](kotlin-datalore.png){width=800}
+![Kotlin in Datalore](kotlin-datalore.png){width=800}
 
 [Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
 
