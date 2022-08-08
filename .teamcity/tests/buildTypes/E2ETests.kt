@@ -41,7 +41,7 @@ object E2ETests : BuildType({
   }
 
   features {
-    commitStatusPublisher {
+    /*commitStatusPublisher {
       vcsRootExtId = "${vcsRoots.KotlinLangOrg.id}"
       publisher = github {
         githubUrl = "https://api.github.com"
@@ -49,7 +49,7 @@ object E2ETests : BuildType({
           token = "%github.oauth%"
         }
       }
-    }
+    }*/
     pullRequests {
       vcsRootExtId = "${vcsRoots.KotlinLangOrg.id}"
       provider = github {
