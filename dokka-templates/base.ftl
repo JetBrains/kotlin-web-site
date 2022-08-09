@@ -19,6 +19,9 @@
     <#-- Resources (scripts, stylesheets) are handled by Dokka.
     Use customStyleSheets and customAssets to change them. -->
     <@resources/>
+
+    <link rel="stylesheet" href="/_assets/dokka-template.css">
+
 </head>
 <body>
 <@header.display/>
@@ -31,5 +34,7 @@
         <@footer.display/>
     </div>
 </div>
+<script async src="/_assets/dokka-template.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -1,7 +1,6 @@
 package builds.apiReferences.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxCoroutines: BuildType({
