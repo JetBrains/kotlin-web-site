@@ -8,6 +8,7 @@ object BuildApiReferencesProject : Project({
 
   buildType(builds.apiReferences.buildTypes.KotlinxSerialization)
   buildType(builds.apiReferences.buildTypes.KotlinxCoroutines)
+  buildType(builds.apiReferences.buildTypes.PrepareCustomDokkaTemplates)
 
   vcsRoot(builds.apiReferences.vcsRoots.KotlinxSerialization)
   vcsRoot(builds.apiReferences.vcsRoots.KotlinxCoroutines)
