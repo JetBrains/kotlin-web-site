@@ -138,7 +138,7 @@ Kotlin supports the following operators and special symbols:
      - is used to specify [default values for parameters](functions.md#default-arguments).
  * `+=`, `-=`, `*=`, `/=`, `%=` - [augmented assignment operators](operator-overloading.md#augmented-assignments).
  * `++`, `--` - [increment and decrement operators](operator-overloading.md#increments-and-decrements).
- * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](numbers.md#operations) instead).
+ * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](numbers.md#operations-on-numbers) instead).
  * `==`, `!=` - [equality operators](operator-overloading.md#equality-and-inequality-operators) (translated to calls of `equals()` for non-primitive types).
  * `===`, `!==` - [referential equality operators](equality.md#referential-equality).
  * `<`, `>`, `<=`, `>=` - [comparison operators](operator-overloading.md#comparison-operators) (translated to calls of `compareTo()` for non-primitive types).
