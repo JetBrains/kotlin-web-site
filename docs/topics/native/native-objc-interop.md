@@ -475,7 +475,7 @@ After that the Objective-C header will contain a corresponding comment:
 Known limitations:
 * Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is experimental, 
 so libraries compiled with this flag might be incompatible with other compiler versions.
-* Commentaries are mostly exported "as is" and many KDoc features (for example, `@property`) are not supported.
+* KDoc comments are mostly exported "as is" , many KDoc features (for example, `@property`) are not supported.
 
 ## Unsupported
 
