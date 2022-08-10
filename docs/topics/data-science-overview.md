@@ -9,7 +9,7 @@ of tried and true Java libraries.
 
 ## Interactive editors
 
-Notebooks such as [Jupyter Notebook](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
+Notebooks such as [Jupyter Notebook](https://jupyter.org/), [Datalore](http://jetbrains.com/datalore), and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
 convenient tools for data visualization and exploratory research.
 Kotlin integrates with these tools to help you explore data, share your findings with 
 colleagues, or build up your data science and machine learning skills.
@@ -21,10 +21,20 @@ The Jupyter Notebook is an open-source web application that allows you to create
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open source project that brings Kotlin 
 support to Jupyter Notebook. 
 
-<img src="kotlin-jupyter-kernel.png" alt="Kotlin in Jupyter notebook" width="800"/>
+![Kotlin in Jupyter notebook](kotlin-jupyter-kernel.png){width=800}
 
 Check out Kotlin kernel's [GitHub repo](https://github.com/Kotlin/kotlin-jupyter) for installation 
 instructions, documentation, and examples.
+
+### Kotlin Notebooks in Datalore
+
+With Datalore, you can use Kotlin in the browser straight out of the box, no installation required.
+You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports.
+Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
+
+![Kotlin in Datalore](kotlin-datalore.png){width=800}
+
+[Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
 
 ### Zeppelin Kotlin interpreter
 
@@ -33,7 +43,7 @@ for the Apache Spark cluster computing system, which is particularly useful for 
 Starting from [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/), Apache Zeppelin comes with 
 bundled Kotlin interpreter. 
 
-<img src="kotlin-zeppelin-interpreter.png" alt="Kotlin in Zeppelin notebook" width="800"/>
+![Kotlin in Zeppelin notebook](kotlin-zeppelin-interpreter.png){width=800}
 
 ## Libraries
 
@@ -41,6 +51,7 @@ The ecosystem of libraries for data-related tasks created by the Kotlin communit
 Here are some libraries that you may find useful:
 
 ### Kotlin libraries
+
 * [Multik](https://github.com/Kotlin/multik): multidimensional arrays in Kotlin. The library provides Kotlin-idiomatic, 
   type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
   JVM and native computational engines, and a combination of the two for optimal performance.
@@ -67,7 +78,7 @@ naive bayes classifier, clustering, linear regression, and much more.
 algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
 provides interchangeable wrappers over existing Java and Kotlin libraries including
 [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
-[Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), etc.
+[Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others.
 
 * [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
 and Python's [pandas](https://pandas.pydata.org/). This library provides functionality for data manipulation using

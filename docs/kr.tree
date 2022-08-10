@@ -38,6 +38,13 @@
         </toc-element>
     </toc-element>
 
+    <toc-element toc-title="Early Access Preview">
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-Beta"/>
+        <toc-element toc-title="Participate" id="eap.md"/>
+        <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
+        <toc-element id="configure-build-for-eap.md"/>
+    </toc-element>
+
     <toc-element toc-title="Basics">
         <toc-element id="basic-syntax.md"/>
         <toc-element id="idioms.md"/>
@@ -98,8 +105,11 @@
     <toc-element toc-title="Multiplatform development">
         <toc-element toc-title="Kotlin Multiplatform for iOS and Android">
             <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
-            <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html"/>
-            <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html"/>
+            <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html" toc-title="1. Set up an environment"/>
+            <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html" toc-title="2. Create your first cross-platform app"/>
+            <toc-element id="multiplatform-mobile-dependencies.md" toc-title="3. Add dependencies"/>
+            <toc-element id="multiplatform-mobile-upgrade-app.md" toc-title="4. Upgrade your app"/>
+            <toc-element id="multiplatform-mobile-wrap-up.md" toc-title="5. Wrap up your project"/>
             <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
             <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
@@ -110,9 +120,8 @@
             <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
         </toc-element>
         <toc-element toc-title="Creating multiplatform libraries">
-            <toc-element id="multiplatform-create-lib.md" accepts-web-file-names="mpp-create-lib.html"/>
+            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
             <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html"/>
-            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html"/>
         </toc-element>
         <toc-element toc-title="Sharing code principles">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
@@ -179,7 +188,7 @@
                 <toc-element id="js-external-declarations-with-dukat.md"/>
             </toc-element>
             <toc-element id="js-samples.md"/>
-            <toc-element id="js-hands-ons.md"/>
+            <toc-element id="js-react.md"/>
         </toc-element>
 
         <toc-element toc-title="Native">
@@ -284,11 +293,8 @@
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
         </toc-element>
-        <toc-element toc-title="IntelliJ IDEA" >
-            <toc-element id="code-style-migration-guide.md"/>
-        </toc-element>
-        <toc-element toc-title="Android Studio" href="https://developer.android.com/studio"/>
-        <toc-element id="eclipse.md" accepts-web-file-names="getting-started-eclipse.html"/>
+        <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
+        <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
         <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
         <toc-element toc-title="Compiler">
             <toc-element toc-title="Command-line compiler" id="command-line.md"/>
@@ -335,11 +341,6 @@
 
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
-        <toc-element toc-title="Early Access Preview">
-            <toc-element toc-title="Participate" id="eap.md"/>
-            <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
-            <toc-element id="configure-build-for-eap.md"/>
-        </toc-element>
         <toc-element toc-title="Kotlin evolution">
             <toc-element toc-title="Evolution principles" id="kotlin-evolution.md"/>
             <toc-element id="components-stability.md"/>
@@ -362,6 +363,7 @@
         </toc-element>
         <toc-element toc-title="Journal">
             <toc-element toc-title="Cross-platform mobile development" id="cross-platform-mobile-development.md"/>
+            <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>

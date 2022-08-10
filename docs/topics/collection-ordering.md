@@ -5,7 +5,7 @@ For example, two lists of the same elements are not equal if their elements are 
 
 In Kotlin, the orders of objects can be defined in several ways.
 
-First, there is _natural_ order. It is defined for inheritors of the [`Comparable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
+First, there is _natural_ order. It is defined for implementations of the [`Comparable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface. Natural order is used for sorting them when no other order is specified.
 
 Most built-in types are comparable:
@@ -14,7 +14,7 @@ Most built-in types are comparable:
 * `Char` and `String` use the [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order): `b` is greater
    than `a`; `world` is greater than `hello`.
 
-To define a natural order for a user-defined type, make the type an inheritor of `Comparable`.
+To define a natural order for a user-defined type, make the type an implementer of `Comparable`.
 This requires implementing the `compareTo()` function. `compareTo()` must take another object of the same type as an argument
 and return an integer value showing which object is greater:
 

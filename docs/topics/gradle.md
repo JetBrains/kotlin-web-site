@@ -148,21 +148,61 @@ In the build module, you may have related compile tasks, for example:
 >
 {type="note"}
 
-For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in the `kotlin` extension
-and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
+For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
+the `kotlin` extension and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
 in the `java` extension cause incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle` file equal to:
+Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
+file equal to:
+
 * `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
 * `error` – the plugin will fail the build.
 * `ignore` – the plugin will skip the check and won't produce any messages.
 
+### Associate compiler tasks
+
+You can _associate_ compilations by setting up such a relationship between them that one compilation will use the compiled
+outputs of the other. Associating compilations establishes `internal `visibility between them.
+
+The Kotlin compiler associates some compilations by default, such as the `test` and `main` compilations of each target.
+If you need to express that one of your custom compilations is connected to another, create your own associated
+compilation.
+
+To make the IDE support associated compilations for inferring visibility between source sets, add the following code to
+your build.gradle(.kts):
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val integrationTestCompilation = kotlin.target.compilations.create("integrationTest") {
+    associateWith(kotlin.target.compilations.getByName("main"))
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+integrationTestCompilation {
+    kotlin.target.compilations.create("integrationTest") {
+        associateWith(kotlin.target.compilations.getByName("main"))
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
+objects from functional tests.
+
 ### Set custom JDK home
 
-By default, Kotlin compile tasks use the current Gradle JDK. 
-If you need to change the JDK by some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support) 
+By default, Kotlin compile tasks use the current Gradle JDK.
+If you need to change the JDK by some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
 or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
 
 > The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
@@ -1079,7 +1119,7 @@ The priority of properties is the following:
 The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
 1. `daemon` (default)
 2. `in-process`
-3. `ouf-of-process`
+3. `out-of-process`
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 

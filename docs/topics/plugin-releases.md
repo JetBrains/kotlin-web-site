@@ -9,12 +9,6 @@ Kotlin and the Kotlin plugin have distinct sets of features:
 * Kotlin plugin releases introduce only IDE related features. For example, code formatting and debugging tools.
 
 This also affects the versioning of the Kotlin plugin. Releases now have the same version as the simultaneous IntelliJ IDEA release.
-This creates some limitations that are important to emphasize:
-* The EAP version of Kotlin works only with the **stable version** of the IDE. That means that you can't install the Kotlin EAP version to the EAP IDEA release.
-* The Kotlin plugin is based on the **previous stable version** of the Kotlin compiler. You can still update the Kotlin version in your project, but some IDE-related features might not be available.
-  We are working on stabilizing the process so that the next versions of the plugin will be based on the latest stable version of the compiler.
-
-You can learn more about new release cadence in this [blog post](https://blog.jetbrains.com/kotlin/2020/10/new-release-cadence-for-kotlin-and-the-intellij-kotlin-plugin/).
 
 ## Update to a new release
 
@@ -32,6 +26,25 @@ The following table lists the details of the latest Kotlin plugin releases:
 <tr>
 <th>Release info</th>
 <th>Release highlights</th>
+</tr>
+<tr>
+<td>
+
+**2022.2**
+
+Released: July 26, 2022
+
+</td>
+<td>
+
+* Data Flow Analysis in the debugger
+* Fixed inconsistency between local and CI builds caused by the compiler versions mismatch
+* Improved IDE performance
+
+Learn more in:
+* [What's New in IntelliJ IDEA 2022.2](https://www.jetbrains.com/idea/whatsnew/2022-2/)
+
+</td>
 </tr>
 <tr>
 <td>
@@ -114,7 +127,7 @@ Learn more in:
 </tr>
 <tr>
 <td>
-    
+
 **2020.3**
 
 Released: December 1, 2020

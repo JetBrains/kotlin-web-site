@@ -30,7 +30,7 @@ function Index() {
                         icon: SlackIcon,
                         title: 'Slack',
                         description: 'Get answers to your questions.',
-                        link: 'https://surveys.jetbrains.com/s3/kotlin-slack-sign-up',
+                        link: 'https://slack-chats.kotlinlang.org/',
                     },
                     {
                         icon: TwitterIcon,

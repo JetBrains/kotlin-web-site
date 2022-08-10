@@ -1,17 +1,17 @@
-flask==1.0
-flask-flatpages==0.6
-frozen-flask==0.12
-Pygments==2.7.4
-python-frontmatter==0.2.1
-beautifulsoup4==4.5.1
-xmltodict==0.10.2
+flask==2.0.3
+flask-flatpages==0.7.3
+frozen-flask==0.18
+Pygments==2.12.0
+python-frontmatter==1.0.0
+beautifulsoup4==4.11.1
+xmltodict==0.13.0
 
 # temporary dependencies for waiting fix:
 #    https://yandex.ru/blog/mapsapi/prekraschaem-podderzhku-anonimnykh-servisov
 #    https://github.com/DenisCarriere/geocoder/pull/404
 git+https://github.com/pik-software/geocoder.git@yandex-api-key#egg=geocoder
 
-ruamel.yaml==0.17.9
+ruamel.yaml==0.17.21
 PyYAML==5.4.1
 algoliasearch==1.12.0
 google-api-python-client==1.6.2

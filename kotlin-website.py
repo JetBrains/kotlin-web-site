@@ -136,7 +136,7 @@ def get_nav_impl():
 def get_kotlin_features():
     features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
     features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
+    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml")), Loader=FullLoader):
         file_path = path.join(features_dir, feature_meta['content_file'])
         with open(file_path, encoding='utf-8') as f:
             content = f.read()
@@ -335,6 +335,9 @@ def validate_links_weak(page, page_path):
         if href.scheme != '':
             continue
 
+        if page_path == 'community/slackccugl':
+            continue
+
         endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
         if endpoint != 'page' and endpoint != 'get_index_page':
             response = app.test_client().get(href.path)
@@ -428,7 +431,10 @@ def generate_redirect_pages():
                         url_list = url_from if isinstance(url_from, list) else [url_from]
 
                         for url in url_list:
-                            app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
+                            if file == 'api.yml' and path.isfile(path.join(root_folder, url[1:])):
+                                print("The file " + url + " is already exist.")
+                            else:
+                                app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
 
                 except yaml.YAMLError as exc:
                     sys.stderr.write('Cant parse data file ' + file + ': ')
@@ -565,7 +571,4 @@ if __name__ == '__main__':
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
     else:
-        app.run(host="0.0.0.0", port=8080, debug=True, threaded=True, **{"extra_files": {
-            '/src/data/_nav.yml',
-            *glob.glob("/src/pages-includes/**/*", recursive=True),
-        }})
+        app.run(host="0.0.0.0", port=8080, debug=True, threaded=True, use_debugger=False, use_reloader=False)

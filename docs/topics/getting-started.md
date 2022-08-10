@@ -101,7 +101,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
 4. **Learn more about Kotlin Multiplatform Mobile:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
    * Look through [samples on GitHub](multiplatform-mobile-samples.md).
-   * [Create and publish a multiplatform library](multiplatform-create-lib.md).
+   * [Create and publish a multiplatform library](multiplatform-library.md).
    * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
 
 5. **Join the Kotlin Multiplatform community:**
@@ -126,7 +126,7 @@ Here you'll learn how to develop and improve your frontend web application using
 2. **Create your first frontend web application:**
 
    * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
-   * If you prefer more robust examples, complete the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction) hands-on tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
+   * If you prefer more robust examples, complete the [Build a web application with React and Kotlin/JS](js-react.md) tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
    * Check out the list of [Kotlin/JS samples](js-samples.md) for more ideas on how to use Kotlin/JS.
 
 3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
@@ -180,8 +180,7 @@ Here you'll learn how to develop and publish a multiplatform library:
 
 2. **Create a multiplaform library:**
 
-   * To start from scratch, [create a basic project](multiplatform-create-lib.md).
-   * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
+   * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
    * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).
 
 3. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).

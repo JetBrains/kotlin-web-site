@@ -12,7 +12,7 @@ interface CommunityBannerProps {
 
 export const CommunityBanner: FC<CommunityBannerProps> = ({ title, children }) => {
     return (
-        <div className={classNames('ktl-container', styles.banner)}>
+        <div className={classNames('ktl-container', styles.banner)} data-test="community-banner">
             <div className={styles.content}>
                 <div className="ktl-hero" dangerouslySetInnerHTML={{ __html: title }} />
                 <div className={classNames('ktl-text-1', styles.text)}>{children}</div>

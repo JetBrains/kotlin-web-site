@@ -22,7 +22,7 @@ const Teach = (props) => {
   const {countriesCount, universitiesCount, path} = props;
 
   return (
-    <div className="teach-wrapper">
+    <div className="teach-wrapper" data-test="teach-index-page">
       <TeachTopMenu path={path}/>
       <section className="ktl-container ktl-offset-top-xl">
         <h1 className="ktl-hero ktl-offset-bottom-xxl">

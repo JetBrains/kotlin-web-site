@@ -5,7 +5,7 @@
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
 </microformat>
 
-> Due to Android Studios plugins renaming (`Beta`), plug-in installation is available on top of [1.6.20+ versions](https://developer.android.com/studio/preview).
+> Due to Android Studios plugins renaming (`Beta`), EAP plugin installation is available on top of [1.6.20+ versions](https://developer.android.com/studio/preview).
 > 
 {type="warning"}
 

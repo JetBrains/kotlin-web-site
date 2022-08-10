@@ -3,32 +3,24 @@
 The purpose of the Kotlin Multiplatform Mobile technology is unifying the development of applications with common 
 logic for Android and iOS platforms. To make this possible, it uses a mobile-specific structure of
 [Kotlin Multiplatform](multiplatform.md) projects.
-This page describes the structure of a basic cross-platform mobile project. Note that this structure isn’t the only
-possible way to organize your project; however, we recommend it as a starting point.
+
+This page describes the structure and components of a basic cross-platform mobile project: shared module, Android app,
+and an iOS app.
+
+> This structure isn't the only possible way to organize your project; however, we recommend it as a starting point.
+>
+{type="note"}
 
 To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
 
 ![Select the Project view](select-project-view.png){width=200}
 
-A basic Kotlin Mobile Multiplatform project consists of three components:
-
-* _Shared module_ – a Kotlin module that contains common logic for both Android and iOS applications.
-Builds into an Android library and an iOS framework. Uses Gradle as the build system.
-* _Android application_ – a Kotlin module that builds into the Android application.
-Uses Gradle as the build system.
-* _iOS application_ – an Xcode project that builds into the iOS application.
-
-![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=700}
-
-This is the structure of a Multiplatform Mobile project that you create with a Project Wizard in IntelliJ IDEA or Android Studio.
-Real-life projects can have more complex structure; we consider these three components essential.
-
-Let’s take a closer look at the basic project and its components.
-
 ## Root project
 
 The root project is a Gradle project that holds the shared module and the Android application as its subprojects.
 They are linked together via the [Gradle multi-project mechanism](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
+
+![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=700}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -68,9 +60,9 @@ For more complex projects, you can add more modules into the root project by cre
 
 ## Shared module
 
-Shared module contains the core application logic used in both target platforms: classes, functions, and so on.
+Shared module contains the core application logic used in both Android and iOS target platforms: classes, functions, and so on.
 This is a [Kotlin Multiplatform](multiplatform-get-started.md) module that compiles
-into an Android library and an iOS framework. It uses Gradle with the Kotlin Multiplatform plugin applied and 
+into an Android library and an iOS framework. It uses the Gradle build system with the Kotlin Multiplatform plugin applied and 
 has targets for Android and iOS.
 
 <tabs group="build-script">
@@ -109,9 +101,9 @@ kotlin {
 ### Source sets
 
 The shared module contains the code that is common for Android and iOS applications. However, to implement the same logic
- on Android and iOS, you sometimes need to write two platform-specific versions of it. 
- To handle such cases, Kotlin offers the [expect/actual](multiplatform-connect-to-apis.md) mechanism.
- The source code of the shared module is organized in three source sets accordingly:
+on Android and iOS, you sometimes need to write two platform-specific versions of it.
+To handle such cases, Kotlin offers the [expect/actual](multiplatform-connect-to-apis.md) mechanism.
+The source code of the shared module is organized in three source sets accordingly:
 
 * `commonMain` stores the code that works on both platforms, including the `expect` declarations
 * `androidMain` stores Android-specific parts, including `actual` implementations
