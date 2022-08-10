@@ -31,7 +31,7 @@ fun main() {
 {kotlin-runnable="true" id="concatenate-strings-kotlin"}
 
 You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`.
-See [string templates](basic-types.md#string-templates) for more information.
+See [string templates](strings.md#string-templates) for more information.
 
 ## Build a string
 
@@ -197,7 +197,7 @@ System.out.println("Anonymized input: '" + replacementResult + "'");
 
 In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class
 that simplifies working with regular expressions.
-Additionally, use [raw strings](basic-types.md#string-literals) to simplify a regex pattern
+Additionally, use [raw strings](strings.md#string-literals) to simplify a regex pattern
 by reducing the count of backslashes:
 
 ```kotlin

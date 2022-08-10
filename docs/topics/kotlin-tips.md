@@ -60,7 +60,7 @@ In this video, Sebastian will demonstrate how to improve [loops](control-flow.md
 
 ## Strings
 
-In this episode, Kate Petrova shows three tips to help you work with [Strings](basic-types.md#strings) in Kotlin:
+In this episode, Kate Petrova shows three tips to help you work with [Strings](strings.md) in Kotlin:
 
 <video width="560" height="315" href="IL3RLKvWJF4" title="Kotlin Tips: Strings"/>
 

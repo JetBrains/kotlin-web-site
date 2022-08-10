@@ -98,6 +98,7 @@ Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Con
 >
 >_PECS stands for Producer-Extends, Consumer-Super._
 >
+{type="tip"}
 
 > If you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object,
 > but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
@@ -328,19 +329,112 @@ At runtime, the instances of generic types do not hold any information about the
 The type information is said to be _erased_. For example, the instances of `Foo<Bar>` and `Foo<Baz?>` are erased to
 just `Foo<*>`.
 
-Therefore, there is no general way to check whether an instance of a generic type was created with certain type
-arguments at runtime, and the compiler [prohibits such `is`-checks](typecasts.md#type-erasure-and-generic-type-checks).
+### Generics type checks and casts
 
-Type casts to generic types with concrete type arguments, for example, `foo as List<String>`, cannot be checked at runtime.
-These [unchecked casts](typecasts.md#unchecked-casts) can be used when type safety is implied by high-level
-program logic but cannot be inferred directly by the compiler. The compiler issues a warning on unchecked casts, and at
-runtime, only the non-generic part is checked (equivalent to `foo as List<*>`).
+Due to the type erasure, there is no general way to check whether an instance of a generic type was created with certain type
+arguments at runtime, and the compiler prohibits such `is`-checks such as
+`ints is List<Int>` or `list is T` (type parameter). However, you can check an instance against a star-projected type:
 
-The type arguments of generic function calls are also only checked at compile time. Inside the function bodies,
-the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked. However,
-[reified type parameters](inline-functions.md#reified-type-parameters) of inline functions are substituted by the actual
-type arguments in the inlined function body at the call sites and so can be used for type checks and casts,
-with the same restrictions for instances of generic types as described above.
+```kotlin
+if (something is List<*>) {
+    something.forEach { println(it) } // The items are typed as `Any?`
+}
+```
+
+Similarly, when you already have the type arguments of an instance checked statically (at compile time),
+you can make an `is`-check or a cast that involves the non-generic part of the type. Note that
+angle brackets are omitted in this case:
+
+```kotlin
+fun handleStrings(list: MutableList<String>) {
+    if (list is ArrayList) {
+        // `list` is smart-cast to `ArrayList<String>`
+    }
+}
+```
+
+The same syntax but with the type arguments omitted can be used for casts that do not take type arguments into account: `list as ArrayList`.
+
+The type arguments of a generic function calls are also only checked at compile time. Inside the function bodies,
+the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked.
+The only exclusion is inline functions with [reified type parameters](inline-functions.md#reified-type-parameters),
+which have their actual type arguments inlined at each call site. This enables type checks and casts for the type parameters.
+However, the restrictions described above still apply for instances of generic types used inside checks or casts.
+For example, in the type check `arg is T`, if `arg` is an instance of a generic type itself, its type arguments are still erased.
+
+```kotlin
+//sampleStart
+inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
+    if (first !is A || second !is B) return null
+    return first as A to second as B
+}
+
+val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
+
+
+val stringToSomething = somePair.asPairOf<String, Any>()
+val stringToInt = somePair.asPairOf<String, Int>()
+val stringToList = somePair.asPairOf<String, List<*>>()
+val stringToStringList = somePair.asPairOf<String, List<String>>() // Compiles but breaks type safety!
+// Expand the sample for more details
+
+//sampleEnd
+
+fun main() {
+    println("stringToSomething = " + stringToSomething)
+    println("stringToInt = " + stringToInt)
+    println("stringToList = " + stringToList)
+    println("stringToStringList = " + stringToStringList)
+    //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Unchecked casts
+
+Type casts to generic types with concrete type arguments such as `foo as List<String>` cannot be checked at runtime.  
+These unchecked casts can be used when type safety is implied by the high-level program logic but cannot be inferred 
+directly by the compiler. See the example below.
+
+```kotlin
+fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
+    TODO("Read a mapping of strings to arbitrary elements.")
+}
+
+// We saved a map with `Int`s into this file
+val intsFile = File("ints.dictionary")
+
+// Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
+val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
+```
+A warning appears for the cast in the last line. The compiler can't fully check it at runtime and provides
+no guarantee that the values in the map are `Int`.
+
+To avoid unchecked casts, you can redesign the program structure. In the example above, you could use the
+`DictionaryReader<T>` and `DictionaryWriter<T>` interfaces with type-safe implementations for different types.
+You can introduce reasonable abstractions to move unchecked casts from the call site to the implementation details.
+Proper use of [generic variance](#variance) can also help.
+
+For generic functions, using [reified type parameters](inline-functions.md#reified-type-parameters) makes casts
+like `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
+
+An unchecked cast warning can be suppressed by [annotating](annotations.md) the statement or the
+declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
+
+```kotlin
+inline fun <reified T> List<*>.asListOfType(): List<T>? =
+    if (all { it is T })
+        @Suppress("UNCHECKED_CAST")
+        this as List<T> else
+        null
+```
+
+>**On the JVM**: [array types](arrays.md) (`Array<Foo>`) retain information about the erased type of
+>their elements, and type casts to an array type are partially checked: the
+>nullability and actual type arguments of the element type are still erased. For example,
+>the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, whether it is nullable or not.
+>
+{type="note"}
 
 ## Underscore operator for type arguments
 

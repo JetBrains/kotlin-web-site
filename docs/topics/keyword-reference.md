@@ -13,7 +13,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `continue` [proceeds to the next step of the nearest enclosing loop](returns.md).
  * `do` begins a [do/while loop](control-flow.md#while-loops) (a loop with a postcondition).
  * `else` defines the branch of an [if expression](control-flow.md#if-expression) that is executed when the condition is false.
- * `false` specifies the 'false' value of the [Boolean type](basic-types.md#booleans).
+ * `false` specifies the 'false' value of the [Boolean type](booleans.md).
  * `for` begins a [for loop](control-flow.md#for-loops).
  * `fun` declares a [function](functions.md).
  * `if` begins an [if expression](control-flow.md#if-expression).
@@ -45,7 +45,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
      - refers to [the current receiver](this-expressions.md).
      - [calls another constructor of the same class from a secondary constructor](classes.md#constructors).
  * `throw` [throws an exception](exceptions.md).
- * `true` specifies the 'true' value of the [Boolean type](basic-types.md#booleans).
+ * `true` specifies the 'true' value of the [Boolean type](booleans.md).
  * `try` [begins an exception-handling block](exceptions.md).
  * `typealias` declares a [type alias](type-aliases.md).
  * `typeof` is reserved for future use.
@@ -138,7 +138,7 @@ Kotlin supports the following operators and special symbols:
      - is used to specify [default values for parameters](functions.md#default-arguments).
  * `+=`, `-=`, `*=`, `/=`, `%=` - [augmented assignment operators](operator-overloading.md#augmented-assignments).
  * `++`, `--` - [increment and decrement operators](operator-overloading.md#increments-and-decrements).
- * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](basic-types.md#operations) instead).
+ * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](numbers.md#operations-on-numbers) instead).
  * `==`, `!=` - [equality operators](operator-overloading.md#equality-and-inequality-operators) (translated to calls of `equals()` for non-primitive types).
  * `===`, `!==` - [referential equality operators](equality.md#referential-equality).
  * `<`, `>`, `<=`, `>=` - [comparison operators](operator-overloading.md#comparison-operators) (translated to calls of `compareTo()` for non-primitive types).
@@ -161,7 +161,7 @@ Kotlin supports the following operators and special symbols:
      - references a ['this' expression from an outer scope](this-expressions.md#qualified-this).
      - references an [outer superclass](inheritance.md#calling-the-superclass-implementation).
  * `;` separates multiple statements on the same line.
- * `$` references a variable or expression in a [string template](basic-types.md#string-templates).
+ * `$` references a variable or expression in a [string template](strings.md#string-templates).
  * `_`
      - substitutes an unused parameter in a [lambda expression](lambdas.md#underscore-for-unused-variables).
      - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#underscore-for-unused-variables).

@@ -266,7 +266,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See [String templates](basic-types.md#string-templates) for details.
+See [String templates](strings.md#string-templates) for details.
 
 ## Conditional expressions
 
