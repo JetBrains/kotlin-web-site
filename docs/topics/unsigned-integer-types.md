@@ -11,7 +11,7 @@ Unsigned types support most of the operations of their signed counterparts.
 
 > Unsigned numbers are implemented as [inline classes](inline-classes.md) with the single storage property of the corresponding 
 > signed counterpart type of the same width. Nevertheless, changing type from unsigned type to signed counterpart (and vice versa) 
-> is a *binary incompatible* change.
+> is a _binary incompatible_ change.
 >
 {type="note"}
 
@@ -32,40 +32,40 @@ Same as for primitives, each of unsigned type has corresponding type that repres
 Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead.
 
 When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
-To remove the warning, opt in using the `@ExperimentalUnsignedTypes` annotation.
+To remove the warning, opt-in the `@ExperimentalUnsignedTypes` annotation.
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
-array are not a stable feature, so API which uses them can be broken by changes in the language.
+arrays are not a stable feature, so API which uses them can be broken by changes in the language.
 [Learn more about opt-in requirements](opt-in-requirements.md).
 
 [Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,
 `ULongRange`, and `ULongProgression`. Together with the unsigned integer types, these classes are stable.
 
-## Literals
+## Unsigned integers literals
 
 To make unsigned integers easier to use, Kotlin provides an ability to tag an integer literal with a suffix
 indicating a specific unsigned type (similarly to `Float` or `Long`):
 
-* `u` and `U` tag unsigned literals. The exact type is determined based on the expected type.
-  If no expected type is provided, compiler will use `UInt` or `ULong` depending on the size of literal.
+* `u` and `U` tag is for unsigned literals. The exact type is determined based on the expected type.
+  If no expected type is provided, compiler will use `UInt` or `ULong` depending on the size of literal:
 
-```kotlin
-val b: UByte = 1u  // UByte, expected type provided
-val s: UShort = 1u // UShort, expected type provided
-val l: ULong = 1u  // ULong, expected type provided
+  ```kotlin
+  val b: UByte = 1u  // UByte, expected type provided
+  val s: UShort = 1u // UShort, expected type provided
+  val l: ULong = 1u  // ULong, expected type provided
+  
+  val a1 = 42u // UInt: no expected type provided, constant fits in UInt
+  val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't fit in UInt
+  ```
 
-val a1 = 42u // UInt: no expected type provided, constant fits in UInt
-val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't fit in UInt
-```
+* `uL` and `UL` explicitly tag literal as unsigned long:
 
-* `uL` and `UL` explicitly tag literal as unsigned long.
-
-```kotlin
-val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
-```
+  ```kotlin
+  val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
+  ```
 
 ## Use cases
 
-The main use case of unsigned numbers is utilizing the full bit range of an integer to represent positive values. 
+The main use case of unsigned numbers is utilizing the full bit range of an integer to represent positive values.  
 For example, to represent hexadecimal constants that do not fit in signed types such as color in 32-bit `AARRGGBB` format:
 
 ```kotlin
@@ -74,7 +74,7 @@ data class Color(val representation: UInt)
 val yellow = Color(0xFFCC00CCu)
 ```
 
-Or to initialize byte arrays without explicit `toByte()` literal casts:
+You can use unsigned numbers to initialize byte arrays without explicit `toByte()` literal casts:
 
 ```kotlin
 val byteOrderMarkUtf8 = ubyteArrayOf(0xEFu, 0xBBu, 0xBFu)
@@ -87,6 +87,7 @@ unsigned types in the signature. The mapping won't substitute unsigned integers 
 
 While unsigned integers can only represent positive numbers and zero, it's not a goal to use them where application 
 domain requires non-negative integers. For example, as a type of collection size or collection index value.
+
 There are a couple of reasons:
 
 * Using signed integers can help to detect accidental overflows and signal error conditions, such as 

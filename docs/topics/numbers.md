@@ -102,6 +102,11 @@ val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
 ```
 
+> There are also special tags for unsigned integer literals.  
+> Read more about [literals for unsigned integer types](unsigned-integer-types.md).
+> 
+{type="tip"}
+
 ## Numbers representation on the JVM
 
 On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on.

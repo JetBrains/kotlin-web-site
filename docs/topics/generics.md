@@ -98,6 +98,7 @@ Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Con
 >
 >_PECS stands for Producer-Extends, Consumer-Super._
 >
+{type="tip"}
 
 > If you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object,
 > but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
