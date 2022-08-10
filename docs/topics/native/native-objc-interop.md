@@ -409,12 +409,18 @@ this library would disable these compiler checks.
 See [Interoperability with C](native-c-interop.md) for an example case where the library uses some plain C features,
 such as unsafe pointers, structs, and so on.
 
-## Experimental features
+## Export of KDoc comments to generated Objective-C headers
 
-### Export KDoc to generated Objective-C headers
+> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
+> It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
+>
+{type="warning"}
 
-By default, [KDocs](../kotlin-doc.md) are not translated into corresponding commentaries when generating an Objective-C header.
+By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating an Objective-C header.  
 For example, the following Kotlin code with KDoc: 
+
 ```kotlin
 /**
  * Prints the sum of the arguments.
@@ -422,12 +428,17 @@ For example, the following Kotlin code with KDoc:
  */
 fun printSum(a: Int, b: Int) = println(a.toLong() + b)
 ```
-will produce an Objective-C declaration without a commentary:
-```objective-c
+
+will produce an Objective-C declaration without any comments:
+
+```objc
 + (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
 ```
 
-KDoc export can be enabled by adding the following lines to `build.gradle.kts`:
+To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -436,8 +447,24 @@ kotlin {
     }
 }
 ```
-Now the produced header will contain a proper commentary:
-```objective-c
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+    }
+}
+```
+
+</tab>
+</tabs>
+
+After that the Objective-C header will contain a corresponding comment:
+
+```objc
 /**
  * Prints the sum of the arguments.
  * Properly handles the case when the sum doesn't fit in 32-bit integer.
