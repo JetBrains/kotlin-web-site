@@ -21,8 +21,8 @@ class MessageResource {
 
 <deflist collapsible="true">
    <def title="`@RestController` annotation">
-      The first thing we need to do is tell Spring that `MessageResource` is a REST Controller, so we marked it with the `@RestController` annotation.
-      This annotation means this class will be picked up by the component scan because it's in the same package as our `DemoApplication` class.
+      The first thing we need to do is tell Spring that <code>MessageResource</code> is a REST Controller, so we marked it with the <code>@RestController</code> annotation.
+      This annotation means this class will be picked up by the component scan because it's in the same package as our <code>DemoApplication</code>> class.
    </def>
    <def title="`@GetMapping` annotation">
       <p>It marks the functions of the REST controller that implement the endpoints corresponding to HTTP GET calls:</p>
@@ -32,7 +32,7 @@ class MessageResource {
       </code>
    </def>
    <def title="`@RequestParam` annotation">
-      <p>The function parameter is marked with @RequestParam annotation.</p>
+      <p>The function parameter is marked with <code>@RequestParam</code> annotation.</p>
       <list>
          <ul>
             <li>This annotation indicates that a method parameter should be bound to a web request parameter.</li>
@@ -41,16 +41,16 @@ class MessageResource {
       </list>
    </def>
    <def title="Single-expression functions">
-      <p>Since the `index()` function contains only one statement we can declare it as a single-expression function.</p>
+      <p>Since the <code>index()</code> function contains only one statement we can declare it as a single-expression function.</p>
       <p>This means the curly braces can be omitted and the body is specified after a "=" symbol.</p>
    </def>
    <def title="Type inference for function return types">
       <p>The index function does not declare the return type explicitly.</p>
       <p>Instead, the compiler infers the return type by looking at the result of the statement on the right-hand side from the equals sign (=).</p>
-      <p>The type of `Hello, $name!` expression is String, hence the return type of the function is also String.</p>
+      <p>The type of <code>Hello, $name!</code> expression is String, hence the return type of the function is also String.</p>
    </def>
    <def title="String templates">
-      <p>`Hello, $name!` expression is called a _String template_ in Kotlin.</p>
+      <p><code>Hello, $name!</code> expression is called a <i>String template</i> in Kotlin.</p>
       <p>String templates are String literals that contain embedded expressions.</p>
       <p>This is a convenient replacement for String concatenation operations.</p>
    </def>
