@@ -271,7 +271,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 2. Navigate to your project, for example KotlinMultiplatformSandbox, and select the `iosApp` folder. Click **Open**.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
    
-   ```Swift
+   ```swift
    struct iOSApp: App {
        var body: some Scene {
            WindowGroup {
@@ -284,7 +284,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 4. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
    for it:
 
-    ```Swift
+    ```swift
     import SwiftUI
     import shared
     
@@ -317,7 +317,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
-    ```Swift
+    ```swift
     class ViewModel: ObservableObject {
         @Published var text = "Loading..."
         init() {

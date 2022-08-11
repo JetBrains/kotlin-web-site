@@ -317,13 +317,13 @@ Connect your framework to the iOS project manually:
 
 1. In Xcode, open the `ContentView.swift` file and import the `shared` module.
 
-    ```Swift
+    ```swift
    import shared
    ```
 
 2. To check that it is properly connected, use the `greeting()` function from the shared module of your cross-platform app:
 
-   ```Swift
+   ```swift
    import SwiftUI
    import shared
    
@@ -345,7 +345,7 @@ Connect your framework to the iOS project manually:
 
 4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
 
-    ```Swift
+    ```swift
     import SwiftUI
     import shared
     
