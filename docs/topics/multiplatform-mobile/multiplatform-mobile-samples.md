@@ -338,7 +338,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       </ul>
     </td>
   </tr>
-<tr>
+  <tr>
     <td>
       <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
     </td>
@@ -355,4 +355,29 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/solita-michalguspiel/DevNotary">Dev Notary</a></strong>
+    </td>
+    <td>Firebase, Authentication, Local storage, Repositories, Business logic </td>
+    <td>SQLDelight, KodeinDI, Firebase Kotlin SDK, KotlinX Serialization, Multiplatform UUID, Kotlin Coroutines, KotlinX Datetime, Multiplatform Settings</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>CocoaPods</td>
+    <td>✅</td>
+    <td>Shared code and Android side</td>
+    <td></td>
+    <td>
+      <ul>
+        <li>expect/actual declarations</li>
+        <li>Authentication</li>
+        <li>Notes CRUD</li>
+        <li>Firebase as backend</li>
+        <li>MVVM</li>
+        <li>Clean architecture</li>
+        <li>CRUD</li>
+        <li>40% of shared code</li>
+      </ul>
+    </td>
+  </tr>
+  
 </table>
