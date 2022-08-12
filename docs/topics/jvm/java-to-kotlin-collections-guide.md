@@ -277,7 +277,7 @@ and [`thenComparingX()`](https://docs.oracle.com/javase/8/docs/api/java/util/Com
 functions from the [`Comparator`](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html) interface. 
 For example, to compare people by their name and age:
 
-```Java
+```java
 class Person implements Comparable<Person> {
     String name;
     int age;
@@ -502,7 +502,7 @@ fun main() {
 In Java, you can group elements with the [Collectors](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/stream/Collectors.html) 
 function `groupingBy()`:
 
-```Java
+```java
 // Java
 public void analyzeLogs() {
     var requests = List.of(

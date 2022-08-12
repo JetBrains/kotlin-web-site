@@ -124,7 +124,7 @@ unzip it in the directory of your choice.
 
 On macOS, you can also install the ki shell with Homebrew by running the following command:
 
-```Shell
+```shell
 brew install ki
 ```
 

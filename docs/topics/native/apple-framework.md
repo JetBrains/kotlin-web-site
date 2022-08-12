@@ -187,7 +187,7 @@ It contains the definitions for our Kotlin code and a few Kotlin-wide declaratio
 
 Take a look at Kotlin runtime declarations:
 
-```obj-c
+```objc
 NS_ASSUME_NONNULL_BEGIN
 
 @interface KotlinBase : NSObject
@@ -251,7 +251,7 @@ There are also child classes per Kotlin number type:
 Every number type has a class method to create a new instance from the related simple type. Also, there is an instance method
 to extract a simple value back. Schematically, declarations look like that:
 
-```obj-c
+```objc
 __attribute__((objc_runtime_name("Kotlin__TYPE__")))
 __attribute__((swift_name("Kotlin__TYPE__")))
 @interface Demo__TYPE__ : DemoNumber
@@ -271,7 +271,7 @@ Let's see how `class` and `object` are mapped to Objective-C and Swift.
 The generated `<Framework>/Headers/Demo.h` file contains the exact definitions for 
 `Class`, `Interface`, and `Object`:
 
-```obj-c
+```objc
 NS_ASSUME_NONNULL_BEGIN
 
 __attribute__((objc_subclassing_restricted))
@@ -313,7 +313,7 @@ All global functions from Kotlin
 are turned into `DemoLibKt` in Objective-C and into `LibKt` in Swift, where `Demo` is the framework name and set by
 the `-output` parameter of `kotlinc-native`.
 
-```obj-c
+```objc
 NS_ASSUME_NONNULL_BEGIN
 
 __attribute__((objc_subclassing_restricted))
@@ -350,7 +350,7 @@ from Swift or Objective-C.
 Let's call the framework from Objective-C. For that, create the `main.m` file with 
 the following content:
 
-```obj-c 
+```objc 
 #import <Foundation/Foundation.h>
 #import <Demo/Demo.h>
 
