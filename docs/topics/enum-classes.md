@@ -25,16 +25,33 @@ Enum constants can declare their own anonymous classes with their corresponding 
 methods.
 
 ```kotlin
-enum class ProtocolState {
-    WAITING {
-        override fun signal() = TALKING
+enum class OfferState(private val exemptionPercentage: Int) {
+    DISCOUNT(20) {
+        override fun description(price: Int, item: String) {
+            calculateAndDisplay(price, item)
+        }
     },
-
-    TALKING {
-        override fun signal() = WAITING
+    VOUCHER(15) {
+        override fun description(price: Int, item: String) {
+            calculateAndDisplay(price, item)
+        }
     };
 
-    abstract fun signal(): ProtocolState
+    abstract fun description(price: Int, item: String)
+    fun calculateAndDisplay(price: Int, item: String) {
+        val actualAmount = price - price * exemptionPercentage / 100
+        println("You have to pay only $actualAmount for $item at $exemptionPercentage% using ${this.name}")
+    }
+}
+
+class Main {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            OfferState.DISCOUNT.description(4000, "Washing Machine")
+            OfferState.VOUCHER.description(4000, "Refrigerator")
+        }
+    }
 }
 ```
 
