@@ -355,4 +355,24 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       </ul>
     </td>
   </tr>
+    <tr>
+    <td>
+      <strong><a href="https://github.com/GuilhE/Expressus">Expressus</a></strong>
+    </td>
+    <td>ViewModels, MVI & FSM, Models</td>
+    <td>kotlinx.serialization kotlinx.coroutines, multiplatform-settings, Koin, Orbit-Mvi, moko-mvvm-</td>
+    <td>Jetpack Compose, Jetbrains Compose, SwiftUI</td>
+    <td>CocoaPods</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <ul>        
+        <li>Model-View-Intent architecture</li>
+        <li>Finite State Machine to validate state transitions</li>
+        <li>State restoration (both for UI State and FSM State)</li>
+        <li>Compose for Desktop used in shared-ui module to share composables between Desktop and Androidv
+      </ul>
+    </td>
+  </tr>
 </table>
