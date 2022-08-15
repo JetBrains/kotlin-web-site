@@ -9,7 +9,7 @@ _[Release date: 15 August 2022](eap.md#build-details)_
 
 The Kotlin 1.7.20-RC release is out! Here are some highlights from this preview version of Kotlin:
 
-* [The new Kotlin K2 compiler supports `all-open`, `no-arg`, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
+* [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
 * [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
@@ -24,11 +24,23 @@ Starting with this preview version, the Kotlin K2 compiler supports the followin
 
 * [`all-open`](all-open-plugin.md)
 * [`no-arg`](no-arg-plugin.md)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [Lombok](lombok.md)
 * Parcelize
 * AtomicFU
 * `jvm-abi-gen`
 
-The Alpha version of the new K2 compiler only works with JVM projects. It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
+> The Alpha version of the new K2 compiler only works with JVM projects.
+> It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
+> 
+{type="warning"}
+
+Learn more about the new compiler and its benefits in the following videos:
+* [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
+* [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
+
+
+### How to enable the Kotlin K2 compiler
 
 To enable the Kotlin K2 compiler and test it, use the following compiler option:
 
@@ -36,9 +48,7 @@ To enable the Kotlin K2 compiler and test it, use the following compiler option:
 -Xuse-k2
 ```
 
-Learn more about the new compiler and its benefits in the following videos:
-* [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
-* [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
+You can check out the performance boost on your JVM projects and compare it with the results of the old compiler.
 
 ### Leave your feedback on the new K2 compiler
 
