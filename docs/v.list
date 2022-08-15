@@ -8,7 +8,7 @@
 
     <var name="kotlinSpringPluginVersion" value="1.6.21" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.7.20-Beta" type="string"/>
+    <var name="kotlinEapVersion" value="1.7.20-RC" type="string"/>
 
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" type="string"/>
 
