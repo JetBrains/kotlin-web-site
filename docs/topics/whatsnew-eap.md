@@ -102,7 +102,7 @@ interface OpenEndRange<T : Comparable<T>> {
 #### Implementing OpenEndRange in the existing iterable ranges
 
 Currently, in a situation when a user needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
-In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`,` LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
+In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
 So they will be implementing both `ClosedRange<T>` and `OpenEndRange<T>` interfaces simultaneously.
 
 ```kotlin
@@ -202,9 +202,9 @@ Consider the following example:
 
 ```kotlin
 @JvmInline
-value class IC<T>(val a: T)
+value class UserId<T>(val value: T)
 
-fun foo(s: IC<String>) {} // compiler generates fun foo-<hash>(s: Any?)
+fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
 ```
 
 The function accepts the inline class as a parameter. The parameter is mapped to the upper bound and not to the type argument.
