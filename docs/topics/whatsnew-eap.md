@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.7.20-RC)
 
-_[Release date: 15 August 2022](eap.md#build-details)_
+_[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-RC).
