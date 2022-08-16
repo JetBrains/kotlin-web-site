@@ -24,9 +24,7 @@ Download and install one of these IDEs to start using Kotlin.
 
 Here is how you can take the first steps in developing Kotlin server-side applications.
 
-1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
-
-2. **Create your first backend application:**
+1. **Create your first backend application:**
    
    * To start from scratch, [create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).
    * If you prefer more robust examples, choose one of the frameworks below and create a project:
@@ -59,19 +57,19 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    </tr>
    </table>
 
-3. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle.md#configuring-dependencies).
+2. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle.md#configuring-dependencies).
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
    * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
 
-4. **Learn more about Kotlin for server-side:**
+3. **Learn more about Kotlin for server-side:**
    * [How to write your first unit test](jvm-test-using-junit.md).
    * [How to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
 
-5. **Join the Kotlin server-side community:**
+4. **Join the Kotlin server-side community:**
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the [“kotlin”](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
 
-6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+5. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
@@ -126,15 +124,13 @@ Kotlin provides an ability to transpile your Kotlin code, the Kotlin standard li
 
 Here you'll learn how to develop and improve your frontend web application using [Kotlin/JS](js-overview.md).
 
-1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
-
-2. **Create your first frontend web application:**
+1. **Create your first frontend web application:**
 
    * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
    * If you prefer more robust examples, complete the [Build a web application with React and Kotlin/JS](js-react.md) tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
    * Check out the list of [Kotlin/JS samples](js-samples.md) for more ideas on how to use Kotlin/JS.
 
-3. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
+2. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
     
    |Library | Details |
    |--------|---------|
@@ -148,18 +144,18 @@ Here you'll learn how to develop and improve your frontend web application using
    |Compose for Web, a part of [Compose Multiplatform](https://www.jetbrains.com/lp/compose-mpp/) | The JetBrains framework that brings [Google's Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose) to the browser. |
    |[kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers) | Provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a number of adjacent technologies like `react-redux`, `react-router`, or `styled-components`. |
 
-4. **Learn more about Kotlin for frontend web development:**
+3. **Learn more about Kotlin for frontend web development:**
 
    * The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Beta](components-stability.md) stability).
    * [Using dependencies from npm](using-packages-from-npm.md).
    * [Using Kotlin code from JavaScript](js-to-kotlin-interop.md).
 
-5. **Join the Kotlin frontend web community:**
+4. **Join the Kotlin frontend web community:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the [“kotlin-js” tag](https://stackoverflow.com/questions/tagged/kotlin-js).
 
-6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+5. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
@@ -181,14 +177,12 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 Here you'll learn how to develop and publish a multiplatform library:
 
-1. **Install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).**
-
-2. **Create a multiplaform library:**
+1. **Create a multiplaform library:**
 
    * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
    * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).
 
-3. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
+2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
 
    |Library|Details|
    |-------|-------|
@@ -201,18 +195,18 @@ Here you'll learn how to develop and publish a multiplatform library:
    >
    {type="tip"}
 
-4. **Learn more about Kotlin Multiplatform programming:**
+3. **Learn more about Kotlin Multiplatform programming:**
 
    * [Introduction to Kotlin Multiplatform](multiplatform-get-started.md).
    * [Kotlin Multiplatform supported platforms](multiplatform-dsl-reference.md#targets).
    * [Kotlin Multiplatform programming benefits](multiplatform.md).
 
-5. **Join the Kotlin Multiplatform community:**
+4. **Join the Kotlin Multiplatform community:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
-6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+5. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
