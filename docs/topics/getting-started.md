@@ -11,14 +11,10 @@ Pick it up to start building powerful applications!
 * If Kotlin is your first programming language, we recommend starting with the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/)
 or signing up for the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18) on JetBrains Academy.
 
-## How to install Kotlin
+## Install Kotlin
 
 Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.  
-Download and install one of these IDEs to start using Kotlin. 
-
-> [Learn how to install Kotlin command-line compiler](command-line.md).
-> 
-{type="tip"}
+Download and install one of these IDEs to start using Kotlin.
 
 ## Create your powerful application with Kotlin
  
