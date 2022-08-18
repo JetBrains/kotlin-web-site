@@ -12,3 +12,4 @@ exclude:
       - build
       - out
       - playwright.config.js
+      - scripts
