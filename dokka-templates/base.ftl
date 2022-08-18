@@ -29,8 +29,10 @@
     <div id="leftColumn">
         <div id="sideMenu"></div>
     </div>
-    <div id="main">
-        <@content/>
+    <div id="ktl-main">
+        <div id="main">
+            <@content/>
+        </div>
         <@footer.display/>
     </div>
 </div>
