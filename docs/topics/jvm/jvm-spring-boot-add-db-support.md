@@ -2,14 +2,14 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-add-http-to-spring-boot-project.md">Add an HTTP request controller to your Spring Boot project</a><br/><a href="docs/topics/jvm/jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/><strong>Add database support for Spring Boot project</strong><br/>Wrap up your project</p>
+    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><strong>Add database support for Spring Boot project</strong><br/>Use Spring Data CrudRepository for database access</p>
 </microformat>
 
 ## Add database support
 
 In JVM applications, we use JDBC to interact with databases. For convenience, Spring Framework provides `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
 
-The common practice in Spring Framework based applications is to implement the database access logic within the so-called “service” layer – this is where business logic lives.
+The common practice in Spring Framework based applications is to implement the database access logic within the so-called _service_ layer – this is where business logic lives.
 In Spring, we mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
 In our application, we are going to create `MessageService` class for this purpose.
 
@@ -290,5 +290,5 @@ Let’s extend the functionality of the application to retrieve the individual m
 
 ## Next step
 
-
+You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)
 

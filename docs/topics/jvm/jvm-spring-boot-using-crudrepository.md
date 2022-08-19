@@ -2,7 +2,7 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-add-http-to-spring-boot-project.md">Add an HTTP request controller to your Spring Boot project</a><br/><a href="jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/><a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><a href="jvm-spring-boot-collections.md">Work with collections in Spring Boot project</a><br/><strong>Use Spring Data CrudRepository for database access</strong></p>
+    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><strong>Use Spring Data CrudRepository for database access</strong></p>
 </microformat>
 
 In this part, we migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
@@ -90,7 +90,5 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 > You will need to share your email address on the next page to receive the materials.
 > 
 {type="note"}
-
-
 
 

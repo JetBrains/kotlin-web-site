@@ -2,7 +2,7 @@
 
 <microformat>
     <p>This is a part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-add-http-to-spring-boot-project.md">Add an HTTP request controller to your Spring Boot project</a><br/><a href="jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/><strong>Add database support for Spring Boot project</strong><br/></p>
+    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><a href="jvm-spring-boot-add-data-class.md">Add a data class to Spring Boot project</a><br/><strong>Add database support for Spring Boot project</strong><br/></p>
 </microformat>
 
 In this part, you will learn how to perform various operations on collections in Kotlin.
