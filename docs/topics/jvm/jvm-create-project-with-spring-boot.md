@@ -132,37 +132,93 @@ fun main(args: Array<String>) {
 }
 ```
 
-
 <deflist collapsible="true">
-   <def title="Declaring classes">
-      Right after package declaration and import statements we can see the first class declaration, <code>class DemoApplication</code>.
-      In Kotlin, if a class doesn’t include any members (properties of functions), you can omit the class body (<code>{}</code>) for good.
+   <def title="Declaring classes – class DemoApplication">
+      <p>Right after package declaration and import statements you can see the first class declaration, <code>class DemoApplication</code>.</p>
+      <p>In Kotlin, if a class doesn’t include any members (properties of functions), you can omit the class body (<code>{}</code>) for good.</p>
    </def>
    <def title="@SpringBootApplication annotation">
-      <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.using-the-springbootapplication-annotation">This annotation</a> is a convenience annotation in a Spring Boot application.
-      It enables Spring Boot’s <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a> and be able to define extra configuration on their "application class".
+      <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.using-the-springbootapplication-annotation"><code>@SpringBootApplication annotation</code></a> is a convenience annotation in a Spring Boot application.
+      It enables Spring Boot’s <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a>, and be able to define extra configuration on their "application class".
       </p>
    </def>
-   <def title="main() – program entry point">
+   <def title="Program entry point – main()">
       <p>The <a href="basic-syntax.md#program-entry-point"><code>main()</code></a> function is the entry point to the application.</p>
       <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes Spring’s <code>runApplication(&amp;args)</code> function to start the application with Spring Framework.</p>
    </def>
-   <def title="The spread operator">
-      <p>The args is a parameter to the main function declared as an array of Strings.
-        Since we have an array of strings, and we want to pass its contents to the function, we use the spread operator (prefix the array with <code>*</code>).
-      </p>
-   </def>
-   <def title="Variable arguments">
+   <def title="Variable arguments – args: Array&lt;String&gt;">
       <p>If you check the declaration of <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
         This means that you can pass a variable number of String arguments to the function.
       </p>
+   </def>
+   <def title="The spread operator – (*args)">
+      <p>The <code>args</code> is a parameter to the main function declared as an array of Strings.
+        Since there is an array of strings, and you want to pass its contents to the function, use the spread operator (prefix the array with <code>*</code>).
+      </p>
+   </def>
+</deflist>
+
+
+## Create a controller
+
+In the Spring application, a controller is used to handle the web requests.
+
+In the `DemoApplication.kt` file, create the `MessageResource` class as follows:
+
+```kotlin
+@RestController
+class MessageResource {
+    @GetMapping
+    fun index(@RequestParam("name") name: String) = "Hello, $name!"
+}
+```
+
+<deflist collapsible="true">
+   <def title="@RestController annotation">
+      <p>You need to tell Spring that <code>MessageResource</code> is a REST Controller, so you should mark it with the <code>@RestController</code> annotation.</p>
+      <p>This annotation means this class will be picked up by the component scan because it's in the same package as our <code>DemoApplication</code> class.</p>
+   </def>
+   <def title="@GetMapping annotation">
+      <p><code>@GetMapping</code> marks the functions of the REST controller that implement the endpoints corresponding to HTTP GET calls:</p>
+      <code style="block" lang="kotlin">
+      @GetMapping
+      fun index(@RequestParam("name") name: String) = "Hello, $name!"
+      </code>
+   </def>
+   <def title="@RequestParam annotation">
+      <p>The function parameter <code>name</code> is marked with <code>@RequestParam</code> annotation.This annotation indicates that a method parameter should be bound to a web request parameter.</p>
+      <p>Hence, if you access the application at the root and supply a request parameter called "name", like <code>/?name=&lt;your-value&gt;</code>, the parameter value will be used as an argument for invoking the <code>index()</code> function.</p>
+   </def>
+   <def title="Single-expression functions – index()">
+      <p>Since the <code>index()</code> function contains only one statement you can declare it as a <a href="functions.md#single-expression-functions">single-expression function</a>.</p>
+      <p>This means the curly braces can be omitted and the body is specified after the equals <code>=</code> sign.</p>
+   </def>
+   <def title="Type inference for function return types">
+      <p>The <code>index()</code> function does not declare the return type explicitly. Instead, the compiler infers the return type by looking at the result of the statement on the right-hand side from the equals sign <code>=</code>.</p>
+      <p>The type of <code>Hello, $name!</code> expression is <code>String</code>, hence the return type of the function is also <code>String</code>.</p>
+   </def>
+   <def title="String templates – $name">
+      <p><code>Hello, $name!</code> expression is called a <a href="basic-types.md#string-templates"><i>String template</i></a> in Kotlin.</p>
+      <p>String templates are String literals that contain embedded expressions.</p>
+      <p>This is a convenient replacement for String concatenation operations.</p>
    </def>
 </deflist>
 
 ## Run the application
 
-It works! (the aha moment)
+The application is now ready to run.
+
+Click the green Run icon in the gutter beside the `main()` method:
+
+![Run Spring Boot application](run-spring-boot-application.png){width=706}
+
+> You can also run the `./gradlew bootRun` command in the terminal.
+>
+{type="tip"}
+
+Once the application starts, open the following URL: [http://localhost:8080?name=John](http://localhost:8080?name=John).   
+You should see "Hello, John!" printed as a response.
 
 ## What's next
 
-You ready to upgrade the project: [proceed to the next chapter](jvm-add-http-to-spring-boot-project.md)
+You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-add-data-class.md)
