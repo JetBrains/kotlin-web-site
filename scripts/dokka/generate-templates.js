@@ -46,7 +46,7 @@ function compileComponent(name) {
   const stdout = execSync(`node scripts/react-renderer/compile.js ${name} {} dokka`);
 
   return `
-    <!-- ktl_component: ${name} -->
+    <!-- ktl_component: {"name": "${name}"} -->
     ${stdout}
   `
 }
