@@ -28,21 +28,21 @@ The output will be a simple shopping list application that allows planning your 
   help to order the shopping list.
 
 > For this tutorial, you are expected to have an understanding of Kotlin. Some knowledge about basic concepts in React
-> and Kotlin Coroutines may help understand some sample code but is not strictly required.
+> and Kotlin coroutines may help understand some sample code but is not strictly required.
 >
 {type="tip"}
 
 ## Create the project
 
 Clone the [project repository](https://github.com/kotlin-hands-on/jvm-js-fullstack) from GitHub and open it in IntelliJ
-IDEA. This template already includes all the configuration and required dependencies for all project parts: JVM, JS, and the
-common code.
+IDEA. This template already includes all the configuration and required dependencies for all project parts: JVM, JS, and
+the common code.
 
 You don't need to change the Gradle configuration throughout this tutorial. So if you want to get right to programming,
 feel free to move on directly to the [next section](#build-the-backend).
 
-Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file. Check
-out the sections below about Gradle structure to help you understand and prepare for other projects.
+Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file to
+prepare for other projects. Check out the sections about the Gradle structure below.
 
 #### Plugins {initial-collapse-state="collapsed"}
 
@@ -59,9 +59,9 @@ Additionally, you'll need two more plugins:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinEapVersion%"
     application //to run JVM part
-    kotlin("plugin.serialization") version "%kotlinVersion%"
+    kotlin("plugin.serialization") version "%kotlinEapVersion%"
 }
 ```
 
@@ -82,8 +82,7 @@ js {
 }
 ```
 
-For more detailed information on targets,
-see [Understand Multiplatform project structure](multiplatform-discover-project.md#targets).
+For more detailed information on targets, see [Understand Multiplatform project structure](multiplatform-discover-project.md#targets).
 
 #### Source sets {initial-collapse-state="collapsed"}
 
@@ -113,13 +112,12 @@ sourceSets {
 Each source set also corresponds to a folder in the `src` directory. In your project, there are three
 folders, `commonMain`, `jsMain`, and `jvmMain`, which contain their own `resources` and `kotlin` folders.
 
-For detailed information on source sets,
-see [Understand Multiplatform project structure](multiplatform-discover-project.md#source-sets).
+For detailed information on source sets, see [Understand Multiplatform project structure](multiplatform-discover-project.md#source-sets).
 
 ## Build the backend
 
-Begin by writing the server side of the application. The typical API server implements
-the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – create, read, update and delete.
+Let's begin by writing the server side of the application. The typical API server implements
+the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – create, read, update, and delete.
 For the simple shopping list, you can focus solely on:
 
 * Creating new entries in the list
@@ -129,7 +127,7 @@ For the simple shopping list, you can focus solely on:
 To create the backend, you can use the Ktor framework, designed to build asynchronous servers and clients in connected
 systems. It can be set up quickly and grow as systems become more complex.
 
-You can find more information about Ktor in its [documentation](https://ktor.io/).
+You can find more information about Ktor in its [documentation](https://ktor.io/docs/welcome.html).
 
 ### Run the embedded server
 
@@ -140,20 +138,17 @@ engine on a port, in this case, `9090`.
 1. To define the entry point for the app, add the following code to `src/jvmMain/kotlin/Server.kt`:
 
     ```kotlin
-    import io.ktor.application.*
-    import io.ktor.features.*
     import io.ktor.http.*
-    import io.ktor.http.content.*
-    import io.ktor.request.*
-    import io.ktor.response.*
-    import io.ktor.routing.*
-    import io.ktor.serialization.*
+    import io.ktor.serialization.kotlinx.json.*
     import io.ktor.server.engine.*
     import io.ktor.server.netty.*
-    import org.litote.kmongo.*
-    import org.litote.kmongo.coroutine.*
-    import org.litote.kmongo.reactivestreams.KMongo
-    import com.mongodb.ConnectionString
+    import io.ktor.server.application.*
+    import io.ktor.server.plugins.compression.*
+    import io.ktor.server.plugins.contentnegotiation.*
+    import io.ktor.server.plugins.cors.routing.*
+    import io.ktor.server.request.*
+    import io.ktor.server.response.*
+    import io.ktor.server.routing.*
     
     fun main() {
         embeddedServer(Netty, 9090) {
@@ -195,9 +190,9 @@ install(ContentNegotiation) {
     json()
 }
 install(CORS) {
-    method(HttpMethod.Get)
-    method(HttpMethod.Post)
-    method(HttpMethod.Delete)
+    allowMethod(HttpMethod.Get)
+    allowMethod(HttpMethod.Post)
+    allowMethod(HttpMethod.Delete)
     anyHost()
 }
 install(Compression) {
@@ -229,7 +224,11 @@ through `kotlinx.serialization`.
 val jvmMain by getting {
     dependencies {
         implementation("io.ktor:ktor-serialization:$ktorVersion")
-        implementation("io.ktor:ktor-server-core:$ktorVersion")
+        implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+        implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+        implementation("io.ktor:ktor-server-cors:$ktorVersion")
+        implementation("io.ktor:ktor-server-compression:$ktorVersion")
+        implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
         implementation("io.ktor:ktor-server-netty:$ktorVersion")
         implementation("ch.qos.logback:logback-classic:$logbackVersion")
         implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
@@ -279,7 +278,7 @@ data class ShoppingListItem(val desc: String, val priority: Int) {
   models directly in common code.
 * Once you use this serializable `ShoppingListItem` class from the JVM and JS platforms, code for each platform will be
   generated. This code takes care of serialization and deserialization.
-* The `companion object` stores additional information about the model – in this case, the `path` under which you will
+* The `companion object` stores additional information about the model − in this case, the `path` under which you will
   be able to access it in the API. By referring to this variable instead of defining routes and requests as strings, you
   can change the `path` to model operations. Any changes to the endpoint name only need to be done here - client and
   server are adjusted automatically.
@@ -312,7 +311,7 @@ The `common` classes are referred to as any other class in Kotlin – they are s
 
 Add the routes that support the creation, retrieval, and deletion of `ShoppingListItem`s.
 
-1. Inside `/src/jvmMain/kotlin/Server.kt`, change your `routing` block to look as follows:
+1. Inside `src/jvmMain/kotlin/Server.kt`, change your `routing` block to look as follows:
 
     ```kotlin
     routing {
@@ -337,7 +336,7 @@ Add the routes that support the creation, retrieval, and deletion of `ShoppingLi
     the `path` from the `ShoppingListItem` model is used. The code behaves as follows:
      * A `get` request to the model's path (`/shoppingList`) responds with the whole shopping list
      * A `post` request to the model's path (`/shoppingList`) adds an entry to the shopping list.
-     * A `delete` request to the model's path and a provided `id`  (`shoppingList/47`) removes an entry from the
+     * A `delete` request to the model's path and a provided `id` (`shoppingList/47`) removes an entry from the
        shopping list.
 
    > You can receive objects directly from requests and respond to requests with objects (and even lists of
@@ -353,7 +352,7 @@ Add the routes that support the creation, retrieval, and deletion of `ShoppingLi
 
     ![Shopping list in JSON formatting](shopping-list-json.png){width=500}
 
-To test the `post` and `delete` requests, use an HTTP client that supports `.http` files. For example, if you're
+To test the `post` and `delete` requests, use an HTTP client that supports `.http` files. If you're
 using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
 
 1. In the project root, create a file called `AddShoppingListElement.http` and add the declaration of the HTTP POST request as follows:
@@ -363,8 +362,8 @@ using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
     Content-Type: application/json
     
     {
-    "desc": "Peppers 🌶",
-    "priority": 5
+      "desc": "Peppers 🌶",
+      "priority": 5
     }
     ```
 
@@ -412,8 +411,8 @@ a `root` node for rendering components and a `script` tag that includes the appl
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8"/>
-        <title>Full Stack App!</title>
+        <meta charset="UTF-8">
+        <title>Full Stack Shopping List</title>
     </head>
     <body>
         <div id="root"></div>
@@ -427,7 +426,7 @@ This file is placed in the `common` resources instead of a `jvm` source set to m
 in the browser (`jsBrowserDevelopmentRun` and `jsBrowserProductionRun`) accessible to the file as well. It's helpful if
 you need to run only the browser application without the backend.
 
-While you don't need to make sure the file is properly available on the server, you still need to instruct Ktor to
+While you don't need to make sure that the file is properly available on the server, you still need to instruct Ktor to
 provide the `.html` and `.js` files to a browser when requested.
 
 #### Relevant Gradle configuration for the frontend {initial-collapse-state="collapsed"}
@@ -528,8 +527,7 @@ will allow you to re-use it and its configuration as a jumping-off point for fut
 applications.
 
 For a more in-depth view of typical workflows and how apps are developed with React and Kotlin/JS, see
-the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
-tutorial.
+the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
 
 ### Write the API client
 
@@ -548,31 +546,34 @@ return `ShoppingItems`. Create a file called `Api.kt` and implement them in `src
 ```kotlin
 import io.ktor.http.*
 import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.serialization.kotlinx.json.*
 
 import kotlinx.browser.window
 
 val endpoint = window.location.origin // only needed until https://youtrack.jetbrains.com/issue/KTOR-453 is resolved
 
 val jsonClient = HttpClient {
-    install(JsonFeature) { serializer = KotlinxSerializer() }
+    install(ContentNegotiation) {
+        json()
+    }
 }
 
 suspend fun getShoppingList(): List<ShoppingListItem> {
-    return jsonClient.get(endpoint + ShoppingListItem.path)
+    return jsonClient.get(endpoint + ShoppingListItem.path).body()
 }
 
 suspend fun addShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.post<Unit>(endpoint + ShoppingListItem.path) {
+    jsonClient.post(endpoint + ShoppingListItem.path) {
         contentType(ContentType.Application.Json)
-        body = shoppingListItem
+        setBody(shoppingListItem)
     }
 }
 
 suspend fun deleteShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.delete<Unit>(endpoint + ShoppingListItem.path + "/${shoppingListItem.id}")
+    jsonClient.delete(endpoint + ShoppingListItem.path + "/${shoppingListItem.id}")
 }
 ```
 
@@ -587,13 +588,13 @@ Instead of rendering a simple "Hello, Kotlin/JS" string, make the application re
 that, replace the content inside `src/jsMain/kotlin/Main.kt` with the following:
 
 ```kotlin
-import react.dom.render
 import kotlinx.browser.document
 import react.create
+import react.dom.client.createRoot
 
 fun main() {
     val container = document.getElementById("root") ?: error("Couldn't find container!")
-    render(App.create(), container)
+    createRoot(container).render(App.create())
 }
 ```
 
@@ -645,9 +646,7 @@ Based on these requirements, you can implement the `App` component as follows:
    * `launch` is used to obtain the list of `ShoppingListItem`s from the API when the component is first initialized.
    * React hooks, `useEffectOnce` and `useState`, help use React's functionality concisely. For more information on how
      React hooks work, check out the [official React documentation](https://reactjs.org/docs/hooks-overview.html). To learn
-     more about React with Kotlin/JS, see the
-     [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/)
-     tutorial.
+     more about React with Kotlin/JS, see the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
 2. Start the application using the Gradle `run` task.
 3. Navigate to [`http://localhost:9090/`](http://localhost:9090/) to see the list:
 
@@ -671,10 +670,10 @@ provides a callback when users submit their entry to the shopping list to receiv
     import react.dom.html.ReactHTML.input
     
     external interface InputProps : Props {
-    var onSubmit: (String) -> Unit
+        var onSubmit: (String) -> Unit
     }
     
-    val InputComponent = FC<InputProps> { props ->
+    val inputComponent = FC<InputProps> { props ->
     val (text, setText) = useState("")
     
         val submitHandler: FormEventHandler<HTMLFormElement> = {
@@ -698,14 +697,14 @@ provides a callback when users submit their entry to the shopping list to receiv
     }
     ```
 
-    The `InputComponent` keeps track of its internal state (what the user has typed so far) and exposes an `onSubmit`
+    The `inputComponent` keeps track of its internal state (what the user has typed so far) and exposes an `onSubmit`
     handler that gets called when the user submits the form (usually by pressing the `Enter` key).
 
-2. To use this `InputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
+2. To use this `inputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
    bottom of the `FC` block (after the closing brace for the `ul` element):
 
     ```kotlin
-    InputComponent {
+    inputComponent {
         onSubmit = { input ->
             val cartItem = ShoppingListItem(input.replace("!", ""), input.count { it == '!' })
             scope.launch {
@@ -882,6 +881,7 @@ fun main() {
     embeddedServer(Netty, port) {
         // ...
     }
+}
 ```
 
 Ktor also supports configuration files that can respect environment variables. To learn more about how to use them,
@@ -917,7 +917,7 @@ the lifecycle of your application. To do so, they require an "entry point" defin
 a file called `Procfile` that you have in the project root directory. It points to the output generated by the `stage` task
 (which is included in the Gradle template already):
 
-```properties
+```shell
 web: ./build/install/shoppingList/bin/shoppingList
 ```
 
@@ -962,8 +962,7 @@ See how your application could still be expanded and improved:
 
 * **Improve the design**. You could make use of `styled-components`, one of the libraries that have Kotlin wrappers
   provided. If you want to see `styled-components` in action, look at
-  the [Building Web Applications with React and Kotlin/JS](https://play.kotlinlang.org/hands-on/Building%20Web%20Applications%20with%20React%20and%20Kotlin%20JS/01_Introduction)
-  hands-on.
+  the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
 * **Add crossing out list items**. For now, list items just vanish with no record of them existing. Instead of deleting
   an element, use ~~crossing out~~.
 * **Implement editing**. So far, an entry in the shopping list can't be edited. Consider adding an edit button.
@@ -977,8 +976,8 @@ for Kotlin related problems.
 #### Learn more about Kotlin/JS {initial-collapse-state="collapsed"}
 
 You can find additional learning materials targeting
-Kotlin/JS: [Set up a Kotlin/JS project](https://kotlinlang.org/docs/js-project-setup.html) and [Run Kotlin/JS
-](https://kotlinlang.org/docs/running-kotlin-js.html).
+Kotlin/JS: [Set up a Kotlin/JS project](js-project-setup.md) and [Run Kotlin/JS
+](running-kotlin-js.md).
 
 #### Learn more about Ktor {initial-collapse-state="collapsed"}
 

@@ -177,18 +177,10 @@ Support for multiplatform programming is one of Kotlin’s key benefits. It redu
 
 Here you'll learn how to develop and publish a multiplatform library:
 
-1. **Create a multiplaform library:**
+1. **Create a multiplatform library:**
 
-<<<<<<< HEAD
    * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
-   * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).
-=======
-2. **Create a multiplaform library:**
-
-   * To start from scratch, [create a basic project](multiplatform-create-lib.md).
-   * If you prefer more robust examples, complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
    * Build a full stack web application using [this tutorial](multiplatform-full-stack-app.md).
->>>>>>> 3c495c80 (feat: full-stack tutorial)
 
 2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
 
