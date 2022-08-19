@@ -9,7 +9,7 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
 
 ## Create the Spring Boot project
 
-create a new Spring Boot project with Kotlin by using the project wizard in IntelliJ IDEA Ultimate Edition:
+Create a new Spring Boot project with Kotlin by using the project wizard in IntelliJ IDEA Ultimate Edition:
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html)
 >
@@ -29,23 +29,29 @@ create a new Spring Boot project with Kotlin by using the project wizard in Inte
    
    * **Java**: 17
 
+   ![Create Spring Boot project](create-spring-boot-project.png){width=800}
+
 4. Ensure that all the fields are specified and click **Next**.
+
 5. Select the following dependencies that will be required for the tutorial:
    * **Spring Web**
    * **Spring Data JDBC**
    * **H2 Database**
+
+   ![Set up Spring Boot project](set-up-spring-boot-project.png){width=800}
 
 6. Click **Create** to generate and set up the project.
 
 The IDE will generate and open the new project. It may take some time to download and import the project dependencies.
 After this, you can observe the following structure in the **Project view**:
 
+![Set up Spring Boot project](spring-boot-project-view.png){width=400}
+
 The generated Gradle project corresponds to Maven’s standard directory layout.
 There are packages and classes under the `main/kotlin` folder that belong to the application.
 The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
-However, before proceeding with source code, let’s learn about the project build file, `build.gradle.kts`.
 
-### Explore the project Gradle build file {initial-collapse-state="collapsed"}
+## Explore the project Gradle build file {initial-collapse-state="collapsed"}
 
 Open the `build.gradle.kts` file. `build.gradle.kts` is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
@@ -126,26 +132,32 @@ fun main(args: Array<String>) {
 }
 ```
 
-* **Declaring classes**  
-  Right after package declaration and import statements we can see the first class declaration, class DemoApplication.
-  In Kotlin, if a class doesn’t include any members (properties of functions), we can omit the class body (`{}`) for good.
 
-* **@SpringBootApplication annotation**  
-  is a convenience annotation in a Spring Boot application.
-  The annotation enables Spring Boot’s auto-configuration, component scan and be able to define extra configuration on their "application class".
-
-* **Program entry point**  
-  The `main()` function is the entry point to the application.
-  It is declared as a top-level function outside the `DemoApplication` class. The main function invokes Spring’s `runApplication(*args)` function to start the application with Spring Framework.
-
-* **The spread operator**  
-  The args is a parameter to the main function declared as an array of Strings.
-  Since we have an array of strings and we want to pass its contents to the function, we use the spread operator (prefix the array with `*`).
-
-* **Variable arguments**  
-  If you check the declaration of `runApplication()` function, you will see that the parameter of the function is marked with vararg modifier: `vararg args: String`.
-  This means that you can pass a variable number of String arguments to the function.
-
+<deflist collapsible="true">
+   <def title="Declaring classes">
+      Right after package declaration and import statements we can see the first class declaration, <code>class DemoApplication</code>.
+      In Kotlin, if a class doesn’t include any members (properties of functions), you can omit the class body (<code>{}</code>) for good.
+   </def>
+   <def title="@SpringBootApplication annotation">
+      <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.using-the-springbootapplication-annotation">This annotation</a> is a convenience annotation in a Spring Boot application.
+      It enables Spring Boot’s <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a> and be able to define extra configuration on their "application class".
+      </p>
+   </def>
+   <def title="main() – program entry point">
+      <p>The <a href="basic-syntax.md#program-entry-point"><code>main()</code></a> function is the entry point to the application.</p>
+      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes Spring’s <code>runApplication(&amp;args)</code> function to start the application with Spring Framework.</p>
+   </def>
+   <def title="The spread operator">
+      <p>The args is a parameter to the main function declared as an array of Strings.
+        Since we have an array of strings, and we want to pass its contents to the function, we use the spread operator (prefix the array with <code>*</code>).
+      </p>
+   </def>
+   <def title="Variable arguments">
+      <p>If you check the declaration of <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
+        This means that you can pass a variable number of String arguments to the function.
+      </p>
+   </def>
+</deflist>
 
 ## Run the application
 
@@ -153,4 +165,4 @@ It works! (the aha moment)
 
 ## What's next
 
-You ready to upgrade the project: [proceed to the next chapter](jvm-create-project-with-spring-boot.md)
+You ready to upgrade the project: [proceed to the next chapter](jvm-add-http-to-spring-boot-project.md)
