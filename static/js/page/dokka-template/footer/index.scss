@@ -1,0 +1,8 @@
+.ktl-footer_dark {
+  border-top: 1px solid #525356;
+}
+
+// workaround to remove flashing on init
+html.theme-dark .ktl-footer_light {
+  background: var(--ktl-dark-100);
+}
