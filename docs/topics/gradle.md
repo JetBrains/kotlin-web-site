@@ -164,14 +164,14 @@ file equal to:
 ### Associate compiler tasks
 
 You can _associate_ compilations by setting up such a relationship between them that one compilation will use the compiled
-outputs of the other. Associating compilations establishes `internal `visibility between them.
+outputs of the other. Associating compilations establishes `internal` visibility between them.
 
 The Kotlin compiler associates some compilations by default, such as the `test` and `main` compilations of each target.
 If you need to express that one of your custom compilations is connected to another, create your own associated
 compilation.
 
 To make the IDE support associated compilations for inferring visibility between source sets, add the following code to
-your build.gradle(.kts):
+your `build.gradle(.kts)`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
