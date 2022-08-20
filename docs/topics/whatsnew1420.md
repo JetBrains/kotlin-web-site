@@ -250,7 +250,7 @@ In addition to local Pods and Pods from the CocoaPods repository, you can add de
 * A library with custom cinterop options.
 
 Learn more about [adding CocoaPods dependencies](native-cocoapods-libraries.md) in Kotlin projects.
-Find examples in the [Koltin with CocoaPods sample](https://github.com/Kotlin/kmm-with-cocoapods-sample).
+Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
 #### Updated integration with Xcode
 
