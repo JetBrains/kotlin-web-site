@@ -115,9 +115,9 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
     for child in content:
         if not isinstance(child, Tag):
             continue
-        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong', 'aside']:
+        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong', 'aside', 'dt', 'dd']:
             valuable_content.append(child.text)
-        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section']:
+        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section', 'dl']:
             valuable_content += get_valuable_content(page_path, child.children)
         elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
             continue
