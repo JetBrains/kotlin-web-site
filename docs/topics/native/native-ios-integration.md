@@ -242,7 +242,11 @@ The current memory manager does not track application state by default and does 
 with [App Extensions](https://developer.apple.com/app-extensions/) out of the box.
 
 It means that the memory manager doesn't adjust GC behavior accordingly, which might be harmful in some cases. To change
-this behavior, use an [Experimental](components-stability.md) `appStateTracking` binary option.
+this behavior, add the following [Experimental](components-stability.md) binary option to your `gradle.properties`:
+
+```properties
+kotlin.native.binary.appStateTracking=enabled
+```
 
 It turns off a timer-based invocation of the garbage collector when the application is in the background, so GC is called
 only when memory consumption becomes too high.

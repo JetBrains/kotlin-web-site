@@ -62,10 +62,9 @@ one. For that, set the following compilation flag in the Gradle build script:
 -Xallocator=std
 ```
 
-* If memory consumption goes to expected levels, everything is OK because `mimalloc` pre-allocates system memory
-  for performance reasons.
-* If memory consumption still doesn't go down, report an issue
-  in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+* If the memory consumption goes down to the expected levels, everything is OK. The `mimalloc` allocator pre-allocates system
+  memory for performance reasons.
+* If the memory consumption still doesn't go down, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
 ## Unit tests in the background
 
@@ -73,7 +72,7 @@ In unit tests, nothing processes the main thread queue, so don't use `Dispatcher
 be done by calling `Dispatchers.setMain` from `kotlinx-coroutines-test`.
 
 If you don't rely on `kotlinx.coroutines` or `Dispatchers.setMain` doesn't work for you for some reason, try the
-following workaround instead:
+following workaround for implementing the test launcher:
 
 ```kotlin
 package testlauncher
@@ -93,6 +92,9 @@ fun mainBackground(args: Array<String>) {
     error("CFRunLoopRun should never return")
 }
 ```
+{initial-collapse-state="collapsed"}
+
+Then, compile the test binary with the `-e testlauncher.mainBackground` compiler flag.
 
 ## Legacy memory manager
 
