@@ -569,10 +569,10 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
    * The `VideoList` functional component keeps state (a value that is independent of the current function invocation). State is nullable, and has the `Video?` type. Its default value is `null`.
    * The `useState()` function from React instructs the framework to keep track of state across multiple invocations
      of the function. For example, even though you specify a default value, React makes sure that the default value is only
-     assigned in the beginning. When the stateWhen state changes, the component will re-render based on the new state.
+     assigned in the beginning. When state changes, the component will re-render based on the new state.
    * The `by` keyword indicates that `useState()` acts as a [delegated property](delegated-properties.md).
      Like with any other variable, you read and write values. The implementation behind `useState()` takes care of the machinery
-     required to make the state work.
+     required to make state work.
 
    To learn more about the State Hook, check out the [React documentation](https://reactjs.org/docs/hooks-state.html).
 
@@ -623,7 +623,7 @@ out of the individual components.
 React makes sure that props can only be passed from a parent component to its children. This prevents components from
 being hard-wired together.
 
-If a component wants to change the state of a sibling component, it needs to do so via its parent.
+If a component wants to change state of a sibling component, it needs to do so via its parent.
 At that point, state also no longer belongs to any of the child components but to the overarching parent component.
 
 The process of migrating state from components to their parents is called _lifting state_. For your app, add `currentVideo`
@@ -661,8 +661,8 @@ as state to the `App` component:
 
 ### Pass handlers
 
-At the moment, there's no way to assign a value to a prop, so the `onClick` function won't work the way it is currently set up. To change
-the state of a parent component, you need to lift state again.
+At the moment, there's no way to assign a value to a prop, so the `onClick` function won't work the way it is currently
+set up. To change state of a parent component, you need to lift state again.
 
 In React, state always flows from parent to child. So, to change the _application_ state from one of the child components,
 you need to move the logic for handling user interaction to the parent component and then pass the logic in as a prop.
@@ -1180,7 +1180,7 @@ When you load the page:
 
 * The code of the `App` component will be invoked. This starts the code in the `useEffectOnce` block.
 * The `App` component is rendered with empty lists for the watched and unwatched videos.
-* When the API requests finish, the `useEffectOnce` block assigns it to the state of the `App` component. This triggers
+* When the API requests finish, the `useEffectOnce` block assigns it to the `App` component's state. This triggers
   a re-render.
 * The code of the `App` component will be invoked again, but the `useEffectOnce` block _will not_ run for a second time.
 
