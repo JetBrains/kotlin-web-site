@@ -232,6 +232,7 @@ A Java toolchain:
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
+* Sets the toolchain to be used by any Java compile, test and javadoc tasks.
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
