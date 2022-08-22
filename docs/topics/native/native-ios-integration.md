@@ -17,13 +17,17 @@ However, there are some specifics you should keep in mind:
 Deinit on the Swift/Objective-C objects and the objects they refer to is called on a different thread if
 these objects cross interop boundaries into Kotlin/Native, for example:
 
-```Swift
+```Kotlin
+// Kotlin
 class KotlinExample {
    fun action(arg: Any) {
       println(arg)
    }
 }
+```
 
+```Swift
+// Swift
 class SwiftExample {
    init() {
       print("init on \(Thread.current)")
@@ -52,7 +56,8 @@ deinit on <NSThread: 0x600003b9b900>{number = 7, name = (null)}
 When calling Kotlin suspending functions from Swift, completion handlers might be called on threads other than the main
 one, for example:
 
-```Swift
+```Kotlin
+// Kotlin
 // coroutineScope, launch, and delay are from kotlinx.coroutines
 suspend fun asyncFunctionExample() = coroutineScope {
     launch {
@@ -61,7 +66,10 @@ suspend fun asyncFunctionExample() = coroutineScope {
     }
     println("Hello")
 }
+```
 
+```Swift
+// Swift
 func test() {
     print("Running test on \(Thread.current)")
     PlatformKt.asyncFunctionExample(completionHandler: { _ in
@@ -102,13 +110,17 @@ kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 An object is reclaimed only during the garbage collection. This applies to Swift/Objective-C objects that cross interop
 boundaries into Kotlin/Native, for example:
 
-```Swift
+```Kotlin
+// Kotlin
 class KotlinExample {
     fun action(arg: Any) {
         println(arg)
     }
 }
+```
 
+```Swift
+// Swift
 class SwiftExample {
     deinit {
         print("SwiftExample deinit")
@@ -151,7 +163,8 @@ In the [GC logs](native-memory-manager.md#monitor-gc-performance), there's a num
 If this number keeps growing, it may indicate that the Swift/Objective-C objects are not freed up when they should.
 In this case, try the `autoreleasepool` block around loop bodies that do interop calls:
 
-```Swift
+```Kotlin
+// Kotlin
 fun growingMemoryUsage() {
     repeat(Int.MAX_VALUE) {
             NSLog("$it\n")
@@ -171,7 +184,8 @@ fun steadyMemoryUsage() {
 
 Consider the following example:
 
-```Swift
+```Kotlin
+// Kotlin
 interface Storage {
     fun store(arg: Any)
 }
@@ -193,7 +207,10 @@ class KotlinExample {
         secondKotlinStorage.store(secondSwiftStorage)
     }
 }
+```
 
+```Swift
+// Swift
 class SwiftStorage : Storage {
 
     let name: String

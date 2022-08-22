@@ -40,7 +40,6 @@ to the latest one](releases.md#update-to-a-new-release) if necessary.
         <p>There are also some specifics with the new memory manager you should keep in mind:</p>
         <ul>
             <li>Every common primitive (channels, flows, coroutines) works through the Worker boundaries, since freezing is not required.</li>
-            <li>Unlike the <code>native-mt</code> version, library objects are transparent for freeze. For example, if you freeze a channel, all of its internals get frozen, so it won't work as expected. In particular, this can happen when freezing something that captures a channel.</li>
             <li><code>Dispatchers.Default</code> is backed by a pool of Workers on Linux and Windows and by a global queue on Apple targets.</li>
             <li>Use <code>newSingleThreadContext</code> to create a coroutine dispatcher that is backed by a Worker.</li>
             <li>Use <code>newFixedThreadPoolContext</code> to create a coroutine dispatcher backed by a pool of <code>N</code> Workers.</li>
