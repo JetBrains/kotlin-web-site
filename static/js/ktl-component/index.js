@@ -3,17 +3,13 @@ import Footer from './footer/index.jsx';
 import Teach from './teach/index.jsx';
 import Courses from './courses/index.jsx';
 import WhyTeach from './why-teach/index.jsx';
-import { openPopup } from '../com/search/search';
 import { initComponent, ktlHelpers } from "./ktl-helpers";
 
 export const initComponents = () => {
   ktlHelpers().forEach(({name, node, props}) => {
     switch (name) {
       case 'header':
-        initComponent(node.nextElementSibling, Header, {
-          ...props,
-          onSearchClick: openPopup,
-        });
+        initComponent(node.nextElementSibling, Header, props);
         break;
       case 'footer':
         initComponent(node.nextElementSibling, Footer, props);

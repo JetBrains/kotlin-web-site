@@ -91,10 +91,6 @@ module.exports = (params = {}) => {
           loader: 'nunjucks-loader'
         },
         {
-          test: /\.mustache$/,
-          loader: 'mustache-loader'
-        },
-        {
           test: /\.svg(?:\?\w+)?$/,
           use: [
             {
