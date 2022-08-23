@@ -179,7 +179,7 @@ the [`routing`](https://ktor.io/docs/routing-in-ktor.html) block.
 
 ### Install Ktor plugins
 
-Before continuing with the application design, install the required [plugins](https://ktor.io/docs/plugins.html) for the
+Before continuing with the application development, install the required [plugins](https://ktor.io/docs/plugins.html) for the
 embedded servers. Ktor uses plugins to enable support for more features in the application like encoding, compression,
 logging, and authentication.
 
@@ -724,7 +724,7 @@ provides a callback when users submit their entry to the shopping list to receiv
 
 #### Implement item removal
 
-Add the ability to remove items from the list so that it doesn't get too long. You can modify an existing list rather
+Add the ability to remove items that are done from the list so that it doesn't get too long. You can modify an existing list rather
 than add another UI element (like a "delete" button). When users click one of the items in the list, the app deletes it.
 
 To achieve this, pass a corresponding handler to `onClick` of the list elements:
@@ -969,9 +969,8 @@ See how your application could still be expanded and improved:
 
 #### Join the community and get help {initial-collapse-state="collapsed"}
 
-You can join the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up). There, you can
-find channels for `#ktor`, `#javascript`, and more available, as well as a helpful community that supports each other
-for Kotlin related problems.
+You can join the official Kotlin Slack channels, [#ktor](https://slack-chats.kotlinlang.org/c/ktor), [#javascript](https://slack-chats.kotlinlang.org/c/javascript),
+and others to get help with Kotlin related problems from the community.
 
 #### Learn more about Kotlin/JS {initial-collapse-state="collapsed"}
 
