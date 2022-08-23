@@ -1,8 +1,8 @@
 [//]: # (title: Add a data class to Spring Boot project)
 
 <microformat>
-    <p>This is a part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><strong>Add a data class to the Spring Boot project</strong><br/>Add database support for Spring Boot project<br/>Use Spring Data CrudRepository for database access</p>
+    <p>This is the second part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Add a data class to the Spring Boot project</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
 </microformat>
 
 Let’s add some more functionality to the application and discover more Kotlin language features. It requires changing the `MessageResource` controller class to respond with a JSON document containing a collection of serialized objects.

@@ -1,5 +1,11 @@
 [//]: # (title: Create a Spring Boot project with Kotlin)
 
+<microformat>
+    <p>This is the first part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
+    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
+</microformat>
+
+
 This tutorial walks you through the process of creating a simple application with Spring Boot and adding a database
 to store the information.
 
