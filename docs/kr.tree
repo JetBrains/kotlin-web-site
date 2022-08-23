@@ -381,7 +381,6 @@
             <toc-element id="kotlin-night-guidelines.md" accepts-web-file-names="kotlin-nights-branding.html"/>
         </toc-element>
         <toc-element id="kotlin-brand-assets.md" accepts-web-file-names="kotlin-logo.html"/>
-        <toc-element id="kotlin-mascot.md" hidden="true"/>
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
     </toc-element>
 </product-profile>
