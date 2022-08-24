@@ -56,6 +56,14 @@
   subject: Rheinwerk Konferenz für Kotlin
   url: https://rheinwerk-kkon.de/
 - lang: en
+  startDate: '2022-09-29'
+  endDate: '2022-09-30'
+  online: true
+  speaker: Anton Arhipov
+  title: IntelliJ IDEA Conf
+  subject: 'Idiomatic Kotlin'
+  url: https://pages.jetbrains.com/intellij-idea-conf-2022/
+- lang: en
   startDate: '2022-09-28'
   endDate: '2022-09-28'
   location: Orlando, FL, USA
