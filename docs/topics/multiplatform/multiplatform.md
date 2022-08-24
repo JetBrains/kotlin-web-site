@@ -27,8 +27,8 @@ Another scenario when code sharing may bring benefits is a connected application
 reused on both the server and the client side running in the browser. This is covered by Kotlin
 Multiplatform as well.
 
-See [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
-hands-on, where you will create a connected application consisting of a server part, using Kotlin/JVM and a web client,
+See [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md)
+tutorial, where you will create a connected application consisting of a server part, using Kotlin/JVM and a web client,
 using Kotlin/JS.
 
 ### Multiplatform libraries
@@ -95,4 +95,4 @@ Look through cross-platform application samples to understand how Kotlin Multipl
 * [Kotlin Multiplatform Mobile samples](multiplatform-mobile-samples.md)
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
-* [Build a Full Stack Web App with Kotlin Multiplatform hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction)
+* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md)

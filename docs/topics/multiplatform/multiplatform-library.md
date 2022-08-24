@@ -415,4 +415,4 @@ For more details, see the [Gradle documentation](https://docs.gradle.org/current
 * Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
 * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
 * [Create your first cross-platform mobile application – tutorial](multiplatform-mobile-create-first-app.md).
-* [Create a full-stack web app with Kotlin Multiplatform – hands-on tutorial](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).
+* [Build a full-stack web app with Kotlin Multiplatform – tutorial](multiplatform-full-stack-app.md).

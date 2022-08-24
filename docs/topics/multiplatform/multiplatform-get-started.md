@@ -17,7 +17,7 @@ library available for JVM, JS, and Native and which can be used from any other c
 Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
  provided by a specific platform.
 
-* [Build a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction) 
+* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md) 
   teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
   application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
   introduction to working with Ktor both as a server- and client-side framework.

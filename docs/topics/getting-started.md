@@ -180,16 +180,16 @@ Here you'll learn how to develop and publish a multiplatform library:
 1. **Create a multiplatform library:**
 
    * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
-   * Build a full stack web application using [this hands-on](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).
+   * Build a full stack web application using [this tutorial](multiplatform-full-stack-app.md).
 
 2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
 
-   |Library|Details|
-   |-------|-------|
-   | Ktor |  [Docs](https://ktor.io/docs/) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/03_A_Simple_API_Server).| 
-   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/01_Introduction).|
-   | Coroutines |  [Docs](coroutines-overview.md).|
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
+   |Library| Details                                                                                                 |
+   |---------------------------------------------------------------------------------------------------------|-------|
+   | Ktor | [Docs](https://ktor.io/docs/) and [sample](multiplatform-full-stack-app.md#build-the-backend). | 
+   | Serialization | [Docs](serialization.md) and [sample](multiplatform-full-stack-app.md).                                 |
+   | Coroutines | [Docs](coroutines-overview.md).                                                                         |
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).                                              |
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
