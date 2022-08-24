@@ -94,7 +94,7 @@
     "yaml-loader": "0.7.0"
   },
   "scripts": {
-    "build": "webpack && yarn run next-build-static",
+    "build": "yarn run build:production && yarn run next-build-static",
     "build:production": "NODE_ENV=production webpack  --mode production",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",

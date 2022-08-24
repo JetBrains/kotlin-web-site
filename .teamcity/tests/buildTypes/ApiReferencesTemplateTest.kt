@@ -22,6 +22,13 @@ object ApiReferencesTemplateTest: BuildType({
 
   steps {
     script {
+      scriptContent = """
+        yarn install --frozen-lockfile
+        yarn build:production
+      """.trimIndent()
+      dockerImage = "node:14-alpine"
+    }
+    script {
       scriptContent = "./scripts/dokka/up.sh"
     }
 

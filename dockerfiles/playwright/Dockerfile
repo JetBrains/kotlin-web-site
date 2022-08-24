@@ -5,8 +5,8 @@ WORKDIR /var/www
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-COPY ./scripts ./scripts
 COPY playwright.config.js .
-COPY ./test ./test
+
+COPY . .
 
 ENTRYPOINT ["tail", "-f"]
