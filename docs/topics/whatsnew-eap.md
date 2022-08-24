@@ -225,7 +225,10 @@ Note that such accessors are still available in the `kotlin.targets` case, for e
 
 ## How to update to the Kotlin 1.7.20-RC
 
-Install Kotlin 1.7.20-RC in any of the following ways:
+The IDE support for Kotlin 1.7.20-RC is available for IntelliJ IDEA 2022.2.1, Android Studio Dolphin (2021.3.1),
+and Android Studio Electric Eel (2022.1.1).
+
+You can install Kotlin 1.7.20-RC in any of the following ways:
 
 * If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.7.20-RC as soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
