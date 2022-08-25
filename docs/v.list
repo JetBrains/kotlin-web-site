@@ -14,7 +14,7 @@
 
     <var name="kotlinReleaseDate" value="July 7, 2022" type="string"/>
 
-    <var name="kotlinEapReleaseDate" value="August 18, 2022" type="string"/>
+    <var name="kotlinEapReleaseDate" value="August 29, 2022" type="string"/>
 
     <var name="coroutinesVersion" value="1.6.0" type="string"/>
 
