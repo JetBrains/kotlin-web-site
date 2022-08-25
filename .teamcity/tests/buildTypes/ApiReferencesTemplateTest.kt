@@ -1,5 +1,6 @@
 package tests.buildTypes
 
+import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
@@ -31,13 +32,12 @@ object ApiReferencesTemplateTest: BuildType({
     script {
       scriptContent = "./scripts/dokka/up.sh"
     }
-
     script {
       scriptContent = "./scripts/dokka/run.sh"
     }
-
     script {
       scriptContent = "./scripts/dokka/stop.sh"
+      executionMode = BuildStep.ExecutionMode.ALWAYS
     }
   }
 
