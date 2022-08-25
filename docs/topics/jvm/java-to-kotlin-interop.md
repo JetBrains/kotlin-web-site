@@ -200,7 +200,7 @@ In Java:
 
 ```java
 
-int const = Obj.CONST;
+int constant = Obj.CONST;
 int max = ExampleKt.MAX;
 int version = C.VERSION;
 ```
