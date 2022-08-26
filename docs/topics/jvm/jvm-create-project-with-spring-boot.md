@@ -204,7 +204,7 @@ class MessageResource {
       <p>The type of <code>Hello, $name!</code> expression is <code>String</code>, hence the return type of the function is also <code>String</code>.</p>
    </def>
    <def title="String templates – $name">
-      <p><code>Hello, $name!</code> expression is called a <a href="basic-types.md#string-templates"><i>String template</i></a> in Kotlin.</p>
+      <p><code>Hello, $name!</code> expression is called a <a href="strings.md#string-templates"><i>String template</i></a> in Kotlin.</p>
       <p>String templates are String literals that contain embedded expressions.</p>
       <p>This is a convenient replacement for String concatenation operations.</p>
    </def>
