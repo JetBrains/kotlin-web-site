@@ -38,7 +38,7 @@ class MessageService(val db: JdbcTemplate) {
       <p><code>val db: JdbcTemplate</code> is the constructor’s argument:</p>
       <code style="block" lang="kotlin">
       @Service
-      class MessageService(val db: JdbcTemplate) {
+      class MessageService(val db: JdbcTemplate)
       </code>
   </def>
    <def title="Trailing lambda and SAM conversion">
@@ -60,7 +60,7 @@ class MessageService(val db: JdbcTemplate) {
       <p>Hence, the final syntax for query function call looks like this:</p>
       <code style="block" lang="kotlin">
       db.query("select * from messages") { rs, _ ->
-         Message(rs.getString("id"), rs.getString("text"))
+          Message(rs.getString("id"), rs.getString("text"))
       }
       </code>
    </def>
@@ -273,7 +273,7 @@ Extend the functionality of the application to retrieve the individual messages 
 
     <deflist collapsible="true">
     <def title="Retrieving a value from the context path">
-       <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code> you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
+       <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;/{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code> you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
     <def title="vararg argument position in the parameter list">
         <p>The <code>query()</code> function takes 3 arguments:</p>

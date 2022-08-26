@@ -20,14 +20,14 @@ Let’s add some more functionality to the application and discover more Kotlin 
    <deflist collapsible="true">
        <def title="Data classes – data class Message">
           <p>The main purpose of <a href="data-classes.md">data classes</a> in Kotlin is to hold data. Such classes are marked with <code>data</code> keyword and some standard functionality and some utility functions are often mechanically derivable from the class structure.</p>
-          <p>In our example, we declared `Message` as a data class as its main purpose is to store the data.</p>
+          <p>In this example, you declared <code>Message</code> as a data class as its main purpose is to store the data.</p>
        </def>
        <def title="val and var properties">
           <p><a href="properties.md">Properties in Kotlin</a> classes can be declared either as:</p>
           <list>
               <ul>
-                <li>_mutable_, using the <code>var</code> keyword</li>
-                <li>_read-only_, using the <code>val</code> keyword</li>
+                <li><i>mutable</i>, using the <code>var</code> keyword</li>
+                <li><i>read-only</i>, using the <code>val</code> keyword</li>
               </ul>
           </list>
           <p>The <code>Message</code> class declares two properties using <code>val</code> keyword, the <code>id</code> and <code>text</code>.
@@ -36,7 +36,7 @@ Let’s add some more functionality to the application and discover more Kotlin 
           </p>
        </def>
        <def title="Nullable types – String?">
-          <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-null-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (_nullable references_) and those that cannot (_non-null references_).<br/>
+          <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-null-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (<i>nullable references</i>) and those that cannot (<i>non-null references</i>).<br/>
           For example, a regular variable of type <code>String</code> cannot hold <code>null</code>. To allow nulls, you can declare a variable as a nullable string by writing <code>String?</code>.
           </p>
           <p>The <code>id</code> property of the <code>Message</code> class is declared as a nullable type this time.
@@ -74,7 +74,7 @@ Let’s add some more functionality to the application and discover more Kotlin 
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>
           <p>In this tutorial, you use <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
-          This is a factory function to create a _read-only_ list of objects: you can’t add or remove elements from the list.<br/>
+          This is a factory function to create a <i>read-only</i> list of objects: you can’t add or remove elements from the list.<br/>
           If it is required to perform write operations on the list, call the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a> function to create a mutable list instance.
           </p>
        </def>

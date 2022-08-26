@@ -10,7 +10,7 @@ _CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipe
 
 ## Update your application
 
-First, we need to adjust the `Message` class for work with the `CrudRepository` API:
+First, you need to adjust the `Message` class for work with the `CrudRepository` API:
 
 1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table.  
    Add the `@Id` annotation before the `id` field.
