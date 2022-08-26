@@ -114,7 +114,7 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section', 'dl']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
+        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img', 'object']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
@@ -188,7 +188,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
             chapter_title_node = chapter.select_one('[data-toc]')
             if chapter_title_node:
                 chapter_title = chapter_title_node.extract().text
-                chapter_title_anchor = chapter_title_node.attrs["data-toc"].split('#')[1]
+                chapter_title_anchor = chapter_title_node.attrs["data-toc"]
                 chapter_content = chapter.extract()
 
                 url_with_href = url + "#" + chapter_title_anchor
