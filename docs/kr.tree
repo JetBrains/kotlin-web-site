@@ -372,7 +372,7 @@
         <toc-element toc-title="Journal">
             <toc-element toc-title="Cross-platform mobile development" id="cross-platform-mobile-development.md"/>
             <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
-            <toc-element toc-title="The Six Best Cross-Platform App Development Frameworks" id="cross-platform-frameworks.md"/>
+            <toc-element toc-title="The six best cross-platform app development frameworks" id="cross-platform-frameworks.md"/>
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
