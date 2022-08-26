@@ -7,11 +7,11 @@
 
 ## Add database support
 
-In JVM applications, we use JDBC to interact with databases. For convenience, Spring Framework provides `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
+In JVM applications, you use JDBC to interact with databases. For convenience, Spring Framework provides `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
 
 The common practice in Spring Framework based applications is to implement the database access logic within the so-called _service_ layer – this is where business logic lives.
-In Spring, we mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
-In our application, we are going to create `MessageService` class for this purpose.
+In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
+In this application, you will create the `MessageService` class for this purpose.
 
 In `DemoApplication.kt` file, create `MessageService` class as follows:
 
@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class MessageService(val db: JdbcTemplate) {
-
     fun findMessages(): List<Message> = db.query("select * from messages") { rs, _ ->
         Message(rs.getString("id"), rs.getString("text"))
     }
@@ -33,7 +32,7 @@ class MessageService(val db: JdbcTemplate) {
 ```
 
 <deflist collapsible="true">
-   <def title="Constructor argument and dependency injection">
+   <def title="Constructor argument and dependency injection – (val db: JdbcTemplate)">
       <p>A class in Kotlin can have a primary constructor and one or more <a href="classes.md#secondary-constructors">secondary constructors</a>.
       The <i>primary constructor</i> is a part of the class header, and it goes after the class name and optional type parameters. In our case, the constructor is <code>(val db: JdbcTemplate)</code>.</p>
       <p><code>val db: JdbcTemplate</code> is the constructor’s argument:</p>
@@ -42,22 +41,23 @@ class MessageService(val db: JdbcTemplate) {
       class MessageService(val db: JdbcTemplate) {
       </code>
   </def>
-   <def title="`Trailing lambda and SAM conversion">
-      <p>The <code>findMessages()</code> function calls the <code>query()</code> function of <code>JdbcTemplate</code> class. The <code>query()</code> function takes two arguments, the SQL query as a String instance and a callback that will map one object per row:</p>
+   <def title="Trailing lambda and SAM conversion">
+      <p>The <code>findMessages()</code> function calls the <code>query()</code> function of <code>JdbcTemplate</code> class. The <code>query()</code> function takes two arguments: the SQL query as a String instance, and a callback that will map one object per row:</p>
       <code style="block" lang="sql">
       db.query("...", RowMapper { ... } )
-      </code>
-      <p>The <code>RowMapper</code> interface declares only one method, so it is possible to implement it via lambda expression by omitting the name of the interface. The Kotlin compiler knows the interface that the lambda expression needs to be converted to because we use it as a parameter for the function call. This is known as <a href="java-interop.md#sam-conversions">SAM conversion in Kotlin</a>.</p>
+      </code><br/>
+      <p>The <code>RowMapper</code> interface declares only one method, so it is possible to implement it via lambda expression by omitting the name of the interface. The Kotlin compiler knows the interface that the lambda expression needs to be converted to because you use it as a parameter for the function call. This is known as <a href="java-interop.md#sam-conversions">SAM conversion in Kotlin</a>:</p>
       <code style="block" lang="sql">
       db.query("...", { ... } )
-      </code>
-      <p>After SAM conversion, the query function ends up with two arguments: a String at the first position, and a lambda expression at the last position. According to the Kotlin convention, if the last parameter of a function is a function, then a lambda expression passed as the corresponding argument can be placed outside the parentheses. Such syntax is also known as <a href="lambdas.md#passing-trailing-lambdas">trailing lambda</a>.</p>
+      </code><br/>
+      <p>After SAM conversion, the query function ends up with two arguments: a String at the first position, and a lambda expression at the last position. According to the Kotlin convention, if the last parameter of a function is a function, then a lambda expression passed as the corresponding argument can be placed outside the parentheses. Such syntax is also known as <a href="lambdas.md#passing-trailing-lambdas">trailing lambda</a>:</p>
       <code style="block" lang="sql">
       db.query("...") { ... }
       </code>
    </def>
    <def title="Underscore for unused lambda argument">
-      <p>For a lambda with multiple parameters, you can use the underscore <code>_</code>> character to replace the names of the parameters you don't use. Hence, the final syntax for query function call looks like this:</p>
+      <p>For a lambda with multiple parameters, you can use the underscore <code>_</code> character to replace the names of the parameters you don't use.</p>
+      <p>Hence, the final syntax for query function call looks like this:</p>
       <code style="block" lang="kotlin">
       db.query("select * from messages") { rs, _ ->
          Message(rs.getString("id"), rs.getString("text"))
@@ -86,7 +86,7 @@ class MessageController(val service: MessageService) {
 
 <deflist collapsible="true">
    <def title="@PostMapping annotation">
-      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application the conversion happens automatically.</p>
+      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application the conversion happens automatically.</p>
    </def>
 </deflist>
 
@@ -98,9 +98,9 @@ The `id` for `Message` class was declared as a nullable String:
 data class Message(val id: String?, val text: String)
 ```
 
-It would not be correct to store the `null` as an `id` value in the database though. 
-Hence, we need to handle this situation gracefully. 
-Let’s generate a new value when the `id` is `null` while storing the messages in the database:
+It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.  
+
+Generate a new value when the `id` is `null` while storing the messages in the database:
 
 ```kotlin
 @Service
@@ -144,7 +144,7 @@ Configure the database in the application:
 
    It creates the `messages` table with two columns: `id` and `text`. The table structure matches the structure of the `Message` class.
 
-3. Open the application.properties file located in the src/main/resources folder and add the following application properties:
+3. Open the `application.properties` file located in the `src/main/resources` folder and add the following application properties:
 
    ```properties
    spring.datasource.driver-class-name=org.h2.Driver
@@ -155,12 +155,12 @@ Configure the database in the application:
    spring.sql.init.mode=always
    ```
 
-   These settings enable the database for the Spring Boot application.
+   These settings enable the database for the Spring Boot application.  
    See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
 
 ## Add messages to database via HTTP request
 
-You should use an HTTP client to work with previously created endpoints. In IntelliJ IDEA, you can use the embedded HTTP client:
+You should use an HTTP client to work with previously created endpoints. In IntelliJ IDEA, use the embedded HTTP client:
 
 1. Run the application. Once the application is up and running, you can execute POST requests to store messages in the database.
    Create the `requests.http` file and add the following HTTP requests:
@@ -222,7 +222,7 @@ curl -X GET --location "http://localhost:8080"
 
 ## Retrieve messages by id
 
-Let’s extend the functionality of the application to retrieve the individual messages by id.
+Extend the functionality of the application to retrieve the individual messages by id.
 
 1. In `MessageService` class, add new function `findMessageById(id: String)` to retrieve the individual messages by id:
 
@@ -248,11 +248,11 @@ Let’s extend the functionality of the application to retrieve the individual m
     }
     ```
    
-    > The `query()` function that used to fetch the message by its id is a Kotlin extension function provided by the Spring Framework and requires an additional import as in the code above.
+    > The `query()` function that used to fetch the message by its id is a [Kotlin extension function](extensions.md#extension-functions) provided by the Spring Framework and requires an additional import as in the code above.
     >
     {type="note"}
 
-2. To `MessageController` class, add new `index(...)` function with `id` parameter:
+2. Add new `index(...)` function with `id` parameter to `MessageController` class:
 
     ```kotlin
     @RestController
@@ -273,7 +273,7 @@ Let’s extend the functionality of the application to retrieve the individual m
 
     <deflist collapsible="true">
     <def title="Retrieving a value from the context path">
-       <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as we annotated the new function by <code>@GetMapping(&quot;{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code> you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
+       <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code> you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
     <def title="vararg argument position in the parameter list">
         <p>The <code>query()</code> function takes 3 arguments:</p>
@@ -291,4 +291,3 @@ Let’s extend the functionality of the application to retrieve the individual m
 ## Next step
 
 You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)
-
