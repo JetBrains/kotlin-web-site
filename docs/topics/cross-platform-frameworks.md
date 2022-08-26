@@ -1,10 +1,10 @@
-[//]: # (title: The 6 Best Cross-Platform App Development Frameworks)
+[//]: # (title: The Six Best Cross-Platform App Development Frameworks)
 
-[//]: # (description:This article identifies the six best cross-platform app development frameworks and explains some important things to consider when choosing a cross-platform tool for your project.)
+[//]: # (description:The six best cross-platform app development frameworks and explains some important things to consider when choosing a cross-platform tool for your project.)
 
 Over the years, cross-platform app development has become one of the most popular ways to build mobile applications. A cross-platform, or multiplatform, approach allows developers to create apps that run similarly on different mobile platforms.
 
-Interest has steadily increased over the period from 2010 to date, as this Google Trends chart illustrates.
+Interest has steadily increased over the period from 2010 to date, as this Google Trends chart illustrates:
 
 ![Google Trends chart illustrating the interest in cross-platform app development](google-trends-crossplatform.png){width=700}
 
@@ -16,13 +16,11 @@ Mobile engineers use cross-platform mobile development frameworks to build nativ
 
 With demand for cross-platform solutions for mobile app development growing, the number of tools available on the market is increasing as well. In the following section, we provide an overview of the most widely used frameworks for building cross-platform mobile apps for iOS, Android, and other platforms. Our summaries include the programming languages these frameworks are based on, as well as their main features and advantages.
 
-
 ## Popular cross-platform app development frameworks
 
 This list of tools is not exhaustive; many other options are available on the market today. The important thing to realize is that there’s no one-size-fits-all tool that will be ideal for everyone. The choice of framework largely depends on your particular project and your goals, as well as other specifics that we will cover at the end of the article.
 
 Nevertheless, we’ve tried to pick out some of the best frameworks for cross-platform mobile development to give you a starting point for your decision.
-
 
 ### Flutter
 
@@ -30,7 +28,7 @@ Released by Google in 2017, Flutter is a popular framework for building mobile, 
 
 **Programming language:** Dart.
 
-**Mobile apps:** eBay, Alibaba, Google Pay, ByteDance.
+**Mobile apps:** eBay, Alibaba, Google Pay, ByteDance apps.
 
 **Key features:**
 
@@ -39,7 +37,6 @@ Released by Google in 2017, Flutter is a popular framework for building mobile, 
 * Flutter doesn’t rely on web browser technology. Instead, it has its own rendering engine for drawing widgets.
 
 Flutter has a relatively active community of users around the world. It is widely used by many developers. According to the [Stack Overflow Developer Survey 2021](https://insights.stackoverflow.com/survey/2021#technology-most-loved-dreaded-and-wanted), Flutter is the second most-loved framework.
-
 
 ### React Native
 
@@ -57,7 +54,6 @@ An open-source UI software framework, React Native was developed in 2015 (a bit 
 
 As one of the most popular cross-platform app development frameworks, React Native has a large and strong community of developers who share their technical knowledge. Thanks to this community, you can get the support you need when building mobile apps with the framework.
 
-
 ### Kotlin Multiplatform Mobile
 
 Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Android and iOS applications. It allows you to share common code between the two platforms and write platform-specific code only when it’s necessary, for example, when you need to build native UI components or when you are working with platform-specific APIs.
@@ -73,7 +69,6 @@ Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Androi
 * Developers have easy access to the Android and iOS SDKs without any restrictions.
 
 Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What’s more, many [global companies and startups already use Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/case-studies/) to develop multiplatform apps with a native-like user experience.
-
 
 > Create your first cross-platform mobile app with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 >
@@ -95,7 +90,6 @@ Ionic is an open-source UI toolkit that was released in 2013. It helps developer
 
 There’s constant activity on the Ionic Forum, where community members exchange knowledge and help each other overcome their development challenges.
 
-
 ### Xamarin
 
 Xamarin was launched in 2011 and is now owned by Microsoft. It’s an open-source cross-platform app development framework that uses the C# language and the .Net framework to develop apps for Android, iOS, and Windows.
@@ -111,7 +105,6 @@ Xamarin was launched in 2011 and is now owned by Microsoft. It’s an open-sourc
 * Compiled bindings in Xamarin.Forms improve data binding performance. Using these bindings provides compile-time validation for all binding expressions. Because of this feature, mobile engineers get fewer runtime errors.
 
 Xamarin is supported by many contributors across the globe and is especially popular among C, C++, and C# developers who create mobile applications.
-
 
 ### NativeScript
 
@@ -134,18 +127,15 @@ NativeScript is based on well-known web technologies like JavaScript and Angular
 
 There are other cross-platform frameworks besides those mentioned above, and new tools will continue to appear on the market. Given the wide array of options, how can you find the right one for your next project? The first step is to understand your project’s requirements and goals, and to get a clear idea of what you want your future app to look like. Next, you’ll want to take the following important factors into account so you can decide on the best fit for your business.
 
-
 #### 1. The expertise of your team
 
 Different cross-platform mobile development frameworks are based on different programming languages. Before adopting a framework, check what skills it requires and make sure your team of mobile engineers has enough knowledge and experience to work with it.
 
 For example, if your team is equipped with highly skilled JavaScript developers, and you don’t have enough resources to introduce new technologies, it may be worth choosing frameworks that use this language, such as React Native.
 
-
 #### 2. Vendor reliability and support
 
 It’s important to be sure that the maintainer of the framework will continue to support it in the long run. Learn more about the companies that develop and support the frameworks you’re considering, and take a look at the mobile apps that have been built using them.
-
 
 #### 3. UI customization
 
@@ -169,11 +159,9 @@ Security and privacy are especially important when building a critical mobile ap
 
 You need to ensure that the multiplatform mobile development framework of your choice provides the required level of security. One way to do this is to browse the security tickets on the framework’s issue tracker if it has one that’s publicly available.
 
-
 #### 8. Educational materials
 
 The volume and quality of available learning resources about a framework can also help you understand how smooth your experience will be when working with it. Comprehensive official [documentation](https://kotlinlang.org/docs/home.html), online and offline conferences, and educational courses are a good sign that you will be able to find enough essential information about a product when you need it.
-
 
 ## Key takeaways
 
