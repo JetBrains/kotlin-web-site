@@ -7,10 +7,9 @@ import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import CtaBlock from '@jetbrains/kotlin-web-site-ui/out/components/cta-block';
 import Button from '@rescui/button';
-import { Theme, ThemeProvider } from '@rescui/ui-contexts';
+import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
-import { Search, onSearch } from '../../../components/search/search';
 import releasesDataRaw from '../../../data/releases.yml';
 import searchConfig from '../../../search-config.json'
 
@@ -89,7 +88,6 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                 currentTitle={COMMUNITY_TITLE}
                 productWebUrl={releasesData.latest.url}
                 hasSearch={true}
-                onSearchClick={onSearch}
                 searchConfig={searchConfig}
                 noScrollClassName={'_no-scroll'}
             />
@@ -125,8 +123,6 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
             <ThemeProvider theme={theme}>
                 <GlobalFooter />
             </ThemeProvider>
-
-            <Search />
         </>
     );
 };

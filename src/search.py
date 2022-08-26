@@ -74,11 +74,6 @@ def get_client():
     return algoliasearch.Client(os.environ['SEARCH_USER'], os.environ['SEARCH_KEY'])
 
 
-def get_index() -> Index:
-    index_name = os.environ['INDEX_NAME'] if 'INDEX_NAME' in os.environ else "dev_KOTLINLANG"
-    return Index(get_client(), index_name)
-
-
 def get_page_path_from_url(url):
     if url.endswith('.html'):
         return url[1:-5]
@@ -239,7 +234,6 @@ def to_wh_index(item):
 
 def build_search_indices(pages):
     page_views_statistic = get_page_views_statistic()
-    index_objects = []
     wh_index_objects = []
 
     print("Start building index")
@@ -333,8 +327,6 @@ def build_search_indices(pages):
                 page_views
             )
 
-            index_objects += page_indices
-
             def wh(*args):
                 return to_wh_index(*args)
 
@@ -349,7 +341,3 @@ def build_search_indices(pages):
         wh_index.add_objects(wh_index_objects)
 
     print("Index objects successfully built")
-
-    index = get_index()
-    print("Submitting index objects to " + index.index_name + " index")
-    index.add_objects(index_objects)

@@ -2,7 +2,6 @@ import $ from 'jquery';
 import 'core-js/stable/promise';
 import 'whatwg-fetch';
 import kotlinPlayground from 'kotlin-playground';
-import { initSearch } from '../com/search/search';
 import '../com/cities-banners';
 import GifPlayer from '../com/gif-player/gif-player';
 import CodeMirror from '../com/codemirror/CodeMirror';
@@ -111,7 +110,6 @@ $(function () {
   initHeadingAnchors();
   initGifPlayer();
 
-  initSearch();
   initComponents();
 
   hoverSolutionsMenu();
