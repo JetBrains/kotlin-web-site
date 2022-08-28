@@ -60,7 +60,7 @@ Your future iOS application will use the same logic, so you should make it cross
 ### Create a shared module for cross-platform code
 
 The cross-platform code that is used for both iOS and Android _is stored_ in the shared module.
-Kotlin Multiplatform provides a special wizard for creating such modules.
+The Kotlin Multiplatform Mobile plugin provides a special wizard for creating such modules.
 
 In your Android project, create a Kotlin Multiplatform shared module for your cross-platform code. Later you'll connect it to your existing Android application and your future iOS application.
 
