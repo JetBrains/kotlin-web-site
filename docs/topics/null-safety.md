@@ -61,6 +61,11 @@ But if you want to access the same property on `b`, that would not be safe, and 
 val l = b.length // error: variable 'b' can be null
 ```
 
+An exception is `.toString()` [which returns the string "null" if called on a null object](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html)
+```kotlin
+null.toString() // returns "null"
+```
+
 But you still need to access that property, right? There are a few ways to do so.
 
 ## Checking for `null` in conditions
