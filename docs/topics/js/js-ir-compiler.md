@@ -18,8 +18,6 @@ and JavaScript and TypeScript ecosystem interoperability, to name some examples.
 The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotlin/JS Gradle plugin. To enable it in your
 project, pass a compiler type to the `js` function in your Gradle build script:
 
-<!--suppress ALL -->
-
 ```groovy
 kotlin {
     js(IR) { // or: LEGACY, BOTH
@@ -29,9 +27,9 @@ kotlin {
 }
 ```
 
-- `IR` uses the new IR compiler backend for Kotlin/JS.
-- `LEGACY` uses the default compiler backend.
-- `BOTH` compiles your project with the new IR compiler as well as the default compiler backend. Use this mode for [authoring libraries compatible with both backends](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility).
+* `IR` uses the new IR compiler backend for Kotlin/JS.
+* `LEGACY` uses the default compiler backend.
+* `BOTH` compiles your project with the new IR compiler as well as the default compiler backend. Use this mode for [authoring libraries compatible with both backends](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility).
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
@@ -82,7 +80,7 @@ kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
 
 ## Ignoring compilation errors
 
->_Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> _Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
 {type="warning"}
@@ -121,7 +119,7 @@ The Kotlin/JS IR compiler uses its internal information about the relationships 
 
 This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode, and enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
 
-```
+```kotlin
 kotlin {
    js(IR) {
        compilations.all {
@@ -166,8 +164,8 @@ section.
 The IR compiler backend also has some discrepancies in comparison to the default backend. When trying out the new backend,
 it's good to be mindful of these possible pitfalls.
 
-- Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
-- The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
+* Some **libraries that rely on specific characteristics** of the default backend, such as `kotlin-wrappers`, can display some problems. You can follow the investigation and progress [on YouTrack](https://youtrack.jetbrains.com/issue/KT-40525).
+* The IR backend **does not make Kotlin declarations available to JavaScript** by default at all. To make Kotlin declarations visible to JavaScript, they **must be** annotated with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation).
 
 ## Migrating existing projects to the IR compiler
 
