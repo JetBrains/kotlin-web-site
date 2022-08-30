@@ -46,7 +46,7 @@ The only similarity between cross-platform and hybrid development is code sharea
 
 ### Native or cross-platform app development: a longstanding debate
 
-The debate around native and cross-platform development remains unresolved in the tech community. Both of these technologies are in constant evolution and come with their own benefits and limitations.
+[The debate around native and cross-platform development](native-and-cross-platform.md) remains unresolved in the tech community. Both of these technologies are in constant evolution and come with their own benefits and limitations.
 
 Some experts still prefer native mobile development over multiplatform solutions, identifying the stronger performance and better user experience of native apps as some of the most important benefits.
 
@@ -112,7 +112,7 @@ As modern multiplatform frameworks continue to evolve, they increasingly allow m
 
 ## The most popular cross-platform solutions
 
-The most popular cross-platform frameworks include Flutter, React Native, and Kotlin Multiplatform Mobile. Each of these frameworks has its own capabilities and strengths. Depending on the tool you use, your development process and the outcome may vary.
+[The most popular cross-platform frameworks](cross-platform-frameworks.md) include Flutter, React Native, and Kotlin Multiplatform Mobile. Each of these frameworks has its own capabilities and strengths. Depending on the tool you use, your development process and the outcome may vary.
 
 ### Flutter
 
