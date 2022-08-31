@@ -178,7 +178,8 @@ object DefaultListener : MouseAdapter() {
 {type="note"}
 
 ### Data objects
-> As of Kotlin 1.7.20, `data object` declarations are still an experimental feature. To enable them in your code, set the `kotlinOptions.languageVersion = "1.8"` [compiler option](https://kotlinlang.org/docs/gradle.html#compiler-options) in your build file.
+
+> Data object declarations is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. Opt-in is required with the `kotlinOptions.languageVersion = "1.8"` [compiler option](https://kotlinlang.org/docs/gradle.html#compiler-options).
 > 
 {type="note"}
 
