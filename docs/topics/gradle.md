@@ -1,25 +1,19 @@
 [//]: # (title: Gradle)
 
-|                       | Minimum supported version | Maximum fully supported version |
-|-----------------------|---------------------------|---------------------------------|
-| Gradle                | %minGradleVersion%        | %maxGradleVersion%              |   
-| Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
+Gradle is a build system that helps to automate and manage your building process. It downloads specified dependencies,
+packages your code, and prepares it for compilation. To build a Kotlin project with Gradle, you'll need to add
+a Gradle extension, the Kotlin Gradle plugin, and [configure dependencies](#configuring-dependencies).
 
-In order to build a Kotlin project with Gradle, you should [apply the Kotlin Gradle plugin to your project](#plugin-and-versions)
-and [configure the dependencies](#configuring-dependencies).
-
-## Plugin and versions
-
-Apply the Kotlin Gradle plugin by using the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block).
-
-The Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle %minGradleVersion% or later.
+To apply the Kotlin Gradle plugin, use the [`plugins` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block)
+from the Gradle plugins DSL:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// replace `<...>` with the plugin name 
 plugins {
-  kotlin("<...>") version "%kotlinVersion%"
+    kotlin("<...>") version "%kotlinVersion%"
 }
 ```
 
@@ -27,15 +21,24 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// replace `<...>` with the plugin name
 plugins {
-  id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
 }
 ```
 
 </tab>
 </tabs>
 
-The placeholder `<...>` should be replaced with the name of one of the plugins that will be discussed in subsequent sections.
+When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions:
+
+|                       | Minimum supported version | Maximum fully supported version |
+|-----------------------|---------------------------|---------------------------------|
+| Gradle                | %minGradleVersion%        | %maxGradleVersion%              |   
+| Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
+
+For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle
+%minGradleVersion% or later.
 
 ## Targeting multiple platforms
 
