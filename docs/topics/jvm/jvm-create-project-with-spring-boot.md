@@ -210,20 +210,65 @@ class MessageResource {
    </def>
 </deflist>
 
+> These annotations also require additional imports:
+>
+> ```kotlin
+> import org.springframework.web.bind.annotation.GetMapping
+> import org.springframework.web.bind.annotation.RequestParam
+> import org.springframework.web.bind.annotation.RestController
+> ```
+>
+{type="note"}
+
+Here is a complete code of the `DemoApplication.kt`:
+
+```kotlin
+package demo
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.RestController
+
+@SpringBootApplication
+class DemoApplication
+
+fun main(args: Array<String>) {
+    runApplication<DemoApplication>(*args)
+}
+
+@RestController
+class MessageResource {
+    @GetMapping
+    fun index(@RequestParam("name") name: String) = "Hello, $name!"
+}
+```
+{initial-collapse-state="collapsed"}
+
 ## Run the application
 
-The application is now ready to run.
+The Spring application is now ready to run:
 
-Click the green Run icon in the gutter beside the `main()` method:
+1. Click the green Run icon in the gutter beside the `main()` method:
 
-![Run Spring Boot application](run-spring-boot-application.png){width=706}
+    ![Run Spring Boot application](run-spring-boot-application.png){width=706}
+    
+    > You can also run the `./gradlew bootRun` command in the terminal.
+    >
+    {type="tip"}
 
-> You can also run the `./gradlew bootRun` command in the terminal.
->
-{type="tip"}
+    This starts the local server on your device.
 
-Once the application starts, open the following URL: [http://localhost:8080?name=John](http://localhost:8080?name=John).   
-You should see "Hello, John!" printed as a response.
+2. Once the application starts, open the following URL:
+
+    ```text
+    http://localhost:8080?name=John
+    ```
+
+    You should see "Hello, John!" printed as a response:
+
+    ![Spring Application response](spring-application-response.png){width=706}
 
 ## What's next
 
