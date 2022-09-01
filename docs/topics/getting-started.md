@@ -20,7 +20,7 @@ Download and install one of these IDEs to start using Kotlin.
  
 <tabs>
 
-<tab title="Backend app">
+<tab id="backend" title="Backend app">
 
 Here is how you can take the first steps in developing Kotlin server-side applications.
 
@@ -75,7 +75,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab title="Cross-platform mobile app">
+<tab id="cross-platform-mobile" title="Cross-platform mobile app">
 
 Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/).
 
@@ -118,7 +118,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab title="Frontend web app">
+<tab id="frontend" title="Frontend web app">
 
 Kotlin provides an ability to transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies to JavaScript.
 
@@ -161,7 +161,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab title="Android app">
+<tab id="android" title="Android app">
 
 * If you want to start using Kotlin for Android development, read [Google’s recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
 
@@ -171,7 +171,7 @@ Follow Kotlin on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](http
 
 </tab>
 
-<tab title="Multiplatform library">
+<tab id="multiplatform-library" title="Multiplatform library">
 
 Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the same code for different platforms while retaining the flexibility and benefits of native programming.
 
