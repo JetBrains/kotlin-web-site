@@ -20,7 +20,7 @@
             <a href="basic-syntax.md" description="A quick tour of Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
             <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
             <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
-            <a href="command-line.md" description="Download and install the Kotlin compiler" type="install">Command-line compiler</a>
+            <a href="command-line.md" description="Download and install the Kotlin compiler">Command-line compiler</a>
         </main-group>
         <highlighted-group>
             <title>Featured topics</title>
