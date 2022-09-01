@@ -129,12 +129,19 @@ data class Message(val id: String?, val text: String)
 
 ## Run the application
 
-Let’s run the application again.  
-Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080).
+The Spring application is ready to run:
 
-You will see a page with a collection of messages in JSON format:
+1. Run the application again.
 
-![Run the application](messages-in-json-format.png){width=800}
+2. Once the application starts, open the following URL:
+
+    ```text
+    http://localhost:8080
+    ```
+
+    You will see a page with a collection of messages in JSON format:
+
+    ![Run the application](messages-in-json-format.png){width=800}
 
 ## What's next
 
