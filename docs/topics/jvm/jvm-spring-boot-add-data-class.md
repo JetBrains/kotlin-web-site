@@ -89,11 +89,27 @@ Let’s add some more functionality to the application and discover more Kotlin 
        </def>
     </deflist>
 
-The response from `MessageResource` will now be a JSON document containing a collection of `Message` objects.
+3. Rename the `MessageResrouce` class to `MessageController`:
 
-Any controller in the Spring application renders JSON response by default if Jackson library is on the classpath.
-As you specified `spring-boot-starter-web` dependency specified in `build.gradle.kts` file, you received Jackson as a _transitive_ dependency.
-Hence the application responds with a JSON document if the endpoint returns a data structure that can be serialized to JSON.
+    ```kotlin
+    @RestController
+    class MessageController {
+        @GetMapping
+        fun index() = listOf(
+            Message("1", "Hello!"),
+            Message("2", "Bonjour!"),
+            Message("3", "Privet!"),
+        )
+    }
+    ```
+
+The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.
+
+> Any controller in the Spring application renders JSON response by default if Jackson library is on the classpath.
+> As you specified `spring-boot-starter-web` dependency specified in `build.gradle.kts` file, you received Jackson as a _transitive_ dependency.
+> Hence, the application responds with a JSON document if the endpoint returns a data structure that can be serialized to JSON.
+>
+{type="note"}
 
 Here is a complete code of the `DemoApplication.kt`:
 

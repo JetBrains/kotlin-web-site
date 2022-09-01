@@ -17,6 +17,7 @@ In `DemoApplication.kt` file, create `MessageService` class as follows:
 
 ```kotlin
 import org.springframework.stereotype.Service
+import org.springframework.jdbc.core.JdbcTemplate
 
 @Service
 class MessageService(val db: JdbcTemplate) {
@@ -201,7 +202,7 @@ You should use an HTTP client to work with previously created endpoints. In Inte
 
    ![Execute POST request](execute-post-requests.png)
 
-3. Execute the GET request and see the result in the Run tool window:
+3. Execute the GET request and see the result in the **Run** tool window:
 
    ![Execute GET requests](execute-get-requests.png)
 
@@ -287,6 +288,36 @@ Extend the functionality of the application to retrieve the individual messages 
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>
     </deflist>
+
+## Run the application
+
+The Spring application is ready to run:
+
+1. Run the application again.
+
+2. Open the `requests.http` file and add new GET request:
+
+    ```http request
+    ### Get the message by its id
+    GET http://localhost:8080/id
+    ```
+
+3. Execute the GET request to retrieve all the message from database.
+
+4. In the **Run** tool window copy one of the ids and add it to the request, like this:
+
+    ```http request
+    ### Get the message by its id
+    GET http://localhost:8080/f16c1d2e-08dc-455c-abfe-68440229b84f
+    ```
+    
+    > Put your message id instead of the mentioned above.
+    >
+    {type="note"}
+
+5. Execute the GET request and see the result in the **Run** tool window:
+
+    ![Retrieve message by its id](retrieve-message-by-its-id.png){width=706}
 
 ## Next step
 
