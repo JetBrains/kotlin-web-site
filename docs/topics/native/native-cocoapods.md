@@ -14,7 +14,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 ## Set up the environment to work with CocoaPods
 
-Install the [CocoaPods dependency manager](https://cocoapods.org/):
+CocoaPods is built with Ruby, and you can install it with the default Ruby available on macOS:
 
 ```ruby
 sudo gem install cocoapods
@@ -27,7 +27,7 @@ plugin:
   sudo gem install cocoapods-generate
   ```
   
-  > `cocoapods-generate` couldn't be installed on Ruby 3 and later.
+  > `cocoapods-generate` couldn't be installed on Ruby 3 and later. Downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
   > 
   {type="note"}
 
@@ -145,12 +145,30 @@ which contains an example of Xcode integration with an existing Xcode project na
 
 ## Possible issues and solutions
 
-### Module not found
+### CocoaPods installation {initial-collapse-state="collapsed"}
+
+#### Ruby installation
+
+Ruby should be available on your macOS by default. Ruby 1.9 or later has a built-in RubyGems package management framework
+that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
+
+If you're experiencing problems installing CocoaPods and getting it to work, follow [this guide](https://www.ruby-lang.org/en/documentation/installation/)
+to install Ruby or refer to the [RubyGems website](https://rubygems.org/pages/download/) to install the framework.
+
+#### Version compatibility
+
+We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you'll need to additionally
+install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate#installation") plugin.
+
+However, `cocoapods-generate` is not compatible with Ruby 3.0.0 or later. In this case, downgrade Ruby or upgrade Kotlin
+to 1.7.0 or later.
+
+### Module not found {initial-collapse-state="collapsed"}
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
 Try these workarounds to avoid this error:
 
-#### Specify the framework name {initial-collapse-state="collapsed"}
+#### Specify the framework name 
 
 1. Find the `module.modulemap` file in the downloaded Pod directory:
 
@@ -166,7 +184,7 @@ name, specify it explicitly:
       moduleName = "AppsFlyerLib"
     }
     ```
-#### Check the definition file {initial-collapse-state="collapsed"}
+#### Check the definition file
 
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
 modules with headers with the pointing main header:

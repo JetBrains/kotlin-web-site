@@ -44,14 +44,6 @@ We recommend that you install the latest stable versions for compatibility and b
         <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p>
             <p>To update the plugin, in Android Studio navigate to <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong> and then select the latest version in the <strong>Stable</strong> channel.</p></td>
    </tr>
-   <tr>
-        <td><a href="https://cocoapods.org/">CocoaPods</a></td>
-        <td><p>CocoaPods is useful for adding iOS dependencies, which you'll make use of in later steps. CocoaPods is built with Ruby, and you can install it with the default Ruby available on macOS.</p>
-            <p>In the Android Studio terminal or your command-line tool, run the following commands:</p>
-            <p><code style="block"
-               lang="ruby" prompt="$">sudo gem install cocoapods</code></p>
-         </td>
-   </tr>
 </table>
 
 ## Check your environment
@@ -115,28 +107,12 @@ To make sure everything works as expected, install and run the KDoctor tool:
             </ul>
          </list>
    </def>
-   <def title="CocoaPods">
-        <p>Make sure you have the <a href="https://guides.cocoapods.org/using/getting-started.html#installation">CocoaPods dependency manager</a> installed.</p>
-        <note><p>We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you'll need to additionally install the <a href="https://github.com/square/cocoapods-generate#installation"><code>cocoapods-generate</code> plugin</a> before proceeding.</p></note>
-        <p>If you don't have Ruby installed on your device, or you're experiencing problems installing CocoaPods and getting it to work, use these guides:</p>
-        <list>
-            <ul>
-               <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Installing Ruby</a>. You can install Ruby with Homebrew, RVM, or other package managers.</li>
-               <li><a href="https://rubygems.org/pages/download">Download RubyGems</a>, a package management framework for Ruby.</li>
-            </ul>
-         </list>
-         <p>If you have Ruby 3.0.0 or later, you might encounter a compatibility error with <code>cocoapods-generate</code>. In this case, downgrade Ruby.</p>
-    </def>
    <def title="Command line">
          <list>
             <p>Make sure you have all the necessary tools installed:</p>
             <ul>
               <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
               <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
-              <li>
-                 <p><code>command not found: gem</code> — RubyGems come built-in with Ruby 1.9 or later. Ruby should be available on macOS by default.</p>
-                 <p>If you don't have Ruby, follow <a href="https://www.ruby-lang.org/en/documentation/installation/">this guide</a> to install it. You can get the RubyGems package management framework from its <a href="https://rubygems.org/pages/download/">official website</a>.</p>
-              </li>
            </ul>
          </list>
     </def>
