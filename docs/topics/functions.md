@@ -55,9 +55,8 @@ fun read(
 
 A default value is defined using `=` after the type.
 
-Overriding methods always use the same default parameter values as the base method.
-When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
-
+Overriding methods always use the same default parameter values as the base method, and not allowed to specify default values for its parameters.
+So when overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
 ```kotlin
 open class A {
     open fun foo(i: Int = 10) { /*...*/ }
