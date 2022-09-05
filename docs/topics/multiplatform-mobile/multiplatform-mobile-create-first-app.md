@@ -27,6 +27,11 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
 
+   > This option doesn't require third-party tools and has less integration issues. If you want to learn more about the
+   > CocoaPods dependency manager and how to configure the environment for it, see [CocoaPods overview and setup](native-cocoapods.md).
+   >
+   {type="tip"}
+
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
 The project will be set up automatically. It may take some time to download and set up the required components when you
