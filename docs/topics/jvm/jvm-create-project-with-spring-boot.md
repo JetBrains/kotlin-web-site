@@ -5,15 +5,13 @@
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
 </microformat>
 
-
-This tutorial walks you through the process of creating a simple application with Spring Boot and adding a database
-to store the information.
+This tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
 
 ## Before you start
 
 Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
-## Create the Spring Boot project
+## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the project wizard in IntelliJ IDEA Ultimate Edition:
 
@@ -23,13 +21,14 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **New Project** | **Spring Initializr**.
-3. Specify the following fields and options in the project wizard window:
+3. Specify the following fields and options in the Project Wizard window:
+   
    * **Name**: demo
    * **Language**: Kotlin
    * **Build system**: Gradle
    * **JDK**: Java 17 JDK
      
-     > Use **Amazon Corretto version 17** for this tutorial.
+     > This tutorial uses **Amazon Corretto version 18**
      >
      {type="note"}
    
@@ -40,22 +39,23 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
 4. Ensure that all the fields are specified and click **Next**.
 
 5. Select the following dependencies that will be required for the tutorial:
-   * **Spring Web**
-   * **Spring Data JDBC**
-   * **H2 Database**
+   * **Web / Spring Web**
+   * **SQL / Spring Data JDBC**
+   * **SQL / H2 Database**
 
    ![Set up Spring Boot project](set-up-spring-boot-project.png){width=800}
 
 6. Click **Create** to generate and set up the project.
 
-The IDE will generate and open the new project. It may take some time to download and import the project dependencies.
-After this, you can observe the following structure in the **Project view**:
+   The IDE will generate and open the new project. It may take some time to download and import the project dependencies.
 
-![Set up Spring Boot project](spring-boot-project-view.png){width=400}
+7. After this, you can observe the following structure in the **Project view**:
 
-The generated Gradle project corresponds to Maven’s standard directory layout.
-There are packages and classes under the `main/kotlin` folder that belong to the application.
-The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
+   ![Set up Spring Boot project](spring-boot-project-view.png){width=400}
+
+   The generated Gradle project corresponds to Maven's standard directory layout.
+   There are packages and classes under the `main/kotlin` folder that belong to the application.
+   The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
 ## Explore the project Gradle build file {initial-collapse-state="collapsed"}
 
@@ -72,7 +72,7 @@ plugins {
     id("org.springframework.boot") version "2.7.1"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
-    kotlin("plugin.spring") version "1.6.21" // The Kotlin Spring plugin
+    kotlin("plugin.spring") version "%kotlinSpringPluginVersion%" // The Kotlin Spring plugin
 }
 
 group = "com.example"
@@ -105,20 +105,21 @@ tasks.withType<Test> {
 }
 ```
 
-As you can see, there are a few Kotlin-related artifacts added to the Gradle build file.
+As you can see, there are a few Kotlin-related artifacts added to the Gradle build file:
 
-In the `plugins` block, there are two Kotlin artifacts:
+1. In the `plugins` block, there are two Kotlin artifacts:
 
-* `kotlin("jvm")` – the plugin defines the version of Kotlin to be used in the project
-* `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the open modifier to Kotlin classes in order to make them compatible with Spring Framework features.
+   * `kotlin("jvm")` – the plugin defines the version of Kotlin to be used in the project
+   * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the open modifier to Kotlin classes in order to make them compatible with Spring Framework features.
 
-In the `dependencies` block, you can see a few Kotlin-related modules listed:
+2. In the `dependencies` block, you can see a few Kotlin-related modules listed:
 
-* `com.fasterxml.jackson.module:jackson-module-kotlin` - the module adds support for serialization and deserialization of Kotlin classes and data classes.
-* `org.jetbrains.kotlin:kotlin-reflect` - Kotlin reflection library
-* `org.jetbrains.kotlin:kotlin-stdlib-jdk8` - Kotlin’s standard library
+   * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes.
+   * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
+   * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin's standard library
 
-After the dependencies section, you can see the `KotlinComiple` task configuration block. This is where you can add extra arguments to the compiler to enable or disable various language features.
+3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
+   This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Explore the generated Spring Boot application
 
@@ -141,16 +142,16 @@ fun main(args: Array<String>) {
 <deflist collapsible="true">
    <def title="Declaring classes – class DemoApplication">
       <p>Right after package declaration and import statements you can see the first class declaration, <code>class DemoApplication</code>.</p>
-      <p>In Kotlin, if a class doesn’t include any members (properties of functions), you can omit the class body (<code>{}</code>) for good.</p>
+      <p>In Kotlin, if a class doesn't include any members (properties of functions), you can omit the class body (<code>{}</code>) for good.</p>
    </def>
    <def title="@SpringBootApplication annotation">
       <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.using-the-springbootapplication-annotation"><code>@SpringBootApplication annotation</code></a> is a convenience annotation in a Spring Boot application.
-      It enables Spring Boot’s <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a>, and be able to define extra configuration on their "application class".
+      It enables Spring Boot's <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a>, and be able to define extra configuration on their "application class".
       </p>
    </def>
    <def title="Program entry point – main()">
       <p>The <a href="basic-syntax.md#program-entry-point"><code>main()</code></a> function is the entry point to the application.</p>
-      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes Spring’s <code>runApplication(&amp;args)</code> function to start the application with Spring Framework.</p>
+      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes Spring's <code>runApplication(&amp;args)</code> function to start the application with Spring Framework.</p>
    </def>
    <def title="Variable arguments – args: Array&lt;String&gt;">
       <p>If you check the declaration of <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
@@ -159,7 +160,7 @@ fun main(args: Array<String>) {
    </def>
    <def title="The spread operator – (*args)">
       <p>The <code>args</code> is a parameter to the main function declared as an array of Strings.
-        Since there is an array of strings, and you want to pass its contents to the function, use the spread operator (prefix the array with <code>*</code>).
+        Since there is an array of strings, and you want to pass its contents to the function, use the spread operator (prefix the array with a star sign <code>*</code>).
       </p>
    </def>
 </deflist>
@@ -169,11 +170,11 @@ fun main(args: Array<String>) {
 
 In the Spring application, a controller is used to handle the web requests.
 
-In the `DemoApplication.kt` file, create the `MessageResource` class as follows:
+In the `DemoApplication.kt` file, create the `MessageController` class as follows:
 
 ```kotlin
 @RestController
-class MessageResource {
+class MessageController {
     @GetMapping
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
@@ -181,7 +182,7 @@ class MessageResource {
 
 <deflist collapsible="true">
    <def title="@RestController annotation">
-      <p>You need to tell Spring that <code>MessageResource</code> is a REST Controller, so you should mark it with the <code>@RestController</code> annotation.</p>
+      <p>You need to tell Spring that <code>MessageController</code> is a REST Controller, so you should mark it with the <code>@RestController</code> annotation.</p>
       <p>This annotation means this class will be picked up by the component scan because it's in the same package as our <code>DemoApplication</code> class.</p>
    </def>
    <def title="@GetMapping annotation">
@@ -239,7 +240,7 @@ fun main(args: Array<String>) {
 }
 
 @RestController
-class MessageResource {
+class MessageController {
     @GetMapping
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }

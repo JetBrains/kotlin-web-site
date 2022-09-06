@@ -5,7 +5,8 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Add a data class to the Spring Boot project</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
 </microformat>
 
-Let’s add some more functionality to the application and discover more Kotlin language features. It requires changing the `MessageResource` controller class to respond with a JSON document containing a collection of serialized objects.
+Let's add some more functionality to the application and discover more Kotlin language features.
+It requires changing the `MessageController` controller class to respond with a JSON document containing a collection of serialized objects.
 
 ## Update your application
 
@@ -47,11 +48,11 @@ Let’s add some more functionality to the application and discover more Kotlin 
           </code>
        </def>
    </deflist>
-2. In the same file, amend the `index()` function of a `MessageResource` class to return a list of `Message` objects:
+2. In the same file, amend the `index()` function of a `MessageController` class to return a list of `Message` objects:
 
     ```kotlin
     @RestController
-    class MessageResource {
+    class MessageController {
         @GetMapping
         fun index() = listOf(
             Message("1", "Hello!"),
@@ -74,7 +75,7 @@ Let’s add some more functionality to the application and discover more Kotlin 
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>
           <p>In this tutorial, you use <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
-          This is a factory function to create a <i>read-only</i> list of objects: you can’t add or remove elements from the list.<br/>
+          This is a factory function to create a <i>read-only</i> list of objects: you can't add or remove elements from the list.<br/>
           If it is required to perform write operations on the list, call the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a> function to create a mutable list instance.
           </p>
        </def>
@@ -88,20 +89,6 @@ Let’s add some more functionality to the application and discover more Kotlin 
           <p>In the example above, creating a list of <code>Message</code> objects includes the trailing comma after the <code>listOf()</code> function argument.</p>
        </def>
     </deflist>
-
-3. Rename the `MessageResrouce` class to `MessageController`:
-
-    ```kotlin
-    @RestController
-    class MessageController {
-        @GetMapping
-        fun index() = listOf(
-            Message("1", "Hello!"),
-            Message("2", "Bonjour!"),
-            Message("3", "Privet!"),
-        )
-    }
-    ```
 
 The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.
 

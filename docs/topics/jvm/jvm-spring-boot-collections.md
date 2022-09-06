@@ -14,7 +14,7 @@ In all the examples we assume to start with retrieving all the messages stored i
 ## Retrieving elements
 
 Kotlin collections provide a set of functions for retrieving single elements from collections.
-It’s possible to retrieve a single element from collection either by position or by a matching condition.
+It's possible to retrieve a single element from collection either by position or by a matching condition.
 
 For instance, retrieving the first and last elements of a collection is made possible with the corresponding functions, `first()` and `last()`:
 
@@ -31,7 +31,7 @@ In the example above, retrieve the collection's first and last elements and crea
 To retrieve an element at a specific position, you can use [`elementAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/element-at.html) function.
 
 Both `first()` and `last()` functions also let you search a collection for elements matching a given predicate.
-For example, here’s how to find the first `Message` instance in the list where the length of the message is longer than ten characters:
+For example, here's how to find the first `Message` instance in the list where the length of the message is longer than ten characters:
 
 ```kotlin
 @GetMapping("/firstMessageLongerThan10")
@@ -44,7 +44,7 @@ fun firstMessageLongerThan10(): Message {
 Of course, it might be the case that there are no messages that are longer than the given character limit.
 In this case, the code above would produce NoSuchElementException.
 Alternatively, you can use `firstOrNull()` function to return null in case there is no matching element in the collection.
-It is then the programmer’s responsibility to check the result if it’s null or not:
+It is then the programmer's responsibility to check the result if it's null or not:
 
 ```kotlin
 @GetMapping("/retrieveFirstMessageLongerThan10")
@@ -77,9 +77,9 @@ The difference is that `filter()` returns a list of the elements matching a cond
 ## Sorting elements
 
 The order of elements is an important aspect of certain collection types.
-Kotlin’s standard library provides a number of functions for sorting in various ways: natural, custom, reverse, and random order.
+Kotlin's standard library provides a number of functions for sorting in various ways: natural, custom, reverse, and random order.
 
-For instance, let’s sort the messages in the list by the last letter.
+For instance, let's sort the messages in the list by the last letter.
 This is possible by using `sortedBy()` function that uses a selector to extract the required value from the collection objects.
 The comparison of the elements in the list will then be made based on the extracted values:
 
@@ -97,8 +97,8 @@ Grouping may require implementing some pretty complex logic, of how the elements
 The [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html) function takes a lambda and returns a `Map`.
 In this map, each key is the lambda result, and the corresponding value is the `List` of elements on which this result is returned.
 
-Let’s group the messages by matching the specific words, for instance, "hello" and "bye".
-If message’s text does not contain any of the provided words, then you'll add it to a separate group called "other":
+Let's group the messages by matching the specific words, for instance, "hello" and "bye".
+If message's text does not contain any of the provided words, then you'll add it to a separate group called "other":
 
 ```kotlin
 @GetMapping("/groups")
@@ -121,7 +121,7 @@ fun groups(): Map<String, List<Message>> {
 A common task with collections is to transform the collection elements from one type to another.
 Of course, Kotlin standard library provides a number of [transformation functions](https://kotlinlang.org/docs/collection-transformations.html) for such tasks.
 
-For instance, let’s transform a list of `Message` objects into a list of String objects which are composed by concatenating the `id` and the `text` body of the message.
+For instance, let's transform a list of `Message` objects into a list of String objects which are composed by concatenating the `id` and the `text` body of the message.
 For that, we can use `map()` function that applies the given lambda function to each subsequent element and returns the list of the lambda results:
 
 ```kotlin
@@ -152,7 +152,7 @@ The other examples of the aggregate functions are `mix()`, `max()`, `sum()`, and
 
 For more specific cases, there are the functions [`reduce()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce.html) and [`fold()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold.html) that apply the provided operation to the collection elements sequentially and return the accumulated result.
 
-For instance, let’s find a message with the longest text in it:
+For instance, let's find a message with the longest text in it:
 
 ```kotlin
 @GetMapping("findTheLongestMessage")

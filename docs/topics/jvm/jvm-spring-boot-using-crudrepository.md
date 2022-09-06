@@ -67,7 +67,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
        </def>
     </deflist>
 
-4. Update the messages table definition to generate the ids for the inserted objects. Since id is a string, you can use the `RANDON_UUID()` function to generate the id value by default:
+4. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDON_UUID()` function to generate the id value by default:
 
     ```sql
     CREATE TABLE IF NOT EXISTS messages (
