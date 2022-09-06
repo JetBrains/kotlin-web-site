@@ -58,7 +58,7 @@ In this mode, the compiler caches the results of `compileDevelopmentExecutableKo
 It uses the cached compilation results for unchanged source files during subsequent compilations, making them complete faster,
 especially with small changes.
 
-To enable incremental compilation for development binaries, add the following line to the project’s `gradle.properties`
+To enable incremental compilation for development binaries, add the following line to the project's `gradle.properties`
 or `local.properties`:
 
 ```properties
@@ -87,7 +87,7 @@ kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
 
 Kotlin/JS IR compiler provides a new compilation mode unavailable in the default backend – _ignoring compilation errors_.
 In this mode, you can try out your application even while its code contains errors.
-For example, when you’re doing a complex refactoring or working on a part of the system that is completely unrelated to
+For example, when you're doing a complex refactoring or working on a part of the system that is completely unrelated to
 a compilation error in another part.
 
 With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
@@ -149,9 +149,9 @@ un-webpacked JavaScript code.
 ## Current limitations of the IR compiler
 
 A major change with the new IR compiler backend is the **absence of binary compatibility** with the default backend.
-A library created with the new IR compiler uses a [`klib` format](native-libraries.md#library-format) and can’t be used 
+A library created with the new IR compiler uses a [`klib` format](native-libraries.md#library-format) and can't be used 
 from the default backend. In the meantime, a library created with the old compiler is a `jar` with `js` files, which 
-can’t be used from the IR backend.
+can't be used from the IR backend.
 
 If you want to use the IR compiler backend for your project, you need to **update all Kotlin dependencies to versions
 that support this new backend**. Libraries published by JetBrains for Kotlin 1.4+ targeting Kotlin/JS already contain all

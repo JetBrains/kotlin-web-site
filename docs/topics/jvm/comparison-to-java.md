@@ -43,6 +43,6 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Separate interfaces for read-only and mutable collections](collections-overview.md)
 * [Coroutines](coroutines-overview.md)
 
-## What’s next?
+## What's next?
 
 Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).

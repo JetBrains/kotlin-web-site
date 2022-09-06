@@ -5,7 +5,7 @@
 >
 {type="note"}
 
-Support for multiplatform programming is one of Kotlin’s key benefits. It reduces time spent writing and maintaining the 
+Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the 
 same code for [different platforms](multiplatform-dsl-reference.md#targets) while retaining the flexibility and benefits of native programming.   
 
 Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
@@ -49,5 +49,5 @@ Once you have gained some experience with Kotlin Multiplatform and want to know 
 ## Get help
 
 * **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
-* **StackOverflow**: Subscribe to the [“kotlin-multiplatform” tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **StackOverflow**: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
 * **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)

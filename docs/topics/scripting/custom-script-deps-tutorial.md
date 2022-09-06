@@ -46,7 +46,7 @@ A minimal Kotlin custom scripting project contains two parts:
 * _Scripting host_ – an application or component that handles script compilation and execution – actually
   running scripts of this type.
 
-With all of this in mind, it’s best to split the project into two modules.
+With all of this in mind, it's best to split the project into two modules.
 
 ## Before you start
 

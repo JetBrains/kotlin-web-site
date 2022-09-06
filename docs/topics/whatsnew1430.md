@@ -10,7 +10,7 @@ You can also learn about new features in [this blog post](https://blog.jetbrains
 ## Language features
 
 Kotlin 1.5.0 is going to deliver new language features – JVM records support, sealed interfaces, and Stable inline classes.
-In Kotlin 1.4.30, you can try these features and improvements in preview mode. We’d be very grateful if you share your
+In Kotlin 1.4.30, you can try these features and improvements in preview mode. We would be very grateful if you share your
 feedback with us in the corresponding YouTrack tickets, as that will allow us to address it before the release of 1.5.0.
 
 * [JVM records support](#jvm-records-support)
@@ -45,7 +45,7 @@ data class User(val name: String, val age: Int)
 
 To try the preview version of JVM records, add the compiler options `-Xjvm-enable-preview` and `-language-version 1.5`.
 
-We’re continuing to work on JVM records support and we’d be very grateful if you would share your feedback with us using
+We're continuing to work on JVM records support, and we would be very grateful if you would share your feedback with us using
 this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42430).
 
 Learn more about implementation, restrictions, and the syntax in [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/jvm-records.md).
@@ -57,10 +57,10 @@ Learn more about implementation, restrictions, and the syntax in [KEEP](https://
 >
 {type="warning"}
 
-In Kotlin 1.4.30, we’re shipping the prototype of _sealed interfaces_. They complement sealed classes and make it possible
+In Kotlin 1.4.30, we're shipping the prototype of _sealed interfaces_. They complement sealed classes and make it possible
 to build more flexible restricted class hierarchies.
 
-They can serve as “internal” interfaces that cannot be implemented outside the same module. You can rely on that fact,
+They can serve as "internal" interfaces that cannot be implemented outside the same module. You can rely on that fact,
 for example, to write exhaustive `when` expressions.
 
 ```kotlin
@@ -94,7 +94,7 @@ class Rectangle(override val vertices: List<Point>): Fillable, Polygon {
 ```
 
 To try the preview version of sealed interfaces, add the compiler option `-language-version 1.5`. Once you switch to this
-version, you’ll be able to use the `sealed` modifier on interfaces. We’d be very grateful if you would share your feedback
+version, you'll be able to use the `sealed` modifier on interfaces. We would be very grateful if you would share your feedback
 with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
 [Learn more about sealed interfaces](sealed-classes.md).
@@ -112,7 +112,7 @@ and the same package. Previously, all subclasses had to appear in the same file.
 Direct subclasses may be top-level or nested inside any number of other named classes, named interfaces, or named objects.
 The subclasses of a sealed class must have a name that is properly qualified – they cannot be local nor anonymous objects.
 
-To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`. We’d be very grateful
+To try package-wide hierarchies of sealed classes, add the compiler option `-language-version 1.5`. We would be very grateful
 if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42433).
 
 [Learn more about package-wide hierarchies of sealed classes](sealed-classes.md#location-of-direct-subclasses).
@@ -129,7 +129,7 @@ features and improvements to them:
 
 * Since inline classes are [value-based](https://docs.oracle.com/en/java/javase/15/docs/api/java.base/java/lang/doc-files/ValueBased.html),
   you can define them using the `value` modifier. The `inline` and `value` modifiers are now equivalent to each other.
-  In future Kotlin versions, we’re planning to deprecate the `inline` modifier.
+  In future Kotlin versions, we're planning to deprecate the `inline` modifier.
 
   From now on, Kotlin requires the `@JvmInline` annotation before a class declaration for the JVM backend:
   
@@ -168,13 +168,13 @@ features and improvements to them:
   fun compute(x: UInt) { }
   ```
 
-* In this release, we’ve changed the mangling scheme for functions to fix the incorrect behavior. These changes led to ABI
+* In this release, we've changed the mangling scheme for functions to fix the incorrect behavior. These changes led to ABI
   changes.
 
   Starting with 1.4.30, the Kotlin compiler uses a new mangling scheme by default. Use the `-Xuse-14-inline-classes-mangling-scheme`
   compiler flag to force the compiler to use the old 1.4.0 mangling scheme and preserve binary compatibility.
 
-Kotlin 1.4.30 promotes inline classes to Beta and we are planning to make them Stable in future releases. We’d be very
+Kotlin 1.4.30 promotes inline classes to Beta and we are planning to make them Stable in future releases. We'd be very
 grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-42434).
 
 To try the preview version of inline classes, add the compiler option `-Xinline-classes` or `-language-version 1.5`.
@@ -191,12 +191,12 @@ The [IR-based compiler backend](whatsnew14.md#unified-backends-and-extensibility
 1.4.0 in [Alpha](components-stability.md), has reached Beta. This is the last pre-stable level before the IR backend
 becomes the default for the Kotlin/JVM compiler.
 
-We’re now dropping the restriction on consuming binaries produced by the IR compiler. Previously, you could use code
+We're now dropping the restriction on consuming binaries produced by the IR compiler. Previously, you could use code
 compiled by the new JVM IR backend only if you had enabled the new backend. Starting from 1.4.30, there is no such limitation,
 so you can use the new backend to build components for third-party use, such as libraries. Try the Beta version of the
 new backend and share your feedback in our [issue tracker](https://kotl.in/issue).
 
-To enable the new JVM IR backend, add the following lines to the project’s configuration file:
+To enable the new JVM IR backend, add the following lines to the project's configuration file:
 * In Gradle:
 
   <tabs group="build-script">
@@ -262,7 +262,7 @@ The [IR backend](js-ir-compiler.md) for Kotlin/JS is receiving a prototype imple
 top-level properties. This reduces the need to initialize all top-level properties when the application starts, and it
 should significantly improve application start-up times.
 
-We’ll keep working on the lazy initialization, and we ask you to try the current prototype and share your thoughts and
+We'll keep working on the lazy initialization, and we ask you to try the current prototype and share your thoughts and
 results in this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-44320) or the [`#javascript`](https://kotlinlang.slack.com/archives/C0B8L3U69)
 channel in the official [Kotlin Slack](https://kotlinlang.slack.com) (get an invite [here](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 
@@ -293,7 +293,7 @@ or [set up the IntelliJ based IDE]( https://docs.gradle.org/current/userguide/co
 This release introduces the experimental locale-agnostic API for changing the case of strings and characters.
 The current `toLowerCase()`, `toUpperCase()`, `capitalize()`, `decapitalize()` API functions are locale-sensitive.
 This means that different platform locale settings can affect code behavior. For example, in the Turkish locale, when
-the string “kotlin” is converted using `toUpperCase`, the result is "KOTLİN", not "KOTLIN".
+the string "kotlin" is converted using `toUpperCase`, the result is "KOTLİN", not "KOTLIN".
 
 ```kotlin
 // current API

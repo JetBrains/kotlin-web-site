@@ -33,7 +33,7 @@ We provide Kotlin user groups with a logo that is specifically designed to be re
 
 ### Style for user groups
 
-Since the launch of the Kotlin community support program at the beginning of 2017, the number of user groups has multiplied, with around 2-4 new user groups joining us every month. Please check out the complete list of groups in the ‘Kotlin User Groups’ section to find one in your area.
+Since the launch of the Kotlin community support program at the beginning of 2017, the number of user groups has multiplied, with around 2-4 new user groups joining us every month. Please check out the complete list of groups in the **Kotlin User Groups** section to find one in your area.
 
 We provide new Kotlin user groups with a user group logo and a profile picture.
 
@@ -48,7 +48,7 @@ There are two main reasons why we are doing it:
 
 To create a logo of your users group:
 1. Copy the Kotlin user group [logo file](https://docs.google.com/drawings/d/1IcJp8Z2jAwEliXrHB-l9RNK_2LrqGTkNuPPtjrW1iIU/edit) to your Google drive (you have to be signed in to your Google account).
-2. Replace the ‘Your City’ text with the name of your user group.
+2. Replace the **Your City** text with the name of your user group.
 3. Download the picture and use it for the user group materials.
 
 ![Belarusian Kotlin User Group sample](kotlin-user-group-avatar.png){width=300}
@@ -57,11 +57,11 @@ To create a logo of your users group:
 
 You can download a [set of graphics](https://drive.google.com/drive/folders/0B3Zi34svOj1RZ2sxZExhblRJc1k) including vector graphics and samples of cover pictures for social networks.
 
-### Create your group’s profile picture for different platforms
+### Create your group's profile picture for different platforms
 
-To create your group’s profile picture:
+To create your group's profile picture:
 1. Make a copy of the Kotlin user group profile [picture file](https://docs.google.com/drawings/d/1buhwccmllb7wFS0OIAub0WC4DIuSHRiDpjEQhB4tkPs/edit) to your Google Drive (you have to be signed in to your Google account).
-2. Add a shortened name of the user group’s location (up to 4 capital symbols according to our default sample).
+2. Add a shortened name of the user group's location (up to 4 capital symbols according to our default sample).
 3. Download the picture and use it for your profiles on Facebook, Twitter, or any other platform.
 
 ### Create meetup.com cover photo
@@ -69,7 +69,7 @@ To create your group’s profile picture:
 To create a cover photo with a group's logo for meetup.com:
 1. Make a copy of the [picture file](https://drive.google.com/file/d/1g_0Plf_do6vrXvy1R-Hx430vfV2CPVKN/view) to your Google
    Drive (you have to be signed in to your Google account).
-2. Add a shortened name of the user group’s location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture, click on
+2. Add a shortened name of the user group's location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture, click on
    the background pattern-picture, choose 'Replace Image', then 'Upload from Computer' or any other source.
 3. Download the picture and use it for your profile on [meetup.com](https://meetup.com).
 
@@ -83,7 +83,7 @@ JetBrains provides branding and materials for Kotlin Night events. Our team will
 
 ### Social media
 
-Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It’s fun!
+Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It's fun!
 
 ![Cover/Logo](kotlin-night-cover.svg){width=700}
 

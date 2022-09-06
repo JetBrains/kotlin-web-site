@@ -141,7 +141,7 @@ fun main(args: Array<String>) {
 
 ### Information from explicit casts is used for type inference
 
-The Kotlin compiler can now use information from type casts in type inference. If you’re calling a generic method
+The Kotlin compiler can now use information from type casts in type inference. If you're calling a generic method
 that returns a type parameter `T` and casting the return value to a specific type `Foo`, the compiler now understands
 that `T` for this call needs to be bound to the type `Foo`.
 
@@ -385,7 +385,7 @@ inline function calls. Such code is valid according to the Java Virtual Machine 
 bytecode processing tools do not handle such code quite well when such expressions are present in the arguments 
 of constructor calls.
 
-To mitigate this problem for the users of such bytecode processing tools, we’ve added a command-line compiler
+To mitigate this problem for the users of such bytecode processing tools, we've added a command-line compiler
 option (`-Xnormalize-constructor-calls=MODE`) that tells the compiler to generate more Java-like bytecode for such 
 constructs. Here `MODE` is one of:
 
@@ -396,8 +396,8 @@ constructs. Here `MODE` is one of:
 initialization order is preserved. This can affect overall performance of your application; use it only if you have 
 some complex state shared between multiple classes and updated on class initialization.
 
-The “manual” workaround is to store the values of sub-expressions with control flow in variables, instead of 
-evaluating them directly inside the call arguments. It’s similar to `-Xnormalize-constructor-calls=enable`.
+The "manual" workaround is to store the values of sub-expressions with control flow in variables, instead of 
+evaluating them directly inside the call arguments. It's similar to `-Xnormalize-constructor-calls=enable`.
 
 ### Java-default method calls 
 

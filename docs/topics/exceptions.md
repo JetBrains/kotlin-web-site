@@ -65,7 +65,7 @@ try {
 }
 ```
 
-And that’s not good. Just take a look at [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
+And that's not good. Just take a look at [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
 
 Bruce Eckel says this about checked exceptions:
 

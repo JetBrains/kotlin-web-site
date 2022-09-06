@@ -45,7 +45,7 @@ with Kotlin/Native. It makes the integration with Kotlin Multiplatform Mobile se
 
 ### What are the plans for the technology evolution?
 
-Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we’re 
+Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we're 
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
@@ -74,7 +74,7 @@ if you want to write iOS-specific code and launch an iOS application on a simula
 
 Most of our adopters use Android Studio. However, if there is any reason for you not to use it, there is another option: 
 you can use [IntelliJ IDEA](https://www.jetbrains.com/idea/download). IntelliJ IDEA provides the ability to create 
-a multiplatform mobile application from the Project Wizard, but you won’t be able to launch an iOS application from the IDE.
+a multiplatform mobile application from the Project Wizard, but you won't be able to launch an iOS application from the IDE.
 
 ### How can I write concurrent code in Kotlin Multiplatform Mobile projects?
 

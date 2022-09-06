@@ -178,7 +178,7 @@ Kotlin/Native has some more advanced ways of sharing concurrent states. To achie
 the concurrency rules altogether. 
 
 > This is a more advanced topic. You should have a deep understanding of how concurrency in Kotlin/Native works under 
-> the hood, and you’ll need to be very careful when using this approach. Learn more about [concurrency](native-immutability.md#concurrency-in-kotlin-native).
+> the hood, and you'll need to be very careful when using this approach. Learn more about [concurrency](native-immutability.md#concurrency-in-kotlin-native).
 >
 {type="note"}
 
