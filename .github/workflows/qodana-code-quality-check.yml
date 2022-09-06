@@ -14,6 +14,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: 'Qodana Scan'
-        uses: JetBrains/qodana-action@v5.1.0
+        uses: JetBrains/qodana-action@v2022.2.1
         with:
           args: '-b,qodana.sarif.json,--fail-threshold,3'

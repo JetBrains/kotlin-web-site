@@ -1,5 +1,5 @@
 version: "1.0"
-linter: jetbrains/qodana-js:2022.1-eap
+linter: jetbrains/qodana-js:latest
 profile:
   name: qodana.recommended
 include:
