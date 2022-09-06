@@ -61,11 +61,6 @@ But if you want to access the same property on `b`, that would not be safe, and 
 val l = b.length // error: variable 'b' can be null
 ```
 
-An exception is `.toString()` [which returns the string "null" if called on a null object](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html)
-```kotlin
-null.toString() // returns "null"
-```
-
 But you still need to access that property, right? There are a few ways to do so.
 
 ## Checking for `null` in conditions
@@ -146,6 +141,14 @@ is `null`, the assignment is skipped and the expression on the right is not eval
 ```kotlin
 // If either `person` or `person.department` is null, the function is not called:
 person?.department?.head = managersPool.getManager()
+```
+
+## Nullable receiver
+
+Another option is to extend the function to use a [nullable receiver.](https://kotlinlang.org/docs/extensions.html#nullable-receiver)  This way you can check for the null condition and have a default defined in one place.  `.toStrig()` [is extended this way.](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html)
+
+```kotlin
+null.toString() // returns "null"
 ```
 
 ## Elvis operator
