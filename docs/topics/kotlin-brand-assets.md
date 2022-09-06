@@ -83,7 +83,7 @@ JetBrains provides branding and materials for Kotlin Night events. Our team will
 
 ### Social media
 
-Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It’s fun!
+Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It's fun!
 
 ![Cover/Logo](kotlin-night-cover.svg){width=700}
 
