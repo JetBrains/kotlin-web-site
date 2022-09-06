@@ -38,8 +38,6 @@
     {% ktl_component "footer" %}
 </div>
 
-{% include 'inc/search-popup.html' %}
-
 <script>document.body.className = document.body.className.replace('page_js_no', 'page_js_yes')</script>
 <script src="{{ url_for('static', filename='shared.js')|autoversion }}"></script>
 <script src="{{ url_for('static', filename='common.js')|autoversion }}"></script>
