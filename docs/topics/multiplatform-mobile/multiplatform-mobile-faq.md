@@ -80,7 +80,7 @@ a multiplatform mobile application from the Project Wizard, but you won't be abl
 
 You can easily write concurrent code in your cross-platform mobile projects with the new [Kotlin/Native memory manager](native-memory-manager.md)
 that lifted previous limitations and aligned the behaviour between Kotlin/JVM and Kotlin/Native. The new memory manager
-is available since Kotlin 1.7.20.
+has been enabled by default since Kotlin 1.7.20.
 
 ### How can I speed up my Kotlin Multiplatform module compilation for iOS?
 See these [tips for improving Kotlin/Native compilation times](native-improving-compilation-time.md).

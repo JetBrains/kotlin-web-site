@@ -1,7 +1,7 @@
 [//]: # (title: Immutability and concurrency in Kotlin/Native)
 
 > This page describes the features of the legacy memory manager. Check out [Kotlin/Native memory management](native-memory-manager.md)
-> to learn about the new memory manager, available since Kotlin 1.7.20.
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
 {type="note"}
 

@@ -129,7 +129,7 @@ and swiftc's `-embed-bitcode`/`-embed-bitcode-marker`.
 ## Why do I see `InvalidMutabilityException`?
 
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
-> to learn about the new memory manager, available since Kotlin 1.7.20.
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
 {type="note"}
 
@@ -140,7 +140,7 @@ or implicitly (i.e. reachable from `enum` or global singleton object - see the n
 ## How do I make a singleton object mutable?
 
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
-> to learn about the new memory manager, available since Kotlin 1.7.20.
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
 {type="note"}
 
