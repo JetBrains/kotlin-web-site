@@ -5,7 +5,7 @@
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
 </microformat>
 
-This tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
+The first part of the tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
 
 ## Before you start
 
@@ -28,7 +28,7 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
    * **Build system**: Gradle
    * **JDK**: Java 17 JDK
      
-     > This tutorial uses **Amazon Corretto version 18**
+     > This tutorial uses **Amazon Corretto version 18**.
      >
      {type="note"}
    
@@ -39,6 +39,7 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
 4. Ensure that all the fields are specified and click **Next**.
 
 5. Select the following dependencies that will be required for the tutorial:
+
    * **Web / Spring Web**
    * **SQL / Spring Data JDBC**
    * **SQL / H2 Database**
@@ -59,14 +60,14 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
 
 ## Explore the project Gradle build file {initial-collapse-state="collapsed"}
 
-Open the `build.gradle.kts` file. `build.gradle.kts` is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
+Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
 The Gradle file is standard for Spring Boot, but it also contains necessary Kotlin dependencies, including the kotlin-spring Gradle plugin – `kotlin("plugin.spring")`.
 
 Here is the full script with the explanation of all parts and dependencies:
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // for `KotlinCompile` task below
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
 
 plugins { 
     id("org.springframework.boot") version "2.7.1"
@@ -95,7 +96,7 @@ dependencies {
 
 tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
     kotlinOptions { // Kotlin compiler options
-        freeCompilerArgs = listOf("-Xjsr305=strict") // `-Xjsr305=strict` enables the strict mode for [JSR-305 annotations](java-interop.md#jsr-305-support)
+        freeCompilerArgs = listOf("-Xjsr305=strict") // `-Xjsr305=strict` enables the strict mode for JSR-305 annotations
         jvmTarget = "17" // This option specifies the target version of the generated JVM bytecode
     }
 }
@@ -110,13 +111,13 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 1. In the `plugins` block, there are two Kotlin artifacts:
 
    * `kotlin("jvm")` – the plugin defines the version of Kotlin to be used in the project
-   * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the open modifier to Kotlin classes in order to make them compatible with Spring Framework features.
+   * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the open modifier to Kotlin classes in order to make them compatible with Spring Framework features
 
-2. In the `dependencies` block, you can see a few Kotlin-related modules listed:
+2. In the `dependencies` block, a few Kotlin-related modules listed:
 
-   * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes.
+   * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
    * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
-   * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin's standard library
+   * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin standard library
 
 3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
@@ -160,13 +161,15 @@ fun main(args: Array<String>) {
    </def>
    <def title="The spread operator – (*args)">
       <p>The <code>args</code> is a parameter to the main function declared as an array of Strings.
-        Since there is an array of strings, and you want to pass its contents to the function, use the spread operator (prefix the array with a star sign <code>*</code>).
+        Since there is an array of strings, and you want to pass its content to the function, use the spread operator (prefix the array with a star sign <code>*</code>).
       </p>
    </def>
 </deflist>
 
 
 ## Create a controller
+
+The application is ready to run, but let's update its logic first.
 
 In the Spring application, a controller is used to handle the web requests.
 
@@ -211,7 +214,7 @@ class MessageController {
    </def>
 </deflist>
 
-> These annotations also require additional imports:
+> These Spring annotations also require additional imports:
 >
 > ```kotlin
 > import org.springframework.web.bind.annotation.GetMapping
@@ -259,7 +262,7 @@ The Spring application is now ready to run:
     >
     {type="tip"}
 
-    This starts the local server on your device.
+    This starts the local server on your computer.
 
 2. Once the application starts, open the following URL:
 
@@ -271,6 +274,8 @@ The Spring application is now ready to run:
 
     ![Spring Application response](spring-application-response.png){width=706}
 
-## What's next
+## Next step
 
-You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-add-data-class.md)
+In the next part of the tutorial you'll learn about Kotlin data classes and how you can use them in your application.
+
+**[Proceed to the next chapter](jvm-spring-boot-add-data-class.md)**

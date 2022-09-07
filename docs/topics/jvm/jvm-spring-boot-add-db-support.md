@@ -5,9 +5,10 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add database support for Spring Boot project</strong><br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
 </microformat>
 
-## Add database support
+In this part of the tutorial you'll add and configure a database to your project using JDBC. In JVM applications, you use JDBC to interact with databases.
+For convenience, Spring Framework provides `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
 
-In JVM applications, you use JDBC to interact with databases. For convenience, Spring Framework provides `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
+## Add database support
 
 The common practice in Spring Framework based applications is to implement the database access logic within the so-called _service_ layer – this is where business logic lives.
 In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
@@ -101,7 +102,7 @@ data class Message(val id: String?, val text: String)
 
 It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.  
 
-Generate a new value when the `id` is `null` while storing the messages in the database:
+Update your code to generate a new value when the `id` is `null` while storing the messages in the database:
 
 ```kotlin
 @Service
@@ -120,7 +121,7 @@ class MessageService(val db: JdbcTemplate) {
 
 <deflist collapsible="true">
    <def title="Elvis operator – ?:">
-      <p>The code <code>message.id ?: UUID.randomUUID().toString()</code> uses the <a href="null-safety.md#elvis-operator">Elvis operator (if-not-null-else shorthand) <code>?:</code></a>. If the expression to the left of <code>?:</code> is not <code>null</code>, the Elvis operator returns it, otherwise, it returns the expression to the right. Note that the expression on the right-hand side is evaluated only if the left-hand side is <code>null</code>.</p>
+      <p>The code <code>message.id ?: UUID.randomUUID().toString()</code> uses the <a href="null-safety.md#elvis-operator">Elvis operator (if-not-null-else shorthand) <code>?:</code></a>. If the expression to the left of <code>?:</code> is not <code>null</code>, the Elvis operator returns it; otherwise, it returns the expression to the right. Note that the expression on the right-hand side is evaluated only if the left-hand side is <code>null</code>.</p>
    </def>
 </deflist>
 
@@ -208,7 +209,7 @@ You should use an HTTP client to work with previously created endpoints. In Inte
 
 ### Alternative way to execute requests {initial-collapse-state="collapsed"}
 
-You can also use any other HTTP client or cURL command-line tool. For example, you can run the following commands in
+You can also use any other HTTP client or cURL command-line tool. For example, run the following commands in
 the terminal to get the same result:
 
 ```bash
@@ -321,4 +322,6 @@ The Spring application is ready to run:
 
 ## Next step
 
-You ready to upgrade the project: [proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)
+The final step shows you how to use more popular connection to database using Spring Data. 
+
+**[Proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)**

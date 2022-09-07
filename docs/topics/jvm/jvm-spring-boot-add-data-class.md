@@ -5,8 +5,8 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Add a data class to the Spring Boot project</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
 </microformat>
 
-Let's add some more functionality to the application and discover more Kotlin language features.
-It requires changing the `MessageController` controller class to respond with a JSON document containing a collection of serialized objects.
+In this part of the tutorial, you'll add some more functionality to the application and discover more Kotlin language features, such as data classes.
+It requires changing the `MessageController` class to respond with a JSON document containing a collection of serialized objects.
 
 ## Update your application
 
@@ -93,7 +93,7 @@ It requires changing the `MessageController` controller class to respond with a 
 The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.
 
 > Any controller in the Spring application renders JSON response by default if Jackson library is on the classpath.
-> As you specified `spring-boot-starter-web` dependency specified in `build.gradle.kts` file, you received Jackson as a _transitive_ dependency.
+> As you [specified `spring-boot-starter-web` dependency specified in `build.gradle.kts` file](jvm-create-project-with-spring-boot.md#explore-the-project-gradle-build-file), you received Jackson as a _transitive_ dependency.
 > Hence, the application responds with a JSON document if the endpoint returns a data structure that can be serialized to JSON.
 >
 {type="note"}
@@ -146,6 +146,8 @@ The Spring application is ready to run:
 
     ![Run the application](messages-in-json-format.png){width=800}
 
-## What's next
+## Next step
 
-[Proceed to the next chapter](jvm-spring-boot-add-db-support.md)
+In the next part of the tutorial you'll add and configure a database to your project, and make HTTP requests.
+
+**[Proceed to the next chapter](jvm-spring-boot-add-db-support.md)**

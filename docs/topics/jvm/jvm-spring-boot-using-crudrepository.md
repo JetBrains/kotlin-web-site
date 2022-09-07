@@ -6,7 +6,8 @@
 </microformat>
 
 In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
-_CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type. It provides several methods out of the box for interacting with a database.
+_CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type.
+It provides several methods out of the box for interacting with a database.
 
 ## Update your application
 
