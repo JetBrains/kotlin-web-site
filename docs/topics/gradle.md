@@ -1,8 +1,12 @@
 [//]: # (title: Gradle)
 
 Gradle is a build system that helps to automate and manage your building process. It downloads specified dependencies,
-packages your code, and prepares it for compilation. To build a Kotlin project with Gradle, you'll need to add
-a Gradle extension, the Kotlin Gradle plugin, and [configure dependencies](#configuring-dependencies).
+packages your code, and prepares it for compilation.
+
+To build a Kotlin project with Gradle, you'll need to add a Gradle extension, [the Kotlin Gradle plugin](#apply-the-plugin),
+and [configure dependencies](#configure-dependencies).
+
+## Apply the plugin
 
 To apply the Kotlin Gradle plugin, use the [`plugins` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block)
 from the Gradle plugins DSL:
@@ -379,7 +383,7 @@ kotlin {
 
 It's recommended to use Android Studio for creating Android applications. [Learn how to use Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
-## Configuring dependencies
+## Configure dependencies
 
 To add a dependency on a library, set the dependency of the required [type](#dependency-types) (for example, `implementation`) in the
 `dependencies` block of the source sets DSL.
