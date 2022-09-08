@@ -80,6 +80,13 @@ fun stringLength(a: String?): Int = if (a != null) a.length else 0
 ```
 {id="get-length-of-null-kotlin"}
 
+Or even shorter:
+
+```kotlin
+fun stringLength(a: String?): Int = a?.length ?: 0
+```
+{id="get-length-of-null-kotlin"}
+
 After the check is passed successfully, the compiler treats the variable as if it were of the non-nullable type `String`
 in the scope where the compiler performs the check.
 
@@ -189,8 +196,8 @@ The Java code with a null check:
 ```java
 // Java
 Order order = findOrder();
-if(order == null) {
-    order = new Order(new Customer(“Antonio”))
+if (order == null) {
+    order = new Order(new Customer("Antonio"))
 }
 ```
 {id="default-value-instead-of-null-java"}
@@ -199,7 +206,7 @@ To express the same in Kotlin, use the [Elvis operator (If-not-null-else shortha
 
 ```kotlin
 // Kotlin
-val order = findOrder() ?: Order(Customer(“Antonio”))
+val order = findOrder() ?: Order(Customer("Antonio"))
 ```
 {id="default-value-instead-of-null-kotlin"}
 
@@ -297,7 +304,7 @@ fun getStringLength(y: Any): Int {
 {kotlin-runnable="true" id="casting-types-kotlin"}
 
 > In the Java example above, the function `getStringLength` returns a result of the primitive type `int`.
-To make it return `null`, you can use the [“boxed” type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
+To make it return `null`, you can use the ["boxed" type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
