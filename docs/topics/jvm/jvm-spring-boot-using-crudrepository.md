@@ -76,7 +76,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
        text                   VARCHAR      NOT NULL
        );
     ```
-   
+
 ## Run the application
 
 The application is ready to run again.
@@ -84,9 +84,13 @@ By replacing the `JdbcTemplate` with `CrudRepository` the functionality didn't c
 
 ## Next step
 
-[Get your personal language map](https://surveys.jetbrains.com/s3/kotlin-new-learning-path-contacts-collection) to help you navigate Kotlin features and track your progress in studying the language.
+Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
 We will also send you language tips and useful materials on using Kotlin with Spring.
 
 > You will need to share your email address on the next page to receive the materials.
-> 
+>
 {type="note"}
+
+<a href="https://surveys.jetbrains.com/s3/kotlin-new-learning-path-contacts-collection">
+   <img src="get-kotlin-language-map.png" width="600"/>
+</a>
