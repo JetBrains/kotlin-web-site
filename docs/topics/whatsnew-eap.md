@@ -2,7 +2,7 @@
 
 _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
-> This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
+> This document doesn't cover all the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-RC).
 >
 {type="note"}
@@ -13,6 +13,7 @@ The Kotlin 1.7.20-RC release is out! Here are some highlights from this preview 
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
 * [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
+* [Kotlin Gradle plugin updates for Gradle 7.1 support](#support-for-gradle-7-1)
 
 ## Support for Kotlin K2 compiler plugins
 
@@ -101,7 +102,7 @@ interface OpenEndRange<T : Comparable<T>> {
 
 #### Implementing OpenEndRange in the existing iterable ranges
 
-Currently, in a situation when a user needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
+Currently, in a situation when a developer needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
 In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
 So they will be implementing both `ClosedRange<T>` and `OpenEndRange<T>` interfaces simultaneously.
 
