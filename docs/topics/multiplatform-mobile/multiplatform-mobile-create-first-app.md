@@ -23,12 +23,15 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 
     ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
-4. In the **iOS framework distribution** list, select **Regular framework**.
+4. In the **iOS framework distribution** list, select the **Regular framework** option.
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
 
-   > This option doesn't require third-party tools and has less integration issues. If you want to learn more about the
-   > CocoaPods dependency manager and how to configure the environment for it, see [CocoaPods overview and setup](native-cocoapods.md).
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > has less integration issues.
+   > 
+   > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
+   > To learn more about Cocoapods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
    >
    {type="tip"}
 

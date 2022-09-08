@@ -12,26 +12,35 @@ To work correctly with Xcode, you should [update your Podfile](#update-podfile-f
 Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
 as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
 
-## Set up the environment to work with CocoaPods
+## Set up an environment to work with CocoaPods
 
-CocoaPods is built with Ruby, and you can install it with the default Ruby available on macOS:
+1. Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-```ruby
-sudo gem install cocoapods
-```
+   * In the IDE terminal or your command-line tool, run the following command to install the tool using Homebrew:
 
-* If you use Kotlin prior to version 1.7.0, install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
-plugin:
+       ```Shell
+       brew install cocoapods
+       ```
 
-  ```ruby
-  sudo gem install cocoapods-generate
-  ```
+   * If you don't have Homebrew yet, [install it](https://brew.sh/) or use the default Ruby available on macOS:
+
+       ```ruby
+       sudo gem install cocoapods
+       ```
+
+2. If you use Kotlin prior to version 1.7.0, you also need the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
+   plugin:
+
+    ```ruby
+    sudo gem install cocoapods-generate
+    ```
   
-  > `cocoapods-generate` couldn't be installed on Ruby 3 and later. Downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
-  > 
-  {type="note"}
+    > Mind that `cocoapods-generate` couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby
+    > or upgrade Kotlin to 1.7.0 or later.
+    > 
+    {type="note"}
 
-* If you encounter any problems during the installation, follow the [official CocoaPods installation guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+If you encounter problems during the installation, check the [Possible issues and solutions](#possible-issues-and-solutions) section.
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
 
@@ -149,8 +158,10 @@ which contains an example of Xcode integration with an existing Xcode project na
 
 #### Ruby installation
 
-Ruby should be available on your macOS by default. Ruby 1.9 or later has a built-in RubyGems package management framework
-that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
+We recommend installing CocoaPods with [Homebrew](https://brew.sh/) as it doesn't require using extra tools.
+
+However, CocoaPods is built with Ruby, and you can install it with the default Ruby that should be available on macOS.
+Ruby 1.9 or later has a built-in RubyGems package management framework that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
 
 If you're experiencing problems installing CocoaPods and getting it to work, follow [this guide](https://www.ruby-lang.org/en/documentation/installation/)
 to install Ruby or refer to the [RubyGems website](https://rubygems.org/pages/download/) to install the framework.
