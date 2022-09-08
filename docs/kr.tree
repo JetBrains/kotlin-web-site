@@ -39,7 +39,7 @@
     </toc-element>
 
     <toc-element toc-title="Early Access Preview">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-Beta"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-RC"/>
         <toc-element toc-title="Participate" id="eap.md"/>
         <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
         <toc-element id="configure-build-for-eap.md"/>
