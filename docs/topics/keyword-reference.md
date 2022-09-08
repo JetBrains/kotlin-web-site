@@ -149,7 +149,7 @@ Kotlin supports the following operators and special symbols:
  * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
  * `..` creates a [range](ranges.md).
  * `:` separates a name from a type in a declaration.
- * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-null-types).
+ * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-nullable-types).
  * `->`
      - separates the parameters and body of a [lambda expression](lambdas.md#lambda-expression-syntax).
      - separates the parameters and return type declaration in a [function type](lambdas.md#function-types).

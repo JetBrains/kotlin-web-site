@@ -311,7 +311,7 @@ class Sample<T>() {
 
 In order to support a potentially nullable type, the Objective-C header needs to define `myVal` with a nullable return value.
 
-To mitigate this, when defining your generic classes, if the generic type should *never* be null, provide a non-null 
+To mitigate this, when defining your generic classes, if the generic type should *never* be null, provide a non-nullable 
 type constraint:
 
 ```kotlin
