@@ -1,4 +1,5 @@
 [//]: # (title: Create a Spring Boot project with Kotlin)
+[//]: # (description: Create a Spring Boot application with Kotlin using IntelliJ IDEA.)
 
 <microformat>
     <p>This is the first part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
@@ -13,7 +14,7 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
 
 ## Create a Spring Boot project
 
-Create a new Spring Boot project with Kotlin by using the project wizard in IntelliJ IDEA Ultimate Edition:
+Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html)
 >
@@ -36,7 +37,7 @@ Create a new Spring Boot project with Kotlin by using the project wizard in Inte
 
    ![Create Spring Boot project](create-spring-boot-project.png){width=800}
 
-4. Ensure that all the fields are specified and click **Next**.
+4. Ensure that you have specified all the fields and click **Next**.
 
 5. Select the following dependencies that will be required for the tutorial:
 

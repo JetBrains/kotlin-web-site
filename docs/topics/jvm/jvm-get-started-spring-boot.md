@@ -16,7 +16,7 @@ Going through these four steps you'll learn a lot of essential features of the K
 
 ## Next step
 
-Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md) with Kotlin.
+Start by [creating a Spring Boot project](jvm-create-project-with-spring-boot.md) with Kotlin using IntelliJ IDEA.
 
 ### See also
 

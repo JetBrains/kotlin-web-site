@@ -92,5 +92,5 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 {type="note"}
 
 <a href="https://surveys.jetbrains.com/s3/kotlin-new-learning-path-contacts-collection">
-   <img src="get-kotlin-language-map.png" width="600"/>
+   <img src="get-kotlin-language-map.png" width="700"/>
 </a>
