@@ -1,4 +1,5 @@
 [//]: # (title: Use Spring Data CrudRepository for database access)
+[//]: # (description: Work with Spring Data interface in a Spring Boot project written in Kotlin.)
 
 <microformat>
     <p>This is the final part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>

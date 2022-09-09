@@ -55,9 +55,9 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
    ![Set up Spring Boot project](spring-boot-project-view.png){width=400}
 
-   The generated Gradle project corresponds to Maven's standard directory layout.
-   There are packages and classes under the `main/kotlin` folder that belong to the application.
-   The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
+   The generated Gradle project corresponds to Maven's standard directory layout:
+   * There are packages and classes under the `main/kotlin` folder that belong to the application.
+   * The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
 ## Explore the project Gradle build file {initial-collapse-state="collapsed"}
 
@@ -172,9 +172,7 @@ fun main(args: Array<String>) {
 
 The application is ready to run, but let's update its logic first.
 
-In the Spring application, a controller is used to handle the web requests.
-
-In the `DemoApplication.kt` file, create the `MessageController` class as follows:
+In the Spring application, a controller is used to handle the web requests. In the `DemoApplication.kt` file, create the `MessageController` class as follows:
 
 ```kotlin
 @RestController

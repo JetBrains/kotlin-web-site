@@ -1,4 +1,5 @@
 [//]: # (title: Add a data class to Spring Boot project)
+[//]: # (description: Add a Kotlin data class to Spring Boot project.)
 
 <microformat>
     <p>This is the second part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
