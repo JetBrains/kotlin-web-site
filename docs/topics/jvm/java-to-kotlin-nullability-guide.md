@@ -10,7 +10,7 @@ It will help you migrate from Java to Kotlin and write your code in authentic Ko
 
 The first part of this guide covers the most important difference – support for nullable types in Kotlin and
 how Kotlin processes [types from Java code](#platform-types). The second part, starting from
-[Checking the result of a function call](#checking-result-of-a-function-call), examines several specific cases to explain certain differences.
+[Checking the result of a function call](#checking-the-result-of-a-function-call), examines several specific cases to explain certain differences.
 
 [Learn more about null safety in Kotlin](null-safety.md).
 
@@ -85,7 +85,7 @@ Or even shorter:
 ```kotlin
 fun stringLength(a: String?): Int = a?.length ?: 0
 ```
-{id="get-length-of-null-kotlin"}
+{id="get-length-of-null-shorter-kotlin"}
 
 After the check is passed successfully, the compiler treats the variable as if it were of the non-nullable type `String`
 in the scope where the compiler performs the check.
