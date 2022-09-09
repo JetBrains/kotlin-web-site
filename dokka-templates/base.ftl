@@ -32,7 +32,7 @@
 </head>
 <body>
 <@header.display/>
-<div id="container">
+<div id="container" data-test="content">
     <div id="leftColumn">
         <div id="sideMenu"></div>
     </div>
