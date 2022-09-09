@@ -46,3 +46,5 @@ Kotlin fixes a series of issues that Java suffers from:
 ## What's next?
 
 Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
+Learn how to perform [typical tasks with collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
+Learn how to [handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).

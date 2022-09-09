@@ -24,7 +24,7 @@ At runtime, objects of nullable types and objects of non-nullable types are trea
 A nullable type isn't a wrapper for a non-nullable type. All checks are performed at compile time.
 That means there's almost no runtime overhead for working with nullable types in Kotlin.
 
-> We say "_almost_" because, even though [intrinsic](https://en.wikipedia.org/wiki/Intrinsic_function) checks _are_ generated,
+> We say "almost" because, even though [intrinsic](https://en.wikipedia.org/wiki/Intrinsic_function) checks _are_ generated,
 their overhead is minimal.
 >
 {type="note"}
@@ -45,7 +45,7 @@ void main() {
 
 This call will have the following output:
 
-```
+```java
 java.lang.NullPointerException: Cannot invoke "String.length()" because "a" is null
     at test.java.Nullability.stringLength(Nullability.java:8)
     at test.java.Nullability.main(Nullability.java:12)
@@ -68,7 +68,7 @@ The situation with a `NullPointerException` at runtime is impossible if `a` is `
 the rule that all arguments of `stringLength()` not be `null`.
 
 An attempt to pass a `null` value to the `stringLength(a: String)` function will result in a compile-time error,
-“Null can not be a value of a non-null type String”:
+"Null can not be a value of a non-null type String":
 
 ![Passing null to a non-nullable function error](passing-null-to-function.png){width=700}
 
@@ -76,30 +76,33 @@ If you want to use this function with any arguments, including `null`, use a que
 and check inside the function body to ensure that the value of the argument is not `null`:
 
 ```kotlin
+// Kotlin
 fun stringLength(a: String?): Int = if (a != null) a.length else 0
 ```
 {id="get-length-of-null-kotlin"}
-
-Or even shorter:
-
-```kotlin
-fun stringLength(a: String?): Int = a?.length ?: 0
-```
-{id="get-length-of-null-shorter-kotlin"}
 
 After the check is passed successfully, the compiler treats the variable as if it were of the non-nullable type `String`
 in the scope where the compiler performs the check.
 
 If you don't perform this check, the code will fail to compile with the following message:
-“Only [safe (?.)](null-safety.md#safe-calls) or [non-null asserted (!!.) calls](null-safety.md#the-operator) are allowed
-on a [nullable receiver](extensions.md#nullable-receiver) of type String?”:
+"Only [safe (?.)](null-safety.md#safe-calls) or [non-null asserted (!!.) calls](null-safety.md#the-operator) are allowed
+on a [nullable receiver](extensions.md#nullable-receiver) of type String?".
+
+You can write the same shorter – use the [safe-call operator ?. (If-not-null shorthand)](idioms.md#if-not-null-shorthand), 
+which allows you to combine a null check and a method call into a single operation:
+
+```kotlin
+// Kotlin
+fun stringLength(a: String?): Int = a?.length ?: 0
+```
+{id="get-length-of-null-shorter-kotlin"}
 
 ## Platform types
 
 In Java, you can use annotations showing whether a variable can or cannot be `null`.
 Such annotations aren't part of the standard library, but you can add them separately.
 For example, you can use the JetBrains annotations `@Nullable` and `@NotNull` (from the `org.jetbrains.annotations` package)
-or annotations from Eclipse (org.eclipse.jdt.annotation).
+or annotations from Eclipse (`org.eclipse.jdt.annotation`).
 Kotlin can recognize such annotations when you're [calling Java code from Kotlin code](java-interop.md#nullability-annotations)
 and will treat types according to their annotations.
 
@@ -111,7 +114,7 @@ You will need to decide whether to perform null checks, because:
 * The compiler won't highlight any redundant null checks, which it normally does when you perform a null-safe operation
 on a value of a non-nullable type.
 
-[Learn more about calling Java from Kotlin in regard to null-safety and platform types](java-interop.md#null-safety-and-platform-types).
+Learn more about [calling Java from Kotlin in regard to null-safety and platform types](java-interop.md#null-safety-and-platform-types).
 
 ## Checking the result of a function call
 
@@ -156,16 +159,15 @@ data class Customer {
 
 val order = findOrder()
 
-// direct conversion
+// Direct conversion
 if (order != null){
     processCustomer(order.customer)
 }
 ```
 {id="process-customer-if-not-null-kotlin"}
 
-You can also use the [safe-call operator `?.` (If-not-null shorthand)]( idioms.md#if-not-null-shorthand),
-which allows you to combine a null check and a method call into a single operation.
-Use it in combination with any of the [scope functions](scope-functions.md) from the standard library.
+Use the [safe-call operator `?.` (If-not-null shorthand)](idioms.md#if-not-null-shorthand) 
+in combination with any of the [scope functions](scope-functions.md) from the standard library.
 The `let` function is usually used for this:
 
 ```kotlin
@@ -216,6 +218,7 @@ In Java, you need to be careful when working with list elements. You should alwa
 an index before you attempt to use the element:
 
 ```java
+// Java
 var numbers = new ArrayList<Integer>();
 numbers.add(1);
 numbers.add(2);
@@ -229,16 +232,17 @@ The Kotlin standard library often provides functions whose names indicate whethe
 This is especially common in the collections API:
 
 ```kotlin
+// Kotlin
 fun main() {
 //sampleStart
     // The same code as in Java:
     val numbers = listOf(1, 2)
-
-    println(numbers.firstOrNull())
+    
     println(numbers[0])           // Can throw IndexOutOfBoundsException if the collection is empty
     //numbers.get(5)              // Exception!
 
     // More abilities:
+    println(numbers.firstOrNull())
     println(numbers.getOrNull(5)) // null
 //sampleEnd
 }
@@ -266,6 +270,7 @@ fun main() {
 //sampleStart
     val numbers = listOf<Int>()
     println("Max: ${numbers.maxOrNull()}")
+//sampleEnd    
 }
 ```
 {id="aggregate-functions-kotlin"}
@@ -293,17 +298,17 @@ To avoid exceptions in Kotlin, use the [safe cast operator](typecasts.md#safe-nu
 ```kotlin
 // Kotlin
 fun main() {
-    println(getStringLength(1)) // Prints `null`
+    println(getStringLength(1)) // Prints `-1`
 }
 
 fun getStringLength(y: Any): Int {
-    val x: String? = y as? String
-    return x?.length ?: -1
+    val x: String? = y as? String // null
+    return x?.length ?: -1 // Returns -1 because `x` is null
 }
 ```
 {kotlin-runnable="true" id="casting-types-kotlin"}
 
-> In the Java example above, the function `getStringLength` returns a result of the primitive type `int`.
+> In the Java example above, the function `getStringLength()` returns a result of the primitive type `int`.
 To make it return `null`, you can use the ["boxed" type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
@@ -317,7 +322,7 @@ and your job is to make it pass.
 * Browse other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Check out other migration guides:
-* [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
-* [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
+  *  [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
+  * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
 
 If you have a favorite idiom, feel free to share it with us by sending a pull request!
