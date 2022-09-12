@@ -203,6 +203,6 @@ val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
 
-What's next?
+## What's next?
 
 Learn how to [handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).

@@ -232,9 +232,9 @@ The Kotlin standard library often provides functions whose names indicate whethe
 This is especially common in the collections API:
 
 ```kotlin
-// Kotlin
 fun main() {
 //sampleStart
+    // Kotlin
     // The same code as in Java:
     val numbers = listOf(1, 2)
     
@@ -266,11 +266,8 @@ In Kotlin, use [aggregate operations](collection-aggregate.md):
 
 ```kotlin
 // Kotlin
-fun main() {
-//sampleStart
-    val numbers = listOf<Int>()
-    println("Max: ${numbers.maxOrNull()}")
-//sampleEnd    
+val numbers = listOf<Int>()
+println("Max: ${numbers.maxOrNull()}")
 }
 ```
 {id="aggregate-functions-kotlin"}
@@ -309,7 +306,7 @@ fun getStringLength(y: Any): Int {
 {kotlin-runnable="true" id="casting-types-kotlin"}
 
 > In the Java example above, the function `getStringLength()` returns a result of the primitive type `int`.
-To make it return `null`, you can use the ["boxed" type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
+To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
@@ -317,8 +314,6 @@ you would do the check anyway, but no additional boxing is performed this way.
 
 ## What's next?
 
-* Visit [Kotlin Koans](koans.md) – complete exercises to learn Kotlin syntax. Each exercise is created as a failing unit test,
-and your job is to make it pass.
 * Browse other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Check out other migration guides:
