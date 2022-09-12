@@ -310,14 +310,14 @@ To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
-> {type="note"}
+{type="note"}
 
 ## What's next?
 
 * Browse other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Check out other migration guides:
-  *  [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
+  * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
   * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
 
 If you have a favorite idiom, feel free to share it with us by sending a pull request!
