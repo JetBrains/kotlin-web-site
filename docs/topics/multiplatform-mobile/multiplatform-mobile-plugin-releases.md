@@ -39,6 +39,35 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.3.4**
+
+Released: 12 September, 2022
+
+</td>
+<td>
+
+* [Migrated Android app to Jetpack Compose](https://youtrack.jetbrains.com/issue/KT-53162).
+* [Removed outdated HMPP flags](https://youtrack.jetbrains.com/issue/KT-52248).
+* [Removed package name from Android manifest](https://youtrack.jetbrains.com/issue/KTIJ-22633).
+* [Updated `.gitignore` for Xcode projects](https://youtrack.jetbrains.com/issue/KT-53703).
+* [Updated wizard project for better illustration expect/actual](https://youtrack.jetbrains.com/issue/KT-53928).
+* [Updated compatibility with Canary build of Android Studio](https://youtrack.jetbrains.com/issue/KTIJ-22063).
+* [Updated minimum Android SDK to 21 for Android app](https://youtrack.jetbrains.com/issue/KTIJ-22505).
+* [Fixed an issue with the first launch after installation Xcode](https://youtrack.jetbrains.com/issue/KTIJ-22645).
+* [Fixed an issues with Apple run configuration on M1](https://youtrack.jetbrains.com/issue/KTIJ-21781).
+* [Fixed an issue with `local.properties` on Windows OS](https://youtrack.jetbrains.com/issue/KTIJ-22037).
+* [Fixed an issue with Kotlin/Native debugger on Canary build of Android Studio](https://youtrack.jetbrains.com/issue/KT-53976).
+
+</td>
+<td>
+
+* [Kotlin 1.7.0—1.7.*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.3**
 
 Released: 9 June, 2022
