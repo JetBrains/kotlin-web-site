@@ -1,7 +1,7 @@
 [//]: # (title: Basic types)
 
-In Kotlin, everything is an object in the sense that you can call member functions and properties on any variable.
-Some types can have a special internal representation – for example, numbers, characters and booleans can be
+In Kotlin, everything is an object in the sense of that you can call member functions and properties on any variable.
+Some types can have a special internal representation – For example: numbers, characters and booleans can be
 represented as primitive values at runtime – but to the user they look like ordinary classes. 
 
 This section describes the basic types used in Kotlin:
