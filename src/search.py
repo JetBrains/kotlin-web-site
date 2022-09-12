@@ -337,7 +337,9 @@ def build_search_indices(pages):
     wh_index = get_wh_index()
 
     if wh_index:
+        print("Clearing WH index in " + wh_index.index_name + " index")
+        wh_index.clear_index()
         print("Submitting WH index objects to " + wh_index.index_name + " index")
-        wh_index.add_objects(wh_index_objects)
+        wh_index.save_objects(wh_index_objects)
 
     print("Index objects successfully built")
