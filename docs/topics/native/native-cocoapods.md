@@ -16,7 +16,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 1. Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-   * In the IDE terminal or your command-line tool, run the following command to install the tool using Homebrew:
+   * In the IDE terminal or your command-line tool, run the following command to install CocoaPods using Homebrew:
 
        ```Shell
        brew install cocoapods

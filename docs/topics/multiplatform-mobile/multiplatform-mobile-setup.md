@@ -72,7 +72,8 @@ To make sure everything works as expected, install and run the KDoctor tool:
    * Fix any failed checks (`[x]`). You can find problem descriptions and potential solutions after the `*` symbol.
    * Check the warnings (`[!]`) and successful messages (`[v]`). They may contain useful notes and tips, as well.
    
-   > You may ignore KDoctor's warnings regarding the CocoaPods installation. You won't use them in your first project.
+   > You may ignore KDoctor's warnings regarding the CocoaPods installation. In your first project, you will use a
+   > different iOS framework distribution option.
    >
    {type="tip"}
 
