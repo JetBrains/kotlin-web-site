@@ -3,7 +3,7 @@
 
 JetBrains provides the official Kotlin plugin for two Integrated Development Environments (IDEs): [IntelliJ IDEA](#intellij-idea) and [Android Studio](#android-studio).
 
-Other IDEs and source editors, such as Eclipse, Visual Studio Code, Atom, have Kotlin community-supported plugins in marketplaces.
+Other IDEs and source editors, such as Eclipse, Visual Studio Code, Atom, have Kotlin community-supported plugins.
 
 ## IntelliJ IDEA
 
