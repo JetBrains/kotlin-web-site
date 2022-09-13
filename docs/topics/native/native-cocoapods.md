@@ -14,31 +14,33 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 ## Set up an environment to work with CocoaPods
 
-1. Install the [CocoaPods dependency manager](https://cocoapods.org/):
+Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-   * In the IDE terminal or your command-line tool, run the following command to install CocoaPods using Homebrew:
+* In the IDE terminal or your command-line tool, run the following command to install CocoaPods using Homebrew:
 
-       ```Shell
-       brew install cocoapods
-       ```
+    ```Shell
+    brew install cocoapods
+    ```
 
-   * If you don't have Homebrew yet, [install it](https://brew.sh/) or use the default Ruby available on macOS:
-
-       ```ruby
-       sudo gem install cocoapods
-       ```
-
-2. If you use Kotlin prior to version 1.7.0, you also need the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
-   plugin:
+* If you don't have Homebrew yet, [install it](https://brew.sh/) or use the default Ruby available on macOS:
 
     ```ruby
-    sudo gem install cocoapods-generate
+    sudo gem install cocoapods
     ```
-  
-    > Mind that `cocoapods-generate` couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby
-    > or upgrade Kotlin to 1.7.0 or later.
-    > 
-    {type="note"}
+
+<procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
+    <p>Additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
+    <p>
+        <code style="block" lang="Ruby">
+            sudo gem install cocoapods-generate
+        </code>
+    </p>
+    <tip>
+        <p>
+            Mind that <code>cocoapods-generate</code> couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
+        </p>
+    </tip>
+</procedure>
 
 If you encounter problems during the installation, check the [Possible issues and solutions](#possible-issues-and-solutions) section.
 
