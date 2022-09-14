@@ -118,6 +118,8 @@ library for Java
 
 * [Charts](https://github.com/HanSolo/charts) - a scientific JavaFX charting library in development
 
+* [Apache OpenNLP](https://opennlp.apache.org/) - a machine learning based toolkit for the processing of natural language text
+
 * [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) - a natural language processing toolkit
 
 * [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering and recommendation
