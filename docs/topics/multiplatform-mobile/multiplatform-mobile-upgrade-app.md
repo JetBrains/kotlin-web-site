@@ -10,7 +10,7 @@ requests and data serialization are the [most popular cases](https://kotlinlang.
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
-The updated app will retrieve data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
+The updated app will retrieve data over the internet from a [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
 and display the date of the last successful launch of a SpaceX rocket.
 
 ## Add more dependencies
@@ -108,7 +108,7 @@ sourceSets {
 
 ## Create API requests
 
-You'll need the [SpaceX public API](https://docs.spacexdata.com/?version=latest) to retrieve data and a single method to
+You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data and a single method to
 get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
@@ -169,6 +169,9 @@ data class RocketLaunch (
    method and find the latest launch:
 
     ```kotlin
+    import io.ktor.client.call.*
+    import io.ktor.client.request.*
+
     class Greeting {
         // ...
         @Throws(Exception::class)

@@ -135,6 +135,8 @@ the Kotlin standard library function for reverting text that works on all platfo
 
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         fun greeting(): String {
             return "Guess what it is! > ${Platform().platform.reversed()}!"
         }

@@ -69,6 +69,8 @@ the number of days from today until the new year using the `date-time` date arit
     
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+         
         fun greeting(): String {
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
             "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 "
