@@ -375,8 +375,8 @@ library and runtime authors to keep backward binary compatibility for existing c
 In that sense, clients might be incompatible with previous library versions. 
 This usually means that you need a proper library versioning, for example, major version increase in SemVer.
 
-All the members of generated `DefaultImpls` are marked with the `@Deprecated` annotation. This is to remind  that these 
-members shouldn't be used in Java code, they are generated only for compatibility purposes.
+All the members of generated `DefaultImpls` are marked with the `@Deprecated` annotation. This is to remind you that you shouldn't use these 
+members in Java code, they are generated only for compatibility purposes.
 
 In case of inheritance from a Kotlin interface compiled in `all` or `all-compatibility` modes,
 `DefaultImpls` compatibility stubs will invoke the default method of the interface with standard JVM runtime resolution semantics.
