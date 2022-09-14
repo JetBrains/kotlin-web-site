@@ -355,4 +355,23 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/Kashif-e/kmmnewsapp">KMM News App</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage,Use case,UI State,  ViewModels</td>
+    <td>Koin, Realm, Ktor, Moko Viewmodel, Kotlin Flow, Combine for IOS, Datetime</td>
+    <td>Jetpack Compose, Swift UI</td>
+    <td>CocoaPods</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <ul>
+        <li>Everything is shared except the UI</li>
+        <li> MVI + Clean Architecture</li>
+        <li> Stateflow to manage UI State with Combine on IOS </li>
+      </ul>
+    </td>
+  </tr>
 </table>
