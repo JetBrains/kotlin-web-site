@@ -42,7 +42,7 @@ We recommend that you install the latest stable versions for compatibility and b
    <tr>
         <td><a href="plugin-releases.md#update-to-a-new-release">Kotlin plugin</a></td>
         <td>
-            <p>The Kotlin plugin is bundled with each Android Studio release. However, it's still needs to be updated to the latest version to avoid compatibility issues.</p> 
+            <p>The Kotlin plugin is bundled with each Android Studio release. However, it still needs to be updated to the latest version to avoid compatibility issues.</p> 
             <p>To update the plugin, on the Android Studio welcome screen, select <menupath>Plugins | Installed</menupath>. Click <control>Update</control> next to Kotlin. You can also check the Kotlin version in <menupath>Tools | Kotlin | Configure Kotlin Plugin Updates</menupath>.</p>
             <p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p></td>
    </tr>
