@@ -344,42 +344,43 @@ refers to an instance of the outer class `C`, and `this::prop` is a reflection o
 
 The `$delegate` field will be omitted if a delegate is:
 * A referenced property:
-```kotlin
-class C<Type> {
-    private var impl: Type = ...
-    var prop: Type by ::impl
-}
-```
-A named object:
 
+  ```kotlin
+  class C<Type> {
+      private var impl: Type = ...
+      var prop: Type by ::impl
+  }
+  ```
 
-```kotlin
-object NamedObject {
-  operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
-}
+* A named object:
 
-val s: String by NamedObject
-```
+  ```kotlin
+  object NamedObject {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
+  }
 
-A final `val` property with a backing field and a default getter in the same module:
+  val s: String by NamedObject
+  ```
 
-```kotlin
-val impl: ReadOnlyProperty<Any?, String> = ...
+* A final `val` property with a backing field and a default getter in the same module:
 
-class A {
-    val s: String by impl
-}
-```
+  ```kotlin
+  val impl: ReadOnlyProperty<Any?, String> = ...
 
-A constant expression, enum entry, `this`, `null`. The example of `this`:
+  class A {
+      val s: String by impl
+  }
+  ```
 
-```kotlin
-class A {
-operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
+* A constant expression, enum entry, `this`, `null`. The example of `this`:
+
+  ```kotlin
+  class A {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
  
-val s by this
-}
-```
+      val s by this
+  }
+  ```
 
 ### Translation rules when delegating to another property
 
