@@ -48,11 +48,11 @@ or [Apache Avro](https://avro.apache.org/). For detailed information about avail
 
 ## Example: JSON serialization
 
-Let’s take a look at how to serialize Kotlin objects into JSON.
+Let's take a look at how to serialize Kotlin objects into JSON.
 
-Before starting, you’ll need to configure your build script so that you can use Kotlin serialization tools in your project:
+Before starting, you'll need to configure your build script so that you can use Kotlin serialization tools in your project:
 
-1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin(“plugin.serialization”)`
+1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin("plugin.serialization")`
 in the Kotlin Gradle DSL).
 
     <tabs group="build-script">

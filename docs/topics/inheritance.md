@@ -8,7 +8,7 @@ class Example // Implicitly inherits from Any
 
 `Any` has three methods: `equals()`, `hashCode()`, and `toString()`. Thus, these methods are defined for all Kotlin classes.
 
-By default, Kotlin classes are final – they can’t be inherited. To make a class inheritable, mark it with the `open` keyword:
+By default, Kotlin classes are final – they can't be inherited. To make a class inheritable, mark it with the `open` keyword:
 
 ```kotlin
 open class Base // Class is open for inheritance

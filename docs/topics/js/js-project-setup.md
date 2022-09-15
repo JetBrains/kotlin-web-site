@@ -368,7 +368,7 @@ kotlin.js.webpack.major.version=4
 
 The most common webpack adjustments can be made directly via the
 `kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
-- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distibution/` after
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distributions/` after
   an execution of a webpack task. The default value is the project name.
 - `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
   Kotlin/JS projects](js-modules.md). The default value is `umd`.

@@ -21,7 +21,7 @@ To ensure consistency and meaningful behavior of the generated code, data classe
 * All primary constructor parameters need to be marked as `val` or `var`.
 * Data classes cannot be abstract, open, sealed, or inner.
 
-Additionally, the generation of data class members follows these rules with regard to the members’ inheritance:
+Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
 
 * If there are explicit implementations of `equals()`, `hashCode()`, or `toString()` in the data class body or
   `final` implementations in a superclass, then these functions are not generated, and the existing

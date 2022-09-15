@@ -50,7 +50,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: getter-target annotations on annotation constructor parameters are not applied
 > - \>=1.3: getter-target annotations on annotation constructor parameters are properly applied and written to the generated code 
 
-### Missing errors in class constructor’s `@get:` annotations
+### Missing errors in class constructor's `@get:` annotations
 
 > **Issue**: [KT-19628](https://youtrack.jetbrains.com/issue/KT-19628)
 >
@@ -322,7 +322,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: in case `toIndex` in the invocation of `Array.copyOfRange` is greater than the array size, the missing elements in range fill be filled with `null`s, violating soundness of the Kotlin type system. 
 > - \>=1.3: check that `toIndex` is in the array bounds, and throw exception if it isn't
 
-### Progressions of ints and longs with a step of `Int.MIN_VALUE` and `Long.MIN_VALUE` are outlawed and won’t be allowed to be instantiated
+### Progressions of ints and longs with a step of `Int.MIN_VALUE` and `Long.MIN_VALUE` are outlawed and won't be allowed to be instantiated
 
 > **Issue**: [KT-17176](https://youtrack.jetbrains.com/issue/KT-17176)
 >

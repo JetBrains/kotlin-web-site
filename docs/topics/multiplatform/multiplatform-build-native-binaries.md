@@ -353,7 +353,7 @@ kotlin {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
         // The default destination directory is "<build directory>/fat-framework".
-        destinationDirectory = buildDir.resolve("fat-framework/debug")
+        destinationDir = buildDir.resolve("fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
             ios32.binaries.getFramework("DEBUG"),
@@ -385,7 +385,7 @@ kotlin {
         // The fat framework must have the same base name as the initial frameworks.
         baseName = "my_framework"
         // The default destination directory is "<build directory>/fat-framework".
-        destinationDirectory = file("$buildDir/fat-framework/debug")
+        destinationDir = file("$buildDir/fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
             targets.ios32.binaries.getFramework("DEBUG"),

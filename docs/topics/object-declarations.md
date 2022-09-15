@@ -14,7 +14,7 @@ an expression, not a name.
 
 Object expressions start with the `object` keyword.
 
-If you just need an object that doesn’t have any nontrivial supertypes, write its members in curly braces after `object`:
+If you just need an object that doesn't have any nontrivial supertypes, write its members in curly braces after `object`:
 
 ```kotlin
 

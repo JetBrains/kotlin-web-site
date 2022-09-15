@@ -218,7 +218,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>
       <ul>
-        <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
+        <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify's Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
       </ul>
     </td>
   </tr>

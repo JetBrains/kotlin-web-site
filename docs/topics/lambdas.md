@@ -297,7 +297,7 @@ Destructuring in lambdas is described as a part of [destructuring declarations](
 
 ### Anonymous functions
 
-The lambda expression syntax above is missing one thing – the ability to specify the function’s return type. In most cases,
+The lambda expression syntax above is missing one thing – the ability to specify the function's return type. In most cases,
 this is unnecessary because the return type can be inferred automatically. However, if you do need to specify it explicitly,
 you can use an alternative syntax: an *anonymous function*.
 

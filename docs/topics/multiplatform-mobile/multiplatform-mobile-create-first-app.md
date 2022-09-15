@@ -38,7 +38,7 @@ To view the full structure of your mobile multiplatform project, switch the view
 
 ![Select the Project view](select-project-view.png){width=200}  
 
-Each Kotlin Mobile Multiplatform project includes three modules:
+Each Kotlin Multiplatform Mobile project includes three modules:
 
 * _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
   between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process. The _shared_
