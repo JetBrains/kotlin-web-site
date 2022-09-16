@@ -73,7 +73,7 @@ the number of days from today until the new year using the `date-time` date arit
          
         fun greeting(): String {
             return "Guess what it is! > ${Platform().platform.reversed()}!" +
-            "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 "
+            "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎅🏼 "
         }
     }
     ```
