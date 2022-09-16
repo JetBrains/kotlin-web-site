@@ -75,7 +75,8 @@ This example prints _Shape_, because the extension function called depends only 
 parameter `s`, which is the `Shape` class.
 
 If a class has a member function, and an extension function is defined which has the same receiver type,
-the same name, and is applicable to given arguments, the _member always wins_.
+the same name, both visible to caller, and is applicable to given arguments, the _member always wins_, if the 
+member function is not visible to caller, then the enxtension function is called.
 For example:
 
 ```kotlin
@@ -94,6 +95,23 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 This code prints _Class method_.
+
+```kotlin
+fun main() {
+//sampleStart
+    class Example {
+        private fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType() { println("Extension function") }
+    
+    Example().printFunctionType()
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+This code prints _Extension function_.
 
 However, it's perfectly OK for extension functions to overload member functions that have the same name but a different signature:
 
