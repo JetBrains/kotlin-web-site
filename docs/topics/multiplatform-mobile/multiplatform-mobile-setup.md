@@ -41,8 +41,10 @@ We recommend that you install the latest stable versions for compatibility and b
    </tr>
    <tr>
         <td><a href="plugin-releases.md#update-to-a-new-release">Kotlin plugin</a></td>
-        <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p>
-            <p>To update the plugin, in Android Studio navigate to <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong> and then select the latest version in the <strong>Stable</strong> channel.</p></td>
+        <td>
+            <p>The Kotlin plugin is bundled with each Android Studio release. However, it still needs to be updated to the latest version to avoid compatibility issues.</p> 
+            <p>To update the plugin, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin. You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+            <p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p></td>
    </tr>
    <tr>
         <td><a href="https://cocoapods.org/">CocoaPods</a></td>
@@ -89,7 +91,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
    <def title="Java and JDK">
       <list>
          <ul>
-            <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
+           <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
            <li>Android Studio uses a bundled JDK to execute Gradle tasks. To configure the Gradle JDK in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
            <li>You might encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary required for Xcode and Gradle. If so, follow KDoctor's tips to fix the issues.</li>
          </ul>
@@ -102,18 +104,19 @@ To make sure everything works as expected, install and run the KDoctor tool:
       </ul>
    </def>
    <def title="Kotlin plugins">
-        <list>
-            <ul>
-               <li>Make sure that both the Kotlin and Kotlin Mobile Multiplatform plugins are installed and enabled. In Android Studio, select <strong>Settings/Preferences | Tools | Plugins</strong> and then
-              verify that you have both plugins enabled in the <strong>Installed</strong> tab. If either is missing, search <strong>Marketplace</strong> and install it.
-              </li>
-              <li>
-                  <p>The current version of the Kotlin Multiplatform Mobile plugin may be incompatible with your version of Kotlin. Refer to the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">compatibility table</a>.</p>
-                  <p>To update the Kotlin version, in Android Studio select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
-                  <p>To update the Kotlin Multiplatform Mobile plugin, select <strong>Settings/Preferences | Tools | Plugins</strong>. Next to the plugin name, click <strong>Update</strong>.</p>
-              </li>
-            </ul>
-         </list>
+         <chunk>
+            <p><strong>Kotlin Multiplatform Mobile plugin</strong></p>
+               <ul>
+                  <li>Make sure that the Kotlin Mobile Multiplatform plugin is installed and enabled. On the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Verify that you have the plugin enabled. If it's not in the <strong>Installed</strong> list, search <strong>Marketplace</strong> for it and install the plugin.</li>
+                  <li>If the plugin is outdated, click <strong>Update</strong> next to the plugin name. You can do the same in the <strong>Settings/Preferences | Tools | Plugins</strong> section.</li>
+                  <li>Check the compatibility of the Kotlin Multiplatform Mobile plugin with your version of Kotlin in the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">Release details</a> table.</li>
+               </ul>
+         </chunk>
+         <chunk>
+            <p><strong>Kotlin plugin</strong></p>
+            <p>Make sure that the Kotlin plugin is updated to the latest version. To do that, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin.</p>
+            <p>You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+         </chunk>
    </def>
    <def title="CocoaPods">
         <p>Make sure you have the <a href="https://guides.cocoapods.org/using/getting-started.html#installation">CocoaPods dependency manager</a> installed.</p>
