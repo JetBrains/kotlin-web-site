@@ -308,7 +308,7 @@ there will be an extra empty line:
 // Java
 String result = """
     Kotlin
-    Java
+       Java
     """.stripIndent();
 System.out.println(result);
 ```
@@ -328,7 +328,7 @@ fun main() {
     // Kotlin   
     val result = """
         Kotlin
-        Java 
+           Java 
     """.trimIndent()
     println(result)
 //sampleEnd

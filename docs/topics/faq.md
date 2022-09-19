@@ -72,14 +72,14 @@ For more information, check out the [Kotlin/Native documentation](native-overvie
 
 ### What IDEs support Kotlin?
 
-Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](https://www.jetbrains.com/idea/download/),
-[Android Studio](https://developer.android.com/kotlin/get-started), and [Eclipse](https://www.eclipse.org/downloads/). In addition, a [command line compiler](command-line.md) 
-is available and provides straightforward support for compiling and running applications.
+Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
+[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
+Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
-> Kotlin Plugin for Eclipse has limited support.  
-> Use [other IDEs for Kotlin development](kotlin-ide.md) to get full support of new Kotlin features.
->
-{type="warning"}
+You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
+Kotlin code in your browser.
+
+In addition, a [command line compiler](command-line.md) is available, which provides straightforward support for compiling and running applications.
   
 ### What build tools support Kotlin?
 
