@@ -1,3 +1,19 @@
+- lang: cz
+  startDate: '2022-10-05'
+  endDate: '2022-10-05'
+  location: Prague, Czech Republic
+  speaker: Will be announed soon
+  title: Czech Kotlin User Group
+  subject: 'Restart of the Kotlin meetups in Prague'
+  url: https://www.facebook.com/events/s/cz-kotlin-meetup-9/483290587001145/
+- lang: en
+  startDate: '2022-10-04'
+  endDate: '2022-10-04'
+  location: Amsterdam, The Netherlands
+  speaker: Hadi Hariri
+  title: Flexport<>Kotlin Meetup with Hadi Hariri
+  subject: 'Functional Programming in Kotlin'
+  url: https://www.meetup.com/flexport-amsterdam-meetup-group/events/288180298/
 - lang: de
   startDate: '2022-11-03'
   endDate: '2022-11-03'
