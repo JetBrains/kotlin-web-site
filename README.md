@@ -157,13 +157,24 @@ npx playwright install
 - `yarn test:e2e:headed` to run e2e tests in headed mode.
 - `yarn test:e2e:debug` to run e2e tests in headed mode with debug.
 - `yarn test:e2e:new` to generate the test for the user interactions.
-- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in test/visual.
-- `yarn test:visual:headed` to run visual test in headed mode.
-- `yarn test:visual:update` to update all screenshots, for example when the page has changed.
 - `yarn ci:e2e` to run e2e test in CI environments.
-- `yarn ci:visual` to run visual test in CI environments.
 
 ## Write Tests
 
 To write e2e test:
 Create spec file /test/e2e/*your-page*.spec.js
+
+##  Api References tests
+Some tests focus on protecting the HTML markup of API References from being corrupted by the KTL components in the Dokka template's extension.
+To run these tests locally, follow the next steps:
+- Create the `libs` folder in the project.
+- Open the last successful build of each API reference on TeamCity.
+- Download the artifacts of these builds and place them in the `libs` folder by their name, e.g., `kotlinx.coroutines`.
+- Up containers `./scripts/dokka/up.sh`.
+- Run test inside container `./scripts/dokka/run.sh` or on the host with one of the scripts below.
+
+To run visual testing, apply one of the next scripts:  
+- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in test/visual.
+- `yarn test:visual:headed` to run visual test in headed mode.
+- `yarn test:visual:update` to update all screenshots, for example when the page has changed.
+- `yarn ci:visual` to run visual test in CI environments.- 

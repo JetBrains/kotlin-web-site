@@ -26,6 +26,7 @@ module.exports = (params = {}) => {
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
       'tutorial': './static/js/page/tutorial.js',
+      'dokka-template': './static/js/page/dokka-template/index.js',
       'styles': './static/css/styles.scss',
       'styles-v2': './static/css/styles-v2.scss'
     },
@@ -88,10 +89,6 @@ module.exports = (params = {}) => {
         {
           test: /\.twig$/,
           loader: 'nunjucks-loader'
-        },
-        {
-          test: /\.mustache$/,
-          loader: 'mustache-loader'
         },
         {
           test: /\.svg(?:\?\w+)?$/,

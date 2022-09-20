@@ -1,18 +1,19 @@
-[//]: # (title: What's new in Kotlin 1.7.20-Beta)
+[//]: # (title: What's new in Kotlin 1.7.20-RC)
 
-_[Release date: 1 August 2022](eap.md#build-details)_
+_[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
-> This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-Beta).
+> This document doesn't cover all the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-RC).
 >
 {type="note"}
 
-The Kotlin 1.7.20-Beta release is out! Here are some highlights from this preview version of Kotlin:
+The Kotlin 1.7.20-RC release is out! Here are some highlights from this preview version of Kotlin:
 
-* [The new Kotlin K2 compiler supports `all-open`, `no-arg`, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
+* [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
 * [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
+* [Kotlin Gradle plugin updates for Gradle 7.1 support](#support-for-gradle-7-1)
 
 ## Support for Kotlin K2 compiler plugins
 
@@ -24,11 +25,23 @@ Starting with this preview version, the Kotlin K2 compiler supports the followin
 
 * [`all-open`](all-open-plugin.md)
 * [`no-arg`](no-arg-plugin.md)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [Lombok](lombok.md)
 * Parcelize
 * AtomicFU
 * `jvm-abi-gen`
 
-The Alpha version of the new K2 compiler only works with JVM projects. It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
+> The Alpha version of the new K2 compiler only works with JVM projects.
+> It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
+> 
+{type="warning"}
+
+Learn more about the new compiler and its benefits in the following videos:
+* [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
+* [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
+
+
+### How to enable the Kotlin K2 compiler
 
 To enable the Kotlin K2 compiler and test it, use the following compiler option:
 
@@ -36,9 +49,7 @@ To enable the Kotlin K2 compiler and test it, use the following compiler option:
 -Xuse-k2
 ```
 
-Learn more about the new compiler and its benefits in the following videos:
-* [The Road to the New Kotlin Compiler](https://www.youtube.com/watch?v=iTdJJq_LyoY)
-* [K2 Compiler: a Top-Down View](https://www.youtube.com/watch?v=db19VFLZqJM)
+You can check out the performance boost on your JVM projects and compare it with the results of the old compiler.
 
 ### Leave your feedback on the new K2 compiler
 
@@ -52,7 +63,7 @@ We really appreciate your feedback in any form:
 >
 {type="warning"}
 
-This beta release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values.
+This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values.
 The new `..<` operator acts like the `until` function, and helps you define the open-ended range.  
 
 Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the upper bound is not included.
@@ -91,8 +102,8 @@ interface OpenEndRange<T : Comparable<T>> {
 
 #### Implementing OpenEndRange in the existing iterable ranges
 
-Currently, in a situation when a user needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
-In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`,` LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
+Currently, in a situation when a developer needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
+In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
 So they will be implementing both `ClosedRange<T>` and `OpenEndRange<T>` interfaces simultaneously.
 
 ```kotlin
@@ -185,27 +196,42 @@ Try the new memory manager on your projects and [share feedback in our issue tra
 >
 {type="warning"}
 
-Kotlin 1.7.20-Beta allows the underlying type of JVM inline classes to be a type parameter.
+Kotlin 1.7.20-RC allows the underlying type of JVM inline classes to be a type parameter.
 The compiler maps it to `Any?` or, generally, to the upper bound of the type parameter.
 
 Consider the following example:
 
 ```kotlin
 @JvmInline
-value class IC<T>(val a: T)
+value class UserId<T>(val value: T)
 
-fun foo(s: IC<String>) {} // compiler generates fun foo-<hash>(s: Any?)
+fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
 ```
 
 The function accepts the inline class as a parameter. The parameter is mapped to the upper bound and not to the type argument.
 
 To enable this feature, use the `-language-version 1.8` compiler option.
 
-## How to update to the Kotlin 1.7.20-Beta
+## Support for Gradle 7.1
 
-Install Kotlin 1.7.20-Beta in any of the following ways:
+Kotlin 1.7.20-RC fixes usages of deprecated in Gradle 7.1 methods and properties, which removes deprecation warnings introduced in this Gradle release.
 
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.7.20-Beta as soon as it becomes available.
+Note a potential breaking change − `org.jetbrains.kotlin.gradle.dsl.SingleTargetExtension` now has a generic parameter, `SingleTargetExtension<T : KotlinTarget>`.
+
+If you have multiplatform projects, mind the following changes:
+
+* The `kotlin.targets.fromPreset()` convention is deprecated. Instead, you can still use `kotlin.targets { fromPreset() }` approach, but we recommend using more [specialized ways to create targets](multiplatform-set-up-targets.md).
+* Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets { }` block. Please use the `findByName("targetName")` method instead.
+Note that such accessors are still available in the `kotlin.targets` case, for example `kotlin.targets.linuxX64`.
+
+## How to update to the Kotlin 1.7.20-RC
+
+The IDE support for Kotlin 1.7.20-RC is available for IntelliJ IDEA 2022.2.1, Android Studio Dolphin (2021.3.1),
+and Android Studio Electric Eel (2022.1.1).
+
+You can install Kotlin 1.7.20-RC in any of the following ways:
+
+* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.7.20-RC as soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
 
-Once you've installed 1.7.20-Beta, don't forget to [change the Kotlin version](configure-build-for-eap.md) to 1.7.20-Beta in your build scripts.
+Once you've installed 1.7.20-RC, don't forget to [change the Kotlin version](configure-build-for-eap.md) to 1.7.20-RC in your build scripts.

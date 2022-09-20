@@ -14,7 +14,7 @@ and this video:
 Kotlin 1.5.20 is receiving the following updates on the JVM platform: 
 * [String concatenation via invokedynamic](#string-concatenation-via-invokedynamic)
 * [Support for JSpecify nullness annotations](#support-for-jspecify-nullness-annotations)
-* [Support for calling Java’s Lombok-generated methods within modules that have Kotlin and Java code](#support-for-calling-java-s-lombok-generated-methods-within-modules-that-have-kotlin-and-java-code)
+* [Support for calling Java's Lombok-generated methods within modules that have Kotlin and Java code](#support-for-calling-java-s-lombok-generated-methods-within-modules-that-have-kotlin-and-java-code)
 
 ### String concatenation via invokedynamic
 
@@ -66,7 +66,7 @@ Please note that the JSpecify project is under active development. Its API and i
 
 [Learn more about null-safety and platform types](java-interop.md#null-safety-and-platform-types).
 
-### Support for calling Java’s Lombok-generated methods within modules that have Kotlin and Java code
+### Support for calling Java's Lombok-generated methods within modules that have Kotlin and Java code
 
 > The Lombok compiler plugin is [Experimental](components-stability.md).
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
@@ -75,7 +75,7 @@ Please note that the JSpecify project is under active development. Its API and i
 {type="warning"}
 
 Kotlin 1.5.20 introduces an experimental [Lombok compiler plugin](lombok.md). This plugin makes it possible to generate
-and use Java’s [Lombok](https://projectlombok.org/) declarations within modules that have Kotlin and Java code. Lombok
+and use Java's [Lombok](https://projectlombok.org/) declarations within modules that have Kotlin and Java code. Lombok
 annotations work only in Java sources and are ignored if you use them in Kotlin code.
 
 The plugin supports the following annotations:
@@ -110,7 +110,7 @@ Kotlin/Native 1.5.20 offers a preview of the new feature and the tooling improve
 {type="warning"}
 
 You can now set the Kotlin/Native compiler to export the [documentation comments (KDoc)](kotlin-doc.md) from Kotlin code
-to the Objective-C frameworks generated from it, making them visible to the frameworks’ consumers.
+to the Objective-C frameworks generated from it, making them visible to the frameworks' consumers.
 
 For example, the following Kotlin code with KDoc:
 
@@ -162,7 +162,7 @@ kotlin {
 </tab>
 </tabs>
 
-We’d be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-38600).
+We would be very grateful if you would share your feedback with us using this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-38600).
 
 ### Compiler bug fixes
 
@@ -176,19 +176,19 @@ See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-33175) for det
 
 ### Improved performance of Array.copyInto() inside one array
 
-We’ve improved the way `Array.copyInto()` works when its source and destination are the same array. Now such operations
+We've improved the way `Array.copyInto()` works when its source and destination are the same array. Now such operations
 finish up to 20 times faster (depending on the number of objects being copied) due to memory management optimizations
 for this use case.
 
 ## Kotlin/JS
 
-With 1.5.20, we’re publishing a guide that will help you migrate your projects to the new [IR-based backend](js-ir-compiler.md)
+With 1.5.20, we're publishing a guide that will help you migrate your projects to the new [IR-based backend](js-ir-compiler.md)
 for Kotlin/JS.
 
 ### Migration guide for the JS IR backend
 
 The new [migration guide for the JS IR backend](js-ir-migration.md) identifies issues you may encounter during migration
-and provides solutions for them. If you find any issues that aren’t covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
+and provides solutions for them. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ## Gradle
 

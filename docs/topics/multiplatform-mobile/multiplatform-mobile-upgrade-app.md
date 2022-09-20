@@ -5,9 +5,9 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
-You've already implemented common logic using external dependencies. Now you can add more complex logic. Network 
+You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
 requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/mobile/) to share with Kotlin
-Multiplatform. Learn how to implement them in your first application so that after completing this onboarding journey,
+Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
 The updated app will retrieve data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
@@ -17,14 +17,15 @@ and display the date of the last successful launch of a SpaceX rocket.
 
 You'll need the following multiplatform libraries in your project:
 
-* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) for using coroutines to write asynchronous code, thus allowing simultaneous operations
-* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) for deserializing JSON responses into objects of entity classes used to process
-network operations
-* [Ktor](https://ktor.io/) framework as an HTTP client for retrieving data over the internet
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), for using coroutines to write asynchronous code,
+  which allows simultaneous operations.
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization), for deserializing JSON responses into objects of entity classes used to process
+  network operations.
+* [Ktor](https://ktor.io/), a framework as an HTTP client for retrieving data over the internet.
 
 ### kotlinx.coroutines
 
-To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. For that, add the following
+To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
 line to the `build.gradle.kts` file of the shared module:
 
 ```kotlin
@@ -38,10 +39,10 @@ sourceSets {
 }
 ```
 
-Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
+The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-You'll also use the new memory manager for Kotlin/Native, which will become default soon. For this, add the following
+You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
 at the end of the `build.gradle.kts` file:
 
 ```kotlin
@@ -69,13 +70,13 @@ plugins {
 
 ### Ktor
 
-You can add Ktor the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
+You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
 dependency (`ktor-client-core`) in the common source set, you also need to:
 
-* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`) responsible for serializing/deserializing
+* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
   the content in a specific format.
 * Add the `ktor-serialization-kotlinx-json` dependency to instruct Ktor to use the JSON format and `kotlinx.serialization`
-  as a serialisation library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
+  as a serialization library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
 * Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets
   (`ktor-client-android`, `ktor-client-darwin`).
 
@@ -133,9 +134,9 @@ data class RocketLaunch (
 ```
 
 * The `RocketLaunch` class is marked with the `@Serializable` annotation, so that the `kotlinx.serialization` plugin can
-automatically generate a default serializer for it.
-* The `@SerialName` annotation allows redefining field names, making it possible to declare properties in data classes
-with more readable names.
+  automatically generate a default serializer for it.
+* The `@SerialName` annotation allows you to redefine field names, making it possible to declare properties in data classes
+  with more readable names.
 
 ### Connect HTTP client
 
@@ -160,12 +161,12 @@ with more readable names.
     }
     ```
 
-    To deserialize the result of the GET request,
-    the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
-    serializer are used.
+   To deserialize the result of the GET request,
+   the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
+   serializer are used.
 
 2. In the `greeting()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
-   method and find the latest one:
+   method and find the latest launch:
 
     ```kotlin
     class Greeting {
@@ -181,16 +182,16 @@ with more readable names.
     }
     ```
 
-    The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
-    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
-    within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
+   suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
+   within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
 
 To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
-Update your `shared/src/androidMain/AndroidManifest.xml` file the following way:
+Update your `shared/src/androidMain/AndroidManifest.xml` file as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -202,16 +203,16 @@ Update your `shared/src/androidMain/AndroidManifest.xml` file the following way:
 
 ## Update Android and iOS apps
 
-You've already updated the API of our shared module by adding the `suspend` modifier to the `greeting()` function. Now you
+You've already updated the API of the shared module by adding the `suspend` modifier to the `greeting()` function. Now you
 need to update native (iOS, Android) parts of the project, so they can properly handle the result of calling the
 `greeting()` function.
 
 ### Android app
 
-As both a shared module and an Android application are written in Kotlin, using shared code from Android is
+As both the shared module and the Android application are written in Kotlin, using shared code from Android is
 straightforward:
 
-1. Add `kotlinx.coroutines` library to the Android application by adding a line in the `build.gradle.kts` in the
+1. Add the `kotlinx.coroutines` library to the Android application by adding a line in the `build.gradle.kts` in the
    `androidApp` folder:
 
     ```kotlin
@@ -255,8 +256,8 @@ straightforward:
         }
     }
     ```
-   
-    The `greeting()` function is now called inside the coroutine launched in the main `CoroutineScope`.
+
+   The `greeting()` function is now called inside the coroutine launched in the main `CoroutineScope`.
 
 ### iOS app
 
@@ -305,15 +306,15 @@ is already imported and used in `ContentView.swift` with `import shared`.
         }
     }
     ```
-   
-    * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
-    with the view (ContentView).
-    * `ContentView.ViewModel` is declared as an `ObservableObject`.
-    * `@Published` wrapper is used for the `text` property.
-    * `@ObservedObject` property wrapper is used to subscribe to the view model.
 
-    Now the view model will emit signals whenever this property changes.
+   * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
+   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
+   with the view (ContentView).
+   * `ContentView.ViewModel` is declared as an `ObservableObject`.
+   * The `@Published` wrapper is used for the `text` property.
+   * The `@ObservedObject` property wrapper is used to subscribe to the view model.
+
+   Now the view model will emit signals whenever this property changes.
 
 5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
@@ -333,16 +334,16 @@ is already imported and used in `ContentView.swift` with `import shared`.
         }
     }
     ```
-  
+
    * Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings), thus
-   Kotlin concepts, including `suspend` functions, are mapped to appropriate Swift/Objective-C and vice versa. When you
+   Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
    compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
    callbacks (`completionHandler`).
    * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
-   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
+   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than the main one –
    see the [new memory manager migration guide](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#new-memory-manager-migration-guide).
-   That's why `DispatchQueue.main.async` is used to update `text` property.
+   That's why `DispatchQueue.main.async` is used to update the `text` property.
 
 6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
 

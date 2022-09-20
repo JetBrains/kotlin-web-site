@@ -6,7 +6,7 @@ Kotlin Tips is a series of short videos where members of the Kotlin team show ho
 
 ## null + null in Kotlin
 
-What happens when you add `null + null` in Kotlin, and what does it return? Sebastian addresses this mystery in our latest quick tip. Along the way, he also shows why there’s no reason to be scared of nullables: 
+What happens when you add `null + null` in Kotlin, and what does it return? Sebastian addresses this mystery in our latest quick tip. Along the way, he also shows why there's no reason to be scared of nullables: 
 
 <video width="560" height="315" href="wwplVknTza4" title="Kotlin Tips: null + null in Kotlin"/>
 
@@ -18,7 +18,7 @@ Got a Kotlin collection that contains duplicates? Need a collection with only un
 
 ## The suspend and inline mystery
 
-How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren’t coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: it has something to do with the inline modifier:
+How come functions like [`repeat()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/repeat.html), [`map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) and [`filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html) accept suspending functions in their lambdas, even though their signatures aren't coroutines-aware? In this episode of Kotlin Tips Sebastian solves the riddle: it has something to do with the inline modifier:
 
 <video width="560" height="315" href="R2395u7SdcI" title="Kotlin Tips: The Suspend and Inline Mystery"/>
 
@@ -36,7 +36,7 @@ Shadowing means having two declarations in a scope have the same name. So, how d
 
 ## Destructuring declarations
 
-With [destructuring declarations](destructuring-declarations.md) in Kotlin, you can create multiple variables from a single object, all at once. In this video Sebastian shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin’s component functions provide an answer for those as well:
+With [destructuring declarations](destructuring-declarations.md) in Kotlin, you can create multiple variables from a single object, all at once. In this video Sebastian shows you a selection of things that can be destructured – pairs, lists, maps, and more. And what about your own objects? Kotlin's component functions provide an answer for those as well:
 
 <video width="560" height="315" href="zu1PUAvk_Lw" title="Kotlin Tips: Destructuring Declarations"/>
 
@@ -76,7 +76,7 @@ In this episode, Kate Petrova shows three tips to help you work with [Kotlin Col
 
 <video width="560" height="315" href="ApXbm1T_eI4" title="Kotlin Tips: Kotlin Collections"/>
 
-## What’s next?
+## What's next?
 
 * See the complete list of Kotlin Tips in our [YouTube playlist](https://youtube.com/playlist?list=PLlFc5cFwUnmyDrc-mwwAL9cYFkSHoHHz7)
 * Learn how to write [idiomatic Kotlin code for popular cases](idioms.md)

@@ -19,3 +19,7 @@ button,
 [type='submit'] {
     -webkit-appearance: inherit;
 }
+
+body._no-scroll {
+    overflow: hidden;
+}

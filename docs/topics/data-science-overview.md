@@ -118,6 +118,8 @@ library for Java
 
 * [Charts](https://github.com/HanSolo/charts) - a scientific JavaFX charting library in development
 
+* [Apache OpenNLP](https://opennlp.apache.org/) - a machine learning based toolkit for the processing of natural language text
+
 * [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) - a natural language processing toolkit
 
 * [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering and recommendation
@@ -126,5 +128,5 @@ library for Java
 
 * [Tablesaw](https://github.com/jtablesaw/tablesaw) - a Java dataframe. It includes a visualization library based on Plot.ly
 
-If this list doesn’t cover your needs, you can find more options in the 
+If this list doesn't cover your needs, you can find more options in the 
 **[Kotlin Machine Learning Demos](https://github.com/thomasnield/kotlin-machine-learning-demos)** GitHub repository with showcases from Thomas Nield.

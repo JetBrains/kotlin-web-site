@@ -17,7 +17,7 @@ class Example {
 
 The syntax is: `val/var <property name>: <Type> by <expression>`. The expression after `by` is a _delegate_,
 because the `get()` (and `set()`) that correspond to the property will be delegated to its `getValue()` and `setValue()` methods.
-Property delegates don’t have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `var`s).
+Property delegates don't have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `var`s).
 
 For example:
 
@@ -65,7 +65,7 @@ NEW has been assigned to 'p' in Example@33a17727.
 
 The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
 
-You can declare a delegated property inside a function or code block; it doesn’t have to be a member of a class.
+You can declare a delegated property inside a function or code block; it doesn't have to be a member of a class.
 Below you can find [an example](#local-delegated-properties).
 
 ## Standard delegates
@@ -213,7 +213,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-This also works for `var`’s properties if you use a `MutableMap` instead of a read-only `Map`:
+This also works for `var`'s properties if you use a `MutableMap` instead of a read-only `Map`:
 
 ```kotlin
 class MutableUser(val map: MutableMap<String, Any?>) {
