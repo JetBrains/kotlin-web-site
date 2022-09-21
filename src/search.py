@@ -3,7 +3,7 @@ from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
-from bs4 import BeautifulSoup, Tag
+from bs4 import Tag
 from googleapiclient.discovery import build, Resource
 from oauth2client.service_account import ServiceAccountCredentials
 
@@ -338,6 +338,6 @@ def build_search_indices(pages):
 
     if wh_index:
         print("Submitting WH index objects to " + wh_index.index_name + " index")
-        wh_index.add_objects(wh_index_objects)
+        wh_index.replace_all_objects(wh_index_objects)
 
     print("Index objects successfully built")

@@ -675,3 +675,9 @@
 
 - from: /docs/kotlin-mascot.html
   to: https://blog.jetbrains.com/kotlin/2021/10/introducing-the-kotlin-mascot/
+
+- from: /user-groups/branding.html
+  to: /docs/kug-guidelines.html
+
+- from: /user-groups/support.html
+  to: /docs/kug-guidelines.html#support-for-kugs-from-jetbrains
