@@ -175,7 +175,7 @@ fun demo(x: Comparable<Number>) {
 }
 ```
 
-The words _in_ and _out_ seem to be self-explanatory (as they’ve already been used successfully in C# for quite some time),
+The words _in_ and _out_ seem to be self-explanatory (as they've already been used successfully in C# for quite some time),
 and so the mnemonic mentioned above is not really needed.  It can in fact be rephrased at a higher level of abstraction:
 
 **[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
@@ -265,7 +265,7 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 
 ## Generic functions
 
-Classes aren’t the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:
+Classes aren't the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:
 
 ```kotlin
 fun <T> singletonList(item: T): List<T> {

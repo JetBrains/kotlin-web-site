@@ -359,7 +359,7 @@ fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 
 IntelliJ IDEA's kotlin plugin understands the semantics of `TODO()` and automatically adds a code pointer in the TODO tool window. 
 
-## What’s next?
+## What's next?
 
 * Solve [Advent of Code puzzles](advent-of-code.md) using the idiomatic Kotlin style
 * Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)

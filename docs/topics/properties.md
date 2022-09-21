@@ -37,7 +37,7 @@ var <propertyName>[: <PropertyType>] [= <property_initializer>]
 ```
 
 The initializer, getter, and setter are optional. The property type is optional if it can be inferred from the initializer
-or the getter’s return type, as shown below:
+or the getter's return type, as shown below:
 
 ```kotlin
 var initialized = 1 // has type Int, default getter and setter

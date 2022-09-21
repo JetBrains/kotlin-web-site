@@ -8,11 +8,13 @@
 
     <var name="kotlinSpringPluginVersion" value="1.6.21" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.7.20-Beta" type="string"/>
+    <var name="kotlinEapVersion" value="1.7.20-RC" type="string"/>
 
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" type="string"/>
 
     <var name="kotlinReleaseDate" value="July 7, 2022" type="string"/>
+
+    <var name="kotlinEapReleaseDate" value="September 8, 2022" type="string"/>
 
     <var name="coroutinesVersion" value="1.6.0" type="string"/>
 
@@ -28,7 +30,7 @@
 
     <var name="gradleVersion" value="6.7.1" type="string"/>
 
-    <var name="serializationVersion" value="1.3.2" type="string"/>
+    <var name="serializationVersion" value="1.4.0" type="string"/>
 
     <var name="kotlinPluginVersion" value="2022.2.1" type="string"/>
 
@@ -42,7 +44,7 @@
 
     <var name="sqlDelightVersion" value="1.4.1" type="string"/>
 
-    <var name="kspSupportedKotlinVersion" value="1.6.10" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="1.7.10" type="string"/>
 
     <var name="kspVersion" value="1.0.6" type="string"/>
 

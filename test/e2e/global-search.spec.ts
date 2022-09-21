@@ -49,7 +49,7 @@ test.describe('Global Search Component', async () => {
         test(`Full Search with keyboard shortcut on ${pageWithGlobalSearch.name} Page`, async ({ page }) => {
             const currentPage = pageWithGlobalSearch.getInstance(page);
             await currentPage.init();
-            await currentPage.globalSearch.openFullSearchWithShortcut(SEARCH_STRING);
+            await currentPage.globalSearch.openFullSearchWithShortcut();
             await currentPage.globalSearch.closeFullSearch();
         });
     }

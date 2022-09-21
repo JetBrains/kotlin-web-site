@@ -16,10 +16,8 @@ object DokkaReferenceTemplate : Template({
       name = "Drop SNAPSHOT word for deploy"
       scriptContent = """
                 #!/bin/bash
-                if [ %teamcity.build.branch.is_default% == "true" ]; then
-                  CURRENT_VERSION="$(sed -E s/^v?//g <<<%release.tag%)"
-                	sed -i -E "s/^version=.+(-SNAPSHOT)?/version=${'$'}CURRENT_VERSION/gi" ./gradle.properties
-                fi
+                CURRENT_VERSION="$(sed -E s/^v?//g <<<%release.tag%)"
+                sed -i -E "s/^version=.+(-SNAPSHOT)?/version=${'$'}CURRENT_VERSION/gi" ./gradle.properties
             """.trimIndent()
       dockerImage = "debian"
     }

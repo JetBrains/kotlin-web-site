@@ -115,7 +115,7 @@ fun reformat(
 ) { /*...*/ }
 ```
 
-When calling this function, you don’t have to name all its arguments:
+When calling this function, you don't have to name all its arguments:
 
 ```kotlin
 reformat(

@@ -254,12 +254,6 @@
     position:
       lat: 53.4807593
       lng: -2.2426305
-  - name: Marseille KUG
-    country: France
-    url: https://www.meetup.com/Marseille-Kotlin-User-Group/
-    position:
-      lat: 43.296482
-      lng: 5.36978
   - name: Milano KUG
     country: Italy
     url: https://www.meetup.com/it-IT/KUG-Milan/
@@ -1178,6 +1172,12 @@
     position:
       lat: 4.8396414
       lng: 6.9112378
+  - name: Tanzania KUG
+    country: Tanzania
+    url: https://www.facebook.com/groups/263678895118275
+    position:
+      lat: -6.3532481
+      lng: 30.4791835
   - name: Tunisia KUG
     country: Tunisia
     url: https://www.facebook.com/groups/1501353116571104

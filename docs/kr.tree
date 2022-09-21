@@ -39,7 +39,7 @@
     </toc-element>
 
     <toc-element toc-title="Early Access Preview">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-Beta"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-RC"/>
         <toc-element toc-title="Participate" id="eap.md"/>
         <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
         <toc-element id="configure-build-for-eap.md"/>
@@ -126,6 +126,7 @@
             <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
             <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
             <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
+            <toc-element id="multiplatform-full-stack-app.md"/>
         </toc-element>
         <toc-element toc-title="Creating multiplatform libraries">
             <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
@@ -372,6 +373,7 @@
         <toc-element toc-title="Journal">
             <toc-element toc-title="Cross-platform mobile development" id="cross-platform-mobile-development.md"/>
             <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
+            <toc-element toc-title="The six best cross-platform app development frameworks" id="cross-platform-frameworks.md"/>
         </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
@@ -381,7 +383,6 @@
             <toc-element id="kotlin-night-guidelines.md" accepts-web-file-names="kotlin-nights-branding.html"/>
         </toc-element>
         <toc-element id="kotlin-brand-assets.md" accepts-web-file-names="kotlin-logo.html"/>
-        <toc-element id="kotlin-mascot.md" hidden="true"/>
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
     </toc-element>
 </product-profile>

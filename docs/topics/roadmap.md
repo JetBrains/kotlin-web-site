@@ -15,7 +15,7 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotli
 
 ## Key priorities
 
-The goal of this roadmap is to give you a big picture. Here’s a list of our key priorities – the areas we are investing the most effort into:
+The goal of this roadmap is to give you a big picture. Here's a list of our key priorities – the areas we are investing the most effort into:
 
 * **Fast turnaround**: making the change-test-debug cycle really fast.
 * **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
@@ -184,7 +184,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 </table>
 
 > * This roadmap is not an exhaustive list of all things the team is working on, only the biggest projects.
-> * There’s no commitment to delivering specific features or fixes in specific versions.
+> * There's no commitment to delivering specific features or fixes in specific versions.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
 {type="note"}

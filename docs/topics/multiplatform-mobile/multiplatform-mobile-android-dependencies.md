@@ -34,7 +34,7 @@ sourceSets {
 
 Moving what was a top-level dependency in an Android project to a specific source set in a Multiplatform Mobile project
 might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move
-a `debugImplementation` dependency from the top level of an Android project, you’ll need to add an implementation
+a `debugImplementation` dependency from the top level of an Android project, you'll need to add an implementation
 dependency to the source set named `androidDebug`. To minimize the effort you have to put in to deal with migration
 problems like this, you can add a `dependencies` block inside the `android` block:
 

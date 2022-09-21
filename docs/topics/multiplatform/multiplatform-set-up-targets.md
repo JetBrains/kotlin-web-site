@@ -22,7 +22,7 @@ test and production purposes, you can [create custom compilations](multiplatform
 
 You can have several targets for one platform in a multiplatform library. For example, these targets can provide the same 
 API but use different libraries during runtime, such as testing frameworks and logging solutions. Dependencies on such 
-a multiplatform library may fail to resolve because it isn’t clear which target to choose.
+a multiplatform library may fail to resolve because it isn't clear which target to choose.
 
 To solve this, mark the targets on both the library author and consumer sides with a custom attribute, which Gradle uses 
 during dependency resolution.
