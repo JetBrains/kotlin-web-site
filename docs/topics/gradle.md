@@ -3,7 +3,7 @@
 Gradle is a build system that helps to automate and manage your building process. It downloads specified dependencies,
 packages your code, and prepares it for compilation.
 
-To build a Kotlin project with Gradle, you'll need to add a Gradle extension, [the Kotlin Gradle plugin](#apply-the-plugin),
+To build a Kotlin project with Gradle, you'll need to add the [Kotlin Gradle plugin](#apply-the-plugin)
 and [configure dependencies](#configure-dependencies).
 
 ## Apply the plugin
@@ -42,7 +42,8 @@ When configuring your project, check the Kotlin Gradle plugin compatibility with
 | Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
 
 For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle
-%minGradleVersion% or later.
+%minGradleVersion% for your project to compile. In turn, the maximum fully version that doesn't have deprecated Gradle
+methods and properties and supports all the current Gradle features is %maxGradleVersion%.
 
 ## Targeting multiple platforms
 
