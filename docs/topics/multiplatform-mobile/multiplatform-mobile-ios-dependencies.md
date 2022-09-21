@@ -174,7 +174,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
 
 7. Build the project.
 
-Now you can use this dependency in your Kotlin code. To do that, import the package you’ve set up in the `package`
+Now you can use this dependency in your Kotlin code. To do that, import the package you've set up in the `package`
 property in the `.def` file. For the example above, this will be:
 
 ```kotlin
@@ -261,7 +261,7 @@ import DateTools.*
 
 7. Build the project.
 
-Now you can use this dependency in your Kotlin code. To do this, import the package you’ve set up in the package
+Now you can use this dependency in your Kotlin code. To do this, import the package you've set up in the package
 property in the `.def` file. For the example above, this will be:
 
 ```kotlin

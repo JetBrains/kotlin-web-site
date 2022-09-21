@@ -182,7 +182,7 @@ type and throws an exception if the value is `null`. You can write `b!!`, and th
 val l = b!!.length
 ```
 
-Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won’t appear out of the blue.
+Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won't appear out of the blue.
 
 ## Safe casts
 

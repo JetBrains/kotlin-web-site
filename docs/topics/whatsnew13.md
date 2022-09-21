@@ -203,7 +203,7 @@ By convention, the entry point of a Kotlin program is a function with a signatur
 where `args` represent the command-line arguments passed to the program. However, not every application supports command-line arguments,
 so this parameter often ends up not being used. 
 
-Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now “Hello, World” in Kotlin is 19 characters shorter!
+Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now "Hello, World" in Kotlin is 19 characters shorter!
 
 ```kotlin
 fun main() {
@@ -397,7 +397,7 @@ fun main() {
 ### associateWith
 
 It is quite a common situation to have a list of keys and want to build a map by associating each of these keys with some value.
-It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more
+It was possible to do it before with the `associate { it to getValue(it) }` function, but now we're introducing a more
 efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`.
 
 ```kotlin
@@ -448,7 +448,7 @@ fun main() {
 
 ### Sealed classes in reflection
 
-We’ve added a new API to `kotlin-reflect` that can be used to enumerate all the direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
+We've added a new API to `kotlin-reflect` that can be used to enumerate all the direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
 
 ### Smaller changes
 

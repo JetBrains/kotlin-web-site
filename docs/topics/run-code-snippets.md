@@ -70,7 +70,7 @@ Kotlin code in your browser.
 
 ### Write and edit code
 
-In the Playground’s editor area, you can write code just as you would in a source file:
+In the Playground's editor area, you can write code just as you would in a source file:
 * Add your own classes, functions, and top-level declarations in an arbitrary order.
 * Write the executable part in the body of the `main()` function.
 

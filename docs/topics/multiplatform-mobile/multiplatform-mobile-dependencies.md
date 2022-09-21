@@ -16,7 +16,7 @@ There are two types of dependencies that you can use in Multiplatform Mobile pro
   common source set, `commonMain`.
 
   Many modern Android libraries already have multiplatform support, like [Koin](https://insert-koin.io/),
-  [Appolo](https://www.apollographql.com/), and [Okio](https://square.github.io/okio/).
+  [Apollo](https://www.apollographql.com/), and [Okio](https://square.github.io/okio/).
 * _Native dependencies_. These are regular libraries from relevant ecosystems. You usually work with them in native iOS
    projects using CocoaPods or another dependency manager and in Android projects using Gradle.
 

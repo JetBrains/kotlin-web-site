@@ -1,11 +1,9 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA, Android Studio, and Eclipse)
+[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA and Android Studio.)
 
-JetBrains provides the official Kotlin plugin for the following Integrated Development Environments (IDEs):
+JetBrains provides the official Kotlin plugin for two Integrated Development Environments (IDEs): [IntelliJ IDEA](#intellij-idea) and [Android Studio](#android-studio).
 
-* [IntelliJ IDEA](#intellij-idea)
-* [Android Studio](#android-studio)
-* [Eclipse](#eclipse)
+Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
 ## IntelliJ IDEA
 
@@ -25,34 +23,19 @@ Kotlin plugin is bundled with each Android Studio release.
 
 Read more about Android Studio in the [official documentation](https://developer.android.com/studio/intro).
 
-## Eclipse
-
-[Eclipse](https://www.eclipse.org/downloads/) is a widely known IDE that offers various packages for development in
-different languages and for different platforms.
-
-> Kotlin Plugin for Eclipse has limited support.  
-> Use other IDEs for Kotlin development, such as IntelliJ IDEA or Android studio, to get full support of new Kotlin features.
->
-{type="warning"}
-
-The Kotlin plugin for Eclipse should be installed manually from the [Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
-
-Read more about Eclipse in the [official documentation](https://www.eclipse.org/documentation/).
-
 ## Compatibility with the Kotlin language versions
 
 For IntelliJ IDEA and Android Studio the Kotlin plugin is bundled with each IDE release.
 When the new Kotlin version is released, these IDEs will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version for each IDE in [Kotlin releases](releases.md#ide-support)
 
-The Kotlin plugin for Eclipse should be installed manually.
-
 ## Other IDEs support
 
 JetBrains doesn't provide the Kotlin plugin for other IDEs.
-This means that you can use any editor to write the Kotlin code, but without IDE related features: code formatting, debugging tools, and others.
+However, some of the other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have their own Kotlin plugins developed by the Kotlin community.
 
-To use Kotlin in other IDEs or text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
+You can use any text editor to write the Kotlin code, but without IDE-related features: code formatting, debugging tools, and so on.
+To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
 Also, you could use package managers, such as [Homebrew](command-line.md#homebrew), [SDKMAN!](command-line.md#sdkman), and [Snap package](command-line.md#snap-package).
 
 ## What's next?

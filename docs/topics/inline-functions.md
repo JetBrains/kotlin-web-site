@@ -37,7 +37,7 @@ functions), it will pay off in performance, especially at "megamorphic" call-sit
 
 ## `noinline`
 
-If you don’t want all of the lambdas passed to an inline function to be inlined, mark some of your function
+If you don't want all of the lambdas passed to an inline function to be inlined, mark some of your function
 parameters with the `noinline` modifier:
 
 ```kotlin
@@ -142,7 +142,7 @@ fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
 ```
 
 Here, you walk up a tree and use reflection to check whether a node has a certain type.
-It’s all fine, but the call site is not very pretty:
+It's all fine, but the call site is not very pretty:
 
 ```kotlin
 treeNode.findParentOfType(MyTreeNode::class.java)

@@ -74,11 +74,6 @@ def get_client():
     return algoliasearch.Client(os.environ['SEARCH_USER'], os.environ['SEARCH_KEY'])
 
 
-def get_index() -> Index:
-    index_name = os.environ['INDEX_NAME'] if 'INDEX_NAME' in os.environ else "dev_KOTLINLANG"
-    return Index(get_client(), index_name)
-
-
 def get_page_path_from_url(url):
     if url.endswith('.html'):
         return url[1:-5]
@@ -115,11 +110,11 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
     for child in content:
         if not isinstance(child, Tag):
             continue
-        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong', 'aside']:
+        if child.name in ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'li', 'span', 'strong', 'aside', 'dt', 'dd']:
             valuable_content.append(child.text)
-        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section']:
+        elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section', 'dl']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img']:
+        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img', 'object']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
@@ -193,7 +188,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
             chapter_title_node = chapter.select_one('[data-toc]')
             if chapter_title_node:
                 chapter_title = chapter_title_node.extract().text
-                chapter_title_anchor = chapter_title_node.attrs["data-toc"].split('#')[1]
+                chapter_title_anchor = chapter_title_node.attrs["data-toc"]
                 chapter_content = chapter.extract()
 
                 url_with_href = url + "#" + chapter_title_anchor
@@ -239,7 +234,6 @@ def to_wh_index(item):
 
 def build_search_indices(pages):
     page_views_statistic = get_page_views_statistic()
-    index_objects = []
     wh_index_objects = []
 
     print("Start building index")
@@ -333,8 +327,6 @@ def build_search_indices(pages):
                 page_views
             )
 
-            index_objects += page_indices
-
             def wh(*args):
                 return to_wh_index(*args)
 
@@ -349,7 +341,3 @@ def build_search_indices(pages):
         wh_index.add_objects(wh_index_objects)
 
     print("Index objects successfully built")
-
-    index = get_index()
-    print("Submitting index objects to " + index.index_name + " index")
-    index.add_objects(index_objects)

@@ -4,10 +4,10 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object KotlinxCoroutines : GitVcsRoot({
   name = "kotlinx.coroutines vcs root"
-  url = "git@github.com:Kotlin/kotlinx.coroutines.git"
-  branch = "refs/tags/${BuildParams.KOTLINX_COROUTINES_RELEASE_TAG}"
+  url = "git@github.com:nikpachoo/kotlinx.coroutines.git"
+  branch = "refs/heads/master"
   branchSpec = """
-        +:refs/tags/(*)
+        +:refs/heads/(*)
     """.trimIndent()
   useTagsAsBranches = true
   checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS

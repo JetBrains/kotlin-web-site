@@ -30,7 +30,7 @@ interface KSTypeReference : KSAnnotated, KSModifierListOwner {
 
 A `KSTypeReference` can be resolved to a `KSType`, which refers to a type in Kotlin's type system.
 
-A `KSTypeReference` has a `KSReferenceElement`, which models Kotlin‘s program structure: namely, how the reference is
+A `KSTypeReference` has a `KSReferenceElement`, which models Kotlin's program structure: namely, how the reference is
 written. It corresponds to the [`type`](https://kotlinlang.org/docs/reference/grammar.html#type) element in Kotlin's grammar.
 
 A `KSReferenceElement` can be a `KSClassifierReference` or `KSCallableReference`, which contains a lot of useful
@@ -51,6 +51,6 @@ available in `KSReferenceElement`. For example, `KSClassifierReference.reference
 that are not interesting. You should resolve type only if you need specific information from `KSDeclaration` or `KSType`.
 
 `KSTypeReference` pointing to a function type has most of its information in its element.
-Although it can be resolved to the family of `Function0`, `Function1`, and so on, these resolutions don‘t bring any
+Although it can be resolved to the family of `Function0`, `Function1`, and so on, these resolutions don't bring any
 more information than `KSCallableReference`. One use case for resolving function type references is dealing with the
 identity of the function's prototype.
