@@ -131,7 +131,7 @@ and iOS. If you make changes to the shared code, you will see them reflected in 
    ![Common Kotlin file](common-kotlin-file.png)
 
 2. Update the shared code by using `[reversed()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html)`,
-the Kotlin standard library function for reverting text that works on all platforms:
+the Kotlin standard library function for reversing text that works on all platforms:
 
     ```kotlin
     class Greeting {

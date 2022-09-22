@@ -37,11 +37,6 @@ The IDE support for the latest version of the language is available for the foll
   * [Latest released](https://developer.android.com/studio) version
   * [Early access](https://developer.android.com/studio/preview) versions
 
-> Kotlin Plugin for Eclipse has limited support.  
-> Use [other IDEs for Kotlin development](kotlin-ide.md) to get full support of new Kotlin features.
->
-{type="warning"}
-
 ## Release details
 
 The following table lists details of the latest Kotlin releases.

@@ -276,6 +276,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
    
    ```swift
+   @main
    struct iOSApp: App {
        var body: some Scene {
            WindowGroup {
