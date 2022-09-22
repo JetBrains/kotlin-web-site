@@ -1,6 +1,6 @@
 [//]: # (title: iOS integration)
 
-> This page describes the new memory manager enabled by default since Kotlin 1.7.20. See our [Migration guide](native-migration-guide.md)
+> This page describes the new memory manager enabled by default since Kotlin 1.7.20. See our [migration guide](native-migration-guide.md)
 > to move your projects from the legacy memory manager.
 >
 {type="note"}
@@ -17,7 +17,7 @@ However, there are some specifics you should keep in mind:
 Deinit on the Swift/Objective-C objects and the objects they refer to is called on a different thread if
 these objects cross interop boundaries into Kotlin/Native, for example:
 
-```Kotlin
+```kotlin
 // Kotlin
 class KotlinExample {
    fun action(arg: Any) {
@@ -26,7 +26,7 @@ class KotlinExample {
 }
 ```
 
-```Swift
+```swift
 // Swift
 class SwiftExample {
    init() {
@@ -56,7 +56,7 @@ deinit on <NSThread: 0x600003b9b900>{number = 7, name = (null)}
 When calling Kotlin suspending functions from Swift, completion handlers might be called on threads other than the main
 one, for example:
 
-```Kotlin
+```kotlin
 // Kotlin
 // coroutineScope, launch, and delay are from kotlinx.coroutines
 suspend fun asyncFunctionExample() = coroutineScope {
@@ -68,7 +68,7 @@ suspend fun asyncFunctionExample() = coroutineScope {
 }
 ```
 
-```Swift
+```swift
 // Swift
 func test() {
     print("Running test on \(Thread.current)")
@@ -110,7 +110,7 @@ kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 An object is reclaimed only during the garbage collection. This applies to Swift/Objective-C objects that cross interop
 boundaries into Kotlin/Native, for example:
 
-```Kotlin
+```kotlin
 // Kotlin
 class KotlinExample {
     fun action(arg: Any) {
@@ -119,7 +119,7 @@ class KotlinExample {
 }
 ```
 
-```Swift
+```swift
 // Swift
 class SwiftExample {
     deinit {
@@ -163,7 +163,7 @@ In the [GC logs](native-memory-manager.md#monitor-gc-performance), there's a num
 If this number keeps growing, it may indicate that the Swift/Objective-C objects are not freed up when they should.
 In this case, try the `autoreleasepool` block around loop bodies that do interop calls:
 
-```Kotlin
+```kotlin
 // Kotlin
 fun growingMemoryUsage() {
     repeat(Int.MAX_VALUE) {
@@ -184,7 +184,7 @@ fun steadyMemoryUsage() {
 
 Consider the following example:
 
-```Kotlin
+```kotlin
 // Kotlin
 interface Storage {
     fun store(arg: Any)
@@ -209,7 +209,7 @@ class KotlinExample {
 }
 ```
 
-```Swift
+```swift
 // Swift
 class SwiftStorage : Storage {
 

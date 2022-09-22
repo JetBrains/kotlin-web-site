@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/Native memory management)
 
 > This page describes features of the new memory manager enabled by default since Kotlin 1.7.20.
-> See our [Migration guide](native-migration-guide.md) to move your projects from the legacy memory manager.
+> See our [migration guide](native-migration-guide.md) to move your projects from the legacy memory manager.
 >
 {type="note"}
 
@@ -111,7 +111,7 @@ become worse.
 {type="note"}
 
 If you encounter issues with migrating from the legacy memory manager, or you want to temporarily support both the current
-and legacy memory managers, see our recommendations in the [Migration guide](native-migration-guide.md).
+and legacy memory managers, see our recommendations in the [migration guide](native-migration-guide.md).
 
 ## What's next
 
