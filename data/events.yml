@@ -1,3 +1,139 @@
+- lang: cz
+  startDate: '2022-10-05'
+  endDate: '2022-10-05'
+  location: Prague, Czech Republic
+  speaker: Will be announed soon
+  title: Czech Kotlin User Group
+  subject: 'Restart of the Kotlin meetups in Prague'
+  url: https://www.facebook.com/events/s/cz-kotlin-meetup-9/483290587001145/
+- lang: en
+  startDate: '2022-10-04'
+  endDate: '2022-10-04'
+  location: Amsterdam, The Netherlands
+  speaker: Hadi Hariri
+  title: Flexport<>Kotlin Meetup with Hadi Hariri
+  subject: 'Functional Programming in Kotlin'
+  url: https://www.meetup.com/flexport-amsterdam-meetup-group/events/288180298/
+- lang: de
+  startDate: '2022-11-03'
+  endDate: '2022-11-03'
+  location: Paris, France
+  speaker: Salomon Brys, Riadh Mnasri, Romain Boiselle, and more!
+  title: ''
+  subject: DevCon '#15 - Conférence 100% Kotlin'
+  url: https://www.programmez.com/page-devcon/devcon-15-conference-100-kotlin
+- lang: en
+  startDate: '2022-10-11'
+  endDate: '2022-10-11'
+  location: Eindhoven, The Netherlands
+  speaker: Simon Vergauwen
+  title: Kotlin Meetup Eindhoven
+  subject: 'Introductory talk to Functional Programming in Kotlin'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/288372662/
+- lang: en
+  startDate: '2022-10-11'
+  endDate: '2022-10-11'
+  location: Eindhoven, The Netherlands
+  speaker: Urs Peter
+  title: Kotlin Meetup Eindhoven
+  subject: 'Moving from Java to Kotlin - is it worth it?'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/288372662/
+- lang: en
+  startDate: '2022-11-03'
+  endDate: '2022-11-03'
+  location: Ede, The Netherlands
+  speaker: Bart Enkelaar
+  title: J-Fall 2022
+  subject: 'The Dangerous Side of Kotlin'
+  url: https://jfall.nl/timetable-2021/
+- lang: en
+  startDate: '2022-10-17'
+  endDate: '2022-10-20'
+  location: Las Vegas, NV, USA
+  speaker: Mark Heckler
+  title: JavaOne
+  subject: 'Das Boot: Diving into Debugging Spring Boot Applications'
+  url: https://reg.rf.oracle.com/flow/oracle/cloudworld/session-catalog/page/catalog?search=kotlin
+- lang: en
+  startDate: '2022-10-13'
+  endDate: '2022-10-13'
+  location: Antwerp, Belgium
+  speaker: James Ward, Josh Long
+  title: Devoxx Belgium 2022
+  subject: 'Spring + Kotlin = Modern + Reactive + Productive'
+  url: https://devoxx.be/talk/?id=20174
+- lang: en
+  startDate: '2022-10-13'
+  endDate: '2022-10-13'
+  location: Antwerp, Belgium
+  speaker: James Ward, Brad Hawkes, John Pampuch
+  title: Devoxx Belgium 2022
+  subject: Google's Journey from Java to Kotlin for Server-Side Programming
+  url: https://devoxx.be/talk/?id=20174
+- lang: en
+  startDate: '2022-10-06'
+  endDate: '2022-10-06'
+  location: Gdansk, Poland
+  speaker: Hadi Hariri
+  title: Infoshare 2022
+  subject: The Silver Bullet Syndrome Director's Cut - Complexity Strikes Back!
+  url: https://infoshare.pl/conference/agenda/#talk638-10
+- lang: en
+  startDate: '2022-09-28'
+  endDate: '2022-09-28'
+  location: Amsterdam, The Netherlands
+  speaker: Bjorn van der Laan
+  title: Kotlin Multiplatform Mobile and Building DSLs
+  subject: 'Type-safe builders and five other patterns to create beautiful DSLs in Kotlin'
+  url: https://www.meetup.com/nl-NL/kotlin-amsterdam/events/288163725/
+- lang: en
+  startDate: '2022-09-28'
+  endDate: '2022-09-28'
+  location: Amsterdam, The Netherlands
+  speaker: Urs Peter
+  title: Kotlin Multiplatform Mobile and Building DSLs
+  subject: 'Kotlin Multiplatform Mobile (KMM) - what’s in it for me?'
+  url: https://www.meetup.com/nl-NL/kotlin-amsterdam/events/288163725/
+- lang: en
+  startDate: '2022-09-27'
+  endDate: '2022-09-27'
+  location: Vienna, Austria
+  speaker: Rainer Kern
+  title: Vienna Kotlin User Group
+  subject: 'Back to School with Kotlin'
+  url: https://www.meetup.com/kotlin-vienna/events/287145275/
+- lang: en
+  startDate: '2022-09-29'
+  endDate: '2022-09-29'
+  online: true
+  speaker: David Rawson
+  title: Virtual Kotlin User Group
+  subject: 'Codegen with KSP: A Farewell to Stubs'
+  url: https://www.meetup.com/virtual-kotlin-user-group/events/288024628/
+- lang: fr
+  startDate: '2022-11-03'
+  endDate: '2022-11-03'
+  location: Paris, France
+  speaker: Salomon Brys, Riadh Mnasri, Romain Boiselle, and more!
+  title: ''
+  subject: DevCon '#15 - Conférence 100% Kotlin'
+  url: https://www.programmez.com/page-devcon/devcon-15-conference-100-kotlin
+- lang: en
+  startDate: '2022-11-24'
+  endDate: '2022-11-24'
+  location: Amsterdam, The Netherlands
+  speaker: Call for speakers is open. Speakers to be announced soon.
+  title: ''
+  subject: Kotlin Dev Day. Advanced Edition
+  url: https://kotlindevday.com/
+- lang: en
+  startDate: '2022-09-24'
+  endDate: '2022-10-22'
+  location: Minna, Nigeria
+  speaker: Umar Saidu
+  title: Google Developer Student Clubs
+  subject: 'Compose Camp Bootcamp'
+  url: https://gdsc.community.dev/events/details/developer-student-clubs-federal-university-of-technology-minna-presents-jetpack-compose-bootcamp/
 - lang: en
   startDate: '2022-07-30'
   endDate: '2022-07-30'
