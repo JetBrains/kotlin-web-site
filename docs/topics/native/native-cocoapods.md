@@ -16,14 +16,14 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-```ruby
+```bash
 sudo gem install cocoapods
 ```
 
 * If you use Kotlin prior to version 1.7.0, install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
 plugin:
 
-  ```ruby
+  ```bash
   sudo gem install cocoapods-generate
   ```
   
@@ -39,8 +39,8 @@ plugin:
     
     ```kotlin
     plugins {
-       kotlin("multiplatform") version "%kotlinVersion%"
-       kotlin("native.cocoapods") version "%kotlinVersion%"
+        kotlin("multiplatform") version "%kotlinVersion%"
+        kotlin("native.cocoapods") version "%kotlinVersion%"
     }
     ```
 
@@ -78,7 +78,7 @@ plugin:
                 // Bitcode embedding
                 embedBitcode(BITCODE)
             }
-            
+
             // Maps custom Xcode configuration to NativeBuildType
             xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
             xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
@@ -114,7 +114,7 @@ the Podspec in the Podfile.
 
     ```ruby
     target 'ios-app' do
-        # ... other depedencies ...
+        # ... other dependencies ...
         pod 'podspecWithFilesExample', :path => 'cocoapods/externalSources/url/podspecWithFilesExample'
     end
     ```
@@ -128,7 +128,7 @@ of specs at the beginning of your Podfile:
     source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 
     target 'kotlin-cocoapods-xcproj' do
-        # ... other depedencies ...
+        # ... other dependencies ...
         pod 'example'
     end
     ```
@@ -163,7 +163,7 @@ name, specify it explicitly:
 
     ```kotlin
     pod("AFNetworking") {
-      moduleName = "AppsFlyerLib"
+        moduleName = "AppsFlyerLib"
     }
     ```
 #### Check the definition file {initial-collapse-state="collapsed"}

@@ -193,7 +193,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe") 
    ```
 
-1. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
+2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory and provide the `expect` declaration:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -201,7 +201,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     expect fun randomUUID(): String
     ```
 
-2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
+3. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain` directory and provide the `actual` implementation for `randomUUID()` in Android:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -211,7 +211,7 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     actual fun randomUUID() = UUID.randomUUID().toString()
     ```
 
-3. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
+4. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and provide the `actual` implementation for `randomUUID()` in iOS:
 
     ```kotlin
     package com.jetbrains.simplelogin.shared
@@ -317,7 +317,7 @@ Connect your framework to the iOS project manually:
 
 1. In Xcode, open the `ContentView.swift` file and import the `shared` module.
 
-    ```swift
+   ```swift
    import shared
    ```
 
@@ -406,7 +406,7 @@ You can review the [final code for this tutorial](https://github.com/Kotlin/kmm-
 ## What else to share?
 
 You've shared the business logic of your application, but you can also decide to share other layers of your application.
-For example, the `ViewModel` class code is almost the same for [Android](https://github.com/Kotlin/kmm-integration-sample/blob/final/app/src/main/java/com/jetbrains/simplelogin/androidapp/ui/login/LoginViewModel.kt) and [iOS applications](https://github.com/Kotlin/kmm-integration-sample/blob/final/SimpleLoginIOS/SimpleLoginIOS/ContentView.swift#L91), and you can share it if your mobile applications
+For example, the `ViewModel` class code is almost the same for [Android](https://github.com/Kotlin/kmm-integration-sample/blob/final/app/src/main/java/com/jetbrains/simplelogin/androidapp/ui/login/LoginViewModel.kt) and [iOS applications](https://github.com/Kotlin/kmm-integration-sample/blob/final/iosApp/SimpleLoginIOS/ContentView.swift#L84), and you can share it if your mobile applications
 should have the same presentation layer.
 
 ## What's next?

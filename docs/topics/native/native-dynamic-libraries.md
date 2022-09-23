@@ -173,7 +173,7 @@ folder, depending on the host OS:
 
 The same rules are used by the Kotlin/Native compiler
 to generate the `.h` file for all platforms.  
-Let's check out the C API of our Kotlin library.` 
+Let's check out the C API of our Kotlin library. 
 
 ## Generated headers file
 

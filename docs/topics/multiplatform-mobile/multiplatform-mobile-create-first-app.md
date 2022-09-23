@@ -45,7 +45,7 @@ Each Kotlin Multiplatform Mobile project includes three modules:
   module builds into an Android library and an iOS framework.
 * _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
   The _androidApp_ module depends on and uses the shared module as a regular Android library.
-* _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+* _iOSApp_ is a Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
   framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md),
   based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
   framework dependency.

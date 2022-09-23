@@ -219,7 +219,7 @@ specify the option in the `pod {}` build script block of a dependency like this:
 
 ```kotlin
 pod("foo") {
-   extraOpts = listOf("-Xforeign-exception-mode", "objc-wrap")
+    extraOpts = listOf("-Xforeign-exception-mode", "objc-wrap")
 }
 ```
 

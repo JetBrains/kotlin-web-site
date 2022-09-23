@@ -44,7 +44,7 @@ In a multiplatform project, Kotlin compilation may happen multiple times (`main`
 So is symbol processing. A symbol processing task is created whenever there is a Kotlin compilation task and a
 corresponding `ksp<Target>` or `ksp<SourceSet>` configuration is specified.
 
-For example, in the above `build.gradle.kts`, there are 4 compilations: common/metadata, JVM main, Linux x64 main, Linux x64 test,
+For example, in the above `build.gradle.kts`, there are 4 compilation tasks: common/metadata, JVM main, Linux x64 main, Linux x64 test,
 and 3 symbol processing tasks: common/metadata, JVM main, Linux x64 test.
 
 ## Avoid the `ksp(...)` configuration on KSP 1.0.1+

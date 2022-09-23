@@ -52,7 +52,7 @@ In each platform-specific module (iOS and Android), provide the actual implement
 expected in the common module. Use the `actual` keyword to mark the actual implementation.
 
 The following examples show the implementation of this for Android and iOS.
-Platform-specific code uses the actual keyword and the expected name for the function.
+Platform-specific code uses the `actual` keyword and the expected name for the function.
 
 ```kotlin
 // Android
@@ -64,7 +64,7 @@ actual fun randomUUID() = UUID.randomUUID().toString()
 ```kotlin
 // iOS
 import platform.Foundation.NSUUID
-        
+
 actual fun randomUUID(): String = NSUUID().UUIDString()
 ```
 
@@ -120,7 +120,7 @@ In the common module, declare the expected class `PlatformSocket()` with the `ex
 ```kotlin
 //Common
 internal expect class PlatformSocket(
-        url: String
+    url: String
 ) {
     fun openSocket(listener: PlatformSocketListener)
     fun closeSocket(code: Int, reason: String)
@@ -154,14 +154,14 @@ internal actual class PlatformSocket actual constructor(url: String) {
         val socketRequest = Request.Builder().url(socketEndpoint).build()
         val webClient = OkHttpClient().newBuilder().build()
         webSocket = webClient.newWebSocket(
-                socketRequest,
-                object : okhttp3.WebSocketListener() {
-                    override fun onOpen(webSocket: WebSocket, response: Response) = listener.onOpen()
-                    override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) = listener.onFailure(t)
-                    override fun onMessage(webSocket: WebSocket, text: String) = listener.onMessage(text)
-                    override fun onClosing(webSocket: WebSocket, code: Int, reason: String) = listener.onClosing(code, reason)
-                    override fun onClosed(webSocket: WebSocket, code: Int, reason: String) = listener.onClosed(code, reason)
-                }
+            socketRequest,
+            object : okhttp3.WebSocketListener() {
+                override fun onOpen(webSocket: WebSocket, response: Response) = listener.onOpen()
+                override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) = listener.onFailure(t)
+                override fun onMessage(webSocket: WebSocket, text: String) = listener.onMessage(text)
+                override fun onClosing(webSocket: WebSocket, code: Int, reason: String) = listener.onClosing(code, reason)
+                override fun onClosed(webSocket: WebSocket, code: Int, reason: String) = listener.onClosed(code, reason)
+            }
         )
     }
     actual fun closeSocket(code: Int, reason: String) {
@@ -215,25 +215,25 @@ internal actual class PlatformSocket actual constructor(url: String) {
     private var webSocket: NSURLSessionWebSocketTask? = null
     actual fun openSocket(listener: PlatformSocketListener) {
         val urlSession = NSURLSession.sessionWithConfiguration(
-                configuration = NSURLSessionConfiguration.defaultSessionConfiguration(),
-                delegate = object : NSObject(), NSURLSessionWebSocketDelegateProtocol {
-                    override fun URLSession(
-                            session: NSURLSession,
-                            webSocketTask: NSURLSessionWebSocketTask,
-                            didOpenWithProtocol: String?
-                    ) {
-                        listener.onOpen()
-                    }
-                    override fun URLSession(
-                            session: NSURLSession,
-                            webSocketTask: NSURLSessionWebSocketTask,
-                            didCloseWithCode: NSURLSessionWebSocketCloseCode,
-                            reason: NSData?
-                    ) {
-                        listener.onClosed(didCloseWithCode.toInt(), reason.toString())
-                    }
-                },
-                delegateQueue = NSOperationQueue.currentQueue()
+            configuration = NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate = object : NSObject(), NSURLSessionWebSocketDelegateProtocol {
+                override fun URLSession(
+                    session: NSURLSession,
+                    webSocketTask: NSURLSessionWebSocketTask,
+                    didOpenWithProtocol: String?
+                ) {
+                    listener.onOpen()
+                }
+                override fun URLSession(
+                    session: NSURLSession,
+                    webSocketTask: NSURLSessionWebSocketTask,
+                    didCloseWithCode: NSURLSessionWebSocketCloseCode,
+                    reason: NSData?
+                ) {
+                    listener.onClosed(didCloseWithCode.toInt(), reason.toString())
+                }
+            },
+            delegateQueue = NSOperationQueue.currentQueue()
         )
         webSocket = urlSession.webSocketTaskWithURL(socketEndpoint)
         listenMessages(listener)
@@ -265,7 +265,7 @@ internal actual class PlatformSocket actual constructor(url: String) {
 }
 ```
 
-And here is the common logic in the common module that uses the platform-specific class `PlatformSocket().`
+And here is the common logic in the common module that uses the platform-specific class `PlatformSocket()`.
 
 ```kotlin
 //Common

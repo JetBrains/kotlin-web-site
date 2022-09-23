@@ -688,7 +688,7 @@ For example, if you write this Kotlin function:
 suspend fun queryData(id: Int): String = ...
 ```
 
-…then you can call it from Swift like so:
+...then you can call it from Swift like so:
 
 ```swift
 queryData(id: 17) { result, error in

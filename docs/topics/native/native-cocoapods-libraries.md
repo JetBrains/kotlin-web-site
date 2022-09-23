@@ -169,8 +169,8 @@ import cocoapods.AFNetworking.*
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
+>     # ... other pod dependencies ...
+>     pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
 > end
 > ```
 >
@@ -220,8 +220,8 @@ parameter indicates that all the Pod files are located in the root directory of 
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
+>     # ... other pod dependencies ...
+>     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
 > end
 > ```
 >
@@ -264,7 +264,7 @@ import cocoapods.pod_dependency.*
 > To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
 > For example,
 > ```ruby
-> source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'`
+> source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
 >
 > You should also specify the path to the Podspec in your Podfile.
@@ -272,8 +272,8 @@ import cocoapods.pod_dependency.*
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
+>     # ... other pod dependencies ...
+>     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
 > end
 > ```
 >
