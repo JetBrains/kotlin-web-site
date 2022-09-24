@@ -216,7 +216,7 @@ copy(ints, any)
 
 Here you run into the same familiar problem: `Array<T>` is _invariant_ in `T`, and so neither `Array<Int>` nor `Array<Any>`
 is a subtype of the other. Why not? Again, this is because `copy` could have an unexpected behavior, for example, it may attempt to
-write a `String` to `from`, and if you actually pass an array of `Int` there, a `ClassCastException` will be thrown later.
+write a `String` from `from`, and if you actually pass an array of `Int` there, a `ClassCastException` will be thrown later.
 
 To prohibit the `copy` function from _writing_ to `from`, you can do the following:
 
