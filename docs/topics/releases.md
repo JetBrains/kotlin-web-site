@@ -49,6 +49,22 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.7.20</strong>
+            <p>Released: <strong>September 27, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+          <p>An incremental release with new language features, the support for several compiler plugins in the Kotlin K2 compiler, the new Kotlin/Native memory manager enabled by default, and the support for Gradle 7.1.</p>
+            <p>Learn more in:</p>
+            <ul>
+                <li><a href="whatsnew1720.md" target="_blank">What's new in Kotlin 1.7.20</a></li>
+                <li><a href="https://youtu.be/OG9npowJgE8" target="_blank">What's new in Kotlin YouTube video</a></li>
+                <li><a href="compatibility-guide-1720.md" target="_blank">Compatibility guide for Kotlin 1.7.20</a></li>
+            </ul>
+            <p>Learn more about <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20" target="_blank">Kotlin 1.7.20</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.7.10</strong>
             <p>Released: <strong>July 7, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.10" target="_blank">Release on GitHub</a></p>
