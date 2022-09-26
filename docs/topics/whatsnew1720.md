@@ -505,10 +505,10 @@ The Kotlin team is very grateful to Mads Ager for implementing this feature.
 
 Kotlin/JS has received some enhancements that improve the developer experience and boost performance:
 
-* Klib generation is faster both in incremental and clean builds.
-* Incremental compilation for development binaries [has been reworked](js-ir-compiler.md#incremental-compilation-for-development-binaries),
-  resulting in major improvements in clean build scenarios, faster incremental builds, and stability fixes.
-* We've improved `.d.ts` generation.
+* Klib generation is faster in both incremental and clean builds, thanks to efficiency improvements for the loading of dependencies.
+* [Incremental compilation for development binaries](js-ir-compiler.md#incremental-compilation-for-development-binaries)
+  has been reworked, resulting in major improvements in clean build scenarios, faster incremental builds, and stability fixes.
+* We've improved `.d.ts` generation for nested objects, sealed classes, and optional parameters in constructors.
 
 ## Gradle
 
