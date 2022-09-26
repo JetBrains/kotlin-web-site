@@ -4,13 +4,13 @@
 Get started with Spring Boot and Kotlin by completing this tutorial: it walks you through the process of creating a simple 
 application with Spring Boot and adding a database to store the information.  
 
-Going through these four steps you'll learn a lot of essential features of the Kotlin language: 
+Going through these four steps, you'll learn a lot of essential features of the Kotlin language: 
 
 ![First step](icon-1.svg){width=25}{type="joined"}  [Create a Spring Boot project](jvm-create-project-with-spring-boot.md)
 
 ![Second step](icon-2.svg){width=25}{type="joined"} [Add a data class to Spring Boot project](jvm-spring-boot-add-data-class.md)
 
-![Third step](icon-3.svg){width=25}{type="joined"}  [Add database support for Spring Boot project](jvm-spring-boot-add-db-support.md)
+![Third step](icon-3.svg){width=25}{type="joined"}  [Add database support for the Spring Boot project](jvm-spring-boot-add-db-support.md)
 
 ![Fourth step](icon-4.svg){width=25}{type="joined"} [Use Spring Data CrudRepository for database access](jvm-spring-boot-using-crudrepository.md)
 

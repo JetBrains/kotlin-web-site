@@ -2,21 +2,21 @@
 [//]: # (description: Create a Spring Boot application with Kotlin using IntelliJ IDEA.)
 
 <microformat>
-    <p>This is the first part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
-    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
+    <p>This is the first part of the <strong>Get started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
+    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for the Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
 </microformat>
 
 The first part of the tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
 
 ## Before you start
 
-Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/index.html).
 
 ## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
 
-> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html)
+> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
 >
 {type="note"}
 
@@ -55,7 +55,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
    ![Set up Spring Boot project](spring-boot-project-view.png){width=400}
 
-   The generated Gradle project corresponds to Maven's standard directory layout:
+   The generated Gradle project corresponds to the Maven's standard directory layout:
    * There are packages and classes under the `main/kotlin` folder that belong to the application.
    * The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
@@ -112,12 +112,12 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 1. In the `plugins` block, there are two Kotlin artifacts:
 
    * `kotlin("jvm")` – the plugin defines the version of Kotlin to be used in the project
-   * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the open modifier to Kotlin classes in order to make them compatible with Spring Framework features
+   * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the `open` modifier to Kotlin classes in order to make them compatible with Spring Framework features
 
 2. In the `dependencies` block, a few Kotlin-related modules listed:
 
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
-   * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
+   * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library.
    * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin standard library
 
 3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
@@ -148,15 +148,15 @@ fun main(args: Array<String>) {
    </def>
    <def title="@SpringBootApplication annotation">
       <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.using-the-springbootapplication-annotation"><code>@SpringBootApplication annotation</code></a> is a convenience annotation in a Spring Boot application.
-      It enables Spring Boot's <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a>, and be able to define extra configuration on their "application class".
+      It enables Spring Boot's <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration">auto-configuration</a>, <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html">component scan</a>, and be able to define an extra configuration on their "application class".
       </p>
    </def>
    <def title="Program entry point – main()">
       <p>The <a href="basic-syntax.md#program-entry-point"><code>main()</code></a> function is the entry point to the application.</p>
-      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes Spring's <code>runApplication(&amp;args)</code> function to start the application with Spring Framework.</p>
+      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The main function invokes the Spring's <code>runApplication(&amp;args)</code> function to start the application with the Spring Framework.</p>
    </def>
    <def title="Variable arguments – args: Array&lt;String&gt;">
-      <p>If you check the declaration of <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
+      <p>If you check the declaration of the <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
         This means that you can pass a variable number of String arguments to the function.
       </p>
    </def>
@@ -200,7 +200,7 @@ class MessageController {
    </def>
    <def title="Single-expression functions – index()">
       <p>Since the <code>index()</code> function contains only one statement you can declare it as a <a href="functions.md#single-expression-functions">single-expression function</a>.</p>
-      <p>This means the curly braces can be omitted and the body is specified after the equals <code>=</code> sign.</p>
+      <p>This means the curly braces can be omitted and the body is specified after the equals sign <code>=</code>.</p>
    </def>
    <def title="Type inference for function return types">
       <p>The <code>index()</code> function does not declare the return type explicitly. Instead, the compiler infers the return type by looking at the result of the statement on the right-hand side from the equals sign <code>=</code>.</p>
