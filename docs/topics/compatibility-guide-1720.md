@@ -70,7 +70,7 @@ perspective
 >
 > **Short summary**: Kotlin 1.7 introduced a feature called unrestricted builder inference, so that even the lambdas passed
 > to parameters not annotated with `@BuilderInference` could benefit from the builder inference. 
-> However, that can cause several problems if more than one such lambda occurred in a function invocation. 
+> However, that could cause several problems if more than one such lambda occurred in a function invocation. 
 > 
 > Kotlin 1.7.20 will report an error if more than one lambda function having 
 > the corresponding parameter not annotated with `@BuilderInference` requires using builder inference
