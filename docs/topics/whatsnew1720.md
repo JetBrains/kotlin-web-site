@@ -6,7 +6,7 @@
 
 _[Release date: %kotlinReleaseDate%](eap.md#build-details)_
 
-Here are highlights from Kotlin 1.7.20:
+The Kotlin 1.7.20 release is out! Here are some highlights from this release:
 
 * [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
@@ -15,7 +15,7 @@ Here are highlights from Kotlin 1.7.20:
 
 You can also find a short overview of the changes in this video:
 
-<video href="54WEfLKtCGk" title="What's new in Kotlin 1.7.20"/>
+<video href="OG9npowJgE8" title="What's new in Kotlin 1.7.20"/>
 
 ## Support for Kotlin K2 compiler plugins
 
@@ -215,7 +215,7 @@ Read more about data objects, and share your feedback on their implementation in
 
 ### New builder type inference restrictions
 
-Kotlin 1.7.20 places some major restrictions on the [use of builder type inference](https://kotlinlang.org/docs/using-builders-with-builder-inference.html)
+Kotlin 1.7.20 places some major restrictions on the [use of builder type inference](using-builders-with-builder-inference.md)
 that could affect your code. These restrictions apply to code containing builder lambda functions, where it's impossible
 to derive the parameter without analyzing the lambda itself. The parameter is used as an argument. Now, the compiler will
 always show an error for such code and ask you to specify the type explicitly.
@@ -318,7 +318,7 @@ IR in the kapt stub generating task, making it possible to use all the newest Ko
 
 * [Generic inline classes](#generic-inline-classes)
 * [More optimized cases of delegated properties](#more-optimized-cases-of-delegated-properties)
-* [Support for the JVM IR backend in the kapt stub generating task](#support for-the-jvm-ir-backend-in-the-kapt-stub-generating-task)
+* [Support for the JVM IR backend in the kapt stub generating task](#support-for-the-jvm-ir-backend-in-the-kapt-stub-generating-task)
 
 ### Generic inline classes
 
@@ -429,7 +429,7 @@ to [promote Kotlin Multiplatform Mobile to Beta](https://blog.jetbrains.com/kotl
 
 The new memory manager also supports the compiler cache that makes compilation times comparable to previous releases.
 For more on the benefits of the new memory manager, see our original [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/)
-for the preview version. You can find more technical details in the [documentation](https://kotlinlang.org/docs/native-memory-manager.html).
+for the preview version. You can find more technical details in the [documentation](native-memory-manager.md).
 
 #### Configuration and setup
 
@@ -713,7 +713,7 @@ Since the previous release, the Kotlin documentation has received some notable c
 ### New articles in the Kotlin Multiplatform journal
 
 * [Native and cross-platform app development: how to choose?](native-and-cross-platform.md) − check out our overview and advantages of cross-platform app development and the native approach.
-* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) − read about the key aspects to help you choose the right framework for your cross-platform project
+* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) − read about the key aspects to help you choose the right framework for your cross-platform project.
 
 ### New and updated tutorials
 
@@ -740,3 +740,10 @@ IntelliJ IDEA 2022.2.1 automatically suggests updating the Kotlin plugin to 1.7.
 {type="note"}
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.7.20).
+
+### Compatibility guide for Kotlin 1.7.20
+
+Although Kotlin 1.7.20 is an incremental release, there are still incompatible changes we had to make
+to limit spread of the issues introduced in Kotlin 1.7.0.
+
+Find the detailed list of such changes in the [Compatibility guide for Kotlin 1.7.20](compatibility-guide-1720.md).
