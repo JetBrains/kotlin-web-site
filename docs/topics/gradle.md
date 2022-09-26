@@ -41,9 +41,11 @@ When configuring your project, check the Kotlin Gradle plugin compatibility with
 | Gradle                | %minGradleVersion%        | %maxGradleVersion%              |   
 | Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
 
-For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require Gradle
-%minGradleVersion% for your project to compile. In turn, the maximum fully version that doesn't have deprecated Gradle
-methods and properties and supports all the current Gradle features is %maxGradleVersion%.
+For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the mimimum Gradle
+version of %minGradleVersion% for your project to compile.
+
+In turn, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
+methods and properties and supports all the current Gradle features.
 
 ## Targeting multiple platforms
 
