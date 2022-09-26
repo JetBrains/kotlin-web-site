@@ -8,25 +8,29 @@ _[Release date: %kotlinReleaseDate%](eap.md#build-details)_
 
 Here are highlights from Kotlin 1.7.20:
 
-* [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
+* [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
-* [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
+* [The new Kotlin/Native memory manager is now enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
-* [Kotlin Gradle plugin updates for Gradle 7.1 support](#support-for-gradle-7-1)
+* [Kotlin Gradle plugin now supports Gradle 7.1](#support-for-gradle-7-1)
+
+You can also find a short overview of the changes in this video:
+
+<video href="54WEfLKtCGk" title="What's new in Kotlin 1.7.20"/>
 
 ## Support for Kotlin K2 compiler plugins
 
 The Kotlin team continues to stabilize the K2 compiler.
-K2 is still in Alpha (as [announced in the Kotlin 1.7.0 release](whatsnew17.md#new-kotlin-k2-compiler-for-the-jvm-in-alpha)), but now it supports several compiler plugins.
-You can follow [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-52604) to get updates from the Kotlin team on the new compiler.
+K2 is still in **Alpha** (as [announced in the Kotlin 1.7.0 release](whatsnew17.md#new-kotlin-k2-compiler-for-the-jvm-in-alpha)),
+but it now supports several compiler plugins. You can follow [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-52604)
+to get updates from the Kotlin team on the new compiler.
 
-Starting with this Kotlin version, the K2 compiler supports the following plugins:
+Starting with this 1.7.20 release, the Kotlin K2 compiler supports the following plugins:
 
 * [`all-open`](all-open-plugin.md)
 * [`no-arg`](no-arg-plugin.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [Lombok](lombok.md)
-* Parcelize
 * AtomicFU
 * `jvm-abi-gen`
 
@@ -52,11 +56,17 @@ You can check out the performance boost on your JVM projects and compare it with
 ### Leave your feedback on the new K2 compiler
 
 We really appreciate your feedback in any form:
-* Provide your feedback directly to K2 developers in Kotlin Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw) and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel
-* Report any problems you faced with the new K2 compiler to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Performance%20Problem&c=Subsystems%20Frontend.%20IR)
-* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to allow JetBrains collecting anonymous data about K2 usage
+* Provide your feedback directly to K2 developers in Kotlin Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw) and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
+* Report any problems you faced with the new K2 compiler to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Performance%20Problem&c=Subsystems%20Frontend.%20IR).
+* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to allow JetBrains collecting anonymous data about K2 usage.
 
 ## Language
+
+Kotlin 1.7.20 introduces preview versions for new language features, as well as puts restrictions on builder type inference:
+
+* [Preview of the ..< operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
+* [New data object declarations](#improved-string-representations-for-singletons-and-sealed-class-hierarchies-with-data-objects)
+* [Builder type inference restrictions](#new-builder-type-inference-restrictions)
 
 ### Preview of the ..< operator for creating open-ended ranges
 
@@ -64,10 +74,11 @@ We really appreciate your feedback in any form:
 >
 {type="warning"}
 
-This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values.
-The new `..<` operator acts like the `until` function, and helps you define the open-ended range.
+This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values. The new `..<`
+operator acts like the `until` function and helps you define the open-ended range.
 
-Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the upper bound is not included.
+Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the
+upper bound is not included.
 
 Here is an example of using the `..<` operator in a `when` expression:
 
@@ -83,7 +94,8 @@ when (value) {
 
 #### Standard library API changes
 
-The following new types and operations will be introduced in the `kotlin.ranges` packages in the common Kotlin standard library:
+The following new types and operations will be introduced in the `kotlin.ranges` packages in the common Kotlin standard
+library:
 
 ##### New OpenEndRange<T> interface
 
@@ -103,9 +115,10 @@ interface OpenEndRange<T : Comparable<T>> {
 
 ##### Implementing OpenEndRange in the existing iterable ranges
 
-Currently, in a situation when a developer needs to get a range with excluded upper bound, they use `until` function producing a closed iterable range effectively with the same values.
-In order to make these ranges acceptable in the new API that takes `OpenEndRange<T>`, we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`, `ULongRange`.
-So they will be implementing both `ClosedRange<T>` and `OpenEndRange<T>` interfaces simultaneously.
+When developers need to get a range with an excluded upper bound, they currently use the `until` function to effectively
+produce a closed iterable range with the same values. To make these ranges acceptable in the new API that takes `OpenEndRange<T>`,
+we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`,
+and `ULongRange`. So they will simultaneously implement both the `ClosedRange<T>` and `OpenEndRange<T>` interfaces.
 
 ```kotlin
 class IntRange : IntProgression(...), ClosedRange<Int>, OpenEndRange<Int> {
@@ -118,15 +131,18 @@ class IntRange : IntProgression(...), ClosedRange<Int>, OpenEndRange<Int> {
 
 ##### rangeUntil operators for the standard types
 
-`rangeUntil` operators will be provided for the same types and their combinations that currently have `rangeTo` operator defined.
-For the purposes of prototype, we provide them as extension functions, but for consistency we plan to make them members later, before stabilizing the open-ended ranges API.
+The `rangeUntil` operators will be provided for the same types and combinations currently defined by the `rangeTo` operator.
+We provide them as extension functions for prototype purposes, but for consistency, we plan to make them members later
+before stabilizing the open-ended ranges API.
 
 #### How to enable the `..<` operator
 
-In order to use the `..<` operator or to implement that operator convention for your own types, you should enable the `-XXLanguage:+RangeUntilOperator`compiler option.
+To use the `..<` operator or to implement that operator convention for your own types, enable the `-language-version 1.8`
+compiler option.
 
-The new API elements introduced to support the open-ended ranges of the standard types require an opt-in, as usual for an experimental stdlib API: `@OptIn(ExperimentalStdlibApi::class)`.
-Alternatively, you could use a compiler option: `-opt-in=kotlin.ExperimentalStdlibApi`.
+The new API elements introduced to support the open-ended ranges of the standard types require an opt-in, as usual for
+an experimental stdlib API: `@OptIn(ExperimentalStdlibApi::class)`. Alternatively, you could use
+the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
 
 [Read more about the new operator in this KEEP document](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md).
 
@@ -136,7 +152,8 @@ Alternatively, you could use a compiler option: `-opt-in=kotlin.ExperimentalStdl
 >
 {type="note"}
 
-This release introduces a new type of `object` declaration for you to use: `data object`. Data objects behave conceptually identical to regular `object` declarations, but come with a clean `toString` representation out of the box:
+This release introduces a new type of `object` declaration for you to use: `data object`. [Data object](https://youtrack.jetbrains.com/issue/KT-4107)
+behaves conceptually identical to a regular `object` declaration but comes with a clean `toString` representation out of the box:
 
 ```kotlin
 package org.example
@@ -149,14 +166,16 @@ fun main() {
 }
 ```
 
-This makes `data object` declarations a particularly good fit for sealed class hierarchies, where you may be using them alongside `data class` declarations.
-In this snippet, declaring `EndOfFile` as a `data object` instead of a plain `object` means that it will get a pretty `toString` without the need to override it manually, maintaining symmetry with the accompanying `data class` definitions:
+This makes `data object` declarations perfect for sealed class hierarchies, where you may use them alongside `data class`
+declarations. In this snippet, declaring `EndOfFile` as a `data object` instead of a plain `object` means that it will
+get a pretty `toString` without the need to override it manually, maintaining symmetry with the accompanying `data class`
+definitions:
 
 ```kotlin
 sealed class ReadResult {
-    data class Number(val value: Int): ReadResult()
-    data class Text(val value: String): ReadResult()
-    data object EndOfFile: ReadResult()
+    data class Number(val value: Int) : ReadResult()
+    data class Text(val value: String) : ReadResult()
+    data object EndOfFile : ReadResult()
 }
 
 fun main() {
@@ -166,9 +185,10 @@ fun main() {
 }
 ```
 
-How to enable data objects
-To use data object declarations in your code, enable the `-language-version 1.8` compiler option.
-In a Gradle project, you can do so by adding the following to your `build.gradle.(kts)`:
+#### How to enable data objects
+
+To use data object declarations in your code, enable the `-language-version 1.8` compiler option. In a Gradle project,
+you can do so by adding the following to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -176,7 +196,7 @@ In a Gradle project, you can do so by adding the following to your `build.gradle
 ```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     // . . .
-    kotlinOptions.languageVersion = "1.9"
+    kotlinOptions.languageVersion = "1.8"
 }
 ```
 
@@ -186,22 +206,28 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 ```groovy
 compileKotlin {
     // . . .
-    kotlinOptions.languageVersion = '1.9'
+    kotlinOptions.languageVersion = '1.8'
 }
 ```
+</tab>
+</tabs>
 
 Read more about data objects, and share your feedback on their implementation in the [respective KEEP document](https://github.com/Kotlin/KEEP/pull/316).
 
 ### Builder type inference restrictions
 
-Kotlin 1.7.20 has some major restrictions on [usage of builder type inference](using-builders-with-builder-inference.md) that could affect your code.
-These restrictions apply to the code that contains builder lambda functions where it’s not possible to derive the parameter without analyzing the lambda itself: the parameter is used as an argument.
-Now, the compiler will always show an error for such code and ask you to specify the type explicitly.
+Kotlin 1.7.20 places some major restrictions on the [use of builder type inference](https://kotlinlang.org/docs/using-builders-with-builder-inference.html)
+that could affect your code. These restrictions apply to code containing builder lambda functions, where it's impossible
+to derive the parameter without analyzing the lambda itself. The parameter is used as an argument. Now, the compiler will
+always show an error for such code and ask you to specify the type explicitly.
 
-Consider the following cases:
+This is a breaking change, but our research shows that these cases are very rare, and the restrictions shouldn't affect
+your code. If they do, consider the following cases:
 
 * Builder inference with extension that hides members.
-  If your code contain extension function that will be during the builder inference, the compiler will show your an error:
+
+  If your code contains an extension function with the same name that will be used during the builder inference,
+  the compiler will show you an error:
 
     ```kotlin
     class Data {
@@ -237,7 +263,9 @@ Consider the following cases:
     ```
 
 * Builder inference with multiple lambdas and the type arguments are not specified explicitly.
-  If there are two or more lambda blocks in builder inference, and they affect the type. To prevent an error, the compiler requires to specify the type:
+
+  If there are two or more lambda blocks in builder inference, they affect the type. To prevent an error, the compiler
+  requires you to specify the type:
 
     ```kotlin
     fun <T: Any> buildList(
@@ -280,11 +308,18 @@ Consider the following cases:
     }
     ```
 
-Our research shows that these cases are very rare and shouldn't affect your code. If they do, [file an issue](https://kotl.in/issue) and explain your case.
+If you haven't found your case mentioned above, [file an issue](https://kotl.in/issue) to our team.
 
-[Read this YouTrack issue for more information about this builder inference update](https://youtrack.jetbrains.com/issue/KT-53797).
+See this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-53797) for more information about this builder inference update.
 
 ## Kotlin/JVM
+
+Kotlin 1.7.20 introduces generic inline classes, adds more bytecode optimizations for delegated properties, and supports
+IR in the kapt stub generating task, making it possible to use all the newest Kotlin features with kapt:
+
+* [Generic inline classes](#generic-inline-classes)
+* [More optimized cases of delegated properties](#more-optimized-cases-of-delegated-properties)
+* [Support for the JVM IR backend in the kapt stub generating task](#support for-the-jvm-ir-backend-in-the-kapt-stub-generating-task)
 
 ### Generic inline classes
 
@@ -294,8 +329,8 @@ Our research shows that these cases are very rare and shouldn't affect your code
 >
 {type="warning"}
 
-Kotlin 1.7.20-RC allows the underlying type of JVM inline classes to be a type parameter.
-The compiler maps it to `Any?` or, generally, to the upper bound of the type parameter.
+Kotlin 1.7.20 allows the underlying type of JVM inline classes to be a type parameter. The compiler maps it to `Any?` or,
+generally, to the upper bound of the type parameter.
 
 Consider the following example:
 
@@ -306,60 +341,140 @@ value class UserId<T>(val value: T)
 fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
 ```
 
-The function accepts the inline class as a parameter. The parameter is mapped to the upper bound and not to the type argument.
+The function accepts the inline class as a parameter. The parameter is mapped to the upper bound, not the type argument.
 
 To enable this feature, use the `-language-version 1.8` compiler option.
 
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-52994).
+
+### More optimized cases of delegated properties
+
+In Kotlin 1.6.0, we optimized the case of delegating to a property by omitting the `$delegate` field and generating
+immediate access to the referenced property. In 1.7.20, we've implemented this optimization for more cases.
+The `$delegate` field will now be omitted if a delegate is:
+
+* A named object:
+
+  ```kotlin
+  object NamedObject {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
+  }
+  
+  val s: String by NamedObject
+  ```
+
+* A final `val` property with a backing field and a default getter in the same module:
+
+  ```kotlin
+  val impl: ReadOnlyProperty<Any?, String> = ...
+  
+  class A {
+      val s: String by impl
+  }
+  ```
+  {validate="false"}
+  
+
+* A constant expression, an enum entry, `this`,  or `null`. Here's an example of `this`:
+
+  ```kotlin
+  class A {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
+   
+      val s by this
+  }
+  ```
+  {validate="false"}
+
+Learn more about [delegated properties](delegated-properties.md).
+
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-53768).
+
+### Support for the JVM IR backend in the kapt stub generating task
+
+> Support for the JVM IR backend in the kapt stub generating task is an [Experimental](components-stability.md) feature.
+> It may be changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
+>
+{type="warning"}
+
+Before 1.7.20, the kapt stub generating task used the old backend, and [repeatable annotations](annotations.md#repeatable-annotations)
+didn't work with [kapt](kapt.md). With Kotlin 1.7.20, we've added support for the [JVM IR backend](whatsnew15.md#stable-jvm-ir-backend)
+in the kapt stub generating task. This makes it possible to use all the newest Kotlin features with kapt, including
+repeatable annotations.
+
+To use the IR backend in kapt, add the following option to your `gradle.properties` file:
+
+```properties
+kapt.use.jvm.ir=true
+```
+
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-49682).
+
 ## Kotlin/Native
 
-### The new Kotlin/Native memory manager is enabled by default
+Kotlin 1.7.20 comes with the new Kotlin/Native memory manager enabled by default and gives you the option to customize
+the `Info.plist` file:
 
-Kotlin 1.7.20 comes with the new Kotlin/Native memory manager enabled by default.
-This release brings further stability and performance improvements, allowing us to promote the new memory manager to [Beta](components-stability.md#stability-levels-explained).
+* [The new default memory manager](#the-new-kotlinnative-memory-manager-enabled-by-default)
+* [Customizing the Info.plist file](#customizing-the-infoplist-file)
 
-The previous memory manager made writing concurrent and asynchronous code complicated, including issues with implementing the `kotlinx.coroutines` library.
-This blocked the adoption of Kotlin Multiplatform Mobile because concurrency limitations created problems with sharing Kotlin code between iOS and Android platforms.
-The new memory manager finally paves the way to [promote Kotlin Multiplatform Mobile to Beta](https://blog.jetbrains.com/kotlin/2022/05/kotlin-multiplatform-mobile-beta-roadmap-update/).
+### The new Kotlin/Native memory manager enabled by default
+
+This release brings further stability and performance improvements to the new memory manager, allowing us to promote the
+new memory manager to [Beta](components-stability.md).
+
+The previous memory manager complicated writing concurrent and asynchronous code, including issues with implementing the
+`kotlinx.coroutines` library. This blocked the adoption of Kotlin Multiplatform Mobile because concurrency limitations
+created problems with sharing Kotlin code between iOS and Android platforms. The new memory manager finally paves the way
+to [promote Kotlin Multiplatform Mobile to Beta](https://blog.jetbrains.com/kotlin/2022/05/kotlin-multiplatform-mobile-beta-roadmap-update/).
 
 The new memory manager also supports the compiler cache that makes compilation times comparable to previous releases.
-For more on the benefits of the new memory manager, see our original [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) for the preview version.
-You can find more technical details in the [migration instructions on GitHub](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md).
+For more on the benefits of the new memory manager, see our original [blog post](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/)
+for the preview version. You can find more technical details in the [documentation](https://kotlinlang.org/docs/native-memory-manager.html).
 
 #### Configuration and setup
 
 Starting with Kotlin 1.7.20, the new memory manager is the default. Not much additional setup is required.
 
-If you've already turned it on manually, you can remove the `kotlin.native.binary.memoryModel=experimental` option from your `gradle.properties` or `binaryOptions["memoryModel"] = "experimental"` from the `build.gradle(.kts)` file.
+If you've already turned it on manually, you can remove the `kotlin.native.binary.memoryModel=experimental` option from
+your `gradle.properties` or `binaryOptions["memoryModel"] = "experimental"` from the `build.gradle(.kts)` file.
 
-If it's necessary, you can switch back to the legacy memory manager with the `kotlin.native.binary.memoryModel=strict` option in your `gradle.properties`.
-However, compiler cache support is not available for the legacy memory manager anymore, so compilation times might become worse.
+If necessary, you can switch back to the legacy memory manager with the `kotlin.native.binary.memoryModel=strict` option
+in your `gradle.properties`. However, compiler cache support is no longer available for the legacy memory manager,
+so compilation times might worsen.
 
-##### Freezing
+#### Freezing
 
-In the new memory manager, freezing is deprecated. Don't use it unless you need your code to work with the legacy manager (where freezing is still required).
-This may be helpful for library authors that need to maintain support for the legacy memory manager or developers who want to have a fallback if they encounter issues with the new memory manager.
+In the new memory manager, freezing is deprecated. Don't use it unless you need your code to work with the legacy manager
+(where freezing is still required). This may be helpful for library authors that need to maintain support for the legacy
+memory manager or developers who want to have a fallback if they encounter issues with the new memory manager.
 
-In such cases, you can temporarily support code for both new and legacy memory managers. To ignore deprecation warnings, do one of the following:
+In such cases, you can temporarily support code for both new and legacy memory managers. To ignore deprecation warnings,
+do one of the following:
 
 * Annotate usages of the deprecated API with `@OptIn(FreezingIsDeprecated::class)`.
 * Apply `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all the Kotlin source sets in Gradle.
 * Pass the compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
 
-##### Calling Kotlin suspending functions from Swift/Objective-C
+#### Calling Kotlin suspending functions from Swift/Objective-C
 
-The new memory manager still has a restriction on calling Kotlin `suspend` functions from Swift and Objective-C from threads other than the main one, but you can lift it with a new Gradle option.
+The new memory manager still restricts calling Kotlin `suspend` functions from Swift and Objective-C from threads other
+than the main one, but you can lift it with a new Gradle option.
 
-This restriction was originally introduced in the legacy memory manager due to cases where the code dispatched a continuation to be resumed on the original thread. If this thread didn't have a supported event loop, the task would never run, and the coroutine would never be resumed.
+This restriction was originally introduced in the legacy memory manager due to cases where the code dispatched a continuation
+to be resumed on the original thread. If this thread didn't have a supported event loop, the task would never run,
+and the coroutine would never be resumed.
 
-In certain cases, this restriction is no longer required, but a check of all the necessary conditions can't be easily implemented.
-Because of this, we decided to keep it in the new memory manager, while introducing an option for you to disable it.
-For this, add the following option to your `gradle.properties`:
+In certain cases, this restriction is no longer required, but a check of all the necessary conditions can't be easily
+implemented. Because of this, we decided to keep it in the new memory manager while introducing an option for you to disable
+it. For this, add the following option to your `gradle.properties`:
 
 ```properties
 kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 ```
 
-> Do not add this option if you use the `native-mt` version of `kotlinx.coroutines` or other libraries that have the same "dispatch to the original thread" approach.
+> Do not add this option if you use the `native-mt` version of `kotlinx.coroutines` or other libraries that have the same
+> "dispatch to the original thread" approach.
 >
 {type="warning"}
 
@@ -371,30 +486,56 @@ This is a significant change to our ecosystem. We would appreciate your feedback
 
 Try the new memory manager on your projects and [share feedback in our issue tracker, YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
+### Customizing the Info.plist file
+
+When producing a framework, the Kotlin/Native compiler generates the information property list file, `Info.plist`.
+Previously, it was cumbersome to customize its contents. With Kotlin 1.7.20, you can directly set the following properties:
+
+| Property                     | Binary option              |
+|------------------------------|----------------------------|
+| `CFBundleIdentifier`         | `bundleId`                 |
+| `CFBundleShortVersionString` | `bundleShortVersionString` |
+| `CFBundleVersion`            | `bundleVersion`            |
+
+To do that, use the corresponding binary option. Pass the
+`Xbinary=$option=$value` compiler flag or set the `binaryOption(option, value)` Gradle DSL for the necessary framework.
+
+The Kotlin team is very grateful to Mads Ager for implementing this feature.
+
+## Kotlin/JS
+
+Kotlin/JS has received some enhancements that improve the developer experience and boost performance:
+
+* Klib generation is faster both in incremental and clean builds.
+* Incremental compilation for development binaries [has been reworked](js-ir-compiler.md#incremental-compilation-for-development-binaries),
+  resulting in major improvements in clean build scenarios, faster incremental builds, and stability fixes.
+* We've improved `.d.ts` generation.
+
 ## Gradle
 
-Kotlin Gradle plugin updates are focused on providing compatibility with the new Gradle features and latest Gradle versions.
-This release contains changes to support Gradle 7.1 therefore deprecating some old conventions:
+The updates for the Kotlin Gradle plugin are focused on compatibility with the new Gradle features and the latest Gradle
+versions.
 
-### Support for Gradle 7.1
+Kotlin 1.7.20 contains changes to support Gradle 7.1. Deprecated methods and properties were removed or replaced,
+reducing the number of deprecation warnings produced by the Kotlin Gradle plugin and unblocking future support for Gradle 8.0.
 
-Kotlin 1.7.20 fixes usages of methods and properties deprecated in Gradle 7.1, which reduces the number of deprecation warnings produced by the Kotlin Gradle plugin and unblocks the future support of Gradle 8.0.
+There are, however, some potentially breaking changes that may need your attention:
 
-Note potentially breaking changes that might need your attention:
-
-#### Target configuration
+### Target configuration
 
 * `org.jetbrains.kotlin.gradle.dsl.SingleTargetExtension` now has a generic parameter, `SingleTargetExtension<T : KotlinTarget>`.
+* The `kotlin.targets.fromPreset()` convention has been deprecated. Instead, you can still use `kotlin.targets { fromPreset() }`,
+  but we recommend using more [specialized ways to create targets](multiplatform-set-up-targets.md).
+* Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets { }` block. Please use the `findByName("targetName")`
+  method instead.
 
-* The `kotlin.targets.fromPreset()` convention is deprecated. Instead, you can still use the `kotlin.targets { fromPreset() }` approach, but we recommend using more [specialized ways to create targets](multiplatform-set-up-targets.md).
+  Note that such accessors are still available in the case of `kotlin.targets`, for example, `kotlin.targets.linuxX64`.
 
-* Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets { }` block. Please use the `findByName("targetName")` method instead.
-Note that such accessors are still available in the `kotlin.targets` case, for example, `kotlin.targets.linuxX64`.
+### Source directories configuration
 
-#### Source directories configuration
-
-The Kotlin Gradle plugin now adds Kotlin `SourceDirectorySet` as a `kotlin` extension to Java’s `SourceSet` group.
-That makes it possible to configure source directories in the `build.gradle.kts` file similarly to Java:
+The Kotlin Gradle plugin now adds Kotlin `SourceDirectorySet` as a `kotlin` extension to Java's `SourceSet` group.
+This makes it possible to configure source directories in the `build.gradle.kts` file similarly to how they are configured
+in [Java, Groovy, and Scala](https://docs.gradle.org/7.1/release-notes.html#easier-source-set-configuration-in-kotlin-dsl):
 
 ```kotlin
 sourceSets {
@@ -407,7 +548,7 @@ sourceSets {
 }
 ```
 
-So we deprecate the old Gradle convention that required to specify the source directories for Kotlin.
+You no longer need to use a deprecated Gradle convention and specify the source directories for Kotlin.
 
 Remember that you can also use the `kotlin` extension to access `KotlinSourceSet`:
 
@@ -421,10 +562,11 @@ kotlin {
 }
 ```
 
-#### New method for JVM toolchain configuration
+### New method for JVM toolchain configuration
 
-This release provides a new method `jvmToolchain()` to enable the [JVM toolchain feature](gradle.md#gradle-java-toolchains-support).
-If you don’t need some additional [configuration fields](https://docs.gradle.org/current/javadoc/org/gradle/jvm/toolchain/JavaToolchainSpec.html), such as `implementation` or `vendor`, you can use this method from Kotlin extension:
+This release provides the new `jvmToolchain()` method for enabling the [JVM toolchain feature](gradle.md#gradle-java-toolchains-support).
+If you don't need any additional [configuration fields](https://docs.gradle.org/current/javadoc/org/gradle/jvm/toolchain/JavaToolchainSpec.html),
+such as `implementation` or `vendor`, you can use this method from the Kotlin extension:
 
 ```kotlin
 kotlin {
@@ -432,8 +574,8 @@ kotlin {
 }
 ```
 
-It simplifies the Kotlin project setup without any additional configuration.
-Previously you need to specify the JDK version in the `jvmToolchain` block:
+This simplifies the Kotlin project setup process without any additional configuration.
+Before this release, you could specify the JDK version only in the following way:
 
 ```kotlin
 kotlin {
@@ -445,38 +587,156 @@ kotlin {
 
 ## Standard library
 
+Kotlin 1.7.20 offers new [extension functions](extensions.md#extension-functions) for the `java.nio.file.Path` class, which allows you to walk through a file tree:
+
+* `walk()` lazily traverses the file tree rooted at the specified path.
+* `fileVisitor()` makes it possible to create a `FileVisitor` separately. `FileVisitor` defines actions on directories
+  and files when traversing them.
+* `visitFileTree(fileVisitor: FileVisitor, ...)` consumes a ready `FileVisitor` and uses `java.nio.file.Files.walkFileTree()`
+  under the hood.
+* `visitFileTree(..., builderAction: FileVisitorBuilder.() -> Unit)` creates a `FileVisitor` with the `builderAction` and
+  calls the `visitFileTree(fileVisitor, ...)` function.
+* `FileVisitResult`, return type of `FileVisitor`, has the `CONTINUE` default value that continues the processing of the
+  file.
+
+> The new extension functions for `java.nio.file.Path` are [Experimental](components-stability.md).
+> They may be changed at any time. Opt-in is required (see details below), and you should use them only for evaluation purposes.
+>
+{type="warning"}
+
+Here are some things you can do with these new extension functions:
+
+* Explicitly create a `FileVisitor` and then use:
+
+  ```kotlin
+  val cleanVisitor = fileVisitor {
+      onPreVisitDirectory { directory, attributes ->
+          // Some logic on visiting directories
+          FileVisitResult.CONTINUE
+      }
+  
+      onVisitFile { file, attributes ->
+          // Some logic on visiting files
+          FileVisitResult.CONTINUE
+      }
+  }
+  
+  // Some logic may go here
+  
+  projectDirectory.visitFileTree(cleanVisitor)
+  ```
+
+* Create a `FileVisitor` with the `builderAction` and use it immediately:
+
+  ```kotlin
+  projectDirectory.visitFileTree {
+  // Definition of the poAction:
+      onPreVisitDirectory { directory, attributes ->
+          // Some logic on visiting directories
+          FileVisitResult.CONTINUE
+      }
+  
+      onVisitFile { file, attributes ->
+          // Some logic on visiting files
+          FileVisitResult.CONTINUE
+      }
+  }
+  ```
+
+* Traverse a file tree rooted at the specified path with the `walk()` function:
+
+  ```kotlin
+  @OptIn(kotlin.io.path.ExperimentalPathApi::class)
+  fun taverseFileTree() {
+      val cleanVisitor = fileVisitor {
+          onPreVisitDirectory { directory, _ ->
+              if (directory.name == "build") {
+                  directory.toFile().deleteRecursively()
+                  FileVisitResult.SKIP_SUBTREE
+              } else {
+                  FileVisitResult.CONTINUE
+              }
+          }
+  
+          onVisitFile { file, _ ->
+              if (file.extension == "class") {
+                  file.deleteExisting()
+              }
+              FileVisitResult.CONTINUE
+          }
+      }
+  
+      val rootDirectory = createTempDirectory("Project")
+  
+      rootDirectory.resolve("src").let { srcDirectory ->
+          srcDirectory.createDirectory()
+          srcDirectory.resolve("A.kt").createFile()
+          srcDirectory.resolve("A.class").createFile()
+      }
+  
+      rootDirectory.resolve("build").let { buildDirectory ->
+          buildDirectory.createDirectory()
+          buildDirectory.resolve("Project.jar").createFile()
+      }
+  
+   
+  //sampleStart
+      val directoryStructure = rootDirectory.walk(PathWalkOption.INCLUDE_DIRECTORIES)
+          .map { it.relativeTo(rootDirectory).toString() }
+          .toList().sorted()
+      assertPrints(directoryStructure, "[, build, build/Project.jar, src, src/A.class, src/A.kt]")
+  
+      rootDirectory.visitFileTree(cleanVisitor)
+  
+      val directoryStructureAfterClean = rootDirectory.walk(PathWalkOption.INCLUDE_DIRECTORIES)
+          .map { it.relativeTo(rootDirectory).toString() }
+          .toList().sorted()
+      assertPrints(directoryStructureAfterClean, "[, src, src/A.kt]")
+  //sampleEnd
+  }
+  ```
+
+As is usual for an experimental API, the new extensions require an opt-in: `@OptIn(kotlin.io.path.ExperimentalPathApi::class)`
+or `@kotlin.io.path.ExperimentalPathApi`. Alternatively, you can use a compiler option: `-opt-in=kotlin.io.path.ExperimentalPathApi`.
+
+We would appreciate your feedback on the [`walk()` function](https://youtrack.jetbrains.com/issue/KT-52909) and the
+[visit extension functions](https://youtrack.jetbrains.com/issue/KT-52910) in YouTrack.
+
 ## Documentation updates
 
 Since the previous release, the Kotlin documentation has received some notable changes:
 
 ### Revamped and improved pages
 
-* [Basic types overview](https://kotlinlang.org/docs/basic-types.html)
-* [IDEs for Kotlin development](https://kotlinlang.org/docs/kotlin-ide.html)
+* [Basic types overview](basic-types.md) − learn about the basic types used in Kotlin: numbers, Booleans, characters, strings, arrays, and unsigned integer numbers.
+* [IDEs for Kotlin development](kotlin-ide.md) − see the list of IDEs with official Kotlin support and tools that have community-supported plugins.
 
 ### New articles in the Kotlin Multiplatform journal
 
-* [Native and cross-platform app development: how to choose?](https://kotlinlang.org/docs/native-and-cross-platform.html)
-* [The Six Best Cross-Platform App Development Frameworks](https://kotlinlang.org/docs/cross-platform-frameworks.html)
+* [Native and cross-platform app development: how to choose?](native-and-cross-platform.md) − check out our overview and advantages of cross-platform app development and the native approach.
+* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) − read about the key aspects to help you choose the right framework for your cross-platform project
 
 ### New and updated tutorials
 
-* [Get started with Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html)
-* [Build a full-stack web app with Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform-full-stack-app.html)
-* [Build a web application with React and Kotlin/JS](https://kotlinlang.org/docs/js-react.html)
+* [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) − learn about cross-platform mobile development with Kotlin and create an app that works on both Android and iOS.
+* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md) − create an app using Kotlin throughout the whole stack, with a Kotlin/JVM server part and a Kotlin/JS web client.
+* [Build a web application with React and Kotlin/JS](js-react.md) − create a browser app exploring Kotlin's DSLs and features of a typical React program.
 
 ### Changes in release documentation
 
-We no longer provide a list of recommended kotlinx libraries for each release. 
-This list included only the versions recommended and tested with Kotlin itself, and it did not take into account that some libraries depend on each other and require a special kotlinx version, that may differ from the recommended for Kotlin.
+We no longer provide a list of recommended kotlinx libraries for each release. This list included only the versions
+recommended and tested with Kotlin itself. It didn't take into account that some libraries depend on each other and require
+a special kotlinx version, which may differ from the recommended Kotlin version.
 
-We are working on a solution to provide information how libraries interrelate and depend on each other, so it will be clear what kotlinx library version you should use when you upgrade the Kotlin version in your project.
+We're working on finding a way to provide information on how libraries interrelate and depend on each other so that it
+will be clear which kotlinx library version you should use when you upgrade the Kotlin version in your project.
 
-## How to update to the Kotlin 1.7.20-RC
+## Install Kotlin 1.7.20
 
 IntelliJ IDEA 2022.2.1 automatically suggests updating the Kotlin plugin to 1.7.20.
 
-> For Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.20 will be delivered with upcoming Android Studios updates.
+> For Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.20 will be delivered with
+> upcoming Android Studios updates.
 >
 {type="note"}
 
