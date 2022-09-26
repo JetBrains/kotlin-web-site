@@ -10,9 +10,8 @@ Here are highlights from Kotlin 1.7.20:
 
 * [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
-* [The new Kotlin/Native memory manager is now enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
+* [The new Kotlin/Native memory manager is now enabled by default](#the-new-kotlin-native-memory-manager-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
-* [Kotlin Gradle plugin now supports Gradle 7.1](#support-for-gradle-7-1)
 
 You can also find a short overview of the changes in this video:
 
@@ -214,7 +213,7 @@ compileKotlin {
 
 Read more about data objects, and share your feedback on their implementation in the [respective KEEP document](https://github.com/Kotlin/KEEP/pull/316).
 
-### Builder type inference restrictions
+### New builder type inference restrictions
 
 Kotlin 1.7.20 places some major restrictions on the [use of builder type inference](https://kotlinlang.org/docs/using-builders-with-builder-inference.html)
 that could affect your code. These restrictions apply to code containing builder lambda functions, where it's impossible
@@ -362,6 +361,7 @@ The `$delegate` field will now be omitted if a delegate is:
   
   val s: String by NamedObject
   ```
+  {validate="false"}
 
 * A final `val` property with a backing field and a default getter in the same module:
 
@@ -373,7 +373,6 @@ The `$delegate` field will now be omitted if a delegate is:
   }
   ```
   {validate="false"}
-  
 
 * A constant expression, an enum entry, `this`,  or `null`. Here's an example of `this`:
 
@@ -415,8 +414,8 @@ We would appreciate your feedback on this feature in [YouTrack](https://youtrack
 Kotlin 1.7.20 comes with the new Kotlin/Native memory manager enabled by default and gives you the option to customize
 the `Info.plist` file:
 
-* [The new default memory manager](#the-new-kotlinnative-memory-manager-enabled-by-default)
-* [Customizing the Info.plist file](#customizing-the-infoplist-file)
+* [The new default memory manager](#the-new-kotlin-native-memory-manager-enabled-by-default)
+* [Customizing the Info.plist file](#customizing-the-info-plist-file)
 
 ### The new Kotlin/Native memory manager enabled by default
 
