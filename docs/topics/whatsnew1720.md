@@ -151,7 +151,7 @@ the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
 
 > Data objects are [Experimental](components-stability.md#stability-levels-explained), and have limited support in the IDE at the moment.
 >
-{type="note"}
+{type="warning"}
 
 This release introduces a new type of `object` declaration for you to use: `data object`. [Data object](https://youtrack.jetbrains.com/issue/KT-4107)
 behaves conceptually identical to a regular `object` declaration but comes with a clean `toString` representation out of the box.
@@ -354,8 +354,8 @@ We would appreciate your feedback on this feature in [YouTrack](https://youtrack
 
 ### More optimized cases of delegated properties
 
-In Kotlin 1.6.0, we optimized the case of delegating to a property by omitting the `$delegate` field and generating
-immediate access to the referenced property. In 1.7.20, we've implemented this optimization for more cases.
+In Kotlin 1.6.0, we optimized the case of delegating to a property by omitting the `$delegate` field and [generating
+immediate access to the referenced property](whatsnew16.md#optimize-delegated-properties-which-call-get-set-on-the-given-kproperty-instance). In 1.7.20, we've implemented this optimization for more cases.
 The `$delegate` field will now be omitted if a delegate is:
 
 * A named object:
@@ -393,7 +393,7 @@ The `$delegate` field will now be omitted if a delegate is:
 
 Learn more about [delegated properties](delegated-properties.md).
 
-We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-53768).
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-23397).
 
 ### Support for the JVM IR backend in kapt stub generating task
 
@@ -635,7 +635,7 @@ Here are some things you can do with these new extension functions:
 
   ```kotlin
   projectDirectory.visitFileTree {
-  // Definition of the poAction:
+  // Definition of the builderAction:
       onPreVisitDirectory { directory, attributes ->
           // Some logic on visiting directories
           FileVisitResult.CONTINUE
@@ -685,7 +685,7 @@ Here are some things you can do with these new extension functions:
       }
   
    
-  //sampleStart
+  // Use walk function:
       val directoryStructure = rootDirectory.walk(PathWalkOption.INCLUDE_DIRECTORIES)
           .map { it.relativeTo(rootDirectory).toString() }
           .toList().sorted()
