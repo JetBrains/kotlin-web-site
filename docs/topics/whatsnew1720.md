@@ -369,7 +369,7 @@ The `$delegate` field will now be omitted if a delegate is:
   ```
   {validate="false"}
 
-* A final `val` property with a backing field and a default getter in the same module:
+* A final `val` property with a [backing field](properties.md#backing-fields) and a default getter in the same module:
 
   ```kotlin
   val impl: ReadOnlyProperty<Any?, String> = ...
@@ -738,7 +738,7 @@ will be clear which kotlinx library version you should use when you upgrade the 
 
 ## Install Kotlin 1.7.20
 
-IntelliJ IDEA 2022.2.1 automatically suggests updating the Kotlin plugin to 1.7.20.
+[IntelliJ IDEA 2022.2.1](https://www.jetbrains.com/idea/download/) automatically suggests updating the Kotlin plugin to 1.7.20.
 
 > For Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.20 will be delivered with
 > upcoming Android Studios updates.
