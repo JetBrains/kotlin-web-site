@@ -21,7 +21,7 @@ sudo gem install cocoapods
 ```
 
 <procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
-    <p>Additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
+    <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
     <p>
         <code style="block" lang="Ruby">
             sudo gem install cocoapods-generate
@@ -37,6 +37,11 @@ sudo gem install cocoapods
 If you encounter problems during the installation, check the [Possible issues and solutions](#possible-issues-and-solutions) section.
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
+
+If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](multiplatform-mobile-create-first-app.md)
+and choose **CocoaPods Dependency Manager** as the iOS framework distribution option. The plugin will automatically generate the project for you.
+
+If you want to configure your project manually:
 
 1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
     
