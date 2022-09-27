@@ -1,5 +1,10 @@
 [//]: # (title: Concurrency and coroutines)
 
+> This page describes the features of the legacy memory manager. Check out [Kotlin/Native memory management](native-memory-manager.md)
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
+>
+{type="note"}
+
 When working with mobile platforms, you may need to write multithreaded code that runs in parallel. For this, 
 you can use the [standard](#coroutines) `kotlinx.coroutines` library or its [multithreaded version](#multithreaded-coroutines) 
 and [alternative solutions](#alternatives-to-kotlinx-coroutines).
