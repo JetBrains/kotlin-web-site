@@ -33,7 +33,7 @@ sourceSets {
     val commonMain by getting {
         dependencies {
             // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
+           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -64,7 +64,7 @@ the `plugins` block at the very beginning of the `build.gradle` file in the shar
 ```kotlin
 plugins {
     // 
-    kotlin("plugin.serialization") version "1.6.21"
+    kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
 
@@ -81,7 +81,7 @@ dependency (`ktor-client-core`) in the common source set, you also need to:
   (`ktor-client-android`, `ktor-client-darwin`).
 
 ```kotlin
-val ktorVersion = "2.0.2"
+val ktorVersion = "%ktorVersion%"
 
 sourceSets {
     val commonMain by getting {
@@ -178,7 +178,7 @@ data class RocketLaunch (
         suspend fun greeting(): String {
             val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
-            return "Guess what it is! > ${Platform().platform.reversed()}!" +
+            return "Guess what it is! > ${platform.name.reversed()}!" +
                 "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎅🏼 " +
                 "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
@@ -194,7 +194,7 @@ data class RocketLaunch (
 To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
-Update your `shared/src/androidMain/AndroidManifest.xml` file as follows:
+Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -221,45 +221,44 @@ straightforward:
     ```kotlin
     dependencies {
         // ..
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:%coroutinesVersion%")
     }
     ```
 
-2. In `androidApp/src/main`, update the `MainActivity` class replacing previous implementation:
+2. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
     ```kotlin
-    import kotlinx.coroutines.MainScope
-    import kotlinx.coroutines.cancel
+    import androidx.compose.runtime.*
     import kotlinx.coroutines.launch
     
-    class MainActivity : AppCompatActivity() {
-        private val scope = MainScope()
-    
-        override fun onDestroy() {
-            super.onDestroy()
-            scope.cancel()
-        }
-
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-    
-            val tv: TextView = findViewById(R.id.text_view)
-            tv.text = "Loading..."
-    
-            scope.launch {
-                kotlin.runCatching {
-                    Greeting().greeting()
-                }.onSuccess {
-                    tv.text = it
-                }.onFailure {
-                    tv.text = it.localizedMessage
+    class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApplicationTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    val scope = rememberCoroutineScope()
+                    var text by remember { mutableStateOf("Loading") }
+                    LaunchedEffect(true) {
+                        scope.launch {
+                            text = try {
+                                Greeting().greeting()
+                            } catch (e: Exception) {
+                                e.localizedMessage ?: "error"
+                            }
+                        }
+                    }
+                    Greeting(text)
+                    }
                 }
             }
         }
     }
     ```
-
+   
    The `greeting()` function is now called inside the coroutine launched in the main `CoroutineScope`.
 
 ### iOS app

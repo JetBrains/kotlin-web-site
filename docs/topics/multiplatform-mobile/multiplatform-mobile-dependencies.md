@@ -45,7 +45,7 @@ multiplatform support, is the most convenient way to work with dates in your sha
        sourceSets {
            val commonMain by getting {
                dependencies {
-                   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3")
+                   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                }
            } 
        }
@@ -59,7 +59,7 @@ the number of days from today until the new year using the `date-time` date arit
    import kotlinx.datetime.*
    
    fun daysUntilNewYear(): Int {
-       val today = Clock.System.todayAt(TimeZone.currentSystemDefault())
+       val today = Clock.System.todayIn(TimeZone.currentSystemDefault())
        val closestNewYear = LocalDate(today.year + 1, 1, 1)
        return today.daysUntil(closestNewYear)
    }
@@ -72,7 +72,7 @@ the number of days from today until the new year using the `date-time` date arit
         private val platform: Platform = getPlatform()
          
         fun greeting(): String {
-            return "Guess what it is! > ${Platform().platform.reversed()}!" +
+            return "Guess what it is! > ${platform.name.reversed()}!" +
             "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎅🏼 "
         }
     }
