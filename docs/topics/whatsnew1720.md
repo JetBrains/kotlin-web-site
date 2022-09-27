@@ -20,7 +20,7 @@ You can also find a short overview of the changes in this video:
 ## Support for Kotlin K2 compiler plugins
 
 The Kotlin team continues to stabilize the K2 compiler.
-K2 is still in **Alpha** (as [announced in the Kotlin 1.7.0 release](whatsnew17.md#new-kotlin-k2-compiler-for-the-jvm-in-alpha)),
+K2 is still in **Alpha** (as announced in the [Kotlin 1.7.0 release](whatsnew17.md#new-kotlin-k2-compiler-for-the-jvm-in-alpha)),
 but it now supports several compiler plugins. You can follow [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-52604)
 to get updates from the Kotlin team on the new compiler.
 
@@ -75,6 +75,8 @@ Kotlin 1.7.20 introduces preview versions for new language features, as well as 
 
 This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values. The new `..<`
 operator acts like the `until` function and helps you define the open-ended range.
+
+<video href="v0AHdAIBnbs" title="New operator for open-ended ranges"/>
 
 Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the
 upper bound is not included.
@@ -152,7 +154,9 @@ the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
 {type="note"}
 
 This release introduces a new type of `object` declaration for you to use: `data object`. [Data object](https://youtrack.jetbrains.com/issue/KT-4107)
-behaves conceptually identical to a regular `object` declaration but comes with a clean `toString` representation out of the box:
+behaves conceptually identical to a regular `object` declaration but comes with a clean `toString` representation out of the box.
+
+<video href="ovAqcwFhEGc" title="Data objects in Kotlin 1.7.20"/>
 
 ```kotlin
 package org.example
@@ -318,7 +322,7 @@ IR in the kapt stub generating task, making it possible to use all the newest Ko
 
 * [Generic inline classes](#generic-inline-classes)
 * [More optimized cases of delegated properties](#more-optimized-cases-of-delegated-properties)
-* [Support for the JVM IR backend in the kapt stub generating task](#support-for-the-jvm-ir-backend-in-the-kapt-stub-generating-task)
+* [Support for the JVM IR backend in kapt stub generating task](#support-for-the-jvm-ir-backend-in-kapt-stub-generating-task)
 
 ### Generic inline classes
 
@@ -330,6 +334,8 @@ IR in the kapt stub generating task, making it possible to use all the newest Ko
 
 Kotlin 1.7.20 allows the underlying type of JVM inline classes to be a type parameter. The compiler maps it to `Any?` or,
 generally, to the upper bound of the type parameter.
+
+<video href="0JRPA0tt9og" title="Generic inline classes in Kotlin 1.7.20"/>
 
 Consider the following example:
 
@@ -389,7 +395,7 @@ Learn more about [delegated properties](delegated-properties.md).
 
 We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-53768).
 
-### Support for the JVM IR backend in the kapt stub generating task
+### Support for the JVM IR backend in kapt stub generating task
 
 > Support for the JVM IR backend in the kapt stub generating task is an [Experimental](components-stability.md) feature.
 > It may be changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
