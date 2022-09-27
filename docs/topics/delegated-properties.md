@@ -313,7 +313,13 @@ var readWrite: Int by resourceDelegate()
 
 ## Translation rules for delegated properties
 
-Under the hood, the Kotlin compiler generates an auxiliary property for every delegated property and then delegates to it.
+Under the hood, the Kotlin compiler generates auxiliary properties for some kinds of delegated properties and then delegates to them. 
+
+> For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
+> Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
+>
+{type="note"}
+
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:
 
@@ -333,6 +339,48 @@ class C {
 
 The Kotlin compiler provides all the necessary information about `prop` in the arguments: the first argument `this`
 refers to an instance of the outer class `C`, and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
+
+### Optimized cases for delegated properties
+
+The `$delegate` field will be omitted if a delegate is:
+* A referenced property:
+
+  ```kotlin
+  class C<Type> {
+      private var impl: Type = ...
+      var prop: Type by ::impl
+  }
+  ```
+
+* A named object:
+
+  ```kotlin
+  object NamedObject {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
+  }
+
+  val s: String by NamedObject
+  ```
+
+* A final `val` property with a backing field and a default getter in the same module:
+
+  ```kotlin
+  val impl: ReadOnlyProperty<Any?, String> = ...
+
+  class A {
+      val s: String by impl
+  }
+  ```
+
+* A constant expression, enum entry, `this`, `null`. The example of `this`:
+
+  ```kotlin
+  class A {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
+ 
+      val s by this
+  }
+  ```
 
 ### Translation rules when delegating to another property
 
