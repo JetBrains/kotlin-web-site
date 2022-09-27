@@ -967,7 +967,7 @@ addressed later.
 If you need a dependency only for a specific platform, you can still use platform-specific variants of standard and kotlinx 
 libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines-core-jvm`. 
 
-[Learn more about configuring dependencies](gradle.md#configuring-dependencies).
+[Learn more about configuring dependencies](gradle.md#configure-dependencies).
 
 ## Gradle project improvements
 
