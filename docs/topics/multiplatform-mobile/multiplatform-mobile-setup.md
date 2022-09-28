@@ -32,7 +32,7 @@ We recommend that you install the latest stable versions for compatibility and b
           <p>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</p>
             <note>
               <p>
-                We generally recommend using the latest stable versions for all tools. However, sometimes Kotlin/Native doesn’t work with the newest Xcode. If you encounter a compatibility issue like this, downgrade Xcode.
+                We generally recommend using the latest stable versions for all tools. However, Kotlin/Native sometimes doesn't support the newest Xcode right away. If that's your case, <a href="https://developer.apple.com/download/all/?q=Xcode">install an earlier version of Xcode</a>.
               </p>
             </note>   
       </td>
