@@ -24,27 +24,28 @@ Note that such accessors are still available in the `kotlin.targets` case, for e
    </tr>
   <tr>
     <td>
-    <code style="block"
-          lang="Kotlin">
-        kotlin {
-            targets {
-                configure(['windows', 'linux')]) {
+        <code style="block"
+              lang="Kotlin">
+            kotlin {
+                targets {
+                    configure(['windows', 'linux')]) {
+                    }
                 }
             }
-        }
-    </code>
-</td>
-<td>
-    <code style="block"
-          lang="Kotlin">
-        kotlin {
-            targets {
-                configure([findByName('windows'), findByName('linux')]) {
+        </code>
+    </td>
+    <td>
+        <code style="block"
+              lang="Kotlin">
+            kotlin {
+                targets {
+                    configure([findByName('windows'), findByName('linux')]) {
+                    }
                 }
             }
-        }
-    </code>
-</td>
+        </code>
+    </td>
+  </tr>
 </table>
 
 **When do the changes take effect?**
