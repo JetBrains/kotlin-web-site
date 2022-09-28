@@ -123,6 +123,7 @@
             <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
             <toc-element id="multiplatform-mobile-ktor-sqldelight.md"/>
+            <toc-element id="multiplatform-mobile-compatibility-guide.md" toc-title="Compatibility guide"/>
         </toc-element>
         <toc-element toc-title="Kotlin Multiplatform for other platforms">
             <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
