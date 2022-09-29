@@ -185,5 +185,5 @@ Replace `<PATH_TO_CONFIG_FILE>` with a path to your `lombok.config` file:
 # The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
 # Options can be repeated.
 
--P plugin:org.jetbrains.kotlin.lombok:config:=<PATH_TO_CONFIG_FILE>
+-P plugin:org.jetbrains.kotlin.lombok:config=<PATH_TO_CONFIG_FILE>
 ```
