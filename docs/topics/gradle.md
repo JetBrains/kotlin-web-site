@@ -1,6 +1,6 @@
 [//]: # (title: Gradle)
 
-Gradle is a build system that helps to automate and manage your building process. It downloads specified dependencies,
+Gradle is a build system that helps automate and manage your building process. It downloads specified dependencies,
 packages your code, and prepares it for compilation.
 
 To build a Kotlin project with Gradle, you'll need to add the [Kotlin Gradle plugin](#apply-the-plugin)
@@ -41,7 +41,7 @@ When configuring your project, check the Kotlin Gradle plugin compatibility with
 | Gradle                | %minGradleVersion%        | %maxGradleVersion%              |   
 | Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
 
-For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the mimimum Gradle
+For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
 
 In turn, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle

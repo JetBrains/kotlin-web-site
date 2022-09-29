@@ -1,7 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.7.20)
 
 <microformat>
-   <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA <strong>2022.2.1</strong> and later.</p>
+   <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA 213, 221, and 222.</p>
 </microformat>
 
 _[Release date: %kotlinReleaseDate%](eap.md#build-details)_
@@ -738,10 +738,10 @@ will be clear which kotlinx library version you should use when you upgrade the 
 
 ## Install Kotlin 1.7.20
 
-[IntelliJ IDEA 2022.2.1](https://www.jetbrains.com/idea/download/) automatically suggests updating the Kotlin plugin to 1.7.20.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 213, 221, and 222 automatically suggest updating the Kotlin plugin to 1.7.20.
 
-> For Android Studio Dolphin (213) or Android Studio Electric Eel (221), the Kotlin plugin 1.7.20 will be delivered with
-> upcoming Android Studios updates.
+> For Android Studio Dolphin (213), Electric Eel (221), and Flamingo (222), the Kotlin plugin 1.7.20 will be delivered
+> with upcoming Android Studios updates.
 >
 {type="note"}
 
