@@ -95,13 +95,17 @@ Learn how to [configure and connect a hardware device and run your application o
 
 ### Run your application on iOS
 
-* In the list of run configurations, select **iosApp** and then click **Run**.  
+1. Launch Xcode in a separate window. The first time you may also need to accept its license terms and allow it to perform
+   some necessary initial tasks.
+2. In the list of run configurations, select **iosApp** and then click **Run**.
+   
+   If you don't have **iosApp** in the configuration list, add a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
     
     ![Run multiplatform app on iOS](run-ios.png){width=450}
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
-#### Run on a different iPhone simulated device {initial-collapse-state="collapsed"}
+#### Run on a new iOS simulated device {initial-collapse-state="collapsed"}
 
 If you want to run your application on another simulated device, you can add a new run configuration.
 
@@ -121,10 +125,10 @@ If you want to run your application on another simulated device, you can add a n
     
 5. Click **Run** to run your application on the new simulated device.
     
-#### Run on a real iPhone device {initial-collapse-state="collapsed"}
+#### Run on a real iOS device {initial-collapse-state="collapsed"}
 
 1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
-2. [Create a run configuration](#run-on-a-different-iphone-simulated-device) by selecting iPhone in the **Execution target** list.
+2. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
 3. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
