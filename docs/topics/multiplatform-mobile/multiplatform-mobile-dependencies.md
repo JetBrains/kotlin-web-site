@@ -52,7 +52,11 @@ multiplatform support, is the most convenient way to work with dates in your sha
    }
    ```
 
-3. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
+3. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+
+   ![Synchronize the Gradle files](gradle-sync.png)
+
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
 the number of days from today until the new year using the `date-time` date arithmetic:
    
    ```kotlin
@@ -65,7 +69,7 @@ the number of days from today until the new year using the `date-time` date arit
    }
    ```
 
-4. In `Greeting.kt`, update the `greeting()` function to see the result:
+5. In `Greeting.kt`, update the `greeting()` function to see the result:
     
     ```kotlin
     class Greeting {
@@ -78,7 +82,7 @@ the number of days from today until the new year using the `date-time` date arit
     }
     ```
 
-5. Run the updated application on Android and iOS and see the results:
+6. Run the updated application on Android and iOS and see the results:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 
