@@ -2,6 +2,12 @@
     position: relative;
 }
 
+@media (min-width: 767px) {
+    .add {
+        display: none;
+    }
+}
+
 .add {
     position: absolute;
     z-index: 910;
