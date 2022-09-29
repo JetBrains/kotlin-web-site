@@ -186,6 +186,10 @@ import cocoapods.CocoaLumberjack.*
 
 ## From a zip, tar, or jar archive
 
+> This feature is deprecated in Kotlin 1.7.20 and will be removed in one of the future releases.
+>
+{type="warning"}
+
 1. Specify the name of a Pod library in the `pod()` function.
 
    In the configuration block, specify the path to the archive: use the `url()` function with an arbitrary HTTP address
