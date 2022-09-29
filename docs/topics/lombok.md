@@ -169,3 +169,21 @@ The Lombok compiler plugin works correctly with [kapt](kapt.md) if annotation pr
 Look through the test project examples of kapt and the Lombok compiler plugin in use:
 * Using [Gradle](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/lombokProject/yeskapt).
 * Using [Maven](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/yeskapt)
+
+## Command-line compiler
+
+Lombok compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
+by providing the path to its JAR file using the `Xplugin` kotlinc option:
+
+```bash
+-Xplugin=$KOTLIN_HOME/lib/lombok-compiler-plugin.jar
+```
+
+Replace `<PATH_TO_CONFIG_FILE>` with a path to your `lombok.config` file:
+
+```bash
+# The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
+# Options can be repeated.
+
+-P plugin:org.jetbrains.kotlin.lombok:config:=<PATH_TO_CONFIG_FILE>
+```
