@@ -176,11 +176,12 @@ data class RocketLaunch (
         // ...
         @Throws(Exception::class)
         suspend fun greeting(): String {
-            val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
+            val rockets: List<RocketLaunch> =
+                httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             return "Guess what it is! > ${platform.name.reversed()}!" +
-                "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎅🏼 " +
-                "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
+                    "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
     ```
@@ -227,39 +228,39 @@ straightforward:
 
 2. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-    ```kotlin
-    import androidx.compose.runtime.*
-    import kotlinx.coroutines.launch
-    
-    class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            MyApplicationTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    val scope = rememberCoroutineScope()
-                    var text by remember { mutableStateOf("Loading") }
-                    LaunchedEffect(true) {
-                        scope.launch {
-                            text = try {
-                                Greeting().greeting()
-                            } catch (e: Exception) {
-                                e.localizedMessage ?: "error"
-                            }
-                        }
-                    }
-                    Greeting(text)
-                    }
-                }
-            }
-        }
-    }
-    ```
+   ```kotlin
+   import androidx.compose.runtime.*
+   import kotlinx.coroutines.launch
    
-   The `greeting()` function is now called inside the coroutine launched in the main `CoroutineScope`.
+   class MainActivity : ComponentActivity() {
+       override fun onCreate(savedInstanceState: Bundle?) {
+           super.onCreate(savedInstanceState)
+           setContent {
+               MyApplicationTheme {
+                   Surface(
+                       modifier = Modifier.fillMaxSize(),
+                       color = MaterialTheme.colors.background
+                   ) {
+                       val scope = rememberCoroutineScope()
+                       var text by remember { mutableStateOf("Loading") }
+                       LaunchedEffect(true) {
+                           scope.launch {
+                               text = try {
+                                   Greeting().greeting()
+                               } catch (e: Exception) {
+                                   e.localizedMessage ?: "error"
+                               }
+                           }
+                       }
+                       Greeting(text)
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   The `greeting()` function is now called in a coroutine inside `LaunchedEffect` to avoid recalling it on each recomposition.
 
 ### iOS app
 
