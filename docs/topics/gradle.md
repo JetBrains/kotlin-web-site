@@ -869,10 +869,10 @@ To configure a single task, use its name. Examples:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 // ...
 
-val compileKotlin: KotlinCompile by tasks
+val compileKotlin: KotlinCompile by dsl
 
 compileKotlin.kotlinOptions.suppressWarnings = true
 ```
@@ -907,7 +907,7 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile>().configureEach {
     kotlinOptions { /*...*/ }
 }
 ```
@@ -916,7 +916,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach {
     kotlinOptions { /*...*/ }
 }
 ```
@@ -933,6 +933,11 @@ Here is a complete list of options for Gradle tasks:
 | `suppressWarnings` | Don't generate warnings                                                                                                                             |  | false |
 | `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)         |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage) |  | [] |
+
+> We are  going to remove the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL, 
+> please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
+> 
+> {type="warning"}
 
 ### Attributes common to JVM and JS
 
@@ -969,23 +974,23 @@ Here is a complete list of options for Gradle tasks:
 #### Example of additional arguments usage
 
 Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single 
-argument to this attribute or a list of arguments divided by a comma:
+argument to this attribute or a list of arguments:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 // ...
 
-val compileKotlin: KotlinCompile by tasks
+val compileKotlin: KotlinCompile by dsl
 
 // Single experimental argument
 compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
 // Single additional argument, can be a key-value pair
 compileKotlin.kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
 // List of arguments
-compileKotlin.kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+compileKotlin.kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
 ```
 
 </tab>
@@ -998,7 +1003,7 @@ compileKotlin {
   // Single additional argument, can be a key-value pair
   kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
   // List of arguments
-  kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+  kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
 }
 
 //or
@@ -1007,7 +1012,7 @@ compileKotlin {
   kotlinOptions {
     freeCompilerArgs += "-Xexport-kdoc"
     kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-    freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+    freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
   }
 }
 ```
@@ -1188,7 +1193,7 @@ Use the task property `compilerExecutionStrategy` in your buildscripts:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
@@ -1202,7 +1207,7 @@ tasks.withType<KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
