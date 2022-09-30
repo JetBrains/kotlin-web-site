@@ -209,7 +209,7 @@ fun main() {
 sealed class ReadResult {
     data class Number(val value: Int): ReadResult()
     data class Text(val value: String): ReadResult()
-    data object EndOfFile: ReadResult()
+    object EndOfFile: ReadResult()
 }
 
 fun main() {
