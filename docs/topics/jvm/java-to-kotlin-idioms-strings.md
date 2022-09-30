@@ -85,7 +85,7 @@ String invertedOddNumbers = numbers
         .filter(it -> it % 2 != 0)
         .map(it -> -it)
         .map(Object::toString)
-        .collect(Collectors.joining(", "));
+        .collect(Collectors.joining("; "));
 System.out.println(invertedOddNumbers);
 ```
 {id="create-string-from-collection-java"}
@@ -100,12 +100,16 @@ fun main() {
     val numbers = listOf(1, 2, 3, 4, 5, 6)
     val invertedOddNumbers = numbers
         .filter { it % 2 != 0 }
-        .joinToString{ "${-it}" }
+        .joinToString(separator = ";") {"${-it}"}
     println(invertedOddNumbers)
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"  id="create-string-from-collection-kotlin"}
+
+> In Java, if you want spaces between your delimiters and following items, you need to add a space to the delimiter explicitly.
+>
+{type="note"}
 
 Learn more about [joinToString()](collection-transformations.md#string-representation) usage.
 
@@ -149,16 +153,14 @@ fun getName(): String =
 
 ## Replace characters at the beginning and end of a string
 
-In Java, you can use 
-the [replaceFirst()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceFirst(java.lang.String,java.lang.String)) 
-and the [replaceAll()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)) 
-functions.
-The `replaceAll()` function in this case accepts the regular expression `##$`, which defines a string ending with `##`:
+In Java, you can use the [replaceAll()](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#replaceAll(java.lang.String,java.lang.String)) 
+function.
+The `replaceAll()` function in this case accepts regular expressions `^##` and `##$`, which define strings starting and ending with `##` respectively:
 
 ```java
 // Java
 String input = "##place##holder##";
-String result = input.replaceFirst("##", "").replaceAll("##$", "");
+String result = input.replaceAll("^##|##$", "");
 System.out.println(result);
 ```
 {id="replace-characters-java"}
@@ -309,7 +311,7 @@ there will be an extra empty line:
 String result = """
     Kotlin
        Java
-    """.stripIndent();
+    """;
 System.out.println(result);
 ```
 {id="join-strings-15-java"}
@@ -319,8 +321,9 @@ The output:
 
 If you put the triple-quote on the same line as the last word, this difference in behavior disappears.
 
-In Kotlin, you can format your line with the quotes on the new line, and there will be no extra empty line in the output.
-The left-most character of any line identifies the beginning of the line.
+In Kotlin, you can format your line with the quotes on the new line, and there will be no extra empty line in the output. 
+The left-most character of any line identifies the beginning of the line. The difference with Java is that Java automatically 
+trims indents, and in Kotlin you should do it explicitly:
 
 ```kotlin
 fun main() {
@@ -338,6 +341,8 @@ fun main() {
 
 The output:
 ![Kotlin multiline output](kotlin-multiline-output.png){width=700}
+
+To have  an extra empty line, you should add this empty line to your multiline string explicitly.
 
 In Kotlin, you can also use the [trimMargin()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function to customize the indents:
 
