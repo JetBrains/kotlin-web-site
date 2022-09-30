@@ -130,6 +130,21 @@ fun main() {
 Because inline classes may be represented both as the underlying value and as a wrapper, [referential equality](equality.md#referential-equality) 
 is pointless for them and is therefore prohibited.
 
+Inline classes can also have a generic type parameter as the underlying type. In this case, the compiler maps it to `Any?`
+or, generally, to the upper bound of the type parameter.
+
+```kotlin
+@JvmInline
+value class UserId<T>(val value: T)
+
+fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
+```
+
+> Generic inline classes is an [Experimental](components-stability.md) feature.
+> It may be dropped or changed at any time. Opt-in is required with the `-language-version 1.8` compiler option.
+>
+{type="warning"}
+
 ### Mangling
 
 Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:

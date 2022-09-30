@@ -1,5 +1,10 @@
 [//]: # (title: Immutability and concurrency in Kotlin/Native)
 
+> This page describes the features of the legacy memory manager. Check out [Kotlin/Native memory management](native-memory-manager.md)
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
+>
+{type="note"}
+
 Kotlin/Native implements strict mutability checks, ensuring
 the important invariant that the object is either immutable or
 accessible from the single thread at that moment in time (`mutable XOR global`).

@@ -364,6 +364,8 @@ reference:
           title: Compatibility Guide for Kotlin 1.6
         - url: /docs/reference/compatibility-guide-17.html
           title: Compatibility Guide for Kotlin 1.7
+        - url: /docs/reference/compatibility-guide-1720.html
+          title: Compatibility Guide for Kotlin 1.7.20
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.

@@ -339,7 +339,7 @@ Now setting up the CocoaPods integration is easier, and we've resolved the issue
 installed on Ruby 3 and later. Now the newest Ruby versions that work better on Apple M1 are also supported.
 
 See how to set up
-the [initial CocoaPods integration](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods).
+the [initial CocoaPods integration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 
 ### Overriding the Kotlin/Native compiler download URL
 

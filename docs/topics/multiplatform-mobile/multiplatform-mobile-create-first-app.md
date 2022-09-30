@@ -23,9 +23,17 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 
     ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
-4. In the **iOS framework distribution** list, select **Regular framework**.
+4. In the **iOS framework distribution** list, select the **Regular framework** option.
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > has less installation issues.
+   > 
+   > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
+   > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
+   >
+   {type="tip"}
 
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
@@ -135,8 +143,10 @@ the Kotlin standard library function for reversing text that works on all platfo
 
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         fun greeting(): String {
-            return "Guess what it is! > ${Platform().platform.reversed()}!"
+            return "Guess what it is! > ${platform.name.reversed()}!"
         }
     }
     ```
