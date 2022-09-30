@@ -261,7 +261,6 @@
             <toc-element id="constructing-collections.md"/>
             <toc-element id="iterators.md"/>
             <toc-element id="ranges.md"/>
-            <toc-element id="sequences.md"/>
             <toc-element id="collection-operations.md" toc-title="Operations overview"/>
             <toc-element id="collection-transformations.md" toc-title="Transformations"/>
             <toc-element id="collection-filtering.md" toc-title="Filter"/>
@@ -276,6 +275,7 @@
             <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
             <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
         </toc-element>
+        <toc-element id="sequences.md"/>
         <toc-element id="scope-functions.md"/>
         <toc-element id="opt-in-requirements.md"/>
     </toc-element>
