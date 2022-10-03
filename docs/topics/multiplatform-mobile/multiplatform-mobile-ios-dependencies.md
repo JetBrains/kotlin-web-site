@@ -196,7 +196,8 @@ import DateTools.*
     * `modules` – the name of the framework that should be processed by the cinterop.
     * `package` – the name of the package these declarations should be put into.
 
-   For example:
+    For example:
+    
     ```properties
     modules = MyFramework
     package = MyFramework
