@@ -172,6 +172,7 @@
             <toc-element toc-title="Java to Kotlin migration guides">
                 <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
+                <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
             </toc-element>
         </toc-element>
         <toc-element toc-title="JavaScript">
