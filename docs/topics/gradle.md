@@ -1008,15 +1008,16 @@ The Kotlin daemon uses the same JDK that the Gradle daemon does.
 
 ### Setting Kotlin daemon's JVM arguments
 
-Each of the options in the following list overrides the ones that came before it:
-* If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon.
+Each of the way to set arguments in the following list overrides the ones that came before it:
+* __Gradle daemon arguments inheritance.__ If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon.
   For example, in the `gradle.properties` file:
 
   ```properties
   org.gradle.jvmargs=-Xmx1500m -Xms=500m
   ```
 
-* If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
+* __`kotlin.daemon.jvm.options` system property.__ If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property
+  – use it in the `gradle.properties` file:
 
   ```properties
   org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
@@ -1036,13 +1037,13 @@ Each of the options in the following list overrides the ones that came before it
   >
   {type="warning"}
 
-* You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
+* __`kotlin.daemon.jvmargs` property.__ You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
   ```properties
   kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
   ```
 
-* You can specify arguments in the `kotlin` extension:
+* __`kotlin` extension.__ You can specify arguments in the `kotlin` extension:
 
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
@@ -1065,7 +1066,7 @@ Each of the options in the following list overrides the ones that came before it
   </tab>
   </tabs>
 
-* You can specify arguments for a specific task:
+* __Specific task definition.__ You can specify arguments for a specific task:
 
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
