@@ -315,7 +315,7 @@ Connect your framework to the iOS project manually:
 
 ### Use the shared module from Swift
 
-1. In Xcode, open the `ContentView.swift` file and import the `shared` module.
+1. In Xcode, open the `ContentView.swift` file and import the `shared` module:
 
    ```swift
    import shared
