@@ -927,6 +927,7 @@ Enable the statistics in two steps:
   ```
 
 * Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
+  
   ```properties
   kapt.verbose=true
   ```
