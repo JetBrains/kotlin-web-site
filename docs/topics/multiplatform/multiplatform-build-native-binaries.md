@@ -505,7 +505,7 @@ You can customize its properties with the corresponding binary option:
 | `CFBundleShortVersionString` | `bundleShortVersionString` |
 | `CFBundleVersion`            | `bundleVersion`            |
 
-To enable the feature, pass the `Xbinary=$option=$value` compiler flag or set the `binaryOption("option", "value")`
+To enable the feature, pass the `-Xbinary=$option=$value` compiler flag or set the `binaryOption("option", "value")`
 Gradle DSL for the specific framework:
 
 ```kotlin

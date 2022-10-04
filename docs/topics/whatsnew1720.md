@@ -1,7 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.7.20)
 
 <microformat>
-   <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA 213, 221, and 222.</p>
+   <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA 2021.3, 2022.1, and 2022.2.</p>
 </microformat>
 
 _[Release date: %kotlinReleaseDate%](eap.md#build-details)_
@@ -503,7 +503,7 @@ Previously, it was cumbersome to customize its contents. With Kotlin 1.7.20, you
 | `CFBundleVersion`            | `bundleVersion`            |
 
 To do that, use the corresponding binary option. Pass the
-`Xbinary=$option=$value` compiler flag or set the `binaryOption(option, value)` Gradle DSL for the necessary framework.
+`-Xbinary=$option=$value` compiler flag or set the `binaryOption(option, value)` Gradle DSL for the necessary framework.
 
 The Kotlin team is very grateful to Mads Ager for implementing this feature.
 
@@ -738,7 +738,7 @@ will be clear which kotlinx library version you should use when you upgrade the 
 
 ## Install Kotlin 1.7.20
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 213, 221, and 222 automatically suggest updating the Kotlin plugin to 1.7.20.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 2021.3, 2022.1, and 2022.2 automatically suggest updating the Kotlin plugin to 1.7.20.
 
 > For Android Studio Dolphin (213), Electric Eel (221), and Flamingo (222), the Kotlin plugin 1.7.20 will be delivered
 > with upcoming Android Studios updates.
