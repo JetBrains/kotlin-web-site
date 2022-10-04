@@ -1,6 +1,6 @@
 [//]: # (title: Functions)
 
-Kotlin functions are declared using the `fun` keyword:
+The ```fun``` keyword is used to declare Kotlin functions:
 
 ```kotlin
 fun double(x: Int): Int {
@@ -10,13 +10,13 @@ fun double(x: Int): Int {
 
 ## Function usage
 
-Functions are called using the standard approach:
+The standard method for naming functions is as follows:
 
 ```kotlin
 val result = double(2)
 ```
 
-Calling member functions uses dot notation:
+Dot notation is used to refer to member functions:
 
 ```kotlin
 Stream().read() // create instance of class Stream and call read()
@@ -24,14 +24,13 @@ Stream().read() // create instance of class Stream and call read()
 
 ### Parameters
 
-Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas, and each
-parameter must be explicitly typed:
+Pascal notation is used to define function parameters: *name*: *type*. Commas are used to separate parameters, and each parameter must be explicitly typed:
 
 ```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare function parameters:
+When declaring function parameters, you can use a [trailing comma](coding-conventions.md#trailing-commas):
 
 ```kotlin
 fun powerOf(
@@ -42,8 +41,7 @@ fun powerOf(
 
 ### Default arguments
 
-Function parameters can have default values, which are used when you skip the corresponding argument. This reduces the number
-of overloads:
+When you skip the corresponding argument, the function parameter's default value is used. As a result, the number of overloads is reduced:
 
 ```kotlin
 fun read(
@@ -53,10 +51,10 @@ fun read(
 ) { /*...*/ }
 ```
 
-A default value is defined using `=` after the type.
+A default value is specified by appending '=' to the type.
 
-Overriding methods always use the same default parameter values as the base method.
-When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
+Overriding methods always use the base method's default parameter values.
+When overriding a method with default parameter values, the following must be removed from the signature:
 
 ```kotlin
 open class A {
@@ -68,8 +66,7 @@ class B : A() {
 }
 ```
 
-If a default parameter precedes a parameter with no default value, the default value can only be used by calling
-the function with [named arguments](#named-arguments):
+If a default parameter comes before a parameter that doesn't have a default value, the default value can only be used by calling the function with [named arguments](#named-arguments):
 
 ```kotlin
 fun foo(
@@ -80,8 +77,7 @@ fun foo(
 foo(baz = 1) // The default value bar = 0 is used
 ```
 
-If the last argument after default parameters is a [lambda](lambdas.md#lambda-expression-syntax),
-you can pass it either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
+If the final argument after the default parameters is a [lambda](lambdas.md#lambda-expression-syntax), it can be passed as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
 ```kotlin
 fun foo(
@@ -97,13 +93,11 @@ foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 
 ### Named arguments
 
-When calling a function, you can name one or more of its arguments. This can be helpful when a function has many
-arguments and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
+You can name one or more of a function's arguments when calling it. When a function has many arguments and it's difficult to associate a value with an argument, especially if it's a boolean or 'null' value, this can be useful.
 
-When you use named arguments in a function call, you can freely change the order they are listed in, and if you want to
-use their default values, you can just leave these arguments out altogether.
+When using named arguments in a function call, you can freely change the order in which they are listed, and you can simply leave these arguments out entirely if you want to use their default values.
 
-Consider the following function, `reformat()`, which has 4 arguments with default values.
+Consider the'reformat()' function, which has four arguments with default values.
 
 ```kotlin
 fun reformat(
@@ -115,7 +109,7 @@ fun reformat(
 ) { /*...*/ }
 ```
 
-When calling this function, you don't have to name all its arguments:
+You do not have to name all of the arguments when calling this function:
 
 ```kotlin
 reformat(
@@ -127,21 +121,19 @@ reformat(
 )
 ```
 
-You can skip all the ones with default values:
+You can disregard all of the ones with default values:
 
 ```kotlin
 reformat("This is a long String!")
 ```
 
-You are also able to skip specific arguments with default values, rather than omitting them all. However, after the first
-skipped argument, you must name all subsequent arguments:
+You can also skip specific arguments with default values rather than omitting all of them. After the first skipped argument, however, you must name all subsequent arguments:
 
 ```kotlin
 reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
-You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
-`spread` operator:
+Using the'spread' operator, you can pass a [variable number of arguments ('vararg')](#variable-number-of-arguments-varargs) with names:
 
 ```kotlin
 fun foo(vararg strings: String) { /*...*/ }
@@ -149,15 +141,12 @@ fun foo(vararg strings: String) { /*...*/ }
 foo(strings = *arrayOf("a", "b", "c"))
 ```
 
-> On the JVM: You can't use the named argument syntax when calling Java functions because Java bytecode does not
-> always preserve the names of function parameters.
->
-{type="note"}
+When calling Java functions on the JVM, you cannot use the named argument syntax because Java bytecode does not always preserve the names of function parameters.
 
 ### Unit-returning functions
 
-If a function does not return a useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`.
-This value does not have to be returned explicitly:
+If a function returns an unusable value, its return type is 'Unit.' 'Unit' is a type that has only one value.
+This value does not have to be explicitly returned:
 
 ```kotlin
 fun printHello(name: String?): Unit {
