@@ -10,8 +10,10 @@ import Button from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
+import styles from "./community-layout.module.css";
 import releasesDataRaw from '../../../data/releases.yml';
-import searchConfig from '../../../search-config.json'
+import searchConfig from '../../../search-config.json';
+import {CommunityAddEvent} from "../event-list/event-list";
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -40,8 +42,9 @@ interface CommunityLayoutProps {
 export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children }) => {
     const theme = 'dark';
     const router = useRouter();
+    const pathname = addTrailingSlash(router.pathname);
     const activeIndex = useMemo(
-        () => items.map((item) => item.url).indexOf(addTrailingSlash(router.pathname)),
+        () => items.map((item) => item.url).indexOf(pathname),
         [router.pathname]
     );
     const linkHandler = useCallback(
@@ -93,14 +96,25 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
             />
 
             <StickyHeader>
-                <TopMenu
-                    homeUrl={COMMUNITY_URL}
-                    title={COMMUNITY_TITLE}
-                    activeIndex={activeIndex}
-                    items={items}
-                    linkHandler={linkHandler}
-                    mobileOverview={false}
-                />
+                <div className={styles.sticky}>
+                    <TopMenu
+                        className={styles.topMenu}
+                        homeUrl={COMMUNITY_URL}
+                        title={COMMUNITY_TITLE}
+                        activeIndex={activeIndex}
+                        items={items}
+                        linkHandler={linkHandler}
+                        mobileOverview={false}
+                    >
+                        {pathname === '/community/events/' && (
+                            <CommunityAddEvent
+                                className={styles.add}
+                                size="s"
+                                href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
+                            />
+                        )}
+                    </TopMenu>
+                </div>
             </StickyHeader>
 
             {children}
