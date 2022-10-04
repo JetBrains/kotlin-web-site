@@ -43,7 +43,7 @@ export function CommunityAddEvent(props) {
         <Button
             target="_blank"
             mode="outline"
-            href="https://github.com/JetBrains/kotlin-web-site#community-events"
+            href="https://github.com/JetBrains/kotlin-web-site/#community-events"
             {...props}
         >
         Add New Event ↗

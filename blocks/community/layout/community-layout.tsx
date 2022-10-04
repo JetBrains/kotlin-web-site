@@ -107,7 +107,11 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                         mobileOverview={false}
                     >
                         {pathname === '/community/events/' && (
-                            <CommunityAddEvent className={styles.add} size="s"/>
+                            <CommunityAddEvent
+                                className={styles.add}
+                                size="s"
+                                href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
+                            />
                         )}
                     </TopMenu>
                 </div>
