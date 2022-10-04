@@ -105,11 +105,11 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                         items={items}
                         linkHandler={linkHandler}
                         mobileOverview={false}
-                    />
-
-                    {pathname === '/community/events/' && (
-                        <CommunityAddEvent className={styles.add} size="s"/>
-                    )}
+                    >
+                        {pathname === '/community/events/' && (
+                            <CommunityAddEvent className={styles.add} size="s"/>
+                        )}
+                    </TopMenu>
                 </div>
             </StickyHeader>
 
