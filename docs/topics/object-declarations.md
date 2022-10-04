@@ -177,6 +177,48 @@ object DefaultListener : MouseAdapter() {
 >
 {type="note"}
 
+### Data objects
+
+> Data object declarations is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. Opt-in is required with the `kotlinOptions.languageVersion = "1.9"` [compiler option](https://kotlinlang.org/docs/gradle.html#compiler-options).
+> 
+{type="note"}
+
+When printing a plain `object` declaration in Kotlin, you'll notice that its string representation contains both its name and the hash of the object:
+
+```kotlin
+object MyObject
+
+fun main() {
+    println(MyObject) // MyObject@1f32e575
+}
+```
+
+Just like [data classes](data-classes.md), you can mark your `object` declaration with the `data` modifier to get a nicely formatted string representation without having to manually provide an implementation for its `toString` function:
+
+```kotlin
+data object MyObject
+
+fun main() {
+    println(MyObject) // MyObject
+}
+```
+
+[Sealed class hierarchies](sealed-classes.md) are a particularly good fit for `data object` declarations, since they allow you to maintain symmetry with any data classes you might have defined alongside the object:
+
+```kotlin
+sealed class ReadResult {
+    data class Number(val value: Int): ReadResult()
+    data class Text(val value: String): ReadResult()
+    data object EndOfFile: ReadResult()
+}
+
+fun main() {
+    println(ReadResult.Number(1)) // Number(value=1)
+    println(ReadResult.Text("Foo")) // Text(value=Foo)
+    println(ReadResult.EndOfFile) // EndOfFile
+}
+```
+
 ### Companion objects
 
 An object declaration inside a class can be marked with the `companion` keyword:

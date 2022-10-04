@@ -1,5 +1,10 @@
 [//]: # (title: Concurrent mutability)
 
+> This page describes the features of the legacy memory manager. Check out [Kotlin/Native memory management](native-memory-manager.md)
+> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
+>
+{type="note"}
+
 When it comes to working with iOS, [Kotlin/Native's state and concurrency model](multiplatform-mobile-concurrency-overview.md) has [two simple rules](multiplatform-mobile-concurrency-overview.md#rules-for-state-sharing).
 
 1. A mutable, non-frozen state is visible to only one thread at a time.

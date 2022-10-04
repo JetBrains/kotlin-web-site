@@ -10,7 +10,7 @@ A collection usually contains a number of objects (this number may also be zero)
 are called _elements_ or _items_. For example, all the students in a department form a collection that can be used to
 calculate their average age. 
 
-The  following collection types are relevant for Kotlin:
+The following collection types are relevant for Kotlin:
 
 * _List_ is an ordered collection with access to elements by indices – integer numbers that reflect their position. 
 Elements can occur more than once in a list. An example of a list is a telephone number: it's a group of digits, their

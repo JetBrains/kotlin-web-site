@@ -15,66 +15,76 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 ## Using in Gradle
 
-Apply the `kotlin-kapt` Gradle plugin:
+Follow these steps:
+1. Apply the `kotlin-kapt` Gradle plugin:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+   <tabs group="build-script">
+   <tab title="Kotlin" group-key="kotlin">
 
-```kotlin
-plugins {
-    kotlin("kapt") version "%kotlinVersion%"
-}
-```
+   ```kotlin
+   plugins {
+       kotlin("kapt") version "%kotlinVersion%"
+   }
+   ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+   </tab>
+   <tab title="Groovy" group-key="groovy">
 
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.kapt" version "%kotlinVersion%"
-}
-```
+   ```groovy
+   plugins {
+       id "org.jetbrains.kotlin.kapt" version "%kotlinVersion%"
+   }
+   ```
 
-</tab>
-</tabs>
+   </tab>
+   </tabs>
 
-Alternatively, you can use the `apply plugin` syntax:
+   Alternatively, you can use the `apply plugin` syntax:
 
-```groovy
-apply plugin: 'kotlin-kapt'
-```
+   ```groovy
+   apply plugin: 'kotlin-kapt'
+   ```
 
-Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+   Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle.md#using-the-gradle-kotlin-dsl).
 
+2. Add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+   <tabs group="build-script">
+   <tab title="Kotlin" group-key="kotlin">
 
-```kotlin
-dependencies {
-    kapt("groupId:artifactId:version")
-}
-```
+   ```kotlin
+   dependencies {
+       kapt("groupId:artifactId:version")
+   }
+   ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+   </tab>
+   <tab title="Groovy" group-key="groovy">
 
-```groovy
-dependencies {
-    kapt 'groupId:artifactId:version'
-}
-```
+   ```groovy
+   dependencies {
+       kapt 'groupId:artifactId:version'
+   }
+   ```
 
-</tab>
-</tabs>
+   </tab>
+   </tabs>
 
-If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
-for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`.
-If your project contains Java classes, `kapt` will also take care of them.
+3. If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
+   for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`.
+   If your project contains Java classes, `kapt` will also take care of them.
 
-If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
-`kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
-`kapt` dependency and it will be available both for production sources and tests.
+   If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
+   `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
+   `kapt` dependency and it will be available both for production sources and tests.
+
+4. To use the newest Kotlin features with kapt, for example, [repeatable annotations](annotations.md#repeatable-annotations), 
+   enable the support for the [IR backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/) 
+   with the following option in your `gradle.properties`:
+ 
+   ```properties
+   kapt.use.jvm.ir=true
+   ```
 
 ## Annotation processor arguments
 
