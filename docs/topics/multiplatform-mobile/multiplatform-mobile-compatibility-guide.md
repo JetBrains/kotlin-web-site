@@ -17,35 +17,37 @@ Note that such accessors are still available in the `kotlin.targets` case, for e
 
 **What's the best practice now?**
 
-<table>
-   <tr>
-      <th>Before</th>
-      <th>Now</th>
-   </tr>
-  <tr>
-    <td>
-        <code style="block"
-              lang="Kotlin">
-            kotlin {
-                targets {
-                    configure(['windows', 'linux')]) {
-                    }
-                }
-            }
-        </code>
-    </td>
-    <td>
-        <code style="block"
-              lang="Kotlin">
-            kotlin {
-                targets {
-                    configure([findByName('windows'), findByName('linux')]) {
-                    }
-                }
-            }
-        </code>
-    </td>
-  </tr>
+<table header-style="top">
+    <tr>
+        <td>Before</td>
+        <td>Now</td>
+    </tr>
+    <tr>
+<td>
+
+```kotlin
+kotlin {
+    targets {
+        configure(['windows', 'linux']) {
+        }
+    }
+}
+```
+
+</td>
+<td>
+
+```kotlin
+kotlin {
+    targets {
+        configure([findByName('windows'), findByName('linux')]) {
+        }
+    }
+}
+```
+
+</td>
+    </tr>
 </table>
 
 **When do the changes take effect?**
@@ -96,90 +98,86 @@ Configuration names for dependencies on the corresponding source set stay the sa
 
 **What's the best practice now?**
 
-<table>
-   <tr>
-      <th></th>
-      <th>Before</th>
-      <th>Now</th>
-   </tr>
-   <tr>
-     <td rowspan="2" >Dependencies of the `jvmMain` compilation</td>
-       <td>
-        <code style="block"
-          lang="Kotlin">
-            <![CDATA[
-            jvm<Scope>
-            ]]>
-        </code>
-       </td>
-     <td>
-        <code style="block"
-          lang="Kotlin">
-            <![CDATA[
-            jvmCompilation<Scope>
-            ]]>
-        </code>
-     </td>
-   </tr>
-   <tr>
-    <td>
-      <code style="block"
-        lang="Kotlin">
-          dependencies {
-              add("jvmImplementation", "foo.bar.baz:1.2.3")
-          }
-      </code>
-    </td>
-    <td>
-      <code style="block"
-        lang="Kotlin">
-          dependencies {
-              add"jvmCompilationImplementation", "foo.bar.baz:1.2.3")
-          }
-      </code>
-    </td>
-   </tr>
-   <tr>
-    <td>Dependencies of the <code>jvmMain</code> source set</td>
-    <td colspan="2" align="center">
-      <code style="block"
-        lang="Kotlin">
-          <![CDATA[
-          jvmMain<Scope>
-          ]]>
-      </code>
-    </td>
-   </tr>
-   <tr>
-     <td>Dependencies of the <code>jvmTest</code> compilation</td>
-     <td>
-       <code style="block"
-         lang="Kotlin">
-           <![CDATA[
-           jvmTest<Scope>
-           ]]>
-       </code>
-     </td>
-     <td>
-       <code style="block"
-         lang="Kotlin">
-         <![CDATA[
-         jvmTestCompilation<Scope>
-         ]]>
-       </code>
-     </td>
-   </tr>
-   <tr>
-     <td>Dependencies of the <code>jvmTest</code> source set</td>
-     <td colspan="2" align="center">
-       <code style="block"
-       lang="Kotlin">
-        <![CDATA[
-        jvmTest<Scope>
-        ]]>
-       </code>
-     </td>
-   </tr>
+<table header-style="top">
+    <tr>
+        <td></td>
+        <td>Before</td>
+        <td>Now</td>
+    </tr>
+    <tr>
+        <td rowspan="2" >Dependencies of the `jvmMain` compilation</td>
+<td>
+
+```kotlin
+jvm<Scope>
+```
+
+</td>
+<td>
+
+```kotlin
+jvmCompilation<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+<td>
+
+```kotlin
+dependencies {
+    add("jvmImplementation", "foo.bar.baz:1.2.3")
+}
+```
+
+</td>
+<td>
+
+```kotlin
+dependencies {
+    add("jvmCompilationImplementation", "foo.bar.baz:1.2.3")
+}
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmMain</code> source set</td>
+<td colspan="2" align="center">
+
+```kotlin
+jvmMain<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmTest</code> compilation</td>
+<td>
+
+```kotlin
+jvmTest<Scope>
+```
+
+</td>
+<td>
+
+```kotlin
+jvmTestCompilation<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmTest</code> source set</td>
+<td colspan="2" align="center">
+
+```kotlin
+jvmTest<Scope>
+```
+
+</td>
+    </tr>
 </table>
 
 The available scopes are `Api`, `Implementation`, `CompileOnly`, and `RuntimeOnly`.
