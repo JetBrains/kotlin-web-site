@@ -82,7 +82,7 @@ the number of days from today until the new year using the `date-time` date arit
     }
     ```
 
-6. Run the updated application on Android and iOS and see the results:
+6. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 

@@ -155,11 +155,11 @@ the Kotlin standard library function for reversing text that works on all platfo
     }
     ```
 
-3. Run the updated application on Android.
+3. Re-run the **androidApp** configuration to see the updated application in the Android simulated device.
 
     ![Updated mobile multiplatform app on Android](first-multiplatform-project-on-android-2.png){width=300}
     
-4. Run the updated application on iOS.  
+4. In Android Studio, switch to **iosApp** and re-run it to see the updated application in the iOS simulated device.  
 
     ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
 

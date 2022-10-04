@@ -339,7 +339,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    see the [iOS intergation](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
    That's why `DispatchQueue.main.async` is used to update `text` property.
 
-6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width="500"}
 
