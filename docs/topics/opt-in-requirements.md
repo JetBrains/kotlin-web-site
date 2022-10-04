@@ -264,7 +264,6 @@ fun getTime(): Time {}
 ```
 
 Note that for some language elements, an opt-in requirement annotation is not applicable:
-* Overriding methods can only have opt-in annotations that are present on their basic declarations.
 * You cannot annotate a backing field or a getter of a property, just the property itself.
 * You cannot annotate a local variable or a value parameter.
 
