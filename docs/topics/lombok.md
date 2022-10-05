@@ -179,7 +179,7 @@ by providing the path to its JAR file using the `Xplugin` kotlinc option:
 -Xplugin=$KOTLIN_HOME/lib/lombok-compiler-plugin.jar
 ```
 
-Replace `<PATH_TO_CONFIG_FILE>` with a path to your `lombok.config` file:
+If you want to use the `lombok.config` file, replace `<PATH_TO_CONFIG_FILE>` with a path to your `lombok.config`:
 
 ```bash
 # The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
