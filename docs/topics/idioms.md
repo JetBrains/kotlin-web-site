@@ -347,6 +347,19 @@ var b = 2
 a = b.also { b = a }
 ```
 
+## Get array element with index in For Loop
+
+```kotlin
+
+val fruits = arrayListOf("Banana", "Apple", "Grapes", "Cherry")
+
+for((index, fruit) in fruits.withIndex()){
+     println("$index $fruit")
+}
+
+
+```
+
 ## Mark code as incomplete (TODO)
  
 Kotlin's standard library has a `TODO()` function that will always throw a `NotImplementedError`.
