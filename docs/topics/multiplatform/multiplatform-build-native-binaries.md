@@ -16,19 +16,19 @@ and provides a set of methods for declaring and configuring them.
 
 Use the following factory methods to declare elements of the `binaries` collection. 
 
-| Factory method | Binary kind | Available for |
-|----------------|-------------|---------------|
-| `executable` | Product executable | All native targets |
-| `test` | Test executable | All native targets |
-| `sharedLib` | Shared native library | All native targets, except for `WebAssembly` |
-| `staticLib` | Static native library | All native targets, except for `WebAssembly` |
-| `framework` | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only |
+| Factory method | Binary kind           | Available for                                |
+|----------------|-----------------------|----------------------------------------------|
+| `executable`   | Product executable    | All native targets                           |
+| `test`         | Test executable       | All native targets                           |
+| `sharedLib`    | Shared native library | All native targets, except for `WebAssembly` |
+| `staticLib`    | Static native library | All native targets, except for `WebAssembly` |
+| `framework`    | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only   |
 
 The simplest version doesn't require any additional parameters and creates one binary for each build type. Currently, 
 two build types are available: 
 
-* `DEBUG`  – produces a non-optimized binary with debug information 
-* `RELEASE`  – produces an optimized binary without debug information
+* `DEBUG` – produces a non-optimized binary with debug information 
+* `RELEASE` – produces an optimized binary without debug information
 
 The following snippet creates two executable binaries, debug and release:
 
@@ -204,11 +204,98 @@ binaries.findExecutable('foo', DEBUG)
 </tab>
 </tabs>
 
-## Export dependencies to binaries
+## Build binaries for several frameworks
 
-When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes 
-of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using 
-the `export` method.
+If your project has multiple Kotlin frameworks, and you need to access them from your iOS app, you'll encounter an issue
+− the usage of several Kotlin/Native frameworks in Swift is limited.
+
+With Kotlin artifact DSL, you can export the project along with all its dependencies into a single Gradle module
+and connect it to Swift.
+
+New DSL described below is [Experimental](components-stability.md). We encourage you to try it, it should be more
+efficient and easier to implement, but you can still use alternative workarounds mentioned in the corresponding sections
+below.
+
+The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Inside it,
+you can write the following blocks:
+
+* [Native.Library](#library)
+* [Native.Framework](#framework)
+* [Native.FatFramework](#fat-frameworks)
+* [Native.XCFramework](#xcframeworks)
+
+### Libraries and frameworks
+
+When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
+of the current project, but also the classes of its dependencies into a single entity and export all these modules to it.
+
+For the binary configuration, the following parameters are available:
+
+| **Name**        | **Description**                                                                                                                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                              |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                           |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle.md#compiler-options).                        |
+
+#### Library
+
+For the library configuration, the additional `addModule` parameter is available:
+
+| **Name**                               | **Description**                                                                                   |
+|----------------------------------------|---------------------------------------------------------------------------------------------------|
+| `addModule(project("<project-name>"))` | You can optionally add modules to the resulting artifact. By default, the current module is used. |
+
+```kotlin
+kotlinArtifacts {
+    Native.Library("mylib") {
+        target = linuxX64
+        kotlinOptions {
+            freeCompilerArgs += "-Xmen=pool"
+        }
+    }
+    Native.Library("myslib") {
+        target = linuxX64
+        isStatic = false
+        modes(DEBUG)
+        addModule(project(":lib"))
+        kotlinOptions {
+            verbose = false
+            freeCompilerArgs = emptyList()
+        }
+    }
+}
+```
+
+The registered Gradle task is `assembleMyslibSharedLibrary` that assembles all types of registered "myslib" into a dynamic library.
+
+#### Framework
+
+For the framework configuration, the additional `embedBitcode` parameter is available:
+
+| **Name**       | **Description**                                                                                                                         |
+|----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. |
+
+```kotlin
+kotlinArtifacts {
+    Native.Framework("myframe") {
+        modes(DEBUG, RELEASE)
+        target = iosArm64
+        isStatic = false
+        embedBitcode = EmbedBitcodeMode.MARKER
+        kotlinOptions {
+            verbose = false
+        }
+    }
+}
+```
+
+The registered Gradle task is `assembleMyframeFramework` that assembles all types of registered "myframe" framework.
+
+#### An alternative way to export dependencies to binaries {initial-collapse-state="collapsed"}
+
+You can also use the `export` method to specify which dependencies to export to a binary:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -267,11 +354,7 @@ kotlin {
 </tab>
 </tabs>
 
-For example, you implement several modules in Kotlin and want to access them from Swift. Usage of
-several Kotlin/Native frameworks in a Swift application is limited, but you can create an umbrella framework and
-export all these modules to it.
-
-> You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.  
+> You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.
 >
 {type="note"}
 
@@ -279,11 +362,11 @@ When you export a dependency, it includes all of its API to the framework API.
 The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
 This disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
 
-By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
+By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`,
 only methods of `foo` are added to the output framework.
 
-You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
-are exported as well. 
+You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar`
+are exported as well.
 
 > It is not recommended to use `transitiveExport`: it adds all transitive dependencies of the exported dependencies to the framework.
 > This could increase both compilation time and binary size.
@@ -322,16 +405,35 @@ binaries {
 </tab>
 </tabs>
 
-## Build universal frameworks
+### Fat frameworks
 
-By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such 
-frameworks into a single universal (fat) binary using the [`lipo` tool](https://llvm.org/docs/CommandGuide/llvm-lipo.html). 
-This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal 
-framework on both 32-bit and 64-bit devices.
- 
-> The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
->
-{type="warning"}
+By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
+frameworks into a single universal (fat) binary. This especially makes sense for 32-bit and 64-bit iOS frameworks.
+In this case, you can use the resulting universal framework on both 32-bit and 64-bit devices.
+
+For the fat framework configuration, the following parameters are available:
+
+| **Name**        | **Description**                                                                                                                         |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `targets`       | All targets of the project.                                                                                                             |
+| `embedBitcode`  | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle.md#compiler-options).         |
+
+```kotlin
+kotlinArtifacts {
+    Native.FatFramework("myfatframe") {
+        targets(iosX32, ios64)
+        embedBitcode = EmbedBitcodeMode.DISABLE
+        kotlinOptions {
+            suppressWarnings = false
+        }
+    }
+}
+```
+
+The registered Gradle task is `assembleMyfatframeFatFramework` that assembles all types of registered "myfatframe" FatFramework.
+
+#### An alternative way to build fat frameworks {initial-collapse-state="collapsed"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -398,10 +500,51 @@ kotlin {
 </tab>
 </tabs>
 
-## Build XCFrameworks
+> The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
+>
+{type="warning"}
 
-All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
-Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
+### XCFrameworks
+
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and
+architectures in a single bundle. Unlike [universal (fat) frameworks](#fat-frameworks), you don't need to
+remove all unnecessary architectures before publishing the application to the App Store.
+
+For the XCFrameworks configuration, the following parameters are available:
+
+| **Name**                                | **Description**                                                                                   |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------|
+| `targets`                               | All targets of the project.                                                                       |
+| `setModules(project("<project-name>"))` | You can optionally add modules to the resulting artifact. By default, the current module is used. |
+
+```kotlin
+Native.XCFramework("sdk") {
+    targets(iosX64, iosArm64, iosSimulatorArm64)
+    setModules(
+        project(":shared"),
+        project(":lib")
+    )
+}
+```
+
+The registered Gradle task is `assembleSdkXCFramework` that assembles all types of registered "sdk" FatFramework.
+
+If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
+CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
+generate podspec files:
+* `podPublishReleaseXCFramework`, which generates a release XCFramework along with a podspec file.
+* `podPublishDebugXCFramework`, which generates a debug XCFramework along with a podspec file.
+* `podPublishXCFramework`, which generates both debug and release XCFrameworks along with a podspec file.
+
+This can help you distribute shared parts of your project separately from mobile apps through CocoaPods. You can also use XCFrameworks
+for publishing to private or public podspec repositories.
+
+> Publishing Kotlin frameworks to public repositories is not recommended if those frameworks are built for different versions
+> of Kotlin. Doing so might lead to conflicts in the end-users' projects.
+>
+{type="warning"}
+
+#### An alternative way to build XCFrameworks {initial-collapse-state="collapsed"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -478,21 +621,6 @@ When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle t
 * `assembleXCFramework`
 * `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
 * `assembleReleaseXCFramework`
-
-If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
-CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
-generate podspec files:
-* `podPublishReleaseXCFramework`, which generates a release XCFramework along with a podspec file.
-* `podPublishDebugXCFramework`, which generates a debug XCFramework along with a podspec file.
-* `podPublishXCFramework`, which generates both debug and release XCFrameworks along with a podspec file.
-
-This can help you distribute shared parts of your project separately from mobile apps through CocoaPods. You can also use XCFrameworks
-for publishing to private or public podspec repositories.
-
-> Publishing Kotlin frameworks to public repositories is not recommended if those frameworks are built for different versions
-> of Kotlin. Doing so might lead to conflicts in the end-users' projects.
->
-{type="warning"}
 
 ## Customize the Info.plist file
 
