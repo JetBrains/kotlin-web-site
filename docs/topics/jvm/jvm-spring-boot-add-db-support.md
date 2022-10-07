@@ -23,8 +23,8 @@ import org.springframework.jdbc.core.JdbcTemplate
 
 @Service
 class MessageService(val db: JdbcTemplate) {
-    fun findMessages(): List<Message> = db.query("select * from messages") { rs, _ ->
-        Message(rs.getString("id"), rs.getString("text"))
+    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+        Message(response.getString("id"), response.getString("text"))
     }
 
     fun save(message: Message){
@@ -62,8 +62,8 @@ class MessageService(val db: JdbcTemplate) {
       <p>For a lambda with multiple parameters, you can use the underscore <code>_</code> character to replace the names of the parameters you don't use.</p>
       <p>Hence, the final syntax for query function call looks like this:</p>
       <code style="block" lang="kotlin">
-      db.query("select * from messages") { rs, _ ->
-          Message(rs.getString("id"), rs.getString("text"))
+      db.query("select * from messages") { response, _ ->
+          Message(response.getString("id"), response.getString("text"))
       }
       </code>
    </def>
@@ -108,8 +108,8 @@ Update your code to generate a new value when the `id` is `null` while storing t
 ```kotlin
 @Service
 class MessageService(val db: JdbcTemplate) {
-    fun findMessages(): List<Message> = db.query("select * from messages") { rs, _ ->
-        Message(rs.getString("id"), rs.getString("text"))
+    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+        Message(response.getString("id"), response.getString("text"))
     }
 
     fun save(message: Message){
@@ -152,7 +152,7 @@ Configure the database in the application:
    ```properties
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.url=jdbc:h2:file:./data/testdb
-   spring.datasource.username=sa
+   spring.datasource.username=name
    spring.datasource.password=password
    spring.sql.init.schema-locations=classpath:schema.sql
    spring.sql.init.mode=always
@@ -235,12 +235,12 @@ Extend the functionality of the application to retrieve the individual messages 
     @Service
     class MessageService(val db: JdbcTemplate) {
     
-        fun findMessages(): List<Message> = db.query("select * from messages") { rs, _ ->
-            Message(rs.getString("id"), rs.getString("text"))
+        fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+            Message(response.getString("id"), response.getString("text"))
         }
     
-        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { rs, _ ->
-            Message(rs.getString("id"), rs.getString("text"))
+        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+            Message(response.getString("id"), response.getString("text"))
         }
     
         fun save(message: Message) {

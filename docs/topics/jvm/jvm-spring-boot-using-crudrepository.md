@@ -3,7 +3,7 @@
 
 <microformat>
     <p>This is the final part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
+    <p><img src="icon-1-done.svg" width="20" alt="Figt step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
 </microformat>
 
 In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
@@ -60,7 +60,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     <deflist collapsible="true">
        <def title="Extension functions">
           <p>The return type of the <code>findById()</code> function in the <code>CrudRepository</code> interface is an instance of the <code>Optional</code> class. However, it would be convenient to return a <code>List</code> with a single message for consistency. For that, you need to unwrap the <code>Optional</code> value if it’s present, and return a list with the value. This can be implemented as an <a href="extensions.md#extension-functions">extension function</a> to the <code>Optional</code> type.</p>
-          <p>In the code, <code>Optional&lt;out T&gt;.toList()</code>, <code>toList()</code> is the extension function for <code>Optional</code>. <a href="extensions.md#extension-functions">Extension functions</a> allow you to write additional functions to any classes, which is especially useful when you want to extend functionality of some library class.</p>
+          <p>In the code, <code>Optional&lt;out T&gt;.toList()</code>, <code>toList()</code> is the extension function for <code>Optional</code>. Extension functions allow you to write additional functions to any classes, which is especially useful when you want to extend functionality of some library class.</p>
        </def>
        <def title="CrudRepository save() function">
           <p><a href="https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.entity-persistence">This function works</a> with an assumption that the new object doesn’t have an id in the database. Hence, the id <b>should be null</b> for insertion.</p>
