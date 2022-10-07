@@ -74,7 +74,7 @@ plugins {
     id("org.springframework.boot") version "2.7.1"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
-    kotlin("plugin.spring") version "%kotlinSpringPluginVersion%" // The Kotlin Spring plugin
+    kotlin("plugin.spring") version "%kotlinVersion%" // The Kotlin Spring plugin
 }
 
 group = "com.example"
