@@ -869,10 +869,10 @@ To configure a single task, use its name. Examples:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // ...
 
-val compileKotlin: KotlinCompile by dsl
+val compileKotlin: KotlinCompile by tasks
 
 compileKotlin.kotlinOptions.suppressWarnings = true
 ```
@@ -934,7 +934,7 @@ Here is a complete list of options for Gradle tasks:
 | `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)         |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage) |  | [] |
 
-> We are  going to remove the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL, 
+> We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL, 
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
 > 
 > {type="warning"}
@@ -1003,7 +1003,7 @@ compileKotlin {
   // Single additional argument, can be a key-value pair
   kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
   // List of arguments
-  kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
+  kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
 }
 
 //or
@@ -1012,7 +1012,7 @@ compileKotlin {
   kotlinOptions {
     freeCompilerArgs += "-Xexport-kdoc"
     kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-    freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
+    freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
   }
 }
 ```
