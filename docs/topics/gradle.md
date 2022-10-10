@@ -1009,11 +1009,11 @@ The Kotlin daemon uses the same JDK that the Gradle daemon does.
 ### Setting Kotlin daemon's JVM arguments
 
 Each of the following ways to set arguments overrides the ones that came before it:
-* [Gradle daemon arguments inheritance](#gradle-daemon-arguments-inheritance).
-* [`kotlin.daemon.jvm.options` system property](#kotlin-daemon-jvm-options-system-property).
-* [`kotlin.daemon.jvmargs` property](#kotlin-daemon-jvmargs-property).
-* [`kotlin` extension](#kotlin-extension).
-* [Specific task definition](#specific-task-definition).
+* [Gradle daemon arguments inheritance](#gradle-daemon-arguments-inheritance)
+* [`kotlin.daemon.jvm.options` system property](#kotlin-daemon-jvm-options-system-property)
+* [`kotlin.daemon.jvmargs` property](#kotlin-daemon-jvmargs-property)
+* [`kotlin` extension](#kotlin-extension)
+* [Specific task definition](#specific-task-definition)
 
 #### Gradle daemon arguments inheritance
 
