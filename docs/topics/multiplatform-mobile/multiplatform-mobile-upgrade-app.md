@@ -42,6 +42,17 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
+You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
+at the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
+
 ### kotlinx.serialization
 
 For `kotlinx.serilization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
@@ -93,7 +104,7 @@ sourceSets {
 }
 ```
 
-Synchronize the Gradle files by clicking **Sync Now** in the warning.
+Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
 ## Create API requests
 
@@ -215,7 +226,7 @@ straightforward:
     }
     ```
 
-2. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
 3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
    ```kotlin

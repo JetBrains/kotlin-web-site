@@ -52,7 +52,7 @@ multiplatform support, is the most convenient way to work with dates in your sha
    }
    ```
 
-3. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
