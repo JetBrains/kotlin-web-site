@@ -1,5 +1,6 @@
 <#import "source_set_selector.ftl" as source_set_selector>
 <#macro display>
+    {% ktl_component "header" %}
     <div class="navigation-wrapper" id="navigation-wrapper">
         <div id="leftToggler"><span class="icon-toggler"></span></div>
         <div class="library-name">
