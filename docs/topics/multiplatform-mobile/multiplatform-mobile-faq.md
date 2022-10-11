@@ -49,9 +49,9 @@ Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](ro
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
-The following video presents our plans on the upcoming stage of the Kotlin Multiplatform Mobile development – its promotion to [Beta](components-stability.md): 
+The following video presents the current state and our plans for the Kotlin Multiplatform Mobile development: 
 
-<video href="LE-Dy9XCLxk" title="Kotlin Multiplatform Mobile Beta Roadmap"/>
+<video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
 
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
