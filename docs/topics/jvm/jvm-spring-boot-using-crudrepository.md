@@ -88,7 +88,7 @@ By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't 
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
 We will also send you language tips and useful materials on using Kotlin with Spring.
 
-<a href="https://surveys.jetbrains.com/s3/Kotlin-tips?%D1%81=B">
+<a href="https://surveys.jetbrains.com/s3/Kotlin-tips?с=B">
    <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
 </a>
 
