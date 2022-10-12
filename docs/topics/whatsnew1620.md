@@ -536,7 +536,7 @@ To simplify CocoaPods integration, Kotlin 1.6.20 delivers the following features
 
 * The CocoaPods plugin now has tasks that build XCFrameworks with all registered targets and generate the Podspec file. This can be useful when you don't want to integrate with Xcode directly, but you want to build artifacts and deploy them to your local CocoaPods repository.
   
-  Learn more about [building XCFrameworks](multiplatform-build-native-binaries.md#xcframeworks).
+  Learn more about [building XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks).
 
 * If you use [CocoaPods integration](native-cocoapods.md) in your projects, you're used to specifying the required Pod version for the entire Gradle project. Now you have more options:
   * Specify the Pod version directly in the `cocoapods` block

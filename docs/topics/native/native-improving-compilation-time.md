@@ -57,7 +57,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
   by default. When it's enabled, the same JVM process is used and there is no need to warm it up for each compilation.
 
-* **Don't use [transitiveExport = true](multiplatform-build-native-binaries.md#an-alternative-way-to-export-dependencies-to-binaries)**.
+* **Don't use [transitiveExport = true](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)**.
   Using transitive export disables dead code elimination in many cases: the compiler has to process a lot of unused code. It increases the compilation time.
   Use `export` explicitly for exporting the required projects and dependencies.
 
