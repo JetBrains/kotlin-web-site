@@ -493,3 +493,26 @@ for publishing to private or public podspec repositories.
 > of Kotlin. Doing so might lead to conflicts in the end-users' projects.
 >
 {type="warning"}
+
+## Customize the Info.plist file
+
+When producing a framework, the Kotlin/Native compiler generates the information property list file, `Info.plist`.
+You can customize its properties with the corresponding binary option:
+
+| Property                     | Binary option              |
+|------------------------------|----------------------------|
+| `CFBundleIdentifier`         | `bundleId`                 |
+| `CFBundleShortVersionString` | `bundleShortVersionString` |
+| `CFBundleVersion`            | `bundleVersion`            |
+
+To enable the feature, pass the `-Xbinary=$option=$value` compiler flag or set the `binaryOption("option", "value")`
+Gradle DSL for the specific framework:
+
+```kotlin
+binaries {
+    framework {
+        binaryOption("bundleId", "com.example.app")
+        binaryOption("bundleVersion", "2")
+    }
+}
+```

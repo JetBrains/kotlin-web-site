@@ -368,11 +368,15 @@ __Breaks binary compatibility__ if some client code relies on the presence of `D
 
 #### all-compatibility {initial-collapse-state="collapsed"}
 
-In addition to the `all` mode, generate compatibility stubs in the [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/) classes. Compatibility stubs could be useful for 
+In addition to the `all` mode, generate compatibility stubs in the [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
+classes. Compatibility stubs could be useful for 
 library and runtime authors to keep backward binary compatibility for existing clients compiled against previous library versions. 
 `all` and `all-compatibility` modes are changing the library ABI surface that clients will use after the recompilation of the library. 
 In that sense, clients might be incompatible with previous library versions. 
 This usually means that you need a proper library versioning, for example, major version increase in SemVer.
+
+The compiler generates all the members of `DefaultImpls` with the `@Deprecated` annotation: you shouldn't use these 
+members in Java code, because the compiler generates them only for compatibility purposes.
 
 In case of inheritance from a Kotlin interface compiled in `all` or `all-compatibility` modes,
 `DefaultImpls` compatibility stubs will invoke the default method of the interface with standard JVM runtime resolution semantics.

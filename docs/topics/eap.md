@@ -26,43 +26,4 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-<table>
-    <tr>
-        <th>Build info</th>
-        <th>Build highlights</th>
-    </tr>
-    <tr>
-        <td><strong>1.7.20-RC</strong>
-            <p>Released: <strong>%kotlinEapReleaseDate%</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-RC" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-             <ul>
-                 <li>K2 compiler: support for the <code>all-open</code>, <code>no-arg</code>, SAM-with-receiver, Lombok, Parcelize, AtomicFU, and <code>jvm-abi-gen</code> compiler plugins</li>
-                 <li>Language: experimental <code>..&lt;</code> (<code>rangeUntil</code>) operator for ranges with the excluded end bound, deprecated inferring type variables into an empty intersection type, warning on potentially empty intersection types, improved script handling in source roots</li>
-                 <li>Kotlin/JVM: experimental generic inline classes, more optimized cases of delegated properties</li>
-                 <li>Kotlin/Native: the new memory manager enabled by default (with deprecated freezing API and an ability to run Kotlin <code>suspend</code> functions on non-main threads from Swift), customizable bundle identifier of the generated framework, improved documentation generated to the Objective-C header</li>
-                 <li>Kotlin/JS IR: improved speed on the first build when using the incremental compilation, faster klib generation</li>
-                 <li>Gradle: simplified configuration method for the JVM Toolchain, fixed deprecations and ensured compatibility with Gradle 7.1</li>
-            </ul>
-            <p>For more details, please refer to the <a href ="whatsnew-eap.md">What's new in EAP</a> or <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-RC">changelog</a>.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><strong>1.7.20-Beta</strong>
-            <p>Released: <strong>August 1, 2022</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-Beta" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-             <ul>
-                 <li>K2 compiler: support for the <code>all-open</code>, <code>no-arg</code>, Parcelize, AtomicFU, and <code>jvm-abi-gen</code> compiler plugins</li>
-                 <li>Language: experimental <code>..&lt;</code> (<code>rangeUntil</code>) operator for ranges with the excluded end bound, deprecated inferring type variables into an empty intersection type, warning on potentially empty intersection types, improved script handling in source roots</li>
-                 <li>Kotlin/JVM: experimental generic inline classes, more optimized cases of delegated properties</li>
-                 <li>Kotlin/Native: the new memory manager enabled by default (with deprecated freezing API and an ability to run Kotlin <code>suspend</code> functions on non-main threads from Swift), customizable bundle identifier of the generated framework, improved documentation generated to the Objective-C header</li>
-                 <li>Kotlin/JS IR: improved speed on the first build when using the incremental compilation, faster klib generation</li>
-                 <li>Gradle: simplified configuration method for the JVM Toolchain, fixed deprecations and ensured compatibility with Gradle 7.1</li>
-            </ul>
-            <p>For more details, please refer to the <a href ="whatsnew-eap.md">What's new in EAP</a> or <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20-Beta">changelog</a>.</p>
-        </td>
-    </tr>
-</table>
+_No preview versions are currently available._

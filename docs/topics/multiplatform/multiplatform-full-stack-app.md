@@ -975,8 +975,7 @@ and others to get help with Kotlin related problems from the community.
 #### Learn more about Kotlin/JS {initial-collapse-state="collapsed"}
 
 You can find additional learning materials targeting
-Kotlin/JS: [Set up a Kotlin/JS project](js-project-setup.md) and [Run Kotlin/JS
-](running-kotlin-js.md).
+Kotlin/JS: [Set up a Kotlin/JS project](js-project-setup.md) and [Run Kotlin/JS](running-kotlin-js.md).
 
 #### Learn more about Ktor {initial-collapse-state="collapsed"}
 

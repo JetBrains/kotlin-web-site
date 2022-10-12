@@ -12,7 +12,7 @@ To work correctly with Xcode, you should [update your Podfile](#update-podfile-f
 Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
 as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
 
-## Set up the environment to work with CocoaPods
+## Set up an environment to work with CocoaPods
 
 Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
@@ -20,20 +20,28 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/):
 sudo gem install cocoapods
 ```
 
-* If you use Kotlin prior to version 1.7.0, install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate)
-plugin:
+<procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
+    <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
+    <p>
+        <code style="block" lang="Ruby">
+            sudo gem install cocoapods-generate
+        </code>
+    </p>
+    <tip>
+        <p>
+            Mind that <code>cocoapods-generate</code> couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
+        </p>
+    </tip>
+</procedure>
 
-  ```ruby
-  sudo gem install cocoapods-generate
-  ```
-  
-  > `cocoapods-generate` couldn't be installed on Ruby 3 and later.
-  > 
-  {type="note"}
-
-* If you encounter any problems during the installation, follow the [official CocoaPods installation guide](https://guides.cocoapods.org/using/getting-started.html#getting-started).
+If you encounter problems during the installation, check the [Possible issues and solutions](#possible-issues-and-solutions) section.
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
+
+If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](multiplatform-mobile-create-first-app.md)
+and choose **CocoaPods Dependency Manager** as the iOS framework distribution option. The plugin will automatically generate the project for you.
+
+If you want to configure your project manually:
 
 1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
     
@@ -145,12 +153,30 @@ which contains an example of Xcode integration with an existing Xcode project na
 
 ## Possible issues and solutions
 
-### Module not found
+### CocoaPods installation {initial-collapse-state="collapsed"}
+
+#### Ruby installation
+
+CocoaPods is built with Ruby, and you can install it with the default Ruby that should be available on macOS.
+Ruby 1.9 or later has a built-in RubyGems package management framework that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
+
+If you're experiencing problems installing CocoaPods and getting it to work, follow [this guide](https://www.ruby-lang.org/en/documentation/installation/)
+to install Ruby or refer to the [RubyGems website](https://rubygems.org/pages/download/) to install the framework.
+
+#### Version compatibility
+
+We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you'll need to additionally
+install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate#installation") plugin.
+
+However, `cocoapods-generate` is not compatible with Ruby 3.0.0 or later. In this case, downgrade Ruby or upgrade Kotlin
+to 1.7.0 or later.
+
+### Module not found {initial-collapse-state="collapsed"}
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
 Try these workarounds to avoid this error:
 
-#### Specify the framework name {initial-collapse-state="collapsed"}
+#### Specify the framework name 
 
 1. Find the `module.modulemap` file in the downloaded Pod directory:
 
@@ -166,7 +192,7 @@ name, specify it explicitly:
       moduleName = "AppsFlyerLib"
     }
     ```
-#### Check the definition file {initial-collapse-state="collapsed"}
+#### Check the definition file
 
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
 modules with headers with the pointing main header:
