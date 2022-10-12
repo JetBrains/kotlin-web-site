@@ -13,7 +13,7 @@ that module.
 
 The Lombok compiler plugin cannot replace [Lombok](https://projectlombok.org/), but it helps Lombok work in mixed Java/Kotlin modules.
 Thus, you still need to configure Lombok as usual when using this plugin. 
-Learn more about [how to make the plugin seeing Lombok's config](#using-the-lombok-configuration-file).
+Learn more about [how to configure the Lombok compiler plugin](#using-the-lombok-configuration-file).
 
 ## Supported annotations
 
@@ -64,9 +64,9 @@ See this [test project with examples of the Lombok compiler plugin in use](https
 
 ### Using the Lombok configuration file
 
-If you use a [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`,
-provide a path to it to the plugin. The path should be relative to the module's directory. 
-Add the following code to your `build.gradle(.kts)` file:
+If you use a [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`, you need to set the file's path so that the plugin can find it. 
+The path must be relative to the module's directory. 
+For example, add the following code to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
