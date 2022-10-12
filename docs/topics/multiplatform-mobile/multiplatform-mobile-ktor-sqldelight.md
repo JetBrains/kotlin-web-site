@@ -74,6 +74,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     val coroutinesVersion = "%coroutinesVersion%"
     val ktorVersion = "%ktorVersion%"
     val sqlDelightVersion = "%sqlDelightVersion%"
+    val dateTimeVersion = "0.4.0"
 
     sourceSets {
         val commonMain by getting {
@@ -112,7 +113,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
    ```kotlin
        plugins {
        // ...
-       kotlin("plugin.serialization") version "1.6.21"
+       kotlin("plugin.serialization") version "%kotlinVersion%"
        id("com.squareup.sqldelight")
    }
    ```
@@ -204,7 +205,7 @@ with `.sq` files.
 First, create the `.sq` file, which will contain all the needed SQL queries. By default, the SQLDelight plugin reads
 `.sq` from the `sqldelight` folder:
 
-1. In `shared/src/commonMain/kotlin`, create a new `sqldelight` directory and add
+1. In `shared/src/commonMain`, create a new `sqldelight` directory and add
    the `com.jetbrains.handson.kmm.shared.cache` package.
 2. Inside it, create an `.sq` file with the name of the database, `AppDatabase.sq`. All the SQL queries for
    the application will be in this file.
@@ -277,7 +278,7 @@ implementations of the SQLite driver, so you need to create them for each platfo
 [expected and actual declarations](multiplatform-connect-to-apis.md).
 
 1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
-   a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside:
+   the `com.jetbrains.handson.kmm.shared.cache` package and the `DatabaseDriverFactory` class inside:
 
    ```kotlin
    package com.jetbrains.handson.kmm.shared.cache
@@ -302,7 +303,7 @@ implementations of the SQLite driver, so you need to create them for each platfo
    
    import android.content.Context
    import com.squareup.sqldelight.android.AndroidSqliteDriver
-   import com.squareup.sqldelight.db.SqlDriver 
+   import com.squareup.sqldelight.db.SqlDriver
    
    actual class DatabaseDriverFactory(private val context: Context) {
        actual fun createDriver(): SqlDriver {
@@ -375,6 +376,10 @@ a `Database` class, which will wrap the `AppDatabase` class and contain caching 
 4. Create a function to get a list of all the rocket launches:
 
    ```kotlin
+   import com.jetbrains.handson.kmm.shared.entity.Links
+   import com.jetbrains.handson.kmm.shared.entity.Patch
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+
    internal fun getAllLaunches(): List<RocketLaunch> {
        return dbQuery.selectAllLaunchesInfo(::mapLaunchSelecting).executeAsList()
    }
@@ -464,8 +469,8 @@ The `Database` class instance will be created later, along with the SDK facade c
 
 ## Implement an API service
 
-To retrieve data via the internet, you'll need the [SpaceX public API](https://docs.spacexdata.com/?version=latest) and
-a single method to retrieve the list of all launches from the `v3/launches` endpoint.
+To retrieve data via the internet, you'll need the [SpaceX public API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
+and a single method to retrieve the list of all launches from the `v5/launches` endpoint.
 
 Create a class that will connect the application to the API:
 
@@ -520,12 +525,13 @@ Create a class that will connect the application to the API:
 To access the internet, the Android application needs appropriate permission. Since all network requests are made
 from the shared module, adding internet access permission to this module's manifest makes sense.
 
-Add the following manifest to the `shared/src/androidMain/AndroidManifest.xml` file:
+In the `androidApp/src/main/AndroidManifest.xml` file, add the following permission to the manifest:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jetbrains.handson.androidApp">
     <uses-permission android:name="android.permission.INTERNET" />
+    
 </manifest>
 ```
 
@@ -547,7 +553,6 @@ public class.
    import com.jetbrains.handson.kmm.shared.cache.Database
    import com.jetbrains.handson.kmm.shared.cache.DatabaseDriverFactory
    import com.jetbrains.handson.kmm.shared.network.SpaceXApi
-   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
 
    class SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory) {
        private val database = Database(databaseDriverFactory)
@@ -561,6 +566,8 @@ public class.
    you'll inject it from the platform code through the `SpaceXSDK` class constructor.
 
    ```kotlin
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+   
    @Throws(Exception::class)
    suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch> {
        val cachedLaunches = database.getAllLaunches()
@@ -617,16 +624,16 @@ dependencies {
 
 ### Implement the UI: display the list of rocket launches
 
-1. To implement the UI, modify `activity_main.xml` in `androidApp/src/main/res/layout`.
+1. To implement the UI, create the `layout/activity_main.xml` file in `androidApp/src/main/res`.
 
    The screen is based on the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView`
    and `FrameLayout` with a background with `ProgressBar`across its center:
 
    ```xml
    ```
-   {src="multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="2-26"}
+   {src="multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="1-26"}
 
-2. In `androidApp/src/main/java`, add the properties for the UI elements to the `MainActivity` class:
+2. In `androidApp/src/main/java`, replace the implementation of the `MainActivity` class, adding the properties for the UI elements:
 
    ```kotlin
    class MainActivity : AppCompatActivity() {
@@ -648,7 +655,7 @@ dependencies {
    ```
 
 3. For the `RecyclerView` element to work, you need to create an adapter (as a subclass of `RecyclerView.Adapter`) that
-   will convert raw data into list item views. For this, create the `LaunchesRvAdapter` class:
+   will convert raw data into list item views. For this, create a separate `LaunchesRvAdapter` class:
 
    ```kotlin
    class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
@@ -678,7 +685,7 @@ dependencies {
 
    ```xml
    ```
-   {src="multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="2-28"}
+   {src="multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="1-28"}
 
 5. In `androidApp/src/main/res/values/`, you can create your appearance of the app or copy the following styles:
 
@@ -864,7 +871,9 @@ First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item fro
 and `VStack` views. There will be extensions on the `RocketLaunchRow` structure with useful helpers for displaying the
 data.
 
-1. In your Xcode project, create the new file with the type **SwiftUI View** named `RocketLaunchRow` and update it with
+1. Launch your Xcode app and select **Open a project or file**.
+2. Navigate to your project and select the `iosApp` folder. Click **Open**.
+3. In your Xcode project, create a new Swift file with the type **SwiftUI View** named `RocketLaunchRow` and update it with
    the following code:
 
    ```swift
@@ -908,8 +917,8 @@ data.
 
    The list of the launches will be displayed in the `ContentView`, which the project wizard has already created.
 
-2. Create a `ViewModel` class for the `ContentView`, which will prepare and manage data and declare it as an extension
-   to the `ContentView`, as they are closely connected. Add the following code to the `ContentView.swift`:
+4. Create a `ViewModel` class for the `ContentView`, which will prepare and manage data and declare it as an extension
+   to the `ContentView`, as they are closely connected. Add the following code to `ContentView.swift`:
 
    ```swift
    // ...
@@ -931,7 +940,7 @@ data.
     * `ContentView.ViewModel` is declared as an `ObservableObject` and `@Published` wrapper is used for the `launches`
       property, so the view model will emit signals whenever this property changes.
 
-3. Implement the body of the `ContentView` and display the list of launches:
+5. Implement the body of the `ContentView` file and display the list of launches:
 
    ```swift
    struct ContentView: View {
@@ -965,7 +974,7 @@ data.
 
    The `@ObservedObject` property wrapper is used to subscribe to the view model.
 
-4. To make it compile, the `RocketLaunch` class needs to confirm the `Identifiable` protocol, as it is used as a
+6. To make it compile, the `RocketLaunch` class needs to confirm the `Identifiable` protocol, as it is used as a
    parameter for initializing the `List` Swift UIView. The `RocketLaunch` class already has a property named `id`, so
    add the following to the bottom of `ContentView.swift`:
 
@@ -978,7 +987,7 @@ data.
 To retrieve data about the rocket launches in the view model, you'll need an instance of the `SpaceXSDK` from the Multiplatform
 library.
 
-1. Pass it in through the constructor:
+1. In the `ContentView.swift`, pass it in through the constructor:
 
    ```swift
    extension ContentView {
@@ -1002,18 +1011,18 @@ library.
 2. Call the `getLaunches` from the `SpaceXSDK` class and save the result in the `launches` property:
 
    
-```Swift
-func loadLaunches(forceReload: Bool) {
-    self.launches = .loading
-        sdk.getLaunches(forceReload: forceReload, completionHandler: { launches, error in
-            if let launches = launches {
-                self.launches = .result(launches)
-                } else {
-                    self.launches = .error(error?.localizedDescription ?? "error")
-                }
-            })
-        }
-```
+   ```Swift
+   func loadLaunches(forceReload: Bool) {
+       self.launches = .loading
+           sdk.getLaunches(forceReload: forceReload, completionHandler: { launches, error in
+               if let launches = launches {
+                   self.launches = .result(launches)
+                   } else {
+                       self.launches = .error(error?.localizedDescription ?? "error")
+                   }
+               })
+           }
+   ```
 
    * When you compile a Kotlin module into an Apple
    framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
@@ -1039,12 +1048,13 @@ func loadLaunches(forceReload: Bool) {
    }
    ```
 
-4. Press the run button and see the result:
+4. In Android Studio, switch to the **iosApp** configuration, choose emulator, and run it to see the result:
 
 ![iOS Application](ios-application.png){width=300}
 
-You can find the final version of the project on the final
-branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the final version of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
 
 ## What's next?
 
