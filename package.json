@@ -46,6 +46,7 @@
     "inter-ui": "3.19.3",
     "iso-639-1": "2.1.13",
     "jquery": "3.5.0",
+    "key-value-parser": "0.2.0",
     "kotlin-playground": "^1.27.0",
     "mini-css-extract-plugin": "1.6.1",
     "mini-svg-data-uri": "1.1.3",
