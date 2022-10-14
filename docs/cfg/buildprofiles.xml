@@ -10,7 +10,7 @@
         </browser-edits-url-override>
         <browser-edits-url-override
             for="lincheck-guide.md,introduction.md,constraints.md,modular-testing.md,operation-arguments.md,progress-guarantees.md,sequential-specification.md,testing-strategies.md">
-            https://github.com/Kotlin/kotlinx-lincheck/edit/master/docs/topics
+            https://github.com/Kotlin/kotlinx-lincheck/edit/master/docs/topics/
         </browser-edits-url-override>
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
         <generate-only-default-anchors>true</generate-only-default-anchors>
