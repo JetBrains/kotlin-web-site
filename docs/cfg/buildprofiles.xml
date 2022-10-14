@@ -5,8 +5,12 @@
         <enable-browser-edits>true</enable-browser-edits>
         <browser-edits-url>https://github.com/JetBrains/kotlin-web-site/edit/master/docs/</browser-edits-url>
         <browser-edits-url-override
-            for="coroutines-guide.md,coroutines-basics.md,coroutines-basic-jvm.md,cancellation-and-timeouts.md,composing-suspending-functions.md,coroutine-context-and-dispatchers.md,flow.md,channels.md,exception-handling.md,shared-mutable-state-and-concurrency.md,select-expression.md,debug-coroutines-with-idea.md,debug-flow-with-idea.md">
+            for="coroutines-guide.md,coroutines-basics.md,coroutines-basic-jvm.md,coroutines-and-channels.md,cancellation-and-timeouts.md,composing-suspending-functions.md,coroutine-context-and-dispatchers.md,flow.md,channels.md,exception-handling.md,shared-mutable-state-and-concurrency.md,select-expression.md,debug-coroutines-with-idea.md,debug-flow-with-idea.md">
             https://github.com/Kotlin/kotlinx.coroutines/edit/master/docs/topics/
+        </browser-edits-url-override>
+        <browser-edits-url-override
+            for="lincheck-guide.md,introduction.md,constraints.md,modular-testing.md,operation-arguments.md,progress-guarantees.md,sequential-specification.md,testing-strategies.md">
+            https://github.com/Kotlin/kotlinx-lincheck/edit/master/docs/topics
         </browser-edits-url-override>
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
         <generate-only-default-anchors>true</generate-only-default-anchors>
