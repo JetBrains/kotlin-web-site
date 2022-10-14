@@ -1,6 +1,7 @@
 [//]: # (title: Multiplatform Gradle DSL reference)
 
-> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+> Multiplatform projects are in [Beta](components-stability.md). They are almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="note"}
 
