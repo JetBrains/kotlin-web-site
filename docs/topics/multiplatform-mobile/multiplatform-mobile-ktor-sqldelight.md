@@ -10,7 +10,7 @@ The output will be an app that retrieves data over the internet from a
 public [SpaceX API](https://docs.spacexdata.com/?version=latest), saves it in a local database, and displays a list of
 SpaceX rocket launches together with the launch date, results, and a detailed description of the launch:
 
-![Emulator and Simulator](android-and-ios.png){width=500}
+![Emulator and Simulator](android-and-ios.png){width=600}
 
 You will use the following multiplatform libraries in the project:
 
@@ -847,7 +847,7 @@ dependencies {
 
 3. Select **androidApp** from the run configurations menu, choose emulator, and press the run button:
 
-![Android application](android-application.png){width=300}
+![Android application](android-application.png){width=350}
 
 You've just created an Android application that has its business logic implemented in the Kotlin Multiplatform Mobile
 module.
@@ -1050,7 +1050,7 @@ library.
 
 4. In Android Studio, switch to the **iosApp** configuration, choose emulator, and run it to see the result:
 
-![iOS Application](ios-application.png){width=300}
+![iOS Application](ios-application.png){width=350}
 
 > You can find the final version of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
