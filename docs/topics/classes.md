@@ -94,7 +94,7 @@ Much like regular properties, properties declared in the primary constructor can
 If the constructor has annotations or visibility modifiers, the `constructor` keyword is required and the modifiers go before it:
 
 ```kotlin
-class Customer public @Inject constructor(name: String) { /*...*/ }
+class Customer @Inject public constructor(name: String) { /*...*/ }
 ```
 
 Learn more about [visibility modifiers](visibility-modifiers.md#constructors).
