@@ -570,17 +570,17 @@ Using this feature, you can:
 * Run compilations, tests, and executables using JDKs and JREs that are different from the Gradle ones.
 * Compile and test code with an unreleased language version.
 
-With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build. Now Gradle itself can run on any JDK and still reuse the [build cache feature](gradle.md#gradle-build-cache-support).
+With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build. Now Gradle itself can run on any JDK and still reuse the [build cache feature](gradle-compilation-and-caches.md#gradle-build-cache-support).
 
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks.
 A Java toolchain:
-* Sets the [`jdkHome` option](gradle.md#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
   > [The ability to set the `jdkHome` option directly has been deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
   >
   {type="warning"}
 
-* Sets the [`kotlinOptions.jvmTarget`](gradle.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn't set the `jvmTarget` option explicitly.
-  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
+* Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn't set the `jvmTarget` option explicitly.
+  If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle-configure.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
 
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
 
@@ -623,13 +623,13 @@ java {
 }
 ```
 
-For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle.md#setting-jdk-version-with-the-task-dsl).
+For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle-configure.md#setting-jdk-version-with-the-task-dsl).
 
 For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface).
 
 ### Ability to specify JDK home with UsesKotlinJavaToolchain interface
 
-All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle.md#compiler-options) now implement the `UsesKotlinJavaToolchain` interface. To set the JDK home, put a path to your JDK and replace the `<JDK_VERSION>` placeholder:
+All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle-compiler-options.md) now implement the `UsesKotlinJavaToolchain` interface. To set the JDK home, put a path to your JDK and replace the `<JDK_VERSION>` placeholder:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -741,11 +741,11 @@ In Kotlin 1.5.30, there's a new logic for the Kotlin daemon's JVM arguments. Eac
     </tab>
     </tabs>
 
-    > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon's interactions with JVM arguments](gradle.md#setting-kotlin-daemon-s-jvm-arguments).
+    > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon's interactions with JVM arguments](gradle-compilation-and-caches.md#setting-kotlin-daemon-s-jvm-arguments).
     >
     {type="note"}
 
-For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle.md#kotlin-daemon-and-using-it-with-gradle).
+For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle-compilation-and-caches.md#kotlin-daemon-and-using-it-with-gradle).
 
 ## Standard library
 

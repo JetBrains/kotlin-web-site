@@ -233,7 +233,7 @@ The default target version for Kotlin/JVM compilations is `1.8`. The `1.6` targe
 
 Please migrate to JVM target 1.8 or above. Learn how to update the JVM target version for:
 
-* [Gradle](gradle.md#attributes-specific-to-jvm)
+* [Gradle](gradle-compiler-options.md#attributes-specific-to-jvm)
 * [Maven](maven.md#attributes-specific-to-jvm)
 * [The command-line compiler](compiler-reference.md#jvm-target-version)
 
@@ -966,7 +966,7 @@ kotlin.compiler.execution.strategy=out-of-process
 ```
 
 You can also use the compile task property `compilerExecutionStrategy`. Learn more about this on
-the [Gradle page](gradle.md#defining-kotlin-compiler-execution-strategy).
+the [Gradle page](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
 
 ### Removal of deprecated options, methods, and plugins
 
@@ -1020,7 +1020,7 @@ the `KotlinCompilerPluginSupportPlugin` class instead.
 
 We removed the deprecated `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used
 in `gradle.properties`. Now you can just use _[suspending functions](coroutines-basics.md#extract-function-refactoring)_
-or [add the `kotlinx.coroutines` dependency](gradle.md#set-a-dependency-on-a-kotlinx-library) to your build
+or [add the `kotlinx.coroutines` dependency](gradle-configure.md#set-a-dependency-on-a-kotlinx-library) to your build
 script.
 
 Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).

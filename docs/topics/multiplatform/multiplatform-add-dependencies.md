@@ -4,7 +4,7 @@ Every program requires a set of libraries to operate successfully. A Kotlin Mult
 multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
 
 To add a dependency on a library, update your `build.gradle(.kts)` file in the `shared` directory of your project. Set a
-dependency of the required [type](gradle.md#dependency-types) (for example, `implementation`) in the [`dependencies`](multiplatform-dsl-reference.md#dependencies)
+dependency of the required [type](gradle-configure.md#dependency-types) (for example, `implementation`) in the [`dependencies`](multiplatform-dsl-reference.md#dependencies)
 block: 
 
 <tabs group="build-script">
@@ -40,7 +40,7 @@ kotlin {
 </tab>
 </tabs>
 
-Alternatively, you can [set dependencies at the top level](gradle.md#set-dependencies-at-the-top-level).
+Alternatively, you can [set dependencies at the top level](gradle-configure.md#set-dependencies-at-the-top-level).
 
 ## Dependency on a Kotlin library
 
@@ -51,9 +51,9 @@ library is the same as the version of the `kotlin-multiplatform` plugin.
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common
 standard library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library
-depending on the `kotlinOptions.jvmTarget` [compiler option](gradle.md#compiler-options) of your Gradle build script
+depending on the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script
 
-Learn how to [change the default behavior](gradle.md#dependency-on-the-standard-library).
+Learn how to [change the default behavior](gradle-configure.md#dependency-on-the-standard-library).
 
 ### Test libraries
 
@@ -62,7 +62,7 @@ you [create a multiplatform project](multiplatform-library.md), the Project Wiza
 dependencies to common and platform-specific source sets.
 
 If you didn't use the Project Wizard to create your project, you
-can [add the dependencies manually](gradle.md#set-dependencies-on-test-libraries).
+can [add the dependencies manually](gradle-configure.md#set-dependencies-on-test-libraries).
 
 ### kotlinx libraries
 
