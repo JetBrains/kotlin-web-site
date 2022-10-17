@@ -6,9 +6,9 @@ of items (possibly zero) that are significant to the problem being solved and ar
 Collections are a common concept for most programming languages, so if you're familiar with, for example, Java or Python 
 collections, you can skip this introduction and proceed to the detailed sections. 
 
-A collection usually contains a number of objects (this number may also be zero) of the same type. Objects in a collection
+A collection usually contains a number of objects of the same type (and its subtypes). Objects in a collection
 are called _elements_ or _items_. For example, all the students in a department form a collection that can be used to
-calculate their average age. 
+calculate their average age.
 
 The following collection types are relevant for Kotlin:
 
@@ -30,6 +30,10 @@ collections of any type.
 The collection interfaces and related functions are located in the `kotlin.collections` package. Let's get an overview 
 of its contents.
 
+> Arrays are not a type of collection. For more information, see [Arrays](arrays.md).
+>
+{type="note"}
+
 ## Collection types
 
 The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.
@@ -39,9 +43,11 @@ A pair of interfaces represent each collection type:
 * A _mutable_ interface that extends the corresponding read-only interface with write operations: adding, removing, and 
 updating its elements.
 
-Note that altering a mutable collection doesn't require it to be a [`var`](basic-syntax.md#variables): write operations
-modify the same mutable collection object, so the reference doesn't change.
-Although, if you try to reassign a `val` collection, you'll get a compilation error.
+Note that a mutable collection doesn't have to be assigned to a [`var`](basic-syntax.md#variables). Write operations with
+a mutable collection are still possible even if it is assigned to a `val`. The benefit of assigning mutable collections to
+`val` is that you protect the reference to the mutable collection from modification. Over time, as your code grows and becomes
+more complex, it becomes even more important to prevent unintentional modification to references. Use `val` as much as possible
+for safer and more robust code. If you try to reassign a `val` collection, you get a compilation error:
 
 ```kotlin
 fun main() {
@@ -287,3 +293,26 @@ The default implementation of `MutableMap` – [`LinkedHashMap`](https://kotlinl
 preserves the order of elements insertion when iterating the map.
 In turn, an alternative implementation – [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) – 
 says nothing about the elements order.
+
+### ArrayDeque
+
+[`ArrayDeque<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-deque/) is an implementation of a double-ended queue, which allows you to add or remove elements both at the beginning or end of the queue.
+As such, `ArrayDeque` also fills the role of both a Stack and Queue data structure in Kotlin. Behind the scenes, `ArrayDeque` is realized using a resizable array that automatically adjusts in size when required:
+
+```kotlin
+fun main() {
+    val deque = ArrayDeque(listOf(1, 2, 3))
+
+    deque.addFirst(0)
+    deque.addLast(4)
+    println(deque) // [0, 1, 2, 3, 4]
+
+    println(deque.first()) // 0
+    println(deque.last()) // 4
+
+    deque.removeFirst()
+    deque.removeLast()
+    println(deque) // [1, 2, 3]
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
