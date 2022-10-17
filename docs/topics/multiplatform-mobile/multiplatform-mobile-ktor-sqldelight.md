@@ -15,10 +15,10 @@ SpaceX rocket launches together with the launch date, results, and a detailed de
 You will use the following multiplatform libraries in the project:
 
 * [Ktor](https://ktor.io/docs/create-client.html) as an HTTP client for retrieving data over the internet.
-* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects.
   of entity classes
-* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) to write asynchronous code
-* [SQLDelight](https://github.com/cashapp/sqldelight) to generate the Kotlin code from SQL queries to create a type-safe
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) to write asynchronous code.
+* [SQLDelight](https://github.com/cashapp/sqldelight) to generate the Kotlin code from SQL queries to create a type-safe.
   database API
 
 > You can find the [template project](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage) as well as the
@@ -57,7 +57,7 @@ For more details, see the [Set up the environment](multiplatform-mobile-setup.md
 For more on project features and how to use them,
 see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
 
-> You can find the configured project on the `master` branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage)
+> You can find the configured project on the `master` branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage).
 >
 {type="note"}
 
@@ -142,7 +142,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 
 5. Sync the Gradle project.
 
-Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
+Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
 
 > You can find this state of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
@@ -935,8 +935,8 @@ data.
    }
    ```
 
-    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
-      with the view (ContentView).
+    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+      with the view (`ContentView`).
     * `ContentView.ViewModel` is declared as an `ObservableObject` and `@Published` wrapper is used for the `launches`
       property, so the view model will emit signals whenever this property changes.
 
@@ -1060,7 +1060,7 @@ library.
 
 There were some potentially heavy operations in this tutorial, like parsing JSON and making requests to the database in
 the main thread. To learn about how to write concurrent code and optimize your app,
-see [how to work with concurrency](multiplatform-mobile-concurrency-overview.md)
+see [how to work with concurrency](multiplatform-mobile-concurrency-overview.md).
 
 You can also check out these materials if you want to:
 
