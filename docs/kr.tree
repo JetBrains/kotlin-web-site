@@ -312,6 +312,7 @@
                 <toc-element id="gradle-compiler-options.md" toc-title="Compiler options"/>
                 <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches"/>
                 <toc-element id="gradle-kotlin-dsl.md" toc-title="Gradle Kotlin DSL"/>
+            </toc-element>
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
         </toc-element>
