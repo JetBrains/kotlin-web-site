@@ -106,8 +106,8 @@ produces the files `mylib.dll`.
 
 ## Build binaries for several modules
 
-If your project has multiple Kotlin modules, and you need to access them from your iOS app, you'll encounter an issue
-− the usage of several Kotlin/Native modules in Swift is limited. With Kotlin artifact DSL, you can export multiple
+If your project has multiple Kotlin modules, and you need to access them from your app, you'll encounter an issue
+− the usage of several Kotlin/Native modules is limited. With Kotlin artifact DSL, you can export multiple
 Kotlin modules into a single artifact.
 
 The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Inside it,
