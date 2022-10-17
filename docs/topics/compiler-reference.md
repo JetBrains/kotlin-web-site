@@ -18,7 +18,7 @@ There are several ways to set the compiler options and their values (_compiler a
 * In IntelliJ IDEA, write in the compiler arguments in the **Additional command line parameters** text box in
   **Settings/Preferences** | **Build, Execution, Deployment** | **Compiler** | **Kotlin Compiler**.
 * If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
-For details, see [Gradle](gradle.md#compiler-options).
+For details, see [Gradle compiler options](gradle-compiler-options.md).
 * If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
 For details, see [Maven](maven.md#specifying-compiler-options).
 * If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).

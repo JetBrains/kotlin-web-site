@@ -770,7 +770,7 @@ A compilation has the following parameters:
 |`defaultSourceSet`|The compilation's default source set.|
 |`kotlinSourceSets`|Source sets participating in the compilation.|
 |`allKotlinSourceSets`|Source sets participating in the compilation and their connections via `dependsOn()`.|
-|`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle.md#compiler-options).|
+|`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).|
 |`compileKotlinTask`|Gradle task for compiling Kotlin sources.|
 |`compileKotlinTaskName`|Name of `compileKotlinTask`.|
 |`compileAllTaskName`|Name of the Gradle task for compiling all sources of a compilation.|
@@ -842,7 +842,7 @@ kotlin {
 
 The `dependencies` block of the source set declaration contains the dependencies of this source set.
 
-Learn more about [configuring dependencies](gradle.md#configure-dependencies).
+Learn more about [configuring dependencies](gradle-configure.md).
 
 There are four types of dependencies:
 
