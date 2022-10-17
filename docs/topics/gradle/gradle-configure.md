@@ -77,7 +77,7 @@ Alternatively, you can use the older `apply plugin` approach:
 apply plugin: 'kotlin'
 ```
 
-Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](#using-the-gradle-kotlin-dsl).
+Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle-kotlin-dsl.md#using-the-gradle-kotlin-dsl).
 
 ### Kotlin and Java sources
 
@@ -160,14 +160,14 @@ Using this feature, you can:
 * Compile and test code with a not-yet-released language version.
 
 With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
-Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](#gradle-build-cache-support)
+Now Gradle itself can run on any JDK and still reuse the [remote build cache feature](gradle-compilation-and-caches.md#gradle-build-cache-support)
 for tasks that depend on a major JDK version.
 
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
-* Sets the [`jdkHome` option](#attributes-specific-to-jvm) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](#attributes-specific-to-jvm) to the toolchain's JDK version
+* Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
@@ -469,7 +469,7 @@ of the standard library used is the same as the version of the Kotlin Gradle plu
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard
 library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on
-the `kotlinOptions.jvmTarget` [compiler option](#compiler-options) of your Gradle build script.
+the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
 plugin won't override it or add a second standard library.
