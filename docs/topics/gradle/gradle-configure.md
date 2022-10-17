@@ -44,36 +44,6 @@ version of %minGradleVersion% for your project to compile.
 In turn, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
 methods and properties and supports all the current Gradle features.
 
-## Targeting multiple platforms
-
-Projects targeting [multiple platforms](multiplatform-dsl-reference.md#targets), called [multiplatform projects](multiplatform-get-started.md),
-require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multiplatform-discover-project.md#multiplatform-plugin).
-
->The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
->
-{type="note"}
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-  kotlin("multiplatform") version "%kotlinVersion%"
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-```
-
-</tab>
-</tabs>
-
 ## Targeting the JVM
 
 To target the JVM, apply the Kotlin JVM plugin.
@@ -325,6 +295,40 @@ tasks.withType<UsesKotlinJavaToolchain>().configureEach {
 }
 ```
 
+## Targeting multiple platforms
+
+Projects targeting [multiple platforms](multiplatform-dsl-reference.md#targets), called [multiplatform projects](multiplatform-get-started.md),
+require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multiplatform-discover-project.md#multiplatform-plugin).
+
+>The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
+>
+{type="note"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+  kotlin("multiplatform") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
+</tabs>
+
+## Targeting Android
+
+It's recommended to use Android Studio for creating Android applications. [Learn how to use Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
+
 ## Targeting JavaScript
 
 When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
@@ -379,10 +383,6 @@ kotlin {
 
 </tab>
 </tabs>
-
-## Targeting Android
-
-It's recommended to use Android Studio for creating Android applications. [Learn how to use Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
 ## Configure dependencies
 
