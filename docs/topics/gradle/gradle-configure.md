@@ -138,44 +138,6 @@ file equal to:
 * `error` – the plugin will fail the build.
 * `ignore` – the plugin will skip the check and won't produce any messages.
 
-### Associate compiler tasks
-
-You can _associate_ compilations by setting up such a relationship between them that one compilation will use the compiled
-outputs of the other. Associating compilations establishes `internal` visibility between them.
-
-The Kotlin compiler associates some compilations by default, such as the `test` and `main` compilations of each target.
-If you need to express that one of your custom compilations is connected to another, create your own associated
-compilation.
-
-To make the IDE support associated compilations for inferring visibility between source sets, add the following code to
-your `build.gradle(.kts)`:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-val integrationTestCompilation = kotlin.target.compilations.create("integrationTest") {
-    associateWith(kotlin.target.compilations.getByName("main"))
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-integrationTestCompilation {
-    kotlin.target.compilations.create("integrationTest") {
-        associateWith(kotlin.target.compilations.getByName("main"))
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
-objects from functional tests.
-
 ### Set custom JDK home
 
 By default, Kotlin compile tasks use the current Gradle JDK.
@@ -294,6 +256,44 @@ tasks.withType<UsesKotlinJavaToolchain>().configureEach {
     )
 }
 ```
+
+### Associate compiler tasks
+
+You can _associate_ compilations by setting up such a relationship between them that one compilation will use the compiled
+outputs of the other. Associating compilations establishes `internal` visibility between them.
+
+The Kotlin compiler associates some compilations by default, such as the `test` and `main` compilations of each target.
+If you need to express that one of your custom compilations is connected to another, create your own associated
+compilation.
+
+To make the IDE support associated compilations for inferring visibility between source sets, add the following code to
+your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val integrationTestCompilation = kotlin.target.compilations.create("integrationTest") {
+    associateWith(kotlin.target.compilations.getByName("main"))
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+integrationTestCompilation {
+    kotlin.target.compilations.create("integrationTest") {
+        associateWith(kotlin.target.compilations.getByName("main"))
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
+objects from functional tests.
 
 ## Targeting multiple platforms
 
