@@ -33,6 +33,9 @@ You will use the following multiplatform libraries in the project:
 2. Search for
    the [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
    in the Android Studio Marketplace and install it for working with the shared module and Android project.
+
+   ![Kotlin Multiplatform Mobile plugin](multiplatform-marketplace.png){width=700}
+
 3. Download and install [Xcode](https://developer.apple.com/xcode/) for building the iOS application.
 
 For more details, see the [Set up the environment](multiplatform-mobile-setup.md) section.
