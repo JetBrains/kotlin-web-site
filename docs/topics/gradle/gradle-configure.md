@@ -1,7 +1,15 @@
-[//]: # (title: Gradle configuration)
+[//]: # (title: Configure your existing project)
 
-To build a Kotlin project with Gradle, you'll need to add the [Kotlin Gradle plugin](#apply-the-plugin)
-and [configure dependencies](#configure-dependencies).
+To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/getting_started.html), 
+you'll need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
+and [configure dependencies](#configure-dependencies) there. As the prerequisite, you need to make sure that you have a Gradle Wrapper in 
+your project or Gradle installed in your system. Consult the [Gradle official documentation](https://docs.gradle.org/current/userguide/getting_started.html#gs:installation) 
+for details.
+
+> To learn more about different parts of a build script,
+> visit the [Understand the build script](gradle-backend-tutorial.md#understand-the-build-script) section.
+>
+{type="note"}
 
 ## Apply the plugin
 
