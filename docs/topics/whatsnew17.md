@@ -1,5 +1,9 @@
 [//]: # (title: What's new in Kotlin 1.7.0)
 
+<microformat>
+   <p>The IDE support for Kotlin 1.7.0 is available for IntelliJ IDEA 2021.2, 2021.3, and 2022.1.</p>
+</microformat>
+
 _[Release date: 9 June 2022](releases.md#release-details)_
 
 Kotlin 1.7.0 has been released. It unveils the Alpha version of the new Kotlin/JVM K2 compiler, stabilizes language
