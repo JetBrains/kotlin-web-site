@@ -46,8 +46,8 @@ additional cross-platform mobile development tasks:
    <td>
      <ul>
         <li><a href="multiplatform-mobile-integrate-in-existing-app.md">Make your Android app cross-platform</a></li>
-        <li><a href="https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/">Kotlin Multiplatform Hands-on: Networking and Data Storage</a></li>
-        <li><a href="https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/">Building a Full Stack Web App with Kotlin Multiplatform</a></li>
+        <li><a href="multiplatform-mobile-ktor-sqldelight.md">Create a multiplatfotm app using Ktor and SQLDelight</a></li>
+        <li><a href="multiplatform-full-stack-app.md">Build a full-stack web app with Kotlin Multiplatform</a></li>
         <li><a href="multiplatform-mobile-samples.md">Curated list of sample projects</a></li>
      </ul>
    </td>

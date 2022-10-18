@@ -23,9 +23,17 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 
     ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
 
-4. In the **iOS framework distribution** list, select **Regular framework**.
+4. In the **iOS framework distribution** list, select the **Regular framework** option.
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > has less installation issues.
+   > 
+   > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
+   > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
+   >
+   {type="tip"}
 
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
@@ -87,15 +95,19 @@ Learn how to [configure and connect a hardware device and run your application o
 
 ### Run your application on iOS
 
-* In the list of run configurations, select **iosApp** and then click **Run**.  
+1. Launch Xcode in a separate window. The first time you may also need to accept its license terms and allow it to perform
+   some necessary initial tasks.
+2. In Android Studio, select **iosApp** in the list of run configurations and click **Run**.
+   
+   If you don't have an available iOS configuration in the list, add a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
     
     ![Run multiplatform app on iOS](run-ios.png){width=450}
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
-#### Run on a different iPhone simulated device {initial-collapse-state="collapsed"}
+#### Run on a new iOS simulated device {initial-collapse-state="collapsed"}
 
-If you want to run your application on another simulated device, you can add a new run configuration.
+If you want to run your application on a simulated device, you can add a new run configuration.
 
 1. In the list of run configurations, click **Edit Configurations**.
 
@@ -113,10 +125,10 @@ If you want to run your application on another simulated device, you can add a n
     
 5. Click **Run** to run your application on the new simulated device.
     
-#### Run on a real iPhone device {initial-collapse-state="collapsed"}
+#### Run on a real iOS device {initial-collapse-state="collapsed"}
 
 1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
-2. [Create a run configuration](#run-on-a-different-iphone-simulated-device) by selecting iPhone in the **Execution target** list.
+2. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
 3. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
@@ -135,17 +147,19 @@ the Kotlin standard library function for reversing text that works on all platfo
 
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         fun greeting(): String {
-            return "Guess what it is! > ${Platform().platform.reversed()}!"
+            return "Guess what it is! > ${platform.name.reversed()}!"
         }
     }
     ```
 
-3. Run the updated application on Android.
+3. Re-run the **androidApp** configuration to see the updated application in the Android simulated device.
 
     ![Updated mobile multiplatform app on Android](first-multiplatform-project-on-android-2.png){width=300}
     
-4. Run the updated application on iOS.  
+4. In Android Studio, switch to **iosApp** and re-run it to see the updated application in the iOS simulated device.  
 
     ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
 

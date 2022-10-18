@@ -13,7 +13,7 @@ that module.
 
 The Lombok compiler plugin cannot replace [Lombok](https://projectlombok.org/), but it helps Lombok work in mixed Java/Kotlin modules.
 Thus, you still need to configure Lombok as usual when using this plugin. 
-Learn more about [how to make the plugin seeing Lombok's config](#using-the-lombok-configuration-file).
+Learn more about [how to configure the Lombok compiler plugin](#using-the-lombok-configuration-file).
 
 ## Supported annotations
 
@@ -64,9 +64,9 @@ See this [test project with examples of the Lombok compiler plugin in use](https
 
 ### Using the Lombok configuration file
 
-If you use a [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`,
-provide a path to it to the plugin. The path should be relative to the module's directory. 
-Add the following code to your `build.gradle(.kts)` file:
+If you use a [Lombok configuration file](https://projectlombok.org/features/configuration) `lombok.config`, you need to set the file's path so that the plugin can find it. 
+The path must be relative to the module's directory. 
+For example, add the following code to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -169,3 +169,21 @@ The Lombok compiler plugin works correctly with [kapt](kapt.md) if annotation pr
 Look through the test project examples of kapt and the Lombok compiler plugin in use:
 * Using [Gradle](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/lombokProject/yeskapt).
 * Using [Maven](https://github.com/kotlin-hands-on/kotlin-lombok-examples/tree/master/kotlin_lombok_maven/yeskapt)
+
+## Command-line compiler
+
+Lombok compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
+by providing the path to its JAR file using the `Xplugin` kotlinc option:
+
+```bash
+-Xplugin=$KOTLIN_HOME/lib/lombok-compiler-plugin.jar
+```
+
+If you want to use the `lombok.config` file, replace `<PATH_TO_CONFIG_FILE>` with a path to your `lombok.config`:
+
+```bash
+# The plugin option format is: "-P plugin:<plugin id>:<key>=<value>". 
+# Options can be repeated.
+
+-P plugin:org.jetbrains.kotlin.lombok:config=<PATH_TO_CONFIG_FILE>
+```

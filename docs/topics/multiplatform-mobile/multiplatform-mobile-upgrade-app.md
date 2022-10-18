@@ -10,7 +10,7 @@ requests and data serialization are the [most popular cases](https://kotlinlang.
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
-The updated app will retrieve data over the internet from a [SpaceX public API](https://docs.spacexdata.com/?version=latest)
+The updated app will retrieve data over the internet from a [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
 and display the date of the last successful launch of a SpaceX rocket.
 
 ## Add more dependencies
@@ -33,7 +33,7 @@ sourceSets {
     val commonMain by getting {
         dependencies {
             // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
+           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -64,7 +64,7 @@ the `plugins` block at the very beginning of the `build.gradle` file in the shar
 ```kotlin
 plugins {
     // 
-    kotlin("plugin.serialization") version "1.6.21"
+    kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
 
@@ -81,7 +81,7 @@ dependency (`ktor-client-core`) in the common source set, you also need to:
   (`ktor-client-android`, `ktor-client-darwin`).
 
 ```kotlin
-val ktorVersion = "2.0.2"
+val ktorVersion = "%ktorVersion%"
 
 sourceSets {
     val commonMain by getting {
@@ -100,15 +100,17 @@ sourceSets {
     val iosMain by creating {
         // ...
         dependencies {
-            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion") 
         }
     }
 }
 ```
 
+Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
 ## Create API requests
 
-You'll need the [SpaceX public API](https://docs.spacexdata.com/?version=latest) to retrieve data and a single method to
+You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data and a single method to
 get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
@@ -169,15 +171,19 @@ data class RocketLaunch (
    method and find the latest launch:
 
     ```kotlin
+    import io.ktor.client.call.*
+    import io.ktor.client.request.*
+
     class Greeting {
         // ...
         @Throws(Exception::class)
         suspend fun greeting(): String {
-            val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
+            val rockets: List<RocketLaunch> =
+                httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
-            return "Guess what it is! > ${Platform().platform.reversed()}!" +
-                "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
-                "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+            return "Guess what it is! > ${platform.name.reversed()}!" +
+                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
+                    "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
     ```
@@ -191,7 +197,7 @@ data class RocketLaunch (
 To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
-Update your `shared/src/androidMain/AndroidManifest.xml` file as follows:
+Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,46 +224,46 @@ straightforward:
     ```kotlin
     dependencies {
         // ..
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:%coroutinesVersion%")
     }
     ```
 
-2. In `androidApp/src/main`, update the `MainActivity` class replacing previous implementation:
+2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-    ```kotlin
-    import kotlinx.coroutines.MainScope
-    import kotlinx.coroutines.cancel
-    import kotlinx.coroutines.launch
-    
-    class MainActivity : AppCompatActivity() {
-        private val scope = MainScope()
-    
-        override fun onDestroy() {
-            super.onDestroy()
-            scope.cancel()
-        }
+   ```kotlin
+   import androidx.compose.runtime.*
+   import kotlinx.coroutines.launch
+   
+   class MainActivity : ComponentActivity() {
+       override fun onCreate(savedInstanceState: Bundle?) {
+           super.onCreate(savedInstanceState)
+           setContent {
+               MyApplicationTheme {
+                   Surface(
+                       modifier = Modifier.fillMaxSize(),
+                       color = MaterialTheme.colors.background
+                   ) {
+                       val scope = rememberCoroutineScope()
+                       var text by remember { mutableStateOf("Loading") }
+                       LaunchedEffect(true) {
+                           scope.launch {
+                               text = try {
+                                   Greeting().greeting()
+                               } catch (e: Exception) {
+                                   e.localizedMessage ?: "error"
+                               }
+                           }
+                       }
+                       Greeting(text)
+                   }
+               }
+           }
+       }
+   }
+   ```
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-    
-            val tv: TextView = findViewById(R.id.text_view)
-            tv.text = "Loading..."
-    
-            scope.launch {
-                kotlin.runCatching {
-                    Greeting().greeting()
-                }.onSuccess {
-                    tv.text = it
-                }.onFailure {
-                    tv.text = it.localizedMessage
-                }
-            }
-        }
-    }
-    ```
-
-   The `greeting()` function is now called inside the coroutine launched in the main `CoroutineScope`.
+   The `greeting()` function is now called in a coroutine inside `LaunchedEffect` to avoid recalling it on each recomposition.
 
 ### iOS app
 
@@ -273,6 +279,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
    
    ```swift
+   @main
    struct iOSApp: App {
        var body: some Scene {
            WindowGroup {
@@ -341,11 +348,11 @@ is already imported and used in `ContentView.swift` with `import shared`.
    callbacks (`completionHandler`).
    * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
-   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than the main one –
-   see the [new memory manager migration guide](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/NEW_MM.md#new-memory-manager-migration-guide).
-   That's why `DispatchQueue.main.async` is used to update the `text` property.
+   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
+   see the [iOS intergation](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
+   That's why `DispatchQueue.main.async` is used to update `text` property.
 
-6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width="500"}
 

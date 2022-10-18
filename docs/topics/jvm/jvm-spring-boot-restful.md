@@ -26,7 +26,7 @@ Use Spring Initializr to create a new project:
 >
 {type="note"}
 
-1. Open [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.6.0&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). This link opens the page with the project settings for this tutorial already filled in.
+1. Open [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). This link opens the page with the project settings for this tutorial already filled in.
 This project uses **Gradle**, **Kotlin**, **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
 
    ![Create a new project with Spring Initializr](spring-boot-create-project-with-initializr.png){width=800}
@@ -329,7 +329,20 @@ curl -X POST --location "http://localhost:8080" -H "Content-Type: application/js
 curl -X GET --location "http://localhost:8080"
 ```
 
-## What's next?
+## Next step
+
+Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
+We will also send you language tips and useful materials on using Kotlin with Spring.
+
+<a href="https://surveys.jetbrains.com/s3/Kotlin-tips?c=A">
+   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
+</a>
+
+> You will need to share your email address on the next page to receive the materials.
+>
+{type="note"}
+
+### See also
 
 For more tutorials, check out the Spring website:
 

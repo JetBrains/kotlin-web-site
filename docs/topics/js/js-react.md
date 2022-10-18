@@ -1079,7 +1079,7 @@ these types of conversions from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "1.7.10"
+       kotlin("plugin.serialization") version "%kotlinVersion%"
    }
    
    dependencies {
@@ -1184,7 +1184,7 @@ When you load the page:
   a re-render.
 * The code of the `App` component will be invoked again, but the `useEffectOnce` block _will not_ run for a second time.
 
-If you want to get an in-depth understanding of how coroutines work, check out this [hands-on lab on coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/).
+If you want to get an in-depth understanding of how coroutines work, check out this [tutorial on coroutines](coroutines-and-channels.md).
 
 > You can find this state of the project in the `07-using-external-rest-api` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/07-using-external-rest-api).
 >
@@ -1298,7 +1298,7 @@ There are channels for `#javascript` and `#react`.
 
 ### Learn more about coroutines {initial-collapse-state="collapsed"}
 
-If you're interested in finding out more about how you can write concurrent code, check out the hands-on lab on [coroutines](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/01_Introduction).
+If you're interested in finding out more about how you can write concurrent code, check out the tutorial on [coroutines](coroutines-and-channels.md).
 
 ### Learn more about React {initial-collapse-state="collapsed"}
 

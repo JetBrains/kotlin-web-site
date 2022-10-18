@@ -2,12 +2,12 @@
 [//]: # (description: Simplify cross-platform app development with Kotlin Multiplatform Mobile. Create a single codebase
 for the business logic of your iOS and Android apps.)
 
-> Kotlin Multiplatform Mobile is in [Alpha](components-stability.md). Language features and tooling may change in future
-> Kotlin versions.
+> Kotlin Multiplatform Mobile is in [Beta](components-stability.md). It's almost stable, but migration steps might be
+> required in the future.
 >
-> * Check out our updated [Kotlin Multiplatform Mobile Beta Roadmap](https://blog.jetbrains.com/kotlin/2022/05/kotlin-multiplatform-mobile-beta-roadmap-update/)
-> to learn about the steps we are taking to move toward the Beta release.
-> * You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies/) are already using Kotlin for
+> * Check out our [Kotlin Multiplatform Mobile Beta](https://blog.jetbrains.com/kotlin/2022/10/kmm-beta) blogpost
+> to learn about the current state and future plans for the technology.
+> * You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies) are already using Kotlin for
 > cross-platform app development.
 >
 {type="note"}

@@ -49,9 +49,9 @@ Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](ro
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
-The following video presents our plans on the upcoming stage of the Kotlin Multiplatform Mobile development – its promotion to [Beta](components-stability.md): 
+The following video presents the current state and our plans for the Kotlin Multiplatform Mobile development: 
 
-<video href="LE-Dy9XCLxk" title="Kotlin Multiplatform Mobile Beta Roadmap"/>
+<video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
 
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
@@ -78,13 +78,9 @@ a multiplatform mobile application from the Project Wizard, but you won't be abl
 
 ### How can I write concurrent code in Kotlin Multiplatform Mobile projects?
 
-You can learn how to work with [concurrency](multiplatform-mobile-concurrency-overview.md) on the documentation portal.
-
-Working with concurrent code in cross-platform mobile projects might not seem straightforward, as different memory management approaches 
-are used in Kotlin/JVM and Kotlin/Native. The current approach for Kotlin/Native has some 
-[limitations](native-immutability.md#concurrency-in-kotlin-native). The new Kotlin/Native memory management model is on 
-the [roadmap](https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap) and the team is working 
-on a solution for it.
+You can easily write concurrent code in your cross-platform mobile projects with the new [Kotlin/Native memory manager](native-memory-manager.md)
+that lifted previous limitations and aligned the behaviour between Kotlin/JVM and Kotlin/Native. The new memory manager
+has been enabled by default since Kotlin 1.7.20.
 
 ### How can I speed up my Kotlin Multiplatform module compilation for iOS?
 See these [tips for improving Kotlin/Native compilation times](native-improving-compilation-time.md).
