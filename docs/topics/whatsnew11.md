@@ -73,7 +73,7 @@ fun main(args: Array<String>) {
 
 Run the code above to see the result. Feel free to edit it and run again!
 
-For more information, please refer to the [coroutines documentation](coroutines-overview.md) and [tutorial](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/).
+For more information, please refer to the [coroutines documentation](coroutines-overview.md) and [tutorial](coroutines-and-channels.md).
 
 Note that coroutines are currently considered an **experimental feature**, meaning that the Kotlin team is not committing
 to supporting the backwards compatibility of this feature after the final 1.1 release.

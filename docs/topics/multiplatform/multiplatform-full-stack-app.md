@@ -59,9 +59,9 @@ Additionally, you'll need two more plugins:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinEapVersion%"
-    application //to run JVM part
-    kotlin("plugin.serialization") version "%kotlinEapVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
+    application // to run the JVM part
+    kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
 
