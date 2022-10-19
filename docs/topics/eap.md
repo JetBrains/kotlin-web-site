@@ -26,4 +26,27 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-_No preview versions are currently available._
+<!-- _No preview versions are currently available._ -->
+
+<table>
+    <tr>
+        <th>Build info</th>
+        <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>1.8.0-Beta</strong>
+            <p>Released: <strong>October 25, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-Beta" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+             <ul>
+                 <li>Kotlin/JVM: </li>
+                 <li>Kotlin/Native: </li>
+                 <li>Kotlin/JS: </li>
+                 <li>Libraries: </li>
+                 <li>Gradle: </li>
+            </ul>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-Beta">changelog</a>.</p>
+        </td>
+    </tr>
+</table>
