@@ -151,6 +151,8 @@ data class RocketLaunch (
     import kotlinx.serialization.json.Json
     
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         private val httpClient = HttpClient {
             install(ContentNegotiation) {
                 json(Json {
@@ -182,7 +184,7 @@ data class RocketLaunch (
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             return "Guess what it is! > ${platform.name.reversed()}!" +
-                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
+                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎆" +
                     "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
@@ -274,6 +276,10 @@ the shared module, which contains all the business logic.
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
+> If you see an error saying that the shared module is unresolved, run the app.
+> 
+{type="tip"}
+
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project, for example KotlinMultiplatformSandbox, and select the `iosApp` folder. Click **Open**.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
@@ -315,8 +321,8 @@ is already imported and used in `ContentView.swift` with `import shared`.
     ```
 
    * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
-   with the view (ContentView).
+   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+   with the view (`ContentView`).
    * `ContentView.ViewModel` is declared as an `ObservableObject`.
    * The `@Published` wrapper is used for the `text` property.
    * The `@ObservedObject` property wrapper is used to subscribe to the view model.
@@ -349,7 +355,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
-   see the [iOS intergation](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
+   see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
    That's why `DispatchQueue.main.async` is used to update `text` property.
 
 6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
