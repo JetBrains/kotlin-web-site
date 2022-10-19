@@ -268,7 +268,6 @@ In Kotlin, use [aggregate operations](collection-aggregate.md):
 // Kotlin
 val numbers = listOf<Int>()
 println("Max: ${numbers.maxOrNull()}")
-}
 ```
 {id="aggregate-functions-kotlin"}
 
