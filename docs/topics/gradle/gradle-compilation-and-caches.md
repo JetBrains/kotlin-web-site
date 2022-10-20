@@ -5,7 +5,7 @@ On this page, you can learn about the following topics:
 * [Gradle build cache support](#gradle-build-cache-support)
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
 * [Build reports](#build-reports)
-* [Kotlin daemon and using it with Gradle](#kotlin-daemon-and-using-it-with-gradle)
+* [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
 * [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
 
 ## Incremental compilation
@@ -87,7 +87,7 @@ See the [Gradle documentation](https://docs.gradle.org/current/userguide/configu
 to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin will automatically
 start using it.
 
-## Kotlin daemon and using it with Gradle
+## The Kotlin daemon and how to use it with Gradle
 
 The Kotlin daemon:
 * Runs along with the Gradle daemon to compile the project.
