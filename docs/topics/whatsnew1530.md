@@ -745,7 +745,7 @@ In Kotlin 1.5.30, there's a new logic for the Kotlin daemon's JVM arguments. Eac
     >
     {type="note"}
 
-For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle-compilation-and-caches.md#kotlin-daemon-and-using-it-with-gradle).
+For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle-compilation-and-caches.md#the-kotlin-daemon-and-how-to-use-it-with-gradle).
 
 ## Standard library
 
