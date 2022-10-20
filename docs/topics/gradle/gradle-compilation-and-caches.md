@@ -11,20 +11,20 @@ On this page, you can learn about the following topics:
 ## Incremental compilation
 
 The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to source files between
-builds so only files affected by these changes are compiled.
+builds so that only the files affected by these changes are compiled.
 
-Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects and is enabled by default.
+Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects, and is enabled by default.
 
-There are several ways to switch off incremental compilation:
+There are several ways to disable incremental compilation:
 
-* `kotlin.incremental=false` for Kotlin/JVM.
-* `kotlin.incremental.js=false` for Kotlin/JS projects.
+* Set `kotlin.incremental=false` for Kotlin/JVM.
+* Set `kotlin.incremental.js=false` for Kotlin/JS projects.
 * Use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false` as a command line parameter.
 
   The parameter should be added to each subsequent build, and any build with incremental
   compilation disabled invalidates incremental caches.
 
-The first build is never incremental.
+Note: The first build is never incremental.
 
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. Doing so may also help you provide reproducible bug reports.
@@ -84,17 +84,17 @@ The Kotlin plugin uses the [Gradle configuration cache](https://docs.gradle.org/
 which speeds up the build process by reusing the results of the configuration phase.
 
 See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
-to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin will automatically
-start using it.
+to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin automatically
+starts using it.
 
 ## The Kotlin daemon and how to use it with Gradle
 
 The Kotlin daemon:
-* Runs along with the Gradle daemon to compile the project.
-* Runs separately when you compile the project with an IntelliJ IDEA built-in build system.
+* Runs with the Gradle daemon to compile the project.
+* Runs separately from the Gradle daemon when you compile the project with an IntelliJ IDEA built-in build system.
 
 The Kotlin daemon starts at the Gradle [execution stage](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)
-when one of Kotlin compile tasks starts compiling the sources.
+when one of the Kotlin compile tasks starts to compile sources.
 The Kotlin daemon stops along with the Gradle daemon or after two idle hours with no Kotlin compilation.
 
 The Kotlin daemon uses the same JDK that the Gradle daemon does.
@@ -124,17 +124,17 @@ If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
 ```
 
-When passing the arguments, follow these rules:
-* Use the minus sign `-` before the arguments `Xmx`, `XX:MaxMetaspaceSize`, and `XX:ReservedCodeCacheSize` and don't use it before all other arguments.
+When passing arguments, follow these rules:
+* Use the minus sign `-` **only** before the arguments `Xmx`, `XX:MaxMetaspaceSize`, and `XX:ReservedCodeCacheSize`.
 * Separate arguments with commas (`,`) _without_ spaces. Arguments that come after a space will be used for the Gradle daemon, not for the Kotlin daemon.
 
 > Gradle ignores these properties if all the following conditions are satisfied:
 > * Gradle is using JDK 1.9 or higher.
 > * The version of Gradle is between 7.0 and 7.1.1 inclusively.
 > * Gradle is compiling Kotlin DSL scripts.
-> * There is no running Kotlin daemon.
+> * The Kotlin daemon isn't running.
 >
-> To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following item.
+> To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following section.
 >
 {type="warning"}
 
@@ -212,7 +212,7 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
   >
   {type="note"}
-* If the `Xmx` is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
+* If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
 ## Defining Kotlin compiler execution strategy
 
@@ -222,7 +222,7 @@ There are three compiler execution strategies:
 
 | Strategy       | Where Kotlin compiler is executed          | Incremental compilation | Other characteristics and notes                                                                                                                                                                                                                                                |
 |----------------|--------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Daemon         | Inside its own daemon process              | Yes                     | *The default and the fastest strategy*. Can be shared between different Gradle daemons and multiple parallel compilations.                                                                                                                                                     |
+| Daemon         | Inside its own daemon process              | Yes                     | *The default and fastest strategy*. Can be shared between different Gradle daemons and multiple parallel compilations.                                                                                                                                                     |
 | In process     | Inside the Gradle daemon process           | No                      | May share the heap with the Gradle daemon. The "In process" execution strategy is _slower_ than the "Daemon" execution strategy. Each [worker](https://docs.gradle.org/current/userguide/worker_api.html) creates a separate Kotlin compiler classloader for each compilation. |
 | Out of process | In a separate process for each compilation | No                      | The slowest execution strategy. Similar to the "In process", but additionally creates a separate Java process within a Gradle worker for each compilation.                                                                                                                     |
 
@@ -309,20 +309,20 @@ The following values and their combinations are available for the output:
 
 | Option       | Description                                                                                                                                                                                                                                                                                                                                     |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`       | Saves build reports in a local file                                                                                                                                                                                                                                                                                                             |
-| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                               |
-| `http`       | Posts build reports using HTTP(S). The POST method sends metrics in the JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt) |
+| `file`       | Saves build reports in a local file.                                                                                                                                                                                                                                                                                                             |
+| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                               |
+| `http`       | Posts build reports using HTTP(S). The POST method sends metrics in the JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). |
 
 Here's the full list of available options for `kotlin.build.report`:
 
 ```properties
-# Required outputs. Any combinations are allowed
+# Required outputs. Any combination is allowed.
 kotlin.build.report.output=file,http,build_scan
 
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
 
-# Mandatory if http output is used. Where to post HTTP(S)-based reports
+# Mandatory if HTTP output is used. Where to post HTTP(S)-based reports
 kotlin.build.report.http.url=http://127.0.0.1:8080
 
 # Optional. User and password if the HTTP endpoint requires authentication
@@ -336,5 +336,5 @@ kotlin.build.report.label=some_label
 ## What's next?
 
 Learn more about:
-* [The Kotlin DSL](gradle-kotlin-dsl.md)
+* [Kotlin DSL](gradle-kotlin-dsl.md)
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html)
