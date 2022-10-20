@@ -364,7 +364,9 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 ## Next step
 
-Now it's time to [wrap up your project](multiplatform-mobile-wrap-up.md) and see what's next.
+In the final part of the tutorial, you'll wrap up your project and see what steps to take next.
+
+**[Proceed to the next part](multiplatform-mobile-wrap-up.md)**
 
 ### See also
 

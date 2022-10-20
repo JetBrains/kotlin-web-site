@@ -168,8 +168,10 @@ the Kotlin standard library function for reversing text that works on all platfo
 
 ## Next step
 
-[Learn about dependencies and add a third-party library to your project](multiplatform-mobile-dependencies.md)
-to expand its functionality.
+In the next part of the tutorial, you'll learn about dependencies and add a third-party library to expand
+the functionality of your project.
+
+**[Proceed to the next part](multiplatform-mobile-dependencies.md)**
 
 ### See also
 
