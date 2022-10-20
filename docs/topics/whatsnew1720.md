@@ -4,7 +4,7 @@
    <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA 2021.3, 2022.1, and 2022.2.</p>
 </microformat>
 
-_[Release date: %kotlinReleaseDate%](eap.md#build-details)_
+_[Release date: 29 September 2022](releases.md#release-details)_
 
 The Kotlin 1.7.20 release is out! Here are some highlights from this release:
 
@@ -34,7 +34,7 @@ Starting with this 1.7.20 release, the Kotlin K2 compiler supports the following
 * `jvm-abi-gen`
 
 > The Alpha version of the new K2 compiler only works with JVM projects.
-> It doesn't support Kotlin/JS, Kotlin/Native, or other multi-platform projects.
+> It doesn't support Kotlin/JS, Kotlin/Native, or other multiplatform projects.
 >
 {type="warning"}
 
@@ -85,10 +85,10 @@ Here is an example of using the `..<` operator in a `when` expression:
 
 ```kotlin
 when (value) {
-    in 0.0..<0.25 -> // first quarter
-    in 0.25..<0.5 -> // second quarter
-    in 0.5..<0.75 -> // third quarter
-    in 0.75..1.0 ->  // last quarter  <- note closed range here
+    in 0.0..<0.25 -> // First quarter
+    in 0.25..<0.5 -> // Second quarter
+    in 0.5..<0.75 -> // Third quarter
+    in 0.75..1.0 ->  // Last quarter  <- Note closed range here
 }
 ```
 {validate="false"}
@@ -104,9 +104,9 @@ The new interface to represent open-ended ranges is very similar to the existing
 
 ```kotlin
 interface OpenEndRange<T : Comparable<T>> {
-    // lower bound
+    // Lower bound
     val start: T
-    // upper bound, not included in the range
+    // Upper bound, not included in the range
     val endExclusive: T
     operator fun contains(value: T): Boolean = value >= start && value < endExclusive
     fun isEmpty(): Boolean = start >= endExclusive
@@ -198,7 +198,7 @@ you can do so by adding the following to your `build.gradle(.kts)`:
 
 ```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    // . . .
+    // ...
     kotlinOptions.languageVersion = "1.8"
 }
 ```
@@ -208,7 +208,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 
 ```groovy
 compileKotlin {
-    // . . .
+    // ...
     kotlinOptions.languageVersion = '1.8'
 }
 ```
@@ -260,7 +260,7 @@ your code. If they do, consider the following cases:
     fun test() {
         buildList<Data> { // Type argument!
             this.add(Data())
-            this.get(0).doSmth() // resolves to 1
+            this.get(0).doSmth() // Resolves to 1
         }
     }
     ```
@@ -343,7 +343,7 @@ Consider the following example:
 @JvmInline
 value class UserId<T>(val value: T)
 
-fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
+fun compute(s: UserId<String>) {} // Compiler generates fun compute-<hashcode>(s: Any?)
 ```
 
 The function accepts the inline class as a parameter. The parameter is mapped to the upper bound, not the type argument.
@@ -380,7 +380,7 @@ The `$delegate` field will now be omitted if a delegate is:
   ```
   {validate="false"}
 
-* A constant expression, an enum entry, `this`,  or `null`. Here's an example of `this`:
+* A constant expression, an enum entry, `this`, or `null`. Here's an example of `this`:
 
   ```kotlin
   class A {
@@ -561,7 +561,7 @@ Remember that you can also use the `kotlin` extension to access `KotlinSourceSet
 kotlin {
     sourceSets {
         main {
-        // …
+        // ...
         }
     }
 }
@@ -652,7 +652,7 @@ Here are some things you can do with these new extension functions:
 
   ```kotlin
   @OptIn(kotlin.io.path.ExperimentalPathApi::class)
-  fun taverseFileTree() {
+  fun traverseFileTree() {
       val cleanVisitor = fileVisitor {
           onPreVisitDirectory { directory, _ ->
               if (directory.name == "build") {
@@ -713,19 +713,19 @@ Since the previous release, the Kotlin documentation has received some notable c
 
 ### Revamped and improved pages
 
-* [Basic types overview](basic-types.md) − learn about the basic types used in Kotlin: numbers, Booleans, characters, strings, arrays, and unsigned integer numbers.
-* [IDEs for Kotlin development](kotlin-ide.md) − see the list of IDEs with official Kotlin support and tools that have community-supported plugins.
+* [Basic types overview](basic-types.md) – learn about the basic types used in Kotlin: numbers, Booleans, characters, strings, arrays, and unsigned integer numbers.
+* [IDEs for Kotlin development](kotlin-ide.md) – see the list of IDEs with official Kotlin support and tools that have community-supported plugins.
 
 ### New articles in the Kotlin Multiplatform journal
 
-* [Native and cross-platform app development: how to choose?](native-and-cross-platform.md) − check out our overview and advantages of cross-platform app development and the native approach.
-* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) − read about the key aspects to help you choose the right framework for your cross-platform project.
+* [Native and cross-platform app development: how to choose?](native-and-cross-platform.md) – check out our overview and advantages of cross-platform app development and the native approach.
+* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) – read about the key aspects to help you choose the right framework for your cross-platform project.
 
 ### New and updated tutorials
 
-* [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) − learn about cross-platform mobile development with Kotlin and create an app that works on both Android and iOS.
-* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md) − create an app using Kotlin throughout the whole stack, with a Kotlin/JVM server part and a Kotlin/JS web client.
-* [Build a web application with React and Kotlin/JS](js-react.md) − create a browser app exploring Kotlin's DSLs and features of a typical React program.
+* [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) – learn about cross-platform mobile development with Kotlin and create an app that works on both Android and iOS.
+* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md) – create an app using Kotlin throughout the whole stack, with a Kotlin/JVM server part and a Kotlin/JS web client.
+* [Build a web application with React and Kotlin/JS](js-react.md) – create a browser app exploring Kotlin's DSLs and features of a typical React program.
 
 ### Changes in release documentation
 
