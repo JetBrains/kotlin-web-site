@@ -569,7 +569,7 @@ kotlin {
 
 ### New method for JVM toolchain configuration
 
-This release provides the new `jvmToolchain()` method for enabling the [JVM toolchain feature](gradle-configure.md#gradle-java-toolchains-support).
+This release provides a new `jvmToolchain()` method for enabling the [JVM toolchain feature](gradle-configure.md#gradle-java-toolchains-support).
 If you don't need any additional [configuration fields](https://docs.gradle.org/current/javadoc/org/gradle/jvm/toolchain/JavaToolchainSpec.html),
 such as `implementation` or `vendor`, you can use this method from the Kotlin extension:
 

@@ -1,11 +1,11 @@
 [//]: # (title: Using the Gradle Kotlin DSL)
 
-The Gradle Kotlin DSL is a domain specific language to write build scripts in more convenient way.
+The Gradle Kotlin DSL is a domain specific language that you can use to write build scripts quickly and efficiently.
 
 ## Using the Gradle Kotlin DSL
 
 When using [Gradle Kotlin DSL](https://github.com/gradle/kotlin-dsl), apply Kotlin plugins using the `plugins { ... }` block.
-If you apply them with `apply { plugin(...) }` instead, you may encounter unresolved references to the extensions generated
+If you use `apply { plugin(...) }` instead, you may encounter unresolved references to the extensions generated
 by Gradle Kotlin DSL. To resolve that, you can comment out the erroneous usages, run the Gradle task `kotlinDslAccessorsSnapshot`,
 then uncomment the usages back and rerun the build or reimport the project into the IDE.
 
