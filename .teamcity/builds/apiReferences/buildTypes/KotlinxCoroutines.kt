@@ -1,10 +1,11 @@
 package builds.apiReferences.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxCoroutines: BuildType({
-  name = "Kotlinx.Coroutines"
+  name = "kotlinx.coroutines"
 
   templates(DokkaReferenceTemplate)
 
@@ -19,6 +20,19 @@ object KotlinxCoroutines: BuildType({
   triggers {
     vcs {
       branchFilter = "+:<default>"
+    }
+  }
+
+  dependencies {
+    dependency(KotlinxCoroutinesHTML) {
+      snapshot {
+        onDependencyFailure = FailureAction.CANCEL
+        onDependencyCancel = FailureAction.CANCEL
+      }
+
+      artifacts {
+        artifactRules = "+:dokka-templates/** => dokka-templates"
+      }
     }
   }
 })
