@@ -134,8 +134,6 @@ If you want to run your application on a simulated device, you can add a new run
 3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
 4. Click **Run** to run your application on the iPhone device.
 
-https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/
-
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
 >
 {type="note"}
