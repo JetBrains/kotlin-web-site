@@ -2,7 +2,6 @@ package builds.searchIndex.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
-import jetbrains.buildServer.configs.kotlin.ReuseBuilds
 
 object KotlinxCoroutinesSearchIndex: BuildType({
   name = "Kotlinx.Coroutines"

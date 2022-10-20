@@ -1,6 +1,7 @@
 package builds.apiReferences.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxSerialization : BuildType({
@@ -19,6 +20,19 @@ object KotlinxSerialization : BuildType({
   triggers {
     vcs {
       branchFilter = "+:<default>"
+    }
+  }
+
+  dependencies {
+    dependency(KotlinxSerializationHTML) {
+      snapshot {
+        onDependencyFailure = FailureAction.CANCEL
+        onDependencyCancel = FailureAction.CANCEL
+      }
+
+      artifacts {
+        artifactRules = "+:dokka-templates/** => dokka-templates"
+      }
     }
   }
 })
