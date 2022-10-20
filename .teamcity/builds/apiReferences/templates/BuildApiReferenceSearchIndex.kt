@@ -1,9 +1,9 @@
-package builds.searchIndex.buildTypes
+package builds.apiReferences.templates
 
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-object DokkaSearchIndexTemplate : Template({
+object BuildApiReferenceSearchIndex : Template({
   name = "Dokka Search Index Template"
 
   vcs {

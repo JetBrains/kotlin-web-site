@@ -26,7 +26,6 @@ version = "2022.04"
 
 project {
   subProject(builds.apiReferences.BuildApiReferencesProject)
-  subProject(builds.searchIndex.BuildSearchIndexProject)
   subProject(tests.TestsProject)
   vcsRoot(vcsRoots.KotlinLangOrg)
 }

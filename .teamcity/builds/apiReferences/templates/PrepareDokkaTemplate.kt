@@ -1,9 +1,9 @@
-package builds.apiReferences.buildTypes
+package builds.apiReferences.templates
 
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-object BuildCustomHTMLTemplate: Template({
+object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
 
   vcs {
