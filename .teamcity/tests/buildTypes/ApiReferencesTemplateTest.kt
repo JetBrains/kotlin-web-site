@@ -1,5 +1,7 @@
 package tests.buildTypes
 
+import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
+import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -59,7 +61,7 @@ object ApiReferencesTemplateTest: BuildType({
   }
 
   dependencies {
-    dependency(builds.apiReferences.buildTypes.KotlinxCoroutines) {
+    dependency(KotlinxCoroutinesBuildApiReference) {
       snapshot {
         onDependencyFailure = FailureAction.CANCEL
         onDependencyCancel = FailureAction.CANCEL
@@ -70,7 +72,7 @@ object ApiReferencesTemplateTest: BuildType({
       }
     }
 
-    dependency(builds.apiReferences.buildTypes.KotlinxSerialization) {
+    dependency(KotlinxSerializationBuildApiReference) {
       snapshot {
         onDependencyFailure = FailureAction.CANCEL
         onDependencyCancel = FailureAction.CANCEL
