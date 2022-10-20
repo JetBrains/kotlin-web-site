@@ -8,7 +8,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **New Project**.
-3. Name the new project and change its location if necessary.
+3. Name the new project and change its location, if necessary.
 
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
@@ -26,8 +26,10 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
       JDK home directory.
     * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
+7. Select the **Add sample code** checkbox to create a file with a sample `"Hello World!"` application.
 8. Click **Create**.
+
+You have successfully created a project with Gradle.
 
 ## Understand the build script
 
@@ -51,7 +53,7 @@ repositories { // A source of dependencies
 }
 
 dependencies { // All the libraries you want to use
-   // You can copy dependencies' names after you find them at the [Maven Central Repository](https://search.maven.org/)
+   // You can copy dependencies' names after you find them in the [Maven Central Repository](https://search.maven.org/)
    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
@@ -65,7 +67,7 @@ tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
 }
 
 application {
-    mainClass.set("MainKt") // Defining the main class for the application
+    mainClass.set("MainKt") // Defines the main class for the application
 }
 ```
 
@@ -76,7 +78,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 2. In the `dependencies` section, there is `testImplementation(kotlin("test"))`. 
    Learn more about [setting dependencies on test libraries](gradle-configure.md#set-dependencies-on-test-libraries).
 
-3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
+3. After the dependencies section, you can see the `KotlinCompile` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Run the application
@@ -101,7 +103,7 @@ Congratulations! You have just run your first Kotlin application.
 
 Learn more about:
 * [Gradle build file properties](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#N14E9A)
-* [Targeting different platforms and setting dependencies on libraries](gradle-configure.md)
-* [Compiler options and ways of passing them](gradle-compiler-options.md)
+* [Targeting different platforms and setting library dependencies](gradle-configure.md)
+* [Compiler options and how to pass them](gradle-compiler-options.md)
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
 * [The Kotlin DSL](gradle-kotlin-dsl.md)

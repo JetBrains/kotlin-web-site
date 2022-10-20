@@ -1,6 +1,6 @@
 [//]: # (title: Gradle)
 
-Gradle is a build system that helps automate and manage your building process. It downloads specified dependencies,
+Gradle is a build system that helps automate and manage your building process. It downloads required dependencies,
 packages your code, and prepares it for compilation. Learn about Gradle basics and specifics 
 on the [Gradle website](https://docs.gradle.org/current/userguide/getting_started.html).
 
@@ -9,7 +9,7 @@ or pass a small [step-by-step tutorial](gradle-backend-tutorial.md) that will sh
 "Hello World" application in Kotlin.
 
 In this chapter, you can also learn about:
-* [Compiler options and ways of passing them](gradle-compiler-options.md)
+* [Compiler options and how to pass them](gradle-compiler-options.md)
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
 * [The Kotlin DSL](gradle-kotlin-dsl.md)
 
