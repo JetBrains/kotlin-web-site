@@ -298,17 +298,17 @@ They provide the required methods: `getValue()` is declared in `ReadOnlyProperty
 extends it and adds `setValue()`. This means you can pass a `ReadWriteProperty` whenever a `ReadOnlyProperty` is expected.
 
 ```kotlin
-fun resourceDelegate(): ReadWriteProperty<Any?, Int> =
-    object : ReadWriteProperty<Any?, Int> {
-        var curValue = 0 
-        override fun getValue(thisRef: Any?, property: KProperty<*>): Int = curValue
-        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+fun resourceDelegate(resource: Resource = Resource()): ReadWriteProperty<Any?, Resource> =
+    object : ReadWriteProperty<Any?, Resource> {
+        var curValue = resource 
+        override fun getValue(thisRef: Any?, property: KProperty<*>): Resource = curValue
+        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Resource) {
             curValue = value
         }
     }
 
-val readOnly: Int by resourceDelegate()  // ReadWriteProperty as val
-var readWrite: Int by resourceDelegate()
+val readOnlyResource: Resource by resourceDelegate()  // ReadWriteProperty as val
+var readWriteResource: Resource by resourceDelegate()
 ```
 
 ## Translation rules for delegated properties
