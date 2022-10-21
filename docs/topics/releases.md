@@ -300,7 +300,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>An incremental release with various improvements such as:</p>
             <ul>
                 <li>Supporting new JVM features, like string concatenation via <code>invokedynamic</code></li>
-                <li>Improved performance and exception handling for KMM projects</li>
+                <li>Improved performance and exception handling for Kotlin Multiplatform Mobile projects</li>
                 <li>Extensions for JDK Path: <code>Path("dir") / "file.txt"</code></li>
             </ul>
             <p>Learn more in:</p>

@@ -142,7 +142,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask>()
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class)
     .configureEach {
-         kaptProcessJvmArgs.add('-Xmx512m')
+        kaptProcessJvmArgs.add('-Xmx512m')
     }
 ```
 
@@ -182,7 +182,7 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
 
-```kotlin
+```text
 Kapt Annotation Processing performance report:
 com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 97 ms, 0 ms
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
@@ -191,7 +191,7 @@ com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 9
 You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
 The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
 
-```kotlin
+```bash
 kotlinc -cp $MY_CLASSPATH \
 -Xplugin=kotlin-annotation-processing-SNAPSHOT.jar -P \
 plugin:org.jetbrains.kotlin.kapt3:aptMode=stubsAndApt,\
@@ -233,7 +233,7 @@ The statistics will appear in the logs with the `info` level. You'll see the `An
 statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
 followed by statistics on the number of generated files for each annotation processor. For example:
 
-```kotlin
+```text
 [INFO] Annotation processor stats:
 [INFO] org.mapstruct.ap.MappingProcessor: total: 290 ms, init: 1 ms, 3 round(s): 289 ms, 0 ms, 0 ms
 [INFO] Generated files report:
@@ -257,7 +257,7 @@ To run kapt with compile avoidance:
 * Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
 * Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
 
-```
+```properties
 kapt.include.compile.classpath=false
 ```
 
@@ -268,7 +268,7 @@ Currently, annotation processing can be incremental only if all annotation proce
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
-```
+```properties
 kapt.incremental.apt=false
 ```
 

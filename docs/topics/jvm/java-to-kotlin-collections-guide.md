@@ -109,7 +109,7 @@ In Java, there are mutable collections:
 ```java
 // Java
 // This list is mutable!
-public List<Customer> getCustomers() { … }
+public List<Customer> getCustomers() { ... }
 ```
 {id="mutability-java"}
 

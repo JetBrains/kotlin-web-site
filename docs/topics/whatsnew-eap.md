@@ -9,7 +9,7 @@ _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin 1.7.20-RC release is out! Here are some highlights from this preview version of Kotlin:
 
-* [The new Kotlin K2 compiler supports `all-open`, SAM with receiver, Lombok, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
+* [The new Kotlin K2 compiler supports `all-open`, `no-arg`, SAM with receiver, Lombok, Parcelize, and other compiler plugins](#support-for-kotlin-k2-compiler-plugins)
 * [We introduced the preview of the `..<` operator for creating open-ended ranges](#preview-of-the-operator-for-creating-open-ended-ranges)
 * [The new Kotlin/Native memory manager enabled by default](#the-new-kotlin-native-memory-manager-is-enabled-by-default)
 * [We introduced a new experimental feature for JVM: inline classes with a generic underlying type](#generic-inline-classes)
@@ -123,7 +123,7 @@ For the purposes of prototype, we provide them as extension functions, but for c
 
 ### How to enable the `..<` operator
 
-In order to use the `..<` operator or to implement that operator convention for your own types, you should enable the `-XXLanguage:+RangeUntilOperator`compiler option.
+In order to use the `..<` operator or to implement that operator convention for your own types, you should enable the `-XXLanguage:+RangeUntilOperator` compiler option.
 
 The new API elements introduced to support the open-ended ranges of the standard types require an opt-in, as usual for an experimental stdlib API: `@OptIn(ExperimentalStdlibApi::class)`.
 Alternatively, you could use a compiler option: `-opt-in=kotlin.ExperimentalStdlibApi`.

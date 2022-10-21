@@ -40,8 +40,12 @@ Active KUGs that host at least 1 meetup every 3 months can apply for the communi
 * A special entry on the Kotlin website.
 * Free licenses for JetBrains products to raffle off at meetups.
 * Priority support for Kotlin events and campaigns.
-* Help recruiting speakers for events.
+* Help with recruiting Kotlin speakers for your events.
 
 ## Support from JetBrains for other tech communities
 
-If you organize any other tech communities, you can apply for support as well. By doing so, you may receive: free JetBrains product licenses to raffle off at meetups, information about Kotlin official events and campaigns, Kotlin stickers, and help with recruiting Kotlin speakers for your events.
+If you organize any other tech communities, you can apply for support as well. By doing so, you may receive:
+* Free licenses for JetBrains products to raffle off at meetups.
+* Information about Kotlin official events and campaigns.
+* Kotlin stickers.
+* Help with recruiting Kotlin speakers for your events.
