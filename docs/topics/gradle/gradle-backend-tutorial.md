@@ -41,7 +41,7 @@ Here is the full script with the explanation of all parts and dependencies:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
 
 plugins {
-    kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
+    kotlin("jvm") version "%kotlinVersion%" 1️⃣ // The version of Kotlin to use
     application // The application plugin to add support for building a CLI application in Java
 }
 
@@ -70,6 +70,8 @@ application {
     mainClass.set("MainKt") // Defines the main class for the application
 }
 ```
+
+1️⃣
 
 As you can see, there are a few Kotlin-related artifacts added to the Gradle build file:
 
