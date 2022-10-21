@@ -1,6 +1,7 @@
 [//]: # (title: Sequences)
 
-Along with collections, the Kotlin standard library contains another container type – _sequences_ ([`Sequence<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
+Along with collections, the Kotlin standard library contains another type – _sequences_ ([`Sequence<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
+Unlike collections, sequences don't contain elements, they produce them while iterating. 
 Sequences offer the same functions as [`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)
 but implement another approach to multi-step collection processing.
 

@@ -1,0 +1,17 @@
+name: autoupdate
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  autoupdate:
+    name: autoupdate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker://chinthakagodawita/autoupdate-action:v1
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_CONFLICT_ACTION: "fail"
+          PR_FILTER: "labelled"
+          PR_LABELS: "keep up-to-date"

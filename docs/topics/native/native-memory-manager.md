@@ -15,7 +15,7 @@ The memory manager is the same across all the Kotlin/Native targets, except for 
 
 ## Garbage collector
 
-The exact algorithm of GC is constantly evolving. As of 1.7.20, it is the Stop-the-World Mark and Concurrent Mark Sweep
+The exact algorithm of GC is constantly evolving. As of 1.7.20, it is the Stop-the-World Mark and Concurrent Sweep
 collector that does not separate heap into generations.
 
 GC is executed on a separate thread and kicked off based on the timer

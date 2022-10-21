@@ -1,4 +1,4 @@
-- lang: cz
+- lang: cs
   startDate: '2022-10-05'
   endDate: '2022-10-05'
   location: Prague, Czech Republic
@@ -14,14 +14,6 @@
   title: Flexport<>Kotlin Meetup with Hadi Hariri
   subject: 'Functional Programming in Kotlin'
   url: https://www.meetup.com/flexport-amsterdam-meetup-group/events/288180298/
-- lang: de
-  startDate: '2022-11-03'
-  endDate: '2022-11-03'
-  location: Paris, France
-  speaker: Salomon Brys, Riadh Mnasri, Romain Boiselle, and more!
-  title: ''
-  subject: DevCon '#15 - Conférence 100% Kotlin'
-  url: https://www.programmez.com/page-devcon/devcon-15-conference-100-kotlin
 - lang: en
   startDate: '2022-10-11'
   endDate: '2022-10-11'

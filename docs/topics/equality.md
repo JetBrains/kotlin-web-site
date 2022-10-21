@@ -39,6 +39,6 @@ true if and only if `a` and `b` point to the same object. For values represented
 When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
 [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754). 
 
-Otherwise, the structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, and `-0.0` is not equal to `0.0`.
+Otherwise, structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, `NaN` is considered greater than any other element, including `POSITIVE_INFINITY`, and `-0.0` is not equal to `0.0`.
 
 See: [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).

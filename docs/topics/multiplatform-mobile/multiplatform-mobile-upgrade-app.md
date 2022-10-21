@@ -42,6 +42,17 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
+You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
+at the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
+
 ### kotlinx.serialization
 
 For `kotlinx.serilization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
@@ -89,11 +100,13 @@ sourceSets {
     val iosMain by creating {
         // ...
         dependencies {
-            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion") 
         }
     }
 }
 ```
+
+Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
 ## Create API requests
 
@@ -215,7 +228,8 @@ straightforward:
     }
     ```
 
-2. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
+2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
    ```kotlin
    import androidx.compose.runtime.*
@@ -338,7 +352,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    see the [iOS intergation](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
    That's why `DispatchQueue.main.async` is used to update `text` property.
 
-6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width="500"}
 

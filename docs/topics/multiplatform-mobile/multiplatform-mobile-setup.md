@@ -28,7 +28,14 @@ We recommend that you install the latest stable versions for compatibility and b
     </tr>
     <tr>
         <td><a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a></td>
-        <td>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</td>
+        <td>
+          <p>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</p>
+            <note>
+              <p>
+                We generally recommend using the latest stable versions for all tools. However, Kotlin/Native sometimes doesn't support the newest Xcode right away. If that's your case, <a href="https://developer.apple.com/download/all/?q=Xcode">install an earlier version of Xcode</a>.
+              </p>
+            </note>   
+      </td>
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
@@ -86,18 +93,20 @@ To make sure everything works as expected, install and run the KDoctor tool:
       Make sure that you have Android Studio installed. You can get it from its <a href="https://developer.android.com/studio">official website.</a>
    </def>
    <def title="Java and JDK">
-      <list>
          <ul>
            <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
            <li>Android Studio uses a bundled JDK to execute Gradle tasks. To configure the Gradle JDK in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
            <li>You might encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary required for Xcode and Gradle. If so, follow KDoctor's tips to fix the issues.</li>
          </ul>
-      </list>
    </def>
    <def title="Xcode">
       <ul>
          <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
          <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
+         <li>
+            <p><code>Error: can't grab Xcode schemes</code>. If you encounter an error like this, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode.</p>
+            <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
+         </li>
       </ul>
    </def>
    <def title="Kotlin plugins">
@@ -116,13 +125,11 @@ To make sure everything works as expected, install and run the KDoctor tool:
          </chunk>
    </def>
    <def title="Command line">
-         <list>
             <p>Make sure you have all the necessary tools installed:</p>
             <ul>
               <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
               <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
            </ul>
-         </list>
     </def>
 </deflist>
 

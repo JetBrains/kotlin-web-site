@@ -122,6 +122,7 @@
             <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
             <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
+            <toc-element id="multiplatform-mobile-ktor-sqldelight.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin Multiplatform for other platforms">
             <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
@@ -161,7 +162,7 @@
             <toc-element id="java-interop.md"/>
             <toc-element id="java-to-kotlin-interop.md"/>
             <toc-element toc-title="Spring">
-                <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html"/>
+                <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>
                 <toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
                 <toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
                 <toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
@@ -172,6 +173,7 @@
             <toc-element toc-title="Java to Kotlin migration guides">
                 <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
+                <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
             </toc-element>
         </toc-element>
         <toc-element toc-title="JavaScript">
@@ -285,6 +287,9 @@
             <include from="kc" target="coroutines" origin="coroutines"/>
         </toc-element>
         <toc-element toc-title="Serialization (kotlinx.serialization)" id="serialization.md"/>
+        <toc-element toc-title="Lincheck (kotlinx.lincheck)">
+            <include from="kl" target="lincheck" origin="lincheck"/>
+        </toc-element>
         <toc-element toc-title="Ktor" href="https://ktor.io/"/>
     </toc-element>
 

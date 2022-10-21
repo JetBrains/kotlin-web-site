@@ -70,7 +70,7 @@ Kotlin/JS (Classic back-end)|Stable|1.3| |
 Kotlin/JVM (IR-based)|Stable|1.5| |
 Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
-Kotlin/Native new memory manager|Alpha|1.6.20| |
+Kotlin/Native new memory manager|Beta|1.7.20| |
 klib binaries|Alpha|1.4| |
 Multiplatform Projects|Alpha|1.3| |
 Kotlin/Native interop with C and Objective C|Beta|1.3| |
