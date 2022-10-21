@@ -135,7 +135,9 @@ To make sure everything works as expected, install and run the KDoctor tool:
 
 ## Next step
 
-Once the setup is complete, you can start [creating your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
+In the next part of the tutorial, you'll create your first cross-platform mobile application.
+
+**[Proceed to the next part](multiplatform-mobile-create-first-app.md)**
 
 ## Get help
 
