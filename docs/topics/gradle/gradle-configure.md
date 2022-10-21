@@ -430,7 +430,7 @@ kotlin {
 </tab>
 </tabs>
 
-Alternatively, you can [set dependencies at the top level](#set-dependencies-at-the-top-level).
+Alternatively, you can [set dependencies at top level](#set-dependencies-at-top-level).
 
 ### Dependency types
 
@@ -709,7 +709,7 @@ kotlin {
 </tab>
 </tabs>
 
-### Set dependencies at the top level
+### Set dependencies at top level
 
 Alternatively, you can specify the dependencies at top level, using the following pattern for the configuration names:
 `<sourceSetName><DependencyType>`. This can be helpful for some Gradle built-in dependencies, like `gradleApi()`, `localGroovy()`,
