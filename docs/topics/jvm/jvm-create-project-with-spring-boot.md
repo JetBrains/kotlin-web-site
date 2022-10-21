@@ -117,7 +117,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 2. In the `dependencies` block, a few Kotlin-related modules listed:
 
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
-   * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library.
+   * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
    * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin standard library
 
 3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
