@@ -4,6 +4,8 @@ To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguid
 you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
 and [configure dependencies](#configure-dependencies) there.
 
+If you want to convert your Groovy `build.gradle` script to Kotlin `build.gradle.kts`, consult [developer.android.com](https://developer.android.com/studio/build/migrate-to-kts).
+
 > To learn more about the contents of a build script,
 > visit the [Understand the build script](gradle-backend-tutorial.md#understand-the-build-script) section.
 >
@@ -52,7 +54,7 @@ methods and properties, and supports all the current Gradle features.
 
 ## Targeting the JVM
 
-To target the JVM, apply the Kotlin JVM plugin.
+To add Kotlin to existing Java project, apply the Kotlin JVM plugin.
 
 <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
