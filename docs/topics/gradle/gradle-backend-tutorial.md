@@ -57,7 +57,7 @@ dependencies { // All the libraries you want to use
    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
-tasks.test {
+tasks.test { // Learn more about tasks in the [Gradle official documentation](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html)
     useJUnitPlatform() // [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
 }
 
