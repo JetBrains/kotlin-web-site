@@ -1,12 +1,12 @@
 [//]: # (title: Configure your existing project)
 
 To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/getting_started.html), 
-you'll need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
+you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
 and [configure dependencies](#configure-dependencies) there. As the prerequisite, you need to make sure that you have a Gradle Wrapper in 
-your project or Gradle installed in your system. Consult the [Gradle official documentation](https://docs.gradle.org/current/userguide/getting_started.html#gs:installation) 
+your project or, Gradle installed on your system. Consult the [Gradle official documentation](https://docs.gradle.org/current/userguide/getting_started.html#gs:installation) 
 for details.
 
-> To learn more about different parts of a build script,
+> To learn more about the contents of a build script,
 > visit the [Understand the build script](gradle-backend-tutorial.md#understand-the-build-script) section.
 >
 {type="note"}
@@ -49,8 +49,8 @@ When configuring your project, check the Kotlin Gradle plugin compatibility with
 For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
 
-In turn, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
-methods and properties and supports all the current Gradle features.
+Similarly, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
+methods and properties, and supports all the current Gradle features.
 
 ## Targeting the JVM
 
@@ -133,14 +133,14 @@ In the build module, you may have related compile tasks, for example:
 >
 {type="note"}
 
-For such related tasks, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
+For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
 the `kotlin` extension and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
 in the `java` extension cause incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Control the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
-file equal to:
+Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
+file to:
 
 * `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
 * `error` – the plugin will fail the build.
@@ -149,7 +149,7 @@ file equal to:
 ### Set custom JDK home
 
 By default, Kotlin compile tasks use the current Gradle JDK.
-If you need to change the JDK by some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
+If you need to change the JDK for some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
 or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
 
 > The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
@@ -177,7 +177,7 @@ A Java toolchain:
 * Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
-  If the user doesn't configure the toolchain, the `jvmTarget` field will use the default value.
+  If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
 * Sets the toolchain to be used by any Java compile, test and javadoc tasks.
 * Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
@@ -209,7 +209,7 @@ kotlin {
 </tab>
 </tabs>
 
-Note that setting a toolchain via the `kotlin` extension will update the toolchain for Java compile tasks as well.
+Note that setting a toolchain via the `kotlin` extension updates the toolchain for Java compile tasks as well.
 
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
@@ -267,7 +267,7 @@ tasks.withType<UsesKotlinJavaToolchain>().configureEach {
 
 ### Associate compiler tasks
 
-You can _associate_ compilations by setting up such a relationship between them that one compilation will use the compiled
+You can _associate_ compilations by setting up such a relationship between them that one compilation uses the compiled
 outputs of the other. Associating compilations establishes `internal` visibility between them.
 
 The Kotlin compiler associates some compilations by default, such as the `test` and `main` compilations of each target.
@@ -476,7 +476,7 @@ A dependency on the standard library (`stdlib`) is added automatically to each s
 of the standard library used is the same as the version of the Kotlin Gradle plugin.
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard
-library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on
+library is added to the rest. The Kotlin Gradle plugin selects the appropriate JVM standard library depending on
 the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
@@ -630,7 +630,7 @@ If you need to use a different JVM test framework, disable automatic testing fra
 adding the line `kotlin.test.infer.jvm.variant=false` to the project's `gradle.properties` file.
 After doing this, add the framework as a Gradle dependency.
 
-If you had used a variant of `kotlin("test")` in your build script explicitly and project build stopped working with
+If you have used a variant of `kotlin("test")` in your build script explicitly and your project build stopped working with
 a compatibility conflict,
 see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
 
@@ -711,7 +711,7 @@ kotlin {
 
 ### Set dependencies at the top level
 
-Alternatively, you can specify the dependencies at the top level, using the following pattern for the configuration names:
+Alternatively, you can specify the dependencies at top level, using the following pattern for the configuration names:
 `<sourceSetName><DependencyType>`. This can be helpful for some Gradle built-in dependencies, like `gradleApi()`, `localGroovy()`,
 or `gradleTestKit()`, which are not available in the source sets' dependency DSL.
 
@@ -739,7 +739,7 @@ dependencies {
 ## What's next?
 
 Learn more about:
-* [Compiler options and ways of passing them](gradle-compiler-options.md)
+* [Compiler options and how to pass them](gradle-compiler-options.md)
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
-* [The Kotlin DSL](gradle-kotlin-dsl.md)
+* [Kotlin DSL](gradle-kotlin-dsl.md)
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html)
