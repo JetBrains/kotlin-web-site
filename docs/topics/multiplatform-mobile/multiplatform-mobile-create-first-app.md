@@ -118,8 +118,8 @@ If you want to run your application on a simulated device, you can add a new run
     ![New run configuration for iOS application](ios-new-configuration.png)
 
 3. Name your configuration.
-4. Select the **Xcode project file**. For that, navigate to your project, for example KotlinMultiplatformSandbox, open the
-   `iosApp` folder and select the `.xcodeproj` file.
+4. Select the **Xcode project file**. For that, navigate to your project, for example **KotlinMultiplatformSandbox**,
+   open the`iosApp` folder and select the `.xcodeproj` file.
 
 5. In the **Execution target** list, select a simulated device and click **OK**.
 

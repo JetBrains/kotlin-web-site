@@ -281,7 +281,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 {type="tip"}
 
 1. Launch your Xcode app and select **Open a project or file**.
-2. Navigate to your project, for example KotlinMultiplatformSandbox, and select the `iosApp` folder. Click **Open**.
+2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
    
    ```swift
