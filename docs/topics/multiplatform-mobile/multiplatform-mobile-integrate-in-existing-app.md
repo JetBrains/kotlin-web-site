@@ -238,7 +238,14 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
     actual fun randomUUID(): String = NSUUID().UUIDString()
     ```
 
-For Android and iOS, Kotlin will use different platform-specific implementations.
+5. All it's left to do is to explicitly import `randomUUID` in the `LoginDataSource.kt` file of the `shared/src/commonMain`
+   directory:
+
+   ```kotlin
+   import com.jetbrains.simplelogin.shared.randomUUID
+   ```
+  
+   For Android and iOS, Kotlin will use its different platform-specific implementations.
 
 ### Run your cross-platform application on Android
 
@@ -308,8 +315,8 @@ Connect your framework to the iOS project manually:
 
    ![Move the Run Script phase](xcode-run-script-phase-3.png){width=700}
 
-5. On the **Build Settings** tab, switch to **All** build settings and specify the **Framework Search Path** under **
-   Search Paths**:
+5. On the **Build Settings** tab, switch to **All** build settings and specify the **Framework Search Path** under
+   **Search Paths**:
 
    ```text
    $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
@@ -411,7 +418,7 @@ and iOS.
     xcodeproj=iosApp/SimpleLoginIOS.xcodeproj
     ```
 
-3. Synchronize the Gradle files by clicking **Sync Now** in the warning.
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
