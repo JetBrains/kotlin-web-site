@@ -44,7 +44,7 @@ Each Kotlin project has two GitHub badges describing its stability and support s
     * ![Beta stability level](https://kotl.in/badges/beta.svg){type="joined"} stands for **Beta**
     * ![Stable stability level](https://kotl.in/badges/stable.svg){type="joined"} stands for **Stable**
 
-* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems
+* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems.
   The level of support is unified for all JetBrains products.  
   [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
 

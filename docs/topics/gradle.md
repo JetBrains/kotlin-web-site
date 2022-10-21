@@ -61,7 +61,7 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multipl
 
 ```kotlin
 plugins {
-  kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
@@ -70,7 +70,7 @@ plugins {
 
 ```groovy
 plugins {
-  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
 
@@ -82,7 +82,7 @@ plugins {
 To target the JVM, apply the Kotlin JVM plugin.
 
 <tabs group="build-script">
-    <tab title="Kotlin" group-key="kotlin">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -116,7 +116,7 @@ Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended
 
 Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
 
-```groovy
+```text
 project
     - src
         - main (root)
@@ -479,7 +479,7 @@ plugin won't override it or add a second standard library.
 
 If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
-```kotlin
+```properties
 kotlin.stdlib.default.dependency=false
 ```
 
@@ -1088,18 +1088,18 @@ You can specify arguments for a specific task:
 ```kotlin
 tasks.withType<CompileUsingKotlinDaemon>().configureEach {
     kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
-    }
+}
 ```
-  
+
 </tab>
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
 tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
     task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
-    }
+}
 ```
-  
+
 </tab>
 </tabs>
 
@@ -1158,7 +1158,7 @@ The available values for the `compilerExecutionStrategy` task property are:
 2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
 3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
 
-Use the task property `compilerExecutionStrategy` in your buildscripts:
+Use the task property `compilerExecutionStrategy` in your build scripts:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -1185,7 +1185,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 tasks.withType(KotlinCompile)
     .configureEach {
-         compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+        compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }
 ```
 

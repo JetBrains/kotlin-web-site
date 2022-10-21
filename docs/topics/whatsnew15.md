@@ -49,7 +49,7 @@ You can rely on that fact, for example, to write exhaustive `when` expressions.
 ```kotlin
 fun draw(polygon: Polygon) = when (polygon) {
    is Rectangle -> // ...
-   is Triangle -> // …
+   is Triangle -> // ...
    // else is not needed - all possible implementations are covered
 }
 

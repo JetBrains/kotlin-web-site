@@ -879,7 +879,7 @@ a type alias for it:
 typealias MouseClickHandler = (Any, MouseEvent) -> Unit
 typealias PersonIndex = Map<String, Person>
 ```
-If you use a private or internal type alias for avoiding name collision, prefer the `import … as …` mentioned in 
+If you use a private or internal type alias for avoiding name collision, prefer the `import ... as ...` mentioned in 
 [Packages and Imports](packages.md).
 
 ### Lambda parameters

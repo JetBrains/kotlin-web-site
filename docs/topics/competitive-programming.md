@@ -41,7 +41,7 @@ features as [tail recursion](functions.md#tail-recursive-functions):
 ```kotlin
 tailrec fun removeZeroes(x: Int): Int =
     if (x % 10 == 0) removeZeroes(x / 10) else x
-    
+
 fun f(x: Int) = removeZeroes(x + 1)
 ```
 
@@ -80,7 +80,6 @@ fun main() {
     while (reached.add(n)) n = f(n) // iterate function f
     println(reached.size) // print answer to the output
 }
-
 ```
 
 There is no need to handle the case of misformatted input in competitive programming. An input format is always precisely
@@ -127,8 +126,8 @@ the following helper functions for reading inputs in competitive programming:
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
-private fun readInt() = readln().toInt()
-private fun readStr() = readln().toString()
+private fun readStr() = readln() // string line
+private fun readInt() = readStr().toInt() // single int
 // similar for other types you'd use in your solutions
 ```
 
@@ -136,8 +135,8 @@ private fun readStr() = readln().toString()
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
-private fun readInt() = readLn().toInt()
-private fun readStr() = readLn().toString()
+private fun readStr() = readLine()!! // string line
+private fun readInt() = readStr().toInt() // single int
 // similar for other types you'd use in your solutions
 ```
 
@@ -224,8 +223,9 @@ you can have the following list of helper input-reading functions:
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
 ```kotlin
-private fun readInt() = readln().toInt() // single int
-private fun readStrings() = readln().split(" ") // list of strings
+private fun readStr() = readln() // string line
+private fun readInt() = readStr().toInt() // single int
+private fun readStrings() = readStr().split(" ") // list of strings
 private fun readInts() = readStrings().map { it.toInt() } // list of ints
 ```
 
@@ -233,9 +233,10 @@ private fun readInts() = readStrings().map { it.toInt() } // list of ints
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
 ```kotlin
-private fun readLn() = readLine()!! // string line
-private fun readInt() = readLn().toInt() // single int
-private fun readStrings() = readLn().split(" ") // list of strings
+private fun readStr() = readLine()!! // string line
+private fun readInt() = readStr().toInt() // single int
+private fun readStrings() = readStr().split(" ") // list of strings
+private fun readInts() = readStrings().map { it.toInt() } // list of ints
 ```
 
 </tab>
@@ -244,28 +245,12 @@ private fun readStrings() = readLn().split(" ") // list of strings
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
-<tabs group="kotlin-versions">
-<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
-
 ```kotlin
 // read input
 val n = readInt()
-val s = readln()
+val s = readStr()
 val fl = readInts()
 ```
-
-</tab>
-<tab title="Earlier versions" group-key="kotlin-1-5">
-
-```kotlin
-// read input
-val n = readInt()
-val s = readLn()
-val fl = readInts()
-```
-
-</tab>
-</tabs>
 
 Note that in competitive programming it is customary to give variables shorter names than it is 
 typical in industrial programming practice, since the code is to be written just once and not supported thereafter. 
@@ -286,7 +271,7 @@ In Kotlin this line can be concisely parsed with the following statement using
 from a list of integers:
 
 ```kotlin
-val (n, k) = readInts() 
+val (n, k) = readInts()
 ```
 
 It might be temping to use JVM's `java.util.Scanner` class to parse less structured 
@@ -323,4 +308,3 @@ is not perfect, and it is still worth familiarizing yourself with Kotlin and lea
 
 A great resource to study Kotlin syntax and API of the Kotlin standard library are
 [Kotlin Koans](koans.md).
-
