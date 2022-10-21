@@ -16,7 +16,7 @@ Kotlin Multiplatform Mobile (KMM) is an SDK designed to simplify the development
 You can share common code between iOS and Android apps and write platform-specific code only where it's necessary.
 Common use cases for Kotlin Multiplatform Mobile include implementing a native UI or working with platform-specific APIs.
 
-> You can also watch this [introductory video](https://www.youtube.com/watch?v=GcqFhoUuNNI) with a general explanation of
+> You can also watch this [introductory video](https://www.youtube.com/watch?v=mdN6P6RI__k) with a general explanation of
 > what Kotlin Multiplatform Mobile is and how to use it in your projects.
 >
 {type="tip"}
@@ -35,7 +35,9 @@ Get to know Kotlin Multiplatform Mobile and create a mobile app that works on bo
 
 ## Next step
 
-Start by [setting up an environment](multiplatform-mobile-setup.md) for Kotlin Multiplatform Mobile development.
+Start by setting up an environment for Kotlin Multiplatform Mobile development.
+
+**[Proceed to the next part](multiplatform-mobile-setup.md)**
 
 ### See also
 
