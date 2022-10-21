@@ -245,28 +245,12 @@ private fun readInts() = readStrings().map { it.toInt() } // list of ints
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
-<tabs group="kotlin-versions">
-<tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
-
 ```kotlin
 // read input
 val n = readInt()
 val s = readStr()
 val fl = readInts()
 ```
-
-</tab>
-<tab title="Earlier versions" group-key="kotlin-1-5">
-
-```kotlin
-// read input
-val n = readInt()
-val s = readStr()
-val fl = readInts()
-```
-
-</tab>
-</tabs>
 
 Note that in competitive programming it is customary to give variables shorter names than it is 
 typical in industrial programming practice, since the code is to be written just once and not supported thereafter. 
