@@ -27,11 +27,9 @@ To use the standard library in your project, add the following dependency in the
 </dependencies>
 ```
 
-If you're targeting JDK 7 or JDK 8, you can use extended versions of the Kotlin standard library. They contain
-additional extension functions for APIs added in new JDK versions. Instead of `kotlin-stdlib`, use `kotlin-stdlib-jdk7`
-or `kotlin-stdlib-jdk8`, depending on your JDK version. 
-
->For Kotlin versions older than 1.2, use `kotlin-stdlib-jre7` and `kotlin-stdlib-jre8`.
+> If you're targeting JDK 7 or 8 with Kotlin versions older than:
+> * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
+> * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
 {type="note"} 
 
