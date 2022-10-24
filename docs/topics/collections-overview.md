@@ -184,7 +184,7 @@ However, there is one important difference:  an array's size is defined upon ini
 in turn, a list doesn't have a predefined size; a list's size can be changed as a result of write operations: adding, 
 updating, or removing elements.
 
-In Kotlin, the default implementation of `List` is [`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html) 
+In Kotlin, the default implementation of `MutableList` is [`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html) 
 which you can think of as a resizable array.
 
 ### Set
