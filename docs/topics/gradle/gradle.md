@@ -1,6 +1,6 @@
 [//]: # (title: Gradle)
 
-Gradle is a build system that helps automate and manage your building process. It downloads required dependencies,
+Gradle is a build system that helps to automate and manage your building process. It downloads required dependencies,
 packages your code, and prepares it for compilation. Learn about Gradle basics and specifics 
 on the [Gradle website](https://docs.gradle.org/current/userguide/getting_started.html).
 
