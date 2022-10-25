@@ -32,7 +32,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 You have successfully created a project with Gradle.
 
-## Understand the build script
+## Explore the build script
 
 Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
