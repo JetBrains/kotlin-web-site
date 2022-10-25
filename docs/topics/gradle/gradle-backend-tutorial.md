@@ -19,15 +19,16 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
    ![Create a console application](jvm-new-gradle-project.png){width=700}
 
-5. Select the **Gradle** build system. Choose the Kotlin language for the build script.
+5. Select the **Gradle** build system.
 6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
    your project.
     * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
       JDK home directory.
     * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
-7. Select the **Add sample code** checkbox to create a file with a sample `"Hello World!"` application.
-8. Click **Create**.
+7. From the **Gradle DSL** list, select **Kotlin**.
+8. Select the **Add sample code** checkbox to create a file with a sample `"Hello World!"` application.
+9. Click **Create**.
 
 You have successfully created a project with Gradle.
 
