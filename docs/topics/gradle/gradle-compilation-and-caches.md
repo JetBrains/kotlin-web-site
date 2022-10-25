@@ -26,7 +26,7 @@ There are several ways to disable incremental compilation:
 Note: Any build with incremental compilation disabled invalidates incremental caches. The first build is never incremental.
 
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
-> to track the history of changes and compilations. Doing so may also help you provide reproducible bug reports.
+> to track the history of changes and compilations. This can help you to provide reproducible bug reports.
 >
 {type="tip"}
 
