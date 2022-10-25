@@ -21,10 +21,9 @@ There are several ways to disable incremental compilation:
 * Set `kotlin.incremental.js=false` for Kotlin/JS projects.
 * Use `-Pkotlin.incremental=false` or `-Pkotlin.incremental.js=false` as a command line parameter.
 
-  The parameter should be added to each subsequent build. Any build with incremental
-  compilation disabled invalidates incremental caches.
+  The parameter should be added to each subsequent build.
 
-Note: The first build is never incremental.
+Note: Any build with incremental compilation disabled invalidates incremental caches. The first build is never incremental.
 
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. Doing so may also help you provide reproducible bug reports.
