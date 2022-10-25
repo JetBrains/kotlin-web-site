@@ -1,6 +1,6 @@
 [//]: # (title: Build final native binaries)
 
-> This page describes legacy workarounds for building native binaries. Check out the new experimental [Kotlin/Native DSL](multiplatform-native-artifacts.md),
+> This page describes the previous approach to building native binaries. Check out the new experimental [Kotlin/Native DSL](multiplatform-native-artifacts.md),
 > it should be more efficient and easier to use.
 >
 {type="note"}
