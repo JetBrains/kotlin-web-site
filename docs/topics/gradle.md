@@ -983,7 +983,7 @@ argument to this attribute or a list of arguments:
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 // ...
 
-val compileKotlin: KotlinCompile by dsl
+val compileKotlin: KotlinCompile by tasks
 
 // Single experimental argument
 compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
