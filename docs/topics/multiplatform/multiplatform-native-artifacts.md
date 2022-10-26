@@ -123,7 +123,8 @@ For the binary configuration, the following common parameters are available:
 ### Libraries and frameworks
 
 When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
-of the current project, but also the classes of its dependencies into a single entity and export all these modules to it.
+of the current project but also the classes of any other multiplatform module into a single entity and export all these
+modules to it.
 
 #### Library
 
