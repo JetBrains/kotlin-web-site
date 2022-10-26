@@ -6,8 +6,10 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen
 for entering a username and password. The credentials are validated and saved to an in-memory database.
 
-If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md)
-first.
+> If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md)
+> first.
+> 
+{type="tip"}
 
 ## Prepare an environment for development
 
