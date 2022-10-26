@@ -94,7 +94,7 @@ The Kotlin daemon:
 
 The Kotlin daemon starts at the Gradle [execution stage](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)
 when one of the Kotlin compile tasks starts to compile sources.
-The Kotlin daemon stops along with the Gradle daemon or after two idle hours with no Kotlin compilation.
+The Kotlin daemon stops either with the Gradle daemon or after two idle hours with no Kotlin compilation.
 
 The Kotlin daemon uses the same JDK that the Gradle daemon does.
 
