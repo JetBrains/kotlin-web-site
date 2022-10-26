@@ -41,8 +41,8 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 The new approach to incremental compilation supports changes made inside dependent non-Kotlin modules, includes an improved
 compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
 
-All these advancements decrease the number of non-incremental builds, making the overall compilation time faster. The most
-significant benefit of the new approach is expected if you use the build cache or frequently make changes in non-Kotlin
+All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
+You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
 Gradle modules.
 
 To enable this new approach, set the following option in your `gradle.properties`:
