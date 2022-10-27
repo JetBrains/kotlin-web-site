@@ -291,7 +291,7 @@ class MyStringCollection {
 ## Function scope
 
 Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
-which you are required to do in languages such as Java, C#, and Scala. In addition
+which you are required to do in languages such as Java, C#, and Scala ([top level definition is available since Scala 3](https://docs.scala-lang.org/scala3/book/taste-toplevel-definitions.html#inner-main)). In addition
 to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
 
 ### Local functions
