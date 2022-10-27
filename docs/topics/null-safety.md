@@ -145,7 +145,10 @@ person?.department?.head = managersPool.getManager()
 
 ## Nullable receiver
 
-Another option is to extend the function to use a [nullable receiver.](https://kotlinlang.org/docs/extensions.html#nullable-receiver)  This way you can check for the null condition and have a default defined in one place.  `.toStrig()` [is extended this way.](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html)
+Functions could be extended to use a [nullable receiver](extensions.md#nullable-receiver).
+This way you can check for the null condition and have a default defined in one place. 
+
+For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) can be called with a nullable receiver and it returns the "null" string value (not `null`):
 
 ```kotlin
 null.toString() // returns "null"
