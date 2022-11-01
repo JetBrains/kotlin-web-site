@@ -56,7 +56,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <td>
             <p>A bug fix release for Kotlin 1.7.20.</p>
             <p>Learn more about Kotlin 1.7.20 in <a href="whatsnew1720.md" target="_blank">What's new in Kotlin 1.7.20</a>.</p>
-            <note>For Android Studio Dolphin and Android Studio Electric Eel, the Kotlin plugin 1.7.20 will be delivered with upcoming Android Studios updates.</note>
+            <note>For Android Studio Dolphin and Android Studio Electric Eel, the Kotlin plugin 1.7.21 will be delivered with upcoming Android Studios updates.</note>
         </td>
     </tr>
     <tr>
