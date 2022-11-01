@@ -24,6 +24,12 @@ In this channel, you can also get notifications about new EAP builds.
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.md). 
 
+## How the EAP can help you be more productive with Kotlin
+
+* If you work on a multi-module complex project, participating in the EAP may streamline your experience when you adopt the Stable release version. The sooner you update to the Stable version, the sooner you will be able to take advantage of its performance improvements and new language features. However, the migration of huge and complex projects might take a while, not only because of their size but also because some specific use cases may not have been covered yet by the Kotlin team. By participating in the EAP and continuously testing new versions of Kotlin, you will be able to provide us with feedback about your specific use cases as early as possible. This will help us address as many issues as possible, and give you peace of mind about updating to the Stable version when it’s released. [Check out how Slack benefits from testing Android, Kotlin, and Gradle pre-release versions](https://slack.engineering/shadow-jobs/).
+* Updating to the new Kotlin version is extremely important for library authors, as using older versions could block your users from updating Kotlin in their projects. Working with EAP versions allows you to support the latest Kotlin versions in your library almost immediately with the Stable release, which will make your users happier and will contribute to your library's popularity.
+* Finally, if you are a Kotlin enthusiast and enjoy contributing to the Kotlin ecosystem by creating educational content, trying new features in the Kotin EAP could allow you to be among the first to share the experience of using the new cool features with the community.
+
 ## Build details
 
 _No preview versions are currently available._
