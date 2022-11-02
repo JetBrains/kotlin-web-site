@@ -146,7 +146,7 @@
   to: /docs/multiplatform-library.html
 
 - from: /docs/tutorials/mpp/intro-to-kotlin-mpp.html
-  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Kotlin%20Multiplatform/01_Introduction
+  to: /docs/multiplatform.html
 
 - from: /docs/tutorials/coroutines/coroutines-basic-jvm.html
   to: /docs/coroutines-basic-jvm.html
@@ -161,7 +161,7 @@
   to: /docs/debug-flow-with-idea.html
 
 - from: /docs/tutorials/coroutines/intro-to-coroutines-and-channels.html
-  to: https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels
+  to: /docs/coroutines-and-channels.html
 
 - from: /docs/tutorials/getting-started-eclipse.html
   to: /docs/getting-started.html
@@ -671,7 +671,7 @@
 - from:
     - /docs/kmm-configure-sqldelight-for-data-storage.html
     - /docs/multiplatform-mobile-configure-sqldelight-for-data-storage.html
-  to: https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/
+  to: /docs/multiplatform-mobile-ktor-sqldelight.html
 
 - from: /docs/kotlin-mascot.html
   to: https://blog.jetbrains.com/kotlin/2021/10/introducing-the-kotlin-mascot/

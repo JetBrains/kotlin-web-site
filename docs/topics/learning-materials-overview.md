@@ -12,6 +12,5 @@ You can use the following materials and resources for learning Kotlin:
 * [Kotlin books](books.md) – find books we've reviewed and recommend for learning Kotlin.
 * [Kotlin tips](kotlin-tips.md) – look through short videos where members of the Kotlin team show how to use Kotlin in a more efficient and idiomatic way to have more fun when writing code.
 * [Advent of Code puzzles](advent-of-code.md) – learn idiomatic Kotlin and practice your language skills by completing short and fun tasks.
-* [Kotlin hands-on tutorials](https://play.kotlinlang.org/hands-on/overview) – complete long-form tutorials to fully grasp a technology. These tutorials guide you through a self-contained project related to a specific topic.
 * [Kotlin for Java Developers](https://www.coursera.org/learn/kotlin-for-java-developers) – course for developers with experience in Java. It shows the similarities between the two languages and focuses on what's going to be different.
 * [Kotlin documentation in the PDF format](kotlin-pdf.md) – read the whole documentation offline.
