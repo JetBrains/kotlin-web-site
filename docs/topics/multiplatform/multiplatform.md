@@ -2,12 +2,14 @@
 [//]: # (description: Kotlin Multiplatform allows creating cross-platform apps for desktop, web, and mobile devices.
 Share application logic while keeping native user experience.)
 
-> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+> Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="note"}
 
-Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the
- same code for [different platforms](multiplatform-dsl-reference.md#targets) while retaining the flexibility and benefits of native programming. 
+The Kotlin Multiplatform technology is designed to simplify the development of cross-platform projects. It reduces time
+spent writing and maintaining the same code for [different platforms](#kotlin-multiplatform-use-cases)
+while retaining the flexibility and benefits of native programming. 
 
 ## Kotlin Multiplatform use cases
 
@@ -70,7 +72,6 @@ With Kotlin Multiplatform, spend less time on writing and maintaining the same c
 
 * [Share code among all platforms used in your project](multiplatform-share-on-platforms.md#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms.
-
 * [Share code among some platforms](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) included in your project but not all. Do this 
 when you can reuse much of the code in similar platforms:
 
@@ -81,8 +82,8 @@ declarations](multiplatform-connect-to-apis.md).
 
 ## Get started
 
-* Look through [our examples and tutorials](multiplatform-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JavaScript, and other platforms
 * Start with the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) if you want to create iOS and Android applications with shared code
+* Look through [sharing code principles and examples](multiplatform-share-on-platforms.md) if you want to create applications or libraries targeting JVM, JS, and other platforms
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 >
