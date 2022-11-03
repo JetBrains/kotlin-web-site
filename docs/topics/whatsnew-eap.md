@@ -32,9 +32,9 @@ Kotlin plugins that support 1.8.0-Beta are available for:
 
 * Added support for Xcode 14 and `watchosDeviceArm64` target.
 * Added support for new annotations to improve Objective-C and Swift interoperability:
-    * `ObjCName`
-    * `HiddenFromObjC`
-    * `ShouldRefineInSwift`
+    * `@ObjCName`
+    * `@HiddenFromObjC`
+    * `@ShouldRefineInSwift`
 * Added improvements to the CocoaPods Gradle plugin so that registered Kotlin frameworks are now dynamically linked by default.
 
 ## Kotlin/JS
