@@ -171,9 +171,8 @@ thread restriction.
 ## Current and future models
 
 Kotlin/Native's concurrency rules will require some adjustment in architecture design, but with the help of libraries and
- new best practices, day to day development is basically unaffected. In fact, adhering to Kotlin/Native's rules regarding 
-multiplatform code will result in safer concurrency across the cross-platform mobile application. You can try out the Kotlin/Native concurrency
-model in [this hands-on tutorial](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/).
+new best practices, day to day development is basically unaffected. In fact, adhering to Kotlin/Native's rules regarding 
+multiplatform code will result in safer concurrency across the cross-platform mobile application.
 
 In the Kotlin Multiplatform application, you have Android and iOS targets with different state rules. Some teams, generally ones working on 
 larger applications, share code for very specific functionality, and often manage concurrency in the host platform. 
