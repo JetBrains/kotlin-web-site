@@ -372,7 +372,7 @@ In the final part of the tutorial, you'll wrap up your project and see what step
 
 * Explore various approaches to [composition of suspending functions](composing-suspending-functions.md).
 * Learn more about the [interoperability with Objective-C frameworks and libraries](native-objc-interop.md).
-* Complete this tutorial on [networking and data storage](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction).
+* Complete this tutorial on [networking and data storage](multiplatform-mobile-ktor-sqldelight.md).
 
 ## Get help
 
