@@ -60,7 +60,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 ## Current stability of Kotlin components
 
 |**Component**|**Status**|**Status since version**|**Comment**|
-| --- | --- | --- | --- |
+| --- | --- | -- | --- |
 Kotlin/JVM|Stable|1.0| |
 Kotlin K2 (JVM)|Alpha|1.7| |
 kotlin-stdlib (JVM)|Stable|1.0| |
@@ -72,7 +72,7 @@ Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
 Kotlin/Native new memory manager|Beta|1.7.20| |
 klib binaries|Alpha|1.4| |
-Multiplatform Projects|Alpha|1.3| |
+Kotlin Multiplatform |Beta|1.7.20| |
 Kotlin/Native interop with C and Objective C|Beta|1.3| |
 CocoaPods integration|Beta|1.3| |
 Kotlin Multiplatform Mobile plugin for Android Studio|Alpha|0.3.0|[Versioned separately from the language](multiplatform-mobile-plugin-releases.md)
