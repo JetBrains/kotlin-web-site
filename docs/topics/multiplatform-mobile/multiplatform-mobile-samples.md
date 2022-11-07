@@ -4,7 +4,7 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
 
 > You can find even more projects on GitHub, see the [`kotlin-multiplatform-mobile` topic](https://github.com/topics/kotlin-multiplatform-mobile).
 > To [add this topic to your project](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository),
-> add the corresponding tag in the **About** section of your GitHub repository. 
+> use the corresponding tag in the **About** section of your GitHub repository. 
 >
 {type="tip"}
 
