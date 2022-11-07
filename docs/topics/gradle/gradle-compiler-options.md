@@ -1,7 +1,26 @@
 [//]: # (title: Compiler options)
 
-Using a build script, you can specify additional compilation options. 
-Use the `kotlinOptions` property of a Kotlin compilation task for it.
+Each release of Kotlin includes compilers for the supported targets:
+JVM, JavaScript, and native binaries for [supported platforms](native-overview.md#target-platforms).
+
+These compilers are used by:
+* The IDE, when you click the __Compile__ or __Run__ button for your Kotlin project.
+* Gradle, when you call `gradle build` in a console or in the IDE.
+* Maven, when you call `mvn compile` or `mvn test-compile` in a console or in the IDE.
+
+You can also run Kotlin compilers manually from the command line as described
+in the [Working with command-line compiler](command-line.md) tutorial.
+
+## How to define options
+
+Kotlin compilers have a number of options for tailoring the compiling process.
+
+Using a build script, you can specify additional compilation options. Use the `kotlinOptions` property of a Kotlin compilation task for it. 
+For example:
+
+```kotlin
+compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+```
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.

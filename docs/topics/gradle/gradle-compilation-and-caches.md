@@ -38,7 +38,8 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 >
 {type="warning"}
 
-The new approach to incremental compilation supports changes made inside dependent non-Kotlin modules, includes an improved
+The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle build system only. 
+This approach supports changes made inside dependent non-Kotlin modules, includes an improved
 compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
 
 All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
@@ -51,10 +52,8 @@ To enable this new approach, set the following option in your `gradle.properties
 kotlin.incremental.useClasspathSnapshot=true
 ```
 
-> The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle
-> build system only.
->
-{type="note"}
+Learn how the new approach to incremental compilation is implemented under the hood in
+[this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
 ## Gradle build cache support
 

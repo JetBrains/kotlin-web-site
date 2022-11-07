@@ -1,8 +1,8 @@
-[//]: # (title: Configure your existing project)
+[//]: # (title: Configure a Gradle project)
 
 To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/getting_started.html), 
 you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
-and [configure dependencies](#configure-dependencies) there.
+and [configure the project's dependencies](#configure-dependencies) there.
 
 > To learn more about the contents of a build script,
 > visit the [Explore the build script](gradle-backend-tutorial.md#explore-the-build-script) section.
@@ -133,7 +133,7 @@ In the build module, you may have related compile tasks, for example:
 
 For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
 the `kotlin` extension and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension cause incompatibility. For example:
+in the `java` extension cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
@@ -162,7 +162,7 @@ and ignore the `kapt.workers.isolation` property.
 
 Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
 Using this feature, you can:
-* Use a JDK and a JRE that are different from the Gradle ones to run compilations, tests, and executables.
+* Use a JDK and a JRE that are different from the ones in Gradle to run compilations, tests, and executables.
 * Compile and test code with a not-yet-released language version.
 
 With toolchains support, Gradle can autodetect local JDKs and install missing JDKs that Gradle requires for the build.
@@ -490,7 +490,7 @@ kotlin.stdlib.default.dependency=false
 
 The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for testing Kotlin projects on
 all supported platforms.
-Add the dependency `kotlin-test` to the `commonTest` source set, and the Gradle plugin will infer the corresponding
+Add the dependency `kotlin-test` to the `commonTest` source set, so that the Gradle plugin can infer the corresponding
 test dependencies for each test source set:
 * `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
 * `kotlin-test-junit` for JVM source sets

@@ -34,54 +34,53 @@ You have successfully created a project with Gradle.
 
 ## Explore the build script
 
-Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
-
-Here is the full script with the explanation of all parts and dependencies:
+Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which contains Kotlin-related artifacts and other parts required for the application:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
 
 plugins {
-    kotlin("jvm") version "%kotlinVersion%" 1️⃣ // The version of Kotlin to use
-    application // The application plugin to add support for building a CLI application in Java
+    kotlin("jvm") version "%kotlinVersion%" // Kotlin version to use
+    application // [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java
 }
 
 group = "org.example" // Usually a company name, for example, `org.jetbrains`
-version = "1.0-SNAPSHOT" // A version that will be assigned to the built artifact
+version = "1.0-SNAPSHOT" // Version to assign to the built artifact
 
-repositories { // A source of dependencies
-    mavenCentral() // Often, it's `mavenCentral`. Also, it can be a private repository where your company stores artifacts
+repositories { // [Sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html)
+    mavenCentral() // Can also be the Google Maven repository or your company's private repository
 }
 
-dependencies { // All the libraries you want to use
-   // You can copy dependencies' names after you find them in the [Maven Central Repository](https://search.maven.org/)
+dependencies { // All the libraries you want to use. Also see 1️⃣ below the code
+   // Copy dependencies' names after you find them in the [Maven Central Repository](https://search.maven.org/)
    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
-tasks.test { // Learn more about tasks in the [Gradle official documentation](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html)
+tasks.test { // See 2️⃣
     useJUnitPlatform() // [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
 }
 
 tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
-   // Kotlin compiler options
-    kotlinOptions.jvmTarget = "1.8" // This option specifies the target version of the generated JVM bytecode
+    // Kotlin compiler options
+    kotlinOptions.jvmTarget = "1.8" // To specify target version of generated JVM bytecode
 }
 
 application {
-    mainClass.set("MainKt") // Defines the main class for the application
+    mainClass.set("MainKt") // The main class of the application
 }
 ```
 
-1️⃣
+1️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
+2️⃣ Learn more about tasks in the [Gradle official documentation](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
 
-As you can see, there are a few Kotlin-related artifacts added to the Gradle build file:
+As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
 
 1. In the `plugins` block, there is the `kotlin("jvm")` artifact – the plugin defines the version of Kotlin to be used in the project.
 
 2. In the `dependencies` section, there is `testImplementation(kotlin("test"))`. 
    Learn more about [setting dependencies on test libraries](gradle-configure.md#set-dependencies-on-test-libraries).
 
-3. After the dependencies section, you can see the `KotlinCompile` task configuration block.
+3. After the dependencies section, there is the `KotlinCompile` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Run the application
