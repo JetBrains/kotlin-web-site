@@ -17,7 +17,7 @@ class Example {
 
 The syntax is: `val/var <property name>: <Type> by <expression>`. The expression after `by` is a _delegate_,
 because the `get()` (and `set()`) that correspond to the property will be delegated to its `getValue()` and `setValue()` methods.
-Property delegates don’t have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `var`s).
+Property delegates don't have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `var`s).
 
 For example:
 
@@ -65,7 +65,7 @@ NEW has been assigned to 'p' in Example@33a17727.
 
 The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
 
-You can declare a delegated property inside a function or code block; it doesn’t have to be a member of a class.
+You can declare a delegated property inside a function or code block; it doesn't have to be a member of a class.
 Below you can find [an example](#local-delegated-properties).
 
 ## Standard delegates
@@ -213,7 +213,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-This also works for `var`’s properties if you use a `MutableMap` instead of a read-only `Map`:
+This also works for `var`'s properties if you use a `MutableMap` instead of a read-only `Map`:
 
 ```kotlin
 class MutableUser(val map: MutableMap<String, Any?>) {
@@ -298,22 +298,28 @@ They provide the required methods: `getValue()` is declared in `ReadOnlyProperty
 extends it and adds `setValue()`. This means you can pass a `ReadWriteProperty` whenever a `ReadOnlyProperty` is expected.
 
 ```kotlin
-fun resourceDelegate(): ReadWriteProperty<Any?, Int> =
-    object : ReadWriteProperty<Any?, Int> {
-        var curValue = 0 
-        override fun getValue(thisRef: Any?, property: KProperty<*>): Int = curValue
-        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Int) {
+fun resourceDelegate(resource: Resource = Resource()): ReadWriteProperty<Any?, Resource> =
+    object : ReadWriteProperty<Any?, Resource> {
+        var curValue = resource 
+        override fun getValue(thisRef: Any?, property: KProperty<*>): Resource = curValue
+        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Resource) {
             curValue = value
         }
     }
 
-val readOnly: Int by resourceDelegate()  // ReadWriteProperty as val
-var readWrite: Int by resourceDelegate()
+val readOnlyResource: Resource by resourceDelegate()  // ReadWriteProperty as val
+var readWriteResource: Resource by resourceDelegate()
 ```
 
 ## Translation rules for delegated properties
 
-Under the hood, the Kotlin compiler generates an auxiliary property for every delegated property and then delegates to it.
+Under the hood, the Kotlin compiler generates auxiliary properties for some kinds of delegated properties and then delegates to them. 
+
+> For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
+> Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
+>
+{type="note"}
+
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:
 
@@ -333,6 +339,48 @@ class C {
 
 The Kotlin compiler provides all the necessary information about `prop` in the arguments: the first argument `this`
 refers to an instance of the outer class `C`, and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
+
+### Optimized cases for delegated properties
+
+The `$delegate` field will be omitted if a delegate is:
+* A referenced property:
+
+  ```kotlin
+  class C<Type> {
+      private var impl: Type = ...
+      var prop: Type by ::impl
+  }
+  ```
+
+* A named object:
+
+  ```kotlin
+  object NamedObject {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
+  }
+
+  val s: String by NamedObject
+  ```
+
+* A final `val` property with a backing field and a default getter in the same module:
+
+  ```kotlin
+  val impl: ReadOnlyProperty<Any?, String> = ...
+
+  class A {
+      val s: String by impl
+  }
+  ```
+
+* A constant expression, enum entry, `this`, `null`. The example of `this`:
+
+  ```kotlin
+  class A {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
+ 
+      val s by this
+  }
+  ```
 
 ### Translation rules when delegating to another property
 

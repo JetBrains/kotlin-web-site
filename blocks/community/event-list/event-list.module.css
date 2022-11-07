@@ -7,6 +7,16 @@
     margin-top: 24px;
 }
 
+.add {
+    margin-left: 16px;
+}
+
+@media (max-width: 767px) {
+    .add {
+        display: none;
+    }
+}
+
 .list {
     display: grid;
     grid-gap: 16px;

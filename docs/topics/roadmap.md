@@ -15,7 +15,7 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotli
 
 ## Key priorities
 
-The goal of this roadmap is to give you a big picture. Here’s a list of our key priorities – the areas we are investing the most effort into:
+The goal of this roadmap is to give you a big picture. Here's a list of our key priorities – the areas we are investing the most effort into:
 
 * **Fast turnaround**: making the change-test-debug cycle really fast.
 * **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
@@ -54,7 +54,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-10468" target="_blank">Multiple receivers on extension functions/properties</a></li>
             </ul>
         </td>
-        <td></td>
     </tr>
     <tr>
         <td><strong>Compiler core</strong></td>
@@ -76,7 +75,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49508" target="_blank">Stabilize the K2 Compiler Plugin API</a></li>
             </ul>
         </td>
-        <td></td>
     </tr>
     <tr>
         <td><strong>Kotlin/JVM</strong></td>
@@ -89,7 +87,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46770" target="_blank">Stabilize JVM-specific experimental features</a></li>
             </ul>
          </td>
-        <td></td>
     </tr>
     <tr>
         <td><strong>Kotlin/JS</strong></td>
@@ -179,12 +176,11 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49536" target="_blank">Improve Kotlin Playground</a></li>
             </ul>
         </td>
-        <td></td>
     </tr>
 </table>
 
 > * This roadmap is not an exhaustive list of all things the team is working on, only the biggest projects.
-> * There’s no commitment to delivering specific features or fixes in specific versions.
+> * There's no commitment to delivering specific features or fixes in specific versions.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
 {type="note"}
@@ -208,7 +204,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Kotlin/JS: [JS IR BE: Add an ability to generate separate JS files for each module](https://youtrack.jetbrains.com/issue/KT-44319)
 * ✅ Kotlin/Native: [Promote new memory manager to Alpha](https://youtrack.jetbrains.com/issue/KT-49520)
 * ✅ Multiplatform: [Improve UX of using Native libraries in Kotlin](https://youtrack.jetbrains.com/issue/KT-44329)
-* ✅ Multiplatform: [Improve environment setup experience for KMM projects](https://youtrack.jetbrains.com/issue/KT-49523)
+* ✅ Multiplatform: [Improve environment setup experience for Kotlin Multiplatform Mobile projects](https://youtrack.jetbrains.com/issue/KT-49523)
 * ✅ Multiplatform: [Improve DSL for managing Kotlin/Native binary output](https://youtrack.jetbrains.com/issue/KT-49524)
 * ✅ IDE: [Improve the New Project wizard](https://youtrack.jetbrains.com/issue/KTIJ-18809)
 * ✅ Build tools: [Make kapt work out of the box with latest JDKs](https://youtrack.jetbrains.com/issue/KT-49533)
@@ -227,7 +223,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Kotlin/Native: [Promote new memory manager to Beta and enable it by default](https://youtrack.jetbrains.com/issue/KT-52595)
 * 🆕 Multiplatform: [Promote Kotlin Multiplatform Mobile to Beta](https://youtrack.jetbrains.com/issue/KT-52596)
 * 🆕 Multiplatform: [Improve Android support in Multiplatform projects](https://youtrack.jetbrains.com/issue/KT-52599)
-* 🆕 Multiplatform: [Stabilize klib](https://youtrack.jetbrains.com/issue/KT-52600/)
+* 🆕 Multiplatform: [Stabilize klib](https://youtrack.jetbrains.com/issue/KT-52600)
 * 🆕 IDE: [Stabilize code analysis](https://youtrack.jetbrains.com/issue/KTIJ-21906)
 * 🆕 Libraries: [Continue development and stabilization of standard library](https://youtrack.jetbrains.com/issue/KT-52601)
 * 🆕 Build tools: [Make compilation avoidance support Stable for Gradle](https://youtrack.jetbrains.com/issue/KT-52603)

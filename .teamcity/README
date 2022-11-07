@@ -9,3 +9,9 @@ If you want to move this dsl to version control, save it in the
 ## Branch specific settings
 Bear in mind that not all the changes there will be applied. For instance, if you add a new project or a build configuration, such changes will be ignored. This happens because TeamCity does not support different sets of projects and build configurations in feature branches.
 You can read more about it [here](https://blog.jetbrains.com/teamcity/2018/01/branch-specific-settings-in-teamcity/).
+
+## How to test a new project or a build configuration.
+Considering described above, it is not possible to see a new project or build configuration until merging PR with DSL changes to the master branch.
+To overcome this without merging, follow the next workaround.
+Set your branch as a default one for the VCS root in versioned settings on the TeamCity configuration.
+It is essential to keep your branch up to date with the master branch to avoid losing any configuration changes from it.

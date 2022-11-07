@@ -1,6 +1,6 @@
 [//]: # (title: Add dependencies on a Pod library)
 
-To add dependencies between a Kotlin project and a Pod library, you should [complete the initial configuration](native-cocoapods.md#set-up-the-environment-to-work-with-cocoapods).
+To add dependencies between a Kotlin project and a Pod library, you should [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 This allows you to add dependencies on different types of Pod libraries.
 
 When you add a new dependency and re-import the project in IntelliJ IDEA, the new dependency will be added automatically.
@@ -169,8 +169,8 @@ import cocoapods.AFNetworking.*
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
+>     # ... other pod dependencies ...
+>     pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
 > end
 > ```
 >
@@ -185,6 +185,10 @@ import cocoapods.CocoaLumberjack.*
 ```
 
 ## From a zip, tar, or jar archive
+
+> This feature is deprecated in Kotlin 1.7.20 and will be removed in one of the future releases.
+>
+{type="warning"}
 
 1. Specify the name of a Pod library in the `pod()` function.
 
@@ -220,8 +224,8 @@ parameter indicates that all the Pod files are located in the root directory of 
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
+>     # ... other pod dependencies ...
+>     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
 > end
 > ```
 >
@@ -264,7 +268,7 @@ import cocoapods.pod_dependency.*
 > To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
 > For example,
 > ```ruby
-> source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'`
+> source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
 >
 > You should also specify the path to the Podspec in your Podfile.
@@ -272,8 +276,8 @@ import cocoapods.pod_dependency.*
 >
 > ```ruby
 > target 'ios-app' do
->     # ... other pod depedencies ...
->    pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
+>     # ... other pod dependencies ...
+>     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
 > end
 > ```
 >

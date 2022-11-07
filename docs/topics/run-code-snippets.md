@@ -70,11 +70,11 @@ Kotlin code in your browser.
 
 ### Write and edit code
 
-In the Playground’s editor area, you can write code just as you would in a source file:
+In the Playground's editor area, you can write code just as you would in a source file:
 * Add your own classes, functions, and top-level declarations in an arbitrary order.
 * Write the executable part in the body of the `main()` function.
 
-As in typical Kotlin projects, the `main` function in the Playground can have the `args` parameter or no parameters at all.
+As in typical Kotlin projects, the `main()` function in the Playground can have the `args` parameter or no parameters at all.
 To pass program arguments upon execution, write them in the **Program arguments** field.
 
 ![Playground: code completion](playground-completion.png){width=700}
@@ -174,4 +174,3 @@ To add a third-party library in the ki shell, use the `:dependsOn` command. By d
 but you can use other repositories if you connect them using the `:repository` command:
 
 ![ki shell external dependency](ki-shell-dependency.png){width=700}
-

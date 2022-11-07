@@ -218,7 +218,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>
       <ul>
-        <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify’s Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
+        <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify's Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
       </ul>
     </td>
   </tr>
@@ -323,7 +323,7 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
       <strong><a href="https://github.com/halcyonmobile/MultiplatformPlayground">MultiplatformPlayground</a></strong>
     </td>
     <td>ViewModels, Networking, Data Storage</td>
-    <td>SQLDelight, Ktor, Koin, kotlinx.serialization, moko-resources,</td>
+    <td>SQLDelight, Ktor, Koin, kotlinx.serialization, moko-resources</td>
     <td>Jetpack Compose, SwiftUI</td>
     <td>CocoaPods</td>
     <td>✅</td>
@@ -331,7 +331,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>✅</td>
     <td>
       <ul>
-        <li>Shared file upload</li>
         <li>Multi-module setup</li>
         <li>Shared file upload</li>
         <li>sharing code between Backend - Mobile &amp; Frontend platforms (macOS, iOS, Android)</li>

@@ -10,7 +10,7 @@ with these PGP keys:
   * Fingerprint: **2FBA 29D0 8D2E 25EE 84C1 32C3 0729 A0AF F899 9A87**
   * Key size: **RSA 3072**
 
-* Use the latest versions of your application’s dependencies. If you need to use a specific version of a dependency, 
+* Use the latest versions of your application's dependencies. If you need to use a specific version of a dependency, 
 periodically check if any new security vulnerabilities have been discovered. You can follow 
 [the guidelines from GitHub](https://help.github.com/en/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies) 
 or browse known vulnerabilities in the [CVE base](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kotlin).

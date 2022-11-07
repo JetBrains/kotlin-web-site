@@ -18,8 +18,9 @@ just share it in the common source set.
 
 ![Code shared for all platforms](flat-structure.png)
 
-All platform-specific source sets depend on the common source set by default. You don't need to specify any `dependsOn` 
-relations manually for default source sets, such as `jvmMain`, `macosX64Main`, and others. 
+Some dependencies for source sets are set by default. You don't need to specify any `dependsOn` relations manually:
+* For all platform-specific source sets that depend on the common source set, such as `jvmMain`, `macosX64Main`, and others. 
+* Between the `main` and `test` source sets of a particular target, such as `androidMain` and `androidTest`.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](multiplatform-connect-to-apis.md).
@@ -258,7 +259,7 @@ For example, check out the following source set hierarchy from the `kotlinx.coro
 The `concurrent` source set declares the function runBlocking and is compiled for the JVM and the native targets. 
 Once the `kotlinx.coroutines` library is updated and published with the hierarchical project structure, you can depend on 
 it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
-“targets signature” of the library’s `concurrent` source set.
+"targets signature" of the library's `concurrent` source set.
 
 ### Use native libraries in the hierarchical structure
 

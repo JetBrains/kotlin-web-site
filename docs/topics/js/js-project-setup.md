@@ -323,7 +323,7 @@ To run tests, execute the standard lifecycle `check` task:
 ./gradlew check
 ```
          
-To specify envirnoment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment` function with a key-value pair inside the `testTask` block in your build script:
+To specify environment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment` function with a key-value pair inside the `testTask` block in your build script:
          
 ```groovy
 kotlin {
@@ -368,7 +368,7 @@ kotlin.js.webpack.major.version=4
 
 The most common webpack adjustments can be made directly via the
 `kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
-- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distibution/` after
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distributions/` after
   an execution of a webpack task. The default value is the project name.
 - `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
   Kotlin/JS projects](js-modules.md). The default value is `umd`.

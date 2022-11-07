@@ -45,13 +45,13 @@ with Kotlin/Native. It makes the integration with Kotlin Multiplatform Mobile se
 
 ### What are the plans for the technology evolution?
 
-Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we’re 
+Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we're 
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
-The following video presents our plans on the upcoming stage of the Kotlin Multiplatform Mobile development – its promotion to [Beta](components-stability.md): 
+The following video presents the current state and our plans for the Kotlin Multiplatform Mobile development: 
 
-<video href="LE-Dy9XCLxk" title="Kotlin Multiplatform Mobile Beta Roadmap"/>
+<video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
 
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
@@ -64,7 +64,7 @@ If you are going to work with shared code or Android-specific code, you can work
 ### Where can I get complete examples to play with?
 
 * [Curated samples](multiplatform-mobile-samples.md)
-* Several [hands-on tutorials](https://play.kotlinlang.org/hands-on/overview)
+* [Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md)
 
 ### In which IDE should I work on my cross-platform app?
 
@@ -74,17 +74,13 @@ if you want to write iOS-specific code and launch an iOS application on a simula
 
 Most of our adopters use Android Studio. However, if there is any reason for you not to use it, there is another option: 
 you can use [IntelliJ IDEA](https://www.jetbrains.com/idea/download). IntelliJ IDEA provides the ability to create 
-a multiplatform mobile application from the Project Wizard, but you won’t be able to launch an iOS application from the IDE.
+a multiplatform mobile application from the Project Wizard, but you won't be able to launch an iOS application from the IDE.
 
 ### How can I write concurrent code in Kotlin Multiplatform Mobile projects?
 
-You can learn how to work with [concurrency](multiplatform-mobile-concurrency-overview.md) on the documentation portal.
-
-Working with concurrent code in cross-platform mobile projects might not seem straightforward, as different memory management approaches 
-are used in Kotlin/JVM and Kotlin/Native. The current approach for Kotlin/Native has some 
-[limitations](native-immutability.md#concurrency-in-kotlin-native). The new Kotlin/Native memory management model is on 
-the [roadmap](https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap) and the team is working 
-on a solution for it.
+You can easily write concurrent code in your cross-platform mobile projects with the new [Kotlin/Native memory manager](native-memory-manager.md)
+that lifted previous limitations and aligned the behaviour between Kotlin/JVM and Kotlin/Native. The new memory manager
+has been enabled by default since Kotlin 1.7.20.
 
 ### How can I speed up my Kotlin Multiplatform module compilation for iOS?
 See these [tips for improving Kotlin/Native compilation times](native-improving-compilation-time.md).

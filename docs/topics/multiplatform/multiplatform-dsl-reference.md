@@ -11,7 +11,7 @@ for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform p
 ## Id and version
 
 The fully qualified name of the Kotlin Multiplatform Gradle plugin is `org.jetbrains.kotlin.multiplatform`. 
-If you use the Kotlin Gradle DSL, you can apply the plugin with `kotlin(“multiplatform”)`.
+If you use the Kotlin Gradle DSL, you can apply the plugin with `kotlin("multiplatform")`.
 The plugin versions match the Kotlin release versions. The most recent version is %kotlinVersion%.
 
 <tabs group="build-script">
@@ -221,7 +221,7 @@ In addition to [common target configuration](#common-target-configuration), `jvm
 
 |**Name**|**Description**| 
 | --- | --- |
-|`withJava()`|Includes Java sources into the JVM target’s compilations. |
+|`withJava()`|Includes Java sources into the JVM target's compilations. |
 
 Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
 don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
@@ -269,7 +269,7 @@ kotlin {
         }
         distribution {
             directory = File("$projectDir/customdir/")
-        }        
+        }
     }
 }
 ```
@@ -516,7 +516,7 @@ kotlin {
 
 Learn more about [compilation for Android](multiplatform-configure-compilations.md#compilation-for-android).
 
->The `android` configuration inside `kotlin` doesn’t replace the build configuration of any Android project.
+>The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
 Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
 {type="note"}
@@ -562,7 +562,7 @@ kotlin {
         commonMain { /* ... */ } 
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -595,12 +595,12 @@ kotlin {
         myMain { /* ... */ } // create or configure a source set by the name 'myMain' 
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
 
-Note that a newly created source set isn’t connected to other ones. To use it in the project’s compilations,
+Note that a newly created source set isn't connected to other ones. To use it in the project's compilations,
 [connect it with other source sets](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).
 
 ### Source set parameters
@@ -613,7 +613,7 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 |`resources.srcDir`| Location of resources inside the source set directory.                                                                         |
 |`dependsOn`| [Connection with another source set](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).       |
 |`dependencies`| [Dependencies](#dependencies) of the source set.                                                                               |
-|`languageSettings`| [Language settings](multiplatform-dsl-reference.md#language-settings) applied to the source set. |
+|`languageSettings`| [Language settings](#language-settings) applied to the source set. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -624,11 +624,11 @@ kotlin {
         val commonMain by getting {
             kotlin.srcDir("src")
             resources.srcDir("res")
-            
+
             dependencies {
                 /* ... */
-            } 
-        } 
+            }
+        }
     }
 }
 ```
@@ -642,11 +642,11 @@ kotlin {
         commonMain {
             kotlin.srcDir('src')
             resources.srcDir('res')
-            
+
             dependencies {
                 /* ... */
-            }           
-        } 
+            }
+        }
     }
 }
 ``` 
@@ -683,7 +683,7 @@ kotlin {
         val main by compilations.getting {
             output // get the main compilation output
         }
-        
+
         compilations["test"].runtimeDependencyFiles // get the test runtime classpath
     }
 }
@@ -767,7 +767,7 @@ A compilation has the following parameters:
 
 |**Name**|**Description**| 
 | --- | --- |
-|`defaultSourceSet`|The compilation’s default source set.|
+|`defaultSourceSet`|The compilation's default source set.|
 |`kotlinSourceSets`|Source sets participating in the compilation.|
 |`allKotlinSourceSets`|Source sets participating in the compilation and their connections via `dependsOn()`.|
 |`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle.md#compiler-options).|
@@ -796,7 +796,7 @@ kotlin {
         
         compilations["test"].runtimeDependencyFiles // get the test runtime classpath
     }
-    
+
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
@@ -818,12 +818,12 @@ kotlin {
             // Setup the Kotlin compiler options for the 'main' compilation:
             jvmTarget = "1.8"
         }
-        
+
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
         compilations.main.output // get the main compilation output
         compilations.test.runtimeDependencyFiles // get the test runtime classpath
     }
-    
+
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
@@ -842,7 +842,7 @@ kotlin {
 
 The `dependencies` block of the source set declaration contains the dependencies of this source set.
 
-Learn more about [configuring dependencies](gradle.md#configuring-dependencies).
+Learn more about [configuring dependencies](gradle.md#configure-dependencies).
 
 There are four types of dependencies:
 

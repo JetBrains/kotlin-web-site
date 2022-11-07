@@ -43,6 +43,9 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Separate interfaces for read-only and mutable collections](collections-overview.md)
 * [Coroutines](coroutines-overview.md)
 
-## What’s next?
+## What's next?
 
-Learn how to perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
+Learn how to:
+* Perform [typical tasks with strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
+* Perform [typical tasks with collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
+* [Handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).

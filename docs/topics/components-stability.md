@@ -18,7 +18,7 @@ Here's a quick guide to these stability levels and their meaning:
   * We decided to productize this idea, but it hasn't reached the final shape yet.
 
 **Beta** means "you can use it, we'll do our best to minimize migration issues for you": 
-  * It’s almost done, user feedback is especially important now.
+  * It's almost done, user feedback is especially important now.
   * Still, it's not 100% finished, so changes are possible (including ones based on your own feedback).
   * Watch for deprecation warnings in advance for the best update experience.
 
@@ -26,7 +26,7 @@ We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** le
 
 <a name="stable"></a>
 **Stable** means "use it even in most conservative scenarios":
-  * It’s done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
+  * It's done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
 Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
 
@@ -44,7 +44,7 @@ Each Kotlin project has two GitHub badges describing its stability and support s
     * ![Beta stability level](https://kotl.in/badges/beta.svg){type="joined"} stands for **Beta**
     * ![Stable stability level](https://kotl.in/badges/stable.svg){type="joined"} stands for **Stable**
 
-* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems
+* **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems.
   The level of support is unified for all JetBrains products.  
   [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
 
@@ -60,7 +60,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 ## Current stability of Kotlin components
 
 |**Component**|**Status**|**Status since version**|**Comment**|
-| --- | --- | --- | --- |
+| --- | --- | -- | --- |
 Kotlin/JVM|Stable|1.0| |
 Kotlin K2 (JVM)|Alpha|1.7| |
 kotlin-stdlib (JVM)|Stable|1.0| |
@@ -70,9 +70,9 @@ Kotlin/JS (Classic back-end)|Stable|1.3| |
 Kotlin/JVM (IR-based)|Stable|1.5| |
 Kotlin/JS (IR-based)|Beta|1.5| |
 Kotlin/Native Runtime|Beta|1.3| |
-Kotlin/Native new memory manager|Alpha|1.6.20| |
+Kotlin/Native new memory manager|Beta|1.7.20| |
 klib binaries|Alpha|1.4| |
-Multiplatform Projects|Alpha|1.3| |
+Kotlin Multiplatform |Beta|1.7.20| |
 Kotlin/Native interop with C and Objective C|Beta|1.3| |
 CocoaPods integration|Beta|1.3| |
 Kotlin Multiplatform Mobile plugin for Android Studio|Alpha|0.3.0|[Versioned separately from the language](multiplatform-mobile-plugin-releases.md)

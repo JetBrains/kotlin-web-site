@@ -2,7 +2,7 @@
 
 ## Nullable types and non-null types
 
-Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions).
+Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
 reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException`,
@@ -182,7 +182,7 @@ type and throws an exception if the value is `null`. You can write `b!!`, and th
 val l = b!!.length
 ```
 
-Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won’t appear out of the blue.
+Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won't appear out of the blue.
 
 ## Safe casts
 
@@ -202,3 +202,7 @@ If you have a collection of elements of a nullable type and want to filter non-n
 val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
+
+## What's next?
+
+Learn how to [handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).

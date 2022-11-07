@@ -16,7 +16,7 @@ There are two types of dependencies that you can use in Multiplatform Mobile pro
   common source set, `commonMain`.
 
   Many modern Android libraries already have multiplatform support, like [Koin](https://insert-koin.io/),
-  [Appolo](https://www.apollographql.com/), and [Okio](https://square.github.io/okio/).
+  [Apollo](https://www.apollographql.com/), and [Okio](https://square.github.io/okio/).
 * _Native dependencies_. These are regular libraries from relevant ecosystems. You usually work with them in native iOS
    projects using CocoaPods or another dependency manager and in Android projects using Gradle.
 
@@ -45,44 +45,52 @@ multiplatform support, is the most convenient way to work with dates in your sha
        sourceSets {
            val commonMain by getting {
                dependencies {
-                   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3")
+                   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
                }
            } 
        }
    }
    ```
 
-3. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
+   ![Synchronize the Gradle files](gradle-sync.png)
+
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
 the number of days from today until the new year using the `date-time` date arithmetic:
    
    ```kotlin
    import kotlinx.datetime.*
    
    fun daysUntilNewYear(): Int {
-       val today = Clock.System.todayAt(TimeZone.currentSystemDefault())
+       val today = Clock.System.todayIn(TimeZone.currentSystemDefault())
        val closestNewYear = LocalDate(today.year + 1, 1, 1)
        return today.daysUntil(closestNewYear)
    }
    ```
 
-4. In `Greeting.kt`, update the `greeting()` function to see the result:
+5. In `Greeting.kt`, update the `greeting()` function to see the result:
     
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+         
         fun greeting(): String {
-            return "Guess what it is! > ${Platform().platform.reversed()}!" +
-            "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 "
+            return "Guess what it is! > ${platform.name.reversed()}!" +
+            "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
         }
     }
     ```
 
-5. Run the updated application on Android and iOS and see the results:
+6. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 
 ## Next step
 
-[Add more dependencies and more complex logic to your project](multiplatform-mobile-upgrade-app.md).
+In the next part of the tutorial, you'll add more dependencies and more complex logic to your project.
+
+**[Proceed to the next part](multiplatform-mobile-upgrade-app.md)**
 
 ### See also
 

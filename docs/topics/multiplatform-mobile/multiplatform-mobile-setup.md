@@ -28,7 +28,14 @@ We recommend that you install the latest stable versions for compatibility and b
     </tr>
     <tr>
         <td><a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a></td>
-        <td>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</td>
+        <td>
+          <p>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</p>
+            <note>
+              <p>
+                We generally recommend using the latest stable versions for all tools. However, Kotlin/Native sometimes doesn't support the newest Xcode right away. If that's your case, <a href="https://developer.apple.com/download/all/?q=Xcode">install an earlier version of Xcode</a>.
+              </p>
+            </note>   
+      </td>
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
@@ -41,16 +48,10 @@ We recommend that you install the latest stable versions for compatibility and b
    </tr>
    <tr>
         <td><a href="plugin-releases.md#update-to-a-new-release">Kotlin plugin</a></td>
-        <td><p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p>
-            <p>To update the plugin, in Android Studio navigate to <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong> and then select the latest version in the <strong>Stable</strong> channel.</p></td>
-   </tr>
-   <tr>
-        <td><a href="https://cocoapods.org/">CocoaPods</a></td>
-        <td><p>CocoaPods is useful for adding iOS dependencies, which you'll make use of in later steps. CocoaPods is built with Ruby, and you can install it with the default Ruby available on macOS.</p>
-            <p>In the Android Studio terminal or your command-line tool, run the following commands:</p>
-            <p><code style="block"
-               lang="ruby" prompt="$">sudo gem install cocoapods</code></p>
-         </td>
+        <td>
+            <p>The Kotlin plugin is bundled with each Android Studio release. However, it still needs to be updated to the latest version to avoid compatibility issues.</p> 
+            <p>To update the plugin, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin. You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+            <p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p></td>
    </tr>
 </table>
 
@@ -79,6 +80,11 @@ To make sure everything works as expected, install and run the KDoctor tool:
 
    * Fix any failed checks (`[x]`). You can find problem descriptions and potential solutions after the `*` symbol.
    * Check the warnings (`[!]`) and successful messages (`[v]`). They may contain useful notes and tips, as well.
+   
+   > You may ignore KDoctor's warnings regarding the CocoaPods installation. In your first project, you will use a
+   > different iOS framework distribution option.
+   >
+   {type="tip"}
 
 ## Possible issues and solutions
 
@@ -87,64 +93,51 @@ To make sure everything works as expected, install and run the KDoctor tool:
       Make sure that you have Android Studio installed. You can get it from its <a href="https://developer.android.com/studio">official website.</a>
    </def>
    <def title="Java and JDK">
-      <list>
          <ul>
-            <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
+           <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
            <li>Android Studio uses a bundled JDK to execute Gradle tasks. To configure the Gradle JDK in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
            <li>You might encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary required for Xcode and Gradle. If so, follow KDoctor's tips to fix the issues.</li>
          </ul>
-      </list>
    </def>
    <def title="Xcode">
       <ul>
          <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
          <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
+         <li>
+            <p><code>Error: can't grab Xcode schemes</code>. If you encounter an error like this, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode.</p>
+            <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
+         </li>
       </ul>
    </def>
    <def title="Kotlin plugins">
-        <list>
-            <ul>
-               <li>Make sure that both the Kotlin and Kotlin Mobile Multiplatform plugins are installed and enabled. In Android Studio, select <strong>Settings/Preferences | Tools | Plugins</strong> and then
-              verify that you have both plugins enabled in the <strong>Installed</strong> tab. If either is missing, search <strong>Marketplace</strong> and install it.
-              </li>
-              <li>
-                  <p>The current version of the Kotlin Multiplatform Mobile plugin may be incompatible with your version of Kotlin. Refer to the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">compatibility table</a>.</p>
-                  <p>To update the Kotlin version, in Android Studio select <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
-                  <p>To update the Kotlin Multiplatform Mobile plugin, select <strong>Settings/Preferences | Tools | Plugins</strong>. Next to the plugin name, click <strong>Update</strong>.</p>
-              </li>
-            </ul>
-         </list>
+         <chunk>
+            <p><strong>Kotlin Multiplatform Mobile plugin</strong></p>
+               <ul>
+                  <li>Make sure that the Kotlin Mobile Multiplatform plugin is installed and enabled. On the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Verify that you have the plugin enabled. If it's not in the <strong>Installed</strong> list, search <strong>Marketplace</strong> for it and install the plugin.</li>
+                  <li>If the plugin is outdated, click <strong>Update</strong> next to the plugin name. You can do the same in the <strong>Settings/Preferences | Tools | Plugins</strong> section.</li>
+                  <li>Check the compatibility of the Kotlin Multiplatform Mobile plugin with your version of Kotlin in the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">Release details</a> table.</li>
+               </ul>
+         </chunk>
+         <chunk>
+            <p><strong>Kotlin plugin</strong></p>
+            <p>Make sure that the Kotlin plugin is updated to the latest version. To do that, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin.</p>
+            <p>You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+         </chunk>
    </def>
-   <def title="CocoaPods">
-        <p>Make sure you have the <a href="https://guides.cocoapods.org/using/getting-started.html#installation">CocoaPods dependency manager</a> installed.</p>
-        <note><p>We recommend using the latest Kotlin version. If your current version is earlier than 1.7.0, you'll need to additionally install the <a href="https://github.com/square/cocoapods-generate#installation"><code>cocoapods-generate</code> plugin</a> before proceeding.</p></note>
-        <p>If you don't have Ruby installed on your device, or you're experiencing problems installing CocoaPods and getting it to work, use these guides:</p>
-        <list>
-            <ul>
-               <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Installing Ruby</a>. You can install Ruby with Homebrew, RVM, or other package managers.</li>
-               <li><a href="https://rubygems.org/pages/download">Download RubyGems</a>, a package management framework for Ruby.</li>
-            </ul>
-         </list>
-         <p>If you have Ruby 3.0.0 or later, you might encounter a compatibility error with <code>cocoapods-generate</code>. In this case, downgrade Ruby.</p>
-    </def>
    <def title="Command line">
-         <list>
             <p>Make sure you have all the necessary tools installed:</p>
             <ul>
               <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
               <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
-              <li>
-                 <p><code>command not found: gem</code> — RubyGems come built-in with Ruby 1.9 or later. Ruby should be available on macOS by default.</p>
-                 <p>If you don't have Ruby, follow <a href="https://www.ruby-lang.org/en/documentation/installation/">this guide</a> to install it. You can get the RubyGems package management framework from its <a href="https://rubygems.org/pages/download/">official website</a>.</p>
-              </li>
            </ul>
-         </list>
     </def>
 </deflist>
 
 ## Next step
 
-Once the setup is complete, you can start [creating your first cross-platform mobile application](multiplatform-mobile-create-first-app.md).
+In the next part of the tutorial, you'll create your first cross-platform mobile application.
+
+**[Proceed to the next part](multiplatform-mobile-create-first-app.md)**
 
 ## Get help
 

@@ -15,66 +15,76 @@ Please read below about how to apply the *kapt* plugin to your Gradle/Maven buil
 
 ## Using in Gradle
 
-Apply the `kotlin-kapt` Gradle plugin:
+Follow these steps:
+1. Apply the `kotlin-kapt` Gradle plugin:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+   <tabs group="build-script">
+   <tab title="Kotlin" group-key="kotlin">
 
-```kotlin
-plugins {
-    kotlin("kapt") version "%kotlinVersion%"
-}
-```
+   ```kotlin
+   plugins {
+       kotlin("kapt") version "%kotlinVersion%"
+   }
+   ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+   </tab>
+   <tab title="Groovy" group-key="groovy">
 
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.kapt" version "%kotlinVersion%"
-}
-```
+   ```groovy
+   plugins {
+       id "org.jetbrains.kotlin.kapt" version "%kotlinVersion%"
+   }
+   ```
 
-</tab>
-</tabs>
+   </tab>
+   </tabs>
 
-Alternatively, you can use the `apply plugin` syntax:
+   Alternatively, you can use the `apply plugin` syntax:
 
-```groovy
-apply plugin: 'kotlin-kapt'
-```
+   ```groovy
+   apply plugin: 'kotlin-kapt'
+   ```
 
-Then add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+   Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle.md#using-the-gradle-kotlin-dsl).
 
+2. Add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+   <tabs group="build-script">
+   <tab title="Kotlin" group-key="kotlin">
 
-```kotlin
-dependencies {
-    kapt("groupId:artifactId:version")
-}
-```
+   ```kotlin
+   dependencies {
+       kapt("groupId:artifactId:version")
+   }
+   ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
+   </tab>
+   <tab title="Groovy" group-key="groovy">
 
-```groovy
-dependencies {
-    kapt 'groupId:artifactId:version'
-}
-```
+   ```groovy
+   dependencies {
+       kapt 'groupId:artifactId:version'
+   }
+   ```
 
-</tab>
-</tabs>
+   </tab>
+   </tabs>
 
-If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
-for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`.
-If your project contains Java classes, `kapt` will also take care of them.
+3. If you previously used the [Android support](https://developer.android.com/studio/build/gradle-plugin-3-0-0-migration.html#annotationProcessor_config)
+   for annotation processors, replace usages of the `annotationProcessor` configuration with `kapt`.
+   If your project contains Java classes, `kapt` will also take care of them.
 
-If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
-`kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
-`kapt` dependency and it will be available both for production sources and tests.
+   If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
+   `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
+   `kapt` dependency and it will be available both for production sources and tests.
+
+4. To use the newest Kotlin features with kapt, for example, [repeatable annotations](annotations.md#repeatable-annotations), 
+   enable the support for the [IR backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/) 
+   with the following option in your `gradle.properties`:
+ 
+   ```properties
+   kapt.use.jvm.ir=true
+   ```
 
 ## Annotation processor arguments
 
@@ -132,7 +142,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask>()
 ```groovy
 tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class)
     .configureEach {
-         kaptProcessJvmArgs.add('-Xmx512m')
+        kaptProcessJvmArgs.add('-Xmx512m')
     }
 ```
 
@@ -172,7 +182,7 @@ kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
 
-```kotlin
+```text
 Kapt Annotation Processing performance report:
 com.example.processor.TestingProcessor: total: 133 ms, init: 36 ms, 2 round(s): 97 ms, 0 ms
 com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 93 ms
@@ -181,7 +191,7 @@ com.example.processor.AnotherProcessor: total: 100 ms, init: 6 ms, 1 round(s): 9
 You can dump this report into a file with the plugin option [`-Kapt-dump-processor-timings` (`org.jetbrains.kotlin.kapt3:dumpProcessorTimings`)](https://github.com/JetBrains/kotlin/pull/4280). 
 The following command will run kapt and dump the statistics to the `ap-perf-report.file` file:
 
-```kotlin
+```bash
 kotlinc -cp $MY_CLASSPATH \
 -Xplugin=kotlin-annotation-processing-SNAPSHOT.jar -P \
 plugin:org.jetbrains.kotlin.kapt3:aptMode=stubsAndApt,\
@@ -217,13 +227,13 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](#using-in-cli).
 >
-> {type=”note”}
+> {type="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
 statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
 followed by statistics on the number of generated files for each annotation processor. For example:
 
-```kotlin
+```text
 [INFO] Annotation processor stats:
 [INFO] org.mapstruct.ap.MappingProcessor: total: 290 ms, init: 1 ms, 3 round(s): 289 ms, 0 ms, 0 ms
 [INFO] Generated files report:
@@ -247,7 +257,7 @@ To run kapt with compile avoidance:
 * Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
 * Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
 
-```
+```properties
 kapt.include.compile.classpath=false
 ```
 
@@ -258,7 +268,7 @@ Currently, annotation processing can be incremental only if all annotation proce
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
-```
+```properties
 kapt.incremental.apt=false
 ```
 
@@ -320,7 +330,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 ```
 
 
-Please note that kapt is still not supported for IntelliJ IDEA’s own build system. Launch the build from the “Maven Projects”
+Please note that kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI

@@ -8,6 +8,7 @@ import styles from './event-list.module.css';
 import { communityEvents } from './community-events';
 import { CommunityEvent } from './community-event';
 import cn from 'classnames';
+import Button from '@rescui/button';
 
 interface EventType {
     value: string;
@@ -36,6 +37,19 @@ const defaultOption: SelectOption = {
     id: 'all',
     label: 'All',
 };
+
+export function CommunityAddEvent(props) {
+    return (
+        <Button
+            target="_blank"
+            mode="outline"
+            href="https://github.com/JetBrains/kotlin-web-site/#community-events"
+            {...props}
+        >
+        Add New Event ↗
+        </Button>
+    );
+}
 
 export const EventList = () => {
     const router = useRouter();
@@ -125,12 +139,16 @@ export const EventList = () => {
                 <h1 className={'ktl-h1'}>Events</h1>
 
                 <div className={styles.actions}>
-                    <Switcher
-                        mode={'rock'}
-                        value={eventMode}
-                        onChange={switchMode}
-                        options={[upcomingEvent, pastEvent]}
-                    />
+                    <div>
+                        <Switcher
+                            mode={'rock'}
+                            value={eventMode}
+                            onChange={switchMode}
+                            options={[upcomingEvent, pastEvent]}
+                        />
+                        <CommunityAddEvent className={styles.add}/>
+                    </div>
+
 
                     <div className={styles.selects}>
                         {!!visibleMaterials.length && (

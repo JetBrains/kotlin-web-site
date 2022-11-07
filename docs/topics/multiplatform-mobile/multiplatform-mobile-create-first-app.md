@@ -17,15 +17,23 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
-    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png)
+    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png){width=700}
     
 3. Specify a name for your first application, and click **Next**.  
 
-    ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
+    ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png){width=700}
 
-4. In the **iOS framework distribution** list, select **Regular framework**.
+4. In the **iOS framework distribution** list, select the **Regular framework** option.
 
-   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
+
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > has less installation issues.
+   > 
+   > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
+   > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
+   >
+   {type="tip"}
 
 5. Keep the default names for the application and shared folders. Click **Finish**.
 
@@ -38,7 +46,7 @@ To view the full structure of your mobile multiplatform project, switch the view
 
 ![Select the Project view](select-project-view.png){width=200}  
 
-Each Kotlin Mobile Multiplatform project includes three modules:
+Each Kotlin Multiplatform Mobile project includes three modules:
 
 * _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
   between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process. The _shared_
@@ -87,15 +95,19 @@ Learn how to [configure and connect a hardware device and run your application o
 
 ### Run your application on iOS
 
-* In the list of run configurations, select **iosApp** and then click **Run**.  
+1. Launch Xcode in a separate window. The first time you may also need to accept its license terms and allow it to perform
+   some necessary initial tasks.
+2. In Android Studio, select **iosApp** in the list of run configurations and click **Run**.
+   
+   If you don't have an available iOS configuration in the list, add a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
     
     ![Run multiplatform app on iOS](run-ios.png){width=450}
     
     ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
 
-#### Run on a different iPhone simulated device {initial-collapse-state="collapsed"}
+#### Run on a new iOS simulated device {initial-collapse-state="collapsed"}
 
-If you want to run your application on another simulated device, you can add a new run configuration.
+If you want to run your application on a simulated device, you can add a new run configuration.
 
 1. In the list of run configurations, click **Edit Configurations**.
 
@@ -106,18 +118,21 @@ If you want to run your application on another simulated device, you can add a n
     ![New run configuration for iOS application](ios-new-configuration.png)
 
 3. Name your configuration.
+4. Select the **Xcode project file**. For that, navigate to your project, for example **KotlinMultiplatformSandbox**,
+   open the`iosApp` folder and select the `.xcodeproj` file.
 
-4. Select a simulated device in the **Execution target** list, and then click **OK**.
+5. In the **Execution target** list, select a simulated device and click **OK**.
 
     ![New run configuration with iOS simulator](ios-new-simulator.png)
     
-5. Click **Run** to run your application on the new simulated device.
+6. Click **Run** to run your application on the new simulated device.
     
-#### Run on a real iPhone device {initial-collapse-state="collapsed"}
+#### Run on a real iOS device {initial-collapse-state="collapsed"}
 
-1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
-2. [Create a run configuration](#run-on-a-different-iphone-simulated-device) by selecting iPhone in the **Execution target** list.
-3. Click **Run** to run your application on the iPhone device.
+1. Connect a real iPhone device to Xcode.
+2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
+4. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
 >
@@ -131,28 +146,32 @@ and iOS. If you make changes to the shared code, you will see them reflected in 
    ![Common Kotlin file](common-kotlin-file.png)
 
 2. Update the shared code by using `[reversed()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html)`,
-the Kotlin standard library function for reverting text that works on all platforms:
+the Kotlin standard library function for reversing text that works on all platforms:
 
     ```kotlin
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         fun greeting(): String {
-            return "Guess what it is! > ${Platform().platform.reversed()}!"
+            return "Guess what it is! > ${platform.name.reversed()}!"
         }
     }
     ```
 
-3. Run the updated application on Android.
+3. Re-run the **androidApp** configuration to see the updated application in the Android simulated device.
 
     ![Updated mobile multiplatform app on Android](first-multiplatform-project-on-android-2.png){width=300}
     
-4. Run the updated application on iOS.  
+4. In Android Studio, switch to **iosApp** and re-run it to see the updated application in the iOS simulated device.  
 
     ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
 
 ## Next step
 
-[Learn about dependencies and add a third-party library to your project](multiplatform-mobile-dependencies.md)
-to expand its functionality.
+In the next part of the tutorial, you'll learn about dependencies and add a third-party library to expand
+the functionality of your project.
+
+**[Proceed to the next part](multiplatform-mobile-dependencies.md)**
 
 ### See also
 

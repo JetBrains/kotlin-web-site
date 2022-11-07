@@ -13,7 +13,7 @@ KSP has several advantages over [kapt](kapt.md):
 kapt has to parse and resolve every type reference in order to generate Java stubs, whereas KSP resolves references on-demand.
 Delegating to javac also takes time.
 
-Additionally, KSP’s [incremental processing model](ksp-incremental.md) has a finer granularity than just isolating and
+Additionally, KSP's [incremental processing model](ksp-incremental.md) has a finer granularity than just isolating and
 aggregating. It finds more opportunities to avoid reprocessing everything. Also, because KSP traces symbol resolutions
 dynamically, a change in a file is less likely to pollute other files and therefore the set of files to be reprocessed
 is smaller. This is not possible for kapt because it delegates processing to javac.
@@ -68,7 +68,7 @@ Here is a list of requirements for libraries/infrastructures:
 * Android Gradle Plugin 4.1.0+
 * Gradle 6.5+
 
-### What is KSP’s future roadmap?
+### What is KSP's future roadmap?
 
 The following items have been planned:
 * Support [new Kotlin compiler](https://kotlinlang.org/docs/roadmap.html)

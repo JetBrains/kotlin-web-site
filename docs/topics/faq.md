@@ -3,7 +3,7 @@
 ### What is Kotlin?
 
 Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
-It’s developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on.
+It's developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on.
 The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
@@ -19,12 +19,12 @@ is available [on GitHub](https://github.com/jetbrains/kotlin).
 
 Kotlin has both object-oriented and functional constructs. You can use it in both OO and FP styles, or mix elements of the two. 
 With first-class support for features such as higher-order functions, function types and lambdas, Kotlin is a great choice
-if you’re doing or exploring functional programming.
+if you're doing or exploring functional programming.
 
 ### What advantages does Kotlin give me over the Java programming language?
 
 Kotlin is more concise. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
-It’s also more type-safe, for example, support for non-nullable types makes applications less prone to NPE’s. 
+It's also more type-safe, for example, support for non-nullable types makes applications less prone to NPE's. 
 Other features including smart casting, higher-order functions, extension functions and lambdas with receivers provide 
 the ability to write expressive code as well as facilitating creation of DSL.
  
@@ -32,7 +32,7 @@ the ability to write expressive code as well as facilitating creation of DSL.
 
 Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure
 that your existing codebase  can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
-from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There’s also an automated [Java-to-Kotlin converter built
+from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There's also an automated [Java-to-Kotlin converter built
 into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
@@ -72,14 +72,14 @@ For more information, check out the [Kotlin/Native documentation](native-overvie
 
 ### What IDEs support Kotlin?
 
-Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](https://www.jetbrains.com/idea/download/),
-[Android Studio](https://developer.android.com/kotlin/get-started), and [Eclipse](https://www.eclipse.org/downloads/). In addition, a [command line compiler](command-line.md) 
-is available and provides straightforward support for compiling and running applications.
+Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
+[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
+Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
-> Kotlin Plugin for Eclipse has limited support.  
-> Use [other IDEs for Kotlin development](kotlin-ide.md) to get full support of new Kotlin features.
->
-{type="warning"}
+You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
+Kotlin code in your browser.
+
+In addition, a [command line compiler](command-line.md) is available, which provides straightforward support for compiling and running applications.
   
 ### What build tools support Kotlin?
 
@@ -139,7 +139,7 @@ You can learn all the Kotlin essentials while creating working applications with
 
 A few other courses you can take:
 * [Pluralsight Course: Getting Started with Kotlin](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
-* [O’Reilly Course: Introduction to Kotlin Programming](https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/) by Hadi Hariri
+* [O'Reilly Course: Introduction to Kotlin Programming](https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/) by Hadi Hariri
 * [Udemy Course: 10 Kotlin Tutorials for Beginneres](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
 
 You can also check out the other tutorials and content on our [YouTube channel](https://www.youtube.com/c/Kotlin).

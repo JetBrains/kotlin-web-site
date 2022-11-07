@@ -25,7 +25,7 @@ download and use without having to build the project yourself.
 
 `kotlinc` compiler plugins have access to almost everything from the compiler and therefore have maximum power and flexibility.
 On the other hand, because these plugins can potentially depend on anything in the compiler, they are sensitive to
-compiler changes and need to be maintained frequently. These plugins also require a deep understanding of `kotlinc`’s
+compiler changes and need to be maintained frequently. These plugins also require a deep understanding of `kotlinc`'s
 implementation, so the learning curve can be steep.
 
 KSP aims to hide most compiler changes through a well-defined API, though major changes in compiler or even the Kotlin
@@ -36,7 +36,7 @@ subset of a general `kotlinc` plugin. For example, while `kotlinc` can examine e
 modify code, KSP cannot.
 
 While writing a `kotlinc` plugin can be a lot of fun, it can also take a lot of time. If you aren't in a position to
-learn `kotlinc`’s implementation and do not need to modify source code or read expressions, KSP might be a good fit.
+learn `kotlinc`'s implementation and do not need to modify source code or read expressions, KSP might be a good fit.
 
 ## Comparison to reflection
 
