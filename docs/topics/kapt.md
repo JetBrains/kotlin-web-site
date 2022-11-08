@@ -39,14 +39,6 @@ Follow these steps:
    </tab>
    </tabs>
 
-   Alternatively, you can use the `apply plugin` syntax:
-
-   ```groovy
-   apply plugin: 'kotlin-kapt'
-   ```
-
-   Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle-kotlin-dsl.md#using-the-gradle-kotlin-dsl).
-
 2. Add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
    <tabs group="build-script">

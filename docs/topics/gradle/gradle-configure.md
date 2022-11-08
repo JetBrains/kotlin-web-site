@@ -77,14 +77,6 @@ plugins {
 
 The `version` should be literal in this block, and it cannot be applied from another build script.
 
-Alternatively, you can use the older `apply plugin` approach:
-
-```groovy
-apply plugin: 'kotlin'
-```
-
-Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle-kotlin-dsl.md#using-the-gradle-kotlin-dsl).
-
 ### Kotlin and Java sources
 
 Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
@@ -384,6 +376,40 @@ kotlin {
     sourceSets {
         main.kotlin.srcDirs += 'src/main/myKotlin'
     }
+}
+```
+
+</tab>
+</tabs>
+
+## Triggering configuration actions with the KotlinBasePlugin interface
+
+To trigger some configuration action whenever any Kotlin Gradle plugin (JVM, JS, Multiplatform, Native, and others) is applied,
+use the `KotlinBasePlugin` interface that all Kotlin plugins inherit from:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
+
+// ...
+
+project.plugins.withType<KotlinBasePlugin>() {
+// Configure your action here
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
+
+// ...
+
+project.plugins.withType(KotlinBasePlugin.class) {
+// Configure your action here
 }
 ```
 
@@ -737,7 +763,6 @@ dependencies {
 ## What's next?
 
 Learn more about:
-* [Compiler options and how to pass them](gradle-compiler-options.md)
-* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
-* [Kotlin DSL](gradle-kotlin-dsl.md)
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html)
+* [Compiler options and how to pass them](gradle-compiler-options.md).
+* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).

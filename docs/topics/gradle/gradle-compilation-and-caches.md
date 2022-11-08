@@ -333,6 +333,4 @@ kotlin.build.report.label=some_label
 
 ## What's next?
 
-Learn more about:
-* [Kotlin DSL](gradle-kotlin-dsl.md)
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html)
+Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).

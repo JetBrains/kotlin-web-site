@@ -9,13 +9,14 @@ or pass a small [step-by-step tutorial](gradle-backend-tutorial.md) that will sh
 "Hello World" application in Kotlin.
 
 In this chapter, you can also learn about:
-* [Compiler options and how to pass them](gradle-compiler-options.md)
-* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
-* [The Kotlin DSL](gradle-kotlin-dsl.md)
+* [Compiler options and how to pass them](gradle-compiler-options.md).
+* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 
 ## What's next?
 
 Learn about:
+* **Gradle Kotlin DSL**. The [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) is a domain specific language 
+  that you can use to write build scripts quickly and efficiently.
 * **Annotation processing**. Kotlin supports annotation processing via the [Kotlin Symbol processing API](ksp-reference.md).
 * **Generating documentation**. To generate documentation for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka);
   please refer to the [Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md#using-the-gradle-plugin)

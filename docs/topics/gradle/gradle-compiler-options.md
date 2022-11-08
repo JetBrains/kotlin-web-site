@@ -135,6 +135,5 @@ Here is a complete list of options for Gradle tasks:
 ## What's next?
 
 Learn more about:
-* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
-* [Kotlin DSL](gradle-kotlin-dsl.md)
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html)
+* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).

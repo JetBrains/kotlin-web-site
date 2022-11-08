@@ -104,8 +104,7 @@ Congratulations! You have just run your first Kotlin application.
 ## What's next?
 
 Learn more about:
-* [Gradle build file properties](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#N14E9A)
-* [Targeting different platforms and setting library dependencies](gradle-configure.md)
-* [Compiler options and how to pass them](gradle-compiler-options.md)
-* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md)
-* [The Kotlin DSL](gradle-kotlin-dsl.md)
+* [Gradle build file properties](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#N14E9A).
+* [Targeting different platforms and setting library dependencies](gradle-configure.md).
+* [Compiler options and how to pass them](gradle-compiler-options.md).
+* [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
