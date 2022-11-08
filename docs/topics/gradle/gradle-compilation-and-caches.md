@@ -179,7 +179,7 @@ You can specify arguments for a specific task:
 ```kotlin
 tasks.withType<CompileUsingKotlinDaemon>().configureEach {
     kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
-    }
+}
 ```
 
 </tab>
@@ -188,7 +188,7 @@ tasks.withType<CompileUsingKotlinDaemon>().configureEach {
 ```groovy
 tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
     task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
-    }
+}
 ```
 
 </tab>
@@ -249,7 +249,7 @@ The available values for the `compilerExecutionStrategy` task property are:
 2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
 3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
 
-Use the task property `compilerExecutionStrategy` in your buildscripts:
+Use the task property `compilerExecutionStrategy` in your build scripts:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -276,7 +276,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 tasks.withType(KotlinCompile)
     .configureEach {
-         compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+        compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }
 ```
 

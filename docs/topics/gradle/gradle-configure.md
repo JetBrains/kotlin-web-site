@@ -55,7 +55,7 @@ methods and properties, and supports all the current Gradle features.
 To target the JVM, apply the Kotlin JVM plugin.
 
 <tabs group="build-script">
-    <tab title="Kotlin" group-key="kotlin">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -81,7 +81,7 @@ The `version` should be literal in this block, and it cannot be applied from ano
 
 Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
 
-```groovy
+```text
 project
     - src
         - main (root)
@@ -307,7 +307,7 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multipl
 
 ```kotlin
 plugins {
-  kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
@@ -316,7 +316,7 @@ plugins {
 
 ```groovy
 plugins {
-  id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
 
@@ -508,7 +508,7 @@ plugin won't override it or add a second standard library.
 
 If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
-```kotlin
+```properties
 kotlin.stdlib.default.dependency=false
 ```
 
