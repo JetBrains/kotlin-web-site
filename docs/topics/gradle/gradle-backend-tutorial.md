@@ -49,7 +49,7 @@ group = "org.example" // A company name, for example, `org.jetbrains`
 version = "1.0-SNAPSHOT" // Version to assign to the built artifact
 
 repositories { // Sources of dependencies. See 2️⃣
-    mavenCentral() // Or Google Maven repository or your company's private repository
+    mavenCentral() // Google Maven repository / your company's private repository
 }
 
 dependencies { // All the libraries you want to use. See 3️⃣
