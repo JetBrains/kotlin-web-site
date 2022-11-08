@@ -37,32 +37,33 @@ You have successfully created a project with Gradle.
 Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which contains Kotlin-related artifacts and other parts required for the application:
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
+ // For `KotlinCompile` task below
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "%kotlinVersion%" // Kotlin version to use
-    application // [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java
+    application // Application plugin. Also see 1️⃣ below the code
 }
 
-group = "org.example" // Usually a company name, for example, `org.jetbrains`
+group = "org.example" // A company name, for example, `org.jetbrains`
 version = "1.0-SNAPSHOT" // Version to assign to the built artifact
 
-repositories { // [Sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html)
-    mavenCentral() // Can also be the Google Maven repository or your company's private repository
+repositories { // Sources of dependencies. See 2️⃣
+    mavenCentral() // Or Google Maven repository or your company's private repository
 }
 
-dependencies { // All the libraries you want to use. Also see 1️⃣ below the code
-   // Copy dependencies' names after you find them in the [Maven Central Repository](https://search.maven.org/)
+dependencies { // All the libraries you want to use. See 3️⃣
+   // Copy dependencies' names after you find them in Maven Central Repository. See 4️⃣
    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
-tasks.test { // See 2️⃣
-    useJUnitPlatform() // [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
+tasks.test { // See 5️⃣
+    useJUnitPlatform() // JUnitPlatform for tests. See 6️⃣
 }
 
 tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
     // Kotlin compiler options
-    kotlinOptions.jvmTarget = "1.8" // To specify target version of generated JVM bytecode
+    kotlinOptions.jvmTarget = "1.8" // Target version of generated JVM bytecode
 }
 
 application {
@@ -70,8 +71,12 @@ application {
 }
 ```
 
-1️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
-2️⃣ Learn more about tasks in the [Gradle official documentation](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
+1️⃣[Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java.
+2️⃣Lean more about [sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html).
+3️⃣Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
+4️⃣The [Maven Central Repository](https://search.maven.org/).
+5️⃣Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
+6️⃣[JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
 
 As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
 
