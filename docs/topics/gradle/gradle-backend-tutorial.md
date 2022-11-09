@@ -49,11 +49,11 @@ group = "org.example" // A company name, for example, `org.jetbrains`
 version = "1.0-SNAPSHOT" // Version to assign to the built artifact
 
 repositories { // Sources of dependencies. See 2️⃣
-    mavenCentral() // Google Maven repository / your company's private repository
+    mavenCentral() // Maven Central Repository. See 3️⃣
 }
 
-dependencies { // All the libraries you want to use. See 3️⃣
-   // Copy dependencies' names after you find them in Maven Central Repository. See 4️⃣
+dependencies { // All the libraries you want to use. See 4️⃣
+   // Copy dependencies' names after you find them in a repository
    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
@@ -71,12 +71,12 @@ application {
 }
 ```
 
-1️⃣[Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java.
-2️⃣Lean more about [sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html).
-3️⃣Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
-4️⃣The [Maven Central Repository](https://search.maven.org/).
-5️⃣Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
-6️⃣[JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
+1️⃣ [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java. 
+2️⃣ Lean more about [sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html). 
+3️⃣ The [Maven Central Repository](https://search.maven.org/). It can also be the [Google's Maven repository](https://maven.google.com/web/index.html) or your company's private repository.
+4️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
+5️⃣ Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html). 
+6️⃣ [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
 
 As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
 
