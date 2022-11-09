@@ -8,7 +8,7 @@ No additional steps are required.
 
 To use your Kotlin project with Xcode, you should [make changes in your project Podfile](native-cocoapods.md#update-podfile-for-xcode).
 
-A Kotlin project requires the `pod()` function call in `build.gradle.kts` (`build.gradle`) for adding a Pod dependency.
+A Kotlin project requires the `pod()` function call in `build.gradle(.kts)` for adding a Pod dependency.
 Each dependency requires its separate function call. You can specify the parameters for the dependency in
 the configuration block of the function.
 
@@ -182,59 +182,6 @@ To use these dependencies from the Kotlin code, import the packages `cocoapods.<
 import cocoapods.AFNetworking.*
 import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
-```
-
-## From a zip, tar, or jar archive
-
-> This feature is deprecated in Kotlin 1.7.20 and will be removed in one of the future releases.
->
-{type="warning"}
-
-1. Specify the name of a Pod library in the `pod()` function.
-
-   In the configuration block, specify the path to the archive: use the `url()` function with an arbitrary HTTP address
-in the `source` parameter value.
-
-   Additionally, you can specify the boolean `flatten` parameter as a second argument for the `url()` function. This
-parameter indicates that all the Pod files are located in the root directory of the archive.
-
-2. Specify the minimum deployment target version for the Pod library.
-
-    ```kotlin
-    kotlin {
-        ios()
-
-        cocoapods {
-            summary = "CocoaPods test library"
-            homepage = "https://github.com/JetBrains/kotlin"
-
-            ios.deploymentTarget = "13.5"
-
-            pod("pod_dependency") {
-                source = url("https://github.com/Kotlin/kmm-with-cocoapods-sample/raw/cocoapods-zip/cocoapodSourcesZip.zip", flatten = true)
-            }
-        }
-    }
-    ```
-
-3. Re-import the project.
-
-> To work correctly with Xcode, you should specify the path to the Podspec in your Podfile.
-> For example:
->
-> ```ruby
-> target 'ios-app' do
->     # ... other pod dependencies ...
->     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
-> end
-> ```
->
-{type="note"}
-
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
-
-```kotlin
-import cocoapods.pod_dependency.*
 ```
 
 ## From a custom Podspec repository
