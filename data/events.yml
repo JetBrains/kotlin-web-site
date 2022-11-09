@@ -9,7 +9,7 @@
 - lang: en
   startDate: '2022-12-02'
   endDate: '2022-12-02'
-  location: Ultrecht, The Netherlans
+  location: Utrecht, The Netherlands
   speaker: Julien Lengrand-Lambert
   title: 'Flock. Meetups'
   subject: 'Introducing Kotlin In Your Organization, From The Ground Up'
@@ -35,8 +35,8 @@
   endDate: '2022-12-08'
   online: true
   speaker: To be announced
-  title: Monthly Kotlin
-  subject: 'To be announced'
+  title: San Diego Kotlin User Group
+  subject: 'Monthly Kotlin'
   url: https://www.meetup.com/sd-kotlin/events/289513488/
 - lang: es
   startDate: '2022-11-11'
