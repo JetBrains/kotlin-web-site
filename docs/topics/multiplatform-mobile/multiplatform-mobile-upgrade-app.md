@@ -59,7 +59,7 @@ For `kotlinx.serilization`, you need the plugin required by the build system. Th
 with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
 
 You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
-the `plugins` block at the very beginning of the `build.gradle` file in the shared module:
+the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
 
 ```kotlin
 plugins {
