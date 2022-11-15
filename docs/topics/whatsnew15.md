@@ -483,7 +483,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{validate="false"}
 
 ### New API for getting a char category now available in multiplatform code
 
