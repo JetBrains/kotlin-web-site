@@ -450,7 +450,7 @@
       lat: 12.9715214
       lng: 77.5940323
   - name: Beijing KUG
-    country: China
+    country: China Mainland
     url: https://beijing-kug.github.io/
     position:
       lat: 39.9041999
@@ -498,7 +498,7 @@
       lat: 21.1904494
       lng: 81.2849169
   - name: Hefei KUG
-    country: China
+    country: China Mainland
     url: http://weibo.com/kotlinhfug
     position:
       lat: 31.820591
@@ -510,7 +510,7 @@
       lat: 10.8230989
       lng: 106.6296638
   - name: Hong Kong KUG
-    country: China
+    country: Hong Kong
     url: https://www.facebook.com/KotlinHK
     position:
       lat: 22.3193039
@@ -558,7 +558,7 @@
       lat: 36.204824
       lng: 138.252924
   - name: JiangXi KUG
-    country: China
+    country: China Mainland
     url: https://weibo.com/u/6689084931
     position:
       lat: 27.0874564
@@ -690,13 +690,13 @@
       lat: 23.885942
       lng: 45.079162
   - name: Shanghai KUG
-    country: China
+    country: China Mainland
     url: https://juejin.cn/user/3844312374718221
     position:
       lat: 31.230416
       lng: 121.473701
   - name: Shenzhen KUG
-    country: China
+    country: China Mainland
     url: https://shenzhen-kug.cn/
     position:
       lat: 22.543096
@@ -780,7 +780,7 @@
       lat: 40.1872023
       lng: 44.515209
   - name: Xi'An KUG
-    country: China
+    country: China Mainland
     url: https://kotlinxa.com/
     position:
       lat: 34.259376
