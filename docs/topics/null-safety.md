@@ -145,13 +145,26 @@ person?.department?.head = managersPool.getManager()
 
 ## Nullable receiver
 
-Functions could be extended to use a [nullable receiver](extensions.md#nullable-receiver).
-This way you can check for the null condition and have a default defined in one place. 
+Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
+This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
 
-For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) can be called with a nullable receiver and it returns the "null" string value (not `null`):
+For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) is defined on a nullable receiver and it returns the String "null" and not a `null` object:
 
 ```kotlin
-null.toString() // returns "null"
+var timestamp: Instant? = null
+// imagine a whole bunch of code here that never set the timestamp
+val isoTimestamp = timestamp.toString() // returns a String object "null"
+if (isoTimestamp != null) { // never true, so your check is useless
+   // some logic that you wanted to have work but wont
+}
+```
+
+This can be helpful in some situations, particularly in logging:
+
+```kotlin
+var person: Person?
+// imagine a whole bunch of code here that never sets person
+logger.debug("checking on $person here") // does not throw a NPE, you get logs
 ```
 
 ## Elvis operator
