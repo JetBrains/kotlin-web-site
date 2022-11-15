@@ -157,6 +157,12 @@ val isoTimestamp = timestamp.toString() // returns a String object "null"
 if (isoTimestamp == null) { // never true, so your check is useless
    // some logic that you wanted to have work but wont
 }
+
+// what you should have done
+val isoTimestamp = timestamp?.toString() // returns a String? object which is null.
+if (isoTimestamp == null) {
+   // now this code block runs
+}
 ```
 
 This can be helpful in some situations, particularly in logging:
