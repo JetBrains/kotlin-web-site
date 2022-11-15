@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Dependencies
 import jetbrains.buildServer.configs.kotlin.FailureAction
 
-fun Dependencies.dependsOnDokkaTemplate(build: BuildType) {
+fun Dependencies.dependsOnDokkaTemplate(build: BuildType, artifactPath: String = "dokka-templates") {
   dependency(build) {
     snapshot {
       onDependencyFailure = FailureAction.CANCEL
@@ -12,7 +12,7 @@ fun Dependencies.dependsOnDokkaTemplate(build: BuildType) {
     }
 
     artifacts {
-      artifactRules = "+:dokka-templates/** => dokka-templates"
+      artifactRules = "+:dokka-templates/** => $artifactPath"
     }
   }
 }
