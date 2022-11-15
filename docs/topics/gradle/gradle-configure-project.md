@@ -5,7 +5,7 @@ you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build scri
 and [configure the project's dependencies](#configure-dependencies) there.
 
 > To learn more about the contents of a build script,
-> visit the [Explore the build script](gradle-backend-tutorial.md#explore-the-build-script) section.
+> visit the [Explore the build script](get-started-with-jvm-gradle-project.md#explore-the-build-script) section.
 >
 {type="note"}
 

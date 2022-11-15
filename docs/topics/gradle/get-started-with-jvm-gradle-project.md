@@ -83,7 +83,7 @@ As you can see, there are a few Kotlin-specific artifacts added to the Gradle bu
 1. In the `plugins` block, there is the `kotlin("jvm")` artifact – the plugin defines the version of Kotlin to be used in the project.
 
 2. In the `dependencies` section, there is `testImplementation(kotlin("test"))`. 
-   Learn more about [setting dependencies on test libraries](gradle-configure.md#set-dependencies-on-test-libraries).
+   Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 3. After the dependencies section, there is the `KotlinCompile` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
@@ -110,6 +110,6 @@ Congratulations! You have just run your first Kotlin application.
 
 Learn more about:
 * [Gradle build file properties](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#N14E9A).
-* [Targeting different platforms and setting library dependencies](gradle-configure.md).
+* [Targeting different platforms and setting library dependencies](gradle-configure-project.md).
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
