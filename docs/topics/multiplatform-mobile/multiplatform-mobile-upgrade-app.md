@@ -55,7 +55,7 @@ kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarge
 
 ### kotlinx.serialization
 
-For `kotlinx.serilization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
+For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
 with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
 
 You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
