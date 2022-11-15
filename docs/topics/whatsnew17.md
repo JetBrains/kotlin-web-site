@@ -1025,7 +1025,7 @@ the `KotlinCompilerPluginSupportPlugin` class instead.
 
 We removed the deprecated `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used
 in `gradle.properties`. Now you can just use _[suspending functions](coroutines-basics.md#extract-function-refactoring)_
-or [add the `kotlinx.coroutines` dependency](gradle-configure.md#set-a-dependency-on-a-kotlinx-library) to your build
+or [add the `kotlinx.coroutines` dependency](gradle-configure-project.md#set-a-dependency-on-a-kotlinx-library) to your build
 script.
 
 Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).

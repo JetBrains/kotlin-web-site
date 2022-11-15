@@ -112,7 +112,7 @@ To improve the speed of builds that use kapt, you can enable the [Gradle Worker 
 for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
 which in some cases significantly decreases the execution time.
 
-When you use the [custom JDK home](gradle-configure.md#set-custom-jdk-home) feature in the Kotlin Gradle plugin,
+When you use the [custom JDK home](gradle-configure-project.md#set-custom-jdk-home) feature in the Kotlin Gradle plugin,
 kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode).
 Note that the `kapt.workers.isolation` property is ignored.
 

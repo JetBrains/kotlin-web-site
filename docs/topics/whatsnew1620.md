@@ -843,7 +843,7 @@ In Kotlin 1.6.20, we changed deprecation levels of the properties:
   We are going to remove the option `kapt.use.worker.api` in future releases.
 
 * We deprecated the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used in `gradle.properties`.
-  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle-configure.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
+  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle-configure-project.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
   
   Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).
 

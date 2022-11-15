@@ -589,7 +589,7 @@ Additionally, you can use the `kotlin-test` dependency in any shared or platform
 
 An existing kotlin-test setup with explicit dependencies will continue to work both in Gradle and in Maven.
 
-Learn more about [setting dependencies on test libraries](gradle-configure.md#set-dependencies-on-test-libraries).
+Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 ### Automatic selection of a testing framework for Kotlin/JVM source sets
 
@@ -652,7 +652,7 @@ tasks {
 You can disable automatic testing framework selection by adding the line `kotlin.test.infer.jvm.variant=false`
 to the project's `gradle.properties`.
 
-Learn more about [setting dependencies on test libraries](gradle-configure.md#set-dependencies-on-test-libraries).
+Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 ###  Assertion function updates
 

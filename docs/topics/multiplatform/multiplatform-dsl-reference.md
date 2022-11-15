@@ -842,7 +842,7 @@ kotlin {
 
 The `dependencies` block of the source set declaration contains the dependencies of this source set.
 
-Learn more about [configuring dependencies](gradle-configure.md).
+Learn more about [configuring dependencies](gradle-configure-project.md).
 
 There are four types of dependencies:
 

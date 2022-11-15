@@ -311,8 +311,8 @@
         <toc-element toc-title="Build tools">
             <toc-element toc-title="Gradle">
                 <toc-element id="gradle.md" accepts-web-file-names="using-gradle.html" toc-title="Overview"/>
-                <toc-element id="gradle-backend-tutorial.md" toc-title="Get started with Gradle – tutorial"/>
-                <toc-element id="gradle-configure.md" toc-title="Configure a Gradle project"/>
+                <toc-element id="get-started-with-jvm-gradle-project.md" toc-title="Get started with Gradle – tutorial"/>
+                <toc-element id="gradle-configure-project.md" toc-title="Configure a Gradle project"/>
                 <toc-element id="gradle-compiler-options.md" toc-title="Compiler options"/>
                 <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches"/>
             </toc-element>
