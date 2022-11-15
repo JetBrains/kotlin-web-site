@@ -154,7 +154,7 @@ For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/s
 var timestamp: Instant? = null
 // imagine a whole bunch of code here that never set the timestamp
 val isoTimestamp = timestamp.toString() // returns a String object "null"
-if (isoTimestamp != null) { // never true, so your check is useless
+if (isoTimestamp == null) { // never true, so your check is useless
    // some logic that you wanted to have work but wont
 }
 ```
