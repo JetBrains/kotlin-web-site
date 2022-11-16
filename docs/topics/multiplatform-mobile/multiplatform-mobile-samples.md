@@ -2,8 +2,12 @@
 
 This is a curated list of Kotlin Multiplatform Mobile samples.
 
-Do you have a great sample that's a little different from the ones shown here?
-Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-site/edit/master/docs/topics/multiplatform-mobile/multiplatform-mobile-samples.md) and tell us about it! You can use this [PR example](https://github.com/JetBrains/kotlin-web-site/pull/2723) for reference.
+> You can find even more sample projects on GitHub, see the [`kotlin-multiplatform-mobile` topic](https://github.com/topics/kotlin-multiplatform-mobile).
+>
+> If you want to add your Multiplatform Mobile project to this topic and help the community,
+> follow the instructions in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository).
+>
+{type="tip"}
 
 <table>
   <tr>
@@ -14,7 +18,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>iOS integration</td>
     <td>Platform APIs</td>
     <td>Tests</td>
-    <td>JS target</td>
     <td>Features</td>
   </tr>
   <tr>
@@ -26,7 +29,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>XML, SwiftUI</td>
     <td>Xcode build phases</td>
     <td>✅</td>
-    <td>-</td>
     <td>-</td>
     <td>
       <ul>
@@ -44,11 +46,58 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>Xcode build phases</td>
     <td>✅</td>
     <td>-</td>
-    <td>-</td>
     <td>
       <ul>
         <li>Redux for sharing UI State</li>
         <li>Published to Google Play and App Store</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/KaterinaPetrova/kmm-ktor-sample">kmm-ktor-sample</a></strong>
+    </td>
+    <td>Networking</td>
+    <td>Ktor, kotlinx.serialization, Napier</td>
+    <td>XML, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
+    <td>Models, Networking, Presentation, Navigation and UI </td>
+    <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>
+      <ul>
+        <li>99% of the code is shared</li>
+        <li>MVI architectural pattern</li>
+        <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
+    </td>
+    <td>Algorithms</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <ul>
+        <li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li>
       </ul>
     </td>
   </tr>
@@ -63,26 +112,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>✅</td>
     <td>-</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/icerockdev/moko-template">moko-template</a></strong>
-    </td>
-    <td>Models, Networking, Data Storage, ViewModels</td>
-    <td>Moko Libraries, Ktor, multiplatform-settings</td>
-    <td>-</td>
-    <td>CocoaPods</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li>Modular architecture</li>
-        <li>Shared features: Resource management, Runtime permissions access, Media access, UI lists management</li>
-        <li>Network layer generation from OpenAPI.</li>
-      </ul>
-    </td>
   </tr>
   <tr>
     <td>
@@ -94,34 +123,16 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>CocoaPods, Swift Packages</td>
     <td>-</td>
     <td>✅</td>
-    <td>✅</td>
     <td>
       <ul>
         Targets list:
-        <li> Android Wear OS</li>
+        <li>Android Wear OS</li>
         <li>iOS</li>
         <li>watchOS</li>
         <li>macOS Desktop (Compose for Desktop)</li>
         <li>Web (Compose for Web)</li>
         <li>Web (Kotlin/JS + React Wrapper)</li>
         <li>JVM</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://gitlab.com/terrakok/gitlab-client">GitFox SDK</a></strong>
-    </td>
-    <td>Models, Networking, Interactors</td>
-    <td>Ktor</td>
-    <td>XML, UIKit</td>
-    <td>Xcode build phases</td>
-    <td>-</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>
-      <ul>
-        <li>Integrated into Flutter app</li>
       </ul>
     </td>
   </tr>
@@ -134,7 +145,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>Jetpack Compose, SwiftUI</td>
     <td>Xcode build phases</td>
     <td>-</td>
-    <td>✅</td>
     <td>✅</td>
     <td>
       <ul>
@@ -154,133 +164,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>-</td>
     <td>-</td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/KaterinaPetrova/kmm-ktor-sample">kmm-ktor-sample</a></strong>
-    </td>
-    <td>Networking</td>
-    <td>Ktor, kotlinx.serialization, Napier</td>
-    <td>XML, SwiftUI</td>
-    <td>Xcode build phases</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/CurrencyConverterCalculator/CCC">Currency Converter Calculator</a></strong>
-    </td>
-    <td>Models, Networking, Data Storage, Algorithms, ViewModels</td>
-    <td>Ktor, SQLDelight, koin, moko-resources, kotlinx.datetime, multiplatform-settings</td>
-    <td>XML, SwiftUI</td>
-    <td>CocoaPods</td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li>Logic shared with the backend</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
-    <td>Models, Networking, Presentation, Navigation and UI </td>
-    <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
-    <td>Jetpack Compose, SwiftUI</td>
-    <td>Xcode build phases</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>
-      <ul>
-        <li>99% of the code is shared</li>
-        <li>MVI architectural pattern</li>
-        <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><strong><a href="https://github.com/fededri/kmm-demo">kmm-arch-demo</a></strong></td>
-    <td>Models, Networking, ViewModels, UI State</td>
-    <td>Ktor, kotlinx.serialization</td>
-    <td>XML, SwiftUI</td>
-    <td>CocoaPods</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li>Uses <a href="https://github.com/fededri/Arch">Arch</a>, a Kotlin Multiplatform Mobile library that is based on Spotify's Mobius library but uses SharedFlow, StateFlow and coroutines instead of RxJava</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td><strong><a href="https://github.com/xorum-io/codeforces_watcher">Codeforces WatchR</a></strong></td>
-    <td>Models, Networking, Data Storage, UI State</td>
-    <td>SQLDelight, Ktor, kotlinx.serialization</td>
-    <td>XML, UIKit</td>
-    <td>CocoaPods</td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li>Uses Redux (<a href="https://github.com/xorum-io/ReKamp">ReKamp</a>) for sharing UI State</li>
-        <li>Published to Google Play and App Store</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/MartinRajniak/CatViewerDemo">CatViewerDemo</a></strong>
-    </td>
-    <td>Models, Networking, Data Storage, ViewModels</td>
-    <td>Ktor, multiplatform-settings, kotlinx.serialization</td>
-    <td>Jetpack Compose, SwiftUI</td>
-    <td>Xcode build phases</td>
-    <td>✅</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>
-      <ul>
-        <li>Android Architecture</li>
-        <li>Pagination</li>
-        <li>Works on M1</li>
-        <li>GitHubActions CI</li>
-        <li>Cats 🐈</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/mutualmobile/praxiskmm">Praxis KMM</a></strong>
-    </td>
-    <td>Models, Networking, Data Storage</td>
-    <td>kotlinx.serialization, Ktor, Koin, SQLDelight</td>
-    <td>Jetpack Compose, SwiftUI, ReactJS</td>
-    <td>CocoaPods, Swift Packages</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>
-      <ul>
-        Targets list:
-        <li>iOS</li>
-        <li>Android</li>
-        <li>Android Wear OS</li>
-        <li>watchOS</li>
-        <li>macOS Desktop (Swift UI)</li>
-        <li>Web (Kotlin/JS + React Wrapper)</li>
-      </ul>
-    </td>
   </tr>
   <tr>
     <td>
@@ -290,7 +173,6 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>Realm-Kotlin, Ktor, kotlinx.serialization</td>
     <td>Jetpack Compose, SwiftUI</td>
     <td>CocoaPods</td>
-    <td>-</td>
     <td>-</td>
     <td>-</td>
     <td>
@@ -309,48 +191,11 @@ Feel free to [create a pull request](https://github.com/JetBrains/kotlin-web-sit
     <td>-</td>
     <td>✅</td>
     <td>-</td>
-    <td>✅</td>
     <td>
       <ul>
         <li>Modular architecture</li>
         <li>Runs on desktop</li>
         <li>Sharing viewmodel</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/halcyonmobile/MultiplatformPlayground">MultiplatformPlayground</a></strong>
-    </td>
-    <td>ViewModels, Networking, Data Storage</td>
-    <td>SQLDelight, Ktor, Koin, kotlinx.serialization, moko-resources</td>
-    <td>Jetpack Compose, SwiftUI</td>
-    <td>CocoaPods</td>
-    <td>✅</td>
-    <td>Android only</td>
-    <td>✅</td>
-    <td>
-      <ul>
-        <li>Multi-module setup</li>
-        <li>Shared file upload</li>
-        <li>sharing code between Backend - Mobile &amp; Frontend platforms (macOS, iOS, Android)</li>
-      </ul>
-    </td>
-  </tr>
-<tr>
-    <td>
-      <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
-    </td>
-    <td>Algorithms</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>
-      <ul>
-        <li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li>
       </ul>
     </td>
   </tr>

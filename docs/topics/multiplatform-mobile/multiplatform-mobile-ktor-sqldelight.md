@@ -1,12 +1,12 @@
-[//]: # (title: Create a multiplatfotm app using Ktor and SQLDelight – tutorial)
+[//]: # (title: Create a multiplatform app using Ktor and SQLDelight – tutorial)
 
 This tutorial demonstrates how to use Android Studio to create a mobile application for iOS and Android using Kotlin
 Multiplatform Mobile with Ktor and SQLDelight.
 
-The application will include a module with shared code for both iOS and Android platforms. Business logic and data
-access layers are implemented only once in the shared module, while the UI of both applications will be native.
+The application will include a module with shared code for both the iOS and Android platforms. The business logic and data
+access layers will be implemented only once in the shared module, while the UI of both applications will be native.
 
-The output will be an app that retrieves data over the internet from a
+The output will be an app that retrieves data over the internet from the
 public [SpaceX API](https://docs.spacexdata.com/?version=latest), saves it in a local database, and displays a list of
 SpaceX rocket launches together with the launch date, results, and a detailed description of the launch:
 
@@ -15,35 +15,34 @@ SpaceX rocket launches together with the launch date, results, and a detailed de
 You will use the following multiplatform libraries in the project:
 
 * [Ktor](https://ktor.io/docs/create-client.html) as an HTTP client for retrieving data over the internet.
-* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects.
-  of entity classes
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects
+  of entity classes.
 * [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) to write asynchronous code.
-* [SQLDelight](https://github.com/cashapp/sqldelight) to generate the Kotlin code from SQL queries to create a type-safe.
-  database API
+* [SQLDelight](https://github.com/cashapp/sqldelight) to generate Kotlin code from SQL queries and create a type-safe
+  database API.
 
 > You can find the [template project](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage) as well as the
-> source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final) on
-> the corresponding GitHub repository.
+> source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final)
+> on the corresponding GitHub repository.
 >
 {type="note"}
 
 ## Before you start
 
 1. Download and install [Android Studio](https://developer.android.com/studio/).
-2. Search for
-   the [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
-   in the Android Studio Marketplace and install it for working with the shared module and Android project.
+2. Search for the [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
+   in the Android Studio Marketplace and install it.
 
    ![Kotlin Multiplatform Mobile plugin](multiplatform-marketplace.png){width=700}
 
-3. Download and install [Xcode](https://developer.apple.com/xcode/) for building the iOS application.
+3. Download and install [Xcode](https://developer.apple.com/xcode/).
 
 For more details, see the [Set up the environment](multiplatform-mobile-setup.md) section.
 
 ## Create a Multiplatform project
 
 1. In Android Studio, select **File** | **New** | **New Project**. In the list of project templates, select **Kotlin
-   Multiplatform App** and click **Next**.
+   Multiplatform App** and then click **Next**.
 
    ![Kotlin Multiplatform Mobile plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
 
@@ -57,10 +56,9 @@ For more details, see the [Set up the environment](multiplatform-mobile-setup.md
 
    ![Project view](select-project-view.png){width=200}
 
-For more on project features and how to use them,
-see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
+For more on project features and how to use them, see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
 
-> You can find the configured project on the `master` branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage).
+> You can find the configured project [on the `master` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage).
 >
 {type="note"}
 
@@ -69,9 +67,9 @@ see [Understand the project structure](multiplatform-mobile-understand-project-s
 To add a multiplatform library to the shared module, you need to add dependency instructions (`implementation`) for all
 libraries to the `dependencies` block of the relevant source sets in the `build.gradle.kts` file.
 
-Also, both `kotlinx.serialization` and SQLDelight libraries require additional configurations.
+Both the `kotlinx.serialization` and SQLDelight libraries also require additional configurations.
 
-1. In the `shared` directory, specify dependencies on all required libraries in the `build.gradle.kts` file:
+1. In the `shared` directory, specify the dependencies on all the required libraries in the `build.gradle.kts` file:
 
     ```kotlin
     val coroutinesVersion = "%coroutinesVersion%"
@@ -105,10 +103,10 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
     }
     ```
 
-    * All libraries require a core artifact in the common source set.
-    * Both SQLDelight and Ktor libraries need platform drivers in the iOS and Android source sets as well.
-    * In addition, Ktor needs the serialization [feature](https://ktor.io/docs/serialization-client.html) to use
-      `kotlinx.serialization` for processing network requests and responses.
+   * Each library requires a core artifact in the common source set.
+   * Both the SQLDelight and Ktor libraries need platform drivers in the iOS and Android source sets, as well.
+   * In addition, Ktor needs the [serialization feature](https://ktor.io/docs/serialization-client.html) to use
+     `kotlinx.serialization` for processing network requests and responses.
 
 2. At the very beginning of the `build.gradle.kts` file in the same `shared` directory, add the following lines to the
    `plugins` block:
@@ -147,7 +145,7 @@ Also, both `kotlinx.serialization` and SQLDelight libraries require additional c
 
 Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
 
-> You can find this state of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find this state of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
@@ -161,7 +159,7 @@ The application data model will have three entity classes with:
 * Information about the rocket
 
 1. In `shared/src/commonMain/kotlin`, add the `com.jetbrains.handson.kmm.shared.entity` package.
-2. Create the `Entity.kt` file inside it.
+2. Create the `Entity.kt` file inside the package.
 3. Declare all the data classes for basic entities:
 
    ```kotlin
@@ -172,11 +170,10 @@ Each serializable class must be marked with the `@Serializable` annotation. The 
 automatically generates a default serializer for `@Serializable` classes unless you explicitly pass a link to a
 serializer through the annotation argument.
 
-Still, in this case, you don't need to do that. The `@SerialName` annotation allows redefining field names, which helps
+However, you don't need to do that in this case. The `@SerialName` annotation allows you to redefine field names, which helps
 to declare properties in data classes with more easily readable names.
 
-> You can find the state of the project after this section on the final
-> branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
@@ -184,11 +181,11 @@ to declare properties in data classes with more easily readable names.
 
 ### Configure SQLDelight
 
-The SQLDelight library allows generating a type-safe Kotlin database API from SQL queries. During compilation, the
+The SQLDelight library allows you to generate a type-safe Kotlin database API from SQL queries. During compilation, the
 generator validates the SQL queries and turns them into Kotlin code that can be used in the shared module.
 
-The library is already in the project. To configure it, in the `shared` directory, add the `sqldelight` block, which
-will contain a list of databases and their parameters, to the end of the `build.gradle.kts` file:
+The library is already in the project. To configure it, go to the `shared` directory and add the `sqldelight` block to
+the end of the `build.gradle.kts` file. The block will contain a list of databases and their parameters:
 
 ```kotlin
 sqldelight {
@@ -200,8 +197,10 @@ sqldelight {
 
 The `packageName` parameter specifies the package name for the generated Kotlin sources.
 
-There is an official [plugin](https://cashapp.github.io/sqldelight/multiplatform_sqlite/intellij_plugin/) for working
-with `.sq` files.
+> Consider installing the official [SQLite plugin](https://cashapp.github.io/sqldelight/multiplatform_sqlite/intellij_plugin/)
+> for working with `.sq` files.
+>
+{type="tip"}
 
 ### Generate the database API
 
@@ -210,9 +209,9 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
 
 1. In `shared/src/commonMain`, create a new `sqldelight` directory and add
    the `com.jetbrains.handson.kmm.shared.cache` package.
-2. Inside it, create an `.sq` file with the name of the database, `AppDatabase.sq`. All the SQL queries for
+2. Inside the package, create an `.sq` file with the name of the database, `AppDatabase.sq`. All the SQL queries for
    the application will be in this file.
-3. The database will contain two tables with data about launches and rockets. To create these tables, add the following
+3. The database will contain two tables with data about launches and rockets. To create the tables, add the following
    code to the `AppDatabase.sq` file:
 
    ```text
@@ -235,7 +234,7 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
    );
    ```
 
-4. To insert data into these tables, declare SQL insert functions:
+4. To insert data into the tables, declare SQL insert functions:
 
    ```text
    insertLaunch:
@@ -271,17 +270,17 @@ First, create the `.sq` file, which will contain all the needed SQL queries. By 
    LEFT JOIN Rocket ON Rocket.id == Launch.rocketId;
    ```
 
-When the project is compiled, the generated Kotlin code will be stored in the `shared/build/generated/sqldelight`
+After the project is compiled, the generated Kotlin code will be stored in the `shared/build/generated/sqldelight`
 directory. The generator will create an interface named `AppDatabase`, as specified in `build.gradle.kts`.
 
 ### Create platform database drivers
 
 To initialize `AppDatabase`, pass an `SqlDriver` instance to it. SQLDelight provides multiple platform-specific
-implementations of the SQLite driver, so you need to create them for each platform separately. You can do this with
+implementations of the SQLite driver, so you need to create them for each platform separately. You can do this by using
 [expected and actual declarations](multiplatform-connect-to-apis.md).
 
 1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
-   the `com.jetbrains.handson.kmm.shared.cache` package and the `DatabaseDriverFactory` class inside:
+   the `com.jetbrains.handson.kmm.shared.cache` package and the `DatabaseDriverFactory` class inside it:
 
    ```kotlin
    package com.jetbrains.handson.kmm.shared.cache
@@ -293,13 +292,13 @@ implementations of the SQLite driver, so you need to create them for each platfo
    }
    ```
 
-   Now you need to provide `actual` implementations for this expected class.
+   Now provide `actual` implementations for this expected class.
 
 2. On Android, the `AndroidSqliteDriver` class implements the SQLite driver. Pass the database information and the link
    to the context to the `AndroidSqliteDriver` class constructor.
 
    For this, in the `shared/src/androidMain/kotlin` directory, create the `com.jetbrains.handson.kmm.shared.cache`
-   package and a `DatabaseDriverFactory` class inside with the actual implementation:
+   package and a `DatabaseDriverFactory` class inside it with the actual implementation:
 
    ```kotlin
    package com.jetbrains.handson.kmm.shared.cache
@@ -316,7 +315,7 @@ implementations of the SQLite driver, so you need to create them for each platfo
    ```
 
 3. On iOS, the SQLite driver implementation is the `NativeSqliteDriver` class. In the `shared/src/iosMain/kotlin`
-   directory, create a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside with
+   directory, create a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside it with
    the actual implementation:
 
    ```kotlin
@@ -332,16 +331,16 @@ implementations of the SQLite driver, so you need to create them for each platfo
    }
    ```
 
-Instances of these factories will be created later in the code of the Android and iOS projects.
+Instances of these factories will be created later in the code of your Android and iOS projects.
 
-You can navigate through `expect` declarations and `actual` realizations with the handy gutter:
+You can navigate through the `expect` declarations and `actual` realizations by clicking the handy gutter icon:
 
 ![Expect/Actual gutter](expect-actual-gutter.png){width=500}
 
 ### Implement cache
 
-For now, you have platform database drivers and an `AppDatabase` class to perform database operations. Create
-a `Database` class, which will wrap the `AppDatabase` class and contain caching logic.
+So far, you have added platform database drivers and an `AppDatabase` class to perform database operations. Now create
+a `Database` class, which will wrap the `AppDatabase` class and contain the caching logic.
 
 1. In the common source set `shared/src/commonMain/kotlin`, create a new `Database` class in
    the `com.jetbrains.handson.kmm.shared.cache` package. It will be common to both platform logics.
@@ -421,8 +420,8 @@ a `Database` class, which will wrap the `AppDatabase` class and contain caching 
    }
    ```
 
-   The argument passed to `selectAllLaunchesInfo` is a function that maps the database entity class to another type. In
-   this case, to the `RocketLaunch` data model class.
+   The argument passed to `selectAllLaunchesInfo` is a function that maps the database entity class to another type,
+   which in this case is the `RocketLaunch` data model class.
 
 5. Add a function to insert data into the database:
 
@@ -465,20 +464,19 @@ a `Database` class, which will wrap the `AppDatabase` class and contain caching 
 
 The `Database` class instance will be created later, along with the SDK facade class.
 
-> You can find the state of the project after this section on the final
-> branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
 ## Implement an API service
 
-To retrieve data via the internet, you'll need the [SpaceX public API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
+To retrieve data over the internet, you'll need the [SpaceX public API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
 and a single method to retrieve the list of all launches from the `v5/launches` endpoint.
 
 Create a class that will connect the application to the API:
 
 1. In the common source set `shared/src/commonMain/kotlin`, create the `com.jetbrains.handson.kmm.shared.network`
-   package and the `SpaceXApi` class inside:
+   package and the `SpaceXApi` class inside it:
 
    ```kotlin
    package com.jetbrains.handson.kmm.shared.network
@@ -503,14 +501,13 @@ Create a class that will connect the application to the API:
    }
    ```
 
-    * This class executes network requests and deserializes JSON responses into entities from the `entity` package. For
-      this, the Ktor `HttpClient` instance initializes and stores the `httpClient` property.
+    * This class executes network requests and deserializes JSON responses into entities from the `entity` package.
+      The Ktor `HttpClient` instance initializes and stores the `httpClient` property.
+    * This code uses the [Ktor `ContentNegotiation` plugin](https://ktor.io/docs/serialization-client.html)
+      to deserialize the `GET` request result. The plugin processes the request and the response payload as JSON,
+      serializing and deserializing them using a special serializer.
 
-    * To deserialize the `GET` request result, the [Ktor `ContentNegotiation` plugin](https://ktor.io/docs/serialization-client.html)
-      is installed. It processes the request and the response payload as JSON, serializing and deserializing them using a
-      specific serializer.
-
-2. Declare the data retrieval function that will return the list of `RocketLaunch`:
+2. Declare the data retrieval function that will return the list of `RocketLaunch`es:
 
    ```kotlin
    suspend fun getAllLaunches(): List<RocketLaunch> {
@@ -519,14 +516,14 @@ Create a class that will connect the application to the API:
    ```
 
    * The `getAllLaunches` function has the `suspend` modifier because it contains a call of the suspend function `get()`,
-   which includes an asynchronous operation to retrieve data over the internet and can only be called from within a
-   coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
-   * To send requests, the URL is defined inside the `get()` function.
+     which includes an asynchronous operation to retrieve data over the internet and can only be called from a
+     coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   * The URL is defined inside the `get()` function to send requests.
 
 ### Add internet access permission
 
-To access the internet, the Android application needs appropriate permission. Since all network requests are made
-from the shared module, adding internet access permission to this module's manifest makes sense.
+To access the internet, the Android application needs the appropriate permission. Since all network requests are made
+from the shared module, adding the internet access permission to this module's manifest makes sense.
 
 In the `androidApp/src/main/AndroidManifest.xml` file, add the following permission to the manifest:
 
@@ -538,8 +535,7 @@ In the `androidApp/src/main/AndroidManifest.xml` file, add the following permiss
 </manifest>
 ```
 
-> You can find the state of the project after this section on the final
-> branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
@@ -563,7 +559,7 @@ public class.
    }
    ```
 
-   The class will be the facade over `Database` and `SpaceXApi` classes.
+   This class will be the facade over the `Database` and `SpaceXApi` classes.
 
 2. To create a `Database` class instance, you'll need to provide the `DatabaseDriverFactory` platform instance to it, so
    you'll inject it from the platform code through the `SpaceXSDK` class constructor.
@@ -585,28 +581,27 @@ public class.
    }
    ```
 
-    * The class contains one function for getting all launch information. Depending on the value of `forceReload`, it
-      returns cached values or loads data from the internet and then updates the cache with the results. If there is no
-      cached data, it loads information from the internet independently of the `forceReload` flag value.
-    * Clients of your SDK could use a `forceReload` flag to load the latest information about the launches, which would
-      allow the user to use the pull-to-refresh gesture.
-    * To handle exceptions produced by the Ktor client in Swift, the function is marked with the `@Throws` annotation.
+   * The class contains one function for getting all launch information. Depending on the value of `forceReload`, it
+     returns cached values or loads the data from the internet and then updates the cache with the results. If there is
+     no cached data, it loads the data from the internet independently of the `forceReload` flag’s value.
+   * Clients of your SDK could use a `forceReload` flag to load the latest information about the launches, which would
+     allow the user to use the pull-to-refresh gesture.
+   * To handle exceptions produced by the Ktor client in Swift, the function is marked with the `@Throws` annotation.
 
-   All Kotlin exceptions are unchecked, while Swift has only checked errors. Thus, to make Swift code aware of expected
-   exceptions, Kotlin functions should be marked with an `@Throws` annotation specifying a list of potential exception
+   All Kotlin exceptions are unchecked, while Swift has only checked errors. Thus, to make your Swift code aware of expected
+   exceptions, Kotlin functions should be marked with the `@Throws` annotation specifying a list of potential exception
    classes.
 
-> You can find the state of the project after this section on the final
-> branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
 ## Create the Android application
 
-Kotlin Multiplatform Mobile plugin for Android Studio has already handled the configuration you need, so the Kotlin
+The Kotlin Multiplatform Mobile plugin for Android Studio has already handled the configuration for you, so the Kotlin
 Multiplatform shared module is already connected to your Android application.
 
-Before implementing the UI and presentation logic, add all the required dependencies to
+Before implementing the UI and the presentation logic, add all the required dependencies to
 the `androidApp/build.gradle.kts`:
 
 ```kotlin
@@ -630,13 +625,14 @@ dependencies {
 1. To implement the UI, create the `layout/activity_main.xml` file in `androidApp/src/main/res`.
 
    The screen is based on the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView`
-   and `FrameLayout` with a background with `ProgressBar`across its center:
+   and `FrameLayout` with a background with a `ProgressBar` across its center:
 
    ```xml
    ```
    {src="multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="1-26"}
 
-2. In `androidApp/src/main/java`, replace the implementation of the `MainActivity` class, adding the properties for the UI elements:
+2. In `androidApp/src/main/java`, replace the implementation of the `MainActivity` class, adding the properties for the
+   UI elements:
 
    ```kotlin
    class MainActivity : AppCompatActivity() {
@@ -658,7 +654,7 @@ dependencies {
    ```
 
 3. For the `RecyclerView` element to work, you need to create an adapter (as a subclass of `RecyclerView.Adapter`) that
-   will convert raw data into list item views. For this, create a separate `LaunchesRvAdapter` class:
+   will convert raw data into list item views. To do this, create a separate `LaunchesRvAdapter` class:
 
    ```kotlin
    class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
@@ -690,7 +686,7 @@ dependencies {
    ```
    {src="multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="1-28"}
 
-5. In `androidApp/src/main/res/values/`, you can create your appearance of the app or copy the following styles:
+5. In `androidApp/src/main/res/values/`, either create your appearance of the app or copy the following styles:
 
    <tabs>
    <tab title="colors.xml">
@@ -779,9 +775,7 @@ dependencies {
    }
    ```
 
-7. Create an instance of `LaunchesRvAdapter` in the `MainActivity` class, configure the `RecyclerView` component, add a
-   listener to the `SwipeRefreshLayout` to catch the screen refresh gesture, and implement all the `LaunchesListView`
-   interface functions:
+7. Update the `MainActivity` class as follows:
 
    ```kotlin
    class MainActivity : AppCompatActivity() {
@@ -807,7 +801,10 @@ dependencies {
    }
    ```
 
-### Implement presentation logic
+   Here you create an instance of `LaunchesRvAdapter`, configure the `RecyclerView` component, and implement all the
+   `LaunchesListView` interface functions. To catch the screen refresh gesture, you add a listener to the `SwipeRefreshLayout`.
+
+### Implement the presentation logic
 
 1. Create an instance of the `SpaceXSDK` class from the shared module and inject an instance of `DatabaseDriverFactory` in
    it:
@@ -820,7 +817,7 @@ dependencies {
    ```
 
 2. Implement the private function `displayLaunches(needReload: Boolean)`. It runs the `getLaunches()` function inside
-   the coroutine launched in the main `CoroutineScope`, handles exceptions, and displays the error text in the toast:
+   the coroutine launched in the main `CoroutineScope`, handles exceptions, and displays the error text in the toast message:
 
    ```kotlin
    class MainActivity : AppCompatActivity() {
@@ -848,15 +845,14 @@ dependencies {
    }
    ```
 
-3. Select **androidApp** from the run configurations menu, choose emulator, and press the run button:
+3. Select **androidApp** from the run configurations menu, choose an emulator, and click the run button:
 
 ![Android application](android-application.png){width=350}
 
 You've just created an Android application that has its business logic implemented in the Kotlin Multiplatform Mobile
 module.
 
-> You can find the state of the project after this section on the final
-> branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
@@ -865,19 +861,19 @@ module.
 For the iOS part of the project, you'll make use of [SwiftUI](https://developer.apple.com/xcode/swiftui/) to build the user
 interface and the "Model View View-Model" pattern to connect the UI to the shared module, which contains all the business logic.
 
-The shared module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration.
-You can import it the same way as with regular iOS dependencies: `import shared`.
+The shared module is already connected to the iOS project because the Android Studio plugin wizard has done all the configuration.
+You can import it the same way you would regular iOS dependencies: `import shared`.
 
 ### Implement the UI
 
-First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item from the list. It will be based on `HStack`
+First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item from the list. It will be based on the `HStack`
 and `VStack` views. There will be extensions on the `RocketLaunchRow` structure with useful helpers for displaying the
 data.
 
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project and select the `iosApp` folder. Click **Open**.
-3. In your Xcode project, create a new Swift file with the type **SwiftUI View** named `RocketLaunchRow` and update it with
-   the following code:
+3. In your Xcode project, create a new Swift file with the type **SwiftUI View**, name it `RocketLaunchRow`, and update
+   it with the following code:
 
    ```swift
    import SwiftUI
@@ -918,10 +914,10 @@ data.
    }
    ```
 
-   The list of the launches will be displayed in the `ContentView`, which the project wizard has already created.
+   The list of launches will be displayed in the `ContentView`, which the project wizard has already created.
 
-4. Create a `ViewModel` class for the `ContentView`, which will prepare and manage data and declare it as an extension
-   to the `ContentView`, as they are closely connected. Add the following code to `ContentView.swift`:
+4. Create a `ViewModel` class for the `ContentView`, which will prepare and manage the data. Declare it as an extension
+   to the `ContentView`, as they are closely connected, and then add the following code to `ContentView.swift`:
 
    ```swift
    // ...
@@ -981,16 +977,16 @@ data.
    parameter for initializing the `List` Swift UIView. The `RocketLaunch` class already has a property named `id`, so
    add the following to the bottom of `ContentView.swift`:
 
-   ```
+   ```Swift
    extension RocketLaunch: Identifiable { }
    ```
 
-### Load data
+### Load the data
 
-To retrieve data about the rocket launches in the view model, you'll need an instance of the `SpaceXSDK` from the Multiplatform
+To retrieve the data about the rocket launches in the view model, you'll need an instance of `SpaceXSDK` from the Multiplatform
 library.
 
-1. In the `ContentView.swift`, pass it in through the constructor:
+1. In `ContentView.swift`, pass it in through the constructor:
 
    ```swift
    extension ContentView {
@@ -1011,8 +1007,7 @@ library.
    }
    ```
 
-2. Call the `getLaunches` from the `SpaceXSDK` class and save the result in the `launches` property:
-
+2. Call the `getLaunches()` function from the `SpaceXSDK` class and save the result in the `launches` property:
    
    ```Swift
    func loadLaunches(forceReload: Bool) {
@@ -1027,14 +1022,13 @@ library.
            }
    ```
 
-   * When you compile a Kotlin module into an Apple
-   framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
-   are available in it as functions with callbacks (`completionHandler`).
+   * When you compile a Kotlin module into an Apple framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
+     are available in it as functions with callbacks (`completionHandler`).
    * Since the `getLaunches` function is marked with the `@Throws(Exception::class)` annotation, any exceptions that are
-   instances of the `Exception` class or its subclass will be propagated as `NSError`. So all such errors can be handled in
-   the `completionHandler`.
+     instances of the `Exception` class or its subclass will be propagated as `NSError`. Therefore, all such errors can
+     be handled in the `completionHandler` function.
 
-3. Go to the entry point of the app, `iOSApp.swift`, initialize the SDK, view, and view model:
+3. Go to the entry point of the app, `iOSApp.swift`, and initialize the SDK, view, and view model:
 
    ```swift
    import SwiftUI
@@ -1051,21 +1045,21 @@ library.
    }
    ```
 
-4. In Android Studio, switch to the **iosApp** configuration, choose emulator, and run it to see the result:
+4. In Android Studio, switch to the **iosApp** configuration, choose an emulator, and run it to see the result:
 
 ![iOS Application](ios-application.png){width=350}
 
-> You can find the final version of the project on the final branch [here](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+> You can find the final version of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
 >
 {type="note"}
 
 ## What's next?
 
-There were some potentially heavy operations in this tutorial, like parsing JSON and making requests to the database in
+This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in
 the main thread. To learn about how to write concurrent code and optimize your app,
-see [how to work with concurrency](multiplatform-mobile-concurrency-overview.md).
+see [How to work with concurrency](multiplatform-mobile-concurrency-overview.md).
 
-You can also check out these materials if you want to:
+You can also check out these additional learning materials:
 
 * [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-engines.html#mpp-config)
 * [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)

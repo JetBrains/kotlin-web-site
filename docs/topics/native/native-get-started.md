@@ -152,9 +152,6 @@ performs the incremental build of the project.
 
 ## What's next?
 
-Once you have created your first application, you can go to Kotlin hands-on labs and complete long-form tutorials on Kotlin/Native. 
-
-For Kotlin/Native, the following hands-on labs are currently available:
-
-* [Learn about the concurrency model in Kotlin/Native](https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction) shows you how to build a command-line application and work with states in a multi-threaded environment.
-* [Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) explains how to create a native HTTP client and interoperate with C libraries.
+Once you have created your first application, you can complete our long-form tutorial on Kotlin/Native,
+[Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) that explains how to create a native HTTP
+client and interoperate with C libraries.

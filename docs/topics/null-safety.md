@@ -2,7 +2,7 @@
 
 ## Nullable types and non-null types
 
-Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions).
+Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
 reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException`,

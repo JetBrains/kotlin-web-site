@@ -148,6 +148,7 @@ engine on a port, in this case, `9090`.
     import io.ktor.server.plugins.cors.routing.*
     import io.ktor.server.request.*
     import io.ktor.server.response.*
+    import io.ktor.server.http.content.*
     import io.ktor.server.routing.*
     
     fun main() {

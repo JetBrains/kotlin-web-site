@@ -53,9 +53,9 @@ fun read(
 ) { /*...*/ }
 ```
 
-A default value is defined using `=` after the type.
+A default value is set by appending `=` to the type.
 
-Overriding methods always use the same default parameter values as the base method.
+Overriding methods always use the base method's default parameter values.
 When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
 
 ```kotlin
@@ -97,13 +97,13 @@ foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 
 ### Named arguments
 
-When calling a function, you can name one or more of its arguments. This can be helpful when a function has many
+You can name one or more of a function's arguments when calling it. This can be helpful when a function has many
 arguments and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
 
-When you use named arguments in a function call, you can freely change the order they are listed in, and if you want to
+When you use named arguments in a function call, you can freely change the order that they are listed in. If you want to
 use their default values, you can just leave these arguments out altogether.
 
-Consider the following function, `reformat()`, which has 4 arguments with default values.
+Consider the `reformat()` function, which has 4 arguments with default values.
 
 ```kotlin
 fun reformat(
@@ -149,7 +149,7 @@ fun foo(vararg strings: String) { /*...*/ }
 foo(strings = *arrayOf("a", "b", "c"))
 ```
 
-> On the JVM: You can't use the named argument syntax when calling Java functions because Java bytecode does not
+> When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
 > always preserve the names of function parameters.
 >
 {type="note"}
@@ -291,7 +291,7 @@ class MyStringCollection {
 ## Function scope
 
 Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
-which you are required to do in languages such as Java, C#, and Scala. In addition
+which you are required to do in languages such as Java, C#, and Scala ([top level definition is available since Scala 3](https://docs.scala-lang.org/scala3/book/taste-toplevel-definitions.html#inner-main)). In addition
 to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
 
 ### Local functions

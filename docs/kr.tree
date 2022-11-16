@@ -39,8 +39,8 @@
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Early Access Preview">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-RC" hidden="true"/>
+    <toc-element toc-title="Early access preview (EAP)">
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-Beta"/>
         <toc-element toc-title="Participate" id="eap.md"/>
         <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
         <toc-element id="configure-build-for-eap.md"/>
@@ -298,6 +298,7 @@
         <toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
         <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
+        <toc-element toc-title="Datetime (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
     </toc-element>
 
