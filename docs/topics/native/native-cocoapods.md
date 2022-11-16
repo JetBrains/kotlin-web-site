@@ -78,7 +78,7 @@ If you want to configure your project manually:
                 baseName = "MyFramework"
                 
                 // Optional properties
-                // Dynamic framework support
+                // Specify the framework linking type. It's dynamic by default. 
                 isStatic = false
                 // Dependency export
                 export(project(":anotherKMMModule"))
