@@ -98,7 +98,7 @@ The `framework` block is nested inside `cocoapods` and configures the framework 
 | **Name**           | **Description**                                                                         | 
 |--------------------|-----------------------------------------------------------------------------------------|
 | `baseName`         | A required framework name. Use this property instead of the deprecated `frameworkName`. |
-| `isStatic`         | Enables dynamic framework support.                                                      |
+| `isStatic`         | Defines the framework linking type. It's dynamic by default.                            |
 | `transitiveExport` | Enables dependency export.                                                              |                                                      
 
 ```kotlin
