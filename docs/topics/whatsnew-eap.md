@@ -64,7 +64,8 @@ Updated the Lombok compiler plugin so that it now supports the `@Builder` annota
 
 ## Standard library
 
-* Updated the JVM target to version 1.8.
+* Updated the JVM target of the libraries in Kotlin distribution to version 1.8:
+   * The contents of the artifacts `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` have been moved into `kotlin-stdlib`.
 * Stabilized extension functions for `java.util.Optional`.
 * Stabilized functions:
     * `cbrt()`

@@ -1,3 +1,59 @@
+- lang: cn
+  startDate: '2022-11-26'
+  endDate: '2022-11-27'
+  online: true
+  speaker: 范圣佑, 王鹏, 乔禹昂, 李盈瑩, 2BAB, Pamela Hill, Alina Dolgikh, and more
+  title: ''
+  subject: '2022 Kotlin 中文开发者大会'
+  url: https://pages.jetbrains.com/kotlin-online-conference-for-chinese-developers-2022
+- lang: es
+  startDate: '2022-11-21'
+  endDate: '2022-11-26'
+  online: true
+  speaker: Adrián Catalán, Anahí Salgado, Antonio Leiva, Dinorah Tovar, Santiago Carrillo, and more
+  title: ''
+  subject: 'Compose Camp Kotlin La Paz'
+  url: https://kotlinlapaz.github.io/ComposeCamp/
+- lang: en
+  startDate: '2022-11-16'
+  endDate: '2022-11-18'
+  location: Nairobi, Kenya
+  speaker: Pamela Hill, Victor Kabata, Rygel Louv, Breimer John, Brian Odhiambo, Harny Otuoniyo, and more
+  title: ''
+  subject: 'droidconKE 2022'
+  url: https://www.droidcon.com/events/droidcon-kenya-2022/
+- lang: en
+  startDate: '2022-11-22'
+  endDate: '2022-11-22'
+  location: Paris, France
+  speaker: John O’Reilly
+  title: PAUG and Cocoaheads @ BlaBlaCar
+  subject: 'The ever increasing convergence of native iOS and Android mobile development'
+  url: https://www.meetup.com/android-paris/events/289612876/
+- lang: en
+  startDate: '2022-11-22'
+  endDate: '2022-11-22'
+  location: Paris, France
+  speaker: Etienne Vautherin
+  title: PAUG and Cocoaheads @ BlaBlaCar
+  subject: 'Jetpack Compose and KMM could change the life of a mobile developer'
+  url: https://www.meetup.com/android-paris/events/289612876/
+- lang: en
+  startDate: '2022-11-12'
+  endDate: '2022-11-12'
+  location: Abuja, Nigeria
+  speaker: Slick Shola Akinroliei
+  title: Compose Camp Kotlin Abuja
+  subject: 'Kotlin ... The spotlit language for mobile developers'
+  url: https://www.meetup.com/kotlin-abuja-user-group-nigeria/events/288874459/
+- lang: en
+  startDate: '2022-11-12'
+  endDate: '2022-11-12'
+  location: Abuja, Nigeria
+  speaker: Adetayo James
+  title: Compose Camp Kotlin Abuja
+  subject: 'Getting started and Building your first App in Kotlin'
+  url: https://www.meetup.com/kotlin-abuja-user-group-nigeria/events/288874459/
 - lang: it
   startDate: '2022-11-30'
   endDate: '2022-11-30'
@@ -178,7 +234,7 @@
   startDate: '2022-11-24'
   endDate: '2022-11-24'
   location: Amsterdam, The Netherlands
-  speaker: Call for speakers is open. Speakers to be announced soon.
+  speaker: Urs Peter, Márton Braun, Simon Vergauwen, Brian Collins, Pamela Hill, and more
   title: ''
   subject: Kotlin Dev Day. Advanced Edition
   url: https://kotlindevday.com/

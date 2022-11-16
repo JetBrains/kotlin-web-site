@@ -432,7 +432,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: remove the `kotlinOptions.jdkHome` compiler option used to include a custom JDK from the specified location 
-> into the classpath instead of the default `JAVA_HOME`. Use [Java toolchains](gradle.md#gradle-java-toolchains-support) instead
+> into the classpath instead of the default `JAVA_HOME`. Use [Java toolchains](gradle-configure-project.md#gradle-java-toolchains-support) instead
 >
 > **Deprecation cycle:**
 >

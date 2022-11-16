@@ -271,7 +271,7 @@ For example, you implement several modules in Kotlin and want to access them fro
 several Kotlin/Native frameworks in a Swift application is limited, but you can create an umbrella framework and
 export all these modules to it.
 
-> You can export only [`api` dependencies](gradle.md#dependency-types) of the corresponding source set.  
+> You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.  
 >
 {type="note"}
 
