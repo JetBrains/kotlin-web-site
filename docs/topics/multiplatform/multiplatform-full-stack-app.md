@@ -554,8 +554,6 @@ import io.ktor.serialization.kotlinx.json.*
 
 import kotlinx.browser.window
 
-val endpoint = window.location.origin // only needed until https://youtrack.jetbrains.com/issue/KTOR-453 is resolved
-
 val jsonClient = HttpClient {
     install(ContentNegotiation) {
         json()
@@ -563,18 +561,18 @@ val jsonClient = HttpClient {
 }
 
 suspend fun getShoppingList(): List<ShoppingListItem> {
-    return jsonClient.get(endpoint + ShoppingListItem.path).body()
+    return jsonClient.get(ShoppingListItem.path).body()
 }
 
 suspend fun addShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.post(endpoint + ShoppingListItem.path) {
+    jsonClient.post(ShoppingListItem.path) {
         contentType(ContentType.Application.Json)
         setBody(shoppingListItem)
     }
 }
 
 suspend fun deleteShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.delete(endpoint + ShoppingListItem.path + "/${shoppingListItem.id}")
+    jsonClient.delete(ShoppingListItem.path + "/${shoppingListItem.id}")
 }
 ```
 
