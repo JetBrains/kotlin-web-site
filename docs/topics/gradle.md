@@ -927,17 +927,66 @@ Here is a complete list of options for Gradle tasks:
 
 ### Attributes common to JVM, JS, and JS DCE
 
-| Name | Description                                                                                                                                         | Possible values |Default value |
-|------|-----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------|
-| `allWarningsAsErrors` | Report an error if there are any warnings                                                                                                           |  | false |
-| `suppressWarnings` | Don't generate warnings                                                                                                                             |  | false |
-| `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)         |  | false |
-| `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage) |  | [] |
+| Name | Description                                                                                                                                              | Possible values |Default value |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------|
+| `allWarningsAsErrors` | Report an error if there are any warnings                                                                                                                |  | false |
+| `suppressWarnings` | Don't generate warnings                                                                                                                                  |  | false |
+| `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)              |  | false |
+| `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freeCompilerArgs) |  | [] |
 
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL, 
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
 > 
 > {type="warning"}
+
+#### Example of additional arguments usage via freeCompilerArgs {initial-collapse-state="collapsed"}
+
+Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single
+argument to this attribute or a list of arguments:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+// ...
+
+val compileKotlin: KotlinCompile by tasks
+
+// Single experimental argument
+compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+// Single additional argument, can be a key-value pair
+compileKotlin.kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+// List of arguments
+compileKotlin.kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+compileKotlin {
+    // Single experimental argument
+    kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+    // Single additional argument, can be a key-value pair
+    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+    // List of arguments
+    kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+}
+
+//or
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += "-Xexport-kdoc"
+        kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+        freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ### Attributes common to JVM and JS
 
@@ -970,55 +1019,6 @@ Here is a complete list of options for Gradle tasks:
 | `sourceMapPrefix` | Add the specified prefix to paths in the source map |  |  |
 | `target` | Generate JS files for specific ECMA version | "v5" | "v5" |
 | `typedArrays` | Translate primitive arrays to JS typed arrays |  | true |
-
-#### Example of additional arguments usage
-
-Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single 
-argument to this attribute or a list of arguments:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
-// ...
-
-val compileKotlin: KotlinCompile by tasks
-
-// Single experimental argument
-compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
-// Single additional argument, can be a key-value pair
-compileKotlin.kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-// List of arguments
-compileKotlin.kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-compileKotlin {
-  // Single experimental argument
-  kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
-  // Single additional argument, can be a key-value pair
-  kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-  // List of arguments
-  kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
-}
-
-//or
-
-compileKotlin {
-  kotlinOptions {
-    freeCompilerArgs += "-Xexport-kdoc"
-    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-    freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
-  }
-}
-```
-
-</tab>
-</tabs>
 
 ## Generating documentation
 
