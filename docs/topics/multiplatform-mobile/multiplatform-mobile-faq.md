@@ -49,9 +49,9 @@ Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](ro
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
-The following video presents our plans on the upcoming stage of the Kotlin Multiplatform Mobile development – its promotion to [Beta](components-stability.md): 
+The following video presents the current state and our plans for the Kotlin Multiplatform Mobile development: 
 
-<video href="LE-Dy9XCLxk" title="Kotlin Multiplatform Mobile Beta Roadmap"/>
+<video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
 
 ### Can I run an iOS application on Microsoft Windows or Linux?
 
@@ -64,7 +64,7 @@ If you are going to work with shared code or Android-specific code, you can work
 ### Where can I get complete examples to play with?
 
 * [Curated samples](multiplatform-mobile-samples.md)
-* Several [hands-on tutorials](https://play.kotlinlang.org/hands-on/overview)
+* [Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md)
 
 ### In which IDE should I work on my cross-platform app?
 

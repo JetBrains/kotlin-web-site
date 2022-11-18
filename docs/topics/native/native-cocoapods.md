@@ -16,14 +16,14 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 Install the [CocoaPods dependency manager](https://cocoapods.org/):
 
-```ruby
+```bash
 sudo gem install cocoapods
 ```
 
 <procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
     <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
     <p>
-        <code style="block" lang="Ruby">
+        <code style="block" lang="bash">
             sudo gem install cocoapods-generate
         </code>
     </p>
@@ -47,8 +47,8 @@ If you want to configure your project manually:
     
     ```kotlin
     plugins {
-       kotlin("multiplatform") version "%kotlinVersion%"
-       kotlin("native.cocoapods") version "%kotlinVersion%"
+        kotlin("multiplatform") version "%kotlinVersion%"
+        kotlin("native.cocoapods") version "%kotlinVersion%"
     }
     ```
 
@@ -86,7 +86,7 @@ If you want to configure your project manually:
                 // Bitcode embedding
                 embedBitcode(BITCODE)
             }
-            
+
             // Maps custom Xcode configuration to NativeBuildType
             xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
             xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] = NativeBuildType.RELEASE
@@ -122,7 +122,7 @@ the Podspec in the Podfile.
 
     ```ruby
     target 'ios-app' do
-        # ... other depedencies ...
+        # ... other dependencies ...
         pod 'podspecWithFilesExample', :path => 'cocoapods/externalSources/url/podspecWithFilesExample'
     end
     ```
@@ -136,7 +136,7 @@ of specs at the beginning of your Podfile:
     source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 
     target 'kotlin-cocoapods-xcproj' do
-        # ... other depedencies ...
+        # ... other dependencies ...
         pod 'example'
     end
     ```
@@ -189,7 +189,7 @@ name, specify it explicitly:
 
     ```kotlin
     pod("AFNetworking") {
-      moduleName = "AppsFlyerLib"
+        moduleName = "AppsFlyerLib"
     }
     ```
 #### Check the definition file

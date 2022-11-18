@@ -414,7 +414,7 @@ This class was used for writing compiler plugins. In the following releases, we'
 We removed the `kotlin.useFallbackCompilerSearch` build option and the `noReflect` and `includeRuntime` compiler options.
 The `useIR` compiler option has been hidden and will be removed in upcoming releases.
 
-Learn more about the [currently supported compiler options](gradle.md#compiler-options) in the Kotlin Gradle plugin.
+Learn more about the [currently supported compiler options](gradle-compiler-options.md) in the Kotlin Gradle plugin.
 
 ## Standard library
 

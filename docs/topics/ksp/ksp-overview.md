@@ -173,6 +173,6 @@ The table below includes a list of popular libraries on Android and their variou
 |Auto Factory|Not yet supported|[Link](https://github.com/google/auto/issues/982)|
 |Dagger|Not yet supported|[Link](https://github.com/google/dagger/issues/2349)|
 |Hilt|Not yet supported|[Link](https://issuetracker.google.com/179057202)|
-|Glide|Not yet supported|[Link](https://github.com/bumptech/glide/issues/4492)|
+|Glide|[Officially supported](https://github.com/bumptech/glide)|   |
 |DeeplinkDispatch|[Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)| |
 |Micronaut|In Progress|[Link](https://github.com/micronaut-projects/micronaut-core/issues/6781)|

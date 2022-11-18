@@ -42,13 +42,24 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
+You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
+at the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
+
 ### kotlinx.serialization
 
-For `kotlinx.serilization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
+For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
 with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
 
 You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
-the `plugins` block at the very beginning of the `build.gradle` file in the shared module:
+the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
 
 ```kotlin
 plugins {
@@ -89,11 +100,13 @@ sourceSets {
     val iosMain by creating {
         // ...
         dependencies {
-            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion") 
         }
     }
 }
 ```
+
+Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
 ## Create API requests
 
@@ -138,6 +151,8 @@ data class RocketLaunch (
     import kotlinx.serialization.json.Json
     
     class Greeting {
+        private val platform: Platform = getPlatform()
+        
         private val httpClient = HttpClient {
             install(ContentNegotiation) {
                 json(Json {
@@ -169,7 +184,7 @@ data class RocketLaunch (
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             return "Guess what it is! > ${platform.name.reversed()}!" +
-                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎅🏼 " +
+                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎆" +
                     "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
         }
     }
@@ -215,7 +230,8 @@ straightforward:
     }
     ```
 
-2. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
+2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
    ```kotlin
    import androidx.compose.runtime.*
@@ -260,8 +276,12 @@ the shared module, which contains all the business logic.
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
+> If you see an error saying that the shared module is unresolved, run the app.
+> 
+{type="tip"}
+
 1. Launch your Xcode app and select **Open a project or file**.
-2. Navigate to your project, for example KotlinMultiplatformSandbox, and select the `iosApp` folder. Click **Open**.
+2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
 3. In `iosApp/iosApp.swift`, update the entry point for your app:
    
    ```swift
@@ -301,8 +321,8 @@ is already imported and used in `ContentView.swift` with `import shared`.
     ```
 
    * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (ContentView.ViewModel)
-   with the view (ContentView).
+   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+   with the view (`ContentView`).
    * `ContentView.ViewModel` is declared as an `ObservableObject`.
    * The `@Published` wrapper is used for the `text` property.
    * The `@ObservedObject` property wrapper is used to subscribe to the view model.
@@ -335,22 +355,24 @@ is already imported and used in `ContentView.swift` with `import shared`.
    * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
-   see the [iOS intergation](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
+   see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
    That's why `DispatchQueue.main.async` is used to update `text` property.
 
-6. Run both the iOS and Android applications from Android Studio and make sure your app's logic is synced:
+6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width="500"}
 
 ## Next step
 
-Now it's time to [wrap up your project](multiplatform-mobile-wrap-up.md) and see what's next.
+In the final part of the tutorial, you'll wrap up your project and see what steps to take next.
+
+**[Proceed to the next part](multiplatform-mobile-wrap-up.md)**
 
 ### See also
 
 * Explore various approaches to [composition of suspending functions](composing-suspending-functions.md).
 * Learn more about the [interoperability with Objective-C frameworks and libraries](native-objc-interop.md).
-* Complete this tutorial on [networking and data storage](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction).
+* Complete this tutorial on [networking and data storage](multiplatform-mobile-ktor-sqldelight.md).
 
 ## Get help
 

@@ -149,13 +149,9 @@ Converting the Java code above to Kotlin code directly results in the following:
 
 ```kotlin
 // Kotlin
-data class Order {
-  val customer: Customer
-}
+data class Order(val customer: Customer)
 
-data class Customer {
-  val name: String
-}
+data class Customer(val name: String)
 
 val order = findOrder()
 
@@ -268,7 +264,6 @@ In Kotlin, use [aggregate operations](collection-aggregate.md):
 // Kotlin
 val numbers = listOf<Int>()
 println("Max: ${numbers.maxOrNull()}")
-}
 ```
 {id="aggregate-functions-kotlin"}
 

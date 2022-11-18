@@ -49,7 +49,7 @@ You can rely on that fact, for example, to write exhaustive `when` expressions.
 ```kotlin
 fun draw(polygon: Polygon) = when (polygon) {
    is Rectangle -> // ...
-   is Triangle -> // …
+   is Triangle -> // ...
    // else is not needed - all possible implementations are covered
 }
 
@@ -164,7 +164,7 @@ The default target version for Kotlin/JVM compilations is now `1.8`. The `1.6` t
 
 If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
-* [in Gradle](gradle.md#attributes-specific-to-jvm)
+* [in Gradle](gradle-compiler-options.md#attributes-specific-to-jvm)
 * [in Maven](maven.md#attributes-specific-to-jvm)
 * [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
@@ -180,7 +180,7 @@ which improves the JVM startup performance.
 
 To roll back to the old implementation scheme based on anonymous class generation, add the compiler option `-Xsam-conversions=class`.
 
-Learn how to add compiler options in [Gradle](gradle.md#compiler-options), [Maven](maven.md#specifying-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specifying-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Lambdas via invokedynamic
 
@@ -202,7 +202,7 @@ lambda compilation:
 To try this feature, add the `-Xlambdas=indy` compiler option. We would be grateful if you could share your feedback on it using
 this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-45375).
 
-Learn how to add compiler options in [Gradle](gradle.md#compiler-options), [Maven](maven.md#specifying-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specifying-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Deprecation of @JvmDefault and old Xjvm-default modes
 
@@ -483,7 +483,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+{validate="false"}
 
 ### New API for getting a char category now available in multiplatform code
 
@@ -589,7 +589,7 @@ Additionally, you can use the `kotlin-test` dependency in any shared or platform
 
 An existing kotlin-test setup with explicit dependencies will continue to work both in Gradle and in Maven.
 
-Learn more about [setting dependencies on test libraries](gradle.md#set-dependencies-on-test-libraries).
+Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 ### Automatic selection of a testing framework for Kotlin/JVM source sets
 
@@ -634,7 +634,7 @@ kotlin {
 </tab>
 </tabs>
 
-You can choose JUnit 5 or TestNG by calling [`useJUnitPlatform()`]( https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
+You can choose JUnit 5 or TestNG by calling [`useJUnitPlatform()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform)
 or [`useTestNG()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useTestNG) in the test task:
 
 ```groovy
@@ -652,7 +652,7 @@ tasks {
 You can disable automatic testing framework selection by adding the line `kotlin.test.infer.jvm.variant=false`
 to the project's `gradle.properties`.
 
-Learn more about [setting dependencies on test libraries](gradle.md#set-dependencies-on-test-libraries).
+Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 ###  Assertion function updates
 

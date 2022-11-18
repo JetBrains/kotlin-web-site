@@ -41,7 +41,7 @@ plugins {
 }
 
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
 ```
 

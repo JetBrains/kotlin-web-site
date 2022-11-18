@@ -52,7 +52,11 @@ multiplatform support, is the most convenient way to work with dates in your sha
    }
    ```
 
-3. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
+   ![Synchronize the Gradle files](gradle-sync.png)
+
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
 the number of days from today until the new year using the `date-time` date arithmetic:
    
    ```kotlin
@@ -65,7 +69,7 @@ the number of days from today until the new year using the `date-time` date arit
    }
    ```
 
-4. In `Greeting.kt`, update the `greeting()` function to see the result:
+5. In `Greeting.kt`, update the `greeting()` function to see the result:
     
     ```kotlin
     class Greeting {
@@ -73,18 +77,20 @@ the number of days from today until the new year using the `date-time` date arit
          
         fun greeting(): String {
             return "Guess what it is! > ${platform.name.reversed()}!" +
-            "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎅🏼 "
+            "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
         }
     }
     ```
 
-5. Run the updated application on Android and iOS and see the results:
+6. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 
 ## Next step
 
-[Add more dependencies and more complex logic to your project](multiplatform-mobile-upgrade-app.md).
+In the next part of the tutorial, you'll add more dependencies and more complex logic to your project.
+
+**[Proceed to the next part](multiplatform-mobile-upgrade-app.md)**
 
 ### See also
 

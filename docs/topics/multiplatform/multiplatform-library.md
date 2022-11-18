@@ -268,8 +268,8 @@ Now you have a string-based API that you can cover with basic tests.
 
 4. In the Terminal, execute the `check` Gradle task:
 
-    ```text
-    ./gradlew check 
+    ```bash
+    ./gradlew check
     ```
 
    > You can also run the `check` Gradle task by double-clicking it in the list of Gradle tasks.
@@ -330,8 +330,8 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
    
    ```groovy
    plugins {
-      id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-      id 'maven-publish'
+       id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+       id 'maven-publish'
    }
    
    group = 'org.jetbrains.base64'
@@ -343,7 +343,7 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
 
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
-    ```text
+    ```bash
     ./gradlew publishToMavenLocal
     ```
 
@@ -365,18 +365,18 @@ Add the `mavenLocal()` repository and add a dependency on your library to the `b
 
 ```kotlin
 repositories {
-   mavenCentral()
-   mavenLocal()
+    mavenCentral()
+    mavenLocal()
 }
 
 kotlin {
-   sourceSets {
-      val commonMain by getting {
-         dependencies {
-            implementation("org.jetbrains.base64:multiplatform-lib:1.0.0")
-         }
-      }
-   }
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.base64:multiplatform-lib:1.0.0")
+            }
+        }
+    }
 }
 ```
 
@@ -385,18 +385,18 @@ kotlin {
 
 ```groovy
 repositories {
-   mavenCentral()
-   mavenLocal()
+    mavenCentral()
+    mavenLocal()
 }
 
 kotlin {
-   sourceSets {
-      commonMain {
-         dependencies {
-            implementation 'org.jetbrains.base64:multiplatform-lib:1.0.0'
-         }
-      }
-   }
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.base64:multiplatform-lib:1.0.0'
+            }
+        }
+    }
 }
 ```
 

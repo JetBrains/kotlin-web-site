@@ -627,7 +627,7 @@ Compiling the project into a single `.js` file is now available with the followi
 kotlin.js.ir.output.granularity=whole-program // `per-module` is the default
 ```
 
-In previous releases, the experimental per-module mode (available via the `-Xir-per-module=true` flag) invoked `main()` functions in each module. This is inconsistent with the regular 'single .js' mode. Starting with 1.6.20,  the `main()` function will be invoked in the main module only in both cases. If you do need to run some code when a module is loaded, you can use top-local properties annotated with the `@EagerInitialization` annotation. See [Lazy initialization of top-level properties by default (IR)](#lazy-initialization-of-top-level-properties-by-default-with-ir-compiler).
+In previous releases, the experimental per-module mode (available via the `-Xir-per-module=true` flag) invoked `main()` functions in each module. This is inconsistent with the regular single `.js` mode. Starting with 1.6.20, the `main()` function will be invoked in the main module only in both cases. If you do need to run some code when a module is loaded, you can use top-level properties annotated with the `@EagerInitialization` annotation. See [Lazy initialization of top-level properties by default (IR)](#lazy-initialization-of-top-level-properties-by-default-with-ir-compiler).
 
 ### Char class optimization
 
@@ -818,13 +818,13 @@ The available values for the `compilerExecutionStrategy` task property are:
 2. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
 3. `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.OUT_OF_PROCESS`
 
-Use the task property `compilerExecutionStrategy` in the `build.gradle.kts` buildscript:
+Use the task property `compilerExecutionStrategy` in the `build.gradle.kts` build script:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
-// …
+// ...
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
@@ -843,7 +843,7 @@ In Kotlin 1.6.20, we changed deprecation levels of the properties:
   We are going to remove the option `kapt.use.worker.api` in future releases.
 
 * We deprecated the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used in `gradle.properties`.
-  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
+  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle-configure-project.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
   
   Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).
 
@@ -853,6 +853,6 @@ In Kotlin 1.5.20, we announced [the deprecation of the build option `kotlin.para
 This option has been removed in Kotlin 1.6.20.
 
 Depending on the project, parallel compilation in the Kotlin daemon may require more memory.
-To reduce memory consumption, [increase the heap size for the Kotlin daemon](gradle.md#setting-kotlin-daemon-s-jvm-arguments).
+To reduce memory consumption, [increase the heap size for the Kotlin daemon](gradle-compilation-and-caches.md#setting-kotlin-daemon-s-jvm-arguments).
 
-Learn more about the [currently supported compiler options](gradle.md#compiler-options) in the Kotlin Gradle plugin.
+Learn more about the [currently supported compiler options](gradle-compiler-options.md) in the Kotlin Gradle plugin.

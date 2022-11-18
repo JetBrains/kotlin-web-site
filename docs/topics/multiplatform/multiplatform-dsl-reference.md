@@ -269,7 +269,7 @@ kotlin {
         }
         distribution {
             directory = File("$projectDir/customdir/")
-        }        
+        }
     }
 }
 ```
@@ -562,7 +562,7 @@ kotlin {
         commonMain { /* ... */ } 
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -595,7 +595,7 @@ kotlin {
         myMain { /* ... */ } // create or configure a source set by the name 'myMain' 
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -613,7 +613,7 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 |`resources.srcDir`| Location of resources inside the source set directory.                                                                         |
 |`dependsOn`| [Connection with another source set](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).       |
 |`dependencies`| [Dependencies](#dependencies) of the source set.                                                                               |
-|`languageSettings`| [Language settings](multiplatform-dsl-reference.md#language-settings) applied to the source set. |
+|`languageSettings`| [Language settings](#language-settings) applied to the source set. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -624,11 +624,11 @@ kotlin {
         val commonMain by getting {
             kotlin.srcDir("src")
             resources.srcDir("res")
-            
+
             dependencies {
                 /* ... */
-            } 
-        } 
+            }
+        }
     }
 }
 ```
@@ -642,11 +642,11 @@ kotlin {
         commonMain {
             kotlin.srcDir('src')
             resources.srcDir('res')
-            
+
             dependencies {
                 /* ... */
-            }           
-        } 
+            }
+        }
     }
 }
 ``` 
@@ -683,7 +683,7 @@ kotlin {
         val main by compilations.getting {
             output // get the main compilation output
         }
-        
+
         compilations["test"].runtimeDependencyFiles // get the test runtime classpath
     }
 }
@@ -770,7 +770,7 @@ A compilation has the following parameters:
 |`defaultSourceSet`|The compilation's default source set.|
 |`kotlinSourceSets`|Source sets participating in the compilation.|
 |`allKotlinSourceSets`|Source sets participating in the compilation and their connections via `dependsOn()`.|
-|`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle.md#compiler-options).|
+|`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).|
 |`compileKotlinTask`|Gradle task for compiling Kotlin sources.|
 |`compileKotlinTaskName`|Name of `compileKotlinTask`.|
 |`compileAllTaskName`|Name of the Gradle task for compiling all sources of a compilation.|
@@ -796,7 +796,7 @@ kotlin {
         
         compilations["test"].runtimeDependencyFiles // get the test runtime classpath
     }
-    
+
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
@@ -818,12 +818,12 @@ kotlin {
             // Setup the Kotlin compiler options for the 'main' compilation:
             jvmTarget = "1.8"
         }
-        
+
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
         compilations.main.output // get the main compilation output
         compilations.test.runtimeDependencyFiles // get the test runtime classpath
     }
-    
+
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
@@ -842,7 +842,7 @@ kotlin {
 
 The `dependencies` block of the source set declaration contains the dependencies of this source set.
 
-Learn more about [configuring dependencies](gradle.md#configure-dependencies).
+Learn more about [configuring dependencies](gradle-configure-project.md).
 
 There are four types of dependencies:
 

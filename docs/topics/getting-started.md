@@ -57,7 +57,7 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    </tr>
    </table>
 
-2. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle.md#configure-dependencies).
+2. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle-configure-project.md#configure-dependencies).
    * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
    * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
 
@@ -85,17 +85,17 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
 
    * To start from scratch, [create a basic cross-platform mobile application with the project wizard](multiplatform-mobile-create-first-app.md).
    * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md) tutorial.
-   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [hands-on tutorial](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/01_Introduction) or any [sample project](multiplatform-mobile-samples.md).
+   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [Create a multiplatform app using Ktor and SQLdelight](multiplatform-mobile-ktor-sqldelight.md) tutorial or any [sample project](multiplatform-mobile-samples.md).
 
 3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-add-dependencies.md).
-   
+
    |Library|Details|
    |-------|-------| 
-   | Ktor |  [Docs](https://ktor.io/docs/client.html).| 
-   | Serialization |  [Docs](serialization.md) and [sample](https://play.kotlinlang.org/hands-on/Networking%20and%20Data%20Storage%20with%20Kotlin%20Multiplatfrom%20Mobile/04_Creating_a_data_model).|
-   | Coroutines |  [Docs](multiplatform-mobile-concurrency-overview.md) and [sample](multiplatform-mobile-concurrency-and-coroutines.md).|
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/).|
+   | Ktor | [Docs](https://ktor.io/docs/client.html)| 
+   | Serialization | [Docs](serialization.md) and [sample](multiplatform-mobile-ktor-sqldelight.md#create-an-application-data-model)|
+   | Coroutines | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)|
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)|
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)|
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    > 
