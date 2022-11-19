@@ -85,7 +85,7 @@ fun main() {
     val sam = RestaurantCustomer("Sam", "Mixed salad")
     sam.greet() // An implementation of an abstract function
     sam.order() // A member function
-    sam.eat() // An implementation of an interface function
+    sam.eat()   // An implementation of an interface function
     sam.pay(10) // A default implementation in an interface
 }</pre>
             </div>
@@ -112,13 +112,13 @@ fun main() {
     println(senders) // [Adam, Ma]
 }
 
-data class Message(                                          // Create a data class
+data class Message(                                           // Create a data class
     val sender: String,
     val body: String,
     val isRead: Boolean = false,                              // Provide a default value for the argument
 )
 
-val messages = listOf(                                       // Create a list
+val messages = listOf(                                        // Create a list
     Message("Ma", "Hey! Where are you?"),
     Message("Adam", "Everything going according to plan today?"),
     Message("Ma", "Please reply. I've lost you!"),
