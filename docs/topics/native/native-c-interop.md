@@ -98,21 +98,30 @@ in case of direct dependencies.
 
 #### Filter headers by globs
 
-It is possible to filter headers by globs. The `headerFilter` property value
-from the `.def` file is treated as a space-separated list of globs. If the
-included header matches any of the globs, then the declarations from this header
-are included into the bindings.
+It is possible to filter headers by globs using filter properties from the `.def` file.
+They are treated as a space-separated list of globs.
 
-The globs are applied to the header paths relative to the appropriate include
-path elements, e.g. `time.h` or `curl/curl.h`. So if the library is usually
-included with `#include <SomeLibrary/Header.h>`, then it would probably be
-correct to filter headers with
+* To include declarations from headers, use the `headerFilter` property. If the included header matches any of the globs,
+  the declarations are included in the bindings.
 
-```c
-headerFilter = SomeLibrary/**
-```
+  The globs are applied to the header paths relative to the appropriate include path elements,
+  for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
+  it would probably be correct to filter headers with the following filter:
+    
+  ```c
+  headerFilter = SomeLibrary/**
+  ```
+    
+  If `headerFilter` is not specified, then all headers are included.
 
-If a `headerFilter` is not specified, then all headers are included.
+* To exclude specific headers, use the `excludeFilter` property.
+  
+  It can be helpful to remove redundant or problematic headers and optimize compilation,
+  as declarations from the specified headers are not included into the bindings.
+
+  ```c
+  excludeFilter = SomeLibrary/time.h
+  ```
 
 #### Filter headers by module maps
 
@@ -274,7 +283,7 @@ val intPtr: CPointer<IntVar> = bytePtr.reinterpret()
 As is with C, these reinterpret casts are unsafe and can potentially lead to
 subtle memory problems in the application.
 
-Also there are unsafe casts between `CPointer<T>?` and `Long` available,
+Also, there are unsafe casts between `CPointer<T>?` and `Long` available,
 provided by the `.toLong()` and `.toCPointer<T>()` extension methods:
 
 ```kotlin
@@ -519,11 +528,11 @@ The `.def` file supports several options for adjusting the generated bindings.
     then it is generated according to the heuristics.
 
 *    `noStringConversion` property value is space-separated lists of the functions whose
-     `const char*` parameters shall not be autoconverted as Kotlin string
+     `const char*` parameters shall not be auto-converted as Kotlin string
 
 ### Portability
 
- Sometimes the C libraries have function parameters or struct fields of a
+Sometimes the C libraries have function parameters or struct fields of a
 platform-dependent type, e.g. `long` or `size_t`. Kotlin itself doesn't provide
 neither implicit integer casts nor C-style integer casts (e.g.
 `(size_t) intValue`), so to make writing portable code in such cases easier,
@@ -553,7 +562,7 @@ in some cases.
 
 ### Object pinning
 
- Kotlin objects could be pinned, i.e. their position in memory is guaranteed to be stable
+Kotlin objects could be pinned, i.e. their position in memory is guaranteed to be stable
 until unpinned, and pointers to such objects inner data could be passed to the C functions. For example
 
 ```kotlin
