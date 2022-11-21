@@ -82,7 +82,7 @@ but the call may fail at runtime, because of a null-pointer exception or an asse
 prevent nulls from propagating:
 
 ```kotlin
-item.substring(1) // allowed, may throw an exception if item == null
+item.substring(1) // allowed, throws an exception if item == null
 ```
 
 Platform types are *non-denotable*, meaning that you can't write them down explicitly in the language.
