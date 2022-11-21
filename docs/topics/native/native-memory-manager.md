@@ -54,24 +54,24 @@ build script:
 
 ## Memory consumption
 
-If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, try the following options:
-* Update Kotlin to the latest version. We are constantly improving memory manager, so even simple compiler update might make memory 
-consumption better.  
-* (Starting from 1.8.0-Beta) Use `mimallocUseCompaction=true` binary option. As any other binary option, it can be enabled
-  in `gradle.properties`:
-  ```properties
-    kotlin.native.binary.mimallocUseCompaction=true
-  ```
-  This option adjusts memory manager behavior to reduce memory consumption at the slight cost of runtime performance.
-* Switch the memory allocator from [`mimalloc`](https://github.com/microsoft/mimalloc), which is used by default on many targets to a system
-one. For that, set the following compilation flag in the Gradle build script:
-  ```properties
-  -Xallocator=std
-  ```
-  If the memory consumption goes down to the expected levels, everything is OK. The `mimalloc` allocator pre-allocates system
-  memory for performance reasons.
+If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, 
+try updating Kotlin to the latest version. 
+We are constantly improving the memory manager, so even a simple compiler update might make memory consumption better.  
+On many targets we use [`mimalloc`](https://github.com/microsoft/mimalloc) allocator by default. 
+It pre-allocates and holds on to the system memory to improve allocation speed. 
+To avoid that at a cost of performance, a couple of options are available:
+* Switch away from mimalloc to the system memory allocator. 
+For that, set the following compilation flag in the Gradle build script: `-Xallocator=std`.
+* (Starting from 1.8.0-Beta) At a smaller performance cost, but with less definitive results, 
+mimalloc can be instructed to promptly release memory back to the system. 
+For that, enable `mimallocUseCompaction=true` binary option. 
+As any other binary option, it can be enabled in gradle.properties:
+```
+kotlin.native.binary.mimallocUseCompaction=true
+```
 
-If the memory consumption still doesn't go down, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+If none of these options improved memory consumption, 
+consider reporting an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
 ## Unit tests in the background
 
