@@ -16,6 +16,25 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a
 framework ([see here for how to declare binaries](multiplatform-build-native-binaries.md#declare-binaries)).
 See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sample) for an example.
 
+### Hiding Kotlin declarations
+
+You can choose not to export Kotlin declaration to Objective-C and Swift with special annotations:
+
+* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C. The annotation instructs the Kotlin compiler not to export 
+   a function or property to Objective-C, making your Kotlin code more Objective-C-friendly.
+* `@ShouldRefineInSwift` replaces a Kotlin declaration with a wrapper written in Swift. The annotation instructs the Kotlin
+  compiler to mark a function or property as `swift_private` in the generated Objective-C API.
+  Such declarations get the `__` prefix, which makes them invisible from Swift.
+
+  You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
+  the Xcode autocomplete, for example.
+
+  For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
+
+> Using these annotations requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
+
 ## Mappings
 
 The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vice versa.
@@ -61,8 +80,27 @@ The prefix is derived from the framework name.
 
 Objective-C does not support packages in a framework. Thus, the Kotlin compiler renames Kotlin classes which have the
 same name but different package in the same framework. This algorithm is not stable yet and can change between Kotlin
-releases.
-As a workaround, you can rename the conflicting Kotlin classes in the framework.
+releases. As a workaround, you can rename the conflicting Kotlin classes in the framework.
+
+To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
+a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
+
+```kotlin
+@ObjCName(swiftName = "MySwiftArray")
+class MyKotlinArray {
+    @ObjCName("index")
+    fun indexOf(@ObjCName("of") element: String): Int = TODO()
+}
+
+
+// Usage with the ObjCName annotations
+let array = MySwiftArray()
+let index = array.index(of: "element")
+```
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Initializers
 
@@ -106,7 +144,7 @@ the clashing methods can be called from Kotlin using named arguments, e.g.:
 [player moveTo:UP byInches:42]
 ```
 
-in Kotlin it would be:
+In Kotlin, it would be:
 
 ```kotlin
 player.moveTo(LEFT, byMeters = 17)
@@ -116,6 +154,26 @@ player.moveTo(UP, byInches = 42)
 The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped 
 to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the method
 `isEquals(_:)` and the properties `hash`, `description` in Swift.
+
+You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
+Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods:
+
+```kotlin
+@ObjCName(swiftName = "MySwiftArray")
+class MyKotlinArray {
+    @ObjCName("index")
+    fun indexOf(@ObjCName("of") element: String): Int = TODO()
+}
+
+
+// Usage with the ObjCName annotations
+let array = MySwiftArray()
+let index = array.index(of: "element")
+```
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Errors and exceptions
 
