@@ -120,8 +120,9 @@ The complete list of available targets is the following:
         <td>watchOS</td>
         <td>
             <ul>
-               <li><code>watchosArm32</code> — Apple watchOS on ARM (ARM32) platforms (Apple Watch Series 3 and earlier)</li>
+               <li><code>watchosArm32</code> — Apple watchOS on ARM32 platforms (Apple Watch Series 3 and earlier)</li>
                <li><code>watchosArm64</code> — Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)</li>
+               <li><code>watchosDeviceArm64</code> — Apple watchOS on ARM64 platforms</li>
                <li><code>watchosX86</code> — Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms</li>
                <li><code>watchosX64</code> — Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms</li>
                <li><code>watchosSimulatorArm64</code> — Apple watchOS simulator on Apple Silicon platforms</li>
