@@ -46,10 +46,10 @@ Released: 22 November, 2022
 </td>
 <td>
 
-* [Changed the default for iOS integration from Cocoapods to Regular framework](https://youtrack.jetbrains.com/issue/KT-54086).
+* [Changed the default option for iOS framework distribution: now it is **Regular framework**](https://youtrack.jetbrains.com/issue/KT-54086).
 * [Moved `MyApplicationTheme` to a separate file in a generated Android project](https://youtrack.jetbrains.com/issue/KT-53991).
 * [Updated generated Android project](https://youtrack.jetbrains.com/issue/KT-54658).
-* [Fixed unexpected erasing new project directory](https://youtrack.jetbrains.com/issue/KTIJ-23707).
+* [Fixed an issue with unexpected erasing of new project directory](https://youtrack.jetbrains.com/issue/KTIJ-23707).
 
 </td>
 <td>
