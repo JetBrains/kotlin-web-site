@@ -54,17 +54,27 @@ build script:
 
 ## Memory consumption
 
-If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, switch the memory
-allocator from [`mimalloc`](https://github.com/microsoft/mimalloc), which is used by default on many targets to a system
-one. For that, set the following compilation flag in the Gradle build script:
+If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, 
+try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
+update might improve memory consumption.  
 
-```properties
--Xallocator=std
-```
+Another way to fix high memory consumption is related to [`mimalloc`](https://github.com/microsoft/mimalloc),
+the default memory allocator for many targets. It pre-allocates and holds onto the system memory to improve
+the allocation speed.
 
-* If the memory consumption goes down to the expected levels, everything is OK. The `mimalloc` allocator pre-allocates system
-  memory for performance reasons.
-* If the memory consumption still doesn't go down, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+To avoid that at the cost of performance, a couple of options are available:
+* Switch the memory allocator from `mimalloc` to the system allocator. For that, set the `-Xallocator=std` compilation
+  option in your Gradle build script.
+* Since Kotlin 1.8.0-Beta, you can also instruct `mimalloc` to promptly release memory back to the system. It's a smaller
+  performance cost, but it gives less definitive results.
+
+  For that, enable the following binary option in your `gradle.properties` file:
+
+  ```properties
+  kotlin.native.binary.mimallocUseCompaction=true
+  ```
+
+If none of these options improved the memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
 ## Unit tests in the background
 
