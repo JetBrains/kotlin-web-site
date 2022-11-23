@@ -17,15 +17,15 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
 1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.  
 
-    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png)
+    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png){width=700}
     
 3. Specify a name for your first application, and click **Next**.  
 
-    ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png)
+    ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png){width=700}
 
 4. In the **iOS framework distribution** list, select the **Regular framework** option.
 
-   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png)
+   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
    > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
    > has less installation issues.
@@ -118,18 +118,21 @@ If you want to run your application on a simulated device, you can add a new run
     ![New run configuration for iOS application](ios-new-configuration.png)
 
 3. Name your configuration.
+4. Select the **Xcode project file**. For that, navigate to your project, for example **KotlinMultiplatformSandbox**,
+   open the`iosApp` folder and select the `.xcodeproj` file.
 
-4. Select a simulated device in the **Execution target** list, and then click **OK**.
+5. In the **Execution target** list, select a simulated device and click **OK**.
 
     ![New run configuration with iOS simulator](ios-new-simulator.png)
     
-5. Click **Run** to run your application on the new simulated device.
+6. Click **Run** to run your application on the new simulated device.
     
 #### Run on a real iOS device {initial-collapse-state="collapsed"}
 
-1. [Connect a real iPhone device to Xcode](https://developer.apple.com/documentation/xcode/running_your_app_in_the_simulator_or_on_a_device).
-2. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
-3. Click **Run** to run your application on the iPhone device.
+1. Connect a real iPhone device to Xcode.
+2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
+4. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
 >
@@ -165,8 +168,10 @@ the Kotlin standard library function for reversing text that works on all platfo
 
 ## Next step
 
-[Learn about dependencies and add a third-party library to your project](multiplatform-mobile-dependencies.md)
-to expand its functionality.
+In the next part of the tutorial, you'll learn about dependencies and add a third-party library to expand
+the functionality of your project.
+
+**[Proceed to the next part](multiplatform-mobile-dependencies.md)**
 
 ### See also
 

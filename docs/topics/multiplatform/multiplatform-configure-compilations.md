@@ -19,7 +19,7 @@ You can configure how artifacts are produced in:
 * [Compilations for one target](#configure-compilations-for-one-target) since one target can have multiple compilations.
 * [A specific compilation](#configure-one-compilation).
 
-See the [list of compilation parameters](multiplatform-dsl-reference.md#compilation-parameters) and [compiler options](gradle.md#compiler-options) 
+See the [list of compilation parameters](multiplatform-dsl-reference.md#compilation-parameters) and [compiler options](gradle-compiler-options.md) 
 available for all or specific targets.
 
 ## Configure all compilations

@@ -39,8 +39,8 @@
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Early Access Preview">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.7.20-RC" hidden="true"/>
+    <toc-element toc-title="Early access preview (EAP)">
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-Beta"/>
         <toc-element toc-title="Participate" id="eap.md"/>
         <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
         <toc-element id="configure-build-for-eap.md"/>
@@ -298,6 +298,7 @@
         <toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
         <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
+        <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
     </toc-element>
 
@@ -309,7 +310,13 @@
 
     <toc-element toc-title="Tools">
         <toc-element toc-title="Build tools">
-            <toc-element id="gradle.md" accepts-web-file-names="using-gradle.html"/>
+            <toc-element toc-title="Gradle">
+                <toc-element id="gradle.md" accepts-web-file-names="using-gradle.html" toc-title="Overview"/>
+                <toc-element id="get-started-with-jvm-gradle-project.md" toc-title="Get started with Gradle – tutorial"/>
+                <toc-element id="gradle-configure-project.md" toc-title="Configure a Gradle project"/>
+                <toc-element id="gradle-compiler-options.md" toc-title="Compiler options in KGP"/>
+                <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches in KGP"/>
+            </toc-element>
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
         </toc-element>
