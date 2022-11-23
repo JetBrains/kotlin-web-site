@@ -156,24 +156,8 @@ to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the 
 `isEquals(_:)` and the properties `hash`, `description` in Swift.
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
-Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods:
-
-```kotlin
-@ObjCName(swiftName = "MySwiftArray")
-class MyKotlinArray {
-    @ObjCName("index")
-    fun indexOf(@ObjCName("of") element: String): Int = TODO()
-}
-
-
-// Usage with the ObjCName annotations
-let array = MySwiftArray()
-let index = array.index(of: "element")
-```
-
-> Using this annotation requires [opt-in](opt-in-requirements.md).
->
-{type="note"}
+Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods.
+Note that using this annotation requires [opt-in](opt-in-requirements.md).
 
 ### Errors and exceptions
 
