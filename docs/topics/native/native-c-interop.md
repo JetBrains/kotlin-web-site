@@ -108,20 +108,27 @@ They are treated as a space-separated list of globs.
   for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
   it would probably be correct to filter headers with the following filter:
     
-  ```c
+  ```properties
   headerFilter = SomeLibrary/**
   ```
     
-  If `headerFilter` is not specified, then all headers are included.
+  If `headerFilter` is not provided, all the headers are included. However, we encourage you to use `headerFilter`
+  and specify the glob as precisely as possible. In this case, the generated library contains only the necessary
+  declarations. It can help avoid various issues when upgrading Kotlin or tools in your development environment.
 
 * To exclude specific headers, use the `excludeFilter` property.
   
   It can be helpful to remove redundant or problematic headers and optimize compilation,
   as declarations from the specified headers are not included into the bindings.
 
-  ```c
+  ```properties
   excludeFilter = SomeLibrary/time.h
   ```
+  
+> If the same header is both included with `headerFilter`, and excluded with `excludeFilter`, the latter will have a higher
+> priority. The specified header will not be included into the bindings.
+> 
+{type="note"}
 
 #### Filter headers by module maps
 
