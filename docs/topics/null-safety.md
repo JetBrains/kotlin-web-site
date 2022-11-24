@@ -148,20 +148,20 @@ person?.department?.head = managersPool.getManager()
 Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
 This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
 
-For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example logging:
+For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) function is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example, logging:
 
 ```kotlin
 val person: Person? = null
-logger.debug(person.toString()) // logs "null", does not throw an exception
+logger.debug(person.toString()) // Logs "null", does not throw an exception
 ```
 
-If you want your `toString()` invocation to return a nullable string, use the safe-call operator `?.`:
+If you want your `toString()` invocation to return a nullable string, use the [safe-call operator `?.`](#safe-calls):
 
 ```kotlin
 var timestamp: Instant? = null
-val isoTimestamp = timestamp?.toString() // returns a String? object which is null.
+val isoTimestamp = timestamp?.toString() // Returns a String? object which is null.
 if (isoTimestamp == null) {
-   // handle the case where timestamp was null
+   // Handle the case where timestamp was `null`
 }
 ```
 
