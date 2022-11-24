@@ -148,29 +148,21 @@ person?.department?.head = managersPool.getManager()
 Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
 This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
 
-For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) is defined on a nullable receiver and it returns the String "null" and not a `null` object:
+For example, the [`toString()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example logging:
+
+```kotlin
+val person: Person? = null
+logger.debug(person.toString()) // logs "null", does not throw an exception
+```
+
+If you want your `toString()` invocation to return a nullable string, use the safe-call operator `?.`:
 
 ```kotlin
 var timestamp: Instant? = null
-// imagine a whole bunch of code here that never set the timestamp
-val isoTimestamp = timestamp.toString() // returns a String object "null"
-if (isoTimestamp == null) { // never true, so your check is useless
-   // some logic that you wanted to have work but wont
-}
-
-// what you should have done
 val isoTimestamp = timestamp?.toString() // returns a String? object which is null.
 if (isoTimestamp == null) {
-   // now this code block runs
+   // handle the case where timestamp was null
 }
-```
-
-This can be helpful in some situations, particularly in logging:
-
-```kotlin
-var person: Person?
-// imagine a whole bunch of code here that never sets person
-logger.debug("checking on $person here") // does not throw a NPE, you get logs
 ```
 
 ## Elvis operator
