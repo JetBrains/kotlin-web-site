@@ -4,8 +4,66 @@
 every day from December 1 to December 25. With the permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
 we'll show how to solve these puzzles using the idiomatic Kotlin style:
 
-* [](#advent-of-code-2020)
 * [](#advent-of-code-2021)
+* [](#advent-of-code-2020)
+
+## Advent of Code 2021
+
+* [](#get-ready)
+* [](#day-1-sonar-sweep)
+* [](#day-2-dive)
+* [](#day-3-binary-diagnostic)
+* [](#day-4-giant-squid)
+
+### Get ready
+
+We'll take you through the basic tips on how to get up and running with solving Advent of Code challenges with Kotlin:
+
+* Read our [blog post about Advent of Code 2021](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
+* Use [this GitHub template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template) to create projects
+* Check out the welcome video by Kotlin Developer Advocate, Sebastian Aigner:
+
+  <video width="560" height="315" href="6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
+
+### Day 1: Sonar sweep
+
+Apply windowed and count functions to work with pairs and triplets of integers.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/1)
+* Check out the solution from Anton Arhipov on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-1)
+  or watch the video:
+
+<video width="560" height="315" href="76IzmtOyiHw" title="Advent of Code 2021 in Kotlin, Day 1: Sonar Sweep"/>
+
+### Day 2: Dive!
+
+Learn about destructuring declarations and the `when` expression.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/2)
+* Check out the solution from Pasha Finkelshteyn on [GitHub](https://github.com/asm0dey/aoc-2021/blob/main/src/Day02.kt)
+  or watch the video:
+
+<video width="560" height="315" href="4A2WwniJdNc" title="Advent of Code 2021 in Kotlin, Day 2: Dive!"/>
+
+### Day 3: Binary diagnostic
+
+Explore different ways to work with binary numbers.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/3)
+* Check out the solution from Sebastian Aigner on [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-3/)
+  or watch the video:
+
+<video width="560" height="315" href="mF2PTnnOi8w" title="Advent of Code 2021 in Kotlin, Day 3: Binary Diagnostic"/>
+
+### Day 4: Giant squid
+
+Learn how to parse the input and introduce some domain classes for more convenient processing.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/4)
+* Check out the solution from Anton Arhipov on the [GitHub](https://github.com/antonarhipov/advent-of-code-2021/blob/main/src/Day04.kt)
+  or watch the video:
+
+<video width="560" height="315" href="wL6sEoLezPQ" title="Advent of Code 2021 in Kotlin, Day 4: Giant Squid"/>
 
 ## Advent of Code 2020
 
@@ -123,66 +181,6 @@ Explore different ways to manipulate lists in Kotlin using the `any()`, `firstOr
 or watch the video:
 
 <video width="560" height="315" href="vj3J9MuF1mI" title="Manipulating lists using windowed, scan, firstNotNullOfOrNull: Solving Advent of Code Puzzles"/>
-
-## Advent of Code 2021
-
-> You can find all the solutions for the Advent of Code 2021 puzzles in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2021/).
->
-{type="tip"}
-
-* [](#get-ready-for-advent-of-code-2021)
-* [](#day-1-sonar-sweep)
-* [](#day-2-dive)
-* [](#day-3-binary-diagnostic)
-* [](#day-4-giant-squid)
-
-### Get ready for Advent of Code 2021
-
-We take you through the basic tips on how to get up and running with solving Advent of Code 2021 in Kotlin:
-
-* [YouTube video](https://youtu.be/6-XSehwRgSY)
-* [Blog post](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
-* [GitHub project template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template)
-
-<video width="560" height="315" href="6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
-
-### Day 1: Sonar sweep
-
-Explore windowed and count functions.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/1)
-* Check out the solution from Anton Arhipov on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-1) 
-or watch the video:
-
-<video width="560" height="315" href="76IzmtOyiHw" title="Advent of Code 2021 in Kotlin, Day 1: Sonar Sweep"/>
-
-### Day 2: Dive!
-
-Learn about destructuring declarations and the `when` expression.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/2)
-* Check out the solution from Pasha Finkelshteyn on [GitHub](https://github.com/asm0dey/aoc-2021/blob/main/src/Day02.kt) or watch the video:
-
-<video width="560" height="315" href="4A2WwniJdNc" title="Advent of Code 2021 in Kotlin, Day 2: Dive!"/>
-
-### Day 3: Binary diagnostic
-
-Wrangle binary numbers.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/3)
-* Check out the solution from Sebastian Aigner on [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-3/) or watch the video:
-
-<video width="560" height="315" href="mF2PTnnOi8w" title="Advent of Code 2021 in Kotlin, Day 3: Binary Diagnostic"/>
-
-### Day 4: Giant squid
-
-The solution requires a bit trickier logic for parsing the input and introducing some domain classes for more convenient processing.
-However, the final result is that the same code handles both parts of the challenge.
-
-* Read the puzzle description on [Advent of Code](https://adventofcode.com/2021/day/4)
-* Check out the solution from Anton Arhipov on the [GitHub](https://github.com/antonarhipov/advent-of-code-2021/blob/main/src/Day04.kt) or watch the video:
-
-<video width="560" height="315" href="wL6sEoLezPQ" title="Advent of Code 2021 in Kotlin, Day 4: Giant Squid"/>
 
 ## What's next?
 
