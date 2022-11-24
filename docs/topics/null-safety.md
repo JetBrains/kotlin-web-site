@@ -159,7 +159,7 @@ If you want your `toString()` invocation to return a nullable string, use the [s
 
 ```kotlin
 var timestamp: Instant? = null
-val isoTimestamp = timestamp?.toString() // Returns a String? object which is null.
+val isoTimestamp = timestamp?.toString() // Returns a String? object which is `null`
 if (isoTimestamp == null) {
    // Handle the case where timestamp was `null`
 }
