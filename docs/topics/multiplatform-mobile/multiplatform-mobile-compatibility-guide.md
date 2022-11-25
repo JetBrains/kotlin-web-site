@@ -105,7 +105,7 @@ Configuration names for dependencies on the corresponding source set stay the sa
         <td>Now</td>
     </tr>
     <tr>
-        <td rowspan="2" >Dependencies of the `jvmMain` compilation</td>
+        <td rowspan="2">Dependencies of the <code>jvmMain</code> compilation</td>
 <td>
 
 ```kotlin
@@ -143,7 +143,7 @@ dependencies {
     </tr>
     <tr>
         <td>Dependencies of the <code>jvmMain</code> source set</td>
-<td colspan="2" align="center">
+<td colspan="2">
 
 ```kotlin
 jvmMain<Scope>
@@ -170,7 +170,7 @@ jvmTestCompilation<Scope>
     </tr>
     <tr>
         <td>Dependencies of the <code>jvmTest</code> source set</td>
-<td colspan="2" align="center">
+<td colspan="2">
 
 ```kotlin
 jvmTest<Scope>
