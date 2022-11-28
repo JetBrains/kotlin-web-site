@@ -30,7 +30,7 @@ Kotlin plugins that support 1.8.0-RC are available for:
 
 ## Kotlin/Native
 
-* Added support for Xcode 14 and `watchosDeviceArm64` target.
+* Added support for Xcode 14.1 and `watchosDeviceArm64` target.
 * Added support for new annotations to improve Objective-C and Swift interoperability:
     * `@ObjCName`
     * `@HiddenFromObjC`
