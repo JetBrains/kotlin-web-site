@@ -1,13 +1,13 @@
-[//]: # (title: What's new in Kotlin 1.8.0-Beta)
+[//]: # (title: What's new in Kotlin 1.8.0-RC)
 
 _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-Beta).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC).
 >
 {type="note"}
 
-The Kotlin 1.8.0-Beta release is out! Here are some highlights from this release:
+The Kotlin 1.8.0-RC release is out! Here are some highlights from this release:
 
 * [We removed the old backend for Kotlin/JVM](#kotlin-jvm)
 * [We now support Xcode 14](#kotlin-native)
@@ -16,7 +16,7 @@ The Kotlin 1.8.0-Beta release is out! Here are some highlights from this release
 
 ## IDE support
 
-Kotlin plugins that support 1.8.0-Beta are available for:
+Kotlin plugins that support 1.8.0-RC are available for:
 
 | IDE | Supported versions |
 |--|--|
@@ -80,15 +80,15 @@ Updated the Lombok compiler plugin so that it now supports the `@Builder` annota
 >
 {type="note"}
 
-## How to update to Kotlin 1.8.0-Beta
+## How to update to Kotlin 1.8.0-RC
 
-You can install Kotlin 1.8.0-Beta in the following ways:
+You can install Kotlin 1.8.0-RC in the following ways:
 
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.8.0-Beta as soon as it becomes available.
+* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.8.0-RC as soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest preview release. Check out [these instructions](install-eap-plugin.md) for details.
 
-Once you've installed 1.8.0-Beta, don't forget to [change the Kotlin version](configure-build-for-eap.md) to 1.8.0-Beta in your build scripts.
+Once you've installed 1.8.0-RC, don't forget to [change the Kotlin version](configure-build-for-eap.md) to 1.8.0-RC in your build scripts.
 
 ## Learn more
 
-For more detail about the contents of this release, see our [changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-Beta).
+For more detail about the contents of this release, see our [changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC).
