@@ -61,8 +61,8 @@ is the value of the last expression in the block.
 The `else` branch is evaluated if none of the other branch conditions are satisfied.
 
 If `when` is used as an _expression_, the `else` branch is mandatory,
-unless the compiler can prove that all possible cases are covered with branch conditions,
-for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+unless the compiler can prove that all possible cases are covered with branch conditions
+(for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
 
 ```kotlin
 enum class Bit {
