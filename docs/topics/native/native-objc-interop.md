@@ -20,10 +20,10 @@ See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sam
 
 You can choose not to export Kotlin declaration to Objective-C and Swift with special annotations:
 
-* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C. The annotation instructs the Kotlin compiler not to export 
-   a function or property to Objective-C, making your Kotlin code more Objective-C-friendly.
-* `@ShouldRefineInSwift` replaces a Kotlin declaration with a wrapper written in Swift. The annotation instructs the Kotlin
-  compiler to mark a function or property as `swift_private` in the generated Objective-C API.
+* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and, consequently, Swift. The annotation instructs the
+  Kotlin compiler not to export a function or property to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+* @ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation instructs
+  the Kotlin compiler to mark a function or property as `swift_private` in the generated Objective-C API.
   Such declarations get the `__` prefix, which makes them invisible from Swift.
 
   You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
@@ -156,8 +156,8 @@ to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the 
 `isEquals(_:)` and the properties `hash`, `description` in Swift.
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
-Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods.
-Note that using this annotation requires [opt-in](opt-in-requirements.md).
+Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods
+or parameters. Note that using this annotation requires [opt-in](opt-in-requirements.md).
 
 ### Errors and exceptions
 
