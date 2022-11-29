@@ -5,7 +5,7 @@
 > 
 {type="warning"}
 
-Kotlin/Native [targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
+[Kotlin/Native targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
 which can be consumed by Kotlin/Native itself as a dependency but cannot be used as a native library.
  
 To declare final native binaries, use the new binaries format with the `kotlinArtifacts` DSL. It represents a collection
@@ -16,22 +16,22 @@ of native binaries built for this target in addition to the default `*.klib` art
 >
 {type="note"}
 
-Kotlin artifact DSL can help you solve a common issue, when your project has multiple Kotlin modules, and you need to
-access them from your app. Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin
-modules into a single artifact with new DSL.
+Kotlin artifact DSL can help you to solve a common issue: when you need to access multiple Kotlin modules from your app.
+Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin modules into a single
+artifact with new DSL.
 
 ## Declare binaries
 
 The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Use
 the following kinds of binaries to declare elements of the `kotlinArtifacts` DSL: 
 
-| Factory method | Binary kind             | Available for                                |
-|----------------|-------------------------|----------------------------------------------|
-| `sharedLib`    | Shared native library   | All native targets, except for `WebAssembly` |
-| `staticLib`    | Static native library   | All native targets, except for `WebAssembly` |
-| `framework`    | Objective-C framework   | macOS, iOS, watchOS, and tvOS targets only   |
-| `fatFramework` | Universal fat framework | macOS, iOS, watchOS, and tvOS targets only   |
-| `XCFramework`  | XCFramework framework   | macOS, iOS, watchOS, and tvOS targets only   |
+| Factory method | Binary kind                                                                               | Available for                                |
+|----------------|-------------------------------------------------------------------------------------------|----------------------------------------------|
+| `sharedLib`    | [Shared native library](native-faq.md#how-do-i-create-a-shared-library)                   | All native targets, except for `WebAssembly` |
+| `staticLib`    | [Static native library](native-faq.md#how-do-i-create-a-static-library-or-an-object-file) | All native targets, except for `WebAssembly` |
+| `framework`    | Objective-C framework                                                                     | macOS, iOS, watchOS, and tvOS targets only   |
+| `fatFramework` | Universal fat framework                                                                   | macOS, iOS, watchOS, and tvOS targets only   |
+| `XCFramework`  | XCFramework framework                                                                     | macOS, iOS, watchOS, and tvOS targets only   |
 
 Inside the `kotlinArtifacts` element, you can write the following blocks:
 
@@ -46,7 +46,7 @@ two build types are available:
 * `DEBUG` – produces a non-optimized binary with debug information 
 * `RELEASE` – produces an optimized binary without debug information
 
-You can specify for which build types to create binaries in the `modes` parameter. The default value includes both `DEBUG`
+In the `modes` parameter, you can specify build types for which you want to create binaries. The default value includes both `DEBUG`
 and `RELEASE` executable binaries:
 
 <tabs group="build-script">
@@ -116,7 +116,7 @@ For the binary configuration, the following common parameters are available:
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                       |
 | `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                    |
-| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle.md#compiler-options). |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md). |
 | `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                         |
 | `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                          |
 
@@ -238,7 +238,7 @@ For the fat framework configuration, the following additional parameters are ava
 
 | **Name**       | **Description**                                                                                                                                                                                   |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | All targets of the project.                                                                                                                                                                       |
+| `targets`      | Declares all targets of the project.                                                                                                                                                              |
 | `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
 
 <tabs group="build-script">
@@ -274,7 +274,7 @@ kotlinArtifacts {
 </tab>
 </tabs>
 
-The registered Gradle task is `assembleMyfatframeFatFramework` that assembles all types of registered "myfatframe" FatFramework.
+The registered Gradle task is `assembleMyfatframeFatFramework` that assembles all types of registered "myfatframe" fat framework.
 
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
 > to build fat frameworks.
@@ -291,7 +291,7 @@ For the XCFrameworks configuration, the following additional parameters are avai
 
 | **Name**       | **Description**                                                                                                                                                                                   |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | All targets of the project.                                                                                                                                                                       |
+| `targets`      | Declares all targets of the project.                                                                                                                                                              |
 | `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
 
 <tabs group="build-script">
@@ -327,7 +327,7 @@ kotlinArtifacts {
 </tab>
 </tabs>
 
-The registered Gradle task is `assembleSdkXCFramework` that assembles all types of registered "sdk" FatFramework.
+The registered Gradle task is `assembleSdkXCFramework` that assembles all types of registered "sdk" XCFrameworks.
 
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
 > to build XCFrameworks.
