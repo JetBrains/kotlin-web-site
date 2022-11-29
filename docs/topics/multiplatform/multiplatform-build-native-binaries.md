@@ -1,34 +1,39 @@
 [//]: # (title: Build final native binaries)
 
-By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native 
+> This page describes the previous approach to building native binaries. Check out the new experimental [Kotlin/Native DSL](multiplatform-native-artifacts.md),
+> it should be more efficient and easier to use.
+>
+{type="note"}
+
+By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native
 itself as a dependency but cannot be executed or used as a native library.
- 
-To declare final native binaries such as executables or shared libraries, use the `binaries` property of a native target. 
-This property represents a collection of native binaries built for this target in addition to the default `*.klib` artifact 
+
+To declare final native binaries such as executables or shared libraries, use the `binaries` property of a native target.
+This property represents a collection of native binaries built for this target in addition to the default `*.klib` artifact
 and provides a set of methods for declaring and configuring them.
- 
-> The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default 
+
+> The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
 {type="note"}
 
 ## Declare binaries
 
-Use the following factory methods to declare elements of the `binaries` collection. 
+Use the following factory methods to declare elements of the `binaries` collection.
 
-| Factory method | Binary kind | Available for |
-|----------------|-------------|---------------|
-| `executable` | Product executable | All native targets |
-| `test` | Test executable | All native targets |
-| `sharedLib` | Shared native library | All native targets, except for `WebAssembly` |
-| `staticLib` | Static native library | All native targets, except for `WebAssembly` |
-| `framework` | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only |
+| Factory method | Binary kind           | Available for                                |
+|----------------|-----------------------|----------------------------------------------|
+| `executable`   | Product executable    | All native targets                           |
+| `test`         | Test executable       | All native targets                           |
+| `sharedLib`    | Shared native library | All native targets, except for `WebAssembly` |
+| `staticLib`    | Static native library | All native targets, except for `WebAssembly` |
+| `framework`    | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only   |
 
-The simplest version doesn't require any additional parameters and creates one binary for each build type. Currently, 
-two build types are available: 
+The simplest version doesn't require any additional parameters and creates one binary for each build type. Currently,
+two build types are available:
 
-* `DEBUG`  – produces a non-optimized binary with debug information 
-* `RELEASE`  – produces an optimized binary without debug information
+* `DEBUG` – produces a non-optimized binary with debug information
+* `RELEASE` – produces an optimized binary without debug information
 
 The following snippet creates two executable binaries, debug and release:
 
@@ -118,18 +123,18 @@ binaries {
 </tab>
 </tabs>
 
-The first argument sets a name prefix, which is the default name for the binary file. For example, for Windows the code 
+The first argument sets a name prefix, which is the default name for the binary file. For example, for Windows the code
 produces the files `foo.exe` and `bar.exe`. You can also use the name prefix to [access the binary in the build script](#access-binaries).
- 
+
 ## Access binaries
 
-You can access binaries to [configure them](multiplatform-dsl-reference.md#native-targets) or get their properties (for example, the path to an output file). 
+You can access binaries to [configure them](multiplatform-dsl-reference.md#native-targets) or get their properties (for example, the path to an output file).
 
-You can get a binary by its unique name. This name is based on the name prefix (if it is specified), build type, and 
-binary kind following the pattern: `<optional-name-prefix><build-type><binary-kind>`, for example, `releaseFramework` or 
+You can get a binary by its unique name. This name is based on the name prefix (if it is specified), build type, and
+binary kind following the pattern: `<optional-name-prefix><build-type><binary-kind>`, for example, `releaseFramework` or
 `testDebugExecutable`.
 
-> Static and shared libraries have the suffixes static and shared respectively, for example, `fooDebugStatic` or `barReleaseShared`. 
+> Static and shared libraries have the suffixes static and shared respectively, for example, `fooDebugStatic` or `barReleaseShared`.
 >
 {type="note"}
 
@@ -206,8 +211,13 @@ binaries.findExecutable('foo', DEBUG)
 
 ## Export dependencies to binaries
 
-When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes 
-of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using 
+> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#libraries-and-frameworks)
+> to export dependencies to binaries.
+>
+{type="tip"}
+
+When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
+of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using
 the `export` method.
 
 <tabs group="build-script">
@@ -271,7 +281,7 @@ For example, you implement several modules in Kotlin and want to access them fro
 several Kotlin/Native frameworks in a Swift application is limited, but you can create an umbrella framework and
 export all these modules to it.
 
-> You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.  
+> You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.
 >
 {type="note"}
 
@@ -279,11 +289,11 @@ When you export a dependency, it includes all of its API to the framework API.
 The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
 This disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
 
-By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`, 
+By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`,
 only methods of `foo` are added to the output framework.
 
-You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar` 
-are exported as well. 
+You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar`
+are exported as well.
 
 > It is not recommended to use `transitiveExport`: it adds all transitive dependencies of the exported dependencies to the framework.
 > This could increase both compilation time and binary size.
@@ -324,11 +334,16 @@ binaries {
 
 ## Build universal frameworks
 
-By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such 
-frameworks into a single universal (fat) binary using the [`lipo` tool](https://llvm.org/docs/CommandGuide/llvm-lipo.html). 
-This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal 
+> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#fat-frameworks)
+> to build universal fat frameworks.
+>
+{type="tip"}
+
+By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
+frameworks into a single universal (fat) binary using the [`lipo` tool](https://llvm.org/docs/CommandGuide/llvm-lipo.html).
+This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal
 framework on both 32-bit and 64-bit devices.
- 
+
 > The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
 >
 {type="warning"}
@@ -399,6 +414,11 @@ kotlin {
 </tabs>
 
 ## Build XCFrameworks
+
+> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#xcframeworks)
+> to build XCFrameworks.
+>
+{type="tip"}
 
 All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
 Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
