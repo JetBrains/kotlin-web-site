@@ -147,6 +147,7 @@
         <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
         <toc-element toc-title="Artifact compilation">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
+            <toc-element id="multiplatform-native-artifacts.md"/>
             <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
         </toc-element>
         <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
