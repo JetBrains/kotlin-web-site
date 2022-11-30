@@ -158,7 +158,7 @@ In the next part of the tutorial, you'll add and configure a database to your pr
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
 We will also send you language tips and useful materials on using Kotlin with Spring.
 
-<a href="https://surveys.jetbrains.com/s3/Kotlin-tips?с=B&amp;p=2">
+<a href="https://info.jetbrains.com/kotlin-tips.html">
    <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
 </a>
 
