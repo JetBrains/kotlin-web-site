@@ -24,6 +24,10 @@ publishing {
 
 Complete the [tutorial on creating and publishing a multiplatform library](multiplatform-library.md) to get hands-on experience.
 
+> You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
+>
+{type="tip"}
+
 ## Structure of publications
 
 When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
