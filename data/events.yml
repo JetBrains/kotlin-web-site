@@ -1,3 +1,11 @@
+- lang: es
+  startDate: '2022-11-26'
+  endDate: '2022-11-26'
+  online: true
+  speaker: Armando Picon
+  title: 'Compose Multiplatform'
+  subject: 'Brindaré un overview sobre lo que es Compose Multiplatform y además haré live coding'
+  url: https://kotlinlapaz.github.io/ComposeCamp/#schedule
 - lang: cn
   startDate: '2022-11-26'
   endDate: '2022-11-27'
