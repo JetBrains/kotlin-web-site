@@ -67,7 +67,7 @@ check [our instructions on how to configure your build to support this version](
         <td>
              <ul>
                  <li>Kotlin/JVM: removed the old backend, added support for Java 19 bytecode</li>
-                 <li>Kotlin/Native: support for Xcode 14 and <code>watchosDeviceArm64</code> target, new <code>@ObjCName</code>, <code>@HiddenFromObjC</code> and <code>@ShouldRefineInSwift</code> annotations to improve Objective-C and Swift interoperability</li>
+                 <li>Kotlin/Native: support for Xcode 14.1 and <code>watchosDeviceArm64</code> target, new <code>@ObjCName</code>, <code>@HiddenFromObjC</code> and <code>@ShouldRefineInSwift</code> annotations to improve Objective-C and Swift interoperability</li>
                  <li>Kotlin Multiplatform: new Android source set layout that can be enabled in Gradle plugin with <code>kotlin.mpp.androidSourceSetLayoutVersion=2</code> and includes new naming schema for <code>KotlinSourceSet</code> entities</li>
                  <li>Kotlin/JS: stable IR compiler that uses incremental compilation by default, deprecated old backend</li>
                  <li>Compiler: Lombok compiler plugin supports the <code>@Builder</code> annotation</li>
