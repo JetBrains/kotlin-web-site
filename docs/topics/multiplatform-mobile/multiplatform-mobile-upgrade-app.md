@@ -42,8 +42,10 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
-at the end of the `build.gradle.kts` file:
+#### If you use Kotlin prior to version 1.7.20 {initial-collapse-state="collapsed"}
+
+If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
+If it's not the case, add the following to the end of the `build.gradle.kts` file:
 
 ```kotlin
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
