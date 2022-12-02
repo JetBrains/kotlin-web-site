@@ -3,6 +3,9 @@
 > The new DSL described below is [Experimental](components-stability.md). It may be changed at any time.
 > We encourage you to use it for evaluation purposes.
 > 
+> If the new DSL doesn't work for you, see [the previous approach](multiplatform-build-native-binaries.md)
+> to building native binaries.
+> 
 {type="warning"}
 
 [Kotlin/Native targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
