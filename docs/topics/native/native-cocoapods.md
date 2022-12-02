@@ -14,17 +14,247 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 ## Set up an environment to work with CocoaPods
 
-Install the [CocoaPods dependency manager](https://cocoapods.org/):
+Install the [CocoaPods dependency manager](https://cocoapods.org/) using the installation tool of your choice:
+
+> If your device has an Apple M chip, follow our instructions [below](#apple-m-chips).
+>
+{type="note"}
+
+<tabs>
+<tab title="Homebrew">
+
+1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    brew install ruby@3.0
+    ```
+
+3. Install CocoaPods:
+
+    ```bash
+    brew install cocoapods
+    ```
+
+</tab>
+<tab title="RVM">
+
+1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rvm install ruby 3.0.0
+    ```
+
+3. Install CocoaPods:
+
+    ```bash
+    sudo gem install cocoapods
+    ```
+
+</tab>
+<tab title="Rbenv">
+
+1. Install [rbennv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rbenv install 3.0.0
+    ```
+
+3. Set the Ruby version as local for a particular directory or global for the whole machine:
+
+    ```bash
+    rbenv global 3.0.0
+    ```
+
+4. Install CocoaPods:
+
+    ```bash
+    sudo gem install cocoapods
+    ```
+
+</tab>
+<tab title="Bundler">
+
+1. Install [Bundler](https://bundler.io/) in case you don't have yet:
+   
+   ```bash
+    sudo gem install bundler
+    ```
+   
+2. Add a new `Gemfile` with the following content:
+
+    ```txt
+    source 'https://rubygems.org'
+    gem 'cocoapods'
+    ```
+
+3. Set a local config of bundler for a project:
+
+   ```bash 
+   bundle config set --local path 'vendor/bundle'
+   ```
+   
+4. Run the installation command:
+
+    ```bash
+    bundle install
+    ```
+   
+5. Install CocoaPods:
+
+    ```bash
+    bundle exec pod install
+    ```
+
+</tab>
+<tab title="Default Ruby">
+
+You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
 
 ```bash
 sudo gem install cocoapods
 ```
 
+</tab>
+</tabs>
+
 <procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
     <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
     <p>
-        <code style="block" lang="bash">
+        <code style="block"
+            lang="bash">
             sudo gem install cocoapods-generate
+        </code>
+    </p>
+    <tip>
+        <p>
+            Mind that <code>cocoapods-generate</code> couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
+        </p>
+    </tip>
+</procedure>
+
+### Apple M chips {initial-collapse-state="collapsed"}
+
+<tabs>
+<tab title="Homebrew">
+
+1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    brew install ruby@3.0
+    ```
+
+3. Add export of `PATH` to the `.zshrc` configuration file:
+   
+   ```bash
+   echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> /.zshrc
+   ```
+
+4. Make sure your export was added:
+
+    ```bash
+    source .zshrc
+    ```
+   
+5. Install CocoaPods:
+
+    ```bash
+    brew install -n /usr/local/bin cocoapods
+    ```
+
+</tab>
+<tab title="RVM">
+
+1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rvm install ruby 3.0.0
+    ```
+
+3. Install CocoaPods:
+
+    ```bash
+    sudo gem install -n /usr/local/bin cocoapods
+    ```
+
+</tab>
+<tab title="Rbenv">
+
+1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rbenv install 3.0.0
+    ```
+
+3. Set the Ruby version as local for a particular directory or global for the whole machine:
+
+    ```bash
+    rbenv global 3.0.0
+    ```
+    
+4. Install CocoaPods:
+
+    ```bash
+    sudo gem install cocoapods
+    ```
+
+</tab>
+<tab title="Bundler">
+
+1. Install [Bundler](https://bundler.io/) in case you don't have yet:
+
+   ```bash
+    sudo gem install bundler
+    ```
+
+2. Add a new `Gemfile` with the following content:
+
+    ```txt
+    source 'https://rubygems.org'
+    gem 'cocoapods'
+    ```
+
+3. Set a local config of bundler for a project:
+
+   ```bash 
+   bundle config set --local path 'vendor/bundle'
+   ```
+
+4. Run the installation command:
+
+    ```bash
+    bundle install
+    ```
+
+5. Install CocoaPods:
+
+    ```bash
+    bundle exec pod install
+    ```
+
+</tab>
+<tab title="Default Ruby">
+
+You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
+
+```bash
+sudo gem install -n /usr/local/bin cocoapods
+```
+
+</tab>
+</tabs>
+
+<procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
+    <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
+    <p>
+        <code style="block"
+            lang="bash">
+            sudo gem install -n /usr/local/bin cocoapods-generate
         </code>
     </p>
     <tip>
