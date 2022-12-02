@@ -42,16 +42,19 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
-at the end of the `build.gradle.kts` file:
-
-```kotlin
-kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
-    binaries.all {
-        binaryOptions["memoryModel"] = "experimental"
-    }
-}
-```
+<procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.20">
+    <p>If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.</p>
+    <p>If it's not the case, add the following to the end of the <code>build.gradle.kts</code> file:
+        <code style="block"
+            lang="kotlin">
+        kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+            binaries.all {
+                binaryOptions["memoryModel"] = "experimental"
+            }
+        }
+        </code>
+    </p>
+</procedure>
 
 ### kotlinx.serialization
 
