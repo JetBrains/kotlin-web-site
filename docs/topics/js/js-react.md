@@ -208,7 +208,7 @@ Compare the classic HTML code for your future web app and its typesafe variant i
 
 ```kotlin
 h1 {
-    +"Hello, React+Kotlin/JS!"
+    +"KotlinConf Explorer"
 }
 div {
     h3 {

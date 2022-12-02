@@ -967,7 +967,7 @@ addressed later.
 If you need a dependency only for a specific platform, you can still use platform-specific variants of standard and kotlinx 
 libraries with such suffixes as `-jvm` or` -js`, for example `kotlinx-coroutines-core-jvm`. 
 
-[Learn more about configuring dependencies](gradle.md#configure-dependencies).
+[Learn more about configuring dependencies](gradle-configure-project.md#configure-dependencies).
 
 ## Gradle project improvements
 
@@ -988,9 +988,9 @@ since they have the same versioning.
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard 
 library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library depending on 
-the `kotlinOptions.jvmTarget` [compiler option](gradle.md#compiler-options) of your Gradle build script.
+the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
 
-[Learn how to change the default behavior](gradle.md#dependency-on-the-standard-library).
+[Learn how to change the default behavior](gradle-configure-project.md#dependency-on-the-standard-library).
 
 ### Minimum Gradle version for Kotlin projects
 

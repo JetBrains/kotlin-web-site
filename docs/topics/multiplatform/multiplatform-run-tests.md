@@ -10,7 +10,7 @@ The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is avail
 [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically adds test dependencies to
 common and platform-specific source sets. 
 
-If you didn't use the Project Wizard to create your project, you can [add the dependencies manually](gradle.md#set-dependencies-on-test-libraries).
+If you didn't use the Project Wizard to create your project, you can [add the dependencies manually](gradle-configure-project.md#set-dependencies-on-test-libraries).
 
 ## Run tests for one or more targets
 

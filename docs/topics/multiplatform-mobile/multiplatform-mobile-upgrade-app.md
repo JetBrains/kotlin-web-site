@@ -42,8 +42,10 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-You'll also use the new memory manager for Kotlin/Native, which will soon become the default. Add the following
-at the end of the `build.gradle.kts` file:
+#### If you use Kotlin prior to version 1.7.20 {initial-collapse-state="collapsed"}
+
+If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
+If it's not the case, add the following to the end of the `build.gradle.kts` file:
 
 ```kotlin
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
@@ -55,11 +57,11 @@ kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarge
 
 ### kotlinx.serialization
 
-For `kotlinx.serilization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
+For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
 with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
 
 You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
-the `plugins` block at the very beginning of the `build.gradle` file in the shared module:
+the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
 
 ```kotlin
 plugins {

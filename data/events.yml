@@ -1,3 +1,123 @@
+- lang: cn
+  startDate: '2022-11-26'
+  endDate: '2022-11-27'
+  online: true
+  speaker: 范圣佑, 王鹏, 乔禹昂, 李盈瑩, 2BAB, Pamela Hill, Alina Dolgikh, and more
+  title: ''
+  subject: '2022 Kotlin 中文开发者大会'
+  url: https://pages.jetbrains.com/kotlin-online-conference-for-chinese-developers-2022
+- lang: es
+  startDate: '2022-11-21'
+  endDate: '2022-11-26'
+  online: true
+  speaker: Adrián Catalán, Anahí Salgado, Antonio Leiva, Dinorah Tovar, Santiago Carrillo, and more
+  title: ''
+  subject: 'Compose Camp Kotlin La Paz'
+  url: https://kotlinlapaz.github.io/ComposeCamp/
+- lang: en
+  startDate: '2022-11-16'
+  endDate: '2022-11-18'
+  location: Nairobi, Kenya
+  speaker: Pamela Hill, Victor Kabata, Rygel Louv, Breimer John, Brian Odhiambo, Harny Otuoniyo, and more
+  title: ''
+  subject: 'droidconKE 2022'
+  url: https://www.droidcon.com/events/droidcon-kenya-2022/
+- lang: en
+  startDate: '2022-11-22'
+  endDate: '2022-11-22'
+  location: Paris, France
+  speaker: John O’Reilly
+  title: PAUG and Cocoaheads @ BlaBlaCar
+  subject: 'The ever increasing convergence of native iOS and Android mobile development'
+  url: https://www.meetup.com/android-paris/events/289612876/
+- lang: en
+  startDate: '2022-11-22'
+  endDate: '2022-11-22'
+  location: Paris, France
+  speaker: Etienne Vautherin
+  title: PAUG and Cocoaheads @ BlaBlaCar
+  subject: 'Jetpack Compose and KMM could change the life of a mobile developer'
+  url: https://www.meetup.com/android-paris/events/289612876/
+- lang: en
+  startDate: '2022-11-12'
+  endDate: '2022-11-12'
+  location: Abuja, Nigeria
+  speaker: Slick Shola Akinroliei
+  title: Compose Camp Kotlin Abuja
+  subject: 'Kotlin ... The spotlit language for mobile developers'
+  url: https://www.meetup.com/kotlin-abuja-user-group-nigeria/events/288874459/
+- lang: en
+  startDate: '2022-11-12'
+  endDate: '2022-11-12'
+  location: Abuja, Nigeria
+  speaker: Adetayo James
+  title: Compose Camp Kotlin Abuja
+  subject: 'Getting started and Building your first App in Kotlin'
+  url: https://www.meetup.com/kotlin-abuja-user-group-nigeria/events/288874459/
+- lang: it
+  startDate: '2022-11-30'
+  endDate: '2022-11-30'
+  online: true
+  speaker: Francesco Stanieri
+  title: Meetup HDG Rome 12
+  subject: 'Come creare un servizio di chat Serverless'
+  url: https://www.meetup.com/hdg-rome/events/289209400/
+- lang: en
+  startDate: '2022-12-02'
+  endDate: '2022-12-02'
+  location: Utrecht, The Netherlands
+  speaker: Julien Lengrand-Lambert
+  title: 'Flock. Meetups'
+  subject: 'Introducing Kotlin In Your Organization, From The Ground Up'
+  url: https://www.meetup.com/flock-meetups/events/289393375/
+- lang: en
+  startDate: '2022-11-11'
+  endDate: '2022-11-11'
+  online: true
+  speaker: Pamela Hill
+  title: Women Who Code
+  subject: 'Kotlin Multiplatform Mobile for Skeptics'
+  url: https://www.meetup.com/nyandroiddevelopers/events/289399273/
+- lang: en
+  startDate: '2022-12-10'
+  endDate: '2022-12-10'
+  online: true
+  speaker: Amanjeet Singh
+  title: Chicago Kotlin User Group
+  subject: 'Locking Horns with Native Crashes'
+  url: https://www.meetup.com/chicago-kotlin/events/289608325/
+- lang: en
+  startDate: '2022-12-08'
+  endDate: '2022-12-08'
+  online: true
+  speaker: To be announced
+  title: San Diego Kotlin User Group
+  subject: 'Monthly Kotlin'
+  url: https://www.meetup.com/sd-kotlin/events/289513488/
+- lang: es
+  startDate: '2022-11-11'
+  endDate: '2022-11-11'
+  online: true
+  speaker: Hugo Pérez
+  title: Slashfriday
+  subject: 'Kotlin para desarrollos Backend'
+  url: https://www.meetup.com/slashmobility/events/289600561/
+- lang: en
+  startDate: '2022-11-24'
+  endDate: '2022-11-24'
+  online: true
+  speaker: Mohit Sarveiya
+  title: Virtual Kotlin User Group
+  subject: 'Building State Flow Streams with Molecule'
+  url: https://www.meetup.com/virtual-kotlin-user-group/events/289317026/
+- lang: en
+  startDate: '2022-11-05'
+  endDate: '2022-11-05'
+  online: true
+  speaker: Manuel Ernesto
+  title: DevFest Makurdi 2022
+  subject: 'The Kotlin Features You Have Been Missing Out On'
+  url: https://gdg.community.dev/events/details/google-gdg-makurdi-presents-devfest-makurdi-2022/
 - lang: cs
   startDate: '2022-10-05'
   endDate: '2022-10-05'
@@ -114,7 +234,7 @@
   startDate: '2022-11-24'
   endDate: '2022-11-24'
   location: Amsterdam, The Netherlands
-  speaker: Call for speakers is open. Speakers to be announced soon.
+  speaker: Urs Peter, Márton Braun, Simon Vergauwen, Brian Collins, Pamela Hill, and more
   title: ''
   subject: Kotlin Dev Day. Advanced Edition
   url: https://kotlindevday.com/
