@@ -32,26 +32,27 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
 8. Click **Create**.
 
+  > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
+  > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
+  > version of the plugin:
+  > 
+  > ```kotlin
+  > plugins {
+  >     kotlin("jvm") version "%kotlinVersion%"
+  >     application
+  > }
+  > ```
+  >{type="note"}
+
 ## Create an application
 
-1. If you chose the Gradle build system, you have `build.gradle(.kts)`, a build script file, in your project. It includes
-   the `kotlin("jvm")` plugin and dependencies required for your console application. Ensure that you use the latest
-   version of the plugin:
-
-   ```kotlin
-   plugins {
-       kotlin("jvm") version "%kotlinVersion%"
-       application
-   }
-   ```
-
-2. Open the `main.kt` file in `src/main/kotlin`.  
-   The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print 
+1. Open the `Main.kt` file in `src/main/kotlin`.  
+   The `src` directory contains Kotlin source files and resources. The `Main.kt` file contains sample code that will print 
    `Hello World!`.
 
-   ![main.kt with main fun](jvm-main-kt-initial.png){width=700}
+   ![Main.kt with main fun](jvm-main-kt-initial.png){width=700}
 
-3. Modify the code so that it requests your name and says `Hello` to you specifically, and not to the whole world:
+2. Modify the code so that it requests your name and says `Hello` to you alone, and not to the whole world:
    
    * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html).
      

@@ -1,12 +1,11 @@
-package builds.apiReferences.buildTypes
+package builds.apiReferences.templates
 
-import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 
-object DokkaReferenceTemplate : Template({
+object BuildApiReference : Template({
   name = "Dokka Reference Template"
 
   artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
@@ -34,18 +33,5 @@ object DokkaReferenceTemplate : Template({
 
   params {
     param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
-  }
-
-  dependencies {
-    dependency(PrepareCustomDokkaTemplates) {
-      snapshot {
-        onDependencyFailure = FailureAction.CANCEL
-        onDependencyCancel = FailureAction.CANCEL
-      }
-
-      artifacts {
-        artifactRules = "+:dokka-templates/** => dokka-templates"
-      }
-    }
   }
 })

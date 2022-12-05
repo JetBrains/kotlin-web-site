@@ -39,6 +39,47 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.5.1**
+
+Released: 30 November, 2022
+
+</td>
+<td>
+
+* [Fixed new project generation: delete an excess "app" directory](https://youtrack.jetbrains.com/issue/KTIJ-23790).
+
+</td>
+<td>
+
+* [Kotlin 1.7.0—*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.5.0**
+
+Released: 22 November, 2022
+
+</td>
+<td>
+
+* [Changed the default option for iOS framework distribution: now it is **Regular framework**](https://youtrack.jetbrains.com/issue/KT-54086).
+* [Moved `MyApplicationTheme` to a separate file in a generated Android project](https://youtrack.jetbrains.com/issue/KT-53991).
+* [Updated generated Android project](https://youtrack.jetbrains.com/issue/KT-54658).
+* [Fixed an issue with unexpected erasing of new project directory](https://youtrack.jetbrains.com/issue/KTIJ-23707).
+
+</td>
+<td>
+
+* [Kotlin 1.7.0—*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.3.4**
 
 Released: 12 September, 2022

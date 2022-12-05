@@ -2,7 +2,7 @@
 
 ## Nullable types and non-null types
 
-Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions).
+Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
 reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException`,
@@ -141,6 +141,28 @@ is `null`, the assignment is skipped and the expression on the right is not eval
 ```kotlin
 // If either `person` or `person.department` is null, the function is not called:
 person?.department?.head = managersPool.getManager()
+```
+
+## Nullable receiver
+
+Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
+This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
+
+For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) function is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example, logging:
+
+```kotlin
+val person: Person? = null
+logger.debug(person.toString()) // Logs "null", does not throw an exception
+```
+
+If you want your `toString()` invocation to return a nullable string, use the [safe-call operator `?.`](#safe-calls):
+
+```kotlin
+var timestamp: Instant? = null
+val isoTimestamp = timestamp?.toString() // Returns a String? object which is `null`
+if (isoTimestamp == null) {
+   // Handle the case where timestamp was `null`
+}
 ```
 
 ## Elvis operator

@@ -136,7 +136,7 @@ Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without spe
 
 Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the `-progressive` flag and get such fixes enabled even in incremental releases.
 
-All flags are available on the command line as well as [Gradle](gradle.md#compiler-options) and [Maven](maven.md#specifying-compiler-options).
+All flags are available on the command line as well as [Gradle](gradle-compiler-options.md) and [Maven](maven.md#specifying-compiler-options).
 
 ### Evolving the binary format
 

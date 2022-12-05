@@ -161,7 +161,7 @@ before the `id` field. These annotations also require additional imports:
    import org.springframework.data.annotation.Id
    import org.springframework.data.relational.core.mapping.Table
   
-   @Table("messages")
+   @Table("MESSAGES")
    data class Message(@Id val id: String?, val text: String)
    ```
 
@@ -334,7 +334,7 @@ curl -X GET --location "http://localhost:8080"
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
 We will also send you language tips and useful materials on using Kotlin with Spring.
 
-<a href="https://surveys.jetbrains.com/s3/Kotlin-tips?c=A">
+<a href="https://info.jetbrains.com/kotlin-tips.html">
    <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
 </a>
 

@@ -10,6 +10,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 * [Feedback and issues](#feedback-and-issues)
 
 <a id="project-structure"></a>
+
 ## Website structure 
 
 ### Content
@@ -25,12 +26,13 @@ Note that source files for the [server-side landing page](https://kotlinlang.org
 
 #### Sources in different repositories
 
-Source files for coroutine docs, and language specification are stored in separate repositories:
+Source files for coroutines and lincheck docs, and the language specification are stored in separate repositories:
 
-|Website page|GitHub repository|
-|------------|--------|
-| [Coroutine docs](https://kotlinlang.org/docs/coroutines-guide.html) | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/docs) |
-| [Language specification](https://kotlinlang.org/spec/introduction.html) | [kotlin-spec](https://github.com/Kotlin/kotlin-spec) |
+| Website page                                                            | GitHub repository                                                   |
+|-------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)    | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/) |
+| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)        | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)     |
+| [Language specification](https://kotlinlang.org/spec/introduction.html) | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                |
 
 #### Auto-generated content
 
@@ -57,44 +59,51 @@ This allows using all Jinja benefits for Markdown (for example, building URLs wi
 
 ## Contribution
 
-You can contribute to the Kotlin website by sending us a pull request. If you're going to propose a big change, discuss your idea with the team via [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
+You can contribute to the Kotlin website by sending us a pull request. 
+You can also [create a YouTrack issue](https://youtrack.jetbrains.com/newIssue?project=KT) to discuss your suggestion with the Kotlin team.
 
 For the Kotlin documentation, follow [these guidelines on style and formatting](https://docs.google.com/document/d/1mUuxK4xwzs3jtDGoJ5_zwYLaSEl13g_SuhODdFuh2Dc/edit?usp=sharing).
 
 For other pages, follow the complete syntax reference at the [kramdown site](https://kramdown.gettalong.org/syntax.html).
-You can also include metadata fields. Learn more in the [Jekyll docs](https://jekyllrb.com/docs/front-matter/).
+You can also include metadata fields. Learn more about it in the [Jekyll docs](https://jekyllrb.com/docs/front-matter/).
 
 ### Kotlin User Group
-To add a Kotlin User Group, proceed the following way:
-1) open the configuration file [user-groups.yml](/data/user-groups.yml);
-2) find a suitable section among existing ones;
-3) add into the selected section a new group with followed keys:
+
+To add a Kotlin User Group (KUG), proceed the following way:
+1. Open the configuration file [user-groups.yml](/data/user-groups.yml).
+2. Find a suitable section among existing ones.
+3. Add into the selected section a new group with the following keys:
     - `name`, the name of the group.
     - `country`, the name of the country where the group is located. In the case of a virtual group, please use "International" for that. 
     - `url`, the link to the group's web page.
     - `isVirtual`, set this key with `true` value if the group is online only.
-    - `position`, the geo-position of the group, defined by pair of keys: `lat` and `lng`. It better to run `scripts/user_group`
-4) If the group is not virtual, you also need to specify a group's position.
+    - `position`, the geo-position of the group, defined by pair of keys: `lat` and `lng`. It better to run `scripts/user_group`.
+4. If the group is not virtual, you also need to specify a group's position.
    You can do it manually adding `position` key with the `lat` and `lng` values, as next: 
+
    ```yaml
    position:
      lat: 1.1111111
      lng: 1.1111111
    ```
+
    or, to run the geo script (`scripts/user_groups_geolocator.py`) that will do it for you.
    You need to obtain GOOGLE_API_KEY and then run the following script:
+
    ```
    $ GOOGLE_API_KEY="..." python scripts/universities_geolocator.py
    ```
-   More details about GOOGLE_API_KEY param you can find in [this article](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+
+   You can find more details about `GOOGLE_API_KEY` param in [this article by Google](https://developers.google.com/maps/documentation/geocoding/get-api-key).
    The manual way sometimes is better, because it allows you to specify the position more precisely.  
 
 You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/user-groups.json).
-Once you publish a Pull Request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
+Once you publish a pull request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
 
 ### Community Events
-To add an event to the Community Events, follow the instruction below. 
-1) Fill the event info in the [events.yml](/data/events.yml) with the next:
+
+To add an event to the Community Events, do the following: 
+1. Fill the event info in the [events.yml](/data/events.yml) with the next:
    - `lang`, two-letter code considering [ISO 639-1 format](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
    - `startDate`, in the format 'yyyy-mm-dd'.
    - `endDate`, in the format 'yyyy-mm-dd'. For the on day event fill the same date as in the startDate.
@@ -105,7 +114,7 @@ To add an event to the Community Events, follow the instruction below.
    - `subject`, a title of a talk.
    - `url`, link to the event web page.
    You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
-2) Publish the changes creating a Pull Request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
+2. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
 
 ## Local deployment
 
@@ -117,8 +126,8 @@ You can contribute to the Kotlin website by sending us a pull request.
 
 You can:
 
-* Share feedback in the [#docs-revamped](https://kotlinlang.slack.com/archives/C01GGPPCAA0/p1607340719000500) channel in our Kotlin public Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
-* Report an issue to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=tag%20kotlin-doc-migration).
+* Report an issue to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT).
+* Share feedback in the [#kotlin-website](https://kotlinlang.slack.com/archives/C02B3PECK6E) channel in our Kotlin public Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
 * Email us at [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
 
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
@@ -127,31 +136,37 @@ You can:
 
 ## Pages on Next.js
 
-You can find all pages in the "pages" directory.
+You can find all pages in the [pages](pages) directory.
 
-### Projects Structure
+### Projects structure
 
 - **Components**. The building blocks.
 - **Blocks**. Blocks are groups of components joined together to form a relatively complex, distinct section of an interface.
 - **Pages**. Each page is associated with a route based on its file name.
 
 ### Images in Next.js
-Notice that using 'next/image' is not possible because Next.js does not support importing images to HTML files (SSG).
+
+Notice that using `next/image` is not possible because Next.js does not support importing images to HTML files (SSG).
 Use Img and Svg components from "next-optimized-images" instead.
 
 # Tests
+
 We use Playwright for writing e2e and Screenshot tests.
 See https://playwright.dev/ for more details.
 
 ## Prerequirements
+
 To run tests locally:
 1. Install supported browsers:
-```
-npx playwright install
-```
+
+   ```
+   npx playwright install
+   ```
+
 2. Start Dev Server.
 
 ## Run Tests
+
 - `yarn test` to run all tests in headless mode locally.
 - `yarn test:e2e` to run e2e tests.
 - `yarn test:e2e:headed` to run e2e tests in headed mode.
@@ -161,20 +176,20 @@ npx playwright install
 
 ## Write Tests
 
-To write e2e test:
-Create spec file /test/e2e/*your-page*.spec.js
+To write e2e test, create spec file `/test/e2e/*your-page*.spec.js`.
 
-##  Api References tests
-Some tests focus on protecting the HTML markup of API References from being corrupted by the KTL components in the Dokka template's extension.
+## API references tests
+
+Some tests focus on protecting the HTML markup of API references from being corrupted by the KTL components in the Dokka template's extension.
 To run these tests locally, follow the next steps:
-- Create the `libs` folder in the project.
-- Open the last successful build of each API reference on TeamCity.
-- Download the artifacts of these builds and place them in the `libs` folder by their name, e.g., `kotlinx.coroutines`.
-- Up containers `./scripts/dokka/up.sh`.
-- Run test inside container `./scripts/dokka/run.sh` or on the host with one of the scripts below.
+1. Create the `libs` folder in the project.
+2. Open the last successful build of each API reference on TeamCity.
+3. Download the artifacts of these builds and place them in the `libs` folder by their name, for example, `kotlinx.coroutines`.
+4. Up containers `./scripts/dokka/up.sh`.
+5. Run test inside container `./scripts/dokka/run.sh` or on the host with one of the scripts below.
 
 To run visual testing, apply one of the next scripts:  
-- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in test/visual.
+- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in `test/visual`.
 - `yarn test:visual:headed` to run visual test in headed mode.
-- `yarn test:visual:update` to update all screenshots, for example when the page has changed.
-- `yarn ci:visual` to run visual test in CI environments.- 
+- `yarn test:visual:update` to update all screenshots, for example, when the page has been changed.
+- `yarn ci:visual` to run visual test in CI environments. 
