@@ -18,7 +18,7 @@
   startDate: '2022-12-10'
   endDate: '2022-12-10'
   online: true
-  speaker:
+  speaker: ''
   title: ''
   subject: 'Kotlin Fest 2022'
   url: https://kotlin.connpass.com/event/261782/
