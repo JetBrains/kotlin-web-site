@@ -25,9 +25,9 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 
    ![Select a project template](multiplatform-project-1.png)
 
-4. Select the Gradle DSL – Kotlin or Groovy.
-5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
-6. Click **Next** and then **Finish**.
+   By default, your project will use Gradle with Kotlin DSL as the build system.
+4. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
+5. Click **Next** and then **Finish**.
 
 <deflist collapsible="true">
  <def title="Further project configuration">
@@ -310,11 +310,8 @@ Your multiplatform library is ready for publishing so that you can use it in oth
 
 To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
 
-1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
+1. In the `build.gradle.kts` file, apply the `maven-publish` plugin and specify the group and version of your library:
 
-   <tabs group="build-script">
-   <tab title="Kotlin" group-key="kotlin">
-   
    ```kotlin
    plugins {
        kotlin("multiplatform") version "%kotlinVersion%"
@@ -325,22 +322,6 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
    version = "1.0.0"
    ```
    
-   </tab>
-   <tab title="Groovy" group-key="groovy">
-   
-   ```groovy
-   plugins {
-       id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-       id 'maven-publish'
-   }
-   
-   group = 'org.jetbrains.base64'
-   version = '1.0.0'
-   ```
-   
-   </tab>
-   </tabs>
-
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
     ```bash
@@ -361,7 +342,7 @@ to their projects.
 
 ### Register a Sonatype account and generate GPG keys
 
-If this is your first library, or you used the sunsetted Bintray to do this before, you need first to register a
+If this is your first library, or you used the sunset Bintray to do this before, you need first to register a
 Sonatype account.
 
 You can use the GetStream article to create and set up your account. The [Registering a Sonatype account](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#registering-a-sonatype-account)
@@ -400,11 +381,8 @@ All the build logic will be provided as a precompiled script plugin and could be
 To implement this, move the publication logic to a separate Gradle project:
 
 1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins`
-with `src/build.gradle(.kts)` in it.
-2. Update this `build.gradle(.kts)` file with the following code:
-
-   <tabs group="build-script">
-   <tab title="Kotlin" group-key="kotlin">
+with `src/build.gradle.kts` in it.
+2. Update this `build.gradle.kts` file with the following code:
    
    ```kotlin
    plugins {
@@ -415,22 +393,6 @@ with `src/build.gradle(.kts)` in it.
        gradlePluginPortal() // To use 'maven-publish' and 'signing' plugins in our own plugin
    }
    ```
-   
-   </tab>
-   <tab title="Groovy" group-key="groovy">
-   
-   ```kotlin
-   plugins {
-       'kotlin-dsl' // Is needed to turn our build logic written in Kotlin into Gradle Plugin
-   }
-   
-   repositories {
-       gradlePluginPortal() // To use 'maven-publish' and 'signing' plugins in our own plugin
-   }
-   ```
-   
-   </tab>
-   </tabs>
    
 3. In the `convention-plugins/src` directory, create a `main/kotlin/convention.publication.gradle.kts` file
 to store all the publication logic.
@@ -533,7 +495,7 @@ to store all the publication logic.
    In the provided script, you get the credentials from `local.properties` or environment variables,
    do all the required configuration in the `publishing` section, and sign your publications with the signing plugin.
 
-5. Go back to your library project. To ask Gradle to prebuild your plugins, update the root `settings.gradle(.kts)`
+5. Go back to your library project. To ask Gradle to prebuild your plugins, update the root `settings.gradle.kts`
 with the following:
 
    ```kotlin
@@ -543,9 +505,6 @@ with the following:
 
 6. Now, you can apply this logic in the library's `build.script`. In the `plugins` section, replace `maven-publish` with
 `conventional.publication`:
-
-   <tabs group="build-script">
-   <tab title="Kotlin" group-key="kotlin">
    
    ```kotlin
    plugins {
@@ -553,19 +512,6 @@ with the following:
        id("convention.publication")
    }
    ```
-   
-   </tab>
-   <tab title="Groovy" group-key="groovy">
-   
-   ```groovy
-   plugins {
-       id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-       id 'convention.publication'
-   }
-   ```
-   
-   </tab>
-   </tabs>
 
 7. Create a `local.properties` file with all the necessary credentials and make sure to add it to your `.gitignore`:
 
@@ -601,11 +547,11 @@ press the release button.
 These steps are described in the [Your first release](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#your-first-release)
 section. In short, you need to:
 
-1. Go to [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org) and log in using the your credentials in Sonatype Jira.
+1. Go to [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org) and log in using your credentials in Sonatype Jira.
 2. Find your repository in the **Staging repositories** section.
 3. Close it.
 4. Release the library.
-5. To activate the sync to Maven Central, Go back to the Jira issue you created and leave a comment saying that you've
+5. To activate the sync to Maven Central, go back to the Jira issue you created and leave a comment saying that you've
    released your first component.
    This step is only needed if it's your first release.
 
@@ -617,10 +563,7 @@ developers will be able to add it as a dependency. In a couple of hours, other d
 
 You can add your library to other multiplatform projects as a dependency.
 
-Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle(.kts)` file.
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle.kts` file.
 
 ```kotlin
 repositories {
@@ -639,33 +582,10 @@ kotlin {
 }
 ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'org.jetbrains.base64:multiplatform-lib:1.0.0'
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
 The `implementation` dependency consists of:
 
-* The group ID and version — specified earlier in the `build.gradle(.kts)` file
-* The artifact ID — by default, it's your project's name specified in the `settings.gradle(.kts)` file
+* The group ID and version — specified earlier in the `build.gradle.kts` file
+* The artifact ID — by default, it's your project's name specified in the `settings.gradle.kts` file
 
 For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
 
