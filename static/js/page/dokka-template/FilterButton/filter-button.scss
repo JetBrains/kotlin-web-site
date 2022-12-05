@@ -1,0 +1,84 @@
+.ktl-dokka-filter-button {
+  text-transform: capitalize;
+
+  margin-bottom: 8px;
+  margin-left: 4px;
+
+  @media (max-width: 759px) {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  @media (max-width: 425px) {
+    margin-left: 2px;
+  }
+
+  @media (max-width: 400px) {
+    margin-left: 1px;
+  }
+
+  &:not([data-active]) {
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    &:hover {
+      outline: 1px solid rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  &_common {
+    &[data-active] {
+      color: #19191C;
+      background-color: rgb(186, 186, 187);
+
+      &:hover {
+        background-color: rgba(186, 186, 187, .7);
+      }
+    }
+  }
+
+  &_concurrent {
+    &[data-active] {
+      color: #19191C;
+      background-color: rgb(186, 186, 187);
+
+      &:hover {
+        background-color: rgba(186, 186, 187, .7);
+      }
+    }
+  }
+
+  &_jvm {
+    text-transform: uppercase;
+
+    &[data-active] {
+      color: #19191C;
+      background-color: rgb(77, 187, 95);
+      &:hover {
+        background-color: rgba(77, 187, 95, .7);
+      }
+    }
+  }
+
+  &_js {
+    text-transform: uppercase;
+
+    &[data-active] {
+      color: #19191C;
+      background-color: rgb(255, 199, 0);
+      &:hover {
+        background-color: rgba(255, 199, 0, .7);
+      }
+    }
+  }
+
+  &_native {
+    &[data-active] {
+      color: #19191C;
+      background-color: rgb(186, 186, 187);
+      &:hover {
+        background-color: rgba(186, 186, 187, .7);
+      }
+    }
+  }
+}

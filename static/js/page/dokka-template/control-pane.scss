@@ -1,0 +1,97 @@
+.navigation-wrapper {
+  padding: 12px 32px;
+  align-items: center;
+
+  &, #pages-search {
+    background: none #1b1b1b;
+  }
+
+  @media (max-width: 759px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.navigation-wrapper > .pull-right {
+  float: none;
+  margin-left: inherit;
+}
+
+.navigation-wrapper > .d-flex {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navigation-wrapper > .library-name {
+  font-size: 16px;
+  line-height: 24px;
+
+  margin-right: 0;
+}
+
+
+#leftToggler {
+  margin-right: 2px;
+  margin-left: -3px;
+}
+
+.icon-toggler {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+
+  @media (min-width: 760px) {
+    display: none;
+  }
+  &::before {
+    display: none;
+  }
+}
+
+.library-name > .library-name--link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+  margin-left: 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+.library-version {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: rgba(255, 255, 255, 0.7);
+
+  position: relative;
+  top: -4px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: auto;
+  align-items: flex-end;
+  min-height: initial;
+  z-index: 0;
+  margin-bottom: -8px;
+  margin-left: -4px;
+}
+
+@media(min-width: 760px) {
+  #searchBar {
+    display: none;
+  }
+}
+
+#theme-toggle-button {
+  padding: 0;
+  height: 40px;
+  width: 40px;
+}

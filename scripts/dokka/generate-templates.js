@@ -59,5 +59,5 @@ function compileComponent(name, props) {
     const propsString = JSON.stringify(props);
     const stdout = execFileSync('node', ['scripts/react-renderer/compile.js', name, propsString, 'dokka'], {encoding: 'utf-8'});
 
-    return `<!-- ktl_component: {"name": "${name}" ${propsString} } --> ${stdout}`;
+    return `<!-- ktl_component: {"name": "${name}", "props": ${propsString} } --> ${stdout}`;
 }

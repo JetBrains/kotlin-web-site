@@ -1,21 +1,19 @@
-#main {
-    max-width: 100%;
-    display: block;
-    flex: 1;
+:root {
+    --top-navigation-height: 129px;
 }
 
-#ktl-main {
+#container > #ktl-main {
     width: 100%;
     max-width: calc(100% - 280px);
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 759px) {
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 759px) {
-    #ktl-main {
-        max-width: 100%;
-    }
-
     #leftColumn.open ~ #ktl-main #searchBar {
         display: none;
     }
@@ -29,4 +27,36 @@
         padding-right: 0.5em;
         margin-left: -0.5em;
     }
+
+}
+
+#main {
+    max-width: 100%;
+    box-sizing: border-box;
+    display: block;
+    flex: 1;
+
+    @media screen and (max-width: 759px) {
+        padding-left: 24px;
+    }
+
+    @media (max-width: 759px) {
+        padding-left: 8px;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    #sideMenu {
+        padding-left: 16px;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#container, #container > #ktl-main {
+    flex: 1 1 auto;
+    max-height: unset;
 }
