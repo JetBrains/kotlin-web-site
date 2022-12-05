@@ -1,10 +1,10 @@
-package builds.apiReferences.buildTypes
+package builds.apiReferences.templates
 
-import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-object PrepareCustomDokkaTemplates: BuildType({
-  name = "Prepare Custom Dokka Templates"
+object PrepareDokkaTemplate: Template({
+  name = "Build Custom HTML Template"
 
   vcs {
     root(vcsRoots.KotlinLangOrg)

@@ -29,7 +29,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
 
 * **Increase the [Gradle heap size](https://docs.gradle.org/current/userguide/performance.html#adjust_the_daemons_heap_size)**.
   Add `org.gradle.jvmargs=-Xmx3g` to `gradle.properties`. If you use [parallel builds](https://docs.gradle.org/current/userguide/performance.html#parallel_execution),
-  you might need to make the heap even larger or choose the right number of threads with `org.gradle.parallel.threads`.
+  you might need to choose the right number of workers with the `org.gradle.workers.max` property or the `--max-workers` command-line option.
+  The default value is the number of CPU processors. 
 
 * **Build only the binaries you need**. Don't run Gradle tasks that build the whole project, such as `build` or `assemble`,
   unless you really need to. These tasks build the same code more than once, increasing the compilation times. In typical

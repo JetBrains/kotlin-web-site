@@ -843,7 +843,7 @@ In Kotlin 1.6.20, we changed deprecation levels of the properties:
   We are going to remove the option `kapt.use.worker.api` in future releases.
 
 * We deprecated the `kotlin.experimental.coroutines` Gradle DSL option and the `kotlin.coroutines` property used in `gradle.properties`.
-  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
+  Just use _suspending functions_ or [add the `kotlinx.coroutines` dependency](gradle-configure-project.md#set-a-dependency-on-a-kotlinx-library) to your `build.gradle(.kts)` file.
   
   Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).
 
@@ -853,6 +853,6 @@ In Kotlin 1.5.20, we announced [the deprecation of the build option `kotlin.para
 This option has been removed in Kotlin 1.6.20.
 
 Depending on the project, parallel compilation in the Kotlin daemon may require more memory.
-To reduce memory consumption, [increase the heap size for the Kotlin daemon](gradle.md#setting-kotlin-daemon-s-jvm-arguments).
+To reduce memory consumption, [increase the heap size for the Kotlin daemon](gradle-compilation-and-caches.md#setting-kotlin-daemon-s-jvm-arguments).
 
-Learn more about the [currently supported compiler options](gradle.md#compiler-options) in the Kotlin Gradle plugin.
+Learn more about the [currently supported compiler options](gradle-compiler-options.md) in the Kotlin Gradle plugin.

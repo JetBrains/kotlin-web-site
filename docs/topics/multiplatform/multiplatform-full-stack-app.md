@@ -148,6 +148,7 @@ engine on a port, in this case, `9090`.
     import io.ktor.server.plugins.cors.routing.*
     import io.ktor.server.request.*
     import io.ktor.server.response.*
+    import io.ktor.server.http.content.*
     import io.ktor.server.routing.*
     
     fun main() {
@@ -553,8 +554,6 @@ import io.ktor.serialization.kotlinx.json.*
 
 import kotlinx.browser.window
 
-val endpoint = window.location.origin // only needed until https://youtrack.jetbrains.com/issue/KTOR-453 is resolved
-
 val jsonClient = HttpClient {
     install(ContentNegotiation) {
         json()
@@ -562,18 +561,18 @@ val jsonClient = HttpClient {
 }
 
 suspend fun getShoppingList(): List<ShoppingListItem> {
-    return jsonClient.get(endpoint + ShoppingListItem.path).body()
+    return jsonClient.get(ShoppingListItem.path).body()
 }
 
 suspend fun addShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.post(endpoint + ShoppingListItem.path) {
+    jsonClient.post(ShoppingListItem.path) {
         contentType(ContentType.Application.Json)
         setBody(shoppingListItem)
     }
 }
 
 suspend fun deleteShoppingListItem(shoppingListItem: ShoppingListItem) {
-    jsonClient.delete(endpoint + ShoppingListItem.path + "/${shoppingListItem.id}")
+    jsonClient.delete(ShoppingListItem.path + "/${shoppingListItem.id}")
 }
 ```
 

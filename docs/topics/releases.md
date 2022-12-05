@@ -49,6 +49,17 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.7.21</strong>
+            <p>Released: <strong>November 9, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.7.20.</p>
+            <p>Learn more about Kotlin 1.7.20 in <a href="whatsnew1720.md" target="_blank">What's new in Kotlin 1.7.20</a>.</p>
+            <note>For Android Studio Dolphin, Electric Eel, and Flamingo, the Kotlin plugin 1.7.21 will be delivered with upcoming Android Studios updates.</note>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.7.20</strong>
             <p>Released: <strong>September 29, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.20" target="_blank">Release on GitHub</a></p>

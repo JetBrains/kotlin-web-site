@@ -22,10 +22,10 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2022.04"
+version = "2022.10"
 
 project {
-  subProjects(builds.apiReferences.BuildApiReferencesProject)
+  subProject(builds.apiReferences.BuildApiReferencesProject)
   subProject(tests.TestsProject)
   vcsRoot(vcsRoots.KotlinLangOrg)
 }

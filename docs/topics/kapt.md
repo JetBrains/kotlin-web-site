@@ -39,14 +39,6 @@ Follow these steps:
    </tab>
    </tabs>
 
-   Alternatively, you can use the `apply plugin` syntax:
-
-   ```groovy
-   apply plugin: 'kotlin-kapt'
-   ```
-
-   Applying Kotlin plugins with `apply` in the Kotlin Gradle DSL is not recommended – [see why](gradle.md#using-the-gradle-kotlin-dsl).
-
 2. Add the respective dependencies using the `kapt` configuration in your `dependencies` block:
 
    <tabs group="build-script">
@@ -120,7 +112,7 @@ To improve the speed of builds that use kapt, you can enable the [Gradle Worker 
 for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
 which in some cases significantly decreases the execution time.
 
-When you use the [custom JDK home](gradle.md#set-custom-jdk-home) feature in the Kotlin Gradle plugin,
+When you use the [custom JDK home](gradle-configure-project.md#set-custom-jdk-home) feature in the Kotlin Gradle plugin,
 kapt task workers use only [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode).
 Note that the `kapt.workers.isolation` property is ignored.
 
@@ -272,7 +264,7 @@ To disable incremental annotation processing, add this line to your `gradle.prop
 kapt.incremental.apt=false
 ```
 
-Note that incremental annotation processing requires [incremental compilation](gradle.md#incremental-compilation)
+Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
 to be enabled as well.
  
 ## Java compiler options
