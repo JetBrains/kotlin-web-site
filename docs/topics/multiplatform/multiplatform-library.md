@@ -1,8 +1,10 @@
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
-In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common tests for all platforms, and publish the library to a local Maven repository.
+In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common
+tests for all platforms, and publish the library to a local Maven repository.
 
-This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format. It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
+This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format.
+It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
 
 You will use different ways to implement the conversion to the Base64 format on different platforms:
 
@@ -499,7 +501,7 @@ to store all the publication logic.
 with the following:
 
    ```kotlin
-   rootProject.buildFileName = "multiplatform-lib" // your project name
+   rootProject.name = "multiplatform-lib" // your project name
    includeBuild("convention-plugins")
    ```
 
