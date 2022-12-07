@@ -1,3 +1,59 @@
+- lang: en
+  startDate: '2022-12-15'
+  endDate: '2022-12-15'
+  location: Eindhoven, the Netherlands
+  speaker: Abdulcelil Cercenazi
+  title: 'Eindhoven Kotlin User Group, 3rd meetup'
+  subject: 'Test-Driven Development with Kotlin'
+  url: https://www.meetup.com/eindhoven-kotlin-user-group/events/290122029/
+- lang: en
+  startDate: '2022-12-15'
+  endDate: '2022-12-15'
+  location: Eindhoven, the Netherlands
+  speaker: João Paulo Gomes
+  title: 'Eindhoven Kotlin User Group, 3rd meetup'
+  subject: 'Performance testing in Kotlin using Gatling'
+  url: https://www.meetup.com/eindhoven-kotlin-user-group/events/290122029/
+- lang: jp
+  startDate: '2022-12-10'
+  endDate: '2022-12-10'
+  online: true
+  speaker: ''
+  title: ''
+  subject: 'Kotlin Fest 2022'
+  url: https://kotlin.connpass.com/event/261782/
+- lang: en
+  startDate: '2022-11-29'
+  endDate: '2022-11-29'
+  location: Vienna, Austria
+  speaker: Dominik Moser
+  title: Kotlin Vienna Meetup
+  subject: 'Kotlin and Graal VM'
+  url: https://www.meetup.com/kotlin-vienna/events/288815446/
+- lang: en
+  startDate: '2022-11-24'
+  endDate: '2022-11-24'
+  location: Munich, Germany
+  speaker: Aleksei Semin, Svetlana Isakova, Marcel Pintó Biescas
+  title: Kotlin Meetup - November 2022 Edition
+  subject: 'Why Kotlin Multiplatform Mobile?'
+  url: https://www.meetup.com/Kotlin-User-Group-Munich/events/288879550
+- lang: en
+  startDate: '2022-12-06'
+  endDate: '2022-12-06'
+  location: London, UK
+  speaker: Andrey Breslav, David Denton
+  title: 'On Kotlin #5'
+  subject: 'Smash Your Adapter Monolith With The Connect Pattern'
+  url: https://www.meetup.com/source-talks-on-kotlin/events/289687310/
+- lang: en
+  startDate: '2022-12-08'
+  endDate: '2022-12-08'
+  location: Brighton, UK
+  speaker: ''
+  title: ''
+  subject: 'Brighton Kotlin Big Festive Meetup'
+  url: https://www.meetup.com/brighton-kotlin/events/289765411/
 - lang: cn
   startDate: '2022-11-26'
   endDate: '2022-11-27'
