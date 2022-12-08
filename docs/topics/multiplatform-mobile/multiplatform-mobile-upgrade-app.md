@@ -259,7 +259,7 @@ straightforward:
                                }
                            }
                        }
-                       Greeting(text)
+                       GreetingView(text)
                    }
                }
            }
