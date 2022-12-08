@@ -435,21 +435,9 @@ plugins {
 
 kotlin {
     val xcf = XCFramework()
-  
-    ios {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(this)
-        }
-    }
-    watchos {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(this)
-        }
-    }
-    tvos {
-        binaries.framework {
+
+    listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach {
+        it.binaries {
             baseName = "shared"
             xcf.add(this)
         }
@@ -458,7 +446,7 @@ kotlin {
 ```
 
 </tab>
-<tab title="Groovy" group-key="groovy">
+<tab title=“Groovy” group-key=“groovy”>
 
 ```groovy
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
@@ -469,20 +457,10 @@ plugins {
 
 kotlin {
     def xcf = new XCFrameworkConfig(project)
-
-    ios {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(it)
-        }
-    }
-    watchos {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(it)
-        }
-    }
-    tvos {
+    
+    def targets = ['iosX64()', 'iosArm64()', 'iosSimulatorArm64()']
+    
+    targets.each {
         binaries.framework {
             baseName = "shared"
             xcf.add(it)
