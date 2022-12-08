@@ -72,7 +72,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 4. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
 
     ```sql
-    CREATE TABLE IF NOT EXISTS messages (
+    CREATE TABLE messages (
        id                     VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
        text                   VARCHAR      NOT NULL
        );
@@ -95,4 +95,3 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 > You will need to share your email address on the next page to receive the materials.
 >
 {type="note"}
-
