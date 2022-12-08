@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2022-12-20'
+  endDate: '2022-12-20'
+  location: Limassol, Cyprus
+  speaker: Artemiy Mikhaylov
+  title: 'Cyprus Kotlin User Group'
+  subject: 'Functional programming in Kotlin with Arrow'
+  url: https://www.meetup.com/eindhoven-kotlin-user-group/events/290122029/
+- lang: en
   startDate: '2022-12-15'
   endDate: '2022-12-15'
   location: Eindhoven, the Netherlands
