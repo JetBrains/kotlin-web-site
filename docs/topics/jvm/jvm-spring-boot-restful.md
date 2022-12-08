@@ -91,7 +91,7 @@ containing a collection of `Message` objects:
    ```kotlin
    @RestController
    class MessageResource {
-       @GetMapping
+       @GetMapping("/")
        fun index(): List<Message> = listOf(
            Message("1", "Hello!"),
            Message("2", "Bonjour!"),
@@ -120,7 +120,7 @@ fun main(args: Array<String>) {
 
 @RestController
 class MessageResource {
-    @GetMapping
+    @GetMapping("/")
     fun index(): List<Message> = listOf(
         Message("1", "Hello!"),
         Message("2", "Bonjour!"),
@@ -216,7 +216,7 @@ database query:
   
    @RestController
    class MessageResource(val service: MessageService) {
-       @GetMapping
+       @GetMapping("/")
        fun index(): List<Message> = service.findMessages()
   
        @PostMapping
