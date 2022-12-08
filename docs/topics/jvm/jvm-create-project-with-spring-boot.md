@@ -177,7 +177,7 @@ In the Spring application, a controller is used to handle the web requests. In t
 ```kotlin
 @RestController
 class MessageController {
-    @GetMapping("/")
+    @GetMapping
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
 ```
@@ -190,7 +190,7 @@ class MessageController {
    <def title="@GetMapping annotation">
       <p><code>@GetMapping</code> marks the functions of the REST controller that implement the endpoints corresponding to HTTP GET calls:</p>
       <code style="block" lang="kotlin">
-      @GetMapping("/")
+      @GetMapping
       fun index(@RequestParam("name") name: String) = "Hello, $name!"
       </code>
    </def>
@@ -243,7 +243,7 @@ fun main(args: Array<String>) {
 
 @RestController
 class MessageController {
-    @GetMapping("/")
+    @GetMapping
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
 ```

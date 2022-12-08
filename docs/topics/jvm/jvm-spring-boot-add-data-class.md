@@ -54,7 +54,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
     ```kotlin
     @RestController
     class MessageController {
-        @GetMapping("/")
+        @GetMapping
         fun index() = listOf(
             Message("1", "Hello!"),
             Message("2", "Bonjour!"),
@@ -119,7 +119,7 @@ fun main(args: Array<String>) {
 
 @RestController
 class MessageController {
-    @GetMapping("/")
+    @GetMapping
     fun index() = listOf(
         Message("1", "Hello!"),
         Message("2", "Bonjour!"),

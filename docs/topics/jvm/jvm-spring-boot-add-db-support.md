@@ -76,7 +76,7 @@ Update `MessageController` to use the new `MessageService` class:
 ```kotlin
 @RestController
 class MessageController(val service: MessageService) {
-    @GetMapping("/")
+    @GetMapping
     fun index(): List<Message> = service.findMessages()
 
     @PostMapping
@@ -260,7 +260,7 @@ Extend the functionality of the application to retrieve the individual messages 
     ```kotlin
     @RestController
     class MessageController(val service: MessageService) {
-        @GetMapping("/")
+        @GetMapping
         fun index(): List<Message> = service.findMessages()
     
         @GetMapping("/{id}")
