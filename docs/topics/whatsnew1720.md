@@ -190,7 +190,7 @@ fun main() {
 
 #### How to enable data objects
 
-To use data object declarations in your code, enable the `-language-version 1.8` compiler option. In a Gradle project,
+To use data object declarations in your code, enable the `-language-version 1.9` compiler option. In a Gradle project,
 you can do so by adding the following to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
@@ -199,7 +199,7 @@ you can do so by adding the following to your `build.gradle(.kts)`:
 ```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     // ...
-    kotlinOptions.languageVersion = "1.8"
+    kotlinOptions.languageVersion = "1.9"
 }
 ```
 
@@ -209,7 +209,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 ```groovy
 compileKotlin {
     // ...
-    kotlinOptions.languageVersion = '1.8'
+    kotlinOptions.languageVersion = '1.9'
 }
 ```
 </tab>
