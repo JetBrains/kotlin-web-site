@@ -23,9 +23,9 @@ Kotlin plugins that support 1.8.0-RC are available for:
 | IntelliJ IDEA | 2021.3.x, 2022.1.x, 2022.2.x |
 | Android Studio | Dolphin (213), Electric Eel (221), Flamingo (222) |
 
-> You can update your projects to 1.8.0-RC in IDEA 2022.3 without updating the IDE plugin.
+> You can update your projects to 1.8.0-RC in IntelliJ IDEA 2022.3 without updating the IDE plugin.
 > 
-> To migrate existing projects to Kotlin 1.8.0-RC, change the Kotlin version to `1.8.0-RC` and reimport your Gradle or Maven project.
+> To migrate existing projects to Kotlin 1.8.0-RC in IntelliJ IDEA 2022.3, change the Kotlin version to `1.8.0-RC` and reimport your Gradle or Maven project.
 > 
 {type="note"}
 
