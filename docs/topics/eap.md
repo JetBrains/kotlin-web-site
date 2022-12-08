@@ -43,7 +43,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.8.0-RC</strong>
-            <p>Released: <strong>November 30, 2022</strong></p>
+            <p>Released: <strong>December 8, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
