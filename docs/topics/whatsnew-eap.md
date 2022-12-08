@@ -10,7 +10,7 @@ _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin 1.8.0-RC release is out! Here are some highlights from this release:
 
 * [We removed the old backend for Kotlin/JVM](#kotlin-jvm)
-* [We now support Xcode 14](#kotlin-native)
+* [We now support Xcode 14.1](#kotlin-native)
 * [We ensured compatibility with Gradle 7.3](#gradle)
 * [We introduced new experimental functions for JVM: recursively copy or delete directory content](#standard-library)
 
@@ -22,6 +22,12 @@ Kotlin plugins that support 1.8.0-RC are available for:
 |--|--|
 | IntelliJ IDEA | 2021.3.x, 2022.1.x, 2022.2.x |
 | Android Studio | Dolphin (213), Electric Eel (221), Flamingo (222) |
+
+> You can update your projects to 1.8.0-RC in IDEA 2022.3 without updating the IDE plugin.
+> 
+> To migrate existing projects to Kotlin 1.8.0-RC, change the Kotlin version to `1.8.0-RC` and reimport your Gradle or Maven project.
+> 
+{type="note"}
 
 ## Kotlin/JVM
 
