@@ -18,16 +18,16 @@ See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sam
 
 ### Hiding Kotlin declarations
 
-You can choose not to export Kotlin declaration to Objective-C and Swift with special annotations:
+If you don't want to export Kotlin declarations to Objc and Swift, use special annotations:
 
-* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and, consequently, Swift. The annotation instructs the
-  Kotlin compiler not to export a function or property to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
-* @ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation instructs
-  the Kotlin compiler to mark a function or property as `swift_private` in the generated Objective-C API.
-  Such declarations get the `__` prefix, which makes them invisible from Swift.
+* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
+  export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+* `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
+  function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
+  which makes them invisible from Swift.
 
   You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
-  the Xcode autocomplete, for example.
+  the Xcode autocomplete.
 
   For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
 
@@ -157,7 +157,11 @@ to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the 
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
 Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods
-or parameters. Note that using this annotation requires [opt-in](opt-in-requirements.md).
+or parameters.
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Errors and exceptions
 
