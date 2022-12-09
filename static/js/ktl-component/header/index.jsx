@@ -4,7 +4,7 @@ import searchConfig from '../../../../search-config.json';
 
 const Header = (props) => {
   return (
-      <GlobalHeader { ... props } searchConfig={searchConfig} noScrollClassName={'_no-scroll'} />
+      <GlobalHeader { ... props } searchConfig={searchConfig} />
   );
 }
 
