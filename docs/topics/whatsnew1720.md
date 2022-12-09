@@ -57,7 +57,7 @@ You can specify it in your `build.gradle(.kts)` file:
 
 ```kotlin
 tasks.withType<KotlinCompile> {
-    kotlinOptions.freeCompilerArgs += "-Xuse-k2"
+    kotlinOptions.useK2 = true
 }
 ```
 
@@ -66,7 +66,7 @@ tasks.withType<KotlinCompile> {
 
 ```groovy
 compileKotlin {
-    kotlinOptions.freeCompilerArgs += "-Xuse-k2"
+    kotlinOptions.useK2 = true
 }
 ```
 </tab>
