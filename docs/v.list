@@ -30,10 +30,6 @@
 
     <var name="serializationVersion" value="1.4.1" type="string"/>
 
-    <var name="kotlinPluginVersion" value="2022.2.1" type="string"/>
-
-    <var name="kotlinPreviousPluginVersion" value="2022.1" type="string"/>
-
     <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
 
     <var name="webpackMajorVersion" value="5" type="string"/>

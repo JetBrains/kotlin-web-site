@@ -30,6 +30,25 @@ The following table lists the details of the latest Kotlin plugin releases:
 <tr>
 <td>
 
+**2022.3**
+
+Released: November 30, 2022
+
+</td>
+<td>
+
+* Support for Kotlin 1.7.20 features
+* Improved IDE performance for Kotlin
+
+Learn more in:
+* [What's New in IntelliJ IDEA 2022.3](https://www.jetbrains.com/idea/whatsnew/2022-3/)
+
+
+</td>
+</tr>
+<tr>
+<td>
+
 **2022.2**
 
 Released: July 26, 2022
