@@ -446,7 +446,7 @@ kotlin {
 ```
 
 </tab>
-<tab title=“Groovy” group-key=“groovy”>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
