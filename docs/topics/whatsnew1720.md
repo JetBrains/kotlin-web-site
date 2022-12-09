@@ -50,7 +50,29 @@ To enable the Kotlin K2 compiler and test it, use the following compiler option:
 -Xuse-k2
 ```
 
-You can check out the performance boost on your JVM projects and compare it with the results of the old compiler.
+You can specify it in your `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<KotlinCompile> {
+    kotlinOptions.freeCompilerArgs += "-Xuse-k2"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+compileKotlin {
+    kotlinOptions.freeCompilerArgs += "-Xuse-k2"
+}
+```
+</tab>
+</tabs>
+
+Check out the performance boost on your JVM projects and compare it with the results of the old compiler.
 
 ### Leave your feedback on the new K2 compiler
 
