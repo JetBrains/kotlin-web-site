@@ -18,7 +18,7 @@ See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sam
 
 ### Hiding Kotlin declarations
 
-If you don't want to export Kotlin declarations to Objc and Swift, use special annotations:
+If you don't want to export Kotlin declarations to Objective-C and Swift, use special annotations:
 
 * `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
   export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
@@ -271,7 +271,7 @@ supporting all corresponding operations.
 when used as a Swift/Objective-C parameter type or return value.
 The reason is that `NSNumber` type doesn't provide enough information
 about a wrapped primitive value type, i.e. `NSNumber` is statically not known
-to be a e.g. `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
+to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be cast to/from `NSNumber` manually (see [below](#casting-between-mapped-types)).
 
 ### NSMutableString
@@ -293,7 +293,7 @@ The same holds for `MutableMap`.
 ### Function types
 
 Kotlin function-typed objects (e.g. lambdas) are converted to 
-Swift functions / Objective-C blocks. However there is a difference in how
+Swift functions / Objective-C blocks. However, there is a difference in how
 types of parameters and return values are mapped when translating a function
 and a function type. In the latter case primitive types are mapped to their
 boxed representation. Kotlin `Unit` return value is represented
@@ -385,7 +385,7 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 
 #### Constraints
 
-In Kotlin you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
+In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
 in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-null
 upper bound will make Objective-C methods/properties non-null.
 
@@ -444,7 +444,7 @@ The overriding constructor must have the same parameter names and types as the o
 To override different methods with clashing Kotlin signatures, you can add a
 `@Suppress("CONFLICTING_OVERLOADS")` annotation to the class.
 
-By default the Kotlin/Native compiler doesn't allow calling a non-designated
+By default, the Kotlin/Native compiler doesn't allow calling a non-designated
 Objective-C initializer as a `super(...)` constructor. This behaviour can be
 inconvenient if the designated initializers aren't marked properly in the Objective-C
 library. Adding a `disableDesignatedInitializerChecks = true` to the `.def` file for
