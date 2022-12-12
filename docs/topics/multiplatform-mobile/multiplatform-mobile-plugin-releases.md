@@ -39,6 +39,25 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.5.1**
+
+Released: 30 November, 2022
+
+</td>
+<td>
+
+* [Fixed new project generation: delete an excess "app" directory](https://youtrack.jetbrains.com/issue/KTIJ-23790).
+
+</td>
+<td>
+
+* [Kotlin 1.7.0—*](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.5.0**
 
 Released: 22 November, 2022

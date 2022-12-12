@@ -23,6 +23,7 @@ additional cross-platform mobile development tasks:
         <li><a href="multiplatform-run-tests.md">Add tests to your Kotlin Multiplatform project</a></li>
         <li><a href="multiplatform-mobile-publish-apps.md">Publish your mobile application to app stores</a></li>
         <li><a href="multiplatform-mobile-introduce-your-team.md">Introduce cross-platform mobile development to your team</a></li>
+        <li><a href="https://github.com/terrakok/kmm-awesome">Check out the list of useful tools and libraries</a></li>
      </ul>
    </td>
     <td>
@@ -48,7 +49,7 @@ additional cross-platform mobile development tasks:
         <li><a href="multiplatform-mobile-integrate-in-existing-app.md">Make your Android app cross-platform</a></li>
         <li><a href="multiplatform-mobile-ktor-sqldelight.md">Create a multiplatform app using Ktor and SQLDelight</a></li>
         <li><a href="multiplatform-full-stack-app.md">Build a full-stack web app with Kotlin Multiplatform</a></li>
-        <li><a href="multiplatform-mobile-samples.md">Curated list of sample projects</a></li>
+        <li><a href="multiplatform-mobile-samples.md">See the curated list of sample projects</a></li>
      </ul>
    </td>
     <td>
