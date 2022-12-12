@@ -42,6 +42,10 @@ object KotlinxDatetimeBuildApiReference : BuildType({
     }
   }
 
+  requirements {
+    doesNotContain("teamcity.agent.name", "windows")
+  }
+
   dependencies {
     dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
   }
