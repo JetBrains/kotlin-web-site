@@ -227,13 +227,10 @@ There are three compiler execution strategies:
 To define a Kotlin compiler execution strategy, you can use one of the following properties:
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
-* The deprecated `-Dkotlin.compiler.execution.strategy` system property, which will be removed in future releases.
 
-The priority of properties is the following:
-* The task property `compilerExecutionStrategy` takes priority over the system property and the Gradle property `kotlin.compiler.execution.strategy`.
-* The Gradle property takes priority over the system property.
+The task property `compilerExecutionStrategy` takes priority over the Gradle property `kotlin.compiler.execution.strategy`.
 
-The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
+The available values for the `kotlin.compiler.execution.strategy` property are:
 1. `daemon` (default)
 2. `in-process`
 3. `out-of-process`
