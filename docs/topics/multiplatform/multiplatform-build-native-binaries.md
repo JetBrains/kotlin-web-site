@@ -435,9 +435,10 @@ plugins {
 
 kotlin {
     val xcf = XCFramework()
-
-    listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach {
-        it.binaries {
+    val iosTargets = listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+    
+    iosTargets.forEach {
+        it.binaries.framework {
             baseName = "shared"
             xcf.add(this)
         }
@@ -457,12 +458,11 @@ plugins {
 
 kotlin {
     def xcf = new XCFrameworkConfig(project)
+    def iosTargets = [iosX64(), iosArm64(), iosSimulatorArm64()]
     
-    def targets = ['iosX64()', 'iosArm64()', 'iosSimulatorArm64()']
-    
-    targets.each {
-        binaries.framework {
-            baseName = "shared"
+    iosTargets.forEach {
+        it.binaries.framework {
+            baseName = 'shared'
             xcf.add(it)
         }
     }
