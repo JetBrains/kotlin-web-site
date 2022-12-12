@@ -2,7 +2,7 @@
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
-a module within which the sealed class is defined. For example, third-party clients can't extend your sealed class in their code.
+the module or package within which the sealed class is defined. For example, third-party clients can't extend your sealed class in their code.
 Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
 
 The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled,
