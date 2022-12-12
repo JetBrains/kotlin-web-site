@@ -101,7 +101,7 @@ Here is a complete list of options for Gradle tasks:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "18" | "%defaultJvmTargetVersion%" |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19" | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 
 ### Attributes common to JVM, JS, and JS DCE

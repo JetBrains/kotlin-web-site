@@ -276,8 +276,8 @@ The following attributes are supported:
 
 | Name | Property name | Description | Possible values |Default value |
 |------|---------------|-------------|-----------------|--------------|
-| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "18" | "%defaultJvmTargetVersion%" |
-| `jdkHome` | `kotlin.compiler.jdkHome` |       Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME | | |
+| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19" | "%defaultJvmTargetVersion%" |
+| `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME | | |
 
 ### Attributes specific to JS
 
