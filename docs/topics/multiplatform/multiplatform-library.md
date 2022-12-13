@@ -492,6 +492,8 @@ to store all the publication logic.
        sign(publishing.publications)
    }
    ```
+   {initial-collapse-state="collapsed"}
+   
    
    Applying just `maven-publish` is enough for publishing to the local Maven repository, but not to Maven Central.
    In the provided script, you get the credentials from `local.properties` or environment variables,
@@ -563,9 +565,10 @@ developers will be able to add it as a dependency. In a couple of hours, other d
 
 ## Add a dependency on the published library
 
-You can add your library to other multiplatform projects as a dependency.
+You can add your library to other multiplatform projects as a dependency. 
 
-Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle.kts` file.
+In the `build.gradle.kts` file, add `mavenLocal()` or `MavenCentral()` (if the library was published
+to the external repository) and add a dependency on your library:
 
 ```kotlin
 repositories {
