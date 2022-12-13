@@ -293,10 +293,10 @@ fun foo(ann: Ann) {
 
 ### Ability to not generate JVM 1.8+ annotation targets
 
-If a Kotlin annotation with the target `TYPE` is compiled with the JVM target 1.8+, this annotation gets 
+If a Kotlin annotation has `TYPE` among its Kotlin targets, this annotation gets 
 `java.lang.annotation.ElementType.TYPE_USE` in its list of Java annotation targets. 
 This is an issue for Android clients with API levels less than 26, which didn't have `TYPE_USE` in the API. 
-To compile against JDK 1.8 and avoid generating annotation targets `TYPE_USE` or `TYPE_PARAMETER`, use the new compiler argument `-Xno-new-java-annotation-targets`.
+To avoid generating annotation targets `TYPE_USE` or `TYPE_PARAMETER`, use the new compiler argument `-Xno-new-java-annotation-targets`.
 
 ## Repeatable annotations
 
