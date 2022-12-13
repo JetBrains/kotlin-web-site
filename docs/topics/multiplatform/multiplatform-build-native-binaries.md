@@ -435,21 +435,10 @@ plugins {
 
 kotlin {
     val xcf = XCFramework()
-  
-    ios {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(this)
-        }
-    }
-    watchos {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(this)
-        }
-    }
-    tvos {
-        binaries.framework {
+    val iosTargets = listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+    
+    iosTargets.forEach {
+        it.binaries.framework {
             baseName = "shared"
             xcf.add(this)
         }
@@ -469,22 +458,11 @@ plugins {
 
 kotlin {
     def xcf = new XCFrameworkConfig(project)
-
-    ios {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(it)
-        }
-    }
-    watchos {
-        binaries.framework {
-            baseName = "shared"
-            xcf.add(it)
-        }
-    }
-    tvos {
-        binaries.framework {
-            baseName = "shared"
+    def iosTargets = [iosX64(), iosArm64(), iosSimulatorArm64()]
+    
+    iosTargets.forEach {
+        it.binaries.framework {
+            baseName = 'shared'
             xcf.add(it)
         }
     }
