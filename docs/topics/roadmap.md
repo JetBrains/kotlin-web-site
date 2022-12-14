@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td><strong>June 2022</strong></td>
+        <td><strong>June 2023</strong></td>
     </tr>
 </table>
 
@@ -146,7 +146,7 @@ We've **completed** the following items from the previous roadmap:
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Language: [List of all upcoming language features](https://youtrack.jetbrains.com/issue/KT-54620)
+* ℹ️ Language: [List of all upcoming language features](https://youtrack.jetbrains.com/issue/KT-54620)
 * 🆕 Multiplatform: Promote Kotlin Multiplatform Mobile to Stable
 * 🆕 Multiplatform: Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one
 * 🆕 Tooling: First public release of K2-based IntelliJ plugin
