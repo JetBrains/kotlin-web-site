@@ -15,13 +15,12 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotli
 
 ## Key priorities
 
-The goal of this roadmap is to give you a big picture. Here's a list of our key priorities – the areas we are investing the most effort into:
+The goal of this roadmap is to give you a big picture. Here's a list of our key projects – the most important things we focus on delivering:
 
-* **Fast turnaround**: making the change-test-debug cycle really fast.
-* **New compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. Later we will also work on pluggability.
-* **Fast and smooth IDE**: improving the stability and performance of the Kotlin plugin.
-* **Kotlin for JVM server-side development**: expanding support for server-side use cases across the Kotlin ecosystem.
-* **Kotlin Multiplatform Mobile**: improving the user experience and feature set for sharing code on mobile platforms.
+* **K2 compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. It will also let us introduce many anticipated language features.
+* **K2-based IntelliJ plugin**: much faster code completion, highlighting, and search, together with a more stable code analysis.
+* **Kotlin Multiplatform Mobile**: promote the technology to Stable by improving the toolchain stability and documentation and ensuring compatibility guarantees.
+* **Experience of library authors**: a set of documentation and tools helping to set up, develop, and publish Kotlin libraries.
 
 ## Kotlin roadmap by subsystem
 
@@ -45,12 +44,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
     <tr>
         <td><strong>Language</strong></td>
         <td>
-            <p><note><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">List of all upcoming language features</a></note></p>
+            <p><tip><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">List of all upcoming language features</a></tip></p>
             <ul>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-15613" target="_blank">Introduce special syntax for <code>until</code> operator</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-48872" target="_blank">Provide modern and performant replacement for Enum.values()</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-48872" target="_blank">Provide modern and performant replacement for <code>Enum.values()</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-1436" target="_blank">Support non-local <code>break</code> and <code>continue</code></a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">Design and implement solution for toString on objects</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">Design and implement solution for <code>toString</code> on objects</a></li>
             </ul>
         </td>
     </tr>
@@ -71,8 +70,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <ul>
                 <li>🆕 Promote Kotlin Multiplatform Mobile to Stable</li> 
                 <li>🆕 Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-52596" target="_blank">🆕 Promote Kotlin Multiplatform Mobile to Beta</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: keep binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
             </ul>
@@ -85,7 +83,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 First public release of K2-based IntelliJ plugin</li>
                 <li>🆕 Improve performance and code analysis stability of the current IDE plugin</li>
                 <li>🆕 Expose stable compiler arguments in Gradle DSL</li>
-                <li>🆕 Kotlin Notebooks IDEA plugin</li>
+                <li>🆕 Release the Experimental version of the Kotlin Notebooks IJ IDEA plugin</li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49532" target="_blank">Provide better experience with Kotlin Daemon</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
@@ -106,6 +104,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">Continue development and stabilization of standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
             </ul>
+            <p><tip><a href="https://blog.jetbrains.com/ktor/2022/02/11/ktor-roadmap-what-s-next/" target="_blank">The Ktor framework roadmap</a></tip></p>
          </td>
     </tr>
 </table>
@@ -171,6 +170,11 @@ We've **removed** the following items from the roadmap:
 * ❌ Multiplatform: [Improve Android support in Multiplatform projects](https://youtrack.jetbrains.com/issue/KT-52599)
 * ❌ Build tools: [Make compilation avoidance support Stable for Gradle](https://youtrack.jetbrains.com/issue/KT-52603)
 * ❌ Website: [Improve Kotlin Playground](https://youtrack.jetbrains.com/issue/KT-49536)
+
+> Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
+> with the current ones.
+>
+{type="note"}
 
 ### Items in progress
 
