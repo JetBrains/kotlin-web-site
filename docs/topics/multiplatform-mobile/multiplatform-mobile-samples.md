@@ -183,6 +183,23 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
   </tr>
   <tr>
     <td>
+      <strong><a href="https://github.com/VictorKabata/Gistagram">Gistagram</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage</td>
+    <td>Koin, Ktor, Apollo Kotlin, SQLdelight, Realm, Multiplatform Settings, Napier</td>
+    <td>Jetpack Compose - Android, SwiftUI - iOS, Compose Multiplatform - Desktop</td>
+    <td>CocoaPods</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <ul>
+        <li>Demonstrates data persistance in Kotlin Multiplatform projects</li>
+        <li>Demonstrates integration of RESTful and GraphQL APIs in Kotlin Multiplatform projects</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
       <strong><a href="https://github.com/VictorKabata/Notflix">Notflix</a></strong>
     </td>
     <td>Models, Networking, Caching, ViewModels</td>
