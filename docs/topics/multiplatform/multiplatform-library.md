@@ -1,8 +1,10 @@
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
-In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common tests for all platforms, and publish the library to a local Maven repository.
+In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common
+tests for all platforms, and publish the library to a local Maven repository.
 
-This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format. It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
+This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format.
+It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
 
 You will use different ways to implement the conversion to the Base64 format on different platforms:
 
@@ -25,9 +27,9 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 
    ![Select a project template](multiplatform-project-1.png)
 
-4. Select the Gradle DSL – Kotlin or Groovy.
-5. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
-6. Click **Next** and then **Finish**.
+   By default, your project will use Gradle with Kotlin DSL as the build system.
+4. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
+5. Click **Next** and then **Finish**.
 
 <deflist collapsible="true">
  <def title="Further project configuration">
@@ -310,11 +312,8 @@ Your multiplatform library is ready for publishing so that you can use it in oth
 
 To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
 
-1. In the `build.gradle(.kts)` file, apply the `maven-publish` plugin and specify the group and version of your library:
+1. In the `build.gradle.kts` file, apply the `maven-publish` plugin and specify the group and version of your library:
 
-   <tabs group="build-script">
-   <tab title="Kotlin" group-key="kotlin">
-   
    ```kotlin
    plugins {
        kotlin("multiplatform") version "%kotlinVersion%"
@@ -325,22 +324,6 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
    version = "1.0.0"
    ```
    
-   </tab>
-   <tab title="Groovy" group-key="groovy">
-   
-   ```groovy
-   plugins {
-       id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-       id 'maven-publish'
-   }
-   
-   group = 'org.jetbrains.base64'
-   version = '1.0.0'
-   ```
-   
-   </tab>
-   </tabs>
-
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
     ```bash
@@ -351,17 +334,241 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
    >
    {type="note"}
 
-
 Your library will be published to the local Maven repository.
+
+## Publish your library to the external Maven Central repository
+
+You can go public and release your multiplatform library to [Maven Central](https://search.maven.org/), a remote repository
+where maven artifacts are stored and managed. This way, other developers will be able to find it and add as a dependency
+to their projects.
+
+### Register a Sonatype account and generate GPG keys
+
+If this is your first library, or you used the sunset Bintray to do this before, you need first to register a
+Sonatype account.
+
+You can use the GetStream article to create and set up your account. The [Registering a Sonatype account](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#registering-a-sonatype-account)
+section describes how to:
+
+1. Register a [Sonatype Jira account](https://issues.sonatype.org/secure/Signup!default.jspa).
+2. Create a new issue. You can use [our issue](https://issues.sonatype.org/browse/OSSRH-65092) as an example.
+3. Verify your domain ownership corresponding to the group ID you want to use to publish your artifacts.
+
+Then, since artifacts published on Maven Central have to be signed, follow the [Generating a GPG key pair](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#generating-a-gpg-key-pair)
+section to:
+
+1. Generate a GPG key pair for signing your artifacts.
+2. Publish your public key.
+3. Export your private key.
+
+When the Maven repository and signing keys for your library are ready, you can move on and set up your build to upload
+the library artifacts to a staging repository and then release them.
+
+### Set up publication
+
+Now you need to instruct Gradle how to publish the library. Most of the work is already done by the `maven-publish` and Kotlin
+Gradle plugins, all the required publications are created automatically. You already know the result when the library is
+published to a local Maven repository. To publish it to Maven Central, you need to take additional steps:
+
+1. Configure the public Maven repository URL and credentials.
+2. Provide a description and `javadocs` for all library components.
+3. Sign publications.
+
+You can handle all these tasks with Gradle scripts. Let's extract all the publication-related logic from the library
+module `build.script`, so you can easily reuse it for other modules in the future.
+
+The most idiomatic and flexible way to do that is to use Gradle's [precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins).
+All the build logic will be provided as a precompiled script plugin and could be applied by plugin ID to every module of our library.
+
+To implement this, move the publication logic to a separate Gradle project:
+
+1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins`
+with `src/build.gradle.kts` in it.
+2. Update this `build.gradle.kts` file with the following code:
+   
+   ```kotlin
+   plugins {
+       "kotlin-dsl" // Is needed to turn our build logic written in Kotlin into the Gradle Plugin
+   }
+   
+   repositories {
+       gradlePluginPortal() // To use 'maven-publish' and 'signing' plugins in our own plugin
+   }
+   ```
+   
+3. In the `convention-plugins/src` directory, create a `main/kotlin/convention.publication.gradle.kts` file
+to store all the publication logic.
+4. Add all the required logic in the new file:
+
+   ```kotlin
+   import org.gradle.api.publish.maven.MavenPublication
+   import org.gradle.api.tasks.bundling.Jar
+   import org.gradle.kotlin.dsl.`maven-publish`
+   import org.gradle.kotlin.dsl.signing
+   import java.util.*
+   
+   plugins {
+      'maven-publish'
+       signing
+   }
+   
+   // Stub secrets to let the project sync and build without the publication values set up
+   ext["signing.keyId"] = null
+   ext["signing.password"] = null
+   ext["signing.secretKeyRingFile"] = null
+   ext["ossrhUsername"] = null
+   ext["ossrhPassword"] = null
+   
+   // Grabbing secrets from local.properties file or from environment variables, which could be used on CI
+   val secretPropsFile = project.rootProject.file("local.properties")
+   if (secretPropsFile.exists()) {
+       secretPropsFile.reader().use {
+           Properties().apply {
+               load(it)
+           }
+       }.onEach { (name, value) ->
+           ext[name.toString()] = value
+       }
+   } else {
+       ext["signing.keyId"] = System.getenv("SIGNING_KEY_ID")
+       ext["signing.password"] = System.getenv("SIGNING_PASSWORD")
+       ext["signing.secretKeyRingFile"] = System.getenv("SIGNING_SECRET_KEY_RING_FILE")
+       ext["ossrhUsername"] = System.getenv("OSSRH_USERNAME")
+       ext["ossrhPassword"] = System.getenv("OSSRH_PASSWORD")
+   }
+   
+   val javadocJar by tasks.registering(Jar::class) {
+       archiveClassifier.set("javadoc")
+   }
+   
+   fun getExtraString(name: String) = ext[name]?.toString()
+   
+   publishing {
+       // Configure maven central repository
+       repositories {
+           maven {
+               name = "sonatype"
+               setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+               credentials {
+                   username = getExtraString("ossrhUsername")
+                   password = getExtraString("ossrhPassword")
+               }
+           }
+       }
+   
+       // Configure all publications
+       publications.withType<MavenPublication> {
+           // Stub javadoc.jar artifact
+           artifact(javadocJar.get())
+   
+           // Provide artifacts information requited by Maven Central
+           pom {
+               name.set("MPP Sample library")
+               description.set("Sample Kotlin Multiplatform library (jvm + ios + js) test")
+               url.set("https://github.com/<your-github-repo>/mpp-sample-lib")
+   
+               licenses {
+                   license {
+                       name.set("MIT")
+                       url.set("https://opensource.org/licenses/MIT")
+                   }
+               }
+               developers {
+                   developer {
+                   id.set("<your-github-profile>")
+                   name.set("<your-name>")
+                   email.set("<your-email>") 
+               }
+           }
+               scm {
+                   url.set("https://github.com/<your-github-repo>/mpp-sample-lib")
+               }
+           }
+       }
+   }
+   
+   // Signing artifacts. Signing.* extra properties values will be used
+   signing {
+       sign(publishing.publications)
+   }
+   ```
+   {initial-collapse-state="collapsed"}
+   
+   
+   Applying just `maven-publish` is enough for publishing to the local Maven repository, but not to Maven Central.
+   In the provided script, you get the credentials from `local.properties` or environment variables,
+   do all the required configuration in the `publishing` section, and sign your publications with the signing plugin.
+
+5. Go back to your library project. To ask Gradle to prebuild your plugins, update the root `settings.gradle.kts`
+with the following:
+
+   ```kotlin
+   rootProject.name = "multiplatform-lib" // your project name
+   includeBuild("convention-plugins")
+   ```
+
+6. Now, you can apply this logic in the library's `build.script`. In the `plugins` section, replace `maven-publish` with
+`conventional.publication`:
+   
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "%kotlinVersion%"
+       id("convention.publication")
+   }
+   ```
+
+7. Create a `local.properties` file with all the necessary credentials and make sure to add it to your `.gitignore`:
+
+   ```properties
+   # The GPG key pair ID (last 8 digits of its fingerprint)
+   signing.keyId=...
+   # The passphrase of the key pair
+   signing.password=...
+   # Private key you exported earlier
+   signing.secretKeyRingFile=...
+   # Your credentials for the Jira account
+   ossrhUsername=...
+   ossrhPassword=...
+   ```
+
+8. Run `./gradlew clean` and sync the project.
+
+New Gradle tasks related to the Sonatype repository should appear in the publishing group – that means that everything
+is ready for you to publish your library.
+
+### Publish your library to Maven Central
+
+To upload your library to the Sonatype repository, run the following program:
+
+```bash
+./gradlew publishAllPublicationsToSonatypeRepository
+```
+
+The staging repository will be created, and all the artifacts for all publications will be uploaded to that
+repository. All it's left to do is to check that all the artifacts you wanted to upload have made it there and to
+press the release button.
+
+These steps are described in the [Your first release](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#your-first-release)
+section. In short, you need to:
+
+1. Go to [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org) and log in using your credentials in Sonatype Jira.
+2. Find your repository in the **Staging repositories** section.
+3. Close it.
+4. Release the library.
+5. To activate the sync to Maven Central, go back to the Jira issue you created and leave a comment saying that you've
+   released your first component.
+   This step is only needed if it's your first release.
+
+Soon your library will be available at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2), and other
+developers will be able to add it as a dependency. In a couple of hours, other developers will be able to find it using
+[Maven Central Repository Search](https://search.maven.org/).
 
 ## Add a dependency on the published library
 
-Now you can add your library to other multiplatform projects as a dependency.
+You can add your library to other multiplatform projects as a dependency. 
 
-Add the `mavenLocal()` repository and add a dependency on your library to the `build.gradle(.kts)` file.
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+In the `build.gradle.kts` file, add `mavenLocal()` or `MavenCentral()` (if the library was published
+to the external repository) and add a dependency on your library:
 
 ```kotlin
 repositories {
@@ -380,33 +587,10 @@ kotlin {
 }
 ```
 
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-repositories {
-    mavenCentral()
-    mavenLocal()
-}
-
-kotlin {
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation 'org.jetbrains.base64:multiplatform-lib:1.0.0'
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
 The `implementation` dependency consists of:
 
-* The group ID and version — specified earlier in the `build.gradle(.kts)` file
-* The artifact ID — by default, it's your project's name specified in the `settings.gradle(.kts)` file
+* The group ID and version — specified earlier in the `build.gradle.kts` file
+* The artifact ID — by default, it's your project's name specified in the `settings.gradle.kts` file
 
 For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
 
