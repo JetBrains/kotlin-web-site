@@ -1,11 +1,11 @@
-- title: "Kotlin 1.7.20-Beta Released"
-  link: https://blog.jetbrains.com/kotlin/2022/08/kotlin-1-7-20-beta/
+- title: "Join the Kotlin Multiplatform contest"
+  link: https://blog.jetbrains.com/kotlin/2022/10/join-the-kotlin-multiplatform-contest/
+
+- title: "Kotlin 1.8.0-RC released"
+  link: https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC
 
 - title: "KotlinConf returns to Amsterdam in April 2023!"
   link: https://blog.jetbrains.com/kotlin/2022/07/kotlinconf-2023/
 
 - title: "A New Approach to Incremental Compilation in Kotlin"
   link: https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/
-
-- title: "Kotlin News: KotlinConf, Build Reports, DataFrame Preview, and More"
-  link: https://blog.jetbrains.com/kotlin/2022/07/kotlin-news-june/
