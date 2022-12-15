@@ -7,6 +7,22 @@ The recommended way to use Kotlin/JS is via the `kotlin.js` and `kotlin.multipla
 such as controlling the bundling of your application, adding JavaScript dependencies directly from npm, and more. To get
 an overview of the available options, check out the [Kotlin/JS project setup](js-project-setup.md) documentation.
 
+## Kotlin/JS IR compiler
+
+The [Kotlin/JS IR compiler](js-ir-compiler.md) comes with a number of improvements over the old default compiler.
+For example, it reduces the size of generated executables
+via dead code elimination and provides smoother interoperability with the JavaScript ecosystem and its tooling.
+
+> The old compiler has been deprecated since the Kotlin 1.8.0 release.
+> 
+{type="note"}
+
+By generating TypeScript declaration files (`d.ts`) from Kotlin code, the IR compiler makes it easier to create "hybrid"
+applications that mix TypeScript and Kotlin code and to leverage code-sharing functionality using Kotlin Multiplatform.
+
+To learn more about the available features in the Kotlin/JS IR compiler and how to try it for your project, visit the
+[Kotlin/JS IR compiler documentation page](js-ir-compiler.md) and the [migration guide](js-ir-migration.md).
+
 ## Use cases for Kotlin/JS
 
 There are numerous ways to use Kotlin/JS. Here is a non-exhaustive list of
@@ -69,7 +85,7 @@ that can be used as building blocks for your application's user interface. You c
 models to build your frontend, use connectors for Ktor, Spring Boot, and other frameworks to integrate it with your server-side
 applications, and share code using [Kotlin Multiplatform](multiplatform.md).
 
-Visit [https://kvision.io](https://kvision.io) for documentation, tutorials, and examples.
+[Visit KVision site](https://kvision.io) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#kvision](https://kotlinlang.slack.com/messages/kvision) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
@@ -80,7 +96,7 @@ _fritz2_ is a standalone framework for building reactive web user interfaces. It
 and rendering HTML elements, and it makes use of Kotlin's coroutines and flows to express components and their data bindings.
 It provides state management, validation, routing, and more out of the box, and integrates with Kotlin Multiplatform projects.
 
-Visit [https://www.fritz2.dev](https://www.fritz2.dev) for documentation, tutorials, and examples.
+[Visit fritz2 site](https://www.fritz2.dev) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
@@ -91,7 +107,7 @@ _Doodle_ is a vector-based UI framework for Kotlin/JS. Doodle applications use t
 user interfaces instead of relying on DOM, CSS, or Javascript. By using this approach, Doodle gives you precise control
 over the rendering of arbitrary UI elements, vector shapes, gradients, and custom visualizations.
 
-Visit [https://nacular.github.io/doodle/](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
+[Visit Doodle site](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#doodle](https://kotlinlang.slack.com/messages/doodle) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
@@ -146,17 +162,6 @@ from npm and Webpack to bundle, minify, and run the project.
 * [Full-stack demo application](https://github.com/Kotlin/full-stack-web-jetbrains-night-sample) guides you through
 the process of building an app with a feed containing user-generated posts and comments. All data is stubbed by
 the fakeJSON and JSON Placeholder services.
-
-## New Kotlin/JS IR compiler
-
-The [new Kotlin/JS IR compiler](js-ir-compiler.md) (currently with [Beta](components-stability.md) stability) comes with
-a number of improvements over the current default compiler. For example, it reduces the size of generated executables
-via dead code elimination and provides smoother interoperability with the JavaScript ecosystem and its tooling.
-By generating TypeScript declaration files (d.ts) from Kotlin code, the new compiler makes it easier to create "hybrid"
-applications that mix TypeScript and Kotlin code and to leverage code-sharing functionality using Kotlin Multiplatform.
-
-To learn more about the available features in the new Kotlin/JS IR compiler and how to try it for your project, visit the
-[Kotlin/JS IR compiler documentation page](js-ir-compiler.md) and the [migration guide](js-ir-migration.md).
 
 ## Join the Kotlin/JS community
 
