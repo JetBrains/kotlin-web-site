@@ -68,7 +68,7 @@ Coroutines|Stable|1.3| |
 kotlin-reflect (JVM)|Beta|1.0| |
 Kotlin/JS (Classic back-end)|Stable|1.3| |
 Kotlin/JVM (IR-based)|Stable|1.5| |
-Kotlin/JS (IR-based)|Beta|1.5| |
+Kotlin/JS (IR-based)|Stable|1.8| |
 Kotlin/Native Runtime|Beta|1.3| |
 Kotlin/Native new memory manager|Beta|1.7.20| |
 klib binaries|Alpha|1.4| |
