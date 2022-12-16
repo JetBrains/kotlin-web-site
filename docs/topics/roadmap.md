@@ -19,7 +19,7 @@ The goal of this roadmap is to give you a big picture. Here's a list of our key 
 
 * **K2 compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. It will also let us introduce many anticipated language features.
 * **K2-based IntelliJ plugin**: much faster code completion, highlighting, and search, together with a more stable code analysis.
-* **Kotlin Multiplatform Mobile**: promote the technology to Stable by improving the toolchain stability and documentation and ensuring compatibility guarantees.
+* **Kotlin Multiplatform Mobile**: promote the technology to Stable by improving the toolchain stability and documentation, and ensuring compatibility guarantees.
 * **Experience of library authors**: a set of documentation and tools helping to set up, develop, and publish Kotlin libraries.
 
 ## Kotlin roadmap by subsystem
@@ -101,7 +101,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49529" target="_blank">Release <code>kotlinx-coroutines</code> 1.7</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46786" target="_blank">Stabilize and document <code>atomicfu</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">Continue development and stabilization of standard library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">Continue to develop and stabilize the standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
             </ul>
             <p><tip><a href="https://blog.jetbrains.com/ktor/2022/12/16/ktor-2023-roadmap/" target="_blank">The Ktor framework roadmap</a></tip></p>
@@ -115,7 +115,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {type="note"}
 
-## What's changed since June 2022
+## What's changed since May 2022
 
 ### Completed items
 
