@@ -2,7 +2,6 @@ var $ = require('jquery');
 var Emitter = require('event-emitter');
 
 require('./styles.scss');
-var template = require('./view.twig');
 
 var CLASSES = {
   OPENED: '_opened',
@@ -65,8 +64,7 @@ Dropdown.prototype.render = function () {
     selectedIndex: config.selectedIndex || 0
   });
 
-  var rendered = template.render({dropdown: data});
-  return $(rendered);
+  return $(renderTemplate(data));
 };
 
 Dropdown.prototype.open = function () {
@@ -111,5 +109,20 @@ Dropdown.prototype.select = function (index, emit) {
 
   emit && this._emitter.emit('select', selectedValue);
 };
+
+function renderTemplate(dropdown) {
+  let items = '';
+
+  for (const [key, value] of Object.entries(dropdown.items)) {
+    items += `<div class="dropdown-item js-item" data-value="${key}">${value}</div>`;
+  }
+
+  return `
+  <div class="dropdown js-dropdown">
+    <div class="dropdown-selected-value js-selected-value">${dropdown.items[dropdown.selectedIndex]}</div>
+    <div class="dropdown-items">${items}</div>
+  </div>
+  `;
+}
 
 module.exports = Dropdown;

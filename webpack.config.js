@@ -87,10 +87,6 @@ module.exports = (params = {}) => {
           ]
         },
         {
-          test: /\.twig$/,
-          loader: 'nunjucks-loader'
-        },
-        {
           test: /\.svg(?:\?\w+)?$/,
           use: [
             {
