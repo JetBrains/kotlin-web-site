@@ -68,8 +68,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Multiplatform</strong></td>
         <td>
             <ul>
-                <li>🆕 Promote Kotlin Multiplatform Mobile to Stable</li> 
-                <li>🆕 Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55513">Promote Kotlin Multiplatform Mobile to Stable</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: keep binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
@@ -80,10 +80,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <ul>
-                <li>🆕 First public release of K2-based IntelliJ plugin</li>
-                <li>🆕 Improve performance and code analysis stability of the current IDE plugin</li>
-                <li>🆕 Expose stable compiler arguments in Gradle DSL</li>
-                <li>🆕 Release the Experimental version of the Kotlin Notebooks IJ IDEA plugin</li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-23988">First public release of K2-based IntelliJ plugin</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-23989">Improve performance and code analysis stability of the current IDE plugin</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55515">Expose stable compiler arguments in Gradle DSL</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-23990">Release the Experimental version of the Kotlin Notebooks IJ IDEA plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49532" target="_blank">Provide better experience with Kotlin Daemon</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
@@ -104,7 +104,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">Continue development and stabilization of standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
             </ul>
-            <p><tip><a href="https://blog.jetbrains.com/ktor/2022/02/11/ktor-roadmap-what-s-next/" target="_blank">The Ktor framework roadmap</a></tip></p>
+            <p><tip><a href="https://blog.jetbrains.com/ktor/2022/12/16/ktor-2023-roadmap/" target="_blank">The Ktor framework roadmap</a></tip></p>
          </td>
     </tr>
 </table>
