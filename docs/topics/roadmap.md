@@ -115,7 +115,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {type="note"}
 
-## What's changed since May 2022
+## What's changed since June 2022
 
 ### Completed items
 
