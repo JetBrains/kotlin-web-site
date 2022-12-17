@@ -79,7 +79,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 There are the following kinds of literal constants for integral values:
 
 * Decimals: `123`
-  * Longs are tagged by a capital `L`: `123L`
+* Longs are tagged by a capital `L`: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
