@@ -549,7 +549,7 @@ perspective
 >
 > - 1.6.0: deprecate the affected functions with a warning
 > - 1.9.0: raise the deprecation level to an error
-> - >=1.10.0: remove the deprecated functions from the public API
+> - \>=1.10.0: remove the deprecated functions from the public API
 
 
 ## Tools
