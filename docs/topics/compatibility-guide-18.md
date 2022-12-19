@@ -472,9 +472,9 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.7.0: report a warning (or an error in the progressive mode) on `declaringClass` property usages,
-    >   propose the migration to `declaringJavaClass` extension
+>   propose the migration to `declaringJavaClass` extension
 > - 1.9.0: raise the warning to an error,
-    >   `-XXLanguage:-ProhibitEnumDeclaringClass` can be used to temporarily revert to the pre-1.9 behavior
+>   `-XXLanguage:-ProhibitEnumDeclaringClass` can be used to temporarily revert to the pre-1.9 behavior
 > - \>=1.10: remove `declaringClass` synthetic property
 
 ### Deprecate the `enabled` and the `compatibility` modes of the compiler option -Xjvm-default
