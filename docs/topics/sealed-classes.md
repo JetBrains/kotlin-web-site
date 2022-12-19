@@ -93,6 +93,10 @@ fun log(e: Error) = when(e) {
 }
 ```
 
+> Note that if the `Error` class is part of your code, you can define an abstract `log` method for it and override it in 
+> each of its children, and then use `e.log()` to polymorphically call the appropriate function. However, if you cannot 
+> modify the `Error` class code, using a `when` expression is the best choice, especially if the `Error` class is sealed.
+
 > `when` expressions on [`expect`](multiplatform-connect-to-apis.md) sealed classes in the common code of multiplatform projects still 
 > require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
 > common code.
