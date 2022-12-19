@@ -14,6 +14,12 @@ object PrepareDokkaTemplate: Template({
 
   steps {
     script {
+      name = "Fix npm sharp platform related issue"
+      scriptContent = """
+        rm -rf node_modules/sharp
+      """.trimIndent()
+    }
+    script {
       name = "Install dependencies"
       scriptContent = """
         yarn install --frozen-lockfile
