@@ -124,18 +124,47 @@ In the build module, you may have related compile tasks, for example:
 >
 {type="note"}
 
-For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
-the `kotlin` extension and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension cause JVM target incompatibility. For example:
+For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of 
+the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` task 
+and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
+in the `java` extension/task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
 Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
 file to:
 
-* `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
-* `error` – the plugin will fail the build.
+* `error` – the plugin will fail the build; the default value for projects on Gradle 8.0+.
+* `warning` – the Kotlin Gradle plugin will print a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin will skip the check and won't produce any messages.
+
+To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
+
+#### What can go wrong if not checking targets compatibility {initial-collapse-state="collapsed"}
+
+There are two ways of manually setting JVM targets for Kotlin and Java source sets:
+* The implicit way via [setting up a Java toolchain](#gradle-java-toolchains-support).
+* The explicit way via setting the `jvmTarget` attribute in the `kotlin` task and `targetCompatibility` 
+  in the `java` extension or task.
+
+If you use the second variant or have a default configuration with JDK not equal to `1.8`, different values of `jvmTarget` 
+and `targetCompatibility` cause JVM target incompatibility. Let's consider a default configuration of JVM targets 
+when you have only the Kotlin JVM plugin in your build script and no additional settings for JVM targets:
+
+```kotlin
+    plugins {
+        kotlin("jvm") version "%kotlinVersion%"
+    }
+```
+
+When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
+and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals to 
+a current Gradle's JDK version, which is equal to your JDK version (unless you use 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is 11. 
+Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
+with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use Java 11 in your main project to add 
+this library although the bytecode's version is 1.8. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+to solve this issue.
 
 ### Set custom JDK home
 
