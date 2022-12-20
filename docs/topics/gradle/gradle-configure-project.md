@@ -523,6 +523,74 @@ If you do not need a standard library at all, you can add the opt-out option to 
 kotlin.stdlib.default.dependency=false
 ```
 
+#### Versions alignment of transitive dependencies
+
+If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
+`implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
+for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
+different stdlib versions (learn more about merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`(whatsnew18.md#updated-jvm-compilation-target)). 
+You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
+
+```properties
+ `kotlin.stdlib.jdk.variants.version.alignment=false`
+```
+
+##### Other ways to align versions {initial-collapse-state="collapsed"}
+
+* In case you don't use the Kotlin Gradle plugin or have issues with versions alignment, align all versions 
+  via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
+  Declare a platform dependency on `kotlin-bom` in your build script:
+
+  ```kotlin
+  implementation(platform("org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%"))
+  ```
+
+* If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
+  but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
+  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `1.8.0` versions of these
+  transitive libraries:
+
+  ```kotlin
+  dependencies {
+      constraints {
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
+              version {
+                  require("1.8.0")
+              }
+          }
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
+              version {
+                  require("1.8.0")
+              }
+          }
+      }
+  }
+  ```
+  
+* If you have a Kotlin version equal to `1.8.0`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")` and 
+  an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
+
+  ```kotlin
+  // replace `<...>` with the plugin name
+  plugins {
+      kotlin("<...>") version "%kotlinVersion%"
+  }
+  ```
+
+* If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
+  `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
+  transitively brings `kotlin-stdlib:1.8+`, replace your `kotlin-stdlib-jdk*:SOME_OLD_KOTLIN_VERSION` with 
+  `kotlin-stdlib-jdk*:%kotlinVersion%`(whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
+  a transitive `kotlin-stdlib:1.8+` from the library that brings it:
+ 
+  ```kotlin
+  dependencies {
+      implementation("com.example:lib:1.0") {
+          exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib")
+      }
+  }
+  ```
+
 ### Set dependencies on test libraries
 
 The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for testing Kotlin projects on
