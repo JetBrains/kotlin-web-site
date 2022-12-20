@@ -668,7 +668,7 @@ If you are publishing a `klib` and want to use only relative paths of source fil
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile::class).configureEach {
     // $base is a base path of source files
     kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
 }
@@ -678,7 +678,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).configure
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach {
     kotlinOptions {
         // $base is a base path of source files
         freeCompilerArgs += "-Xklib-relative-path-base=$base"
@@ -821,7 +821,7 @@ The available values for the `compilerExecutionStrategy` task property are:
 Use the task property `compilerExecutionStrategy` in the `build.gradle.kts` build script:
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...

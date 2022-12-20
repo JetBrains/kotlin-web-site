@@ -19,7 +19,7 @@ Sharing code between mobile platforms is one of the major Kotlin Multiplatform u
 you can build cross-platform mobile applications and share common code between Android and iOS, such as business logic, connectivity,
 and more.
 
-Check out the [Get started with Kotlin Multiplatform Mobile](multiplatform-get-started.md) and
+Check out the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) and
 [Create a multiplatform app using Ktor and SQLDelight](multiplatform-mobile-ktor-sqldelight.md) tutorials,
 where you will create applications for Android and iOS that include a module with shared code for both platforms.
 

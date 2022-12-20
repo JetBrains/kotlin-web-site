@@ -92,7 +92,6 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                 productWebUrl={releasesData.latest.url}
                 hasSearch={true}
                 searchConfig={searchConfig}
-                noScrollClassName={'_no-scroll'}
             />
 
             <StickyHeader>

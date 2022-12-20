@@ -1259,7 +1259,7 @@ fun main() {
 #### ArrayDeque
 
 We've also added the `ArrayDeque` class – an implementation of a double-ended queue.
-Double-ended queue lets you can add or remove elements both at the beginning and the end of the queue in an amortized
+A double-ended queue lets you add or remove elements both at the beginning or end of the queue in an amortized
 constant time. You can use a double-ended queue by default when you need a queue or a stack in your code.
 
 ```kotlin
