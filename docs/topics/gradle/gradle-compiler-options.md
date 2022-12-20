@@ -96,7 +96,7 @@ Here is a complete list of options for Gradle tasks:
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
 | `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is not possible, use [other ways to set this option](gradle-configure-project.md#set-custom-jdk-home).  | |  |
+| `jdkHome` | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME. Direct setting is not possible, use [other ways to set this option](gradle-configure-project.md#set-custom-jdk-home).  |  |  |
 | `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19". Also see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
 | `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
 
