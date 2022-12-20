@@ -534,7 +534,6 @@ perspective
 > - 1.8.20: remove the deprecated functions from stdlib for JS-IR target
 > - \>= 1.9: move the API in kotlinx.* packages to a separate library
 
-
 ### Deprecate some JS-only API
 
 > **Issue**: [KT-48587](https://youtrack.jetbrains.com/issue/KT-48587)
@@ -551,5 +550,72 @@ perspective
 > - 1.9.0: raise the deprecation level to an error
 > - \>=1.10.0: remove the deprecated functions from the public API
 
-
 ## Tools
+
+> **Issue**: [KT-51679](https://youtrack.jetbrains.com/issue/KT-51679)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: the `classpath` property of the `KotlinCompile` task is deprecated
+>
+> **Deprecation cycle**:
+>
+> - 1.7.0: the `classpath` property is deprecated
+> - 1.8.0: raise the deprecation level to an error
+> - \>=1.9.0: remove the deprecated functions from the public API
+
+### Remove kapt.use.worker.api Gradle property
+
+> **Issue**: [KT-48827](https://youtrack.jetbrains.com/issue/KT-48827)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kapt.use.worker.api` property that allowed to run kapt via Gradle Workers API (default: true)
+>
+> **Deprecation cycle**:
+>
+> - 1.6.20: raise the deprecation level to a warning
+> - 1.8.0: remove this property
+
+### Remove kotlin.compiler.execution.strategy system property
+
+> **Issue**: [KT-51831](https://youtrack.jetbrains.com/issue/KT-51831)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: remove the `kotlin.compiler.execution.strategy` system property used to choose a compiler execution strategy.
+> Use the Gradle property `kotlin.compiler.execution.strategy` or the compile task property `compilerExecutionStrategy` instead
+>
+> **Deprecation cycle:**
+>
+> - 1.7.0: raise the deprecation level to a warning
+> - 1.8.0: remove the property
+
+### Changes in compiler options
+
+> **Issue**: [KT-27301](https://youtrack.jetbrains.com/issue/KT-27301)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source, ABI
+>
+> **Short summary**: this change might affect Gradle plugins authors. In `kotlin-gradle-plugin`, there are additional 
+> generic parameters to some internal types (you should add generic types or `*`). 
+> `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile` task anymore. 
+> `KotlinJsCompilerOptions.outputFile` and the related `KotlinJsOptions.outputFile` options are deprecated. 
+> Use the `Kotlin2JsCompile.outputFileProperty` task input instead. The `kotlinOptions` task input and the `kotlinOptions{...}` 
+> task DSL are in a support mode and will be deprecated in upcoming releases. `kotlinOptions` can not be changed on a 
+> task execution phase (see one exception in What's new in Kotlin 1.8(whatsnew18.md#limitations)). 
+> `freeCompilerArgs` returns an immutable `List<String>` – `kotlinOptions.freeCompilerArgs.remove("something")` will fail.
+>
+> **Deprecation cycle:**
+>
+> - 1.8.0: `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile`. `KotlinJsCompilerOptions.outputFile` 
+> and the related `KotlinJsOptions.outputFile` options are deprecated.
+> - \>=1.10.0: raise the `kotlinOptions` task input deprecation level to an error

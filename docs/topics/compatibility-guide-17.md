@@ -416,7 +416,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: deprecate the `kotlin.compiler.execution.strategy` system property used to choose a compiler execution strategy. 
-> `use the Gradle property `kotlin.compiler.execution.strategy` or the compile task property `compilerExecutionStrategy` instead
+> Use the Gradle property `kotlin.compiler.execution.strategy` or the compile task property `compilerExecutionStrategy` instead
 >
 > **Deprecation cycle:**
 >
