@@ -61,9 +61,8 @@ tasks.test { // See 5️⃣
     useJUnitPlatform() // JUnitPlatform for tests. See 6️⃣
 }
 
-tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
-    // Kotlin compiler options
-    kotlinOptions.jvmTarget = "1.8" // Target version of generated JVM bytecode
+kotlin { // Extension to make an easy setup
+   jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
 }
 
 application {
@@ -77,6 +76,7 @@ application {
 * 4️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
 * 5️⃣ Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
 * 6️⃣ [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).
+* 7️⃣ Learn more about [setting up a Java toolchain](gradle-configure-project.md#gradle-java-toolchains-support).
 
 As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
 
