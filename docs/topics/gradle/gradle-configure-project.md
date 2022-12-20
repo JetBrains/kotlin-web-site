@@ -537,8 +537,7 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 
 ##### Other ways to align versions {initial-collapse-state="collapsed"}
 
-* In case you don't use the Kotlin Gradle plugin or have issues with versions alignment, align all versions 
-  via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
+* In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
 
   ```kotlin
