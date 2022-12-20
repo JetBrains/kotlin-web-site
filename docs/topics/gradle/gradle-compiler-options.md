@@ -129,11 +129,11 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 val compileKotlin: KotlinCompile by tasks
 
 // Single experimental argument
-compileKotlin.kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+compileKotlin.compilerOptions.freeCompilerArgs += "-Xexport-kdoc"
 // Single additional argument, can be a key-value pair
-compileKotlin.kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+compileKotlin.compilerOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
 // List of arguments
-compileKotlin.kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
+compileKotlin.compilerOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
 ```
 
 </tab>
@@ -142,19 +142,19 @@ compileKotlin.kotlinOptions.freeCompilerArgs += listOf("-Xno-param-assertions", 
 ```groovy
 compileKotlin {
     // Single experimental argument
-    kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+    compilerOptions.freeCompilerArgs += "-Xexport-kdoc"
     // Single additional argument, can be a key-value pair
-    kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+    compilerOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
     // List of arguments
-    kotlinOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+    compilerOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
 }
 
 //or
 
 compileKotlin {
-    kotlinOptions {
+    compilerOptions {
         freeCompilerArgs += "-Xexport-kdoc"
-        kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+        freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
         freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
     }
 }
