@@ -443,7 +443,7 @@ To enable export of KDoc comments, add the following compiler option to your `bu
 ```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
     }
 }
 ```
@@ -454,7 +454,7 @@ kotlin {
 ```groovy
 kotlin {
     targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
     }
 }
 ```

@@ -179,7 +179,7 @@ object DefaultListener : MouseAdapter() {
 
 ### Data objects
 
-> Data object declarations is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. Opt-in is required with the `kotlinOptions.languageVersion = "1.9"` [compiler option](https://kotlinlang.org/docs/gradle.html#compiler-options).
+> Data object declarations is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. Opt-in is required with the `compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_1_9)` [compiler option](https://kotlinlang.org/docs/gradle.html#compiler-options).
 > 
 {type="note"}
 

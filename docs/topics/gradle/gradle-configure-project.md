@@ -125,9 +125,9 @@ In the build module, you may have related compile tasks, for example:
 {type="note"}
 
 For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of 
-the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` task 
+the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` extension or task 
 and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension/task cause JVM target incompatibility. For example:
+in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
@@ -144,7 +144,7 @@ To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolch
 
 There are two ways of manually setting JVM targets for Kotlin and Java source sets:
 * The implicit way via [setting up a Java toolchain](#gradle-java-toolchains-support).
-* The explicit way via setting the `jvmTarget` attribute in the `kotlin` task and `targetCompatibility` 
+* The explicit way via setting the `jvmTarget` attribute in the `kotlin` extension or task and `targetCompatibility` 
   in the `java` extension or task.
 
 If you use the second variant or have a default configuration with JDK not equal to `1.8`, different values of `jvmTarget` 
@@ -195,7 +195,7 @@ The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tas
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
 * Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
+* Sets the [`compilerOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
@@ -541,7 +541,7 @@ of the standard library used is the same as the version of the Kotlin Gradle plu
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard
 library is added to the rest. The Kotlin Gradle plugin selects the appropriate JVM standard library depending on
-the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
+the `compilerOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
 plugin won't override it or add a second standard library.

@@ -28,7 +28,7 @@ available for all or specific targets.
 kotlin {
     targets.all {
         compilations.all {
-            kotlinOptions {
+            compilerOptions {
                 allWarningsAsErrors = true
             }
         }
@@ -44,7 +44,7 @@ kotlin {
 ```kotlin
 kotlin {
     targets.jvm.compilations.all {
-        kotlinOptions {
+        compilerOptions {
             sourceMap = true
             metaInfo = true
         }
@@ -58,7 +58,7 @@ kotlin {
 ```groovy
 kotlin {
     jvm().compilations.all {
-        kotlinOptions {
+        compilerOptions {
             sourceMap = true
             metaInfo = true
         }
@@ -78,9 +78,7 @@ kotlin {
 kotlin {
     jvm {
         val main by compilations.getting {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
+            compilerOptions.jvmTarget.set(JvmTarget.JVM_8)
         }
     }
 }
@@ -92,9 +90,7 @@ kotlin {
 ```groovy
 kotlin {
     jvm().compilations.main {
-        kotlinOptions {
-            jvmTarget = "1.8"
-        }
+        compilerOptions.jvmTarget.set(JvmTarget.JVM_8)
     }
 }
 ```
