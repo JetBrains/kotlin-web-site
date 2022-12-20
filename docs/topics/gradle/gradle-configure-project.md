@@ -136,20 +136,6 @@ file to:
 * `error` – the plugin will fail the build.
 * `ignore` – the plugin will skip the check and won't produce any messages.
 
-### Set custom JDK home
-
-By default, Kotlin compile tasks use the current Gradle JDK.
-If you need to change the JDK for some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
-or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
-
-> The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
->
-{type="warning"}
-
-When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
-use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
-and ignore the `kapt.workers.isolation` property.
-
 ### Gradle Java toolchains support
 
 Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
@@ -164,7 +150,6 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
-* Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
@@ -200,12 +185,6 @@ kotlin {
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension updates the toolchain for Java compile tasks as well.
-
-> To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
-> and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
-> The part after the colon will be the JDK version from the toolchain.
->
-{type="note"}
 
 To set any JDK (even local) for the specific task, use the Task DSL.
 
