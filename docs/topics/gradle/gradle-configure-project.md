@@ -182,6 +182,21 @@ and ignore the `kapt.workers.isolation` property.
 
 ### Gradle Java toolchains support
 
+> A warning for Android users. Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from the Android Gradle plugin 7.4.0.
+> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), it does not set 'targetCompatibility' to be equal to the toolchain's JDK.
+> You need to configure it manually via `compileOptions`. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+>
+> ```kotlin
+> android {
+>     compileOptions {
+>         sourceCompatibility = <MAJOR_JDK_VERSION>
+>         targetCompatibility = <MAJOR_JDK_VERSION>
+>     }
+> }
+> ```
+>
+{type="warning"} 
+
 Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
 Using this feature, you can:
 * Use a JDK and a JRE that are different from the ones in Gradle to run compilations, tests, and executables.
