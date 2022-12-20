@@ -552,6 +552,8 @@ perspective
 
 ## Tools
 
+### Raise deprecation level of `classpath` property of `KotlinCompile` task
+
 > **Issue**: [KT-51679](https://youtrack.jetbrains.com/issue/KT-51679)
 >
 > **Component**: Gradle
