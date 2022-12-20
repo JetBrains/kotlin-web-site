@@ -179,9 +179,7 @@ Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_V
 
 ```kotlin
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
-    }
+    jvmToolchain(<MAJOR_JDK_VERSION>) // "8"
 }
 ```
 
@@ -190,9 +188,7 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
-    }
+    jvmToolchain(<MAJOR_JDK_VERSION>) // "8"
 }
 ```
 
