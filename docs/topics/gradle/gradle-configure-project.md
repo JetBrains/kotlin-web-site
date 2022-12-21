@@ -45,6 +45,10 @@ In the following table, there are the minimum and maximum **fully supported** ve
 | 1.8.0          | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
 | 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
 
+> Latest Gradle and AGP versions should generally work without issues.
+>
+{type="note"}
+
 For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
 
