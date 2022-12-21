@@ -38,7 +38,7 @@ plugins {
 </tabs>
 
 When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions. 
-In the following table, there are the minimum and maximum fully supported versions of Gradle and Android Gradle plugin:
+In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin:
 
 | Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
 |----------------|------------------------------------------|-------------------------------------------------------|
@@ -638,7 +638,10 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
   another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `%kotlinVersion%` versions of these
   transitive libraries:
 
-  ```kotlin
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
   dependencies {
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
@@ -654,6 +657,29 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
       }
   }
   ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  dependencies {
+      constraints {
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+      }
+  }
+  ```
+
+  </tab>
+  </tabs>
   
 * If you have a Kotlin version equal to `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")` and 
   an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
@@ -687,7 +713,10 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
   transitively brings `kotlin-stdlib:1.8+`, replace your `kotlin-stdlib-jdk*:SOME_OLD_KOTLIN_VERSION` with 
   `kotlin-stdlib-jdk*:%kotlinVersion%`(whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
   a transitive `kotlin-stdlib:1.8+` from the library that brings it:
- 
+
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
   ```kotlin
   dependencies {
       implementation("com.example:lib:1.0") {
@@ -695,6 +724,20 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
       }
   }
   ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  dependencies {
+       implementation("com.example:lib:1.0") {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    }
+  }
+  ```
+
+  </tab>
+  </tabs>
 
 ### Set dependencies on test libraries
 
