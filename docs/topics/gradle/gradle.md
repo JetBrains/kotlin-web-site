@@ -11,6 +11,7 @@ or pass a small [step-by-step tutorial](get-started-with-jvm-gradle-project.md) 
 In this chapter, you can also learn about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).
 
 ## What's next?
 

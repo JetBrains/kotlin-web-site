@@ -950,3 +950,4 @@ Learn more about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).

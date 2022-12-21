@@ -113,3 +113,4 @@ Learn more about:
 * [Targeting different platforms and setting library dependencies](gradle-configure-project.md).
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).
