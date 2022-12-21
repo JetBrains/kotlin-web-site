@@ -635,7 +635,7 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 
 * If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
   but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
-  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `1.8.0` versions of these
+  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `%kotlinVersion%` versions of these
   transitive libraries:
 
   ```kotlin
@@ -643,19 +643,19 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
               version {
-                  require("1.8.0")
+                  require("%kotlinVersion%")
               }
           }
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
               version {
-                  require("1.8.0")
+                  require("%kotlinVersion%")
               }
           }
       }
   }
   ```
   
-* If you have a Kotlin version equal to `1.8.0`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")` and 
+* If you have a Kotlin version equal to `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")` and 
   an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
 
   
