@@ -107,7 +107,9 @@ To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compil
 kotlin {
    js(IR) {
        compilations.all {
-           compileKotlinTask.compilerOptions.freeCompilerArgs += listOf("-Xerror-tolerance-policy=SYNTAX")
+           compileTaskProvider.configure {
+               compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+           }
        }
    }
 }

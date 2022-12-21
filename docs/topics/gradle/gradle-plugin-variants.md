@@ -2,13 +2,13 @@
 
 Gradle 7.0 introduced a new feature for Gradle plugin authors
 — [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants).
-This feature makes it easier to add support for new Gradle features while maintaining compatibility for Gradle versions
+This feature makes it easier to add support for latest Gradle features while maintaining compatibility with older Gradle versions
 below 7.1. Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
 
 With Gradle plugin variants, the Kotlin team can ship different Kotlin Gradle plugin (KGP) variants for different Gradle versions. 
 The goal is to support the base Kotlin compilation in the `main` variant, which corresponds to the oldest supported versions of
 Gradle. Each variant will have implementations for Gradle features from a corresponding release. The latest variant will
-support the widest Gradle feature set. With this approach, it is possible to extend support for older Gradle versions 
+support the latest Gradle feature set. With this approach, it is possible to extend support for older Gradle versions 
 with limited functionality.
 
 Currently, there are only two variants of the Kotlin Gradle plugin:
@@ -45,7 +45,7 @@ and want to add a dependency on the Kotlin Gradle plugin, for example:
 
 ```kotlin
 dependencies {
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:%kotlinVersion%")
+    customConfiguration("org.jetbrains.kotlin:kotlin-gradle-plugin:%kotlinVersion%")
 }
 ```
 
