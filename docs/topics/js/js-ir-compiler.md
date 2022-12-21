@@ -125,7 +125,9 @@ This type of minification is automatically applied when you build your Kotlin/JS
 kotlin {
    js(IR) {
        compilations.all {
-           compileKotlinTask.compilerOptions.freeCompilerArgs += listOf("-Xir-minimized-member-names=false")
+           compileTaskProvider.configure {
+               compilerOptions.freeCompilerArgs.add("-Xir-minimized-member-names=false")
+           }
        }
    }
 }

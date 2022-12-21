@@ -49,7 +49,7 @@ To select module kind, set the `moduleKind` compiler option in the Gradle build 
 
 ```kotlin
 tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
-    compilerOptions.moduleKind = "commonjs"
+    compilerOptions.moduleKind.set(org.jetbrains.kotlin.gradle.dsl.JsModuleKind.MODULE_COMMONJS)
 }
 ```
 
@@ -57,7 +57,7 @@ tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-compileKotlinJs.compilerOptions.moduleKind = "commonjs"
+compileKotlinJs.compilerOptions.moduleKind = org.jetbrains.kotlin.gradle.dsl.JsModuleKind.MODULE_COMMONJS
 ```
 
 </tab>
