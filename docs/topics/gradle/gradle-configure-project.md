@@ -150,6 +150,7 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
+* Sets the [`jdkHome` option](compiler-reference.md#jdk-home-path) available for JVM targets.
 * Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
@@ -185,6 +186,12 @@ kotlin {
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension updates the toolchain for Java compile tasks as well.
+
+> To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
+> and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
+> The part after the colon will be the JDK version from the toolchain.
+>
+{type="note"}
 
 To set any JDK (even local) for the specific task, use the Task DSL.
 
