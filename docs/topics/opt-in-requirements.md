@@ -142,7 +142,7 @@ If you build your module with Gradle, you can add arguments like this:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile>().configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask>().configureEach {
     compilerOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
 }
 ```
@@ -151,7 +151,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask).configureEach {
     compilerOptions {
         freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
     }

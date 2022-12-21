@@ -73,7 +73,7 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile>().configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask>().configureEach {
     compilerOptions { /*...*/ }
 }
 ```
@@ -82,7 +82,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask).configureEach {
     compilerOptions { /*...*/ }
 }
 ```
@@ -123,10 +123,10 @@ argument to this attribute or a list of arguments:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompile by tasks
+val compileKotlin: KotlinCompilationTask by tasks
 
 // Single experimental argument
 compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")

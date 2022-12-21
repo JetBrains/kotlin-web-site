@@ -252,12 +252,12 @@ Use the task property `compilerExecutionStrategy` in your build scripts:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType<KotlinCompile>().configureEach {
+tasks.withType<KotlinCompilationTask>().configureEach {
     compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
 } 
 ```
@@ -266,12 +266,12 @@ tasks.withType<KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType(KotlinCompile)
+tasks.withType(KotlinCompilationTask)
     .configureEach {
         compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }

@@ -317,7 +317,7 @@
                 <toc-element id="gradle-configure-project.md" toc-title="Configure a Gradle project"/>
                 <toc-element id="gradle-compiler-options.md" toc-title="Compiler options in KGP"/>
                 <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches in KGP"/>
-                <toc-element id="gradle-plugins-variants.md" toc-title="Support for Gradle plugin variants"/>
+                <toc-element id="gradle-plugin-variants.md" toc-title="Support for Gradle plugin variants"/>
             </toc-element>
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
