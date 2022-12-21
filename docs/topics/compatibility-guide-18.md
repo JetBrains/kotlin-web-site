@@ -346,7 +346,7 @@ perspective
 >
 > **Short summary**: Kotlin 1.9 will prohibit forward referencing of parameters with default values in default value expressions
 > of other parameters. This ensures that by the time the parameter is accessed in a default value expression, 
-> it would already have a value either passed to the function or initialized by its own default value expression.
+> it would already have a value either passed to the function or initialized by its own default value expression
 >
 > **Deprecation cycle**:
 >
@@ -362,8 +362,8 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: While Kotlin allowed passing an inline functional parameter to another inline function
-> as a receiver, it always resulted in a compiler exception when compiling such code.
+> **Short summary**: while Kotlin allowed passing an inline functional parameter to another inline function
+> as a receiver, it always resulted in compiler exceptions when compiling such code.
 > Kotlin 1.9 will prohibit this, thus reporting an error instead of crashing the compiler
 >
 > **Deprecation cycle**:
