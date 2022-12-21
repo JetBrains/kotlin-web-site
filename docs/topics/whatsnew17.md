@@ -62,7 +62,7 @@ enable the Kotlin K2 compiler, use the following compiler option:
 -Xuse-k2
 ```
 
-Also, the K2 compiler [includes a number of bugfixes](https://youtrack.jetbrains.com/issues/KT?q=tag:%20fixed-in-frontend-ir%20sort%20by:%20Priority,%20votes,%20updated).
+Also, the K2 compiler [includes a number of bugfixes](https://youtrack.jetbrains.com/issues/KT?q=tag:%20FIR-preview-qa%20%23Resolved).
 Please note that even issues with **State: Open** from this list are in fact fixed in K2.
 
 The next Kotlin releases will improve the stability of the K2 compiler and provide more features, so stay tuned!
