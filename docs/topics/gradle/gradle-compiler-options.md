@@ -155,7 +155,7 @@ compileKotlin {
 compileKotlin {
     kotlinOptions {
         freeCompilerArgs += "-Xexport-kdoc"
-        kotlinOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+        freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
         freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
     }
 }
