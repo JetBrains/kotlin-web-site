@@ -574,7 +574,7 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: behavioral
 >
 > **Short summary**: remove the `kapt.use.worker.api` property that allowed to run kapt via Gradle Workers API (default: true)
 >
@@ -589,7 +589,7 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source
+> **Incompatible change type**: behavioral
 >
 > **Short summary**: remove the `kotlin.compiler.execution.strategy` system property used to choose a compiler execution strategy.
 > Use the Gradle property `kotlin.compiler.execution.strategy` or the compile task property `compilerExecutionStrategy` instead
@@ -612,7 +612,7 @@ perspective
 > `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile` task anymore. 
 > `KotlinJsCompilerOptions.outputFile` and the related `KotlinJsOptions.outputFile` options are deprecated. 
 > Use the `Kotlin2JsCompile.outputFileProperty` task input instead. The `kotlinOptions` task input and the `kotlinOptions{...}` 
-> task DSL are in a support mode and will be deprecated in upcoming releases. `kotlinOptions` can not be changed on a 
+> task DSL are in a support mode and will be deprecated in upcoming releases. `compilerOptions` and `kotlinOptions` can not be changed on a 
 > task execution phase (see one exception in What's new in Kotlin 1.8(whatsnew18.md#limitations)). 
 > `freeCompilerArgs` returns an immutable `List<String>` – `kotlinOptions.freeCompilerArgs.remove("something")` will fail.
 >
@@ -620,4 +620,3 @@ perspective
 >
 > - 1.8.0: `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile`. `KotlinJsCompilerOptions.outputFile` 
 > and the related `KotlinJsOptions.outputFile` options are deprecated.
-> - \>=1.10.0: raise the `kotlinOptions` task input deprecation level to an error
