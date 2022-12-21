@@ -151,11 +151,26 @@ If you use the second variant or have a default configuration with JDK not equal
 and `targetCompatibility` cause JVM target incompatibility. Let's consider a default configuration of JVM targets 
 when you have only the Kotlin JVM plugin in your build script and no additional settings for JVM targets:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
-    plugins {
-        kotlin("jvm") version "%kotlinVersion%"
-    }
+plugins {
+    kotlin("jvm") version "%kotlinVersion%"
+}
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+}
+```
+
+</tab>
+</tabs>
 
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals to 
@@ -248,13 +263,30 @@ Note that setting a toolchain via the `kotlin` extension updates the toolchain f
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 java {
     toolchain {
-      languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
+}
+```
+
+</tab>
+</tabs>
 
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
@@ -584,9 +616,22 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 * In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
 
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
   ```kotlin
   implementation(platform("org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%"))
   ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  implementation platform('org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%')
+  ```
+
+  </tab>
+  </tabs>
 
 * If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
   but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
@@ -613,12 +658,29 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 * If you have a Kotlin version equal to `1.8.0`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")` and 
   an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
 
+  
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
   ```kotlin
   // replace `<...>` with the plugin name
   plugins {
       kotlin("<...>") version "%kotlinVersion%"
   }
   ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  // replace `<...>` with the plugin name
+  plugins {
+      id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
+  }
+  ```
+
+  </tab>
+  </tabs>
 
 * If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
   `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
