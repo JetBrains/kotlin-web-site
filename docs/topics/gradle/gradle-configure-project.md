@@ -38,7 +38,7 @@ plugins {
 </tabs>
 
 When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions. 
-In the following table, there are minimum and maximum fully supported versions of Gradle and Android Gradle plugin:
+In the following table, there are the minimum and maximum fully supported versions of Gradle and Android Gradle plugin:
 
 | Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
 |----------------|------------------------------------------|-------------------------------------------------------|

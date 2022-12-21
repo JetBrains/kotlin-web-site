@@ -19,7 +19,7 @@ Using a build script, you can specify additional compilation options. Use the `c
 For example:
 
 ```kotlin
-compileKotlin.compilerOptions.freeCompilerArgs += "-Xexport-kdoc"
+compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 ```
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
@@ -40,7 +40,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val compileKotlin: KotlinCompile by tasks
 
-compileKotlin.compilerOptions.suppressWarnings = true
+compileKotlin.compilerOptions.suppressWarnings.set(true)
 ```
 
 </tab>
@@ -129,11 +129,11 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 val compileKotlin: KotlinCompile by tasks
 
 // Single experimental argument
-compileKotlin.compilerOptions.freeCompilerArgs += "-Xexport-kdoc"
+compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 // Single additional argument, can be a key-value pair
-compileKotlin.compilerOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+compileKotlin.compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
 // List of arguments
-compileKotlin.compilerOptions.freeCompilerArgs += listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions")
+compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"))
 ```
 
 </tab>
@@ -142,20 +142,20 @@ compileKotlin.compilerOptions.freeCompilerArgs += listOf("-Xno-param-assertions"
 ```groovy
 compileKotlin {
     // Single experimental argument
-    compilerOptions.freeCompilerArgs += "-Xexport-kdoc"
+    compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
     // Single additional argument, can be a key-value pair
-    compilerOptions.freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+    compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
     // List of arguments
-    compilerOptions.freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+    compilerOptions.freeCompilerArgs.addAll(["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"])
 }
 
 //or
 
 compileKotlin {
     compilerOptions {
-        freeCompilerArgs += "-Xexport-kdoc"
-        freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-        freeCompilerArgs += ["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"]
+        freeCompilerArgs.add("-Xexport-kdoc")
+        freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+        freeCompilerArgs.addAll(["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"])
     }
 }
 ```
