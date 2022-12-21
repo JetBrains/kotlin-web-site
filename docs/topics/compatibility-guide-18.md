@@ -78,7 +78,7 @@ perspective
 >
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error,
->   `-XXLanguage:-ProhibitConfusingSyntaxInWhenBranches` can be used to temporarily revert to the pre-1.8 behavior.
+>   `-XXLanguage:-ProhibitConfusingSyntaxInWhenBranches` can be used to temporarily revert to the pre-1.8 behavior
 > - \>= 1.9: repurpose some deprecated constructs for new language features
 
 
@@ -114,9 +114,9 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: report a warning (or an error in the progressive mode) when private constructor of a sealed class 
->   is called outside of that class
+>   is called outside that class
 > - 1.8.0: use default visibility rules for private constructors (call can be resolved to it only if it is inside corresponding class),
->   the old behavior can be brought back temporarily by specifying `-XXLanguage:-UseConsistentRulesForPrivateConstructorsOfSealedClasses`
+>   the old behavior can be brought back temporarily by specifying the `-XXLanguage:-UseConsistentRulesForPrivateConstructorsOfSealedClasses`
 >   compiler argument
 
 ### Prohibit using operator `==` on incompatible numeric types in builder inference context
@@ -145,7 +145,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 1.8 will prohibit using `if` operator without `else` branch or non-exhaustive `when`
-> in right hand side of elvis operator (`?:`). Previously, it was allowed if the elvis operator result was not used 
+> on the right hand side of the Elvis operator (`?:`). Previously, it was allowed if the Elvis operator's result was not used 
 > as an expression
 >
 > **Deprecation cycle**:
@@ -162,13 +162,13 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.8 will prohibit using a typealias with type arguments that violate the upper bound 
+> **Short summary**: Kotlin 1.8 will prohibit using a type alias with type arguments that violate the upper bound 
 > restrictions of the corresponding type parameters of the aliased type in case when one typealias type parameter is used
-> in several type arguments of the aliased type, e.g. `typealias Alias<T> = Base<T, T>`
+> in several type arguments of the aliased type, for example, `typealias Alias<T> = Base<T, T>`
 >
 > **Deprecation cycle**:
 >
-> - 1.7.0: report a warning (or an error in the progressive mode) on usages of a typealias with type arguments violating 
+> - 1.7.0: report a warning (or an error in the progressive mode) on usages of a type alias with type arguments violating 
 >   upper bound constraints of the corresponding type parameters of the aliased type
 > - 1.8.0: raise this warning to an error,
 >  `-XXLanguage:-ReportMissingUpperBoundsViolatedErrorOnAbbreviationAtSupertypes` can be used to temporarily revert to the pre-1.8 behavior
@@ -181,9 +181,9 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin will prohibit using a typealias with type arguments that violate the upper bound 
+> **Short summary**: Kotlin will prohibit using a type alias with type arguments that violate the upper bound 
 > restrictions of the corresponding type parameters of the aliased type in case when the typealias type parameter is used as 
-> a generic type argument of a type argument of the aliased type, e.g. `typealias Alias<T> = Base<List<T>>`
+> a generic type argument of a type argument of the aliased type, for example, `typealias Alias<T> = Base<List<T>>`
 >
 > **Deprecation cycle**:
 >
@@ -217,12 +217,12 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.8 will prohibit placing `@Synchronized` annotation on suspend functions 
+> **Short summary**: Kotlin 1.8 will prohibit placing the `@Synchronized` annotation on suspend functions 
 > because a suspension call should not be allowed to happen inside a synchronized block
 >
 > **Deprecation cycle**:
 >
-> - 1.6.0: report a warning on suspend functions annotated with `@Synchronized` annotation,
+> - 1.6.0: report a warning on suspend functions annotated with the `@Synchronized` annotation,
     the warning is reported as an error in the progressive mode
 > - 1.8.0: raise the warning to an error,
     `-XXLanguage:-SynchronizedSuspendError` can be used to temporarily revert to the pre-1.8 behavior
@@ -236,7 +236,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin allowed passing arrays with the spread operator (`*`) to non-vararg array parameters 
-> in certain conditions. Since Kotlin 1.8 this will be prohibited
+> in certain conditions. Since Kotlin 1.8, this will be prohibited
 >
 > **Deprecation cycle**:
 >
@@ -292,7 +292,7 @@ perspective
 >
 > **Short summary**: Kotlin 1.9 will no longer propagate deprecation from a deprecated member in the superclass
 > to its overriding member in the subclass, thus providing an explicit mechanism for deprecating a member of 
-> the superclass while leaving it non-deprecated in the subclass.
+> the superclass while leaving it non-deprecated in the subclass
 >
 > **Deprecation cycle**:
 >
@@ -309,7 +309,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 1.9 will prohibit inferring a type variable into the corresponding type parameter's upper bound
-> in the absence of any use site type information in the scope of builder inference lambda functions, the same way as it does currently in other contexts
+> in the absence of any use-site type information in the scope of builder inference lambda functions, the same way as it does currently in other contexts
 >
 > **Deprecation cycle**:
 >
@@ -502,7 +502,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: It is planned to implement `Collection` interface in the standard progressions and concrete ranges
+> **Short summary**: It is planned to implement the `Collection` interface in the standard progressions and concrete ranges
 > inherited from them in Kotlin 1.9. This could make a different overload selected in the overload resolution if there
 > are two overloads of some method, one accepting an element and another accepting a collection.
 > Kotlin will make this situation visible by reporting a warning or an error when such overloaded method is called
