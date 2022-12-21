@@ -605,7 +605,7 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: source, ABI
+> **Incompatible change type**: source, binary
 >
 > **Short summary**: this change might affect Gradle plugins authors. In `kotlin-gradle-plugin`, there are additional 
 > generic parameters to some internal types (you should add generic types or `*`). 
