@@ -714,7 +714,7 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 
 * If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
   `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
-  transitively brings `kotlin-stdlib:1.8+`, replace your `kotlin-stdlib-jdk*:SOME_OLD_KOTLIN_VERSION` with 
+  transitively brings `kotlin-stdlib:1.8+`, replace your `kotlin-stdlib-jdk<7/8>:SOME_OLD_KOTLIN_VERSION` with 
   `kotlin-stdlib-jdk*:%kotlinVersion%`(whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
   a transitive `kotlin-stdlib:1.8+` from the library that brings it:
 
