@@ -4,9 +4,10 @@ On this page, you can learn about the following topics:
 * [Incremental compilation](#incremental-compilation)
 * [Gradle build cache support](#gradle-build-cache-support)
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
-* [Build reports](#build-reports)
 * [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
 * [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
+* [Kotlin compiler fallback strategy](#kotlin-compiler-fallback-strategy)
+* [Build reports](#build-reports)
 
 ## Incremental compilation
 
@@ -282,6 +283,61 @@ tasks.withType(KotlinCompile)
 
 </tab>
 </tabs>
+
+## Kotlin compiler fallback strategy
+
+The Kotlin compiler's fallback strategy is to run a compilation outside a Kotlin daemon if the daemon somehow fails. 
+If the Gradle daemon is on, the compiler uses the ["In process" strategy](#defining-kotlin-compiler-execution-strategy). 
+If the Gradle daemon is off, the compiler uses the "Out of process" strategy.
+
+When this fallback happens, you have the following warning lines in your Gradle's build output:
+
+```
+Could not perform incremental compilation: Could not connect to Kotlin compile daemon
+Could not connect to kotlin daemon. Using fallback strategy.
+```
+
+However, a silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds, 
+read more about this in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy).
+To avoid this, there is a Gradle property `kotlin.daemon.useFallbackStrategy`, whose default value is `true`. 
+When the value is `false`, builds fail on problems with the daemon's startup or communication. Declare this property in
+`gradle.properties`:
+
+```properties
+kotlin.daemon.useFallbackStrategy=false
+```
+
+There is also a `useDaemonFallbackStrategy` property in Kotlin compile tasks, which takes priority over the Gradle property if you use both. 
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+val compileKotlin: KotlinCompile by tasks
+
+compileKotlin {
+    useDaemonFallbackStrategy = false
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+val compileKotlin: KotlinCompile by tasks
+
+compileKotlin {
+    useDaemonFallbackStrategy = false
+}
+```
+</tab>
+</tabs>
+
+If there is insufficient memory to run the compilation, you can see a message about it in the logs.
 
 ## Build reports
 
