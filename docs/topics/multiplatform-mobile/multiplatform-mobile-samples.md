@@ -125,7 +125,6 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>✅</td>
     <td>
       <ul>
-        Targets list:
         <li>Android Wear OS</li>
         <li>iOS</li>
         <li>watchOS</li>
