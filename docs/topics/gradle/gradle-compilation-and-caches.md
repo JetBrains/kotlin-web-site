@@ -293,8 +293,10 @@ If the Gradle daemon is off, the compiler uses the "Out of process" strategy.
 When this fallback happens, you have the following warning lines in your Gradle's build output:
 
 ```
-Could not perform incremental compilation: Could not connect to Kotlin compile daemon
-Could not connect to kotlin daemon. Using fallback strategy.
+Failed to compile with Kotlin daemon: java.lang.RuntimeException: Could not connect to Kotlin compile daemon
+[exception stacktrace]
+Using fallback strategy: Compile without Kotlin daemon
+Try ./gradlew --stop if this issue persists.
 ```
 
 However, a silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds, 
@@ -313,12 +315,10 @@ There is also a `useDaemonFallbackStrategy` property in Kotlin compile tasks, wh
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-val compileKotlin: KotlinCompile by tasks
-
-compileKotlin {
-    useDaemonFallbackStrategy = false
+tasks {
+    compileKotlin {
+        useDaemonFallbackStrategy.set(false)
+    }   
 }
 ```
 
@@ -326,11 +326,7 @@ compileKotlin {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-val compileKotlin: KotlinCompile by tasks
-
-compileKotlin {
+tasks.named("compileKotlin").configure {
     useDaemonFallbackStrategy = false
 }
 ```
