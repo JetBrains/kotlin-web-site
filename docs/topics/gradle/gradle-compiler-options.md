@@ -47,6 +47,11 @@ compileKotlin.kotlinOptions.suppressWarnings = true
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+// ...
+
+val compileKotlin: KotlinCompile by tasks
+
 compileKotlin {
     kotlinOptions.suppressWarnings = true
 }
