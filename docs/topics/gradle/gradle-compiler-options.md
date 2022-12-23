@@ -38,7 +38,7 @@ To configure a single task, use its name. Examples:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 // ...
 
-val compileKotlin: KotlinCompile by tasks
+val compileKotlin: KotlinCompilationTask<*> by tasks
 
 compileKotlin.compilerOptions.suppressWarnings.set(true)
 ```
@@ -47,10 +47,10 @@ compileKotlin.compilerOptions.suppressWarnings.set(true)
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompile by tasks
+val compileKotlin: KotlinCompilationTask<*> by tasks
 
 compileKotlin {
     compilerOptions.suppressWarnings = true
