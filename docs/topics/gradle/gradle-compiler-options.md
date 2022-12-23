@@ -18,9 +18,32 @@ Kotlin compilers have a number of options for tailoring the compiling process.
 Using a build script, you can specify additional compilation options. Use the `compilerOptions` property of a Kotlin compilation task for it. 
 For example:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+compileKotlin {
+    compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
+}
+
+//or
+
+compileKotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+```
+
+</tab>
+</tabs>
 
 When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
@@ -145,6 +168,11 @@ compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-param-asserti
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+// ...
+
+val compileKotlin: KotlinCompilationTask<*> by tasks
+
 compileKotlin {
     // Single experimental argument
     compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
