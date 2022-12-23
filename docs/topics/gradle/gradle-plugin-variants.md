@@ -2,8 +2,8 @@
 
 Gradle 7.0 introduced a new feature for Gradle plugin authors
 — [plugins with variants](https://docs.gradle.org/7.0/userguide/implementing_gradle_plugins.html#plugin-with-variants).
-This feature makes it easier to add support for latest Gradle features while maintaining compatibility with older Gradle versions
-below 7.1. Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
+This feature makes it easier to add support for latest Gradle features while maintaining compatibility with older Gradle versions. 
+Learn more about [variant selection in Gradle](https://docs.gradle.org/current/userguide/variant_model.html).
 
 With Gradle plugin variants, the Kotlin team can ship different Kotlin Gradle plugin (KGP) variants for different Gradle versions. 
 The goal is to support the base Kotlin compilation in the `main` variant, which corresponds to the oldest supported versions of
