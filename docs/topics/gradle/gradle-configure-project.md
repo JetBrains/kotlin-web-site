@@ -151,9 +151,12 @@ There are two ways of manually setting JVM targets for Kotlin and Java source se
 * The explicit way via setting the `jvmTarget` attribute in the `kotlin` extension or task and `targetCompatibility` 
   in the `java` extension or task.
 
-If you use the second variant or have a default configuration with JDK not equal to `1.8`, different values of `jvmTarget` 
-and `targetCompatibility` cause JVM target incompatibility. Let's consider a default configuration of JVM targets 
-when you have only the Kotlin JVM plugin in your build script and no additional settings for JVM targets:
+JVM target incompatibility occur if you:
+* Explicitly set different values of `jvmTarget` and `targetCompatibility`.
+* Have a default configuration and your JDK is not equal to `1.8`.
+
+Let's consider a default configuration of JVM targets when you have only the Kotlin JVM plugin in your build script and 
+no additional settings for JVM targets:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -179,10 +182,10 @@ plugins {
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals to 
 a current Gradle's JDK version, which is equal to your JDK version (unless you use 
-a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is 11. 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is `11`. 
 Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
 with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use Java 11 in your main project to add 
-this library although the bytecode's version is 1.8. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+this library although the bytecode's version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 to solve this issue.
 
 ### Set custom JDK home
