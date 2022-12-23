@@ -13,7 +13,7 @@ with limited functionality.
 
 Currently, there are only two variants of the Kotlin Gradle plugin:
 
-* `main` for Gradle versions 6.7.1–6.9.2
+* `main` for Gradle versions 6.8.3–6.9.2
 * `gradle70` for Gradle 7.0 and higher
 * `gradle71` for Gradle 7.1-7.4
 * `gradle75` for Gradle 7.5

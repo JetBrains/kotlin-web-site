@@ -786,9 +786,9 @@ A compilation has the following parameters:
 kotlin {
     jvm {
         val main by compilations.getting {
-            compilerOptions { 
+            compilerOptions.configure { 
                 // Setup the Kotlin compiler options for the 'main' compilation:
-                jvmTarget = "1.8"
+                jvmTarget.set(JvmTarget.JVM_1_8)
             }
         
             compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
@@ -801,8 +801,8 @@ kotlin {
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
-            compilerOptions {
-                allWarningsAsErrors = true
+            compilerOptions.configure {
+                allWarningsAsErrors.set(true)
             }
         }
     }
@@ -815,9 +815,9 @@ kotlin {
 ```groovy
 kotlin {
     jvm {
-        compilations.main.compilerOptions { 
+        compilations.main.compilerOptions.configure { 
             // Setup the Kotlin compiler options for the 'main' compilation:
-            jvmTarget = "1.8"
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
 
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 

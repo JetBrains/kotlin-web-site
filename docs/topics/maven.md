@@ -296,13 +296,17 @@ To use a Kotlin [Bill of Materials (BOM)](https://maven.apache.org/guides/introd
 write a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
 
 ```xml
-<dependency>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <artifactId>kotlin-bom</artifactId>
-    <version>%kotlinVersion%</version>
-    <type>pom</type>
-    <scope>runtime</scope>
-</dependency>
+<dependencyManagement>
+  <dependencies>  
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-bom</artifactId>
+      <version>%kotlinVersion%</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
 ```
 
 ## Generating documentation
