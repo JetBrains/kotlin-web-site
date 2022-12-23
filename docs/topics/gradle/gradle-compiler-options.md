@@ -78,7 +78,7 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask>().configureEach {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
     compilerOptions { /*...*/ }
 }
 ```
@@ -131,7 +131,7 @@ argument to this attribute or a list of arguments:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompilationTask by tasks
+val compileKotlin: KotlinCompilationTask<*> by tasks
 
 // Single experimental argument
 compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
