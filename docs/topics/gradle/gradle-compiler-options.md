@@ -35,7 +35,7 @@ To configure a single task, use its name. Examples:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
 val compileKotlin: KotlinCompilationTask<*> by tasks
@@ -53,14 +53,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 val compileKotlin: KotlinCompilationTask<*> by tasks
 
 compileKotlin {
-    compilerOptions.suppressWarnings = true
+    compilerOptions.suppressWarnings.set(true)
 }
 
 //or
 
 compileKotlin {
     compilerOptions {
-        suppressWarnings = true
+        suppressWarnings.set(true)
     }
 }
 ```
