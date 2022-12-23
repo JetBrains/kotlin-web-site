@@ -71,7 +71,7 @@ kotlin {
     mingwX64()
     linuxX64()
     val publicationsFromMainHost = 
-        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
+        listOf(jvm(), js()).map { "${it.name}kotlinMultiplatform" }
     publishing {
         publications {
             matching { it.name in publicationsFromMainHost }.all {
