@@ -60,7 +60,7 @@ perspective
 > - 1.7.0: report an error in all affected cases if the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` compatibility modes are enabled;
 >   report an error in the progressive mode
 > - 1.8.0: report an error in cases of declaring a concrete class with a non-overridden abstract method from the superclass, and 
->   super calls of methods of `Any` overridden as abstract in the superclass
+>   super calls of `Any` methods are overridden as abstract in the superclass
 > - 1.9.0: report an error in all affected cases, including explicit super calls to an abstract method from the super class
 
 
@@ -107,13 +107,13 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: After relaxing restrictions on where the inheritors of sealed classes can be declared in the project structure,
+> **Short summary**: after relaxing restrictions on where the inheritors of sealed classes could be declared in the project structure,
 > the default visibility of sealed class constructors became protected. However, until 1.8, Kotlin still allowed calling
-> explicitly declared private constructors a sealed class outside the class scope.
+> explicitly declared private constructors of sealed classes outside those classes' scopes
 >
 > **Deprecation cycle**:
 >
-> - 1.6.20: report a warning (or an error in the progressive mode) when private constructor of a sealed class 
+> - 1.6.20: report a warning (or an error in the progressive mode) when a private constructor of a sealed class 
 >   is called outside that class
 > - 1.8.0: use default visibility rules for private constructors (call can be resolved to it only if it is inside corresponding class),
 >   the old behavior can be brought back temporarily by specifying the `-XXLanguage:-UseConsistentRulesForPrivateConstructorsOfSealedClasses`
@@ -128,7 +128,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 1.8 will prohibit using the operator `==` on incompatible numeric types, for example, `Int` and `Long`,
-> in the scope of builder inference lambda functions, the same way as it does currently in other contexts
+> in scopes of builder inference lambda functions, the same way as it currently does in other contexts
 >
 > **Deprecation cycle**:
 >
@@ -154,7 +154,7 @@ perspective
 > - 1.8.0: raise this warning to an error,  
 >   `-XXLanguage:-ProhibitNonExhaustiveIfInRhsOfElvis` can be used to temporarily revert to the pre-1.8 behavior
 
-### Prohibit upper bound violation in a generic typealias usage
+### Prohibit upper bound violation in a generic type alias usage (one type parameter used in several type arguments of the aliased type)
 
 > **Issues**: [KT-29168](https://youtrack.jetbrains.com/issue/KT-29168)
 >
@@ -173,7 +173,7 @@ perspective
 > - 1.8.0: raise this warning to an error,
 >  `-XXLanguage:-ReportMissingUpperBoundsViolatedErrorOnAbbreviationAtSupertypes` can be used to temporarily revert to the pre-1.8 behavior
 
-### Prohibit upper bound violation in a generic typealias usage
+### Prohibit upper bound violation in a generic type alias usage (a type parameter used in a generic type argument of a type argument of the aliased type)
 
 > **Issue**: [KT-54066](https://youtrack.jetbrains.com/issue/KT-54066)
 >
@@ -199,13 +199,13 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin will prohibit delegating extension properties on a generic type
+> **Short summary**: Kotlin 1.8 will prohibit delegating extension properties on a generic type
 > to generic types that use the type parameter of the receiver in an unsafe way
 >
 > **Deprecation cycle**:
 >
 > - 1.6.0: report a warning (or an error in the progressive mode) when delegating an extension property to a type 
->   that uses type parameters inferred from the delegated property type arguments in particular way
+>   that uses type parameters inferred from the delegated property's type arguments in a particular way
 > - 1.8.0: raise the warning to an error,
 >  `-XXLanguage:-ForbidUsingExtensionPropertyTypeParameterInDelegate` can be used to temporarily revert to the pre-1.8 behavior
 
@@ -218,7 +218,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 1.8 will prohibit placing the `@Synchronized` annotation on suspend functions 
-> because a suspension call should not be allowed to happen inside a synchronized block
+> because a suspending call should not be allowed to happen inside a synchronized block
 >
 > **Deprecation cycle**:
 >
@@ -255,7 +255,7 @@ perspective
 >
 > **Short summary**: Kotlin 1.8 will prohibit returning `null` from lambdas passed to functions overloaded by lambda return type
 > when no overload allows a nullable return type.
-> Previously it was allowed when `null` was returned from one of branches of `when` operator
+> Previously, it was allowed when `null` was returned from one of the branches of the `when` operator
 >
 > **Deprecation cycle**:
 >
@@ -271,9 +271,9 @@ perspective
 >
 > **Incompatible change type**: source, binary
 >
-> **Short summary**: When a local or anonymous type is returned from an expression-body function without explicitly specified return type,
+> **Short summary**: when a local or anonymous type is returned from an expression-body function without an explicitly specified return type,
 > Kotlin compiler infers (or approximates) the return type using the known supertype of that type.
-> During this, the compiler could infer a non-nullable type where null value could in fact be returned
+> During this, the compiler can infer a non-nullable type where the null value could in fact be returned
 >
 > **Deprecation cycle**:
 >
@@ -327,9 +327,9 @@ perspective
 >
 > **Short summary**: Kotlin allows using collection literals in a restricted way - for passing arrays to parameters of annotation classes
 > or specifying default values for these parameters.
-> However beside that, it allowed using collections literals anywhere else inside an annotation class, for example,
+> However besides that, Kotlin allowed using collections literals anywhere else inside an annotation class, for example,
 > in its nested object. Kotlin 1.9 will prohibit using collection literals in annotation classes anywhere except 
-> their parameters default values.
+> their parameters' default values.
 >
 > **Deprecation cycle**:
 >
@@ -387,7 +387,7 @@ perspective
 > - 1.7.20: report a warning on suspend infix calls with an anonymous function literal
 > - 1.9.0: raise the warning to an error,
 >   `-XXLanguage:-ModifierNonBuiltinSuspendFunError` can be used to temporarily revert to the pre-1.9 behavior
-> - \>=1.10: Change how `suspend fun` token sequence is interpreted by the parser
+> - \>=1.10: Change how the `suspend fun` token sequence is interpreted by the parser
 
 ### Prohibit using captured type parameters in inner classes against their variance
 
@@ -431,7 +431,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin will prohibit method calls where a value of a potentially nullable generic type is passed
+> **Short summary**: Kotlin 1.9 will prohibit method calls where a value of a potentially nullable generic type is passed
 > for a `@NotNull`-annotated parameter of a Java method
 >
 > **Deprecation cycle**:
@@ -477,7 +477,7 @@ perspective
 >   `-XXLanguage:-ProhibitEnumDeclaringClass` can be used to temporarily revert to the pre-1.9 behavior
 > - \>=1.10: remove `declaringClass` synthetic property
 
-### Deprecate the `enabled` and the `compatibility` modes of the compiler option -Xjvm-default
+### Deprecate the `enable` and the `compatibility` modes of the compiler option -Xjvm-default
 
 > **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
 >
@@ -485,11 +485,11 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.6.20 warns about the usage of `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+> **Short summary**: Kotlin 1.6.20 warns about the usage of the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
 >
 > **Deprecation cycle**:
 >
-> - 1.6.20: introduce a warning on the `enabled` and `compatibility` modes of the `-Xjvm-default` compiler option
+> - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
 > - \>= 1.9: raise this warning to an error
 
 ## Standard library
@@ -502,7 +502,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: It is planned to implement the `Collection` interface in the standard progressions and concrete ranges
+> **Short summary**: it is planned to implement the `Collection` interface in the standard progressions and concrete ranges
 > inherited from them in Kotlin 1.9. This could make a different overload selected in the overload resolution if there
 > are two overloads of some method, one accepting an element and another accepting a collection.
 > Kotlin will make this situation visible by reporting a warning or an error when such overloaded method is called
