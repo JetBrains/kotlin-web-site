@@ -11,13 +11,15 @@ Gradle. Each variant will have implementations for Gradle features from a corres
 support the latest Gradle feature set. With this approach, it is possible to extend support for older Gradle versions 
 with limited functionality.
 
-Currently, there are only two variants of the Kotlin Gradle plugin:
+Currently, there are the following variants of the Kotlin Gradle plugin:
 
-* `main` for Gradle versions 6.8.3–6.9.2
-* `gradle70` for Gradle 7.0 and higher
-* `gradle71` for Gradle 7.1-7.4
-* `gradle75` for Gradle 7.5
-* `gradle76` for Gradle 7.6 and higher
+| Variant's name | Corresponding Gradle versions |
+|----------------|-------------------------------|
+| `main`         | 6.8.3–6.9.2                   |
+| `gradle70`     | 7.0                           |
+| `gradle71`     | 7.1-7.4                       |
+| `gradle75`     | 7.5                           |
+| `gradle76`     | 7.6 and higher                |
 
 In future Kotlin releases, more variants will be probably added.
 
