@@ -19,7 +19,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
    `Message` class will be used for data transfer: a list of serialized `Message` objects will make up the JSON document that the controller is going to respond to the browser request.
 
-   <deflist collapsible="true">
+   <list collapsible="true">
        <def title="Data classes – data class Message">
           <p>The main purpose of <a href="data-classes.md">data classes</a> in Kotlin is to hold data. Such classes are marked with the <code>data</code> keyword, and some standard functionality and some utility functions are often mechanically derivable from the class structure.</p>
           <p>In this example, you declared <code>Message</code> as a data class as its main purpose is to store the data.</p>
@@ -48,7 +48,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           Message(null, "Hello!")
           </code>
        </def>
-   </deflist>
+   </list>
 2. In the same file, amend the `index()` function of a `MessageController` class to return a list of `Message` objects:
 
     ```kotlin
@@ -63,7 +63,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
     }
     ```
 
-    <deflist collapsible="true">
+    <list collapsible="true">
        <def title="Collections – listOf()">
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
           A pair of interfaces represents each collection type:</p>
@@ -89,7 +89,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </p>
           <p>In the example above, creating a list of <code>Message</code> objects includes the trailing comma after the last <code>listOf()</code> function argument.</p>
        </def>
-    </deflist>
+    </list>
 
 The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.
 

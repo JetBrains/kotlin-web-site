@@ -274,7 +274,7 @@ Extend the functionality of the application to retrieve the individual messages 
     }
     ```
 
-    <deflist collapsible="true">
+    <list collapsible="true">
     <def title="Retrieving a value from the context path">
        <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;/{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code>, you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
@@ -289,7 +289,7 @@ Extend the functionality of the application to retrieve the individual messages 
         </list>
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>
-    </deflist>
+    </list>
 
 ## Run the application
 
