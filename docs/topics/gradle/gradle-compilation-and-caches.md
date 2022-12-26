@@ -291,8 +291,8 @@ tasks.withType(KotlinCompile)
 >
 {type="warning"}
 
-Build reports for tracking compiler performance are available starting from Kotlin 1.7.0. Reports contain the durations of different
-compilation phases and reasons why compilation couldn't be incremental.
+Build reports for tracking compiler performance are available starting from Kotlin 1.7.0. Reports contain the durations 
+of different compilation phases and reasons why compilation couldn't be incremental.
 
 Use build reports to investigate performance issues, when the compilation time is too long or when it differs for the same
 project.
@@ -347,6 +347,34 @@ kotlin.build.report.http.password=somePassword
 # Optional. Label for marking your build report (e.g. debug parameters)
 kotlin.build.report.label=some_label
 ```
+
+### Limit of custom values
+
+To collect build scans' statistics, Kotlin build reports use [Gradle's custom values](https://docs.gradle.com/enterprise/tutorials/extending-build-scans/). 
+If you have a big project, a number of such custom values may be more than 1000 and these values consume a storage's space. 
+Other Gradle plugins write custom values too. 
+You can limit a maximum number of custom values in `gradle.properties` depending on your project's size:
+
+```properties
+kotlin.build.report.build_scan.custom_values_limit=1500
+```
+
+If this amount is exceeded, you can see a following message in logs:
+
+```
+Maximum number of custom values (1,500) exceeded
+```
+
+### Switching off collecting project's and system properties
+
+HTTP build statistic logs can contain some project's and system properties. These properties can change builds' behavior, 
+so it's useful to log them in build statistics. 
+These properties can store sensitive data, for example, passwords or a project's full path. 
+You can switch off this behavior by adding the `kotlin.build.report.http.verbose_environment` property to your `gradle.properties`.
+
+> JetBrains doesn't collect this statistics. You choose a place [where to store your reports](#enabling-build-reports).
+> 
+{type="note"}
 
 ## What's next?
 
