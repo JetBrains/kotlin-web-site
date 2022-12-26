@@ -356,13 +356,13 @@ Other Gradle plugins write custom values too.
 You can limit a maximum number of custom values in `gradle.properties` depending on your project's size:
 
 ```properties
-kotlin.build.report.build_scan.custom_values_limit=1500
+kotlin.build.report.build_scan.custom_values_limit=1000
 ```
 
 If this number is exceeded, you can see the following message in the logs:
 
 ```
-Maximum number of custom values (1,500) exceeded
+Maximum number of custom values (1,000) exceeded
 ```
 
 ### Switching off collecting project's and system properties
@@ -370,7 +370,7 @@ Maximum number of custom values (1,500) exceeded
 HTTP build statistic logs can contain some project's and system properties. These properties can change builds' behavior, 
 so it's useful to log them in build statistics. 
 These properties can store sensitive data, for example, passwords or a project's full path. 
-You can switch off this behavior by adding the `kotlin.build.report.http.verbose_environment` property to your `gradle.properties`.
+You can turn on this behavior by adding the `kotlin.build.report.http.verbose_environment` property to your `gradle.properties`.
 
 > JetBrains doesn't collect this statistics. You choose a place [where to store your reports](#enabling-build-reports).
 > 
