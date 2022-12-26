@@ -19,7 +19,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
    `Message` class will be used for data transfer: a list of serialized `Message` objects will make up the JSON document that the controller is going to respond to the browser request.
 
-   <list collapsible="true">
+   <list>
        <def title="Data classes – data class Message">
           <p>The main purpose of <a href="data-classes.md">data classes</a> in Kotlin is to hold data. Such classes are marked with the <code>data</code> keyword, and some standard functionality and some utility functions are often mechanically derivable from the class structure.</p>
           <p>In this example, you declared <code>Message</code> as a data class as its main purpose is to store the data.</p>
@@ -63,7 +63,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
     }
     ```
 
-    <list collapsible="true">
+    <list>
        <def title="Collections – listOf()">
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
           A pair of interfaces represents each collection type:</p>

@@ -274,7 +274,7 @@ Extend the functionality of the application to retrieve the individual messages 
     }
     ```
 
-    <list collapsible="true">
+    <list>
     <def title="Retrieving a value from the context path">
        <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;/{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code>, you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
