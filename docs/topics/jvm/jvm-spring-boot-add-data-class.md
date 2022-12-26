@@ -20,34 +20,42 @@ It requires changing the `MessageController` class to respond with a JSON docume
    `Message` class will be used for data transfer: a list of serialized `Message` objects will make up the JSON document that the controller is going to respond to the browser request.
 
    <list>
-       <def title="Data classes – data class Message">
-          <p>The main purpose of <a href="data-classes.md">data classes</a> in Kotlin is to hold data. Such classes are marked with the <code>data</code> keyword, and some standard functionality and some utility functions are often mechanically derivable from the class structure.</p>
-          <p>In this example, you declared <code>Message</code> as a data class as its main purpose is to store the data.</p>
-       </def>
-       <def title="val and var properties">
-          <p><a href="properties.md">Properties in Kotlin</a> classes can be declared either as:</p>
-          <list>
-              <ul>
-                <li><i>mutable</i>, using the <code>var</code> keyword</li>
-                <li><i>read-only</i>, using the <code>val</code> keyword</li>
-              </ul>
-          </list>
-          <p>The <code>Message</code> class declares two properties using <code>val</code> keyword, the <code>id</code> and <code>text</code>.
-          The compiler will automatically generate the getters for both of these properties.
-          It will not be possible to reassign the values of these properties after an instance of the <code>Message</code> class is created.
-          </p>
-       </def>
-       <def title="Nullable types – String?">
-          <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-null-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (<i>nullable references</i>) and those that cannot (<i>non-nullable references</i>).<br/>
-          For example, a regular variable of type <code>String</code> cannot hold <code>null</code>. To allow nulls, you can declare a variable as a nullable string by writing <code>String?</code>.
-          </p>
-          <p>The <code>id</code> property of the <code>Message</code> class is declared as a nullable type this time.
-          Hence, it is possible to create an instance of <code>Message</code> class by passing <code>null</code> as a value for <code>id</code>:
-          </p>
-          <code style="block" lang="kotlin">
-          Message(null, "Hello!")
-          </code>
-       </def>
+       <ul>
+          <li>
+             <def title="Data classes – data class Message">
+               <p>The main purpose of <a href="data-classes.md">data classes</a> in Kotlin is to hold data. Such classes are marked with the <code>data</code> keyword, and some standard functionality and some utility functions are often mechanically derivable from the class structure.</p>
+               <p>In this example, you declared <code>Message</code> as a data class as its main purpose is to store the data.</p>
+             </def>
+          </li>
+          <li>
+             <def title="val and var properties">
+             <p><a href="properties.md">Properties in Kotlin</a> classes can be declared either as:</p>
+               <list>
+                <ul>
+                  <li><i>mutable</i>, using the <code>var</code> keyword</li>
+                  <li><i>read-only</i>, using the <code>val</code> keyword</li>
+                </ul>
+               </list>
+             <p>The <code>Message</code> class declares two properties using <code>val</code> keyword, the <code>id</code> and <code>text</code>.
+             The compiler will automatically generate the getters for both of these properties.
+             It will not be possible to reassign the values of these properties after an instance of the <code>Message</code> class is created.
+             </p>
+             </def>
+          </li>
+          <li>
+            <def title="Nullable types – String?">
+            <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-null-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (<i>nullable references</i>) and those that cannot (<i>non-nullable references</i>).<br/>
+            For example, a regular variable of type <code>String</code> cannot hold <code>null</code>. To allow nulls, you can declare a variable as a nullable string by writing <code>String?</code>.
+            </p>
+            <p>The <code>id</code> property of the <code>Message</code> class is declared as a nullable type this time.
+            Hence, it is possible to create an instance of <code>Message</code> class by passing <code>null</code> as a value for <code>id</code>:
+            </p>
+            <code style="block" lang="kotlin">
+            Message(null, "Hello!")
+            </code>
+            </def>
+         </li>
+       </ul>
    </list>
 2. In the same file, amend the `index()` function of a `MessageController` class to return a list of `Message` objects:
 
@@ -64,7 +72,9 @@ It requires changing the `MessageController` class to respond with a JSON docume
     ```
 
     <list>
-       <def title="Collections – listOf()">
+      <ul>
+        <li>
+        <def title="Collections – listOf()">
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
           A pair of interfaces represents each collection type:</p>
           <list>
@@ -79,8 +89,10 @@ It requires changing the `MessageController` class to respond with a JSON docume
           This is the factory function to create a <i>read-only</i> list of objects: you can't add or remove elements from the list.<br/>
           If it is required to perform write operations on the list, call the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a> function to create a mutable list instance.
           </p>
-       </def>
-       <def title="Trailing comma">
+        </def>
+        </li>
+        <li>
+        <def title="Trailing comma">
           <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <strong>last item</strong> of a series of elements:
             <code style="block" lang="kotlin">
             Message("3", "Privet!"),
@@ -88,7 +100,9 @@ It requires changing the `MessageController` class to respond with a JSON docume
           This is a convenient feature of Kotlin syntax and is entirely optional – your code will still work without them.
           </p>
           <p>In the example above, creating a list of <code>Message</code> objects includes the trailing comma after the last <code>listOf()</code> function argument.</p>
-       </def>
+        </def>
+        </li>
+      </ul>
     </list>
 
 The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.

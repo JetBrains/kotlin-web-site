@@ -34,7 +34,7 @@ class MessageService(val db: JdbcTemplate) {
 }
 ```
 
-<list collapsible="true">
+<list>
    <def title="Constructor argument and dependency injection – (val db: JdbcTemplate)">
       <p>A class in Kotlin can have a primary constructor and one or more <a href="classes.md#secondary-constructors">secondary constructors</a>.
       The <i>primary constructor</i> is a part of the class header, and it goes after the class name and optional type parameters. In our case, the constructor is <code>(val db: JdbcTemplate)</code>.</p>
@@ -87,7 +87,7 @@ class MessageController(val service: MessageService) {
 
 ```
 
-<list collapsible="true">
+<list>
    <def title="@PostMapping annotation">
       <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
    </def>
@@ -120,7 +120,7 @@ class MessageService(val db: JdbcTemplate) {
 }
 ```
 
-<list collapsible="true">
+<list>
    <def title="Elvis operator – ?:">
       <p>The code <code>message.id ?: UUID.randomUUID().toString()</code> uses the <a href="null-safety.md#elvis-operator">Elvis operator (if-not-null-else shorthand) <code>?:</code></a>. If the expression to the left of <code>?:</code> is not <code>null</code>, the Elvis operator returns it; otherwise, it returns the expression to the right. Note that the expression on the right-hand side is evaluated only if the left-hand side is <code>null</code>.</p>
    </def>
