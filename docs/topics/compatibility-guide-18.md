@@ -620,3 +620,19 @@ perspective
 >
 > - 1.8.0: `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile`. `KotlinJsCompilerOptions.outputFile` 
 > and the related `KotlinJsOptions.outputFile` options are deprecated.
+
+### Deprecate kotlin.internal.single.build.metrics.file property
+
+> **Issue**: [KT-53357](https://youtrack.jetbrains.com/issue/KT-53357)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: deprecate the `kotlin.internal.single.build.metrics.file` property used to define a single file for 
+> build reports.
+> Use the property `kotlin.build.report.single_file` instead with `kotlin.build.report.output=single_file`
+>
+> **Deprecation cycle:**
+>
+> - 1.8.0: raise the deprecation level to a warning
