@@ -359,7 +359,7 @@ You can limit a maximum number of custom values in `gradle.properties` depending
 kotlin.build.report.build_scan.custom_values_limit=1500
 ```
 
-If this amount is exceeded, you can see a following message in logs:
+If this number is exceeded, you can see the following message in the logs:
 
 ```
 Maximum number of custom values (1,500) exceeded
