@@ -73,15 +73,7 @@ compileKotlin.compilerOptions.suppressWarnings.set(true)
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompilationTask<*> by tasks
-
-compileKotlin {
-    compilerOptions.suppressWarnings.set(true)
-}
-
-//or
-
-compileKotlin {
+tasks.named('compileKotlin', KotlinCompilationTask) {
     compilerOptions {
         suppressWarnings.set(true)
     }
@@ -171,23 +163,13 @@ compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-param-asserti
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompilationTask<*> by tasks
-
-compileKotlin {
-    // Single experimental argument
-    compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
-    // Single additional argument, can be a key-value pair
-    compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
-    // List of arguments
-    compilerOptions.freeCompilerArgs.addAll(["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"])
-}
-
-//or
-
-compileKotlin {
+tasks.named('compileKotlin', KotlinCompilationTask) {
     compilerOptions {
+        // Single experimental argument
         freeCompilerArgs.add("-Xexport-kdoc")
+        // Single additional argument, can be a key-value pair
         freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+        // List of arguments
         freeCompilerArgs.addAll(["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"])
     }
 }

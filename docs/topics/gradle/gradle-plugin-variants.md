@@ -38,13 +38,31 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 This is an expected situation that Gradle can't select a KGP variant in a custom configuration.
 If you use a custom Gradle configuration:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 configurations.register("customConfiguraton") {
     ...
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+configurations.register("customConfiguraton") {
+    ...
+}
+```
+
+</tab>
+</tabs>
+
 and want to add a dependency on the Kotlin Gradle plugin, for example:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -52,7 +70,22 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    customConfiguration 'org.jetbrains.kotlin:kotlin-gradle-plugin:%kotlinVersion%'
+}
+```
+
+</tab>
+</tabs>
+
 You need to add the following attributes to your `customConfiguration`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 configurations {
@@ -75,6 +108,34 @@ configurations {
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+configurations {
+    customConfiguration {
+        attributes {
+            attribute(
+                    Usage.USAGE_ATTRIBUTE,
+                    project.objects.named(Usage, Usage.JAVA_RUNTIME)
+            )
+            attribute(
+                    Category.CATEGORY_ATTRIBUTE,
+                    project.objects.named(Category, Category.LIBRARY)
+            )
+            // If you want to depend on a specific KGP variant:
+            attribute(
+                    GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE,
+                    project.objects.named('7.0')
+            )
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 Otherwise, you will receive an error similar to this:
 
