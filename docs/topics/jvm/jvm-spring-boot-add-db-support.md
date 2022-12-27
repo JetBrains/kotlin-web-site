@@ -281,11 +281,9 @@ Extend the functionality of the application to retrieve the individual messages 
     <def title="vararg argument position in the parameter list">
         <p>The <code>query()</code> function takes three arguments:</p>
         <list>
-        <ul>
             <li>SQL query string that requires a parameter to run</li>
             <li>`id`, which is a parameter of type String</li>
             <li><code>RowMapper</code> instance is implemented by a lambda expression</li>
-        </ul>
         </list>
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>

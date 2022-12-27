@@ -27,10 +27,8 @@ It requires changing the `MessageController` class to respond with a JSON docume
        <def title="val and var properties">
           <p><a href="properties.md">Properties in Kotlin</a> classes can be declared either as:</p>
           <list>
-              <ul>
-                <li><i>mutable</i>, using the <code>var</code> keyword</li>
-                <li><i>read-only</i>, using the <code>val</code> keyword</li>
-              </ul>
+             <li><i>mutable</i>, using the <code>var</code> keyword</li>
+             <li><i>read-only</i>, using the <code>val</code> keyword</li>
           </list>
           <p>The <code>Message</code> class declares two properties using <code>val</code> keyword, the <code>id</code> and <code>text</code>.
           The compiler will automatically generate the getters for both of these properties.
@@ -68,10 +66,8 @@ It requires changing the `MessageController` class to respond with a JSON docume
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
           A pair of interfaces represents each collection type:</p>
           <list>
-            <ul>
               <li>A <i>read-only</i> interface that provides operations for accessing collection elements.</li>
               <li>A <i>mutable</i> interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.</li>
-            </ul>
           </list>
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>
@@ -81,7 +77,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </p>
        </def>
        <def title="Trailing comma">
-          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <strong>last item</strong> of a series of elements:
+          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <b>last item</b> of a series of elements:
             <code style="block" lang="kotlin">
             Message("3", "Privet!"),
             </code>
