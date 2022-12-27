@@ -77,7 +77,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </p>
        </def>
        <def title="Trailing comma">
-          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the last item of a series of elements:
+          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <b>last item</b> of a series of elements:
             <code style="block" lang="kotlin">
             Message("3", "Privet!"),
             </code>
