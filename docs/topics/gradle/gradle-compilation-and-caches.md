@@ -351,18 +351,19 @@ kotlin.build.report.label=some_label
 ### Limit of custom values
 
 To collect build scans' statistics, Kotlin build reports use [Gradle's custom values](https://docs.gradle.com/enterprise/tutorials/extending-build-scans/). 
-If you have a big project, a number of such custom values may be more than 1000 and these values consume a storage's space. 
-Other Gradle plugins write custom values too. 
-You can limit a maximum number of custom values in `gradle.properties` depending on your project's size:
-
-```properties
-kotlin.build.report.build_scan.custom_values_limit=1000
-```
-
-If this number is exceeded, you can see the following message in the logs:
+Different Gradle plugins and you can also write data to custom values. The number of custom values has the limit. 
+See the current maximum custom value count in the [Build scan plugin docs](https://docs.gradle.com/enterprise/gradle-plugin/#adding_custom_values). 
+If you have a big project, a number of such custom values may be quite big. If this number exceeds the limit, 
+you can see a following message in logs:
 
 ```
 Maximum number of custom values (1,000) exceeded
+```
+
+To reduce a number of custom values the Kotlin plugin produces, you can use the following property in `gradle.properties`:
+
+```properties
+kotlin.build.report.build_scan.custom_values_limit=500
 ```
 
 ### Switching off collecting project's and system properties
