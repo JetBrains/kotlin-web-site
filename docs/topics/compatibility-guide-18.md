@@ -636,3 +636,4 @@ perspective
 > **Deprecation cycle:**
 >
 > - 1.8.0: raise the deprecation level to a warning
+> \>= 1.9: delete the property
