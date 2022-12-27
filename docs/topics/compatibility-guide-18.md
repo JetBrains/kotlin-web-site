@@ -115,7 +115,7 @@ perspective
 >
 > - 1.6.20: report a warning (or an error in the progressive mode) when a private constructor of a sealed class 
 >   is called outside that class
-> - 1.8.0: use default visibility rules for private constructors (call can be resolved to it only if it is inside corresponding class),
+> - 1.8.0: use default visibility rules for private constructors (a call to a private constructor can be resolved only if this call is inside the corresponding class),
 >   the old behavior can be brought back temporarily by specifying the `-XXLanguage:-UseConsistentRulesForPrivateConstructorsOfSealedClasses`
 >   compiler argument
 
@@ -144,7 +144,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.8 will prohibit using `if` operator without `else` branch or non-exhaustive `when`
+> **Short summary**: Kotlin 1.8 will prohibit using  a non-exhaustive `when` or the `if` expression without an `else` branch
 > on the right hand side of the Elvis operator (`?:`). Previously, it was allowed if the Elvis operator's result was not used 
 > as an expression
 >
@@ -253,8 +253,8 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.8 will prohibit returning `null` from lambdas passed to functions overloaded by lambda return type
-> when no overload allows a nullable return type.
+> **Short summary**: Kotlin 1.8 will prohibit returning `null` from lambdas passed to functions overloaded by those lambdas' return types 
+> when overloads don't allow a nullable return type.
 > Previously, it was allowed when `null` was returned from one of the branches of the `when` operator
 >
 > **Deprecation cycle**:
@@ -510,8 +510,8 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.6.20: report a warning when an overloaded method is called with the standard progression or its range inheritor argument
->   if implementing `Collection` interface would lead to another overload being selected in this call in future
+> - 1.6.20: report a warning when an overloaded method is called with the standard progression or its range inheritor as an argument
+>   if implementing the `Collection` interface by this progression/range leads to another overload being selected in this call in future
 > - 1.8.0: raise this warning to an error 
 > - 1.9.0: stop reporting the error, implement `Collection` interface in progressions thus changing
 >   the overload resolution result in the affected cases
