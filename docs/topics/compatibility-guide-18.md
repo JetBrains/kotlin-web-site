@@ -90,7 +90,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Kotlin will avoid converting numeric values automatically to a primitive numeric type where only a downcast to that type was needed semantically
+> **Short summary**: Kotlin will avoid converting numeric values automatically to a primitive numeric type where only a downcast to that type is needed semantically
 >
 > **Deprecation cycle**:
 >
@@ -259,7 +259,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.6.20: report type mismatch warning (or an error in the progressive mode)
+> - 1.6.20: report a type mismatch warning (or an error in the progressive mode)
 > - 1.8.0: raise the warning to an error,
 >   `-XXLanguage:-DontLoseDiagnosticsDuringOverloadResolutionByReturnType` can be used to temporarily revert to the pre-1.8 behavior
 
