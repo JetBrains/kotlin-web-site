@@ -7,7 +7,7 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 * [New experimental functions for JVM: recursively copy or delete directory content](#recursive-copying-or-deletion-of-directories)
 * [Improved kotlin-reflect performance](#improved-kotlin-reflect-performance)
 * [New -Xdebug compiler option for better debugging experience](#a-new-compiler-option-for-disabling-optimizations)
-* [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#update-jvm-compilation-target)
+* [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#updated-jvm-compilation-target)
 * [Improved Objective-C/Swift interoperability](#improved-objective-c-swift-interoperability)
 * [Compatibility with Gradle 7.3](#gradle)
 * 
