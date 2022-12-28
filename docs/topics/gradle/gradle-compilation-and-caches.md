@@ -376,27 +376,29 @@ The following values and their combinations are available for the output:
 
 Here's the full list of available options for `kotlin.build.report`:
 
-```
-# Required outputs. Any combination is allowed
-kotlin.build.report.output=file,single_file,http,build_scan
-
-# Mandatory if single_file output is used. Where to put reports 
-# Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
-kotlin.build.report.single_file=some_filename
-
-# Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
-kotlin.build.report.file.output_dir=kotlin-reports
-
-# Mandatory if HTTP output is used. Where to post HTTP(S)-based reports
-kotlin.build.report.http.url=http://127.0.0.1:8080
-
-# Optional. User and password if the HTTP endpoint requires authentication
-kotlin.build.report.http.user=someUser
-kotlin.build.report.http.password=somePassword
-
-# Optional. Label for marking your build report (for example, debug parameters)
-kotlin.build.report.label=some_label
-```
+<code style="block" lang="properties" title="Sample">
+    <![CDATA[
+        # Required outputs. Any combination is allowed
+        kotlin.build.report.output=file,single_file,http,build_scan
+        
+        # Mandatory if single_file output is used. Where to put reports 
+        # Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
+        kotlin.build.report.single_file=some_filename
+        
+        # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
+        kotlin.build.report.file.output_dir=kotlin-reports
+        
+        # Mandatory if HTTP output is used. Where to post HTTP(S)-based reports
+        kotlin.build.report.http.url=http://127.0.0.1:8080
+        
+        # Optional. User and password if the HTTP endpoint requires authentication
+        kotlin.build.report.http.user=someUser
+        kotlin.build.report.http.password=somePassword
+        
+        # Optional. Label for marking your build report (for example, debug parameters)
+        kotlin.build.report.label=some_label
+    ]]>
+</code>
 
 ### Limit of custom values
 
