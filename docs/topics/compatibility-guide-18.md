@@ -492,6 +492,23 @@ perspective
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
 > - \>= 1.9: raise this warning to an error
 
+### Removal of the old backend
+
+> **Issue**: [KT-48532](https://youtrack.jetbrains.com/issue/KT-48532)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Starting from 1.5.0, Kotlin uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
+> for the Kotlin/JVM compiler by default. In Kotlin 1.8.0, the old backend is deleted.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: by default, the old JVM backend is used
+> - \>= 1.5: by default, the IR-based backend is used
+> - 1.8.0: remove the old backend, the `-Xuse-old-backend` compiler option, and the `useOldBackend` Gradle option
+
 ## Standard library
 
 ### Warn about potential overload resolution change when `Range`/`Progression` starts implementing `Collection`
