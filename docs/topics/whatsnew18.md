@@ -665,7 +665,7 @@ sourceRoot.copyToRecursively(destinationRoot, followLinks = false,
   onError = { source, target, exception ->
     logger.logError(exception, "Failed to copy $source to $target")
     OnErrorResult.TERMINATE
-}
+})
 ```
 {validate="false"}
 
