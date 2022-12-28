@@ -26,7 +26,7 @@
 
     <var name="maxAndroidGradleVersion" value="7.2.1" type="string"/>
 
-    <var name="gradleVersion" value="6.7.1" type="string"/>
+    <var name="gradleVersion" value="7.3" type="string"/>
 
     <var name="serializationVersion" value="1.4.1" type="string"/>
 
@@ -36,12 +36,12 @@
 
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
-    <var name="sqlDelightVersion" value="1.5.3" type="string"/>
+    <var name="sqlDelightVersion" value="1.5.4" type="string"/>
 
     <var name="kspSupportedKotlinVersion" value="1.7.20" type="string"/>
 
     <var name="kspVersion" value="1.0.7" type="string"/>
 
-    <var name="ktorVersion" value="2.1.2" type="string"/>
+    <var name="ktorVersion" value="2.2.1" type="string"/>
 
 </vars>
