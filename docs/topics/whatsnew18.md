@@ -182,46 +182,46 @@ the other is for `AndroidSourceSets`:
 To address these and other existing issues, we've introduced a new Android source set layout. 
 Here are some of the key differences between the two layouts:
 
-* __KotlinSourceSet naming schema__
+#### KotlinSourceSet naming schema
 
-  | Current source set layout | New source set layout           |
-  |---------------------------|---------------------------------|
-  | `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
+| Current source set layout              | New source set layout           |
+|----------------------------------------|---------------------------------|
+| `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
 
-  `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
+`{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
 
-  | `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
-  |-------------------------|-----------------------------------------------------|-------------------------------------------------|
-  | `main`                  | `androidMain`                                       | `androidMain`                                   |
-  | `test`                  | `androidTest`                                       | `androidUnitTest`                        |
-  | `androidTest`           | `androidAndroidTest`                         | `androidInstrumentedTest`                |
+| `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
+|-------------------------|-----------------------------------------------------|-------------------------------------------------|
+| main                    | androidMain                                         | androidMain                                     |
+| test                    | androidTest                                         | android<b>Unit</b>Test                          |
+| androidTest             | android<b>Android</b>Test                           | android<b>Instrumented</b>Test                  |
 
-* __SourceDirectories__
+#### SourceDirectories
 
-  | Current source set layout                               | New source set layout                                                     |
-  |---------------------------------------------------------|---------------------------------------------------------------------------|
-  | The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
+| Current source set layout                               | New source set layout                                                     |
+|---------------------------------------------------------|---------------------------------------------------------------------------|
+| The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
 
-  `{AndroidSourceSet.name}` maps to `{Source Directories included}` as follows:
+`{AndroidSourceSet.name}` maps to `{Source Directories included}` as follows:
 
-  | `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout        | `{Source Directories included}` in new source set layout                                                |
-  |-------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-  | `main`                  | `src/androidMain/kotlin, src/main/kotlin, src/main/java`            | `src/androidMain/kotlin, src/main/kotlin, src/main/java`                                                |
-  | `test`                  | `src/androidTest/kotlin, src/test/kotlin, src/test/java`     | `src/androidUnitTest/kotlin, src/test/kotlin, src/test/java`                                     |
-  | `androidTest`           | `src/androidAndroidTest/kotlin, src/androidTest/java` | `src/androidInstrumentedTest/kotlin, src/androidTest/java, src/androidTest/kotlin` |
+| `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout      | `{Source Directories included}` in new source set layout                                              |
+|-------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| main                    | src/androidMain/kotlin, src/main/kotlin, src/main/java            | src/androidMain/kotlin, src/main/kotlin, src/main/java                                                |
+| test                    | src/androidTest/kotlin, src/test/kotlin, src/test/java            | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                                     |
+| androidTest             | src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java | src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin |
 
-* __The location of the `AndroidManifest.xml` file__
+#### The location of the `AndroidManifest.xml` file
 
-  | Current source set layout                                | New source set layout                                   |
-  |----------------------------------------------------------|---------------------------------------------------------|
-  | `src/{AndroidSourceSet.name}/AndroidManifest.xml` | `src/{KotlinSourceSet.name}/AndroidManifest.xml` |
+| Current source set layout                              | New source set layout                                 |
+|--------------------------------------------------------|-------------------------------------------------------|
+| src/{<b>AndroidSourceSet</b>.name}/AndroidManifest.xml | src/{<b>KotlinSourceSet</b>.name}/AndroidManifest.xml |
 
-  `{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
+`{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
 
-  | `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
-  |-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
-  | `main`                  | `src/main/AndroidManifest.xml`                                | `src/androidMain/AndroidManifest.xml`              |
-  | `debug`                 | `src/debug/AndroidManifest.xml`                               | `src/androidDebug/AndroidManifest.xml`             |
+| `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
+|-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
+| main                    | src/main/AndroidManifest.xml                                  | src/<b>android</b>Main/AndroidManifest.xml                |
+| debug                   | src/debug/AndroidManifest.xml                                 | src/<b>android</b>Debug/AndroidManifest.xml               |
 
 ### Configuration and setup
 
@@ -559,10 +559,10 @@ fun main() {
     val num = 27
     val negNum = -num
 
-    println("The cube root of ${num.toDouble()} is: " 
-            + cbrt(num.toDouble()))
-    println("The cube root of ${negNum.toDouble()} is: " 
-            + cbrt(negNum.toDouble()))
+    println("The cube root of ${num.toDouble()} is: " + 
+            cbrt(num.toDouble()))
+    println("The cube root of ${negNum.toDouble()} is: " + 
+            cbrt(negNum.toDouble()))
 }
 ```
 ### TimeUnit conversion between Java and Kotlin
