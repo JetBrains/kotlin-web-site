@@ -35,7 +35,7 @@ The new language version also includes:
 * [A compiler argument for switching off the generation of JVM annotation targets](#ability-to-not-generate-type-use-and-type-parameter-annotation-targets)
 * [A new `-Xdebug` compiler option for disabling optimizations](#a-new-compiler-option-for-disabling-optimizations)
 * [The removal of the old backend](#removal-of-the-old-backend)
-* [Support for Lombok's @Builder annotation](#support-for-lombok-s-builder-annotation).
+* [Support for Lombok's @Builder annotation](#support-for-lombok-s-builder-annotation)
 
 ### Ability to not generate TYPE_USE and TYPE_PARAMETER annotation targets
 
@@ -397,12 +397,14 @@ and to integrate them better into the Kotlin tasks, we made lots of changes:
 >
 > This will be changed in the scope of [this issue](https://youtrack.jetbrains.com/issue/KT-15370/Gradle-DSL-add-module-level-kotlin-options), 
 > when the `compilerOptions` DSL will be added to a module level.
+>
 {type="note"}
 
 #### Limitations
 
 > The `kotlinOptions` task input and the `kotlinOptions{...}` task DSL are in support mode and will be deprecated in 
 > upcoming releases. Improvements will be made only to `compilerOptions` and `toolOptions`.
+>
 {type="warning"}
 
 Calling any setter or getter on `kotlinOptions` delegates to the related property in the `compilerOptions`. 
@@ -465,6 +467,7 @@ Learn about other cases and our suggested solutions in [the documentation](gradl
 ### Obligatory check for JVM targets of related Kotlin and Java compile tasks
 
 > This section applies to your JVM project even if your source files are only in Kotlin and you don't use Java.
+>
 {type="note"}
 
 [Starting from this release](https://youtrack.jetbrains.com/issue/KT-54993/Raise-kotlin.jvm.target.validation.mode-check-default-level-to-error-when-build-is-running-on-Gradle-8), 
@@ -522,12 +525,12 @@ In Kotlin 1.8.0, the deprecation cycle continues for the following properties an
 ## Standard library
 
 Kotlin 1.8.0:
-* Updates [JVM compilation target](#updated-jvm-compilation-target)
+* Updates [JVM compilation target](#updated-jvm-compilation-target).
 * Stabilizes a number of functions – [TimeUnit conversion between Java and Kotlin](#timeunit-conversion-between-java-and-kotlin), 
-  [`cbrt()`](#cbrt), [Java `Optionals` extension functions](#java-optionals-extension-functions)
-* Provides a [preview for comparable and subtractable `TimeMarks`](#comparable-and-subtractable-timemarks)
-* Includes [experimental extension functions for `java.nio.file.path`](#recursive-copying-or-deletion-of-directories)
-* Presents [improved kotlin-reflect performance](#improved-kotlin-reflect-performance)
+  [`cbrt()`](#cbrt), [Java `Optionals` extension functions](#java-optionals-extension-functions).
+* Provides a [preview for comparable and subtractable `TimeMarks`](#comparable-and-subtractable-timemarks).
+* Includes [experimental extension functions for `java.nio.file.path`](#recursive-copying-or-deletion-of-directories).
+* Presents [improved kotlin-reflect performance](#improved-kotlin-reflect-performance).
 
 ### Updated JVM compilation target
 
