@@ -123,7 +123,7 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
   The annotation instructs the Kotlin compiler not to export a function or property to Objective-C and, consequently, Swift. 
   This can make your Kotlin code more Objective-C/Swift-friendly.
 
-* [`@ShouldRefineInSwift`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-hidden-from-obj-c/) is useful for 
+* [`@ShouldRefineInSwift`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-should-refine-in-swift/) is useful for 
   replacing a Kotlin declaration with a wrapper written in Swift.
 
   The annotation instructs the Kotlin compiler to mark a function or property as `swift_private` in the generated 
