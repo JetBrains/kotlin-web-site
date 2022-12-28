@@ -273,7 +273,7 @@ These three new Gradle properties are:
   following values:
     * `FAIL` fails the corresponding Gradle task. This is the default.
     * `WARNING` writes the information about changes in the warning log.
-* `NONE` disables reporting.
+    * `NONE` disables reporting.
 * `reportNewYarnLock`, which reports about the recently created `yarn.lock` file explicitly. By default, this option is 
   disabled: it's a common practice to generate a new `yarn.lock` file at the first start. You can use this option to 
   ensure that the file has been committed to your repository.
@@ -349,16 +349,16 @@ To expose available Kotlin compiler options as [Gradle lazy properties](https://
 and to integrate them better into the Kotlin tasks, we made lots of changes:
 
 * Compile tasks have the new `compilerOptions` input, which is similar to the existing `kotlinOptions` but uses 
-* [`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html) from the Gradle Properties 
-* API as the return type:
+  [`Property`](https://docs.gradle.org/current/javadoc/org/gradle/api/provider/Property.html) from the Gradle Properties 
+  API as the return type:
 
-```kotlin
-tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile::class.java) {
-    compilerOptions {
-        useK2.set(true)
-    }
-}
-```
+  ```kotlin
+  tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile::class.java) {
+      compilerOptions {
+          useK2.set(true)
+      }
+  }
+  ```
 
 * The Kotlin tools tasks `KotlinJsDce` and `KotlinNativeLink` have the new `toolOptions` input, which is similar to the 
   existing `kotlinOptions` input.
@@ -377,7 +377,9 @@ tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile:
     * [`JsMainFunctionExecutionMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsMainFunctionExecutionMode.kt)
     * [`JsModuleKind`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsModuleKind.kt)
     * [`JsSourceMapEmbedMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapEmbedMode.kt)
+  
   For example, you can use `compilerOptions.jvmTarget.set(JvmTarget.JVM_11)` instead of `kotlinOptions.jvmTarget = "11"`.
+  
   The `kotlinOptions` types didn't change, and they are internally converted to `compilerOptions` types.
 * The Kotlin Gradle plugin API is binary-compatible with previous releases. There are, however, some source and ABI-breaking changes in the `kotlin-gradle-plugin` artifact. Most of these changes involve additional generic parameters to some internal types. One important change is that the `KotlinNativeLink` task no longer inherits the `AbstractKotlinNativeCompile` task.
 * `KotlinJsCompilerOptions.outputFile` and the related `KotlinJsOptions.outputFile` options are deprecated. Use the `Kotlin2JsCompile.outputFileProperty` task input instead.
@@ -580,12 +582,12 @@ fun wait(timeout: Long, unit: TimeUnit) {
 >
 {type="warning"}
 
-Before Kotlin 1.8.0, if you wanted to calculate the time difference between multiple `TimeMarks` and **now**, you could 
+Before Kotlin 1.8.0, if you wanted to calculate the time difference between multiple `TimeMarks` and __now__, you could 
 only call `elapsedNow()` on one `TimeMark` at a time. This made it difficult to compare the results because the 
 two `elapsedNow()` function calls couldn't be executed at exactly the same time.
 
 To solve this, in Kotlin 1.8.0 you can subtract and compare `TimeMarks` from the same time source. Now you can create 
-a new `TimeMark` instance to represent **now** and subtract other `TimeMarks` from it. This way, the results that 
+a new `TimeMark` instance to represent __now__ and subtract other `TimeMarks` from it. This way, the results that 
 you collect from these calculations are guaranteed to be relative to each other.
 
 ```kotlin
