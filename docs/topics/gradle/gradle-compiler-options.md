@@ -203,7 +203,7 @@ Also, see [Types for compiler options](#types-for-compiler-options).
 
 ### Types for compiler options
 
-Some of `compilerOptions` use the new types instead of the `String` type:
+Some of the `compilerOptions` use the new types instead of the `String` type:
 
 | Option | Type | Example |
 |--------|------|---------|
