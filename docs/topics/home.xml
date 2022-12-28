@@ -34,7 +34,7 @@
         <custom-groups>
             <group type="cards" display="wide">
                 <title>What's new</title>
-                <a href="whatsnew1720.md" description="Latest features: a new operator for open-ended ranges, support for compiler plugins in the Kotlin K2 compiler, the new Kotlin/Native memory manager enabled by default, support for Gradle 7.1, and more">What's New in Kotlin 1.7.20</a>
+                <a href="whatsnew18.md" description="Latest features: Improved kotlin-reflect performance, new recursively copy or delete directory content experimental functions for JVM, `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`, improved Objective-C/Swift interoperability and more">What's New in Kotlin 1.8.0</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
             <group type="cards">

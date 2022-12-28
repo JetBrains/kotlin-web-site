@@ -302,7 +302,7 @@ Previously, such functions were presented in Swift as `async` functions returnin
 
 To avoid breaking the existing code, we're introducing a Gradle property that makes the compiler translate `Unit`-returning suspend functions to `async` Swift with the `Void` return type:
 
-```properties
+```
 # gradle.properties
 kotlin.native.binary.unitSuspendFunctionObjCExport=proper
 ```
@@ -393,7 +393,7 @@ Uncaught Kotlin exception: kotlin.IllegalStateException:
 
 To produce better stack traces with libbacktrace, add the following line to `gradle.properties`:
 
-```properties
+```
 # gradle.properties
 kotlin.native.binary.sourceInfoType=libbacktrace
 ```
@@ -509,7 +509,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 
 * If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties`:
 
-  ```properties
+  ```
   # gradle.properties
   kotlin.mpp.enableGranularSourceSetsMetadata=true
   kotlin.native.enableDependencyPropagation=false // or 'true', depending on your previous setup
@@ -519,7 +519,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 
 * You can also opt-out. To disable hierarchical structure support, set the following options in` gradle.properties`:
 
-  ```properties
+  ```
   # gradle.properties
   kotlin.mpp.hierarchicalStructureSupport=false
   ```
@@ -583,7 +583,7 @@ Note that this improvement exclusively targets the development process (shorteni
 
 To enable incremental compilation for development binaries, add the following line to the project's `gradle.properties`:
 
-```properties
+```
 # gradle.properties
 kotlin.incremental.js.ir=true // false by default
 ```
@@ -622,7 +622,7 @@ Starting from 1.6.20, the JS IR compiler generates separate `.js` files for proj
 
 Compiling the project into a single `.js` file is now available with the following Gradle property:
 
-```properties
+```
 # gradle.properties
 kotlin.js.ir.output.granularity=whole-program // `per-module` is the default
 ```
@@ -807,7 +807,7 @@ Accordingly, the available values for `kotlin.compiler.execution.strategy` prope
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
-```properties
+```
 # gradle.properties
 kotlin.compiler.execution.strategy=out-of-process
 ```

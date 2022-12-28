@@ -435,7 +435,7 @@ Please share your thoughts and concerns about the transition to the LLD linker i
 
 Kotlin Multiplatform gives you an [option](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure) to use platform-dependent interop libraries in shared source sets. Before 1.5.30, this worked only with [platform libraries](native-platform-libs.md) shipped with Kotlin/Native distribution. Starting from 1.5.30, you can use it with your custom `cinterop` libraries. To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
 
-```properties
+```
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=false
 kotlin.mpp.enableCInteropCommonization=true
@@ -673,19 +673,19 @@ In Kotlin 1.5.30, there's a new logic for the Kotlin daemon's JVM arguments. Eac
 
 * If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon (as before). For example, in the `gradle.properties` file:
 
-    ```properties
+    ```
     org.gradle.jvmargs=-Xmx1500m -Xms=500m
     ```
 
 * If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property, use it as before:
 
-    ```properties
+    ```
     org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m -Xms=500m
     ```
 
 * You can add the`kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
-    ```properties
+    ```
     kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
     ```
 

@@ -16,6 +16,25 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a
 framework ([see here for how to declare binaries](multiplatform-build-native-binaries.md#declare-binaries)).
 See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sample) for an example.
 
+### Hiding Kotlin declarations
+
+If you don't want to export Kotlin declarations to Objective-C and Swift, use special annotations:
+
+* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
+  export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+* `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
+  function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
+  which makes them invisible from Swift.
+
+  You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
+  the Xcode autocomplete.
+
+  For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
+
+> Using these annotations requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
+
 ## Mappings
 
 The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vice versa.
@@ -61,8 +80,27 @@ The prefix is derived from the framework name.
 
 Objective-C does not support packages in a framework. Thus, the Kotlin compiler renames Kotlin classes which have the
 same name but different package in the same framework. This algorithm is not stable yet and can change between Kotlin
-releases.
-As a workaround, you can rename the conflicting Kotlin classes in the framework.
+releases. As a workaround, you can rename the conflicting Kotlin classes in the framework.
+
+To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
+a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
+
+```kotlin
+@ObjCName(swiftName = "MySwiftArray")
+class MyKotlinArray {
+    @ObjCName("index")
+    fun indexOf(@ObjCName("of") element: String): Int = TODO()
+}
+
+
+// Usage with the ObjCName annotations
+let array = MySwiftArray()
+let index = array.index(of: "element")
+```
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Initializers
 
@@ -106,7 +144,7 @@ the clashing methods can be called from Kotlin using named arguments, e.g.:
 [player moveTo:UP byInches:42]
 ```
 
-in Kotlin it would be:
+In Kotlin, it would be:
 
 ```kotlin
 player.moveTo(LEFT, byMeters = 17)
@@ -116,6 +154,14 @@ player.moveTo(UP, byInches = 42)
 The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped 
 to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the method
 `isEquals(_:)` and the properties `hash`, `description` in Swift.
+
+You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
+Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods
+or parameters.
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Errors and exceptions
 
@@ -225,7 +271,7 @@ supporting all corresponding operations.
 when used as a Swift/Objective-C parameter type or return value.
 The reason is that `NSNumber` type doesn't provide enough information
 about a wrapped primitive value type, i.e. `NSNumber` is statically not known
-to be a e.g. `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
+to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be cast to/from `NSNumber` manually (see [below](#casting-between-mapped-types)).
 
 ### NSMutableString
@@ -247,7 +293,7 @@ The same holds for `MutableMap`.
 ### Function types
 
 Kotlin function-typed objects (e.g. lambdas) are converted to 
-Swift functions / Objective-C blocks. However there is a difference in how
+Swift functions / Objective-C blocks. However, there is a difference in how
 types of parameters and return values are mapped when translating a function
 and a function type. In the latter case primitive types are mapped to their
 boxed representation. Kotlin `Unit` return value is represented
@@ -339,7 +385,7 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 
 #### Constraints
 
-In Kotlin you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
+In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
 in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-null
 upper bound will make Objective-C methods/properties non-null.
 
@@ -398,7 +444,7 @@ The overriding constructor must have the same parameter names and types as the o
 To override different methods with clashing Kotlin signatures, you can add a
 `@Suppress("CONFLICTING_OVERLOADS")` annotation to the class.
 
-By default the Kotlin/Native compiler doesn't allow calling a non-designated
+By default, the Kotlin/Native compiler doesn't allow calling a non-designated
 Objective-C initializer as a `super(...)` constructor. This behaviour can be
 inconvenient if the designated initializers aren't marked properly in the Objective-C
 library. Adding a `disableDesignatedInitializerChecks = true` to the `.def` file for
@@ -443,7 +489,7 @@ To enable export of KDoc comments, add the following compiler option to your `bu
 ```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
     }
 }
 ```
@@ -454,7 +500,7 @@ kotlin {
 ```groovy
 kotlin {
     targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
     }
 }
 ```

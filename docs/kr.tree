@@ -22,9 +22,10 @@
     </toc-element>
 
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
+        <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0" accepts-web-file-names="whatsnew.html"/>
         <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
+            <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
             <toc-element id="whatsnew1620.md" toc-title="Kotlin 1.6.20"/>
             <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0"/>
             <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
@@ -40,7 +41,7 @@
     </toc-element>
 
     <toc-element toc-title="Early access preview (EAP)">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-RC2"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-RC2"  hidden="true"/>
         <toc-element toc-title="Participate" id="eap.md"/>
         <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
         <toc-element id="configure-build-for-eap.md"/>
@@ -317,6 +318,7 @@
                 <toc-element id="gradle-configure-project.md" toc-title="Configure a Gradle project"/>
                 <toc-element id="gradle-compiler-options.md" toc-title="Compiler options in KGP"/>
                 <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches in KGP"/>
+                <toc-element id="gradle-plugin-variants.md" toc-title="Support for Gradle plugin variants"/>
             </toc-element>
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
@@ -374,6 +376,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
                 <toc-element id="compatibility-guide-17.md"/>
                 <toc-element id="compatibility-guide-16.md"/>
