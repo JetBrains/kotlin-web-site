@@ -329,6 +329,7 @@ cssSupport {
     enabled.set(true)
 }
 ```
+
 ## Gradle
 
 Kotlin 1.8.0 *fully* supports Gradle versions 7.2 and 7.3. You can also use Gradle versions up to the latest Gradle release, 
@@ -449,7 +450,7 @@ different stdlib versions (learn more about
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
 ```
- `kotlin.stdlib.jdk.variants.version.alignment=false`
+kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
 If you run into issues with version alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import) 
@@ -494,9 +495,9 @@ which is in the plans:
 
 ```kotlin
 dependencies {
-   constraints {
-       implementation("org.jetbrains.kotlin:kotlin-sam-with-receiver:1.8.0")
-   }
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-sam-with-receiver:1.8.0")
+    }
 }
 ```
 
@@ -552,11 +553,11 @@ The `cbrt()` function, which allows you to compute the real cube root of a `doub
 import kotlin.math.*
 
 fun main() {
-   val num = 27
-   val negNum = -num
+    val num = 27
+    val negNum = -num
 
-   println("The cube root of ${num.toDouble()} is: " + cbrt(num.toDouble()))
-   println("The cube root of ${negNum.toDouble()} is: " + cbrt(negNum.toDouble()))
+    println("The cube root of ${num.toDouble()} is: " + cbrt(num.toDouble()))
+    println("The cube root of ${negNum.toDouble()} is: " + cbrt(negNum.toDouble()))
 }
 ```
 ### TimeUnit conversion between Java and Kotlin
@@ -570,8 +571,8 @@ import kotlin.time.*
 
 // For use from Java.
 fun wait(timeout: Long, unit: TimeUnit) {
-   val duration: Duration = timeout.toDuration(unit.toDurationUnit())
-   ...
+    val duration: Duration = timeout.toDuration(unit.toDurationUnit())
+    ...
 }
 ```
 
@@ -594,32 +595,32 @@ you collect from these calculations are guaranteed to be relative to each other.
 import kotlin.time.*
 fun main() {
 //sampleStart
-   val timeSource = TimeSource.Monotonic
-   val mark1 = timeSource.markNow()
-   Thread.sleep(500) // Sleep 0.5 seconds
-   val mark2 = timeSource.markNow()
+    val timeSource = TimeSource.Monotonic
+    val mark1 = timeSource.markNow()
+    Thread.sleep(500) // Sleep 0.5 seconds
+    val mark2 = timeSource.markNow()
 
-   // Before 1.8
-   repeat(4) { n ->
-       val elapsed1 = mark1.elapsedNow()
-       val elapsed2 = mark2.elapsedNow()
+    // Before 1.8
+    repeat(4) { n ->
+        val elapsed1 = mark1.elapsedNow()
+        val elapsed2 = mark2.elapsedNow()
 
-       // The difference between elapsed1 and elapsed2 can vary depending on how much time passes between the two elapsedNow() calls
-       println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
-   }
-   println()
+        // The difference between elapsed1 and elapsed2 can vary depending on how much time passes between the two elapsedNow() calls
+        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+    }
+    println()
 
-   // Since 1.8.0
-   repeat(4) { n ->
-       val mark3 = timeSource.markNow()
-       val elapsed1 = mark3 - mark1
-       val elapsed2 = mark3 - mark2
+    // Since 1.8.0
+    repeat(4) { n ->
+        val mark3 = timeSource.markNow()
+        val elapsed1 = mark3 - mark1
+        val elapsed2 = mark3 - mark2
 
-       // Now the elapsed times are calculated relative to mark3, which is a fixed value
-       println("Measurement 2.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
-   }
-   // It's also possible to compare time marks with each other
-   println(mark2 > mark1) // This is true, as mark2 was captured later than mark1
+        // Now the elapsed times are calculated relative to mark3, which is a fixed value
+        println("Measurement 2.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+    }
+    // It's also possible to compare time marks with each other
+    println(mark2 > mark1) // This is true, as mark2 was captured later than mark1
 //sampleEnd
 }
 
@@ -651,8 +652,8 @@ the `onError` lambda function.
 
 ```kotlin
 sourceRoot.copyToRecursively(destinationRoot, followLinks = false, onError = { source, target, exception ->
-   logger.logError(exception, "Failed to copy $source to $target")
-   OnErrorResult.TERMINATE
+    logger.logError(exception, "Failed to copy $source to $target")
+    OnErrorResult.TERMINATE
 }
 ```
 {validate="false"}
