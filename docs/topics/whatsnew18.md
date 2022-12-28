@@ -567,7 +567,7 @@ fun main() {
 ```
 ### TimeUnit conversion between Java and Kotlin
 
-The `toTimeUnit()` and `toDurationUnit()` functions in `kotlin.time` are now Stable. Introduced as experimental in Kotlin 
+The `toTimeUnit()` and `toDurationUnit()` functions in `kotlin.time` are now Stable. Introduced as Experimental in Kotlin 
 1.6.0, these functions improve interoperability between Kotlin and Java. You can now easily convert between Java 
 `java.util.concurrent.TimeUnit` and Kotlin `kotlin.time.DurationUnit`. These functions are supported on the JVM only.
 
