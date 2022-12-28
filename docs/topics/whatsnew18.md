@@ -207,7 +207,7 @@ Here are some of the key differences between the two layouts:
 | `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout      | `{Source Directories included}` in new source set layout                                              |
 |-------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | main                    | src/androidMain/kotlin, src/main/kotlin, src/main/java            | src/androidMain/kotlin, src/main/kotlin, src/main/java                                                |
-| test                    | src/<b>android</b>Test/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                                     |
+| test                    | src/androidTest/kotlin, src/test/kotlin, src/test/java            | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                                     |
 | androidTest             | src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java | src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin |
 
 #### The location of the `AndroidManifest.xml` file
