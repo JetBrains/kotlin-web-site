@@ -1,10 +1,5 @@
 [//]: # (title: Kotlin/JS IR compiler)
 
-> The Kotlin/JS IR compiler is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
-> in the future. We'll do our best to minimize any changes you have to make.
->
-{type="warning"}
-
 The Kotlin/JS IR compiler backend is the main focus of innovation around Kotlin/JS, and paves the way forward for the
 technology. 
 
@@ -58,11 +53,11 @@ In this mode, the compiler caches the results of `compileDevelopmentExecutableKo
 It uses the cached compilation results for unchanged source files during subsequent compilations, making them complete faster,
 especially with small changes.
 
-To enable incremental compilation for development binaries, add the following line to the project's `gradle.properties`
+Incremental compilation is enabled by default. To disable incremental compilation for development binaries, add the following line to the project's `gradle.properties`
 or `local.properties`:
 
 ```properties
-kotlin.incremental.js.ir=true // false by default
+kotlin.incremental.js.ir=false // true by default
 ```
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
