@@ -598,19 +598,19 @@ kotlin.stdlib.default.dependency=false
 
 #### Versions alignment of transitive dependencies
 
-If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
-`implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
-for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
-different stdlib versions.[Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
+If you explicitly write Kotlin version 1.8.0 or higher in your dependencies, for example: 
+`implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin will use that Kotlin version 
+for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is done to avoid class duplication from 
+different stdlib versions. Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
 ```none
- `kotlin.stdlib.jdk.variants.version.alignment=false`
+kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
 ##### Other ways to align versions {initial-collapse-state="collapsed"}
 
-* In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
+* If you have issues with version alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
 
   <tabs group="build-script">

@@ -33,11 +33,11 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
-{type="note"}
+{type="tip"}
 
 ### Gradle can't select a KGP variant in a custom configuration
 
-This is an expected situation that Gradle can't select a KGP variant in a custom configuration.
+This is common when Gradle can't select a KGP variant in a custom configuration.
 If you use a custom Gradle configuration:
 
 <tabs group="build-script">
@@ -141,7 +141,7 @@ configurations {
 
 Otherwise, you will receive an error similar to this:
 
-```
+```none
  > Could not resolve all files for configuration ':customConfiguraton'.
       > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0.
         Required by:

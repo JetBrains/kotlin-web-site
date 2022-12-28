@@ -27,9 +27,9 @@ The plugin supports the following annotations:
 
 We're continuing to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/tree/master/plugins/lombok).
 
-Currently, we don't have plans to support the `@SuperBuilder` and `@Tolerate` annotations. However, we can consider this if you vote
-for [@SuperBuilder](https://youtrack.jetbrains.com/issue/KT-53563/Kotlin-Lombok-Support-SuperBuilder) and 
-[@Tolerate](https://youtrack.jetbrains.com/issue/KT-53564/Kotlin-Lombok-Support-Tolerate) in YouTrack.
+We don't yet have plans to support the `@SuperBuilder` or `@Tolerate` annotations, but we'll reconsider if enough people 
+vote for the [@SuperBuilder](https://youtrack.jetbrains.com/issue/KT-53563/Kotlin-Lombok-Support-SuperBuilder) and 
+[@Tolerate](https://youtrack.jetbrains.com/issue/KT-53564/Kotlin-Lombok-Support-Tolerate) issues.
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
 >
