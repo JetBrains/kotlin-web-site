@@ -56,7 +56,7 @@ especially with small changes.
 Incremental compilation is enabled by default. To disable incremental compilation for development binaries, add the following line to the project's `gradle.properties`
 or `local.properties`:
 
-```
+```properties
 kotlin.incremental.js.ir=false // true by default
 ```
 
@@ -69,7 +69,7 @@ kotlin.incremental.js.ir=false // true by default
 As a compilation result, the JS IR compiler outputs separate `.js` files for each module of a project. 
 Alternatively, you can compile the whole project into a single `.js` file by adding the following line to `gradle.properties`:
 
-```
+```properties
 kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
 ```
 
