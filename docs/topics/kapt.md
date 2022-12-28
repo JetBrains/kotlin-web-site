@@ -74,7 +74,7 @@ Follow these steps:
    enable the support for the [IR backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/) 
    with the following option in your `gradle.properties`:
  
-   ```
+   ```none
    kapt.use.jvm.ir=true
    ```
 
@@ -153,7 +153,7 @@ Caching for annotation processors' classloaders helps kapt perform faster if you
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
-```
+```none
 # positive value will enable caching
 # use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5
@@ -164,7 +164,7 @@ kapt.include.compile.classpath=false
 
 If you run into any problems with caching for annotation processors, disable caching for them:
 
-```
+```none
 # specify annotation processors' full names to disable caching for them
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
@@ -213,7 +213,7 @@ Enable the statistics in two steps:
 
 * Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
 
-  ```
+  ```none
   kapt.verbose=true
   ```
 
@@ -249,7 +249,7 @@ To run kapt with compile avoidance:
 * Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
 * Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
 
-```
+```none
 kapt.include.compile.classpath=false
 ```
 
@@ -260,7 +260,7 @@ Currently, annotation processing can be incremental only if all annotation proce
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
 
-```
+```none
 kapt.incremental.apt=false
 ```
 

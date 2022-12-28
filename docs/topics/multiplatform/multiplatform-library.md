@@ -519,7 +519,7 @@ with the following:
 
 7. Create a `local.properties` file with all the necessary credentials and make sure to add it to your `.gitignore`:
 
-   ```
+   ```none
    # The GPG key pair ID (last 8 digits of its fingerprint)
    signing.keyId=...
    # The passphrase of the key pair
