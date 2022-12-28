@@ -279,7 +279,7 @@ in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 
 Starting with Kotlin 1.7.0, the Kotlin Multiplatform Gradle plugin uses the embeddable compiler jar for Kotlin/Native by
 default. This [feature was announced in 1.6.0](whatsnew16.md#unified-compiler-plugin-abi-with-jvm-and-js-ir-backends) as
-Experimental, and now it's stable and ready to use.
+Experimental, and now it's Stable and ready to use.
 
 This improvement is very handy for library authors, as it improves the compiler plugin development experience. Before
 this release, you had to provide separate artifacts for Kotlin/Native, but now you can use the same compiler plugin
