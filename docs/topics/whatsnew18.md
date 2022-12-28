@@ -184,8 +184,8 @@ Here are some of the key differences between the two layouts:
 
 #### KotlinSourceSet naming schema
 
-| Current source set layout | New source set layout           |
-|---------------------------|---------------------------------|
+| Current source set layout              | New source set layout           |
+|----------------------------------------|---------------------------------|
 | `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
 
 `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
