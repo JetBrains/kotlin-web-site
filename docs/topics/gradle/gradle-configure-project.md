@@ -188,20 +188,6 @@ with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use 
 this library although the bytecode's version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 to solve this issue.
 
-### Set custom JDK home
-
-By default, Kotlin compile tasks use the current Gradle JDK.
-If you need to change the JDK for some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
-or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
-
-> The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
->
-{type="warning"}
-
-When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
-use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
-and ignore the `kapt.workers.isolation` property.
-
 ### Gradle Java toolchains support
 
 > A warning for Android users. Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from the Android Gradle plugin 7.4.0.
@@ -231,7 +217,7 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
-* Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`-jdk-home` option](compiler-reference.md#jdk-home-path) available for JVM targets.
 * Sets the [`compilerOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
