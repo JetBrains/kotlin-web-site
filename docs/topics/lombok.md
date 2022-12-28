@@ -19,6 +19,7 @@ Learn more about [how to configure the Lombok compiler plugin](#using-the-lombok
 
 The plugin supports the following annotations:
 * `@Getter`, `@Setter`
+* `@Builder`
 * `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
 * `@Data`
 * `@With`
@@ -26,8 +27,9 @@ The plugin supports the following annotations:
 
 We're continuing to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/tree/master/plugins/lombok).
 
-Currently, we don't have plans to support the `@Builder` annotation. However, we can consider this if you vote
-for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).
+Currently, we don't have plans to support the `@SuperBuilder` and `@Tolerate` annotations. However, we can consider this if you vote
+for [@SuperBuilder](https://youtrack.jetbrains.com/issue/KT-53563/Kotlin-Lombok-Support-SuperBuilder) and 
+[@Tolerate](https://youtrack.jetbrains.com/issue/KT-53564/Kotlin-Lombok-Support-Tolerate) in YouTrack.
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
 >
