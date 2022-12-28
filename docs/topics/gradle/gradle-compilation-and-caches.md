@@ -227,13 +227,10 @@ There are three compiler execution strategies:
 To define a Kotlin compiler execution strategy, you can use one of the following properties:
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
-* The deprecated `-Dkotlin.compiler.execution.strategy` system property, which will be removed in future releases.
 
-The priority of properties is the following:
-* The task property `compilerExecutionStrategy` takes priority over the system property and the Gradle property `kotlin.compiler.execution.strategy`.
-* The Gradle property takes priority over the system property.
+The task property `compilerExecutionStrategy` takes priority over the Gradle property `kotlin.compiler.execution.strategy`.
 
-The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
+The available values for the `kotlin.compiler.execution.strategy` property are:
 1. `daemon` (default)
 2. `in-process`
 3. `out-of-process`
@@ -255,12 +252,12 @@ Use the task property `compilerExecutionStrategy` in your build scripts:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.CompileUsingKotlinDaemon
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType<KotlinCompile>().configureEach {
+tasks.withType<CompileUsingKotlinDaemon>().configureEach {
     compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
 } 
 ```
@@ -269,12 +266,12 @@ tasks.withType<KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.CompileUsingKotlinDaemon
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType(KotlinCompile)
+tasks.withType(CompileUsingKotlinDaemon)
     .configureEach {
         compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }
@@ -333,4 +330,6 @@ kotlin.build.report.label=some_label
 
 ## What's next?
 
-Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+Learn more about:
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).

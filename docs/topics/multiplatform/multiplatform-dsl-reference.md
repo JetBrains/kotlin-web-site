@@ -771,7 +771,7 @@ A compilation has the following parameters:
 |`defaultSourceSet`|The compilation's default source set.|
 |`kotlinSourceSets`|Source sets participating in the compilation.|
 |`allKotlinSourceSets`|Source sets participating in the compilation and their connections via `dependsOn()`.|
-|`kotlinOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).|
+|`compilerOptions`|Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).|
 |`compileKotlinTask`|Gradle task for compiling Kotlin sources.|
 |`compileKotlinTaskName`|Name of `compileKotlinTask`.|
 |`compileAllTaskName`|Name of the Gradle task for compiling all sources of a compilation.|
@@ -786,9 +786,9 @@ A compilation has the following parameters:
 kotlin {
     jvm {
         val main by compilations.getting {
-            kotlinOptions { 
+            compilerOptions.configure { 
                 // Setup the Kotlin compiler options for the 'main' compilation:
-                jvmTarget = "1.8"
+                jvmTarget.set(JvmTarget.JVM_1_8)
             }
         
             compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
@@ -801,8 +801,8 @@ kotlin {
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
-            kotlinOptions {
-                allWarningsAsErrors = true
+            compilerOptions.configure {
+                allWarningsAsErrors.set(true)
             }
         }
     }
@@ -815,9 +815,9 @@ kotlin {
 ```groovy
 kotlin {
     jvm {
-        compilations.main.kotlinOptions { 
+        compilations.main.compilerOptions.configure { 
             // Setup the Kotlin compiler options for the 'main' compilation:
-            jvmTarget = "1.8"
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
 
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
@@ -828,8 +828,8 @@ kotlin {
     // Configure all compilations of all targets:
     targets.all {
         compilations.all {
-            kotlinOptions {
-                allWarningsAsErrors = true
+            compilerOptions.configure {
+                allWarningsAsError.set(true)
             }
         }
     }
@@ -944,8 +944,8 @@ The `languageSettings` block of a source set defines certain aspects of project 
 kotlin {
     sourceSets.all {
         languageSettings.apply {
-            languageVersion = "1.7" // possible values: "1.4", "1.5", "1.6", "1.7"
-            apiVersion = "1.7" // possible values: "1.3", "1.4", "1.5", "1.6", "1.7"
+            languageVersion = "1.8" // possible values: "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
+            apiVersion = "1.8" // possible values: "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
             enableLanguageFeature("InlineClasses") // language feature name
             optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
@@ -961,8 +961,8 @@ kotlin {
 kotlin {
     sourceSets.all {
         languageSettings {
-            languageVersion = '1.7' // possible values: '1.4', '1.5', '1.6', '1.7'
-            apiVersion = '1.7' // possible values: '1.3', '1.4', '1.5', '1.6', '1.7'
+            languageVersion = '1.8' // possible values: '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
+            apiVersion = '1.8' // possible values: '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
             enableLanguageFeature('InlineClasses') // language feature name
             optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
             progressiveMode = true // false by default

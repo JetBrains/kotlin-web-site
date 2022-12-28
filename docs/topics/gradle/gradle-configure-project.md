@@ -37,12 +37,17 @@ plugins {
 </tab>
 </tabs>
 
-When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions:
+When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions. 
+In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin:
 
-|                       | Minimum supported version | Maximum fully supported version |
-|-----------------------|---------------------------|---------------------------------|
-| Gradle                | %minGradleVersion%        | %maxGradleVersion%              |   
-| Android Gradle plugin | %minAndroidGradleVersion% | %maxAndroidGradleVersion%       |
+| Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
+|----------------|------------------------------------------|-------------------------------------------------------|
+| 1.8.0          | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
+
+> Latest Gradle and AGP versions should generally work without issues.
+>
+{type="note"}
 
 For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
@@ -123,20 +128,96 @@ In the build module, you may have related compile tasks, for example:
 >
 {type="note"}
 
-For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of `jvmTarget` in
-the `kotlin` extension and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
-in the `java` extension cause JVM target incompatibility. For example:
+For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of 
+the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` extension or task 
+and [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
+in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
 Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
 file to:
 
-* `warning` – the default value; the Kotlin Gradle plugin will print a warning message.
-* `error` – the plugin will fail the build.
+* `error` – the plugin will fail the build; the default value for projects on Gradle 8.0+.
+* `warning` – the Kotlin Gradle plugin will print a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin will skip the check and won't produce any messages.
 
+To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
+
+#### What can go wrong if not checking targets compatibility {initial-collapse-state="collapsed"}
+
+There are two ways of manually setting JVM targets for Kotlin and Java source sets:
+* The implicit way via [setting up a Java toolchain](#gradle-java-toolchains-support).
+* The explicit way via setting the `jvmTarget` attribute in the `kotlin` extension or task and `targetCompatibility` 
+  in the `java` extension or task.
+
+JVM target incompatibility occur if you:
+* Explicitly set different values of `jvmTarget` and `targetCompatibility`.
+* Have a default configuration and your JDK is not equal to `1.8`.
+
+Let's consider a default configuration of JVM targets when you have only the Kotlin JVM plugin in your build script and 
+no additional settings for JVM targets:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("jvm") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+}
+```
+
+</tab>
+</tabs>
+
+When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
+and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals to 
+a current Gradle's JDK version, which is equal to your JDK version (unless you use 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is `11`. 
+Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
+with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use Java 11 in your main project to add 
+this library although the bytecode's version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+to solve this issue.
+
+### Set custom JDK home
+
+By default, Kotlin compile tasks use the current Gradle JDK.
+If you need to change the JDK for some reason, you can set the JDK home with [Java toolchains](#gradle-java-toolchains-support)
+or the [Task DSL](#setting-jdk-version-with-the-task-dsl) to set a local JDK.
+
+> The `jdkHome` compiler option is deprecated since Kotlin 1.5.30.
+>
+{type="warning"}
+
+When you use a custom JDK, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel)
+use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode) only,
+and ignore the `kapt.workers.isolation` property.
+
 ### Gradle Java toolchains support
+
+> A warning for Android users. Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from the Android Gradle plugin 7.4.0.
+> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), it does not set 'targetCompatibility' to be equal to the toolchain's JDK.
+> You need to configure it manually via `compileOptions`. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+>
+> ```kotlin
+> android {
+>     compileOptions {
+>         sourceCompatibility = <MAJOR_JDK_VERSION>
+>         targetCompatibility = <MAJOR_JDK_VERSION>
+>     }
+> }
+> ```
+>
+{type="warning"} 
 
 Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
 Using this feature, you can:
@@ -150,8 +231,8 @@ for tasks that depend on a major JDK version.
 The Kotlin Gradle plugin supports Java toolchains for Kotlin/JVM compilation tasks. JS and Native tasks don't use toolchains.
 The Kotlin compiler always runs on the JDK the Gradle daemon is running on.
 A Java toolchain:
-* Sets the [`-jdk-home` option](compiler-reference.md#jdk-home-path) available for JVM targets.
-* Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
+* Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
+* Sets the [`compilerOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version
   if the user doesn't set the `jvmTarget` option explicitly.
   If the user doesn't configure the toolchain, the `jvmTarget` field uses the default value.
   Learn more about [JVM target compatibility](#check-for-jvm-target-compatibility-of-related-compile-tasks).
@@ -190,6 +271,33 @@ kotlin {
 </tabs>
 
 Note that setting a toolchain via the `kotlin` extension updates the toolchain for Java compile tasks as well.
+
+You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+    }
+}
+```
+
+</tab>
+</tabs>
 
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
@@ -491,7 +599,7 @@ of the standard library used is the same as the version of the Kotlin Gradle plu
 
 For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common standard
 library is added to the rest. The Kotlin Gradle plugin selects the appropriate JVM standard library depending on
-the `kotlinOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
+the `compilerOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
 
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
 plugin won't override it or add a second standard library.
@@ -501,6 +609,146 @@ If you do not need a standard library at all, you can add the opt-out option to 
 ```properties
 kotlin.stdlib.default.dependency=false
 ```
+
+#### Versions alignment of transitive dependencies
+
+If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
+`implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
+for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
+different stdlib versions.[Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
+You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
+
+```properties
+ `kotlin.stdlib.jdk.variants.version.alignment=false`
+```
+
+##### Other ways to align versions {initial-collapse-state="collapsed"}
+
+* In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
+  Declare a platform dependency on `kotlin-bom` in your build script:
+
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
+  ```kotlin
+  implementation(platform("org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%"))
+  ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  implementation platform('org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%')
+  ```
+
+  </tab>
+  </tabs>
+
+* If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
+  but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
+  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `%kotlinVersion%` versions of these
+  transitive libraries:
+
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+  dependencies {
+      constraints {
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+      }
+  }
+  ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  dependencies {
+      constraints {
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+          add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
+              version {
+                  require("%kotlinVersion%")
+              }
+          }
+      }
+  }
+  ```
+
+  </tab>
+  </tabs>
+  
+* If you have a Kotlin version equal to `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")` and 
+  an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
+
+  
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
+  ```kotlin
+  // replace `<...>` with the plugin name
+  plugins {
+      kotlin("<...>") version "%kotlinVersion%"
+  }
+  ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  // replace `<...>` with the plugin name
+  plugins {
+      id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
+  }
+  ```
+
+  </tab>
+  </tabs>
+
+* If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
+  `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
+  transitively brings `kotlin-stdlib:1.8+`, [replace your `kotlin-stdlib-jdk<7/8>:SOME_OLD_KOTLIN_VERSION` with 
+  `kotlin-stdlib-jdk*:%kotlinVersion%`](whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
+  a transitive `kotlin-stdlib:1.8+` from the library that brings it:
+
+  <tabs group="build-script">
+  <tab title="Kotlin" group-key="kotlin">
+
+  ```kotlin
+  dependencies {
+      implementation("com.example:lib:1.0") {
+          exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib")
+      }
+  }
+  ```
+
+  </tab>
+  <tab title="Groovy" group-key="groovy">
+
+  ```groovy
+  dependencies {
+       implementation("com.example:lib:1.0") {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+    }
+  }
+  ```
+
+  </tab>
+  </tabs>
 
 ### Set dependencies on test libraries
 
@@ -756,3 +1004,4 @@ Learn more about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).
