@@ -217,7 +217,7 @@ dependencies {
 
 Processor options in `SymbolProcessorEnvironment.options` are specified in gradle build scripts:
 
-```properties
+```none
 ksp {
   arg("option1", "value1")
   arg("option2", "value2")

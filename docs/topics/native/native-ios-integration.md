@@ -99,7 +99,7 @@ never run, and the coroutine would never be resumed.
 In certain cases, this restriction is not required anymore. You can lift it by adding the following option to your
 `gradle.properties`:
 
-```properties
+```none
 kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
 ```
 
@@ -261,7 +261,7 @@ with [App Extensions](https://developer.apple.com/app-extensions/) out of the bo
 It means that the memory manager doesn't adjust GC behavior accordingly, which might be harmful in some cases. To change
 this behavior, add the following [Experimental](components-stability.md) binary option to your `gradle.properties`:
 
-```properties
+```none
 kotlin.native.binary.appStateTracking=enabled
 ```
 

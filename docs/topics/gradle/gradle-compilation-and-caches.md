@@ -49,7 +49,7 @@ Gradle modules.
 
 To enable this new approach, set the following option in your `gradle.properties`:
 
-```properties
+```none
 kotlin.incremental.useClasspathSnapshot=true
 ```
 
@@ -111,7 +111,7 @@ Each of the following ways to set arguments overrides the ones that came before 
 
 If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon. For example, in the `gradle.properties` file:
 
-```properties
+```none
 org.gradle.jvmargs=-Xmx1500m -Xms=500m
 ```
 
@@ -119,7 +119,7 @@ org.gradle.jvmargs=-Xmx1500m -Xms=500m
 
 If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
-```properties
+```none
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
 ```
 
@@ -141,7 +141,7 @@ When passing arguments, follow these rules:
 
 You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
-```properties
+```none
 kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
 ```
 
@@ -238,7 +238,7 @@ The available values for the `kotlin.compiler.execution.strategy` property are:
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
-```properties
+```none
 kotlin.compiler.execution.strategy=out-of-process
 ```
 
@@ -302,7 +302,7 @@ To avoid this, there is a Gradle property `kotlin.daemon.useFallbackStrategy`, w
 When the value is `false`, builds fail on problems with the daemon's startup or communication. Declare this property in
 `gradle.properties`:
 
-```properties
+```none
 kotlin.daemon.useFallbackStrategy=false
 ```
 
@@ -361,7 +361,7 @@ and [how build JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2
 
 To enable build reports, declare where to save the build report output in `gradle.properties`:
 
-```properties
+```none
 kotlin.build.report.output=file
 ```
 
@@ -376,7 +376,7 @@ The following values and their combinations are available for the output:
 
 Here's the full list of available options for `kotlin.build.report`:
 
-```properties
+```none
 # Required outputs. Any combination is allowed
 kotlin.build.report.output=file,single_file,http,build_scan
 
@@ -412,7 +412,7 @@ Maximum number of custom values (1,000) exceeded
 
 To reduce the number of custom values the Kotlin plugin produces, you can use the following property in `gradle.properties`:
 
-```properties
+```none
 kotlin.build.report.build_scan.custom_values_limit=500
 ```
 

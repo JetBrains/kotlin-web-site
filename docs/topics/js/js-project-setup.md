@@ -360,7 +360,7 @@ If you have projects created with plugin versions earlier than 1.5.0,
 you can temporarily switch back to webpack %webpackPreviousMajorVersion% used in these versions by adding the following line
 to the project's `gradle.properties`:
 
-```properties
+```none
 kotlin.js.webpack.major.version=4
 ```
 

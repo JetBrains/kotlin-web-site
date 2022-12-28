@@ -252,7 +252,7 @@ the `Message` class.
 3. Open the `application.properties` file located in the `src/main/resources` folder and add the following application
 properties:
 
-   ```properties
+   ```none
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.url=jdbc:h2:file:./data/testdb
    spring.datasource.username=sa

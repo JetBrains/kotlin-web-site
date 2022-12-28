@@ -31,7 +31,7 @@ its completion.
 There are no special instruments to monitor the GC performance yet. However, it's still possible to look through GC logs
 for diagnosis. To enable logging, set the following compilation flag in the Gradle build script:
 
-```properties
+```none
 -Xruntime-logs=gc=info
 ```
 
@@ -43,7 +43,7 @@ It's recommended to keep GC enabled. However, you can disable it in certain case
 if you encounter issues and have a short-lived program. To do that, set the following compilation flag in the Gradle
 build script:
 
-```properties
+```none
 -Xgc=noop
 ```
 
@@ -70,7 +70,7 @@ To avoid that at the cost of performance, a couple of options are available:
 
   For that, enable the following binary option in your `gradle.properties` file:
 
-  ```properties
+  ```none
   kotlin.native.binary.mimallocUseCompaction=true
   ```
 
@@ -110,7 +110,7 @@ Then, compile the test binary with the `-e testlauncher.mainBackground` compiler
 
 If it's necessary, you can switch back to the legacy memory manager. Set the following option in your `gradle.properties`:
 
-```properties
+```none
 kotlin.native.binary.memoryModel=strict
 ```
 

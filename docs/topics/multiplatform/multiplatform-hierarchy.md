@@ -9,7 +9,7 @@ To get a default hierarchical project structure in your
 projects, [update to the latest release](releases.md#update-to-a-new-release). If you need to keep using an earlier version
 than 1.6.20, you can still enable this feature manually. For this, add the following to your `gradle.properties`:
 
-```properties
+```none
 kotlin.mpp.enableGranularSourceSetsMetadata=true
 kotlin.native.enableDependencyPropagation=false
 ```
@@ -73,7 +73,7 @@ unsafe usages, like using an API meant for the JVM in JS code.
   project structure. To enable compatibility with non-hierarchical projects, add the following to
   the `gradle.properties` file in your library project:
 
-  ```properties
+  ```none
   kotlin.mpp.enableCompatibilityMetadataVariant=true
   ```
 
@@ -103,7 +103,7 @@ Compatibility between multiplatform projects and libraries is determined as foll
 
 To disable hierarchical structure support, set the following option to `false` in your `gradle.properties`:
 
-```properties
+```none
 kotlin.mpp.hierarchicalStructureSupport=false
 ```
 

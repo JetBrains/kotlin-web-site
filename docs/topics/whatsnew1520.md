@@ -210,7 +210,7 @@ This feature can increase the speed of kapt for consecutive Gradle runs.
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
-```properties
+```none
 # positive value will enable caching
 # use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5

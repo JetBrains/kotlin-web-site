@@ -510,7 +510,7 @@ do it in the terminal or by adding the variable to the run configuration:
 
 2. In the **Run/Debug Configurations** menu, set the environment variable:
 
-    ```properties
+    ```none
     ORG_GRADLE_PROJECT_isProduction=true
     ```
 

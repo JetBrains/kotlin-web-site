@@ -353,7 +353,7 @@ external links on the CI are forbidden.
 To override the default base URL `https://download.jetbrains.com/kotlin/native/builds`, use the following Gradle
 property:
 
-```properties
+```none
 kotlin.native.distribution.baseDownloadUrl=https://example.com
 ```
 
@@ -750,7 +750,7 @@ improvement of greater than 80% for the changes after the cache hit.
 
 To try this new approach, set the following option in your `gradle.properties`:
 
-```properties
+```none
 kotlin.incremental.useClasspathSnapshot=true
 ```
 
@@ -787,7 +787,7 @@ Build reports come in handy when you want to investigate issues with compiler ta
 
 To enable build reports, declare where to save the build report output in `gradle.properties`:
 
-```properties
+```none
 kotlin.build.report.output=file
 ```
 
@@ -932,7 +932,7 @@ Enable the statistics in two steps:
 
 * Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
   
-  ```properties
+  ```none
   kapt.verbose=true
   ```
 
@@ -966,7 +966,7 @@ When using the `kotlin.compiler.execution.strategy` system property, you'll rece
 deleted in future releases. To preserve the old behavior, replace the system property with the Gradle property of the
 same name. You can do this in `gradle.properties`, for example:
 
-```properties
+```none
 kotlin.compiler.execution.strategy=out-of-process
 ```
 

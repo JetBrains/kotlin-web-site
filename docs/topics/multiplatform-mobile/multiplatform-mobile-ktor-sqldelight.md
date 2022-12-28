@@ -137,7 +137,7 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
 4. Finally, define the SQLDelight version in the `gradle.properties` file in the project _root directory_ to ensure that
    the SQLDelight versions of the plugin and the libraries are the same:
 
-    ```properties
+    ```none
     sqlDelightVersion=%sqlDelightVersion%
     ```
 

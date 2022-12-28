@@ -274,7 +274,7 @@ In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
 To enable this support, specify the additional `kotlin.mpp.enableCInteropCommonization` key:
 
-```properties
+```none
 kotlin.mpp.enableCInteropCommonization=true
 ```
 
