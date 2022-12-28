@@ -376,7 +376,7 @@ The following values and their combinations are available for the output:
 
 Here's the full list of available options for `kotlin.build.report`:
 
-```
+```properties
 # Required outputs. Any combination is allowed
 kotlin.build.report.output=file,single_file,http,build_scan
 
