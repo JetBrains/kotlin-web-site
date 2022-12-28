@@ -56,7 +56,7 @@ this option will disable them, too.
 The "was optimized out" feature optimizes variables when you use suspend functions. However, it is difficult to debug code 
 with optimized variables because you don't see their values.
 
-> __Never use this flag in production__: Disabling this feature via `-Xdebug` can 
+> **Never use this flag in production**: Disabling this feature via `-Xdebug` can 
 > [cause memory leaks](https://youtrack.jetbrains.com/issue/KT-48678/Coroutine-debugger-disable-was-optimised-out-compiler-feature#focus=Comments-27-6015585.0-0).
 >
 {type="warning"}
@@ -127,7 +127,7 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
   replacing a Kotlin declaration with a wrapper written in Swift.
 
   The annotation instructs the Kotlin compiler to mark a function or property as `swift_private` in the generated 
-  Objective-C API. Such declarations get the `__` prefix, which makes them invisible to Swift code.
+  Objective-C API. Such declarations get the `**` prefix, which makes them invisible to Swift code.
 
   You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested 
   by Xcode's autocompletion, for example.
@@ -476,7 +476,7 @@ is `error` for projects on Gradle 8.0+ (this version of Gradle has not been rele
 the build in the event of JVM target incompatibility.
 
 The shift of the default value from `warning` to `error` is a preparation step for a smooth migration to Gradle 8.0. 
-__We encourage you to set this property to `error`__ and [configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+**We encourage you to set this property to `error`** and [configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 or align JVM versions manually.
 
 Learn more about [what can go wrong if you don't check the targets' compatibility](gradle-configure-project.md#what-can-go-wrong-if-not-checking-targets-compatibility).
@@ -588,12 +588,12 @@ fun wait(timeout: Long, unit: TimeUnit) {
 >
 {type="warning"}
 
-Before Kotlin 1.8.0, if you wanted to calculate the time difference between multiple `TimeMarks` and __now__, you could 
+Before Kotlin 1.8.0, if you wanted to calculate the time difference between multiple `TimeMarks` and **now**, you could 
 only call `elapsedNow()` on one `TimeMark` at a time. This made it difficult to compare the results because the 
 two `elapsedNow()` function calls couldn't be executed at exactly the same time.
 
 To solve this, in Kotlin 1.8.0 you can subtract and compare `TimeMarks` from the same time source. Now you can create 
-a new `TimeMark` instance to represent __now__ and subtract other `TimeMarks` from it. This way, the results that 
+a new `TimeMark` instance to represent **now** and subtract other `TimeMarks` from it. This way, the results that 
 you collect from these calculations are guaranteed to be relative to each other.
 
 ```kotlin

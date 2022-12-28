@@ -289,7 +289,7 @@ If the Gradle daemon is off, the compiler uses the "Out of process" strategy.
 
 When this fallback happens, you have the following warning lines in your Gradle's build output:
 
-```
+```none
 Failed to compile with Kotlin daemon: java.lang.RuntimeException: Could not connect to Kotlin compile daemon
 [exception stacktrace]
 Using fallback strategy: Compile without Kotlin daemon
