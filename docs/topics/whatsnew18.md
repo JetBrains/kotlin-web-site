@@ -191,10 +191,10 @@ Here are some of the key differences between the two layouts:
   `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
 
   | `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
-  |-------------------------|-----------------------------------------------------|-------------------------------------------------|
-  | `main`                  | `androidMain`                                       | `androidMain`                                   |
-  | `test`                  | `androidTest`                                       | `android<b>Unit</b>Test`                        |
-  | `androidTest`           | `android<b>Android</b>Test`                         | `android<b>Instrumented</b>Test`                |
+  |-------------------|-------------------------------------------------|-------------------------------------------------|
+  | main              | androidMain                             | androidMain                                     |
+  | test              | androidTest                             | android__Unit__Test                             |
+  | androidTest       | android<b>Android</b>Test               | `android<b>Instrumented</b>Test`                |
 
 * __SourceDirectories__
 
@@ -559,8 +559,10 @@ fun main() {
     val num = 27
     val negNum = -num
 
-    println("The cube root of ${num.toDouble()} is: " + cbrt(num.toDouble()))
-    println("The cube root of ${negNum.toDouble()} is: " + cbrt(negNum.toDouble()))
+    println("The cube root of ${num.toDouble()} is: " + 
+            cbrt(num.toDouble()))
+    println("The cube root of ${negNum.toDouble()} is: " + 
+            cbrt(negNum.toDouble()))
 }
 ```
 ### TimeUnit conversion between Java and Kotlin
@@ -608,8 +610,10 @@ fun main() {
         val elapsed1 = mark1.elapsedNow()
         val elapsed2 = mark2.elapsedNow()
 
-        // The difference between elapsed1 and elapsed2 can vary depending on how much time passes between the two elapsedNow() calls
-        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+        // The difference between elapsed1 and elapsed2 can vary depending 
+        // on how much time passes between the two elapsedNow() calls
+        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, " +
+                "elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
     }
     println()
 
@@ -619,11 +623,14 @@ fun main() {
         val elapsed1 = mark3 - mark1
         val elapsed2 = mark3 - mark2
 
-        // Now the elapsed times are calculated relative to mark3, which is a fixed value
-        println("Measurement 2.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+        // Now the elapsed times are calculated relative to mark3, 
+        // which is a fixed value
+        println("Measurement 2.${n + 1}: elapsed1=$elapsed1, " +
+                "elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
     }
     // It's also possible to compare time marks with each other
-    println(mark2 > mark1) // This is true, as mark2 was captured later than mark1
+    // This is true, as mark2 was captured later than mark1
+    println(mark2 > mark1)
 //sampleEnd
 }
 
@@ -654,7 +661,8 @@ Using `copyToRecursively()`, you can define what should happen if an exception o
 the `onError` lambda function.
 
 ```kotlin
-sourceRoot.copyToRecursively(destinationRoot, followLinks = false, onError = { source, target, exception ->
+sourceRoot.copyToRecursively(destinationRoot, followLinks = false, 
+  onError = { source, target, exception ->
     logger.logError(exception, "Failed to copy $source to $target")
     OnErrorResult.TERMINATE
 }
@@ -675,7 +683,8 @@ fun setUpEnvironment(projectDirectory: Path, fixtureName: String) {
     fixturesRoot.resolve(COMMON_FIXTURE_NAME)
         .copyToRecursively(projectDirectory, followLinks = false)
     fixturesRoot.resolve(fixtureName)
-        .copyToRecursively(projectDirectory, followLinks = false, overwrite = true) // patches the common fixture
+        .copyToRecursively(projectDirectory, followLinks = false, 
+          overwrite = true) // patches the common fixture
 }
 ```
 {validate="false"}
