@@ -4,7 +4,7 @@ import Dropdown from '../../com/dropdown'
 import NavTree from '../../com/nav-tree'
 import './api.scss'
 
-const DEFAULT_VERSION = '1.7';
+const DEFAULT_VERSION = '1.8';
 const LOCAL_STORAGE_KEY = 'targetApi';
 const PLATFORM_AVAILABILITY = {
     'jvm': '1.0',
@@ -192,7 +192,8 @@ function initializeSelects() {
       '1.4': '1.4',
       '1.5': '1.5',
       '1.6': '1.6',
-      '1.7': '1.7'
+      '1.7': '1.7',
+      '1.8': '1.8'
     },
     selected: state.version != null ? state.version : DEFAULT_VERSION,
     onSelect: (version) => {
