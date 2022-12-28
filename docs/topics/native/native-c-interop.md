@@ -108,7 +108,7 @@ They are treated as a space-separated list of globs.
   for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
   it would probably be correct to filter headers with the following filter:
     
-  ```properties
+  ```
   headerFilter = SomeLibrary/**
   ```
     
@@ -121,7 +121,7 @@ They are treated as a space-separated list of globs.
   It can be helpful to remove redundant or problematic headers and optimize compilation,
   as declarations from the specified headers are not included into the bindings.
 
-  ```properties
+  ```
   excludeFilter = SomeLibrary/time.h
   ```
   

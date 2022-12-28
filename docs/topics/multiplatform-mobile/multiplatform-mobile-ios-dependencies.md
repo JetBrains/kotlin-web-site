@@ -105,7 +105,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
     * `package` sets the name of the package these declarations should be put into.
 
    For example:
-    ```properties
+    ```
     headers = DateTools.h
     package = DateTools
     ```
@@ -197,7 +197,7 @@ import DateTools.*
 
     For example:
     
-    ```properties
+    ```
     modules = MyFramework
     package = MyFramework
     ```
@@ -330,7 +330,7 @@ Alternatively, you can enable the support of platform-dependent interop librarie
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets.
 To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
 
-```properties
+```
 kotlin.mpp.enableCInteropCommonization=true
 ```
 
