@@ -4,9 +4,10 @@ On this page, you can learn about the following topics:
 * [Incremental compilation](#incremental-compilation)
 * [Gradle build cache support](#gradle-build-cache-support)
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
-* [Build reports](#build-reports)
 * [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
 * [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
+* [Kotlin compiler fallback strategy](#kotlin-compiler-fallback-strategy)
+* [Build reports](#build-reports)
 
 ## Incremental compilation
 
@@ -48,7 +49,7 @@ Gradle modules.
 
 To enable this new approach, set the following option in your `gradle.properties`:
 
-```properties
+```
 kotlin.incremental.useClasspathSnapshot=true
 ```
 
@@ -110,7 +111,7 @@ Each of the following ways to set arguments overrides the ones that came before 
 
 If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon. For example, in the `gradle.properties` file:
 
-```properties
+```
 org.gradle.jvmargs=-Xmx1500m -Xms=500m
 ```
 
@@ -118,7 +119,7 @@ org.gradle.jvmargs=-Xmx1500m -Xms=500m
 
 If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
-```properties
+```
 org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
 ```
 
@@ -140,7 +141,7 @@ When passing arguments, follow these rules:
 
 You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
-```properties
+```
 kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
 ```
 
@@ -227,20 +228,17 @@ There are three compiler execution strategies:
 To define a Kotlin compiler execution strategy, you can use one of the following properties:
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
-* The deprecated `-Dkotlin.compiler.execution.strategy` system property, which will be removed in future releases.
 
-The priority of properties is the following:
-* The task property `compilerExecutionStrategy` takes priority over the system property and the Gradle property `kotlin.compiler.execution.strategy`.
-* The Gradle property takes priority over the system property.
+The task property `compilerExecutionStrategy` takes priority over the Gradle property `kotlin.compiler.execution.strategy`.
 
-The available values for `kotlin.compiler.execution.strategy` properties (both system and Gradle's) are:
+The available values for the `kotlin.compiler.execution.strategy` property are:
 1. `daemon` (default)
 2. `in-process`
 3. `out-of-process`
 
 Use the Gradle property `kotlin.compiler.execution.strategy` in `gradle.properties`:
 
-```properties
+```
 kotlin.compiler.execution.strategy=out-of-process
 ```
 
@@ -255,12 +253,12 @@ Use the task property `compilerExecutionStrategy` in your build scripts:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.CompileUsingKotlinDaemon
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType<KotlinCompile>().configureEach {
+tasks.withType<CompileUsingKotlinDaemon>().configureEach {
     compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
 } 
 ```
@@ -269,12 +267,12 @@ tasks.withType<KotlinCompile>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
+import org.jetbrains.kotlin.gradle.tasks.CompileUsingKotlinDaemon
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 // ...
 
-tasks.withType(KotlinCompile)
+tasks.withType(CompileUsingKotlinDaemon)
     .configureEach {
         compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
     }
@@ -282,6 +280,57 @@ tasks.withType(KotlinCompile)
 
 </tab>
 </tabs>
+
+## Kotlin compiler fallback strategy
+
+The Kotlin compiler's fallback strategy is to run a compilation outside a Kotlin daemon if the daemon somehow fails. 
+If the Gradle daemon is on, the compiler uses the ["In process" strategy](#defining-kotlin-compiler-execution-strategy). 
+If the Gradle daemon is off, the compiler uses the "Out of process" strategy.
+
+When this fallback happens, you have the following warning lines in your Gradle's build output:
+
+```
+Failed to compile with Kotlin daemon: java.lang.RuntimeException: Could not connect to Kotlin compile daemon
+[exception stacktrace]
+Using fallback strategy: Compile without Kotlin daemon
+Try ./gradlew --stop if this issue persists.
+```
+
+However, a silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds, 
+read more about this in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy).
+To avoid this, there is a Gradle property `kotlin.daemon.useFallbackStrategy`, whose default value is `true`. 
+When the value is `false`, builds fail on problems with the daemon's startup or communication. Declare this property in
+`gradle.properties`:
+
+```
+kotlin.daemon.useFallbackStrategy=false
+```
+
+There is also a `useDaemonFallbackStrategy` property in Kotlin compile tasks, which takes priority over the Gradle property if you use both. 
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks {
+    compileKotlin {
+        useDaemonFallbackStrategy.set(false)
+    }   
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.named("compileKotlin").configure {
+    useDaemonFallbackStrategy = false
+}
+```
+</tab>
+</tabs>
+
+If there is insufficient memory to run the compilation, you can see a message about it in the logs.
 
 ## Build reports
 
@@ -291,31 +340,49 @@ tasks.withType(KotlinCompile)
 >
 {type="warning"}
 
-Build reports for tracking compiler performance are available for Kotlin 1.7.0. Reports contain the durations of different
-compilation phases and reasons why compilation couldn't be incremental.
+Build reports for tracking compiler performance are available starting from Kotlin 1.7.0. Reports contain the durations 
+of different compilation phases and reasons why compilation couldn't be incremental.
 
-Use build reports to investigate performance issues, when the compilation time is too long or when it differs for the same
+Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
 project.
+
+Kotlin build reports help examine problems more efficiently than [Gradle build scans](https://scans.gradle.com/). 
+Lots of engineers use them to investigate build performance, but the unit of granularity in Gradle scans is a single Gradle task.
+
+There are two common cases that analyzing build reports for long-running compilations can help you resolve:
+* The build wasn't incremental. Analyze the reasons and fix underlying problems.
+* The build was incremental but took too much time. Try reorganizing source files — split big files,
+  save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
+
+Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
+and [how build JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
+
+### Enabling build reports
 
 To enable build reports, declare where to save the build report output in `gradle.properties`:
 
-```properties
+```
 kotlin.build.report.output=file
 ```
 
 The following values and their combinations are available for the output:
 
-| Option       | Description                                                                                                                                                                                                                                                                                                                                     |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`       | Saves build reports in a local file.                                                                                                                                                                                                                                                                                                             |
-| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                               |
-| `http`       | Posts build reports using HTTP(S). The POST method sends metrics in the JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). |
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `file`        | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`                                                                                                                                                                                                                                                                                                                                               |
+| `single_file` | Saves build reports in a format of an object to a specified local file                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                               |
+| `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports)   |
 
 Here's the full list of available options for `kotlin.build.report`:
 
-```properties
-# Required outputs. Any combination is allowed.
-kotlin.build.report.output=file,http,build_scan
+```
+# Required outputs. Any combination is allowed
+kotlin.build.report.output=file,single_file,http,build_scan
+
+# Mandatory if single_file output is used. Where to put reports 
+# Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
+kotlin.build.report.single_file=some_filename
 
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
@@ -327,10 +394,41 @@ kotlin.build.report.http.url=http://127.0.0.1:8080
 kotlin.build.report.http.user=someUser
 kotlin.build.report.http.password=somePassword
 
-# Optional. Label for marking your build report (e.g. debug parameters)
+# Optional. Label for marking your build report (for example, debug parameters)
 kotlin.build.report.label=some_label
 ```
 
+### Limit of custom values
+
+To collect build scans' statistics, Kotlin build reports use [Gradle's custom values](https://docs.gradle.com/enterprise/tutorials/extending-build-scans/). 
+Different Gradle plugins and you can also write data to custom values. The number of custom values has a limit. 
+See the current maximum custom value count in the [Build scan plugin docs](https://docs.gradle.com/enterprise/gradle-plugin/#adding_custom_values). 
+If you have a big project, a number of such custom values may be quite big. If this number exceeds the limit, 
+you can see the following message in the logs:
+
+```
+Maximum number of custom values (1,000) exceeded
+```
+
+To reduce the number of custom values the Kotlin plugin produces, you can use the following property in `gradle.properties`:
+
+```
+kotlin.build.report.build_scan.custom_values_limit=500
+```
+
+### Switching off collecting project and system properties
+
+HTTP build statistic logs can contain some project and system properties. These properties can change builds' behavior, 
+so it's useful to log them in build statistics. 
+These properties can store sensitive data, for example, passwords or a project's full path. 
+You can turn on this behavior by adding the `kotlin.build.report.http.verbose_environment` property to your `gradle.properties`.
+
+> JetBrains doesn't collect these statistics. You choose a place [where to store your reports](#enabling-build-reports).
+> 
+{type="note"}
+
 ## What's next?
 
-Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+Learn more about:
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Support for Gradle plugin variants](gradle-plugin-variants.md).

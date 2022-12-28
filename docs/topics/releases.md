@@ -49,6 +49,20 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.8.0</strong>
+            <p>Released: <strong>December 28, 2022</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A feature release with improved kotlin-reflect performance, new recursively copy or delete directory content experimental functions for JVM, improved Objective-C/Swift interoperability.</p>
+            <p>Learn more in:</p>
+            <ul>
+                <li><a href="whatsnew18.md" target="_blank">What's new in Kotlin 1.8.0</a></li>
+                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility guide for Kotlin 1.8.0</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.7.21</strong>
             <p>Released: <strong>November 9, 2022</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.7.21" target="_blank">Release on GitHub</a></p>

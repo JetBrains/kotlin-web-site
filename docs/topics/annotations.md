@@ -291,6 +291,14 @@ fun foo(ann: Ann) {
 }
 ```
 
+### Ability to not generate JVM 1.8+ annotation targets
+
+If a Kotlin annotation has the `TYPE` target among its Kotlin targets, this annotation gets 
+`java.lang.annotation.ElementType.TYPE_USE` in its list of Java annotation targets. 
+The same way the `TYPE_PARAMETER` Kotlin’s target maps to the `java.lang.annotation.ElementType.TYPE_PARAMETER` Java’s target. 
+This is an issue for Android clients with API levels less than 26, which didn't have these targets in the API. 
+To avoid generating the `TYPE_USE` and `TYPE_PARAMETER` annotation targets, use the new compiler argument `-Xno-new-java-annotation-targets`.
+
 ## Repeatable annotations
 
 Just like [in Java](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html), Kotlin has repeatable annotations,
