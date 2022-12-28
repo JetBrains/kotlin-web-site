@@ -550,7 +550,7 @@ To avoid that, the Kotlin Gradle plugin can help you [align stdlib versions](#us
 
 ### cbrt()
 
-The `cbrt()` function, which allows you to compute the real cube root of a `double` or `float`, is now stable.
+The `cbrt()` function, which allows you to compute the real cube root of a `double` or `float`, is now Stable.
 
 ```kotlin
 import kotlin.math.*
@@ -567,7 +567,7 @@ fun main() {
 ```
 ### TimeUnit conversion between Java and Kotlin
 
-The `toTimeUnit()` and `toDurationUnit()` functions in `kotlin.time` are now stable. Introduced as experimental in Kotlin 
+The `toTimeUnit()` and `toDurationUnit()` functions in `kotlin.time` are now Stable. Introduced as experimental in Kotlin 
 1.6.0, these functions improve interoperability between Kotlin and Java. You can now easily convert between Java 
 `java.util.concurrent.TimeUnit` and Kotlin `kotlin.time.DurationUnit`. These functions are supported on the JVM only.
 
@@ -711,7 +711,7 @@ For more information on these extension functions, see [our API reference](https
 ### Java Optionals extension functions
 
 The extension functions that were introduced in [Kotlin 1.7.0](whatsnew17.md#new-experimental-extension-functions-for-java-optionals) 
-are now stable. These functions simplify working with Optional classes in Java. They can be used to unwrap and convert 
+are now Stable. These functions simplify working with Optional classes in Java. They can be used to unwrap and convert 
 `Optional` objects on the JVM, and to make working with Java APIs more concise. For more information, 
 see [What's new in Kotlin 1.7.0](whatsnew17.md#new-experimental-extension-functions-for-java-optionals).
 
