@@ -10,7 +10,7 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 * [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#updated-jvm-compilation-target)
 * [Improved Objective-C/Swift interoperability](#improved-objective-c-swift-interoperability)
 * [Compatibility with Gradle 7.3](#gradle)
-* 
+
 ## IDE support
 
 The Kotlin plugin that supports 1.8.0 is available for:
@@ -118,7 +118,7 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
    ```
 
 * [`@HiddenFromObjC`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native/-hidden-from-obj-c/) allows you to hide 
-  a Kotlin declaration from Objective-C. 
+  a Kotlin declaration from Objective-C.
 
   The annotation instructs the Kotlin compiler not to export a function or property to Objective-C and, consequently, Swift. 
   This can make your Kotlin code more Objective-C/Swift-friendly.
@@ -182,46 +182,46 @@ the other is for `AndroidSourceSets`:
 To address these and other existing issues, we've introduced a new Android source set layout. 
 Here are some of the key differences between the two layouts:
 
-1. __KotlinSourceSet naming schema__
+* __KotlinSourceSet naming schema__
 
-| Current source set layout | New source set layout           |
-|---------------------------|---------------------------------|
-| `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
+  | Current source set layout | New source set layout           |
+  |---------------------------|---------------------------------|
+  | `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
 
-`{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
+  `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
 
-| `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
-|-------------------------|-----------------------------------------------------|-------------------------------------------------|
-| `main`                  | `androidMain`                                       | `androidMain`                                   |
-| `test`                  | `androidTest`                                       | `android<b>Unit</b>Test`                        |
-| `androidTest`           | `android<b>Android</b>Test`                         | `android<b>Instrumented</b>Test`                |
+  | `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
+  |-------------------------|-----------------------------------------------------|-------------------------------------------------|
+  | `main`                  | `androidMain`                                       | `androidMain`                                   |
+  | `test`                  | `androidTest`                                       | `android<b>Unit</b>Test`                        |
+  | `androidTest`           | `android<b>Android</b>Test`                         | `android<b>Instrumented</b>Test`                |
 
-2. __SourceDirectories__
+* __SourceDirectories__
 
-| Current source set layout                               | New source set layout                                                     |
-|---------------------------------------------------------|---------------------------------------------------------------------------|
-| The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
+  | Current source set layout                               | New source set layout                                                     |
+  |---------------------------------------------------------|---------------------------------------------------------------------------|
+  | The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
 
-`{AndroidSourceSet.name}` maps to `{Source Directories included}` as follows:
+  `{AndroidSourceSet.name}` maps to `{Source Directories included}` as follows:
 
-| `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout        | `{Source Directories included}` in new source set layout                                                |
-|-------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| `main`                  | `src/androidMain/kotlin, src/main/kotlin, src/main/java`            | `src/androidMain/kotlin, src/main/kotlin, src/main/java`                                                |
-| `test`                  | `src/<b>android</b>Test/kotlin, src/test/kotlin, src/test/java`     | `src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java`                                     |
-| `androidTest`           | `src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java` | `src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin` |
+  | `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout        | `{Source Directories included}` in new source set layout                                                |
+  |-------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+  | `main`                  | `src/androidMain/kotlin, src/main/kotlin, src/main/java`            | `src/androidMain/kotlin, src/main/kotlin, src/main/java`                                                |
+  | `test`                  | `src/<b>android</b>Test/kotlin, src/test/kotlin, src/test/java`     | `src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java`                                     |
+  | `androidTest`           | `src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java` | `src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin` |
 
-3. __The location of the `AndroidManifest.xml` file__
+* __The location of the `AndroidManifest.xml` file__
 
-| Current source set layout                                | New source set layout                                   |
-|----------------------------------------------------------|---------------------------------------------------------|
-| `src/{<b>AndroidSourceSet</b>.name}/AndroidManifest.xml` | `src/{<b>KotlinSourceSet</b>.name}/AndroidManifest.xml` |
+  | Current source set layout                                | New source set layout                                   |
+  |----------------------------------------------------------|---------------------------------------------------------|
+  | `src/{<b>AndroidSourceSet</b>.name}/AndroidManifest.xml` | `src/{<b>KotlinSourceSet</b>.name}/AndroidManifest.xml` |
 
-`{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
+  `{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
 
-| `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
-|-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
-| `main`                  | `src/main/AndroidManifest.xml`                                | `src/<b>android</b>Main/AndroidManifest.xml`              |
-| `debug`                 | `src/debug/AndroidManifest.xml`                               | `src/<b>android</b>Debug/AndroidManifest.xml`             |
+  | `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
+  |-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
+  | `main`                  | `src/main/AndroidManifest.xml`                                | `src/<b>android</b>Main/AndroidManifest.xml`              |
+  | `debug`                 | `src/debug/AndroidManifest.xml`                               | `src/<b>android</b>Debug/AndroidManifest.xml`             |
 
 ### Configuration and setup
 
