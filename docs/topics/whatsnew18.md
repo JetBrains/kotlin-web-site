@@ -193,8 +193,8 @@ Here are some of the key differences between the two layouts:
   | `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
   |-------------------------|-----------------------------------------------------|-------------------------------------------------|
   | `main`                  | `androidMain`                                       | `androidMain`                                   |
-  | `test`                  | `androidTest`                                       | `androidUnitTest`                        |
-  | `androidTest`           | `androidAndroidTest`                         | `androidInstrumentedTest`                |
+  | `test`                  | `androidTest`                                       | `android<b>Unit</b>Test`                        |
+  | `androidTest`           | `android<b>Android</b>Test`                         | `android<b>Instrumented</b>Test`                |
 
 * __SourceDirectories__
 
@@ -207,21 +207,21 @@ Here are some of the key differences between the two layouts:
   | `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout        | `{Source Directories included}` in new source set layout                                                |
   |-------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
   | `main`                  | `src/androidMain/kotlin, src/main/kotlin, src/main/java`            | `src/androidMain/kotlin, src/main/kotlin, src/main/java`                                                |
-  | `test`                  | `src/androidTest/kotlin, src/test/kotlin, src/test/java`     | `src/androidUnitTest/kotlin, src/test/kotlin, src/test/java`                                     |
-  | `androidTest`           | `src/androidAndroidTest/kotlin, src/androidTest/java` | `src/androidInstrumentedTest/kotlin, src/androidTest/java, src/androidTest/kotlin` |
+  | `test`                  | `src/<b>android</b>Test/kotlin, src/test/kotlin, src/test/java`     | `src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java`                                     |
+  | `androidTest`           | `src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java` | `src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin` |
 
 * __The location of the `AndroidManifest.xml` file__
 
   | Current source set layout                                | New source set layout                                   |
   |----------------------------------------------------------|---------------------------------------------------------|
-  | `src/{AndroidSourceSet.name}/AndroidManifest.xml` | `src/{KotlinSourceSet.name}/AndroidManifest.xml` |
+  | `src/{<b>AndroidSourceSet</b>.name}/AndroidManifest.xml` | `src/{<b>KotlinSourceSet</b>.name}/AndroidManifest.xml` |
 
   `{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
 
   | `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
   |-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
-  | `main`                  | `src/main/AndroidManifest.xml`                                | `src/androidMain/AndroidManifest.xml`              |
-  | `debug`                 | `src/debug/AndroidManifest.xml`                               | `src/androidDebug/AndroidManifest.xml`             |
+  | `main`                  | `src/main/AndroidManifest.xml`                                | `src/<b>android</b>Main/AndroidManifest.xml`              |
+  | `debug`                 | `src/debug/AndroidManifest.xml`                               | `src/<b>android</b>Debug/AndroidManifest.xml`             |
 
 ### Configuration and setup
 
@@ -559,10 +559,8 @@ fun main() {
     val num = 27
     val negNum = -num
 
-    println("The cube root of ${num.toDouble()} is: " 
-            + cbrt(num.toDouble()))
-    println("The cube root of ${negNum.toDouble()} is: " 
-            + cbrt(negNum.toDouble()))
+    println("The cube root of ${num.toDouble()} is: " + cbrt(num.toDouble()))
+    println("The cube root of ${negNum.toDouble()} is: " + cbrt(negNum.toDouble()))
 }
 ```
 ### TimeUnit conversion between Java and Kotlin
@@ -610,10 +608,8 @@ fun main() {
         val elapsed1 = mark1.elapsedNow()
         val elapsed2 = mark2.elapsedNow()
 
-        // The difference between elapsed1 and elapsed2 can vary depending 
-        // on how much time passes between the two elapsedNow() calls
-        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, " +
-                "elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+        // The difference between elapsed1 and elapsed2 can vary depending on how much time passes between the two elapsedNow() calls
+        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
     }
     println()
 
@@ -623,14 +619,11 @@ fun main() {
         val elapsed1 = mark3 - mark1
         val elapsed2 = mark3 - mark2
 
-        // Now the elapsed times are calculated relative to mark3, 
-        // which is a fixed value
-        println("Measurement 2.${n + 1}: elapsed1=$elapsed1, " +
-                "elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+        // Now the elapsed times are calculated relative to mark3, which is a fixed value
+        println("Measurement 2.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
     }
     // It's also possible to compare time marks with each other
-    // This is true, as mark2 was captured later than mark1
-    println(mark2 > mark1)
+    println(mark2 > mark1) // This is true, as mark2 was captured later than mark1
 //sampleEnd
 }
 
@@ -661,11 +654,10 @@ Using `copyToRecursively()`, you can define what should happen if an exception o
 the `onError` lambda function.
 
 ```kotlin
-sourceRoot.copyToRecursively(destinationRoot, followLinks = false, 
-  onError = { source, target, exception ->
+sourceRoot.copyToRecursively(destinationRoot, followLinks = false, onError = { source, target, exception ->
     logger.logError(exception, "Failed to copy $source to $target")
     OnErrorResult.TERMINATE
-})
+}
 ```
 {validate="false"}
 
@@ -683,8 +675,7 @@ fun setUpEnvironment(projectDirectory: Path, fixtureName: String) {
     fixturesRoot.resolve(COMMON_FIXTURE_NAME)
         .copyToRecursively(projectDirectory, followLinks = false)
     fixturesRoot.resolve(fixtureName)
-        .copyToRecursively(projectDirectory, followLinks = false, 
-          overwrite = true) // patches the common fixture
+        .copyToRecursively(projectDirectory, followLinks = false, overwrite = true) // patches the common fixture
 }
 ```
 {validate="false"}
