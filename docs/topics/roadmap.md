@@ -45,41 +45,41 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Language</strong></td>
         <td>
             <p><tip><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">List of all upcoming language features</a></tip></p>
-            <ul>
+            <list>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-15613" target="_blank">Introduce special syntax for <code>until</code> operator</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48872" target="_blank">Provide modern and performant replacement for <code>Enum.values()</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-1436" target="_blank">Support non-local <code>break</code> and <code>continue</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-4107" target="_blank">Design and implement solution for <code>toString</code> on objects</a></li>
-            </ul>
+            </list>
         </td>
     </tr>
     <tr>
         <td><strong>Compiler</strong></td>
         <td>
-            <ul>
+            <list>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52604" target="_blank">Release K2 Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49514" target="_blank">Fix issues related to inline classes on the JVM</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46770" target="_blank">Stabilize JVM-specific experimental features</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-46773" target="_blank">Implement an experimental version of Kotlin/Wasm compiler backend</a></li>
-            </ul>
+            </list>
         </td>
     </tr>
     <tr>
         <td><strong>Multiplatform</strong></td>
         <td>
-            <ul>
+            <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55513">Promote Kotlin Multiplatform Mobile to Stable</a></li> 
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: keep binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
-            </ul>
+            </list>
          </td>
     </tr>
     <tr>
         <td><strong>Tooling</strong></td>
         <td>
-            <ul>
+            <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-23988">First public release of K2-based IntelliJ plugin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-23989">Improve performance and code analysis stability of the current IDE plugin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55515">Expose stable compiler arguments in Gradle DSL</a></li>
@@ -87,13 +87,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49532" target="_blank">Provide better experience with Kotlin Daemon</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42309" target="_blank">Improve the performance of Gradle incremental compilation</a></li>
-            </ul>
+            </list>
          </td>
     </tr>
     <tr>
         <td><strong>Library ecosystem</strong></td>
         <td>
-            <ul>
+            <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55073" target="_blank">Improve KDoc experience</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-55077" target="_blank">Provide a Kotlin API guide for libraries authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
@@ -103,7 +103,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42315" target="_blank">Improve <code>kotlinx-datetime</code> library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52601" target="_blank">Continue to develop and stabilize the standard library</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
-            </ul>
+            </list>
             <p><tip><a href="https://blog.jetbrains.com/ktor/2022/12/16/ktor-2023-roadmap/" target="_blank">The Ktor framework roadmap</a></tip></p>
          </td>
     </tr>

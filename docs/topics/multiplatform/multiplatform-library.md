@@ -34,7 +34,7 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 <deflist collapsible="true">
  <def title="Further project configuration">
    <p>For more complex projects, you might need to add more modules and targets:</p>
-   <ul>
+   <list>
       <li>To add modules, select <strong>Project</strong> and click the <strong>+</strong> icon. Choose the module type.</li>
       <li>To add target platforms, select <strong>library</strong> and click the <strong>+</strong> icon. Choose the target.</li>
       <li>
@@ -43,14 +43,14 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
       </li>
       <li>
          <p>If necessary, specify dependencies between modules:</p>
-         <ul>
+         <list>
             <li>Multiplatform and Android modules</li>
             <li>Multiplatform and iOS modules</li>
             <li>JVM modules</li>
-         </ul>
+         </list>
          <img src="multiplatform-project-3.png" width="700" alt="Configure the project"/>
       </li>
-   </ul>
+   </list>
  </def>
 </deflist>
 

@@ -19,21 +19,21 @@ additional cross-platform mobile development tasks:
    </tr>
    <tr>
    <td>
-     <ul>
+     <list>
         <li><a href="multiplatform-run-tests.md">Add tests to your Kotlin Multiplatform project</a></li>
         <li><a href="multiplatform-mobile-publish-apps.md">Publish your mobile application to app stores</a></li>
         <li><a href="multiplatform-mobile-introduce-your-team.md">Introduce cross-platform mobile development to your team</a></li>
         <li><a href="https://github.com/terrakok/kmm-awesome">Check out the list of useful tools and libraries</a></li>
-     </ul>
+     </list>
    </td>
     <td>
-     <ul>
+     <list>
         <li><a href="multiplatform-mobile-understand-project-structure.md">Kotlin Multiplatform Mobile project structure</a></li>
         <li><a href="native-objc-interop.md">Interoperability with Objective-C frameworks and libraries</a></li>
         <li><a href="multiplatform-add-dependencies.md">Adding dependencies on multiplatform libraries</a></li>        
         <li><a href="multiplatform-mobile-android-dependencies.md">Adding Android dependencies</a></li>
         <li><a href="multiplatform-mobile-ios-dependencies.md">Adding iOS dependencies</a></li>
-     </ul>
+     </list>
    </td>
    </tr>
 </table>
@@ -45,20 +45,20 @@ additional cross-platform mobile development tasks:
    </tr>
    <tr>
    <td>
-     <ul>
+     <list>
         <li><a href="multiplatform-mobile-integrate-in-existing-app.md">Make your Android app cross-platform</a></li>
         <li><a href="multiplatform-mobile-ktor-sqldelight.md">Create a multiplatform app using Ktor and SQLDelight</a></li>
         <li><a href="multiplatform-full-stack-app.md">Build a full-stack web app with Kotlin Multiplatform</a></li>
         <li><a href="multiplatform-mobile-samples.md">See the curated list of sample projects</a></li>
-     </ul>
+     </list>
    </td>
     <td>
-     <ul>
+     <list>
         <li><a href="https://kotlinlang.slack.com/archives/C3PQML5NU">Join the #multiplatform channel in Kotlin Slack</a></li>
         <li><a href="https://stackoverflow.com/questions/tagged/kotlin-multiplatform">Subscribe to the "kotlin-multiplatform" tag on Stack Overflow</a></li>        
         <li><a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C">Subscribe to the Kotlin YouTube channel</a></li>
         <li><a href="https://youtrack.jetbrains.com/newIssue?project=KT">Report a problem to our issue tracker</a></li>
-     </ul>
+     </list>
    </td>
    </tr>
 </table>

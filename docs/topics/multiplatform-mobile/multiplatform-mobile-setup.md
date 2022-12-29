@@ -93,30 +93,30 @@ To make sure everything works as expected, install and run the KDoctor tool:
       Make sure that you have Android Studio installed. You can get it from its <a href="https://developer.android.com/studio">official website.</a>
    </def>
    <def title="Java and JDK">
-         <ul>
+         <list>
            <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
            <li>Android Studio uses a bundled JDK to execute Gradle tasks. To configure the Gradle JDK in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
            <li>You might encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary required for Xcode and Gradle. If so, follow KDoctor's tips to fix the issues.</li>
-         </ul>
+         </list>
    </def>
    <def title="Xcode">
-      <ul>
+      <list>
          <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
          <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
          <li>
             <p><code>Error: can't grab Xcode schemes</code>. If you encounter an error like this, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode.</p>
             <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
          </li>
-      </ul>
+      </list>
    </def>
    <def title="Kotlin plugins">
          <chunk>
             <p><strong>Kotlin Multiplatform Mobile plugin</strong></p>
-               <ul>
+               <list>
                   <li>Make sure that the Kotlin Mobile Multiplatform plugin is installed and enabled. On the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Verify that you have the plugin enabled. If it's not in the <strong>Installed</strong> list, search <strong>Marketplace</strong> for it and install the plugin.</li>
                   <li>If the plugin is outdated, click <strong>Update</strong> next to the plugin name. You can do the same in the <strong>Settings/Preferences | Tools | Plugins</strong> section.</li>
                   <li>Check the compatibility of the Kotlin Multiplatform Mobile plugin with your version of Kotlin in the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">Release details</a> table.</li>
-               </ul>
+               </list>
          </chunk>
          <chunk>
             <p><strong>Kotlin plugin</strong></p>
@@ -126,10 +126,10 @@ To make sure everything works as expected, install and run the KDoctor tool:
    </def>
    <def title="Command line">
             <p>Make sure you have all the necessary tools installed:</p>
-            <ul>
+            <list>
               <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
               <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
-           </ul>
+           </list>
     </def>
 </deflist>
 
