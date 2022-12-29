@@ -38,20 +38,20 @@ Here is how you can take the first steps in developing Kotlin server-side applic
    <td width="50%">
      A mature family of frameworks with an established ecosystem that is used by millions of developers worldwide.
    <br/>
-   <ul>
+   <list>
       <li><a href="jvm-get-started-spring-boot.md">Create a RESTful web service with Spring Boot</a>.</li>
       <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a>.</li>
       <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a>.</li>
-   </ul>
+   </list>
    </td>
    <td width="50%">
       A lightweight framework for those who value freedom in making architectural decisions.
-   <ul>
+   <list>
       <li><a href="https://ktor.io/docs/creating-http-apis.html">Create HTTP APIs with Ktor</a>.</li>
       <li><a href="https://ktor.io/docs/creating-web-socket-chat.html">Create a WebSocket chat with Ktor</a>.</li>
       <li><a href="https://ktor.io/docs/creating-interactive-website.html">Create an interactive website with Ktor</a>.</li>
       <li><a href="https://ktor.io/docs/heroku.html">Publish server-side Kotlin applications: Ktor on Heroku</a>.</li>
-   </ul>
+   </list>
    
    </td>
    </tr>

@@ -38,13 +38,13 @@ to the latest one](releases.md#update-to-a-new-release) if necessary.
     <def title="kotlinx.coroutines">
         <p>Update to version 1.6.0 or later. Do not use versions with the <code>native-mt</code> suffix.</p>
         <p>There are also some specifics with the new memory manager you should keep in mind:</p>
-        <ul>
+        <list>
             <li>Every common primitive (channels, flows, coroutines) works through the Worker boundaries, since freezing is not required.</li>
             <li><code>Dispatchers.Default</code> is backed by a pool of Workers on Linux and Windows and by a global queue on Apple targets.</li>
             <li>Use <code>newSingleThreadContext</code> to create a coroutine dispatcher that is backed by a Worker.</li>
             <li>Use <code>newFixedThreadPoolContext</code> to create a coroutine dispatcher backed by a pool of <code>N</code> Workers.</li>
             <li><code>Dispatchers.Main</code> is backed by the main queue on Darwin and by a standalone Worker on other platforms.</li>
-        </ul>
+        </list>
     </def>
     <def title="Ktor">
         Update to version 2.0 or later.

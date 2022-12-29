@@ -74,10 +74,10 @@ The complete list of available targets is the following:
         <td><code>js</code></td>
         <td>
             <p>Select the execution environment:</p>
-            <ul>
+            <list>
                 <li><code>browser {}</code> for applications running in the browser.</li>
                 <li><code>nodejs {}</code> for applications running on Node.js.</li>
-            </ul>
+            </list>
             <p>Learn more in <a href="js-project-setup.md#execution-environments">Setting up a Kotlin/JS project</a>.</p>
         </td>
     </tr>
@@ -92,12 +92,12 @@ The complete list of available targets is the following:
     <tr>
         <td>Android NDK</td>
         <td>
-           <ul>
+           <list>
                <li><code>androidNativeArm32</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on ARM (ARM32) platforms</li>
                <li><code>androidNativeArm64</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on ARM64 platforms</li>
                <li><code>androidNativeX86</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on x86 platforms</li>
                <li><code>androidNativeX64</code> — <a href="https://developer.android.com/ndk" target="_blank">Android NDK</a> on x86_64 platforms</li>
-           </ul>
+           </list>
         </td>
         <td>
             <p>The 64-bit target requires a Linux or macOS host.</p>
@@ -107,60 +107,60 @@ The complete list of available targets is the following:
     <tr>
         <td>iOS</td>
         <td>
-            <ul>
+            <list>
                <li><code>iosArm32</code> — Apple iOS on ARM (ARM32) platforms (Apple iPhone 5 and earlier)</li>
                <li><code>iosArm64</code> — Apple iOS on ARM64 platforms (Apple iPhone 5s and newer)</li>
                <li><code>iosX64</code> — Apple iOS simulator on x86_64 platforms</li>
                <li><code>iosSimulatorArm64</code> — Apple iOS simulator on Apple Silicon platforms</li>
-            </ul>
+            </list>
         </td>
         <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>watchOS</td>
         <td>
-            <ul>
+            <list>
                <li><code>watchosArm32</code> — Apple watchOS on ARM32 platforms (Apple Watch Series 3 and earlier)</li>
                <li><code>watchosArm64</code> — Apple watchOS on ARM64_32 platforms (Apple Watch Series 4 and newer)</li>
                <li><code>watchosDeviceArm64</code> — Apple watchOS on ARM64 platforms</li>
                <li><code>watchosX86</code> — Apple watchOS 32-bit simulator (watchOS 6.3 and earlier) on x86_64 platforms</li>
                <li><code>watchosX64</code> — Apple watchOS 64-bit simulator (watchOS 7.0 and newer) on x86_64 platforms</li>
                <li><code>watchosSimulatorArm64</code> — Apple watchOS simulator on Apple Silicon platforms</li>
-            </ul>
+            </list>
         </td>
         <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>tvOS</td>
         <td>
-            <ul>
+            <list>
                <li><code>tvosArm64</code> — Apple tvOS on ARM64 platforms (Apple TV 4th generation and newer)</li>
                <li><code>tvosX64</code> — Apple tvOS simulator on x86_64 platforms</li>
                <li><code>tvosSimulatorArm64</code> — Apple tvOS simulator on Apple Silicon platforms</li>
-            </ul>
+            </list>
         </td>
         <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>macOS</td>
         <td>
-            <ul>
+            <list>
                <li><code>macosX64</code> — Apple macOS on x86_64 platforms</li>
                <li><code>macosArm64</code> — Apple macOS on Apple Silicon platforms</li>
-            </ul>
+            </list>
         </td>
         <td>Requires a macOS host with <a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a> and its command-line tools installed.</td>
     </tr>
     <tr>
         <td>Linux</td>
         <td>
-            <ul>
+            <list>
                <li><code>linuxArm64</code> — Linux on ARM64 platforms, for example, Raspberry Pi</li>
                <li><code>linuxArm32Hfp</code> — Linux on hard-float ARM (ARM32) platforms</li>
                <li><code>linuxMips32</code> — Linux on MIPS platforms</li>
                <li><code>linuxMipsel32</code> — Linux on little-endian MIPS (mipsel) platforms</li>
                <li><code>linuxX64</code> — Linux on x86_64 platforms</li>
-            </ul>
+            </list>
         </td>
         <td>
             <p>Linux MIPS targets (<code>linuxMips32</code> and <code>linuxMipsel32</code>) require a Linux host.</p>
@@ -170,10 +170,10 @@ The complete list of available targets is the following:
     <tr>
         <td>Windows</td>
         <td>
-            <ul>
+            <list>
                <li><code>mingwX64</code> — 64-bit Microsoft Windows</li>
                <li><code>mingwX86</code> — 32-bit Microsoft Windows</li>
-            </ul>
+            </list>
         </td>
         <td></td>
     </tr>
