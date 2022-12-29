@@ -727,7 +727,7 @@ The Kotlin documentation has received some notable changes:
 
 ### Revamped and new pages
 
-* [Gradle overview](gradle.md) − learn how to configure and build a Koltin project with the Gradle build system, 
+* [Gradle overview](gradle.md) − learn how to configure and build a Kotlin project with the Gradle build system, 
   available compiler options, compilation, and caches in the Kotlin Gradle plugin.
 * [Nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md) − see the differences between Java's and Kotlin's 
   approaches to handling possibly nullable variables.
