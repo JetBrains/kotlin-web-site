@@ -24,10 +24,10 @@ and tell us about it!
       <td>Spring, React, ktor-client-js, Rsocket, kotlinx:kotlinx-serialization-json</td>
       <td>A collaborative to-do list written with Kotlin/JS, Spring, and RSocket</td>
       <td>
-        <ul>
+        <list>
           <li>RSocket</li>
           <li>A fullstack web app for Spring and React</li>
-        </ul>
+        </list>
       </td>
       <td>✅</td>
       <td>Multiplatform full-stack application</td>
@@ -41,10 +41,10 @@ and tell us about it!
       <td>React, Redux</td>
       <td>An implementation (translation) of the React Redux to-do list example project in Kotlin/JS</td>
       <td>
-        <ul>
+        <list>
           <li>RingUI for Kotlin components</li>
           <li>Redux for state management</li>
-        </ul>
+        </list>
       </td>
       <td>✅</td>
       <td>Frontend web app</td>
@@ -58,11 +58,11 @@ and tell us about it!
       <td>kotlin-react, kotlinx-serialization, kotlinx-coroutines, Ktor (client, server)</td>
       <td>A feed containing user-generated posts and comments. All data is stubbed by the fakeJSON and JSON Placeholder services</td>
       <td>
-        <ul>
+        <list>
           <li>expect/actual declarations</li>
           <li>modular architecture</li>
           <li>npm dependencies</li>
-        </ul>
+        </list>
       </td>
       <td>✅</td>
       <td>Multiplatform full-stack application</td>

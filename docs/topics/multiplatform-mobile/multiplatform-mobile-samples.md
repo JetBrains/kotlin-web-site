@@ -31,9 +31,9 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>✅</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li><code>expect</code>/<code>actual</code> declarations</li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -47,10 +47,10 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>✅</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li>Redux for sharing UI State</li>
         <li>Published to Google Play and App Store</li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -64,9 +64,9 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>-</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -78,11 +78,11 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>-</td>
     <td>✅</td>
     <td>
-      <ul>
+      <list>
         <li>99% of the code is shared</li>
         <li>MVI architectural pattern</li>
         <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -96,9 +96,9 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>✅</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -124,7 +124,7 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>-</td>
     <td>✅</td>
     <td>
-      <ul>
+      <list>
         <li>Android Wear OS</li>
         <li>iOS</li>
         <li>watchOS</li>
@@ -132,7 +132,7 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
         <li>Web (Compose for Web)</li>
         <li>Web (Kotlin/JS + React Wrapper)</li>
         <li>JVM</li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -146,10 +146,10 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>-</td>
     <td>✅</td>
     <td>
-      <ul>
+      <list>
         <li>Implements the MVI pattern and the unidirectional data flow</li>
         <li>Uses Kotlin's StateFlow to trigger UI layer recompositions</li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -175,9 +175,9 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>-</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li>
-      </ul>
+      </list>
     </td>
   </tr>
   <tr>
@@ -191,11 +191,11 @@ This is a curated list of Kotlin Multiplatform Mobile samples.
     <td>✅</td>
     <td>-</td>
     <td>
-      <ul>
+      <list>
         <li>Modular architecture</li>
         <li>Runs on desktop</li>
         <li>Sharing viewmodel</li>
-      </ul>
+      </list>
     </td>
   </tr>
 </table>
