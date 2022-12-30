@@ -601,7 +601,7 @@ perspective
 
 ### Changes in compiler options
 
-> **Issue**: [KT-27301](https://youtrack.jetbrains.com/issue/KT-27301)
+> **Issues**: [KT-27301](https://youtrack.jetbrains.com/issue/KT-27301), [KT-48532](https://youtrack.jetbrains.com/issue/KT-48532)
 >
 > **Component**: Gradle
 >
@@ -614,12 +614,14 @@ perspective
 > Use the `Kotlin2JsCompile.outputFileProperty` task input instead. The `kotlinOptions` task input and the `kotlinOptions{...}` 
 > task DSL are in a support mode and will be deprecated in upcoming releases. `compilerOptions` and `kotlinOptions` can not be changed on a 
 > task execution phase (see one exception in [What's new in Kotlin 1.8](whatsnew18.md#limitations)). 
-> `freeCompilerArgs` returns an immutable `List<String>` – `kotlinOptions.freeCompilerArgs.remove("something")` will fail.
+> `freeCompilerArgs` returns an immutable `List<String>` – `kotlinOptions.freeCompilerArgs.remove("something")` will fail. 
+> The `useOldBackend` property that allowed to use the old JVM backend is removed
 >
 > **Deprecation cycle:**
 >
 > - 1.8.0: `KotlinNativeLink` task does not inherit the `AbstractKotlinNativeCompile`. `KotlinJsCompilerOptions.outputFile` 
-> and the related `KotlinJsOptions.outputFile` options are deprecated.
+> and the related `KotlinJsOptions.outputFile` options are deprecated. The `useOldBackend` property that allowed to use 
+> the old JVM backend is removed.
 
 ### Deprecate kotlin.internal.single.build.metrics.file property
 
