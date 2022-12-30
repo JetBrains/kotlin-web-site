@@ -337,7 +337,7 @@ but if you do, keep in mind that you might encounter deprecation warnings or som
 
 This version brings lots of changes:
 * [Exposing Kotlin compiler options as Gradle lazy properties](#exposing-kotlin-compiler-options-as-gradle-lazy-properties)
-* [Bumping the minimum supported versions﻿](#bumping-the-minimum-supported-versions)
+* [Bumping the minimum supported versions](#bumping-the-minimum-supported-versions)
 * [Ability to disable the Kotlin daemon fallback strategy](#ability-to-disable-the-kotlin-daemon-fallback-strategy)
 * [Usage of the latest kotlin-stdlib version in transitive dependencies](#usage-of-the-latest-kotlin-stdlib-version-in-transitive-dependencies)
 * [Obligatory check for JVM target compatibility equality of related Kotlin and Java compile tasks](#obligatory-check-for-jvm-targets-of-related-kotlin-and-java-compile-tasks)
@@ -610,7 +610,7 @@ fun main() {
         val elapsed1 = mark1.elapsedNow()
         val elapsed2 = mark2.elapsedNow()
 
-        // The difference between elapsed1 and elapsed2 can vary depending 
+        // Difference between elapsed1 and elapsed2 can vary depending 
         // on how much time passes between the two elapsedNow() calls
         println("Measurement 1.${n + 1}: elapsed1=$elapsed1, " +
                 "elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
