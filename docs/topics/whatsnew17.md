@@ -840,7 +840,7 @@ functionality.
 
 Currently, there are only two variants of the Kotlin Gradle plugin:
 
-* `main` for Gradle versions 6.7.1–6.9.2
+* `main` for Gradle versions 6.7.1–6.9.3
 * `gradle70` for Gradle versions 7.0 and higher
 
 In future Kotlin releases, we may add more.
