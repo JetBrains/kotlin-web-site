@@ -332,7 +332,7 @@ cssSupport {
 
 ## Gradle
 
-Kotlin 1.8.0 *fully* supports Gradle versions 7.2 and 7.3. You can also use Gradle versions up to the latest Gradle release, 
+Kotlin 1.8.0 **fully** supports Gradle versions 7.2 and 7.3. You can also use Gradle versions up to the latest Gradle release, 
 but if you do, keep in mind that you might encounter deprecation warnings or some new Gradle features might not work.
 
 This version brings lots of changes:
