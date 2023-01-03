@@ -58,7 +58,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>Learn more in:</p>
             <list>
                 <li><a href="whatsnew18.md" target="_blank">What's new in Kotlin 1.8.0</a></li>
-                <li><a href="compatibility-guide-17.md" target="_blank">Compatibility guide for Kotlin 1.8.0</a></li>
+                <li><a href="compatibility-guide-18.md" target="_blank">Compatibility guide for Kotlin 1.8.0</a></li>
             </list>
         </td>
     </tr>
