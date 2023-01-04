@@ -46,6 +46,7 @@ There are over 39000 users on many different timezones using the Kotlin Slack an
 * This Slack is not the best place for reporting bugs either. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
+* Please refrain from crossposting the same message on multiple channels. It is considered spamming.
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
 * Please do not ping or mention someone directly to get your questions answered, specially project owners, whether the project is Kotlin or other, unless they specifically indicate that you can. 
 * Don’t split messages into multiple ones. Ask it all in a single message.
