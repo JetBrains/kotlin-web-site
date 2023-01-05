@@ -297,6 +297,14 @@ kotlin {
 }
 ```
 
+Alternatively, you can add test targets for browsers in the `gradle.properties` file:
+
+```text
+kotlin.js.browser.karma.browsers=firefox,safari
+```
+
+This approach allows you to define a list of browsers for all modules, and then add specific browsers in the build scripts of particular modules. 
+
 Please note that the Kotlin/JS Gradle plugin does not automatically install these browsers for you, but only uses those
 that are available in its execution environment. If you are executing Kotlin/JS tests on a continuous integration server,
 for example, make sure that the browsers you want to test against are installed.
@@ -439,31 +447,93 @@ used settings are available directly from the `build.gradle(.kts)` file.
 To turn on CSS support in your project, set the `cssSupport.enabled` option in the Gradle build file in the `commonWebpackConfig`
 block. This configuration is also enabled by default when creating a new project using the wizard.
 
-```groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 browser {
     commonWebpackConfig {
-        cssSupport.enabled = true
+        cssSupport {
+            enabled.set(true)
+        }
     }
     binaries.executable()
 }
 ```
 
-Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
-webpackTask {
-   cssSupport.enabled = true
-}
-runTask {
-   cssSupport.enabled = true
-}
-testTask {
-   useKarma {
-      // . . .
-      webpackConfig.cssSupport.enabled = true
-   }
+browser {
+    commonWebpackConfig {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    binaries.executable()
 }
 ```
+
+</tab>
+</tabs>
+
+Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+browser {
+    webpackTask {
+        cssSupport {
+            enabled.set(true)
+        }
+    }
+    runTask {
+        cssSupport {
+            enabled.set(true)
+        }
+    }
+    testTask {
+        useKarma {
+            // . . .
+            webpackConfig.cssSupport {
+                enabled.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+browser {
+    webpackTask {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    runTask {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    testTask {
+        useKarma {
+            // . . .
+            webpackConfig.cssSupport {
+                it.enabled.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 Activating CSS support in your project helps prevent common errors that occur when trying to use style sheets from
 an unconfigured project, such as `Module parse failed: Unexpected character '@' (14:0)`.
