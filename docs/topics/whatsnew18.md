@@ -29,7 +29,7 @@ The Kotlin plugin that supports 1.8.0 is available for:
 
 ## Kotlin/JVM
 
-Starting with version 1.8.0, the compiler can generate classes with a bytecode version corresponding to JVM 19.  
+Starting with version 1.8.0, the compiler can generate classes with a bytecode version corresponding to JVM 19.
 The new language version also includes:
 
 * [A compiler option for switching off the generation of JVM annotation targets](#ability-to-not-generate-type-use-and-type-parameter-annotation-targets)
@@ -567,7 +567,7 @@ fun main() {
             cbrt(negNum.toDouble()))
 }
 ```
-{runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.8"}
 
 ### TimeUnit conversion between Java and Kotlin
 
@@ -639,7 +639,7 @@ fun main() {
 }
 
 ```
-{runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.8"}
 
 This new functionality is particularly useful in animation calculations where you want to calculate the difference between, 
 or compare, multiple `TimeMarks` representing different frames.
