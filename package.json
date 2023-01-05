@@ -52,8 +52,6 @@
     "nanoid": "3.3.3",
     "node-sass": "7.0.1",
     "normalize.css": "8.0.1",
-    "nunjucks": "3.2.2",
-    "nunjucks-loader": "3.0.0",
     "postcss-custom-properties": "11.0.0",
     "postcss-font-smoothing": "0.1.0",
     "postcss-loader": "6.1.1",
