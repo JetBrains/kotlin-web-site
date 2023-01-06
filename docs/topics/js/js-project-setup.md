@@ -682,6 +682,57 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 To learn more about `yarn.lock`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/).
 
+### Reporting that yarn.lock has been updated
+
+Kotlin/JS provides Gradle settings that could notify you if the `yarn.lock` file has been updated.
+You can use these settings when you want to be notified if `yarn.lock` has been changed silently
+during the CI build process:
+
+* `YarnLockMismatchReport`, which specifies how changes to the `yarn.lock` file are reported. You can use one of the
+  following values:
+    * `FAIL` fails the corresponding Gradle task. This is the default.
+    * `WARNING` writes the information about changes in the warning log.
+    * `NONE` disables reporting.
+* `reportNewYarnLock`, which reports about the recently created `yarn.lock` file explicitly. By default, this option is
+  disabled: it's a common practice to generate a new `yarn.lock` file at the first start. You can use this option to
+  ensure that the file has been committed to your repository.
+* `yarnLockAutoReplace`, which replaces `yarn.lock` automatically every time the Gradle task is run.
+
+To use these options, update your build script file `build.gradle(.kts)` as follows:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin::class.java) {
+    rootProject.the<YarnRootExtension>().yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.the<YarnRootExtension>().reportNewYarnLock = false // true
+    rootProject.the<YarnRootExtension>().yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).reportNewYarnLock = false // true
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+</tabs>
+
 ### Installing npm dependencies with --ignore-scripts by default
 
 > Installing npm dependencies with `--ignore-scripts` by default is available since Kotlin 1.6.10.
