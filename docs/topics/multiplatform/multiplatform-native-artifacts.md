@@ -1,4 +1,4 @@
-[//]: # (title: Build Kotlin/Native artifacts)
+[//]: # (title: Build final native binaries (Experimental DSL))
 
 > The new DSL described below is [Experimental](components-stability.md). It may be changed at any time.
 > We encourage you to use it for evaluation purposes.
