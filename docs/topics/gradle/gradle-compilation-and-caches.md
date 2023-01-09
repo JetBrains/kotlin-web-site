@@ -221,7 +221,7 @@ There are three compiler execution strategies:
 
 | Strategy       | Where Kotlin compiler is executed          | Incremental compilation | Other characteristics and notes                                                                                                                                                                                                                                                |
 |----------------|--------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Daemon         | Inside its own daemon process              | Yes                     | *The default and fastest strategy*. Can be shared between different Gradle daemons and multiple parallel compilations.                                                                                                                                                     |
+| Daemon         | Inside its own daemon process              | Yes                     | _The default and fastest strategy_. Can be shared between different Gradle daemons and multiple parallel compilations.                                                                                                                                                         |
 | In process     | Inside the Gradle daemon process           | No                      | May share the heap with the Gradle daemon. The "In process" execution strategy is _slower_ than the "Daemon" execution strategy. Each [worker](https://docs.gradle.org/current/userguide/worker_api.html) creates a separate Kotlin compiler classloader for each compilation. |
 | Out of process | In a separate process for each compilation | No                      | The slowest execution strategy. Similar to the "In process", but additionally creates a separate Java process within a Gradle worker for each compilation.                                                                                                                     |
 
@@ -355,7 +355,7 @@ There are two common cases that analyzing build reports for long-running compila
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
-and [how build JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
+and [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
 
 ### Enabling build reports
 
@@ -401,12 +401,13 @@ kotlin.build.report.label=some_label
 ### Limit of custom values
 
 To collect build scans' statistics, Kotlin build reports use [Gradle's custom values](https://docs.gradle.com/enterprise/tutorials/extending-build-scans/). 
-Different Gradle plugins and you can also write data to custom values. The number of custom values has a limit. 
-See the current maximum custom value count in the [Build scan plugin docs](https://docs.gradle.com/enterprise/gradle-plugin/#adding_custom_values). 
+Different Gradle plugins and yourself can also write data to custom values. The number of custom values has a limit.
+See the current maximum custom value count in the [Build scan plugin docs](https://docs.gradle.com/enterprise/gradle-plugin/#adding_custom_values).
+
 If you have a big project, a number of such custom values may be quite big. If this number exceeds the limit, 
 you can see the following message in the logs:
 
-```
+```text
 Maximum number of custom values (1,000) exceeded
 ```
 
@@ -420,8 +421,10 @@ kotlin.build.report.build_scan.custom_values_limit=500
 
 HTTP build statistic logs can contain some project and system properties. These properties can change builds' behavior, 
 so it's useful to log them in build statistics. 
-These properties can store sensitive data, for example, passwords or a project's full path. 
-You can turn on this behavior by adding the `kotlin.build.report.http.verbose_environment` property to your `gradle.properties`.
+These properties can store sensitive data, for example, passwords or a project's full path.
+
+You can disable collection of these statistics by adding the `kotlin.build.report.http.verbose_environment` property to
+your `gradle.properties`.
 
 > JetBrains doesn't collect these statistics. You choose a place [where to store your reports](#enabling-build-reports).
 > 
