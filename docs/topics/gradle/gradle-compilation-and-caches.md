@@ -401,7 +401,7 @@ kotlin.build.report.label=some_label
 ### Limit of custom values
 
 To collect build scans' statistics, Kotlin build reports use [Gradle's custom values](https://docs.gradle.com/enterprise/tutorials/extending-build-scans/). 
-Different Gradle plugins and yourself can also write data to custom values. The number of custom values has a limit.
+Both you and different Gradle plugins can write data to custom values. The number of custom values has a limit.
 See the current maximum custom value count in the [Build scan plugin docs](https://docs.gradle.com/enterprise/gradle-plugin/#adding_custom_values).
 
 If you have a big project, a number of such custom values may be quite big. If this number exceeds the limit, 
