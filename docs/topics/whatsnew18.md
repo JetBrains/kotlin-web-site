@@ -15,9 +15,9 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 
 The Kotlin plugin that supports 1.8.0 is available for:
 
-| IDE           | Supported versions                 |
-|---------------|------------------------------------|
-| IntelliJ IDEA | 2021.3, 2022.1, 2022.2             |
+| IDE            | Supported versions                 |
+|----------------|------------------------------------|
+| IntelliJ IDEA  | 2021.3, 2022.1, 2022.2             |
 | Android Studio | Electric Eel (221), Flamingo (222) |
 
 > You can update your projects to Kotlin 1.8.0 in IntelliJ IDEA 2022.3 without updating the IDE plugin.
@@ -127,7 +127,7 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
   replacing a Kotlin declaration with a wrapper written in Swift.
 
   The annotation instructs the Kotlin compiler to mark a function or property as `swift_private` in the generated 
-  Objective-C API. Such declarations get the `**` prefix, which makes them invisible to Swift code.
+  Objective-C API. Such declarations get the `__` prefix, which makes them invisible to Swift code.
 
   You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested 
   by Xcode's autocompletion, for example.
@@ -184,17 +184,17 @@ Here are some of the key differences between the two layouts:
 
 #### KotlinSourceSet naming schema
 
-| Current source set layout              | New source set layout           |
-|----------------------------------------|---------------------------------|
-| `targetName` + `AndroidSourceSet.name` | targetName + AndroidVariantType |
+| Current source set layout              | New source set layout               |
+|----------------------------------------|-------------------------------------|
+| `targetName` + `AndroidSourceSet.name` | `targetName` + `AndroidVariantType` |
 
 `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
 
-| `AndroidSourceSet.name` | `KotlinSourceSet.name` in current source set layout | `KotlinSourceSet.name` in new source set layout |
-|-------------------------|-----------------------------------------------------|-------------------------------------------------|
-| main                    | androidMain                                         | androidMain                                     |
-| test                    | androidTest                                         | android<b>Unit</b>Test                          |
-| androidTest             | android<b>Android</b>Test                           | android<b>Instrumented</b>Test                  |
+|             | Current source set layout | New source set layout          |
+|-------------|---------------------------|--------------------------------|
+| main        | androidMain               | androidMain                    |
+| test        | androidTest               | android<b>Unit</b>Test         |
+| androidTest | android<b>Android</b>Test | android<b>Instrumented</b>Test |
 
 #### SourceDirectories
 
@@ -202,26 +202,26 @@ Here are some of the key differences between the two layouts:
 |---------------------------------------------------------|---------------------------------------------------------------------------|
 | The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
 
-`{AndroidSourceSet.name}` maps to `{Source Directories included}` as follows:
+`{AndroidSourceSet.name}` maps to `{SourceDirectories included}` as follows:
 
-| `AndroidSourceSet.name` | `{Source Directories included}` in current source set layout      | `{Source Directories included}` in new source set layout                                              |
-|-------------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| main                    | src/androidMain/kotlin, src/main/kotlin, src/main/java            | src/androidMain/kotlin, src/main/kotlin, src/main/java                                                |
-| test                    | src/androidTest/kotlin, src/test/kotlin, src/test/java            | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                                     |
-| androidTest             | src/android<b>Android</b>Test/kotlin, src/<b>androidTest</b>/java | src/android<b>Instrumented</b>Test/kotlin, src/<b>androidTest</b>/java, src/<b>androidTest</b>/kotlin |
+|             | Current source set layout                                  | New source set layout                                                                          |
+|-------------|------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| main        | src/androidMain/kotlin, src/main/kotlin, src/main/java     | src/androidMain/kotlin, src/main/kotlin, src/main/java                                         |
+| test        | src/androidTest/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                              |
+| androidTest | src/android<b>Android</b>Test/kotlin, src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin, src/androidTest/java, <b>src/androidTest/kotlin</b> |
 
 #### The location of the `AndroidManifest.xml` file
 
 | Current source set layout                              | New source set layout                                 |
 |--------------------------------------------------------|-------------------------------------------------------|
-| src/{<b>AndroidSourceSet</b>.name}/AndroidManifest.xml | src/{<b>KotlinSourceSet</b>.name}/AndroidManifest.xml |
+| src/{<b>Android</b>SourceSet.name}/AndroidManifest.xml | src/{<b>Kotlin</b>SourceSet.name}/AndroidManifest.xml |
 
 `{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
 
-| `AndroidSourceSet.name` | `{AndroidManifest.xml location}` in current source set layout | `{AndroidManifest.xml location}` in new source set layout |
-|-------------------------|---------------------------------------------------------------|-----------------------------------------------------------|
-| main                    | src/main/AndroidManifest.xml                                  | src/<b>android</b>Main/AndroidManifest.xml                |
-| debug                   | src/debug/AndroidManifest.xml                                 | src/<b>android</b>Debug/AndroidManifest.xml               |
+|       | Current source set layout     | New source set layout                       |
+|-------|-------------------------------|---------------------------------------------|
+| main  | src/main/AndroidManifest.xml  | src/<b>android</b>Main/AndroidManifest.xml  |
+| debug | src/debug/AndroidManifest.xml | src/<b>android</b>Debug/AndroidManifest.xml |
 
 ### Configuration and setup
 
@@ -231,7 +231,7 @@ The new layout will become the default in future releases. You can enable it now
 kotlin.mpp.androidSourceSetLayoutVersion=2
 ```
 
-> The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio > 2022.3 and later.
+> The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later.
 >
 {type="note"}
 
