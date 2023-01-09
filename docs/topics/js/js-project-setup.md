@@ -656,9 +656,9 @@ If needed, you can change both directory and lockfile names in the build script:
 
 ```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
-   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
-       project.rootDir.resolve("my-kotlin-js-store")
-   rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileName = "my-yarn.lock"
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
+        project.rootDir.resolve("my-kotlin-js-store")
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileName = "my-yarn.lock"
 }
 ```
 
@@ -667,9 +667,9 @@ rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 ```groovy
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
-  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileDirectory =
-           file("my-kotlin-js-store")
- rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileDirectory =
+        file("my-kotlin-js-store")
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
 }
 ``` 
 
@@ -681,6 +681,57 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 {type="warning"}
 
 To learn more about `yarn.lock`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/).
+
+### Reporting that yarn.lock has been updated
+
+Kotlin/JS provides Gradle settings that could notify you if the `yarn.lock` file has been updated.
+You can use these settings when you want to be notified if `yarn.lock` has been changed silently
+during the CI build process:
+
+* `YarnLockMismatchReport`, which specifies how changes to the `yarn.lock` file are reported. You can use one of the
+  following values:
+    * `FAIL` fails the corresponding Gradle task. This is the default.
+    * `WARNING` writes the information about changes in the warning log.
+    * `NONE` disables reporting.
+* `reportNewYarnLock`, which reports about the recently created `yarn.lock` file explicitly. By default, this option is
+  disabled: it's a common practice to generate a new `yarn.lock` file at the first start. You can use this option to
+  ensure that the file has been committed to your repository.
+* `yarnLockAutoReplace`, which replaces `yarn.lock` automatically every time the Gradle task is run.
+
+To use these options, update your build script file `build.gradle(.kts)` as follows:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin::class.java) {
+    rootProject.the<YarnRootExtension>().yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.the<YarnRootExtension>().reportNewYarnLock = false // true
+    rootProject.the<YarnRootExtension>().yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).reportNewYarnLock = false // true
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+</tabs>
 
 ### Installing npm dependencies with --ignore-scripts by default
 
@@ -699,7 +750,7 @@ You can explicitly enable lifecycle scripts execution by adding the following li
 
 ```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> { 
-  rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
 }
 ```
 
@@ -708,7 +759,7 @@ rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 ```groovy
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
-  rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
 }
 ``` 
 
@@ -767,7 +818,7 @@ the corresponding `.js` and `.d.ts` files, use the `moduleName` option:
 
 ```groovy
 js {
-   moduleName = "myModuleName"
+    moduleName = "myModuleName"
 }
 ```
 
@@ -799,10 +850,10 @@ kotlin {
 
 When you build the project, this code will add the following block to the `package.json` file:
 
-```
+```json
 "hello": {
-  "one": 1,
-  "two": 2
+    "one": 1,
+    "two": 2
 }
 ```
 
