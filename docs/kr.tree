@@ -347,7 +347,7 @@
             <toc-element id="ksp-faq.md" toc-title="FAQ"/>
         </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
-        <toc-element id="kotlin-doc.md" toc-title="KDoc and Dokka"/>
+        <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
         <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
     </toc-element>
 
