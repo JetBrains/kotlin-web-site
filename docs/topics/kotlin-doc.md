@@ -1,15 +1,13 @@
-[//]: # (title: Document Kotlin code: KDoc and Dokka)
+[//]: # (title: Document Kotlin code: KDoc)
 
-The language used to document Kotlin code (the equivalent of Java's Javadoc) is called **KDoc**. In its essence, KDoc
+The language used to document Kotlin code (the equivalent of Java's Javadoc) is called **KDoc**. In essence, KDoc
 combines Javadoc's syntax for block tags (extended to support Kotlin's specific constructs) and Markdown for
 inline markup.
 
-## Generate the documentation
-
-Kotlin's documentation generation tool is called [Dokka](https://github.com/Kotlin/dokka). See the
-[Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md) for usage instructions.
-
-Dokka has plugins for Gradle, Maven, and Ant, so you can integrate documentation generation into your build process.
+> Kotlin's documentation engine: Dokka, understands KDoc and can be used to generate documentation in various formats.
+> For more information, read our [Dokka documentation](dokka-introduction.md).
+>
+{type="note"}
 
 ## KDoc syntax
 
@@ -137,36 +135,10 @@ Names in links are resolved using the same rules as if the name was used inside 
 In particular, this means that if you have imported a name into the current file, you don't need to fully qualify it
 when you use it in a KDoc comment.
 
-Note that KDoc does not have any syntax for resolving overloaded members in links. Since the Kotlin documentation generation
+Note that KDoc does not have any syntax for resolving overloaded members in links. Since Kotlin's documentation generation
 tool puts the documentation for all overloads of a function on the same page, identifying a specific overloaded function
 is not required for the link to work.
 
-## Module and package documentation
+## What's next?
 
-Documentation for a module as a whole, as well as packages in that module, is provided as a separate Markdown file,
-and the paths to that file is passed to Dokka using the `-include` command line parameter or the corresponding parameters
-in Ant, Maven and Gradle plugins.
-
-Inside the file, the documentation for the module as a whole and for individual packages is introduced by the corresponding
-first-level headings. The text of the heading must be **Module `<module name>`** for the module, and **Package `<package qualified name>`**
-for a package.
-
-Here's an example content of the file:
-
-```text
-# Module kotlin-demo
-
-The module shows the Dokka syntax usage.
-
-# Package org.jetbrains.kotlin.demo
-
-Contains assorted useful stuff.
-
-## Level 2 heading
-
-Text after this heading is also part of documentation for `org.jetbrains.kotlin.demo`
-
-# Package org.jetbrains.kotlin.demo2
-
-Useful stuff in another package.
-```
+Learn how to use Kotlin's documentation generation tool: [Dokka](dokka-introduction.md).
