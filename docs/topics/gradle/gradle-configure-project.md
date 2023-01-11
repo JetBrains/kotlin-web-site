@@ -138,9 +138,9 @@ the `compileJava` task has (or [inherits](https://docs.gradle.org/current/usergu
 Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
 file to:
 
-* `error` – the plugin will fail the build; the default value for projects on Gradle 8.0+.
-* `warning` – the Kotlin Gradle plugin will print a warning message; the default value for projects on Gradle less than 8.0.
-* `ignore` – the plugin will skip the check and won't produce any messages.
+* `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
+* `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
+* `ignore` – the plugin skips the check and doesn't produce any messages.
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
@@ -601,7 +601,7 @@ kotlin.stdlib.default.dependency=false
 If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
 `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
 for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
-different stdlib versions.[Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
+different stdlib versions. [Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
 ```none

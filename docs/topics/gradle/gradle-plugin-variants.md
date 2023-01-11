@@ -21,7 +21,7 @@ Currently, there are the following variants of the Kotlin Gradle plugin:
 | `gradle75`     | 7.5                           |
 | `gradle76`     | 7.6 and higher                |
 
-In future Kotlin releases, more variants will be probably added.
+In future Kotlin releases, more variants will probably be added.
 
 To check which variant your build uses, enable
 the [`--info` log level](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level) and find a
@@ -61,7 +61,7 @@ configurations.register("customConfiguraton") {
 </tab>
 </tabs>
 
-and want to add a dependency on the Kotlin Gradle plugin, for example:
+And want to add a dependency on the Kotlin Gradle plugin, for example:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
