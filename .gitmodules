@@ -1,0 +1,4 @@
+[submodule "dokka"]
+	path = dokka
+	url = https://github.com/kotlin/dokka
+	branch = master

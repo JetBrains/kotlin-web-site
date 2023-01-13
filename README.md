@@ -26,7 +26,7 @@ Note that source files for the [server-side landing page](https://kotlinlang.org
 
 #### Sources in different repositories
 
-Source files for coroutines, lincheck and Dokka docs, and the language specification are stored in separate repositories:
+Source files for the language specification and the docs for coroutines, lincheck, and Dokka are stored in separate repositories
 
 | Website page                                                            | GitHub repository                                                   |
 |-------------------------------------------------------------------------|---------------------------------------------------------------------|
