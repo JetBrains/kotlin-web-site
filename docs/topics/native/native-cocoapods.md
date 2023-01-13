@@ -69,7 +69,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
    
 2. Add a new `Gemfile` with the following content:
 
-    ```txt
+    ```none
     source 'https://rubygems.org'
     gem 'cocoapods'
     ```
@@ -195,7 +195,7 @@ sudo gem install cocoapods
 
 2. Add a new `Gemfile` with the following content:
 
-    ```txt
+    ```none
     source 'https://rubygems.org'
     gem 'cocoapods'
     ```
