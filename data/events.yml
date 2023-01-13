@@ -1,4 +1,60 @@
 - lang: en
+  startDate: '2023-01-28'
+  endDate: '2023-01-28'
+  location: Kolkata, India
+  speaker: To be announced
+  title: ''
+  subject: 'Droid Fest Kolkata 2023'
+  url: https://www.meetup.com/kotlin-kolkata-ug/events/290826337/
+- lang: en
+  startDate: '2023-01-17'
+  endDate: '2023-01-17'
+  location: Brighton, UK
+  speaker: Sergio del Amo Caballero
+  title: 'January 2023 Brighton Kotlin Meetup'
+  subject: 'Getting Started with the Micronaut Framework'
+  url: https://www.meetup.com/Brighton-Kotlin/events/290553314/
+- lang: en
+  startDate: '2023-01-18'
+  endDate: '2023-01-18'
+  location: Amsterdam, the Netherlands
+  speaker: Nico Krijnen
+  title: 'Kotlin Meetup Amsterdam'
+  subject: 'Kotlin Multiplatform + Domain models = Love'
+  url: https://www.meetup.com/nlkug-dutch-kotlin-user-group/events/290715011/
+- lang: en
+  startDate: '2023-01-18'
+  endDate: '2023-01-18'
+  location: Amsterdam, the Netherlands
+  speaker: Urs Peter
+  title: 'Kotlin Meetup Amsterdam'
+  subject: 'Kotlin & Project Loom: Blessing or Doom?'
+  url: https://www.meetup.com/nlkug-dutch-kotlin-user-group/events/290715011/
+- lang: en
+  startDate: '2023-01-19'
+  endDate: '2023-01-19'
+  location: Berlin, Germany
+  speaker: Peter Maedel, Kim Kunc
+  title: 'Informal get-together of Kotlin developers in Berlin'
+  subject: 'Kotlin For Infrastructur as Code with AWS CDK'
+  url: https://www.meetup.com/kotlin-berlin/events/290370803/
+- lang: en
+  startDate: '2023-01-04'
+  endDate: '2023-01-04'
+  online: true
+  speaker: Jack Leow
+  title: 'San Diego Kotlin User Group'
+  subject: 'What Does It Mean for a Language to Be Strongly Typed?'
+  url: https://www.meetup.com/sd-kotlin/events/290212945/
+- lang: ru
+  startDate: '2023-01-20'
+  endDate: '2023-01-20'
+  online: true
+  speaker: Anton Arhipov
+  title: 'Kotlin Moscow'
+  subject: 'Creative Coding With Kotlin and Compose'
+  url: https://www.meetup.com/KotlinMoscow/events/290914378/
+- lang: en
   startDate: '2022-12-20'
   endDate: '2022-12-20'
   location: Limassol, Cyprus
