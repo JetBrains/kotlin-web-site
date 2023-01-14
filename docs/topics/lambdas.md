@@ -91,7 +91,7 @@ These names can be used for documenting the meaning of the parameters.
 To specify that a function type is [nullable](null-safety.md#nullable-types-and-non-null-types), use parentheses as follows:
 `((Int, Int) -> Int)?`.
 
-Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)`.
+Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit))`.
 
 > The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to `((Int) -> (Int)) -> Unit`.
 >
