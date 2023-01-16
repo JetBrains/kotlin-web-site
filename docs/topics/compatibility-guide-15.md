@@ -1,8 +1,8 @@
 [//]: # (title: Compatibility guide for Kotlin 1.5)
 
-[*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in
-Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
-latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
+_[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental
+principles in Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed,
+and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler
 warnings, this document summarizes them all, providing a complete reference for migration from Kotlin 1.4 to Kotlin 1.5.
@@ -134,7 +134,7 @@ perspective
 >
 > - 1.4.20: introduce warning for the problematic references
 > - \>= 1.5: raise this warning to an error,
-    >  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
+>  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
 
 ### Change implementation strategy of SAM conversion from anonymous class-based to invokedynamic
 
@@ -150,6 +150,107 @@ perspective
 >
 > - 1.5: change implementation strategy of SAM conversion,
 >  `-Xsam-conversions=class` can be used to revert implementation scheme to the one that used before
+
+### Performance issues with the JVM IR-based backend
+
+> **Issue**: [KT-48233](https://youtrack.jetbrains.com/issue/KT-48233)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 1.5 uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
+> for the Kotlin/JVM compiler by default. The old backend is still used by default for earlier language versions.
+>
+> You might encounter some performance degradation issues using the new compiler in Kotlin 1.5. We are working on fixing
+> such cases.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: by default, the old JVM backend is used
+> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5,
+> add the following lines to the project's configuration file to temporarily revert to pre-1.5 behavior:
+>
+> In Gradle:
+>
+> <tabs>
+>
+> ```kotlin
+> tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> ```groovy
+> tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> </tabs>
+>
+> In Maven:
+>
+> ```xml
+> <configuration>
+>     <args>
+>         <arg>-Xuse-old-backend</arg>
+>     </args>
+> </configuration>
+> ```
+>
+> Support for this flag will be removed in one of the future releases.
+
+### New field sorting in the JVM IR-based backend
+
+> **Issue**: [KT-46378](https://youtrack.jetbrains.com/issue/KT-46378)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Since version 1.5, Kotlin uses the [IR-based backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/)
+> that sorts JVM bytecode differently: it generates fields declared in the constructor before fields declared in the body,
+> while it's vice versa for the old backend. The new sorting may change the behavior of programs that use
+> serialization frameworks that depend on the field order, such as Java serialization.
+>
+> **Deprecation cycle**:
+>
+> - < 1.5: by default, the old JVM backend is used. It has fields declared in the body before fields declared
+> in the constructor.
+> - \>= 1.5: by default, the new IR-based backend is used. Fields declared in the constructor are generated before fields
+> declared in the body. As a workaround, you can temporarily switch to the old backend in Kotlin 1.5. To do that,
+> add the following lines to the project's configuration file:
+>
+> In Gradle:
+>
+> <tabs>
+>
+> ```kotlin
+> tasks.withType<org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile> {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> ```groovy
+> tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile) {
+>   kotlinOptions.useOldBackend = true
+> }
+> ```
+>
+> </tabs>
+>
+> In Maven:
+>
+> ```xml
+> <configuration>
+>     <args>
+>         <arg>-Xuse-old-backend</arg>
+>     </args>
+> </configuration>
+> ```
+>
+> Support for this flag will be removed in one of the future releases.
 
 ### Generate nullability assertion for delegated properties with a generic call in the delegate expression
 

@@ -7,7 +7,7 @@ each target. We call them **Platform Libraries**.
 ### POSIX bindings
 
 For all Unix- or Windows-based targets (including Android and
-iOS targets) we provide the `posix` platform lib. It contains bindings
+iOS targets) we provide the `POSIX` platform lib. It contains bindings
 to platform's implementation of the [POSIX standard](https://en.wikipedia.org/wiki/POSIX).
 
 To use the library, just import it: 
@@ -44,10 +44,3 @@ On the other hand, the platform libs in the distribution are merely
 just wrappers and bindings to the native libraries.  That means the
 native libraries themselves (`.so`, `.a`, `.dylib`, `.dll` etc)
 should be installed on the machine.
-
-## Examples
-
-The Kotlin/Native repository provides a wide spectrum of examples
-demonstrating the use of platform libraries. 
-See [samples](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples) for details.
-

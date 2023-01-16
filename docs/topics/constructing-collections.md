@@ -16,7 +16,7 @@ val emptySet = mutableSetOf<String>()
 
 The same is available for maps with the functions [`mapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-of.html)
 and [`mutableMapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-map-of.html). The map's
-keys and values are passed as `Pair` objects (usually created with `to` infix function). 
+keys and values are passed as `Pair` objects (usually created with `to` infix function).
 
 ```kotlin
 val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
@@ -29,6 +29,24 @@ initialization fluent here.
 
 ```kotlin
 val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this["two"] = "2" }
+```
+
+## Create with collection builder functions
+
+Another way of creating a collection is to call a builder function –
+[`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html), [`buildSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-set.html),
+or [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html). They create a new,
+mutable collection of the corresponding type, populate it using [write operations](collection-write.md),
+and return a read-only collection with the same elements:
+
+```kotlin
+val map = buildMap { // this is MutableMap<String, Int>, types of key and value are inferred from the `put()` calls below
+    put("a", 1)
+    put("b", 0)
+    put("c", 4)
+}
+
+println(map) // {a=1, b=0, c=4}
 ```
 
 ## Empty collections
@@ -44,11 +62,10 @@ val empty = emptyList<String>()
 
 ## Initializer functions for lists
 
-For lists, there is a constructor that takes the list size and the initializer function that defines the element value
+For lists, there is a constructor-like function that takes the list size and the initializer function that defines the element value
 based on its index.
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val doubled = List(3, { it * 2 })  // or MutableList if you want to change its content later
@@ -70,9 +87,9 @@ val presizedSet = HashSet<Int>(32)
 
 ## Copy
 
-To create a collection with the same elements as an existing collection, you can use copying operations. Collection
-copying operations from the standard library create _shallow_ copy collections with references to the same elements.
-Thus, a change made to a collection element reflects in all its copies. 
+To create a collection with the same elements as an existing collection, you can use copying functions. Collection
+copying functions from the standard library create _shallow_ copy collections with references to the same elements.
+Thus, a change made to a collection element reflects in all its copies.
 
 Collection copying functions, such as [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-list.html),
 [`toMutableList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-mutable-list.html),
@@ -82,17 +99,16 @@ If you add or remove elements from the original collection, this won't affect th
 independently of the source as well.
 
 ```kotlin
-
+class Person(var name: String)
 fun main() {
 //sampleStart
-    val sourceList = mutableListOf(1, 2, 3)
-    val copyList = sourceList.toMutableList()
-    val readOnlyCopyList = sourceList.toList()
-    sourceList.add(4)
-    println("Copy size: ${copyList.size}")   
-    
-    //readOnlyCopyList.add(4)             // compilation error
-    println("Read-only copy size: ${readOnlyCopyList.size}")
+    val alice = Person("Alice")
+    val sourceList = mutableListOf(alice, Person("Bob"))
+    val copyList = sourceList.toList()
+    sourceList.add(Person("Charles"))
+    alice.name = "Alicia"
+    println("First item's name is: ${sourceList[0].name} in source and ${copyList[0].name} in copy")
+    println("List size is: ${sourceList.size} in source and ${copyList.size} in copy")
 //sampleEnd
 }
 ```
@@ -101,7 +117,6 @@ fun main() {
 These functions can also be used for converting collections to other types, for example, build a set from a list or vice versa.
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val sourceList = mutableListOf(1, 2, 3)    
@@ -118,7 +133,6 @@ Alternatively, you can create new references to the same collection instance. Ne
 So, when the collection instance is altered through a reference, the changes are reflected in all its references.
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val sourceList = mutableListOf(1, 2, 3)
@@ -133,7 +147,6 @@ fun main() {
 Collection initialization can be used for restricting mutability. For example, if you create a `List` reference to a `MutableList`, the compiler will produce errors if you try to modify the collection through this reference.
 
 ```kotlin
-
 fun main() {
 //sampleStart 
     val sourceList = mutableListOf(1, 2, 3)
@@ -143,7 +156,6 @@ fun main() {
     println(referenceList) // shows the current state of sourceList
 //sampleEnd
 }
-
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
@@ -153,7 +165,6 @@ Collections can be created in result of various operations on other collections.
 a list creates a new list of elements that match the filter:
 
 ```kotlin
-
 fun main() {
 //sampleStart 
     val numbers = listOf("one", "two", "three", "four")  
@@ -167,7 +178,6 @@ fun main() {
 [Mapping](collection-transformations.md#map) produces a list of a transformation results:
 
 ```kotlin
-
 fun main() {
 //sampleStart 
     val numbers = setOf(1, 2, 3)
@@ -181,7 +191,6 @@ fun main() {
 [Association](collection-transformations.md#associate) produces maps:
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")

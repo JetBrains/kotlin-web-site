@@ -29,7 +29,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
 
 * **Increase the [Gradle heap size](https://docs.gradle.org/current/userguide/performance.html#adjust_the_daemons_heap_size)**.
   Add `org.gradle.jvmargs=-Xmx3g` to `gradle.properties`. If you use [parallel builds](https://docs.gradle.org/current/userguide/performance.html#parallel_execution),
-  you might need to make the heap even larger or choose the right number of threads with `org.gradle.parallel.threads`.
+  you might need to choose the right number of workers with the `org.gradle.workers.max` property or the `--max-workers` command-line option.
+  The default value is the number of CPU processors. 
 
 * **Build only the binaries you need**. Don't run Gradle tasks that build the whole project, such as `build` or `assemble`,
   unless you really need to. These tasks build the same code more than once, increasing the compilation times. In typical
@@ -42,10 +43,10 @@ Here are some recommendations for configuring Gradle for better compilation perf
       than compiling a debug one.
     * `packForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
-      the `.framework` for only the platform you’re using.
+      the `.framework` for only the platform you're using.
       
-      To build a platform-specific framework, call the  `packForXcode` task generated
-      by the [KMM project wizard](https://kotlinlang.org/docs/mobile/create-first-app.html). 
+      To build a platform-specific framework, call the `packForXcode` task generated
+      by the [Kotlin Multiplatform Mobile project wizard](multiplatform-mobile-create-first-app.md). 
       
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
@@ -53,19 +54,17 @@ Here are some recommendations for configuring Gradle for better compilation perf
       {type="note"}
 
 
-* **Don’t disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
+* **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
-  by default. When it’s enabled, the same JVM process is used and there is no need to warm it up for each compilation.
+  by default. When it's enabled, the same JVM process is used and there is no need to warm it up for each compilation.
+
+* **Don't use [transitiveExport = true](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)**.
+  Using transitive export disables dead code elimination in many cases: the compiler has to process a lot of unused code. It increases the compilation time.
+  Use `export` explicitly for exporting the required projects and dependencies.
 
 * **Use the Gradle [build caches](https://docs.gradle.org/current/userguide/build_cache.html)**:
     * **Local build cache**: Add `org.gradle.caching=true` to your `gradle.properties` or run with `--build-cache` on the command line.
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
-
-* **Use the compiler caches**. Starting from 1.5.0-M1, `linuxX64` and `iosArm64` targets have experimental opt-in support
-  for compiler caches. They improve compilation times for debug builds (for `linuxX64`, this feature is only available on Linux hosts).
-  To enable the compiler caches, add `kotlin.native.cacheKind.linuxX64=static` or `kotlin.native.cacheKind.iosArm64=static` to `gradle.properties`.
-
-  `iosX64` and `macosX64` targets already have the compiler caches enabled by default.
 
 * **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
   caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
@@ -73,5 +72,6 @@ Here are some recommendations for configuring Gradle for better compilation perf
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
 
+## Windows OS configuration
 
-
+* **Configure Windows Security**. Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory, which is located in `%\USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).

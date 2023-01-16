@@ -88,13 +88,13 @@ fun main() {
 ```
 
 It is forbidden for inline classes to participate in a class hierarchy. This means that inline classes cannot extend 
-other classes and must be `final`.
+other classes and are always `final`.
 
 ## Representation
 
 In generated code, the Kotlin compiler keeps a *wrapper* for each inline class. Inline class instances can be represented 
 at runtime either as wrappers or as the underlying type. This is similar to how `Int` can be 
-[represented](basic-types.md#numbers-representation-on-the-jvm) either as a primitive `int` or as the wrapper `Integer`.
+[represented](numbers.md#numbers-representation-on-the-jvm) either as a primitive `int` or as the wrapper `Integer`.
 
 The Kotlin compiler will prefer using underlying types instead of wrappers to produce the most performant and optimized code. 
 However, sometimes it is necessary to keep wrappers around. As a rule of thumb, inline classes are boxed whenever they 
@@ -129,6 +129,21 @@ fun main() {
 
 Because inline classes may be represented both as the underlying value and as a wrapper, [referential equality](equality.md#referential-equality) 
 is pointless for them and is therefore prohibited.
+
+Inline classes can also have a generic type parameter as the underlying type. In this case, the compiler maps it to `Any?`
+or, generally, to the upper bound of the type parameter.
+
+```kotlin
+@JvmInline
+value class UserId<T>(val value: T)
+
+fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
+```
+
+> Generic inline classes is an [Experimental](components-stability.md) feature.
+> It may be dropped or changed at any time. Opt-in is required with the `-language-version 1.8` compiler option.
+>
+{type="warning"}
 
 ### Mangling
 
@@ -200,5 +215,28 @@ fun main() {
     // And vice versa:
     acceptNameTypeAlias(string) // OK: pass underlying type instead of alias
     acceptNameInlineClass(string) // Not OK: can't pass underlying type instead of inline class
+}
+```
+
+## Inline classes and delegation
+
+Implementation by delegation to inlined value of inlined class is allowed with interfaces:
+
+```kotlin
+interface MyInterface {
+    fun bar()
+    fun foo() = "foo"
+}
+
+@JvmInline
+value class MyInterfaceWrapper(val myInterface: MyInterface) : MyInterface by myInterface
+
+fun main() {
+    val my = MyInterfaceWrapper(object : MyInterface {
+        override fun bar() {
+            // body
+        }
+    })
+    println(my.foo()) // prints "foo"
 }
 ```

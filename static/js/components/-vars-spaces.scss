@@ -1,6 +1,9 @@
 @import "./-vars-media";
 
 :root {
+  --xxxl-space: 144px;
+  @media (max-width: $breakpoint-xs) { --xxxl-space: 64px; }
+
   --xxl-space: 96px;
   @media (max-width: $breakpoint-xs) { --xxl-space: 64px; }
 

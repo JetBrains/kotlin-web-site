@@ -1,3 +1,47 @@
+- name: San Jose, Costa Rica
+  geo:
+    lat: 9.934776
+    lng: -84.084538
+- name: Krynica-Zdrój, Poland
+  geo:
+    lat: 49.413215
+    lng: 20.954021
+- name: Innopolis, Russia
+  geo:
+    lat: 55.752085
+    lng: 48.744618
+- name: Bonn, Germany
+  geo:
+    lat: 50.736611
+    lng: 7.090358
+- name: Jalingo, Nigeria
+  geo:
+    lat: 8.905112
+    lng: 11.358065
+- name: Taipei, Hsinchu
+  geo:
+    lat: 25.055103
+    lng: 121.159052
+- name: Dhaka, India
+  geo:
+    lat: 22.792252
+    lng: 81.385137
+- name: Bonny Island, Nigeria
+  geo:
+    lat: 10.445444
+    lng: 8.353578
+- name: Bauchi, Nigeria
+  geo:
+    lat: 10.306362
+    lng: 9.847458
+- name: Besni, Turkey
+  geo:
+    lat: 37.694
+    lng: 37.861699
+- name: Bouville, France
+  geo:
+    lat: 48.039107
+    lng: 2.504512
 - name: Táizhōng, Taiwan
   geo:
     lat: 23.882593
@@ -1485,11 +1529,11 @@
 - geo:
     lat: 35.7795897
     lng: -78.6381787
-  name: Raleigh, NC, US
+  name: Raleigh, NC, USA
 - geo:
     lat: 42.0333607
     lng: -88.0834059
-  name: Schaumburg, IL, US
+  name: Schaumburg, IL, USA
 - geo:
     lat: -26.2041028
     lng: 28.0473051
@@ -1517,11 +1561,11 @@
 - geo:
     lat: 37.68717609999999
     lng: -97.33005299999999
-  name: Wichita, KS, US
+  name: Wichita, KS, USA
 - geo:
     lat: 40.0149856
     lng: -105.2705456
-  name: Boulder, CO, US
+  name: Boulder, CO, USA
 - geo:
     lat: 52.95478319999999
     lng: -1.1581086
@@ -1545,11 +1589,11 @@
 - geo:
     lat: 29.7604267
     lng: -95.3698028
-  name: Houston, US
+  name: Houston, USA
 - geo:
     lat: 38.9338676
     lng: -77.1772604
-  name: McLean, VA, US
+  name: McLean, VA, USA
 - geo:
     lat: 51.0504088
     lng: 13.7372621
@@ -1942,7 +1986,7 @@
   geo:
     lat: 40.70036
     lng: -74.01097
-- name: Indianapolis, IN, US
+- name: Indianapolis, IN, USA
   geo:
     lat: 39.770729
     lng: -86.158163

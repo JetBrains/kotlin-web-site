@@ -7,15 +7,25 @@ for managing [npm](https://www.npmjs.com/) dependencies in background and can bu
 using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part
 directly from the Gradle build file, with the option to override automatically generated configurations for full control.
 
-To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin** and choose a 
+To create a Kotlin/JS project in IntelliJ IDEA, go to **File | New | Project**. Then select **Kotlin Multiplatform** and choose a 
 Kotlin/JS target that suits you best. Don't forget to choose the language for the build script: Groovy or Kotlin.
 
-![New project wizard](js-project-wizard.png){width=700}
+![New project wizard](js-new-project-1.png){width=700}
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file
 (`build.gradle` or `build.gradle.kts`).
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+     kotlin("js") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 plugins {
@@ -23,12 +33,7 @@ plugins {
 }
 ```
 
-```kotlin
-plugins {
-     kotlin("js") version "'%kotlinVersion%"
-}
-```
-
+</tab>
 </tabs>
 
 The Kotlin/JS Gradle plugin lets you manage aspects of your project in the `kotlin` section of the build script.
@@ -48,7 +53,6 @@ Inside the `kotlin` section, you can manage the following aspects:
 * [Bundling](#webpack-bundling) and [CSS support](#css) for browser projects
 * [Target directory](#distribution-target-directory) and [module name](#module-name)
 * [Project's `package.json` file](#package-json-customization)
-
 
 ## Execution environments
 
@@ -79,20 +83,16 @@ than creating executable files, and can be a possible optimization when dealing 
 
 The Kotlin/JS plugin automatically configures its tasks for working with the selected environment.
 This includes downloading and installing the required environment and dependencies for running and testing the application.
-This allows developers to build, run and test simple projects without additional configuration.
+This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
+Node.js, there are also an option to use an existing Node.js installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
 
 ## Dependencies
 
 Like any other Gradle projects, Kotlin/JS projects support traditional Gradle [dependency declarations](https://docs.gradle.org/current/userguide/declaring_dependencies.html)
 in the `dependencies` section of the build script.
 
-<tabs>
-
-```groovy
-dependencies {
-    implementation 'org.example.myproject:1.1.0'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -100,12 +100,34 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation 'org.example.myproject:1.1.0'
+}
+```
+
+</tab>
 </tabs>
 
 The Kotlin/JS Gradle plugin also supports dependency declarations for particular source sets in the `kotlin` section 
 of the build script.
 
-<tabs>
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets["main"].dependencies {
+        implementation("org.example.myproject", "1.1.0")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
@@ -119,14 +141,7 @@ kotlin {
 }
 ```
 
-```kotlin
-kotlin {
-  sourceSets["main"].dependencies {
-    implementation("org.example.myproject", "1.1.0")
-  }
-}
-```
-
+</tab>
 </tabs>
 
 Please note that not all libraries available for the Kotlin programming language are available when targeting JavaScript:
@@ -143,13 +158,8 @@ for all Kotlin/JS projects, and as such is implicit – no artifacts need to be 
 If your project contains tests written in Kotlin, you should add a dependency on the
 [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library:
 
-<tabs>
-
-```groovy
-dependencies {
-    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -157,6 +167,16 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-js'
+}
+```
+
+</tab>
 </tabs>
 
 ### npm dependencies
@@ -170,13 +190,8 @@ declare any other dependencies.
 To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
 You can also specify one or multiple version range based on [npm's semver syntax](https://docs.npmjs.com/misc/semver#versions).
 
-<tabs>
-
-```groovy
-dependencies {
-    implementation npm('react', '> 14.0.0 <=16.9.0')
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
@@ -184,10 +199,21 @@ dependencies {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation npm('react', '> 14.0.0 <=16.9.0')
+}
+```
+
+</tab>
 </tabs>
 
-To download and install your declared dependencies during build time, the plugin manages its own installation of the 
-[Yarn](https://yarnpkg.com/lang/en/) package manager. 
+The plugin uses the [Yarn](https://yarnpkg.com/lang/en/) package manager to download and install NPM dependencies.
+It works out of the box without additional configuration, but you can tune it to specific needs.
+Learn how to [configure Yarn in Kotlin/JS Gradle plugin](#yarn).
 
 Besides regular dependencies, there are three more types of dependencies that can be used from the Gradle DSL.
 To learn more about when each type of dependency can best be used, have a look at the official documentation linked from npm:
@@ -271,6 +297,14 @@ kotlin {
 }
 ```
 
+Alternatively, you can add test targets for browsers in the `gradle.properties` file:
+
+```text
+kotlin.js.browser.karma.browsers=firefox,safari
+```
+
+This approach allows you to define a list of browsers for all modules, and then add specific browsers in the build scripts of particular modules. 
+
 Please note that the Kotlin/JS Gradle plugin does not automatically install these browsers for you, but only uses those
 that are available in its execution environment. If you are executing Kotlin/JS tests on a continuous integration server,
 for example, make sure that the browsers you want to test against are installed.
@@ -296,6 +330,20 @@ To run tests, execute the standard lifecycle `check` task:
 ```bash
 ./gradlew check
 ```
+         
+To specify environment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment` function with a key-value pair inside the `testTask` block in your build script:
+         
+```groovy
+kotlin {
+    js {
+        nodejs {
+            testTask {
+                environment("key", "value")
+            }
+        }
+    }
+}        
+```
 
 ### Karma configuration
 
@@ -306,7 +354,7 @@ To make adjustments to the configuration used by Karma, place your additional co
 called `karma.config.d` in the root of your project. All `.js` configuration files in this directory will be picked up
 and are automatically merged into the generated `karma.conf.js` at build time.
 
-All karma configuration abilities are well described in Karma's [documentation](http://karma-runner.github.io/5.0/config/configuration-file.html).
+All karma configuration abilities are well described in Karma's [documentation](https://karma-runner.github.io/5.0/config/configuration-file.html).
 
 ## webpack bundling
 
@@ -316,11 +364,19 @@ For browser targets, the Kotlin/JS plugin uses the widely known [webpack](https:
 
 The Kotlin/JS plugin uses webpack %webpackMajorVersion%.
 
+If you have projects created with plugin versions earlier than 1.5.0,
+you can temporarily switch back to webpack %webpackPreviousMajorVersion% used in these versions by adding the following line
+to the project's `gradle.properties`:
+
+```none
+kotlin.js.webpack.major.version=4
+```
+
 ### webpack task
 
 The most common webpack adjustments can be made directly via the
 `kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
-- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distibution/` after
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distributions/` after
   an execution of a webpack task. The default value is the project name.
 - `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
   Kotlin/JS projects](js-modules.md). The default value is `umd`.
@@ -346,13 +402,17 @@ files will automatically be merged into the `build/js/packages/projectName/webpa
 To add a new [webpack loader](https://webpack.js.org/loaders/), for example, add the following to
 a `.js` file inside the `webpack.config.d`:
 
+> In this case, the configuration object presented in the `config` global object. You need to modify it in your script.
+>
+{type="note"}
+
 ```groovy
 config.module.rules.push({
     test: /\.extension$/,
     loader: 'loader-name'
 });
 ```
-
+     
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
@@ -384,34 +444,96 @@ The Kotlin/JS Gradle plugin also provides support for webpack's [CSS](https://we
 the [webpack configuration files](#webpack-bundling) that are used to build your project, the most commonly
 used settings are available directly from the `build.gradle(.kts)` file.
 
-To turn on CSS support in your project, set the `cssSupport.enabled` flag in the Gradle build file in the `commonWbpackConfig`
+To turn on CSS support in your project, set the `cssSupport.enabled` option in the Gradle build file in the `commonWebpackConfig`
 block. This configuration is also enabled by default when creating a new project using the wizard.
 
-```groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 browser {
     commonWebpackConfig {
-        cssSupport.enabled = true
+        cssSupport {
+            enabled.set(true)
+        }
     }
     binaries.executable()
 }
 ```
 
-Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
-webpackTask {
-   cssSupport.enabled = true
-}
-runTask {
-   cssSupport.enabled = true
-}
-testTask {
-   useKarma {
-      // . . .
-      webpackConfig.cssSupport.enabled = true
-   }
+browser {
+    commonWebpackConfig {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    binaries.executable()
 }
 ```
+
+</tab>
+</tabs>
+
+Alternatively, you can add CSS support independently for `webpackTask`, `runTask`, and `testTask`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+browser {
+    webpackTask {
+        cssSupport {
+            enabled.set(true)
+        }
+    }
+    runTask {
+        cssSupport {
+            enabled.set(true)
+        }
+    }
+    testTask {
+        useKarma {
+            // . . .
+            webpackConfig.cssSupport {
+                enabled.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+browser {
+    webpackTask {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    runTask {
+        cssSupport {
+            it.enabled.set(true)
+        }
+    }
+    testTask {
+        useKarma {
+            // . . .
+            webpackConfig.cssSupport {
+                it.enabled.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 Activating CSS support in your project helps prevent common errors that occur when trying to use style sheets from
 an unconfigured project, such as `Module parse failed: Unexpected character '@' (14:0)`.
@@ -427,7 +549,49 @@ To use different modes for the same project, use `cssSupport.rules`. Here, you c
 each of which define a mode, as well as [include](https://webpack.js.org/configuration/module/#ruleinclude) and
 [exclude](https://webpack.js.org/configuration/module/#ruleexclude) patterns.
 
+## Node.js
+
+For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and installs the Node.js environment on the
+host. You can also use an existing Node.js instance if you have it.
+
+### Use pre-installed Node.js
+
+If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use it instead of installing its own Node.js instance.
+
+To use the pre-installed Node.js instance, add the following lines to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().download = false
+    // or true for default behavior
+}
+ 
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension).download = false
+}
+```
+
+</tab>
+</tabs>
+
+
 ## Yarn
+
+To download and install your declared dependencies at build time, the plugin manages its own instance of the
+[Yarn](https://yarnpkg.com/lang/en/) package manager. It works out of the box without additional configuration, but you
+can tune it or use Yarn already installed on your host.
+
+### Additional Yarn features: .yarnrc
 
 To configure additional Yarn features, place a `.yarnrc` file in the root of your project.
 At build time, it gets picked up automatically.
@@ -441,6 +605,167 @@ registry "http://my.registry/api/npm/"
 
 To learn more about `.yarnrc`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/en/docs/yarnrc/).
 
+### Use pre-installed Yarn
+
+If Yarn is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin/JS Gradle
+plugin to use it instead of installing its own Yarn instance.
+
+To use the pre-installed Yarn instance, add the following lines to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().download = false
+    // or true for default behavior
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).download = false
+}
+ 
+```
+
+</tab>
+</tabs>
+
+### Version locking via kotlin-js-store
+
+> Version locking via `kotlin-js-store` is available since Kotlin 1.6.10.
+>
+{type="note"}
+
+The `kotlin-js-store` directory in the project root is automatically generated by the Kotlin/JS Gradle plugin to hold 
+the `yarn.lock` file, which is necessary for version locking. The lockfile is entirely managed by the Yarn plugin 
+and gets updated during the execution of the `kotlinNpmInstall` Gradle task.
+
+To follow a [recommended practice](https://classic.yarnpkg.com/blog/2016/11/24/lockfiles-for-all/),
+commit `kotlin-js-store` and its contents to your version control system. It ensures that your application is being
+built with the exact same dependency tree on all machines.
+
+If needed, you can change both directory and lockfile names in the build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
+        project.rootDir.resolve("my-kotlin-js-store")
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileName = "my-yarn.lock"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileDirectory =
+        file("my-kotlin-js-store")
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
+}
+``` 
+
+</tab>
+</tabs>
+
+> Changing the name of the lockfile may cause dependency inspection tools to no longer pick up the file.
+> 
+{type="warning"}
+
+To learn more about `yarn.lock`, please visit the [official Yarn documentation](https://classic.yarnpkg.com/lang/en/docs/yarn-lock/).
+
+### Reporting that yarn.lock has been updated
+
+Kotlin/JS provides Gradle settings that could notify you if the `yarn.lock` file has been updated.
+You can use these settings when you want to be notified if `yarn.lock` has been changed silently
+during the CI build process:
+
+* `YarnLockMismatchReport`, which specifies how changes to the `yarn.lock` file are reported. You can use one of the
+  following values:
+    * `FAIL` fails the corresponding Gradle task. This is the default.
+    * `WARNING` writes the information about changes in the warning log.
+    * `NONE` disables reporting.
+* `reportNewYarnLock`, which reports about the recently created `yarn.lock` file explicitly. By default, this option is
+  disabled: it's a common practice to generate a new `yarn.lock` file at the first start. You can use this option to
+  ensure that the file has been committed to your repository.
+* `yarnLockAutoReplace`, which replaces `yarn.lock` automatically every time the Gradle task is run.
+
+To use these options, update your build script file `build.gradle(.kts)` as follows:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin::class.java) {
+    rootProject.the<YarnRootExtension>().yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.the<YarnRootExtension>().reportNewYarnLock = false // true
+    rootProject.the<YarnRootExtension>().yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
+import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
+
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockMismatchReport =
+        YarnLockMismatchReport.WARNING // NONE | FAIL
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).reportNewYarnLock = false // true
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).yarnLockAutoReplace = false // true
+}
+```
+
+</tab>
+</tabs>
+
+### Installing npm dependencies with --ignore-scripts by default
+
+> Installing npm dependencies with `--ignore-scripts` by default is available since Kotlin 1.6.10.
+>
+{type="note"}
+
+To reduce the likelihood of executing malicious code from compromised npm packages, the Kotlin/JS Gradle plugin prevents 
+the execution of [lifecycle scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts#life-cycle-scripts)
+during the installation of npm dependencies by default.
+
+You can explicitly enable lifecycle scripts execution by adding the following lines to `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> { 
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
+    rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
+}
+``` 
+
+</tab>
+</tabs>
+
 ## Distribution target directory
 
 By default, the results of a Kotlin/JS project build reside in the `/build/distribution` directory within the project root.
@@ -449,21 +774,8 @@ To set another location for project distribution files, add the `distribution` b
 assign a value to the `directory` property.
 Once you run a project build task, Gradle will save the output bundle in this location together with project resources.
 
-<tabs>
-
-```groovy
-kotlin {
-    js {
-        browser {
-            distribution {
-                directory = file("$projectDir/output/")
-            }
-        }
-        binaries.executable()
-        // . . .
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -479,6 +791,24 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    js {
+        browser {
+            distribution {
+                directory = file("$projectDir/output/")
+            }
+        }
+        binaries.executable()
+        // . . .
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Module name
@@ -488,7 +818,7 @@ the corresponding `.js` and `.d.ts` files, use the `moduleName` option:
 
 ```groovy
 js {
-   moduleName = "myModuleName"
+    moduleName = "myModuleName"
 }
 ```
 
@@ -520,10 +850,10 @@ kotlin {
 
 When you build the project, this code will add the following block to the `package.json` file:
 
-```
+```json
 "hello": {
-  "one": 1,
-  "two": 2
+    "one": 1,
+    "two": 2
 }
 ```
 

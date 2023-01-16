@@ -70,12 +70,12 @@ Compilers are complicated software and despite the best effort of their develope
 
 ## Decision making
 
-[JetBrains](https://jetbrains.com), the original creator of Kotlin, is driving its progress with the help of the community and in accord with the [Kotlin Foundation](kotlin-foundation.md).
+[JetBrains](https://jetbrains.com), the original creator of Kotlin, is driving its progress with the help of the community and in accord with the [Kotlin Foundation](https://kotlinfoundation.org/).
 
-All changes to the Kotlin Programming Language are overseen by the [Lead Language Designer](kotlin-foundation.md) (currently Roman Elizarov). The Lead Designer has the final say in all matters related to language evolution. Additionally, incompatible changes to fully stable components have to be approved to by the [Language Committee](kotlin-foundation.md) designated 
-under the [Kotlin Foundation](kotlin-foundation.md) (currently comprised of Jeffrey van Gogh, William R. Cook and Roman Elizarov).
+All changes to the Kotlin Programming Language are overseen by the [Lead Language Designer](https://kotlinfoundation.org/structure/) (currently Roman Elizarov). The Lead Designer has the final say in all matters related to language evolution. Additionally, incompatible changes to fully stable components have to be approved to by the [Language Committee](https://kotlinfoundation.org/structure/) designated 
+under the [Kotlin Foundation](https://kotlinfoundation.org/structure/) (currently comprised of Jeffrey van Gogh, William R. Cook and Roman Elizarov).
 
-The Language Committee makes final decisions on what incompatible changes will be made and what exact measures should be taken to make user updates comfortable. In doing so, it relies on a set of guidelines available [here](language-committee-guidelines.md).
+The Language Committee makes final decisions on what incompatible changes will be made and what exact measures should be taken to make user updates comfortable. In doing so, it relies on a set of guidelines available [here](https://kotlinfoundation.org/language-committee-guidelines/).
 
 ## Feature releases and incremental releases
 
@@ -128,11 +128,15 @@ As legacy features get removed and bugs fixed, the source language changes, and 
 
 ### Compatibility flags
 
-We provide the -language-version and -api-version flags that make a new version emulate the behaviour of an old one, for compatibility purposes. Normally, at least one previous version is supported. This effectively leaves a time span of two full feature release cycles for migration (which usually amounts to about two years). Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md) when this happens.
+We provide the `-language-version X.Y` and `-api-version X.Y` flags that make a new version emulate the behavior of an old
+one for compatibility purposes. To give you more time for migration, we [support](compatibility-modes.md) the development
+for three previous language and API versions in addition to the latest stable one.
 
-Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently such project can enable the -progressive flag and get such fixes enabled even in incremental releases.
+Using an older kotlin-stdlib or kotlin-reflect with a newer compiler without specifying compatibility flags is not recommended, and the compiler will report a [warning](compatibility-modes.md#binary-compatibility-warnings) when this happens.
 
-All flags are available on the command line as well as [Gradle](gradle.md#compiler-options) and [Maven](maven.md#specifying-compiler-options).
+Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the `-progressive` flag and get such fixes enabled even in incremental releases.
+
+All flags are available on the command line as well as [Gradle](gradle-compiler-options.md) and [Maven](maven.md#specifying-compiler-options).
 
 ### Evolving the binary format
 

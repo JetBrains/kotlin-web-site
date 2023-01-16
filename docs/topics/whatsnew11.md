@@ -23,7 +23,7 @@ patterns. The key feature of Kotlin's design is that the implementation of corou
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
 A coroutine is effectively a light-weight thread that can be suspended and resumed later.
-Coroutines are supported through [*suspending functions*](coroutines-basics.md#extract-function-refactoring):
+Coroutines are supported through _[suspending functions](coroutines-basics.md#extract-function-refactoring)_:
 a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
 
 Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
@@ -57,7 +57,6 @@ and resumed when the next element is requested. Here's an example:
 import kotlin.coroutines.experimental.*
 
 fun main(args: Array<String>) {
-//sampleStart
     val seq = buildSequence {
       for (i in 1..5) {
           // yield a square of i
@@ -68,15 +67,13 @@ fun main(args: Array<String>) {
     }
 
     // print the sequence
-  println(seq.toList())
-//sampleEnd
+    println(seq.toList())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 Run the code above to see the result. Feel free to edit it and run again!
 
-For more information, please refer to the [coroutines documentation](coroutines-overview.md) and [tutorial](https://play.kotlinlang.org/hands-on/Introduction%20to%20Coroutines%20and%20Channels/).
+For more information, please refer to the [coroutines documentation](coroutines-overview.md) and [tutorial](coroutines-and-channels.md).
 
 Note that coroutines are currently considered an **experimental feature**, meaning that the Kotlin team is not committing
 to supporting the backwards compatibility of this feature after the final 1.1 release.
@@ -120,7 +117,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See the [documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
+See the [type aliases documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
 ### Bound callable references
 
@@ -171,7 +168,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Read the [documentation](sealed-classes.md) or KEEPs for
+Read the [sealed classes documentation](sealed-classes.md) or KEEPs for
 [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
 [data class](https://github.com/Kotlin/KEEP/blob/master/proposals/data-class-inheritance.md) for more detail.
 
@@ -196,7 +193,7 @@ fun main(args: Array<String>) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Read the [documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
+Read the [destructuring declarations documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
 ### Underscores for unused parameters
 
@@ -290,7 +287,7 @@ fun main(args: Array<String>) {
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
-Read the [documentation](inline-functions.md#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
+Read the [inline functions documentation](inline-functions.md#inline-properties) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-properties.md) for more details.
 
 ### Local delegated properties
 
@@ -348,7 +345,7 @@ class MyUI {
 The `provideDelegate` method will be called for each property during the creation of a `MyUI` instance, and it can perform
 the necessary validation right away.
 
-Read the [documentation](delegated-properties.md) for more details.
+Read the [delegated properties documentation](delegated-properties.md) for more details.
 
 ### Generic enum value access
 
@@ -391,7 +388,7 @@ In Kotlin 1.1, you can restrict that, so that only methods defined on the implic
 will be available inside the lambda passed to `td`. You do that by defining your annotation marked with the `@DslMarker` meta-annotation
 and applying it to the base class of the tag classes.
 
-Read the [documentation](type-safe-builders.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
+Read the [type safe builders documentation](type-safe-builders.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/scope-control-for-implicit-receivers.md) for more details.
 
 ### rem operator
 

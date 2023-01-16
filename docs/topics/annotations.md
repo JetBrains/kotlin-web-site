@@ -21,7 +21,8 @@ Additional attributes of the annotation can be specified by annotating the annot
 
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
-        AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.EXPRESSION)
+        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER, 
+        AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
 annotation class Fancy
@@ -100,6 +101,27 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 
 @Ann(String::class, Int::class) class MyClass
 ```
+
+## Instantiation
+
+In Java, an annotation type is a form of an interface, so you can implement it and use an instance.
+As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
+and similarly use the resulting instance.
+
+```kotlin
+annotation class InfoMarker(val info: String)
+
+fun processInfo(marker: InfoMarker): Unit = TODO()
+
+fun main(args: Array<String>) {
+    if (args.isNotEmpty())
+        processInfo(getAnnotationReflective(args))
+    else
+        processInfo(InfoMarker("default"))
+}
+```
+
+Learn more about instantiation of annotation classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-instantiation.md).
 
 ## Lambdas
 
@@ -269,3 +291,46 @@ fun foo(ann: Ann) {
 }
 ```
 
+### Ability to not generate JVM 1.8+ annotation targets
+
+If a Kotlin annotation has `TYPE` among its Kotlin targets, the annotation maps to `java.lang.annotation.ElementType.TYPE_USE`
+in its list of Java annotation targets. This is just like how the `TYPE_PARAMETER` Kotlin target maps to
+the `java.lang.annotation.ElementType.TYPE_PARAMETER` Java target. This is an issue for Android clients with API levels
+less than 26, which don't have these targets in the API.
+
+To avoid generating the `TYPE_USE` and `TYPE_PARAMETER` annotation targets, use the new compiler argument `-Xno-new-java-annotation-targets`.
+
+## Repeatable annotations
+
+Just like [in Java](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html), Kotlin has repeatable annotations,
+which can be applied to a single code element multiple times. To make your annotation repeatable, mark its declaration
+with the [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/)
+meta-annotation. This will make it repeatable both in Kotlin and Java. Java repeatable annotations are also supported
+from the Kotlin side.
+
+The main difference with the scheme used in Java is the absence of a _containing annotation_, which the Kotlin compiler
+generates automatically with a predefined name. For an annotation in the example below, it will generate the containing
+annotation `@Tag.Container`:
+
+```kotlin
+@Repeatable
+annotation class Tag(val name: String)
+
+// The compiler generates the @Tag.Container containing annotation
+```
+
+You can set a custom name for a containing annotation by applying the
+[`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvmrepeatable/) meta-annotation
+and passing an explicitly declared containing annotation class as an argument:
+
+```kotlin
+@JvmRepeatable(Tags::class)
+annotation class Tag(val name: String)
+
+annotation class Tags(val value: Array<Tag>)
+```
+
+To extract Kotlin or Java repeatable annotations via reflection, use the [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)
+function.
+
+Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md).

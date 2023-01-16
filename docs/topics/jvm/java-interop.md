@@ -1,6 +1,6 @@
 [//]: # (title: Calling Java from Kotlin)
 
-Kotlin is designed with Java Interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
+Kotlin is designed with Java interoperability in mind. Existing Java code can be called from Kotlin in a natural way,
 and Kotlin code can be used from Java rather smoothly as well.
 In this section, we describe some details about calling Java code from Kotlin.
 
@@ -34,7 +34,7 @@ import java.util.Calendar
 
 fun calendarDemo() {
     val calendar = Calendar.getInstance()
-    if (calendar.firstDayOfWeek == Calendar.SUNDAY) {  // call getFirstDayOfWeek()
+    if (calendar.firstDayOfWeek == Calendar.SUNDAY) { // call getFirstDayOfWeek()
         calendar.firstDayOfWeek = Calendar.MONDAY // call setFirstDayOfWeek()
     }
     if (!calendar.isLenient) { // call isLenient()
@@ -82,7 +82,7 @@ but the call may fail at runtime, because of a null-pointer exception or an asse
 prevent nulls from propagating:
 
 ```kotlin
-item.substring(1) // allowed, may throw an exception if item == null
+item.substring(1) // allowed, throws an exception if item == null
 ```
 
 Platform types are *non-denotable*, meaning that you can't write them down explicitly in the language.
@@ -116,13 +116,23 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
+  * [JSpecify](https://jspecify.dev/) (`org.jspecify.nullness`)
   * Android (`com.android.annotations` and `android.support.annotations`)
   * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`)
+  * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
-You can find the full list in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+You can specify whether the compiler reports a nullability mismatch based on the information from specific types of 
+nullability annotations. Use the compiler option `-Xnullability-annotations=@<package-name>:<report-level>`. 
+In the argument, specify the fully qualified nullability annotations package and one of these report levels:
+* `ignore` to ignore nullability mismatches
+* `warn` to report warnings
+* `strict` to report errors.
+
+See the full list of supported nullability annotations in the 
+[Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### Annotating type arguments and type parameters
 
@@ -152,6 +162,31 @@ When the `@NotNull` annotation is missing from a type argument, you get a platfo
 ```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
+
+Kotlin also takes into account nullability annotations on type arguments of base classes and interfaces. For example,
+there are two Java classes with the signatures provided below:
+
+```java
+public class Base<T> {}
+```
+
+```java
+public class Derived extends Base<@Nullable String> {}
+```
+
+In the Kotlin code, passing the instance of `Derived` where the `Base<String>` is assumed produces the warning.
+
+```kotlin
+fun takeBaseOfNotNullStrings(x: Base<String>) {}
+
+fun main() {
+    takeBaseOfNotNullStrings(Derived()) // warning: nullability mismatch
+}
+```
+
+The upper bound of `Derived` is set to `Base<String?>`, which is different from `Base<String>`.
+
+Learn more about [Java generics in Kotlin](java-interop.md#java-generics-in-kotlin).
 
 #### Type parameters
 
@@ -198,7 +233,7 @@ nullability which deviates from the nullability annotations from Java.
 
 ### JSR-305 support
 
-The [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html) annotation defined
+The [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html) annotation defined
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
 
 If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and
@@ -208,13 +243,13 @@ A library can be compiled against the JSR-305 annotations, but there's no need t
 a compile dependency for the library consumers. The Kotlin compiler can read the JSR-305 annotations from a library
 without the annotations present on the classpath.
 
-[Custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/41091f1cc7045142181d8c89645059f4a15cc91a/proposals/jsr-305-custom-nullability-qualifiers.md)
+[Custom nullability qualifiers (KEEP-79)](https://github.com/Kotlin/KEEP/blob/master/proposals/jsr-305-custom-nullability-qualifiers.md)
 are also supported (see below).
 
 #### Type qualifier nicknames
 
 If an annotation type is annotated with both
-[`@TypeQualifierNickname`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierNickname.html)
+[`@TypeQualifierNickname`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/meta/TypeQualifierNickname.html)
 and JSR-305 `@Nonnull` (or its another nickname, such as `@CheckForNull`), then the annotation type is itself used for
 retrieving precise nullability and has the same meaning as that nullability annotation:
 
@@ -242,7 +277,7 @@ interface A {
 
 #### Type qualifier defaults
 
-[`@TypeQualifierDefault`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/meta/TypeQualifierDefault.html)
+[`@TypeQualifierDefault`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/meta/TypeQualifierDefault.html)
 allows introducing annotations that, when being applied, define the default nullability within the scope of the annotated
 element.
 
@@ -357,9 +392,9 @@ for managing the migration state for a particular library.
 The `strict`, `warn` and `ignore` values have the same meaning as those of `MigrationStatus`,
 and only the `strict` mode affects the types in the annotated declarations as they are seen in Kotlin.
 
-> Note: the built-in JSR-305 annotations [`@Nonnull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nonnull.html),
->[`@Nullable`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/Nullable.html) and
->[`@CheckForNull`](https://aalmiray.github.io/jsr-305/apidocs/javax/annotation/CheckForNull.html) are always enabled and
+> Note: the built-in JSR-305 annotations [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html),
+>[`@Nullable`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/3.0.1/javax/annotation/Nullable.html) and
+>[`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
 >affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
 {type="note"}
@@ -396,7 +431,7 @@ Some non-primitive built-in classes are also mapped:
 | `java.lang.Cloneable`    | `kotlin.Cloneable!`    |
 | `java.lang.Comparable`   | `kotlin.Comparable!`    |
 | `java.lang.Enum`         | `kotlin.Enum!`    |
-| `java.lang.Annotation`   | `kotlin.Annotation!`    |
+| `java.lang.annotation.Annotation`   | `kotlin.Annotation!`    |
 | `java.lang.CharSequence` | `kotlin.CharSequence!`   |
 | `java.lang.String`       | `kotlin.String!`   |
 | `java.lang.Number`       | `kotlin.Number!`     |
@@ -496,7 +531,7 @@ val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
 ```
 
-When compiling to the JVM byte code, the compiler optimizes access to arrays so that there's no overhead introduced:
+When compiling to the JVM bytecode, the compiler optimizes access to arrays so that there's no overhead introduced:
 
 ```kotlin
 val array = arrayOf(1, 2, 3, 4)
@@ -601,7 +636,7 @@ class Example : Cloneable {
 }
 ```
 
-Don't forget about [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html),
+Don't forget about [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html),
 Item 13: *Override clone judiciously*.
 
 ### finalize()
@@ -702,3 +737,10 @@ var myProperty: String
 ```
 
 Behind the scenes, this will create two functions `getMyProperty` and `setMyProperty`, both marked as `external`.
+
+## Using Lombok-generated declarations in Kotlin
+
+You can use Java's Lombok-generated declarations in Kotlin code.
+If you need to generate and use these declarations in the same mixed Java/Kotlin module,
+you can learn how to do this on the [Lombok compiler plugin's page](lombok.md).
+If you call such declarations from another module, then you don't need to use this plugin to compile that module.

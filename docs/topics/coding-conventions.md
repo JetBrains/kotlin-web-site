@@ -11,15 +11,14 @@ the given code style.
  
 ### Apply the style guide
 
-1. Go to **Settings | Editor | Code Style | Kotlin**.
+1. Go to **Settings/Preferences | Editor | Code Style | Kotlin**.
 2. Click **Set from...**.
 3. Select **Kotlin style guide** .
 
 ### Verify that your code follows the style guide
 
-1. Go to **Settings | Editor | Inspections | Kotlin**.
-2. Open **Kotlin | Style issues**.
-3. Switch on **File is not formatted according to project settings** inspection.
+1. Go to **Settings/Preferences | Editor | Inspections | General**.
+2. Switch on **Incorrect formatting** inspection.
 Additional inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
 ## Source code organization
@@ -39,9 +38,9 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 
 ### Source file names
 
-If a Kotlin file contains a single class (potentially with related top-level declarations), its name should be the same
-as the name of the class, with the `.kt` extension appended. If a file contains multiple classes, or only top-level declarations,
-choose a name describing what the file contains, and name the file accordingly.
+If a Kotlin file contains a single class or interface (potentially with related top-level declarations), its name should be the same
+as the name of the class, with the `.kt` extension appended. It applies to all types of classes and interfaces.
+If a file contains multiple classes, or only top-level declarations, choose a name describing what the file contains, and name the file accordingly.
 Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
 for example, `ProcessDeclarations.kt`.
 
@@ -78,7 +77,7 @@ referenced inside the class, put them in the end, after the companion object.
 ### Interface implementation layout
 
 When implementing an interface, keep the implementing members in the same order as members of the interface (if necessary,
-interspersed with additional private methods used for the implementation)
+interspersed with additional private methods used for the implementation).
 
 ### Overload layout
 
@@ -136,7 +135,7 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
 names:
 
 ```kotlin
@@ -343,8 +342,9 @@ tailrec
 vararg
 suspend
 inner
-enum / annotation / fun // as a modifier in `fun interface`companion
-inline
+enum / annotation / fun // as a modifier in `fun interface` 
+companion
+inline / value
 infix
 operator
 data
@@ -593,7 +593,7 @@ Using trailing commas has several benefits:
 
 Trailing commas are entirely optional – your code will still work without them. The Kotlin style guide encourages the use of trailing commas at the declaration site and leaves it at your discretion for the call site.
 
-To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings | Editor | Code Style | Kotlin**, 
+To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings/Preferences | Editor | Code Style | Kotlin**, 
 open the **Other** tab and select the **Use trailing comma** option.
 
 #### Enumerations {initial-collapse-state="collapsed"}
@@ -793,14 +793,14 @@ directly into the documentation comment, and add links to parameters wherever th
  * @param number The number to return the absolute value for.
  * @return The absolute value.
  */
-fun abs(number: Int) { /*...*/ }
+fun abs(number: Int): Int { /*...*/ }
 
 // Do this instead:
 
 /**
  * Returns the absolute value of the given [number].
  */
-fun abs(number: Int) { /*...*/ }
+fun abs(number: Int): Int { /*...*/ }
 ```
 
 ## Avoid redundant constructs
@@ -878,7 +878,7 @@ a type alias for it:
 typealias MouseClickHandler = (Any, MouseEvent) -> Unit
 typealias PersonIndex = Map<String, Person>
 ```
-If you use a private or internal type alias for avoiding name collision, prefer the `import … as …` mentioned in 
+If you use a private or internal type alias for avoiding name collision, prefer the `import ... as ...` mentioned in 
 [Packages and Imports](packages.md).
 
 ### Lambda parameters
@@ -939,7 +939,7 @@ Prefer using `if` for binary conditions instead of `when`.
 For example, use this syntax with `if`:
 
 ```kotlin
-`if (x == null) ... else ...`
+if (x == null) ... else ...
 ```
 
 instead of this one with `when`:
@@ -984,18 +984,35 @@ To maintain indentation in multiline strings, use `trimIndent` when the resultin
 indentation, or `trimMargin` when internal indentation is required:
 
 ```kotlin
-assertEquals(
+fun main() {
+//sampleStart
+   println("""
+    Not
+    trimmed
+    text
     """
-    Foo
-    Bar
-    """.trimIndent(), 
-    value
-)
+   )
 
-val a = """if(a > 1) {
+   println("""
+    Trimmed
+    text
+    """.trimIndent()
+   )
+
+   println()
+
+   val a = """Trimmed to margin text:
+          |if(a > 1) {
           |    return a
           |}""".trimMargin()
+
+   println(a)
+//sampleEnd
+}
 ```
+{kotlin-runnable="true"}
+
+Learn the difference between [Java and Kotlin multiline strings](java-to-kotlin-idioms-strings.md#use-multiline-strings).
 
 ### Functions vs properties
 
@@ -1077,5 +1094,5 @@ When writing libraries, it's recommended to follow an additional set of rules to
  * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)
  * Always explicitly specify function return types and property types (to avoid accidentally changing the return type
    when the implementation changes)
- * Provide KDoc comments for all public members, with the exception of overrides that do not require any new documentation
+ * Provide [KDoc](kotlin-doc.md) comments for all public members, with the exception of overrides that do not require any new documentation
    (to support generating documentation for the library)

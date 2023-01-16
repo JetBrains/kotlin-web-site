@@ -58,6 +58,9 @@ subnav:
         - url: /education/why-teach-kotlin.html
           title: Why Teach Kotlin
 
+        - url: /education/courses.html
+          title: List of Courses
+
 # Reference navigation
 # ====================
 reference:
@@ -338,7 +341,7 @@ reference:
         - url: /docs/reference/compiler-plugins.html
           title: Compiler plugins
         - url: /docs/reference/kapt.html
-          title: Kapt
+          title: kapt
         - url: /docs/reference/kotlin-doc.html
           title: Dokka
         - url: /docs/reference/kotlin-osgi.html
@@ -357,6 +360,14 @@ reference:
           title: Compatibility Guide for Kotlin 1.4
         - url: /docs/reference/compatibility-guide-15.html
           title: Compatibility Guide for Kotlin 1.5
+        - url: /docs/reference/compatibility-guide-16.html
+          title: Compatibility Guide for Kotlin 1.6
+        - url: /docs/reference/compatibility-guide-17.html
+          title: Compatibility Guide for Kotlin 1.7
+        - url: /docs/reference/compatibility-guide-1720.html
+          title: Compatibility Guide for Kotlin 1.7.20
+        - url: /docs/reference/compatibility-guide-18.html
+          title: Compatibility Guide for Kotlin 1.8.0
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.
@@ -501,24 +512,3 @@ foundation:
       title: Kotlin Brand Usage Guidelines
     - url: /foundation/faq.html
       title: FAQ
-
-groups:
-  content:
-    - url: /user-groups/user-group-list.html
-      title: Kotlin User Groups List
-    - url: /user-groups/support.html
-      title: Guidelines and Support
-    - url: /user-groups/branding.html
-      title: Branding materials
-    - url: https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct
-      title: Code of Conduct
-
-
-events:
-  content:
-    - url: /community/events.html
-      title: Kotlin Events
-    - url: /community/kotlin-nights/guidelines.html
-      title: Guidelines and Support
-    - url: /community/kotlin-nights/branding.html
-      title: Branding materials

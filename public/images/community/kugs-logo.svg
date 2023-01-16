@@ -1,0 +1,18 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500" xml:space="preserve">
+  <style>
+    .st0{fill:#d7d7d7}
+  </style>
+    <path class="st0" d="M384.2 123.9 303 42.7l-81.2 81.2 81.2 81.2v-81.2s82.6-1.3 81.2 0z"/>
+    <path class="st0" d="M434.2 255.1V140.3H319.4v114.8l57.4-57.4s59.3 57.4 57.4 57.4z"/>
+    <path class="st0" d="m376.8 383.3 81.2-81.2-81.2-81.2-81.2 81.2h81.2s1.3 82.5 0 81.2z"/>
+    <path class="st0" d="M245.6 433.3h114.8V318.4H245.6l57.4 57.4c0 .1-57.4 59.4-57.4 57.5z"/>
+    <path class="st0" d="m117.4 375.9 81.2 81.2 81.2-81.2-81.2-81.2v81.2c.1 0-82.5 1.3-81.2 0z"/>
+    <path class="st0" d="M67.4 244.7v114.8h114.9V244.7l-57.4 57.4s-59.4-57.4-57.5-57.4z"/>
+    <path class="st0" d="m124.9 116.5-81.2 81.2 81.2 81.2 81.2-81.2h-81.2s-1.4-82.5 0-81.2z"/>
+    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="34.927" y1="345.27" x2="-93.181" y2="217.162" gradientTransform="matrix(.8969 0 0 -.8969 224.774 376.172)">
+    <stop offset=".003" style="stop-color:#ef4857"/>
+        <stop offset=".469" style="stop-color:#d211ec"/>
+        <stop offset="1" style="stop-color:#7f52ff"/>
+  </linearGradient>
+    <path style="fill:url(#SVGID_1_)" d="M256.1 181.4H141.2V66.5h114.9l-57.4 57.4z"/>
+</svg>

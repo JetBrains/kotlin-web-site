@@ -7,7 +7,6 @@ Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) 
 data structures in a semi-declarative way. Sample use cases for the builders are:
 
 * Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML
-* Programmatically laying out UI components: [Anko](https://github.com/Kotlin/anko/wiki/Anko-Layouts)
 * Configuring routes for a web server: [Ktor](https://ktor.io/docs/routing.html)
 
 Consider the following code:
@@ -25,14 +24,14 @@ fun result() =
             p  {+"this format can be used as an alternative markup to XML"}
 
             // an element with attributes and text content
-            a(href = "http://kotlinlang.org") {+"Kotlin"}
+            a(href = "https://kotlinlang.org") {+"Kotlin"}
 
             // mixed content
             p {
                 +"This is some"
                 b {+"mixed"}
                 +"text. For more see the"
-                a(href = "http://kotlinlang.org") {+"Kotlin"}
+                a(href = "https://kotlinlang.org") {+"Kotlin"}
                 +"project"
             }
             p {+"some text"}
@@ -47,7 +46,7 @@ fun result() =
 ```
 
 This is completely legitimate Kotlin code.
-You can play with this code online (modify it and run in the browser) [here](https://play.kotlinlang.org/byExample/09_Kotlin_JS/06_HtmlBuilder).
+You can [play with this code online (modify it and run in the browser) here](https://play.kotlinlang.org/byExample/09_Kotlin_JS/06_HtmlBuilder).
 
 ## How it works
 
@@ -110,14 +109,14 @@ The `head` and `body` functions in the `HTML` class are defined similarly to `ht
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
 ```kotlin
-fun head(init: Head.() -> Unit) : Head {
+fun head(init: Head.() -> Unit): Head {
     val head = Head()
     head.init()
     children.add(head)
     return head
 }
 
-fun body(init: Body.() -> Unit) : Body {
+fun body(init: Body.() -> Unit): Body {
     val body = Body()
     body.init()
     children.add(body)

@@ -1,8 +1,8 @@
 [//]: # (title: Compatibility guide for Kotlin 1.4)
 
-[*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in Kotlin Language Design.
-The former says that constructs which obstruct language evolution should be removed, and the latter says that this
-removal should be well-communicated beforehand to make code migration as smooth as possible.
+_[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental
+principles in Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed,
+and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler warnings,
 this document summarizes them all, providing a complete reference for migration from Kotlin 1.3 to Kotlin 1.4.
@@ -687,7 +687,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 
 ### Compiler arguments with delimiter characters must be passed in double quotes on Windows
 
-> **Issue**: [KT-30211](https://youtrack.jetbrains.com/issue/KT-30211)
+> **Issue**: [KT-41309](https://youtrack.jetbrains.com/issue/KT-41309)
 > 
 > **Component**: CLI
 > 

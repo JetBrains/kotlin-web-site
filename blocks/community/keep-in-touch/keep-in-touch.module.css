@@ -1,0 +1,30 @@
+.wrapper {
+    background: #f4f4f4;
+    padding: 64px 0;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.resources {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 96px 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resources {
+        display: flex;
+        grid-gap: 16px;
+        align-items: center;
+        font-size: 20px;
+    }
+}

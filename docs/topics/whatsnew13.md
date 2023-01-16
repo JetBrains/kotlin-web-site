@@ -22,14 +22,14 @@ The key differences to the old model are:
 
   * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
     Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
-  * There is now a large number of [preset platform configurations](mpp-supported-platforms.md) for different supported platforms.
-  * The [dependencies configuration](mpp-add-dependencies.md) has been changed; dependencies are
+  * There is now a large number of [preset platform configurations](multiplatform-dsl-reference.md#targets) for different supported platforms.
+  * The [dependencies configuration](multiplatform-add-dependencies.md) has been changed; dependencies are
     now specified separately for each source root.
   * Source sets can now be shared between an arbitrary subset of platforms 
   (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
-  * [Publishing multiplatform libraries](mpp-publish-lib.md) is now supported.
+  * [Publishing multiplatform libraries](multiplatform-publish-lib.md) is now supported.
 
-For more information, please refer to the [Multiplatform Programming documentation](multiplatform.md).
+For more information, please refer to the [multiplatform programming documentation](multiplatform.md).
 
 ## Contracts
 
@@ -135,7 +135,7 @@ See the details on the syntax as well as the compatibility notice in the [KEEP](
 
 ## Capturing `when` subject in a variable
 
-In Kotlin 1.3, it is now possible to capture the `when` subject into variable:
+In Kotlin 1.3, it is now possible to capture the `when` subject into a variable:
 
 ```kotlin
 fun Request.getBody() =
@@ -146,7 +146,7 @@ fun Request.getBody() =
 ```
 
 While it was already possible to extract this variable just before `when` , `val` in `when` has its scope properly restricted
-to the body of `when`, and so preventing namespace pollution. See the full documentation on `when` [here](control-flow.md#when-expression).
+to the body of `when`, and so preventing namespace pollution. [See the full documentation on `when` here](control-flow.md#when-expression).
 
 ## @JvmStatic and @JvmField in companions of interfaces
 
@@ -203,7 +203,7 @@ By convention, the entry point of a Kotlin program is a function with a signatur
 where `args` represent the command-line arguments passed to the program. However, not every application supports command-line arguments,
 so this parameter often ends up not being used. 
 
-Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now “Hello, World” in Kotlin is 19 characters shorter!
+Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now "Hello, World" in Kotlin is 19 characters shorter!
 
 ```kotlin
 fun main() {
@@ -322,7 +322,7 @@ println("x: $x, y: $y, z: $z, range: $range")
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See [reference](basic-types.md#unsigned-integers) for details.
+See [reference](unsigned-integer-types.md) for details.
 
 ## @JvmDefault
 
@@ -397,7 +397,7 @@ fun main() {
 ### associateWith
 
 It is quite a common situation to have a list of keys and want to build a map by associating each of these keys with some value.
-It was possible to do it before with the `associate { it to getValue(it) }` function, but now we’re introducing a more
+It was possible to do it before with the `associate { it to getValue(it) }` function, but now we're introducing a more
 efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`.
 
 ```kotlin
@@ -448,7 +448,7 @@ fun main() {
 
 ### Sealed classes in reflection
 
-We’ve added a new API to `kotlin-reflect` that can be used to enumerate all the direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
+We've added a new API to `kotlin-reflect` that can be used to enumerate all the direct subtypes of a `sealed` class, namely `KClass.sealedSubclasses`.
 
 ### Smaller changes
 

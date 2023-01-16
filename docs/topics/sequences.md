@@ -1,6 +1,7 @@
 [//]: # (title: Sequences)
 
-Along with collections, the Kotlin standard library contains another container type – _sequences_ ([`Sequence<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
+Along with collections, the Kotlin standard library contains another type – _sequences_ ([`Sequence<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html)).
+Unlike collections, sequences don't contain elements, they produce them while iterating. 
 Sequences offer the same functions as [`Iterable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/index.html)
 but implement another approach to multi-step collection processing.
 
@@ -170,7 +171,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 The output of this code shows that the `filter()` and `map()` functions are called only when building the result list.
-So, you first see the line of text `“Lengths of..”` and then the sequence processing starts.
+So, you first see the line of text `"Lengths of.."` and then the sequence processing starts.
 Note that for elements left after filtering, the map executes before filtering the next element.
 When the result size reaches 4, the processing stops because it's the largest possible size that `take(4)` can return.
 

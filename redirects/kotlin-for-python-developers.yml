@@ -1,0 +1,74 @@
+- from: /docs/tutorials/kotlin-for-py/primitive-data-types-and-their-limitations.html
+  to: https://khan.github.io/kotlin-for-python-developers/#primitive-data-types-and-their-limitations
+
+- from: /docs/tutorials/kotlin-for-py/conditionals.html
+  to: https://khan.github.io/kotlin-for-python-developers/#conditionals
+
+- from: /docs/tutorials/kotlin-for-py/exceptions.html
+  to: https://khan.github.io/kotlin-for-python-developers/#exceptions
+
+- from: /docs/tutorials/kotlin-for-py/hello-world.html
+  to: https://khan.github.io/kotlin-for-python-developers/#hello-world
+
+- from: /docs/tutorials/kotlin-for-py/loops.html
+  to: https://khan.github.io/kotlin-for-python-developers/#loops
+
+- from: /docs/tutorials/kotlin-for-py/member-references-and-reflection.html
+  to: https://khan.github.io/kotlin-for-python-developers/#member-references-and-reflection
+
+- from: /docs/tutorials/kotlin-for-py/collections.html
+  to: https://khan.github.io/kotlin-for-python-developers/#collections
+
+- from: /docs/tutorials/kotlin-for-py/file-io.html
+  to: https://khan.github.io/kotlin-for-python-developers/#file-io
+
+- from: /docs/tutorials/kotlin-for-py/objects-and-companion-objects.html
+  to: https://khan.github.io/kotlin-for-python-developers/#objects-and-companion-objects
+
+- from: /docs/tutorials/kotlin-for-py/strings.html
+  to: https://khan.github.io/kotlin-for-python-developers/#strings
+
+- from: /docs/tutorials/kotlin-for-py/generics.html
+  to: https://khan.github.io/kotlin-for-python-developers/#generics
+
+- from: /docs/tutorials/kotlin-for-py/inheritance.html
+  to: https://khan.github.io/kotlin-for-python-developers/#inheritance
+
+- from: /docs/tutorials/kotlin-for-py/classes.html
+  to: https://khan.github.io/kotlin-for-python-developers/#classes
+
+- from: /docs/tutorials/kotlin-for-py/introduction.html
+  to: https://khan.github.io/kotlin-for-python-developers/
+
+- from: /docs/tutorials/kotlin-for-py/annotations.html
+  to: https://khan.github.io/kotlin-for-python-developers/#annotations
+
+- from: /docs/tutorials/kotlin-for-py/compiling-and-running.html
+  to: https://khan.github.io/kotlin-for-python-developers/#compiling-and-running
+
+- from: /docs/tutorials/kotlin-for-py/functional-programming.html
+  to: https://khan.github.io/kotlin-for-python-developers/#functional-programming
+
+- from: /docs/tutorials/kotlin-for-py/functions.html
+  to: https://khan.github.io/kotlin-for-python-developers/#functions
+
+- from: /docs/tutorials/kotlin-for-py/scoped-resource-usage.html
+  to: https://khan.github.io/kotlin-for-python-developers/#scoped-resource-usage
+
+- from: /docs/tutorials/kotlin-for-py/documentation.html
+  to: https://khan.github.io/kotlin-for-python-developers/#documentation
+
+- from: /docs/tutorials/kotlin-for-py/declaring-variables.html
+  to: https://khan.github.io/kotlin-for-python-developers/#declaring-variables
+
+- from: /docs/tutorials/kotlin-for-py/visibility-modifiers.html
+  to: https://khan.github.io/kotlin-for-python-developers/#visibility-modifiers
+
+- from: /docs/tutorials/kotlin-for-py/null-safety.html
+  to: https://khan.github.io/kotlin-for-python-developers/#null-safety
+
+- from: /docs/tutorials/kotlin-for-py/packages-and-imports.html
+  to: https://khan.github.io/kotlin-for-python-developers/#packages-and-imports
+
+- from: /docs/tutorials/kotlin-for-py/extension-functionsproperties.html
+  to: https://khan.github.io/kotlin-for-python-developers/#extension-functionsproperties

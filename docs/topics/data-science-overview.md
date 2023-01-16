@@ -9,7 +9,7 @@ of tried and true Java libraries.
 
 ## Interactive editors
 
-Notebooks such as [Jupyter Notebook](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
+Notebooks such as [Jupyter Notebook](https://jupyter.org/), [Datalore](http://jetbrains.com/datalore), and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
 convenient tools for data visualization and exploratory research.
 Kotlin integrates with these tools to help you explore data, share your findings with 
 colleagues, or build up your data science and machine learning skills.
@@ -17,14 +17,24 @@ colleagues, or build up your data science and machine learning skills.
 ### Jupyter Kotlin kernel
 
 The Jupyter Notebook is an open-source web application that allows you to create and share documents 
-(aka "notebooks") that can contain code, visualizations, and markdown text. 
+(aka "notebooks") that can contain code, visualizations, and Markdown text. 
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open source project that brings Kotlin 
 support to Jupyter Notebook. 
 
-<img src="kotlin-jupyter-kernel.png" alt="Kotlin in Jupyter notebook" width="800"/>
+![Kotlin in Jupyter notebook](kotlin-jupyter-kernel.png){width=800}
 
 Check out Kotlin kernel's [GitHub repo](https://github.com/Kotlin/kotlin-jupyter) for installation 
 instructions, documentation, and examples.
+
+### Kotlin Notebooks in Datalore
+
+With Datalore, you can use Kotlin in the browser straight out of the box, no installation required.
+You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports.
+Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
+
+![Kotlin in Datalore](kotlin-datalore.png){width=800}
+
+[Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
 
 ### Zeppelin Kotlin interpreter
 
@@ -33,7 +43,7 @@ for the Apache Spark cluster computing system, which is particularly useful for 
 Starting from [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/), Apache Zeppelin comes with 
 bundled Kotlin interpreter. 
 
-<img src="kotlin-zeppelin-interpreter.png" alt="Kotlin in Zeppelin notebook" width="800"/>
+![Kotlin in Zeppelin notebook](kotlin-zeppelin-interpreter.png){width=800}
 
 ## Libraries
 
@@ -41,13 +51,18 @@ The ecosystem of libraries for data-related tasks created by the Kotlin communit
 Here are some libraries that you may find useful:
 
 ### Kotlin libraries
+
 * [Multik](https://github.com/Kotlin/multik): multidimensional arrays in Kotlin. The library provides Kotlin-idiomatic, 
   type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
   JVM and native computational engines, and a combination of the two for optimal performance.
 
-* [KotlinDL](http://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
+* [KotlinDL](https://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
   by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
   for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
+
+* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to 
+  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
+  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
 
 * [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) adds a missing layer of compatibility between
   Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
@@ -58,10 +73,12 @@ exploratory and production statistics. It supports basic numeric list/sequence/a
 slicing operators (such as `countBy`, `simpleRegressionBy`), binning operations, discrete PDF sampling,
 naive bayes classifier, clustering, linear regression, and much more.
 
-* [kmath](https://github.com/mipt-npm/kmath) is a library inspired by [NumPy](https://numpy.org/).
-This library supports algebraic structures and operations, array-like structures, math expressions, histograms,
-streaming operations, a wrapper around [commons-math](http://commons.apache.org/proper/commons-math/) and
-[koma](https://github.com/kyonifer/koma), and more.
+* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was intially inspired by
+[NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
+algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
+provides interchangeable wrappers over existing Java and Kotlin libraries including
+[ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
+[Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others.
 
 * [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
 and Python's [pandas](https://pandas.pydata.org/). This library provides functionality for data manipulation using
@@ -71,7 +88,7 @@ a functional-style API; it also includes functions for filtering, transforming, 
 Lets-Plot is multiplatform and can be used not only with JVM, but also with JS and Python. 
 
 * [kravis](https://github.com/holgerbrandl/kravis) is another library for the visualization of tabular data inspired by
-Python's [ggplot](https://ggplot2.tidyverse.org/).
+R's [ggplot](https://ggplot2.tidyverse.org/).
 
 * [londogard-nlp-toolkit](https://github.com/londogard/londogard-nlp-toolkit/) is a library that provides utilities when working with natural language processing such as word/subword/sentence embeddings, word-frequencies, stopwords, stemming, and much more.
 
@@ -80,24 +97,28 @@ Python's [ggplot](https://ggplot2.tidyverse.org/).
 Since Kotlin provides first-class interop with Java, you can also use Java libraries for data science in your Kotlin code.
 Here are some examples of such libraries:
 
-* [DeepLearning4J](https://deeplearning4j.org/) - a deep learning library for Java
+* [DeepLearning4J](https://deeplearning4j.konduit.ai) - a deep learning library for Java
 
-* [ND4J](http://nd4j.org/) - an efficient matrix math library for JVM
+* [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j) - an efficient matrix math library for JVM
 
 * [Dex](https://github.com/PatMartin/Dex) - a Java-based data visualization tool
 
 * [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing,
 linear algebra, graph, interpolation, and visualization system. Besides Java API, Smile also provides a functional
-[Kotlin API](http://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
+[Kotlin API](https://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
    * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) - a Kotlin rewrite of the Scala implicits for the natural
    language processing part of Smile in the format of extension functions and interfaces.
 
-* [Apache Commons Math](http://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning
+* [Apache Commons Math](https://commons.apache.org/proper/commons-math/) - a general math, statistics, and machine learning
 library for Java
+
+* [NM Dev](https://nm.dev/) - a Java mathematical library that covers all of classical mathematics.
 
 * [OptaPlanner](https://www.optaplanner.org/) - a solver utility for optimization planning problems
 
 * [Charts](https://github.com/HanSolo/charts) - a scientific JavaFX charting library in development
+
+* [Apache OpenNLP](https://opennlp.apache.org/) - a machine learning based toolkit for the processing of natural language text
 
 * [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) - a natural language processing toolkit
 
@@ -105,5 +126,7 @@ library for Java
 
 * [Weka](https://www.cs.waikato.ac.nz/ml/index.html) - a collection of machine learning algorithms for data mining tasks
 
-If this list doesn’t cover your needs, you can find more options in the 
-**[Kotlin Data Science Resources](https://github.com/thomasnield/kotlin-data-science-resources)** digest from Thomas Nield.
+* [Tablesaw](https://github.com/jtablesaw/tablesaw) - a Java dataframe. It includes a visualization library based on Plot.ly
+
+If this list doesn't cover your needs, you can find more options in the 
+**[Kotlin Machine Learning Demos](https://github.com/thomasnield/kotlin-machine-learning-demos)** GitHub repository with showcases from Thomas Nield.

@@ -8,13 +8,32 @@ Swift/Objective-C.
 Kotlin/Native provides bidirectional interoperability with Objective-C.
 Objective-C frameworks and libraries can be used in Kotlin code if
 properly imported to the build (system frameworks are imported by default).
-See [here](mpp-configure-compilations.md#configure-interop-with-native-languages) for more details.
+See [compilation configurations](multiplatform-configure-compilations.md#configure-interop-with-native-languages) for more details.
 A Swift library can be used in Kotlin code if its API is exported to Objective-C
 with `@objc`. Pure Swift modules are not yet supported.
 
 Kotlin modules can be used in Swift/Objective-C code if compiled into a
-framework (see [here](mpp-build-native-binaries.md#declare-binaries)).
-See [calculator sample](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/samples/calculator) for an example.
+framework ([see here for how to declare binaries](multiplatform-build-native-binaries.md#declare-binaries)).
+See [Kotlin Multiplatform Mobile Sample](https://github.com/Kotlin/kmm-basic-sample) for an example.
+
+### Hiding Kotlin declarations
+
+If you don't want to export Kotlin declarations to Objective-C and Swift, use special annotations:
+
+* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
+  export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+* `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
+  function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
+  which makes them invisible from Swift.
+
+  You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
+  the Xcode autocomplete.
+
+  For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
+
+> Using these annotations requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ## Mappings
 
@@ -22,31 +41,31 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 
 "->" and "<-" indicate that mapping only goes one way.
 
-| Kotlin | Swift | Objective-C | Notes |
-| ------ | ----- |------------ | ----- |
-| `class` | `class` | `@interface` | [note](#name-translation) |
-| `interface` | `protocol` | `@protocol` | |
-| `constructor`/`create` | Initializer | Initializer | [note](#initializers) |
-| Property | Property | Property | [note](#top-level-functions-and-properties) [note](#setters)|
-| Method | Method | Method | [note](#top-level-functions-and-properties) [note](#method-names-translation) |
-| `suspend` -> | `completionHandler:` | | [note](#errors-and-exceptions) |
-| `@Throws fun` | `throws` | `error:(NSError**)error` | [note](#errors-and-exceptions) |
-| Extension | Extension | Category member | [note](#extensions-and-category-members) |
-| `companion` member <- | Class method or property | Class method or property |  |
-| `null` | `nil` | `nil` | |
-| `Singleton` | `Singleton()`  | `[Singleton singleton]` | [note](#kotlin-singletons) |
-| Primitive type | Primitive type / `NSNumber` | | [note](#nsnumber) |
-| `Unit` return type | `Void` | `void` | |
-| `String` | `String` | `NSString` | |
-| `String` | `NSMutableString` | `NSMutableString` | [note](#nsmutablestring) |
-| `List` | `Array` | `NSArray` | |
-| `MutableList` | `NSMutableArray` | `NSMutableArray` | |
-| `Set` | `Set` | `NSSet` | |
-| `MutableSet` | `NSMutableSet` | `NSMutableSet` | [note](#collections) |
-| `Map` | `Dictionary` | `NSDictionary` | |
-| `MutableMap` | `NSMutableDictionary` | `NSMutableDictionary` | [note](#collections) |
-| Function type | Function type | Block pointer type | [note](#function-types) |
-| Inline classes | Unsupported| Unsupported| [note](#unsupported) |
+| Kotlin                 | Swift                            | Objective-C                      | Notes                                                                              |
+|------------------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------|
+| `class`                | `class`                          | `@interface`                     | [note](#name-translation)                                                          |
+| `interface`            | `protocol`                       | `@protocol`                      |                                                                                    |
+| `constructor`/`create` | Initializer                      | Initializer                      | [note](#initializers)                                                              |
+| Property               | Property                         | Property                         | [note 1](#top-level-functions-and-properties), [note 2](#setters)                  |
+| Method                 | Method                           | Method                           | [note 1](#top-level-functions-and-properties), [note 2](#method-names-translation) |
+| `suspend` ->           | `completionHandler:`/ `async`    | `completionHandler:`             | [note 1](#errors-and-exceptions), [note 2](#suspending-functions)                  |
+| `@Throws fun`          | `throws`                         | `error:(NSError**)error`         | [note](#errors-and-exceptions)                                                     |
+| Extension              | Extension                        | Category member                  | [note](#extensions-and-category-members)                                           |
+| `companion` member <-  | Class method or property         | Class method or property         |                                                                                    |
+| `null`                 | `nil`                            | `nil`                            |                                                                                    |
+| `Singleton`            | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)                                                         |
+| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#nsnumber)                                                                  |
+| `Unit` return type     | `Void`                           | `void`                           |                                                                                    |
+| `String`               | `String`                         | `NSString`                       |                                                                                    |
+| `String`               | `NSMutableString`                | `NSMutableString`                | [note](#nsmutablestring)                                                           |
+| `List`                 | `Array`                          | `NSArray`                        |                                                                                    |
+| `MutableList`          | `NSMutableArray`                 | `NSMutableArray`                 |                                                                                    |
+| `Set`                  | `Set`                            | `NSSet`                          |                                                                                    |
+| `MutableSet`           | `NSMutableSet`                   | `NSMutableSet`                   | [note](#collections)                                                               |
+| `Map`                  | `Dictionary`                     | `NSDictionary`                   |                                                                                    |
+| `MutableMap`           | `NSMutableDictionary`            | `NSMutableDictionary`            | [note](#collections)                                                               |
+| Function type          | Function type                    | Block pointer type               | [note](#function-types)                                                            |
+| Inline classes         | Unsupported                      | Unsupported                      | [note](#unsupported)                                                               |
 
 ### Name translation
 
@@ -58,6 +77,30 @@ These classes and interfaces are placed into a package [specified in build confi
 
 The names of Kotlin classes and interfaces are prefixed when imported to Objective-C.
 The prefix is derived from the framework name.
+
+Objective-C does not support packages in a framework. Thus, the Kotlin compiler renames Kotlin classes which have the
+same name but different package in the same framework. This algorithm is not stable yet and can change between Kotlin
+releases. As a workaround, you can rename the conflicting Kotlin classes in the framework.
+
+To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
+a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
+
+```kotlin
+@ObjCName(swiftName = "MySwiftArray")
+class MyKotlinArray {
+    @ObjCName("index")
+    fun indexOf(@ObjCName("of") element: String): Int = TODO()
+}
+
+
+// Usage with the ObjCName annotations
+let array = MySwiftArray()
+let index = array.index(of: "element")
+```
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Initializers
 
@@ -101,12 +144,24 @@ the clashing methods can be called from Kotlin using named arguments, e.g.:
 [player moveTo:UP byInches:42]
 ```
 
-in Kotlin it would be:
+In Kotlin, it would be:
 
 ```kotlin
 player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
+
+The methods of `kotlin.Any` (`equals()`, `hashCode()` and `toString()`) are mapped 
+to the methods `isEquals:`, `hash` and `description` in Objective-C, and to the method
+`isEquals(_:)` and the properties `hash`, `description` in Swift.
+
+You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration.
+Use the `@ObjCName` annotation that instructs the Kotlin compiler to use a custom Objective-C and Swift name for methods
+or parameters.
+
+> Using this annotation requires [opt-in](opt-in-requirements.md).
+>
+{type="note"}
 
 ### Errors and exceptions
 
@@ -133,6 +188,24 @@ Note that the opposite reversed translation is not implemented yet:
 Swift/Objective-C error-throwing methods aren't imported to Kotlin as
 exception-throwing.
 
+### Suspending functions
+
+> Support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
+> It may be dropped or changed at any time.
+> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
+>
+{type="warning"}
+
+Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
+functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
+in Swift/Objective-C terminology.
+
+Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
+`async` functions without using the completion handlers. Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
+for details.
+
+Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+
 ### Extensions and category members
 
 Members of Objective-C categories and Swift extensions are imported to Kotlin
@@ -156,8 +229,35 @@ with an additional receiver parameter. These types include:
 
 Kotlin singleton (made with an `object` declaration, including `companion object`)
 is imported to Swift/Objective-C as a class with a single instance.
-The instance is available through the factory method, i.e. as
-`[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift.
+
+The instance is available through the `shared` and `companion` properties.
+
+For the following Kotlin code:
+
+```kotlin
+object MyObject {
+    val x = "Some value"
+}
+
+class MyClass {
+    companion object {
+        val x = "Some value"
+    }
+}
+```
+
+Access these objects as follows: 
+
+```swift
+MyObject.shared
+MyObject.shared.x
+MyClass.companion
+MyClass.Companion.shared
+```
+
+> Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
+> 
+{type="note"}
 
 ### NSNumber
 
@@ -171,7 +271,7 @@ supporting all corresponding operations.
 when used as a Swift/Objective-C parameter type or return value.
 The reason is that `NSNumber` type doesn't provide enough information
 about a wrapped primitive value type, i.e. `NSNumber` is statically not known
-to be a e.g. `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
+to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be cast to/from `NSNumber` manually (see [below](#casting-between-mapped-types)).
 
 ### NSMutableString
@@ -193,7 +293,7 @@ The same holds for `MutableMap`.
 ### Function types
 
 Kotlin function-typed objects (e.g. lambdas) are converted to 
-Swift functions / Objective-C blocks. However there is a difference in how
+Swift functions / Objective-C blocks. However, there is a difference in how
 types of parameters and return values are mapped when translating a function
 and a function type. In the latter case primitive types are mapped to their
 boxed representation. Kotlin `Unit` return value is represented
@@ -285,7 +385,7 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 
 #### Constraints
 
-In Kotlin you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
+In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
 in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-null
 upper bound will make Objective-C methods/properties non-null.
 
@@ -344,7 +444,7 @@ The overriding constructor must have the same parameter names and types as the o
 To override different methods with clashing Kotlin signatures, you can add a
 `@Suppress("CONFLICTING_OVERLOADS")` annotation to the class.
 
-By default the Kotlin/Native compiler doesn't allow calling a non-designated
+By default, the Kotlin/Native compiler doesn't allow calling a non-designated
 Objective-C initializer as a `super(...)` constructor. This behaviour can be
 inconvenient if the designated initializers aren't marked properly in the Objective-C
 library. Adding a `disableDesignatedInitializerChecks = true` to the `.def` file for
@@ -354,6 +454,74 @@ this library would disable these compiler checks.
 
 See [Interoperability with C](native-c-interop.md) for an example case where the library uses some plain C features,
 such as unsafe pointers, structs, and so on.
+
+## Export of KDoc comments to generated Objective-C headers
+
+> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
+> It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
+>
+{type="warning"}
+
+By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating an Objective-C header.  
+For example, the following Kotlin code with KDoc: 
+
+```kotlin
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
+fun printSum(a: Int, b: Int) = println(a.toLong() + b)
+```
+
+will produce an Objective-C declaration without any comments:
+
+```objc
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+```
+
+</tab>
+</tabs>
+
+After that the Objective-C header will contain a corresponding comment:
+
+```objc
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+Known limitations:
+* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is experimental, 
+so libraries compiled with this flag might be incompatible with other compiler versions.
+* KDoc comments are mostly exported "as is" , many KDoc features (for example, `@property`) are not supported.
 
 ## Unsupported
 

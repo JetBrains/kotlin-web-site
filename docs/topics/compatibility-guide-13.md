@@ -1,6 +1,8 @@
 [//]: # (title: Compatibility guide for Kotlin 1.3)
 
-[*Keeping the Language Modern* and *Comfortable Updates*](kotlin-evolution.md) are among the fundamental principles in Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
+_[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental
+principles in Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed,
+and the latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler warnings, this document summarizes them all, providing a complete reference for migration from Kotlin 1.2 to Kotlin 1.3.
 
@@ -48,7 +50,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: getter-target annotations on annotation constructor parameters are not applied
 > - \>=1.3: getter-target annotations on annotation constructor parameters are properly applied and written to the generated code 
 
-### Missing errors in class constructor’s `@get:` annotations
+### Missing errors in class constructor's `@get:` annotations
 
 > **Issue**: [KT-19628](https://youtrack.jetbrains.com/issue/KT-19628)
 >
@@ -77,7 +79,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > **Deprecation cycle**:
 >
 > - <1.3: the compiler could miss such assertions when type inference was involved, allowing potential `null` propagation during compilation against binaries (see Issue for details).
-> - \>=1.3: the compiler generates missed assertions. This can case code which was (erroneously) passing `null`s here fail faster.  
+> - \>=1.3: the compiler generates missed assertions. This can cause code which was (erroneously) passing `null`s here fail faster.  
  `-XXLanguage:-StrictJavaNullabilityAssertions` can be used to temporarily return to the pre-1.3 behavior. Support for this flag will be removed in the next major release.
 
 ### Unsound smartcasts on enum members
@@ -320,7 +322,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: in case `toIndex` in the invocation of `Array.copyOfRange` is greater than the array size, the missing elements in range fill be filled with `null`s, violating soundness of the Kotlin type system. 
 > - \>=1.3: check that `toIndex` is in the array bounds, and throw exception if it isn't
 
-### Progressions of ints and longs with a step of `Int.MIN_VALUE` and `Long.MIN_VALUE` are outlawed and won’t be allowed to be instantiated
+### Progressions of ints and longs with a step of `Int.MIN_VALUE` and `Long.MIN_VALUE` are outlawed and won't be allowed to be instantiated
 
 > **Issue**: [KT-17176](https://youtrack.jetbrains.com/issue/KT-17176)
 >

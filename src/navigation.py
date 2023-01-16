@@ -20,7 +20,7 @@ def process_nav_item(request_path: str, data: Dict):
             data['url'] = url
 
         if 'urlPattern' in data:
-            data['is_active'] = re.compile(data['urlPattern']).match(request_path)
+            data['is_active'] = bool(re.compile(data['urlPattern']).match(request_path))
         elif 'url' in data:
             data['is_active'] = request_path.startswith(data['url'])
         else:
@@ -52,3 +52,12 @@ def process_video_nav_item(data: Dict) -> Dict:
 
 def is_external(link: str):
     return 'www.youtube.com' not in link
+
+
+def get_current_url(subnav: Dict) -> str:
+    current = next((item for item in iter(subnav) if item['is_active']), None)
+
+    if current and 'url' in current:
+        return current['url']
+    else:
+        return '/'

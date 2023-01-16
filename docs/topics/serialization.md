@@ -48,21 +48,15 @@ or [Apache Avro](https://avro.apache.org/). For detailed information about avail
 
 ## Example: JSON serialization
 
-Let’s take a look at how to serialize Kotlin objects into JSON.
+Let's take a look at how to serialize Kotlin objects into JSON.
 
-Before starting, you’ll need to configure your build script so that you can use Kotlin serialization tools in your project:
+Before starting, you'll need to configure your build script so that you can use Kotlin serialization tools in your project:
 
-1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin(“plugin.serialization”)`
+1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin("plugin.serialization")`
 in the Kotlin Gradle DSL).
 
-    <tabs>
-
-    ```groovy
-    plugins {
-        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-        id 'org.jetbrains.kotlin.plugin.serialization' version '%kotlinVersion%'  
-    }
-    ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     plugins {
@@ -71,17 +65,23 @@ in the Kotlin Gradle DSL).
     }
     ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    plugins {
+        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '%kotlinVersion%'  
+    }
+    ```
+
+    </tab>
     </tabs>
 
 2. Add the JSON serialization library dependency:`org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%`
 
-    <tabs>
-
-    ```groovy
-    dependencies {
-        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%'
-    } 
-    ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
     dependencies {
@@ -89,13 +89,26 @@ in the Kotlin Gradle DSL).
     } 
     ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    dependencies {
+        implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%'
+    } 
+    ```
+
+    </tab>
     </tabs>
 
-Now you're ready to use the serialization API in your code.
+Now you're ready to use the serialization API in your code. The API is located in the the `kotlinx.serialization` package
+and its format-specific subpackages such as `kotlinx.serialization.json`.
 
 First, make a class serializable by annotating it with `@Serializable`.
 
 ```kotlin
+import kotlinx.serialization.Serializable
+
 @Serializable
 data class Data(val a: Int, val b: String)
 ```
@@ -103,7 +116,16 @@ data class Data(val a: Int, val b: String)
 You can now serialize an instance of this class by calling `Json.encodeToString()`.
 
 ```kotlin
-Json.encodeToString(Data(42, "str"))
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
+
+@Serializable
+data class Data(val a: Int, val b: String)
+
+fun main() {
+   val json = Json.encodeToString(Data(42, "str"))
+}
 ```
 
 As a result, you get a string containing the state of this object in the JSON format: `{"a": 42, "b": "str"}`
@@ -118,7 +140,16 @@ val jsonList = Json.encodeToString(dataList)
 To deserialize an object from JSON, use the `decodeFromString()` function:
 
 ```kotlin
-val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.decodeFromString
+
+@Serializable
+data class Data(val a: Int, val b: String)
+
+fun main() {
+   val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
+}
 ```
- 
+
 For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).

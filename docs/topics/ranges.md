@@ -5,10 +5,16 @@ function from the `kotlin.ranges` package and its operator form `..`. Usually, `
 `!in` functions.
 
 ```kotlin
-if (i in 1..4) {  // equivalent of 1 <= i && i <= 4
-    print(i)
+fun main() {
+    val i = 1 
+//sampleStart
+    if (i in 1..4) { // equivalent of i >= 1 && i <= 4
+        print(i)
+    }
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
 
 Integral type ranges ([`IntRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-int-range/index.html),
 [`LongRange`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/-long-range/index.html),
@@ -63,7 +69,7 @@ To iterate a number range which does not include its end element, use the
 
 fun main() {
 //sampleStart
-    for (i in 1 until 10) {       // i in [1, 10), 10 is excluded
+    for (i in 1 until 10) {       // i in 1 until 10, excluding 10
         print(i)
     }
 //sampleEnd
@@ -174,6 +180,17 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+If you already have a progression, you can iterate it in reverse order with the [`reversed`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/reversed.html) function:
+
+```kotlin
+fun main() {
+//sampleStart
+    for (i in (1..4).reversed()) print(i)
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
 
 Progressions implement `Iterable<N>`, where `N` is `Int`, `Long`, or `Char` respectively, so you can use them in various
 [collection functions](collection-operations.md) like `map`, `filter`, and other.

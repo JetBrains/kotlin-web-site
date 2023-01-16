@@ -58,8 +58,8 @@ decide to migrate module by module, or continue with gradual migration for modif
 
 ## Migration to a new code style
 
-Switching to the Kotlin Coding Conventions code style can be done in __Settings | Editor | Code Style | Kotlin__
-dialog. Switch scheme to __Project__ and activate __Set from... | Predefined Style | Kotlin Style Guide__.
+Switching to the Kotlin Coding Conventions code style can be done in **Settings/Preferences** | **Editor** | **Code Style** | **Kotlin**
+dialog. Switch scheme to **Project** and activate **Set from...** | **Kotlin style guide**.
 
 In order to share those changes for all project developers `.idea/codeStyle` folder have to be committed to VCS.
 
@@ -85,7 +85,7 @@ Add `kotlin.code.style official` property to root `pom.xml` project file.
 >
 {type="warning"}
 
-After updating your code style settings, activate __Reformat Code__ in the project view on the desired scope.
+After updating your code style settings, activate **Reformat Code** in the project view on the desired scope.
 
 <img src="reformat-code.png" alt="Reformat code" width="500"/>
 
@@ -95,9 +95,10 @@ inspection will show formatting problems only in modified files. Such files are 
 
 ## Store old code style in project
 
-It's always possible to explicitly set the IntelliJ IDEA code style as the correct code style for the project.
-To do so, switch to the **Project** scheme in **Settings | Editor | Code Style | Kotlin** and select
-**Kotlin obsolete IntelliJ IDEA codestyle** in the **Use defaults from:** on the **Load** tab.
+It's always possible to explicitly set the IntelliJ IDEA code style as the correct code style for the project:
+
+1. In **Settings/Preferences** | **Editor** | **Code Style** | **Kotlin**, switch to the **Project** scheme.
+2. Open the **Load/Save** tab and in the **Use defaults from** select **Kotlin obsolete IntelliJ IDEA codestyle**.
 
 In order to share the changes across the project developers `.idea/codeStyle` folder, it has to be committed to VCS.
 Alternatively, **kotlin.code.style**=**obsolete** can be used for projects configured with Gradle or Maven.

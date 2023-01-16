@@ -3,120 +3,133 @@
 [Gradle](https://gradle.org) is a build system that is very commonly used in the Java, Android, and other ecosystems. It is the default choice for Kotlin/Native and Multiplatform
 when it comes to build systems.
 
-While most IDE's including [IntelliJ IDEA](https://www.jetbrains.com/idea) can generate the corresponding Gradle file, we're going to 
-take a look at how to create this manually, to have a better understanding of how things work under the covers. If you'd like to use the IDE, check out 
-[Using IntelliJ IDEA](native-get-started.md). 
+While most IDEs, including [IntelliJ IDEA](https://www.jetbrains.com/idea), can generate necessary Gradle files,
+this tutorial covers how to create them manually to provide a better understanding of how things work under the hood.
 
-Gradle supports two languages for build scripts:
+To get started, install the latest version of [Gradle](https://gradle.org/install/).
 
-- Groovy scripts in `build.gradle` files
-- Kotlin scripts in `build.gradle.kts` files
+> If you would like to use an IDE, check out the [Using IntelliJ IDEA](native-get-started.md) tutorial.
+> 
+{type="note"}
 
-The Groovy language is the first supported scripting language for Gradle, 
-it leverages the power of dynamic typing and runtime features of the language. It is also possible to use Kotlin in Gradle scripts. Being a statically-typed language, it plays better with IDEs when 
-it comes to compilation and error detection. 
+## Create project files
 
-Either can be used and samples will show the syntax for both languages.
+1. Create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` Gradle build file with the following content:
 
-## Create project files 
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
-First, create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` 
-Gradle build file with the following contents:
-
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64('native') { // on macOS
-  // linuxX64('native') // on Linux
-  // mingwX64('native') // on Windows
-    binaries {
-      executable()
+    ```kotlin
+    // build.gradle.kts
+    plugins {
+        kotlin("multiplatform") version "%kotlinVersion%"
     }
-  }
-}
 
-wrapper {
-  gradleVersion = '%gradleVersion%'
-  distributionType = 'BIN'
-}
-```
-
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  macosX64("native") { // on macOS
-  // linuxX64("native") // on Linux
-  // mingwX64("native") // on Windows
-    binaries {
-      executable()
+    repositories {
+        mavenCentral()
     }
-  }
-}
 
-tasks.withType<Wrapper> {
-  gradleVersion = "%gradleVersion%"
-  distributionType = Wrapper.DistributionType.BIN
-}
-```
+    kotlin {
+        macosX64("native") { // on macOS
+        // linuxX64("native") // on Linux
+        // mingwX64("native") // on Windows
+            binaries {
+                executable()
+            }
+        }
+    }
 
-</tabs>
+    tasks.withType<Wrapper> {
+        gradleVersion = "%gradleVersion%"
+        distributionType = Wrapper.DistributionType.BIN
+    }
+    ```
 
-The prepared project sources can be directly downloaded from Github:
+    </tab>
+    <tab title="Groovy" group-key="groovy">
 
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-macos.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-macos.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-linux.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-linux.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-windows.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-windows.zip)
+    ```groovy
+    // build.gradle
+    plugins {
+        id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    }
 
-Next, create an empty `settings.gradle` or `settings.gradle.kts` file in the project folder.
+    repositories {
+        mavenCentral()
+    }
 
-Depending on the target platform, different [functions](mpp-supported-platforms.md),
-such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
-are used for creating the Kotlin target. The function name is the platform for which you are compiling your code. 
-These functions optionally take the target name as a parameter, which is `"native"` in our case. 
-The specified _target name_ is used to generate the source paths and task names in the project.  
+    kotlin {
+        macosX64('native') { // on macOS
+        // linuxX64('native') // on Linux
+        // mingwX64('native') // on Windows
+            binaries {
+                executable()
+            }
+        }
+    }
 
-By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` folders, where `main` is for the source code
-and `test` is for tests. `<target name>` corresponds to the target platform (in this case `native`), as specified in the build file. 
+    wrapper {
+        gradleVersion = '%gradleVersion%'
+        distributionType = 'BIN'
+    }
+    ```
 
-Create a folder `src/nativeMain/kotlin` and inside it place the file `hello.kt` with the following contents:
+    </tab>
+    </tabs>
 
-```kotlin
-fun main() {
-  println("Hello Kotlin/Native!")
-}
-```
+   You can use different [target presets](multiplatform-dsl-reference.md#targets), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
+   to define the corresponding target platform. The preset name describes a platform for which you are compiling your code.
+   These target presets optionally take the target name as a parameter, which is `native` in this case.
+   The target name is used to generate the source paths and task names in the project.
 
-## Build the project
+2. Create an empty `settings.gradle` or `settings.gradle.kts` file in the project directory.
 
-From the root project folder, execute the build by running 
+3. Create a directory `src/nativeMain/kotlin` and place inside the `hello.kt` file with the following content:
+   
+   ```kotlin
+   fun main() {
+       println("Hello, Kotlin/Native!")
+   }
+   ```
 
-`gradle nativeBinaries`
+   By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` directories, where `main` is for the source code
+   and `test` is for tests. `<target name>` corresponds to the target platform (in this case `native`), as specified in the build file.
 
-This should create a folder `build/bin/native` with two subfolders `debugExecutable` and `releaseExecutable` with the corresponding binary.
-By default, the binary's name is the same as the project folder. 
+Now you are ready to build your project and run the application. 
+
+## Build and run the application
+
+1. From the root project directory, run the build command:
+
+   ```bash
+   gradle nativeBinaries
+   ```
+
+   This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and `releaseExecutable`. They contain corresponding binary files.  
+
+   By default, the name of the binary file is the same as the project directory. 
+
+2. To run the project, execute the following command:
+
+   ```bash
+   build/bin/native/debugExecutable/<project_name>.kexe
+   ```
+
+   Terminal prints "Hello, Kotlin/Native!".
 
 ## Open the project in an IDE
 
-Any IDE that supports Gradle should allow for opening the project in the IDE. In the case of [IntelliJ IDEA](https://www.jetbrains.com/idea),
-just open the project folder, and it will automatically detect it as Kotlin/Native project. 
+Now you can open your project in any IDE that supports Gradle. If you use IntelliJ IDEA:
+
+1. Select **File** | **Open...**.
+2. Select the project directory and click **Open**.  
+   IntelliJ IDEA will automatically detect it as Kotlin/Native project.
+
+> If you face any problem with the project, IntelliJ IDEA will show the error message in the **Build** tab.
+>
+{type="note"}
 
 ## What's next?
 
-Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](mpp-dsl-reference.md).
+Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
 

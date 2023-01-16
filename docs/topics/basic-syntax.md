@@ -1,5 +1,11 @@
 [//]: # (title: Basic syntax)
 
+This is a collection of basic syntax elements with examples. At the end of every section, you'll find a link to
+a detailed description of the related topic.
+
+You can also learn all the Kotlin essentials with the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18)
+on JetBrains Academy.
+
 ## Package definition and imports
 
 Package specification should be at the top of the source file.
@@ -236,7 +242,7 @@ Block comments in Kotlin can be nested.
 
 ```kotlin
 /* The comment starts here
-/* contains a nested comment */     
+/* contains a nested comment *&#8288;/     
 and ends here. */
 ```
 
@@ -260,7 +266,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-See [String templates](basic-types.md#string-templates) for details.
+See [String templates](strings.md#string-templates) for details.
 
 ## Conditional expressions
 

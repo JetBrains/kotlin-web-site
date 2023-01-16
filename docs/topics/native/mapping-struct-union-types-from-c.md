@@ -56,49 +56,21 @@ scale well for big projects that have hundreds of files and libraries.
 It is then better to use the Kotlin/Native compiler with a build system, as it
 helps to download and cache the Kotlin/Native compiler binaries and libraries with
 transitive dependencies and run the compiler and tests.
-Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin) plugin.
+Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin) plugin.
 
 We covered the basics of setting up an IDE compatible project with Gradle in the
 [A Basic Kotlin/Native Application](native-gradle.md)
 tutorial. Please check it out if you are looking for detailed first steps
 and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
-In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native and [multiplatform](mpp-discover-project.md#multiplatform-plugin) builds with Gradle.
+In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native and [multiplatform](multiplatform-discover-project.md#multiplatform-plugin) builds with Gradle.
 
 First, create a project folder. All the paths in this tutorial will be relative to this folder. Sometimes
 the missing directories will have to be created before any new files can be added.
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64('native') {  // on Linux
-  // macosX64('native') { // on macOS
-  // mingwX64('native') { //on Windows
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = '%gradleVersion%'
-  distributionType = 'BIN'
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -111,7 +83,8 @@ repositories {
 
 kotlin {
   linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     val main by compilations.getting
     val interop by main.cinterops.creating
@@ -128,13 +101,41 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64('native') { // on Linux
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
+  // mingwX64('native') { // on Windows
+    compilations.main.cinterops {
+      interop 
+    }
+    
+    binaries {
+      executable()
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = '%gradleVersion%'
+  distributionType = 'BIN'
+}
+```
+
+</tab>
 </tabs>
-
-The prepared project sources can be directly downloaded from Github:
-
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-macos-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-macos-c.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-linux-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-linux-c.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-groovy-windows-c.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-app-kotlin-windows-c.zip)
 
 The project file configures the C interop as an additional step of the build.
 Let's move the `interop.def` file to the `src/nativeInterop/cinterop` directory.
@@ -142,11 +143,11 @@ Gradle recommends using conventions instead of configurations,
 for example, the source files are expected to be in the `src/nativeMain/kotlin` folder.
 By default, all the symbols from C are imported to the `interop` package,
 you may want to import the whole package in our `.kt` files.
-Check out the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
+Check out the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin)
 plugin documentation to learn about all the different ways you could configure it.
 
 Create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
-to see how C declarations are visible from Kotlin:
+to see how C struct and union declarations are visible from Kotlin:
 
 ```kotlin
 import interop.*
@@ -164,9 +165,9 @@ fun main() {
 Now you are ready to
 [open the project in IntelliJ IDEA](native-get-started.md)
 and to see how to fix the example project. While doing that,
-see how C primitive types are mapped into Kotlin/Native.
+see how C struct and union types are mapped into Kotlin/Native.
 
-## Primitive types in Kotlin
+## Struct and union types in Kotlin
 
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions, `struct`, and `union`:
@@ -400,4 +401,3 @@ Continue exploring the C language types and their representation in Kotlin/Nativ
 - [Mapping strings from C](mapping-strings-from-c.md)
 
 The [C Interop documentation](native-c-interop.md) covers more advanced scenarios of the interop.
-

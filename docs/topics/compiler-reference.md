@@ -3,11 +3,13 @@
 Each release of Kotlin includes compilers for the supported targets: 
 JVM, JavaScript, and native binaries for [supported platforms](native-overview.md#target-platforms).
 
-These compilers are used by the IDE when you click the __Compile__ or __Run__ button for your Kotlin project.  
+These compilers are used by:
+* The IDE, when you click the __Compile__ or __Run__ button for your Kotlin project.
+* Gradle, when you call `gradle build` in a console or in the IDE.
+* Maven, when you call `mvn compile` or `mvn test-compile` in a console or in the IDE.
 
 You can also run Kotlin compilers manually from the command line as described 
 in the [Working with command-line compiler](command-line.md) tutorial. 
-
 
 ## Compiler options
 
@@ -15,13 +17,13 @@ Kotlin compilers have a number of options for tailoring the compiling process.
 Compiler options for different targets are listed on this page together with a description of each one.
 
 There are several ways to set the compiler options and their values (_compiler arguments_):
-- In IntelliJ IDEA, write in the compiler arguments in the __Additional command-line parameters__ text box in 
-__Settings | Build, Execution, Deployment | Compilers | Kotlin Compiler__
-- If you're using Gradle, specify the compiler arguments in the `kotlinOptions` property of the Kotlin compilation task.
-For details, see [Gradle](gradle.md#compiler-options).
-- If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
+* In IntelliJ IDEA, write in the compiler arguments in the **Additional command line parameters** text box in
+  **Settings/Preferences** | **Build, Execution, Deployment** | **Compiler** | **Kotlin Compiler**.
+* If you're using Gradle, specify the compiler arguments in the `compilerOptions` property of the Kotlin compilation task.
+For details, see [Gradle compiler options](gradle-compiler-options.md#how-to-define-options).
+* If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
 For details, see [Maven](maven.md#specifying-compiler-options).
-- If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
+* If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
 
 For example: 
 
@@ -125,6 +127,11 @@ If the files reside in locations different from the current directory, use relat
 $ kotlinc @options/compiler.options hello.kt
 ```
 
+### -opt-in _annotation_
+
+Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
+fully qualified name.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
@@ -151,9 +158,19 @@ environment.
 
 Use a custom JDK home directory to include into the classpath if it differs from the default `JAVA_HOME`.
 
+### -Xjdk-release=version
+
+Specify the target version of the generated JVM bytecode. Limit the API of the JDK in the classpath to the specified Java version. 
+Automatically sets [`-jvm-target version`](#jvm-target-version).
+Possible values are `1.8`, `9`, `10`, ..., `19`. The default value is `%defaultJvmTargetVersion%`.
+
+> This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
+>
+{type="note"}
+
 ### -jvm-target _version_
 
-Specify the target version of the generated JVM bytecode. Possible values are `1.6` (DEPRECATED), `1.8`, `9`, `10`, `11`, `12`, `13`, `14`, `15` and `16`.
+Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `19`.
 The default value is `%defaultJvmTargetVersion%`.
 
 ### -java-parameters
@@ -265,7 +282,7 @@ Produce an application for running unit tests from the project.
 
 ### -generate-worker-test-runner (-trw)
 
-Produce an application for running unit tests in a [worker thread](native-concurrency.md#workers).
+Produce an application for running unit tests in a [worker thread](native-immutability.md#concurrency-in-kotlin-native).
 
 ### -generate-no-exit-test-runner (-trn)
 

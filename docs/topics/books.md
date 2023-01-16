@@ -18,7 +18,7 @@ experienced programmers!
 
 From Bruce Eckel, author of the multi-award-winning Thinking in C++ and Thinking in Java, 
 and Svetlana Isakova, Kotlin Developer Advocate at JetBrains, comes a book that breaks the language concepts into 
-small, easy-to-digest “atoms”, along with a free course consisting of exercises supported by hints and solutions 
+small, easy-to-digest "atoms", along with a free course consisting of exercises supported by hints and solutions 
 directly inside IntelliJ IDEA!
 
 </td>
@@ -34,8 +34,8 @@ directly inside IntelliJ IDEA!
 This hands-on book helps you learn the Kotlin language with a unique method that goes beyond syntax and how-to manuals 
 and teaches you how to think like a great Kotlin developer. 
 
-You’ll learn everything from language fundamentals to collections, generics, lambdas, and higher-order functions. 
-Along the way, you’ll get to play with both object-oriented and functional programming. 
+You'll learn everything from language fundamentals to collections, generics, lambdas, and higher-order functions. 
+Along the way, you'll get to play with both object-oriented and functional programming. 
 
 If you want to really understand Kotlin, this is the book for you.
 
@@ -68,7 +68,7 @@ Chapter 6, covering the Kotlin type system, and chapter 11, covering DSLs, are a
 [Kotlin Programming: The Big Nerd Ranch Guide](https://www.amazon.com/Kotlin-Programming-Nerd-Ranch-Guide/dp/0135161630)
 
 In this book you will learn to work effectively with the Kotlin language through carefully considered examples designed 
-to teach you Kotlin’s elegant style and features. 
+to teach you Kotlin's elegant style and features. 
 
 Starting from first principles, you will work your way to advanced usage of Kotlin, empowering you to create programs 
 that are more reliable with less code.
@@ -84,10 +84,10 @@ that are more reliable with less code.
 
 [Programming Kotlin](https://pragprog.com/book/vskotlin/programming-kotlin) is written by Venkat Subramaniam. 
 
-Programmers don’t just use Kotlin, they love it. Even Google has adopted it as a first-class language for Android development. 
+Programmers don't just use Kotlin, they love it. Even Google has adopted it as a first-class language for Android development. 
 
 With Kotlin, you can intermix imperative, functional, and object-oriented styles of programming and benefit from the approach 
-that’s most suitable for the problem at hand. 
+that's most suitable for the problem at hand. 
 
 Learn to use the many features of this highly concise, fluent, elegant, and expressive statically typed language with easy-to-understand examples. 
 

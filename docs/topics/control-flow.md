@@ -21,7 +21,7 @@ if (a > b) {
 val max = if (a > b) a else b
 ```
 
-Branches of `if` branches can be blocks. In this case, the last expression is the value of a block:
+Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
 
 ```kotlin
 val max = if (a > b) {
@@ -45,7 +45,7 @@ Its simple form looks like this.
 when (x) {
     1 -> print("x == 1")
     2 -> print("x == 2")
-    else -> { // Note the block
+    else -> {
         print("x is neither 1 nor 2")
     }
 }
@@ -59,9 +59,46 @@ individual branches are ignored. Just like with `if`, each branch can be a block
 is the value of the last expression in the block.
 
 The `else` branch is evaluated if none of the other branch conditions are satisfied.
-If `when` is used as an expression, the `else` branch is mandatory,
+
+If `when` is used as an _expression_, the `else` branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions,
 for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+
+```kotlin
+enum class Bit {
+  ZERO, ONE
+}
+
+val numericValue = when (getRandomBit()) {
+    Bit.ZERO -> 0
+    Bit.ONE -> 1
+    // 'else' is not required because all cases are covered
+}
+```
+
+In `when` _statements_, the `else` branch is mandatory in the following conditions:
+* `when` has a subject of an `Boolean`, [`enum`](enum-classes.md),
+or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
+* branches of `when` don't cover all possible cases for this subject.
+
+```kotlin
+enum class Color {
+  RED, GREEN, BLUE
+}
+
+when (getColor()) {  
+    Color.RED -> println("red")
+    Color.GREEN -> println("green")   
+    Color.BLUE -> println("blue")
+    // 'else' is not required because all cases are covered
+}
+
+when (getColor()) {
+  Color.RED -> println("red") // no branches for GREEN and BLUE
+  else -> println("not red") // 'else' is required
+}
+```
+
 
 To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
 
@@ -76,7 +113,7 @@ You can use arbitrary expressions (not only constants) as branch conditions
 
 ```kotlin
 when (x) {
-    parseInt(s) -> print("s encodes x")
+    s.toInt() -> print("s encodes x")
     else -> print("s does not encode x")
 }
 ```
@@ -118,10 +155,10 @@ You can capture *when* subject in a variable using following syntax:
 
 ```kotlin
 fun Request.getBody() =
-        when (val response = executeRequest()) {
-            is Success -> response.body
-            is HttpError -> throw HttpException(response.status)
-        }
+    when (val response = executeRequest()) {
+        is Success -> response.body
+        is HttpError -> throw HttpException(response.status)
+    }
 ```
 
 The scope of variable introduced in *when* subject is restricted to the body of this *when*.

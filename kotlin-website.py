@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import threading
+import re
 from os import path
 from urllib.parse import urlparse, urljoin, ParseResult
 
@@ -21,7 +22,7 @@ from yaml import FullLoader
 from src.Feature import Feature
 from src.dist import get_dist_pages
 from src.github import assert_valid_git_hub_url
-from src.navigation import process_video_nav, process_nav
+from src.navigation import process_video_nav, process_nav, get_current_url
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
 from src.externals import process_nav_includes
@@ -33,6 +34,7 @@ from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
 from src.search import build_search_indices
 from src.sitemap import generate_sitemap, generate_temporary_sitemap
+from src.ktl_components import KTLComponentExtension
 
 app = Flask(__name__, static_folder='_assets')
 app.config.from_pyfile('mysettings.py')
@@ -112,6 +114,17 @@ def get_nav():
     process_nav(request.path, nav)
     return nav
 
+def get_countries_size():
+    def match_string(string):
+        return re.search(r'\((.*?)\)', string.get("location")).group(1)
+    matches = set(map(match_string, site_data['universities']))
+    return len(matches)
+
+
+def get_education_courses():
+    return [{attr: x[attr] for attr in ["title", "location", "courses"]}
+            for x in site_data['universities']]
+
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
@@ -123,7 +136,7 @@ def get_nav_impl():
 def get_kotlin_features():
     features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
     features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
+    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml")), Loader=FullLoader):
         file_path = path.join(features_dir, feature_meta['content_file'])
         with open(file_path, encoding='utf-8') as f:
             content = f.read()
@@ -142,10 +155,14 @@ def add_year_to_context():
     }
 
 
+app.jinja_env.add_extension(KTLComponentExtension)
+
+
 @app.context_processor
 def add_data_to_context():
+    nav = get_nav()
     return {
-        'nav': get_nav(),
+        'nav': nav,
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -155,7 +172,8 @@ def add_data_to_context():
             'text_using_gradle': app.config['TEXT_USING_GRADLE'],
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
-        }
+        },
+        'headerCurrentUrl': get_current_url(nav['subnav']['content']),
     }
 
 @app.template_filter('get_domain')
@@ -179,12 +197,6 @@ def autoversion_filter(filename):
     original = urlparse(filename)._asdict()
     original.update(query=original.get('query') + '&v=' + asset_version)
     return ParseResult(**original).geturl()
-
-@app.route('/data/events.json')
-def get_events():
-    with open(path.join(data_folder, "events.xml"), encoding="UTF-8") as events_file:
-        events = xmltodict.parse(events_file.read())['events']['event']
-        return Response(json.dumps(events, cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/data/cities.json')
@@ -225,13 +237,43 @@ def kotlin_docs_pdf():
     return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
 
 
+@app.route('/_next/<path:path>')
+def static_file(path):
+    return send_from_directory('out/_next/', path)
+
+
 @app.route('/community/')
 def community_page():
-    return render_template('pages/community.html')
+    return send_file(path.join(root_folder, 'out', 'community/index.html'))
+
+
+@app.route('/community/events/')
+def community_events_page():
+    return send_file(path.join(root_folder, 'out', 'community/events/index.html'))
+
+
+@app.route('/community/user-groups/')
+def community_user_groups_page():
+    return send_file(path.join(root_folder, 'out', 'community/user-groups/index.html'))
+
 
 @app.route('/education/')
 def education_page():
-    return render_template('pages/education/index.html')
+    return render_template(
+        'pages/education/index.html',
+        universities_count=len(site_data['universities']),
+        countries_count=get_countries_size()
+    )
+
+@app.route('/education/why-teach-kotlin.html')
+def why_teach_page():
+    return render_template('pages/education/why-teach-kotlin.html')
+
+
+@app.route('/education/courses.html')
+def education_courses():
+    return render_template('pages/education/courses.html', universities_data=get_education_courses())
+
 
 @app.route('/')
 def index_page():
@@ -291,6 +333,9 @@ def validate_links_weak(page, page_path):
 
         href = urlparse(urljoin('/' + page_path, link['href']))
         if href.scheme != '':
+            continue
+
+        if page_path == 'community/slackccugl':
             continue
 
         endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
@@ -386,7 +431,10 @@ def generate_redirect_pages():
                         url_list = url_from if isinstance(url_from, list) else [url_from]
 
                         for url in url_list:
-                            app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
+                            if file == 'api.yml' and path.isfile(path.join(root_folder, url[1:])):
+                                print("The file " + url + " is already exist.")
+                            else:
+                                app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
 
                 except yaml.YAMLError as exc:
                     sys.stderr.write('Cant parse data file ' + file + ': ')
@@ -516,12 +564,11 @@ if __name__ == '__main__':
             # temporary sitemap
             generate_temporary_sitemap()
         elif argv_copy[1] == "index":
-            build_search_indices(get_dist_pages(), site_data['releases']['latest']['version'])
+            build_search_indices(get_dist_pages())
+        elif argv_copy[1] == "reference-pdf":
+            generate_pdf("kotlin-docs.pdf", site_data)
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)
     else:
-        app.run(host="0.0.0.0", debug=True, threaded=True, **{"extra_files": {
-            '/src/data/_nav.yml',
-            *glob.glob("/src/pages-includes/**/*", recursive=True),
-        }})
+        app.run(host="0.0.0.0", port=8080, debug=True, threaded=True, use_debugger=False, use_reloader=False)

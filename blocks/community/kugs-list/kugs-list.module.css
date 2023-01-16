@@ -1,0 +1,79 @@
+.wrapper {
+    padding: 64px 0;
+}
+
+.logo {
+    display: none;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.countriesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.region:not(:last-child) {
+    margin-bottom: 64px;
+}
+
+.citiesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.citiesList li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.countrySingle {
+    break-inside: avoid;
+    margin-bottom: 32px;
+}
+
+.countrySingle.canBreak {
+    break-inside: auto;
+}
+
+.countrySingle.newColumn {
+    break-before: column;
+}
+
+.kugLink {
+    line-height: 24px;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 96px 0;
+    }
+
+    .countriesList {
+        column-count: 4;
+        column-gap: 32px;
+    }
+
+    .region:not(:last-child) {
+        margin-bottom: 88px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .countriesList {
+        column-count: 5;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        display: block;
+        margin-right: 24px;
+        width: 100px;
+    }
+}

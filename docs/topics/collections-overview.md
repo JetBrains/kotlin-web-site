@@ -1,7 +1,7 @@
 [//]: # (title: Collections overview)
 
 The Kotlin Standard Library provides a comprehensive set of tools for managing _collections_ – groups of a variable number 
-of items (possibly zero) that share significance to the problem being solved and are operated upon commonly.
+of items (possibly zero) that are significant to the problem being solved and are commonly operated on.
 
 Collections are a common concept for most programming languages, so if you're familiar with, for example, Java or Python 
 collections, you can skip this introduction and proceed to the detailed sections. 
@@ -10,13 +10,14 @@ A collection usually contains a number of objects (this number may also be zero)
 are called _elements_ or _items_. For example, all the students in a department form a collection that can be used to
 calculate their average age. 
 
-The  following collection types are relevant for Kotlin:
+The following collection types are relevant for Kotlin:
 
 * _List_ is an ordered collection with access to elements by indices – integer numbers that reflect their position. 
-Elements can occur more than once in a list. An example of a list is a sentence: it's a group of words, their order is 
-important, and they can repeat. 
+Elements can occur more than once in a list. An example of a list is a telephone number: it's a group of digits, their
+order is important, and they can repeat. 
 * _Set_ is a collection of unique elements. It reflects the mathematical abstraction of set: a group of objects without 
-repetitions. Generally, the order of set elements has no significance. For example, an alphabet is a set of letters. 
+repetitions. Generally, the order of set elements has no significance. For example, the numbers on lottery tickets form a
+set: they are unique, and their order is not important.
 * _Map_ (or _dictionary_) is a set of key-value pairs. Keys are unique, and each of them maps to exactly one value. The
  values can be duplicates. Maps are useful for storing logical connections between objects, for example, an employee's ID 
  and their position.
@@ -46,9 +47,11 @@ Although, if you try to reassign a `val` collection, you'll get a compilation er
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
-    numbers.add("five")   // this is OK    
+    numbers.add("five")   // this is OK
+    println(numbers)
     //numbers = mutableListOf("six", "seven")      // compilation error
 //sampleEnd
+
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -67,7 +70,11 @@ Below is a diagram of the Kotlin collection interfaces:
 
 ![Collection interfaces hierarchy](collections-diagram.png){width="500"}
 
-Let's walk through the interfaces and their implementations.
+Let's walk through the interfaces and their implementations. To learn about `Collection`, read the section below. 
+To learn about `List`, `Set`, and `Map`, you can either read the corresponding sections or watch a video 
+by Sebastian Aigner, Kotlin Developer Advocate:
+
+<video href="F8jj7e-_jFA" title="Kotlin Collections Overview"/>
 
 ### Collection
 
@@ -81,9 +88,9 @@ the `Collection`'s inheritors: [`List`](https://kotlinlang.org/api/latest/jvm/st
 
 ```kotlin
 fun printAll(strings: Collection<String>) {
-        for(s in strings) print("$s ")
-        println()
-    }
+    for(s in strings) print("$s ")
+    println()
+}
     
 fun main() {
     val stringList = listOf("one", "two", "one")
@@ -177,7 +184,7 @@ However, there is one important difference:  an array's size is defined upon ini
 in turn, a list doesn't have a predefined size; a list's size can be changed as a result of write operations: adding, 
 updating, or removing elements.
 
-In Kotlin, the default implementation of `List` is [`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html) 
+In Kotlin, the default implementation of `MutableList` is [`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html) 
 which you can think of as a resizable array.
 
 ### Set
@@ -203,7 +210,7 @@ fun main() {
 [`MutableSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html) is a `Set` with 
 write operations from `MutableCollection`.
 
-The default implementation of `Set` – [`LinkedHashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-set/index.html) – 
+The default implementation of `MutableSet` – [`LinkedHashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-set/index.html) – 
 preserves the order of elements insertion.
 Hence, the functions that rely on the order, such as `first()` or `last()`, return predictable results on such sets.
 
@@ -276,7 +283,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The default implementation of `Map` – [`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) – 
+The default implementation of `MutableMap` – [`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) – 
 preserves the order of elements insertion when iterating the map.
 In turn, an alternative implementation – [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/index.html) – 
 says nothing about the elements order.

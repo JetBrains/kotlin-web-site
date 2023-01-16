@@ -1,0 +1,15 @@
+version: "1.0"
+linter: jetbrains/qodana-js:latest
+profile:
+  name: qodana.recommended
+include:
+  - name: CheckDependencyLicenses
+exclude:
+  - name: All
+    paths:
+      - .next
+      - _assets
+      - build
+      - out
+      - playwright.config.js
+      - scripts

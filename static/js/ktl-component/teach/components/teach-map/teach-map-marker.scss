@@ -1,0 +1,14 @@
+.teach-map-marker {
+  height: 14px;
+  width: 14px;
+  background: rgba(127, 82, 255, 1);
+  border: 1px solid #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  position: relative;
+
+  &:hover, &_active {
+    background: rgba(255, 114, 44, 1);
+  }
+}

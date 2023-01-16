@@ -9,7 +9,7 @@ The [Kotlin/Native as an Apple Framework](apple-framework.md)
 tutorial explains how to compile Kotlin code into a framework for Swift and Objective-C.
 
 In this tutorial, you will:
- - [Compile a Kotlin code to a dynamic library](#create-a-kotlin-library)
+ - [Compile Kotlin code to a dynamic library](#create-a-kotlin-library)
  - [Examine generated C headers](#generated-headers-file)
  - [Use the Kotlin dynamic library from C](#use-generated-headers-from-c)
  - Compile and run the example on [Linux and Mac](#compile-and-run-the-example-on-linux-and-macos)
@@ -54,48 +54,21 @@ It is then better to use the Kotlin/Native compiler with a build system, as it
 helps to download and cache the Kotlin/Native compiler binaries and libraries with
 transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the
-[kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin) plugin.
+[kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin) plugin.
 
 We covered the basics of setting up an IDE compatible project with Gradle in the
 [A Basic Kotlin/Native Application](native-gradle.md)
 tutorial. Please check it out if you are looking for detailed first steps
 and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
-In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native and [multiplatform](mpp-discover-project.md#multiplatform-plugin) builds with Gradle.
+In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native and [multiplatform](multiplatform-discover-project.md#multiplatform-plugin) builds with Gradle.
 
 First, create a project folder. All the paths in this tutorial will be relative to this folder. Sometimes
 the missing directories will have to be created before any new files can be added.
 
 Use the following `build.gradle(.kts)` Gradle build file:
 
-<tabs>
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64("native") {  // on Linux
-  // macosX64("native") { // on macOS
-  // mingwX64("native") { //on Windows
-    binaries {
-      sharedLib {
-        baseName = "native" // on Linux and macOS
-        // baseName = "libnative" //on Windows
-      }
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = "ALL"
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -107,8 +80,9 @@ repositories {
 }
 
 kotlin {
-  linuxX64("native") { // on Linux
-  // macosX64("native") { // on macOS
+  linuxX64("native") { // on Linux 
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
   // mingwX64("native") { // on Windows
     binaries {
       sharedLib {
@@ -125,17 +99,44 @@ tasks.wrapper {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+kotlin {
+  linuxX64("native") { // on Linux
+  // macosX64("native") { // on x86_64 macOS
+  // macosArm64("native") { // on Apple Silicon macOS
+  // mingwX64("native") { // on Windows
+    binaries {
+      sharedLib {
+        baseName = "native" // on Linux and macOS
+        // baseName = "libnative" // on Windows
+      }
+    }
+  }
+}
+
+wrapper {
+  gradleVersion = "%gradleVersion%"
+  distributionType = "ALL"
+}
+```
+
+</tab>
 </tabs>
-
-The prepared project sources can be directly downloaded from Github:
-
-* for macOS: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-macos.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-macos.zip)
-* for Linux: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-linux.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-linux.zip)
-* for Windows: [Groovy](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-groovy-windows.zip), [Kotlin](https://github.com/kotlin/web-site-samples/archive/mpp-kn-shared-lib-kotlin-windows.zip)
 
 Move the sources file into the `src/nativeMain/kotlin` folder under
 the project. This is the default path, for where sources are located, when
-the [kotlin-multiplatform](mpp-discover-project.md#multiplatform-plugin)
+the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin)
 plugin is used. Use the following block to instruct and configure the project
 to generate a dynamic or shared library: 
 
@@ -172,7 +173,7 @@ folder, depending on the host OS:
 
 The same rules are used by the Kotlin/Native compiler
 to generate the `.h` file for all platforms.  
-Let's check out the C API of our Kotlin library.` 
+Let's check out the C API of our Kotlin library. 
 
 ## Generated headers file
 
@@ -473,8 +474,7 @@ The command produces the `main.exe` file, which you can run.
 
 Dynamic libraries are the main way to use Kotlin code from existing programs. 
 You can use them to share your code with many platforms or languages, including JVM,
-[Python](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/samples/python_extension/src/main/c/kotlin_bridge.c),
-iOS, Android, and others.
+Python, iOS, Android, and others.
 
 Kotlin/Native also has tight integration with Objective-C and Swift.
 It is covered in the [Kotlin/Native as an Apple Framework](apple-framework.md)

@@ -64,7 +64,7 @@ _Zipping_ transformation is building pairs from elements with the same positions
 In the Kotlin standard library, this is done by the [`zip()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/zip.html)
 extension function.
 
-When called on a collection or an array with another collection (array) as an argument, `zip()` returns the `List` of 
+When called on a collection or an array with another collection (or array) as an argument, `zip()` returns the `List` of 
 `Pair` objects. The elements of the receiver collection are the first elements in these pairs.
 
 If the collections have different sizes, the result of the `zip()` is the smaller size; the last elements of the larger
@@ -144,7 +144,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 For building maps with collection elements as values, there is the function [`associateBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-by.html).
-It takes a function that returns a key based on an element's value. If two elements are equal, only the last one remains
+It takes a function that returns a key based on an element's value. If two elements' keys are equal, only the last one remains
 in the map.
 
 `associateBy()` can also be called with a value transformation function.

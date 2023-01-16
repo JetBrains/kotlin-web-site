@@ -14,7 +14,11 @@
 }
 
 .kotlin-intro-section__link {
-  margin-left: var(--s-space);
+  color: #fff;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 .kotlin-intro-actions {
@@ -23,13 +27,14 @@
   flex-wrap: wrap;
 
   margin-bottom: var(--xxl-space);
-  margin-top: calc(-1*var(--m-space));
+  margin-top: calc(-1 * var(--m-space));
 }
 
 .kotlin-intro-actions__buttons,
 .kotlin-intro-actions__contributors {
   margin-top: 32px;
 }
+
 
 .kotlin-intro-actions__contributors {
   display: flex;
@@ -41,25 +46,53 @@
   margin-right: 32px;
 }
 
+@media (max-width: 450px) {
+  .kotlin-intro-actions__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    width: 100%;
+
+    .kto-button {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px;
+      flex: 1;
+    }
+  }
+
+  .kotlin-intro-actions__why-button {
+    margin-right: 0;
+  }
+}
+
 .kotlin-intro-actions__jb-logo {
   display: inline-block;
   outline: none;
   margin-right: 16px;
   font-size: .01px;
   line-height: .01px;
+  @media (min-width: $breakpoint-m) {
+    img {
+      width: 56px;
+      height: 56px;
+    }
+  }
 }
 
 .kotlin-intro-featured {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
   margin-bottom: 32px;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  @media (max-width: $breakpoint-m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 
   @media (max-width: $breakpoint-s) {
-    flex-direction: column;
+    grid-template-columns: none;
   }
 }
 
@@ -73,11 +106,11 @@
   display: block;
 
   box-sizing: border-box;
-  padding: 120px 32px 32px;
+  padding: 128px 16px 16px;
 
-  background: transparent none no-repeat 32px 32px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent none no-repeat 16px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
 
   @media (max-width: $breakpoint-s) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -113,5 +146,5 @@
 }
 
 .kotlin-intro-featured .kto-text_size_m {
-  color: rgba(255, 255, 255, 0.65)
+  color: rgba(255, 255, 255, 0.5)
 }

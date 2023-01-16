@@ -5,7 +5,7 @@ For example, two lists of the same elements are not equal if their elements are 
 
 In Kotlin, the orders of objects can be defined in several ways.
 
-First, there is _natural_ order. It is defined for inheritors of the [`Comparable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
+First, there is _natural_ order. It is defined for implementations of the [`Comparable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface. Natural order is used for sorting them when no other order is specified.
 
 Most built-in types are comparable:
@@ -14,7 +14,7 @@ Most built-in types are comparable:
 * `Char` and `String` use the [lexicographical order](https://en.wikipedia.org/wiki/Lexicographical_order): `b` is greater
    than `a`; `world` is greater than `hello`.
 
-To define a natural order for a user-defined type, make the type an inheritor of `Comparable`.
+To define a natural order for a user-defined type, make the type an implementer of `Comparable`.
 This requires implementing the `compareTo()` function. `compareTo()` must take another object of the same type as an argument
 and return an integer value showing which object is greater:
 
@@ -26,12 +26,10 @@ Below is a class for ordering versions that consist of the major and the minor p
 
 ```kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
-    override fun compareTo(other: Version): Int {
-        if (this.major != other.major) {
-            return this.major - other.major
-        } else if (this.minor != other.minor) {
-            return this.minor - other.minor
-        } else return 0
+    override fun compareTo(other: Version): Int = when {
+        this.major != other.major -> this.major compareTo other.major // compareTo() in the infix form 
+        this.minor != other.minor -> this.minor compareTo other.minor
+        else -> 0
     }
 }
 
@@ -40,7 +38,7 @@ fun main() {
     println(Version(2, 0) > Version(1, 5))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
 
 _Custom_ orders let you sort instances of any type in a way you like.
 Particularly, you can define an order for non-comparable objects or define an order other than natural for a comparable type.

@@ -4,7 +4,7 @@ This tutorial will show you how to write a simple unit test and run it with the 
 
 The example in the tutorial has the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
 
-To get started, first download and install the latest version of [IntelliJ IDEA](http://www.jetbrains.com/idea/download/index.html).
+To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
 ## Add dependencies
 
@@ -16,14 +16,8 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration. This dependency will allow you to work with `kotlin.test` and `JUnit`:
 
-   <tabs>
-
-   ```groovy
-   dependencies {
-       // Other dependencies.
-       testImplementation 'org.jetbrains.kotlin:kotlin-test'
-   }
-   ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
    ```kotlin
    dependencies {
@@ -32,17 +26,23 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    }
    ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+   ```groovy
+   dependencies {
+       // Other dependencies.
+       testImplementation 'org.jetbrains.kotlin:kotlin-test'
+   }
+   ```
+
+   </tab>
    </tabs>
 
 3. Add the `test` task to the `build.gradle(.kts)` file:
 
-   <tabs>
-
-   ```groovy
-   test {
-       useJUnitPlatform()
-   }
-   ```
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
 
    ```kotlin
    tasks.test {
@@ -50,9 +50,19 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    }
    ```
 
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+   ```groovy
+   test {
+       useJUnitPlatform()
+   }
+   ```
+
+   </tab>
    </tabs>
 
-   > If you created the project using the **Project Wizard**, the task will be added automatically.
+   > If you created the project using the **New Project** wizard, the task will be added automatically.
    > 
    {type="note"}
 
@@ -75,7 +85,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 ## Create a test
 
-1. In IntelliJ IDEA, select **Code** \| **Generate** \| **Test...** for the `Sample` class.
+1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class.
 
    ![Create a test](create-test.png)
 
@@ -90,7 +100,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 2. Add the test code for the `sum()` function in `SampleTest.kt`:
 
    * Define the test `testSum()` function using the [@Test annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
-   * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/assert-equals.html) function.
+   * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
 
    ```kotlin
    import kotlin.test.Test

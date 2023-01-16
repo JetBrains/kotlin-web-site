@@ -1,6 +1,4 @@
 {
-  "presets": "@jetbrains/jetbrains",
-  "plugins": [
-    "transform-runtime"
-  ]
+  "presets": ["next/babel"],
+  "plugins": ["react-optimized-image/plugin"]
 }

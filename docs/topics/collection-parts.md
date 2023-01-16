@@ -69,7 +69,7 @@ fun main() {
 
 ## Chunked
 
-To break a collection onto parts of a given size, use the [`chunked()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/chunked.html) function.
+To break a collection into parts of a given size, use the [`chunked()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/chunked.html) function.
 `chunked()` takes a single argument – the size of the chunk – and returns a `List` of `List`s of the given size.
 The first chunk starts from the first element and contains the `size` elements, the second chunk holds the next `size` elements,
 and so on. The last chunk may have a smaller size. 
@@ -122,7 +122,7 @@ fun main() {
 
 `windowed()` provides more flexibility with optional parameters:
 
-* `step` defines a distance between first elements of two adjacent windows. By default the value is 1, so the result contains windows starting from all elements. If you increase the step to 2, you will receive only windows starting from odd elements: first, third, an so on.
+* `step` defines a distance between first elements of two adjacent windows. By default the value is 1, so the result contains windows starting from all elements. If you increase the step to 2, you will receive only windows starting from odd elements: first, third, and so on.
 * `partialWindows` includes windows of smaller sizes that start from the elements at the end of the collection. For example, if you request windows of three elements, you can't build them for the last two elements. Enabling `partialWindows` in this case includes two more lists of sizes 2 and 1.
 
 Finally, you can apply a transformation to the returned ranges right away.

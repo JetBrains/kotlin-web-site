@@ -3,7 +3,7 @@
 ### What is Kotlin?
 
 Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
-It’s developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on.
+It's developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on.
 The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
@@ -19,21 +19,21 @@ is available [on GitHub](https://github.com/jetbrains/kotlin).
 
 Kotlin has both object-oriented and functional constructs. You can use it in both OO and FP styles, or mix elements of the two. 
 With first-class support for features such as higher-order functions, function types and lambdas, Kotlin is a great choice
-if you’re doing or exploring functional programming.
+if you're doing or exploring functional programming.
 
 ### What advantages does Kotlin give me over the Java programming language?
 
 Kotlin is more concise. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
-It’s also more type-safe, e.g. support for non-nullable types makes applications less prone to NPE’s. 
+It's also more type-safe, for example, support for non-nullable types makes applications less prone to NPE's. 
 Other features including smart casting, higher-order functions, extension functions and lambdas with receivers provide 
 the ability to write expressive code as well as facilitating creation of DSL.
  
 ### Is Kotlin compatible with the Java programming language?
 
 Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure
-that your existing codebase  can interact properly with Kotlin. You can easily call Kotlin code from Java and Java code
-from Kotlin. This makes adoption much easier and lower-risk. There’s also an automated Java-to-Kotlin converter built
-into the IDE that simplifies migration of existing code.
+that your existing codebase  can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
+from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There's also an automated [Java-to-Kotlin converter built
+into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
 
@@ -44,20 +44,20 @@ and server-side applications, client-side with JavaScript or JavaFX, and data sc
 ### Can I use Kotlin for Android development?
 
 Yes. Kotlin is supported as a first-class language on Android. There are hundreds of applications already using Kotlin 
-for Android, such as Basecamp, Pinterest and more. For more information check out [the resource on Android development](android-overview.md).
+for Android, such as Basecamp, Pinterest and more. For more information, check out [the resource on Android development](android-overview.md).
 
 ### Can I use Kotlin for server-side development?
 
 Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing frameworks such as Spring Boot, 
-vert.x or JSF. In addition there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
-For more information check out [the resource on server-side development](server-overview.md).
+vert.x or JSF. In addition, there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
+For more information, check out [the resource on server-side development](server-overview.md).
 
 ### Can I use Kotlin for web development?
 
 Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
 [DefinitelyTyped](https://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible
 with existing module systems such as AMD and CommonJS. 
-For more information check out [the resource on client-side development](js-overview.md).
+For more information, check out [the resource on client-side development](js-overview.md).
 
 ### Can I use Kotlin for desktop development?
 
@@ -72,9 +72,14 @@ For more information, check out the [Kotlin/Native documentation](native-overvie
 
 ### What IDEs support Kotlin?
 
-Kotlin is supported by all major Java IDEs including [IntelliJ IDEA](jvm-get-started.md),
-[Android Studio](https://developer.android.com/kotlin/get-started), and [Eclipse](eclipse.md). In addition, a [command line compiler](command-line.md) 
-is available and provides straightforward support for compiling and running applications.
+Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
+[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
+Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
+
+You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
+Kotlin code in your browser.
+
+In addition, a [command line compiler](command-line.md) is available, which provides straightforward support for compiling and running applications.
   
 ### What build tools support Kotlin?
 
@@ -95,14 +100,16 @@ When targeting native, Kotlin will produce platform-specific code (via LLVM).
 
 Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 8 compatible bytecode.
 If you want to make use of optimizations available in newer versions of Java, you can explicitly specify the target Java
-version from 9 to 16. Note that in this case the resulting bytecode might not run on lower versions. 
+version from 9 to 19. Note that in this case the resulting bytecode might not run on lower versions.
+Starting with [Kotlin 1.5](whatsnew15.md#new-default-jvm-target-1-8), the compiler does not support producing bytecode compatible with Java versions below 8.
 
 ### Is Kotlin hard?
 
 Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala and Groovy. We've tried to ensure that
 Kotlin is easy to learn, so that people can easily jump on board, reading and writing Kotlin in a matter of days. 
 Learning idiomatic Kotlin and using some more of its advanced features can take a little longer, but overall it is not
-a complicated language.
+a complicated language.  
+For more information, check out [our learning materials](learning-materials-overview.md).
  
 ### What companies are using Kotlin?
  
@@ -118,7 +125,7 @@ Kotlin is primarily developed by a team of engineers at JetBrains (current team 
 
 ### Where can I learn more about Kotlin?
 
-The best place to start is [this website](https://kotlinlang.org). From there you can download the compiler, 
+The best place to start is [our website](https://kotlinlang.org). From there you can [download the compiler](command-line.md), 
 [try it online](https://play.kotlinlang.org) as well as get access to resources. 
 
 ### Are there any books on Kotlin?
@@ -126,12 +133,16 @@ The best place to start is [this website](https://kotlinlang.org). From there yo
 There are a number of books available for Kotlin. Some of them we have reviewed and can recommend to start with. They are listed
 on the [Books](books.md) page. For more books, see the community-maintained list at [kotlin.link](https://kotlin.link/). 
 
-### Are there any online courses available for Kotlin?
+### Are any online courses available for Kotlin?
 
-There are a few courses available for Kotlin, including a [Pluralsight Kotlin Course](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones, 
-an [O’Reilly Course](https://shop.oreilly.com/product/0636920052982.do) by Hadi Hariri and an [Udemy Kotlin Course](http://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff.
+You can learn all the Kotlin essentials while creating working applications with the [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18) on JetBrains Academy.
 
-There are also many recordings of [Kotlin talks](https://kotlinlang.org/community/talks.html) available on YouTube and Vimeo. 
+A few other courses you can take:
+* [Pluralsight Course: Getting Started with Kotlin](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
+* [O'Reilly Course: Introduction to Kotlin Programming](https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/) by Hadi Hariri
+* [Udemy Course: 10 Kotlin Tutorials for Beginneres](https://petersommerhoff.com/dev/kotlin/kotlin-beginner-tutorial/) by Peter Sommerhoff
+
+You can also check out the other tutorials and content on our [YouTube channel](https://www.youtube.com/c/Kotlin).
 
 ### Does Kotlin have a community?
 
@@ -159,9 +170,9 @@ Yes. The most active Kotlin account is [on Twitter](https://twitter.com/kotlin).
 ### Any other online Kotlin resources?
 
 The web site has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
-a [newsletter](http://www.kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
+a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
 
 ### Where can I get an HD Kotlin logo?
 
 Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip).
-When using the logos, please follow simple rules in the `guidelines.pdf` inside the archive and [Kotlin brand usage guidelines](guidelines.md).
+When using the logos, please follow simple rules in the `guidelines.pdf` inside the archive and [Kotlin brand usage guidelines](https://kotlinfoundation.org/guidelines/).

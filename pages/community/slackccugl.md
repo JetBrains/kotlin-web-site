@@ -15,7 +15,7 @@ title: Code of Conduct and Guidelines for Kotlin Slack
 
 Kotlin Slack aims to be an inclusive space that is committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
-For this to be the case, it is vital that we all follow a basic set of guidelines and most importantly adhere to the code of conduct. As such, please make sure you read this Code of Conduct and Basic Usage Guidelines in its entirety. This isn’t your regular License Agreement that you should scroll through and agree blindy. It’s here for a reason and also contains practical information. 
+For this to be the case, it is vital that we all follow a basic set of guidelines and most importantly adhere to the code of conduct. As such, please make sure you read this Code of Conduct and Basic Usage Guidelines in its entirety. This isn’t your regular License Agreement that you should scroll through and agree blindly. It’s here for a reason and also contains practical information. 
 
 ## How to behave
 
@@ -36,16 +36,17 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 
 ## How to report issues
 
-If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy), Hadi Hariri (@hhariri) and Roman Belov (@roman.belov). 
+If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy) and Hadi Hariri (@hhariri). 
 
 ## Basic Usage Guidelines
-There are over 17000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
+There are over 39000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
 
 * Please remember this is a Slack team for Kotlin. If you have generic questions that are about a technology (which may or may not be used with Kotlin), maybe it’s better to use another forum, such as StackOverflow. 
 * This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the [Kotlin Forums](https://discuss.kotlinlang.org), where messages are also persisted.
 * This Slack is not the best place for reporting bugs either. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
+* Please refrain from crossposting the same message on multiple channels. It is considered spamming.
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
 * Please do not ping or mention someone directly to get your questions answered, specially project owners, whether the project is Kotlin or other, unless they specifically indicate that you can. 
 * Don’t split messages into multiple ones. Ask it all in a single message.
@@ -59,11 +60,62 @@ There are over 17000 users on many different timezones using the Kotlin Slack an
 * @channel, @here and other forms of notifications are disabled, even if you own a channel (unfortunately Slack doesn’t allow fine-grained permissions).
 * Use the #meta channel if you’re unsure about how to do something.  
 
+## Moderators
+
+### Role definition: 
+A moderator is a member of the Kotlin Slack community who volunteers to keep the kotlinlang Slack a safe and welcoming place for other members. Moderators are approved by kotlinlang Slack administrators. Their responsibilities and the guidelines they follow are described below.
+
+### Responsibilities: 
+* Monitor Slack channels to ensure compliance with the Code of Conduct.
+* Help community members follow the rules.
+* If a channel has additional rules, ensure these are visible and up-to-date.
+* Monitor the #reports and #meta channels.
+* Participate in the private #moderators channel.
+
+### Guidelines:
+* Moderators communicate in a friendly manner and do their best to help other community members.
+* Any changes suggested by a moderator should be discussed by all moderators and administrators before coming into effect.
+
+### Process:
+* Each moderator oversees at least 1 channel, or more if possible.
+* When moderators notice inappropriate behavior, they explain the rules and guidelines to the members and help figure out how to correct the unwanted behavior. If the unwanted behavior persists, moderators report the case to administrators for further actions. In the case of obvious and/or particularly blatant violations, offending members can be reported immediately.
+* To set up or update a channel’s rules, the moderator initiates a change proposal and discusses it with the appropriate community members.
+* Communication regarding moderation takes places in the private #moderators channel.
+* If community members notice that a moderator is ignoring their responsibilities (or engaging in any unwanted behavior), they can alert administrators.
+
+### Moderator status acquisition/revocation process:
+* Any member is welcome to apply to be a moderator once they have been in the Slack community for longer than 6 months.
+* Moderator status is provided based upon the decision of the administrators.
+* Moderator status can be revoked if (this list is not exhaustive and can be updated on a case-by-case basis):
+  * A moderator ignores their responsibilities, which leads to issues in a channel.
+  * A moderator violates these guidelines.   
+
+### The list of moderators
+At the moment we have 17 confirmed moderators, and they will be responsible for observing a total of 64 channels. For all other channels, if any issues arise, members can ping any of the moderators or admins directly, or they can post a message in #meta.
+
+* Alexander Nozik	(@altavir) – #mathematics, #science, #datascience, #education
+* Anderson Lameck	(@andylamax) – #coroutines, #kotlin-native, #webassembly, #serialization, #random, #javascript, #react
+* Andrey Mischenko	(@gildor) – #coroutines, #android, #gradle, #multiplatform, #getting-started, #kotlin-asia, #singapore
+* Eric Ampire	(@Eric Ampire) – #events
+* Holger Steinhauer	(@Holger Steinhauer) – #fosdem, #berlin, #vkug, #german-lang, #server
+* Imran Settuba	(@Imran/Malic) – #munich, #arrow
+* Louis CAD	(@louiscad) – #coroutines, #android
+* Magda Miu (@Magda Miu) – #android, #100daysofkotlin
+* Maryam Alhuthayfi (@Maryam Alhuthayfi) – #compose, #books, #ksp, #eap, #dagger, and #kontributors.
+* Nicola Corti	(@gammax) – #feed, #detekt, #appintro, #chucker, #fosdem, #london, #berlin, #hamburg, #sweden, #ktlint, #kug-leads, #kotlinconf, #koin, #koin-dev, #spek, #vkug
+* Paulien van Alst (@Paulien van Alst) – #detekt, #koin, #mockk
+* Qian Jin (@qian) – #kotlin-native, #android-studio, #french
+* Raul Raja	(@raulraja) - #arrow, #arrow-contributors, #arrow-meta
+* Sam Sam	(@sam) – #kotest, #kotest-contributors
+* Simon Vergauwen	(@simon.vergauwen) – #arrow, #arrow-contributors, #arrow-meta
+* Youssef Shoaib	(@Youssef Shoaib)  – #getting-started, #feed, #language-evolution, #language-proposals
+* Zach Klippenstein	(@Zach Klippenstein) – #coroutines, #compose, #compose-desktop, #compose-web, #squarelibraries, #library-development
+
 ## Common Channels
 
 This is a list of some of the most popular channels, as well as a sample of the types of channels available. 
 
-* #android. For Android generic topics
+* #android. Using Kotlin for Android development (consider to use StackOverflow or other communities for generic Android question not directly related to Kotlin, even if you use Kotlin for Android development).
 * #getting-started. For more beginner questions. Better ask here than in #general if you’re new to Kotlin
 * #communities. A place to discuss physical communities. Also search for cities/countries as there are often channels with these names (#australia), as well as languages (i.e. #spanish).
 * #coroutines. Questions about coroutines and async programming in Kotlin

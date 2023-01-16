@@ -199,7 +199,7 @@ If you want to disable the escape analysis phase, use the `-Xdisable-phases=Esca
 ### Performance improvements and bug fixes
 
 Kotlin/Native receives performance improvements and bug fixes in various components, including the ones added
-in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.md#share-code-on-similar-platforms). 
+in 1.4.0, for example, the [code sharing mechanism](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
 
 ### Opt-in wrapping of Objective-C exceptions
 
@@ -210,7 +210,7 @@ in 1.4.0, for example, the [code sharing mechanism](mpp-share-on-platforms.md#sh
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
 
-You can opt in to wrap `NSException`’s into Kotlin exceptions of type `ForeignException`. They hold the references to the
+You can opt in to wrap `NSException`'s into Kotlin exceptions of type `ForeignException`. They hold the references to the
 original `NSException`'s. This lets you get the information about the root cause and handle it properly.
 
 To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-mode objc-wrap` option in the `cinterop`
@@ -219,7 +219,7 @@ specify the option in the `pod {}` build script block of a dependency like this:
 
 ```kotlin
 pod("foo") {
-   extraOpts = listOf("-Xforeign-exception-mode”, “objc-wrap")
+    extraOpts = listOf("-Xforeign-exception-mode", "objc-wrap")
 }
 ```
 
@@ -249,20 +249,20 @@ In addition to local Pods and Pods from the CocoaPods repository, you can add de
 * A static library.
 * A library with custom cinterop options.
 
-Learn more about [adding CocoaPods dependencies](native-cocoapods.md#add-dependencies-on-pod-libraries) in Kotlin projects.
-Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kotlin-with-cocoapods-sample).
+Learn more about [adding CocoaPods dependencies](native-cocoapods-libraries.md) in Kotlin projects.
+Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
 #### Updated integration with Xcode
 
 To work correctly with Xcode, Kotlin requires some Podfile changes:
 
-* If your Kotlin Pod has any Git, HTTP, or specRepo pod dependency, you should also specify it in the Podfile.
+* If your Kotlin Pod has any Git, HTTP, or specRepo Pod dependency, you should also specify it in the Podfile.
 * When you add a library from the custom spec, you also should specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
     of specs at the beginning of your Podfile.
 
 Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
 
-Learn more about [creating Kotlin pods](native-cocoapods.md#use-a-kotlin-gradle-project-as-a-cocoapods-dependency).
+Learn more about [creating Kotlin pods](native-cocoapods-xcode.md).
 
 ### Support for Xcode 12 libraries
     
@@ -276,11 +276,11 @@ Starting from Kotlin 1.4.20, there is no longer a separate metadata publication.
 the _root_ publication which stands for the whole library and is automatically resolved to the appropriate platform-specific
 artifacts when added as a dependency to the common source set.
 
-Learn more about [publishing a multiplatform library](mpp-publish-lib.md).
+Learn more about [publishing a multiplatform library](multiplatform-publish-lib.md).
 
 #### Compatibility with earlier versions
 
-This change of structure breaks the compatibility between projects with [hierarchical project structure](mpp-share-on-platforms.md#share-code-on-similar-platforms).
+This change of structure breaks the compatibility between projects with [hierarchical project structure](multiplatform-share-on-platforms.md#share-code-on-similar-platforms).
 If a multiplatform project and a library it depends on both have the hierarchical project structure, then you need to update
 them to Kotlin 1.4.20 or higher simultaneously. Libraries published with Kotlin 1.4.20 are not available for using from
 project published with earlier versions.
@@ -339,7 +339,7 @@ and we're deprecating synthetic views in favor of those.
 
 We extract the Parcelable implementations generator from `kotlin-android-extensions` and start the deprecation cycle
 for the rest of it - synthetic views. For now, they will keep working with a deprecation warning. 
-In the future, you’ll need to switch your project to another solution. Here are the [guidelines](https://goo.gle/kotlin-android-extensions-deprecation)
+In the future, you'll need to switch your project to another solution. Here are the [guidelines](https://goo.gle/kotlin-android-extensions-deprecation)
 that will help you migrate your Android project from synthetics to view bindings.
 
 ### New plugin for Parcelable implementation generator

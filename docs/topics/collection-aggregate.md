@@ -25,11 +25,11 @@ fun main() {
 There are also functions for retrieving the smallest and the largest elements by certain selector function or custom [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/index.html):
 
 * [`maxByOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-by-or-null.html) and [`minByOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-by-or-null.html) take a selector function and return the element for which it returns the largest or the smallest value.
-* [`maxWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-with-or-null.html) and [`minWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-with-or-null.html) take a `Comparator` object and return the largest or smallest element according to that `Comparator`. 
+* [`maxWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-with-or-null.html) and [`minWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-with-or-null.html) take a `Comparator` object and return the largest or smallest element according to that `Comparator`.
+* [`maxOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of-or-null.html) and [`minOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of-or-null.html) take a selector function and return the largest or the smallest return value of the selector itself.
+* [`maxOfWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of-with-or-null.html) and [`minOfWithOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of-with-or-null.html) take a `Comparator` object and return the largest or smallest selector return value according to that `Comparator`.
 
-These functions return `null` on empty collections. There are also alternatives for `maxByOrNull()` and `minByOrNull()`: 
-[`maxOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of.html) and [`minOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of.html), 
-which do the same but throw a `NoSuchElementException` on empty collections.
+These functions return `null` on empty collections. There are also alternatives – [`maxOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of.html), [`minOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of.html), [`maxOfWith`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of-with.html), and [`minOfWith`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of-with.html) – which do the same as their counterparts but throw a `NoSuchElementException` on empty collections.
 
 ```kotlin
 
@@ -66,23 +66,23 @@ fun main() {
 ## Fold and reduce
 
 For more specific cases, there are the functions [`reduce()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce.html) and [`fold()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold.html) that apply the provided operation to the collection elements sequentially and return the accumulated result.
-The operation takes two arguments:  the previously accumulated value and the collection element.
+The operation takes two arguments: the previously accumulated value and the collection element.
 
 The difference between the two functions is that `fold()` takes an initial value and uses it as the accumulated value on
 the first step, whereas the first step of `reduce()` uses the first and the second elements as operation arguments on the first step.
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val numbers = listOf(5, 2, 10, 4)
 
-    val sum = numbers.reduce { sum, element -> sum + element }
-    println(sum)
+    val simpleSum = numbers.reduce { sum, element -> sum + element }
+    println(simpleSum)
     val sumDoubled = numbers.fold(0) { sum, element -> sum + element * 2 }
     println(sumDoubled)
 
-    //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } //incorrect: the first element isn't doubled in the result
+    //incorrect: the first element isn't doubled in the result
+    //val sumDoubledReduce = numbers.reduce { sum, element -> sum + element * 2 } 
     //println(sumDoubledReduce)
 //sampleEnd
 }

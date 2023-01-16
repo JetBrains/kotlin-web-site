@@ -18,18 +18,8 @@ By default, Kotlin/Native compiler produces `.dSYM` for release
 compiler flag. At the same time, this option is disabled by default for other platforms. To enable it, use the `-Xadd-light-debug=enable`
 compiler option.
 
-<tabs>
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        binaries.all {
-            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
-        }
-    }
-}
-```
-
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -41,6 +31,20 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 In projects created from IntelliJ IDEA or AppCode templates these `.dSYM` bundles
@@ -56,17 +60,8 @@ If rebuilding is performed on App Store side, then `.dSYM` of rebuilt *dynamic* 
 seems discarded and not downloadable from App Store Connect.
 In this case, it may be required to make the framework static.
 
-<tabs>
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
-            isStatic = true
-        }
-    }
-}
-```
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -78,6 +73,20 @@ kotlin {
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
+            isStatic = true
+        }
+    }
+}
+```
+
+</tab>
 </tabs>
 
 ## Decode inlined stack frames
