@@ -136,7 +136,7 @@ Configure the database in the application:
 
    ![Create database schema](create-database-schema.png){width=400}
 
-2. Update the `src/main/resources/sql/schema.sql` file with the following code:
+2. Update the `src/main/resources/schema.sql` file with the following code:
 
    ```sql
    CREATE TABLE IF NOT EXISTS messages (
