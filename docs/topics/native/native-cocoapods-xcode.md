@@ -1,8 +1,8 @@
 [//]: # (title: Use a Kotlin Gradle project as a CocoaPods dependency)
 
-You can use a Kotlin Multiplatform project with native targets as a CocoaPods dependency. You can include
-such a dependency in the Podfile of the Xcode project by its name and path to the project directory containing
-the generated Podspec.
+To use a Kotlin Multiplatform project with native targets as a CocoaPods dependency, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
+You can include such a dependency in the Podfile of the Xcode project by its name and path to the project directory
+containing the generated Podspec.
 
 This dependency will be automatically built (and rebuilt) along with this project. Such an approach
 simplifies importing to Xcode by removing a need to write the corresponding Gradle tasks and Xcode build steps manually.
