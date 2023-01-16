@@ -1,11 +1,11 @@
-- title: "Join the Kotlin Multiplatform contest"
-  link: https://blog.jetbrains.com/kotlin/2022/10/join-the-kotlin-multiplatform-contest/
+- title: "Kotlin 1.8.0 Released"
+  link: https://blog.jetbrains.com/kotlin/2023/01/kotlin-1-8-0-released/
 
-- title: "Kotlin 1.8.0-RC released"
-  link: https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC
+- title: "Kotlin Multiplatform Mobile Content Creators"
+  link: https://blog.jetbrains.com/kotlin/2022/12/shout-out-to-kotlin-multiplatform-mobile-content-creators/
+
+- title: "KotlinDL 0.5 Has Come to Android!"
+  link: https://blog.jetbrains.com/kotlin/2022/12/kotlindl-0-5-has-come-to-android/
 
 - title: "KotlinConf returns to Amsterdam in April 2023!"
   link: https://blog.jetbrains.com/kotlin/2022/07/kotlinconf-2023/
-
-- title: "A New Approach to Incremental Compilation in Kotlin"
-  link: https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/
