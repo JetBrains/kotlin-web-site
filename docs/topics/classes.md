@@ -127,8 +127,8 @@ class Person(val name: String) {
 ```
 
 Code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary constructor
-happens as the first statement of a secondary constructor, so the code in all initializer blocks and property initializers
-is executed before the body of the secondary constructor.
+happens at the moment of access to the first statement of a secondary constructor, so the code in all initializer blocks
+and property initializers is executed before the body of the secondary constructor.
 
 Even if the class has no primary constructor, the delegation still happens implicitly, and the initializer blocks are
 still executed:
