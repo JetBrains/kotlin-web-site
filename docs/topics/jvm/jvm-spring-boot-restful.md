@@ -219,7 +219,7 @@ database query:
        @GetMapping("/")
        fun index(): List<Message> = service.findMessages()
   
-       @PostMapping
+       @PostMapping("/")
        fun post(@RequestBody message: Message) {
            service.post(message)
        }
