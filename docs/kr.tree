@@ -40,13 +40,6 @@
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Early access preview (EAP)">
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-RC2"  hidden="true"/>
-        <toc-element toc-title="Participate" id="eap.md"/>
-        <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
-        <toc-element id="configure-build-for-eap.md"/>
-    </toc-element>
-
     <toc-element toc-title="Basics">
         <toc-element id="basic-syntax.md"/>
         <toc-element id="idioms.md"/>
@@ -370,6 +363,13 @@
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
             <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
         </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Early access preview (EAP)">
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.0-RC2"  hidden="true"/>
+        <toc-element toc-title="Participate" id="eap.md"/>
+        <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
+        <toc-element id="configure-build-for-eap.md"/>
     </toc-element>
 
     <toc-element toc-title="Other resources">
