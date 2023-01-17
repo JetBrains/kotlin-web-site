@@ -323,6 +323,9 @@
             <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
             <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
         </toc-element>
+        <toc-element toc-title="Dokka">
+            <include from="kl" target="dokka" origin="dokka"/>
+        </toc-element>
         <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
         <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
         <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
