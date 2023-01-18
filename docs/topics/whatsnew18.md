@@ -322,7 +322,7 @@ Before Kotlin 1.8.0, the `cssSupport.enabled` property was used to add CSS suppo
 cssSupport.enabled = true
 ```
 
-Now you should use the `enabled.set()` method in the `cssSupport{}` block:
+Now you should use the `enabled.set()` method in the `cssSupport {}` block:
 
 ```kotlin
 cssSupport {
