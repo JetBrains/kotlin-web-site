@@ -66,7 +66,7 @@ Kotlin K2 (JVM)|Alpha|1.7| |
 kotlin-stdlib (JVM)|Stable|1.0| |
 Coroutines|Stable|1.3| |
 kotlin-reflect (JVM)|Beta|1.0| |
-Kotlin/JS (Classic back-end)|Stable|1.3|Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.html)|
+Kotlin/JS (Classic back-end)|Stable|1.3|Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md)|
 Kotlin/JVM (IR-based)|Stable|1.5| |
 Kotlin/JS (IR-based)|Stable|1.8| |
 Kotlin/Native Runtime|Beta|1.3| |
