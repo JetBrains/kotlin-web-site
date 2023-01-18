@@ -457,7 +457,6 @@ browser {
             enabled.set(true)
         }
     }
-    binaries.executable()
 }
 ```
 
@@ -471,7 +470,6 @@ browser {
             it.enabled.set(true)
         }
     }
-    binaries.executable()
 }
 ```
 
