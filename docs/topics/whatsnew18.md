@@ -319,14 +319,22 @@ so don't forget to update your Gradle build script files as described below.
 Before Kotlin 1.8.0, the `cssSupport.enabled` property was used to add CSS support:
 
 ```kotlin
-cssSupport.enabled = true
+browser {
+    commonWebpackConfig {
+        cssSupport.enabled = true
+    }
+}
 ```
 
 Now you should use the `enabled.set()` method in the `cssSupport{}` block:
 
 ```kotlin
-cssSupport {
-    enabled.set(true)
+browser {
+    commonWebpackConfig {
+        cssSupport {
+            enabled.set(true)
+        }
+    }
 }
 ```
 
