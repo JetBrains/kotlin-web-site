@@ -219,7 +219,7 @@ database query:
        @GetMapping("/")
        fun index(): List<Message> = service.findMessages()
   
-       @PostMapping
+       @PostMapping("/")
        fun post(@RequestBody message: Message) {
            service.post(message)
        }
@@ -257,8 +257,8 @@ properties:
    spring.datasource.url=jdbc:h2:file:./data/testdb
    spring.datasource.username=sa
    spring.datasource.password=password
-   spring.datasource.schema=classpath:sql/schema.sql
-   spring.datasource.initialization-mode=always
+   spring.sql.init.schema-locations=classpath:sql/schema.sql
+   spring.sql.init.mode=always
    ```
 
    These settings enable the database for the Spring Boot application.
