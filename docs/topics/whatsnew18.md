@@ -326,7 +326,7 @@ browser {
 }
 ```
 
-Now you should use the `enabled.set()` method in the `cssSupport{}` block:
+Now you should use the `enabled.set()` method in the `cssSupport {}` block:
 
 ```kotlin
 browser {
