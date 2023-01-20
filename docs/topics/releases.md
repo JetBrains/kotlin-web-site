@@ -37,6 +37,11 @@ The IDE support for the latest version of the language is available for the foll
     * [Latest released](https://developer.android.com/studio) version
     * [Early access](https://developer.android.com/studio/preview) versions
 
+> Learn more about the latest Kotlin-related updates in IntelliJ IDEA in the **Kotlin** section of the
+> [What's new in IntelliJ IDEA page](https://www.jetbrains.com/idea/whatsnew/).
+> 
+{type="tip"}
+
 ## Release details
 
 The following table lists details of the latest Kotlin releases.
