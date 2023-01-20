@@ -79,7 +79,7 @@ class MessageController(val service: MessageService) {
     @GetMapping("/")
     fun index(): List<Message> = service.findMessages()
 
-    @PostMapping
+    @PostMapping("/")
     fun post(@RequestBody message: Message) {
        service.save(message)
     }
@@ -136,7 +136,7 @@ Configure the database in the application:
 
    ![Create database schema](create-database-schema.png){width=400}
 
-2. Update the `src/main/resources/sql/schema.sql` file with the following code:
+2. Update the `src/main/resources/schema.sql` file with the following code:
 
    ```sql
    CREATE TABLE IF NOT EXISTS messages (
@@ -267,7 +267,7 @@ Extend the functionality of the application to retrieve the individual messages 
         fun index(@PathVariable id: String): List<Message> =
             service.findMessageById(id)
     
-        @PostMapping
+        @PostMapping("/")
         fun post(@RequestBody message: Message) {
             service.save(message)
         }
