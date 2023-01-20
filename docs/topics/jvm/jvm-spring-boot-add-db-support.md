@@ -79,7 +79,7 @@ class MessageController(val service: MessageService) {
     @GetMapping("/")
     fun index(): List<Message> = service.findMessages()
 
-    @PostMapping
+    @PostMapping("/")
     fun post(@RequestBody message: Message) {
        service.save(message)
     }
@@ -267,7 +267,7 @@ Extend the functionality of the application to retrieve the individual messages 
         fun index(@PathVariable id: String): List<Message> =
             service.findMessageById(id)
     
-        @PostMapping
+        @PostMapping("/")
         fun post(@RequestBody message: Message) {
             service.save(message)
         }
