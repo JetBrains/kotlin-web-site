@@ -358,12 +358,8 @@ Try these workarounds to avoid this error:
 
 #### Specify the framework name 
 
-1. Find the `module.modulemap` file in the downloaded Pod directory:
-
-    ```text
-    [shared_module_name]/build/cocoapods/synthetic/IOS/Pods/[pod_name]
-    ```
-
+1. Look through the downloaded Pod directory `[shared_module_name]/build/cocoapods/synthetic/IOS/Pods/...`
+   for the `module.modulemap` file.
 2. Check the framework name inside the module, for example `AppsFlyerLib {}`. If the framework name doesn't match the Pod
 name, specify it explicitly:
 
