@@ -233,10 +233,12 @@ Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_V
 ```kotlin
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
     }
     // Or shorter:
-    jvmToolchain(<MAJOR_JDK_VERSION>) // "8"
+    jvmToolchain(<MAJOR_JDK_VERSION>)
+    // For example:
+    jvmToolchain(8)
 }
 ```
 
@@ -246,10 +248,12 @@ kotlin {
 ```groovy
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
     }
     // Or shorter:
-    jvmToolchain(<MAJOR_JDK_VERSION>) // "8"
+    jvmToolchain(<MAJOR_JDK_VERSION>)
+    // For example:
+    jvmToolchain(8)
 }
 ```
 
@@ -266,7 +270,7 @@ You can set a toolchain via the `java` extension, and Kotlin compilation tasks w
 ```kotlin
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) 
     }
 }
 ```
@@ -277,7 +281,7 @@ java {
 ```groovy
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8" 
+        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) 
     }
 }
 ```
@@ -305,7 +309,7 @@ If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_
 ```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
 }
 project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
     kotlinJavaToolchain.toolchain.use(customLauncher)
@@ -318,7 +322,7 @@ project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
 ```groovy
 JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
 Provider<JavaLauncher> customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
+    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
 }
 tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
     task.kotlinJavaToolchain.toolchain.use(customLauncher)
