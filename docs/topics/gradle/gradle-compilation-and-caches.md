@@ -296,8 +296,8 @@ Using fallback strategy: Compile without Kotlin daemon
 Try ./gradlew --stop if this issue persists.
 ```
 
-However, a silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds, 
-read more about this in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy).
+However, a silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds. 
+Read more about this in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy).
 To avoid this, there is a Gradle property `kotlin.daemon.useFallbackStrategy`, whose default value is `true`. 
 When the value is `false`, builds fail on problems with the daemon's startup or communication. Declare this property in
 `gradle.properties`:
