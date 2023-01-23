@@ -61,7 +61,7 @@ tasks.test { // See 5️⃣
     useJUnitPlatform() // JUnitPlatform for tests. See 6️⃣
 }
 
-kotlin { // Extension to make an easy setup
+kotlin { // Extension for easy setup
    jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
 }
 
