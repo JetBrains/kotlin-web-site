@@ -187,3 +187,63 @@ The available scopes are `Api`, `Implementation`, `CompileOnly`, and `RuntimeOnl
 In Kotlin 1.8.0, an error is introduced when using old configuration names in hard-coded strings.
 
 For more information, see the corresponding issue on [YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
+
+## Deprecated gradle.properties for hierarchical support
+
+<anchor name="deprecate-hmpp-properties"></anchor> 
+
+**Background**
+
+Over the course of its evolution, Kotlin Multiplatform was gradually introducing support for so-called "hierarchical"
+structure, i.e. an ability to have intermediate source sets between the root common source set (`commonMain`) and 
+any platform-specific one (e.g. `jvmMain`). 
+
+For the transition period, while the toolchain wasn't stable enough,
+a couple of Gradle Properties were introduced, allowing granular opt-ins and opt-outs. 
+
+Since Kotlin 1.7.20, full support for hierarchical structures was enabled by default. Properties were kept to allow
+opting-out in case one suffers from blocking issues. After processing all the feedback, we're now starting phasing out
+those properties completely.
+
+**What has changed?**
+
+The following properties has been deprecated and will be removed in Kotlin 1.9:
+
+* `kotlin.internal.mpp.hierarchicalStructureByDefault`
+* `kotlin.mpp.enableCompatibilityMetadataVariant`
+* `kotlin.mpp.hierarchicalStructureSupport`
+* `kotlin.mpp.enableGranularSourceSetsMetadata`
+
+Since Kotlin 1.8.20 until Kotlin 1.9, Kotlin Gradle Plugin will issue a warning if the build sets those properties.
+
+Starting with Kotlin 1.9, those properties will be silently ignored.
+
+**What's the best practice now?**
+
+* Remove those properties from your `gradle.properties`, `local.properties`
+* Avoid setting them programmatically from Gradle buildscripts or your Gradle Plugins
+* In case deprecated properties are set by some 3rd-party Gradle Plugin used in your build,
+ask that plugin maintainer(s) to stop setting those properties. 
+
+**Impact**
+
+The following properties & values are redundant/obsolete at this point. No impact is expected, and you can safely remove
+them:
+
+* `kotlin.internal.mpp.hierarchicalStructureByDefault=true`
+* `kotlin.mpp.enableCompatibilityMetadataVariant=false`
+* `kotlin.mpp.hierarchicalStructureSupport=true`
+* `kotlin.mpp.enableGranularSourceSetsMetadata=true`
+* `kotlin.mpp.enableGranularSourceSetsMetadata=false`
+
+The following properties & values are deprecated:  
+
+* `kotlin.internal.mpp.hierarchicalStructureByDefault=false`
+* `kotlin.mpp.enableCompatibilityMetadataVariant=true`
+* `kotlin.mpp.hierarchicalStructureSupport=false`
+
+As the default behavior of Kotlin toolchain since 1.7.20 corresponds to having no such properties, we do not expect
+any serious impact from removing them. Most possible consequences will be visible immediately after the project rebuild.
+If you're a library author and want to be extra safe, you can recheck that consumers are able to consume your library.
+
+In the unlikely case you face some problems after removing those properties, please report it to https://kotlin.in/issue
