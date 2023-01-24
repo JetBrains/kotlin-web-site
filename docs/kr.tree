@@ -42,7 +42,7 @@
     </toc-element>
 
     <toc-element toc-title="Releases and roadmap">
-        <toc-element id="releases.md"/>
+        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
         <toc-element id="roadmap.md"/>
     </toc-element>
 
