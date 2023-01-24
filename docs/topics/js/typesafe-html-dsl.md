@@ -7,12 +7,12 @@ include the corresponding repository and dependency to our `build.gradle.kts` fi
 ```kotlin
 repositories {
     // ...
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib-js"))
-    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.8.0")
     // ...
 }
 ```
