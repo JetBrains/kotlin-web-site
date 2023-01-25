@@ -1,10 +1,12 @@
 [//]: # (title: Compatibility guide for Kotlin Multiplatform)
 
-This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you may encounter while
+This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
-Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
-Stable version of Kotlin is %kotlinVersion%.
+> Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
+> Stable version of Kotlin is %kotlinVersion%.
+> 
+{type="note"}
 
 ## Auto-generated targets
 
@@ -56,7 +58,7 @@ kotlin {
 
 In Kotlin 1.7.20, an error is introduced when using targets accessors in the `kotlin.targets` block.
 
-For more information, see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47047).
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-47047).
 
 ## Gradle input and output compile tasks
 
@@ -65,7 +67,7 @@ For more information, see the corresponding issue in [YouTrack](https://youtrack
 Kotlin compile tasks no longer inherit the Gradle `AbstractCompile` task that has the `sourceCompatibility` and
 `targetCompatibility` inputs, making them unavailable in Kotlin users' scripts.
 
-Other breaking changes in compile tasks you may encounter are described below.
+Other breaking changes in compile tasks:
 
 **What's the best practice now?**
 
@@ -80,7 +82,7 @@ Other breaking changes in compile tasks you may encounter are described below.
 
 In Kotlin 1.7.20, inputs are not available, the output is replaced, and the `classpath` property is deprecated.
 
-For more information, see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-32805).
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-32805).
 
 ## New configuration names for dependencies on the compilation
 
@@ -190,4 +192,4 @@ The available scopes are `Api`, `Implementation`, `CompileOnly`, and `RuntimeOnl
 
 In Kotlin 1.8.0, an error is introduced when using old configuration names in hard-coded strings.
 
-For more information, see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
