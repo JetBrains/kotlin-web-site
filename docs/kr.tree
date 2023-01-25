@@ -154,6 +154,7 @@
         <toc-element id="multiplatform-mobile-samples.md" accepts-web-file-names="kmm-samples.html"/>
         <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html"/>
         <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team.html"/>
+        <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
         <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases.html"/>
     </toc-element>
 
