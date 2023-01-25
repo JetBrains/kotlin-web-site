@@ -81,8 +81,7 @@ you can create subclasses in any source set between the `expect` and `actual` de
 
 The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
 expression. 
-If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement. 
-However, this works only if you use `when` as an expression (using the result) and not as a statement:
+If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
 
 ```kotlin
 fun log(e: Error) = when(e) {
