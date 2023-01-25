@@ -193,3 +193,46 @@ The available scopes are `Api`, `Implementation`, `CompileOnly`, and `RuntimeOnl
 In Kotlin 1.8.0, an error is introduced when using old configuration names in hard-coded strings.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
+
+## Gradle properties for hierarchical support
+
+<anchor name="deprecate-hmpp-properties"></anchor>
+
+**What's changed?**
+
+Throughout its evolution, Kotlin Multiplatform was gradually introducing the support for hierarchical structure,
+an ability to have intermediate source sets between the common source set `commonMain` and any platform-specific one,
+for example, `jvmMain`.
+
+For the transition period, while the toolchain wasn't stable enough, a couple of Gradle properties were introduced,
+allowing granular opt-ins and opt-outs.
+
+Since Kotlin 1.6.20, the hierarchical structure support has been enabled by default. However, these properties were kept
+for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out those
+properties completely.
+
+The following properties are now deprecated and will be removed in Kotlin 1.9.0:
+
+* `kotlin.internal.mpp.hierarchicalStructureByDefault`
+* `kotlin.mpp.enableCompatibilityMetadataVariant`
+* `kotlin.mpp.hierarchicalStructureSupport`
+* `kotlin.mpp.enableGranularSourceSetsMetadata`
+
+**What's the best practice now?**
+
+* Remove these properties from your `gradle.properties` and `local.properties` files.
+* Avoid setting them programmatically in the Gradle build scripts or your Gradle plugins.
+* In case deprecated properties are set by some third-party Gradle plugin used in your build, ask the plugin maintainers
+not to set these properties.
+
+As the default behavior of the Kotlin toolchain doesn't include such properties since 1.6.20, we don't expect
+any serious impact from removing them. Most possible consequences will be visible immediately after the project rebuild.
+
+If you're a library author and want to be extra safe, check that consumers can work with your library.
+
+**When do the changes take effect?**
+
+In 1.8.20, the Kotlin Gradle plugin shows a warning if the build sets these properties. Starting with Kotlin 1.9.0,
+the properties are silently ignored.
+
+In the unlikely case you face some problems after removing these properties, create an issue in [YouTrack](https://kotlin.in/issue).
