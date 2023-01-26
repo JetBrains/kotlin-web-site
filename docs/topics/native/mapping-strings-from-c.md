@@ -55,7 +55,7 @@ void pass_string(char* str) {
 }
 
 char* return_string() {
-  return "C stirng";
+  return "C string";
 }
 
 int copy_string(char* str, int size) {
