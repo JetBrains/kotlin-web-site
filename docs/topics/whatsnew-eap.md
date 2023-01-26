@@ -1,13 +1,13 @@
-[//]: # (title: What's new in Kotlin 1.8.0-RC2)
+[//]: # (title: What's new in Kotlin 1.8.20-Beta)
 
 _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all the features of the Early Access Preview (EAP) release, but highlights the new ones and some major improvements.
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0-RC2).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-Beta).
 >
 {type="note"}
 
-The Kotlin 1.8.0-RC2 release is out! Here are some highlights from this release:
+The Kotlin 1.8.20-Beta release is out! Here are some highlights from this release:
 
 * [We removed the old backend for Kotlin/JVM](#kotlin-jvm)
 * [We now support Xcode 14.1](#kotlin-native)
