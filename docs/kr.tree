@@ -330,6 +330,12 @@
         <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
         <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
         <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
+        <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
+        <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
+        <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
+    </toc-element>
+
+    <toc-element toc-title="Compiler and plugins">
         <toc-element toc-title="Compiler">
             <toc-element toc-title="Command-line compiler" id="command-line.md"/>
             <toc-element toc-title="Compiler options" id="compiler-reference.md"/>
@@ -354,9 +360,6 @@
             <toc-element id="ksp-command-line.md" toc-title="Running KSP from command line"/>
             <toc-element id="ksp-faq.md" toc-title="FAQ"/>
         </toc-element>
-        <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
-        <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
-        <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
     </toc-element>
 
     <toc-element toc-title="Learning materials">
