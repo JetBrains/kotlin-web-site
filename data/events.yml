@@ -1,4 +1,84 @@
 - lang: en
+  startDate: '2023-03-02'
+  endDate: '2023-03-02'
+  online: true
+  speaker: ''
+  title: 'San Diego Kotlin User Group'
+  subject: 'Monthly Kotlin'
+  url: https://www.meetup.com/sd-kotlin/events/dqlhxsyfcfbcb/
+- lang: en
+  startDate: '2023-02-02'
+  endDate: '2023-02-02'
+  online: true
+  speaker: ''
+  title: 'San Diego Kotlin User Group'
+  subject: 'Monthly Kotlin'
+  url: https://www.meetup.com/sd-kotlin/events/290873403/
+- lang: en
+  startDate: '2023-02-23'
+  endDate: '2023-02-23'
+  location: Vilnius, Lithuania
+  speaker: Robertas Šetkus
+  title: 'Vilnius KUG meetup'
+  subject: 'Think Once, Think Twice, Think Multiplatform'
+  url: https://vilniuskug.netlify.app/meetups/2023/january/meetup-1/
+- lang: en
+  startDate: '2023-02-23'
+  endDate: '2023-02-23'
+  location: Vilnius, Lithuania
+  speaker: Vladislav Ermolin
+  title: 'Vilnius KUG meetup'
+  subject: 'Static Code Analysis for Kotlin: A Guiding Star'
+  url: https://vilniuskug.netlify.app/meetups/2023/january/meetup-1/
+- lang: en
+  startDate: '2023-02-04'
+  endDate: '2023-02-05'
+  location: Brussels, Belgium
+  speaker: To be announced
+  title: 'FOSDEM 2023'
+  subject: 'Kotlin Devroom'
+  url: https://fosdem.org/2023/schedule/track/kotlin/
+- lang: en
+  startDate: '2023-01-28'
+  endDate: '2023-01-28'
+  location: Nairobi, Kenya
+  speaker: To be announced
+  title: ''
+  subject: 'Kotlin Kenya January Networking Meetup'
+  url: https://www.meetup.com/KotlinKenya/events/291097566/
+- lang: en
+  startDate: '2023-04-28'
+  endDate: '2023-04-28'
+  location: Paris, France
+  speaker: ''
+  title: 'CFP is open'
+  subject: 'AndroidMakers by droidcon'
+  url: https://androidmakers.droidcon.com/
+- lang: en
+  startDate: '2023-03-07'
+  endDate: '2023-03-07'
+  location: Vienna, Austria
+  speaker: Patrick Lamprecht & Mario Fleischhacker
+  title: 'Kotlin Meetup March 2023'
+  subject: 'Kotlin Support in Spring Boot 3 Microservices & Webassembly with Kotlin'
+  url: https://www.meetup.com/kotlin-vienna/events/290420821/
+- lang: en
+  startDate: '2023-01-21'
+  endDate: '2023-01-21'
+  location: Bengaluru, India
+  speaker: Gautam Sukhramani
+  title: 'BlrKotlin #30'
+  subject: 'Intro to Deploying ML Models on Android'
+  url: https://www.meetup.com/BlrKotlin/events/290955120/
+- lang: en
+  startDate: '2023-01-21'
+  endDate: '2023-01-21'
+  location: Bengaluru, India
+  speaker: Nischal Raj
+  title: 'BlrKotlin #30'
+  subject: 'Creating Dynamic UI at Runtime using Kotlin'
+  url: https://www.meetup.com/BlrKotlin/events/290955120/
+- lang: en
   startDate: '2023-01-28'
   endDate: '2023-01-28'
   location: Kolkata, India
