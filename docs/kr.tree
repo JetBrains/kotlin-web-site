@@ -243,6 +243,7 @@
                 </toc-element>
             </toc-element>
             <toc-element id="native-debugging.md"/>
+            <toc-element id="native-target-support.md" toc-title="Target support"/>
             <toc-element id="native-ios-symbolication.md"/>
             <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation times"/>
             <toc-element id="native-faq.md"/>
