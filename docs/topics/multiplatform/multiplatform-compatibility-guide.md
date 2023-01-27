@@ -8,7 +8,7 @@ developing projects with Kotlin Multiplatform.
 > 
 {type="note"}
 
-## Auto-generated targets
+## New approach to auto-generated targets
 
 **What's changed?**
 
@@ -56,11 +56,11 @@ kotlin {
 
 **When do the changes take effect?**
 
-In Kotlin 1.7.20, an error is introduced when using targets accessors in the `kotlin.targets` block.
+In Kotlin 1.7.20, an error is introduced when using target accessors in the `kotlin.targets` block.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-47047).
 
-## Gradle input and output compile tasks
+## Changes in Gradle input and output compile tasks
 
 **What's changed?**
 
@@ -194,22 +194,22 @@ In Kotlin 1.8.0, an error is introduced when using old configuration names in ha
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
 
-## Gradle properties for hierarchical support
+## Deprecated Gradle properties for hierarchical structure support
 
 <anchor name="deprecate-hmpp-properties"></anchor>
 
 **What's changed?**
 
-Throughout its evolution, Kotlin Multiplatform was gradually introducing the support for hierarchical structure,
-an ability to have intermediate source sets between the common source set `commonMain` and any platform-specific one,
-for example, `jvmMain`.
+Throughout its evolution, Kotlin was gradually introducing the support for [hierarchical structure](multiplatform-hierarchy.md),
+in multiplatform projects, an ability to have intermediate source sets between the common source set `commonMain` and
+any platform-specific one, for example, `jvmMain`.
 
 For the transition period, while the toolchain wasn't stable enough, a couple of Gradle properties were introduced,
 allowing granular opt-ins and opt-outs.
 
-Since Kotlin 1.6.20, the hierarchical structure support has been enabled by default. However, these properties were kept
-for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out those
-properties completely.
+Since Kotlin 1.6.20, the hierarchical project structure support has been enabled by default. However, these properties
+were kept for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out
+those properties completely.
 
 The following properties are now deprecated and will be removed in Kotlin 1.9.0:
 
@@ -217,6 +217,7 @@ The following properties are now deprecated and will be removed in Kotlin 1.9.0:
 * `kotlin.mpp.enableCompatibilityMetadataVariant`
 * `kotlin.mpp.hierarchicalStructureSupport`
 * `kotlin.mpp.enableGranularSourceSetsMetadata`
+* `kotlin.native.enableDependencyPropagation`
 
 **What's the best practice now?**
 
