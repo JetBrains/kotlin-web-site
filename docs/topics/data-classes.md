@@ -55,7 +55,8 @@ data class Person(val name: String) {
 
 Only the property `name` will be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations,
 and there will only be one component function `component1()`. While two `Person` objects can have different ages,
-they will be treated as equal.
+they will be treated as equal. Because the age property is outside the constructor function and thus `equals()`, `hashCode()`, `toString()`, `equals()` and the component function will not be created for the age body property but for the name constructor property.
+
 
 ```kotlin
 data class Person(val name: String) {
