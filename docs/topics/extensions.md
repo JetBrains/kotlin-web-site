@@ -49,6 +49,13 @@ Extensions do not actually modify the classes they extend. By defining an extens
 a class, only making new functions callable with the dot-notation on variables of this type.
 
 Extension functions are dispatched _statically_, which means they are not virtual by receiver type.
+
+> Virtual functions are basically those functions which have a default implementation in the base class and if required can also 
+> be overidden and given new functionality in the derived class. This is in stark contrast with abstract functions, which do not have
+> any implementation in the base class but has to have implementation in the derived class.
+>
+{type="note"}
+
 An extension function being called is determined by the type of the expression on which the function is invoked,
 not by the type of the result from evaluating that expression at runtime. For example:
 
