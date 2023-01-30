@@ -46,11 +46,11 @@ Released: 30 January, 2023
 </td>
 <td>
 
-* [KT-55988](https://youtrack.jetbrains.com/issue/KT-55988): Fixed a problem with Kotlin/Native debugger (slow Spotlight indexing).
-* [KT-24450](https://youtrack.jetbrains.com/issue/KT-24450): Fixed Kotlin/Native debugger in multimodule projects.
-* [KT-55274](https://youtrack.jetbrains.com/issue/KT-55274): New build for Android Studio Giraffe 2022.3.1 Canary.
-* [KT-55204](https://youtrack.jetbrains.com/issue/KT-55204): Added provisioning flags for an iOS app build.
-* [KT-55402](https://youtrack.jetbrains.com/issue/KT-55402): Added inherited paths to the **Framework Search Paths** option in a generated iOS project.
+* [Fixed a problem with Kotlin/Native debugger (slow Spotlight indexing)](https://youtrack.jetbrains.com/issue/KT-55988)
+* [Fixed Kotlin/Native debugger in multimodule projects](https://youtrack.jetbrains.com/issue/KT-24450).
+* [New build for Android Studio Giraffe 2022.3.1 Canary](https://youtrack.jetbrains.com/issue/KT-55274).
+* [Added provisioning flags for an iOS app build](https://youtrack.jetbrains.com/issue/KT-55204).
+* [Added inherited paths to the **Framework Search Paths** option in a generated iOS project](https://youtrack.jetbrains.com/issue/KT-55402).
 
 </td>
 <td>
