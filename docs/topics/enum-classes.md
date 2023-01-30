@@ -103,6 +103,8 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
+See [Inline functions](inline-functions.md) to learn about inline functions and reified parameters in kotlin.
+
 Every enum constant has properties for obtaining its name and position (starting with 0) in the enum class declaration:
 
 ```kotlin
