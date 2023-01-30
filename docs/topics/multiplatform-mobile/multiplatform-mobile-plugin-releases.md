@@ -39,6 +39,29 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.5.2**
+
+Released: 30 January, 2023
+
+</td>
+<td>
+
+* [KT-55988](https://youtrack.jetbrains.com/issue/KT-55988): Fixed a problem with KN-debugger due a slow Spotlight indexing.
+* [KT-24450](https://youtrack.jetbrains.com/issue/KT-24450): Fixed KN-debugger in multi-module projects.
+* [KT-55274](https://youtrack.jetbrains.com/issue/KT-55274): New build for Canary Android Studio 2022.3.1.
+* [KT-55204](https://youtrack.jetbrains.com/issue/KT-55204): Added provisioning flags for an iOS app build.
+* [KT-55402](https://youtrack.jetbrains.com/issue/KT-55402): Added inherited paths to 'Framework Search Paths' option in a generated iOS project.
+
+</td>
+<td>
+
+* [Any Kotlin plugin version](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.5.1**
 
 Released: 30 November, 2022
