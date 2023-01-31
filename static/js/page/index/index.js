@@ -62,11 +62,11 @@ function scrollTabToCenter($container, $currentTab) {
     $container.animate({ scrollLeft: containerLeft + tabLeft - containerWidth + tabWidth }, 500);
 }
 
-const initTabs = function () {
-    const $tabWrapper = $('.overview-group');
+const initTabs = function ($context) {
+    const $tabWrapper = $context.find('.overview-group');
     $tabWrapper.jScroll();
 
-    const $tabs = $('.js-tab');
+    const $tabs = $context.find('.js-tab');
 
     $tabs.on('click', function () {
         const $tab = $(this),
@@ -92,6 +92,8 @@ const initTabs = function () {
 
         $tabs.trigger('tabs-change', tabId)
     });
+
+    initTabsRunButton($context);
 };
 
 const initPopups = function () {
@@ -179,16 +181,16 @@ const SCROLL_OPTIONS = {
     inline: 'nearest'
 };
 
-function initTabsRunButton() {
-    $('.js-tab').on('tabs-change', function(e, tabId) {
+function initTabsRunButton($context) {
+    $context.find('.js-tab').on('tabs-change', function(e, tabId) {
         const instance = queryPlayground(`#${tabId} > .sample`);
 
-        $(`.kotlin-code-examples-section__run`)
+        $context.find(`.kotlin-code-examples-section__run`)
             .toggleClass('kotlin-code-examples-section__run_hide', Boolean(instance.state.highlightOnly));
     });
 
-    $('.kotlin-code-examples-section__run').on('click', function () {
-        const $node = $(`.kotlin-overview-code-example:not(.is_hidden) > .sample`);
+    $context.find('.kotlin-code-examples-section__run').on('click', function () {
+        const $node = $context.find(`.kotlin-overview-code-example:not(.is_hidden) > .sample`);
         const instance = queryPlayground($node);
 
         $node.one('kotlinPlaygroundRun', function() {
@@ -206,8 +208,8 @@ function initTabsRunButton() {
 $(function () {
     initJScroll($);
     initPopups();
-    initTabs();
+    initTabs($('#try-kotlin-examples'));
+    initTabs($('#kotlin-values-examples'));
     initJQTabs();
     initAnchors();
-    initTabsRunButton()
 });
