@@ -517,7 +517,7 @@ with the following:
    }
    ```
 
-7. Create a `local.properties` file with all the necessary credentials and make sure to add it to your `.gitignore`:
+7. Create a `local.properties` file within your library's root directory with all the necessary credentials and make sure to add it to your `.gitignore`:
 
    ```none
    # The GPG key pair ID (last 8 digits of its fingerprint)
