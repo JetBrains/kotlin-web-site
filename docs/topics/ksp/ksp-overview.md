@@ -176,3 +176,5 @@ The table below includes a list of popular libraries on Android and their variou
 |Glide|[Officially supported](https://github.com/bumptech/glide)|   |
 |DeeplinkDispatch|[Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)| |
 |Micronaut|In Progress|[Link](https://github.com/micronaut-projects/micronaut-core/issues/6781)|
+|Epoxy|[Officially supported](https://github.com/airbnb/epoxy)||
+|Paris|[Officially supported](https://github.com/airbnb/paris)||
