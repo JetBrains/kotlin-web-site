@@ -596,7 +596,7 @@ plugin won't override it or add a second standard library.
 
 If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
 
-```none
+```properties
 kotlin.stdlib.default.dependency=false
 ```
 
@@ -608,8 +608,8 @@ for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This 
 different stdlib versions. [Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
-```none
- `kotlin.stdlib.jdk.variants.version.alignment=false`
+```properties
+kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
 ##### Other ways to align versions {initial-collapse-state="collapsed"}
