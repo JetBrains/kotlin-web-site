@@ -91,8 +91,8 @@ Kotlin Multiplatform Mobile support development for:
 
 * Android applications and libraries
 * [Android NDK](https://developer.android.com/ndk) (ARM64 and ARM32)
-* Apple iOS devices (ARM64 and ARM32) and simulators
-* Apple watchOS devices (ARM64 and ARM32) and simulators
+* Apple iOS devices and simulators
+* Apple watchOS devices and simulators
 
 The [Kotlin Multiplatform](multiplatform.md) technology also supports [other platforms](multiplatform-dsl-reference.md#targets),
 including JavaScript, Linux, Windows, and WebAssembly.

@@ -77,7 +77,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
     </tab>
     </tabs>
 
-   You can use different [target presets](multiplatform-dsl-reference.md#targets), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
+   You can use different [target presets](native-target-support.md), such as `macosX64`, `mingwX64`, `linuxX64`, `iosX64`,
    to define the corresponding target platform. The preset name describes a platform for which you are compiling your code.
    These target presets optionally take the target name as a parameter, which is `native` in this case.
    The target name is used to generate the source paths and task names in the project.
