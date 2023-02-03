@@ -609,7 +609,7 @@ different stdlib versions. [Learn more about [merging `kotlin-stdlib-jdk7` and `
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
 ```none
- `kotlin.stdlib.jdk.variants.version.alignment=false`
+kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
 ##### Other ways to align versions {initial-collapse-state="collapsed"}
