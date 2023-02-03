@@ -1,0 +1,38 @@
+
+<h2 class="kotlin-banner-section__header kto-heading kto-heading_size_h1">Latest from Kotlin</h2>
+<div class="kotlin-banner-section__banner">
+  <a target="_blank" class="kotlin-banner-section__link"
+     href="https://blog.jetbrains.com/kotlin/2023/01/kotlin-1-8-0-released/">
+    <picture>
+      <source media="(max-width: 537px)" srcset="/assets/images/index/banners/kotlin-1.8.0-mobile.jpg">
+      <img src="/assets/images/index/banners/kotlin-1.8.0.jpg" alt="Kotlin 1.8.0 Released" width="100%">
+    </picture>
+  </a>
+</div>
+<div class="kotlin-news-section">
+  {% set index_news_group = split_chunk(site.data["last-news"], 2) %}
+  {% for news_list in index_news_group %}
+    <div class="kotlin-news-section__chunk">
+      {% for news in news_list %}
+        {% set domain_link = get_domain(news.link) %}
+        <a class="kotlin-news-section__item" href="{{ news.link }}"{% if domain_link %}
+           target="_blank"{% endif %}>
+          <p class="kto-text kto-text_size_s">
+            {% if news.tag %}{{ news.tag }}
+              {% elif domain_link %}{{ domain_link }}
+            {% else %}Overview{% endif %}
+          </p>
+          <h3 class="kto-text kto-text_size_m">
+            <span class="kotlin-news-section__title">{{ news.title }}</span>&nbsp;<span
+            class="kotlin-news-section__arrow">↗</span>
+          </h3>
+        </a>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+<div class="kotlin-news-section__button">
+  <a class="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_outline"
+     href="https://blog.jetbrains.com/kotlin/" target="_blank">Kotlin blog ↗</a>
+</div>
