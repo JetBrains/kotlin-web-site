@@ -72,10 +72,9 @@ Mind the following terms used in tier tables:
 | `androidNativeArm64`   | `aarch64-unknown-linux-android` |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms  |
 | `androidNativeX86`     | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms    |
 | `androidNativeX64`     | `x86_64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms |
-| `mingwX64`             | `x86_64-pc-windows-gnu`         | ✅             | 64-bit Microsoft Windows                                             |
+| `mingwX64`             | `x86_64-pc-windows-gnu`         | ✅             | 64-bit [MinGW](https://www.mingw-w64.org) on Windows 7 and later     |
 | Apple macOS hosts only |                                 |               |                                                                      |
 | `watchosDeviceArm64`   | `aarch64-apple-watchos`         |               | Apple watchOS on ARM64 platforms                                     |
-
 
 ## Deprecated targets
 

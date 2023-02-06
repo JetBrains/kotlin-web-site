@@ -85,7 +85,7 @@ The complete list of available targets is the following:
         <td>Kotlin/Native</td>
         <td></td>
         <td>
-            <p>Learn about currently supported targets for the macOS, Android NDK, Linux, and Windows hosts in <a href="native-target-support.md">Kotlin/Native target support</a>.</p>
+            <p>Learn about currently supported targets for the macOS, Linux, and Windows hosts in <a href="native-target-support.md">Kotlin/Native target support</a>.</p>
         </td>
     </tr>
     <tr>
