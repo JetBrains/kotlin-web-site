@@ -575,7 +575,7 @@ State is one of the core concepts in React. In modern React (which uses the so-c
 
    To learn more about the State Hook, check out the [React documentation](https://reactjs.org/docs/hooks-state.html).
 
-2. Change your implementation of the `VideoList` component to look as follows:
+2. Change the `onClick` handler and the text to be shown in your implementation of the `VideoList` component to look as follows:
 
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
