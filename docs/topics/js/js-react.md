@@ -806,7 +806,7 @@ Now it's time to adjust the `VideoPlayer` usage site in the `App` component. Whe
 should be moved from the unwatched list to the watched list or vice versa. Since these lists can now actually
 change, move them into the application state:
 
-1. In `App.kt`, add the following `useState()` calls to the top of the `App` component:
+1. In `App.kt`, add the following properties with `useState()` calls to the top of the `App` component:
 
    ```kotlin
    val App = FC<Props> {
