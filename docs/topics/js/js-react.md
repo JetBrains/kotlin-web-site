@@ -681,6 +681,7 @@ Remember that in Kotlin, variables can have the [type of a function](lambdas.md#
        props.onSelectVideo(video)
    }
    ```
+   The variable `selectedVideo` in the `VideoList` component is now obsolete and can be deleted.
 
 3. You can now go back to the `App` component and pass `selectedVideo` and a handler for `onSelectVideo`
    for each of the two video lists:
