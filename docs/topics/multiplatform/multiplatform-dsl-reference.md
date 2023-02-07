@@ -92,7 +92,7 @@ The complete list of available targets is the following:
         <td>Android applications and libraries</td>
         <td><code>android</code></td>
         <td>
-            <p>Manually apply an Android Gradle plugin  – <code>com.android.application</code> or <code>com.android.library</code>.</p>
+            <p>Manually apply an Android Gradle plugin: <code>com.android.application</code> or <code>com.android.library</code>.</p>
             <p>You can only create one Android target per Gradle subproject.</p>
         </td>
     </tr>
