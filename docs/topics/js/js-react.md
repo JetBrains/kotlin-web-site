@@ -553,8 +553,7 @@ window like this:
 Instead of just alerting the user, you can add some functionality for highlighting the selected video with a ▶ triangle.
 To do that, introduce some _state_ specific to this component.
 
-State is one of core concepts in React. In modern React (which uses the so-called _Hooks API_), state is expressed
-using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
+State is one of the core concepts in React. In modern React (which uses the so-called _Hooks API_), state is expressed using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
 1. Add the following code to the top of the `VideoList` declaration:
 
