@@ -12,7 +12,7 @@ _[Release date: 8 February 2023](eap.md#build-details)_
 The Kotlin 1.8.20-Beta release is out! Here are some highlights from this preview version of Kotlin:
 
 * [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
-* [New Kotlin/Wasm target](#new-kotlin-wasm-target)
+* [New experimental Kotlin/Wasm target](#new-kotlin-wasm-target)
 * [New JVM incremental compilation by default in Gradle](#new-jvm-incremental-compilation-by-default-in-gradle)
 * [Update regarding Kotlin/Native targets](#update-regarding-kotlin-native-targets)
 * [Preview of Gradle composite builds in Kotlin Multiplatform](#preview-of-gradle-composite-builds-support-in-kotlin-multiplatform)
