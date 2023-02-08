@@ -115,8 +115,7 @@ experimental garbage collection mode that Kotlin/Wasm targets. See [How to enabl
 We want to highlight the following advantages of the new Kotlin/Wasm:
 
 * Faster compilation speed compared to the `wasm32` Kotlin/Native target since Kotlin/Wasm doesn't have to use LLVM.
-* Easier interoperability with JS and integration with browsers compared to the `wasm32` Kotlin/Native target thanks to
-  the use of [Wasm garbage collection](https://github.com/WebAssembly/gc).
+* Easier interoperability with JS and integration with browsers compared to the `wasm32` target thanks to the [Wasm garbage collection](https://github.com/WebAssembly/gc).
 * Potentially faster application startup time compared to Kotlin/JS and JavaScript because Wasm has a compact and
   easy-to-parse byte code.
 * Faster application runtime performance compared to Kotlin/JS and JavaScript because Wasm is a statically typed language.
@@ -162,18 +161,18 @@ To run the Kotlin/Wasm project, you need to update the settings of the target en
 
 * **Chrome**. For version 109 or later:
 
-1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
-2. Relaunch the browser application.
+  1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
+  2. Relaunch the browser application.
 
 * **Firefox**. For version 111 or later:
 
-1. Go to `about:config` in your browser.
-2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
-3. Relaunch the browser application.
+  1. Go to `about:config` in your browser.
+  2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
+  3. Relaunch the browser application.
 
 * **Edge**. For version 109 or later:
 
-1. Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
+  Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
 
 ### Leave your feedback on Kotlin/Wasm
 
