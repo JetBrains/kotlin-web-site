@@ -53,7 +53,7 @@ class Circle() : Shape() {
 }
 ```
 
-The `override` modifier is required for `Circle.draw()`. If it were missing, the compiler would complain. If there is no
+The `override` modifier is required for `Circle.draw()`. If it's missing, the compiler will complain. If there is no
 `open` modifier on a function, like `Shape.fill()`, declaring a method with the same signature in a subclass is not allowed,
 either with `override` or without it. The `open` modifier has no effect when added to members of a final class – a class
 without an `open` modifier.

@@ -220,7 +220,7 @@ more about the reasons behind these changes.
 
 ## Preview of Gradle composite builds support in Kotlin Multiplatform
 
-> The feature is available in EAP of IntelliJ IDEA 2022.3 only.
+> The feature is available since IntelliJ IDEA 2023.1 EAP 3 only.
 >
 {type="note"}
 
