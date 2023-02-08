@@ -105,16 +105,16 @@ We'd appreciate your feedback in any form:
 ## New Kotlin/Wasm target
 
 Kotlin/Wasm (Kotlin WebAssembly) goes [Experimental](components-stability.md#stability-levels-explained) in this preview release!
-Kotlin team finds [WebAssembly](https://webassembly.org/) is a promising technology. We have a close look at it, 
-trying to find better ways how you can use WebAssembly and get all the benefits of Kotlin.
+Kotlin team finds [WebAssembly](https://webassembly.org/) is promising technology. We have a close look at it and 
+try to find better ways how you can use WebAssembly and get all the benefits of Kotlin.
 
-WebAssembly binary format is independent of the platform, because it runs using own virtual machine.
-Almost all of modern browsers support WebAssembly in an experimental mode, so you don't need to install additional tooling to 
+WebAssembly binary format is independent of the platform because it runs using its own virtual machine.
+Almost all the modern browsers support WebAssembly in an experimental mode, so you don't need to install additional tooling to 
 have an environment to run WebAssembly, therefore, Kotlin/Wasm.
 
 There are three main advantages of the new Kotlin/Wasm that we want to highlight:
 
-* Performance: fast speed of the compilation process.
+* Performance: fast speed of the compilation process
 * Faster integration with the host
 * Small size of the final binary
 
@@ -125,8 +125,8 @@ We provide Kotlin standard library (`stdlib`) and test library (`kotlin.test`) f
 
 ### How to enable the Kotlin/Wasm
 
-To create a new Kotlin/Wasm project with Project Wizard, install the EAP version of IntelliJ IDEA 2022.3 and select
-**Browser application with Kotlin/Wasm** project in **Kotlin Multiplatform** section.
+To create a new Kotlin/Wasm project with Project Wizard, install the EAP version of IntelliJ IDEA 2022.3 and select the
+**Browser application with Kotlin/Wasm** project in the **Kotlin Multiplatform** section.
 
 To enable the Kotlin/Wasm and test it without IDE support, update your `build.gradle.kts` file:
 
