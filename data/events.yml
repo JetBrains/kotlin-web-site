@@ -1,4 +1,20 @@
 - lang: en
+  startDate: '2023-02-23'
+  endDate: '2023-02-23'
+  location: Athens, Greeece
+  speaker: Rainer Kern
+  title: 'Athens Kotlin User Group'
+  subject: 'Kotlin Coroutines'
+  url: https://www.meetup.com/kotlin-athens/events/291447655/
+- lang: en
+  startDate: '2023-02-23'
+  endDate: '2023-02-23'
+  location: Athens, Greeece
+  speaker: Petros Paraskevopoulos
+  title: 'Athens Kotlin User Group'
+  subject: 'Version Catalog, Dependabot and Renovate'
+  url: https://www.meetup.com/kotlin-athens/events/291447655/
+- lang: en
   startDate: '2023-03-02'
   endDate: '2023-03-02'
   online: true
