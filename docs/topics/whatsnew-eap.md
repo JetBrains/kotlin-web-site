@@ -145,8 +145,8 @@ If you're a library author, follow these target tiers to decide which targets sh
 be skipped. The Kotlin team will use the same approach when developing official Kotlin libraries, for
 example, [kotlinx.coroutines](coroutines-guide.md).
 
-<!-- Check out our [blog post](https://blog.jetbrains.com/kotlin/2023/02/07) to learn more about the reasons behind these
-changes. -->
+Check out our [blog post](https://blog.jetbrains.com/kotlin/2023/02/update-regarding-kotlin-native-targets/) to learn
+more about the reasons behind these changes.
 
 ## Preview of Gradle composite builds support in Kotlin Multiplatform
 
