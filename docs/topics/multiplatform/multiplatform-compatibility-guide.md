@@ -194,9 +194,9 @@ In Kotlin 1.8.0, an error is introduced when using old configuration names in ha
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
 
-## Deprecated Gradle properties for hierarchical structure support
-
 <anchor name="deprecate-hmpp-properties"></anchor>
+
+## Deprecated Gradle properties for hierarchical structure support
 
 **What's changed?**
 

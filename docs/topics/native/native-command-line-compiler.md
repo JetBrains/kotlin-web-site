@@ -4,8 +4,7 @@
 
 The Kotlin/Native compiler is available for macOS, Linux, and Windows. It is available as a command line tool and ships 
 as part of the standard Kotlin distribution and can be downloaded from [GitHub Releases](%kotlinLatestUrl%). It supports
-different targets including iOS (arm32, arm64, simulator x86_64), Windows (mingw32 and x86_64),
-Linux (x86_64, arm64, MIPS), macOS (x86_64), Raspberry PI, STM32, WASM. [See the full list of targets here](native-overview.md). 
+different targets including Linux, macOS, iOS, and others. [See the full list of supported targets](native-target-support.md). 
 While cross-platform compilation is possible, which means using one platform to compile for a different one, 
 in this %product% case we'll be targeting the same platform we're compiling on.  
 
