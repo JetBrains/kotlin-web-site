@@ -25,7 +25,7 @@ Kotlin/Native supports the following platforms:
 > 
 {type="note"}
 
-[The full list of supported targets is available here](multiplatform-dsl-reference.md#targets).
+[See the full list of supported targets](native-target-support.md).
 
 ## Interoperability
 

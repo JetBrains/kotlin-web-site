@@ -149,13 +149,13 @@ Along with macOS `X64`, Kotlin/Native supports macos `arm64` and iOS `arm32`, `a
 targets. You may replace the `macosX64` with respective functions as shown
 in the table:
 
-| Target platform/device | Gradle function |
-|------------------------|-----------------|
-| macOS x86_64           | `macosX64()`    | 
-| macOS ARM 64           | `macosArm64()`  | 
-| iOS ARM 32             | `iosArm32()`    | 
-| iOS ARM 64             | `iosArm64()`    | 
-| iOS Simulator (x86_64) | `iosX64()`      |
+| Target platform/device | Gradle function     |
+|------------------------|---------------------|
+| macOS x86_64           | `macosX64()`        | 
+| macOS ARM 64           | `macosArm64()`      |
+| iOS ARM 64             | `iosArm64()`        | 
+| iOS Simulator (x86_64) | `iosX64()`          |
+| iOS Simulator (arm64)  | `iosSimulatorArm64` |
 
 Run the `linkNative` Gradle task to build the library 
 [in the IDE](native-get-started.md) 
