@@ -16,102 +16,6 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 Install the [CocoaPods dependency manager](https://cocoapods.org/) using the installation tool of your choice:
 
-> If your device has an Apple M chip, follow our instructions [below](#apple-m-chips).
->
-{type="note"}
-
-<tabs>
-<tab title="RVM">
-
-1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
-2. Install Ruby. You can choose a specific version:
-
-    ```bash
-    rvm install ruby 3.0.0
-    ```
-
-3. Install CocoaPods:
-
-    ```bash
-    sudo gem install cocoapods
-    ```
-
-</tab>
-<tab title="Rbenv">
-
-1. Install [rbennv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
-2. Install Ruby. You can choose a specific version:
-
-    ```bash
-    rbenv install 3.0.0
-    ```
-
-3. Set the Ruby version as local for a particular directory or global for the whole machine:
-
-    ```bash
-    rbenv global 3.0.0
-    ```
-
-4. Install CocoaPods:
-
-    ```bash
-    sudo gem install cocoapods
-    ```
-
-</tab>
-<tab title="Default Ruby">
-
-You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
-
-```bash
-sudo gem install cocoapods
-```
-
-</tab>
-<tab title="Homebrew">
-
-> The CocoaPods installation with Homebrew might result in compatibility issues.
-> 
-> When installing CocoaPods, Homebrew also
-> installs the [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) gem that is necessary for working with Xcode.
-> However, it cannot be updated with Homebrew, and if the installed Xcodeproj doesn't support the newest Xcode version yet,
-> there will be a clash between gem versions. If this is the case, try other tools to install CocoaPods.
-> 
-{type="warning"}
-
-1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
-2. Install Ruby. You can choose a specific version:
-
-    ```bash
-    brew install ruby@3.0
-    ```
-
-3. Install CocoaPods:
-
-    ```bash
-    brew install cocoapods
-    ```
-
-</tab>
-</tabs>
-
-<procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
-    <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
-    <p>
-        <code style="block"
-            lang="bash">
-            sudo gem install cocoapods-generate
-        </code>
-    </p>
-    <tip>
-        <p>
-            Mind that <code>cocoapods-generate</code> couldn't be installed on Ruby 3.0.0 and later. If it's your case, downgrade Ruby or upgrade Kotlin to 1.7.0 or later.
-        </p>
-    </tip>
-</procedure>
-
-### Apple M chips {initial-collapse-state="collapsed"}
-
 <tabs>
 <tab title="RVM">
 
@@ -149,6 +53,20 @@ sudo gem install cocoapods
     ```bash
     sudo gem install cocoapods
     ```
+
+</tab>
+<tab title="Default Ruby">
+
+> This way of installation doesn't work on devices with Apple M chips. Use other tools to set up an environment to work
+> with CocoaPods.
+>
+{type="note"}
+
+You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
+
+```bash
+sudo gem install cocoapods
+```
 
 </tab>
 <tab title="Homebrew">
