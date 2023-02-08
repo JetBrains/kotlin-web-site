@@ -356,9 +356,9 @@ import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
 
 kotlin {
     // Create and configure the targets.
-    val ios32 = iosArm32("ios32")
-    val ios64 = iosArm64("ios64")
-    configure(listOf(ios32, ios64)) {
+    val ios32 = watchosArm32("watchos32")
+    val ios64 = watchosArm64("watchos64")
+    configure(listOf(watchos32, watchos64)) {
         binaries.framework {
             baseName = "my_framework"
         }
@@ -387,9 +387,9 @@ import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
 kotlin {
     // Create and configure the targets.
     targets {
-        iosArm32("ios32")
-        iosArm64("ios64")
-        configure([ios32, ios64]) {
+        watchosArm32("watchos32")
+        watchosArm64("watchos64")
+        configure([watchos32, watchos64]) {
             binaries.framework {
                 baseName = "my_framework"
             }
