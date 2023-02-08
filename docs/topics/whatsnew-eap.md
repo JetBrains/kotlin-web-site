@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.8.20-Beta)
 
-_[Release date: 8 February 2023](eap.md#build-details)_
+_[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the new ones
 > and some major improvements.
@@ -124,7 +124,7 @@ We'd appreciate your feedback, you can [file an issue](https://kotl.in/issue) in
 ## Update regarding Kotlin/Native targets
 
 The Kotlin team decided to revisit the list of targets supported by Kotlin/Native, split them into tiers, and deprecate
-some of them since Kotlin 1.8.20-Beta. See the [Kotlin/Native target support] section for
+some of them since Kotlin 1.8.20-Beta. See the [Kotlin/Native target support](native-target-support.md) section for
 the full list of supported and deprecated targets.
 
 Now there are three tiers of support depending on how well a target is supported and tested in the Kotlin/Native
@@ -145,8 +145,8 @@ If you're a library author, follow these target tiers to decide which targets sh
 be skipped. The Kotlin team will use the same approach when developing official Kotlin libraries, for
 example, [kotlinx.coroutines](coroutines-guide.md).
 
-Check out our [blog post](https://blog.jetbrains.com/kotlin/2023/02/07) to learn more about the reasons behind these
-changes.
+<!-- Check out our [blog post](https://blog.jetbrains.com/kotlin/2023/02/07) to learn more about the reasons behind these
+changes. -->
 
 ## Preview of Gradle composite builds support in Kotlin Multiplatform
 
