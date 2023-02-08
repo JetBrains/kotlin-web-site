@@ -12,7 +12,7 @@ _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin 1.8.20-Beta release is out! Here are some highlights from this preview version of Kotlin:
 
 * [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
-* [New Kotlin/Wasm compiler backend](#new-kotlin-wasm-target)
+* [New experimental Kotlin/Wasm target](#new-kotlin-wasm-target)
 * [New JVM incremental compilation by default in Gradle](#new-jvm-incremental-compilation-by-default-in-gradle)
 * [Update regarding Kotlin/Native targets](#update-regarding-kotlin-native-targets)
 * [Preview of Gradle composite builds in Kotlin Multiplatform](#preview-of-gradle-composite-builds-support-in-kotlin-multiplatform)
@@ -104,13 +104,83 @@ We'd appreciate your feedback in any form:
 
 ## New Kotlin/Wasm target
 
-> The new backend is available in EAP of IntelliJ IDEA 2022.3 only.
->
-{type="note"}
+Kotlin/Wasm (Kotlin WebAssembly) goes [Experimental](components-stability.md#stability-levels-explained) in this preview
+release! The Kotlin team finds [WebAssembly](https://webassembly.org/) a promising technology. We want to look closely
+at it and find better ways for you to use WebAssembly and get all the benefits of Kotlin.
 
-Kotlin/Wasm goes [Alpha](components-stability.md) in this preview release.
+WebAssembly binary format is independent of the platform because it runs using its own virtual machine. Almost all modern
+browsers already support WebAssembly 1.0, and to set up the environment to run WebAssembly, you only need to enable an
+experimental garbage collection mode that Kotlin/Wasm targets. See [How to enable the Kotlin/Wasm](#how-to-enable-kotlin-wasm).
+
+We want to highlight the following advantages of the new Kotlin/Wasm:
+
+* Faster compilation speed compared to the `wasm32` Kotlin/Native target since Kotlin/Wasm doesn't have to use LLVM.
+* Easier interoperability with JS and integration with browsers compared to the `wasm32` target thanks to the [Wasm garbage collection](https://github.com/WebAssembly/gc).
+* Potentially faster application startup time compared to Kotlin/JS and JavaScript because Wasm has a compact and
+  easy-to-parse byte code.
+* Faster application runtime performance compared to Kotlin/JS and JavaScript because Wasm is a statically typed language.
+
+Since 1.8.20-Beta preview release, you can use Kotlin/Wasm in your experimental projects.
+We provide Kotlin standard library (`stdlib`) and test library (`kotlin.test`) for Kotlin/Wasm out of the box. The IDE support will be added in future releases.
 
 [Learn more about Kotlin/Wasm in the YouTube video](https://www.youtube.com/watch?v=-pqz9sKXatw).
+
+### How to enable Kotlin/Wasm
+
+To enable the Kotlin/Wasm and test it, update your `build.gradle.kts` file:
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "1.8.20-Beta"
+}
+
+kotlin {
+    wasm {
+        binaries.executable()
+        browser {
+        }
+    }
+    sourceSets {
+        val commonMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val wasmMain by getting
+        val wasmTest by getting
+    }
+}
+```
+
+> Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples).
+>
+{type="tip"}
+
+To run the Kotlin/Wasm project, you need to update the settings of the target environment:
+
+* **Chrome**. For version 109 or later:
+
+  1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
+  2. Relaunch the browser application.
+
+* **Firefox**. For version 111 or later:
+
+  1. Go to `about:config` in your browser.
+  2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
+  3. Relaunch the browser application.
+
+* **Edge**. For version 109 or later:
+
+  Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
+
+### Leave your feedback on Kotlin/Wasm
+
+We'd appreciate your feedback in any form:
+
+* Provide your feedback directly to developers in Kotlin Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+  and join the [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel.
+* Report any problems you faced with the Kotlin/Wasm in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-56492).
 
 ## New JVM incremental compilation by default in Gradle
 
