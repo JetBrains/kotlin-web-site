@@ -73,10 +73,10 @@ sudo gem install cocoapods
 
 > The CocoaPods installation with Homebrew might result in compatibility issues.
 >
-> When installing CocoaPods, Homebrew also
-> installs the [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) gem that is necessary for working with Xcode.
+> When installing CocoaPods, Homebrew also installs the [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) gem that is
+> necessary for working with Xcode.
 > However, it cannot be updated with Homebrew, and if the installed Xcodeproj doesn't support the newest Xcode version yet,
-> there will be a clash between gem versions. If this is the case, try other tools to install CocoaPods.
+> you'll get errors with Pod installation. If this is the case, try other tools to install CocoaPods.
 >
 {type="warning"}
 
@@ -247,7 +247,7 @@ which contains an example of Xcode integration with an existing Xcode project na
 #### Ruby installation
 
 CocoaPods is built with Ruby, and you can install it with the default Ruby that should be available on macOS.
-Ruby 1.9 or later has a built-in RubyGems package management framework that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
+Ruby 1.9 or later has a built-in RubyGems package management framework that helps you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
 
 If you're experiencing problems installing CocoaPods and getting it to work, follow [this guide](https://www.ruby-lang.org/en/documentation/installation/)
 to install Ruby or refer to the [RubyGems website](https://rubygems.org/pages/download/) to install the framework.
