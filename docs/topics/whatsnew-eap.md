@@ -246,7 +246,7 @@ with import along the way. Here are some known issues we're planning to fix befo
 
 * There's no Kotlin 1.8.20 plugin available for IntelliJ IDEA 2023.1 EAP yet. Despite that, you can still set the Kotlin
   Gradle plugin version to 1.8.20-Beta and try out composite builds in this IDE.
-* If your projects have builds with specified `rootProject.name`, composite builds may fail to resolve the Kotlin metadata.
+* If your projects include builds with specified `rootProject.name`, composite builds may fail to resolve the Kotlin metadata.
   For the workaround and details, see this [Youtrack issue](https://youtrack.jetbrains.com/issue/KT-56536).
 
 We encourage you to try this feature out and submit all reports in [YouTrack](https://kotl.in/issue) to help us make it default in Kotlin 1.9.0.
