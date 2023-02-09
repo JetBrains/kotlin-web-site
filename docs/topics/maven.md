@@ -262,11 +262,11 @@ The following attributes are supported:
 
 ### Attributes common to JVM and JS
 
-| Name | Property name | Description | Possible values |Default value |
-|------|---------------|-------------|-----------------|--------------|
+| Name | Property name | Description | Possible values | Default value |
+|------|---------------|-------------|-----------------|---------------|
 | `nowarn` | | Generate no warnings | true, false | false |
-| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" | 
-| `apiVersion` | kotlin.compiler.apiVersion | Allow using declarations only from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" | 
+| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) | 
+| `apiVersion` | kotlin.compiler.apiVersion | Allow using declarations only from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) | 
 | `sourceDirs` | | The directories containing the source files to compile | | The project source roots
 | `compilerPlugins` | | Enabled compiler plugins  | | []
 | `pluginOptions` | | Options for compiler plugins  | | []
