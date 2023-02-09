@@ -39,7 +39,7 @@ Starting with this 1.8.20-Beta release, the Kotlin K2 compiler:
 
 * has a preview version of the serialization plugin
 * provides Alpha support for the [JS IR compiler](js-ir-compiler.md)
-* introduces the future release of the new language version, Kotlin 2.0
+* introduces the future release of the [new language version, Kotlin 2.0](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
 
 Learn more about the new compiler and its benefits in the following videos:
 
@@ -239,9 +239,17 @@ This option enables a preview of the new import mode. Besides the support for co
 import experience in multiplatform projects, as we included major bug fixes and improvements to make the import more
 stable.
 
-Please keep in mind that it's still a preview version that needs further stabilization, and you might encounter some
-issues with import along the way. We encourage you to try it out and submit all reports
-in [YouTrack](https://kotl.in/issue) to help us make it default in Kotlin 1.9.0.
+### Known issues
+
+Please keep in mind that it's still a preview version that needs further stabilization, and you might encounter some issues
+with import along the way. Here are some known issues we're planning to fix before the final release of Kotlin 1.8.20:
+
+* There's no Kotlin 1.8.20 plugin available for IntelliJ IDEA 2023.1 EAP yet. Despite that, you can still set the Kotlin
+  Gradle plugin version to 1.8.20-Beta and try out composite builds in this IDE.
+* If your projects include builds with specified `rootProject.name`, composite builds may fail to resolve the Kotlin metadata.
+  For the workaround and details, see this [Youtrack issue](https://youtrack.jetbrains.com/issue/KT-56536).
+
+We encourage you to try this feature out and submit all reports in [YouTrack](https://kotl.in/issue) to help us make it default in Kotlin 1.9.0.
 
 ## Improved output for Gradle errors in Xcode
 
