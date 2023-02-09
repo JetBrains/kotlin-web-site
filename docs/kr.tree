@@ -58,11 +58,11 @@
             <toc-element toc-title="Basic types">
                 <toc-element id="basic-types.md" toc-title="Overview"/>
                 <toc-element id="numbers.md"/>
+                <toc-element id="unsigned-integer-types.md"/>
                 <toc-element id="booleans.md"/>
                 <toc-element id="characters.md"/>
                 <toc-element id="strings.md"/>
                 <toc-element id="arrays.md"/>
-                <toc-element id="unsigned-integer-types.md"/>
             </toc-element>
             <toc-element id="typecasts.md"/>
         </toc-element>
