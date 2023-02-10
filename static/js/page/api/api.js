@@ -211,9 +211,11 @@ function initializeSelects() {
 }
 
 function initializeSections() {
-  $(".declarations").click((event) => {
-    window.location.href = $(event.currentTarget).find("a:first").attr("href")
-  });
+    $(".declarations").click(event => {
+        event.preventDefault();
+        const url = $(event.currentTarget).find("a:first").attr("href");
+        window.open(url, event.ctrlKey || event.metaKey? '_blank' : '_self');
+    });
 }
 
 function handleApiPageScroll() {
