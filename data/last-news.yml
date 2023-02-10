@@ -1,5 +1,5 @@
-- title: "Kotlin 1.8.0 Released"
-  link: https://blog.jetbrains.com/kotlin/2023/01/kotlin-1-8-0-released/
+- title: "The K2 Compiler is going stable in Kotlin 2.0"
+  link: https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/
 
 - title: "Kotlin Multiplatform Mobile Content Creators"
   link: https://blog.jetbrains.com/kotlin/2022/12/shout-out-to-kotlin-multiplatform-mobile-content-creators/
@@ -7,5 +7,5 @@
 - title: "KotlinDL 0.5 Has Come to Android!"
   link: https://blog.jetbrains.com/kotlin/2022/12/kotlindl-0-5-has-come-to-android/
 
-- title: "KotlinConf returns to Amsterdam in April 2023!"
-  link: https://blog.jetbrains.com/kotlin/2022/07/kotlinconf-2023/
+- title: "Reproducible Kotlin Compiler Artifacts"
+  link: https://blog.jetbrains.com/kotlin/2023/02/reproducible-kotlin-compiler-artifacts/
