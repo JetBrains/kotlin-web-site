@@ -900,11 +900,11 @@ in GitHub.
 However, in this configuration, the generic type for the props accepted by `ReactPlayer` is set to `dynamic`. That means
 the compiler will accept any code, at the risk of breaking things at runtime.
 
-A better alternative would be to create an `external interface` that specifies what kind of properties belong to the
+A better alternative is to create an `external interface` that specifies what kind of properties belong to the
 props for this external component. You can learn about the props' interface in the [README](https://www.npmjs.com/package/react-player)
 for the component. In this case, use the `url` and `controls` props:
 
-1. Adjust the content of `ReactYouTube.kt` accordingly:
+1. Adjust the content of `ReactYouTube.kt` by adding an external interface and replacing `dynamic` with that interface:
 
    ```kotlin
    @file:JsModule("react-player")
