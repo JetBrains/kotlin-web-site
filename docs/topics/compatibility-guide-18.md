@@ -336,7 +336,7 @@ perspective
 > - 1.7.0: report a warning (or an error in the progressive mode) on array literals in nested objects in annotation classes
 > - 1.9.0: raise the warning to an error
 
-### Prohibit forward referencing of parameters with default values in default value expressions
+### Prohibit forward referencing of parameters in default value expressions
 
 > **Issue**: [KT-25694](https://youtrack.jetbrains.com/issue/KT-25694)
 >
@@ -344,13 +344,13 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 1.9 will prohibit forward referencing of parameters with default values in default value expressions
+> **Short summary**: Kotlin 1.9 will prohibit forward referencing of parameters in default value expressions
 > of other parameters. This ensures that by the time the parameter is accessed in a default value expression, 
 > it would already have a value either passed to the function or initialized by its own default value expression
 >
 > **Deprecation cycle**:
 >
-> - 1.7.0: report a warning (or an error in the progressive mode) when a parameter with default value is references in default value of another parameter that comes before it
+> - 1.7.0: report a warning (or an error in the progressive mode) when a parameter is referenced in the default value of another parameter that comes before it
 > - 1.9.0: raise the warning to an error,
 >   `-XXLanguage:-ProhibitIllegalValueParameterUsageInDefaultArguments` can be used to temporarily revert to the pre-1.9 behavior
 
