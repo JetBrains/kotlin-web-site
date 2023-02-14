@@ -82,10 +82,10 @@
   }
 
   .code-area._unfolded .fold-button {
-    top: -13px;
-    left: calc(50% - 11px);
+    top: 0;
+    left: 50%;
 
-    transform: rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   .console-close {
