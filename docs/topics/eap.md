@@ -42,9 +42,9 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>1.8.20-Beta</strong>
-            <p>Released: <strong>February 8, 2023</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-Beta" target="_blank">Release on GitHub</a></p>
+        <td><strong>1.8.20-RC</strong>
+            <p>Released: <strong>February 28, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
@@ -59,7 +59,7 @@ check [our instructions on how to configure your build to support this version](
                  <li>Maven: new <code>components.xml</code> to automatically compile Kotlin Maven projects, ability to set up kapt's <code>aptMode</code></li>
                  <li>Serialization: prototype of serialization plugin that works with the K2 compiler, prohibited implicit serializer customization via companion object</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-Beta">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.8.20-Beta</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.8.20-Beta</a>.</p>
         </td>
     </tr>
 </table>
