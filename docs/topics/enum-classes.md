@@ -87,11 +87,23 @@ EnumClass.valueOf(value: String): EnumClass
 EnumClass.values(): Array<EnumClass>
 ```
 
+Below is an example of these methods in action:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+fun main() {
+    for (color in RGB.values()) println(color.toString()) // prints RED, GREEN, BLUE
+    println("The first color is: " + RGB.valueOf("RED")) // prints "The first color is: RED"
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-kotlin"}
+
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
 
 You can access the constants in an enum class in a generic way using
-the `enumValues<T>()` and `enumValueOf<T>()` functions:
+the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
 
 ```kotlin
 enum class RGB { RED, GREEN, BLUE }
@@ -103,9 +115,41 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
-Every enum constant has properties for obtaining its name and position (starting with 0) in the enum class declaration:
+If you don't want your enum constants returned in an array, you can use the `entries` property instead. The
+`entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you
+are working with [collections](collections-overview.md) and can you help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
+
+For example:
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+    for (color in RGB.entries) println(color.toString())
+    // prints RED, GREEN, BLUE
+}
+```
+
+> The `entries` property is [Experimental](components-stability.md#stability-levels-explained). To use it you need 
+> to opt in by using `@OptIn(ExperimentalStdlibApi)`, and [set the language version to 1.9](https://kotlinlang.org/docs/gradle-compiler-options.html#attributes-common-to-jvm-and-js).
+>
+{type="warning"}
+
+We'd appreciate any feedback you have on using the `entries` property. You can provide feedback by creating a ticket 
+in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Subsystems%20Language%20Design), or commenting on our [KEEP note in GitHub](https://github.com/Kotlin/KEEP/issues/283).
+
+Every enum constant also has properties: [`name`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/name.html)
+and [`ordinal`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/ordinal.html), for obtaining its name and 
+position (starting from 0) in the enum class declaration:
 
 ```kotlin
-val name: String
-val ordinal: Int
+enum class RGB { RED, GREEN, BLUE }
+
+fun main() {
+    //sampleStart
+    println(RGB.RED.name) // prints RED
+    println(RGB.RED.ordinal) // prints 0
+    //sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
