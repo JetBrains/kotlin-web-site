@@ -26,6 +26,7 @@ version = "2022.10"
 
 project {
   subProject(builds.apiReferences.BuildApiReferencesProject)
+  subProject(builds.kotlinlang.SiteProject)
   subProject(tests.TestsProject)
   vcsRoot(vcsRoots.KotlinLangOrg)
 }
