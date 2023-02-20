@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2023-03-02'
+  endDate: '2023-03-02'
+  location: Limassol, Cyprus
+  speaker: Katerina Petrova
+  title: 'Cyprus Kotlin User Group'
+  subject: 'Kotlin Multiplatform Mobile'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-0203-tickets-547755831437
+- lang: en
   startDate: '2023-02-23'
   endDate: '2023-02-23'
   location: Athens, Greeece
