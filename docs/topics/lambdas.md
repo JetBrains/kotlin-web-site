@@ -277,7 +277,7 @@ ints.filter {
 ```
 
 This convention, along with [passing a lambda expression outside of parentheses](#passing-trailing-lambdas), allows for
-[LINQ-style](https://docs.microsoft.com/en-us/previous-versions/dotnet/articles/bb308959(v=msdn.10)) code:
+[LINQ-style](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) code:
 
 ```kotlin
 strings.filter { it.length == 5 }.sortedBy { it }.map { it.uppercase() }
