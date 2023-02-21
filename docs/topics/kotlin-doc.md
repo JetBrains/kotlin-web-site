@@ -121,7 +121,7 @@ Use the method [foo] for this purpose.
 If you want to specify a custom label for the link, use the Markdown reference-style syntax:
 
 ```
-Use [this method][foo] for this purpose.
+Use [this method](foo) for this purpose.
 ```
 
 You can also use qualified names in the links. Note that, unlike Javadoc, qualified names always use the dot character
