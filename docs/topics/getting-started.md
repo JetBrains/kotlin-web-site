@@ -39,7 +39,7 @@ Here is how you can take the first steps in developing Kotlin server-side applic
      A mature family of frameworks with an established ecosystem that is used by millions of developers worldwide.
    <br/>
    <list>
-      <li><a href="jvm-spring-boot-restful.md">Create a RESTful web service with Spring Boot</a>.</li>
+      <li><a href="jvm-get-started-spring-boot.md">Create a RESTful web service with Spring Boot</a>.</li>
       <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a>.</li>
       <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a>.</li>
    </list>
