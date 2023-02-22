@@ -16,6 +16,7 @@ object SiteProject : Project({
   buildType(BuildWebHelpFrontend)
   buildType(BuildReferenceDocs)
   buildType(BuildSitePages)
+  buildType(BuildSearchIndex)
 
   template(DockerImageBuilder)
 
