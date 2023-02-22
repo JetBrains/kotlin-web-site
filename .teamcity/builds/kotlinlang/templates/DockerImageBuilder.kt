@@ -1,5 +1,6 @@
 package builds.kotlinlang.templates
 
+import builds.kotlinlang.buidTypes.BuildKotlinGrammar
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
@@ -33,7 +34,7 @@ object DockerImageBuilder : Template({
       onDependencyCancel = FailureAction.CANCEL
     }
 
-    dependency(AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_KotlinGrammarAntlr")) {
+    dependency(BuildKotlinGrammar) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
         onDependencyCancel = FailureAction.CANCEL

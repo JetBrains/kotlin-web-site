@@ -124,7 +124,7 @@ object BuildSitePages : BuildType({
   }
 
   dependencies {
-    dependency(AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildSiteAssets")) {
+    dependency(BuildJsAssets) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
         onDependencyCancel = FailureAction.CANCEL
@@ -135,7 +135,7 @@ object BuildSitePages : BuildType({
       }
     }
 
-    dependency(AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_KotlinSpec")) {
+    dependency(BuildKotlinSpec) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
         onDependencyCancel = FailureAction.CANCEL
@@ -151,7 +151,7 @@ object BuildSitePages : BuildType({
                 """.trimIndent()
       }
     }
-    dependency(AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_WebhelpDocs_Reference")) {
+    dependency(BuildReferenceDocs) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
