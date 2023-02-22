@@ -94,7 +94,7 @@ enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
     for (color in RGB.values()) println(color.toString()) // prints RED, GREEN, BLUE
-    println("The first color is: " + RGB.valueOf("RED")) // prints "The first color is: RED"
+    println("The first color is: ${RGB.valueOf("RED")}") // prints "The first color is: RED"
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-kotlin"}
@@ -115,8 +115,8 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
-If you don't want your enum constants returned in an array, you can use the `entries` property instead. The
-`entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you
+In Kotlin 1.8.20, the `entries` property is introduced as a future replacement for the `values()` function. The 
+`entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
 are working with [collections](collections-overview.md) and can you help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
 
 For example:
@@ -130,8 +130,8 @@ fun main() {
 }
 ```
 
-> The `entries` property is [Experimental](components-stability.md#stability-levels-explained). To use it you need 
-> to opt in by using `@OptIn(ExperimentalStdlibApi)`, and [set the language version to 1.9](https://kotlinlang.org/docs/gradle-compiler-options.html#attributes-common-to-jvm-and-js).
+> The `entries` property is Experimental. To use it you need to opt in by using `@OptIn(ExperimentalStdlibApi)`, and
+> [set the language version to 1.9](https://kotlinlang.org/docs/gradle-compiler-options.html#attributes-common-to-jvm-and-js).
 >
 {type="warning"}
 
