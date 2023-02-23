@@ -39,6 +39,8 @@ object BuildReferenceDocs : BuildType({
 
   dependencies {
     dependency(AbsoluteId("Documentation_TransitioningProducts_KotlinReferenceWithCoroutines")) {
+      snapshot {}
+
       artifacts {
         cleanDestination = true
         artifactRules = """
