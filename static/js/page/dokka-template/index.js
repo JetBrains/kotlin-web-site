@@ -1,7 +1,7 @@
 import './index.scss';
 import { initComponent, ktlHelpers } from "../../ktl-component/ktl-helpers";
-import Footer from "./footer/index.jsx";
 import Header from "./header/index.jsx";
+import Footer from "./footer/index.jsx";
 
 document.addEventListener('DOMContentLoaded', init);
 
