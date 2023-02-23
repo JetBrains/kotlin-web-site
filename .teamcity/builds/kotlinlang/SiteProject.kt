@@ -8,7 +8,7 @@ import builds.kotlinlang.vcs.WebHelp
 import jetbrains.buildServer.configs.kotlin.Project
 
 object SiteProject : Project({
-  name = "Build kotlinlang.org"
+  name = "kotlinlang.org"
 
   buildType(BuildJsAssets)
   buildType(BuildKotlinSpec)
