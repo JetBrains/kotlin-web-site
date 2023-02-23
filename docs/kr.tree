@@ -324,7 +324,7 @@
         <toc-element toc-title="Integrated development environments (IDEs)">
             <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
             <toc-element toc-title="Improve IDE performance" id="ide-performance-tips.md"/>
-            <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
+            <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" id="code-style-migration-guide.md"/>
         </toc-element>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
