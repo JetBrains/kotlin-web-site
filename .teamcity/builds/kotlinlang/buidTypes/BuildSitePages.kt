@@ -25,15 +25,6 @@ object BuildSitePages : BuildType({
     cleanCheckout = true
   }
 
-/*  triggers {
-    vcs {
-      branchFilter = """
-          +:<default>
-          +:spring-learning-path
-      """.trimIndent()
-    }
-  }*/
-
   steps {
     script {
       name = "Build html pages"
@@ -103,24 +94,6 @@ object BuildSitePages : BuildType({
                 echo " ##teamcity[buildStatus text='{build.status.text} ${'$'}{url}'] "
             """.trimIndent()
     }
-  }
-
-  features {
-    /*notifications {
-      notifierSettings = slackNotifier {
-        connection = "PROJECT_EXT_486"
-        sendTo = "#kotlin-web-site-e2e-tests"
-        messageFormat = simpleMessageFormat()
-      }
-      branchFilter = """
-                +:<default>
-                +:spring-learning-path
-            """.trimIndent()
-      buildFailedToStart = true
-      buildFailed = true
-      firstFailureAfterSuccess = true
-      buildProbablyHanging = true
-    }*/
   }
 
   dependencies {
