@@ -1,5 +1,7 @@
 package builds.kotlinlang.buidTypes
 
+import BuildParams.SEARCH_APP_ID
+import BuildParams.SEARCH_INDEX_NAME
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -9,7 +11,6 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import vcsRoots.KotlinLangOrg
 
-const val SearchAppId = "7961PKYRXV"
 
 object BuildSearchIndex : BuildType({
   name = "Build Site Search Index"
@@ -18,8 +19,8 @@ object BuildSearchIndex : BuildType({
   params {
     param("env.KEY_FILE_LOCATION", "/secrets/google-credentials.json")
     param("virtualenv.folder", "_environment")
-    param("env.WH_INDEX_NAME", "prod_KOTLINLANG_WEBHELP")
-    param("env.WH_SEARCH_USER", SearchAppId)
+    param("env.WH_INDEX_NAME", SEARCH_INDEX_NAME)
+    param("env.WH_SEARCH_USER", SEARCH_APP_ID)
     param("env.WH_SEARCH_KEY", "%ALGOLIA_WRITE_API_KEY%")
   }
 
