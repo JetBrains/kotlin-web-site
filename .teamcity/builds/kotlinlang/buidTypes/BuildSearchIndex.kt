@@ -12,8 +12,6 @@ import vcsRoots.KotlinLangOrg
 const val SearchAppId = "7961PKYRXV"
 
 object BuildSearchIndex : BuildType({
-  id = AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildBetaSerachIndex")
-
   name = "Build Site Search Index"
   description = "Build search index for Algolia using Google Analytics data"
 

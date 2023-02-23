@@ -16,7 +16,19 @@ object SiteProject : Project({
   buildType(BuildWebHelpFrontend)
   buildType(BuildReferenceDocs)
   buildType(BuildSitePages)
+  buildType(PdfGenerator)
   buildType(BuildSearchIndex)
+
+  buildTypesOrder = arrayListOf(
+    BuildSitePages,
+    PdfGenerator,
+    BuildSearchIndex,
+    BuildReferenceDocs,
+    BuildWebHelpFrontend,
+    BuildKotlinGrammar,
+    BuildKotlinSpec,
+    BuildJsAssets
+  )
 
   template(DockerImageBuilder)
 

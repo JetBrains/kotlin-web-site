@@ -25,8 +25,8 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2022.10"
 
 project {
-  subProject(builds.apiReferences.BuildApiReferencesProject)
   subProject(builds.kotlinlang.SiteProject)
+  subProject(builds.apiReferences.BuildApiReferencesProject)
   subProject(tests.TestsProject)
   vcsRoot(vcsRoots.KotlinLangOrg)
 }
