@@ -383,7 +383,7 @@ All the build logic will be provided as a precompiled script plugin and could be
 To implement this, move the publication logic to a separate Gradle project:
 
 1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins`
-with `src/build.gradle.kts` in it.
+with `build.gradle.kts` in it.
 2. Update this `build.gradle.kts` file with the following code:
    
    ```kotlin
