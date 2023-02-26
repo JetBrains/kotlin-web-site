@@ -178,3 +178,4 @@ The table below includes a list of popular libraries on Android and their variou
 |Micronaut|In Progress|[Link](https://github.com/micronaut-projects/micronaut-core/issues/6781)|
 |Epoxy|[Officially supported](https://github.com/airbnb/epoxy)||
 |Paris|[Officially supported](https://github.com/airbnb/paris)||
+|Auto Dagger][Officially supported](https://github.com/ansman/auto-dagger)||
