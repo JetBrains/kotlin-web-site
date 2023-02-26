@@ -1107,7 +1107,7 @@ suspend fun fetchVideo(id: Int): Video {
 }
 ```
 
-* _Suspending function_ `fetch()`es a video with a given `id` from the API. This response may take a while, so you `await()`
+* _Suspending function_ `fetch()` fetches a video with a given `id` from the API. This response may take a while, so you `await()`
   the result. Next, `text()`, which uses a callback, reads the body from the response. Then you `await()` its completion.
 * Before returning the value of the function, you pass it to `Json.decodeFromString`, a function from `kotlinx.coroutines`.
   It converts the JSON text you received from the request into a Kotlin object with the appropriate fields.
