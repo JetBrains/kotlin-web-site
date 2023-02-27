@@ -160,20 +160,37 @@ kotlin {
 
 To run a Kotlin/Wasm project, you need to update the settings of the target environment:
 
-* **Chrome**. For version 109 or later:
+<tabs>
+<tab title="Chrome">
 
-    1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
-    2. Relaunch the browser application.
-
-* **Firefox**. For version 111 or later:
-
-    1. Go to `about:config` in your browser.
-    2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
-    3. Relaunch the browser application.
-
-* **Edge**. For version 109 or later:
+* For version 109:
 
   Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
+
+* For version 110 or later:
+
+  1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
+  2. Enable **WebAssembly Garbage Collection**.
+  3. Relaunch your browser.
+
+</tab>
+<tab title="Firefox">
+
+For version 109 or later:
+
+1. Go to `about:config` in your browser.
+2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
+3. Relaunch your browser.
+
+</tab>
+<tab title="Edge">
+
+For version 109 or later:
+
+Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
+
+</tab>
+</tabs>
 
 ### Leave your feedback on Kotlin/Wasm
 
