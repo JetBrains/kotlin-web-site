@@ -55,7 +55,7 @@ check [our instructions on how to configure your build to support this version](
                  <li>Kotlin/Wasm: experimental version of the new Kotlin/Wasm compiler backend</li>
                  <li>Kotlin/JS IR: alpha version of the K2 support, fully-qualified method name in source maps, declarations with non-minified names, the <code>dukat</code> integration removed, TypeScript definitions generated only on explicit Gradle action</li>
                  <li>Libraries: experimental support for the <code>AutoCloseable</code> interface and the <code>use()</code> extension function in the common standard library, experimental support for the Base64 encoding in the standard library, experimental support for the <code>@Volatile</code> annotation that works for both JVM and Kotlin/Native</li>
-                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation, new property for adding a Git branch name to HTTP build reports</li>
+                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation</li>
                  <li>Maven: new <code>components.xml</code> to automatically compile Kotlin Maven projects, ability to set up kapt's <code>aptMode</code></li>
                  <li>Serialization: prototype of serialization plugin that works with the K2 compiler, prohibited implicit serializer customization via companion object</li>
             </ul>
@@ -76,7 +76,7 @@ check [our instructions on how to configure your build to support this version](
                  <li>Kotlin/Wasm: experimental version of the new Kotlin/Wasm compiler backend</li>
                  <li>Kotlin/JS IR: alpha version of the K2 support, fully-qualified method name in source maps, declarations with non-minified names, the <code>dukat</code> integration removed, TypeScript definitions generated only on explicit Gradle action</li>
                  <li>Libraries: experimental support for the <code>AutoCloseable</code> interface and the <code>use()</code> extension function in the common standard library, experimental support for the Base64 encoding in the standard library, experimental support for the <code>@Volatile</code> annotation that works for both JVM and Kotlin/Native</li>
-                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation, new property for adding a Git branch name to HTTP build reports</li>
+                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation</li>
                  <li>Maven: new <code>components.xml</code> to automatically compile Kotlin Maven projects, ability to set up kapt's <code>aptMode</code></li>
                  <li>Serialization: prototype of serialization plugin that works with the K2 compiler, prohibited implicit serializer customization via companion object</li>
             </ul>
