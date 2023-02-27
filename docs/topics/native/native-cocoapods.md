@@ -93,7 +93,7 @@ sudo gem install cocoapods
    echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> /.zshrc
    ```
 
-4. Make sure your export was added:
+4. Run the export command from the file:
 
     ```bash
     source .zshrc
