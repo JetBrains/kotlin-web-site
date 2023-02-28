@@ -496,9 +496,9 @@ tutorials:
     - title: Education
       content:
         - url: /docs/tutorials/edu-tools-learner.html
-          title: Learning Kotlin with EduTools plugin
+          title: Learning Kotlin with JetBrains Academy plugin
         - url: /docs/tutorials/edu-tools-educator.html
-          title: Teaching Kotlin with EduTools plugin
+          title: Teaching Kotlin with JetBrains Academy plugin
 
 foundation:
   content:
