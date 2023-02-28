@@ -371,7 +371,7 @@
         <toc-element id="kotlin-tips.md"/>
         <toc-element id="books.md"/>
         <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>
-        <toc-element toc-title="Learn in IDE (EduTools)">
+        <toc-element toc-title="Learn in IDE (JetBrains Academy)">
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
             <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
         </toc-element>
