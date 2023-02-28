@@ -22,6 +22,13 @@ For example:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+
+// Or shorter in a Kotlin/JVM project:
 compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 ```
 
@@ -29,11 +36,18 @@ compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+
+// Or shorter in a Kotlin/JVM project:
 compileKotlin {
     compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 }
 
-//or
+// Or
 
 compileKotlin {
     compilerOptions {
