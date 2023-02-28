@@ -279,9 +279,9 @@ const Teach = (props) => {
                 </li>
                 <li className="teach-list__item">
                   <a
-                    href="https://plugins.jetbrains.com/plugin/10081-edutools" target="_blank" rel="noopener">
+                    href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy" target="_blank" rel="noopener">
                       <span className="rs-link">
-                        EduTools plugin
+                        JetBrains Academy plugin
                       </span>
                     <span>↗</span>
                   </a>
