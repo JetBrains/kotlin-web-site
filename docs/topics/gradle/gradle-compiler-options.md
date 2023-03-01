@@ -36,7 +36,7 @@ compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class) {
     compilerOptions {
         freeCompilerArgs.add("-Xexport-kdoc")
     }
