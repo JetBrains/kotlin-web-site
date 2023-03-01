@@ -115,6 +115,10 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() // prints RED, GREEN, BLUE
 ```
 
+> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
+> 
+> {type="tip"}
+
 In Kotlin 1.8.20, the `entries` property is introduced as a future replacement for the `values()` function. The 
 `entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
 are working with [collections](collections-overview.md) and can you help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
@@ -131,7 +135,7 @@ fun main() {
 ```
 
 > The `entries` property is Experimental. To use it you need to opt in by using `@OptIn(ExperimentalStdlibApi)`, and
-> [set the language version to 1.9](https://kotlinlang.org/docs/gradle-compiler-options.html#attributes-common-to-jvm-and-js).
+> [set the language version to 1.9](gradle-compiler-options.md#attributes-common-to-jvm-and-js).
 >
 {type="warning"}
 
