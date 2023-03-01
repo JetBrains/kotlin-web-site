@@ -207,7 +207,6 @@
                 <toc-element id="js-modules.md"/>
                 <toc-element id="js-reflection.md"/>
                 <toc-element id="typesafe-html-dsl.md"/>
-                <toc-element id="js-external-declarations-with-dukat.md"/>
             </toc-element>
             <toc-element id="js-samples.md"/>
             <toc-element id="js-react.md"/>
