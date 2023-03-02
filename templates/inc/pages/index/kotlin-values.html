@@ -18,10 +18,6 @@
                     <div class="tab js-tab" data-tab-id="kotlin-code-example-interoperable">
                         <div class="tab-text">Interoperable</div>
                     </div>
-                    <div class="tab js-tab" data-tab-id="kotlin-code-example-ideal-for-tests">
-                        <div class="tab-text">Ideal for tests</div>
-                    </div>
-
                 </div>
 
                 <button type="button" class="kotlin-code-examples-section__run">Run</button>
@@ -193,39 +189,6 @@ class MessageResource {
 }
 
 data class Message(val id: String?, val text: String)</pre>
-            </div>
-
-            <!-- code example -->
-            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-ideal-for-tests">
-                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5"  data-target-platform="junit">
-// Over 20% of developers start adopting Kotlin by writing tests on it
-// (based on surveys conducted by JetBrains)
-
-// The following example works for JVM only
-import org.junit.Test
-import kotlin.test.*
-
-class SampleTest {
-    @Test
-    fun `test sum`() {                  // Write test names with whitespaces in backticks
-        val a = 1
-        val b = 41
-        assertEquals(42, sum(a, b), "Wrong result for sum($a, $b)")
-    }
-
-    @Test
-    fun `test computation`() {
-        assertTrue("Computation failed") {
-            setup()                     // Use lambda returning the test subject
-            compute()
-        }
-    }
-}
-
-// Sources
-fun sum(a: Int, b: Int) = a + b
-fun setup() {}
-fun compute() = true</pre>
             </div>
 
           <a href="/docs/getting-started.html" class="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_outline kotlin-overview-code-example-tabs__button">Get started ↗</a>
