@@ -257,6 +257,17 @@ Use the specified paths as base directories. Base directories are used for calcu
 
 Embed source files into the source map.
 
+### -source-map-names-policy _{simple-names|fully-qualified-names|no}_
+
+Add variable and function names that you declared in Kotlin code into the source map.
+
+| Setting | Description | Example output |
+|---|---|---|
+| `simple-names` | Variable names and simple function names are added. (Default) | `main` |
+| `fully-qualified-names` | Variable names and fully qualified function names are added. | `com.example.kjs.playground.main` |
+| `no` | No variable or function names are added. | N/A |
+
+
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
