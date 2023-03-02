@@ -18,10 +18,6 @@
                     <div class="tab js-tab" data-tab-id="kotlin-code-example-interoperable">
                         <div class="tab-text">Interoperable</div>
                     </div>
-                    <div class="tab js-tab" data-tab-id="kotlin-code-example-ideal-for-tests">
-                        <div class="tab-text">Ideal for tests</div>
-                    </div>
-
                 </div>
 
                 <button type="button" class="kotlin-code-examples-section__run">Run</button>
@@ -34,32 +30,18 @@
 // (based on the experience of Duolingo and other companies)
 
 data class Book (
-    val title: String,
-    val year: Int
-) // + automatically generated equals(), hashCode(), toString(), and copy()
-
-// Function at the top level, single-expression body
-fun century(year: Int) = (year - 1) / 100 + 1
-
+    val title: String,                         // + automatically generated equals(),
+    val year: Int                              // hashCode(), toString(), and copy()
+)
+fun century(year: Int) = (year - 1) / 100 + 1  // Top-level function,
+                                               // single-expression body
 fun main() {
-    val books = listOf( // Construct a list of data class instances
-        Book("Don Quixote", 1605), // No `new` keyword
-        Book("A Tale of Two Cities", 1859),
+    val books = listOf(                        // Construct a list
+        Book("Don Quixote", 1605),             // No `new` keyword
         Book("The Lord of the Rings", 1955)
     )
-    println("All books: $books")
-
-    println("Recent books: ${books.filter { it.year > 1900 }}")
-
-    // Map a list to a set
-    val centuries = books.map { century(it.year) }.toSet()
-    println("Centuries covered: $centuries")
-
-    val sales = mapOf( // Construct a map using data class as a key
-        books[0] to 500, books[1] to 200, books[2] to 150
-    )
-    val bestseller = sales.maxBy {(_, sales) -> sales }.key
-    println("The best-selling book: '${bestseller.title}'")
+    val classics = books.filter { century(it.year) < 20 } // Trailing single-argument lambda
+    println("Classic books: $classics")                   // Calls toString() for Book
 }</pre>
             </div>
 
@@ -70,21 +52,20 @@ fun main() {
 // (based on Google's internal data)
 
 fun printMessagesUppercased(messages: List&lt;String?>) { // List elements can be nulls
-    // messages.add(Message("Java")) // Not allowed, List is read-only
+    // messages.add(Message("Java"))                   // ERROR: List is read-only
     messages.onEachIndexed { index, msg ->
         print("\nMessage #$index: ")
-        // print(msg.uppercase()) // Not allowed, msg can be null
-        msg?.let { // Print only if it's not null
-            print(it.uppercase()) // Ok, `it` is String
+        // print(msg.uppercase())                      // ERROR: `msg` can be null
+        msg?.let {                                     // Print only if `msg` is not null
+            print(it.uppercase())                      // OK, `it` is String
         }
     }
 }
-
 fun main() {
     val messages = mutableListOf("hello", null, "world")
-    // messages = mutableListOf("!!!") // Not allowed, can't reassign a value
-    messages.add("Kotlin") // This is ok, the list is mutable
-    printMessagesUppercased(messages)
+    // messages = mutableListOf("!!!")                 // ERROR: can't reassign a value
+    messages.add("Kotlin")                             // OK: the list is mutable
+    printMessagesUppercased(messages)                  // Pass the list as read-only
 }</pre>
             </div>
 
@@ -95,25 +76,10 @@ import kotlin.math.absoluteValue
 
 fun main() {
 //sampleStart
-    // Allows more opportunity for abstraction
-
-    // Extension function
-    fun Int.ordinal() = this.absoluteValue.let { iAbs ->
-        val suffix = if (iAbs % 100 in 11..13) "th" else
-            when (iAbs % 10) {
-                1 -> "st"
-                2 -> "nd"
-                3 -> "rd"
-                else -> "th"
-            }
-        "$this$suffix"
-    }
-
     val dates = listOf(1 to "January", 13 to "May", 22 to "September", 23 to "December")
-    dates.forEach { (d, m) -> // Traverse a list of pairs with a trailing lambda
-        println("${d.ordinal()} of $m") // Use the Int.ordinal() extension function
+    dates.forEach { (day, month) ->                 // Traverse a list of pairs with a trailing lambda
+        println("${day.ordinal()} of $month")       // Use the Int.ordinal() extension function
     }
-
     createEmptyWindow()
         .apply {                                    // Configure properties of an object
             width = 300
@@ -122,7 +88,6 @@ fun main() {
         }.also { w ->                               // Perform an additional operation on a call chain
             showWindow(w)
         }
-
     issueById["13456"]
         ?.takeIf { it.status == Status.FIXED }      // Use the value only if the condition is true
         ?.let {                                     // Do something only if the value is not null
@@ -131,15 +96,22 @@ fun main() {
 //sampleEnd
 }
 
-
+// Extension function
+fun Int.ordinal() = this.absoluteValue.let { iAbs ->
+    val suffix = if (iAbs % 100 in 11..13) "th" else
+        when (iAbs % 10) {
+            1 -> "st"
+            2 -> "nd"
+            3 -> "rd"
+            else -> "th"
+        }
+    "$this$suffix"
+}
 data class Window(var width: Int, var height: Int, var isVisible: Boolean)
-
 fun createEmptyWindow() = Window(0, 0, false)
-
 fun showWindow(window: Window) {
     println("Showing $window")
 }
-
 enum class Status { OPEN, FIXED, IN_PROGRESS }
 data class Issue(val status: Status)
 val issueById = mutableMapOf(
@@ -161,35 +133,32 @@ import kotlinx.coroutines.flow.*
 
 fun main() = runBlocking {
     val start = System.currentTimeMillis()
-    coroutineScope {                                // Create a scope for starting coroutines
-        val waitingJob = launch {                   // Launching a waiting coroutine
+    coroutineScope {                                 // Create a scope for coroutines
+        val waitingJob = launch {                    // Launching a coroutine
             waiting(start, 150)
         }
-        countdownSignals(10, 300).collect { value ->
+        countdownSignals(10, 300).collect { value -> // Collecting flow elements
             log(start, "Countdown: $value")
         }
-        waitingJob.cancel()
+        waitingJob.cancel()                          // Cancelling a coroutine
     }
-    // Execution continues when all coroutines in the scope have finished
-    log(start, "Liftoff!")
-}
-
+    log(start, "Liftoff!")                           // Execution continues when all
+}                                                    // coroutines have finished
+//sampleEnd
 fun countdownSignals(n: Int, delayMillis: Long): Flow&lt;Int> = flow { // Flow builder
     for (i in (1..n).reversed()) {
-        delay(delayMillis) // Delay in emitting signals
-        emit(i) // Emit flow element
+        delay(delayMillis)                           // Delay in emitting signals
+        emit(i)                                      // Emit the flow element
     }
 }
 
 // A function that can be suspended and resumed later
 suspend fun waiting(start: Long, delayMillis: Long) {
-    while (currentCoroutineContext().isActive) {
-        log(start, "Waiting...") // Waiting concurrently with anything else
-        delay(delayMillis)
+    while (currentCoroutineContext().isActive) {     // Check coroutine's context
+        log(start, "Waiting...")
+        delay(delayMillis)                           // Waiting concurrently
     }
 }
-//sampleEnd
-
 
 fun log(start: Long, msg: String) {
     println("$msg after ${(System.currentTimeMillis() - start)/1000F}s")
@@ -199,8 +168,8 @@ fun log(start: Long, msg: String) {
             <!-- code example -->
             <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-interoperable">
                 <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5" data-highlight-only="1">
-// Easily integrates into existing apps,
-// as Kotlin is interoperable with Java and other languages
+// Use any existing JVM library or framework
+// Call Kotlin code from Java without an issue
 
 @SpringBootApplication
 class DemoApplication
@@ -220,39 +189,6 @@ class MessageResource {
 }
 
 data class Message(val id: String?, val text: String)</pre>
-            </div>
-
-            <!-- code example -->
-            <div class="kotlin-overview-code-example is_hidden" id="kotlin-code-example-ideal-for-tests">
-                <pre theme="darcula" class="sample" data-mobile-shorter-height="400" auto-indent="false" data-min-compiler-version="1.5"  data-target-platform="junit">
-// Over 20% of developers start adopting Kotlin by writing tests on it
-// (based on surveys conducted by JetBrains)
-
-// The following example works for JVM only
-import org.junit.Test
-import kotlin.test.*
-
-class SampleTest {
-    @Test
-    fun `test sum`() { // Write test names with whitespaces in backticks
-        val a = 1
-        val b = 41
-        assertEquals(42, sum(a, b), "Wrong result for sum($a, $b)")
-    }
-
-    @Test
-    fun `test computation`() {
-        assertTrue("Computation failed") {
-            setup() // Use lambda returning the test subject
-            compute()
-        }
-    }
-}
-
-// Sources
-fun sum(a: Int, b: Int) = a + b
-fun setup() {}
-fun compute() = true</pre>
             </div>
 
           <a href="/docs/getting-started.html" class="kto-button kto-button_theme_dark kto-button_size_l kto-button_mode_outline kotlin-overview-code-example-tabs__button">Get started ↗</a>
