@@ -55,7 +55,7 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://github.com/microsoft/mimalloc">mimalloc</a></td>
         <td>
           <p><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mimalloc_LICENSE.txt">MIT license</a></p>
-          <p>Always include, unless you use system memory allocator (the <code>-Xallocator=std</code> compiler option is set)</p>
+          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set)</p>
         </td>
    </tr>
    <tr>
@@ -64,10 +64,12 @@ Always include the following license files for the corresponding projects:
    </tr>
 </table>
 
-On `mingw*` targets, the following license files for MinGW-w64 headers and runtime libraries should also be included:
+Specific targets additionally require the following license files:
 
-* [MinGW-w64 runtime license](https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt)
-* [MinGW-w64 copyright](https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING)
+| Project                                                               | Targets  | Files to be included                                                                                                                                                                                                                                                                                                                       | 
+|-----------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [MinGW-w64 headers and runtime libraries](https://www.mingw-w64.org/) | `mingw*` | <list><ul><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt">MinGW-w64 runtime license</a></li><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING">MinGW-w64 copyright</a></li></ul></list> |
+| [Musl (math implementation)](https://musl.libc.org/)                  | `wasm32` | [Copyright notice](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/main/cpp/math/COPYRIGHT)                                                                                                                                                                                                                      |
 
 > None of these libraries require the distributed Kotlin/Native binaries to be open-sourced.
 >
