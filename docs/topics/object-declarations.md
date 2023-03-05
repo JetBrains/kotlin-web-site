@@ -193,31 +193,90 @@ fun main() {
 }
 ```
 
-Just like [data classes](data-classes.md), you can mark your `object` declaration with the `data` modifier to get a nicely formatted string representation without having to manually provide an implementation for its `toString` function:
+Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. This instructs the compiler to generate a number of functions for your object:
 
+* `toString()` returning the name of the data object
+* `equals()`/`hashCode()` pair
+
+Note that you can't provide a custom `equals` or `hashCode` implementation for a `data object`.
+
+The `toString()` function of a data object returns the name of the object:
 ```kotlin
-data object MyObject
-
-fun main() {
-    println(MyObject) // MyObject
-}
-```
-
-[Sealed class hierarchies](sealed-classes.md) are a particularly good fit for `data object` declarations, since they allow you to maintain symmetry with any data classes you might have defined alongside the object:
-
-```kotlin
-sealed class ReadResult {
-    data class Number(val value: Int): ReadResult()
-    data class Text(val value: String): ReadResult()
-    data object EndOfFile: ReadResult()
+data object MyDataObject {
+    val x: Int = 3
 }
 
 fun main() {
-    println(ReadResult.Number(1)) // Number(value=1)
-    println(ReadResult.Text("Foo")) // Text(value=Foo)
-    println(ReadResult.EndOfFile) // EndOfFile
+    println(MyDataObject) // MyDataObject
 }
 ```
+
+The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
+In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
+However, in the edge case where another object of the same type is generated at runtime (e.g. due to reflection or when using a serialization library), this ensures that the objects are treated as being equal. 
+
+> Make sure to only compare `data objects` structurally (i.e. using the `==` operator), never by reference (the `===` operator).
+{type="warning"}
+
+```kotlin
+import java.lang.reflect.Constructor
+
+data object MySingleton
+
+fun main() {
+    val fromSerializationLibrary = createInstanceViaReflection()
+
+    println(MySingleton) // MySingleton
+    println(fromSerializationLibrary) // MySingleton
+
+    // Even when a library forcefully creates a second instance of MySingleton, its `equals` method returns true:
+    println(MySingleton == fromSerializationLibrary) // true
+
+    // Do not compare data objects via ===.
+    println(MySingleton === fromSerializationLibrary) // false
+}
+
+fun createInstanceViaReflection(): MySingleton {
+    // Creates a new MySingleton instance "by force" (i.e. reflection)
+    // Don't do this yourself!
+    return (MySingleton.javaClass.declaredConstructors[0].apply { isAccessible = true } as Constructor<MySingleton>).newInstance()
+}
+```
+
+The automatically generated `hashCode` implementation accompanies the semantics of the `equals()` function.
+
+#### No copy and componentN functions
+
+While `data object` and `data class` declarations are often used together and have some similarities, there are some functions that are not generated for a `data object`:
+
+- No `copy()` function: Because a `data object` declaration is intended to be used as singleton objects, no `copy()` function is generated. The singleton pattern restricts the instantiation of a class to one, single instance, which would be violated by allowing copies of the instance to be created.
+- No `componentN()` function: unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
+
+#### Use cases for data objects
+
+`data object` declarations are a particularly good fit for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you might have defined alongside the object:
+
+```kotlin
+sealed interface ReadResult
+data class Number(val number: Int) : ReadResult
+data class Text(val text: String) : ReadResult
+data object EndOfFile : ReadResult
+
+fun printReadResult(r: ReadResult) {
+  when(r) {
+    is Number -> println("Num(${r.number}")
+    is Text -> println("Txt(${r.text}")
+    is EndOfFile -> println("EOF")
+  }
+}
+
+fun main() {
+  printReadResult(EndOfFile) // EOF
+}
+```
+
+
+
 
 ### Companion objects
 
