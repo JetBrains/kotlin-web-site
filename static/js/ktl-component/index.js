@@ -4,6 +4,7 @@ import Teach from './teach/index.jsx';
 import Courses from './courses/index.jsx';
 import WhyTeach from './why-teach/index.jsx';
 import { initComponent, ktlHelpers } from "./ktl-helpers";
+import ReleaseBanner from "./release-banner/index.jsx";
 
 export const initComponents = () => {
   ktlHelpers().forEach(({name, node, props}) => {
@@ -22,6 +23,9 @@ export const initComponents = () => {
         break;
       case 'courses':
         initComponent(node.nextElementSibling, Courses, props);
+        break;
+      case 'release-banner':
+        initComponent(node.nextElementSibling, ReleaseBanner, props);
         break;
       default:
         console.error(`The "${name}" component was not found.`);
