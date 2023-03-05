@@ -1,4 +1,4 @@
-[//]: # (title: Sealed classes)
+[//]: # (title: Sealed classes and interfaces)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
