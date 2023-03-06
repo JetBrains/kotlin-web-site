@@ -213,9 +213,9 @@ fun main() {
 
 The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
 In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
-However, in the edge case where another object of the same type is generated at runtime (e.g. due to reflection or when using a serialization library), this ensures that the objects are treated as being equal. 
+However, in the edge case where another object of the same type is generated at runtime (e.g. via platform reflection through `java.lang.reflect`, or by using a JVM serialization library that uses this API under the hood), this ensures that the objects are treated as being equal.
 
-> Make sure to only compare `data objects` structurally (i.e. using the `==` operator), never by reference (the `===` operator).
+> Make sure to only compare `data objects` structurally (i.e. using the `==` operator), never by reference (the `===` operator). This helps you avoid pitfalls when more than once instance of a data object exists at runtime.
 {type="warning"}
 
 ```kotlin
@@ -224,26 +224,27 @@ import java.lang.reflect.Constructor
 data object MySingleton
 
 fun main() {
-    val fromSerializationLibrary = createInstanceViaReflection()
+    val evilTwin = createInstanceViaReflection()
 
     println(MySingleton) // MySingleton
-    println(fromSerializationLibrary) // MySingleton
+    println(evilTwin) // MySingleton
 
     // Even when a library forcefully creates a second instance of MySingleton, its `equals` method returns true:
-    println(MySingleton == fromSerializationLibrary) // true
+    println(MySingleton == evilTwin) // true
 
     // Do not compare data objects via ===.
-    println(MySingleton === fromSerializationLibrary) // false
+    println(MySingleton === evilTwin) // false
 }
 
 fun createInstanceViaReflection(): MySingleton {
-    // Creates a new MySingleton instance "by force" (i.e. reflection)
+    // Kotlin reflection does not permit the instantiation of data objects.
+    // This creates a new MySingleton instance "by force" (i.e. Java platform reflection)
     // Don't do this yourself!
     return (MySingleton.javaClass.declaredConstructors[0].apply { isAccessible = true } as Constructor<MySingleton>).newInstance()
 }
 ```
 
-The automatically generated `hashCode` implementation accompanies the semantics of the `equals()` function.
+The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime instances of a `data object` have the same hash code.
 
 #### No copy and componentN functions
 
