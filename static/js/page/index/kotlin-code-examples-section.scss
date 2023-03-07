@@ -81,8 +81,8 @@
   }
 
   .CodeMirror pre.CodeMirror-line {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 24px;
 
     @media (max-width: 1024px) {
       font-size: 16px;
@@ -109,8 +109,8 @@
 
   .output-wrapper.darcula {
     min-height: 120px;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 16px;
+    line-height: 24px;
 
     border: 0 none transparent;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -326,12 +326,14 @@
     color: rgba(255, 255, 255, 0.6);
 
     font-family: Inter, Arial, sans-serif;
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 16px;
+    line-height: 24px;
 
     @media (max-width: 720px) {
       font-size: 16px;
       line-height: 24px;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
 
     font-style: normal;
@@ -339,7 +341,7 @@
 
     margin: 0 0 0 32px;
     padding-top: 16px;
-    padding-bottom: 8px;
+    padding-bottom: 16px;
 
     z-index: 2;
 

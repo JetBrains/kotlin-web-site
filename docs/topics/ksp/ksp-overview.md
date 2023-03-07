@@ -114,16 +114,16 @@ the following:
 ```kotlin
 class HelloFunctionFinderProcessor : SymbolProcessor() {
     // ...
-    val functions = mutableListOf<String>()
+    val functions = mutableListOf<KSClassDeclaration>()
     val visitor = FindFunctionsVisitor()
 
     override fun process(resolver: Resolver) {
-        resolver.getAllFiles().map { it.accept(visitor, Unit) }
+        resolver.getAllFiles().forEach { it.accept(visitor, Unit) }
     }
 
     inner class FindFunctionsVisitor : KSVisitorVoid() {
         override fun visitClassDeclaration(classDeclaration: KSClassDeclaration, data: Unit) {
-            classDeclaration.getDeclaredFunctions().map { it.accept(this, Unit) }
+            classDeclaration.getDeclaredFunctions().forEach { it.accept(this, Unit) }
         }
 
         override fun visitFunctionDeclaration(function: KSFunctionDeclaration, data: Unit) {
@@ -131,7 +131,7 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
         }
 
         override fun visitFile(file: KSFile, data: Unit) {
-            file.declarations.map { it.accept(this, Unit) }
+            file.declarations.forEach { it.accept(this, Unit) }
         }
     }
     // ...
@@ -178,3 +178,4 @@ The table below includes a list of popular libraries on Android and their variou
 |Micronaut|In Progress|[Link](https://github.com/micronaut-projects/micronaut-core/issues/6781)|
 |Epoxy|[Officially supported](https://github.com/airbnb/epoxy)||
 |Paris|[Officially supported](https://github.com/airbnb/paris)||
+|Auto Dagger|[Officially supported](https://github.com/ansman/auto-dagger)||

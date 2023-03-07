@@ -94,5 +94,5 @@ Congratulations! You have just run your first Kotlin application.
 Once you've created this application, you can start to dive deeper into Kotlin syntax:
 
 * Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
-* Install the [EduTools plugin](https://plugins.jetbrains.com/plugin/10081-edutools) for IDEA and complete exercises 
-from the [Kotlin Koans course](https://plugins.jetbrains.com/plugin/10081-edutools/docs/learner-start-guide.html?section=Kotlin%20Koans)
+* Install the [JetBrains Academy plugin](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy) for IDEA and complete 
+  exercises from the [Kotlin Koans course](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/learner-start-guide.html?section=Kotlin%20Koans)

@@ -379,7 +379,7 @@ export const WhyTeach = ({path}) => {
                   </p>
 
                   <p className="ktl-text-1 ktl-offset-bottom-s">
-                    The educational EduTools plugin is also available to help learn and teach Kotlin programming.
+                    The educational JetBrains Academy plugin is also available to help learn and teach Kotlin programming.
                     Educators
                     can use existing interactive courses or create custom ones, with hands-on assignments and practice
                     coding tasks. Integrated tests will automatically check the assignments and provide feedback.
@@ -409,9 +409,9 @@ export const WhyTeach = ({path}) => {
                       </a>
                     </li>
                     <li className="ktl-offset-bottom-s">
-                      <a href="https://plugins.jetbrains.com/plugin/10081-edutools" target="_blank"
+                      <a href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy" target="_blank"
                          className="ktl-text-2 ktl-link">
-                        <span className="rs-link">EduTools plugin</span>
+                        <span className="rs-link">JetBrains Academy plugin</span>
                         <span>&nbsp;↗</span>
                       </a>
                     </li>

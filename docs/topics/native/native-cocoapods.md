@@ -14,17 +14,106 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 ## Set up an environment to work with CocoaPods
 
-Install the [CocoaPods dependency manager](https://cocoapods.org/):
+Install the [CocoaPods dependency manager](https://cocoapods.org/) using the installation tool of your choice:
+
+<tabs>
+<tab title="RVM">
+
+1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rvm install ruby 3.0.0
+    ```
+
+3. Install CocoaPods:
+
+    ```bash
+    sudo gem install -n /usr/local/bin cocoapods
+    ```
+
+</tab>
+<tab title="Rbenv">
+
+1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    rbenv install 3.0.0
+    ```
+
+3. Set the Ruby version as local for a particular directory or global for the whole machine:
+
+    ```bash
+    rbenv global 3.0.0
+    ```
+    
+4. Install CocoaPods:
+
+    ```bash
+    sudo gem install cocoapods
+    ```
+
+</tab>
+<tab title="Default Ruby">
+
+> This way of installation doesn't work on devices with Apple M chips. Use other tools to set up an environment to work
+> with CocoaPods.
+>
+{type="note"}
+
+You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
 
 ```bash
 sudo gem install cocoapods
 ```
 
+</tab>
+<tab title="Homebrew">
+
+> The CocoaPods installation with Homebrew might result in compatibility issues.
+>
+> When installing CocoaPods, Homebrew also installs the [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) gem that is
+> necessary for working with Xcode.
+> However, it cannot be updated with Homebrew, and if the installed Xcodeproj doesn't support the newest Xcode version yet,
+> you'll get errors with Pod installation. If this is the case, try other tools to install CocoaPods.
+>
+{type="warning"}
+
+1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
+2. Install Ruby. You can choose a specific version:
+
+    ```bash
+    brew install ruby@3.0
+    ```
+
+3. Add export of `PATH` to the `.zshrc` configuration file:
+
+   ```bash
+   echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> /.zshrc
+   ```
+
+4. Run the export command from the file:
+
+    ```bash
+    source .zshrc
+    ```
+
+5. Install CocoaPods:
+
+    ```bash
+    sudo gem install -n /usr/local/bin cocoapods
+    ```
+
+</tab>
+</tabs>
+
 <procedure initial-collapse-state="collapsed" title="If you use Kotlin prior to version 1.7.0">
     <p>If your current version of Kotlin is earlier than 1.7.0, additionally install the <a href="https://github.com/square/cocoapods-generate"><code>cocoapods-generate</code></a> plugin:</p>
     <p>
-        <code style="block" lang="bash">
-            sudo gem install cocoapods-generate
+        <code style="block"
+            lang="bash">
+            sudo gem install -n /usr/local/bin cocoapods-generate
         </code>
     </p>
     <tip>
@@ -158,7 +247,7 @@ which contains an example of Xcode integration with an existing Xcode project na
 #### Ruby installation
 
 CocoaPods is built with Ruby, and you can install it with the default Ruby that should be available on macOS.
-Ruby 1.9 or later has a built-in RubyGems package management framework that help you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
+Ruby 1.9 or later has a built-in RubyGems package management framework that helps you install the [CocoaPods dependency manager](https://guides.cocoapods.org/using/getting-started.html#installation).
 
 If you're experiencing problems installing CocoaPods and getting it to work, follow [this guide](https://www.ruby-lang.org/en/documentation/installation/)
 to install Ruby or refer to the [RubyGems website](https://rubygems.org/pages/download/) to install the framework.
@@ -178,12 +267,8 @@ Try these workarounds to avoid this error:
 
 #### Specify the framework name 
 
-1. Find the `module.modulemap` file in the downloaded Pod directory:
-
-    ```text
-    [shared_module_name]/build/cocoapods/synthetic/IOS/Pods/[pod_name]
-    ```
-
+1. Look through the downloaded Pod directory `[shared_module_name]/build/cocoapods/synthetic/IOS/Pods/...`
+   for the `module.modulemap` file.
 2. Check the framework name inside the module, for example `AppsFlyerLib {}`. If the framework name doesn't match the Pod
 name, specify it explicitly:
 

@@ -1,7 +1,7 @@
 [//]: # (title: Add dependencies on a Pod library)
 
-To add dependencies between a Kotlin project and a Pod library, you should [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
-This allows you to add dependencies on different types of Pod libraries.
+To add dependencies between a Kotlin project and a Pod library, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
+You can then add dependencies on different types of Pod libraries.
 
 When you add a new dependency and re-import the project in IntelliJ IDEA, the new dependency will be added automatically.
 No additional steps are required.

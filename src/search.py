@@ -70,10 +70,6 @@ def get_page_views_statistic() -> Dict[str, int]:
     return page_views
 
 
-def get_client():
-    return algoliasearch.Client(os.environ['SEARCH_USER'], os.environ['SEARCH_KEY'])
-
-
 def get_page_path_from_url(url):
     if url.endswith('.html'):
         return url[1:-5]

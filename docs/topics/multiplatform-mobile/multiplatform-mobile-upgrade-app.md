@@ -42,7 +42,7 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-#### If you use Kotlin prior to version 1.7.20 {initial-collapse-state="collapsed"}
+#### If you use Kotlin prior to version 1.7.20
 
 If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
 If it's not the case, add the following to the end of the `build.gradle.kts` file:
@@ -284,7 +284,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. In `iosApp/iosApp.swift`, update the entry point for your app:
+3. In `iosApp/iOSApp.swift`, update the entry point for your app:
    
    ```swift
    @main

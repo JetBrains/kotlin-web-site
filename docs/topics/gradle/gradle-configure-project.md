@@ -309,7 +309,7 @@ If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_
 ```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
+    languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
 }
 project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
     kotlinJavaToolchain.toolchain.use(customLauncher)

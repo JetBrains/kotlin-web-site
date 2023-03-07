@@ -36,7 +36,7 @@
 
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
-    <var name="sqlDelightVersion" value="1.5.4" type="string"/>
+    <var name="sqlDelightVersion" value="1.5.5" type="string"/>
 
     <var name="kspSupportedKotlinVersion" value="1.8.0" type="string"/>
 
