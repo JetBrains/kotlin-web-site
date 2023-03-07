@@ -178,130 +178,35 @@ a, a:hover  {
   height: 100%;
 }
 
-#kotlin-values-examples {
-  display: none;
+.kotlin-banner-section_first {
+  display: block;
+  padding-bottom: var(--xxl-space);
 }
 
 #try-kotlin-examples {
-  ._get-started-button {
-    display: none;
-  }
+  padding-top: 0;
+  padding-bottom: var(--xxxl-space);
 }
 
-.kotlin-banner-section_first, .kotlin-banner-section_third {
+#kotlin-values-examples {
   display: none;
+  padding-top: 0;
+  padding-bottom: var(--xxxl-space);
 }
 
-.experiment-kotlin-values {
+.experiment2-kotlin-values {
   &__variant-1 {
     /** by default **/
+
   }
 
   &__variant-2 {
     #try-kotlin-examples {
-      .kto-heading_size_h1 {
-        display: none;
-      }
-
-      ._examples-button {
-        display: none;
-      }
-
-      ._get-started-button {
-        display: block;
-      }
-    }
-  }
-
-  &__variant-2, &__variant-3, &__variant-4 {
-    .kotlin-intro-actions__why-button {
-        display: none;
-    }
-
-    .kotlin-why-section {
-      #why-kotlin, .kotlin-why-section__section._values, .kotlin-why-section__section._server-side {
-        display: none;
-      }
-    }
-
-    .kotlin-banner-section_first {
-      display: block;
-      padding-bottom: var(--xxl-space);
-    }
-
-    .kotlin-banner-section_second {
-      display: none;
-    }
-
-    #try-kotlin-examples {
-      padding-top: 0;
-      padding-bottom: var(--xxxl-space);
-    }
-  }
-
-  &__variant-3, &__variant-4 {
-    #try-kotlin-examples {
       display: none;
     }
 
     #kotlin-values-examples {
       display: block;
-    }
-
-    #kotlin-values-examples {
-      padding-top: 0;
-      padding-bottom: var(--xxxl-space);
-    }
-  }
-
-  &__variant-4 {
-    #kotlin-values-examples {
-      padding-top: var(--xxl-space);
-    }
-
-    .kotlin-banner-section_first {
-      display: none;
-    }
-
-    .kotlin-highlights-section {
-      padding-bottom: 0;
-    }
-
-    .kotlin-banner-section_third {
-      display: block;
-      background: none;
-    }
-
-    .kotlin-news-section__item {
-      .kto-text_size_s {
-        color: #19191CB2;
-      }
-
-      .kto-text_size_m {
-        color: #19191C;
-
-        &:hover {
-          color: #19191C;
-        }
-      }
-
-      .kotlin-news-section__title:hover {
-        color: #19191C;
-        border-bottom-color: #19191C;
-      }
-    }
-
-    .kotlin-banner-section {
-      .kto-button_mode_outline {
-        border: 1px solid rgba(39, 40, 44, 0.2);
-        color: #27282C;
-
-        &:hover, &:focus {
-          border-color: rgba(39, 40, 44, 0.7);
-          background: #F5F5F5;
-          color: #27282C;
-        }
-      }
     }
   }
 }

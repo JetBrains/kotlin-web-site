@@ -122,6 +122,12 @@
     position:
       lat: 49.817492
       lng: 15.472962
+  - name: Cyprus KUG
+    country: Cyprus
+    url: https://www.eventbrite.com/o/cyprus-kotlin-user-group-57697070993
+    position:
+      lat: 34.707130
+      lng: 33.022617
   - name: Dnipro KUG
     country: Ukraine
     url: https://www.meetup.com/Kotlin-Dnipro/

@@ -1,3 +1,4 @@
+
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
 In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common
@@ -382,13 +383,12 @@ All the build logic will be provided as a precompiled script plugin and could be
 
 To implement this, move the publication logic to a separate Gradle project:
 
-1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins`
-with `src/build.gradle.kts` in it.
-2. Update this `build.gradle.kts` file with the following code:
+1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins` and create a new file  `build.gradle.kts` inside of it.
+2. Place the following code into the new `build.gradle.kts` file:
    
    ```kotlin
    plugins {
-       "kotlin-dsl" // Is needed to turn our build logic written in Kotlin into the Gradle Plugin
+       `kotlin-dsl` // Is needed to turn our build logic written in Kotlin into the Gradle Plugin
    }
    
    repositories {
@@ -396,9 +396,9 @@ with `src/build.gradle.kts` in it.
    }
    ```
    
-3. In the `convention-plugins/src` directory, create a `main/kotlin/convention.publication.gradle.kts` file
+3. In the `convention-plugins` directory, create a `src/main/kotlin/convention.publication.gradle.kts` file
 to store all the publication logic.
-4. Add all the required logic in the new file:
+4. Add all the required logic in the new file. Be sure to make changes to match your project configuration and where explicitly noted by angle brackets (i.e. `<replace-me>`):
 
    ```kotlin
    import org.gradle.api.publish.maven.MavenPublication
@@ -408,7 +408,7 @@ to store all the publication logic.
    import java.util.*
    
    plugins {
-      'maven-publish'
+      `maven-publish`
        signing
    }
    
@@ -517,7 +517,7 @@ with the following:
    }
    ```
 
-7. Create a `local.properties` file with all the necessary credentials and make sure to add it to your `.gitignore`:
+7. Create a `local.properties` file within your library's root directory with all the necessary credentials and make sure to add it to your `.gitignore`:
 
    ```none
    # The GPG key pair ID (last 8 digits of its fingerprint)
