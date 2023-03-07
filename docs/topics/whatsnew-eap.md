@@ -55,34 +55,15 @@ To enable and test the Kotlin K2 compiler, use the new language version with the
 
 You can specify it in your `build.gradle(.kts)` file:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
 ```kotlin
 kotlin {
     sourceSets.all {
-        languageSettings.apply {
+        languageSettings {
             languageVersion = "2.0"
         }
     }
 }
 ```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    sourceSets.all {
-        languageSettings {
-            languageVersion = '2.0'
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
 
 The previous `-Xuse-k2` compiler option has been deprecated.
 
