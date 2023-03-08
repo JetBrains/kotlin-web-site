@@ -22,20 +22,18 @@ For example:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
+tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
 ```
 
 </tab>
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-compileKotlin {
-    compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
-}
-
-//or
-
-compileKotlin {
+tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class) {
     compilerOptions {
         freeCompilerArgs.add("-Xexport-kdoc")
     }
