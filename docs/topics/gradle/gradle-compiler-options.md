@@ -27,9 +27,6 @@ tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
         freeCompilerArgs.add("-Xexport-kdoc")
     }
 }
-
-// Or shorter in a Kotlin/JVM project:
-compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 ```
 
 </tab>
@@ -37,19 +34,6 @@ compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 
 ```groovy
 tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class) {
-    compilerOptions {
-        freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-
-// Or shorter in a Kotlin/JVM project:
-compileKotlin {
-    compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
-}
-
-// Or
-
-compileKotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xexport-kdoc")
     }
