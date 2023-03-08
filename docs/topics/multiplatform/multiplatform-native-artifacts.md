@@ -115,13 +115,14 @@ produces the `mylib.dll` file.
 
 For the binary configuration, the following common parameters are available:
 
-| **Name**        | **Description**                                                                                                                 |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                       |
-| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                    |
-| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md). |
-| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                         |
-| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                          |
+| **Name**        | **Description**                                                                                                                                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                                                                                |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                                                                             |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md).                                                                          |
+| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                                                                                                  |
+| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                                                                                                   |
+| `withPodspec`   | You can generate Podspec files for corresponding native artifacts. They can include a version of the Pod, its description, details about where the source files are located, and other general metadata. |
 
 ### Libraries and frameworks
 
@@ -151,6 +152,12 @@ kotlinArtifacts {
             verbose = false
             freeCompilerArgs += "-Xmen=pool"
         }
+
+        withPodspec {
+            attribute("description", "A dynamic library for the linux64 target")
+            attribute("static_framework", "false")
+            attribute("requires_arc", "'true'")
+        }
     }
 }
 ```
@@ -168,6 +175,12 @@ kotlinArtifacts {
         kotlinOptions {
             verbose = false
             freeCompilerArgs += "-Xmen=pool"
+        }
+
+        withPodspec {
+            attribute("description", "A dynamic library for the linux64 target")
+            attribute("static_framework", "false")
+            attribute("requires_arc", "'true'")
         }
     }
 }
@@ -200,6 +213,10 @@ kotlinArtifacts {
         kotlinOptions {
             verbose = false
         }
+
+        withPodspec {
+            attribute("prefix_header_file", "false")
+        }
     }
 }
 ```
@@ -217,6 +234,10 @@ kotlinArtifacts {
         kotlinOptions {
             verbose = false
         }
+
+        withPodspec {
+            attribute("prefix_header_file", "false")
+        }
     }
 }
 ```
@@ -226,7 +247,7 @@ kotlinArtifacts {
 
 The registered Gradle task is `assembleMyframeFramework` that assembles all types of registered "myframe" framework.
 
-> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)
+> If, for some reason, the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)
 > to export dependencies to binaries.
 >
 {type="tip"}
@@ -255,6 +276,10 @@ kotlinArtifacts {
         kotlinOptions {
             suppressWarnings = false
         }
+
+        withPodspec {
+            attribute("name", "custom-podspec-name")
+        }
     }
 }
 ```
@@ -271,6 +296,10 @@ kotlinArtifacts {
             suppressWarnings = false
         }
     }
+
+    withPodspec {
+        attribute("name", "custom-podspec-name")
+    }
 }
 ```
 
@@ -279,7 +308,7 @@ kotlinArtifacts {
 
 The registered Gradle task is `assembleMyfatframeFatFramework` that assembles all types of registered "myfatframe" fat framework.
 
-> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
+> If, for some reason, the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
 > to build fat frameworks.
 >
 {type="tip"}
@@ -309,6 +338,22 @@ kotlinArtifacts {
             project(":lib")
         )
     }
+
+    withPodspec {
+        attribute("version", "5.6.2")
+        attribute("license", "MIT")
+        attribute("homepage", "https://github.com/Alpaca/Alpaca")
+        attribute("source", "{ :git => 'https://github.com/Alpaca/Alpaca.git', :tag => spec.version }")
+
+        attribute("ios.deployment_target", "10.0")
+        attribute("osx.deployment_target", "10.12")
+        attribute("watchos.deployment_target", "3.0")
+
+        attribute("swift_versions", "['4', '5']")
+
+        rawStatement("    # This is raw statement that is appended 'as is' to the podspec")
+        rawStatement("    spec.frameworks = 'CFNetwork'")
+    }
 }
 ```
 
@@ -324,6 +369,22 @@ kotlinArtifacts {
             project(":lib")
         )
     }
+
+    withPodspec {
+        attribute("version", "5.6.2")
+        attribute("license", "MIT")
+        attribute("homepage", "https://github.com/Alpaca/Alpaca")
+        attribute("source", "{ :git => 'https://github.com/Alpaca/Alpaca.git', :tag => spec.version }")
+
+        attribute("ios.deployment_target", "10.0")
+        attribute("osx.deployment_target", "10.12")
+        attribute("watchos.deployment_target", "3.0")
+
+        attribute("swift_versions", "['4', '5']")
+
+        rawStatement("    # This is raw statement that is appended 'as is' to the podspec")
+        rawStatement("    spec.frameworks = 'CFNetwork'")
+    }
 }
 ```
 
@@ -332,7 +393,7 @@ kotlinArtifacts {
 
 The registered Gradle task is `assembleSdkXCFramework` that assembles all types of registered "sdk" XCFrameworks.
 
-> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
+> If, for some reason, the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
 > to build XCFrameworks.
 >
 {type="tip"}
