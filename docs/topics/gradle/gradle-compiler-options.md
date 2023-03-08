@@ -191,6 +191,31 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 Also, see [Types for compiler options](#types-for-compiler-options).
 
+#### Example of setting a languageVersion
+
+To set a language version, use the following syntax:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
+    compilerOptions.languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class).configureEach {
+    compilerOptions.languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+}
+```
+
+</tab>
+</tabs>
+
 ### Attributes specific to JS
 
 | Name | Description | Possible values |Default value |
