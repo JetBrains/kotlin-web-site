@@ -479,6 +479,18 @@
     position:
       lat: 13.0826802
       lng: 80.2707184
+  - name: Chengdu KUG
+    country: China Mainland
+    url: https://chengdu-kug.github.io/
+    position:
+      lat: 30.6587488
+      lng: 103.9354604
+  - name: Chongqing KUG
+    country: China Mainland
+    url: https://www.cqkug.com/
+    position:
+      lat: 29.5551377
+      lng: 106.4084677
   - name: Cirebon KUG
     country: Indonesia
     url: https://t.me/kotlin_crb
@@ -503,9 +515,15 @@
     position:
       lat: 21.1904494
       lng: 81.2849169
+  - name: Guangzhou KUG
+    country: China Mainland
+    url: https://gzkug.com/
+    position:
+      lat: 23.1259819
+      lng: 112.9476493
   - name: Hefei KUG
     country: China Mainland
-    url: http://weibo.com/kotlinhfug
+    url: https://weibo.com/kotlinhfug
     position:
       lat: 31.820591
       lng: 117.227219
@@ -569,6 +587,12 @@
     position:
       lat: 27.0874564
       lng: 114.9042208
+  - name: Jinan KUG
+    country: China Mainland
+    url: https://jinan-kug.github.io/
+    position:
+      lat: 36.6431148
+      lng: 116.8890285
   - name: Jodhpur KUG
     country: India
     url: https://www.linkedin.com/company/kotlin-mumbai-ug
@@ -635,6 +659,12 @@
     position:
       lat: 21.1458004
       lng: 79.0881546
+  - name: Nanjing KUG
+    country: China Mainland
+    url: https://nanjing-kug.github.io/
+    position:
+      lat: 32.0995425
+      lng: 118.457559
   - name: Nepal KUG
     country: Nepal
     url: https://www.facebook.com/groups/dnkotlin/
@@ -703,7 +733,7 @@
       lng: 121.473701
   - name: Shenzhen KUG
     country: China Mainland
-    url: https://github.com/szkug
+    url: https://szkug.github.io/website-hugo/
     position:
       lat: 22.543096
       lng: 114.057865
@@ -719,6 +749,12 @@
     position:
       lat: 7.873054
       lng: 80.771797
+  - name: Suzhou KUG
+    country: China Mainland
+    url: https://suzhou-kug.github.io/
+    position:
+      lat: 31.4198711
+      lng: 118.8414885
   - name: Syria KUG
     country: Syria
     url: https://www.facebook.com/KotlinSyria/
@@ -749,6 +785,12 @@
     position:
       lat: 15.870032
       lng: 100.992541
+  - name: Tianjin KUG
+    country: China Mainland
+    url: https://tianjinkug.github.io/
+    position:
+      lat: 39.1252291
+      lng: 117.0153438
   - name: Turkey KUG
     country: Turkey
     url: https://youtube.com/channel/UCAofnGf9aQbioLzMMOdHV7w
@@ -773,6 +815,12 @@
     position:
       lat: 16.5061743
       lng: 80.6480153
+  - name: Wuhan KUG
+    country: China Mainland
+    url: https://wuhan-kug.github.io/
+    position:
+      lng: 114.0201922
+      lat: 30.5684073
   - name: Yemen KUG
     country: Yemen
     url: https://www.facebook.com/YemenKotlin
