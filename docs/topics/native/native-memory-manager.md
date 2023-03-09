@@ -54,6 +54,15 @@ build script:
 
 ## Memory consumption
 
+### Check for memory leaks
+
+To access the memory manager metrics, call `kotlin.native.internal.GC.lastGCInfo()`. It returns statistics for the last
+run of the garbage collector.
+
+The statistics can be useful for debugging memory leaks or checking if there are any leaks when running tests.
+
+### Adjust memory consumption 
+
 If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, 
 try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
 update might improve memory consumption.  
