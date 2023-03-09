@@ -52,7 +52,7 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://github.com/microsoft/mimalloc">mimalloc</a></td>
         <td>
           <p><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mimalloc_LICENSE.txt">MIT license</a></p>
-          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set). For more information, see <a xref="native-memory-manager.md#memory-consumption">Memory consumption</a></p>
+          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set). For more information on allocators, see <a xref="native-memory-manager.md">Kotlin/Native memory management</a></p>
         </td>
    </tr>
    <tr>
