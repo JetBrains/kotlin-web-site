@@ -164,18 +164,6 @@ import cocoapods.AFNetworking.*
 
 3. Re-import the project.
 
-> To work correctly with Xcode, you should specify the path to the Podspec in your Podfile.
-> For example:
->
-> ```ruby
-> target 'ios-app' do
->     # ... other pod dependencies ...
->     pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
-> end
-> ```
->
-{type="note"}
-
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
 
 ```kotlin
@@ -216,16 +204,6 @@ import cocoapods.CocoaLumberjack.*
 > For example,
 > ```ruby
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
-> ```
->
-> You should also specify the path to the Podspec in your Podfile.
-> For example:
->
-> ```ruby
-> target 'ios-app' do
->     # ... other pod dependencies ...
->     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
-> end
 > ```
 >
 {type="note"}
