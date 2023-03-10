@@ -115,14 +115,14 @@ produces the `mylib.dll` file.
 
 For the binary configuration, the following common parameters are available:
 
-| **Name**        | **Description**                                                                                                                                                                                          |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                                                                                |
-| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                                                                             |
-| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md).                                                                          |
-| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                                                                                                  |
-| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                                                                                                   |
-| `withPodspec`   | You can generate Podspec files for corresponding native artifacts. They can include a version of the Pod, its description, details about where the source files are located, and other general metadata. |
+| **Name**        | **Description**                                                                                                                                                                                                                                                        |
+|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                                                                                                                                              |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                                                                                                                                           |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md).                                                                                                                                        |
+| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                                                                                                                                                                |
+| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                                                                                                                                                                 |
+| `withPodspec`   | If you're using [CocoaPods integration](native-cocoapods.md), you can generate Podspec files for corresponding native artifacts. They can include a version of the Pod, its description, details about where the source files are located, and other general metadata. |
 
 ### Libraries and frameworks
 
