@@ -68,7 +68,7 @@ import kotlin.test.*
 
 class Resource
 
-val global = mutableListOf<A>()
+val global = mutableListOf<Resource>()
 
 @OptIn(ExperimentalStdlibApi::class)
 fun getUsage() : Long {
@@ -78,14 +78,14 @@ fun getUsage() : Long {
 
 fun run() {
     global.add(Resource())
-    // The test would fail if you removed the next line
+    // The test will fail if you remove the next line
     global.clear()
 }
 
 @Test
 fun test() {
     val before = getUsage()
-    // A separate function is used to be sure that all temporaries are cleaned
+    // A separate function is used to ensure that all temporary objects are cleared
     run()
     val after = getUsage()
     assertEquals(before, after)
