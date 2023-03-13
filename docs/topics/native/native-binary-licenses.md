@@ -31,12 +31,12 @@ Always include the following license files for the corresponding projects:
         <td rowspan="3">
          <list>
             <li><a href="https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt">Apache license 2.0</a></li>
-            <li><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/harmony_NOTICE.txt">Harmony copyright notice</a></li>
+            <li><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/harmony_NOTICE.txt">Apache Harmony copyright notice</a></li>
          </list>
         </td>
    </tr>
    <tr>
-        <td><a href="https://harmony.apache.org/">Harmony</a></td>
+        <td><a href="https://harmony.apache.org/">Apache Harmony</a></td>
    </tr>
    <tr>
         <td><a href="https://www.gwtproject.org/">GWT</a></td>
@@ -63,10 +63,10 @@ Always include the following license files for the corresponding projects:
 
 Specific targets additionally require the following license files:
 
-| Project                                                               | Targets  | Files to be included                                                                                                                                                                                                                                                                                                                         | 
-|-----------------------------------------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [MinGW-w64 headers and runtime libraries](https://www.mingw-w64.org/) | `mingw*` | <list><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt">Winpthreads runtime license</a></li><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING">Winpthreads copyright notice</a></li></list> |
-| [Musl (math implementation)](https://musl.libc.org/)                  | `wasm32` | [Musl copyright notice](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/main/cpp/math/COPYRIGHT)                                                                                                                                                                                                                   |
+| Project                                                               | Targets  | Files to be included                                                                                                                                                                                                                                                                                                              | 
+|-----------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [MinGW-w64 headers and runtime libraries](https://www.mingw-w64.org/) | `mingw*` | <list><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt">MinGW-w64 runtime license</a></li><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING">Winpthreads license</a></li></list> |
+| [Musl (math implementation)](https://musl.libc.org/)                  | `wasm32` | [Musl copyright notice](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/main/cpp/math/COPYRIGHT)                                                                                                                                                                                                        |
 
 > None of these libraries require the distributed Kotlin/Native binaries to be open-sourced.
 >
