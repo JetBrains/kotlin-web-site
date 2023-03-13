@@ -681,3 +681,6 @@
 
 - from: /user-groups/support.html
   to: /docs/kug-guidelines.html#support-for-kugs-from-jetbrains
+
+- from: /docs/multiplatform-get-started.html#connecting-source-sets
+  to: /docs/multiplatform-share-on-platforms.html#configure-the-hierarchical-structure-manually
