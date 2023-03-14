@@ -47,19 +47,21 @@ for example, `ProcessDeclarations.kt`.
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as `Util` in file names.
 
-In multiplatform projects, files with top-level declarations in platform-specific source sets should have a suffix associated
-with the name of the source set. For example:
+In multiplatform projects, files with top-level declarations in platform-specific source sets should have a suffix
+associated with the name of the source set. For example:
 
 * **jvm**Main/kotlin/Platform.**jvm**.kt
 * **android**Main/kotlin/Platform.**android**.kt
 * **ios**Main/kotlin/Platform.**ios**.kt
 
-As for the common source set, files with top-level declarations should not have a suffix, for example, `commonMain/kotlin/Platform.kt`.
+As for the common source set, files with top-level declarations should not have a suffix. For example, `commonMain/kotlin/Platform.kt`.
 
 #### Technical details {initial-collapse-state="collapsed"}
 
-We recommend following this file naming scheme due to JVM limitations. JVM doesn't allow top-level members (functions properties).
-To work around that, the Kotlin JVM compiler creates wrapper classes (so-called "file facades") that contain top-level
+We recommend following this file naming scheme in multiplatform projects due to JVM limitations: it doesn't allow
+top-level members (functions, properties).
+
+To work around this, the Kotlin JVM compiler creates wrapper classes (so-called "file facades") that contain top-level
 member declarations (functions, properties). File facades have an internal name derived from the file name.
 
 In turn, JVM doesn't allow several classes with the same fully qualified name (FQN). This might lead to situations when
@@ -71,10 +73,10 @@ root
 |- jvmMain/kotlin/myPackage/Platform.kt // contains 'fun multiply() { }'
 ```
 
-Both `Platform.kt` files are in the same package, so the Kotlin JVM compiler produces two file facades, both of which have
-FQN `myPackage.PlatformKt`. Starting with Kotlin 1.8.20, it produces the "Duplicate JVM classes" error.
+Here both `Platform.kt` files are in the same package, so the Kotlin JVM compiler produces two file facades, both of which
+have FQN `myPackage.PlatformKt`. Starting with Kotlin 1.8.20, this produces the "Duplicate JVM classes" error.
 
-The simplest way to avoid that is renaming either of the files according to the guideline above. This naming scheme helps
+The simplest way to avoid that is renaming one of the files according to the guideline above. This naming scheme helps
 avoid such clashes while retaining code readability.
 
 > * Non-JVM platforms are not prone to this issue. However, following these recommendations can help you keep file naming
