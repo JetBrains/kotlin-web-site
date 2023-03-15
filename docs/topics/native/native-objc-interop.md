@@ -208,9 +208,15 @@ Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org
 
 ### Extensions and category members
 
-Members of Objective-C categories and Swift extensions are imported to Kotlin
+Members of Objective-C categories and Swift extensions are generally imported to Kotlin
 as extensions. That's why these declarations can't be overridden in Kotlin.
 And the extension initializers aren't available as Kotlin constructors.
+
+> Currently, there are two exceptions in UIKit. Starting with Kotlin 1.8.20, category members that are declared
+> in the same headers as NSView and UIView classes are imported as members of these classes.
+> It means that you can override methods subclassing from NSView and UIView.
+>
+{type="note"}
 
 Kotlin extensions to "regular" Kotlin classes are imported to Swift and Objective-C as extensions and category members respectively.
 Kotlin extensions to other types are treated as [top-level declarations](#top-level-functions-and-properties)
