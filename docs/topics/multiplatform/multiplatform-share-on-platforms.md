@@ -47,23 +47,10 @@ There are two ways you can create the hierarchical structure:
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [using Native libraries in the hierarchical structure](#use-native-libraries-in-the-hierarchical-structure).
 
-> Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as code completion and highlighting, for the shared native source set
-> in a multiplatform project with hierarchical structure support if your project depends on:
->
-> * Multiplatform libraries that don't support the hierarchical structure.
-> * Third-party native libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the box.
->
-> This issue applies only to the shared native source set. The IDE will correctly support the rest of the code.
->
-> Learn how to [work around this issue](multiplatform-mobile-ios-dependencies.md#workaround-to-enable-ide-support-for-the-shared-ios-source-set)
-> for similar source sets, such as `iosArm64` and `iosX64`.
->
-{type="note"}
-
 ### Use target shortcuts
 
 In a typical multiplatform project with two iOS-related targets – `iosArm64` and `iosX64`, the hierarchical structure 
-includes an intermediate source set (`iosMain`), which is used by the platform-specific source sets. 
+includes intermediate source sets `iosMain` and `iosTest`, which is used by the platform-specific source sets. 
 
 ![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
 
@@ -266,13 +253,13 @@ it and call `runBlocking` from a source set that is shared between the JVM and n
 You can use platform-dependent libraries like `Foundation`, `UIKit`, and `POSIX` in source sets shared among several native 
 targets. This helps you share more native code without being limited by platform-specific dependencies. 
 
-Since Kotlin 1.6.20, the usage of platform-dependent libraries is available in shared source sets by default. No additional
+Starting with Kotlin 1.6.20, the usage of platform-dependent libraries is available in shared source sets by default. No additional
 steps are required – IntelliJ IDEA will help you detect common declarations that you can use in the shared code.
 See [Hierarchical project structure](multiplatform-hierarchy.md) for more details.
 
 In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
-To enable this support, specify the additional `kotlin.mpp.enableCInteropCommonization` key:
+To enable this feature, add the following property to your `gradle.properties`:
 
 ```none
 kotlin.mpp.enableCInteropCommonization=true

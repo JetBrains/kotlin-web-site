@@ -272,73 +272,17 @@ import MyFramework.*
 Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
 [configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
 
-### Workaround to enable IDE support for the shared iOS source set {initial-collapse-state="collapsed"}
+### Connecting platform-specific libraries
 
-Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as
-code completion and highlighting, for the shared iOS source set in a multiplatform project
-with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) if your
-project depends on:
-
-* Multiplatform libraries that don't support the hierarchical structure.
-* Third-party iOS libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the
-  box.
-
-This issue applies only to the shared iOS source set. The IDE will correctly support the rest of the code.
-
-> All projects created with the Kotlin Multiplatform Mobile Project Wizard support the hierarchical structure, which means this issue affects them.
->
-{type="note"}
-
-To enable IDE support in these cases, you can work around the issue by adding the following code to `build.gradle.(kts)`
-in the `shared` directory of your project:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-    if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-        ::iosArm64
-    else
-        ::iosX64
-
-iosTarget("ios")
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-def iosTarget
-if (System.getenv("SDK_NAME")?.startsWith("iphoneos")) {
-    iosTarget = kotlin.&iosArm64
-} else {
-    iosTarget = kotlin.&iosX64
-}
-```
-
-</tab>
-</tabs>
-
-In this code sample, the configuration of iOS targets depends on the environment variable `SDK_NAME`, which is managed
-by Xcode. For each build, you'll have only one iOS target, named `ios`, that uses the `iosMain` source set. There will
-be no hierarchy of the `iosMain`, `iosArm64`, and `iosX64` source sets.
-
-Alternatively, you can enable the support of platform-dependent interop libraries in shared source sets. In addition to
-[platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also
+You can enable the support for platform-dependent interop libraries in shared source sets. In addition to
+[platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can 
 handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets.
+
 To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
 
 ```none
 kotlin.mpp.enableCInteropCommonization=true
 ```
-
-> This is a temporary workaround. If you are a library author, we recommend that you [enable the hierarchical structure](multiplatform-hierarchy.md).
->
-> With this workaround, Kotlin Multiplatform tooling analyzes your code against only the one native target that is active during the current build.
-> This might lead to various errors during the complete build with all targets, and errors are more likely if your project contains other native targets in addition to the iOS ones.
->
-{type="note"}
 
 ## What's next?
 
