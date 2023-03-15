@@ -219,8 +219,13 @@ import cocoapods.example.*
 1. Specify the name of a Pod library in the `pod()` function.
 
    In the configuration block, specify the cinterop options:
-    * `extraOpts` – to specify the list of options for a Pod library. For example, specific flags: `extraOpts = listOf("-compiler-option")`
-    * `packageName` – to specify the package name. If you specify this, you can import the library using the package name: `import <packageName>`.
+
+   * `extraOpts` – to specify the list of options for a Pod library, for example, a `-compiler-option` with specific flags.
+     
+     You can use `extraOpts = listOf("-compiler-option", "-fmodules")` here to consume Objective-C headers with `@import`
+     directives.
+   * `packageName` – to specify the package name. If you specify this, you can import the library using the package name:
+     `import <packageName>`.
 
 2. Specify the minimum deployment target version for the Pod library.
 
@@ -235,6 +240,7 @@ import cocoapods.example.*
             ios.deploymentTarget = "13.5"
 
             pod("YandexMapKit") {
+                extraOpts = listOf("-compiler-option", "-fmodules")
                 packageName = "YandexMK"
             }
         }
