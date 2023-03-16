@@ -47,6 +47,8 @@ for example, `ProcessDeclarations.kt`.
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as `Util` in file names.
 
+#### Multiplatform projects
+
 In multiplatform projects, files with top-level declarations in platform-specific source sets should have a suffix
 associated with the name of the source set. For example:
 
@@ -56,13 +58,13 @@ associated with the name of the source set. For example:
 
 As for the common source set, files with top-level declarations should not have a suffix. For example, `commonMain/kotlin/Platform.kt`.
 
-#### Technical details {initial-collapse-state="collapsed"}
+##### Technical details {initial-collapse-state="collapsed"}
 
 We recommend following this file naming scheme in multiplatform projects due to JVM limitations: it doesn't allow
 top-level members (functions, properties).
 
 To work around this, the Kotlin JVM compiler creates wrapper classes (so-called "file facades") that contain top-level
-member declarations (functions, properties). File facades have an internal name derived from the file name.
+member declarations. File facades have an internal name derived from the file name.
 
 In turn, JVM doesn't allow several classes with the same fully qualified name (FQN). This might lead to situations when
 a Kotlin project cannot be compiled to JVM:
@@ -74,19 +76,21 @@ root
 ```
 
 Here both `Platform.kt` files are in the same package, so the Kotlin JVM compiler produces two file facades, both of which
-have FQN `myPackage.PlatformKt`. Starting with Kotlin 1.8.20, this produces the "Duplicate JVM classes" error.
+have FQN `myPackage.PlatformKt`. This produces the "Duplicate JVM classes" error.
 
 The simplest way to avoid that is renaming one of the files according to the guideline above. This naming scheme helps
-avoid such clashes while retaining code readability.
+avoid clashes while retaining code readability.
 
-> * Non-JVM platforms are not prone to this issue. However, following these recommendations can help you keep file naming
-> consistent throughout the project.
-> * On JVM, you can have duplicate paths in common and platform source sets if source files do not have top-level
-> declarations because the file facades aren't generated in this case.
+> There are two cases when these recommendations may seem redundant, but we still advise to follow them:
 > 
->   However, following these recommendations can help you avoid issues in the future. For example, a simple refactoring
-> or addition that ends up in a top-level function will lead to the same "Duplicate JVM classes" error.
->
+> * Non-JVM platforms don't have issues with duplicating file facades. However, this naming scheme can help you keep
+> file naming consistent.
+> * On JVM, if source files don't have top-level declarations, the file facades aren't generated, and you won't face
+> naming clashes.
+> 
+>   However, this naming scheme can help you avoid issues in the future. A simple refactoring
+> or an addition that ends up in a top-level function will lead to the same "Duplicate JVM classes" error.
+> 
 {type="tip"}
 
 ### Source file organization
