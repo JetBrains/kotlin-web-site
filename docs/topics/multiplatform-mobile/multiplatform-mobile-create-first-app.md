@@ -140,8 +140,8 @@ If you want to run your application on a simulated device, you can add a new run
 
 ## Update your application
 
-1. Open the `Greeting.kt` file in `shared/src/commonMain/kotlin`. This directory stores the shared code for both Android
-and iOS. If you make changes to the shared code, you will see them reflected in both applications.
+1. In `shared/src/commonMain/kotlin`, open the `Greeting.kt` file in the project folder. This directory stores the shared
+code for both Android and iOS. If you make changes to the shared code, you will see them reflected in both applications.
 
    ![Common Kotlin file](common-kotlin-file.png)
 

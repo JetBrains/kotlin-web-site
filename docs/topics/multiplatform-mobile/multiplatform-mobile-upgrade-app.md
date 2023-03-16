@@ -17,30 +17,9 @@ and display the date of the last successful launch of a SpaceX rocket.
 
 You'll need the following multiplatform libraries in your project:
 
-* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), for using coroutines to write asynchronous code,
-  which allows simultaneous operations.
 * [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization), for deserializing JSON responses into objects of entity classes used to process
   network operations.
 * [Ktor](https://ktor.io/), a framework as an HTTP client for retrieving data over the internet.
-
-### kotlinx.coroutines
-
-To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
-line to the `build.gradle.kts` file of the shared module:
-
-```kotlin
-sourceSets {
-    val commonMain by getting {
-        dependencies {
-            // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-        }
-    }
-}
-```
-
-The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
-of `kotlinx.coroutines`.
 
 #### If you use Kotlin prior to version 1.7.20
 
@@ -72,8 +51,10 @@ plugins {
 
 ### Ktor
 
-You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
-dependency (`ktor-client-core`) in the common source set, you also need to:
+To add Ktor to your project, specify the core dependency (`ktor-client-core`) in the common source set
+in the `build.gradle.kts` file of the shared module.
+
+In addition to changes in the common source set, you also need to:
 
 * Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
   the content in a specific format.
@@ -194,7 +175,7 @@ data class RocketLaunch (
 
    The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
-   within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   within another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
 
@@ -222,48 +203,37 @@ need to update native (iOS, Android) parts of the project, so they can properly 
 As both the shared module and the Android application are written in Kotlin, using shared code from Android is
 straightforward:
 
-1. Add the `kotlinx.coroutines` library to the Android application by adding a line in the `build.gradle.kts` in the
-   `androidApp` folder:
+In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-    ```kotlin
-    dependencies {
-        // ..
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:%coroutinesVersion%")
+```kotlin
+import androidx.compose.runtime.*
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApplicationTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    var text by remember { mutableStateOf("Loading") }
+                    LaunchedEffect(true) {
+                        text = try {
+                            Greeting().greeting()
+                        } catch (e: Exception) {
+                            e.localizedMessage ?: "error"
+                        }
+                    }
+                    GreetingView(text)
+                }
+            }
+        }
     }
-    ```
+}
+```
 
-2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
-3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
-
-   ```kotlin
-   import androidx.compose.runtime.*
-   
-   class MainActivity : ComponentActivity() {
-       override fun onCreate(savedInstanceState: Bundle?) {
-           super.onCreate(savedInstanceState)
-           setContent {
-               MyApplicationTheme {
-                   Surface(
-                       modifier = Modifier.fillMaxSize(),
-                       color = MaterialTheme.colors.background
-                   ) {
-                       var text by remember { mutableStateOf("Loading") }
-                       LaunchedEffect(true) {
-                           text = try {
-                               Greeting().greeting()
-                           } catch (e: Exception) {
-                               e.localizedMessage ?: "error"
-                           }
-                       }
-                       GreetingView(text)
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   The `greeting()` function is now called in a coroutine inside `LaunchedEffect` to avoid recalling it on each recomposition.
+The `greeting()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
 
 ### iOS app
 
@@ -273,10 +243,6 @@ the shared module, which contains all the business logic.
 
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
-
-> If you see an error saying that the shared module is unresolved, run the app.
-> 
-{type="tip"}
 
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
@@ -327,7 +293,8 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
    Now the view model will emit signals whenever this property changes.
 
-5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
+5. If you see an error saying that the shared module is unresolved, run the app.
+6. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
     ```swift
     class ViewModel: ObservableObject {
