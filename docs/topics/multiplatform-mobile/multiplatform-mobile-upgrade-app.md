@@ -201,7 +201,7 @@ need to update native (iOS, Android) parts of the project, so they can properly 
 ### Android app
 
 As both the shared module and the Android application are written in Kotlin, using shared code from Android is
-straightforward.
+straightforward:
 
 1. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
@@ -244,6 +244,10 @@ the shared module, which contains all the business logic.
 
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
+
+> If you see an error saying that the shared module is unresolved, run the app.
+>
+{type="tip"}
 
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
