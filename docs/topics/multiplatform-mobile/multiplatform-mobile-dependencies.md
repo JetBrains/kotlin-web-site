@@ -22,7 +22,7 @@ There are two types of dependencies that you can use in Multiplatform Mobile pro
 
 When you work with a shared module, you can also depend on native dependencies and use them in the native source sets,
 `androidMain` and `iosMain`. Typically, you'll need these dependencies when you want to work with platform APIs,
-for example security storage, and there is common logic.
+for example, security storage, and there is common logic.
 
 For both types of dependencies, you can use local and external repositories.
 
@@ -56,8 +56,9 @@ multiplatform support, is the most convenient way to work with dates in your sha
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` and update it with a short function that calculates
-the number of days from today until the new year using the `date-time` date arithmetic:
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` in the project folder.
+5. Update the file with a short function that calculates
+   the number of days from today until the New Year using the `date-time` date arithmetic:
    
    ```kotlin
    import kotlinx.datetime.*
@@ -69,20 +70,20 @@ the number of days from today until the new year using the `date-time` date arit
    }
    ```
 
-5. In `Greeting.kt`, update the `greeting()` function to see the result:
+6. In `Greeting.kt`, update the `greet()` function to see the result:
     
     ```kotlin
     class Greeting {
         private val platform: Platform = getPlatform()
          
-        fun greeting(): String {
+        fun greet(): String {
             return "Guess what it is! > ${platform.name.reversed()}!" +
-            "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
+                    "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
         }
     }
     ```
 
-6. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
+7. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
 
 ![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
 

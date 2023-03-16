@@ -17,43 +17,9 @@ and display the date of the last successful launch of a SpaceX rocket.
 
 You'll need the following multiplatform libraries in your project:
 
-* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), for using coroutines to write asynchronous code,
-  which allows simultaneous operations.
 * [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization), for deserializing JSON responses into objects of entity classes used to process
   network operations.
 * [Ktor](https://ktor.io/), a framework as an HTTP client for retrieving data over the internet.
-
-### kotlinx.coroutines
-
-To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
-line to the `build.gradle.kts` file of the shared module:
-
-```kotlin
-sourceSets {
-    val commonMain by getting {
-        dependencies {
-            // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-        }
-    }
-}
-```
-
-The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
-of `kotlinx.coroutines`.
-
-#### If you use Kotlin prior to version 1.7.20
-
-If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
-If it's not the case, add the following to the end of the `build.gradle.kts` file:
-
-```kotlin
-kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
-    binaries.all {
-        binaryOptions["memoryModel"] = "experimental"
-    }
-}
-```
 
 ### kotlinx.serialization
 
@@ -72,8 +38,10 @@ plugins {
 
 ### Ktor
 
-You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
-dependency (`ktor-client-core`) in the common source set, you also need to:
+To add Ktor to your project, specify the core dependency (`ktor-client-core`) in the common source set
+in the `build.gradle.kts` file of the shared module.
+
+In addition to changes in the common source set, you also need to:
 
 * Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
   the content in a specific format.
@@ -110,6 +78,19 @@ sourceSets {
 
 Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
+#### If you use Kotlin prior to version 1.7.20
+
+If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
+If it's not the case, add the following to the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
+
 ## Create API requests
 
 You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data and a single method to
@@ -117,7 +98,7 @@ get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
 
-In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file
+In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project folder
 and add a data class which stores data from the SpaceX API:
 
 ```kotlin
@@ -171,7 +152,7 @@ data class RocketLaunch (
    the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
    serializer are used.
 
-2. In the `greeting()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
+2. In the `greet()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
    method and find the latest launch:
 
     ```kotlin
@@ -181,7 +162,7 @@ data class RocketLaunch (
     class Greeting {
         // ...
         @Throws(Exception::class)
-        suspend fun greeting(): String {
+        suspend fun greet(): String {
             val rockets: List<RocketLaunch> =
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
@@ -192,9 +173,9 @@ data class RocketLaunch (
     }
     ```
 
-   The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
+   The `suspend` modifier in the `greet()` function is necessary because it now contains a call to `get()`. It's a
    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
-   within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   within another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
 
@@ -213,27 +194,16 @@ Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
 
 ## Update Android and iOS apps
 
-You've already updated the API of the shared module by adding the `suspend` modifier to the `greeting()` function. Now you
+You've already updated the API of the shared module by adding the `suspend` modifier to the `greet()` function. Now you
 need to update native (iOS, Android) parts of the project, so they can properly handle the result of calling the
-`greeting()` function.
+`greet()` function.
 
 ### Android app
 
 As both the shared module and the Android application are written in Kotlin, using shared code from Android is
-straightforward:
+straightforward.
 
-1. Add the `kotlinx.coroutines` library to the Android application by adding a line in the `build.gradle.kts` in the
-   `androidApp` folder:
-
-    ```kotlin
-    dependencies {
-        // ..
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:%coroutinesVersion%")
-    }
-    ```
-
-2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
-3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
+1. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
    ```kotlin
    import androidx.compose.runtime.*
@@ -250,7 +220,7 @@ straightforward:
                        var text by remember { mutableStateOf("Loading") }
                        LaunchedEffect(true) {
                            text = try {
-                               Greeting().greeting()
+                               Greeting().greet()
                            } catch (e: Exception) {
                                e.localizedMessage ?: "error"
                            }
@@ -263,7 +233,8 @@ straightforward:
    }
    ```
 
-   The `greeting()` function is now called in a coroutine inside `LaunchedEffect` to avoid recalling it on each recomposition.
+   The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
+2. Build the project to update the shared module. It'll be useful for the next part, iOS app. 
 
 ### iOS app
 
@@ -327,13 +298,13 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
    Now the view model will emit signals whenever this property changes.
 
-5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
+5. Call the `greet()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
     ```swift
     class ViewModel: ObservableObject {
         @Published var text = "Loading..."
         init() {
-            Greeting().greeting { greeting, error in
+            Greeting().greet { greeting, error in
                 DispatchQueue.main.async {
                     if let greeting = greeting {
                         self.text = greeting
@@ -350,7 +321,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
    compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
    callbacks (`completionHandler`).
-   * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
+   * The `greet()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
    see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
