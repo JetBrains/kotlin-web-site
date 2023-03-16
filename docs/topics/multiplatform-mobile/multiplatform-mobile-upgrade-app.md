@@ -182,7 +182,7 @@ data class RocketLaunch (
 To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
-Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
+Update your `androidApp/src/main/AndroidManifest.xml` file with the access permission:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -234,7 +234,7 @@ straightforward.
    ```
 
    The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
-2. Build the project to update the shared module. It'll be useful for the next part, iOS app. 
+2. Build the project to update the shared module. It'll be useful for the next part, iOS app.
 
 ### iOS app
 
@@ -244,10 +244,6 @@ the shared module, which contains all the business logic.
 
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
-
-> If you see an error saying that the shared module is unresolved, run the app.
-> 
-{type="tip"}
 
 1. Launch your Xcode app and select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
