@@ -237,7 +237,6 @@ straightforward:
 
    ```kotlin
    import androidx.compose.runtime.*
-   import kotlinx.coroutines.launch
    
    class MainActivity : ComponentActivity() {
        override fun onCreate(savedInstanceState: Bundle?) {
@@ -248,15 +247,12 @@ straightforward:
                        modifier = Modifier.fillMaxSize(),
                        color = MaterialTheme.colors.background
                    ) {
-                       val scope = rememberCoroutineScope()
                        var text by remember { mutableStateOf("Loading") }
                        LaunchedEffect(true) {
-                           scope.launch {
-                               text = try {
-                                   Greeting().greeting()
-                               } catch (e: Exception) {
-                                   e.localizedMessage ?: "error"
-                               }
+                           text = try {
+                               Greeting().greeting()
+                           } catch (e: Exception) {
+                               e.localizedMessage ?: "error"
                            }
                        }
                        GreetingView(text)
