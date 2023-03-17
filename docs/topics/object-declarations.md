@@ -268,7 +268,7 @@ fun printReadResult(r: ReadResult) {
         is Number -> println("Num(${r.number}")
         is Text -> println("Txt(${r.text}")
         is EndOfFile -> println("EOF")
-  }
+    }
 }
 
 fun main() {
