@@ -272,7 +272,7 @@ fun printReadResult(r: ReadResult) {
 }
 
 fun main() {
-  printReadResult(EndOfFile) // EOF
+    printReadResult(EndOfFile) // EOF
 }
 ```
 
