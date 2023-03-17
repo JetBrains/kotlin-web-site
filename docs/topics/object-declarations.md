@@ -198,7 +198,9 @@ Just like [data classes](data-classes.md), you can mark an `object` declaration 
 * `toString()` returning the name of the data object
 * `equals()`/`hashCode()` pair
 
-Note that you can't provide a custom `equals` or `hashCode` implementation for a `data object`.
+  > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
+  >
+  {type="note}
 
 The `toString()` function of a data object returns the name of the object:
 ```kotlin
