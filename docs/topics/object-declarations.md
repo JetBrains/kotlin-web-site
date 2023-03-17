@@ -251,7 +251,7 @@ The generated `hashCode()` function has behavior that is consistent with the `eq
 While `data object` and `data class` declarations are often used together and have some similarities, there are some functions that are not generated for a `data object`:
 
 - No `copy()` function: Because a `data object` declaration is intended to be used as singleton objects, no `copy()` function is generated. The singleton pattern restricts the instantiation of a class to one, single instance, which would be violated by allowing copies of the instance to be created.
-- No `componentN()` function: unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
+* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
 
 #### Use cases for data objects
 
