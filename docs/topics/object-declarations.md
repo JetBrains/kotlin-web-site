@@ -264,7 +264,7 @@ data class Text(val text: String) : ReadResult
 data object EndOfFile : ReadResult
 
 fun printReadResult(r: ReadResult) {
-  when(r) {
+    when(r) {
     is Number -> println("Num(${r.number}")
     is Text -> println("Txt(${r.text}")
     is EndOfFile -> println("EOF")
