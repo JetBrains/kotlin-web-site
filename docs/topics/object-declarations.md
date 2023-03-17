@@ -278,7 +278,6 @@ fun main() {
 
 
 
-
 ### Companion objects
 
 An object declaration inside a class can be marked with the `companion` keyword:
