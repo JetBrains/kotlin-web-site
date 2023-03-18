@@ -217,7 +217,7 @@ The `equals()` function for a `data object` ensures that all objects that have t
 In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
 However, in the edge case where another object of the same type is generated at runtime (for example, by using platform reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that the objects are treated as being equal.
 
-> Make sure to only compare `data objects` structurally (i.e. using the `==` operator), never by reference (the `===` operator). This helps you avoid pitfalls when more than once instance of a data object exists at runtime.
+> Make sure to only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you avoid pitfalls when more than one instance of a data object exists at runtime.
 {type="warning"}
 
 ```kotlin
