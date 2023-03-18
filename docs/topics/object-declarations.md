@@ -248,7 +248,7 @@ fun createInstanceViaReflection(): MySingleton {
 
 The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime instances of a `data object` have the same hash code.
 
-#### No copy and componentN functions
+#### Differences between data objects and data classes
 
 While `data object` and `data class` declarations are often used together and have some similarities, there are some functions that are not generated for a `data object`:
 
