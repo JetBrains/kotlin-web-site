@@ -719,8 +719,8 @@ provides a callback when users submit their entry to the shopping list to receiv
 
 #### Implement item removal
 
-Add the ability to remove the finished items from the list so that it doesn't get too long. You can modify an existing list rather
-than adding another UI element (like a "delete" button). When users click one of the items in the list, the app deletes it.
+Add the ability to remove the finished items from the list so that it doesn't get too long.
+Instead of adding another UI element (like a "delete" button), you can allow users to delete an item by clicking on it.
 
 To achieve this, pass a corresponding handler to `onClick` of the list elements:
 
