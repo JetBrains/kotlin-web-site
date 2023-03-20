@@ -516,19 +516,19 @@ kotlin {
 </tabs>
 
 Note that a newly created source set isn't connected to other ones. To use it in the project's compilations,
-[connect it with other source sets](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually).
+[connect it with other source sets](multiplatform-hierarchy.md#configure-the-hierarchical-structure-manually).
 
 ### Source set parameters
 
 Configurations of source sets are stored inside the corresponding blocks of `sourceSets`. A source set has the following parameters:
 
-| **Name**           | **Description**                                                                                                          | 
-|--------------------|--------------------------------------------------------------------------------------------------------------------------|
-| `kotlin.srcDir`    | Location of Kotlin source files inside the source set directory.                                                         |
-| `resources.srcDir` | Location of resources inside the source set directory.                                                                   |
-| `dependsOn`        | [Connection with another source set](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually). |
-| `dependencies`     | [Dependencies](#dependencies) of the source set.                                                                         |
-| `languageSettings` | [Language settings](#language-settings) applied to the source set.                                                       |
+| **Name**           | **Description**                                                                                                 | 
+|--------------------|-----------------------------------------------------------------------------------------------------------------|
+| `kotlin.srcDir`    | Location of Kotlin source files inside the source set directory.                                                |
+| `resources.srcDir` | Location of resources inside the source set directory.                                                          |
+| `dependsOn`        | [Connection with another source set](multiplatform-hierarchy.md#configure-the-hierarchical-structure-manually). |
+| `dependencies`     | [Dependencies](#dependencies) of the source set.                                                                |
+| `languageSettings` | [Language settings](#language-settings) applied to the source set.                                              |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

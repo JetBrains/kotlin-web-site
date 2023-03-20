@@ -842,7 +842,7 @@ code that could still directly call any of the APIs that are common to both the 
 Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
-For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-share-on-platforms.md#use-target-shortcuts).
+For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-hierarchy.md#use-target-shortcuts).
 
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
@@ -852,7 +852,7 @@ kotlin {
 }
 ```
 
-For other combinations of targets, <!--TODO: [create a hierarchy manually](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually) -->
+For other combinations of targets, <!--TODO: [create a hierarchy manually](multiplatform-hierarchy.md#configure-the-hierarchical-structure-manually) -->
 by connecting the source sets with the `dependsOn` relation.
 
 ![Hierarchical structure](hierarchical-structure.png)
