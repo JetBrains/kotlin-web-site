@@ -212,9 +212,9 @@ Members of Objective-C categories and Swift extensions are generally imported to
 as extensions. That's why these declarations can't be overridden in Kotlin.
 And the extension initializers aren't available as Kotlin constructors.
 
-> Currently, there are two exceptions in UIKit. Starting with Kotlin 1.8.20, category members that are declared
-> in the same headers as NSView and UIView classes are imported as members of these classes.
-> It means that you can override methods subclassing from NSView and UIView.
+> Currently, there are two exceptions. Starting with Kotlin 1.8.20, category members that are declared
+> in the same headers as the NSView class (from the AppKit framework) and UIView classes (from theUIKit framework) are
+> imported as members of these classes. It means that you can override methods subclassing from NSView and UIView.
 >
 {type="note"}
 
