@@ -255,7 +255,7 @@ While `data object` and `data class` declarations are often used together and ha
 * No `copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `copy()` function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would be violated by allowing copies of the instance to be created.
 * No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
 
-#### Use cases for data objects
+#### Using data objects with sealed hierarchies
 
 `data object` declarations are a particularly good fit for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you might have defined alongside the object:
 
