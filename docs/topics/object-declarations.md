@@ -92,7 +92,7 @@ interface A {
 interface B
 
 class C {
-    // The return type is Any. x is not accessible
+    // The return type is Any; x is not accessible
     fun getObject() = object {
         val x: String = "x"
     }
@@ -200,7 +200,7 @@ Just like [data classes](data-classes.md), you can mark an `object` declaration 
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
   >
-  {type="note}
+  {type="note"}
 
 The `toString()` function of a data object returns the name of the object:
 ```kotlin
@@ -277,7 +277,6 @@ fun main() {
     printReadResult(EndOfFile) // EOF
 }
 ```
-
 
 ### Companion objects
 
