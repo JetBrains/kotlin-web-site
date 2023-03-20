@@ -147,7 +147,7 @@ kotlin {
       
         pod("pod_dependency") {
             version = "1.0"
-            linkOnly = "true"
+            linkOnly = true
             source = path(project.file("../pod_dependency"))
         }
     }
