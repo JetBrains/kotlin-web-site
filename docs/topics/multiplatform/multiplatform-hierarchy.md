@@ -1,59 +1,48 @@
 [//]: # (title: Hierarchical project structure)
 
-Starting with Kotlin 1.6.20, every new multiplatform project comes with a hierarchical project structure. This means
-that source
-sets form a hierarchy for sharing the common code among several targets. It opens up a variety of opportunities,
-including using platform-dependent libraries in common source sets and the ability to share code when creating
-multiplatform
-libraries.
+Multiplatform projects have support for hierarchical structure.
+This means you can form a hierarchy of source sets for sharing the common code among some, but not all,
+[supported targets](multiplatform-dsl-reference.md#targets).
 
-With the new hierarchical project structure support, you can share code among some, but not all,
-[targets](multiplatform-dsl-reference.md#targets) in a multiplatform project.
+The Kotlin toolchain provides the correct default dependencies and locates the API surface area available in the shared code.
+This prevents cases like the use of a macOS-specific function in code shared for Windows. It opens up a variety of opportunities:
 
-You can also use platform-dependent libraries, such as `UIKit` and `POSIX`, in source sets shared among several native
-targets. One popular case is having access to iOS-specific dependencies like `Foundation` when sharing code across all
-iOS targets. The new structure helps you share more native code without being limited by platform-specific dependencies.
+* Using platform-dependent libraries in source sets shared among several native targets. One popular case is having access
+  to iOS-specific dependencies like `Foundation` when sharing code across all iOS targets.
+* Sharing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms.
 
-A hierarchical project structure allows reusing code in similar targets, as well as publishing and consuming libraries
-with granular APIs targeting similar platforms.
+There are 3 ways to create a target hierarchy:
 
-The Kotlin toolchain will automatically figure out the API available in the consumer source set while checking for
-unsafe usages, like using an API meant for the JVM in JS code.
-
-You can create a hierarchical structure with target shortcuts
-available for typical multi-target scenarios, or you can manually declare and connect the source sets.
-
-The Kotlin toolchain will provide the correct default dependencies and locate the API surface area available in the
-shared
-code. This prevents cases like the use of a macOS-specific function in code shared for Windows.
+* [Specify all targets and enable default hierarchy](multiplatform-hierarchy.md#default-hierarchy)
+* [Use target shortcuts available for typical cases](multiplatform-hierarchy.md#target-shortcuts)
+* [Manually declare and connect the source sets](multiplatform-hierarchy.md#manual-configuration).
 
 ## Default hierarchy
 
-> The new approach to source set hierarchy is [Experimental](components-stability.md#stability-levels-explained). It may
+> The default target hierarchy is [Experimental](components-stability.md#stability-levels-explained). It may
 > be changed in future Kotlin releases without prior notice.
-> For the Kotlin Gradle build scripts, ppt-in is required with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
+> For the Kotlin Gradle build scripts, opt-in is required with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
 >
 {type="warning"}
 
-Starting with Kotlin 1.8.20, you can try a new way of setting up source set hierarchy in your multiplatform projects
-− default target hierarchy.
+Starting with Kotlin 1.8.20, you can set up source set hierarchy in your multiplatform projects with default target hierarchy.
+It's a template for all possible targets and their shared source sets hardcoded in the Kotlin Gradle plugin.
 
-The Kotlin Gradle plugin has a default target hierarchy hardcoded in its sources. You can think of it as a template
-for all possible targets and their shared source sets. When you explicitly declare all the targets to which your project
-compiles, the plugin automatically creates shared source sets based on the specified targets.
+When you declare the targets to which your project compiles,
+the plugin picks necessary source sets from the template and creates them in your project based on the specified targets.
+See the full hierarchy template:
 
-#### See the full hierarchy template {initial-collapse-state="collapsed"}
-
-![Default target hierarchy](full-template-hierarchy.png)
+![Default target hierarchy](full-template-hierarchy.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
 
 > Here and below we focus only on the production part of the project, omitting the suffix `Main` (for example, using `common` instead of `commonMain`).
-> however, everything is the same for `*Test` sources as well.
+> However, everything is the same for `*Test` sources as well.
 > 
 {type="tip"}
 
 ### Set up your project
 
-Consider this example of a simple multiplatform mobile app:
+To set up a hierarchy, call `targetHierarchi.default()` in the `kotlin` block of your `build.gradle(.kts)` and list all the targets you need.
+For example:
 
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -71,10 +60,10 @@ kotlin {
 When you declare final targets `android`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-![An example of using the default target hierarchy](default-hierarchy-example.png)
+![An example of using the default target hierarchy](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
 
 Green source sets are actually created and present in the project, while gray ones from the default template are
-ignored. As you can see, The Kotlin Gradle plugin hasn’t created the `watchos` source set, for example, because there
+ignored. As you can see, The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
 are no WatchOS targets in the project.
 
 If you add a WatchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
@@ -87,9 +76,9 @@ from `apple`, `native`, and `common` source sets is compiled to `watchosArm64` a
 >
 {type="note"}
 
-### Customization
+### Create your own hierarchy
 
-If necessary, you can further [configure the resulting hierarchy manually](#configure-the-hierarchical-structure-manually).
+If necessary, you can further configure the resulting hierarchy manually [using the dependsOn relation](#manual-configuration).
 To do that, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
 
 Consider this example of a project with a source set shared between the `jvm` and `native` targets only:
@@ -108,7 +97,7 @@ kotlin {
     sourceSets {
         val commonMain by getting
 
-        val jvmAndNaitveMain by creating {
+        val jvmAndNativeMain by creating {
             dependsOn(commonMain)
         }
 
@@ -123,16 +112,16 @@ kotlin {
 }
 ```
 
-> We're currently working on API for creating your own target hierarchies. This should be useful for projects
-> which hierarchy configurations differ a lot from the template from `targetHierarchy.default()`.
+> We're currently working on API for creating your own target hierarchies. It should be useful for projects
+> which hierarchy configurations differ a lot from the default template.
 >
-> At the moment, we're still iterating over this API and not ready to show it yet. If you're eager to try it,
+> At the moment, this API is not ready yet. But if you're eager to try it,
 > look into the `targetHierarchy.custom { ... }` block and the declaration of `targetHierarchy.default()` as an example.
 > Keep in mind that this API is still in development. It might be under-tested, and can change dramatically in further releases.
 > 
 {type="tip"}
 
-### Use target shortcuts
+## Target shortcuts
 
 The Kotlin Multiplatform plugin provides some pre-defined target shortcuts for creating structures of common target
 combinations:
@@ -251,7 +240,7 @@ kotlin {
 </tab>
 </tabs>
 
-### Configure the hierarchical structure manually
+## Manual configuration
 
 To create the hierarchical structure manually, introduce an intermediate source set that holds the shared code for
 several

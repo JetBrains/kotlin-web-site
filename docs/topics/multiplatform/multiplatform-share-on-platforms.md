@@ -5,9 +5,8 @@ With Kotlin Multiplatform, you can share the code using the mechanisms Kotlin pr
 * [Share code among all platforms used in your project](#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms.     
 * [Share code among some platforms](#share-code-on-similar-platforms) included in your project but not all. You can 
-reuse much of the code in similar platforms using a hierarchical structure. You can use [target shortcuts](multiplatform-hierarchy.md#use-target-shortcuts) 
-for common combinations of targets or [create the hierarchical structure manually](multiplatform-hierarchy.md#configure-the-hierarchical-structure-manually).
- 
+reuse much of the code in similar platforms using a hierarchical structure. 
+
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](multiplatform-connect-to-apis.md).
 
@@ -37,14 +36,12 @@ code could be shared between them.
 Evidently, in this setup it would be desirable to have a shared source set for two iOS targets, with Kotlin/Native code 
 that could still directly call any of the APIs that are common to both the iOS device and the simulator.
 
-In this case, you can share code across native targets in your project using the [hierarchical structure](multiplatform-hierarchy.md).
-Since Kotlin 1.6.20, it's enabled by default.
-
-There are several ways to create a hierarchical structure:
+In this case, you can share code across native targets in your project using the [hierarchical structure](multiplatform-hierarchy.md)
+using one of the following ways:
 
 * [Enabling default target hierarchy](multiplatform-hierarchy.md#default-hierarchy)
-* [Using target shortcuts](multiplatform-hierarchy.md#use-target-shortcuts)
-* [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#configure-the-hierarchical-structure-manually).
+* [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
+* [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration).
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [using Native libraries in the hierarchical structure](#use-native-libraries-in-the-hierarchical-structure).
 
