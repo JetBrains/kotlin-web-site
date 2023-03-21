@@ -43,7 +43,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.8.20-RC2</strong>
-            <p>Released: <strong>March 21, 2023</strong></p>
+            <p>Released: <strong>March 22, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
