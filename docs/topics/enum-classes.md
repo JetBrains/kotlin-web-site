@@ -134,13 +134,10 @@ fun main() {
 }
 ```
 
-> The `entries` property is Experimental. To use it you need to opt in by using `@OptIn(ExperimentalStdlibApi)`, and
+> The `entries` property is Experimental. To use it, opt in with `@OptIn(ExperimentalStdlibApi)`, and
 > [set the language version to 1.9](gradle-compiler-options.md#attributes-common-to-jvm-and-js).
 >
 {type="warning"}
-
-We'd appreciate any feedback you have on using the `entries` property. You can provide feedback by creating a ticket 
-in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Subsystems%20Language%20Design), or commenting on our [KEEP note in GitHub](https://github.com/Kotlin/KEEP/issues/283).
 
 Every enum constant also has properties: [`name`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/name.html)
 and [`ordinal`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/ordinal.html), for obtaining its name and 
