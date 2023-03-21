@@ -51,7 +51,7 @@ version of the library, you can just omit this parameter altogether.
 
 3. Re-import the project.
 
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
+To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
 import cocoapods.AFNetworking.*
@@ -103,7 +103,7 @@ import cocoapods.AFNetworking.*
 
 3. Re-import the project.
 
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
+To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
 import cocoapods.pod_dependency.*
@@ -164,7 +164,7 @@ import cocoapods.AFNetworking.*
 
 3. Re-import the project.
 
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
+To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
 import cocoapods.AFNetworking.*
@@ -208,7 +208,7 @@ import cocoapods.CocoaLumberjack.*
 >
 {type="note"}
 
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
+To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
 import cocoapods.example.*
@@ -220,10 +220,8 @@ import cocoapods.example.*
 
    In the configuration block, specify the cinterop options:
 
-   * `extraOpts` – to specify the list of options for a Pod library, for example, a `-compiler-option` with specific flags.
-     
-     You can use `extraOpts = listOf("-compiler-option", "-fmodules")` here to consume Objective-C headers with `@import`
-     directives.
+   *  `extraOpts` – to specify the list of options for a Pod library. For example, specific flags: `extraOpts = listOf("-compiler-option")`.
+      directives.
    * `packageName` – to specify the package name. If you specify this, you can import the library using the package name:
      `import <packageName>`.
 
@@ -240,7 +238,6 @@ import cocoapods.example.*
             ios.deploymentTarget = "13.5"
 
             pod("YandexMapKit") {
-                extraOpts = listOf("-compiler-option", "-fmodules")
                 packageName = "YandexMK"
             }
         }
@@ -249,15 +246,45 @@ import cocoapods.example.*
 
 3. Re-import the project.
 
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
-
+To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
+   
 ```kotlin
 import cocoapods.YandexMapKit.*
 ```
-
+   
 If you use the `packageName` parameter, you can import the library using the package name `import <packageName>`:
-
+   
 ```kotlin
 import YandexMK.YMKPoint
 import YandexMK.YMKDistance
+```
+
+### Support for Objective-C headers with @import directives
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained).
+> It may be dropped or changed at any time. Use it only for evaluation purposes.
+> We'd appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
+
+One of the cinterop options you can use when adding a dependency on a Pod library is importing Objective-C headers
+with `@import` directives. It could be useful for classes of CocoaPods dependencies written in Swift.
+
+To do that, specify the `-fmodules` option in the configuration block of the `pod()` function:
+
+```kotlin
+kotlin {
+    ios()
+
+    cocoapods {
+        summary = "CocoaPods test library"
+        homepage = "https://github.com/JetBrains/kotlin"
+
+        ios.deploymentTarget = "13.5"
+
+        pod("PodName") {
+            extraOpts = listOf("-compiler-option", "-fmodules")
+        }
+    }
+}
 ```
