@@ -155,7 +155,7 @@ kotlin {
 In this case, the hierarchical structure includes intermediate source sets `iosMain` and `iosTest`,
 which are used by the platform-specific source sets:
 
-![Code shared for iOS targets](iosmain-hierarchy.png){width=400}
+![Code shared for iOS targets](iosmain-hierarchy.png)
 
 The resulting hierarchical structure will look like this:
 
@@ -257,13 +257,15 @@ To create the hierarchical structure manually, introduce an intermediate source 
 several
 targets and create a structure of the source sets including the intermediate one.
 
-![Hierarchical structure](hierarchical-structure.png)
-
 For example, if you want to share code among native Linux, Windows, and macOS targets – `linuxX64M`, `mingwX64`, and
 `macosX64`:
 
+![Manually configured hierarchical structure](manual-hierarchical-structure.png)
+
 1. Add the intermediate source set `desktopMain` that holds the shared logic for these targets.
 2. Specify the hierarchy of source sets using the `dependsOn` relation.
+
+The resulting hierarchical structure will look like this:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
