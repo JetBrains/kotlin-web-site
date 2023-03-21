@@ -17,9 +17,43 @@ and display the date of the last successful launch of a SpaceX rocket.
 
 You'll need the following multiplatform libraries in your project:
 
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), for using coroutines to write asynchronous code,
+  which allows simultaneous operations.
 * [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization), for deserializing JSON responses into objects of entity classes used to process
   network operations.
 * [Ktor](https://ktor.io/), a framework as an HTTP client for retrieving data over the internet.
+
+### kotlinx.coroutines
+
+To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
+line to the `build.gradle.kts` file of the shared module:
+
+```kotlin
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            // ...
+           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+        }
+    }
+}
+```
+
+The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
+of `kotlinx.coroutines`.
+
+#### If you use Kotlin prior to version 1.7.20
+
+If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
+If it's not the case, add the following to the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
 
 ### kotlinx.serialization
 
@@ -38,10 +72,8 @@ plugins {
 
 ### Ktor
 
-To add Ktor to your project, specify the core dependency (`ktor-client-core`) in the common source set
-in the `build.gradle.kts` file of the shared module.
-
-In addition to changes in the common source set, you also need to:
+You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
+dependency (`ktor-client-core`) in the common source set, you also need to:
 
 * Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
   the content in a specific format.
@@ -77,19 +109,6 @@ sourceSets {
 ```
 
 Synchronize the Gradle files by clicking **Sync Now** in the notification.
-
-#### If you use Kotlin prior to version 1.7.20
-
-If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
-If it's not the case, add the following to the end of the `build.gradle.kts` file:
-
-```kotlin
-kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
-    binaries.all {
-        binaryOptions["memoryModel"] = "experimental"
-    }
-}
-```
 
 ## Create API requests
 
@@ -175,7 +194,7 @@ data class RocketLaunch (
 
    The `suspend` modifier in the `greet()` function is necessary because it now contains a call to `get()`. It's a
    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
-   within another suspend function. The network request will be executed in the HTTP client's thread pool.
+   within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
 ### Add internet access permission
 
