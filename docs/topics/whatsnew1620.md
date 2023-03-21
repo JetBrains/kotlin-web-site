@@ -477,7 +477,6 @@ It also helps prevent unsafe API usages meant for a different target.
 The technology will come in handy for [library authors](#more-opportunities-for-library-authors), too, as a hierarchical project structure allows them to publish and consume libraries with common APIs for a subset of targets.
 
 By default, libraries published with the hierarchical project structure are compatible only with hierarchical structure projects.
-Learn more about [project-library compatibility](multiplatform-hierarchy.md#compatibility).
 
 #### Better code-sharing in your project
 

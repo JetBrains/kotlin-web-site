@@ -14,15 +14,6 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
 [Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you
 have some other strong reason to do so.
 
-> When using third-party iOS libraries in multiplatform projects with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), for example with the `ios()` [target shortcut](multiplatform-hierarchy.md#use-target-shortcuts),
-> you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set.
->
-> This is a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), and we are working on resolving it. In the meantime, you can use [this workaround](#workaround-to-enable-ide-support-for-the-shared-ios-source-set).
->
-> This issue doesn't apply to [platform libraries](native-platform-libs.md) supported out of the box.
->
-{type="note"}
-
 ### With CocoaPods
 
 1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
