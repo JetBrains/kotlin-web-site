@@ -80,7 +80,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 
 ## Literal constants for numbers
 
-There are the following kinds of literal constants for integral values:
+The following are the kinds of literal constants for integral values:
 
 * Decimals: `123`
 * Longs are tagged by a capital `L`: `123L`
