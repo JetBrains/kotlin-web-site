@@ -80,7 +80,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 
 ## Literal constants for numbers
 
-There are the following kinds of literal constants for integral values:
+These are the following kinds of literal constants for integral values:
 
 * Decimals: `123`
 * Longs are tagged by a capital `L`: `123L`
@@ -106,7 +106,7 @@ val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
 ```
 
-> There are also special tags for unsigned integer literals.  
+> These are also special tags for unsigned integer literals.  
 > Read more about [literals for unsigned integer types](unsigned-integer-types.md).
 > 
 {type="tip"}
