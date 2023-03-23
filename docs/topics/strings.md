@@ -123,12 +123,11 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can use templates both in raw and escaped strings.
-To insert the dollar sign `$`  in a raw string (which doesn't support backslash escaping) before any symbol,
+
+To insert the dollar sign `$` in a raw string before any symbol,
 which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
-use the following syntax:
+you can use an escape sequence `\$`:
 
 ```kotlin
-val price = """
-${'$'}_9.99
-"""
+val price = "\$_9.99"
 ```
