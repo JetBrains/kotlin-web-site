@@ -39,7 +39,7 @@ We recommend that you install the latest stable versions for compatibility and b
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
-        <td>To check whether it's installed, run the following command in the Android Studio terminal or your command-line tool: <code style="block"
+        <td>To check whether it's installed, run the following command in the Android Studio terminal or your command line: <code style="block"
             lang="bash">java -version</code></td>
    </tr>
    <tr>
