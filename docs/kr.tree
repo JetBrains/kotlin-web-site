@@ -23,7 +23,7 @@
 
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.20-RC"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.20-RC2"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
