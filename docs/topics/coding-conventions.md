@@ -88,8 +88,8 @@ avoid clashes while retaining code readability.
 > * On JVM, if source files don't have top-level declarations, the file facades aren't generated, and you won't face
 > naming clashes.
 > 
->   However, this naming scheme can help you avoid issues in the future. A simple refactoring
-> or an addition that ends up in a top-level function will lead to the same "Duplicate JVM classes" error.
+>   However, this naming scheme can help you avoid situations when a simple refactoring
+> or an addition could include a top-level function and result in the same "Duplicate JVM classes" error.
 > 
 {type="tip"}
 
