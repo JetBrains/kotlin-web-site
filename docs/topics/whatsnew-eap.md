@@ -1,15 +1,15 @@
-[//]: # (title: What's new in Kotlin 1.8.20-RC)
+[//]: # (title: What's new in Kotlin 1.8.20-RC2)
 
 _[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the new
 > features and major improvements.
 >
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC2).
 >
 {type="note"}
 
-The Kotlin 1.8.20-RC release is out! Here are some highlights from this preview version of Kotlin:
+The Kotlin 1.8.20-RC2 release is out! Here are some highlights from this preview version of Kotlin:
 
 * [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
 * [New experimental Kotlin/Wasm target](#new-kotlin-wasm-target)
@@ -22,7 +22,7 @@ The Kotlin 1.8.20-RC release is out! Here are some highlights from this preview 
 
 ## IDE support
 
-The Kotlin plugins that support 1.8.20-RC are available for:
+The Kotlin plugins that support 1.8.20-RC2 are available for:
 
 | IDE            | Supported versions |
 |----------------|--------------------|
@@ -34,7 +34,7 @@ The Kotlin plugins that support 1.8.20-RC are available for:
 The Kotlin team continues to stabilize the K2 compiler. As mentioned in the [Kotlin 1.7.0 announcement](whatsnew17.md#new-kotlin-k2-compiler-for-the-jvm-in-alpha),
 it's still in **Alpha**. This release introduces further improvements on the road to [K2 Beta](https://youtrack.jetbrains.com/issue/KT-52604).
 
-Starting with this 1.8.20-RC release, the Kotlin K2 compiler:
+Starting with this 1.8.20-RC2 release, the Kotlin K2 compiler:
 
 * Has a preview version of the serialization plugin.
 * Provides Alpha support for the [JS IR compiler](js-ir-compiler.md).
@@ -101,7 +101,7 @@ We want to highlight the following advantages of the new Kotlin/Wasm target:
   easy-to-parse bytecode.
 * Improved application runtime performance compared to Kotlin/JS and JavaScript because Wasm is a statically typed language.
 
-Starting with the 1.8.20-RC preview release, you can use Kotlin/Wasm in your experimental projects.
+Starting with the 1.8.20-RC2 preview release, you can use Kotlin/Wasm in your experimental projects.
 We provide the Kotlin standard library (`stdlib`) and test library (`kotlin.test`) for Kotlin/Wasm out of the box.
 IDE support will be added in future releases.
 
@@ -113,7 +113,7 @@ To enable and test Kotlin/Wasm, update your `build.gradle.kts` file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "1.8.20-RC"
+    kotlin("multiplatform") version "1.8.20-RC2"
 }
 
 kotlin {
@@ -192,14 +192,14 @@ We'd appreciate your feedback on this. You can [file an issue](https://kotl.in/i
 ## Update regarding Kotlin/Native targets
 
 The Kotlin team decided to revisit the list of targets supported by Kotlin/Native, split them into tiers, and deprecate
-some of them starting with Kotlin 1.8.20-RC. See the [Kotlin/Native target support](native-target-support.md) section for
+some of them starting with Kotlin 1.8.20-RC2. See the [Kotlin/Native target support](native-target-support.md) section for
 the full list of supported and deprecated targets.
 
 There are now 3 tiers of support depending on how well a target is supported and tested in the Kotlin/Native compiler.
 A target can be moved to a different tier. For example, we'll do our best to provide full support for `iosArm64` in the
 future, as it is important for [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 
-The following targets have been deprecated with Kotlin 1.8.20-RC and will be removed in 1.9.20:
+The following targets have been deprecated with Kotlin 1.8.20-RC2 and will be removed in 1.9.20:
 
 * `iosArm32`
 * `watchosX86`
@@ -222,11 +222,11 @@ more about the reasons for these changes.
 >
 {type="note"}
 
-Starting with 1.8.20-RC, Kotlin Multiplatform supports [Gradle composite builds](https://docs.gradle.org/current/userguide/composite_builds.html).
+Starting with 1.8.20-RC2, Kotlin Multiplatform supports [Gradle composite builds](https://docs.gradle.org/current/userguide/composite_builds.html).
 Composite builds allow you to include builds of separate projects or parts of the same project into a single build.
 
 Due to some technical challenges, using Gradle composite builds with Kotlin Multiplatform was only partially supported.
-Kotlin 1.8.20-RC contains a preview of the improved support that should work with a larger variety of projects.
+Kotlin 1.8.20-RC2 contains a preview of the improved support that should work with a larger variety of projects.
 To try it out, add the following option to your `gradle.properties`:
 
 ```none
@@ -243,7 +243,7 @@ It's still a preview version that needs further stabilization, and you might enc
 way. Here are some known issues we're planning to fix before the final release of Kotlin 1.8.20:
 
 * There's no Kotlin 1.8.20 plugin available for IntelliJ IDEA 2023.1 EAP yet. Despite that, you can still set the Kotlin
-  Gradle plugin version to 1.8.20-RC and try out composite builds in this IDE.
+  Gradle plugin version to 1.8.20-RC2 and try out composite builds in this IDE.
 * If your projects include builds with a specified `rootProject.name`, composite builds may fail to resolve the Kotlin metadata.
   For the workaround and details, see this [Youtrack issue](https://youtrack.jetbrains.com/issue/KT-56536).
 
@@ -256,7 +256,7 @@ If you had issues building your multiplatform projects in Xcode, you might have 
 PhaseScriptExecution failed with a nonzero exit code" error.
 This message signals that the Gradle invocation has failed, but it's not very helpful when trying to detect the problem.
 
-Starting with Kotlin 1.8.20-RC, Xcode can parse the output from the Kotlin/Native compiler. Furthermore, in case the
+Starting with Kotlin 1.8.20-RC2, Xcode can parse the output from the Kotlin/Native compiler. Furthermore, in case the
 Gradle build fails, you'll see an additional error message from the root cause exception in Xcode. In most cases,
 it'll help to identify the root problem.
 
@@ -366,15 +366,15 @@ result to a provided `Appendable` type object.
 In Kotlin/JVM, we've also added the extension functions `encodingWith()` and `decodingWith()` to enable you to perform
 Base64 encoding and decoding with input and output streams.
 
-## How to update to the Kotlin 1.8.20-RC
+## How to update to Kotlin 1.8.20-RC2
 
-Install Kotlin 1.8.20-RC in any of the following ways:
+Install Kotlin 1.8.20-RC2 in any of the following ways:
 
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.8.20-RC as
+* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.8.20-RC2 as
   soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting
   **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest
-  preview release. Check out [these instructions](https://kotlinlang.org/docs/install-eap-plugin.html) for details.
+  preview release. Check out [these instructions](install-eap-plugin.md) for details.
 
-Once you've installed 1.8.20-RC, don't forget to [change the Kotlin version](https://kotlinlang.org/docs/configure-build-for-eap.html)
-to 1.8.20-RC in your build scripts.
+Once you've installed 1.8.20-RC2, don't forget to [change the Kotlin version](configure-build-for-eap.md)
+to 1.8.20-RC2 in your build scripts.

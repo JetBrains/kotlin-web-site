@@ -66,8 +66,8 @@ use cases. We invite you to experiment with different combinations and find out 
 
 Whatever your specific use case, Kotlin/JS projects can use compatible **libraries from the Kotlin ecosystem**,
 as well as third-party **libraries from the JavaScript and TypeScript ecosystems**. To use the latter from Kotlin code,
-you can either provide your own typesafe wrappers, use community-maintained wrappers, or let [Dukat](js-external-declarations-with-dukat.md)
-automatically generate Kotlin declarations for you. Using the Kotlin/JS-exclusive [dynamic type](dynamic-type.md) allows
+you can either provide your own typesafe wrappers, use community-maintained wrappers, or let [Dukat](https://github.com/kotlin/dukat)
+generate Kotlin declarations for you. Using the Kotlin/JS-exclusive [dynamic type](dynamic-type.md) allows
 you to loosen the constraints of Kotlin's type system and skip creating detailed library wrappers, though this comes at the expense of type safety.
 
 Kotlin/JS is also compatible with the most common module systems: UMD, CommonJS, and AMD. The ability to [produce and consume modules](js-modules.md)
