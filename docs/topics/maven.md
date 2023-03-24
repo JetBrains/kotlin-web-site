@@ -79,10 +79,20 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 </build>
 ```
 
+Starting from Kotlin 1.8.20, you can replace the whole `<executions/>` block above with `<extensions>true</extensions>`. 
+Enabling extensions automatically adds the `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, 
+bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html). 
+If you need to configure an execution, you need to specify its id; see an example in the following section.
+
+> If several build plugins overwrite the default lifecycle and you enabled the `extensions` option, the last plugin in 
+> the `<build>` section has the top priority in terms of lifecycle settings, and all early ones' lifecycle settings are ignored.
+> 
+> {type="note"}
+
 ## Compile Kotlin and Java sources
 
 To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler.
-In maven terms that means that `kotlin-maven-plugin` should be run before `maven-compiler-plugin` using the following method,
+In Maven terms it means that `kotlin-maven-plugin` should be run before `maven-compiler-plugin` using the following method,
 making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in your `pom.xml` file:
 
 ```xml
@@ -92,11 +102,12 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
+            <extensions>true</extensions> <!-- You can set this option to automatically take information about lifecycles -->
             <executions>
                 <execution>
                     <id>compile</id>
                     <goals>
-                        <goal>compile</goal>
+                        <goal>compile</goal> <!-- You can skip <goals> block if you enable extensions for the plugin -->
                     </goals>
                     <configuration>
                         <sourceDirs>
@@ -107,7 +118,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals>
+                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip <goals> block if you enable extensions for the plugin -->
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
@@ -122,12 +133,12 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.5.1</version>
             <executions>
-                <!-- Replacing default-compile as it is treated specially by maven -->
+                <!-- Replacing default-compile as it is treated specially by Maven -->
                 <execution>
                     <id>default-compile</id>
                     <phase>none</phase>
                 </execution>
-                <!-- Replacing default-testCompile as it is treated specially by maven -->
+                <!-- Replacing default-testCompile as it is treated specially by Maven -->
                 <execution>
                     <id>default-testCompile</id>
                     <phase>none</phase>
@@ -237,6 +248,7 @@ Maven plugin node:
     <groupId>org.jetbrains.kotlin</groupId>
     <artifactId>kotlin-maven-plugin</artifactId>
     <version>${kotlin.version}</version>
+    <extensions>true</extensions> <!-- If you want to enable automatically adding of executions to your build -->
     <executions>...</executions>
     <configuration>
         <nowarn>true</nowarn>  <!-- Disable warnings -->
@@ -253,7 +265,7 @@ Many of the options can also be configured through properties:
 ```xml
 <project ...>
     <properties>
-        <kotlin.compiler.languageVersion>1.0</kotlin.compiler.languageVersion>
+        <kotlin.compiler.languageVersion>1.9</kotlin.compiler.languageVersion>
     </properties>
 </project>
 ```

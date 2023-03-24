@@ -302,7 +302,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 <execution>
     <id>kapt</id>
     <goals>
-        <goal>kapt</goal>
+        <goal>kapt</goal> <!-- You can skip <goals> block if you enable extensions for the plugin -->
     </goals>
     <configuration>
         <sourceDirs>
@@ -321,8 +321,25 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 </execution>
 ```
 
+You can set one of the following apt modes in the `<configuration>` block:
 
-Please note that kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
+* `aptMode`
+   * `stubs` – only generate stubs needed for annotation processing;
+   * `apt` – only run annotation processing;
+   * `stubsAndApt` – default; generate stubs and run annotation processing.
+
+For example:
+
+```xml
+<configuration>
+   ...
+   <aptMode>stubs</aptMode>
+</configuration>
+```
+
+## Using in IntelliJ build system
+
+kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI
