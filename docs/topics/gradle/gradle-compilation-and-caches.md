@@ -33,25 +33,13 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 
 ### A new approach to incremental compilation
 
-> The new approach to incremental compilation is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below). We encourage you to use it only for evaluation purposes, and we would
-> appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
-
 The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle build system only. 
-This approach supports changes made inside dependent non-Kotlin modules, includes an improved
-compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
+Starting from Kotlin 1.8.20, it works by default. This approach supports changes made inside dependent non-Kotlin modules, 
+includes an improved compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
 
 All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
 You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
 Gradle modules.
-
-To enable this new approach, set the following option in your `gradle.properties`:
-
-```none
-kotlin.incremental.useClasspathSnapshot=true
-```
 
 Learn how the new approach to incremental compilation is implemented under the hood in
 [this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
@@ -393,6 +381,9 @@ kotlin.build.report.http.url=http://127.0.0.1:8080
 # Optional. User and password if the HTTP endpoint requires authentication
 kotlin.build.report.http.user=someUser
 kotlin.build.report.http.password=somePassword
+
+# Optional. If HTTP output is used. Add a Git branch name of a build to a build report
+kotlin.build.report.http.include_git_branch.name=true|false
 
 # Optional. Label for marking your build report (for example, debug parameters)
 kotlin.build.report.label=some_label
