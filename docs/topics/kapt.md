@@ -302,7 +302,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 <execution>
     <id>kapt</id>
     <goals>
-        <goal>kapt</goal> <!-- You can skip <goals> block if you enable extensions for the plugin -->
+        <goal>kapt</goal> <!-- You can skip <goals> element if you enable extensions for the plugin -->
     </goals>
     <configuration>
         <sourceDirs>

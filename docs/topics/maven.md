@@ -79,7 +79,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 </build>
 ```
 
-Starting from Kotlin 1.8.20, you can replace the whole `<executions/>` block above with `<extensions>true</extensions>`. 
+Starting from Kotlin 1.8.20, you can replace the whole `<executions>` element above with `<extensions>true</extensions>`. 
 Enabling extensions automatically adds the `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, 
 bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html). 
 If you need to configure an execution, you need to specify its id; see an example in the following section.
@@ -107,7 +107,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 <execution>
                     <id>compile</id>
                     <goals>
-                        <goal>compile</goal> <!-- You can skip <goals> block if you enable extensions for the plugin -->
+                        <goal>compile</goal> <!-- You can skip <goals> element if you enable extensions for the plugin -->
                     </goals>
                     <configuration>
                         <sourceDirs>
@@ -118,7 +118,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip <goals> block if you enable extensions for the plugin -->
+                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip <goals> element if you enable extensions for the plugin -->
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
