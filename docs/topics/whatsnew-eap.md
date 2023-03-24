@@ -78,7 +78,7 @@ We'd appreciate any feedback you may have!
 
 * Provide your feedback directly to K2 developers on Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
   and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you faced with the new K2 compiler on [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Performance%20Problem&c=Subsystems%20Frontend.%20IR).
+* Report any problems you faced with the new K2 compiler on [our issue tracker](https://kotl.in/issue).
 * [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
