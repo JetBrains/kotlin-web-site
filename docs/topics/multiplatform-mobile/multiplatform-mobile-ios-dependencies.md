@@ -66,7 +66,6 @@ have some other strong reason to do so.
     * [From a custom Git repository](native-cocoapods-libraries.md#from-a-custom-git-repository)
     * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
     * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
-    * [On a static Pod library](native-cocoapods-libraries.md#on-a-static-pod-library)
 
 3. Re-import the project.
 
