@@ -254,6 +254,9 @@
             <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation times"/>
             <toc-element id="native-faq.md"/>
         </toc-element>
+        <toc-element toc-title="Wasm">
+            <toc-element id="wasm-js-interop.md"/>
+        </toc-element>
 
         <toc-element toc-title="Scripting">
             <toc-element id="custom-script-deps-tutorial.md"/>
