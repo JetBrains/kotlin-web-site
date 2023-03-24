@@ -217,9 +217,8 @@ tasks
 tasks
     .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
     .configureEach {
-        compilerOptions
-            .languageVersion 
-                = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+        compilerOptions.languageVersion = 
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
 }
 ```
 
