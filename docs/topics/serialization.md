@@ -39,7 +39,7 @@ Check out the releases on [GitHub](https://github.com/Kotlin/kotlinx.serializati
 * [Properties](https://en.wikipedia.org/wiki/.properties): [`kotlinx-serialization-properties`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#properties)
 * [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md): [`kotlinx-serialization-hocon`](https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#hocon) (only on JVM)
 
-Note that all libraries except JSON serialization (`kotlinx-serialization-core`) are [Experimental](components-stability.md),
+Note that all libraries except JSON serialization (`kotlinx-serialization-json`) are [Experimental](components-stability.md),
 which means their API can be changed without notice.
 
 There are also community-maintained libraries that support more serialization formats, such as [YAML](https://yaml.org/)
