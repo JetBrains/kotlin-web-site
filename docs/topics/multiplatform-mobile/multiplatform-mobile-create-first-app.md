@@ -28,7 +28,7 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
    > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
-   > has less installation issues.
+   > has fewer installation issues.
    > 
    > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
    > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
@@ -53,7 +53,7 @@ Each Kotlin Multiplatform Mobile project includes three modules:
   module builds into an Android library and an iOS framework.
 * _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
   The _androidApp_ module depends on and uses the shared module as a regular Android library.
-* _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+* _iosApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
   framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md),
   based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
   framework dependency.
@@ -131,7 +131,7 @@ If you want to run your application on a simulated device, you can add a new run
 
 1. Connect a real iPhone device to Xcode.
 2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
-3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting an iPhone in the **Execution target** list.
 4. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
@@ -140,8 +140,8 @@ If you want to run your application on a simulated device, you can add a new run
 
 ## Update your application
 
-1. Open the `Greeting.kt` file in `shared/src/commonMain/kotlin`. This directory stores the shared code for both Android
-and iOS. If you make changes to the shared code, you will see them reflected in both applications.
+1. In `shared/src/commonMain/kotlin`, open the `Greeting.kt` file in the project folder. This directory stores the shared
+code for both Android and iOS. If you make changes to the shared code, you will see them reflected in both applications.
 
    ![Common Kotlin file](common-kotlin-file.png)
 
@@ -152,7 +152,7 @@ the Kotlin standard library function for reversing text that works on all platfo
     class Greeting {
         private val platform: Platform = getPlatform()
         
-        fun greeting(): String {
+        fun greet(): String {
             return "Guess what it is! > ${platform.name.reversed()}!"
         }
     }
