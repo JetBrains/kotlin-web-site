@@ -222,38 +222,37 @@ need to update native (iOS, Android) parts of the project, so they can properly 
 As both the shared module and the Android application are written in Kotlin, using shared code from Android is
 straightforward:
 
-1. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
+In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-   ```kotlin
-   import androidx.compose.runtime.*
-   
-   class MainActivity : ComponentActivity() {
-       override fun onCreate(savedInstanceState: Bundle?) {
-           super.onCreate(savedInstanceState)
-           setContent {
-               MyApplicationTheme {
-                   Surface(
-                       modifier = Modifier.fillMaxSize(),
-                       color = MaterialTheme.colors.background
-                   ) {
-                       var text by remember { mutableStateOf("Loading") }
-                       LaunchedEffect(true) {
-                           text = try {
-                               Greeting().greet()
-                           } catch (e: Exception) {
-                               e.localizedMessage ?: "error"
-                           }
-                       }
-                       GreetingView(text)
-                   }
-               }
-           }
-       }
-   }
-   ```
+```kotlin
+import androidx.compose.runtime.*
 
-   The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
-2. Build the project to update the shared module. It'll be useful for the next part, iOS app.
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApplicationTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    var text by remember { mutableStateOf("Loading") }
+                    LaunchedEffect(true) {
+                        text = try {
+                            Greeting().greet()
+                        } catch (e: Exception) {
+                            e.localizedMessage ?: "error"
+                        }
+                    }
+                    GreetingView(text)
+                }
+            }
+        }
+    }
+}
+```
+
+The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
 
 ### iOS app
 
@@ -264,7 +263,7 @@ the shared module, which contains all the business logic.
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
-> If you see an error saying that the shared module is unresolved, run the app.
+> If you see errors in Xcode regarding the shared module or when updating your code, run the **iosApp** from Android Studio.
 >
 {type="tip"}
 
