@@ -190,9 +190,13 @@ to solve this issue.
 
 ### Gradle Java toolchains support
 
-> A warning for Android users. Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from the Android Gradle plugin 7.4.0.
-> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), it does not set 'targetCompatibility' to be equal to the toolchain's JDK.
-> You need to configure it manually via `compileOptions`. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+> A warning for Android users. To use Gradle toolchain support, use the Android Gradle plugin (AGP) version 8.1.0-alpha09 or higher. 
+> 
+> Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from AGP 7.4.0.
+> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), AGP did not set `targetCompatibility` 
+> to be equal to the toolchain's JDK until the version 8.1.0-alpha09.
+> If you use versions less than 8.1.0-alpha09, you need to configure `targetCompatibility` manually via `compileOptions`. 
+> Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 >
 > ```kotlin
 > android {
