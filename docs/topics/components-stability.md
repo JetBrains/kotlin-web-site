@@ -81,7 +81,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | Dokka                                                 | Beta         | 1.6                      |                                                                                   |
 | Scripting syntax and semantics                        | Alpha        | 1.2                      |                                                                                   |
 | Scripting embedding and extension API                 | Beta         | 1.5                      |                                                                                   |
-| Scripting IDE support                                 | Experimental | 1.2                      |                                                                                   |
+| Scripting IDE support                                 | Beta         |                          | Available since IntelliJ IDEA 2023.1 and later                                    |
 | CLI scripting                                         | Alpha        | 1.2                      |                                                                                   |
 | Compiler Plugin API                                   | Experimental | 1.0                      |                                                                                   |
 | Serialization Compiler Plugin                         | Stable       | 1.4                      |                                                                                   |
