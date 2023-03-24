@@ -259,7 +259,8 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
 
 ## Compile and run the application
 
-1. Compile the application. To do that, run the following command in the terminal:
+1. Compile the application. To do that, call `runDebugExecutableNative` in the list of run Gradle tasks or use the following
+   command in the terminal:
 
     ```bash
     ./gradlew runDebugExecutableNative
