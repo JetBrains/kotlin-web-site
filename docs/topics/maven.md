@@ -87,7 +87,7 @@ If you need to configure an execution, you need to specify its id; see an exampl
 > If several build plugins overwrite the default lifecycle and you enabled the `extensions` option, the last plugin in 
 > the `<build>` section has the top priority in terms of lifecycle settings, and all early ones' lifecycle settings are ignored.
 > 
-> {type="note"}
+{type="note"}
 
 ## Compile Kotlin and Java sources
 
