@@ -18,7 +18,7 @@ have some other strong reason to do so.
 
 1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including the `pod()`
-   function call in `build.gradle.kts` (`build.gradle`) of your project.
+   function call in `build.gradle(.kts)`  of your project.
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">

@@ -6,7 +6,7 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen
 for entering a username and password. The credentials are validated and saved to an in-memory database.
 
-> If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [create and configure a cross-platform mobile application from scratch](multiplatform-mobile-create-first-app.md)
+> If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [set up environment and create a cross-platform application from scratch](multiplatform-mobile-getting-started.md)
 > first.
 > 
 {type="tip"}
@@ -16,7 +16,7 @@ for entering a username and password. The credentials are validated and saved to
 1. [Install all the necessary tools and update them to the latest versions](multiplatform-mobile-setup.md).
 
    > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code
-   > and running an iOS application. These steps cannot be performed on other operating systems, such as Microsoft Windows.
+   > and running an iOS application. These steps can't be performed on other operating systems, such as Microsoft Windows.
    > This is due to an Apple requirement.
    >
    {type="note"}
@@ -73,7 +73,7 @@ it to your existing Android application and your future iOS application.
    the **Regular framework** in the list of iOS framework distribution options.  
    This is required for connecting the shared module to the iOS application.
 
-   ![Kotlin Multiplatform shared module](multiplatform-mobile-module-wizard.png)
+   ![Kotlin Multiplatform shared module](multiplatform-mobile-module-wizard.png){width=700}
 
 3. Click **Finish**.
 
@@ -87,16 +87,16 @@ To use cross-platform code in your Android application, connect the shared modul
 there, and make this code cross-platform.
 
 1. In the `build.gradle.kts` file of the shared module, ensure that `compileSdk` and `minSdk` are the same as those in
-   the `build.gradle` of your Android application in the `app` module.
+   the `build.gradle.kts` of your Android application in the `app` module.
 
-   If they are different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a
+   If they're different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a
    compile error.
 
-2. Add a dependency on the shared module to the `build.gradle` of your Android application.
+2. Add a dependency on the shared module to the `build.gradle.kts` of your Android application.
 
     ```kotlin
     dependencies {
-        implementation project(':shared')
+        implementation (project(":shared"))
     }
     ```
 
@@ -106,14 +106,14 @@ there, and make this code cross-platform.
 
 4. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
    package.
-5. To make sure that the shared module is successfully connected to your application, dump the `greeting()` function
+5. To make sure that the shared module is successfully connected to your application, dump the `greet()` function
    result to the log by updating the `onCreate()` method:
 
     ```kotlin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.i("Login Activity", "Hello from shared module: " + (Greeting().greeting()))
+        Log.i("Login Activity", "Hello from shared module: " + (Greeting().greet()))
    
     }
     ```

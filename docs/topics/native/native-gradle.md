@@ -14,7 +14,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 
 ## Create project files
 
-1. Create a project directory. Inside it, create `build.gradle` or `build.gradle.kts` Gradle build file with the following content:
+1. Create a project directory. Inside it, create `build.gradle(.kts)` Gradle build file with the following content:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
