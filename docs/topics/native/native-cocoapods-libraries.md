@@ -164,18 +164,6 @@ import cocoapods.AFNetworking.*
 
 3. Re-import the project.
 
-> To work correctly with Xcode, you should specify the path to the Podspec in your Podfile.
-> For example:
->
-> ```ruby
-> target 'ios-app' do
->     # ... other pod dependencies ...
->     pod 'JSONModel', :path => '../cocoapods/kmm-with-cocoapods-sample/kotlin-library/build/cocoapods/externalSources/git/JSONModel'
-> end
-> ```
->
-{type="note"}
-
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
 
 ```kotlin
@@ -218,16 +206,6 @@ import cocoapods.CocoaLumberjack.*
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
 >
-> You should also specify the path to the Podspec in your Podfile.
-> For example:
->
-> ```ruby
-> target 'ios-app' do
->     # ... other pod dependencies ...
->     pod 'podspecWithFilesExample', :path => '../cocoapods/kmm-with-cocoapods-sample/pod_dependency'
-> end
-> ```
->
 {type="note"}
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
@@ -256,8 +234,6 @@ import cocoapods.example.*
 
             ios.deploymentTarget = "13.5"
 
-            useLibraries()
-
             pod("YandexMapKit") {
                 packageName = "YandexMK"
             }
@@ -278,38 +254,4 @@ If you use the `packageName` parameter, you can import the library using the pac
 ```kotlin
 import YandexMK.YMKPoint
 import YandexMK.YMKDistance
-```
-
-## On a static Pod library
-
-1. Specify the name of the library using the `pod()` function.
-
-2. Call the `useLibraries()` function – it enables a special flag for static libraries.
-
-3. Specify the minimum deployment target version for the Pod library.
-
-    ```kotlin
-    kotlin {
-        ios()
-
-        cocoapods {
-            summary = "CocoaPods test library"
-            homepage = "https://github.com/JetBrains/kotlin"
-
-            ios.deploymentTarget = "13.5"
-
-            pod("YandexMapKit") {
-                version = "~> 3.2"
-            }
-            useLibraries()
-        }
-    }
-    ```
-
-4. Re-import the project.
-
-To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`.
-
-```kotlin
-import cocoapods.YandexMapKit.*
 ```

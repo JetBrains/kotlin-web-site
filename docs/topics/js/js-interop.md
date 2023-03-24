@@ -8,9 +8,6 @@ talk to JavaScript from Kotlin via [dynamic](dynamic-type.md) types. If you want
 system, you can create external declarations for JavaScript libraries which will be understood by the Kotlin compiler and
 the surrounding tooling.
 
-An experimental tool to automatically create Kotlin external declarations for npm dependencies which provide type definitions
-(TypeScript / `d.ts`) called [Dukat](js-external-declarations-with-dukat.md) is also available.
-
 ## Inline JavaScript
 
 You can inline some JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
