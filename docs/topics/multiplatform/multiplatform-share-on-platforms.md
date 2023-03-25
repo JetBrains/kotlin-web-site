@@ -5,7 +5,7 @@ With Kotlin Multiplatform, you can share the code using the mechanisms Kotlin pr
 * [Share code among all platforms used in your project](#share-code-on-all-platforms). Use it for sharing the common 
 business logic that applies to all platforms.     
 * [Share code among some platforms](#share-code-on-similar-platforms) included in your project but not all. You can 
-reuse much of the code in similar platforms using a hierarchical structure. 
+reuse code in similar platforms with a help of the hierarchical structure.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
 declarations](multiplatform-connect-to-apis.md).
@@ -43,7 +43,7 @@ using one of the following ways:
 * [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
 * [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration).
 
-Learn more about [sharing code in libraries](#share-code-in-libraries) and [using Native libraries in the hierarchical structure](#use-native-libraries-in-the-hierarchical-structure).
+Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
 
 ## Share code in libraries
 
@@ -61,18 +61,14 @@ Once the `kotlinx.coroutines` library is updated and published with the hierarch
 it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
 "targets signature" of the library's `concurrent` source set.
 
-### Use native libraries in the hierarchical structure
+### Connect platform-specific libraries
 
-You can use platform-dependent libraries like `Foundation`, `UIKit`, and `POSIX` in source sets shared among several native 
-targets. This helps you share more native code without being limited by platform-specific dependencies. 
+[Platform-specific libraries](native-platform-libs.md) shipped with Kotlin/Native (like Foundation, UIKit, and POSIX)
+are available in shared source sets by default. This helps you share more native code without being limited by
+platform-specific dependencies.
 
-Starting with Kotlin 1.6.20, the usage of platform-dependent libraries is available in shared source sets by default. No additional
-steps are required – IntelliJ IDEA will help you detect common declarations that you can use in the shared code.
-See [Hierarchical project structure](multiplatform-hierarchy.md) for more details.
-
-In addition to [platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also 
-handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets. 
-To enable this feature, add the following property to your `gradle.properties`:
+In addition, you can enable the support for third-party libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
+To do that, add the following property to your `gradle.properties`:
 
 ```none
 kotlin.mpp.enableCInteropCommonization=true

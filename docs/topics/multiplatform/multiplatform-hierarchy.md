@@ -1,21 +1,25 @@
 [//]: # (title: Hierarchical project structure)
 
-Multiplatform projects have support for hierarchical structure.
-This means you can form a hierarchy of source sets for sharing the common code among some, but not all,
-[supported targets](multiplatform-dsl-reference.md#targets).
+Multiplatform projects support hierarchical structures.
+This means you can form a hierarchy of intermediate source sets for sharing the common code among some, but not all,
+[supported targets](multiplatform-dsl-reference.md#targets). Introducing intermediate source sets has some important advantages:
 
-The Kotlin toolchain provides the correct default dependencies and locates the API surface area available in the shared code.
-This prevents cases like the use of a macOS-specific function in code shared for Windows. It opens up a variety of opportunities:
-
-* Using platform-dependent libraries in source sets shared among several native targets. One popular case is having access
-  to iOS-specific dependencies like `Foundation` when sharing code across all iOS targets.
-* Sharing code in similar targets, as well as publishing and consuming libraries with granular APIs targeting similar platforms.
+* If you're a library author, you might want to provide a specialized API for some, but not all targets. For example,
+  an intermediate source set for Kotlin/Native targets, but not for Kotlin/JVM may come in handy.
+* You might want to use platform-dependent libraries in your project. Introducing an intermediate source set allows
+  you to utilize that specialized API among several native targets. For example,
+  having access to iOS-specific dependencies like Foundation when sharing code across all iOS targets.
+* Some libraries aren't available for some platforms. Specifically, native libraries are only available for source sets
+  that compile to Kotlin/Native. Intermediate source set will solve this issue.
+* The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
+  this source set compiles. This prevents cases like using Windows-specific API and then compiling it to macOS,
+  getting linkage errors or even undefined behavior at runtime.
 
 There are 3 ways to create a target hierarchy:
 
 * [Specify all targets and enable default hierarchy](multiplatform-hierarchy.md#default-hierarchy)
 * [Use target shortcuts available for typical cases](multiplatform-hierarchy.md#target-shortcuts)
-* [Manually declare and connect the source sets](multiplatform-hierarchy.md#manual-configuration).
+* [Manually declare and connect the source sets](multiplatform-hierarchy.md#manual-configuration)
 
 ## Default hierarchy
 
@@ -26,30 +30,18 @@ There are 3 ways to create a target hierarchy:
 {type="warning"}
 
 Starting with Kotlin 1.8.20, you can set up source set hierarchy in your multiplatform projects with default target hierarchy.
-It's a template for all possible targets and their shared source sets hardcoded in the Kotlin Gradle plugin.
-
-When you declare the targets to which your project compiles,
-the plugin picks necessary source sets from the template and creates them in your project based on the specified targets.
-See the full hierarchy template:
-
-![Default target hierarchy](full-template-hierarchy.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
-
-> Here and below we focus only on the production part of the project, omitting the suffix `Main` (for example, using `common` instead of `commonMain`).
-> However, everything is the same for `*Test` sources as well.
-> 
-{type="tip"}
+It's a [template](#see-the-full-hierarchy-template) for all possible targets and their shared source sets hardcoded in the Kotlin Gradle plugin.
 
 ### Set up your project
 
-To set up a hierarchy, call `targetHierarchi.default()` in the `kotlin` block of your `build.gradle(.kts)` and list all the targets you need.
+To set up a hierarchy, call `targetHierarchy.default()` in the `kotlin` block of your `build.gradle(.kts)` and list all the targets you need.
 For example:
 
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
-
 kotlin {
     // Enable the default target hierarchy:
-    targetHierarchi.default()
+    targetHierarchy.default()
 
     android()
     iosArm64()
@@ -64,9 +56,9 @@ suitable shared source sets from the template and creates them for you. The resu
 
 Green source sets are actually created and present in the project, while gray ones from the default template are
 ignored. As you can see, The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
-are no WatchOS targets in the project.
+are no watchOS targets in the project.
 
-If you add a WatchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
+If you add a watchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
 from `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
 
 > In this example, `apple` and `native` source sets compile only to `iosArm64` and `iosSimulatorArm64` targets.
@@ -76,7 +68,7 @@ from `apple`, `native`, and `common` source sets is compiled to `watchosArm64` a
 >
 {type="note"}
 
-### Create your own hierarchy
+### Adjust resulting hierarchy
 
 If necessary, you can further configure the resulting hierarchy manually [using the dependsOn relation](#manual-configuration).
 To do that, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
@@ -85,10 +77,9 @@ Consider this example of a project with a source set shared between the `jvm` an
 
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
-
 kotlin {
     // Enable the default target hierarchy:
-    targetHierarchi.default()
+    targetHierarchy.default()
 
     jvm()
     iosArm64()
@@ -119,6 +110,18 @@ kotlin {
 > look into the `targetHierarchy.custom { ... }` block and the declaration of `targetHierarchy.default()` as an example.
 > Keep in mind that this API is still in development. It might be under-tested, and can change dramatically in further releases.
 > 
+{type="tip"}
+
+#### See the full hierarchy template {initial-collapse-state="collapsed"}
+
+When you declare the targets to which your project compiles,
+the plugin picks shared source sets based on the specified targets from the template and creates them in your project.
+
+![Default target hierarchy](full-template-hierarchy.svg)
+
+> Here and below we focus only on the production part of the project, omitting the suffix `Main` (for example, using `common` instead of `commonMain`).
+> However, everything is the same for `*Test` sources as well.
+>
 {type="tip"}
 
 ## Target shortcuts
@@ -153,11 +156,13 @@ The resulting hierarchical structure will look like this:
 
 ```kotlin
 kotlin {
+    ios()
+    
     sourceSets {
-        val commonMain by sourceSets.getting
-        val iosX64Main by sourceSets.getting
-        val iosArm64Main by sourceSets.getting
-        val iosMain by sourceSets.creating {
+        val commonMain by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosMain by creating {
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
@@ -171,6 +176,8 @@ kotlin {
 
 ```groovy
 kotlin {
+    ios()
+    
     sourceSets {
         iosMain {
             dependsOn(commonMain)
@@ -187,10 +194,8 @@ kotlin {
 #### Target shortcuts and ARM64 (Apple Silicon) simulators
 
 The target shortcuts `ios`, `watchos`, and `tvos` don't include the simulator targets for ARM64 (Apple Silicon)
-platforms:
-`iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts and want to
-build
-the project for an Apple Silicon simulator, adjust the build script the following way:
+platforms: `iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts
+and want to build the project for an Apple Silicon simulator, adjust the build script the following way:
 
 1. Add the `*SimulatorArm64` simulator target you need.
 2. Connect the simulator target with the shortcut using the source set dependencies (`dependsOn`).
@@ -242,11 +247,10 @@ kotlin {
 
 ## Manual configuration
 
-To create the hierarchical structure manually, introduce an intermediate source set that holds the shared code for
-several
-targets and create a structure of the source sets including the intermediate one.
+You can manually introduce an intermediate source in the source set structure.
+It will hold the shared code for several targets.
 
-For example, if you want to share code among native Linux, Windows, and macOS targets – `linuxX64M`, `mingwX64`, and
+For example, if you want to share code among native Linux, Windows, and macOS targets – `linuxX64`, `mingwX64`, and
 `macosX64`:
 
 ![Manually configured hierarchical structure](manual-hierarchical-structure.png)
@@ -261,9 +265,13 @@ The resulting hierarchical structure will look like this:
 
 ```kotlin
 kotlin {
+    linuxX64Main()
+    mingwX64Main()
+    macosX64Main()
+  
     sourceSets {
         val desktopMain by creating {
-            dependsOn(commonMain)
+            dependsOn(commonMain.get())
         }
         val linuxX64Main by getting {
             dependsOn(desktopMain)
@@ -283,9 +291,13 @@ kotlin {
 
 ```groovy
 kotlin {
+    linuxX64Main()
+    mingwX64Main()
+    macosX64Main()
+  
     sourceSets {
         desktopMain {
-            dependsOn(commonMain)
+            dependsOn(commonMain.get())
         }
         linuxX64Main {
             dependsOn(desktopMain)

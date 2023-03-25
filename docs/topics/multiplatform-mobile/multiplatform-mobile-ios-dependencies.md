@@ -263,21 +263,10 @@ import MyFramework.*
 Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
 [configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
 
-### Connecting platform-specific libraries
-
-You can enable the support for platform-dependent interop libraries in shared source sets. In addition to
-[platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can 
-handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets.
-
-To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
-
-```none
-kotlin.mpp.enableCInteropCommonization=true
-```
-
 ## What's next?
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
+* [Connecting platform-specific libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries)
 * [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
 * [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)
