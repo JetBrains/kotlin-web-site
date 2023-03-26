@@ -25,7 +25,8 @@ fun demo(source: List<Int>) {
 ## Getters and setters
 
 Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
-and single-argument methods with names starting with `set`) are represented as properties in Kotlin.
+and single-argument methods with names starting with `set`) are represented as properties in Kotlin. Such properties are 
+also called _synthetic_. 
 `Boolean` accessor methods (where the name of the getter starts with `is` and the name of the setter starts with `set`)
 are represented as properties which have the same name as the getter method.
 
@@ -43,17 +44,19 @@ fun calendarDemo() {
 }
 ```
 
+`calendar.firstDayOfWeek` above is a synthetic property.
+
 Note that, if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
 
 ## Java synthetic property references
 
-> The feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
+> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We'd appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
 
-Starting from Kotlin 1.8.20, you can create references to Java _synthetic properties_. For example, for such Java code:
+Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. For example, for such Java code:
 
 ```
 public class Person {
@@ -75,8 +78,8 @@ public class Person {
 }
 ```
 
-Kotlin always allowed to write `person.age`: `age` in this case is the synthetic property. Now, you can also 
-create references to `Person::age`, `person::age`. All the same works for `name` too.
+Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
+create references to `Person::age` and `person::age`. All the same works for `name`, as well.
 
 ```
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
