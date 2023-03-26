@@ -54,7 +54,7 @@ The [Kotlin grammar reference](https://kotlinlang.org/docs/reference/grammar.htm
 
 ### Templates
 
-The Kotlin website uses [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) templates from the [templates](templates) directory.
+The Kotlin website uses [Jinja2](https://jinja.palletsprojects.com/en/3.0.x/) templates from the [templates](templates) directory.
 Note that all Markdown files, except for [docs](docs), are processed as Jinja templates before HTML conversion. 
 This allows using all Jinja benefits for Markdown (for example, building URLs with the `url_for` function).
 
