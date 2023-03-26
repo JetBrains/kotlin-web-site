@@ -44,6 +44,87 @@ Gradle modules.
 Learn how the new approach to incremental compilation is implemented under the hood in
 [this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
+### Precise backup of compilation tasks' outputs
+
+> Precise backup of compilation tasks' outputs is [Experimental](components-stability.md#stability-levels-explained).
+> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue/experimental-ic-optimizations).
+>
+{type="warning"}
+
+Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in 
+the incremental compilation will be backed up. Both full and precise backups help to run builds incrementally again 
+after compilation errors or compiler failures. Precise backup also saves build time compared to full backup. 
+Full backup may take **noticeable** build time in large projects or if many tasks are making backups, 
+especially if a project is located on a slow HDD.
+
+This optimization is Experimental. You can enable it by adding the `kotlin.compiler.preciseCompilationResultsBackup` 
+Gradle property to the `gradle.properties` file:
+
+`kotlin.compiler.preciseCompilationResultsBackup=true`
+
+#### Example of precise backup usage at JetBrains {initial-collapse-state="collapsed"}
+
+In the following chart, you can see an example of precise backup usage compared to full backup:
+
+<img src="comparison-of-full-and-precise-backups.png" alt="Comparison of full and precise backups" width="700"/>
+
+The first and second charts show how precise backup in the Kotlin project affects building the Kotlin Gradle plugin:
+
+1. After making a small [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) change – adding a new public 
+method – to a module that lots of modules depend on.
+2. After making a small non-ABI change – adding a private function – to a module that no other modules depend on.
+   
+The third chart shows how precise backup in the [Space](https://www.jetbrains.com/space/) project affects building a web 
+frontend after a small non-ABI change – adding a private function – to a Kotlin/JS module that lots of modules depend on.
+
+These measurements were performed on a computer with the Apple M1 Max CPU; different computers will yield slightly 
+different results. The factors affecting performance include but are not limited to:
+
+* How warm the [Kotlin daemon](#the-kotlin-daemon-and-how-to-use-it-with-gradle) 
+  and the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html) are.
+* How fast or slow the disk is.
+* The CPU model and how busy it is.
+* Which modules are affected by the changes and how big these modules are.
+* Whether the changes are ABI or non-ABI.
+
+#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+
+To estimate the impact of the optimization on your computer for your project and your scenarios, you can use 
+[Kotlin build reports](#build-reports). Enable reports in the text file format by adding the following property 
+to your `gradle.properties` file:
+
+```
+kotlin.build.report.output=file
+```
+
+Here is an example of a relevant part of the report before enabling precise backup:
+
+```
+Task ':kotlin-gradle-plugin:compileCommonKotlin' finished in 0.59 s
+<...>
+Time metrics:
+ Total Gradle task time: 0.59 s
+ Task action before worker execution: 0.24 s
+  Backup output: 0.22 s // Pay attention to this number 
+<...>
+```
+
+And here is an example of a relevant part of the report after enabling precise backup:
+
+```
+Task ':kotlin-gradle-plugin:compileCommonKotlin' finished in 0.46 s
+<...>
+Time metrics:
+ Total Gradle task time: 0.46 s
+ Task action before worker execution: 0.07 s
+  Backup output: 0.05 s // The time has reduced
+ Run compilation in Gradle worker: 0.32 s
+  Clear jar cache: 0.00 s
+  Precise backup output: 0.00 s // Related to precise backup
+  Cleaning up the backup stash: 0.00 s // Related to precise backup
+<...>
+```
+
 ## Gradle build cache support
 
 The Kotlin plugin uses the [Gradle build cache](https://docs.gradle.org/current/userguide/build_cache.html), which stores
