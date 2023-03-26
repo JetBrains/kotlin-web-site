@@ -38,7 +38,7 @@ compiled but caused an exception at runtime:
 List<String> strs = new ArrayList<String>();
 List<Object> objs = strs; // !!! A compile-time error here saves us from a runtime exception later.
 objs.add(1); // Put an Integer into a list of Strings
-String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
+String s = objs.get(0); // !!! ClassCastException: Cannot cast Integer to String
 ```
 
 Java prohibits such things in order to guarantee run-time safety. But this has implications. For example,
