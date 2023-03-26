@@ -362,7 +362,7 @@ The following values and their combinations are available for the output:
 | `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                               |
 | `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports)   |
 
-Here's the full list of available options for `kotlin.build.report`:
+Here's the list of available options for `kotlin.build.report`:
 
 ```none
 # Required outputs. Any combination is allowed
@@ -375,18 +375,26 @@ kotlin.build.report.single_file=some_filename
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
 
-# Mandatory if HTTP output is used. Where to post HTTP(S)-based reports
+# Optional. Label for marking your build report (for example, debug parameters)
+kotlin.build.report.label=some_label
+```
+
+Options, applicable only to HTTP:
+
+```none
+# Mandatory. Where to post HTTP(S)-based reports
 kotlin.build.report.http.url=http://127.0.0.1:8080
 
 # Optional. User and password if the HTTP endpoint requires authentication
 kotlin.build.report.http.user=someUser
 kotlin.build.report.http.password=somePassword
 
-# Optional. If HTTP output is used. Add a Git branch name of a build to a build report
+# Optional. Add a Git branch name of a build to a build report
 kotlin.build.report.http.include_git_branch.name=true|false
 
-# Optional. Label for marking your build report (for example, debug parameters)
-kotlin.build.report.label=some_label
+# Optional. Add compiler arguments to a build report
+# If a project contains many modules, its compiler arguments in the report can be very heavy and pretty useless
+kotlin.build.report.include_compiler_arguments=true|false
 ```
 
 ### Limit of custom values
