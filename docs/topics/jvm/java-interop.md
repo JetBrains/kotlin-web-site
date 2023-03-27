@@ -26,7 +26,7 @@ fun demo(source: List<Int>) {
 
 Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
 and single-argument methods with names starting with `set`) are represented as properties in Kotlin. Such properties are 
-also called _synthetic_. 
+also called _synthetic properties_. 
 `Boolean` accessor methods (where the name of the getter starts with `is` and the name of the setter starts with `set`)
 are represented as properties which have the same name as the getter method.
 
