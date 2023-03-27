@@ -70,14 +70,6 @@ Follow these steps:
    `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
    `kapt` dependency and it will be available both for production sources and tests.
 
-4. To use the newest Kotlin features with kapt, for example, [repeatable annotations](annotations.md#repeatable-annotations), 
-   enable the support for the [IR backend](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/) 
-   with the following option in your `gradle.properties`:
- 
-   ```none
-   kapt.use.jvm.ir=true
-   ```
-
 ## Annotation processor arguments
 
 Use `arguments {}` block to pass arguments to annotation processors:
