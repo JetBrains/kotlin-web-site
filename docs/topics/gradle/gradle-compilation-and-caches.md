@@ -41,6 +41,14 @@ All of these enhancements decrease the number of non-incremental builds, making 
 You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
 Gradle modules.
 
+To opt-out from this new approach, set the following option in your `gradle.properties`:
+
+```none
+kotlin.incremental.useClasspathSnapshot=false
+```
+
+We'd appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-49682).
+
 Learn how the new approach to incremental compilation is implemented under the hood in
 [this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
@@ -53,7 +61,7 @@ Learn how the new approach to incremental compilation is implemented under the h
 
 Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in 
 the incremental compilation will be backed up. Both full and precise backups help to run builds incrementally again 
-after compilation errors or compiler failures. Precise backup also saves build time compared to full backup. 
+after compilation errors. Precise backup also saves build time compared to full backup. 
 Full backup may take **noticeable** build time in large projects or if many tasks are making backups, 
 especially if a project is located on a slow HDD.
 

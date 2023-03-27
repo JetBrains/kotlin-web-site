@@ -348,24 +348,6 @@ tasks.withType<UsesKotlinJavaToolchain>().configureEach {
 }
 ```
 
-### Lazy Kotlin/JVM task creation
-
-The Kotlin Gradle plugin registers all the tasks and doesn't configure them on a dry run.
-
-If you use Gradle 7.3, update your build script with some additional code if you:
-
-* Override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location.
-* Use a deprecated Kotlin/JS/Non-IR [variant](gradle-plugin-variants.md).
-
-You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` in your JAR file:
-
-```
-tasks.jar(type: Jar) {
-     from sourceSets.main.outputs
-     from sourceSets.main.kotlin.classesDirectories
-}
-```
-
 ### Associate compiler tasks
 
 You can _associate_ compilations by setting up such a relationship between them that one compilation uses the compiled
@@ -403,6 +385,25 @@ integrationTestCompilation {
 
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
+
+### Other details
+
+#### Lazy Kotlin/JVM task creation
+
+Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all the tasks and doesn't configure them on a dry run.
+
+#### Non-default location of compile tasks' destinationDirectory
+
+If you use Gradle 7.3 and override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location, 
+update your build script. You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` 
+in your JAR file:
+
+```kotlin
+tasks.jar(type: Jar) {
+     from sourceSets.main.outputs
+     from sourceSets.main.kotlin.classesDirectories
+}
+```
 
 ## Targeting multiple platforms
 
