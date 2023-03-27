@@ -309,7 +309,7 @@
     <toc-element toc-title="Language reference">
         <toc-element id="keyword-reference.md"/>
         <toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
-        <toc-element href="https://kotlin.github.io/kotlin-spec/" toc-title="Language specification"/>
+        <toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
     </toc-element>
 
     <toc-element toc-title="Tools">
