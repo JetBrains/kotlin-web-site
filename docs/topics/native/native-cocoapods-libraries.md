@@ -219,7 +219,6 @@ import cocoapods.example.*
 1. Specify the name of a Pod library in the `pod()` function.
 
    In the configuration block, specify the cinterop options:
-
    *  `extraOpts` – to specify the list of options for a Pod library. For example, specific flags: `extraOpts = listOf("-compiler-option")`.
       directives.
    * `packageName` – to specify the package name. If you specify this, you can import the library using the package name:
@@ -267,10 +266,10 @@ import YandexMK.YMKDistance
 >
 {type="warning"}
 
-One of the cinterop options you can use when adding a dependency on a Pod library is importing Objective-C headers
-with `@import` directives. It could be useful for classes of CocoaPods dependencies written in Swift.
+Some Objective-C libraries, specifically those that serve as wrappers for Swift libraries,
+have `@import` directives in their headers. By default, cinterop doesn't provide support for these directives.
 
-To do that, specify the `-fmodules` option in the configuration block of the `pod()` function:
+To enable it, specify the `-fmodules` option in the configuration block of the `pod()` function:
 
 ```kotlin
 kotlin {
