@@ -189,6 +189,40 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 | `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
 | `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
 
+#### Example of setting a languageVersion
+
+To set a language version, use the following syntax:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks
+    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
+    .configureEach {
+        compilerOptions
+            .languageVersion
+            .set(
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+            )
+    }
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks
+    .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
+    .configureEach {
+        compilerOptions.languageVersion = 
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+}
+```
+
+</tab>
+</tabs>
+
 Also, see [Types for compiler options](#types-for-compiler-options).
 
 ### Attributes specific to JS
