@@ -313,12 +313,11 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 </execution>
 ```
 
-You can set one of the following apt modes in the `<configuration>` block:
+To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
 
-* `aptMode`
-   * `stubs` – only generate stubs needed for annotation processing;
-   * `apt` – only run annotation processing;
-   * `stubsAndApt` – default; generate stubs and run annotation processing.
+   * `stubs` – only generate stubs needed for annotation processing.
+   * `apt` – only run annotation processing.
+   * `stubsAndApt` – (default) generate stubs and run annotation processing.
 
 For example:
 
@@ -331,7 +330,7 @@ For example:
 
 ## Using in IntelliJ build system
 
-kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
+kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI
