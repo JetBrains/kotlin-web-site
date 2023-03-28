@@ -81,7 +81,7 @@
             <toc-element id="visibility-modifiers.md"/>
             <toc-element id="extensions.md"/>
             <toc-element id="data-classes.md"/>
-            <toc-element id="sealed-classes.md"/>
+            <toc-element id="sealed-classes.md" toc-title="Sealed classes and interfaces"/>
             <toc-element id="generics.md"/>
             <toc-element id="nested-classes.md"/>
             <toc-element id="enum-classes.md"/>
