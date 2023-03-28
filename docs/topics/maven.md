@@ -82,7 +82,7 @@ The Kotlin Maven Plugin needs to be referenced to compile the sources:
 Starting from Kotlin 1.8.20, you can replace the whole `<executions>` element above with `<extensions>true</extensions>`. 
 Enabling extensions automatically adds the `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, 
 bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html). 
-If you need to configure an execution, you need to specify its id. You can find an example of this in the next section.
+If you need to configure an execution, you need to specify its ID. You can find an example of this in the next section.
 
 > If several build plugins overwrite the default lifecycle and you also enabled the `extensions` option, the last plugin in 
 > the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
@@ -102,12 +102,14 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
-            <extensions>true</extensions> <!-- You can set this option to automatically take information about lifecycles -->
+            <extensions>true</extensions> <!-- You can set this option 
+            to automatically take information about lifecycles -->
             <executions>
                 <execution>
                     <id>compile</id>
                     <goals>
-                        <goal>compile</goal> <!-- You can skip <goals> element if you enable extensions for the plugin -->
+                        <goal>compile</goal> <!-- You can skip the <goals> element 
+                        if you enable extensions for the plugin -->
                     </goals>
                     <configuration>
                         <sourceDirs>
@@ -118,7 +120,8 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip <goals> element if you enable extensions for the plugin -->
+                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip the <goals> element 
+                    if you enable extensions for the plugin -->
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>

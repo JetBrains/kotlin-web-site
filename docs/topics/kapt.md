@@ -294,7 +294,8 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 <execution>
     <id>kapt</id>
     <goals>
-        <goal>kapt</goal> <!-- You can skip <goals> element if you enable extensions for the plugin -->
+        <goal>kapt</goal> <!-- You can skip the <goals> element 
+        if you enable extensions for the plugin -->
     </goals>
     <configuration>
         <sourceDirs>
@@ -355,8 +356,8 @@ Here is a list of the available options:
 * `processors`: A comma-specified list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
 * `verbose`: Enable verbose output.
 * `aptMode` (*required*)
-    * `stubs` – only generate stubs needed for annotation processing;
-    * `apt` – only run annotation processing;
+    * `stubs` – only generate stubs needed for annotation processing.
+    * `apt` – only run annotation processing.
     * `stubsAndApt` – generate stubs and run annotation processing.
 * `correctErrorTypes`: See [below](#using-in-gradle). Disabled by default.
 
