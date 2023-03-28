@@ -394,7 +394,7 @@ Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all the tasks an
 
 #### Non-default location of compile tasks' destinationDirectory
 
-If you use Gradle 7.3 and override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location, 
+If you override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location, 
 update your build script. You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` 
 in your JAR file:
 
