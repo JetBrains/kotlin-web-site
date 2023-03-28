@@ -189,8 +189,6 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 | `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
 | `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
 
-Also, see [Types for compiler options](#types-for-compiler-options).
-
 #### Example of setting a languageVersion
 
 To set a language version, use the following syntax:
@@ -224,6 +222,8 @@ tasks
 
 </tab>
 </tabs>
+
+Also, see [Types for compiler options](#types-for-compiler-options).
 
 ### Attributes specific to JS
 
