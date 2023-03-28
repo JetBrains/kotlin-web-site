@@ -44,7 +44,7 @@ fun calendarDemo() {
 }
 ```
 
-`calendar.firstDayOfWeek` above is a synthetic property.
+`calendar.firstDayOfWeek` above is an example of a synthetic property.
 
 Note that, if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
@@ -52,11 +52,11 @@ set-only properties.
 ## Java synthetic property references
 
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We'd appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> We recommend that you use it only for evaluation purposes.
 >
 {type="warning"}
 
-Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. For example, for such Java code:
+Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. Consider the following Java code:
 
 ```
 public class Person {
@@ -79,7 +79,7 @@ public class Person {
 ```
 
 Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
-create references to `Person::age` and `person::age`. All the same works for `name`, as well.
+create references to `Person::age` and `person::age`. The same applies for `name`, as well.
 
 ```
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
@@ -93,7 +93,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
 
 ### How to enable Java synthetic property references {initial-collapse-state="collapsed"}
 
-To try this feature out, enable the `-language-version 1.9` compiler option. In a Gradle project, you can do so 
+To enable this feature, set the `-language-version 1.9` compiler option. In a Gradle project, you can do so 
 by adding the following to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
