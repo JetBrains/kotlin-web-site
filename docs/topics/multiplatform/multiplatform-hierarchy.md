@@ -11,9 +11,6 @@ This means you can form a hierarchy of intermediate source sets for sharing the 
   having access to iOS-specific dependencies like Foundation when sharing code across all iOS targets.
 * Some libraries aren't available for some platforms. Specifically, native libraries are only available for source sets
   that compile to Kotlin/Native. Intermediate source set will solve this issue.
-* The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
-  this source set compiles. This prevents cases like using Windows-specific API and then compiling it to macOS,
-  getting linkage errors or even undefined behavior at runtime.
 
 There are 3 ways to create a target hierarchy:
 
@@ -70,7 +67,7 @@ from `apple`, `native`, and `common` source sets is compiled to `watchosArm64` a
 
 ### Adjust resulting hierarchy
 
-If necessary, you can further configure the resulting hierarchy manually [using the dependsOn relation](#manual-configuration).
+If necessary, you can further configure the resulting hierarchy manually [using the `dependsOn` relation](#manual-configuration).
 To do that, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
 
 Consider this example of a project with a source set shared between the `jvm` and `native` targets only:
@@ -103,6 +100,9 @@ kotlin {
 }
 ```
 
+Removing `dependsOn` relations automatically created by `targetHierarchy.default()` could be cumbersome.
+If it's necessary, use entirely [manual configuration](#manual-configuration) instead of calling default hierarchy.
+
 > We're currently working on API for creating your own target hierarchies. It should be useful for projects
 > which hierarchy configurations differ a lot from the default template.
 >
@@ -119,8 +119,8 @@ the plugin picks shared source sets based on the specified targets from the temp
 
 ![Default target hierarchy](full-template-hierarchy.svg)
 
-> Here and below we focus only on the production part of the project, omitting the suffix `Main` (for example, using `common` instead of `commonMain`).
-> However, everything is the same for `*Test` sources as well.
+> Here we describe the production part of the project only, omitting the suffix `Main`
+> (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
 {type="tip"}
 
@@ -265,9 +265,9 @@ The resulting hierarchical structure will look like this:
 
 ```kotlin
 kotlin {
-    linuxX64Main()
-    mingwX64Main()
-    macosX64Main()
+    linuxX64()
+    mingwX64()
+    macosX64()
   
     sourceSets {
         val desktopMain by creating {
@@ -291,9 +291,9 @@ kotlin {
 
 ```groovy
 kotlin {
-    linuxX64Main()
-    mingwX64Main()
-    macosX64Main()
+    linuxX64()
+    mingwX64()
+    macosX64()
   
     sourceSets {
         desktopMain {
