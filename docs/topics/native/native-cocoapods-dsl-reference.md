@@ -86,7 +86,7 @@ kotlin {
 }
 ```
 
-### `framework()` block
+### `framework` block
 
 The `framework` block is nested inside `cocoapods` and configures the framework properties of the Pod built from the project.
 
@@ -119,19 +119,14 @@ The `pod()` function call adds a CocoaPods dependency to the Pod built from this
 a separate function call.
 
 You can specify the name of a Pod library in the function parameters and additional parameter values, like the `version`
-and `source` of the library, in its configuration block.
-
-In the function parameters, you can specify the name of a Pod library and the `linkOnly` option to use pod dependencies
-with dynamic frameworks only for linking without generating C-interop bindings.
-
-In the configuration block, you can add parameter values, like the `version` and `source` of the library: 
+and `source` of the library, in its configuration block:
 
 | **Name**      | **Description**                                                                                                                                                                                                                                                                                                                                                 | 
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `version`     | The library version. To use the latest version of the library, omit the parameter.                                                                                                                                                                                                                                                                              |
 | `source`      | Configures the Pod from: <list><li>The Git repository using `git()`. In the block after `git()`, you can specify `commit` to use a specific commit, `tag` to use a specific tag, and `branch` to use a specific branch from the repository</li><li>The local repository using `path()`</li><li>An archived (tar, jar, zip) Pod folder using `url()`</li></list> |
 | `packageName` | Specifies the package name.                                                                                                                                                                                                                                                                                                                                     |
-| `extraOpts`   | Specifies the list of options for a Pod library. For example, specific flags: <code style="block" lang="Kotlin">extraOpts = listOf("-compiler-option")</code>.                                                                                                                                                                                                  |
+| `extraOpts`   | Specifies the list of options for a Pod library. For example, specific flags: <code style="block" lang="Kotlin">extraOpts = listOf("-compiler-option")</code>                                                                                                                                                                                                   |
 | `linkOnly`    | Instructs the CocoaPods plugin to use pod dependencies with dynamic frameworks without generating C-interop bindings. If used with static frameworks, the option will remove the Pod dependency entirely.                                                                                                                                                       |
 
 ```kotlin
