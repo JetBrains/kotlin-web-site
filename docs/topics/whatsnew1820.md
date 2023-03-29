@@ -17,7 +17,7 @@ You can also find a short overview of the changes in this video:
 
 <video href="OG9npowJgE8" title="What's new in Kotlin 1.8.20"/>
 
-##IDE support
+## IDE support
 
 The Kotlin plugins that support 1.8.20 are available for:
 
@@ -734,7 +734,7 @@ For more information on frameworks and XCFrameworks, see [Build final native bin
 Kotlin 1.8.20 strives to improve the developer experience with the following updates to Kotlin Multiplatform:
 
 * [New approach for setting up source set hierarchy](#new-approach-to-source-set-hierarchy)
-* [Preview of Gradle composite builds support in Kotlin Multiplatform](#preview-of-Gradle-composite-builds-support-in-kotlin-multiplatform)
+* [Preview of Gradle composite builds support in Kotlin Multiplatform](#preview-of-gradle-composite-builds-support-in-kotlin-multiplatform)
 * [Improved output for Gradle errors in Xcode](#improved-output-for-gradle-errors-in-xcode)
 
 ### New approach to source set hierarchy
@@ -849,7 +849,7 @@ This option enables a preview of the new import mode. Besides the support for co
 import experience in multiplatform projects, as we've included major bug fixes and improvements to make the import more
 stable.
 
-### Known issues
+#### Known issues
 
 It's still a preview version that needs further stabilization, and you might encounter some issues with import along the
 way. Here are some known issues we're planning to fix before the final release of Kotlin 1.8.20:
@@ -862,7 +862,7 @@ way. Here are some known issues we're planning to fix before the final release o
 We encourage you to try it out and submit all reports on [YouTrack](https://kotl.in/issue) to help us make it the
 default in Kotlin 1.9.0.
 
-## Improved output for Gradle errors in Xcode
+### Improved output for Gradle errors in Xcode
 
 If you had issues building your multiplatform projects in Xcode, you might have encountered a "Command
 PhaseScriptExecution failed with a nonzero exit code" error.
@@ -1117,7 +1117,7 @@ Kotlin 1.8.20 adds a variety of new features, including some that are particular
 * [Support for @Volatile in Kotlin/Native](#support-for-volatile-in-kotlin-native)
 * [Bug fix for stack overflow when using regex in Kotlin/Native](#bug-fix-for-stack-overflow-when-using-regex-in-kotlin-native)
 
-## Support for the AutoCloseable interface
+### Support for the AutoCloseable interface
 
 > The new `AutoCloseable` interface is [Experimental](components-stability.md#stability-levels-explained), and to use it
 > you need to opt in with `@OptIn(ExperimentalStdlibApi::class)` or the compiler argument `-opt-in=kotlin.ExperimentalStdlibApi`.
@@ -1170,7 +1170,7 @@ fun writeBooksTo(writer: XMLWriter) {
 ```
 {validate="false"}
 
-## Support for Base64 encoding
+### Support for Base64 encoding
 
 > The new encoding and decoding functionality is [Experimental](components-stability.md#stability-levels-explained),
 > and to use it, you need to opt in with `@OptIn(ExperimentalEncodingApi::class)` or the
@@ -1340,7 +1340,7 @@ more information, see our [YouTrack ticket](https://youtrack.jetbrains.com/issue
 >
 {type="tip"}
 
-### Documentation updates
+## Documentation updates
 
 The Kotlin documentation has received some notable changes:
 
