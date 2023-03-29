@@ -55,8 +55,8 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
     </tr>
     <tr>
         <td><strong>1.8.20</strong>
-            <p>Released: <strong>December 28, 2022</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.0" target="_blank">Release on GitHub</a></p>
+            <p>Released: <strong>March 30, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib, new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend.</p>
