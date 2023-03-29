@@ -928,7 +928,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEa
 Debugging tools like those provided in Chromium-based browsers can pick up the original Kotlin names from your source
 map to improve the readability of your stack trace. Happy debugging!
 
-> The addition of variable and function names in source maps is Experimental](components-stability.md#stability-levels-explained).
+> The addition of variable and function names in source maps is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
 {type="warning"}
