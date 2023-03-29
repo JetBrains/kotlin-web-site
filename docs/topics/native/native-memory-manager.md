@@ -8,7 +8,7 @@
 Kotlin/Native uses a modern memory manager that is similar to JVM, Go, and other mainstream technologies:
 * Objects are stored in a shared heap and can be accessed from any thread.
 * Tracing garbage collector (GC) is executed periodically to collect objects that are not reachable from the "roots",
-like local and global variables.
+  like local and global variables.
 
 The memory manager is the same across all the Kotlin/Native targets, except for wasm32, which is only supported in the
 [legacy memory manager](#legacy-memory-manager).
@@ -54,9 +54,52 @@ build script:
 
 ## Memory consumption
 
-If there are no memory leaks in the program, but you still see unexpectedly high memory consumption, 
+With the Kotlin/Native memory manager, it's possible to monitor memory consumption.
+You can check for memory leaks and adjust memory consumption if necessary.
+
+### Check for memory leaks
+
+To access the memory manager metrics, call `kotlin.native.internal.GC.lastGCInfo()`. It returns statistics for the last
+run of the garbage collector. The statistics can be useful for:
+
+* Debugging memory leaks when using global variables
+* Checking if there are any leaks when running tests
+
+```kotlin
+import kotlin.native.internal.*
+import kotlin.test.*
+
+class Resource
+
+val global = mutableListOf<Resource>()
+
+@OptIn(ExperimentalStdlibApi::class)
+fun getUsage() : Long {
+    GC.collect()
+    return GC.lastGCInfo!!.memoryUsageAfter["heap"]!!.totalObjectsSizeBytes
+}
+
+fun run() {
+    global.add(Resource())
+    // The test will fail if you remove the next line
+    global.clear()
+}
+
+@Test
+fun test() {
+    val before = getUsage()
+    // A separate function is used to ensure that all temporary objects are cleared
+    run()
+    val after = getUsage()
+    assertEquals(before, after)
+}
+```
+
+### Adjust memory consumption
+
+If there are no memory leaks in the program, but you still see unexpectedly high memory consumption,
 try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
-update might improve memory consumption.  
+update might improve memory consumption.
 
 Another way to fix high memory consumption is related to [`mimalloc`](https://github.com/microsoft/mimalloc),
 the default memory allocator for many targets. It pre-allocates and holds onto the system memory to improve
@@ -115,7 +158,7 @@ kotlin.native.binary.memoryModel=strict
 ```
 
 > * Compiler cache support is not available for the legacy memory manager, so compilation times might
-become worse.
+    become worse.
 > * This Gradle option for reverting to the legacy memory manager will be removed in future releases.
 >
 {type="note"}
