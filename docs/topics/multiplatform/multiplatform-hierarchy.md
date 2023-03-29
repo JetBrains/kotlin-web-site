@@ -12,6 +12,10 @@ This means you can form a hierarchy of intermediate source sets for sharing the 
 * Some libraries aren't available for some platforms. Specifically, native libraries are only available for source sets
   that compile to Kotlin/Native. Intermediate source set will solve this issue.
 
+The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
+this source set compiles. This prevents cases like using Windows-specific API and then compiling it to macOS,
+getting linkage errors or even undefined behavior at runtime.
+
 There are 3 ways to create a target hierarchy:
 
 * [Specify all targets and enable default hierarchy](multiplatform-hierarchy.md#default-hierarchy)
@@ -149,14 +153,15 @@ which are used by the platform-specific source sets:
 
 ![Code shared for iOS targets](iosmain-hierarchy.png)
 
-The resulting hierarchical structure will look like this:
+The resulting hierarchical structure will be equivalent to the code below:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-    ios()
+    iosX64()
+    iosArm64()
     
     sourceSets {
         val commonMain by getting
@@ -176,7 +181,8 @@ kotlin {
 
 ```groovy
 kotlin {
-    ios()
+    iosX64()
+    iosArm64()
     
     sourceSets {
         iosMain {
