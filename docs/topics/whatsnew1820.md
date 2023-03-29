@@ -10,8 +10,8 @@ The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 * [Update for Kotlin/Native targets](#update-for-kotlin-native-targets)
 * [Preview of Gradle composite builds in Kotlin Multiplatform](#preview-of-gradle-composite-builds-support-in-kotlin-multiplatform)
 * [Improved output for Gradle errors in Xcode](#improved-output-for-gradle-errors-in-xcode)
-* [Experimental support for the AutoCloseable interface in the standard library](#experimental-support-for-the-autocloseable-interface-in-the-standard-library)
-* [Experimental support for Base64 encoding in the standard library](#experimental-support-for-base64-encoding-in-the-standard-library)
+* [Experimental support for the AutoCloseable interface in the standard library](#support-for-the-autocloseable-interface)
+* [Experimental support for Base64 encoding in the standard library](#support-for-base64-encoding)
 
 You can also find a short overview of the changes in this video:
 
@@ -487,7 +487,7 @@ We'd appreciate any feedback you may have!
 ## Kotlin/JVM
 
 Kotlin 1.8.20 introduces a [preview of Java synthetic property references](#preview-of-java-synthetic-property-references)
-and [support for the JVM IR backend in the kapt stub generating task by default](#support-for-the-jvm-IR-backend-in-kapt-stub-generating-task-by-default).
+and [support for the JVM IR backend in the kapt stub generating task by default](#support-for-the-jvm-ir-backend-in-kapt-stub-generating-task-by-default).
 
 ### Preview of Java synthetic property references
 
@@ -533,7 +533,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
 ```
 {validate="false"}
 
-#### How to enable
+#### How to enable Java synthetic property references
 
 To try this feature out, enable the `-language-version 1.9` compiler option.
 In a Gradle project, you can do so by adding the following to your `build.gradle(.kts)`:
@@ -578,9 +578,9 @@ We would appreciate your feedback on this feature in [YouTrack](https://youtrack
 Kotlin 1.8.20 includes changes to supported Kotlin/Native targets, interoperability with Objective-C, and improvements to the CocoaPods Gradle plugin, among other updates:
 
 * [Update for Kotlin/Native targets](#update-for-kotlin-native-targets)
-* [Deprecation of the legacy memory manager](#Deprecation-of-the-legacy-memory-manager)
+* [Deprecation of the legacy memory manager](#deprecation-of-the-legacy-memory-manager)
 * [Support for Objective-C headers with @import directives](#support-for-objective-c-headers-with-import-directives)
-* [Support for link-only mode in the Cocoapods Gradle plugin](#support-for-the-link-only-mode-in-the-cocoapods-gradle-plugin)
+* [Support for link-only mode in the Cocoapods Gradle plugin](#support-for-the-link-only-mode-in-cocoapods-gradle-plugin)
 * [Import Objective-C extensions as class members in UIKit](#import-objective-c-extensions-as-class-members-in-uikit)
 * [Reimplementation of compiler cache management in the compiler](#reimplementation-of-compiler-cache-management-in-the-compiler)
 * [Deprecation of `useLibraries()` in Cocoapods Gradle plugin](#deprecation-of-uselibraries-in-cocoapods-gradle-plugin)
@@ -733,7 +733,7 @@ For more information on frameworks and XCFrameworks, see [Build final native bin
 
 Kotlin 1.8.20 strives to improve the developer experience with the following updates to Kotlin Multiplatform:
 
-* [New approach for setting up source set hierarchy](#new-approach-for-setting-up-source-set-hierarchy)
+* [New approach for setting up source set hierarchy](#new-approach-to-source-set-hierarchy)
 * [Preview of Gradle composite builds support in Kotlin Multiplatform](#preview-of-Gradle-composite-builds-support-in-kotlin-multiplatform)
 * [Improved output for Gradle errors in Xcode](#improved-output-for-gradle-errors-in-xcode)
 
@@ -780,7 +780,7 @@ are no watchOS targets in the project.
 If you add a watchOS target, such as `watchosArm64`, the `watchos` source set is created, and the code from
 the `apple`, `native`, and `common` source sets is compiled to `watchosArm64`, as well.
 
-You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy).
+You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md).
 
 > In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
 > Therefore, despite their names, they have access to the full iOS API.
@@ -815,7 +815,7 @@ participates in dependency resolution. Since this set is fixed, changes to the d
 Gradle plugin should cause significantly less distress in the ecosystem, and it will be much easier to provide
 tooling-assisted migration.
 
-#### How to enable
+#### How to enable the default hierarchy
 
 This new feature is [Experimental](components-stability.md#stability-levels-explained). For Kotlin Gradle build scripts,
 you need to opt in with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
@@ -883,7 +883,7 @@ application in Xcode. It can also be enabled (or disabled) with the `kotlin.nati
 Kotlin 1.8.20 changes the ways TypeScript definitions can be generated. It also includes a change designed to improve
 your debugging experience:
 
-* [Removal of Dukat integration from the Gradle plugin](#removal-of-dukat-integration-from-the-gradle-plugin)
+* [Removal of Dukat integration from the Gradle plugin](#removal-of-dukat-integration-from-gradle-plugin)
 * [Kotlin variable and function names in source maps](#kotlin-variable-and-function-names-in-source-maps)
 * [Opt in for generation of TypeScript definition files](#opt-in-for-generation-of-typescript-definition-files)
 
@@ -968,10 +968,10 @@ keep in mind that you might encounter deprecation warnings or some new Gradle fe
 
 This version brings the following changes:
 
-* [New alignment of Gradle plugins' versions](#new-alignment-of-gradle-plugins-versions)
+* [New alignment of Gradle plugins' versions](#new-gradle-plugins-versions-alignment)
 * [New JVM incremental compilation by default in Gradle](#new-jvm-incremental-compilation-by-default-in-gradle)
 * [Precise backup of compilation tasks' outputs](#precise-backup-of-compilation-tasks-outputs)
-* [Lazy Kotlin/JVM task creation for all Gradle versions](#lazy-kotlin-jvm-task-creation-for-all-gradle-versions)
+* [Lazy Kotlin/JVM task creation for all Gradle versions](#lazy-kotlin-jvm-tasks-creation-for-all-gradle-versions)
 * [Non-default location of compile tasks' destinationDirectory](#non-default-location-of-compile-tasks-destinationdirectory)
 * [Ability to opt-out from reporting compiler arguments to an HTTP statistics service](#ability-to-opt-out-from-reporting-compiler-arguments-to-an-http-statistics-service)
 
@@ -1102,8 +1102,8 @@ tasks.jar(type: Jar) {
 ### Ability to opt-out from reporting compiler arguments to an HTTP statistics service
 
 You can now control whether the Kotlin Gradle plugin should include compiler arguments in HTTP [build reports](gradle-compilation-and-caches.md#build-reports).
-Sometimes, you might not need the plugin to report these arguments. If a project contains many modules,
-its compiler arguments in the report can be very heavy and pretty useless. There is now a way to disable it and thus save memory.
+Sometimes, you might not need the plugin to report these arguments.  If a project contains many modules,
+its compiler arguments in the report can be very heavy and not that helpful. There is now a way to disable it and thus save memory.
 In your `gradle.properties` or `local.properties`, use the `kotlin.build.report.include_compiler_arguments=(true|false)` property.
 
 We would appreciate your feedback on this feature on [YouTrack](https://youtrack.jetbrains.com/issue/KT-55323/).
@@ -1113,7 +1113,7 @@ We would appreciate your feedback on this feature on [YouTrack](https://youtrack
 Kotlin 1.8.20 adds a variety of new features, including some that are particularly useful for Kotlin/Native development:
 
 * [Support for the AutoCloseable interface](#support-for-the-autocloseable-interface)
-* [Support for Base64 encoding and decoding](#support-for-base64-encoding-and-decoding)
+* [Support for Base64 encoding and decoding](#support-for-base64-encoding)
 * [Support for @Volatile in Kotlin/Native](#support-for-volatile-in-kotlin-native)
 * [Bug fix for stack overflow when using regex in Kotlin/Native](#bug-fix-for-stack-overflow-when-using-regex-in-kotlin-native)
 
@@ -1277,7 +1277,7 @@ For more information, see [KT-46211](https://youtrack.jetbrains.com/issue/KT-462
 
 ## Serialization updates
 
-Kotlin 1.8.20 comes with [Alpha support for the Kotlin K2 compiler](#prototype-serialization-compiler-plugin-for-Kotlin-k2-compiler)
+Kotlin 1.8.20 comes with [Alpha support for the Kotlin K2 compiler](#prototype-serialization-compiler-plugin-for-kotlin-k2-compiler)
 and [prohibits serializer customization via companion object](#prohibit-implicit-serializer-customization-via-companion-object).
 
 ### Prototype serialization compiler plugin for Kotlin K2 compiler
