@@ -65,8 +65,8 @@ after compilation errors. A precise backup takes less build time compared to a f
 A full backup may take **noticeably** more build time in large projects or if many tasks are creating backups, 
 especially if a project is located on a slow HDD.
 
-This optimization is Experimental. You can enable it by adding the `kotlin.compiler.preciseCompilationResultsBackup` 
-Gradle property to the `gradle.properties` file:
+Enable this optimization by adding the `kotlin.compiler.preciseCompilationResultsBackup` Gradle property to 
+the `gradle.properties` file:
 
 ```none
 kotlin.compiler.preciseCompilationResultsBackup=true
@@ -483,7 +483,7 @@ kotlin.build.report.http.password=somePassword
 kotlin.build.report.http.include_git_branch.name=true|false
 
 # Optional. Add compiler arguments to a build report
-# If a project contains many modules, its compiler arguments in the report can be very heavy and pretty useless
+# If a project contains many modules, its compiler arguments in the report can be very heavy and not that helpful
 kotlin.build.report.include_compiler_arguments=true|false
 ```
 
