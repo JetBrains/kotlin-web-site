@@ -303,7 +303,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
             <sourceDir>src/main/java</sourceDir>
         </sourceDirs>
         <annotationProcessorPaths>
-            <!-- Specify your annotation processors here. -->
+            <!-- Specify your annotation processors here -->
             <annotationProcessorPath>
                 <groupId>com.google.dagger</groupId>
                 <artifactId>dagger-compiler</artifactId>
