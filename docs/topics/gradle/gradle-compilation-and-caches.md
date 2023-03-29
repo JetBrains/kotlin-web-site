@@ -68,7 +68,9 @@ especially if a project is located on a slow HDD.
 This optimization is Experimental. You can enable it by adding the `kotlin.compiler.preciseCompilationResultsBackup` 
 Gradle property to the `gradle.properties` file:
 
-`kotlin.compiler.preciseCompilationResultsBackup=true`
+```none
+kotlin.compiler.preciseCompilationResultsBackup=true
+```
 
 #### Example of using precise backup at JetBrains {initial-collapse-state="collapsed"}
 
