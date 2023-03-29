@@ -54,6 +54,9 @@ build script:
 
 ## Memory consumption
 
+With the Kotlin/Native memory manager, it's possible to monitor memory consumption.
+You can check for memory leaks and adjust memory consumption if necessary.
+
 ### Check for memory leaks
 
 To access the memory manager metrics, call `kotlin.native.internal.GC.lastGCInfo()`. It returns statistics for the last
