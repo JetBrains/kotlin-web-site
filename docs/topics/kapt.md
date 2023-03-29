@@ -294,7 +294,8 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 <execution>
     <id>kapt</id>
     <goals>
-        <goal>kapt</goal>
+        <goal>kapt</goal> <!-- You can skip the <goals> element 
+        if you enable extensions for the plugin -->
     </goals>
     <configuration>
         <sourceDirs>
@@ -302,7 +303,7 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
             <sourceDir>src/main/java</sourceDir>
         </sourceDirs>
         <annotationProcessorPaths>
-            <!-- Specify your annotation processors here. -->
+            <!-- Specify your annotation processors here -->
             <annotationProcessorPath>
                 <groupId>com.google.dagger</groupId>
                 <artifactId>dagger-compiler</artifactId>
@@ -313,8 +314,24 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 </execution>
 ```
 
+To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
 
-Please note that kapt is still not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
+   * `stubs` – only generate stubs needed for annotation processing.
+   * `apt` – only run annotation processing.
+   * `stubsAndApt` – (default) generate stubs and run annotation processing.
+
+For example:
+
+```xml
+<configuration>
+   ...
+   <aptMode>stubs</aptMode>
+</configuration>
+```
+
+## Using in IntelliJ build system
+
+kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
 ## Using in CLI
@@ -339,8 +356,8 @@ Here is a list of the available options:
 * `processors`: A comma-specified list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
 * `verbose`: Enable verbose output.
 * `aptMode` (*required*)
-    * `stubs` – only generate stubs needed for annotation processing;
-    * `apt` – only run annotation processing;
+    * `stubs` – only generate stubs needed for annotation processing.
+    * `apt` – only run annotation processing.
     * `stubsAndApt` – generate stubs and run annotation processing.
 * `correctErrorTypes`: See [below](#using-in-gradle). Disabled by default.
 
