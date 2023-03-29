@@ -390,7 +390,7 @@ objects from functional tests.
 
 #### Lazy Kotlin/JVM task creation
 
-Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all the tasks and doesn't configure them on a dry run.
+Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all tasks and doesn't configure them on a dry run.
 
 #### Non-default location of compile tasks' destinationDirectory
 

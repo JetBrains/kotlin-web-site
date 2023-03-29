@@ -34,14 +34,14 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 ### A new approach to incremental compilation
 
 The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle build system only. 
-Starting from Kotlin 1.8.20, it works by default. This approach supports changes made inside dependent non-Kotlin modules, 
+Starting from Kotlin 1.8.20, this is enabled by default. This approach supports changes made inside dependent non-Kotlin modules, 
 includes an improved compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
 
 All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
 You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
 Gradle modules.
 
-To opt-out from this new approach, set the following option in your `gradle.properties`:
+To opt out from this new approach, set the following option in your `gradle.properties`:
 
 ```none
 kotlin.incremental.useClasspathSnapshot=false
@@ -60,9 +60,9 @@ Learn how the new approach to incremental compilation is implemented under the h
 {type="warning"}
 
 Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in 
-the incremental compilation will be backed up. Both full and precise backups help to run builds incrementally again 
-after compilation errors. Precise backup also saves build time compared to full backup. 
-Full backup may take **noticeable** build time in large projects or if many tasks are making backups, 
+the incremental compilation are backed up. Both full and precise backups help to run builds incrementally again 
+after compilation errors. A precise backup takes less build time compared to a full backup. 
+A full backup may take **noticeably** more build time in large projects or if many tasks are creating backups, 
 especially if a project is located on a slow HDD.
 
 This optimization is Experimental. You can enable it by adding the `kotlin.compiler.preciseCompilationResultsBackup` 
@@ -70,22 +70,21 @@ Gradle property to the `gradle.properties` file:
 
 `kotlin.compiler.preciseCompilationResultsBackup=true`
 
-#### Example of precise backup usage at JetBrains {initial-collapse-state="collapsed"}
+#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed"}
 
-In the following chart, you can see an example of precise backup usage compared to full backup:
+In the following charts, you can see examples of using precise backup compared to full backup:
 
 <img src="comparison-of-full-and-precise-backups.png" alt="Comparison of full and precise backups" width="700"/>
 
-The first and second charts show how precise backup in the Kotlin project affects building the Kotlin Gradle plugin:
+The first and second charts show how using precise backup in a Kotlin project affects building the Kotlin Gradle plugin:
 
-1. After making a small [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) change – adding a new public 
-method – to a module that lots of modules depend on.
-2. After making a small non-ABI change – adding a private function – to a module that no other modules depend on.
+1. After making a small [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) change: adding a new public method to a module that lots of modules depend on.
+2. After making a small non-ABI change: adding a private function to a module that no other modules depend on.
    
 The third chart shows how precise backup in the [Space](https://www.jetbrains.com/space/) project affects building a web 
-frontend after a small non-ABI change – adding a private function – to a Kotlin/JS module that lots of modules depend on.
+frontend after a small non-ABI change: adding a private function to a Kotlin/JS module that lots of modules depend on.
 
-These measurements were performed on a computer with the Apple M1 Max CPU; different computers will yield slightly 
+These measurements were performed on a computer with an Apple M1 Max CPU; different computers will yield slightly 
 different results. The factors affecting performance include but are not limited to:
 
 * How warm the [Kotlin daemon](#the-kotlin-daemon-and-how-to-use-it-with-gradle) 
@@ -98,14 +97,14 @@ different results. The factors affecting performance include but are not limited
 #### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
 
 To estimate the impact of the optimization on your computer for your project and your scenarios, you can use 
-[Kotlin build reports](#build-reports). Enable reports in the text file format by adding the following property 
+[Kotlin build reports](#build-reports). Enable reports in text file format by adding the following property 
 to your `gradle.properties` file:
 
 ```
 kotlin.build.report.output=file
 ```
 
-Here is an example of a relevant part of the report before enabling precise backup:
+Here is an example of a relevant part of the report **before** enabling precise backup:
 
 ```
 Task ':kotlin-gradle-plugin:compileCommonKotlin' finished in 0.59 s
@@ -117,7 +116,7 @@ Time metrics:
 <...>
 ```
 
-And here is an example of a relevant part of the report after enabling precise backup:
+And here is an example of a relevant part of the report **after** enabling precise backup:
 
 ```
 Task ':kotlin-gradle-plugin:compileCommonKotlin' finished in 0.46 s
@@ -451,7 +450,7 @@ The following values and their combinations are available for the output:
 | `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                               |
 | `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports)   |
 
-Here's the list of available options for `kotlin.build.report`:
+Here's a list of available options for `kotlin.build.report`:
 
 ```none
 # Required outputs. Any combination is allowed
