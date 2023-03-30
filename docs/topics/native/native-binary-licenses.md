@@ -2,7 +2,7 @@
 
 Like many other open-source projects, Kotlin relies on third-party work. This means that the Kotlin project also
 includes the code developed not by JetBrains s.r.o. or the Kotlin programming language contributors. Sometimes it is not
-the exact code but derived work, like the code rewritten from C++ to Kotlin.
+the exact code but derived work, such as the code rewritten from C++ to Kotlin.
 
 >  You can find licenses for the third-party work used in Kotlin in our GitHub repository:
 >
@@ -16,8 +16,8 @@ This means that the Kotlin/Native-compiled binaries are subject to the terms and
 licenses.
 
 In practice, if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
-you should always include necessary license files into your binary distribution. The files in a readable form should be
-accessible to users of your distribution.
+you should always include necessary license files into your binary distribution. The files should be accessible
+to users of your distribution in a readable form.
 
 Always include the following license files for the corresponding projects:
 
