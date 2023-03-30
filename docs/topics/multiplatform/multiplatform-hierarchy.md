@@ -1,16 +1,16 @@
 [//]: # (title: Hierarchical project structure)
 
 Multiplatform projects support hierarchical structures.
-This means you can form a hierarchy of intermediate source sets for sharing the common code among some, but not all,
-[supported targets](multiplatform-dsl-reference.md#targets). Introducing intermediate source sets has some important advantages:
+This means you can arrange a hierarchy of intermediate source sets for sharing the common code among some, but not all,
+[supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets has some important advantages:
 
-* If you're a library author, you might want to provide a specialized API for some, but not all targets. For example,
-  an intermediate source set for Kotlin/Native targets, but not for Kotlin/JVM may come in handy.
-* You might want to use platform-dependent libraries in your project. Introducing an intermediate source set allows
-  you to utilize that specialized API among several native targets. For example,
-  having access to iOS-specific dependencies like Foundation when sharing code across all iOS targets.
-* Some libraries aren't available for some platforms. Specifically, native libraries are only available for source sets
-  that compile to Kotlin/Native. Intermediate source set will solve this issue.
+* If you're a library author, and you want to provide a specialized API, you can use an intermediate source set for some,
+  but not all targets. For example, an intermediate source set for Kotlin/Native targets, but not for Kotlin/JVM.
+* If you want to use platform-dependent libraries in your project, you can use an intermediate source set
+  to utilize that specific API among several native targets. For example, to have access to iOS-specific dependencies,
+  such as Foundation, when sharing code across all iOS targets.
+* Some libraries aren't available for particular platforms. Specifically, native libraries are only available for source
+  sets that compile to Kotlin/Native. Intermediate source set will solve this issue.
 
 The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
 this source set compiles. This prevents cases like using Windows-specific API and then compiling it to macOS,
@@ -71,7 +71,7 @@ from `apple`, `native`, and `common` source sets is compiled to `watchosArm64` a
 
 ### Adjust resulting hierarchy
 
-If necessary, you can further configure the resulting hierarchy manually [using the `dependsOn` relation](#manual-configuration).
+You can further configure the resulting hierarchy manually [using the `dependsOn` relation](#manual-configuration).
 To do that, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
 
 Consider this example of a project with a source set shared between the `jvm` and `native` targets only:
@@ -104,15 +104,15 @@ kotlin {
 }
 ```
 
-Removing `dependsOn` relations automatically created by `targetHierarchy.default()` could be cumbersome.
-If it's necessary, use entirely [manual configuration](#manual-configuration) instead of calling default hierarchy.
+It could be cumbersome to remove `dependsOn` relations that are automatically created by the `targetHierarchy.default()` call.
+If that's your case, use entirely [manual configuration](#manual-configuration) instead of calling default hierarchy.
 
 > We're currently working on API for creating your own target hierarchies. It should be useful for projects
-> which hierarchy configurations differ a lot from the default template.
+> which hierarchy configurations are significantly different from the default template.
 >
 > At the moment, this API is not ready yet. But if you're eager to try it,
 > look into the `targetHierarchy.custom { ... }` block and the declaration of `targetHierarchy.default()` as an example.
-> Keep in mind that this API is still in development. It might be under-tested, and can change dramatically in further releases.
+> Keep in mind that this API is still in development. It might be under-tested, and can change in further releases.
 > 
 {type="tip"}
 
@@ -123,7 +123,7 @@ the plugin picks shared source sets based on the specified targets from the temp
 
 ![Default target hierarchy](full-template-hierarchy.svg)
 
-> Here we describe the production part of the project only, omitting the suffix `Main`
+> This example only shows the production part of the project, omitting the `Main` suffix
 > (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
 {type="tip"}
@@ -256,8 +256,8 @@ kotlin {
 You can manually introduce an intermediate source in the source set structure.
 It will hold the shared code for several targets.
 
-For example, if you want to share code among native Linux, Windows, and macOS targets – `linuxX64`, `mingwX64`, and
-`macosX64`:
+For example, if you want to share code among native Linux, Windows, and macOS targets (`linuxX64`, `mingwX64`, and
+`macosX64`):
 
 ![Manually configured hierarchical structure](manual-hierarchical-structure.png)
 
