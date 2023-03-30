@@ -15,7 +15,7 @@ The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 
 You can also find a short overview of the changes in this video:
 
-<video href="OG9npowJgE8" title="What's new in Kotlin 1.8.20"/>
+<video href="R1JpkpPzyBU" title="What's new in Kotlin 1.8.20"/>
 
 ## IDE support
 
