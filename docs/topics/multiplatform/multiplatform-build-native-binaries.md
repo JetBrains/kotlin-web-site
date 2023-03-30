@@ -17,6 +17,10 @@ and provides a set of methods for declaring and configuring them.
 >
 {type="note"}
 
+Binaries produced by the Kotlin/Native compiler can include third-party code, data, or derived work.
+This means if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
+you should always include necessary [license files](native-binary-licenses.md) into your binary distribution.
+
 ## Declare binaries
 
 Use the following factory methods to declare elements of the `binaries` collection.
