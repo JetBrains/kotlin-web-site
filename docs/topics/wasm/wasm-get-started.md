@@ -122,4 +122,4 @@ You'll see the text "Hello, you're using Kotlin/Wasm!":
 
 ## What's next?
 
-Explore the Kotlin/Wasm interoperability with JavaScript
+[Explore the Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md)
