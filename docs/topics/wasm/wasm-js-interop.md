@@ -17,7 +17,7 @@ features or similar functionality.
 To access JavaScript declarations defined in the global scope, mark them with the `external` modifier. Consider this
 JavaScript code sample:
 
-```js
+```javascript
 // JavaScript
 
 function consoleLogExample() {
@@ -116,7 +116,7 @@ reported when running your JavaScript.
 To indicate that an `external` class, package, function, or property is a JavaScript module, use
 the [`@JsModule` annotation](js-modules.md#jsmodule-annotation). Consider this JavaScript code sample:
 
-```js
+```javascript
 // jsModule.mjs
 let maxUsers = 10;
 
@@ -169,7 +169,7 @@ fun addOne(x: Int): Int = x + 1
 
 Now you can use this function from JavaScript in the following way:
 
-```js
+```javascript
 // JavaScript
 
 import exports from "module.mjs"
