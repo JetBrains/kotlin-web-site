@@ -842,7 +842,7 @@ code that could still directly call any of the APIs that are common to both the 
 Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
-For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-share-on-platforms.md#use-target-shortcuts).
+For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-hierarchy.md#target-shortcuts).
 
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
@@ -852,10 +852,10 @@ kotlin {
 }
 ```
 
-For other combinations of targets, <!--TODO: [create a hierarchy manually](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually) -->
+For other combinations of targets, [create a hierarchy manually](multiplatform-hierarchy.md#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
-![Hierarchical structure](hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.png)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -910,13 +910,13 @@ about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code
 
 ### Leveraging native libs in the hierarchical structure 
 
-You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `POSIX`, in source sets shared among several 
+You can use platform-dependent libraries, such as Foundation, UIKit, and POSIX, in source sets shared among several 
 native targets. This can help you share more native code without being limited by platform-specific dependencies. 
 
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-[Learn more about usage of platform-dependent libraries](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure).
+[Learn more about usage of platform-dependent libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries).
 
 ### Specifying dependencies only once
 
