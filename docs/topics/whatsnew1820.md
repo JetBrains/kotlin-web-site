@@ -73,7 +73,7 @@ The previous `-Xuse-k2` compiler option has been deprecated.
 
 ### Leave your feedback on the new K2 compiler
 
-We'd appreciate any feedback you may have!
+We would appreciate any feedback you may have!
 
 * Provide your feedback directly to K2 developers on Kotlin
   Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
@@ -478,7 +478,7 @@ Run the application with the `--js-flags=--experimental-wasm-gc` command line ar
 
 ### Leave your feedback on Kotlin/Wasm
 
-We'd appreciate any feedback you may have!
+We would appreciate any feedback you may have!
 
 * Provide your feedback directly to developers in Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
   and join the [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel.
@@ -771,7 +771,7 @@ You can think of the default target hierarchy as a template for all possible tar
 you declare the final targets `android`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin
 finds suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-<!-- ![An example of using the default target hierarchy](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"} -->
+![An example of using the default target hierarchy](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
 
 Green source sets are actually created and present in the project, while gray ones from the default template are
 ignored. As you can see, the Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
@@ -780,7 +780,7 @@ are no watchOS targets in the project.
 If you add a watchOS target, such as `watchosArm64`, the `watchos` source set is created, and the code from
 the `apple`, `native`, and `common` source sets is compiled to `watchosArm64`, as well.
 
-You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md).
+You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy).
 
 > In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
 > Therefore, despite their names, they have access to the full iOS API.
@@ -820,7 +820,7 @@ tooling-assisted migration.
 This new feature is [Experimental](components-stability.md#stability-levels-explained). For Kotlin Gradle build scripts,
 you need to opt in with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
 
-For more information, see [Hierarchical project structure](multiplatform-hierarchy.md).
+For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy).
 
 #### Leave feedback
 
@@ -989,7 +989,7 @@ The new approach to incremental compilation, which [has been available since Kot
 now works by default. You no longer need to specify `kotlin.incremental.useClasspathSnapshot=true` in your `gradle.properties` to
 enable it.
 
-We'd appreciate your feedback on this. You can [file an issue](https://kotl.in/issue) in YouTrack.
+We would appreciate your feedback on this. You can [file an issue](https://kotl.in/issue) in YouTrack.
 
 ### Precise backup of compilation tasks' outputs
 
@@ -1016,7 +1016,7 @@ kotlin.compiler.preciseCompilationResultsBackup=true
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
-<!-- ![Comparison of full and precise backups](comparison-of-full-and-precise-backups.png){width=700} -->
+![Comparison of full and precise backups](comparison-of-full-and-precise-backups.png){width=700}
 
 The first and second charts show how precise backup in the Kotlin project affects building the Kotlin Gradle plugin:
 
