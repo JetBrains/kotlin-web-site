@@ -149,7 +149,7 @@ you can use the platform-specific language features and dependencies that are av
 For example, all Kotlin/Native features are available in the `desktopMain` source set, which targets the Linux (`linuxX64`), 
 Windows (`mingwX64`), and macOS (`macosX64`) platforms.
 
-![Hierarchical structure](hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.png)
 
 Learn how to [build the hierarchy of source sets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
 
