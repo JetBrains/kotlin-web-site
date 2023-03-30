@@ -62,7 +62,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib, new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend.</p>
             <p>Learn more in:</p>
             <list>
-                <li><a href="whatsnew18.md" target="_blank">What's new in Kotlin 1.8.0</a></li>
+                <li><a href="whatsnew1820.md" target="_blank">What's new in Kotlin 1.8.20</a></li>
                 <li><a href="https://youtu.be/OG9npowJgE8" target="_blank">What's new in Kotlin YouTube video</a></li>
             </list>
         </td>
