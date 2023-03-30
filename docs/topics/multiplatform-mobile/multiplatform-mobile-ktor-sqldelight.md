@@ -75,7 +75,7 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
     val coroutinesVersion = "%coroutinesVersion%"
     val ktorVersion = "%ktorVersion%"
     val sqlDelightVersion = "%sqlDelightVersion%"
-    val dateTimeVersion = "0.4.0"
+    val dateTimeVersion = "%dateTimeVersion%"
 
     sourceSets {
         val commonMain by getting {
