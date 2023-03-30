@@ -413,24 +413,13 @@ and iOS.
    }
    ``` 
 
-2. Update `gradle.properties` to connect your iOS application to Android Studio for running it on a simulated or real
-   device right there:
+2. Run both the iOS and Android applications from Android Studio to see the changes:
 
-    ```text
-    xcodeproj=iosApp/SimpleLoginIOS.xcodeproj
-    ```
+   ![iOS run configuration](ios-run-configuration-simplelogin.png){width=200}
 
-3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+   ![iOS application password error](iphone-password-error.png){width=300}
 
-   ![Synchronize the Gradle files](gradle-sync.png)
-
-You will see the new run configuration **simpleLoginIOS** for running your iOS application right from Android Studio.
-
-![iOS run configuration](ios-run-configuration-simplelogin.png){width=200}
-
-![iOS application password error](iphone-password-error.png){width=300}
-
-![Android application password error](android-password-error.png){width=300}
+   ![Android application password error](android-password-error.png){width=300}
 
 You can review the [final code for this tutorial](https://github.com/Kotlin/kmm-integration-sample/tree/final).
 
