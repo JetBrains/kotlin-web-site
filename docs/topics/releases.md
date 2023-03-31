@@ -63,7 +63,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>Learn more in:</p>
             <list>
                 <li><a href="whatsnew1820.md" target="_blank">What's new in Kotlin 1.8.20</a></li>
-                <li><a href="https://youtu.be/OG9npowJgE8" target="_blank">What's new in Kotlin YouTube video</a></li>
+                <li><a href="https://youtu.be/R1JpkpPzyBU" target="_blank">What's new in Kotlin YouTube video</a></li>
             </list>
         </td>
     </tr>
