@@ -41,7 +41,7 @@ using one of the following ways:
 
 * [Enabling default target hierarchy](multiplatform-hierarchy.md#default-hierarchy)
 * [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
-* [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration).
+* [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration)
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
 

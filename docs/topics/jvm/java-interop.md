@@ -58,7 +58,7 @@ set-only properties.
 
 Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. Consider the following Java code:
 
-```
+```java
 public class Person {
     private String name;
     private int age;
@@ -81,7 +81,7 @@ public class Person {
 Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
 create references to `Person::age` and `person::age`. The same applies for `name`, as well.
 
-```
+```kotlin
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
     Persons
          // Call a reference to Java synthetic property:

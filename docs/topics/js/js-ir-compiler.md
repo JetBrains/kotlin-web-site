@@ -144,7 +144,7 @@ any top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jse
 generates TypeScript definitions in a `.d.ts` file.
 
 If you want to generate TypeScript definitions, you have to explicitly configure this in your Gradle build file. 
-Add `generateTypeScriptDefinitions()` to your `build.gradle.kts.file` in the [`js` section](js-project-setup.md#execution-environments). 
+Add `generateTypeScriptDefinitions()` to your `build.gradle.kts` file in the [`js` section](js-project-setup.md#execution-environments). 
 For example:
 
 ```kotlin
