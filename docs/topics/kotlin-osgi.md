@@ -78,9 +78,7 @@ dependencies {
 
 ```groovy
 dependencies {
- compile (
-   [group: 'some.group.id', name: 'some.library', version: 'someversion'],
-   .....) {
+ compile('some.group.id:some.library:someversion') {
   exclude group: 'org.jetbrains.kotlin'
 }
 ```
