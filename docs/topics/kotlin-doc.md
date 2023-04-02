@@ -114,30 +114,38 @@ to support a shorthand syntax for linking to other elements in the code.
 
 To link to another element (class, method, property, or parameter), simply put its name in square brackets:
 
-```
+```none
 Use the method [foo] for this purpose.
 ```
 
-If you want to specify a custom label for the link, use the Markdown reference-style syntax:
+If you want to specify a custom label for the link, add it in another set of square brackets before the element link:
 
-```
-Use [this method](foo) for this purpose.
+```none
+Use [this method][foo] for this purpose.
 ```
 
-You can also use qualified names in the links. Note that, unlike Javadoc, qualified names always use the dot character
+You can also use qualified names in the element links. Note that, unlike Javadoc, qualified names always use the dot character
 to separate the components, even before a method name:
 
-```
+```none
 Use [kotlin.reflect.KClass.properties] to enumerate the properties of the class.
 ```
 
-Names in links are resolved using the same rules as if the name was used inside the element being documented.
+Names in element links are resolved using the same rules as if the name was used inside the element being documented.
 In particular, this means that if you have imported a name into the current file, you don't need to fully qualify it
 when you use it in a KDoc comment.
 
 Note that KDoc does not have any syntax for resolving overloaded members in links. Since Kotlin's documentation generation
 tool puts the documentation for all overloads of a function on the same page, identifying a specific overloaded function
 is not required for the link to work.
+
+### External links
+
+To add an external link, use the typical Markdown syntax:
+
+```none
+For more information about KDoc syntax, see [KDoc](<example-URL>).
+```
 
 ## What's next?
 
