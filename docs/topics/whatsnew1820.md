@@ -26,6 +26,11 @@ The Kotlin plugins that support 1.8.20 are available for:
 | IntelliJ IDEA  | 2022.2.x, 2022.3.x,  2023.1.x |
 | Android Studio | Flamingo (222)                |
 
+> To download Kotlin artifacts and dependencies properly, [configure Gradle settings](#configure-gradle-settings)
+> to use the Maven Central repository.
+>
+{type="warning"}
+
 ## New Kotlin K2 compiler updates
 
 The Kotlin team continues to stabilize the K2 compiler. As mentioned in
@@ -1352,6 +1357,8 @@ The Kotlin documentation has received some notable changes:
 
 ## Install Kotlin 1.8.20
 
+### Check the IDE version
+
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 2022.2 and 2022.3 automatically suggest updating the Kotlin
 plugin to version 1.8.20. IntelliJ IDEA 2023.1 has the built-in Kotlin plugin 1.8.20.
 
@@ -1359,3 +1366,19 @@ Android Studio Flamingo (222) and Giraffe (223) will support Kotlin 1.8.20 in th
 
 The new command-line compiler is available for download on
 the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.8.20).
+
+### Configure Gradle settings
+
+To download Kotlin artifacts and dependencies properly, update your `settings.gradle(.kts)` file
+to use the Maven Central repository:
+
+```kotlin
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+```
+
+If the repository is not specified, Gradle uses the sunset JCenter repository that could lead to issues with Kotlin artifacts.
