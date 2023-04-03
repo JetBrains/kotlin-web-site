@@ -45,7 +45,7 @@ To include `kotlin-osgi-bundle` to a Gradle project:
 
 ```kotlin
 dependencies {
-  implementation(kotlin("osgi-bundle"))
+    implementation(kotlin("osgi-bundle"))
 }
 ```
 
@@ -54,7 +54,7 @@ dependencies {
 
 ```groovy
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:%kotlinVersion%"
+    implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:%kotlinVersion%"
 }
 ```
 
@@ -68,8 +68,8 @@ To exclude default Kotlin libraries that comes as transitive dependencies you ca
 
 ```kotlin
 dependencies {
- implementation("some.group.id:some.library:someversion") {
-  exclude(group = "org.jetbrains.kotlin")
+    implementation("some.group.id:some.library:someversion") {
+        exclude(group = "org.jetbrains.kotlin")
 }
 ```
 
