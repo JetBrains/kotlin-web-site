@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2023-04-13'
+  endDate: '2023-04-13'
+  location: Belgrade, Serbia
+  speaker : Anastasia Birillo
+  title : 'KotlinConf 2023 Global Serbia'
+  subject : 'How does the Kotlin compiler work?'
+  url: https://www.meetup.com/serbia-kotlin-user-group/events/291312745/
+- lang: en
   startDate: '2023-04-08'
   endDate: '2023-04-09'
   location: KIET Group Of Institutions, Ghaziabad, Delhi NCR India
