@@ -53,8 +53,8 @@ repositories { // Sources of dependencies. See 2️⃣
 }
 
 dependencies { // All the libraries you want to use. See 4️⃣
-   // Copy dependencies' names after you find them in a repository
-   testImplementation(kotlin("test")) // The Kotlin test library
+    // Copy dependencies' names after you find them in a repository
+    testImplementation(kotlin("test")) // The Kotlin test library
 }
 
 tasks.test { // See 5️⃣
@@ -62,7 +62,7 @@ tasks.test { // See 5️⃣
 }
 
 kotlin { // Extension for easy setup
-   jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
+    jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
 }
 
 application {
