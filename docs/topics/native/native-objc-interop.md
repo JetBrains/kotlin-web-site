@@ -78,9 +78,9 @@ These classes and interfaces are placed into a package [specified in build confi
 The names of Kotlin classes and interfaces are prefixed when imported to Objective-C.
 The prefix is derived from the framework name.
 
-Objective-C does not support packages in a framework. Thus, the Kotlin compiler renames Kotlin classes which have the
-same name but different package in the same framework. This algorithm is not stable yet and can change between Kotlin
-releases. As a workaround, you can rename the conflicting Kotlin classes in the framework.
+Objective-C does not support packages in a framework. If the Kotlin compiler finds Kotlin classes in the same framework
+which have the same name but different packages, it renames them. This algorithm is not stable yet and can change between
+Kotlin releases. To work around this, you can rename the conflicting Kotlin classes in the framework.
 
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
 a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
@@ -112,7 +112,7 @@ Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
-Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method for the property `foo`. Same goes for a protocol's read-only properties that are implemented as mutable.
+Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method for the property `foo`. The same goes for a protocol's read-only properties that are implemented as mutable.
 
 ### Top-level functions and properties
 
@@ -134,9 +134,9 @@ MyLibraryUtilsKt.foo()
 
 ### Method names translation
 
-Generally Swift argument labels and Objective-C selector pieces are mapped to Kotlin
-parameter names. Anyway these two concepts have different semantics, so sometimes
-Swift/Objective-C methods can be imported with a clashing Kotlin signature. In this case
+Generally, Swift argument labels and Objective-C selector pieces are mapped to Kotlin
+parameter names. These two concepts have different semantics, so sometimes
+Swift/Objective-C methods can be imported with a clashing Kotlin signature. In this case,
 the clashing methods can be called from Kotlin using named arguments, e.g.:
 
 ```swift
@@ -170,7 +170,7 @@ Swift has only checked errors. So if Swift or Objective-C code calls a Kotlin me
 which throws an exception to be handled, then the Kotlin method should be marked
 with a `@Throws` annotation specifying a list of "expected" exception classes.
 
-When compiling to Objective-C/Swift framework, non-`suspend` functions having or inheriting
+When compiling to the Objective-C/Swift framework, non-`suspend` functions that have or inherit the
 `@Throws` annotation are represented as `NSError*`-producing methods in Objective-C
 and as `throws` methods in Swift.  Representations for `suspend` functions always have
 `NSError*`/`Error` parameter in completion handler.
@@ -208,11 +208,17 @@ Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org
 
 ### Extensions and category members
 
-Members of Objective-C categories and Swift extensions are imported to Kotlin
+Members of Objective-C categories and Swift extensions are generally imported to Kotlin
 as extensions. That's why these declarations can't be overridden in Kotlin.
 And the extension initializers aren't available as Kotlin constructors.
 
-Kotlin extensions to "regular" Kotlin classes are imported to Swift and Objective-C as extensions and category members respectively.
+> Currently, there are two exceptions. Starting with Kotlin 1.8.20, category members that are declared
+> in the same headers as the NSView class (from the AppKit framework) or UIView classes (from the UIKit framework) are
+> imported as members of these classes. This means that you can override methods that subclass from NSView or UIView.
+>
+{type="note"}
+
+Kotlin extensions to "regular" Kotlin classes are imported to Swift and Objective-C as extensions and category members, respectively.
 Kotlin extensions to other types are treated as [top-level declarations](#top-level-functions-and-properties)
 with an additional receiver parameter. These types include:
 
@@ -295,7 +301,7 @@ The same holds for `MutableMap`.
 Kotlin function-typed objects (e.g. lambdas) are converted to 
 Swift functions / Objective-C blocks. However, there is a difference in how
 types of parameters and return values are mapped when translating a function
-and a function type. In the latter case primitive types are mapped to their
+and a function type. In the latter case, primitive types are mapped to their
 boxed representation. Kotlin `Unit` return value is represented
 as a corresponding `Unit` singleton in Swift/Objective-C. The value of this singleton
 can be retrieved in the same way as it is for any other Kotlin `object`
@@ -402,7 +408,7 @@ binaries.framework {
 ## Casting between mapped types
 
 When writing Kotlin code, an object may need to be converted from a Kotlin type
-to the equivalent Swift/Objective-C type (or vice versa). In this case a plain old
+to the equivalent Swift/Objective-C type (or vice versa). In this case, a plain old
 Kotlin cast can be used, e.g.
 
 ```kotlin
@@ -424,7 +430,7 @@ Swift/Objective-C classes and protocols can be subclassed with a Kotlin `final` 
 Non-`final` Kotlin classes inheriting Swift/Objective-C types aren't supported yet, so it is
 not possible to declare a complex class hierarchy inheriting Swift/Objective-C types.
 
-Normal methods can be overridden using the `override` Kotlin keyword. In this case
+Normal methods can be overridden using the `override` Kotlin keyword. In this case,
 the overriding method must have the same parameter names as the overridden one.
 
 Sometimes it is required to override initializers, e.g. when subclassing `UIViewController`. 
@@ -508,7 +514,7 @@ kotlin {
 </tab>
 </tabs>
 
-After that the Objective-C header will contain a corresponding comment:
+After that, the Objective-C header will contain a corresponding comment:
 
 ```objc
 /**
@@ -521,12 +527,12 @@ After that the Objective-C header will contain a corresponding comment:
 Known limitations:
 * Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is experimental, 
 so libraries compiled with this flag might be incompatible with other compiler versions.
-* KDoc comments are mostly exported "as is" , many KDoc features (for example, `@property`) are not supported.
+* KDoc comments are mostly exported "as is". Many KDoc features (for example, `@property`) are not supported.
 
 ## Unsupported
 
 Some features of Kotlin programming language are not yet mapped into respective features of Objective-C or Swift.
-Currently, following features are not properly exposed in generated framework headers:
+Currently, the following features are not properly exposed in generated framework headers:
    * inline classes (arguments are mapped as either underlying primitive type or `id`)
    * custom classes implementing standard Kotlin collection interfaces (`List`, `Map`, `Set`) and other special classes
    * Kotlin subclasses of Objective-C classes

@@ -139,10 +139,26 @@ The Kotlin/JS IR compiler is capable of generating TypeScript definitions from y
 used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and
 make it easier to include Kotlin code in JavaScript and TypeScript projects.
 
-Top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) in a project that produces
-executable files (`binaries.executable()`) will get a `.d.ts` file generated, which contains the TypeScript definitions
-for the exported Kotlin declarations.
-These declarations can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding
+If your project produces executable files (`binaries.executable()`), the Kotlin/JS IR compiler collects 
+any top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) and automatically 
+generates TypeScript definitions in a `.d.ts` file.
+
+If you want to generate TypeScript definitions, you have to explicitly configure this in your Gradle build file. 
+Add `generateTypeScriptDefinitions()` to your `build.gradle.kts` file in the [`js` section](js-project-setup.md#execution-environments). 
+For example:
+
+```kotlin
+kotlin {
+   js {
+       binaries.executable()
+       browser {
+       }
+       generateTypeScriptDefinitions()
+   }
+}
+```
+
+The definitions can be found in `build/js/packages/<package_name>/kotlin` alongside the corresponding
 un-webpacked JavaScript code.
 
 ## Current limitations of the IR compiler

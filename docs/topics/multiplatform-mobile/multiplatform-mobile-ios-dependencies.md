@@ -14,15 +14,6 @@ We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Ko
 [Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you
 have some other strong reason to do so.
 
-> When using third-party iOS libraries in multiplatform projects with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), for example with the `ios()` [target shortcut](multiplatform-share-on-platforms.md#use-target-shortcuts),
-> you won't be able to use IDE features, such as code completion and highlighting, for the shared iOS source set.
->
-> This is a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), and we are working on resolving it. In the meantime, you can use [this workaround](#workaround-to-enable-ide-support-for-the-shared-ios-source-set).
->
-> This issue doesn't apply to [platform libraries](native-platform-libs.md) supported out of the box.
->
-{type="note"}
-
 ### With CocoaPods
 
 1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
@@ -66,7 +57,6 @@ have some other strong reason to do so.
     * [From a custom Git repository](native-cocoapods-libraries.md#from-a-custom-git-repository)
     * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
     * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
-    * [On a static Pod library](native-cocoapods-libraries.md#on-a-static-pod-library)
 
 3. Re-import the project.
 
@@ -273,77 +263,10 @@ import MyFramework.*
 Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
 [configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
 
-### Workaround to enable IDE support for the shared iOS source set {initial-collapse-state="collapsed"}
-
-Due to a [known issue](https://youtrack.jetbrains.com/issue/KT-40975), you won't be able to use IDE features, such as
-code completion and highlighting, for the shared iOS source set in a multiplatform project
-with [hierarchical structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) if your
-project depends on:
-
-* Multiplatform libraries that don't support the hierarchical structure.
-* Third-party iOS libraries, with the exception of [platform libraries](native-platform-libs.md) supported out of the
-  box.
-
-This issue applies only to the shared iOS source set. The IDE will correctly support the rest of the code.
-
-> All projects created with the Kotlin Multiplatform Mobile Project Wizard support the hierarchical structure, which means this issue affects them.
->
-{type="note"}
-
-To enable IDE support in these cases, you can work around the issue by adding the following code to `build.gradle.(kts)`
-in the `shared` directory of your project:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-    if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-        ::iosArm64
-    else
-        ::iosX64
-
-iosTarget("ios")
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-def iosTarget
-if (System.getenv("SDK_NAME")?.startsWith("iphoneos")) {
-    iosTarget = kotlin.&iosArm64
-} else {
-    iosTarget = kotlin.&iosX64
-}
-```
-
-</tab>
-</tabs>
-
-In this code sample, the configuration of iOS targets depends on the environment variable `SDK_NAME`, which is managed
-by Xcode. For each build, you'll have only one iOS target, named `ios`, that uses the `iosMain` source set. There will
-be no hierarchy of the `iosMain`, `iosArm64`, and `iosX64` source sets.
-
-Alternatively, you can enable the support of platform-dependent interop libraries in shared source sets. In addition to
-[platform libraries](native-platform-libs.md) shipped with Kotlin/Native, this approach can also
-handle custom [`cinterop` libraries](native-c-interop.md) making them available in shared source sets.
-To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
-
-```none
-kotlin.mpp.enableCInteropCommonization=true
-```
-
-> This is a temporary workaround. If you are a library author, we recommend that you [enable the hierarchical structure](multiplatform-hierarchy.md).
->
-> With this workaround, Kotlin Multiplatform tooling analyzes your code against only the one native target that is active during the current build.
-> This might lead to various errors during the complete build with all targets, and errors are more likely if your project contains other native targets in addition to the iOS ones.
->
-{type="note"}
-
 ## What's next?
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
+* [Connecting platform-specific libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries)
 * [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
 * [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)

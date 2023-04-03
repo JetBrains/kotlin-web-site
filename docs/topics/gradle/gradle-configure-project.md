@@ -42,7 +42,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
 |----------------|------------------------------------------|-------------------------------------------------------|
-| 1.8.0          | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.8.20         | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.8.0          | 6.8.3 – 7.3.3                            | 4.1.3 – 7.2.1                                         |   
 | 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
 
 > Latest Gradle and AGP versions should generally work without issues.
@@ -384,6 +385,25 @@ integrationTestCompilation {
 
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
+
+### Other details
+
+#### Lazy Kotlin/JVM task creation
+
+Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all tasks and doesn't configure them on a dry run.
+
+#### Non-default location of compile tasks' destinationDirectory
+
+If you override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location, 
+update your build script. You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` 
+in your JAR file:
+
+```kotlin
+tasks.jar(type: Jar) {
+     from sourceSets.main.outputs
+     from sourceSets.main.kotlin.classesDirectories
+}
+```
 
 ## Targeting multiple platforms
 

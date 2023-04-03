@@ -54,6 +54,20 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.8.20</strong>
+            <p>Released: <strong>April 3, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib, new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend.</p>
+            <p>Learn more in:</p>
+            <list>
+                <li><a href="whatsnew1820.md" target="_blank">What's new in Kotlin 1.8.20</a></li>
+                <li><a href="https://youtu.be/R1JpkpPzyBU" target="_blank">What's new in Kotlin YouTube video</a></li>
+            </list>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.8.10</strong>
             <p>Released: <strong>February 2, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.10" target="_blank">Release on GitHub</a></p>
