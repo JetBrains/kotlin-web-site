@@ -1,4 +1,4 @@
-[//]: # (title: FAQ)
+[//]: # (title: Kotlin Multiplatform Mobile FAQ)
 
 ### What is Kotlin Multiplatform Mobile?
 
