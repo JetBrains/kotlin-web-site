@@ -13,7 +13,7 @@ Kotlin/JS target that suits you best. Don't forget to choose the language for th
 ![New project wizard](js-new-project-1.png){width=700}
 
 Alternatively, you can apply the `org.jetbrains.kotlin.js` plugin to a Gradle project manually in the Gradle build file
-(`build.gradle` or `build.gradle.kts`).
+(`build.gradle(.kts)`).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

@@ -195,7 +195,7 @@ This is useful to track if there are unused annotation processors as a part of t
 You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to prevent that.
 
 Enable the statistics in two steps:
-* Set the `showProcessorStats` flag to `true` in your `build.gradle.kts`:
+* Set the `showProcessorStats` flag to `true` in your `build.gradle(.kts)`:
 
   ```kotlin
   kapt {
@@ -278,7 +278,7 @@ kapt {
 
 Some annotation processors (such as `AutoFactory`) rely on precise types in declaration signatures.
 By default, kapt replaces every unknown type (including types for the generated classes) to `NonExistentClass`,
-but you can change this behavior. Add the option to the `build.gradle` file to enable error type inferring in stubs:
+but you can change this behavior. Add the option to the `build.gradle(.kts)` file to enable error type inferring in stubs:
 
 ```groovy
 kapt {
