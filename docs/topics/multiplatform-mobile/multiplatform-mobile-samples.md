@@ -1,4 +1,4 @@
-[//]: # (title: Samples)
+[//]: # (title: Kotlin Multiplatform Mobile samples)
 
 This is a curated list of Kotlin Multiplatform Mobile samples.
 
