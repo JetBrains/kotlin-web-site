@@ -1,27 +1,28 @@
-[//]: # (title: Get started with Kotlin Multiplatform Mobile)
-[//]: # (description: Simplify cross-platform app development with Kotlin Multiplatform Mobile. Create a single codebase
+[//]: # (title: Get started with Kotlin Multiplatform for mobile)
+[//]: # (description: Simplify cross-platform app development with Kotlin Multiplatform. Create a single codebase
 for the business logic of your iOS and Android apps.)
 
-> Kotlin Multiplatform Mobile is in [Beta](components-stability.md). It's almost stable, but migration steps might be
+> Kotlin Multiplatform is in [Beta](components-stability.md). It's almost stable, but migration steps might be
 > required in the future.
 >
-> * Check out our [Kotlin Multiplatform Mobile Beta](https://blog.jetbrains.com/kotlin/2022/10/kmm-beta) blogpost
-> to learn about the current state and future plans for the technology.
+> * Check out our [Kotlin Multiplatform Mobile Beta](https://www.youtube.com/watch?v=CngKDGBlFxk) video
+    > to learn about the current state and future plans for the technology.
 > * You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies) are already using Kotlin for
-> cross-platform app development.
+    > cross-platform app development in production.
 >
 {type="note"}
 
-Kotlin Multiplatform Mobile (KMM) is an SDK designed to simplify the development of cross-platform mobile applications.
-You can share common code between iOS and Android apps and write platform-specific code only where it's necessary.
-Common use cases for Kotlin Multiplatform Mobile include implementing a native UI or working with platform-specific APIs.
+Kotlin Multiplatform technology simplifies the development of cross-platform projects. Kotlin applications will work on different operating systems, such as iOS, Android, macOS, Windows, Linux, watchOS, and others.
 
-> You can also watch this [introductory video](https://www.youtube.com/watch?v=mdN6P6RI__k) with a general explanation of
-> what Kotlin Multiplatform Mobile is and how to use it in your projects.
+One of the major Kotlin Multiplatform use cases is sharing code between mobile platforms. You can share application logic between iOS and Android apps and write platform-specific code only when you need to implement a native UI or work with platform APIs
+
+> This tutorial describes how to share application logic between iOS and Android using Kotlin Multiplatform.
+> To learn about the full capabilities of the technology, check out these descriptions of [other use cases](https://kotlinlang.org/docs/multiplatform.html#full-stack-web-applications),
+> such as full-stack web applications or multiplatform libraries.
 >
 {type="tip"}
 
-Get to know Kotlin Multiplatform Mobile and create a mobile app that works on both Android and iOS by completing these steps:
+Get to know Kotlin Multiplatform and create a mobile app that works on both Android and iOS by completing these steps:
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
@@ -35,7 +36,7 @@ Get to know Kotlin Multiplatform Mobile and create a mobile app that works on bo
 
 ## Next step
 
-Start by setting up an environment for Kotlin Multiplatform Mobile development.
+Start by setting up an environment for Kotlin Multiplatform development.
 
 **[Proceed to the next part](multiplatform-mobile-setup.md)**
 
