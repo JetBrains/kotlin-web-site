@@ -223,7 +223,7 @@ Here are some of the key differences between the two layouts:
 | main  | src/main/AndroidManifest.xml  | src/<b>android</b>Main/AndroidManifest.xml  |
 | debug | src/debug/AndroidManifest.xml | src/<b>android</b>Debug/AndroidManifest.xml |
 
-#### The relation between Android tests and common tests
+#### The relation between Android and common tests
 
 The new Android source set layout changes the relation between Android-instrumented tests (renamed to `androidInstrumentedTest` in the new layout)
 and common tests.
@@ -231,8 +231,8 @@ and common tests.
 Previously, there was a default `dependsOn` relation between `androidAndroidTest` and `commonTest`. In practice, it meant the following:
 
 * The code in `commonTest` was available in `androidAndroidTest`.
-* `expect` declarations in `commonTest` had to have corresponding `actual` realizations in `androidAndroidTest`.
-* Tests declared in `commonTest` were running as Android instrumented tests.
+* `expect` declarations in `commonTest` had to have corresponding `actual` implementations in `androidAndroidTest`.
+* Tests declared in `commonTest` were also running as Android instrumented tests.
 
 In the new Android source set layout, the `dependsOn` relation is not added by default. If you prefer the previous behavior,
 manually declare this relation:
@@ -251,10 +251,9 @@ kotlin {
 
 #### Support for Android flavors
 
-The Android Gradle plugin creates a handful of source sets based on `buildType`. Along with the default `debug` and `release`,
-there are custom "product flavors", usually introduced by the `flavourDimension` construction in DSL.
-
-Previously, those source sets were directly mirrored to the Kotlin source sets, allowing expressions like `val androidDebug by getting { ... }`.
+Previously, the Kotlin Gradle plugin eagerly created source sets that correspond to Android source sets with `debug` and
+`release` build types or custom flavors like `demo` and `full`.
+It made them accessible by constructions like `val androidDebug by getting { ... }`.
 
 In the new Android source set layout, those source sets are created in the `afterEvaluate` phase. It makes such expressions invalid,
 leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourceSet with name 'androidDebug' not found`.
