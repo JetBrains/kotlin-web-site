@@ -1,5 +1,9 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
+> Kotlin/Wasm is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. It is available only starting with [Kotlin 1.8.20](releases.md).
+>
+{type="warning"}
+
 This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Wasm application.
 
 To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
@@ -30,6 +34,14 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
 
    By default, the wizard creates the necessary `Simple.kt` file.
+
+5. Open the `build.gradle.kts` file and ensure that the Kotlin Multiplatform plugin version is set to `1.8.20`: 
+
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "1.8.20"
+   }
+   ```
 
 ## Build and run the application
 
