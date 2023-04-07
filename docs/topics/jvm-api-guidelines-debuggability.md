@@ -46,7 +46,7 @@ This results in improved output:
 
 > It might seem a good idea to use data classes because they have a `toString()` method automatically. In the 
 > [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
-> [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#dont-use-data-classes-in-api).
+> [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#don-t-use-data-classes-in-api).
 >
 {type="note"}
 

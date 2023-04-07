@@ -2,9 +2,9 @@
 
 This chapter contains considerations about [backward compatibility](#backward-compatibility-definition). 
 Here are the "don't do" advices:
-* [Don't add arguments to existing API functions](#dont-add-arguments-to-existing-api-functions)
-* [Don't use data classes in API](#dont-use-data-classes-in-api)
-* [Don't make return types narrower](#dont-make-return-types-narrower)
+* [Don't add arguments to existing API functions](#don-t-add-arguments-to-existing-api-functions)
+* [Don't use data classes in API](#don-t-use-data-classes-in-api)
+* [Don't make return types narrower](#don-t-make-return-types-narrower)
 
 Consider using:
 * [@PublishedApi annotation](#the-publishedapi-annotation)
@@ -159,7 +159,7 @@ Usually, it's hard to predict how you will need to change a class over time. Eve
 there is no way to be sure that your needs won't change in the future. So, all the issues with data classes only exist 
 when you decide to change such a class.
 
-Firstly, the considerations from the previous section [Don't add arguments](#dont-add-arguments-to-existing-api-functions) 
+Firstly, the considerations from the previous section [Don't add arguments to existing API functions](#don-t-add-arguments-to-existing-api-functions) 
 also apply to the constructor as it is also a method. Secondly, even if you add secondary constructors, it won't solve 
 the compatibility problem. Let's look at the following data class:
 
@@ -174,7 +174,7 @@ For example, over some time, you understand that users should go through an acti
 a new field, "active" with a default value equal to "true". This new field should allow the existing code to work 
 mostly without changes.
 
-As it was already discussed in the [section above](#dont-add-arguments-to-existing-api-functions), you can't just add 
+As it was already discussed in the [section above](#don-t-add-arguments-to-existing-api-functions), you can't just add 
 a new field like this:
 
 ```kotlin
@@ -342,7 +342,7 @@ new versions of a library or framework can be used with existing code without ca
 Maintaining backward compatibility can be a difficult and time-consuming task, especially when dealing with a large codebase 
 or complex APIs. It's hard to control it manually, and developers often have to rely on testing and manual inspection 
 to ensure that changes do not break existing code. To address this issue, JetBrains created 
-the [Kotlin Backward Compatibility Validator (KBCV)](#kotlin-backward-compatibility-validator), and there is also 
+the [Binary compatibility validator](#binary-compatibility-validator), and there is also 
 another solution: [japicmp](#japicmp).
 
 > At the moment, both work only for JVM.
@@ -355,14 +355,14 @@ to use when you don't have access to older builds of your library. Also, japicmp
 in Kotlin metadata, which you may not need (because a metadata format is not specified and is considered to be used only 
 for Kotlin internal usage).
 
-KBCV works only as a Gradle plugin, and it is on the [Alpha stability level](components-stability.md#stability-levels-explained). 
+The Binary compatibility validator works only as a Gradle plugin, and it is on the [Alpha stability level](components-stability.md#stability-levels-explained). 
 It doesn't need access to JAR files. It only needs specific dumps of the previous API and the current API. It's capable 
 of collecting these dumps itself.
 Learn more about these tools below.
 
-### Kotlin binary compatibility validator
+### Binary compatibility validator
 
-The [Kotlin Backward Compatibility Validator (KBCV)](https://github.com/Kotlin/binary-compatibility-validator) is a tool 
+The [Binary compatibility validator](https://github.com/Kotlin/binary-compatibility-validator) is a tool 
 that helps you to ensure the backward compatibility of your libraries and frameworks by automatically detecting 
 and reporting any breaking changes in the API. The tool analyzes the library's bytecode before and after you made changes 
 and compares the two versions to identify any changes that may break existing code. This makes it easy to detect and 
@@ -375,7 +375,8 @@ user experience, as users will be able to rely on the stability and compatibilit
 ### japicmp
 
 If you target only JVM as your platform, you can also use [japicmp](https://siom79.github.io/japicmp/). japicmp operates 
-on a different level to KBCV: it compares two jar files –old and new– and reports incompatibilities between them.
+on a different level to the Binary compatibility validator: it compares two jar files –old and new– and reports incompatibilities 
+between them.
 
 Be aware that japicmp reports not only incompatibilities but also changes that should not affect a user in any way. 
 For example, consider this code:
