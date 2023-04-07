@@ -414,7 +414,7 @@ class Calculator {
 
 japicmp reports the following change:
 
-<img src="japicmp-calculator-output.png" alt="Output of japicmp checking compatibility" width="800"/>
+<img src="japicmp-calculator-output.png" alt="Output of japicmp checking compatibility" width="700"/>
 
 It's just a change in the `@Metadata` annotation, which isn't very interesting, but japicmp is JVM-language agnostic and 
 has to report everything it sees.

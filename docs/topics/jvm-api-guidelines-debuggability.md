@@ -100,7 +100,7 @@ override fun toString(): String {
 
 The debug data becomes much clearer:
 
-<img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="800"/>
+<img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="700"/>
 
 You can also see immediately which fields are set and which are not.
 
