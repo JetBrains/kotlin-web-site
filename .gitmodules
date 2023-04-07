@@ -1,0 +1,4 @@
+[submodule "api-guidelines"]
+	path = api-guidelines
+	url = https://github.com/Kotlin/api-guidelines
+	branch = main
