@@ -1,4 +1,4 @@
-[//]: # (title: Library creators' guidelines)
+[//]: # (title: Introduction)
 
 A good library has several features:
 * Backward compatibility
