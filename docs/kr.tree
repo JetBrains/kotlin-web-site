@@ -186,6 +186,9 @@
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
                 <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
             </toc-element>
+            <toc-element toc-title="Library creators' guidelines">
+                <include from="kl" target="api-guidelines" origin="api-guidelines"/>
+            </toc-element>
         </toc-element>
 
         <toc-element toc-title="Native">
