@@ -34,7 +34,7 @@ class JsonString(val value: String): JsonElement
 object JsonNull: JsonElement
 ```
 
-This approach helps you to avoid mistakes on both the library and client side.
+This approach helps you avoid mistakes on both the library and client side.
 
 The key benefit of using sealed classes comes into play when you use them in a `when` expression. If it's possible 
 to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
@@ -47,7 +47,7 @@ fun processJson(json: JsonElement) = when(json) {
     is JsonBoolean -> { /* Process as a boolean */ }
     is JsonString -> { /* Process as a string */ }
     is JsonNull -> { /* Process as null */ }
-    // The `else` clause is not required because all the cases are covered
+    // `else` clause is not required because all the cases are covered
 }
 ```
 
@@ -66,7 +66,7 @@ sealed interface DBResponse {
 ```
 
 Exposing this interface implementation – for example, `SQLiteResponse` or `MongoResponse` – to API users is 
-a leaky abstraction, and it complicates support of this API. In such a library, you might handle only your implementations 
+a **leaky abstraction**, and it complicates support of this API. In such a library, you might handle only your implementations 
 of `DBResponse`. If, at some moment, a user puts their implementation of `DBResponse` into a library's method 
 accepting responses, it can cause an error. Using sealed interfaces and classes can protect you from this.
 
@@ -119,9 +119,9 @@ Consider the class `InputStream` with a `readByte()` method and its usage:
 ```kotlin
 class InputStream: Closeable {
     private var open = true
-    fun readByte(): Byte { /* read and return one byte */}
+    fun readByte(): Byte { /* Read and return one byte */}
     override fun close(): Unit { 
-    /* dispose of the underlying resource */ 
+    /* Dispose of the underlying resource */ 
         open = false
     }
 }
@@ -133,7 +133,7 @@ fun readTwoBytes(inputStream: InputStream): Pair<Byte, Byte>{
 }
 ```
 
-The method `readTwoBytes()` has to throw an `IllegalStateException` because [`use{}`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) 
+The method `readTwoBytes()` has to throw `IllegalStateException` because [`use{}`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) 
 closes a `Closeable` input stream, and a user shouldn't be able to read from a closed stream. To implement this, modify 
 the code of the `readByte()` function:
 

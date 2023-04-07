@@ -22,7 +22,8 @@ Here is an example of both preserving the parameter order and consistent naming:
 
 ```kotlin
 fun String.chop(length: Int): String = substring(0, length)
-fun String.chop(length: Int, startIndex: Int) = substring(startIndex, length + startIndex)
+fun String.chop(length: Int, startIndex: Int) =
+    substring(startIndex, length + startIndex)
 ```
 
 If you have many lookalike methods, name them consistently and predictably. This is how the `stdlib` API works: 
@@ -98,7 +99,7 @@ div("tags") {
 ```
 
 Keep in mind that inside curly braces it's impossible to check at compile time if you have set all the required attributes. 
-To avoid this, put required arguments as function arguments, not as builder's properties. For example, if you want "href" 
+To avoid this, put required arguments as function arguments, not as builder's properties. For example, if you want `href` 
 to be a mandatory HTML attribute, your function will look like:
 
 ```kotlin
@@ -111,8 +112,8 @@ And not just:
 fun a(block: A.() -> Unit): A
 ```
 
-> Builder DSLs are backward compatible as long as you don't delete anything from them. Typically this isn't a problem 
-> because most developers just add more properties to their builder classes over time.
+> Builder DSLs are [backward compatible](jvm-api-guidelines-backward-compatibility.md) as long as you don't delete anything 
+> from them. Typically this isn't a problem because most developers just add more properties to their builder classes over time.
 >
 {type="note"}
 
@@ -143,19 +144,21 @@ fun findById(id: Int): Option<Person> {
 Instead of having to write the same check each time, you can add just one line to your API:
 
 ```kotlin
-fun <T> Option(t: T?): Option<out T & Any> = if (t == null) None else Some(t)
+fun <T> Option(t: T?): Option<out T & Any> =
+    if (t == null) None else Some(t)
 
 // Usage of the code above:
 fun findById(id: Int): Option<Person> = Option(db.personById(id))
 ```
 
-Now, creating a valid `Option` is a no-brainer: just call `Option(x)` and you have a null-safe, purely functional `Option` idiom.
+Now, creating a valid `Option` is a no-brainer: just call `Option(x)` and you have a null-safe, purely functional Option idiom.
 
 Another use case for using a constructor-like function is when you need to return some "hidden" things: a private instance, 
 or some internal object. For example, let's look at a method from the standard library:
 
 ```kotlin
-public fun <T> listOf(vararg elements: T): List<T> = if (elements.isNotEmpty()) elements.asList() else emptyList()
+public fun <T> listOf(vararg elements: T): List<T> =
+    if (elements.isNotEmpty()) elements.asList() else emptyList()
 ```
 
 In the code above, `emptyList()` returns the following:
@@ -171,7 +174,8 @@ of your code and reduce the size of your API:
 fun <T>  List(): List<T> = EmptyList
 
 // Usage of the code above:
-public fun <T> listOf(vararg elements: T): List<T> = if (elements.isNotEmpty()) elements.asList() else List()
+public fun <T> listOf(vararg elements: T): List<T> =
+    if (elements.isNotEmpty()) elements.asList() else List()
 ```
 
 ## Use member and extension functions appropriately
@@ -223,9 +227,15 @@ in IDEs, for example, on some version control system sites. Using [named argumen
 to clarify this, but for now in IDEs, there is no way to force developers to use them. Another option is to create a function 
 that contains the action of the `Boolean` argument and give this function a descriptive name.
 
-For example, in the standard library there are two functions for `map()`: `map(transform: (T) -> R)` 
-and `mapNotNull(transform: (T) -> R?)`. It was possible to add something like `map(filterNulls: Boolean)` 
-and write code like this:
+For example, in the standard library there are two functions for `map()`: 
+
+```kotlin
+map(transform: (T) -> R)
+
+mapNotNull(transform: (T) -> R?)
+```    
+
+It was possible to add something like `map(filterNulls: Boolean)` and write code like this:
 
 ```kotlin
 listOf(1, null, 2).map(false){ it.toString() }

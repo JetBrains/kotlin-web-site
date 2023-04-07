@@ -39,13 +39,13 @@ override fun toString(): String {
 This results in improved output:
 
 ```none
-[Vector2D(x=1, y=1), Vector2D(x=2, y=2), Vector2D(x=3, y=3), Vector2D(x=4, y=4)
+[Vector2D(x=1, y=1), Vector2D(x=2, y=2), Vector2D(x=3, y=3), ...
 ```
 
 <img src="improved-output-of-vector-objects-in-debug.png" alt="Improved output of vector class objects in the debug tool window" width="500"/>
 
-> It might seem a good idea to use data classes because they have a `toString()` method automatically. In the 
-> [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
+> It might seem a good idea to use [data classes](data-classes.md) because they have a `toString()` method automatically. 
+> In the [Backward compatibility](jvm-api-guidelines-backward-compatibility.md) section of this guide, you'll learn 
 > [why it's better not to do this](jvm-api-guidelines-backward-compatibility.md#don-t-use-data-classes-in-api).
 >
 {type="note"}
@@ -55,7 +55,11 @@ unexpected ways. For example, inside [builders](https://en.wikipedia.org/wiki/Bu
 it sometimes may be important if it's the same builder or a new one.
 
 ```kotlin
-class Person(val name: String?, val age: Int?, val children: List<Person>) {
+class Person(
+    val name: String?,
+    val age: Int?,
+    val children: List<Person>
+) {
     override fun toString(): String {
         return "Person(name=$name, age=$age, children=$children)"
     }
@@ -96,7 +100,7 @@ override fun toString(): String {
 
 The debug data becomes much clearer:
 
-<img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="500"/>
+<img src="debug-person-builder-improved.png" alt="Result of a PersonBuilder improved debugging" width="800"/>
 
 You can also see immediately which fields are set and which are not.
 

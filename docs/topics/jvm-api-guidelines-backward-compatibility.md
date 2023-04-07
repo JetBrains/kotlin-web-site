@@ -21,8 +21,8 @@ the main points you should think about to make your API backward compatible.
 
 There are at least three types of compatibility when talking about APIs:
 * Source
-* Binary
 * Behavioral
+* Binary
 
 ### Read more about compatibility types {initial-collapse-state="collapsed"}
 
@@ -65,7 +65,7 @@ Let's call this function from another file, `client.kt`:
 
 ```kotlin
 fun main(){
-    println(fib())
+    println(fib()) // Returns 3
 }
 ```
 
@@ -91,7 +91,7 @@ returning the fifth element by default. But now it will be possible to provide a
 `lib.kt`:
 
 ```kotlin
-fun fib(n: Int = 5) = … // An implementation returns requested member of the Fibonacci sequence
+fun fib(numberOfElement: Int = 5) = … // Returns requested member
 ```
 
 Let's recompile only the "library":  `kotlinc lib.kt`.
@@ -114,7 +114,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: 'int LibKt.fib()'
 There is a ` NoSuchMethodError` because the signature of the `fib()` function changed after compilation.
 
 If you recompile `client.kt`, it will work again because it will be aware of the new signature. In this example, 
-binary compatibility was broken while preserving source compatibility.
+**binary compatibility was broken while preserving source compatibility**.
 
 ##### Learn more about what happened with the help of decompilation {initial-collapse-state="collapsed"}
 
@@ -171,7 +171,7 @@ data class User(
 ```
 
 For example, over some time, you understand that users should go through an activation procedure, so you want to add 
-a new field, "active" with a default value equal to "true". This new field should allow the existing code to work 
+a new field, `active` with a default value equal to `true`. This new field should allow the existing code to work 
 mostly without changes.
 
 As it was already discussed in the [section above](#don-t-add-arguments-to-existing-api-functions), you can't just add 
@@ -195,7 +195,8 @@ data class User(
     val email: String,
     val active: Boolean = true
 ) {
-    constructor(name: String, email: String): this(name, email, active = true)
+    constructor(name: String, email: String): 
+            this(name, email, active = true)
 }
 ```
 
@@ -217,14 +218,14 @@ To:
 public final User copy(java.lang.String, java.lang.String, boolean);
 ```
 
-And it has made the code binary incompatible.
+And it has made the code **binary incompatible**.
 
 Of course, it's possible just to add a property inside the data class, but it removes all the bonuses of it being 
 a data class. Therefore, it's better not to use data classes in your API because almost any change in them breaks source, 
 binary, or behavioral compatibility.
 
-If you have to use a data class for whatever reason, you have to override the constructor and the `copy` method. 
-In addition, if you add a field into the class's body, you have to override the `hashCode` and `equals` methods.
+If you have to use a data class for whatever reason, you have to override the constructor and the `copy()` method. 
+In addition, if you add a field into the class's body, you have to override the `hashCode()` and `equals()` methods.
 
 > It's always an incompatible change to swap the order of arguments because of `componentX()` methods. It breaks source 
 > compatibility and probably will break binary compatibility too.
@@ -249,7 +250,7 @@ And an example of its use in the `client.kt` file:
 
 ```kotlin
 fun main() {
-    println(x())
+    println(x()) // Prints 3
 }
 ```
 
@@ -283,12 +284,12 @@ This happens because of the following line in bytecode:
 ```
 
 This line means that you call the static method `x()` returning the type `Number`. But there is no longer 
-such a method – binary compatibility has been violated.
+such a method – **binary compatibility has been violated**.
 
 ## The @PublishedApi annotation
 
 Sometimes, you might need to use a part of your internal API to implement [inline functions](inline-functions.md). 
-You can do this with the [@PublishedApi](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-published-api) annotation. 
+You can do this with the [`@PublishedApi`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-published-api) annotation. 
 You should treat parts of code annotated with `@PublishedApi` as parts of public API, and, therefore, you should 
 be careful about their backward compatibility.
 
@@ -300,7 +301,7 @@ use the [`@RequiresOptIn` annotation](opt-in-requirements.md#require-opt-in-for-
 2. You may use the `@RequiresOptIn` annotation to define different guarantees to different parts of the API: 
    Preview, Experimental, Internal, Delicate, or Alpha, Beta, RC.
 3. You should explicitly define what each [level](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/) 
-   means, write [KDoc](kotlin-doc.md) comments and add a warning message.
+   means, write [KDoc](kotlin-doc.md) comments, and add a warning message.
 
 If you depend on an API requiring opt-in, don't use the `@OptIn` annotation. Instead, use the `@RequiresOptIn` annotation 
 so that your user is able to consciously choose what API they want to use and what not.
@@ -314,7 +315,7 @@ with `@OptIn(RequiresFullKotlinReflection::class)`.
 You should try to keep your API as transparent as possible. To force the API to be transparent, use the [explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors).
 
 Kotlin gives you vast freedom in how you can write code. It is possible not to define types, omit visibility declarations, 
-or omit documentation for something. Explicit API mode forces you as a developer to make implicit things explicit. 
+or omit documentation for something. The explicit API mode forces you as a developer to make implicit things explicit. 
 By the link above, you can find out how to enable it. Let's try to understand why you might need it:
 
 1. Without an explicit API, it's easier to break backward compatibility:
@@ -413,7 +414,7 @@ class Calculator {
 
 japicmp reports the following change:
 
-<img src="japicmp-calculator-output.png" alt="Output of japicmp checking compatibility" width="500"/>
+<img src="japicmp-calculator-output.png" alt="Output of japicmp checking compatibility" width="800"/>
 
 It's just a change in the `@Metadata` annotation, which isn't very interesting, but japicmp is JVM-language agnostic and 
 has to report everything it sees.

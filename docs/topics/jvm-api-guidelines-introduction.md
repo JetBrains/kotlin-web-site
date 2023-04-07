@@ -35,7 +35,13 @@ and an easy-to-understand control flow.
 An example of high cognitive complexity:
 
 ```kotlin
-fun processData(data: List<String>, delimiter: String, ignoreCase: Boolean, sort: Boolean, maxLength: Int) {
+fun processData(
+    data: List<String>,
+    delimiter: String,
+    ignoreCase: Boolean,
+    sort: Boolean,
+    maxLength: Int
+) {
     // Some complex processing logic
 }
 ```
