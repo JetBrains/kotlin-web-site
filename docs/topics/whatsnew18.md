@@ -235,7 +235,7 @@ Previously, there was a default `dependsOn` relation between `androidAndroidTest
 * Tests declared in `commonTest` were also running as Android instrumented tests.
 
 In the new Android source set layout, the `dependsOn` relation is not added by default. If you prefer the previous behavior,
-manually declare this relation:
+manually declare this relation in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -258,7 +258,7 @@ It made them accessible by constructions like `val androidDebug by getting { ...
 In the new Android source set layout, those source sets are created in the `afterEvaluate` phase. It makes such expressions invalid,
 leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourceSet with name 'androidDebug' not found`.
 
-To work around that, use the new `invokeWhenCreated()` API:
+To work around that, use the new `invokeWhenCreated()` API in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
