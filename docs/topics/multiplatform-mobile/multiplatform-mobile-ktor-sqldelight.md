@@ -314,7 +314,7 @@ implementations of the SQLite driver, so you need to create them for each platfo
 
 Instances of these factories will be created later in the code of your Android and iOS projects.
 
-You can navigate through the `expect` declarations and `actual` realizations by clicking the handy gutter icon:
+You can navigate through the `expect` declarations and `actual` implementations by clicking the handy gutter icon:
 
 ![Expect/Actual gutter](expect-actual-gutter.png){width=500}
 
