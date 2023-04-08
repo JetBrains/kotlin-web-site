@@ -17,12 +17,6 @@ object ApiReferencesTemplateTest: BuildType({
     root(vcsRoots.KotlinLangOrg)
   }
 
-  triggers {
-    vcs {
-      branchFilter = "+:pull/*"
-    }
-  }
-
   steps {
     script {
       scriptContent = """
