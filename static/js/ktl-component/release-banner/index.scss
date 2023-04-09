@@ -1,0 +1,138 @@
+@import "@rescui/typography/lib/font-jb-sans.css";
+
+.release-banner {
+  display: block;
+  text-decoration: none;
+  background: rgb(131,58,180);
+  background:
+          radial-gradient(at 5% bottom, #5e1c24 5%, transparent 30%),
+          linear-gradient(76deg, #cd4060 3%, #d24ba3 15%, transparent 50%),
+          linear-gradient(45deg, #2E1C53, 40%, #7E50FD 70%);
+  padding: 48px 8px 16px;
+  box-sizing: border-box;
+  font-family: 'JetBrains Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid #754ceb;
+  }
+}
+
+.release-banner__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.release-banner__header-name {
+  font-size: 36px;
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+  padding: 8px 16px;
+  line-height: 1;
+  margin: 2px;
+  font-weight: 400;
+}
+
+.release-banner__desc {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.release-banner__desc-item {
+  font-size: 9px;
+  font-weight: 400;
+  color: #ffefff;
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 80px;
+  line-height: 1;
+  margin: 2px;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.release-banner__logo {
+  height: 48px;
+  width: 48px;
+  background: #ffffff;
+  clip-path: polygon(100% 0, 50% 50%, 100% 100%, 0 100%, 0 0);
+}
+
+
+@media (min-width: 374px) {
+  .release-banner__desc-item {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 808px) {
+  .release-banner {
+    padding: 80px 32px 32px;
+
+    background:
+            radial-gradient(at 5% bottom, #5e1c24 0%, transparent 30%),
+            linear-gradient(62deg, #cd4060 3%, #d24ba3 15%, transparent 40%),
+            linear-gradient(230deg, #8b41a9, 15%, transparent 30%),
+            linear-gradient(334deg, #2E1C53, 10%, #7E50FD 32%, transparent 70%),
+            linear-gradient(45deg, #341a4f 15%, #734ae7 50%);
+  }
+
+  .release-banner__desc-item {
+    font-size: 16px;
+    padding: 4px 12px;
+  }
+
+  .release-banner__logo {
+    height: 52px;
+    width: 52px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .release-banner__logo {
+    height: 66px;
+    width: 66px;
+  }
+
+  .release-banner__header-name {
+    font-size: 50px;
+  }
+
+  .release-banner__desc-item {
+    font-size: 21px;
+  }
+}
+
+@media (min-width: 1190px) {
+  .release-banner {
+    padding-top: 140px;
+    min-height: 380px;
+  }
+
+  .release-banner__logo {
+    height: 82px;
+    width: 82px;
+  }
+
+  .release-banner__header-name {
+    font-size: 62px;
+    padding: 12px 24px;
+  }
+
+  .release-banner__desc-item {
+    font-size: 24px;
+    margin: 4px;
+  }
+}
