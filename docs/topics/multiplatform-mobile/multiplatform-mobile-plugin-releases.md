@@ -39,6 +39,28 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.5.3**
+
+Released: 12 April, 2023
+
+</td>
+<td>
+
+* Updated Kotlin and Compose versions.
+* Fixed an Xcode project scheme parsing.
+* Added a scheme product type check.
+* Select 'iosApp' scheme by default if presented.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.5.2**
 
 Released: 30 January, 2023
