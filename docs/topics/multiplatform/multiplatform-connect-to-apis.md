@@ -35,7 +35,7 @@ you need to use a specific target name from [the list of supported targets](mult
 
 #### Generate a UUID {initial-collapse-state="collapsed"}
 
-Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform Mobile and you want to
+Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform and you want to
 generate a universally unique identifier (UUID):
 
 ![Expect/actual declarations for getting the UUID](expect-actual-example.png){width=700}
@@ -108,7 +108,7 @@ internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
 
 #### Send and receive messages from a WebSocket {initial-collapse-state="collapsed"}
 
-Consider developing a chat platform for iOS and Android using Kotlin Multiplatform Mobile.
+Consider developing a chat platform for iOS and Android using Kotlin Multiplatform.
 Let's see how you can implement sending and receiving messages from a WebSocket.
 
 For this purpose, define a common logic that you don't need to duplicate in all platform modules –

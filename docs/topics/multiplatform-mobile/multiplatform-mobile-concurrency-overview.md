@@ -5,7 +5,7 @@
 >
 {type="note"}
 
-When you extend your development experience from Android to Kotlin Multiplatform Mobile, you will encounter a different state 
+When you extend your development experience from Android to Kotlin Multiplatform for mobile, you will encounter a different state 
 and concurrency model for iOS. This is a Kotlin/Native model that compiles Kotlin code to native binaries that can run without a virtual machine, for example on iOS. 
 
 Having mutable memory available to multiple threads at the same time, if unrestricted, is known to be risky and prone to error. 

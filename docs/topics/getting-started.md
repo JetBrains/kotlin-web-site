@@ -77,7 +77,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 <tab id="cross-platform-mobile" title="Cross-platform mobile app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/).
+Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform](https://kotlinlang.org/lp/mobile/).
 
 1. **[Set up your environment for cross-platform mobile development](multiplatform-mobile-setup.md).**
 
@@ -101,7 +101,7 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    > 
    {type="tip"}
 
-4. **Learn more about Kotlin Multiplatform Mobile:**
+4. **Learn more about Kotlin Multiplatform for mobile:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
    * Look through [samples on GitHub](multiplatform-mobile-samples.md).
    * [Create and publish a multiplatform library](multiplatform-library.md).

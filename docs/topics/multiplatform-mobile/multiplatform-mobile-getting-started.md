@@ -2,27 +2,29 @@
 [//]: # (description: Simplify cross-platform app development with Kotlin Multiplatform. Create a single codebase
 for the business logic of your iOS and Android apps.)
 
-> Kotlin Multiplatform is in [Beta](components-stability.md). It's almost stable, but migration steps might be
-> required in the future.
->
-> * Check out our [Kotlin Multiplatform Mobile Beta](https://www.youtube.com/watch?v=CngKDGBlFxk) video
-    > to learn about the current state and future plans for the technology.
-> * You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies) are already using Kotlin for
-    > cross-platform app development in production.
+> Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
 >
 {type="note"}
 
-Kotlin Multiplatform technology simplifies the development of cross-platform projects. Kotlin applications will work on different operating systems, such as iOS, Android, macOS, Windows, Linux, watchOS, and others.
+Kotlin Multiplatform technology simplifies the development of cross-platform projects.
+The Kotlin applications will work on different operating systems like iOS, Android, macOS, Windows, Linux, watchOS, and others.
 
-One of the major Kotlin Multiplatform use cases is sharing code between mobile platforms. You can share application logic between iOS and Android apps and write platform-specific code only when you need to implement a native UI or work with platform APIs
+One of the major Kotlin Multiplatform use cases is sharing code between mobile platforms.
+You can share application logic between iOS and Android apps and write platform-specific code only when you need to implement a native UI or work with platform APIs.
+
+* Check out our [Kotlin Multiplatform Mobile Is in Beta](https://www.youtube.com/watch?v=CngKDGBlFxk) video
+  to learn about the current state and future plans for the technology.
+* You can also see how [different companies](https://kotlinlang.org/lp/mobile/case-studies) are already using Kotlin for
+  cross-platform app development in production.
+
+Get to know Kotlin Multiplatform and create a mobile app that works on both Android and iOS by completing these steps:
 
 > This tutorial describes how to share application logic between iOS and Android using Kotlin Multiplatform.
-> To learn about the full capabilities of the technology, check out these descriptions of [other use cases](https://kotlinlang.org/docs/multiplatform.html#full-stack-web-applications),
+> To learn about the full capabilities of the technology, check out [other use cases](multiplatform.md#full-stack-web-applications),
 > such as full-stack web applications or multiplatform libraries.
 >
 {type="tip"}
-
-Get to know Kotlin Multiplatform and create a mobile app that works on both Android and iOS by completing these steps:
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
 
@@ -36,7 +38,7 @@ Get to know Kotlin Multiplatform and create a mobile app that works on both Andr
 
 ## Next step
 
-Start by setting up an environment for Kotlin Multiplatform development.
+Start by setting up an environment for mobile development.
 
 **[Proceed to the next part](multiplatform-mobile-setup.md)**
 
@@ -52,4 +54,4 @@ If you want to convert your existing Android project into a cross-platform app, 
 
 * ![Slack](slack.svg){width=25}{type="joined"} **Kotlin Slack**: get an [invitation](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
 * ![Stack Overflow](stackoverflow.svg){width=25}{type="joined"} **Stack Overflow**: subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
-* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin Multiplatform Mobile](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
+* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin Multiplatform](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)

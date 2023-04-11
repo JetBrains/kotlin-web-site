@@ -1,11 +1,11 @@
 [//]: # (title: Create your first cross-platform app)
 
 <microformat>
-    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
-Here you will learn how to create and run your first Kotlin Multiplatform Mobile application using Android Studio.
+Here you will learn how to create and run your first Kotlin Multiplatform application using Android Studio.
 
 ## Create the project from a template
 
@@ -46,7 +46,7 @@ To view the full structure of your mobile multiplatform project, switch the view
 
 ![Select the Project view](select-project-view.png){width=200}  
 
-Each Kotlin Multiplatform Mobile project includes three modules:
+Each Kotlin Multiplatform project includes three modules:
 
 * _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
   between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process. The _shared_

@@ -3,13 +3,13 @@
 Once your mobile apps are ready for release, it's time to deliver them to the users by publishing them in app stores.
 Multiple stores are available for each platform. However, in this article we'll focus on the official ones:
 [Google Play Store](https://play.google.com/store) and [Apple App Store](https://www.apple.com/ios/app-store/).
-You'll learn how to prepare Kotlin Multiplatform Mobile applications for publishing, and we'll highlight
+You'll learn how to prepare Kotlin Multiplatform applications for publishing, and we'll highlight
 the parts of this process that deserve special attention.
 
 ## Android app
 
 Since [Kotlin is the main language for Android development](https://developer.android.com/kotlin),
-Kotlin Multiplatform Mobile has no obvious effect on compiling the project and building the Android app. Both the Android library produced from
+Kotlin Multiplatform has no obvious effect on compiling the project and building the Android app. Both the Android library produced from
 the shared module and the Android app itself are typical Android Gradle modules; they are no different from other Android
 libraries and apps. Thus, publishing the Android app from a Kotlin Multiplatform project is no different from the usual process described
 in the [Android developer documentation](https://developer.android.com/studio/publish).
