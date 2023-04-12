@@ -15,11 +15,11 @@ while retaining the flexibility and benefits of native programming.
 
 ### Android and iOS applications
 
-Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform Mobile,
+Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform for mobile,
 you can build cross-platform mobile applications and share common code between Android and iOS, such as business logic, connectivity,
 and more.
 
-Check out the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) and
+Check out the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) and
 [Create a multiplatform app using Ktor and SQLDelight](multiplatform-mobile-ktor-sqldelight.md) tutorials,
 where you will create applications for Android and iOS that include a module with shared code for both platforms.
 
@@ -82,7 +82,7 @@ declarations](multiplatform-connect-to-apis.md).
 
 ## Get started
 
-* Start with the [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) if you want to create iOS and Android applications with shared code
+* Begin with the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) if you want to create iOS and Android applications with shared code
 * Look through [sharing code principles and examples](multiplatform-share-on-platforms.md) if you want to create applications or libraries targeting other platforms
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
@@ -93,7 +93,7 @@ declarations](multiplatform-connect-to-apis.md).
 
 Look through cross-platform application samples to understand how Kotlin Multiplatform works:
 
-* [Kotlin Multiplatform Mobile samples](multiplatform-mobile-samples.md)
+* [Kotlin Multiplatform for mobile samples](multiplatform-mobile-samples.md)
 * [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
 * [KotlinConf Spinner app](https://github.com/jetbrains/kotlinconf-spinner)
 * [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md)

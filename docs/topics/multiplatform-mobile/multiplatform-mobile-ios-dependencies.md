@@ -10,7 +10,7 @@ the `@objc` attribute. Pure Swift dependencies are not yet supported.
 Integration with the CocoaPods dependency manager is also supported with the same limitation – you cannot use pure Swift
 pods.
 
-We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform Mobile projects.
+We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform projects.
 [Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you
 have some other strong reason to do so.
 

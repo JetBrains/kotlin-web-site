@@ -1,6 +1,6 @@
 [//]: # (title: Understand mobile project structure)
 
-The purpose of the Kotlin Multiplatform Mobile technology is unifying the development of applications with common 
+The purpose of the Kotlin Multiplatform technology is unifying the development of applications with common 
 logic for Android and iOS platforms. To make this possible, it uses a mobile-specific structure of
 [Kotlin Multiplatform](multiplatform.md) projects.
 

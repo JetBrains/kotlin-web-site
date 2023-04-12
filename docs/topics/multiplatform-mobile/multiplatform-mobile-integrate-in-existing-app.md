@@ -6,7 +6,7 @@ You'll be able to write code and test it for both Android and iOS only once, in 
 This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen
 for entering a username and password. The credentials are validated and saved to an in-memory database.
 
-> If you aren't familiar with Kotlin Multiplatform Mobile, learn how to [set up environment and create a cross-platform application from scratch](multiplatform-mobile-getting-started.md)
+> If you aren't familiar with Kotlin Multiplatform for mobile, learn how to [set up environment and create a cross-platform application from scratch](multiplatform-mobile-getting-started.md)
 > first.
 > 
 {type="tip"}
@@ -63,7 +63,7 @@ Your future iOS application will use the same logic, so you should make it cross
 ### Create a shared module for cross-platform code
 
 The cross-platform code that is used for both iOS and Android _is stored_ in the shared module.
-The Kotlin Multiplatform Mobile plugin provides a special wizard for creating such modules.
+The Kotlin Multiplatform plugin provides a special wizard for creating such modules.
 
 In your Android project, create a Kotlin Multiplatform shared module for your cross-platform code. Later you'll connect
 it to your existing Android application and your future iOS application.
