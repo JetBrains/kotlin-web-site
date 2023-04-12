@@ -914,7 +914,7 @@ A better alternative would be to create an `external interface` that specifies w
 props for this external component. You can learn about the props' interface in the [README](https://www.npmjs.com/package/react-player)
 for the component. In this case, use the `url` and `controls` props:
 
-1. Adjust the content of `ReactPlayer.kt` accordingly:
+1. Adjust the content of `ReactYouTube.kt` accordingly:
 
    ```kotlin
    @file:JsModule("react-player")
@@ -1079,7 +1079,7 @@ these types of conversions from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "%kotlinVersion%"
+       kotlin("plugin.serialization") version "1.7.10"
    }
    
    dependencies {
