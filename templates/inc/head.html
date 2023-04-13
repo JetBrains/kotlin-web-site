@@ -38,6 +38,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     else
 %}{{ og_image }}{% endif %}"/>
 
+{% if metaDescription %}
+  <meta name="description" content="{{ metaDescription }}">
+{% endif %}
+
 <meta property="og:description" content="{% if page and page.description %}{{page.description}}{% endif %}">
 <meta property="og:site_name" content="Kotlin"/>
 
