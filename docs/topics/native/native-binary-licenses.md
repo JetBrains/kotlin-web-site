@@ -1,8 +1,8 @@
 [//]: # (title: License files for the Kotlin/Native binaries)
 
-Like many other open-source projects, Kotlin relies on third-party work. This means that the Kotlin project also
-includes the code developed not by JetBrains s.r.o. or the Kotlin programming language contributors. Sometimes it is not
-the exact code but derived work, such as the code rewritten from C++ to Kotlin.
+Like many other open-source projects, Kotlin relies on third-party code, meaning that the Kotlin project includes some code
+not developed by JetBrains or the Kotlin programming language contributors.
+Sometimes it is derived work, such as code rewritten from C++ to Kotlin.
 
 >  You can find licenses for the third-party work used in Kotlin in our GitHub repository:
 >
@@ -12,11 +12,10 @@ the exact code but derived work, such as the code rewritten from C++ to Kotlin.
 {type="note"}
 
 In particular, the Kotlin/Native compiler produces binaries that can include third-party code, data, or derived work.
-This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the corresponding
-licenses.
+This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the third-party licenses.
 
 In practice, if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
-you should always include necessary license files into your binary distribution. The files should be accessible
+you should always include necessary license files in your binary distribution. The files should be accessible
 to users of your distribution in a readable form.
 
 Always include the following license files for the corresponding projects:
@@ -61,7 +60,7 @@ Always include the following license files for the corresponding projects:
    </tr>
 </table>
 
-Specific targets additionally require the following license files:
+Specific targets require additional license files:
 
 | Project                                                               | Targets  | Files to be included                                                                                                                                                                                                                                                                                                              | 
 |-----------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
