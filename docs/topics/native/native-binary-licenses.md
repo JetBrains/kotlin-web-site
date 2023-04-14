@@ -4,7 +4,7 @@ Like many other open-source projects, Kotlin relies on third-party code, meaning
 not developed by JetBrains or the Kotlin programming language contributors.
 Sometimes it is derived work, such as code rewritten from C++ to Kotlin.
 
->  You can find licenses for the third-party work used in Kotlin in our GitHub repository
+>  You can find licenses for the third-party work used in Kotlin in our GitHub repository:
 >
 > * [Kotlin compiler](https://github.com/JetBrains/kotlin/tree/master/license/third_party)
 > * [Kotlin/Native](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/licenses/third_party)
