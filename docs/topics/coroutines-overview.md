@@ -17,8 +17,8 @@ New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
 ### Documentation
 
 - [Coroutines guide](coroutines-guide.md)
-- [Basics](coroutines-basics.md)
-- [Channels](channels.md)
+- [Basics](coroutines-basics.md){origin="coroutines"}
+- [Channels](channels.md){origin="coroutines"}
 - [Coroutine context and dispatchers](coroutine-context-and-dispatchers.md)
 - [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md)
 - [Asynchronous flow](flow.md)
