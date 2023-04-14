@@ -30,7 +30,7 @@ concepts behind React may help you understand some sample code, but it is not st
    ```kotlin
    dependencies {
        // React, React DOM + Wrappers
-       implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.354"))
+       implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:1.0.0-pre.430"))
        implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
        implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
    
@@ -38,14 +38,14 @@ concepts behind React may help you understand some sample code, but it is not st
        implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion")
    
        // Video Player
-       implementation(npm("react-player", "2.10.1"))
+       implementation(npm("react-player", "2.12.0"))
    
        // Share Buttons
-       implementation(npm("react-share", "4.4.0"))
+       implementation(npm("react-share", "4.4.1"))
    
        // Coroutines & serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+       implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
    }
    ```
 
@@ -877,7 +877,7 @@ in GitHub.
    dependencies {
        // ...
        // Video Player
-       implementation(npm("react-player", "2.10.1"))
+       implementation(npm("react-player", "2.12.0"))
        // ...
    }
    ```
@@ -952,7 +952,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
    dependencies {
        // ...
        // Share Buttons
-       implementation(npm("react-share", "4.4.0"))
+       implementation(npm("react-share", "4.4.1"))
        // ...
    }
    ```
@@ -1062,7 +1062,7 @@ Check the `build.gradle.kts` file. The relevant snippet should already exist:
 dependencies {
     // . . .
     // Coroutines & serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }
 ```
 
@@ -1079,13 +1079,13 @@ these types of conversions from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "1.7.10"
+       kotlin("plugin.serialization") version "1.8.20"
    }
    
    dependencies {
        // . . .
        // Serialization
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
    }
    ```
 
