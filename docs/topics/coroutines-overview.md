@@ -19,16 +19,16 @@ New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
 - [Coroutines guide](coroutines-guide.md)
 - [Basics](coroutines-basics.md){origin="coroutines"}
 - [Channels](channels.md){origin="coroutines"}
-- [Coroutine context and dispatchers](coroutine-context-and-dispatchers.md)
-- [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md)
+- [Coroutine context and dispatchers](coroutine-context-and-dispatchers.md){origin="coroutines"}
+- [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md){origin="coroutines"}
 - [Asynchronous flow](flow.md)
 
 ### Tutorials
 
 - [Asynchronous programming techniques](async-programming.md)
 - [Introduction to coroutines and channels](coroutines-and-channels.md)
-- [Debug coroutines using IntelliJ IDEA](debug-coroutines-with-idea.md)
-- [Debug Kotlin Flow using IntelliJ IDEA – tutorial](debug-flow-with-idea.md)
+- [Debug coroutines using IntelliJ IDEA](debug-coroutines-with-idea.md){origin="coroutines"}
+- [Debug Kotlin Flow using IntelliJ IDEA – tutorial](debug-flow-with-idea.md){origin="coroutines"}
 - [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test)
 
 ## Sample projects

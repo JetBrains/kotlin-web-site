@@ -722,7 +722,7 @@ The `kotlin-test` library now has the following features:
 
 * **`assertTrue()`, `assertFalse()`, `expect()` functions are now inline**
 
-  From now on, you can use these as inline functions, so it's possible to call [suspend functions](composing-suspending-functions.md) inside a lambda expression:
+  From now on, you can use these as inline functions, so it's possible to call [suspend functions](composing-suspending-functions.md){origin="coroutines"} inside a lambda expression:
 
   ```kotlin
   @Test

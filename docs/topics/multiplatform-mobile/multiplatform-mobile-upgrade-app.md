@@ -357,7 +357,7 @@ In the final part of the tutorial, you'll wrap up your project and see what step
 
 ### See also
 
-* Explore various approaches to [composition of suspending functions](composing-suspending-functions.md).
+* Explore various approaches to [composition of suspending functions](composing-suspending-functions.md){origin="coroutines"}.
 * Learn more about the [interoperability with Objective-C frameworks and libraries](native-objc-interop.md).
 * Complete this tutorial on [networking and data storage](multiplatform-mobile-ktor-sqldelight.md).
 
