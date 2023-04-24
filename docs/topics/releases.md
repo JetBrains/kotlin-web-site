@@ -54,6 +54,17 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.8.21</strong>
+            <p>Released: <strong>April 25, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.8.20.</p>
+            <p>Learn more about Kotlin 1.8.20 in <a href="whatsnew1820.md" target="_blank">What's new in Kotlin 1.8.20</a>.</p>
+            <note>For Android Studio Flamingo and Giraffe, the Kotlin plugin 1.8.21 will be delivered with upcoming Android Studios updates.</note>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.8.20</strong>
             <p>Released: <strong>April 3, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20" target="_blank">Release on GitHub</a></p>
