@@ -27,7 +27,7 @@ Always include the following license files for the corresponding projects:
    </tr>
    <tr>
         <td><a href="https://kotlinlang.org/">Kotlin</a></td>
-        <td rowspan="3">
+        <td rowspan="4">
          <list>
             <li><a href="https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt">Apache license 2.0</a></li>
             <li><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/harmony_NOTICE.txt">Apache Harmony copyright notice</a></li>
@@ -51,7 +51,7 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://github.com/microsoft/mimalloc">mimalloc</a></td>
         <td>
           <p><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mimalloc_LICENSE.txt">MIT license</a></p>
-          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set). For more information on allocators, see <a xref="native-memory-manager.md">Kotlin/Native memory management</a></p>
+          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set). For more information on allocators, see <a href="native-memory-manager.md">Kotlin/Native memory management</a></p>
         </td>
    </tr>
    <tr>
