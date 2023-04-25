@@ -211,7 +211,7 @@ Since Kotlin 1.6.20, the hierarchical project structure support has been enabled
 were kept for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out
 those properties completely.
 
-The following properties are now deprecated and will be removed in Kotlin 1.9.0:
+The following properties are now deprecated and will be removed in Kotlin 1.9.20:
 
 * `kotlin.internal.mpp.hierarchicalStructureByDefault`
 * `kotlin.mpp.enableCompatibilityMetadataVariant`
