@@ -271,3 +271,65 @@ to help the ecosystem migrate, so if you face any issues, don't hesitate to crea
 * Kotlin 1.9.0: warning on using legacy dependencies
 * Kotlin 1.9.20: error on using legacy dependencies
 * Kotlin >1.9.20: support for legacy dependencies is dropped, depending on such libraries might cause build failures
+
+<anchor name="compilation-source-deprecation"></anchor>
+## Deprecated API for adding Kotlin Source Sets to Kotlin Compilation directly
+
+**What's changed?**
+
+Access to `KotlinCompilation.source` has been deprecated. Code like this will provoke a deprecation warning:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+    
+    sourceSets {
+        val commonMain by getting 
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+        
+        targets["jvm"].compilations["main"].source(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**What's the best practice now?**
+
+For all intents and purposes, `KotlinCompilation.source(someSourceSet)` is equivalent to adding a `dependsOn` to 
+`someSourceSet` from the default source set of the `KotlinCompilation`. In the general case, the replacement is 
+`KotlinCompilation.defaultSourceSet.dependsOn(someSourceSet)`, but often it is more readable to refer to that source set
+directly via `by getting`.
+
+Example with the code above:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+
+    sourceSets {
+        val commonMain by getting
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+
+        // Option #1: shorter and more readable, prefer it where possible
+        val jvmMain by getting {  // Usually, the name of the default source set 
+                                  // is a simple concatenation of target name + compilation name
+            dependsOn(myCustomIntermediateSourceSet)
+        }
+        
+        // Option #2: generic solution, use it if your buildscript calls for a more advanced approach
+        targets["jvm"].compilations["main"].defaultSourceSet.dependsOn(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**When do the changes take effect?**
+
+In 1.9, using `KotlinComplation.source` will provoke a deprecation warning.
+In Kotlin >1.9.20 this API will be removed, leading to "unresolved reference" errors on `KotlinCompilation.source`-calls
