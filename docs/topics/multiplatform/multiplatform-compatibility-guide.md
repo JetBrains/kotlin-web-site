@@ -333,3 +333,148 @@ kotlin {
 
 In 1.9, using `KotlinComplation.source` will provoke a deprecation warning.
 In Kotlin >1.9.20 this API will be removed, leading to "unresolved reference" errors on `KotlinCompilation.source`-calls
+
+<anchor name="kotlin-js-plugin-deprecation"></anchor>
+## Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin
+
+**What's changed?**
+
+`kotlin-js`-Gradle plugin essentially duplicated the functionality of a `kotlin-multiplatform` plugin with a `js()`-target
+and shared the same implementation under the hood. Such overlap created confusion and increased maintenance 
+load on the Kotlin Team. Therefore, since Kotlin 1.9, applying a `kotlin-js` Gradle Plugin will trigger a 
+deprecation warning. Users are encouraged to migrate to `kotlin-multiplatform` Gradle Plugin with a `js()` target.
+
+**What's the best practice now?**
+
+1. You need to remove the application of a `kotlin-js` Gradle plugin and apply `kotlin-multiplatform`. Here's an 
+example of how to do it if you're using `pluginManagement`-block in `settings.gradle.kts`
+
+<table header-style="top">
+<tr>
+    <td>Before</td>
+    <td>Now</td>
+</tr>
+<tr>
+
+<td>
+
+```kotlin
+// settings.gradle.kts
+pluginManagement {
+    plugins {
+        // Remove the following line
+        kotlin("js") version "1.9.0"
+    }
+    
+    repositories {
+        // ...
+    }
+}
+```
+
+</td>
+
+<td>
+
+```kotlin
+// settings.gradle.kts
+pluginManagement {
+    plugins {
+        // Put this line instead
+        kotlin("multiplatform") version "1.9.0"
+    }
+    
+    repositories {
+        // ...
+    }
+}
+```
+
+</td>
+</tr>
+</table>
+
+In case you're using a different way of applying plugins, refer to [the Gradle Documentation](https://docs.gradle.org/current/userguide/plugins.html)
+
+2. Move your source files from `main`/`test` folder to `jsMain`/`jsTest` folder in the same directory
+
+3. Adjust dependencies declaration:
+
+We recommend using `sourceSets`-block and configure dependencies of respective source set: `jsMain` for
+production dependencies, `jsTest` for test dependencies. See the example below and refer for details to the Kotlin 
+Multiplatform Plugin [documentation](https://kotlinlang.org/docs/multiplatform-add-dependencies.html)
+
+If you'd like to keep your dependencies declared in a top-level block:   
+
+`api("group:artifact:1.0")` -> `add("jsMainApi", "group:artifact:1.0")`
+
+Note that in this case, you have to make sure that the top-level `dependencies`-block comes **after** `kotlin`-block,
+otherwise you'll get an error like this: `Configuration with name 'jsMainApi' not found.`
+
+<table header-style="top">
+<tr>
+    <td>Before</td>
+    <td>Now</td>
+</tr>
+<tr>
+
+<td>
+
+```kotlin
+// build.gradle.kts
+plugins {
+    kotlin("js") version "1.9.0"
+}
+
+dependencies {
+    testImplementation(kotlin("test"))
+    implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+}
+
+kotlin {
+    js {
+        // ...
+    }
+}
+```
+
+</td>
+
+<td>
+
+```kotlin
+// build.gradle.kts
+plugins {
+    kotlin("multiplatform") version "1.9.0"
+}
+
+kotlin {
+    js {
+        // ...
+    }
+    
+    // Option #1: declare dependencies in sourceSets-block:
+    sourceSets {
+        val jsMain by getting {
+            dependencies {
+                // no need for 'js'-prefix here, you can do the plain copy-paste from top-level block
+                implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+            }
+        }
+    }
+}
+
+dependencies {
+   // Option #2: keep the top-level dependencies block
+   add("jsTestImplementation", kotlin("test"))
+}
+```
+
+</td>
+</tr>
+</table>
+
+4. The DSL provided by Kotlin Gradle Plugin inside `kotlin`-block remains unchanged for most cases. However if you
+were referring to low-level Gradle entities (tasks, configurations) by names, you have to adjust the names, usually
+by adding `js`-prefix
+    * Example: `browserTest`-task can be found under name `jsBrowserTest`
