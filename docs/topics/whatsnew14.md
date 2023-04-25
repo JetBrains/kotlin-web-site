@@ -1,4 +1,4 @@
-[//]: # (title: What's new in Kotlin 1.4)
+[//]: # (title: What's new in Kotlin 1.4.0)
 
 _[Release date: 17 August 2020](releases.md#release-details)_
 
