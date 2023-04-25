@@ -237,3 +237,37 @@ In 1.8.20, the Kotlin Gradle plugin shows a warning if the build sets these prop
 the properties are silently ignored.
 
 In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotlin.in/issue).
+
+<anchor name="deprecate-pre-hmpp-dependencies"></anchor>
+## Deprecated support of multiplatform libraries published in a legacy mode
+
+**What's changed?**
+
+[Previously](#deprecated-gradle-properties-for-hierarchical-structure-support), Kotlin Multiplatform deprecated 
+a legacy mode of Multiplatform Projects support, encouraging everyone to migrate to the so-called "hierarchical support" mode,
+thus preventing "legacy" binaries from being published. 
+
+In Kotlin 1.9.20 we're continuing to phase out "legacy" binaries from the ecosystem, now preventing the use "usage" of
+the "legacy" libraries. If your project uses a dependency that was published in a legacy mode, the following warning
+will be issued:
+
+```
+The dependency group:artifact:1.0 was published in the legacy mode. Support for such dependencies will be removed in the future
+```
+
+**What's the best practice now?**
+
+_If you're a consumer of libraries_: most of the libraries already migrated to the "hierarchical support" mode, so chances are high you just have to bump
+the used version. Please refer to the documentation of a respective library for details.   
+
+If the library doesn't publish non-legacy binaries yet, you're encouraged to reach the maintainers and point them to the present document.
+
+_If you're a library author_: update to the latest Kotlin Gradle Plugin and ensure you've fixed deprecations outlined 
+in the previous [section](#deprecated-gradle-properties-for-hierarchical-structure-support) sections. Kotlin Team is eager
+to help the ecosystem migrate, so if you face any issues, don't hesitate to create an [issue in YouTrack](https://kotl.in/issue).
+
+**When do the changes take effect?**
+
+* Kotlin 1.9.0: warning on using legacy dependencies
+* Kotlin 1.9.20: error on using legacy dependencies
+* Kotlin >1.9.20: support for legacy dependencies is dropped, depending on such libraries might cause build failures
