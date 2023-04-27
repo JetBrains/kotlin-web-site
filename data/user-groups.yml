@@ -521,6 +521,12 @@
     position:
       lat: 23.1259819
       lng: 112.9476493
+  - name: Guizhou KUG
+    country: China Mainland
+    url: https://juejin.cn/user/2946346893987704/
+    position:
+      lat: 26.8243622
+      lng: 104.7609243
   - name: Hefei KUG
     country: China Mainland
     url: https://weibo.com/kotlinhfug
