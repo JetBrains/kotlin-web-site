@@ -9,7 +9,9 @@ Share application logic while keeping native user experience.)
 
 The Kotlin Multiplatform technology is designed to simplify the development of cross-platform projects. It reduces time
 spent writing and maintaining the same code for [different platforms](#kotlin-multiplatform-use-cases)
-while retaining the flexibility and benefits of native programming. 
+while retaining the flexibility and benefits of native programming.
+
+![Kotlin Multiplatform](kotlin-multiplatform.svg){width=700}
 
 ## Kotlin Multiplatform use cases
 
@@ -22,10 +24,10 @@ and more.
 Thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a Kotlin-based declarative UI framework developed by JetBrains, you 
 can also share UIs across Android and iOS to create fully cross-platform apps.
 
+![Sharing different levels and UI](multiplatform+compose.svg){width=500}
+
 Check out the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) and [Get started with Compose for iOS](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme) tutorials,
 where you will create applications for Android and iOS with shared code for both platforms.
-
-![Sharing different levels and UI](multiplatform+compose.svg){width=500}
 
 ### Multiplatform libraries
 
@@ -37,8 +39,6 @@ See the [Create and publish a multiplatform library](multiplatform-library.md) t
 a multiplatform library, test it, and publish it to Maven.
 
 ## Code sharing between platforms
-
-![Kotlin Multiplatform](kotlin-multiplatform.svg){width=700}
 
 Kotlin Multiplatform enables you to maintain a single codebase for networking, data storage and data validation, analytics, 
 computations, and other application logic.
