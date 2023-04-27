@@ -17,13 +17,15 @@ while retaining the flexibility and benefits of native programming.
 
 Sharing code between mobile platforms is one of the major Kotlin Multiplatform use cases. With Kotlin Multiplatform for mobile,
 you can build cross-platform mobile applications and share common code between Android and iOS, such as business logic, connectivity,
-and more. Thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), which a Kotlin-based declarative UI framework developed by JetBrains, you 
+and more. 
+
+Thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), which a Kotlin-based declarative UI framework developed by JetBrains, you 
 can also share UIs across Android and iOS and get fully cross-platform apps.
 
 Check out the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) and [Get started with Compose for iOS](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme) tutorials,
 where you will create applications for Android and iOS with shared code for both platforms.
 
-![Sharing different levels and UI](multiplatform-sharing.png){width=700}
+![Sharing different levels and UI](multiplatform+compose.svg){width=500}
 
 ### Multiplatform libraries
 
@@ -67,5 +69,5 @@ declarations](multiplatform-connect-to-apis.md).
 Look through cross-platform application samples to understand how Kotlin Multiplatform works:
 
 * [Kotlin Multiplatform for mobile samples](multiplatform-mobile-samples.md)
-* [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
+* [Compose Multiplatform samples](https://github.com/JetBrains/compose-multiplatform/blob/master/examples/README.md)
 
