@@ -404,6 +404,12 @@
     position:
       lat: 52.2296756
       lng: 21.0122287
+  - name: Vilnius KUG
+    country: Lithuania
+    url: https://vilniuskug.netlify.app/
+    position:
+      lat: 54.687157
+      lng: 25.279652
 - section: Asia
   anchorId: asia
   groups:
