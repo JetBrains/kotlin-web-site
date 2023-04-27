@@ -159,11 +159,13 @@ println(files?.size) // size is printed if files is not null
 ```kotlin
 val files = File("Test").listFiles()
 
+// For easy fallback values:
 println(files?.size ?: "empty") // if files is null, this prints "empty"
 
-// To calculate the fallback value in a code block, use `run`
+// To calculate a more complicated fallback value in a code block, use `run`
 val filesSize = files?.size ?: run { 
-    return someSize 
+    val someSize = getSomeSize()
+    someSize * 2
 }
 println(filesSize)
 ```
