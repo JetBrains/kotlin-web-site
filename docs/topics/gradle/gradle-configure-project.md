@@ -46,7 +46,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 | 1.8.0          | 6.8.3 – 7.3.3                            | 4.1.3 – 7.2.1                                         |   
 | 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
 
-> Latest Gradle and AGP versions should generally work without issues.
+> You can also use Gradle and AGP versions up to the latest releases, but if you do, keep in mind that you might encounter 
+> deprecation warnings or some new features might not work.
 >
 {type="note"}
 
@@ -293,6 +294,33 @@ java {
 
 </tab>
 </tabs>
+
+If you use Gradle 8.0.2 or higher, you also need to add a [toolchain resolver plugin](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories). 
+Such a plugin manages from which repositories to download a toolchain. Add to your `settings.gradle(.kts)`, for example, 
+the following plugin:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+  id("org.gradle.toolchains.foojay-resolver-convention") version("0.4.0")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.gradle.toolchains.foojay-resolver-convention' version '0.4.0'
+}
+```
+
+</tab>
+</tabs>
+
+Check a version of `foojay-resolver-convention` corresponding to your Gradle version on the [Gradle site](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories).
 
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
