@@ -184,10 +184,11 @@ plugins {
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals 
 a current Gradle's JDK version, which is equal to your JDK version (unless you use 
-a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is `11`. 
-Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
-with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use Java 11 in your main project to add 
-this library, although the bytecode's version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is 
+`%jvmLTSVersionSupportedByKotlin%`. Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
+with JDK %jvmLTSVersionSupportedByKotlin%+: `org.gradle.jvm.version=%jvmLTSVersionSupportedByKotlin%`, which is wrong. 
+You will have to use Java %jvmLTSVersionSupportedByKotlin% in your main project to add this library, although the bytecode's 
+version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 to solve this issue.
 
 ### Gradle Java toolchains support
