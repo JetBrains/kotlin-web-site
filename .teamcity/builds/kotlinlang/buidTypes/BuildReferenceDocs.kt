@@ -8,7 +8,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object BuildReferenceDocs : BuildType({
   name = "Reference Docs"
-  description = "Build API reference pages https://kotlinlang.org/docs/"
+  description = "Build documentation pages https://kotlinlang.org/docs/"
 
   artifactRules = """
       +:images => docs.zip!images

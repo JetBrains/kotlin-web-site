@@ -9,6 +9,7 @@ import builds.apiReferences.kotlinx.datetime.KotlinxDatetimePrepareDokkaTemplate
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildSearchIndex
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationPrepareDokkaTemplates
+import builds.apiReferences.stdlib.BuildStdlibApiReference
 import builds.apiReferences.stdlib.StdlibPrepareDokkaTemplates
 import builds.apiReferences.templates.BuildApiReference
 import builds.apiReferences.templates.BuildApiReferenceSearchIndex
@@ -34,6 +35,7 @@ object BuildApiReferencesProject : Project({
   buildType(KotlinxCoroutinesBuildSearchIndex)
   buildType(KotlinxCoroutinesPrepareDokkaTemplates)
 
+  buildType(BuildStdlibApiReference)
   buildType(StdlibPrepareDokkaTemplates)
 
   vcsRoot(KotlinxSerialization)
