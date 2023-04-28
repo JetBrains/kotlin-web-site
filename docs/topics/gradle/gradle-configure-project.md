@@ -433,6 +433,9 @@ tasks.named("compileJava", JavaCompile.class) {
 </tabs>
 
 > Put `module-info.java` into the `src/main/java` directory as usual.
+> 
+> For a module, a package name in Kotlin files should be equal to the package name from `module-info.java` to avoid a 
+> "package is empty or does not exist" build failure. 
 >
 {type="note"}
 
