@@ -386,9 +386,9 @@ integrationTestCompilation {
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
 
-### Configure with Java JPMS enabled
+### Configure with Java Modules (JPMS) enabled
 
-To make the Kotlin Gradle plugin work with [JPMS](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
+To make the Kotlin Gradle plugin work with [Java Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
 add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your module, for example, 
 `org.company.module`:
 
