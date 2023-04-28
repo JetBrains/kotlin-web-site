@@ -389,21 +389,25 @@ objects from functional tests.
 ### Configure with Java JPMS enabled
 
 To make the Kotlin Gradle plugin work with [JPMS](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
-add the following lines to your build script and replace `YOUR_MODULE_NAME` with the name of your module:
+add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your module, for example, 
+`org.company.module`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
         
 ```kotlin
-tasks.named("compileJava", JavaCompile::class.java) {
-    options.compilerArgumentProviders.add(CommandLineArgumentProvider {
-        listOf( 
-            // Workaround to add classpath into modules for Java compilation so automatic modules can work
-            "--module-path", classpath.asPath,
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath.set(true)
+}
+
+tasks {
+    named("compileJava", JavaCompile::class.java) {
+        options.compilerArgumentProviders.add(CommandLineArgumentProvider {
             // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
-            "--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}"
-        )
-    })
+            listOf("--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}")
+        })
+    }
 }
 ```
 
@@ -411,11 +415,19 @@ tasks.named("compileJava", JavaCompile::class.java) {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.compileJava {
-    // Workaround to add classpath into modules for Java compilation so automatic modules can work
-    options.compilerArgs.add("--module-path=classpath.asPath")
-    // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
-    options.compilerArgs.add("--patch-module=YOUR_MODULE_NAME=${sourceSets.main.output.asPath}")
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath = true
+}
+
+tasks.named("compileJava", JavaCompile.class) {
+    options.compilerArgumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+            return ["--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}"]
+        }
+    })
 }
 ```
 
