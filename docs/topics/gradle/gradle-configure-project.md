@@ -389,7 +389,7 @@ objects from functional tests.
 ### Configure with Java Modules (JPMS) enabled
 
 To make the Kotlin Gradle plugin work with [Java Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
-add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your module, for example, 
+add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your JPMS module, for example, 
 `org.company.module`:
 
 <tabs group="build-script">
