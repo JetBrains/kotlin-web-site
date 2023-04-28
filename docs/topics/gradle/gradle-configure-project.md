@@ -421,6 +421,8 @@ objects from functional tests.
 
 ### Other details
 
+Learn more about [Kotlin/JVM](jvm-get-started.md).
+
 #### Lazy Kotlin/JVM task creation
 
 Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all tasks and doesn't configure them on a dry run.
@@ -467,6 +469,9 @@ plugins {
 
 </tab>
 </tabs>
+
+Learn more about [Kotlin Multiplatform for different platforms](multiplatform-get-started.md) and 
+[Kotlin Multiplatform for iOS and Android](multiplatform-mobile-getting-started.md).
 
 ## Targeting Android
 
