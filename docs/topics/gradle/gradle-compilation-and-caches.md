@@ -142,9 +142,6 @@ the build outputs for reuse in future builds.
 To disable caching for all Kotlin tasks, set the system property `kotlin.caching.enabled` to `false`
 (run the build with the argument `-Dkotlin.caching.enabled=false`).
 
-If you use [kapt](kapt.md), note that kapt annotation processing tasks are not cached by default. However, you can
-[enable caching for them manually](kapt.md#gradle-build-cache-support).
-
 ## Gradle configuration cache support
 
 > Gradle configuration cache support has some constraints:
