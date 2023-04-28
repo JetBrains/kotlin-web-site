@@ -426,6 +426,11 @@ tasks.compileJava {
 >
 {type="note"}
 
+Learn more about:
+* [Building modules for the Java Module System](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular)
+* [Building applications using the Java Module System](https://docs.gradle.org/current/userguide/application_plugin.html#sec:application_modular)
+* [What "module" means in Kotlin](visibility-modifiers.md#modules)
+
 ### Other details
 
 #### Lazy Kotlin/JVM task creation
