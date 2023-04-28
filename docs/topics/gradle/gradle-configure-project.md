@@ -249,7 +249,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(8)
+    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
 }
 ```
 
@@ -264,7 +264,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(8)
+    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
 }
 ```
 
