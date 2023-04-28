@@ -950,9 +950,9 @@ see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix
 
 ### Set a dependency on a kotlinx library
 
-If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants
-of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library's
-base artifact name instead – `kotlinx-coroutines-core`.
+If you use a [kotlinx library](https://github.com/Kotlin/kotlinx.coroutines) and need a platform-specific dependency, 
+you can use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for example, 
+`kotlinx-coroutines-core-jvm`. You can also use the library's base artifact name instead – `kotlinx-coroutines-core`.
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
