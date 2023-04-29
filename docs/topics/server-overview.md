@@ -20,6 +20,8 @@ maintaining full compatibility with existing Java-based technology stacks, all w
 * [Spring](https://spring.io) makes use of Kotlin's language features to offer [more concise APIs](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0),
   starting with version 5.0. The [online project generator](https://start.spring.io/#!language=kotlin) allows you to quickly generate a new project in Kotlin.
 
+* [Quarkus](https://quarkus.io/guides/kotlin) provides first class support for using Kotlin. The framework is open source and maintained by Red Hat. Quarkus was built from the ground up for   Kubernetesand provides a cohesive, fun to use, full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries. 
+
 * [Vert.x](https://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
   for Kotlin, including [full documentation](https://vertx.io/docs/vertx-core/kotlin/).
 
