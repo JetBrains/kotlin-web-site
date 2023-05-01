@@ -50,7 +50,7 @@ object BuildReferenceDocs : BuildType({
       }
     }
     artifacts(BuildWebHelpFrontend) {
-      buildRule = lastPinned("+:*")
+      buildRule = lastSuccessful("ktl-1073-collapsible-icon")
       cleanDestination = true
       artifactRules = "+:static.zip!** => static/v3"
     }
