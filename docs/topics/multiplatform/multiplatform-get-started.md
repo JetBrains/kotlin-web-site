@@ -13,19 +13,16 @@ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
 
 ## Start from scratch
 
-* [Create and publish a multiplatform library](multiplatform-library.md) teaches how to create a multiplatform 
-library available for JVM, JS, and Native and which can be used from any other common code (for example, shared with 
-Android and iOS). It also shows how to write tests which will be executed on all platforms and use an efficient implementation
+* [Create and publish a multiplatform library](multiplatform-library.md): This tutorial teaches how to create a multiplatform 
+library available for the JVM, web, and native platforms, which can be used from any other common code (for example, shared with 
+Android and iOS). It also demonstrates how to write tests that will be executed on all platforms and use an efficient implementation
  provided by a specific platform.
 
-* [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md) 
-  teaches the concepts behind building an application that targets Kotlin/JVM and Kotlin/JS by building a client-server 
-  application that makes use of shared code, serialization, and other multiplatform paradigms. It also provides a brief
-  introduction to working with Ktor both as a server- and client-side framework.
-
-* [Create your first cross-platform app](multiplatform-mobile-create-first-app.md) shows how to create a mobile
+* [Create your first cross-platform app](multiplatform-mobile-create-first-app.md): This tutorial shows how to create a mobile
   application that works on Android and iOS with the help of the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
-  Create, run, and test your first multiplatform mobile application.
+  Learn how to create, run, and test your first multiplatform mobile application.
+
+* [Share UIs between iOS and Android using Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme): This tutorial shows how to create a Kotlin Multiplatform application that uses the [Compose Multiplatform UI framework](https://www.jetbrains.com/lp/compose-multiplatform/) for sharing UIs between iOS and Android.
 
 ## Dive deep into Kotlin Multiplatform
 
