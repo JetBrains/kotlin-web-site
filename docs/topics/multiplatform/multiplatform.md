@@ -38,6 +38,21 @@ as a dependency in other cross-platform projects.
 See the [Create and publish a multiplatform library](multiplatform-library.md) tutorial, where you will create
 a multiplatform library, test it, and publish it to Maven.
 
+### Desktop applications
+
+Compose Multiplatform enables sharing UIs across desktop platforms – Windows, macOS, and Linux. Many applications, including 
+[JetBrains Toolbox app](https://www.jetbrains.com/toolbox-app/), have already adopted this approach. 
+
+Here is what Victor Kropp, the Toolbox Team Lead, says:
+
+> After transitioning our desktop application to 100% Kotlin, we noticed improved productivity within our team.
+>
+> Using a single language means that every developer can make a feature from start to finish without switching contexts. 
+> It is faster, less error prone, and improves knowledge sharing among developers. 
+> The entire application also uses the same representation for data in memory, eliminating the need for extra (de)serialization steps.
+
+Learn more about the [Compose Multiplatform for Desktop Toolbox case](https://blog.jetbrains.com/kotlin/2021/12/compose-multiplatform-toolbox-case-study/).
+
 ## Code sharing between platforms
 
 Kotlin Multiplatform enables you to maintain a single codebase for application logic while keeping advantages of native 
