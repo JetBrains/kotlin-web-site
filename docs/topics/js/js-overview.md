@@ -112,18 +112,6 @@ over the rendering of arbitrary UI elements, vector shapes, gradients, and custo
 For updates and discussions about the framework, join the [#doodle](https://kotlinlang.slack.com/messages/doodle) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
-### Compose for Web
-
-_Compose for Web_, a part of Compose Multiplatform, brings [Google's Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose)
-to your browser. It allows you to build reactive web user interfaces using the concepts introduced by Jetpack Compose.
-It provides a DOM API to describe your website, as well as an experimental set of multiplatform layout primitives.
-Compose for Web also gives you the option to share parts of your UI code and logic across Android, desktop, and the web.
-
-You can find more information about Compose Multiplatform on its [landing page](https://www.jetbrains.com/lp/compose-mpp/).
-
-Join the [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channel on the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
-to discuss Compose for Web, or [#compose](https://kotlinlang.slack.com/archives/CJLTWPH7S) for general Compose Multiplatform discussions.
-
 ## Kotlin/JS, Today and Tomorrow
 
 In [this video](https://www.youtube.com/watch?v=fZUL8_kgHXg), Kotlin Developer Advocate Sebastian Aigner explains the
