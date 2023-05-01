@@ -13,16 +13,22 @@ The Kotlin applications will work on different operating systems like iOS, Andro
 One of the major Kotlin Multiplatform use cases is sharing code between mobile platforms.
 You can share application logic between iOS and Android apps and write platform-specific code only when you need to implement a native UI or work with platform APIs.
 
+[Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a JetBrains' declarative UI framework based on Kotlin
+and [Jetpack Compose](https://developer.android.com/jetpack/compose), gives you the option to push the sharing capabilities 
+of Kotlin Multiplatform beyond application logic. It allows you to implement your user interface once and then use it for all the platforms you target – iOS, Android, desktop, and web.
+
 * Check out our [Kotlin Multiplatform Mobile Is in Beta](https://www.youtube.com/watch?v=CngKDGBlFxk) video
   to learn about the current state and future plans for the technology.
-* You can also see how [different companies](https://kotlinlang.org/lp/multiplatform/case-studies) are already using Kotlin for
+* See how [different companies](https://kotlinlang.org/lp/multiplatform/case-studies) are already using Kotlin for
   cross-platform app development in production.
+* Try [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+  JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose)
+  to share UIs among iOS, Android, desktop, and web.
 
 Get to know Kotlin Multiplatform and create a mobile app that works on both Android and iOS by completing these steps:
 
 > This tutorial describes how to share application logic between iOS and Android using Kotlin Multiplatform.
-> To learn about the full capabilities of the technology, check out [other use cases](multiplatform.md#full-stack-web-applications),
-> such as full-stack web applications or multiplatform libraries.
+> To learn about the full capabilities of the technology, check out [other use cases](multiplatform.md).
 >
 {type="tip"}
 
