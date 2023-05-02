@@ -4,6 +4,7 @@ import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReferenc
 import builds.apiReferences.kotlinx.datetime.KotlinxDatetimeBuildApiReference
 import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import builds.apiReferences.stdlib.BuildStdlibApiReference
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -179,15 +180,15 @@ object BuildSitePages : BuildType({
       }
     }
 
-    artifacts(AbsoluteId("Kotlin_KotlinRelease_190_LibraryReferenceLegacyDocs")) {
-      buildRule = tag("publish", """
-                +:<default>
-                +:*
-            """.trimIndent())
-      artifactRules = """
-                kotlin.test.zip!** => api/latest/kotlin.test
-                kotlin-stdlib.zip!** => api/latest/jvm/stdlib
-            """.trimIndent()
+    dependency(BuildStdlibApiReference) {
+      snapshot {
+        reuseBuilds = ReuseBuilds.NO
+        onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+
+      artifacts {
+         artifactRules = "+:latest-version.zip!all-libs/** => api/stdlib"
+      }
     }
   }
 })
