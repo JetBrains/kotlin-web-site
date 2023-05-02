@@ -5,7 +5,7 @@ to JavaScript. The current implementation of Kotlin/JS targets [ES5](https://www
 
 The recommended way to use Kotlin/JS is via the `kotlin.js` and `kotlin.multiplatform` Gradle plugins. They let you easily set up and control Kotlin projects targeting JavaScript in one place. This includes essential functionality
 such as controlling the bundling of your application, adding JavaScript dependencies directly from npm, and more. To get
-an overview of the available options, check out [Understand a Kotlin/JS project](js-project-setup.md).
+an overview of the available options, check out [Set up a Kotlin/JS project](js-project-setup.md).
 
 ## Kotlin/JS IR compiler
 
