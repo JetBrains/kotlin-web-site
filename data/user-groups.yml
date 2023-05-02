@@ -404,6 +404,12 @@
     position:
       lat: 52.2296756
       lng: 21.0122287
+  - name: Vilnius KUG
+    country: Lithuania
+    url: https://vilniuskug.netlify.app/
+    position:
+      lat: 54.687157
+      lng: 25.279652
 - section: Asia
   anchorId: asia
   groups:
@@ -519,8 +525,14 @@
     country: China Mainland
     url: https://gzkug.com/
     position:
-      lat: 23.1259819
-      lng: 112.9476493
+      lat: 26.5962666
+      lng: 106.551573
+  - name: Guizhou KUG
+    country: China Mainland
+    url: https://juejin.cn/user/2946346893987704/
+    position:
+      lat: 26.8243622
+      lng: 104.7609243
   - name: Hefei KUG
     country: China Mainland
     url: https://weibo.com/kotlinhfug

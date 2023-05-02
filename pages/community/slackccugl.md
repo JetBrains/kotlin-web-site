@@ -39,13 +39,13 @@ For this to be the case, it is vital that we all follow a basic set of guideline
 If someone is acting inappropriately or violating this Code of Conduct in any shape or form, and they are not receptive to your feedback or you prefer not to confront them, please get in touch with one of the Administrators. The main Administrators are Ilya Ryzhenkov (@orangy) and Hadi Hariri (@hhariri). 
 
 ## Basic Usage Guidelines
-There are over 39000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
+There are over 50 000 users on many different timezones using the Kotlin Slack and the number is growing rapidly. The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run. If we all follow a set of guidelines, it can help make things more useful and bearable for everyone. 
 
 * Please remember this is a Slack team for Kotlin. If you have generic questions that are about a technology (which may or may not be used with Kotlin), maybe it’s better to use another forum, such as StackOverflow. 
-* This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JB]). For official support, please use the [Kotlin Forums](https://discuss.kotlinlang.org), where messages are also persisted.
-* This Slack is not the best place for reporting bugs either. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
+* This Slack is not an official support channel. It is a place where the community hang out along with some members of the JetBrains/Kotlin team (suffix [JetBrains]).
+* This Slack is not the best place for reporting bugs. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
 * Find the right channel to ask your question. There are channels for pretty much every topic. For a list of some of the channels see below.
-* New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before creating a new channel, make sure it doesn’t exist in any other shape or form. If you do end up creating a channel, make sure you set the topic. 
+* New channels should be focused around a well-known technology or area of interest. Create them sparingly. And before requesting for a new channel, make sure it doesn’t exist in any other shape or form. Ask an administrator to create a new channel on the #meta channel. If you do end up creating a channel, make sure you set the topic. 
 * Please refrain from crossposting the same message on multiple channels. It is considered spamming.
 * When you ask a question, please be patient. Don’t repeat it. Or at least not immediately.
 * Please do not ping or mention someone directly to get your questions answered, specially project owners, whether the project is Kotlin or other, unless they specifically indicate that you can. 
