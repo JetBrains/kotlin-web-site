@@ -456,7 +456,9 @@ app.register_error_handler(404, page_not_found)
 @app.route('/api/<path:page_path>')
 def api_page(page_path):
     path_other, ext = path.splitext(page_path)
-    if ext == '.html':
+    if ext == '.html' and page_path.startswith('stdlib/'):
+        return send_file(path.join(root_folder, 'api', page_path))
+    elif ext == '.html':
         return process_api_page(page_path[:-5])
     elif path.basename(page_path) == "package-list" or ext:
         return respond_with_package_list(page_path)

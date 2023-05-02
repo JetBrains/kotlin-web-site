@@ -3,6 +3,7 @@ package builds.kotlinlang.buidTypes
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import builds.apiReferences.kotlinx.datetime.KotlinxDatetimeBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import builds.apiReferences.stdlib.BuildStdlibApiReference
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -164,6 +165,17 @@ object BuildSitePages : BuildType({
 
       artifacts {
         artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
+      }
+    }
+
+    dependency(BuildStdlibApiReference) {
+      snapshot {
+        reuseBuilds = ReuseBuilds.NO
+        onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+
+      artifacts {
+        artifactRules = "+:latest-version.zip!all-libs/** => api/stdlib"
       }
     }
 
