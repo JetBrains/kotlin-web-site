@@ -1,4 +1,4 @@
-[//]: # (title: Understand a Kotlin/JS project)
+[//]: # (title: Set up a Kotlin/JS project)
 
 Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
 the `kotlin.js` Gradle plugin that provides project configuration tools together with helper tasks for automating routines
