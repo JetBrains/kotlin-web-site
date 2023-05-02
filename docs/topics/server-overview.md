@@ -24,7 +24,7 @@ Here are some examples of the server-side frameworks for Kotlin:
 
 * [Ktor](https://github.com/kotlin/ktor) is a framework built by JetBrains for creating Web applications in Kotlin, making use of coroutines for high scalability and offering an easy-to-use and idiomatic API.
 
-* [Quarkus](https://quarkus.io/guides/kotlin) provides first class support for using Kotlin. The framework is open source and maintained by Red Hat. Quarkus was built from the ground up for Kubernetes and provides a cohesive, fun to use, full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries.
+* [Quarkus](https://quarkus.io/guides/kotlin) provides first class support for using Kotlin. The framework is open source and maintained by Red Hat. Quarkus was built from the ground up for Kubernetes and provides a cohesive full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries.
 
 * [Vert.x](https://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
   for Kotlin, including [full documentation](https://vertx.io/docs/vertx-core/kotlin/).
