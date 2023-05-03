@@ -1262,3 +1262,9 @@
     position:
       lat: 9.2034963
       lng: 12.4953899
+  - name: Morocco KUG
+    country: Morocco
+    url: https://www.instagram.com/kotlinug.morocco/
+    position:
+      lat: 31.791702
+      lng: -7.09262
