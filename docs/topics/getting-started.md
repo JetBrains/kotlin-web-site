@@ -140,12 +140,12 @@ Here you'll learn how to develop and publish a multiplatform library:
 
 2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
 
-   |Library| Details                                                                |
-   |---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-   | Ktor | [Docs](https://ktor.io/docs/).                                         | 
-   | Serialization | [Docs](serialization.md) |
-   | Coroutines | [Docs](coroutines-overview.md).                                        |
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).             |
+   | Library       | Details                                                    |
+   |---------------|:-----------------------------------------------------------|
+   | Ktor          | [Docs](https://ktor.io/docs/).                             | 
+   | Serialization | [Docs](serialization.md).                                  |
+   | Coroutines    | [Docs](coroutines-overview.md).                            |
+   | DateTime      | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme). |
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
