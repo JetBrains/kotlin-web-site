@@ -167,7 +167,7 @@ object BuildSitePages : BuildType({
       }
     }
 
-    artifacts(AbsoluteId("Kotlin_KotlinRelease_180_LibraryReferenceDocs")) {
+    artifacts(AbsoluteId("Kotlin_KotlinRelease_1820_LibraryReferenceLegacyDocs")) {
       buildRule = tag("publish", """
                 +:<default>
                 +:*
