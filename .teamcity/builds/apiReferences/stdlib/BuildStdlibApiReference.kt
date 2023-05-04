@@ -9,7 +9,7 @@ object BuildStdlibApiReference : BuildType({
   artifactRules = "latest-version.zip"
 
   dependencies {
-    artifacts(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
+    artifacts(AbsoluteId("Kotlin_KotlinRelease_1820_LibraryReferenceLatestDocs")) {
       buildRule = lastPinned("+:*")
       cleanDestination = true
       artifactRules = "latest-version.zip"
