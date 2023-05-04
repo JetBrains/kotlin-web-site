@@ -50,7 +50,7 @@ The only similarity between cross-platform and hybrid development is code sharea
 
 Some experts still prefer native mobile development over multiplatform solutions, identifying the stronger performance and better user experience of native apps as some of the most important benefits.
 
-However, many modern businesses need to reduce the time to market and the cost of per platform development while still aiming to have a presence both on Android and iOS. This is where cross-platform development frameworks like [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) can help, as David Henry and Mel Yahya, a pair of senior software engineers from Netflix, [note](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23):
+However, many modern businesses need to reduce the time to market and the cost of per platform development while still aiming to have a presence both on Android and iOS. This is where cross-platform development frameworks like [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/multiplatform/) can help, as David Henry and Mel Yahya, a pair of senior software engineers from Netflix, [note](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23):
 
 > The high likelihood of unreliable network connectivity led us to lean into mobile solutions 
 > for robust client side persistence and offline support. The need for fast product delivery 
@@ -156,8 +156,8 @@ Kotlin Multiplatform Mobile is an SDK for cross-platform mobile development prov
 Global companies and start-ups alike have already leveraged Kotlin Multiplatform Mobile to optimize and accelerate their mobile development efforts. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
 
 * The development team from the award-winning to-do list app Todoist started using Kotlin Multiplatform Mobile to synchronize their app's sorting logic on multiple platforms, and in doing so they combined the benefits of creating cross-platform and native apps. You can learn more about their experience in this [video](https://www.youtube.com/watch?v=z-o9MqN86eE).
-* The introduction of Kotlin Multiplatform allowed Philips to [become faster at implementing new features](https://kotlinlang.org/lp/mobile/case-studies/philips) and increased the interaction between their Android and iOS developers.
-* Shopify was able to use Kotlin Multiplatform to [share an astounding 95% of their code](https://shopify.engineering/managing-native-code-react-native), which also delivered a significant performance improvement. Similarly, the startup company Down Dog is using Kotlin Multiplatform to [increase the development speed for the apps](https://kotlinlang.org/lp/mobile/case-studies/down-dog) by maximizing the amount of code shared between all the platforms: JVM, Native, and JS.
+* The introduction of Kotlin Multiplatform allowed Philips to [become faster at implementing new features](https://kotlinlang.org/lp/multiplatform/case-studies/philips) and increased the interaction between their Android and iOS developers.
+* Shopify was able to use Kotlin Multiplatform to [share an astounding 95% of their code](https://shopify.engineering/managing-native-code-react-native), which also delivered a significant performance improvement. Similarly, the startup company Down Dog is using Kotlin Multiplatform to [increase the development speed for the apps](https://kotlinlang.org/lp/multiplatform/case-studies/down-dog) by maximizing the amount of code shared between all the platforms: JVM, Native, and JS.
 
 ## Conclusion
 

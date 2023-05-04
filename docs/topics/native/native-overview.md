@@ -58,7 +58,7 @@ are pre-imported and included as Kotlin/Native libraries in the compiler package
 Multiplatform libraries provide required APIs for common Kotlin code and help develop shared parts of a project in
 Kotlin in one place and share it with some or all target platforms.
 
-You can use [Kotlin Multiplatform for mobile](https://kotlinlang.org/lp/mobile/) to create multiplatform mobile applications with code shared between Android and iOS.
+You can use [Kotlin Multiplatform for mobile](https://kotlinlang.org/lp/multiplatform/) to create multiplatform mobile applications with code shared between Android and iOS.
 
 ## How to get started
 
