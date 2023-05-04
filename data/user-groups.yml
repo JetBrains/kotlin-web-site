@@ -533,6 +533,12 @@
     position:
       lat: 26.8243622
       lng: 104.7609243
+  - name: Tbilisi KUG
+    country: Georgia
+    url: https://discord.gg/6EcJH9vED6
+    position:
+      lat: 41.69465336184713
+      lng: 44.78250312871074
   - name: Hefei KUG
     country: China Mainland
     url: https://weibo.com/kotlinhfug
