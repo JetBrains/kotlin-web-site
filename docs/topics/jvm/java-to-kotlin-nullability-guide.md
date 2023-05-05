@@ -313,6 +313,6 @@ you would do the check anyway, but no additional boxing is performed this way.
 * Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
 * Check out other migration guides:
   * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
-  * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
+  * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md)
 
 If you have a favorite idiom, feel free to share it with us by sending a pull request!
