@@ -6,7 +6,7 @@
 </microformat>
 
 You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
-requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/mobile/) to share with Kotlin
+requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/multiplatform/) to share with Kotlin
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 

@@ -35,11 +35,11 @@ At this stage, you need to explain the main gains of using Kotlin Multiplatform 
 
 Citing case studies of different companies who already use Kotlin Multiplatform in production could significantly help you make a compelling argument:
 
-*   **[Chalk.com](https://kotlinlang.org/lp/mobile/case-studies/chalk)** – The UI for each of the Chalk.com apps is native to the platform, but otherwise almost everything for their apps can be shared with Kotlin Multiplatform for mobile.
+*   **[Chalk.com](https://kotlinlang.org/lp/multiplatform/case-studies/chalk)** – The UI for each of the Chalk.com apps is native to the platform, but otherwise almost everything for their apps can be shared with Kotlin Multiplatform for mobile.
 *   **[Cash App](https://kotlinconf.com/2019/talks/video/2019/116027/)** – A lot of the app's business logic, including the ability to search through all transactions, is implemented with Kotlin Multiplatform for mobile.
-*   **[Yandex.Disk](https://kotlinlang.org/lp/mobile/case-studies/yandex)** – They started out by experimenting with the integration of a small feature, and as the experiment was considered successful, they implemented their whole data synchronization logic in Kotlin Multiplatform for mobile.
+*   **[Yandex.Disk](https://kotlinlang.org/lp/multiplatform/case-studies/yandex)** – They started out by experimenting with the integration of a small feature, and as the experiment was considered successful, they implemented their whole data synchronization logic in Kotlin Multiplatform for mobile.
 
-Explore [the case studies page](https://kotlinlang.org/lp/mobile/case-studies) for inspirational references.
+Explore [the case studies page](https://kotlinlang.org/lp/multiplatform/case-studies) for inspirational references.
 
 ## Offer proof
 
