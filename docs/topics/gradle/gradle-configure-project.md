@@ -508,7 +508,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType<KotlinBasePlugin>() {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -521,7 +521,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType(KotlinBasePlugin.class) {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -666,7 +666,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
 
-    ```kotlin
+  ```kotlin
   dependencies {
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
@@ -714,8 +714,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Kotlin" group-key="kotlin">
 
   ```kotlin
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       kotlin("<...>") version "%kotlinVersion%"
   }
   ```
@@ -724,8 +724,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
   }
   ```
@@ -755,9 +755,9 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
   ```groovy
   dependencies {
-       implementation("com.example:lib:1.0") {
-        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
-    }
+      implementation("com.example:lib:1.0") {
+          exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+      }
   }
   ```
 

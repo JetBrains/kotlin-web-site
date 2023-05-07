@@ -408,7 +408,7 @@ to store all the publication logic.
    import java.util.*
    
    plugins {
-      `maven-publish`
+       `maven-publish`
        signing
    }
    

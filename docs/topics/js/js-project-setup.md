@@ -292,7 +292,7 @@ kotlin {
             }
         }
         binaries.executable()
-        // . . .
+        // ...
     }
 }
 ```
@@ -320,7 +320,7 @@ kotlin {
             }
         }
         binaries.executable()
-        // . . .
+        // ...
     }
 }
 ```
@@ -495,7 +495,7 @@ browser {
     }
     testTask {
         useKarma {
-            // . . .
+            // ...
             webpackConfig.cssSupport {
                 enabled.set(true)
             }
@@ -521,7 +521,7 @@ browser {
     }
     testTask {
         useKarma {
-            // . . .
+            // ...
             webpackConfig.cssSupport {
                 it.enabled.set(true)
             }
@@ -784,7 +784,7 @@ kotlin {
             }
         }
         binaries.executable()
-        // . . .
+        // ...
     }
 }
 ```
@@ -801,7 +801,7 @@ kotlin {
             }
         }
         binaries.executable()
-        // . . .
+        // ...
     }
 }
 ```
