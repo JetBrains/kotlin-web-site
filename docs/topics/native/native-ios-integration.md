@@ -12,7 +12,7 @@ However, there are some specifics you should keep in mind:
 
 ## Threads
 
-### Deinitilizers
+### Deinitializers
 
 Deinit on the Swift/Objective-C objects and the objects they refer to is called on a different thread if
 these objects cross interop boundaries into Kotlin/Native, for example:
@@ -20,26 +20,26 @@ these objects cross interop boundaries into Kotlin/Native, for example:
 ```kotlin
 // Kotlin
 class KotlinExample {
-   fun action(arg: Any) {
-      println(arg)
-   }
+    fun action(arg: Any) {
+        println(arg)
+    }
 }
 ```
 
 ```swift
 // Swift
 class SwiftExample {
-   init() {
-      print("init on \(Thread.current)")
-   }
+    init() {
+        print("init on \(Thread.current)")
+    }
 
-   deinit {
-      print("deinit on \(Thread.current)")
-   }
+    deinit {
+        print("deinit on \(Thread.current)")
+    }
 }
 
 func test() {
-   KotlinExample().action(arg: SwiftExample())
+    KotlinExample().action(arg: SwiftExample())
 }
 ```
 
@@ -167,7 +167,7 @@ In this case, try the `autoreleasepool` block around loop bodies that do interop
 // Kotlin
 fun growingMemoryUsage() {
     repeat(Int.MAX_VALUE) {
-            NSLog("$it\n")
+        NSLog("$it\n")
     }
 }
 
@@ -198,8 +198,8 @@ class KotlinStorage(var field: Any? = null) : Storage {
 
 class KotlinExample {
     fun action(firstSwiftStorage: Storage, secondSwiftStorage: Storage) {
-	// Here, we create the following chain:
-	// firstKotlinStorage -> firstSwiftStorage -> secondKotlinStorage -> secondSwiftStorage.
+        // Here, we create the following chain:
+        // firstKotlinStorage -> firstSwiftStorage -> secondKotlinStorage -> secondSwiftStorage.
         val firstKotlinStorage = KotlinStorage()
         firstKotlinStorage.store(firstSwiftStorage)
         val secondKotlinStorage = KotlinStorage()

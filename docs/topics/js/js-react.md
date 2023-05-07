@@ -444,7 +444,7 @@ and contains the code from the `unwatchedVideos` list.
 2. In `App.kt`, use the `VideoList` component by invoking it without parameters:
 
    ```kotlin
-   // . . .
+   // ...
    div {
        h3 {
            +"Videos to watch"
@@ -456,7 +456,7 @@ and contains the code from the `unwatchedVideos` list.
        }
        VideoList()
    }
-   // . . .
+   // ...
    ```
 
    For now, the `App` component has no control over the content that is shown by the `VideoList` component. It's hard-coded,
@@ -526,7 +526,7 @@ First, add an alert message that pops up when users click on a list entry. In `V
 `onClick` handler function that triggers an alert with the current video:
 
 ```kotlin
-// . . .
+// ...
 p {
     key = video.id.toString()
     onClick = {
@@ -534,7 +534,7 @@ p {
     }
     +"${video.speaker}: ${video.title}"
 }
-// . . .
+// ...
 ```
 
 If you click on one of the list items in the browser window, you'll get information about the video in an alert
@@ -562,7 +562,7 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
        var selectedVideo: Video? by useState(null)
-   // . . .
+   // ...
    ```
    {validate="false"}
 
@@ -634,7 +634,7 @@ as state to the `App` component:
    ```kotlin
    val App = FC<Props> {
        var currentVideo: Video? by useState(null)
-       // . . .
+       // ...
    }
    ```
 
@@ -826,7 +826,7 @@ change, move them into the application state:
        var watchedVideos: List<Video> by useState(listOf(
            Video(4, "Creating Internal DSLs in Kotlin", "Venkat Subramaniam", "https://youtu.be/JzTeAM8N1-o")
        ))
-       // . . .
+       // ...
    }
    ```
 
@@ -997,7 +997,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
    right above the usage of `ReactPlayer`:
 
    ```kotlin
-   // . . .
+   // ...
    div {
        css {
             position = Position.absolute
@@ -1019,7 +1019,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
            }
        }
    }
-   // . . .
+   // ...
    ```
 
 You can now check your browser and see whether the buttons actually work. When clicking on the button, a _share window_ should
@@ -1060,7 +1060,7 @@ Check the `build.gradle.kts` file. The relevant snippet should already exist:
 
 ```kotlin
 dependencies {
-    // . . .
+    // ...
     // Coroutines & serialization
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3")
 }
@@ -1078,12 +1078,12 @@ these types of conversions from JSON strings to Kotlin objects.
 
    ```kotlin
    plugins {
-       // . . .
+       // ...
        kotlin("plugin.serialization") version "1.7.10"
    }
    
    dependencies {
-       // . . .
+       // ...
        // Serialization
        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
    }
@@ -1162,7 +1162,7 @@ functionality provided by Kotlin's coroutines:
                unwatchedVideos = fetchVideos()
            }
        }
-   // . . .
+   // ...
    ```
    {validate="false"}
 

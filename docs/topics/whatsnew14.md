@@ -652,7 +652,7 @@ To enable the Kotlin/JS IR backend, set the key `kotlin.js.compiler=ir` in your 
 ```groovy
 kotlin {
     js(IR) { // or: LEGACY, BOTH
-        // . . .
+        // ...
     }
     binaries.executable()
 }

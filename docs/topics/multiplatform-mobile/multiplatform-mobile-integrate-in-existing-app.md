@@ -114,7 +114,6 @@ there, and make this code cross-platform.
         super.onCreate(savedInstanceState)
 
         Log.i("Login Activity", "Hello from shared module: " + (Greeting().greet()))
-   
     }
     ```
 6. Follow Android Studio suggestions to import missing classes.
@@ -206,8 +205,8 @@ You can learn more about [connecting to platform-specific APIs](multiplatform-co
 1. Remove the `java.util.UUID` class from the common code:
 
     ```kotlin
-   val fakeUser = LoggedInUser(randomUUID(), "Jane Doe") 
-   ```
+    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe")
+    ```
 
 2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory
    and provide the `expect` declaration:
@@ -349,7 +348,7 @@ Connect your framework to the iOS project manually:
    import shared
    ```
 
-2. To check that it is properly connected, use the `greeting()` function from the shared module of your cross-platform app:
+2. To check that it is properly connected, use the `greet()` function from the shared module of your cross-platform app:
 
    ```swift
    import SwiftUI
@@ -357,7 +356,7 @@ Connect your framework to the iOS project manually:
    
    struct ContentView: View {
        var body: some View {
-           Text(Greeting().greeting())
+           Text(Greeting().greet())
            .padding()
        }
    }
@@ -385,7 +384,7 @@ Connect your framework to the iOS project manually:
             }
         }
     }
-   ```
+    ```
 
 ![Simple login application](xcode-iphone-login.png){width=300}
 
@@ -411,7 +410,7 @@ and iOS.
        }
    //...
    }
-   ``` 
+   ```
 
 2. Run both the iOS and Android applications from Android Studio to see the changes:
 

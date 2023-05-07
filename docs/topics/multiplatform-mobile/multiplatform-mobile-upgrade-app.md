@@ -33,7 +33,7 @@ sourceSets {
     val commonMain by getting {
         dependencies {
             // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -65,7 +65,7 @@ the existing `plugins` block at the very beginning of the `build.gradle.kts` fil
 
 ```kotlin
 plugins {
-    // 
+    // ...
     kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
@@ -296,7 +296,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
             Text(viewModel.text)
         }
     }
-     
+    
     extension ContentView {
         class ViewModel: ObservableObject {
             @Published var text = "Loading..."

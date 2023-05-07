@@ -104,7 +104,7 @@ In our [Kotlin Multiplatform survey from Q1-Q2 2021](https://blog.jetbrains.com/
 
 ![How are users satisfied with the quality of their app after Kotlin Multiplatform Mobile adoption?](survey-results-q1-q2-21.png){width=700}
 
-Another concern is the inability to seamlessly support the native features of applications. Nevertheless, if you're building a multiplatform app that needs to access platform-specific APIs, you can use Kotlin's [expected and actual declarations](https://kotlinlang.org/docs/multiplatform-connect-to-apis.html). They allow you to define in common code that you "expect" to be able to call the same function across multiple platforms and provide the "actual" implementations, which can interact with any platform-specific libraries thanks to Kotlin interoperability with Java and Objective-C/Swift.
+Another concern is the inability to seamlessly support the native features of applications. Nevertheless, if you're building a multiplatform app that needs to access platform-specific APIs, you can use Kotlin's [expected and actual declarations](multiplatform-connect-to-apis.md). They allow you to define in common code that you "expect" to be able to call the same function across multiple platforms and provide the "actual" implementations, which can interact with any platform-specific libraries thanks to Kotlin interoperability with Java and Objective-C/Swift.
 
 These issues raise the question of whether the end-user will notice a difference between native and cross-platform apps.
 
@@ -149,7 +149,7 @@ Kotlin Multiplatform Mobile is an SDK for cross-platform mobile development prov
 * Full control over the UI, along with the ability to use the latest UI frameworks, such as SwiftUI and Jetpack Compose.
 * Easy access to Android and iOS SDKs without any restrictions.
 
-> Share the logic of your iOS and Android apps. Get started with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html).
+> Share the logic of your iOS and Android apps. Get started with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 >
 {type="note"}
 
