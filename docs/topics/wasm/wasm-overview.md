@@ -7,7 +7,7 @@
 >
 {type="warning"}
 
-[WebAssembly (Wasm)](webassembly.org) is a binary format for a virtual machine that can run in web browsers.
+[WebAssembly (Wasm)](https://webassembly.org) is a binary format for a virtual machine that can run in web browsers.
 It is platform-independent because it runs on its own virtual machine.
 Wasm is designed to be fast and secure, and it can compile code from various programming languages, including Kotlin.
 
