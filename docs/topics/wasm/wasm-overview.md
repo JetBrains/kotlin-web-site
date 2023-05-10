@@ -14,24 +14,18 @@ Wasm is designed to be fast and secure, and it can compile code from various pro
 Kotlin/Wasm is a new compilation target for Kotlin. You can use it in your Kotlin Multiplatform projects.
 With Kotlin/Wasm, you can create applications that run on different environments and devices supporting WebAssembly and meeting Kotlin's requirements.
 
-Kotlin features a new experimental Kotlin/Wasm compiler that provides several advantages:
-
-* Faster compilation speeds than the deprecated `wasm32` Kotlin/Native target since Kotlin/Wasm doesn't rely on LLVM.
-* Improved interoperability with JavaScript and better integration with browsers, thanks to the [Wasm garbage collection](https://github.com/WebAssembly/gc) feature.
-* Potentially faster application startup compared to Kotlin/JS and JavaScript because Wasm has a compact and easy-to-parse bytecode.
-
 You can use Kotlin standard library (`stdlib`) and test library (`kotlin.test`) for Kotlin/Wasm out of the box.
 
 ## Browser support
 
-Almost all modern browsers already support WebAssembly 1.0.
+Almost all major browsers already support WebAssembly 1.0.
 To run applications built with Kotlin/Wasm in a browser, you need to enable an experimental [garbage collection feature](https://github.com/WebAssembly/gc).
 
 [Learn how to enable Kotlin/Wasm in Get started with Kotlin/Wasm](wasm-get-started.md#troubleshooting).
 
 ## Interoperability
 
-Kotlin/Wasm allows you to both use JavaScript code from Kotlin and Kotlin code from JavaScript.
+Kotlin/Wasm allows you to both use JavaScript code and Browser API from Kotlin, and Kotlin code from JavaScript.
 
 [Learn more about Kotlin Wasm interoperability with JavaScript](wasm-js-interop.md).
 
