@@ -138,15 +138,14 @@ Here you'll learn how to develop and publish a multiplatform library:
 
    * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
 
-2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
+2. **Use libraries in your application:**
 
-   | Library       | Details                                                    |
-   |---------------|:-----------------------------------------------------------|
-   | Ktor          | [Docs](https://ktor.io/docs/).                             | 
-   | Serialization | [Docs](serialization.md).                                  |
-   | Coroutines    | [Docs](coroutines-overview.md).                            |
-   | DateTime      | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme). |
-   
+   * [Ktor](https://ktor.io/docs/)
+   * [Serialization](serialization.md)
+   * [Coroutines](coroutines-overview.md)
+   * [DateTime](https://github.com/Kotlin/kotlinx-datetime#readme)
+
+   > Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
    {type="tip"}
