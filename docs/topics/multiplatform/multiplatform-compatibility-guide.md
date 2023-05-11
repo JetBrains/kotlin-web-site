@@ -236,7 +236,7 @@ If you're a library author and want to be extra safe, check that consumers can w
 In 1.8.20, the Kotlin Gradle plugin shows a warning if the build sets these properties. Starting with Kotlin 1.9.0,
 the properties are silently ignored.
 
-In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotlin.in/issue).
+In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
 
 <anchor name="deprecate-pre-hmpp-dependencies"></anchor>
 ## Deprecated support of multiplatform libraries published in a legacy mode
