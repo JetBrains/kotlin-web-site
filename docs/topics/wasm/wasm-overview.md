@@ -16,6 +16,10 @@ With Kotlin/Wasm, you can create applications that run on different environments
 
 You can use Kotlin standard library (`stdlib`) and test library (`kotlin.test`) for Kotlin/Wasm out of the box.
 
+> Learn more about Kotlin/Wasm in the ["Introducing Kotlin/Wasm" video by Zalim Bashorov & Sébastien Deleuze @ Wasm I/O 2023](https://www.youtube.com/watch?v=LCtMC_IVCKo).
+> 
+{type="note"}
+
 ## Browser support
 
 Almost all major browsers already support WebAssembly 1.0.
