@@ -14,11 +14,13 @@ With Ekaterina, you'll set up an environment and prepare for creating your first
 
 ### Can I share UIs with Kotlin Multiplatform?
 
-Yes, you can share UIs using [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose). 
-This framework allows you to create shared UI components for platforms like iOS, Android, desktop, and web, enabling you 
+Yes, you can share UIs using [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose). 
+This framework allows you to create shared UI components for platforms like iOS, Android, desktop, and web, helping you 
 to maintain a consistent user interface across different devices and platforms.
 
-Check out the [Compose Multiplatform FAQ](https://github.com/JetBrains/compose-multiplatform/blob/master/docs/FAQ.md#compose-multiplatform-faq).
+Check out the [Compose Multiplatform FAQ](https://github.com/JetBrains/compose-multiplatform/blob/master/docs/FAQ.md#compose-multiplatform-faq)
+to learn more.
 
 ### What is the Kotlin Multiplatform Mobile plugin?
 
