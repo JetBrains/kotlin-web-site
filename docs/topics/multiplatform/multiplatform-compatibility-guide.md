@@ -478,3 +478,17 @@ dependencies {
 were referring to low-level Gradle entities (tasks, configurations) by names, you have to adjust the names, usually
 by adding `js`-prefix
     * Example: `browserTest`-task can be found under name `jsBrowserTest`
+
+<anchor name="android-target-rename"></anchor>
+## Rename of `android` target to `androidTarget`
+
+We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class 
+support for the Android target. In the future, this support will be provided via a separate plugin, developed by
+Android team from Google.
+
+To open the way for the new solution from Google, we’re renaming the `android` block to `androidTarget` in the current 
+Kotlin DSL in 1.9.0. This is a temporary change that is necessary to free the short `android` name for the upcoming 
+DSL from Google.
+
+The Google plugin will be the preferred way of working with Android in multiplatform projects. When it’s ready, 
+we’ll provide the necessary migration instructions so that you’ll be able to use the short `android` name as before.
