@@ -886,7 +886,8 @@ data.
            case result([RocketLaunch])
            case error(String)
        }
-   
+       
+      @MainActor
       class ViewModel: ObservableObject {
           @Published var launches = LoadableLaunches.loading
       }
@@ -950,6 +951,7 @@ library.
    ```swift
    extension ContentView {
        // ...
+       @MainActor
        class ViewModel: ObservableObject {
            let sdk: SpaceXSDK
            @Published var launches = LoadableLaunches.loading
@@ -970,22 +972,23 @@ library.
    
    ```Swift
    func loadLaunches(forceReload: Bool) {
-       self.launches = .loading
-           sdk.getLaunches(forceReload: forceReload, completionHandler: { launches, error in
-               if let launches = launches {
-                   self.launches = .result(launches)
-                   } else {
-                       self.launches = .error(error?.localizedDescription ?? "error")
-                   }
-               })
+       Task {
+           do {
+               self.launches = .loading
+               let launches = try await sdk.getLaunches(forceReload: forceReload)
+               self.launches = .result(launches)
+           } catch {
+               self.launches = .error(error.localizedDescription)
            }
+       }
+   }
    ```
 
    * When you compile a Kotlin module into an Apple framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
-     are available in it as functions with callbacks (`completionHandler`).
+     are available in it as Swift's `async`/`await` mechanism.
    * Since the `getLaunches` function is marked with the `@Throws(Exception::class)` annotation, any exceptions that are
      instances of the `Exception` class or its subclass will be propagated as `NSError`. Therefore, all such errors can
-     be handled in the `completionHandler` function.
+     be caught by the `loadLaunches()` function.
 
 3. Go to the entry point of the app, `iOSApp.swift`, and initialize the SDK, view, and view model:
 
