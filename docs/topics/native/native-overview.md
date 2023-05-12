@@ -69,7 +69,7 @@ New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 
 Recommended documentation:
 
-* [Get started with Kotlin Multiplatform](multiplatform-getting-started.md)
+* [Get started with Kotlin Multiplatform](multiplatform-get-started.md)
 * [Interoperability with C](native-c-interop.md)
 * [Interoperability with Swift/Objective-C](native-objc-interop.md)
 
