@@ -146,8 +146,6 @@ templates for Kotlin/JS applications:
     It provides options to enable integrations for style-sheets, navigational components, or state containers.
 - **Node.js Application** - a minimal project for running in a Node.js runtime. It comes with the option to directly
     include the experimental `kotlinx-nodejs` package.
-    
-Learn how to [create Kotlin/JS applications from templates](js-get-started.md).
 
 ### Ignoring compilation errors with IR compiler
 

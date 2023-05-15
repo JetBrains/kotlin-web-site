@@ -54,10 +54,7 @@ For more information, check out [the resource on server-side development](server
 
 ### Can I use Kotlin for web development?
 
-Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
-[DefinitelyTyped](https://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible
-with existing module systems such as AMD and CommonJS. 
-For more information, check out [the resource on client-side development](js-overview.md).
+Yes. In addition to using for backend web, you can also use Kotlin/Wasm for client-side web. Learn how to [get started with Kotlin/Wasm](wasm-get-started.md).
 
 ### Can I use Kotlin for desktop development?
 
