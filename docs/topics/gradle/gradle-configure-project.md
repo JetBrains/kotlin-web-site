@@ -85,7 +85,9 @@ The `version` should be literal in this block, and it cannot be applied from ano
 
 ### Kotlin and Java sources
 
-Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
+Kotlin sources and Java sources can be stored in the same directory, or they can be placed in different directories.
+
+The default convention is to use different directories:
 
 ```text
 project
@@ -94,6 +96,12 @@ project
             - kotlin
             - java
 ```
+
+> Do not store Java `.java` and Kotlin `.kt` files in the same `src/*/kotlin` directory, as the `.java` files will not be compiled.
+> 
+> Instead, you can use `src/main/java`.
+>
+{type="warning"} 
 
 The corresponding `sourceSets` property should be updated if you are not using the default convention:
 
