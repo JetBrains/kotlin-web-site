@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin hands-on)
 
-A series of hands-on labs where you can create applications with Kotlin using a variety of different technologies and targeting multiple platforms.
+A series of hands-on tutorials where you can create applications with Kotlin using a variety of different technologies and targeting multiple platforms.
 The exercises are divided into a series of steps, walking you through each section.
 
 ## Building Reactive Spring Boot applications with Kotlin coroutines and RSocket
