@@ -9,7 +9,7 @@ Pick it up to start building powerful applications!
 
 * If you're already familiar with one or more programming languages and want to learn Kotlin, start with these [Kotlin learning materials](learning-materials-overview.md).
 * If Kotlin is your first programming language, we recommend starting with the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/)
-or signing up for the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18) on JetBrains Academy.
+or signing up for the free [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23) by JetBrains Academy.
 
 ## Install Kotlin
 
