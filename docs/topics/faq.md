@@ -166,7 +166,7 @@ Kotlin is also being covered in different conferences worldwide. You can find a 
 ### Is Kotlin on social media?
 
 Yes. 
-Subscribe to [Kotlin YouTube channel](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and follow Kotlin [on Twitter](https://twitter.com/kotlin).
+Subscribe to [Kotlin YouTube channel](https://www.youtube.com/c/Kotlin), and follow Kotlin [on Twitter](https://twitter.com/kotlin).
 
 ### Any other online Kotlin resources?
 
