@@ -97,7 +97,7 @@ project
             - java
 ```
 
-> Do not store Java `.java` and Kotlin `.kt` files in the same `src/*/kotlin` directory, as the `.java` files will not be compiled.
+> Do not store Java `.java` files in the `src/*/kotlin` directory, as the `.java` files will not be compiled.
 > 
 > Instead, you can use `src/main/java`.
 >
