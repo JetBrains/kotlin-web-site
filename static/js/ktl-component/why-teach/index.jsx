@@ -422,8 +422,8 @@ export const WhyTeach = ({path}) => {
                       </a>
                     </li>
                     <li>
-                      <a href="https://hyperskill.org/join/fromeducationtoJetSalesStat?redirect=true&next=/tracks/18" target="_blank" className="ktl-text-2 ktl-link">
-                        <span className="rs-link">Kotlin Basics track on JetBrains Academy</span>
+                      <a href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23" target="_blank" className="ktl-text-2 ktl-link">
+                        <span className="rs-link">Kotlin tracks by JetBrains Academy</span>
                         <span>&nbsp;↗</span>
                       </a>
                     </li>
