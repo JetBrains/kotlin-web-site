@@ -135,7 +135,7 @@ on the [Books](books.md) page. For more books, see the community-maintained list
 
 ### Are any online courses available for Kotlin?
 
-You can learn all the Kotlin essentials while creating working applications with the [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18) on JetBrains Academy.
+You can learn all the Kotlin essentials while creating working applications with the [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23) by JetBrains Academy.
 
 A few other courses you can take:
 * [Pluralsight Course: Getting Started with Kotlin](https://www.pluralsight.com/courses/kotlin-getting-started) by Kevin Jones
