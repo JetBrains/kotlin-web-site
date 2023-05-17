@@ -516,7 +516,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 
 * For Kotlin 1.6.20, we recommend using [Android Studio 2021.1.1](https://developer.android.com/studio) (Bumblebee) or later to get the best experience.
 
-* You can also opt-out. To disable hierarchical structure support, set the following options in` gradle.properties`:
+* You can also opt out. To disable hierarchical structure support, set the following options in `gradle.properties`:
 
   ```none
   # gradle.properties

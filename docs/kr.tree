@@ -15,8 +15,9 @@
         <toc-element id="multiplatform.md"/>
         <toc-element id="server-overview.md" accepts-web-file-names="httpservlets.html"/>
         <toc-element id="android-overview.md"/>
-        <toc-element id="js-overview.md"/>
+        <toc-element id="wasm-overview.md"/>
         <toc-element id="native-overview.md"/>
+        <toc-element id="js-overview.md"/>
         <toc-element id="data-science-overview.md"/>
         <toc-element id="competitive-programming.md"/>
     </toc-element>
@@ -129,7 +130,7 @@
             <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
             <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
             <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
-            <toc-element id="multiplatform-full-stack-app.md"/>
+            <toc-element id="multiplatform-full-stack-app.md" hidden="true"/>
         </toc-element>
         <toc-element toc-title="Creating multiplatform libraries">
             <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
@@ -243,8 +244,7 @@
 
         <toc-element toc-title="JavaScript">
 
-            <toc-element id="js-get-started.md" accepts-web-file-names="setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html"/>
-            <toc-element id="js-project-setup.md" accepts-web-file-names="command-line-library-js.html,working-with-javascript.html"/>
+            <toc-element id="js-project-setup.md" accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html"/>
             <toc-element id="running-kotlin-js.md"/>
             <toc-element id="dev-server-continuous-compilation.md"/>
             <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
@@ -263,8 +263,7 @@
                 <toc-element id="js-reflection.md"/>
                 <toc-element id="typesafe-html-dsl.md"/>
             </toc-element>
-            <toc-element id="js-samples.md" toc-title="Samples"/>
-            <toc-element id="js-react.md"/>
+            <toc-element id="js-react.md" hidden="true"/>
         </toc-element>
 
         <toc-element toc-title="Scripting">

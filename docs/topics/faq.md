@@ -2,13 +2,14 @@
 
 ### What is Kotlin?
 
-Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript and Native. 
+Kotlin is an open-source statically typed programming language that targets the JVM, Android, JavaScript, Wasm, and Native. 
 It's developed by [JetBrains](https://www.jetbrains.com). The project started in 2010 and was open source from very early on.
 The first official 1.0 release was in February 2016. 
 
 ### What is the current version of Kotlin?
 
-The currently released version is %kotlinVersion%, published on %kotlinReleaseDate%.
+The currently released version is %kotlinVersion%, published on %kotlinReleaseDate%.  
+You can find more information [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin free?
 
@@ -31,13 +32,13 @@ the ability to write expressive code as well as facilitating creation of DSL.
 ### Is Kotlin compatible with the Java programming language?
 
 Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure
-that your existing codebase  can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
+that your existing codebase can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
 from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There's also an automated [Java-to-Kotlin converter built
 into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
 
-Kotlin can be used for any kind of development, be it server-side, client-side web and Android. With Kotlin/Native currently 
+Kotlin can be used for any kind of development, be it server-side, client-side web, Android. With Kotlin/Native currently 
 in the works, support for other platforms such as embedded systems, macOS and iOS is coming. People are using Kotlin for mobile 
 and server-side applications, client-side with JavaScript or JavaFX, and data science, just to name a few possibilities.
 
@@ -54,26 +55,25 @@ For more information, check out [the resource on server-side development](server
 
 ### Can I use Kotlin for web development?
 
-Yes. In addition to using for backend web, you can also use Kotlin/JS for client-side web. Kotlin can use definitions from 
-[DefinitelyTyped](https://definitelytyped.org) to get static typing for common JavaScript libraries, and it is compatible
-with existing module systems such as AMD and CommonJS. 
-For more information, check out [the resource on client-side development](js-overview.md).
+Yes. In addition to using for backend web, you can also use Kotlin/Wasm for client-side web. Learn how to [get started with Kotlin/Wasm](wasm-get-started.md).
 
 ### Can I use Kotlin for desktop development?
 
 Yes. You can use any Java UI framework such as JavaFx, Swing or other. 
-In addition there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
+In addition, there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
 
 ### Can I use Kotlin for native development?
 
 Yes. Kotlin/Native is available as a part of Kotlin project. It compiles Kotlin to native code that can run without a VM.
-It is still in beta, but you can already try it on popular desktop and mobile platforms and even some IoT devices.
+You can try it on popular desktop and mobile platforms and even some IoT devices.
 For more information, check out the [Kotlin/Native documentation](native-overview.md).
 
 ### What IDEs support Kotlin?
 
-Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
-[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
+Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/),
+[Android Studio](https://developer.android.com/kotlin/get-started), and [JetBrains Fleet](https://www.jetbrains.com/help/fleet/getting-started-with-kotlin-in-fleet.html)
+with an official Kotlin plugin developed by JetBrains.
+
 Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
 You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
@@ -120,7 +120,7 @@ Kotlin, be this via blog posts, GitHub repositories or talks include
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at JetBrains (current team size is 100+). The lead language designer is 
+Kotlin is primarily developed by a team of engineers at [JetBrains (current team size is 100+)](https://www.jetbrains.com/). The lead language designer is 
 [Roman Elizarov](https://twitter.com/relizarov). In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
@@ -146,22 +146,26 @@ You can also check out the other tutorials and content on our [YouTube channel](
 
 ### Does Kotlin have a community?
 
-Yes. Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](https://discuss.kotlinlang.org), 
+Yes! Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](https://discuss.kotlinlang.org), 
 [StackOverflow](https://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](https://slack.kotlinlang.org) 
 (with close to 30000 members as of April 2020). 
 
 ### Are there Kotlin events?
  
-Yes. There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the web site](https://kotlinlang.org/user-groups/user-group-list.html).
+Yes! There are many User Groups and Meetups now focused exclusively around Kotlin. You can find [a list on the website](https://kotlinlang.org/user-groups/user-group-list.html).
 In addition, there are community-organized [Kotlin Nights](https://kotlinlang.org/community/events.html) events around the world.
 
 ### Is there a Kotlin conference?
 
-Yes. The official annual [KotlinConf](https://kotlinconf.com/) is hosted by JetBrains.
-It took place in San-Francisco in [2017](https://kotlinconf.com/2017/), Amsterdam in [2018](https://kotlinconf.com/2018/),
-and Copenhagen in [2019](https://kotlinconf.com/2019/).
+Yes! [KotlinConf](https://kotlinconf.com/) is an annual conference hosted by JetBrains, which brings together developers, enthusiasts, 
+and experts from around the world to share their knowledge and experience with Kotlin.
+
+In addition to technical talks and workshops, KotlinConf also offers networking opportunities, community interactions, 
+and social events where attendees can connect with fellow Kotliners and exchange ideas.
+It serves as a platform for fostering collaboration and community building within the Kotlin ecosystem.
+
 Kotlin is also being covered in different conferences worldwide. You can find a list of
-[upcoming talks on the web site](https://kotlinlang.org/community/talks.html?time=upcoming).
+[upcoming talks on the website](https://kotlinlang.org/community/talks.html?time=upcoming).
 
 ### Is Kotlin on social media?
 
@@ -170,10 +174,12 @@ Subscribe to [Kotlin YouTube channel](https://www.youtube.com/c/Kotlin), and fol
 
 ### Any other online Kotlin resources?
 
-The web site has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
-a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.   
+The website has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
+a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.
 
 ### Where can I get an HD Kotlin logo?
 
 Logos can be downloaded [here](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip).
 When using the logos, please follow simple rules in the `guidelines.pdf` inside the archive and [Kotlin brand usage guidelines](https://kotlinfoundation.org/guidelines/).
+
+For more information, check out the page about [Kotlin brand assets](kotlin-brand-assets.md).

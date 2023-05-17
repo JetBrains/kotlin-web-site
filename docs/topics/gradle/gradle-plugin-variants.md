@@ -44,8 +44,8 @@ If you use a custom Gradle configuration:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-configurations.register("customConfiguraton") {
-    ...
+configurations.register("customConfiguration") {
+    // ...
 }
 ```
 
@@ -53,8 +53,8 @@ configurations.register("customConfiguraton") {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-configurations.register("customConfiguraton") {
-    ...
+configurations.register("customConfiguration") {
+    // ...
 }
 ```
 
@@ -94,17 +94,17 @@ configurations {
     customConfiguration {
         attributes {
             attribute(
-                    Usage.USAGE_ATTRIBUTE,
-                    project.objects.named(Usage.class, Usage.JAVA_RUNTIME)
+                Usage.USAGE_ATTRIBUTE,
+                project.objects.named(Usage.class, Usage.JAVA_RUNTIME)
             )
             attribute(
-                    Category.CATEGORY_ATTRIBUTE,
-                    project.objects.named(Category.class, Category.LIBRARY)
+                Category.CATEGORY_ATTRIBUTE,
+                project.objects.named(Category.class, Category.LIBRARY)
             )
             // If you want to depend on a specific KGP variant:
             attribute(
-                 GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE,
-                 project.objects.named("7.0")
+                GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE,
+                project.objects.named("7.0")
             )
         }
     }
@@ -119,17 +119,17 @@ configurations {
     customConfiguration {
         attributes {
             attribute(
-                    Usage.USAGE_ATTRIBUTE,
-                    project.objects.named(Usage, Usage.JAVA_RUNTIME)
+                Usage.USAGE_ATTRIBUTE,
+                project.objects.named(Usage, Usage.JAVA_RUNTIME)
             )
             attribute(
-                    Category.CATEGORY_ATTRIBUTE,
-                    project.objects.named(Category, Category.LIBRARY)
+                Category.CATEGORY_ATTRIBUTE,
+                project.objects.named(Category, Category.LIBRARY)
             )
             // If you want to depend on a specific KGP variant:
             attribute(
-                    GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE,
-                    project.objects.named('7.0')
+                GradlePluginApiVersion.GRADLE_PLUGIN_API_VERSION_ATTRIBUTE,
+                project.objects.named('7.0')
             )
         }
     }
@@ -141,8 +141,8 @@ configurations {
 
 Otherwise, you will receive an error similar to this:
 
-```
- > Could not resolve all files for configuration ':customConfiguraton'.
+```none
+ > Could not resolve all files for configuration ':customConfiguration'.
       > Could not resolve org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0.
         Required by:
             project :
