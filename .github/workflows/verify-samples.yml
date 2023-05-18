@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  build:
+  verify_samples:
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK

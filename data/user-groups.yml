@@ -857,6 +857,12 @@
     position:
       lat: 34.259376
       lng: 108.947037
+  - name: Zhengzhou KUG
+    country: China Mainland
+    url: https://zhengzhou-kug.github.io/
+    position:
+      lat: 34.742732
+      lng: 113.3335248
 - section: North & South America
   anchorId: north-south-america
   groups:

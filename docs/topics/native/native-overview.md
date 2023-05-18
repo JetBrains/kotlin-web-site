@@ -54,28 +54,29 @@ are pre-imported and included as Kotlin/Native libraries in the compiler package
 
 ## Sharing code between platforms
 
-[Multiplatform projects](multiplatform.md) allow sharing common Kotlin code between multiple platforms, including Android, iOS, JVM, JavaScript, and native.
-Multiplatform libraries provide required APIs for common Kotlin code and help develop shared parts of a project in
-Kotlin in one place and share it with some or all target platforms.
+[Kotlin Multiplatform](multiplatform.md) helps share common code across multiple platforms, including Android, iOS, JVM,
+web, and native. Multiplatform libraries provide the necessary APIs for common Kotlin code and allow writing shared parts
+of projects in Kotlin all in one place.
 
-You can use [Kotlin Multiplatform for mobile](https://kotlinlang.org/lp/multiplatform/) to create multiplatform mobile applications with code shared between Android and iOS.
+You can use the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) tutorial
+to create applications and share business logic between iOS and Android. To share UIs among iOS, Android, desktop, and web,
+try [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
 ## How to get started
-
-### Tutorials and documentation
 
 New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 
 Recommended documentation:
 
-* [Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md)
-* [Multiplatform documentation](multiplatform-get-started.md)
-* [C interop](native-c-interop.md)
-* [Swift/Objective-C interop](native-objc-interop.md)
+* [Get started with Kotlin Multiplatform](multiplatform-get-started.md)
+* [Interoperability with C](native-c-interop.md)
+* [Interoperability with Swift/Objective-C](native-objc-interop.md)
 
 Recommended tutorials:
+
 * [Get started with Kotlin/Native](native-get-started.md)
-* [Create your first cross-platform mobile application](multiplatform-mobile-create-first-app.md)
-* [Types mapping between C and Kotlin/Native](mapping-primitive-data-types-from-c.md)
-* [Kotlin/Native as a Dynamic Library](native-dynamic-libraries.md)
-* [Kotlin/Native as an Apple Framework](apple-framework.md)
+* [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md)
+* [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
+* [Kotlin/Native as a dynamic Library](native-dynamic-libraries.md)
+* [Kotlin/Native as an Apple framework](apple-framework.md)
