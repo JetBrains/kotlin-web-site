@@ -15,8 +15,7 @@ object BuildApiReference : Template({
       name = "Drop SNAPSHOT word for deploy"
       scriptContent = """
                 #!/bin/bash
-                CURRENT_VERSION="$(sed -E s/^v?//g <<<%release.tag%)"
-                sed -i -E "s/^version=.+(-SNAPSHOT)?/version=${'$'}CURRENT_VERSION/gi" ./gradle.properties
+                sed -i -E "s/^version=(.+)(-SNAPSHOT)?/version=\1/gi" ./gradle.properties
             """.trimIndent()
       dockerImage = "debian"
     }

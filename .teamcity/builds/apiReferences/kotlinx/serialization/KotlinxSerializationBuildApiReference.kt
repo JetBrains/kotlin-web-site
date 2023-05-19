@@ -10,10 +10,6 @@ object KotlinxSerializationBuildApiReference : BuildType({
 
   templates(BuildApiReference)
 
-  params {
-    param("release.tag", BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG)
-  }
-
   vcs {
     root(builds.apiReferences.vcsRoots.KotlinxSerialization)
   }

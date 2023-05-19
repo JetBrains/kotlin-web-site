@@ -28,7 +28,6 @@ object KotlinxDatetimeBuildApiReference : BuildType({
   }
 
   params {
-    param("release.tag", BuildParams.KOTLINX_DATETIME_RELEASE_TAG)
     param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
   }
 

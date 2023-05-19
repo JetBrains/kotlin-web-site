@@ -10,10 +10,6 @@ object KotlinxCoroutinesBuildApiReference: BuildType({
 
   templates(BuildApiReference)
 
-  params {
-    param("release.tag", BuildParams.KOTLINX_COROUTINES_RELEASE_TAG)
-  }
-
   vcs {
     root(builds.apiReferences.vcsRoots.KotlinxCoroutines)
   }
