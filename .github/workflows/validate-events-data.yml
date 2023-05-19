@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  validate_user_groups_data:
+  validate_community_events_data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.8.20)
 
-_[Release date: %kotlinReleaseDate%](releases.md#release-details)_
+_[Published %kotlinReleaseDate%](releases.md#release-details)_
 
 The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 

@@ -1,4 +1,28 @@
 - lang: en
+  startDate: '2023-05-09'
+  endDate: '2023-05-09'
+  location: Amsterdam, Netherlands
+  speaker : João Paulo Gomes
+  title : 'Kotlin Meetup Amsterdam'
+  subject : 'Writing performance tests with Kotlin'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/293144259/
+- lang: en
+  startDate: '2023-05-09'
+  endDate: '2023-05-09'
+  location: Amsterdam, Netherlands
+  speaker : Vladimir Dolzhenko
+  title : 'Kotlin Meetup Amsterdam'
+  subject : 'How we’re improving the performance of the IntelliJ IDEA Kotlin plugin'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/293144259/
+- lang: en
+  startDate: '2023-07-05'
+  endDate: '2023-07-07'
+  location: Berlin, Germany
+  speaker : TBA
+  title : ''
+  subject : 'droidcon Berlin'
+  url: https://www.droidcon.com/events/droidcon-berlin-2023/
+- lang: en
   startDate: '2023-04-13'
   endDate: '2023-04-13'
   location: Belgrade, Serbia

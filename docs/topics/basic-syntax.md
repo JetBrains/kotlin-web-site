@@ -3,8 +3,8 @@
 This is a collection of basic syntax elements with examples. At the end of every section, you'll find a link to
 a detailed description of the related topic.
 
-You can also learn all the Kotlin essentials with the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18)
-on JetBrains Academy.
+You can also learn all the Kotlin essentials with the free [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23)
+by JetBrains Academy.
 
 ## Package definition and imports
 

@@ -12,6 +12,16 @@ designed for mobile development, such as CocoaPods integration and the [Android 
 You may want to watch this introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in which Kotlin Product Marketing Manager Ekaterina Petrova explains in detail what Kotlin Multiplatform for mobile is and how you can use it in your projects. 
 With Ekaterina, you'll set up an environment and prepare for creating your first cross-platform mobile application with Kotlin Multiplatform.
 
+### Can I share UIs with Kotlin Multiplatform?
+
+Yes, you can share UIs using [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose). 
+This framework allows you to create shared UI components for platforms like iOS, Android, desktop, and web, helping you 
+to maintain a consistent user interface across different devices and platforms.
+
+Check out the [Compose Multiplatform FAQ](https://github.com/JetBrains/compose-multiplatform/blob/master/docs/FAQ.md#compose-multiplatform-faq)
+to learn more.
+
 ### What is the Kotlin Multiplatform Mobile plugin?
 
 The _[Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)_

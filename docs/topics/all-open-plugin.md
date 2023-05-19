@@ -19,7 +19,7 @@ Add the plugin using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
 }
 ```
 
@@ -92,7 +92,7 @@ Add the plugin using the Gradle plugins DSL:
 
 ```groovy
 plugins {
-  id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
 }
 ```
 

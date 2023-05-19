@@ -92,7 +92,6 @@ class MyKotlinArray {
     fun indexOf(@ObjCName("of") element: String): Int = TODO()
 }
 
-
 // Usage with the ObjCName annotations
 let array = MySwiftArray()
 let index = array.index(of: "element")
@@ -349,7 +348,7 @@ and properties of a type. As such, the following:
 
 ```kotlin
 class Sample<T>() {
-  fun myVal(): T
+    fun myVal(): T
 }
 ```
 
@@ -357,7 +356,7 @@ will (logically) look like this:
 
 ```swift
 class Sample<T>() {
-  fun myVal(): T?
+    fun myVal(): T?
 }
 ```
 
@@ -368,7 +367,7 @@ type constraint:
 
 ```kotlin
 class Sample<T : Any>() {
-  fun myVal(): T
+    fun myVal(): T
 }
 ```
 
@@ -401,7 +400,7 @@ To have the framework header written without generics, add the flag to the compi
 
 ```kotlin
 binaries.framework {
-     freeCompilerArgs += "-Xno-objc-generics"
+    freeCompilerArgs += "-Xno-objc-generics"
 }
 ```
 

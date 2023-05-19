@@ -100,13 +100,13 @@ To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compil
 
 ```kotlin
 kotlin {
-   js(IR) {
-       compilations.all {
-           compileTaskProvider.configure {
-               compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-           }
-       }
-   }
+    js(IR) {
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+            }
+        }
+    }
 }
 ```
 
@@ -118,13 +118,13 @@ This type of minification is automatically applied when you build your Kotlin/JS
 
 ```kotlin
 kotlin {
-   js(IR) {
-       compilations.all {
-           compileTaskProvider.configure {
-               compilerOptions.freeCompilerArgs.add("-Xir-minimized-member-names=false")
-           }
-       }
-   }
+    js(IR) {
+        compilations.all {
+            compileTaskProvider.configure {
+                compilerOptions.freeCompilerArgs.add("-Xir-minimized-member-names=false")
+            }
+        }
+    }
 }
 ```
 
