@@ -39,7 +39,7 @@ These are just a few of the key advantages of cross-platform app development. Yo
 
 ### Debugging some popular myths about cross-platform app development 
 
-Multiplatform technology is constantly evolving. Some cross-platform development frameworks like [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/) provide the benefits of building both cross-platform and native apps and remove the limitations that are commonly associated with the approach.
+Multiplatform technology is constantly evolving. Some cross-platform development frameworks like [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/multiplatform/) provide the benefits of building both cross-platform and native apps and remove the limitations that are commonly associated with the approach.
 
 #### 1. Cross-platform apps provide poorer performance than native apps.
 

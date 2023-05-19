@@ -185,4 +185,4 @@ or watch the video:
 ## What's next?
 
 * Complete more tasks with [Kotlin Koans](koans.md) 
-* Create working applications with the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18)
+* Create working applications with the free [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23) by JetBrains Academy

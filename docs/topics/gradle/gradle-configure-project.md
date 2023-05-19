@@ -85,7 +85,9 @@ The `version` should be literal in this block, and it cannot be applied from ano
 
 ### Kotlin and Java sources
 
-Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
+Kotlin sources and Java sources can be stored in the same directory, or they can be placed in different directories.
+
+The default convention is to use different directories:
 
 ```text
 project
@@ -94,6 +96,12 @@ project
             - kotlin
             - java
 ```
+
+> Do not store Java `.java` files in the `src/*/kotlin` directory, as the `.java` files will not be compiled.
+> 
+> Instead, you can use `src/main/java`.
+>
+{type="warning"} 
 
 The corresponding `sourceSets` property should be updated if you are not using the default convention:
 
@@ -566,7 +574,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType<KotlinBasePlugin>() {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -579,7 +587,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType(KotlinBasePlugin.class) {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -724,7 +732,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
 
-    ```kotlin
+  ```kotlin
   dependencies {
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
@@ -772,8 +780,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Kotlin" group-key="kotlin">
 
   ```kotlin
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       kotlin("<...>") version "%kotlinVersion%"
   }
   ```
@@ -782,8 +790,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
   }
   ```
@@ -813,9 +821,9 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
   ```groovy
   dependencies {
-       implementation("com.example:lib:1.0") {
-        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
-    }
+      implementation("com.example:lib:1.0") {
+          exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+      }
   }
   ```
 

@@ -77,7 +77,7 @@ In the Kotlin Gradle DSL, there is also a shortcut for setting the CommonJS modu
 kotlin {
     js {
          useCommonJs()
-         // . . .
+         // ...
     }
 }
 ```

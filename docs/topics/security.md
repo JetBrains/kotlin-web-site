@@ -18,4 +18,4 @@ or browse known vulnerabilities in the [CVE base](https://cve.mitre.org/cgi-bin/
 We are very eager and grateful to hear about any security issues you find. To report vulnerabilities that you discover in Kotlin,
 please post a message directly to our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Security%20Problem) or send us an [email](mailto:security@jetbrains.org). 
 
-For more information on how our responsible disclosure process works, please check the [JetBrains Coordinated Disclosure Policy](https://www.jetbrains.com/legal/terms/coordinated-disclosure.html).
+For more information on how our responsible disclosure process works, please check the [JetBrains Coordinated Disclosure Policy](https://www.jetbrains.com/legal/docs/terms/coordinated-disclosure/).

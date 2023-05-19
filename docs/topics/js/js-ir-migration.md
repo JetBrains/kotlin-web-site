@@ -1,6 +1,6 @@
 [//]: # (title: Migrating Kotlin/JS projects to the IR compiler)
 
-We replaced the current Kotlin/JS compiler with [the IR-based compiler](js-ir-compiler.md) in order to unify
+We replaced the old Kotlin/JS compiler with [the IR-based compiler](js-ir-compiler.md) in order to unify
 Kotlin's behavior on all platforms and to make it possible to implement new JS-specific optimizations, among other reasons.
 You can learn more about the internal differences between the two compilers in the blog post
 [Migrating our Kotlin/JS app to the new IR compiler](https://dev.to/kotlin/migrating-our-kotlin-js-app-to-the-new-ir-compiler-3o6i)
