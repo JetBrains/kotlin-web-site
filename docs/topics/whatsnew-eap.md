@@ -19,7 +19,6 @@ The Kotlin 1.9.0-Beta release is out! Here are some highlights from this preview
 * [No object initialization when accessing constant values in Kotlin/Native](#no-object-initialization-when-accessing-constant-values-in-kotlin-native)
 * [Ability to configure standalone mode for iOS simulator tests in Kotlin/Native](#ability-to-configure-standalone-mode-for-ios-simulator-tests-in-kotlin-native)
 
-
 ## IDE support
 
 The Kotlin plugins that support 1.9.0-Beta are available for:
@@ -31,20 +30,19 @@ The Kotlin plugins that support 1.9.0-Beta are available for:
 
 ## New Kotlin K2 compiler updates
 
-The Kotlin team continues to stabilize the K2 compiler. The 1.9.0-Beta release introduces further advancements, including 
-basic support for Kotlin/Native and improved Kotlin/JS stability in the K2 compiler. It’s an important step towards full
-support of multiplatform projects. We would appreciate [your feedback](#leave-your-feedback-on-the-new-k2-compiler) to 
+The Kotlin team continues to stabilize the K2 compiler. The 1.9.0-Beta release introduces further advancements, including
+basic support for Kotlin/Native and improved Kotlin/JS stability in the K2 compiler. It's an important step towards full
+support of multiplatform projects. We would appreciate [your feedback](#share-your-feedback-on-the-new-k2-compiler) to
 help us with it.
 
-Also, starting with 1.9.0-Beta until the release of Kotlin 2.0, you can easily test the K2 compiler in your projects. 
+Also, starting with 1.9.0-Beta and until the release of Kotlin 2.0, you can easily test the K2 compiler in your projects.
 Add `kotlin.experimental.tryK2=true` to your `gradle.properties` file or run the following command:
-
 
 ```shell
 ./gradlew assemble -Pkotlin.experimental.tryK2=true
 ```
 
-This Gradle property automatically sets the language version to 2.0 and updates the build report with the number of 
+This Gradle property automatically sets the language version to 2.0 and updates the build report with the number of
 Kotlin tasks compiled using the K2 compiler compared to the current compiler:
 
 ```none
@@ -54,13 +52,13 @@ Kotlin tasks compiled using the K2 compiler compared to the current compiler:
 ##### 100% (2/2) tasks have compiled with Kotlin 2 #####
 ```
 
-### Leave your feedback on the new K2 compiler
+### Share your feedback on the new K2 compiler
 
 We'd appreciate any feedback you might have!
 
-* Provide your feedback directly to K2 developers on Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+* Provide your feedback directly to K2 developers in the Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
   and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you faced with the new K2 compiler via [our issue tracker](https://kotl.in/issue).
+* Report any problems you've faced with the new K2 compiler via [our issue tracker](https://kotl.in/issue).
 * [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
@@ -70,7 +68,7 @@ The new `..<` operator for open-ended ranges that was introduced in [Kotlin 1.7.
 is Stable in 1.9.0-Beta. The standard library API for working with open-ended ranges is also Stable in this release.
 
 Our research shows that the new `..<` operator makes it easier to understand when an open-ended range is declared. If 
-you use the [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) infix function, it’s easy 
+you use the [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) infix function, it's easy 
 to make the mistake of assuming that the upper bound is included.
 
 Here is an example using the `until` function:
@@ -101,54 +99,54 @@ fun main() {
 ```
 {validate="false"}
 
-> From IntelliJ IDEA version 2023.1.1, there is a new code inspection that highlights when you can use the `..<` operator.
+> Starting with version 2023.1.1, IntelliJ IDEA has a new code inspection that highlights when you can use the `..<` operator.
 >
 {type="note"}
 
-For more information about what you can do with this operator, see [What’s new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
+For more information about what you can do with this operator, see [What's new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
 
 ## New path utility to create parent directories
 
 In 1.9.0-Beta there is a new extension function `createParentDirectories()` that you can use to create a new file with 
-all the necessary parent directories. When you provide a file path to `createParentDirectories()` it checks if the parent
+all the necessary parent directories. When you provide a file path to `createParentDirectories()`, it checks whether the parent
 directories already exist. If they do, it does nothing. However, if they do not, it creates them for you.
 
 `createParentDirectories()` is particularly useful when you are copying files. For example, you can use it in combination
 with the [`copyToRecursively()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io.path/java.nio.file.-path/copy-to-recursively.html) function:
 
- ```kotlin
- sourcePath.copyToRecursively(
-     destinationPath.createParentDirectories(),
-     followLinks = false
- )
- ```
+```kotlin
+sourcePath.copyToRecursively(
+    destinationPath.createParentDirectories(),
+    followLinks = false
+)
+```
 {validate="false"}
 
 ## Preview of Gradle configuration cache in Kotlin Multiplatform
 
 Kotlin 1.9.0-Beta comes with support for [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
-in multiplatform libraries. If you’re a library author, you can already benefit from the improved build performance.
+in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.
 
 Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent 
 builds. The feature has become Stable since Gradle 8.1. To enable it, follow the instructions in the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
 
-> The Kotlin Multiplatform plugin still doesn’t support Gradle configuration cache with Xcode integration tasks or the 
-> [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in future Kotlin releases.
+> The Kotlin Multiplatform plugin still doesn't support Gradle configuration cache with Xcode integration tasks or the 
+> [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in a future Kotlin release.
 >
 {type="note"}
 
 ## Changes for Android target support in Kotlin Multiplatform
 
-We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class support
-for the Android target. We’re excited to announce that in the future, the Android team from Google will provide its own 
+We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this direction is to provide first-class support
+for the Android target. We're excited to announce that in the future, the Android team from Google will provide its own 
 Gradle plugin to support Android in Kotlin Multiplatform.
 
-To open the way for the new solution from Google, we’re renaming the `android` block to `androidTarget` in the current 
+To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current 
 Kotlin DSL in 1.9.0-Beta. This is a temporary change that is necessary to free the `android` name for the upcoming DSL 
 from Google.
 
-The Google plugin will be the preferred way of working with Android in multiplatform projects. When it’s ready, we’ll 
-provide the necessary migration instructions so that you’ll be able to use the short `android` name as before.
+The Google plugin will be the preferred way of working with Android in multiplatform projects. When it's ready, we'll 
+provide the necessary migration instructions so that you'll be able to use the short `android` name as before.
 
 ## No object initialization when accessing constant values in Kotlin/Native
 
@@ -194,7 +192,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimu
 >
 > ```shell
 > /usr/bin/xcrun simctl boot <DeviceId>
->```
+> ```
+> 
 {type = "warning"}
 
 ## How to update to Kotlin 1.9.0-Beta
