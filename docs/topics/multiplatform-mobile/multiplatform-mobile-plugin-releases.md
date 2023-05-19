@@ -61,6 +61,28 @@ Released: 12 April, 2023
 <tr>
 <td>
 
+**0.6.0**
+
+Released: **TBD**
+
+</td>
+<td>
+
+* Support of the new Canary Android Studio Hendhehog.
+* Updated versions of Kotlin, Gradle and libraries in the Multiplatform project.
+* Applied new (targetHierarchy.default())[https://kotlinlang.org/docs/whatsnew1820.html#new-approach-to-source-set-hierarchy] in the Multiplatform project.
+* Applied source set name suffixes to platform specific files in the Multiplatform project.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.5.2**
 
 Released: 30 January, 2023
