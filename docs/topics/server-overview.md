@@ -17,13 +17,17 @@ maintaining full compatibility with existing Java-based technology stacks, all w
 
 ## Frameworks for server-side development with Kotlin
 
+Here are some examples of the server-side frameworks for Kotlin:
+
 * [Spring](https://spring.io) makes use of Kotlin's language features to offer [more concise APIs](https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0),
   starting with version 5.0. The [online project generator](https://start.spring.io/#!language=kotlin) allows you to quickly generate a new project in Kotlin.
 
+* [Ktor](https://github.com/kotlin/ktor) is a framework built by JetBrains for creating Web applications in Kotlin, making use of coroutines for high scalability and offering an easy-to-use and idiomatic API.
+
+* [Quarkus](https://quarkus.io/guides/kotlin) provides first class support for using Kotlin. The framework is open source and maintained by Red Hat. Quarkus was built from the ground up for Kubernetes and provides a cohesive full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries.
+
 * [Vert.x](https://vertx.io), a framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin)
   for Kotlin, including [full documentation](https://vertx.io/docs/vertx-core/kotlin/).
-
-* [Ktor](https://github.com/kotlin/ktor) is a framework built by JetBrains for creating Web applications in Kotlin, making use of coroutines for high scalability and offering an easy-to-use and idiomatic API.
 
 * [kotlinx.html](https://github.com/kotlin/kotlinx.html) is a DSL that can be used to build HTML in Web applications.
   It serves as an alternative to traditional templating systems such as JSP and FreeMarker.
@@ -37,6 +41,10 @@ maintaining full compatibility with existing Java-based technology stacks, all w
 * The available options for persistence include direct JDBC access, JPA, and using NoSQL databases through their Java drivers.
   For JPA, the [kotlin-jpa compiler plugin](no-arg-plugin.md#jpa-support) adapts
   Kotlin-compiled classes to the requirements of the framework.
+  
+> You can find more frameworks at [https://kotlin.link/](https://kotlin.link/resources).
+>
+{type="note"}
 
 ## Deploying Kotlin server-side applications
 

@@ -64,11 +64,11 @@ Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Androi
 
 **Key features:**
 
-* You can easily start using Multiplatform Mobile in existing projects.
+* You can easily start using Kotlin Multiplatform Mobile in existing projects.
 * Kotlin Multiplatform Mobile provides you with full access over the user interface. You can utilize the latest UI frameworks, such as SwiftUI and Jetpack Compose.
 * Developers have easy access to the Android and iOS SDKs without any restrictions.
 
-Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/case-studies/) to develop multiplatform apps with a native-like user experience.
+Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/multiplatform/case-studies/) to develop multiplatform apps with a native-like user experience.
 
 > Create your first cross-platform mobile app with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
 >
@@ -166,5 +166,3 @@ The volume and quality of available learning resources about a framework can als
 ## Key takeaways
 
 Without considering these factors, it's difficult to choose the framework for cross-platform mobile development that will best meet your specific needs. Take a closer look at your future application requirements and weigh them against capabilities of various frameworks. Doing so will allow you to find the right cross-platform solution to help you deliver high-quality apps.
-
- 

@@ -6,7 +6,7 @@
 </microformat>
 
 You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
-requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/mobile/) to share with Kotlin
+requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/multiplatform/) to share with Kotlin
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
@@ -33,7 +33,7 @@ sourceSets {
     val commonMain by getting {
         dependencies {
             // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -65,7 +65,7 @@ the existing `plugins` block at the very beginning of the `build.gradle.kts` fil
 
 ```kotlin
 plugins {
-    // 
+    // ...
     kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
@@ -296,7 +296,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
             Text(viewModel.text)
         }
     }
-     
+    
     extension ContentView {
         class ViewModel: ObservableObject {
             @Published var text = "Loading..."

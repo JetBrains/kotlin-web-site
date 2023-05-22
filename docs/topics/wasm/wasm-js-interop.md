@@ -78,7 +78,7 @@ external class Rectangle(height: Double, width: Double) {
 ```
 
 See the full code in the example
-project [Kotlin/Wasm browser](https://github.com/skuzmich/kotlin-wasm-browser-example/tree/f8cf66dd49b7e378ee735ce3da8e33b614637a77).
+project [Kotlin/Wasm browser](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/browser-example).
 
 > Some "external" Kotlin/JS features are not supported in Kotlin/Wasm:
 > * Implementing or extending external types

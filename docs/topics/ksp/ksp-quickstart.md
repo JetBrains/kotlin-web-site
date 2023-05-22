@@ -20,7 +20,7 @@ buildscript {
         classpath(kotlin("gradle-plugin", version = "%kspSupportedKotlinVersion%"))
     }
 }
- ```
+```
 
 </tab>
 <tab title="Groovy" group-key="groovy">
@@ -219,9 +219,9 @@ Processor options in `SymbolProcessorEnvironment.options` are specified in gradl
 
 ```none
 ksp {
-  arg("option1", "value1")
-  arg("option2", "value2")
-  ...
+    arg("option1", "value1")
+    arg("option2", "value2")
+    ...
 }
 ```
 
@@ -293,17 +293,17 @@ In this case, use the following script instead:
 
 ```kotlin
 plugins {
-   // ...
-   idea
+    // ...
+    idea
 }
 
 idea {
-   module {
-      // Not using += due to https://github.com/gradle/gradle/issues/8749
-      sourceDirs = sourceDirs + file("build/generated/ksp/main/kotlin") // or tasks["kspKotlin"].destination
-      testSourceDirs = testSourceDirs + file("build/generated/ksp/test/kotlin")
-      generatedSourceDirs = generatedSourceDirs + file("build/generated/ksp/main/kotlin") + file("build/generated/ksp/test/kotlin")
-   }
+    module {
+        // Not using += due to https://github.com/gradle/gradle/issues/8749
+        sourceDirs = sourceDirs + file("build/generated/ksp/main/kotlin") // or tasks["kspKotlin"].destination
+        testSourceDirs = testSourceDirs + file("build/generated/ksp/test/kotlin")
+        generatedSourceDirs = generatedSourceDirs + file("build/generated/ksp/main/kotlin") + file("build/generated/ksp/test/kotlin")
+    }
 }
 ```
 
@@ -312,17 +312,17 @@ idea {
 
 ```groovy
 plugins {
-   // ...
-   id 'idea'
+    // ...
+    id 'idea'
 }
 
 idea {
-   module {
-      // Not using += due to https://github.com/gradle/gradle/issues/8749
-      sourceDirs = sourceDirs + file('build/generated/ksp/main/kotlin') // or tasks["kspKotlin"].destination
-      testSourceDirs = testSourceDirs + file('build/generated/ksp/test/kotlin')
-      generatedSourceDirs = generatedSourceDirs + file('build/generated/ksp/main/kotlin') + file('build/generated/ksp/test/kotlin')
-   }
+    module {
+        // Not using += due to https://github.com/gradle/gradle/issues/8749
+        sourceDirs = sourceDirs + file('build/generated/ksp/main/kotlin') // or tasks["kspKotlin"].destination
+        testSourceDirs = testSourceDirs + file('build/generated/ksp/test/kotlin')
+        generatedSourceDirs = generatedSourceDirs + file('build/generated/ksp/main/kotlin') + file('build/generated/ksp/test/kotlin')
+    }
 }
 ```
 

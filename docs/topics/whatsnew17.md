@@ -192,7 +192,7 @@ in [this KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb
 
 This release brings performance improvements for the Kotlin/JVM compiler and a new compiler option. Additionally,
 callable references to functional interface constructors have become Stable. Note that since 1.7.0, the default target
-version for Kotlin/JVM compilations is now `1.8`.
+version for Kotlin/JVM compilations is `1.8`.
 
 * [Compiler performance optimizations](#compiler-performance-optimizations)
 * [New compiler option `-Xjdk-release`](#new-compiler-option-xjdk-release)

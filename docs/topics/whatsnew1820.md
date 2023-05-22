@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.8.20)
 
-_[Release date: %kotlinReleaseDate%](releases.md#release-details)_
+_[Published %kotlinReleaseDate%](releases.md#release-details)_
 
 The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 
@@ -1209,7 +1209,7 @@ Base64.UrlSafe.encode(foobarBytes) // "Zm9vYmFy"
 
 Base64.Default.decode("Zm8=") // foBytes
 // Alternatively:
-// Base64.decode(foBytes)
+// Base64.decode("Zm8=")
 
 Base64.UrlSafe.decode("Zm9vYmFy") // foobarBytes
 ```

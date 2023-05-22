@@ -445,6 +445,7 @@ and contains the code from the `unwatchedVideos` list.
 
    ```kotlin
    // . . .
+
    div {
        h3 {
            +"Videos to watch"
@@ -456,6 +457,7 @@ and contains the code from the `unwatchedVideos` list.
        }
        VideoList()
    }
+
    // . . .
    ```
 
@@ -527,6 +529,7 @@ First, add an alert message that pops up when users click on a list entry. In `V
 
 ```kotlin
 // . . .
+
 p {
     key = video.id.toString()
     onClick = {
@@ -534,6 +537,7 @@ p {
     }
     +"${video.speaker}: ${video.title}"
 }
+
 // . . .
 ```
 
@@ -562,6 +566,7 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
        var selectedVideo: Video? by useState(null)
+
    // . . .
    ```
    {validate="false"}
@@ -634,6 +639,7 @@ as state to the `App` component:
    ```kotlin
    val App = FC<Props> {
        var currentVideo: Video? by useState(null)
+   
        // . . .
    }
    ```
@@ -826,6 +832,7 @@ change, move them into the application state:
        var watchedVideos: List<Video> by useState(listOf(
            Video(4, "Creating Internal DSLs in Kotlin", "Venkat Subramaniam", "https://youtu.be/JzTeAM8N1-o")
        ))
+
        // . . .
    }
    ```
@@ -998,6 +1005,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
 
    ```kotlin
    // . . .
+
    div {
        css {
             position = Position.absolute
@@ -1019,6 +1027,7 @@ an off-the-shelf React component for this as well, for example, [react-share](ht
            }
        }
    }
+
    // . . .
    ```
 
@@ -1061,6 +1070,7 @@ Check the `build.gradle.kts` file. The relevant snippet should already exist:
 ```kotlin
 dependencies {
     // . . .
+
     // Coroutines & serialization
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }
@@ -1084,6 +1094,7 @@ these types of conversions from JSON strings to Kotlin objects.
    
    dependencies {
        // . . .
+
        // Serialization
        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
    }
@@ -1162,6 +1173,7 @@ functionality provided by Kotlin's coroutines:
                unwatchedVideos = fetchVideos()
            }
        }
+
    // . . .
    ```
    {validate="false"}
