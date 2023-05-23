@@ -1013,11 +1013,11 @@ of the operations being performed in each case and keep performance consideratio
 
 ### Loops on ranges
 
-Use the `until` function to loop over an open range:
+Use the `..<` operator to loop over an open-ended range:
 
 ```kotlin
 for (i in 0..n - 1) { /*...*/ }  // bad
-for (i in 0 until n) { /*...*/ }  // good
+for (i in 0..<n) { /*...*/ }  // good
 ```
 
 ### Strings
