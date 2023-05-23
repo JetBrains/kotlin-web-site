@@ -147,7 +147,7 @@ Kotlin supports the following operators and special symbols:
  * `?.` performs a [safe call](null-safety.md#safe-calls) (calls a method or accesses a property if the receiver is non-null).
  * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](null-safety.md#elvis-operator)).
  * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
- * `..` creates a [range](ranges.md).
+ * `..`, `..<` create [ranges](ranges.md).
  * `:` separates a name from a type in a declaration.
  * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-null-types).
  * `->`
