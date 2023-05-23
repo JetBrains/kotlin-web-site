@@ -1096,3 +1096,5 @@ When writing libraries, it's recommended to follow an additional set of rules to
    when the implementation changes)
  * Provide [KDoc](kotlin-doc.md) comments for all public members, with the exception of overrides that do not require any new documentation
    (to support generating documentation for the library)
+
+Learn more about best practices and ideas to consider when writing an API for your library in [library creators' guidelines](jvm-api-guidelines-introduction.md).
