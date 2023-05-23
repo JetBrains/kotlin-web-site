@@ -1,0 +1,36 @@
+.navigation {
+  @media (min-width: 760px) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  &, #pages-search {
+    background: none #1b1b1b;
+  }
+}
+
+.navigation > .library-name {
+  margin-right: 0;
+}
+
+.library-name > .library-name--link {
+  margin-left: 0;
+
+  &::before {
+    display: none;
+  }
+}
+
+@media (min-width: 940px) {
+    .filter-section .platform-tag {
+        font-size: 16px;
+        border-radius: 24px;
+        padding: 8px 24px;
+    }
+}
+
+#searchBar {
+  @media(min-width: 760px) {
+    display: none;
+  }
+}

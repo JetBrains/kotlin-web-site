@@ -15,12 +15,7 @@ export function ktlHelpers() {
 
       if (nodeValue.startsWith(comment)) {
         const { name, props } = JSON.parse(nodeValue.substring(comment.length));
-
-        result.push({
-          name: name,
-          props: props,
-          node: currentNode
-        });
+        result.push({ name, props, node: currentNode });
       }
     }
   }
@@ -32,4 +27,24 @@ export function initComponent(node, Component, props) {
   const fake_node = document.createElement('div');
   hydrate(createElement(Component, props), fake_node);
   node.replaceWith(fake_node);
+}
+
+export function replaceByComponent(node, Component, props) {
+  const parentNode = node.parentNode;
+  const fakeNode = document.createElement('div');
+
+  hydrate(createElement(Component, props), fakeNode);
+
+  let renderedNode = fakeNode.lastChild;
+
+  if (fakeNode.children.length === 1) {
+    node.replaceWith(renderedNode);
+    return;
+  }
+
+  do {
+    parentNode.insertBefore(node, renderedNode);
+  } while (renderedNode = renderedNode.previousSibling)
+
+  parentNode.removeChild(node);
 }
