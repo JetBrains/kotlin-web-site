@@ -81,28 +81,11 @@ sudo gem install cocoapods
 {type="warning"}
 
 1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
-2. Install Ruby. You can choose a specific version:
+
+2. Install CocoaPods:
 
     ```bash
-    brew install ruby@3.0
-    ```
-
-3. Add export of `PATH` to the `.zshrc` configuration file:
-
-   ```bash
-   echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> /.zshrc
-   ```
-
-4. Run the export command from the file:
-
-    ```bash
-    source .zshrc
-    ```
-
-5. Install CocoaPods:
-
-    ```bash
-    sudo gem install -n /usr/local/bin cocoapods
+    brew install cocoapods
     ```
 
 </tab>
