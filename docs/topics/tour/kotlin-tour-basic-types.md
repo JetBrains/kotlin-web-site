@@ -117,4 +117,4 @@ fun main() {
 
 ## Next step
 
-[Collection types](kotlin-tour-collections.md)
+[Collections](kotlin-tour-collections.md)
