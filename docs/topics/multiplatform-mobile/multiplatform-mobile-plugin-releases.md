@@ -39,17 +39,17 @@ Compatible Kotlin version
 <tr>
 <td>
 
-**0.5.3**
+**0.6.0**
 
-Released: 12 April, 2023
+Released: 24 May, 2023
 
 </td>
 <td>
 
-* Updated Kotlin and Compose versions.
-* Fixed an Xcode project scheme parsing.
-* Added a scheme product type check.
-* `iosApp` scheme is now selected by default if presented.
+* Support of the new Canary Android Studio Hedgehog.
+* Updated versions of Kotlin, Gradle, and libraries in the Multiplatform project.
+* Applied new [`targetHierarchy.default()`](whatsnew1820.md#new-approach-to-source-set-hierarchy) in the Multiplatform project.
+* Applied source set name suffixes to platform-specific files in the Multiplatform project.
 
 </td>
 <td>
@@ -61,17 +61,17 @@ Released: 12 April, 2023
 <tr>
 <td>
 
-**0.6.0**
+**0.5.3**
 
-Released: 24 May, 2023
+Released: 12 April, 2023
 
 </td>
 <td>
 
-* Support of the new Canary Android Studio Hendhehog.
-* Updated versions of Kotlin, Gradle and libraries in the Multiplatform project.
-* Applied new (targetHierarchy.default())[https://kotlinlang.org/docs/whatsnew1820.html#new-approach-to-source-set-hierarchy] in the Multiplatform project.
-* Applied source set name suffixes to platform-specific files in the Multiplatform project.
+* Updated Kotlin and Compose versions.
+* Fixed an Xcode project scheme parsing.
+* Added a scheme product type check.
+* `iosApp` scheme is now selected by default if presented.
 
 </td>
 <td>
