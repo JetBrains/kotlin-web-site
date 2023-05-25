@@ -4,7 +4,7 @@
    <p>The IDE support for Kotlin 1.7.20 is available for IntelliJ IDEA 2021.3, 2022.1, and 2022.2.</p>
 </microformat>
 
-_[Release date: 29 September 2022](releases.md#release-details)_
+_[Released: 29 September 2022](releases.md#release-details)_
 
 The Kotlin 1.7.20 release is out! Here are some highlights from this release:
 

@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.8.0)
 
-_[Release date: 28 December 2022](releases.md#release-details)_
+_[Released: 28 December 2022](releases.md#release-details)_
 
 The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 

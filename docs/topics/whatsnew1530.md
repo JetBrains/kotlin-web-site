@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.5.30)
 
-_[Release date: 24 August 2021](releases.md#release-details)_
+_[Released: 24 August 2021](releases.md#release-details)_
 
 Kotlin 1.5.30 offers language updates including previews of future changes, various improvements in platform support and tooling, and new standard library functions.
 
