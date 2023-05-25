@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.9.0-Beta)
 
-_[Release date: %kotlinEapReleaseDate%](eap.md#build-details)_
+_[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but highlights the latest
 > ones and some major improvements.
