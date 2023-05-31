@@ -1,49 +1,41 @@
 package builds.apiReferences.kotlinx.datetime
 
-import builds.apiReferences.dependsOnDokkaTemplate
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
+
+import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.templates.BuildApiReference
+import builds.apiReferences.templates.scriptDokkaVersionSync
+import builds.apiReferences.templates.scriptDropSnapshot
 
 object KotlinxDatetimeBuildApiReference : BuildType({
   name = "kotlinx-datetime API reference"
 
-  artifactRules = "core/build/dokka/html/** => pages.zip"
+  templates(BuildApiReference)
 
-  steps {
-    script {
-      name = "Drop SNAPSHOT word for deploy"
-      scriptContent = """
-                #!/bin/bash
-                sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
-            """.trimIndent()
-      dockerImage = "debian"
-    }
-    gradle {
-      name = "Build dokka html"
-      tasks = ":kotlinx-datetime:dokkaHtml"
-      useGradleWrapper = true
-    }
-  }
+  artifactRules = "core/build/dokka/html/** => pages.zip"
 
   params {
     param("release.tag", BuildParams.KOTLINX_DATETIME_RELEASE_TAG)
-    param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
+    param("DOKKA_TEMPLATE_TASK", ":kotlinx-datetime:dokkaHtml")
+  }
+
+  steps {
+    scriptDropSnapshot {
+      scriptContent = """
+        #!/bin/bash
+        sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
+      """.trimIndent()
+    }
+
+    scriptDokkaVersionSync {
+      scriptContent += """
+        sed -i -E "s|mavenCentral|maven(url = \"https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev/\")\nmavenCentral|" ./settings.gradle.kts ./build.gradle.kts
+      """
+    }
   }
 
   vcs {
     root(builds.apiReferences.vcsRoots.KotlinxDatetime)
-  }
-
-  triggers {
-    vcs {
-      branchFilter = "+:<default>"
-    }
-  }
-
-  requirements {
-    doesNotContain("teamcity.agent.name", "windows")
   }
 
   dependencies {

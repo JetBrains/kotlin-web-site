@@ -1,9 +1,9 @@
 package builds.apiReferences.kotlinx.coroutines
 
+import jetbrains.buildServer.configs.kotlin.BuildType
+
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.BuildApiReference
-import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxCoroutinesBuildApiReference: BuildType({
   name = "kotlinx.coroutines API reference"
@@ -16,12 +16,6 @@ object KotlinxCoroutinesBuildApiReference: BuildType({
 
   vcs {
     root(builds.apiReferences.vcsRoots.KotlinxCoroutines)
-  }
-
-  triggers {
-    vcs {
-      branchFilter = "+:<default>"
-    }
   }
 
   dependencies {
