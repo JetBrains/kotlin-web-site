@@ -34,3 +34,9 @@
     display: none;
   }
 }
+
+.navigation-controls--theme {
+  /* this is the last icon in pane have much more spacing for click then
+     the last icon in global header. It did for same right border for both panes */
+  margin-right: -8px;
+}
