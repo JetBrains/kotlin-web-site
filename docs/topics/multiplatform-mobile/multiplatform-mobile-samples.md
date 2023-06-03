@@ -199,4 +199,25 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
       </list>
     </td>
   </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/mirzemehdi/quotesapp/">QuotesApp</a></strong>
+    </td>
+    <td>Models, ViewModels, UI, Navigation, Networking</td>
+    <td>JetBrains Compose MultiPlatform, Koin, Moko Resources, kotlinx.coroutines, kotlinx.serialization, kotlinx.datetime, Napier, Firebase MultiPlatform by GitLive, Navigation MultiPlatform by chRyNaN </td>
+    <td>JetBrains Compose MultiPlatform</td>
+    <td>CocoaPods</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li>Modular architecture</li>
+        <li>Runs on android, and ios</li>
+        <li>Sharing viewmodel</li>
+        <li>Sharing navigation</li>
+        <li>Sharing UI</li>
+        <li>Sharing resources</li>
+      </list>
+    </td>
+  </tr>
 </table>
