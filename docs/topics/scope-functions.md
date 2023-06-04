@@ -8,7 +8,7 @@ There are five of them: [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kot
 , and [`also`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html).
 
 Basically, these functions all perform the same action: execute a block of code on an object. What's different is how 
-this object becomes available inside the block and what is the result of the whole expression.
+this object becomes available inside the block and what the result of the whole expression is.
 
 Here's a typical example of how to use a scope function:
 
@@ -152,7 +152,7 @@ In turn, `let` and `also` reference the context object as a lambda [argument](la
 the argument name is not specified, the object is accessed by the implicit default name `it`. `it` is shorter than 
 `this` and expressions with `it` are usually easier to read. 
 
-However, when calling the object's functions or properties you don't have the object available implicitly like `this`. 
+However, when calling the object's functions or properties, you don't have the object available implicitly like `this`. 
 Hence, accessing the context object via `it` is better when the object is mostly used as an argument in function calls. 
 `it` is also better if you use multiple variables in the code block.
 
