@@ -7,6 +7,7 @@ derivable from the data. In Kotlin, these are called _data classes_ and are mark
 ```kotlin
 data class User(val name: String, val age: Int)
 ```
+In case you know for sure that you do not need any benefit of `data class` then using normal `class` is fine.
 
 The compiler automatically derives the following members from all properties declared in the primary constructor:
 
