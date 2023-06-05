@@ -239,7 +239,7 @@ Extend the functionality of the application to retrieve the individual messages 
             Message(response.getString("id"), response.getString("text"))
         }
     
-        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = '$id'") { response, _ ->
             Message(response.getString("id"), response.getString("text"))
         }
     
