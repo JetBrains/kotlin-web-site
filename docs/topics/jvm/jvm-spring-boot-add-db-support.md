@@ -74,6 +74,9 @@ class MessageService(val db: JdbcTemplate) {
 Update `MessageController` to use the new `MessageService` class:
 
 ```kotlin
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.PostMapping
+
 @RestController
 class MessageController(val service: MessageService) {
     @GetMapping("/")
@@ -106,6 +109,8 @@ It would not be correct to store the `null` as an `id` value in the database tho
 Update your code to generate a new value when the `id` is `null` while storing the messages in the database:
 
 ```kotlin
+import java.util.UUID
+
 @Service
 class MessageService(val db: JdbcTemplate) {
     fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
