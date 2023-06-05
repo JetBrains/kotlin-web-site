@@ -20,6 +20,8 @@ fun BuildSteps.scriptDropSnapshot(block: ScriptBuildStep.() -> Unit) = step(
     }.apply(block),
 )
 
+const val DOKKA_SPACE_REPO = "https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev/"
+
 fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
     ScriptBuildStep {
         id = "step-dokka-version-sync-id"
@@ -27,8 +29,9 @@ fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
         dockerImage = "debian"
         scriptContent = """
         #!/bin/bash
-        sed -i -E "s/^dokka_version=.+/dokka_version=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
-        sed -i -E "s/^dokkaVersion=.+/dokkaVersion=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
+        sed -i -E "s/^(dokka_version|dokkaVersion)=.+/\1=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
+        find . -name "*.gradle.kts" -exec sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" {} \;
+        find . -name "*.gradle" -exec sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" {} \;
         """.trimIndent()
     }.apply(block),
 )
