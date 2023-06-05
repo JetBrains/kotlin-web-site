@@ -19,6 +19,14 @@ object KotlinxDatetimeBuildApiReference : BuildType({
         param("DOKKA_TEMPLATE_TASK", ":kotlinx-datetime:dokkaHtml")
     }
 
+    vcs {
+        root(builds.apiReferences.vcsRoots.KotlinxDatetime)
+    }
+
+    dependencies {
+        dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
+    }
+
     steps {
         scriptDropSnapshot {
             scriptContent = """
@@ -26,19 +34,5 @@ object KotlinxDatetimeBuildApiReference : BuildType({
             sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
             """.trimIndent()
         }
-
-        scriptDokkaVersionSync {
-            scriptContent += """
-            sed -i -E "s|mavenCentral|maven(url = \"https://maven.pkg.jetbrains.space/kotlin/p/dokka/dev/\")\nmavenCentral|" ./settings.gradle.kts ./build.gradle.kts
-            """
-        }
-    }
-
-    vcs {
-        root(builds.apiReferences.vcsRoots.KotlinxDatetime)
-    }
-
-    dependencies {
-        dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
     }
 })
