@@ -146,7 +146,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
 tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
-    compileKotlin.compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+    compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
 }
 
 ```
