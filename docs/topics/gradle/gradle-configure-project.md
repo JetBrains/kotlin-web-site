@@ -315,8 +315,7 @@ java {
 </tabs>
 
 If you use Gradle 8.0.2 or higher, you also need to add a [toolchain resolver plugin](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories). 
-Such a plugin manages from which repositories to download a toolchain. Add to your `settings.gradle(.kts)`, for example, 
-the following plugin:
+This type of plugin manages which repositories to download a toolchain from. As an example, add to your `settings.gradle(.kts)` the following plugin:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
