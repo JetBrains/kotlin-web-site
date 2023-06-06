@@ -9,7 +9,7 @@ from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [b
 
 ## Gradle
 
-Add the plugin using the Gradle plugins DSL:
+Add the plugin using Gradle's plugins DSL:
 
 ```groovy
 plugins {

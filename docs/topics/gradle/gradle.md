@@ -8,7 +8,7 @@ You can set up your own project with [these instructions](gradle-configure-proje
 or pass a small [step-by-step tutorial](get-started-with-jvm-gradle-project.md) that will show you how to create a simple backend 
 "Hello World" application in Kotlin.
 
-> You can find information about compatibility of Kotlin, Gradle, and Android Gradle plugin versions [here](gradle-configure-project.md#apply-the-plugin).
+> You can find information about the compatibility of Kotlin, Gradle, and Android Gradle plugin versions [here](gradle-configure-project.md#apply-the-plugin).
 > 
 {type="tip"}
 

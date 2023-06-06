@@ -201,7 +201,7 @@ plugins {
 
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals 
-a current Gradle's JDK version, which is equal to your JDK version (unless you use 
+the current Gradle's JDK version, which is equal to your JDK version (unless you use 
 a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is 
 `%jvmLTSVersionSupportedByKotlin%`. Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
 with JDK %jvmLTSVersionSupportedByKotlin%+: `org.gradle.jvm.version=%jvmLTSVersionSupportedByKotlin%`, which is wrong. 
@@ -339,7 +339,7 @@ plugins {
 </tab>
 </tabs>
 
-Check a version of `foojay-resolver-convention` corresponding to your Gradle version on the [Gradle site](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories).
+Check that the version of `foojay-resolver-convention` corresponds to your Gradle version on the [Gradle site](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories).
 
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
@@ -347,7 +347,7 @@ Check a version of `foojay-resolver-convention` corresponding to your Gradle ver
 >
 {type="note"}
 
-To set any JDK (even local) for the specific task, use the [Task DSL](#setting-jdk-version-with-the-task-dsl).
+To set any JDK (even local) for a specific task, use the [Task DSL](#setting-jdk-version-with-the-task-dsl).
 
 Learn more about [Gradle JVM toolchain support in the Kotlin plugin](https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin/).
 
@@ -491,7 +491,7 @@ Learn more about [Kotlin Multiplatform for different platforms](multiplatform-ge
 
 ## Targeting Android
 
-It's recommended to use Android Studio for creating Android applications. [Learn how to use Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
+It's recommended to use Android Studio for creating Android applications. [Learn how to use the Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
 ## Targeting JavaScript
 
@@ -966,7 +966,7 @@ see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix
 
 ### Set a dependency on a kotlinx library
 
-If you use a [kotlinx library](https://github.com/Kotlin/kotlinx.coroutines) and need a platform-specific dependency, 
+If you use a [`kotlinx` library](https://github.com/Kotlin/kotlinx.coroutines) and need a platform-specific dependency, 
 you can use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for example, 
 `kotlinx-coroutines-core-jvm`. You can also use the library's base artifact name instead – `kotlinx-coroutines-core`.
 
