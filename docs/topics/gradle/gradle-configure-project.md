@@ -51,10 +51,10 @@ In the following table, there are the minimum and maximum **fully supported** ve
 | 1.7.20      | 6.7.1 – 7.1.1                           | 3.6.4 – 7.0.4                                         |
 | 1.7.0       | 6.7.1 – 7.0.2                           | 3.4.3 – 7.0.2                                         |
 | 1.6.20      | 6.1.1 - 7.0.2                           | 3.4.3 - 7.0.2                                         |
-| 1.6.0       | 6.1.1 - 7.0                             | No data collected                                     |
-| 1.5.30      | 6.1.1 - 7.0                             | No data collected                                     |
-| 1.5.20      | 6.1.1 - 7.0                             | No data collected                                     |
-| 1.5.0       | 6.1 - 7.0                               | No data collected                                     |
+| 1.6.0       | 6.1.1 - 7.0                             | 3.0.0 - 7.0.2                                         |
+| 1.5.30      | 6.1.1 - 7.0                             | 3.0.0 - 7.0.1                                         |
+| 1.5.20      | 6.1.1 - 7.0                             | 3.0.0 - 4.2.1                                         |
+| 1.5.0       | 6.1 - 7.0                               | 3.0.0 - 4.1.3                                         |
 
 > You can also use Gradle and AGP versions up to the latest releases, but if you do, keep in mind that you might encounter 
 > deprecation warnings or some new features might not work.
