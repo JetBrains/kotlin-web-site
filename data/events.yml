@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Limassol, Cyprus
+  speaker : Nikita Lipsky
+  title : 'Kotlin User Group Cyprus'
+  subject : 'Compose Multiplatform on iOS'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-1306-tickets-636457520577
+- lang: en
   startDate: '2023-05-09'
   endDate: '2023-05-09'
   location: Amsterdam, Netherlands
