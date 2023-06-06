@@ -42,8 +42,8 @@ version of the library, you can just omit this parameter altogether.
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            pod("AFNetworking") {
-                version = "~> 4.0.1"
+            pod("Alamofire") {
+                version = "~> 5.7.0"
             }
         }
     }
@@ -54,7 +54,7 @@ version of the library, you can just omit this parameter altogether.
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 ```
 
 ## On a locally stored library
@@ -89,8 +89,8 @@ import cocoapods.AFNetworking.*
                 version = "1.0"
                 source = path(project.file("../subspec_dependency"))
             }
-            pod("AFNetworking") {
-                version = "~> 4.0.1"
+            pod("Alamofire") {
+                version = "~> 5.7.0"
             }
         }
     }
@@ -108,7 +108,7 @@ To use these dependencies from the Kotlin code, import the packages `cocoapods.<
 ```kotlin
 import cocoapods.pod_dependency.*
 import cocoapods.subspec_dependency.*
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 ```
 
 ## From a custom Git repository
@@ -141,9 +141,9 @@ import cocoapods.AFNetworking.*
 
             ios.deploymentTarget = "13.5"
 
-            pod("AFNetworking") {
-                source = git("https://github.com/AFNetworking/AFNetworking") {
-                    tag = "4.0.0"
+            pod("Alamofire") {
+                source = git("https://github.com/Alamofire/Alamofire") {
+                    tag = "5.7.0"
                 }
             }
 
@@ -167,7 +167,7 @@ import cocoapods.AFNetworking.*
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
 ```
@@ -284,5 +284,30 @@ kotlin {
             extraOpts = listOf("-compiler-option", "-fmodules")
         }
     }
+}
+```
+
+### Dependencies between Pods
+
+You can use the cinterop binding generated for another Pod when building a binding for the new Pod.
+The dependent Pod should be declared before setting up the dependency. The Kotlin CocoaPods Gradle plugin supports two ways
+of adding dependencies between Pods:
+
+* `useInteropBindingFrom()` function specifies the name of the existing Pod that is used as dependency.
+* `interopBindingDependencies` contains a list of all dependencies to other Pods.
+
+```kotlin
+pod("WebImage") {
+    version = "~> 1.0.0"
+}
+
+pod("Info") {
+    version = "~> 1.0.0"
+    
+    // Option 1. Specify the name of the previously declared Pod: 
+    useInteropBindingFrom("WebImage")
+
+    // Option 2. Add the previously declared Pod to the list of dependencies: 
+    interopBindingDependencies.add("WebImage")
 }
 ```

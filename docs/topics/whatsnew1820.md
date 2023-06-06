@@ -684,8 +684,8 @@ cocoapods {
     summary = "CocoaPods test library"
     homepage = "https://github.com/JetBrains/kotlin"
    
-    pod("AFNetworking", linkOnly = true) {
-        version = "~> 4.0.0"
+    pod("Alamofire", linkOnly = true) {
+        version = "~> 5.7.0"
     }
 }
 ```
