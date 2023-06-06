@@ -751,7 +751,7 @@
       lng: 121.473701
   - name: Shenzhen KUG
     country: China Mainland
-    url: https://szkug.github.io/website-hugo/
+    url: https://github.com/szkug/
     position:
       lat: 22.543096
       lng: 114.057865
