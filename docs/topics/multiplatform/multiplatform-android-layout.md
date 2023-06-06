@@ -3,6 +3,10 @@
 The new Android source set layout was introduced in Kotlin 1.8.0 and became default in 1.9.0. Follow our guide to
 understand the key differences between the deprecated and the new layout and migrate your projects.
 
+> You don't need to implement all the suggestions. Only those that are applicable to your particular projects. 
+> 
+{type="tip"}
+
 ## Check the compatibility
 
 Check your version of the Android Gradle plugin and upgrade if necessary.
@@ -10,27 +14,31 @@ The new layout requires Android Gradle plugin 7.0 or later and is supported in A
 
 ## Rename Kotlin source sets
 
-| Current source set layout              | New source set layout               |
+If applicable, rename source sets in your project, following this pattern:
+
+| Previous source set layout             | New source set layout               |
 |----------------------------------------|-------------------------------------|
 | `targetName` + `AndroidSourceSet.name` | `targetName` + `AndroidVariantType` |
 
 `{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
 
-|             | Current source set layout | New source set layout          |
-|-------------|---------------------------|--------------------------------|
-| main        | androidMain               | androidMain                    |
-| test        | androidTest               | android<b>Unit</b>Test         |
-| androidTest | android<b>Android</b>Test | android<b>Instrumented</b>Test |
+|             | Previous source set layout | New source set layout          |
+|-------------|----------------------------|--------------------------------|
+| main        | androidMain                | androidMain                    |
+| test        | androidTest                | android<b>Unit</b>Test         |
+| androidTest | android<b>Android</b>Test  | android<b>Instrumented</b>Test |
 
-## Rename source directories
+## Move source files
 
-| Current source set layout                               | New source set layout                                                     |
-|---------------------------------------------------------|---------------------------------------------------------------------------|
-| The layout adds additional `/kotlin` SourceDirectories  | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
+If applicable, move your source files to the new directories, following this pattern:
+
+| Previous source set layout                            | New source set layout                                                     |
+|-------------------------------------------------------|---------------------------------------------------------------------------|
+| The layout had additional `/kotlin` SourceDirectories | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
 
 `{AndroidSourceSet.name}` maps to `{SourceDirectories included}` as follows:
 
-|             | Current source set layout                                  | New source set layout                                                                          |
+|             | Previous source set layout                                 | New source set layout                                                                          |
 |-------------|------------------------------------------------------------|------------------------------------------------------------------------------------------------|
 | main        | src/androidMain/kotlin, src/main/kotlin, src/main/java     | src/androidMain/kotlin, src/main/kotlin, src/main/java                                         |
 | test        | src/androidTest/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                              |
@@ -38,13 +46,15 @@ The new layout requires Android Gradle plugin 7.0 or later and is supported in A
 
 ## Move the `AndroidManifest.xml` file
 
-| Current source set layout                              | New source set layout                                 |
+If you have the `AndroidManifest.xml` file in your project, move it to the new directory, following this pattern:
+
+| Previous source set layout                             | New source set layout                                 |
 |--------------------------------------------------------|-------------------------------------------------------|
 | src/{<b>Android</b>SourceSet.name}/AndroidManifest.xml | src/{<b>Kotlin</b>SourceSet.name}/AndroidManifest.xml |
 
-`{AndroidSourceSet.name}` maps to`{AndroidManifest.xml location}` as follows:
+`{AndroidSourceSet.name}` maps to `{AndroidManifest.xml location}` as follows:
 
-|       | Current source set layout     | New source set layout                       |
+|       | Previous source set layout    | New source set layout                       |
 |-------|-------------------------------|---------------------------------------------|
 | main  | src/main/AndroidManifest.xml  | src/<b>android</b>Main/AndroidManifest.xml  |
 | debug | src/debug/AndroidManifest.xml | src/<b>android</b>Debug/AndroidManifest.xml |
