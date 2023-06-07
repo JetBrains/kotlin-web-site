@@ -218,8 +218,8 @@ See how Kotlin types are mapped to JavaScript ones:
 | Function type, for example (`int`, `String`) → `Int` | Function reference                 | Parameters and return values of function types follow the same type of conversion rules.                                                              |
 | `external interface`                                 | Any JS value with given properties |                                                                                                                                                       |
 | `external class` or `external object`                | Corresponding JS class             |                                                                                                                                                       |
-| Other Kotlin types                                   | Not supported                      | This includes type `Any`, arrays, `Throwable` class, collections, and so on.                                                                          |
-| Nullable `Type?`                                     | Type / ` null` / undefined         |                                                                                                                                                       |
+| Other Kotlin types                                   | Not supported                      | This includes type `Any`, arrays, the `Throwable` class, collections, and so on.                                                                      |
+| Nullable `Type?`                                     | Type / `null` / undefined          |                                                                                                                                                       |
 | Type parameters `<T : U>`                            | Same as the upper bound            | In interop declarations, only external types, like `JsAny`, are supported as upper bounds of type parameters.                                         |
 
 ## Exception handling
