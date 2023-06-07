@@ -12,24 +12,24 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
 object BuildSitePages : BuildType({
-  name = "Build site pages"
+    name = "Build site pages"
 
-  templates(DockerImageBuilder)
+    templates(DockerImageBuilder)
 
-  artifactRules = """
+    artifactRules = """
         dist/** => pages.zip
         robots.txt => pages.zip
     """.trimIndent()
 
-  vcs {
-    root(vcsRoots.KotlinLangOrg)
-    cleanCheckout = true
-  }
+    vcs {
+        root(vcsRoots.KotlinLangOrg)
+        cleanCheckout = true
+    }
 
-  steps {
-    script {
-      name = "Build html pages"
-      scriptContent = """
+    steps {
+        script {
+            name = "Build html pages"
+            scriptContent = """
                 #!/bin/bash
                 
                 set -x
@@ -45,15 +45,15 @@ object BuildSitePages : BuildType({
                 
                 python kotlin-website.py build
             """.trimIndent()
-      formatStderrAsError = true
-      dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
-      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-      dockerPull = true
-    }
+            formatStderrAsError = true
+            dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
+            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+            dockerPull = true
+        }
 
-    script {
-      name = "Override with external source"
-      scriptContent = """
+        script {
+            name = "Override with external source"
+            scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
                 #cp -fR _webhelp/mobile build/docs/
                 mv build dist
@@ -63,27 +63,27 @@ object BuildSitePages : BuildType({
                 cp -fR out/_next dist/_next/
                 cp -fR libs/* dist/api/
             """.trimIndent()
-      dockerImage = "alpine"
-    }
+            dockerImage = "alpine"
+        }
 
-    script {
-      name = "Build Sitemap"
-      conditions {
-        equals("teamcity.build.branch.is_default", "true")
-      }
-      scriptContent = """
+        script {
+            name = "Build Sitemap"
+            conditions {
+                equals("teamcity.build.branch.is_default", "true")
+            }
+            scriptContent = """
                 #!/bin/bash
                 pip install -r requirements.txt
                 python kotlin-website.py sitemap
             """.trimIndent()
-      dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
-      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-      dockerPull = true
-    }
+            dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
+            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+            dockerPull = true
+        }
 
-    script {
-      name = "Update build status"
-      scriptContent = """
+        script {
+            name = "Update build status"
+            scriptContent = """
                 #!/bin/bash
                 
                 if [[ "%teamcity.build.branch%" == "<default>" ]]; then
@@ -94,100 +94,81 @@ object BuildSitePages : BuildType({
                 
                 echo " ##teamcity[buildStatus text='{build.status.text} ${'$'}{url}'] "
             """.trimIndent()
-    }
-  }
-
-  dependencies {
-    dependency(BuildJsAssets) {
-      snapshot {
-        onDependencyFailure = FailureAction.FAIL_TO_START
-        onDependencyCancel = FailureAction.CANCEL
-      }
-
-      artifacts {
-        artifactRules = "+:assets.zip!** => ./"
-      }
+        }
     }
 
-    dependency(BuildKotlinSpec) {
-      snapshot {
-        onDependencyFailure = FailureAction.FAIL_TO_START
-        onDependencyCancel = FailureAction.CANCEL
-        synchronizeRevisions = false
-      }
+    dependencies {
+        dependency(BuildJsAssets) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
+            }
+            artifacts {
+                artifactRules = "+:assets.zip!** => ./"
+            }
+        }
 
-      artifacts {
-        buildRule = lastSuccessful()
-        cleanDestination = true
-        artifactRules = """
+        dependency(BuildKotlinSpec) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
+                synchronizeRevisions = false
+            }
+            artifacts {
+                buildRule = lastSuccessful()
+                cleanDestination = true
+                artifactRules = """
                     +: spec.zip!html => spec
                     +: spec.zip!pdf => spec/pdf
                 """.trimIndent()
-      }
-    }
-    dependency(BuildReferenceDocs) {
-      snapshot {
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
+            }
+        }
+        dependency(BuildReferenceDocs) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:docs.zip!** => _webhelp/reference/"
+            }
+        }
 
-      artifacts {
-        artifactRules = "+:docs.zip!** => _webhelp/reference/"
-      }
-    }
+        dependency(KotlinxCoroutinesBuildApiReference) {
+            snapshot {
+                reuseBuilds = ReuseBuilds.NO
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:pages.zip!** => libs/kotlinx.coroutines/"
+            }
+        }
 
-    dependency(KotlinxCoroutinesBuildApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
+        dependency(KotlinxDatetimeBuildApiReference) {
+            snapshot {
+                reuseBuilds = ReuseBuilds.NO
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:pages.zip!** => libs/kotlinx-datetime/"
+            }
+        }
 
-      artifacts {
-        artifactRules = "+:pages.zip!** => libs/kotlinx.coroutines/"
-      }
-    }
+        dependency(KotlinxSerializationBuildApiReference) {
+            snapshot {
+                reuseBuilds = ReuseBuilds.NO
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
+            }
+        }
 
-    dependency(KotlinxDatetimeBuildApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-
-      artifacts {
-        artifactRules = "+:pages.zip!** => libs/kotlinx-datetime/"
-      }
-    }
-
-    dependency(KotlinxSerializationBuildApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-
-      artifacts {
-        artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
-      }
-    }
-
-    dependency(BuildStdlibApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-
-      artifacts {
-        artifactRules = "+:latest-version.zip!all-libs/** => api/core"
-      }
-    }
-
-    artifacts(AbsoluteId("Kotlin_KotlinRelease_190_LibraryReferenceLegacyDocs")) {
-      buildRule = tag("publish", """
-                +:<default>
-                +:*
-            """.trimIndent())
-      artifactRules = """
-                kotlin.test.zip!** => api/latest/kotlin.test
-                kotlin-stdlib.zip!** => api/latest/jvm/stdlib
-            """.trimIndent()
-    }
-  }
-})
+        dependency(BuildStdlibApiReference) {
+            snapshot {
+                reuseBuilds = ReuseBuilds.NO
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:latest-version.zip!all-libs/** => api/core"
+            }
+        }
+    })
