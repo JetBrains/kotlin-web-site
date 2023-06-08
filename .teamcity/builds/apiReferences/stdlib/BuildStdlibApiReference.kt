@@ -1,6 +1,6 @@
 package builds.apiReferences.stdlib
 
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
+import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 
 object BuildStdlibApiReference : BuildType({
