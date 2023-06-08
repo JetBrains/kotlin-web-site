@@ -180,13 +180,13 @@ fun main(s: Array<String>) {
 }
 ```
 
-Normal functions (not marked as inline) cannot have reified parameters.
+Normal functions (not marked as inline) cannot have `reified` parameters.
 A type that does not have a run-time representation (for example, a non-reified type parameter or a fictitious type like
-`Nothing`) cannot be used as an argument for a reified type parameter.
+`Nothing`) cannot be used as an argument for a `reified` type parameter.
 
 ## Inline properties
 
-The `inline` modifier can be used on accessors of properties that don't have backing fields.
+The `inline` modifier can be used on accessors of properties that don't have [backing fields](properties.md#backing-fields).
 You can annotate individual property accessors:
 
 ```kotlin
