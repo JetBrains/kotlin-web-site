@@ -1,24 +1,24 @@
 package builds.apiReferences.kotlinx.serialization
 
-import jetbrains.buildServer.configs.kotlin.BuildType
-
+import BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.BuildApiReference
+import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxSerializationBuildApiReference : BuildType({
-  name = "kotlinx.serialization API reference"
+    name = "kotlinx.serialization API reference"
 
-  templates(BuildApiReference)
+    templates(BuildApiReference)
 
-  params {
-    param("release.tag", BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG)
-  }
+    params {
+        param("release.tag", KOTLINX_SERIALIZATION_RELEASE_TAG)
+    }
 
-  vcs {
-    root(builds.apiReferences.vcsRoots.KotlinxSerialization)
-  }
+    vcs {
+        root(builds.apiReferences.vcsRoots.KotlinxSerialization)
+    }
 
-  dependencies {
-    dependsOnDokkaTemplate(KotlinxSerializationPrepareDokkaTemplates)
-  }
+    dependencies {
+        dependsOnDokkaTemplate(KotlinxSerializationPrepareDokkaTemplates)
+    }
 })
