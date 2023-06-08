@@ -9,10 +9,15 @@ object BuildStdlibApiReference : BuildType({
   artifactRules = "latest-version.zip"
 
   dependencies {
-    artifacts(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
-      buildRule = lastPinned("+:*")
-      cleanDestination = true
-      artifactRules = "latest-version.zip"
+    dependency(AbsoluteId("Kotlin_KotlinRelease_1820_LibraryReferenceLatestDocs")) {
+      snapshot {
+        reuseBuilds = ReuseBuilds.NO
+        onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+      artifacts {
+        cleanDestination = true
+        artifactRules = "latest-version.zip"
+      }
     }
   }
 })
