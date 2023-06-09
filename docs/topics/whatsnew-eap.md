@@ -83,7 +83,7 @@ fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 ```
 {validate="false"}
 
-For more information about the `entries` property for enum classes, see [What’s new in Kotlin 1.8.20](whatsnew1820.md##a-modern-and-performant-replacement-of-the-enum-class-values-function).
+For more information about the `entries` property for enum classes, see [What’s new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
 
 ## Stable ..< operator for open-ended ranges
 
