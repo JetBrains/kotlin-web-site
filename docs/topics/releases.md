@@ -54,6 +54,16 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.8.22</strong>
+            <p>Released: <strong>June 8, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.22" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.8.20.</p>
+            <p>Learn more about Kotlin 1.8.20 in <a href="whatsnew1820.md" target="_blank">What's new in Kotlin 1.8.20</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.8.21</strong>
             <p>Released: <strong>April 25, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.21" target="_blank">Release on GitHub</a></p>
