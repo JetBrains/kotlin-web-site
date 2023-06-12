@@ -6,19 +6,17 @@ import searchConfig from '../../../../../search-config.json';
 
 import './header.scss';
 
-const Header = (props) => (
-  <GlobalHeader
-    {...props}
-    className={cn(props.className, 'ktl-dokka-header')}
-    hasSearch={true}
-    searchConfig={{
-      ...searchConfig,
-      searchAlgoliaIndexName: process.env.ALGOLIA_INDEX_NAME || searchConfig.searchAlgoliaIndexName,
-    }}
-    noScrollClassName={'_no-scroll'}
-    hasBorder={false}
-    resultViewType={SearchResultView.Wide}
-  />
-);
+const Header = (props) => <GlobalHeader
+  {...props}
+  className={cn(props.className, 'ktl-dokka-header')}
+  hasSearch={true}
+  searchConfig={{
+    ...searchConfig,
+    searchAlgoliaIndexName: props.searchAlgoliaIndexName || searchConfig.searchAlgoliaIndexName
+}}
+  noScrollClassName={'_no-scroll'}
+  hasBorder={false}
+  resultViewType={SearchResultView.Wide}
+/>;
 
 export default Header;

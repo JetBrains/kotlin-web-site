@@ -32,7 +32,7 @@
 </head>
 <body>
 <div class="root">
-    {% ktl_component "header" %}
+    {% ktl_component "header" searchAlgoliaIndexName="${process.env.ALGOLIA_INDEX_NAME}" %}
     <@header.display/>
     <div id="container" data-test="content">
         <div class="sidebar" id="leftColumn">
