@@ -25,10 +25,10 @@ The Kotlin 1.9.0-RC release is out! Here are some highlights from this preview v
 
 The Kotlin plugins that support 1.9.0-RC are available for:
 
-| IDE            | Supported versions |
-|----------------|--------------------|
-| IntelliJ IDEA  | 2022.3.x, 2023.1.x |
-| Android Studio | Giraffe (223)      |
+| IDE            | Supported versions            |
+|----------------|-------------------------------|
+| IntelliJ IDEA  | 2022.3.x, 2023.1.x            |
+| Android Studio | Giraffe (223), Hedgehog (231) |
 
 ## New Kotlin K2 compiler updates
 
