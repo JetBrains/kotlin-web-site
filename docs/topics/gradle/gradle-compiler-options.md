@@ -116,6 +116,13 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 Here is a complete list of options for Gradle tasks:
 
+### Common attributes
+
+| Name              | Description                                     | Possible values           | Default value |
+|-------------------|-------------------------------------------------|---------------------------|---------------|
+| `optIn`           | Property to configure opt-in compiler arguments | `listOf( /* opt-ins */ )` | `emptyList()` |
+| `progressiveMode` | Enable progressive compiler mode                | `true`, `false`           | `false`       |
+
 ### Attributes specific to JVM
 
 | Name | Description | Possible values                                                                                  |Default value |
@@ -155,9 +162,9 @@ val compileKotlin: KotlinCompilationTask<*> by tasks
 // Single experimental argument
 compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
 // Single additional argument, can be a key-value pair
-compileKotlin.compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+compileKotlin.compilerOptions.freeCompilerArgs.add("-Xno-param-assertions")
 // List of arguments
-compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"))
+compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-receiver-assertions", "-Xno-call-assertions"))
 ```
 
 </tab>
@@ -172,9 +179,9 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
         // Single experimental argument
         freeCompilerArgs.add("-Xexport-kdoc")
         // Single additional argument, can be a key-value pair
-        freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+        freeCompilerArgs.add("-Xno-param-assertions")
         // List of arguments
-        freeCompilerArgs.addAll(["-Xno-param-assertions", "-Xno-receiver-assertions", "-Xno-call-assertions"])
+        freeCompilerArgs.addAll(["-Xno-receiver-assertions", "-Xno-call-assertions"])
     }
 }
 ```
