@@ -125,11 +125,12 @@ Here is a complete list of options for Gradle tasks:
 
 ### Attributes specific to JVM
 
-| Name | Description | Possible values                                                                                  |Default value |
-|------|-------------|--------------------------------------------------------------------------------------------------|--------------|
-| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |                                                                                                  | false |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "20". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk` | Don't automatically include the Java runtime into the classpath |                                                                                                  | false |
+| Name | Description | Possible values |Default value |
+|------|-------------|-----------------|--------------|
+| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
+| `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
+| `jvmTargetValidationMode` | Validation of compatibility of Kotlin and Java targets.<br/>Is a property of tasks of type `KotlinCompile`, see an [example](#example-of-setting-of-jvm-target-validation-mode) | `WARNING`, `ERROR`, `INFO` | `ERROR` |
 
 ### Attributes common to JVM, JS, and JS DCE
 
@@ -229,6 +230,30 @@ tasks
 
 </tab>
 </tabs>
+
+#### Example of setting of JVM target validation mode
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
+    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
+    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
+}
+```
+
+</tab>
+</tabs>
+
 
 Also, see [Types for compiler options](#types-for-compiler-options).
 
