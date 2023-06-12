@@ -1,4 +1,20 @@
 - lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Nieuwegein, Netherlands
+  speaker : ''
+  title : 'Utrecht Kotlin Meetup'
+  subject : 'Exploratory Testing | Navigating Through Uncharted Territory'
+  url: https://www.meetup.com/meetup-group-YgJEOzCn/events/293993904/
+- lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Limassol, Cyprus
+  speaker : Nikita Lipsky
+  title : 'Kotlin User Group Cyprus'
+  subject : 'Compose Multiplatform on iOS'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-1306-tickets-636457520577
+- lang: en
   startDate: '2023-05-09'
   endDate: '2023-05-09'
   location: Amsterdam, Netherlands
