@@ -14,14 +14,9 @@ Wasm is designed to be fast and secure, and it can compile code from various pro
 Kotlin/Wasm is a new compilation target for Kotlin. You can use it in your Kotlin Multiplatform projects.
 With Kotlin/Wasm, you can create applications that run on different environments and devices supporting WebAssembly and meeting Kotlin's requirements.
 
-## How to get started
-
-* [Get started with Kotlin/Wasm in IntelliJ IDEA](wasm-get-started.md)
-* Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples)
-
-> Learn more about Kotlin/Wasm in the ["Introducing Kotlin/Wasm" video by Zalim Bashorov & Sébastien Deleuze @ Wasm I/O 2023](https://www.youtube.com/watch?v=LCtMC_IVCKo).
+> Learn more about Kotlin/Wasm in this [YouTube video](https://www.youtube.com/watch?v=oIbX7nrSTPQ).
 >
-{type="tip"}
+{type="note"}
 
 ## Browser support
 
@@ -48,21 +43,27 @@ Compose Multiplatform for Web is based on new Kotlin/Wasm target.
 You can create a Kotlin Multiplatform project and experiment with sharing your mobile or desktop UIs with the web.
 With Compose Multiplatform for Web, you can run your code in the browser with all the benefits of WebAssembly.
 
-## Connecting libraries
+## How to get started
+
+* [Get started with Kotlin/Wasm in IntelliJ IDEA](wasm-get-started.md)
+* Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples)
+
+## Libraries support
 
 You can use the Kotlin standard library (`stdlib`) and test library ([`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/))
 in Kotlin/Wasm out of the box. The version of these libraries is the same as the version of the `kotlin-multiplatform` plugin.
 
-We're working to fully support official Kotlin libraries (`kotlinx`) and other multiplatform libraries. In the meantime,
-you can already try adding such dependencies using our [experimental repository](https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental/).
+Other official Kotlin (`kotlinx`) and multiplatform libraries are not fully supported yet. You can try experimental versions of such libraries
+by adding the Kotlin [experimental repository](https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental/) to your Gradle project.
 
 > For Kotlin 1.9.0-Beta and later, use the latest available libraries' versions.
 > 
 {type="note"}
 
-### kotlinx libraries
+### Enable kotlinx libraries
 
-You can set a dependency on a Kotlin library, such as [`kotlinx.serilization`](serialization.md) and [`kotlinx.coroutines`](coroutines-guide.md):
+To set a dependency on a Kotlin library (`kotlinx`), such as [`kotlinx.serilization`](serialization.md) and [`kotlinx.coroutines`](coroutines-guide.md),
+update your `build.gradle.kts` file:
 
 ```kotlin
 // `build.gradle.kts`
@@ -84,9 +85,9 @@ kotlin {
 }
 ```
 
-### Multiplatform libraries
+### Enable multiplatform libraries
 
-To set a dependency on a multiplatform library such as [Ktor](https://ktor.io/):
+To set a dependency on a multiplatform library, such as [Ktor](https://ktor.io/), update your `build.gradle.kts` file:
 
 ```kotlin
 // `build.gradle.kts`
@@ -101,7 +102,7 @@ kotlin {
     sourceSets {
         val wasmMain by getting {
             dependencies {
-              implementation("io.ktor:ktor-client-core-wasm:2.3.1-wasm0")
+                implementation("io.ktor:ktor-client-core-wasm:2.3.1-wasm0")
             }
         }
     }
