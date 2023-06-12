@@ -350,11 +350,9 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 1. Remove the `kotlin-js` Gradle plugin from your project and apply `kotlin-multiplatform` in the `settings.gradle.kts` file
    if you're using the `pluginManagement` block:
 
-   <table header-style="left">
-   <tr>
-   <td width:20%>Before</td>
-   <td>
-
+   <tabs>
+   <tab title="kotlin-js">
+   
    ```kotlin
    // settings.gradle.kts
    pluginManagement {
@@ -368,14 +366,9 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
        }
    }
    ```
-
-   </td>
-       
-   </tr>
-   <tr>
    
-   <td width:20%>Now</td>
-   <td>
+   </tab>
+   <tab title="kotlin-multiplatform">
    
    ```kotlin
    // settings.gradle.kts
@@ -391,9 +384,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   </tr>
-   </table>
+   </tab>
+   </tabs>
 
    In case you're using a different way of applying plugins,
    see [the Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html) for migration instructions.
@@ -413,11 +405,9 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    
    You can change the code in your `build.gradle.kts` file in one of the following ways:
 
-   <table header-style="left">
-   <tr>
-   <td>Before</td>
-   <td>
-
+   <tabs>
+   <tab title="kotlin-js">
+   
    ```kotlin
    // build.gradle.kts
    plugins {
@@ -435,14 +425,9 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
        }
    }
    ```
-
-   </td>
-      
-   </tr>
-   <tr>
-
-   <td>Now</td>
-   <td>
+   
+   </tab>
+   <tab title="kotlin-multiplatform">
    
    ```kotlin
    // build.gradle.kts
@@ -472,9 +457,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   </tr>
-   </table>
+   </tab>
+   </tabs>
 
 4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin` block remains unchanged in most cases. However,
    if you were referring to low-level Gradle entities, like tasks and configurations, by names, you now need to adjust them,
