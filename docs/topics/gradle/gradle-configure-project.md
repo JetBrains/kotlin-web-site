@@ -42,7 +42,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
 |----------------|------------------------------------------|-------------------------------------------------------|
-| 1.8.0          | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.8.20         | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.8.0          | 6.8.3 – 7.3.3                            | 4.1.3 – 7.2.1                                         |   
 | 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
 
 > Latest Gradle and AGP versions should generally work without issues.
@@ -84,7 +85,9 @@ The `version` should be literal in this block, and it cannot be applied from ano
 
 ### Kotlin and Java sources
 
-Kotlin sources and Java sources can be stored in the same folder, or they can be placed in different folders. The default convention is to use different folders:
+Kotlin sources and Java sources can be stored in the same directory, or they can be placed in different directories.
+
+The default convention is to use different directories:
 
 ```text
 project
@@ -93,6 +96,12 @@ project
             - kotlin
             - java
 ```
+
+> Do not store Java `.java` files in the `src/*/kotlin` directory, as the `.java` files will not be compiled.
+> 
+> Instead, you can use `src/main/java`.
+>
+{type="warning"} 
 
 The corresponding `sourceSets` property should be updated if you are not using the default convention:
 
@@ -135,7 +144,7 @@ in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle`
+Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
 file to:
 
 * `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
@@ -190,9 +199,13 @@ to solve this issue.
 
 ### Gradle Java toolchains support
 
-> A warning for Android users. Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from the Android Gradle plugin 7.4.0.
-> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), it does not set 'targetCompatibility' to be equal to the toolchain's JDK.
-> You need to configure it manually via `compileOptions`. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
+> A warning for Android users. To use Gradle toolchain support, use the Android Gradle plugin (AGP) version 8.1.0-alpha09 or higher. 
+> 
+> Gradle Java toolchain support [is available](https://issuetracker.google.com/issues/194113162) only from AGP 7.4.0.
+> Nevertheless, because of [this issue](https://issuetracker.google.com/issues/260059413), AGP did not set `targetCompatibility` 
+> to be equal to the toolchain's JDK until the version 8.1.0-alpha09.
+> If you use versions less than 8.1.0-alpha09, you need to configure `targetCompatibility` manually via `compileOptions`. 
+> Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 >
 > ```kotlin
 > android {
@@ -381,6 +394,25 @@ integrationTestCompilation {
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
 
+### Other details
+
+#### Lazy Kotlin/JVM task creation
+
+Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all tasks and doesn't configure them on a dry run.
+
+#### Non-default location of compile tasks' destinationDirectory
+
+If you override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destinationDirectory` location, 
+update your build script. You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` 
+in your JAR file:
+
+```kotlin
+tasks.jar(type: Jar) {
+     from sourceSets.main.outputs
+     from sourceSets.main.kotlin.classesDirectories
+}
+```
+
 ## Targeting multiple platforms
 
 Projects targeting [multiple platforms](multiplatform-dsl-reference.md#targets), called [multiplatform projects](multiplatform-get-started.md),
@@ -484,7 +516,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType<KotlinBasePlugin>() {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -497,7 +529,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 // ...
 
 project.plugins.withType(KotlinBasePlugin.class) {
-// Configure your action here
+    // Configure your action here
 }
 ```
 
@@ -605,7 +637,7 @@ kotlin.stdlib.default.dependency=false
 If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
 `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
 for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
-different stdlib versions. [Learn more about [merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
+different stdlib versions. [Learn more about merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
 You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
 
 ```none
@@ -642,7 +674,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
 
-    ```kotlin
+  ```kotlin
   dependencies {
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
@@ -690,8 +722,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Kotlin" group-key="kotlin">
 
   ```kotlin
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       kotlin("<...>") version "%kotlinVersion%"
   }
   ```
@@ -700,8 +732,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  // replace `<...>` with the plugin name
   plugins {
+      // replace `<...>` with the plugin name
       id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
   }
   ```
@@ -731,9 +763,9 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
   ```groovy
   dependencies {
-       implementation("com.example:lib:1.0") {
-        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
-    }
+      implementation("com.example:lib:1.0") {
+          exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib"
+      }
   }
   ```
 

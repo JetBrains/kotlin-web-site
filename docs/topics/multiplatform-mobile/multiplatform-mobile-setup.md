@@ -1,7 +1,7 @@
 [//]: # (title: Set up an environment)
 
 <microformat>
-    <p>This is the first part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial:</p>
+    <p>This is the first part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial:</p>
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up an environment</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Create your first cross-platform app<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
@@ -39,7 +39,7 @@ We recommend that you install the latest stable versions for compatibility and b
    </tr>
    <tr>
         <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
-        <td>To check whether it's installed, run the following command in the Android Studio terminal or your command-line tool: <code style="block"
+        <td>To check whether it's installed, run the following command in the Android Studio terminal or your command line: <code style="block"
             lang="bash">java -version</code></td>
    </tr>
    <tr>

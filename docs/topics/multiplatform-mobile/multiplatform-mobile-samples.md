@@ -1,10 +1,10 @@
-[//]: # (title: Samples)
+[//]: # (title: Kotlin Multiplatform for mobile samples)
 
-This is a curated list of Kotlin Multiplatform Mobile samples.
+This is a curated list of cross-platform mobile projects created with Kotlin Multiplatform.
 
 > You can find even more sample projects on GitHub, see the [`kotlin-multiplatform-mobile` topic](https://github.com/topics/kotlin-multiplatform-mobile).
 >
-> If you want to add your Multiplatform Mobile project to this topic and help the community,
+> If you want to add your Kotlin Multiplatform project to this topic and help the community,
 > follow the instructions in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository).
 >
 {type="tip"}

@@ -7,7 +7,7 @@ each target. We call them **Platform Libraries**.
 ### POSIX bindings
 
 For all Unix- or Windows-based targets (including Android and
-iOS targets) we provide the `POSIX` platform lib. It contains bindings
+iOS targets) we provide the POSIX platform lib. It contains bindings
 to platform's implementation of the [POSIX standard](https://en.wikipedia.org/wiki/POSIX).
 
 To use the library, just import it: 
@@ -19,7 +19,7 @@ import platform.posix.*
 The only target for which it is not available is [WebAssembly](https://en.wikipedia.org/wiki/WebAssembly).
 
 Note that the content of `platform.posix` is NOT identical on
-different platforms, in the same way as different `POSIX` implementations
+different platforms, in the same way as different POSIX implementations
 are a little different.
 
 ### Popular native libraries

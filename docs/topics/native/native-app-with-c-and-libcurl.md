@@ -111,7 +111,7 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
 
 1. Select the `src` folder and create a new directory with **File | New | Directory**.
 2. Name new directory **nativeInterop/cinterop**. This is the default convention for header file locations, though it can
-   be overridden in the `build.gradle` file if you use a different location.
+   be overridden in the `build.gradle(.kts)` file if you use a different location.
 3. Select this new subfolder and create a new `libcurl.def` file with **File | New | File**.
 4. Update your file with the following code:
 
@@ -259,7 +259,8 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
 
 ## Compile and run the application
 
-1. Compile the application. To do that, run the following command in the terminal:
+1. Compile the application. To do that, call `runDebugExecutableNative` in the list of run Gradle tasks or use the following
+   command in the terminal:
 
     ```bash
     ./gradlew runDebugExecutableNative

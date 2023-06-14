@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.4.20)
 
-_[Release date: 23 November 2020](releases.md#release-details)_
+_[Released: 23 November 2020](releases.md#release-details)_
 
 Kotlin 1.4.20 offers a number of new experimental features and provides fixes and improvements for
 existing features, including those added in 1.4.0.
@@ -146,8 +146,6 @@ templates for Kotlin/JS applications:
     It provides options to enable integrations for style-sheets, navigational components, or state containers.
 - **Node.js Application** - a minimal project for running in a Node.js runtime. It comes with the option to directly
     include the experimental `kotlinx-nodejs` package.
-    
-Learn how to [create Kotlin/JS applications from templates](js-get-started.md).
 
 ### Ignoring compilation errors with IR compiler
 

@@ -1,4 +1,4 @@
-[//]: # (title: FAQ)
+[//]: # (title: KSP FAQ)
 
 ### Why KSP?
 

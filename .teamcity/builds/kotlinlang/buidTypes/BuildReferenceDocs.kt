@@ -8,7 +8,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object BuildReferenceDocs : BuildType({
   name = "Reference Docs"
-  description = "Build API reference pages https://kotlinlang.org/docs/"
+  description = "Build documentation pages https://kotlinlang.org/docs/"
 
   artifactRules = """
       +:images => docs.zip!images
@@ -18,7 +18,7 @@ object BuildReferenceDocs : BuildType({
   """.trimIndent()
 
   params {
-    param("WEBHELP_FRONTEND_VERSION", "5.11.0")
+    param("WEBHELP_FRONTEND_VERSION", "5.13.0")
     param("WH_DOCS_PATH_REGEX", "docs")
     param("WH_PROJECT_NAME", "kotlin-reference")
   }

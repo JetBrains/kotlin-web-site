@@ -1,12 +1,12 @@
 [//]: # (title: Upgrade your app)
 
 <microformat>
-    <p>This is the fourth part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p>This is the fourth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
 You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
-requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/mobile/) to share with Kotlin
+requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/multiplatform/) to share with Kotlin
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
@@ -33,7 +33,7 @@ sourceSets {
     val commonMain by getting {
         dependencies {
             // ...
-           implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -65,7 +65,7 @@ the existing `plugins` block at the very beginning of the `build.gradle.kts` fil
 
 ```kotlin
 plugins {
-    // 
+    // ...
     kotlin("plugin.serialization") version "%kotlinVersion%"
 }
 ```
@@ -117,7 +117,7 @@ get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
 
-In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file
+In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project folder
 and add a data class which stores data from the SpaceX API:
 
 ```kotlin
@@ -171,7 +171,7 @@ data class RocketLaunch (
    the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
    serializer are used.
 
-2. In the `greeting()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
+2. In the `greet()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
    method and find the latest launch:
 
     ```kotlin
@@ -181,7 +181,7 @@ data class RocketLaunch (
     class Greeting {
         // ...
         @Throws(Exception::class)
-        suspend fun greeting(): String {
+        suspend fun greet(): String {
             val rockets: List<RocketLaunch> =
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
@@ -192,7 +192,7 @@ data class RocketLaunch (
     }
     ```
 
-   The `suspend` modifier in the `greeting()` function is necessary because it now contains a call to `get()`. It's a
+   The `suspend` modifier in the `greet()` function is necessary because it now contains a call to `get()`. It's a
    suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
    within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
 
@@ -201,7 +201,7 @@ data class RocketLaunch (
 To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
-Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
+Update your `androidApp/src/main/AndroidManifest.xml` file with the access permission:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -213,61 +213,46 @@ Update your `androidApp/src/main/AndroidManifest.xml` file as follows:
 
 ## Update Android and iOS apps
 
-You've already updated the API of the shared module by adding the `suspend` modifier to the `greeting()` function. Now you
+You've already updated the API of the shared module by adding the `suspend` modifier to the `greet()` function. Now you
 need to update native (iOS, Android) parts of the project, so they can properly handle the result of calling the
-`greeting()` function.
+`greet()` function.
 
 ### Android app
 
 As both the shared module and the Android application are written in Kotlin, using shared code from Android is
 straightforward:
 
-1. Add the `kotlinx.coroutines` library to the Android application by adding a line in the `build.gradle.kts` in the
-   `androidApp` folder:
+In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-    ```kotlin
-    dependencies {
-        // ..
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:%coroutinesVersion%")
+```kotlin
+import androidx.compose.runtime.*
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApplicationTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    var text by remember { mutableStateOf("Loading") }
+                    LaunchedEffect(true) {
+                        text = try {
+                            Greeting().greet()
+                        } catch (e: Exception) {
+                            e.localizedMessage ?: "error"
+                        }
+                    }
+                    GreetingView(text)
+                }
+            }
+        }
     }
-    ```
+}
+```
 
-2. Synchronize the Gradle files by clicking **Sync Now** in the notification.
-3. In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
-
-   ```kotlin
-   import androidx.compose.runtime.*
-   import kotlinx.coroutines.launch
-   
-   class MainActivity : ComponentActivity() {
-       override fun onCreate(savedInstanceState: Bundle?) {
-           super.onCreate(savedInstanceState)
-           setContent {
-               MyApplicationTheme {
-                   Surface(
-                       modifier = Modifier.fillMaxSize(),
-                       color = MaterialTheme.colors.background
-                   ) {
-                       val scope = rememberCoroutineScope()
-                       var text by remember { mutableStateOf("Loading") }
-                       LaunchedEffect(true) {
-                           scope.launch {
-                               text = try {
-                                   Greeting().greeting()
-                               } catch (e: Exception) {
-                                   e.localizedMessage ?: "error"
-                               }
-                           }
-                       }
-                       GreetingView(text)
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   The `greeting()` function is now called in a coroutine inside `LaunchedEffect` to avoid recalling it on each recomposition.
+The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
 
 ### iOS app
 
@@ -278,8 +263,8 @@ the shared module, which contains all the business logic.
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
-> If you see an error saying that the shared module is unresolved, run the app.
-> 
+> If you see errors in Xcode regarding the shared module or when updating your code, run the **iosApp** from Android Studio.
+>
 {type="tip"}
 
 1. Launch your Xcode app and select **Open a project or file**.
@@ -311,7 +296,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
             Text(viewModel.text)
         }
     }
-     
+    
     extension ContentView {
         class ViewModel: ObservableObject {
             @Published var text = "Loading..."
@@ -331,13 +316,13 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
    Now the view model will emit signals whenever this property changes.
 
-5. Call the `greeting()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
+5. Call the `greet()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
 
     ```swift
     class ViewModel: ObservableObject {
         @Published var text = "Loading..."
         init() {
-            Greeting().greeting { greeting, error in
+            Greeting().greet { greeting, error in
                 DispatchQueue.main.async {
                     if let greeting = greeting {
                         self.text = greeting
@@ -354,7 +339,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
    compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
    callbacks (`completionHandler`).
-   * The `greeting()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
+   * The `greet()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
    instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
    see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.

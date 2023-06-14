@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.3)
 
-_Release date: 29 October 2018_
+_Released: 29 October 2018_
 
 ## Coroutines release
 

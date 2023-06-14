@@ -1,9 +1,9 @@
 [//]: # (title: Introduce cross-platform mobile development to your team)
 
-These recommendations will help you introduce your team to Kotlin Multiplatform Mobile:
+These recommendations will help you introduce your team to Kotlin Multiplatform for mobile:
 
 * [Start with empathy](#start-with-empathy)
-* [Explain how Kotlin Multiplatform Mobile works](#explain-how-it-works)
+* [Explain how Kotlin Multiplatform works](#explain-how-it-works)
 * [Show the value using case studies](#show-the-value)
 * [Offer a proof by creating a sample project yourself](#offer-proof)
 * [Prepare for questions from your team](#prepare-for-questions)
@@ -11,11 +11,11 @@ These recommendations will help you introduce your team to Kotlin Multiplatform 
 
 ## Start with empathy
 
-Software development is a team game, with each critical decision needing the approval of all team members. Integrating any cross-platform technology will significantly affect the development process for your mobile application. So before you start integrating Kotlin Multiplatform Mobile in your project, you'll need to introduce your team to the technology and guide them gently to see it's worth adopting.
+Software development is a team game, with each critical decision needing the approval of all team members. Integrating any cross-platform technology will significantly affect the development process for your mobile application. So before you start integrating Kotlin Multiplatform in your project, you'll need to introduce your team to the technology and guide them gently to see it's worth adopting.
 
 Understanding the people who work on your project is the first step to successful integration. Your boss is responsible for delivering features with the best quality in the shortest time possible. To them, any new technology is a risk. Your colleagues have a different perspective, as well. They have experience building apps with the "native" technology stack. They know how to write the UI and business logic, work with dependencies, test, and debug code in the IDE, and they are already familiar with the language. Switching to a different ecosystem is very uncomfortable, as it always means leaving your comfort zone.
 
-Given all that, be ready to face lots of biases and answer a lot of questions when advocating for the move to Kotlin Multiplatform Mobile. As you do, never lose sight of what your team needs. Some of the advice below might be useful for preparing your pitch.
+Given all that, be ready to face lots of biases and answer a lot of questions when advocating for the move to Kotlin Multiplatform for mobile. As you do, never lose sight of what your team needs. Some of the advice below might be useful for preparing your pitch.
 
 ## Explain how it works
 
@@ -29,17 +29,17 @@ Being able to explain _how_ technology works is important, as nobody likes when 
 
 ## Show the value
 
-Understanding how the technology works is necessary, but not enough. Your team needs to see the gains of using it, and the way you present these gains should be related to your product. Kotlin Multiplatform Mobile allows you to use a single codebase for the business logic of iOS and Android apps. So if you develop a very thin client and the majority of the code is UI logic, then the main power of Kotlin Multiplatform Mobile will be unused in your project. However, if your application has complex business logic, for example if you have features like networking, data storage, payments, complex computations, or data synchronization, then this logic could easily be written and shared between iOS and Android so you can experience the real power of the technology.
+Understanding how the technology works is necessary, but not enough. Your team needs to see the gains of using it, and the way you present these gains should be related to your product. Kotlin Multiplatform allows you to use a single codebase for the business logic of iOS and Android apps. So if you develop a very thin client and the majority of the code is UI logic, then the main power of Kotlin Multiplatform Mobile will be unused in your project. However, if your application has complex business logic, for example if you have features like networking, data storage, payments, complex computations, or data synchronization, then this logic could easily be written and shared between iOS and Android so you can experience the real power of the technology.
 
 At this stage, you need to explain the main gains of using Kotlin Multiplatform in your product. One of the ways is to share stories of other companies who already benefit from the technology. The successful experience of these teams, especially ones with similar product objectives, could become a key factor in the final decision.
 
 Citing case studies of different companies who already use Kotlin Multiplatform in production could significantly help you make a compelling argument:
 
-*   **[Chalk.com](https://kotlinlang.org/lp/mobile/case-studies/chalk)** – The UI for each of the Chalk.com apps is native to the platform, but otherwise almost everything for their apps can be shared with Kotlin Multiplatform Mobile.
-*   **[Cash App](https://kotlinconf.com/2019/talks/video/2019/116027/)** – A lot of the app's business logic, including the ability to search through all transactions, is implemented with Kotlin Multiplatform Mobile.
-*   **[Yandex.Disk](https://kotlinlang.org/lp/mobile/case-studies/yandex)** – They started out by experimenting with the integration of a small feature, and as the experiment was considered successful, they implemented their whole data synchronization logic in Kotlin Multiplatform Mobile.
+*   **[Chalk.com](https://kotlinlang.org/lp/multiplatform/case-studies/chalk)** – The UI for each of the Chalk.com apps is native to the platform, but otherwise almost everything for their apps can be shared with Kotlin Multiplatform for mobile.
+*   **[Cash App](https://kotlinconf.com/2019/talks/video/2019/116027/)** – A lot of the app's business logic, including the ability to search through all transactions, is implemented with Kotlin Multiplatform for mobile.
+*   **[Yandex.Disk](https://kotlinlang.org/lp/multiplatform/case-studies/yandex)** – They started out by experimenting with the integration of a small feature, and as the experiment was considered successful, they implemented their whole data synchronization logic in Kotlin Multiplatform for mobile.
 
-Explore [the case studies page](https://kotlinlang.org/lp/mobile/case-studies) for inspirational references.
+Explore [the case studies page](https://kotlinlang.org/lp/multiplatform/case-studies) for inspirational references.
 
 ## Offer proof
 
@@ -57,7 +57,7 @@ No matter how detailed your pitch is, your team will have a lot of questions. Li
 
 **Q: I heard applications based on cross-platform technologies can be rejected from the AppStore. Is taking this risk worth it?**
 
-A: The Apple Store has strict guidelines for application publishing. One of the limitations is that apps may not download, install, or execute code which introduces or changes features or functionality of the app ([App Store Review Guideline 2.5.2](https://developer.apple.com/app-store/review/guidelines/#software-requirements)). This is relevant for some cross-platform technologies, but not for Kotlin Multiplatform Mobile. Shared Kotlin code compiles to native binaries with Kotlin/Native, bundles a regular iOS framework into your app, and doesn't provide the ability for dynamic code execution.
+A: The Apple Store has strict guidelines for application publishing. One of the limitations is that apps may not download, install, or execute code which introduces or changes features or functionality of the app ([App Store Review Guideline 2.5.2](https://developer.apple.com/app-store/review/guidelines/#software-requirements)). This is relevant for some cross-platform technologies, but not for Kotlin Multiplatform. Shared Kotlin code compiles to native binaries with Kotlin/Native, bundles a regular iOS framework into your app, and doesn't provide the ability for dynamic code execution.
 
 **Q: Multiplatform projects are built with Gradle, and Gradle has an extremely steep learning curve. Do I need to spend a lot of time now trying to configure my project?**
 
@@ -67,13 +67,13 @@ Also, in basic scenarios, you simply need to configure your project at the start
 
 When only the Android part of the team works with shared code, the iOS developers don't even need to learn Kotlin. But when you are ready for your team to move to the next stage, where everyone contributes to the shared code, making the transition won't take much time. The similarities between the syntax and functionality of Swift and Kotlin greatly reduce the work required to learn how to read and write shared Kotlin code. [Try it yourself!](https://play.kotlinlang.org/koans/overview)
 
-**Q: I heard that Kotlin Multiplatform Mobile is experimental technology. Does that mean that we shouldn't use it for production?**
+**Q: I heard that Kotlin Multiplatform for mobile is experimental technology. Does that mean that we shouldn't use it for production?**
 
-A: Experimental status means we and the whole Kotlin community are just trying out an idea, but if it doesn't work, it may be dropped anytime. However, after the release of Kotlin 1.4, **Kotlin Multiplatform Mobile is in Alpha** status. This means the Kotlin team is fully committed to working to improve and evolve this technology and will not suddenly drop it. However, before going Beta, there could be some migration issues yet. But even experimental status doesn't prevent a feature from being used successfully in production, as long as you understand all the risks. Check [the Kotlin evolution page](kotlin-evolution.md) for information about the stability statuses of Kotlin Multiplatform components.
+A: Experimental status means we and the whole Kotlin community are just trying out an idea, but if it doesn't work, it may be dropped anytime. However, after the release of Kotlin 1.4, **Kotlin Multiplatform for mobile is in Alpha** status. This means the Kotlin team is fully committed to working to improve and evolve this technology and will not suddenly drop it. However, before going Beta, there could be some migration issues yet. But even experimental status doesn't prevent a feature from being used successfully in production, as long as you understand all the risks. Check [the Kotlin evolution page](kotlin-evolution.md) for information about the stability statuses of Kotlin Multiplatform components.
 
 **Q: There are not enough multiplatform libraries to implement the business logic, it's much easier to find native alternatives.**
 
-A: Of course, we can't compare the number of multiplatform libraries with React Native, for example. But it took five years for React Native to expand their ecosystem to its current size. Kotlin Multiplatform Mobile is still young, but the ecosystem has tremendous potential as there are already a lot of modern libraries written in Kotlin that can be easily ported to multiplatform. 
+A: Of course, we can't compare the number of multiplatform libraries with React Native, for example. But it took five years for React Native to expand their ecosystem to its current size. Kotlin Multiplatform for mobile is still young, but the ecosystem has tremendous potential as there are already a lot of modern libraries written in Kotlin that can be easily ported to multiplatform. 
 
 It's also a great time to be an iOS developer in the Kotlin Multiplatform open-source community because the iOS experience is in demand and there are plenty of opportunities to gain recognition from iOS-specific contributions.
 
@@ -91,6 +91,6 @@ Here are some tips on how you can support your team at this stage:
 
 The reality is that you probably will not change people's hearts and minds in a day or even a week. But patience and attentiveness to the needs of your colleagues will undoubtedly bring results. 
 
-The Kotlin Multiplatform Mobile team looks forward to hearing [your story](mailto:kotlin.multiplatform.feedback@kotlinlang.org).
+The Kotlin Multiplatform team looks forward to hearing [your story](mailto:kotlin.multiplatform.feedback@kotlinlang.org).
 
 _We'd like to thank the [Touchlab team](https://touchlab.co) for helping us write this article._

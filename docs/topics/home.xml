@@ -34,21 +34,21 @@
         <custom-groups>
             <group type="cards" display="wide">
                 <title>What's new</title>
-                <a href="whatsnew18.md" description="Latest features: Improved kotlin-reflect performance, new recursively copy or delete directory content experimental functions for JVM, `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`, improved Objective-C/Swift interoperability and more">What's New in Kotlin 1.8.0</a>
+                <a href="whatsnew1820.md" description="Latest features: Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib, new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend">What's New in Kotlin 1.8.20</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
             <group type="cards">
-                <title>Kotlin Multiplatform Mobile</title>
+                <title>Kotlin Multiplatform for mobile</title>
                 <a href="multiplatform-mobile-getting-started.md" description="Useful links to help you start using the SDK">Get started</a>
                 <a href="multiplatform-mobile-plugin-releases.md" description="Features of the Kotlin Multiplatform Mobile plugin">Plugin releases for Android Studio</a>
-                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about Kotlin Multiplatform Mobile on our YouTube channel">Kotlin Multiplatform Multiverse</a>
+                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about Kotlin Multiplatform for mobile on our YouTube channel">Kotlin Multiplatform Multiverse</a>
             </group>
             <group type="links" display="normal">
                 <link-collection>
                     <title>Learn Kotlin</title>
                     <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
                     <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
-                    <a href="https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&amp;next=/tracks/18" description="Kotlin Basics track on JetBrains Academy">JetBrains Academy</a>
+                    <a href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" description="Kotlin Core track by JetBrains Academy">JetBrains Academy</a>
                     <a href="advent-of-code.md" description="Code puzzles in idiomatic Kotlin">Advent of Code</a>
                     <a href="https://play.kotlinlang.org/hands-on/overview" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
                     <a href="edu-tools-learner.md"
@@ -61,7 +61,7 @@
                     <a href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw" description="Official Kotlin YouTube channel">Kotlin YouTube channel</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x" description="Tutorials on using Kotlin with Spring">Kotlin in Spring Framework</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1" description="Webinars on using Kotlin for server-side development">Webinars with experts</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using Kotlin Multiplatform Mobile">Kotlin Multiplatform Multiverse</a>
+                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using Kotlin Multiplatform for mobile">Kotlin Multiplatform Multiverse</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG" description="Kotlin for competitive programming">Competitive programming</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg" description="Tutorials on using the standard library">Kotlin standard library</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB" description="Talking Kotlin podcast">Talking Kotlin podcast</a>

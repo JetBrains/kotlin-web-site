@@ -25,7 +25,8 @@ fun demo(source: List<Int>) {
 ## Getters and setters
 
 Methods that follow the Java conventions for getters and setters (no-argument methods with names starting with `get`
-and single-argument methods with names starting with `set`) are represented as properties in Kotlin.
+and single-argument methods with names starting with `set`) are represented as properties in Kotlin. Such properties are 
+also called _synthetic properties_. 
 `Boolean` accessor methods (where the name of the getter starts with `is` and the name of the setter starts with `set`)
 are represented as properties which have the same name as the getter method.
 
@@ -43,8 +44,87 @@ fun calendarDemo() {
 }
 ```
 
+`calendar.firstDayOfWeek` above is an example of a synthetic property.
+
 Note that, if the Java class only has a setter, it isn't visible as a property in Kotlin because Kotlin doesn't support
 set-only properties.
+
+## Java synthetic property references
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
+> We recommend that you use it only for evaluation purposes.
+>
+{type="warning"}
+
+Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. Consider the following Java code:
+
+```java
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+```
+
+Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
+create references to `Person::age` and `person::age`. The same applies for `name`, as well.
+
+```kotlin
+val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
+    Persons
+         // Call a reference to Java synthetic property:
+        .sortedBy(Person::age)
+         // Call Java getter via the Kotlin property syntax:
+        .forEach { person -> println(person.name) }
+}
+```
+
+### How to enable Java synthetic property references {initial-collapse-state="collapsed"}
+
+To enable this feature, set the `-language-version 1.9` compiler option. In a Gradle project, you can do so 
+by adding the following to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks
+    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
+    .configureEach {
+        compilerOptions
+            .languageVersion
+            .set(
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+            )
+    }
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks
+    .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
+    .configureEach {
+        compilerOptions.languageVersion
+            = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+}
+```
+
+</tab>
+</tabs>
 
 ## Methods returning void
 

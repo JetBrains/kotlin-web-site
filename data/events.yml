@@ -1,4 +1,60 @@
 - lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Nieuwegein, Netherlands
+  speaker : ''
+  title : 'Utrecht Kotlin Meetup'
+  subject : 'Exploratory Testing | Navigating Through Uncharted Territory'
+  url: https://www.meetup.com/meetup-group-YgJEOzCn/events/293993904/
+- lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Limassol, Cyprus
+  speaker : Nikita Lipsky
+  title : 'Kotlin User Group Cyprus'
+  subject : 'Compose Multiplatform on iOS'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-1306-tickets-636457520577
+- lang: en
+  startDate: '2023-05-09'
+  endDate: '2023-05-09'
+  location: Amsterdam, Netherlands
+  speaker : João Paulo Gomes
+  title : 'Kotlin Meetup Amsterdam'
+  subject : 'Writing performance tests with Kotlin'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/293144259/
+- lang: en
+  startDate: '2023-05-09'
+  endDate: '2023-05-09'
+  location: Amsterdam, Netherlands
+  speaker : Vladimir Dolzhenko
+  title : 'Kotlin Meetup Amsterdam'
+  subject : 'How we’re improving the performance of the IntelliJ IDEA Kotlin plugin'
+  url: https://www.meetup.com/nl-NL/nlkug-dutch-kotlin-user-group/events/293144259/
+- lang: en
+  startDate: '2023-07-05'
+  endDate: '2023-07-07'
+  location: Berlin, Germany
+  speaker : TBA
+  title : ''
+  subject : 'droidcon Berlin'
+  url: https://www.droidcon.com/events/droidcon-berlin-2023/
+- lang: en
+  startDate: '2023-04-13'
+  endDate: '2023-04-13'
+  location: Belgrade, Serbia
+  speaker : Anastasia Birillo
+  title : 'KotlinConf 2023 Global Serbia'
+  subject : 'How does the Kotlin compiler work?'
+  url: https://www.meetup.com/serbia-kotlin-user-group/events/291312745/
+- lang: en
+  startDate: '2023-04-08'
+  endDate: '2023-04-09'
+  location: KIET Group Of Institutions, Ghaziabad, Delhi NCR India
+  speaker : Anshul Sadaria & Saumya Singh
+  title : 'SprintHacks 2023 Hackathon'
+  subject : 'Innovation, creativity & networking'
+  url: 'https://sprinthacks.devfolio.co/'
+- lang: en
   startDate: '2023-03-02'
   endDate: '2023-03-02'
   location: Limassol, Cyprus

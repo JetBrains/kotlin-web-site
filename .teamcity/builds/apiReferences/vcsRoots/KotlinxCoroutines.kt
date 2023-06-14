@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object KotlinxCoroutines : GitVcsRoot({
   name = "kotlinx.coroutines vcs root"
-  url = "git@github.com:nikpachoo/kotlinx.coroutines.git"
+  url = "git@github.com:Kotlin/kotlinx.coroutines.git"
   branch = "refs/heads/master"
   branchSpec = """
         +:refs/heads/(*)

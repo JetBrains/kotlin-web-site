@@ -1,10 +1,5 @@
 [//]: # (title: Build final native binaries)
 
-> This page describes the previous approach to building native binaries. Check out the new experimental [Kotlin/Native DSL](multiplatform-native-artifacts.md),
-> it should be more efficient and easier to use.
->
-{type="note"}
-
 By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native
 itself as a dependency but cannot be executed or used as a native library.
 
@@ -16,6 +11,10 @@ and provides a set of methods for declaring and configuring them.
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
 {type="note"}
+
+Binaries produced by the Kotlin/Native compiler can include third-party code, data, or derived work.
+This means if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
+you should always include necessary [license files](native-binary-licenses.md) into your binary distribution.
 
 ## Declare binaries
 
@@ -211,11 +210,6 @@ binaries.findExecutable('foo', DEBUG)
 
 ## Export dependencies to binaries
 
-> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#libraries-and-frameworks)
-> to export dependencies to binaries.
->
-{type="tip"}
-
 When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
 of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using
 the `export` method.
@@ -334,11 +328,6 @@ binaries {
 
 ## Build universal frameworks
 
-> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#fat-frameworks)
-> to build universal fat frameworks.
->
-{type="tip"}
-
 By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
 frameworks into a single universal (fat) binary using the [`lipo` tool](https://llvm.org/docs/CommandGuide/llvm-lipo.html).
 This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal
@@ -414,11 +403,6 @@ kotlin {
 </tabs>
 
 ## Build XCFrameworks
-
-> You can also try the [new Kotlin/Native DSL](multiplatform-native-artifacts.md#xcframeworks)
-> to build XCFrameworks.
->
-{type="tip"}
 
 All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
 Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.

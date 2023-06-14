@@ -10,7 +10,7 @@ Discover main parts of your multiplatform project:
 ## Multiplatform plugin
 
 When you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
-plugin in the file `build.gradle`(`.kts`).
+plugin in the file `build.gradle(.kts`).
 
 You can also apply it manually.
 
@@ -42,7 +42,7 @@ plugins {
 The `kotlin-multiplatform` plugin configures the project for creating an application or library to work on multiple platforms 
 and prepares it for building on these platforms. 
 
-In the file `build.gradle`(`.kts`), it creates the `kotlin` extension at the top level, which includes 
+In the file `build.gradle(.kts`), it creates the `kotlin` extension at the top level, which includes 
 configuration for [targets](#targets), [source sets](#source-sets), and dependencies.
 
 ## Targets
@@ -51,7 +51,7 @@ A multiplatform project is aimed at multiple platforms that are represented by d
 build that is responsible for building, testing, and packaging the application for a specific platform, such as macOS, 
 iOS, or Android. See the list of [supported platforms](multiplatform-dsl-reference.md#targets).
 
-When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle` (`build.gradle.kts`).
+When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle(.kts`).
 
 ```kotlin
 kotlin {
@@ -149,7 +149,7 @@ you can use the platform-specific language features and dependencies that are av
 For example, all Kotlin/Native features are available in the `desktopMain` source set, which targets the Linux (`linuxX64`), 
 Windows (`mingwX64`), and macOS (`macosX64`) platforms.
 
-![Hierarchical structure](hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.png)
 
 Learn how to [build the hierarchy of source sets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
 

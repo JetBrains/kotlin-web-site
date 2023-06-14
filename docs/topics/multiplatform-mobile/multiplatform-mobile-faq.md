@@ -1,16 +1,26 @@
-[//]: # (title: FAQ)
+[//]: # (title: Kotlin Multiplatform for mobile FAQ)
 
-### What is Kotlin Multiplatform Mobile?
+### What is Kotlin Multiplatform for mobile?
 
-_Kotlin Multiplatform Mobile (KMM)_ is an SDK for cross-platform mobile development. You can develop 
+_Kotlin Multiplatform for mobile_ is an SDK for cross-platform mobile development. You can develop 
 multiplatform mobile applications and share parts of your applications between Android and iOS, such as core layers, 
 business logic, presentation logic, and more.
 
 Kotlin Mobile uses the [multiplatform abilities of Kotlin](multiplatform.md) and the features 
 designed for mobile development, such as CocoaPods integration and the [Android Studio Plugin](#what-is-the-kotlin-multiplatform-mobile-plugin).
 
-You may want to watch this introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in which Kotlin Product Marketing Manager Ekaterina Petrova explains in detail what Kotlin Multiplatform Mobile is and how you can use it in your projects. 
-With Ekaterina, you'll set up an environment and prepare for creating your first cross-platform mobile application with Kotlin Multiplatform Mobile.
+You may want to watch this introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in which Kotlin Product Marketing Manager Ekaterina Petrova explains in detail what Kotlin Multiplatform for mobile is and how you can use it in your projects. 
+With Ekaterina, you'll set up an environment and prepare for creating your first cross-platform mobile application with Kotlin Multiplatform.
+
+### Can I share UIs with Kotlin Multiplatform?
+
+Yes, you can share UIs using [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose). 
+This framework allows you to create shared UI components for platforms like iOS, Android, desktop, and web, helping you 
+to maintain a consistent user interface across different devices and platforms.
+
+Check out the [Compose Multiplatform FAQ](https://github.com/JetBrains/compose-multiplatform/blob/master/docs/FAQ.md#compose-multiplatform-faq)
+to learn more.
 
 ### What is the Kotlin Multiplatform Mobile plugin?
 
@@ -28,7 +38,7 @@ but not on any other operating systems, such as Microsoft Windows or Linux.
 The good news is that you can work with cross-platform projects on Android even without the Kotlin Multiplatform Mobile plugin. If you are going to work 
 with shared code or Android-specific code, you can work on any operating system supported by Android Studio.
 
-### What is Kotlin/Native and how does it relate to Kotlin Multiplatform Mobile?
+### What is Kotlin/Native and how does it relate to Kotlin Multiplatform?
 
 _[Kotlin/Native](native-overview.md)_ is a technology for compiling Kotlin code to native 
 binaries, which can run without a virtual machine. It consists of an [LLVM](https://llvm.org/)-based backend for the 
@@ -40,16 +50,16 @@ a self-contained program that does not require an additional runtime or virtual 
 iOS development.
 
 Shared code, written in Kotlin, is compiled to JVM bytecode for Android with Kotlin/JVM and to native binaries for iOS 
-with Kotlin/Native. It makes the integration with Kotlin Multiplatform Mobile seamless on both platforms.
+with Kotlin/Native. It makes the integration with Kotlin Multiplatform seamless on both platforms.
 ![Kotlin/Native and Kotlin/JVM binaries](kotlin-native-and-jvm-binaries.png)
 
 ### What are the plans for the technology evolution?
 
-Kotlin Multiplatform Mobile is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we're 
+Kotlin Multiplatform is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we're 
 working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
 Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
 
-The following video presents the current state and our plans for the Kotlin Multiplatform Mobile development: 
+The following video presents the current state and our plans for the Kotlin Multiplatform for mobile development: 
 
 <video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
 
@@ -76,7 +86,7 @@ Most of our adopters use Android Studio. However, if there is any reason for you
 you can use [IntelliJ IDEA](https://www.jetbrains.com/idea/download). IntelliJ IDEA provides the ability to create 
 a multiplatform mobile application from the Project Wizard, but you won't be able to launch an iOS application from the IDE.
 
-### How can I write concurrent code in Kotlin Multiplatform Mobile projects?
+### How can I write concurrent code in Kotlin Multiplatform projects?
 
 You can easily write concurrent code in your cross-platform mobile projects with the new [Kotlin/Native memory manager](native-memory-manager.md)
 that lifted previous limitations and aligned the behaviour between Kotlin/JVM and Kotlin/Native. The new memory manager
@@ -87,7 +97,7 @@ See these [tips for improving Kotlin/Native compilation times](native-improving-
 
 ## What platforms do you support?
 
-Kotlin Multiplatform Mobile support development for:
+Kotlin Multiplatform supports development for:
 
 * Android applications and libraries
 * [Android NDK](https://developer.android.com/ndk) (ARM64 and ARM32)

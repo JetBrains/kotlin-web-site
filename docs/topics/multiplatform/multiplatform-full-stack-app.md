@@ -552,8 +552,6 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 
-import kotlinx.browser.window
-
 val jsonClient = HttpClient {
     install(ContentNegotiation) {
         json()
@@ -619,7 +617,7 @@ Based on these requirements, you can implement the `App` component as follows:
     private val scope = MainScope()
     
     val App = FC<Props> {
-    var shoppingList by useState(emptyList<ShoppingListItem>())
+        var shoppingList by useState(emptyList<ShoppingListItem>())
     
         useEffectOnce {
             scope.launch {
@@ -673,7 +671,7 @@ provides a callback when users submit their entry to the shopping list to receiv
     }
     
     val inputComponent = FC<InputProps> { props ->
-    val (text, setText) = useState("")
+        val (text, setText) = useState("")
     
         val submitHandler: FormEventHandler<HTMLFormElement> = {
             it.preventDefault()

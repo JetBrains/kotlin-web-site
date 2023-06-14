@@ -26,11 +26,11 @@ check [our instructions on how to configure your build to support this version](
 
 ## How the EAP can help you be more productive with Kotlin
 
-* **Prepare for the Stable release**. If you work on a complex multi-module project, participating in the EAP may streamline your experience when you adopt the Stable release version. The sooner you update to the Stable version, the sooner you can take advantage of its performance improvements and new language features. 
+* **Prepare for the Stable release**. If you work on a complex multimodule project, participating in the EAP may streamline your experience when you adopt the Stable release version. The sooner you update to the Stable version, the sooner you can take advantage of its performance improvements and new language features. 
 
-  The migration of huge and complex projects might take a while, not only because of their size but also because some specific use cases may not have been covered by the Kotlin team yet. By participating in the EAP and continuously testing new versions of Kotlin, you can provide us with early feedback about your specific use cases. This will help us address as many issues as possible and ensure you can safely update to the Stable version when it's released. [Check out how Slack benefits from testing Android, Kotlin, and Gradle pre-release versions](https://slack.engineering/shadow-jobs/).
+  The migration of huge and complex projects might take a while, not only because of their size, but also because some specific use cases may not have been covered by the Kotlin team yet. By participating in the EAP and continuously testing new versions of Kotlin, you can provide us with early feedback about your specific use cases. This will help us address as many issues as possible and ensure you can safely update to the Stable version when it's released. [Check out how Slack benefits from testing Android, Kotlin, and Gradle pre-release versions](https://slack.engineering/shadow-jobs/).
 * **Keep your library up-to-date**. If you're a library author, updating to the new Kotlin version is extremely important. Using older versions could block your users from updating Kotlin in their projects. Working with EAP versions allows you to support the latest Kotlin versions in your library almost immediately with the Stable release, which makes your users happier and your library more popular.
-* **Share the experience**. If you're a Kotlin enthusiast and enjoy contributing to the Kotlin ecosystem by creating educational content, trying new features in the Kotin EAP allows you to be among the first to share the experience of using the new cool features with the community.
+* **Share the experience**. If you're a Kotlin enthusiast and enjoy contributing to the Kotlin ecosystem by creating educational content, trying new features in the Kotlin EAP allows you to be among the first to share the experience of using the new cool features with the community.
 
 ## Build details
 
@@ -42,45 +42,23 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>1.8.20-RC</strong>
-            <p>Released: <strong>March 8, 2023</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>1.9.0-Beta</strong>
+            <p>Released: <strong>May 24, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-Beta" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
-                 <li>Language: experimental replacement of the Enum class <code>values()</code> function with the <code>entries</code> property, experimental lifting restrictions on secondary constructor bodies in value (inline) classes, experimental data objects</li>
-                 <li>Kotlin/JVM: JVM IR for the kapt stub generation enabled by default</li>
-                 <li>Kotlin/Native: bug fix for stack overflow when using regex with large input, improved output for Gradle errors in Xcode, new API for garbage collection statistics, Podspec generation in the new artifact DSL, dynamic framework linking without generating C-interop bindings</li>
-                 <li>Kotlin Multiplatform: preview support for Gradle composite builds, experimental DSL for the new source set hierarchy</li>
-                 <li>Kotlin/Wasm: experimental version of the new Kotlin/Wasm compiler backend</li>
-                 <li>Kotlin/JS IR: alpha version of the K2 support, fully-qualified method name in source maps, declarations with non-minified names, the <code>dukat</code> integration removed, TypeScript definitions generated only on explicit Gradle action</li>
-                 <li>Libraries: experimental support for the <code>AutoCloseable</code> interface and the <code>use()</code> extension function in the common standard library, experimental support for the Base64 encoding in the standard library, experimental support for the <code>@Volatile</code> annotation that works for both JVM and Kotlin/Native</li>
-                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation</li>
-                 <li>Maven: new <code>components.xml</code> to automatically compile Kotlin Maven projects, ability to set up kapt's <code>aptMode</code></li>
-                 <li>Serialization: prototype of serialization plugin that works with the K2 compiler, prohibited implicit serializer customization via companion object</li>
+                 <li>Language: Stable <code>rangeUntil</code> operator, data objects, <code>Enum.entries</code> replacement for <code>Enum.values()</code>, and the <code>@Volatile</code> annotation</li>
+                 <li>K2: basic support for Kotlin/Native and multiplatform projects, support for Kotlin/JS since 1.8.20</li>
+                 <li>Kotlin/JVM: <code>@JvmDefault</code> and old <code>-Xjvm-default</code> modes deprecated with error, support for Java 20 bytecode</li>
+                 <li>Kotlin/Native: new custom memory allocator, no object initialization when accessing <code>const val</code>, partial linkage enabled by default</li>
+                 <li>Kotlin Multiplatform: new name for the <code>android</code> block, new Android source set layout enabled by default, support for Gradle configuration caching in multiplatform libraries, ability to disable sources publication in the Kotlin Multiplatform Gradle plugin, ability to add dependencies between Pods when using the CocoaPods Gradle plugin</li>
+                 <li>Kotlin/Wasm: runtime footprint reduced and performance improved, set system default browser as default for <code>wasmBrowserRun</code> task, improved JS interop, more compiler and IDE diagnostics for JS interop</li>
+                 <li>Kotlin/JS: deprecated legacy backend with error, deprecated external Enum class, extracted DOM API from standard library to module automatically added to builds, partial linkage enabled by default, IR compiler used by default, changed default destination of production distributions, deprecated <code>kotlin-js</code> Gradle plugin that is replaced by <code>kotlin-multiplatform</code> Gradle plugin, experimental support for ES6 classes and modules, reduced memory consumption for production builds</li>
+                 <li>Libraries: Stable standard library functions for open-ended ranges, new common function to get regex capture group by name, new <code>HexFormat</code> to format and parse hexadecimals, Stable time API, new path utility to create parent directories, reviewed and stabilized Kotlin/Native standard library</li>
+                 <li>Gradle: build scans show whether K1 or K2 compiler is used, new Gradle property <code>kotlin.experimental.tryK2</code> to try the K2 compiler, new project-level compiler options for Kotlin/JVM plugin, removed <code>KotlinCompile</code> task's <code>classpath</code> property, exposed <code>jvmTargetValidationMode</code> property in <code>KotlinCompile</code> task, configurable standalone mode for Kotlin/Native iOS simulator tests, removed support for <code>org.gradle.api.internal.HasConvention</code> Gradle element, added <code>optIn</code> and <code>progressiveMode</code> compiler options, compiler plugins are published separately and Gradle plugins add them as compiler arguments, kapt tasks don’t trigger eager task creation, minimum supported Android Gradle plugin version is 4.2.2</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.8.20-RC</a>.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><strong>1.8.20-Beta</strong>
-            <p>Released: <strong>February 8, 2023</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-Beta" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-             <ul>
-                 <li>Language: experimental replacement of the Enum class <code>values()</code> function with the <code>entries</code> property, experimental lifting restrictions on secondary constructor bodies in value (inline) classes, experimental data objects</li>
-                 <li>Kotlin/JVM: JVM IR for the kapt stub generation enabled by default</li>
-                 <li>Kotlin/Native: bug fix for stack overflow when using regex with large input, improved output for Gradle errors in Xcode, new API for garbage collection statistics, Podspec generation in the new artifact DSL, dynamic framework linking without generating C-interop bindings</li>
-                 <li>Kotlin Multiplatform: preview support for Gradle composite builds, experimental DSL for the new source set hierarchy</li>
-                 <li>Kotlin/Wasm: experimental version of the new Kotlin/Wasm compiler backend</li>
-                 <li>Kotlin/JS IR: alpha version of the K2 support, fully-qualified method name in source maps, declarations with non-minified names, the <code>dukat</code> integration removed, TypeScript definitions generated only on explicit Gradle action</li>
-                 <li>Libraries: experimental support for the <code>AutoCloseable</code> interface and the <code>use()</code> extension function in the common standard library, experimental support for the Base64 encoding in the standard library, experimental support for the <code>@Volatile</code> annotation that works for both JVM and Kotlin/Native</li>
-                 <li>Gradle: the new approach to incremental compilation enabled by default, new Gradle plugins alignment platform, compatibility with the Gradle 7.4, 7.5, and 7.6 releases, experimental ability to back up only updated files during incremental compilation</li>
-                 <li>Maven: new <code>components.xml</code> to automatically compile Kotlin Maven projects, ability to set up kapt's <code>aptMode</code></li>
-                 <li>Serialization: prototype of serialization plugin that works with the K2 compiler, prohibited implicit serializer customization via companion object</li>
-            </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20-Beta">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.8.20-Beta</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-Beta">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.0-Beta</a>.</p>
         </td>
     </tr>
 </table>

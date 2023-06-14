@@ -1,6 +1,6 @@
-[//]: # (title: What's new in Kotlin 1.4)
+[//]: # (title: What's new in Kotlin 1.4.0)
 
-_[Release date: 17 August 2020](releases.md#release-details)_
+_[Released: 17 August 2020](releases.md#release-details)_
 
 In Kotlin 1.4.0, we ship a number of improvements in all of its components, with the [focus on quality and performance](https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/).
 Below you will find the list of the most important changes in Kotlin 1.4.0.
@@ -308,7 +308,7 @@ In the future, we are going to make the Kotlin Project Wizard even more flexible
 You can try out the new Kotlin Project Wizard by working through these tutorials:
 
 * [Create a console application based on Kotlin/JVM](jvm-get-started.md)
-* [Create a Kotlin/JS application for React](js-get-started.md)
+* [Create a Kotlin/JS application for React](js-react.md)
 * [Create a Kotlin/Native application](native-get-started.md)
 
 ### Coroutine Debugger
@@ -639,7 +639,7 @@ The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides 
 - Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the [executing Kotlin/JS and its environment here](js-project-setup.md#execution-environments).
 - Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about [using CSS and style loaders here](js-project-setup.md#css).
 - Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. [Read more about dependency management for npm packages directly from Gradle here](js-project-setup.md#npm-dependencies).
-- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task. [Read more about how to use the integration here](js-external-declarations-with-dukat.md).
+- Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task.
 
 ### New JS IR backend
 
@@ -652,7 +652,7 @@ To enable the Kotlin/JS IR backend, set the key `kotlin.js.compiler=ir` in your 
 ```groovy
 kotlin {
     js(IR) { // or: LEGACY, BOTH
-        // . . .
+        // ...
     }
     binaries.executable()
 }
@@ -842,7 +842,7 @@ code that could still directly call any of the APIs that are common to both the 
 Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
-For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-share-on-platforms.md#use-target-shortcuts).
+For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-hierarchy.md#target-shortcuts).
 
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
@@ -852,10 +852,10 @@ kotlin {
 }
 ```
 
-For other combinations of targets, <!--TODO: [create a hierarchy manually](multiplatform-share-on-platforms.md#configure-the-hierarchical-structure-manually) -->
+For other combinations of targets, [create a hierarchy manually](multiplatform-hierarchy.md#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
-![Hierarchical structure](hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.png)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -910,13 +910,13 @@ about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code
 
 ### Leveraging native libs in the hierarchical structure 
 
-You can use platform-dependent libraries, such as `Foundation`, `UIKit`, and `POSIX`, in source sets shared among several 
+You can use platform-dependent libraries, such as Foundation, UIKit, and POSIX, in source sets shared among several 
 native targets. This can help you share more native code without being limited by platform-specific dependencies. 
 
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-[Learn more about usage of platform-dependent libraries](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure).
+[Learn more about usage of platform-dependent libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries).
 
 ### Specifying dependencies only once
 

@@ -1,11 +1,11 @@
 [//]: # (title: Create your first cross-platform app)
 
 <microformat>
-    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform Mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Upgrade your app<br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
 </microformat>
 
-Here you will learn how to create and run your first Kotlin Multiplatform Mobile application using Android Studio.
+Here you will learn how to create and run your first Kotlin Multiplatform application using Android Studio.
 
 ## Create the project from a template
 
@@ -28,7 +28,7 @@ Here you will learn how to create and run your first Kotlin Multiplatform Mobile
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
    > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
-   > has less installation issues.
+   > has fewer installation issues.
    > 
    > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
    > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
@@ -46,14 +46,14 @@ To view the full structure of your mobile multiplatform project, switch the view
 
 ![Select the Project view](select-project-view.png){width=200}  
 
-Each Kotlin Multiplatform Mobile project includes three modules:
+Each Kotlin Multiplatform project includes three modules:
 
 * _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
   between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process. The _shared_
   module builds into an Android library and an iOS framework.
 * _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
   The _androidApp_ module depends on and uses the shared module as a regular Android library.
-* _iOSApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+* _iosApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
   framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md),
   based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
   framework dependency.
@@ -131,7 +131,7 @@ If you want to run your application on a simulated device, you can add a new run
 
 1. Connect a real iPhone device to Xcode.
 2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
-3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting iPhone in the **Execution target** list.
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting an iPhone in the **Execution target** list.
 4. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
@@ -140,8 +140,8 @@ If you want to run your application on a simulated device, you can add a new run
 
 ## Update your application
 
-1. Open the `Greeting.kt` file in `shared/src/commonMain/kotlin`. This directory stores the shared code for both Android
-and iOS. If you make changes to the shared code, you will see them reflected in both applications.
+1. In `shared/src/commonMain/kotlin`, open the `Greeting.kt` file in the project folder. This directory stores the shared
+code for both Android and iOS. If you make changes to the shared code, you will see them reflected in both applications.
 
    ![Common Kotlin file](common-kotlin-file.png)
 
@@ -152,7 +152,7 @@ the Kotlin standard library function for reversing text that works on all platfo
     class Greeting {
         private val platform: Platform = getPlatform()
         
-        fun greeting(): String {
+        fun greet(): String {
             return "Guess what it is! > ${platform.name.reversed()}!"
         }
     }

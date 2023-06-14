@@ -1,19 +1,15 @@
 [//]: # (title: Get started with Kotlin)
 
-[Kotlin](https://kotlinlang.org) is a modern but already mature programming language aimed to make developers happier.
+Kotlin is a modern but already mature programming language designed to make developers happier.
 It's concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
 
-Pick it up to start building powerful applications!
+To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language.
 
-## Learn Kotlin fundamentals
-
-* If you're already familiar with one or more programming languages and want to learn Kotlin, start with these [Kotlin learning materials](learning-materials-overview.md).
-* If Kotlin is your first programming language, we recommend starting with the [Atomic Kotlin book](https://www.atomickotlin.com/atomickotlin/)
-or signing up for the free [Kotlin Basics track](https://hyperskill.org/join/fromdocstoJetSalesStat?redirect=true&next=/tracks/18) on JetBrains Academy.
+<a href="kotlin-tour-hello-world.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour"/></a>
 
 ## Install Kotlin
 
-Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.  
+Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.
 Download and install one of these IDEs to start using Kotlin.
 
 ## Create your powerful application with Kotlin
@@ -77,7 +73,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 <tab id="cross-platform-mobile" title="Cross-platform mobile app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/).
+Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
 
 1. **[Set up your environment for cross-platform mobile development](multiplatform-mobile-setup.md).**
 
@@ -101,11 +97,11 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    > 
    {type="tip"}
 
-4. **Learn more about Kotlin Multiplatform Mobile:**
+4. **Learn more about Kotlin Multiplatform for mobile:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
    * Look through [samples on GitHub](multiplatform-mobile-samples.md).
    * [Create and publish a multiplatform library](multiplatform-library.md).
-   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/mobile/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/mobile/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/mobile/case-studies/).
+   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/multiplatform/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/multiplatform/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/multiplatform/case-studies/).
 
 5. **Join the Kotlin Multiplatform community:**
 
@@ -113,49 +109,6 @@ Here you'll learn how to develop and improve your cross-platform mobile applicat
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
 6. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
-
-If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
-
-</tab>
-
-<tab id="frontend" title="Frontend web app">
-
-Kotlin provides an ability to transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies to JavaScript.
-
-Here you'll learn how to develop and improve your frontend web application using [Kotlin/JS](js-overview.md).
-
-1. **Create your first frontend web application:**
-
-   * To start from scratch, [create a basic browser application with the IntelliJ IDEA project wizard](js-project-setup.md).
-   * If you prefer more robust examples, complete the [Build a web application with React and Kotlin/JS](js-react.md) tutorial. It includes a sample project that can serve as a good starting point for your own projects, and contains useful snippets and templates.
-   * Check out the list of [Kotlin/JS samples](js-samples.md) for more ideas on how to use Kotlin/JS.
-
-2. **Use libraries in your application.** Learn more about [adding dependencies](js-project-setup.md#dependencies).  
-    
-   |Library | Details |
-   |--------|---------|
-   |[stdlib](https://kotlinlang.org/api/latest/jvm/stdlib/) | The Kotlin standard library included in all projects by default. |
-   |[kotlinx.browser](browser-api-dom.md)| The Kotlin library for accessing browser-specific functionality, including typical top-level objects such as document and window. |
-   |[kotlinx.html](typesafe-html-dsl.md) | The Kotlin library for generating DOM elements using statically-typed HTML builders.|
-   |[Ktor](https://ktor.io/) | The Kotlin multiplatform library for networking. |
-   |[KVision](https://kvision.io/) | A third-party object-oriented web framework for Kotlin/JS.|
-   |[fritz2](https://www.fritz2.dev/)| A third-party lightweight, high-performance, independent library for building reactive web apps in Kotlin that are heavily dependent on coroutines and flows.|
-   |[Doodle](https://nacular.github.io/doodle/) | A third-party vector-based UI framework that uses browser's capabilities to draw user interfaces.|
-   |Compose for Web, a part of [Compose Multiplatform](https://www.jetbrains.com/lp/compose-mpp/) | The JetBrains framework that brings [Google's Jetpack Compose UI toolkit](https://developer.android.com/jetpack/compose) to the browser. |
-   |[kotlin-wrappers](https://github.com/JetBrains/kotlin-wrappers) | Provide convenient abstractions and deep integrations for one of the most popular JavaScript frameworks. Kotlin wrappers also provide support for a number of adjacent technologies like `react-redux`, `react-router`, or `styled-components`. |
-
-3. **Learn more about Kotlin for frontend web development:**
-
-   * The [new Kotlin/JS IR compiler](js-ir-compiler.md).
-   * [Using dependencies from npm](using-packages-from-npm.md).
-   * [Using Kotlin code from JavaScript](js-to-kotlin-interop.md).
-
-4. **Join the Kotlin frontend web community:**
-
-   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels.
-   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin-js" tag](https://stackoverflow.com/questions/tagged/kotlin-js).
-
-5. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
@@ -180,17 +133,15 @@ Here you'll learn how to develop and publish a multiplatform library:
 1. **Create a multiplatform library:**
 
    * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
-   * Build a full stack web application using [this tutorial](multiplatform-full-stack-app.md).
 
-2. **Use libraries in your application.** Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
+2. **Use libraries in your application:**
 
-   |Library| Details                                                                                                 |
-   |---------------------------------------------------------------------------------------------------------|-------|
-   | Ktor | [Docs](https://ktor.io/docs/) and [sample](multiplatform-full-stack-app.md#build-the-backend). | 
-   | Serialization | [Docs](serialization.md) and [sample](multiplatform-full-stack-app.md).                                 |
-   | Coroutines | [Docs](coroutines-overview.md).                                                                         |
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme).                                              |
-   
+   * [Ktor](https://ktor.io/docs/)
+   * [Serialization](serialization.md)
+   * [Coroutines](coroutines-overview.md)
+   * [DateTime](https://github.com/Kotlin/kotlinx-datetime#readme)
+
+   > Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
    {type="tip"}

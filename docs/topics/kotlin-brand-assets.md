@@ -21,6 +21,19 @@ Pay special attention to the following restrictions concerning the use of the lo
 * Do not change the text.
 * Do not set the logo against a complex background. Do not place the logo in front of a bright background.
 
+## Kotlin mascot
+
+Kodee is Kotlin's reimagined mascot. More than just a symbol, Kodee is your friendly companion who’s there to encourage and inspire you to express your creativity.
+When using it, we ask you to follow these [simple guidelines](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot.zip).
+
+![Kotlin mascot Kodee proportions](mascot-body-proportions.png){width=700}
+
+You can use Kodee in your digital and print materials. For this purpose, we have prepared a variety of Kotlin mascot assets for you to download and explore.
+
+[Download all assets](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot_2.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
+
+![Kotlin mascot Kodee in action](mascot-in-action.png){width=700}
+
 ## Kotlin User Group brand assets
 
 We provide Kotlin user groups with a logo that is specifically designed to be recognizable and convey a reference to Kotlin.

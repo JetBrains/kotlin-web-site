@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.6.20)
 
-_[Release date: 4 April 2022](releases.md#release-details)_
+_[Released: 4 April 2022](releases.md#release-details)_
 
 Kotlin 1.6.20 reveals previews of the future language features, makes the hierarchical structure the default for multiplatform projects, and brings evolutionary improvements to other components.
 
@@ -477,12 +477,11 @@ It also helps prevent unsafe API usages meant for a different target.
 The technology will come in handy for [library authors](#more-opportunities-for-library-authors), too, as a hierarchical project structure allows them to publish and consume libraries with common APIs for a subset of targets.
 
 By default, libraries published with the hierarchical project structure are compatible only with hierarchical structure projects.
-Learn more about [project-library compatibility](multiplatform-hierarchy.md#compatibility).
 
 #### Better code-sharing in your project
 
 Without hierarchical structure support, there is no straightforward way to share code across _some_ but not _all_ [Kotlin targets](multiplatform-dsl-reference.md#targets).
-One popular example is sharing code across all iOS targets and having access to iOS-specific [dependencies](multiplatform-share-on-platforms.md#use-native-libraries-in-the-hierarchical-structure), like `Foundation`.
+One popular example is sharing code across all iOS targets and having access to iOS-specific [dependencies](multiplatform-share-on-platforms.md#connect-platform-specific-libraries), like Foundation.
 
 Thanks to the hierarchical project structure support, you can now achieve this out of the box.
 In the new structure, source sets form a hierarchy.
@@ -517,7 +516,7 @@ Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hie
 
 * For Kotlin 1.6.20, we recommend using [Android Studio 2021.1.1](https://developer.android.com/studio) (Bumblebee) or later to get the best experience.
 
-* You can also opt-out. To disable hierarchical structure support, set the following options in` gradle.properties`:
+* You can also opt out. To disable hierarchical structure support, set the following options in `gradle.properties`:
 
   ```none
   # gradle.properties

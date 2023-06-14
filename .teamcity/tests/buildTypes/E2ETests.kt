@@ -15,12 +15,6 @@ object E2ETests : BuildType({
     root(vcsRoots.KotlinLangOrg)
   }
 
-  triggers {
-    vcs {
-      branchFilter = "+:pull/*"
-    }
-  }
-
   steps {
     script {
       scriptContent = "./scripts/test/up.sh"
