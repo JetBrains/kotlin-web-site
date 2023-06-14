@@ -23,7 +23,7 @@ To use reflection in a Gradle or Maven project, add the dependency on `kotlin-re
 
     ```kotlin
     dependencies {
-        implementation("org.jetbrains.kotlin:kotlin-reflect:%kotlinVersion%")
+        implementation(kotlin("reflect"))
     }
     ```
 
