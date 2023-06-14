@@ -48,6 +48,41 @@ for test code. The tasks for custom source sets are named according to their `co
 
 The names of the tasks in Android Projects contain [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the `compile<BuildVariant>Kotlin` pattern, for example, `compileDebugKotlin` or `compileReleaseUnitTestKotlin`.
 
+For both JVM and Android Projects it's possible since 1.9.0 to define options in a following way:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_1_9)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    compilerOptions {
+        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Some important things to be aware of:
+
+- `android.kotlinOptions` and `kotlin.compilerOptions` interfere: one below will overwrite the one above
+- `kotlin.compilerOptions` work module-wise, not project-wise
+- `android.kotlinOptions.moduleName` might be overwritten by `kotlin.compilerOptions.moduleName` if the latter one goes below the first one
+- The separate configuration of `tasks.withType(KotlinCompile::class.java)` will overwrite the configuration inside `kotlinOptions`
+
+
 When targeting JavaScript, the tasks are called `compileKotlinJs` for production code and `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
 
 To configure a single task, use its name. Examples:
