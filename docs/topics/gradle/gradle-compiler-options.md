@@ -59,6 +59,42 @@ For both the JVM and Android projects, it's possible to define options using the
 ```kotlin
 kotlin {
     compilerOptions {
+        apiVersion.set(KotlinVersion.KOTLIN_1_9)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    compilerOptions {
+        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Some important things to be aware of:
+
+- `android.kotlinOptions` and `kotlin.compilerOptions` interfere: one below will overwrite the one above
+- `kotlin.compilerOptions` work module-wise, not project-wise
+- `android.kotlinOptions.moduleName` might be overwritten by `kotlin.compilerOptions.moduleName` if the latter one goes below the first one
+- The separate configuration of `tasks.withType(KotlinCompile::class.java)` will overwrite the configuration inside `kotlinOptions`
+
+
+When targeting JavaScript, the tasks are called `compileKotlinJs` for production code and `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
+>>>>>>> 6115e18c (Adds info on global `compilerOptions`)
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    compilerOptions {
         apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
     }
 }
