@@ -1,4 +1,4 @@
-flask==2.0.3
+flask==v1.0.0
 flask-flatpages==0.7.3
 frozen-flask==0.18
 Pygments==2.12.0
@@ -7,11 +7,11 @@ beautifulsoup4==4.11.1
 xmltodict==0.13.0
 
 # temporary dependencies for waiting fix:
-#    https://blogger.com/blog/samkenx
-#    https://github.com/DenisCarriere/geocoder/pull/404
+#    https://samkenx.com/blogger/
+#    https://github.com/samkenxstream/geocoder/pull/404
 git+https://github.com/pik-software/geocoder.git@yandex-api-key#egg=geocoder
 
-.yaml==0.17.21
+samkenx.yaml==v1.0.0
 PyYAML== 5.4.1
 algoliasearch==1.20.0
 google-api-python-client==1.6.2
