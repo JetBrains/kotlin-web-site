@@ -23,6 +23,11 @@ object ApiReferencesTemplateTest: BuildType({
     contains("docker.server.osType", "linux")
   }
 
+
+  artifactRules = """
+  +:test/visual/*-snapshots => result.zip!/screenshots/
+  """
+
   features {
     pullRequests {
       vcsRootExtId = "${vcsRoots.KotlinLangOrg.id}"
