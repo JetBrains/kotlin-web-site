@@ -2,7 +2,7 @@
 
 > Kotlin Wasm is [Experimental](components-stability.md).
 > It may be changed at any time. Use it only for evaluation purposes.
-> 
+>
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
@@ -31,7 +31,7 @@ Kotlin/Wasm allows you to both use JavaScript code and Browser API from Kotlin, 
 
 [Learn more about Kotlin Wasm interoperability with JavaScript](wasm-js-interop.md).
 
-## Compose Multiplatform for Web 
+## Compose Multiplatform for Web
 
 > Web support is [Experimental](components-stability.md) and may be changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
@@ -57,7 +57,7 @@ Other official Kotlin (`kotlinx`) and multiplatform libraries are not fully supp
 by adding the Kotlin [experimental repository](https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental/) to your Gradle project.
 
 > For Kotlin 1.9.0-Beta and later, use the latest available libraries' versions.
-> 
+>
 {type="note"}
 
 ### Enable kotlinx libraries
@@ -79,6 +79,7 @@ kotlin {
         val wasmMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core-wasm:1.5.1-wasm0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-wasm:1.6.4-wasm0")
             }
         }
     }
