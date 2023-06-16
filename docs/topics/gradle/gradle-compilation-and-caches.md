@@ -415,19 +415,20 @@ If there is insufficient memory to run the compilation, you can see a message ab
 >
 {type="warning"}
 
-Build reports for tracking compiler performance are available starting from Kotlin 1.7.0. Reports contain the durations 
-of different compilation phases and reasons why compilation couldn't be incremental.
-
+Build reports contain the durations of different compilation phases and reasons why compilation couldn't be incremental.
 Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
 project.
 
-Kotlin build reports help examine problems more efficiently than [Gradle build scans](https://scans.gradle.com/). 
-Lots of engineers use them to investigate build performance, but the unit of granularity in Gradle scans is a single Gradle task.
+Kotlin build reports help investigate problems with build performance more efficiently than [Gradle build scans](https://scans.gradle.com/)
+that have a single Gradle task as the unit of granularity.
 
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
 * The build wasn't incremental. Analyze the reasons and fix underlying problems.
 * The build was incremental but took too much time. Try reorganizing source files — split big files,
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
+
+Build reports also show the Kotlin version used in the project. In addition, starting with Kotlin 1.9.0,
+you can see whether the current or the [K2 compiler](#the-k2-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
 and [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
