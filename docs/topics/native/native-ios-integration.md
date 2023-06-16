@@ -14,8 +14,8 @@ However, there are some specifics you should keep in mind:
 
 ### Deinitializers
 
-Deinit on the Swift/Objective-C objects and the objects they refer to is called on a different thread if
-these objects cross interop boundaries into Kotlin/Native, for example:
+Deinit on the Swift/Objective-C objects and the objects they refer to is called on the main thread if
+these objects are passed to Kotlin on the main thread, for example:
 
 ```kotlin
 // Kotlin
@@ -48,7 +48,7 @@ The resulting output:
 ```text
 init on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 shared.SwiftExample
-deinit on <NSThread: 0x600003b9b900>{number = 7, name = (null)}
+deinit on <_NSMainThread: 0x600003b9b900>{number = 7, name = main}
 ```
 
 ### Completion handlers
