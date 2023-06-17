@@ -83,7 +83,7 @@ fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 ```
 {validate="false"}
 
-For more information about the `entries` property for enum classes, see [What’s new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
+For more information about the `entries` property for enum classes, see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
 
 ## Stable ..< operator for open-ended ranges
 
@@ -130,11 +130,17 @@ For more information about what you can do with this operator, see [What's new i
 
 ## New common function to get regex capture group by name
 
-Prior to 1.9.0-RC, every platform had its own extension to get a regular expression capture group by its name from a regular expression match. However, there was no common function. It wasn’t possible to implement prior to Kotlin 1.8.0, because the standard library still supported JVM targets 1.6 and 1.7.
+Prior to 1.9.0-RC, every platform had its own extension to get a regular expression capture group by its name from a regular expression match.
+However, there was no common function. It wasn't possible to implement prior to Kotlin 1.8.0,
+because the standard library still supported JVM targets 1.6 and 1.7.
 
-As of Kotlin 1.8.0, the standard library is compiled with JVM target 1.8. So in 1.9.0-RC, there is now a **common** function to get a regular expression capture group by its name for a regular expression match. This is useful when you want to access the results of regular expression matches belonging to a particular capture group.
+As of Kotlin 1.8.0, the standard library is compiled with JVM target 1.8. So in 1.9.0-RC,
+there is now a **common** function [`groups`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-match-result/groups.html)
+that retrieves group's contents by its name for a regular expression match.
+This is useful when you want to access the results of regular expression matches belonging to a particular capture group.
 
-Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`. You can use these group names to access the matched values:
+Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`.
+You can use these group names to access the matched values:
 
 ```kotlin
 fun main() {
