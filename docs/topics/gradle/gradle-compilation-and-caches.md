@@ -288,6 +288,26 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   {type="note"}
 * If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
+## The new Kotlin compiler
+
+The new Kotlin K2 compiler is in [Alpha](components-stability.md#stability-levels-explained).
+It has basic support for Kotlin JVM, JS, and Native projects.
+
+The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
+bring performance improvements, and provide an API for compiler extensions.
+
+The K2 compiler will become the default starting with Kotlin 2.0. To try it in your projects now and check the performance,
+use the `kotlin.experimental.tryK2=true` Gradle property or run the following command:
+
+```shell
+./gradlew assemble -Pkotlin.experimental.tryK2=true
+```
+
+This Gradle property automatically sets the language version to 2.0 and updates the [build report](#build-reports)
+with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
+
+Learn more about the stabilization of the K2 compiler in the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
+
 ## Defining Kotlin compiler execution strategy
 
 _Kotlin compiler execution strategy_ defines where the Kotlin compiler is executed and if incremental compilation is supported in each case.
@@ -428,7 +448,7 @@ There are two common cases that analyzing build reports for long-running compila
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 Build reports also show the Kotlin version used in the project. In addition, starting with Kotlin 1.9.0,
-you can see whether the current or the [K2 compiler](#the-k2-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
+you can see whether the current or the [K2 compiler](#the-new-kotlin-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
 and [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
