@@ -156,6 +156,48 @@ kotlin {
 ```
 
 > It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies, 
-> as those will be merged into one dependencies list.
+> as those will be merged into one dependency list.
 >
 {type="note"}
+
+## Disable sources publication
+
+By default, the Kotlin Multiplatform Gradle plugin publishes sources for all the specified targets. However,
+you can configure and disable sources publication with the `withSourcesJar()` API:
+
+* To disable sources publication for all the targets:
+
+  ```kotlin
+  kotlin {
+      withSourcesJar(publish = false)
+  
+      jvm()
+      ios()
+  }
+  ```
+
+* To disable sources publication only for the specified target:
+
+  ```kotlin
+  kotlin {
+       // Disable sources publication only for JVM:
+      jvm {
+          withSourcesJar(publish = false)
+      }
+      linuxX64()
+  }
+  ```
+
+* To disable sources publication for all targets except for the specified target:
+
+  ```kotlin
+  kotlin {
+      // Disable sources publication for all targets except for JVM:
+      withSourcesJar(publish = false)
+  
+      jvm {
+          withSourcesJar(publish = true)
+      }
+      linuxX64()
+  }
+  ```
