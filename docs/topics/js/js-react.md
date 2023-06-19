@@ -84,7 +84,7 @@ concepts behind React may help you understand some sample code, but it is not st
 
 ### Run the development server
 
-By default, the Kotlin/JS Gradle plugin comes with support for an embedded `webpack-dev-server`, allowing you to run
+By default, the Kotlin Multiplatform Gradle plugin comes with support for an embedded `webpack-dev-server`, allowing you to run
 the application from the IDE without manually setting up any servers.
 
 To test that the program successfully runs in the browser, start the development server by invoking the `run` or

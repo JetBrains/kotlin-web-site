@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin/JS dead code elimination)
 
-The Kotlin/JS Gradle plugin includes a _[dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination)_ (_DCE_) tool.
+The Kotlin Multiplatform Gradle plugin includes a _[dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination)_ (_DCE_) tool.
 Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
 removing unused properties, functions, and classes.
 
@@ -12,7 +12,7 @@ Unused declarations can appear in cases like:
   adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple 
   "Hello, world" application only requires console routines, which is only few kilobytes for the entire file.
 
-The Kotlin/JS Gradle plugin handles DCE automatically when you build a **production bundle**, for example by using the
+The Kotlin Multiplatform Gradle plugin handles DCE automatically when you build a **production bundle**, for example by using the
 `browserProductionWebpack` task. **Development bundling** tasks (like `browserDevelopmentWebpack`) don't include DCE.
 
 ## Exclude declarations from DCE
