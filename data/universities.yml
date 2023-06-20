@@ -5,7 +5,7 @@
     url: https://cs50.harvard.edu/x/2022/gallery/
   geo:
     lat: '42.3576808'
-    lng: '-71.1288621,14'
+    lng: '-71.1288621'
 - title: University of Cambridge
   location: Cambridge (UK)
   courses:
@@ -13,7 +13,7 @@
     url: https://training.cam.ac.uk/ucs/event/4426749
   geo:
     lat: '52.205356'
-    lng: '-0.1109793,17'
+    lng: '-0.1109793'
 - title: Stanford University
   location: Stanford, CA (US)
   courses:
