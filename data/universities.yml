@@ -57,7 +57,7 @@
 - title: National University of Singapore
   location: Singapore (Singapore)
   courses:
-  - name: CS5248: Systems Support for Continuous Media
+  - name: "CS5248: Systems Support for Continuous Media"
     url: https://www.comp.nus.edu.sg/~cs5248/proj.html
   geo:
     lat: '1.29685712'
@@ -89,7 +89,7 @@
 - title: Duke University
   location: Durham, NC (US)
   courses:
-  - name: Coding For Android: Kotlin
+  - name: "Coding For Android: Kotlin"
     url: https://colab.duke.edu/roots/course/kotlin-intro
   geo:
     lat: '36.037694'
@@ -784,22 +784,6 @@
   geo:
     lat: '46.4186908'
     lng: '-89.21675395'
-- title: University of Michigan-Ann Arbor
-  location: Ann Arbor, MI (US)
-  courses:
-  - name: EECS 441 Mobile App Development for Entrepreneurs
-    url: https://eecs441.eecs.umich.edu/
-  geo:
-    lat: '42.2780436'
-    lng: '-83.7382241'
-- title: Carnegie Mellon University
-  location: Pittsburgh, PA (US)
-  courses:
-  - name: 67-443 Mobile Application Design and Development
-    url: http://coursecatalog.web.cmu.edu/search/?context=catalog&search=67-443
-  geo:
-    lat: '40.4432027'
-    lng: '-79.9428499'
 - title: University of California, San Diego
   location: San Diego, CA (US)
   courses:
@@ -1469,7 +1453,7 @@
 - title: Rice University
   location: Houston, TX (US)
   courses:
-  - name: COMP 322: Fundamentals of Parallel Programming
+  - name: "COMP 322: Fundamentals of Parallel Programming"
     url: https://wiki.rice.edu/confluence/display/PARPROG/COMP322
   geo:
     lat: '29.71757111'
@@ -1541,7 +1525,7 @@
 - title: King Saud University
   location: Riyadh (Saudi Arabia)
   courses:
-  - name: IS324: Modern Application Development
+  - name: "IS324: Modern Application Development"
     url: https://sciences.ksu.edu.sa/sites/sciences.ksu.edu.sa/files/imce_images/ksubulletin_undergraduate.pdf
   geo:
     lat: '24.63752209'
@@ -1557,7 +1541,7 @@
 - title: Stellenbosch University
   location: Stellenbosch (South Africa)
   courses:
-  - name: Computer Science 771: Honors Project
+  - name: "Computer Science 771: Honors Project"
     url: http://www.cs.sun.ac.za/courses/cs771/
   geo:
     lat: '-33.93260304'
@@ -1581,7 +1565,7 @@
 - title: Dalhousie University
   location: Halifax (Canada)
   courses:
-  - name: CSCI 5708: Mobile Computing
+  - name: "CSCI 5708: Mobile Computing"
     url: https://www.dal.ca/academics/programs/graduate/applied-computer-science/program-overview/program-outline/web-mobile-computing.html
   geo:
     lat: '44.63577633'
@@ -1869,7 +1853,7 @@
 - title: New Jersey Institute of Technology
   location: Newark, NJ (US)
   courses:
-  - name: CS 388-002: Android Application Development
+  - name: "CS 388-002: Android Application Development"
     url: https://digitalcommons.njit.edu/cs-syllabi/67/
   geo:
     lat: '40.74250875'
@@ -1965,7 +1949,7 @@
 - title: University of Dayton
   location: Dayton, OH (US)
   courses:
-  - name: CPS 452: Emerging Programming Languages
+  - name: "CPS 452: Emerging Programming Languages"
     url: https://perugini.cps.udayton.edu/teaching/courses/Fall2019/cps452/
   geo:
     lat: '39.74029387'
@@ -1997,7 +1981,7 @@
 - title: University of Latvia
   location: Riga (Latvia)
   courses:
-  - name: 2DAT4081-EN: Object Oriented Programming
+  - name: "2DAT4081-EN: Object Oriented Programming"
     url: https://www.lu.lv/studijas/studiju-celvedis/programmu-un-kursu-katalogi/kursu-katalogs/?tx_lustudycatalogue_pi1%5Baction%5D=detail&tx_lustudycatalogue_pi1%5Bcontroller%5D=Course&tx_lustudycatalogue_pi1%5Bcourse%5D=DatZ4019&cHash=f75c023f05bf901c02d99827e488e21d
   geo:
     lat: '56.95094435'
@@ -2181,7 +2165,7 @@
 - title: Irkutsk National Research Technical University
   location: Irkutsk (Russia)
   courses:
-  - name: Bootcamp 2021: Kotlin for Android
+  - name: "Bootcamp 2021: Kotlin for Android"
     url: https://www.istu.edu/news/62385/
   geo:
     lat: '52.26270853'
@@ -2301,7 +2285,7 @@
 - title: Federal University of Piauí
   location: Teresina (Brazil)
   courses:
-  - name: Introdução à Linguagem Kotlin para Android: Desenvolvendo uma aplicação de autenticação e autorização integrado ao Firebase
+  - name: "Introdução à Linguagem Kotlin para Android: Desenvolvendo uma aplicação de autenticação e autorização integrado ao Firebase"
     url: https://www.ufpi.br/ultimas-noticias-ufpi/23915-eripi-2018-divulga-palestras-do-evento-11
   geo:
     lat: '-4.808662814'
@@ -2315,7 +2299,7 @@
     lat: '45.79120143'
     lng: '24.14558509'
 - title: University of Montenegro
-  location: Podgorica	(Montenegro)
+  location: Podgorica (Montenegro)
   courses:
   - name: PROGRAMIRANJE NAPREDNI KURS
     url: https://www.ucg.ac.me/skladiste/blog_1983/objava_83005/fajlovi/PROGRAMIRANJE%20NAPREDNI%20KURS_2020_2021.pdf
@@ -2363,7 +2347,7 @@
     lat: '4.861760429'
     lng: '-74.03254753'
 - title: Technical University of Cluj-Napoca
-  location: Cluj-Napoca	(Romania)
+  location: Cluj-Napoca (Romania)
   courses:
   - name: Comunicații Mobile
     url: https://biblioteca.utcluj.ro/files/carti-online-cu-coperta/385-1.pdf
@@ -2379,7 +2363,7 @@
     lat: '-25.44332965'
     lng: '-49.35349651'
 - title: VSB - Technical University of Ostrava
-  location: Ostrava	(Czech Republic)
+  location: Ostrava (Czech Republic)
   courses:
   - name: Design of Applications for Mobile Devices II
     url: https://www.vsb.cz/e-vyuka/en/subject/460-4136
@@ -2387,9 +2371,9 @@
     lat: '49.83288942'
     lng: '18.16235302'
 - title: Wrocław University of Science and Technology
-  location: Wroclaw	(Poland)
+  location: Wroclaw (Poland)
   courses:
-  - name: Application Programming: Mobile Computing
+  - name: "Application Programming: Mobile Computing"
     url: http://marek.piasecki.staff.iiar.pwr.wroc.pl/dydaktyka/mc/index.html
   geo:
     lat: '51.107821'
@@ -2403,7 +2387,7 @@
     lat: '10.90287926'
     lng: '76.90067081'
 - title: Università del Piemonte Orientale - UPO
-  location: Alessandria	(Italy)
+  location: Alessandria (Italy)
   courses:
   - name: Applicazioni mobili
     url: https://of.uniupo.it/syllabus/didattica.php/en/2022/1932#176057
@@ -2411,7 +2395,7 @@
     lat: '45.32774072'
     lng: '8.424520481'
 - title: Institut Tecnològic de Barcelona
-  location: Barcelona	(Spain)
+  location: Barcelona (Spain)
   courses:
   - name: M03 - Programming
     url: https://centellas.gitlab.io/teachingSite/DAM-M03/
@@ -2443,15 +2427,15 @@
     lat: '56.11998282'
     lng: '10.15897346'
 - title: Northern Michigan University
-  location: Marquette, MI	(US)
+  location: Marquette, MI (US)
   courses:
-  - name: CS 345-01-21F: Android Programming
+  - name: "CS 345-01-21F: Android Programming"
     url: http://philos.nmu.edu/cs345-01-22w/syllabus.pdf
   geo:
     lat: '46.56036614'
     lng: '-87.40758365'
 - title: George Brown College
-  location: Toronto	(Canada)
+  location: Toronto (Canada)
   courses:
   - name: Mobile Application Development and Strategy
     url: https://www.georgebrown.ca/programs/mobile-application-development-and-strategy-program-postgraduate-t440
@@ -2467,7 +2451,7 @@
     lat: '23.10758288'
     lng: '72.59404883'
 - title: Astana International University 
-  location: Astana	(Kazakhstan)
+  location: Astana (Kazakhstan)
   courses:
   - name: Kotlin Start вместе с Jusan Singularity
     url: https://stepik.org/course/143445/promo
@@ -2475,7 +2459,7 @@
     lat: '51.14479607'
     lng: '71.42263321'
 - title: Avans University of Applied Sciences - Avans Hogeschool
-  location: Breda	(Netherlands)
+  location: Breda (Netherlands)
   courses:
   - name: Full stack development met Android
     url: https://studypath.avans.nl/p/Module/21392098230014715
