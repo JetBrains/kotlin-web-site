@@ -322,7 +322,7 @@ This type of plugin manages which repositories to download a toolchain from. As 
 
 ```kotlin
 plugins {
-  id("org.gradle.toolchains.foojay-resolver-convention") version("0.4.0")
+  id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
 }
 ```
 
@@ -331,7 +331,7 @@ plugins {
 
 ```groovy
 plugins {
-  id 'org.gradle.toolchains.foojay-resolver-convention' version '0.4.0'
+  id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
 }
 ```
 
