@@ -331,6 +331,7 @@ export const WhyTeach = ({path}) => {
                 </div>
               </div>
             </section>
+          </div>
 
           <div className="why-teach-grid__nav">
             <ul className="ktl-text-2 why-teach-nav">
