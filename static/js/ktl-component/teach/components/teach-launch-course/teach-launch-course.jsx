@@ -140,7 +140,7 @@ export const TeachLaunchCourse = () => {
 					<li>
 						<a
 							className={textCn('rs-link', {external: true})}
-							href="https://drive.google.com/drive/folders/1K9rYs-9RE86WJEZKrR-wt18-Fnl6PPg_?usp=drive_link"
+							href=" https://forms.gle/UJ91acwMAk17qax7A"
 						>
 							Quizzes
 						</a>
@@ -148,7 +148,7 @@ export const TeachLaunchCourse = () => {
 					<li>
 						<a
 							className={textCn('rs-link', {external: true})}
-							href="https://drive.google.com/drive/folders/1xtSy3QAMfZVGXy2TCNXI84a6wLXQoBg2?usp=drive_link"
+							href="https://forms.gle/GhtGZHprkTUzr5hV6"
 						>
 							Homework assignments
 						</a>
@@ -156,7 +156,7 @@ export const TeachLaunchCourse = () => {
 					<li>
 						<a
 							className={textCn('rs-link', {external: true})}
-							href="https://drive.google.com/drive/folders/189mBsXB6jEjTA1RrKzjnhWdxi400owii?usp=drive_link"
+							href="https://forms.gle/wTm3M8GfgaVCsxsQ8"
 						>
 							Tests
 						</a>
