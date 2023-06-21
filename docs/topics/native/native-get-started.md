@@ -9,9 +9,6 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **Kotlin Multiplatform**.
 3. Enter a project name, select **Native Application** as the project template, and click **Next**.
-
-   ![Create a native application](native-new-project-intellij-1.png){width=700}
-
    By default, your project will use Gradle with Kotlin DSL as the build system.
    > Kotlin/Native doesn't support Maven and IntelliJ IDEA native builder.
    >
