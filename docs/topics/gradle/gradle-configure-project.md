@@ -37,7 +37,7 @@ plugins {
 </tab>
 </tabs>
 
-> The Kotlin Gradle plugin (KGP) has the same versions as Kotlin.
+> The Kotlin Gradle plugin (KGP) and Kotlin share the same version numbering.
 >
 {type="note"}
 
@@ -198,7 +198,7 @@ plugins {
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals 
 the current Gradle's JDK version, which is equal to your JDK version (unless you use 
-a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assuming that this version is 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assuming that your JDK version is 
 `%jvmLTSVersionSupportedByKotlin%`, your published library artifact will [declare itself compatible](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
 with JDK %jvmLTSVersionSupportedByKotlin%+: `org.gradle.jvm.version=%jvmLTSVersionSupportedByKotlin%`, which is wrong. 
 In this case, you have to use Java %jvmLTSVersionSupportedByKotlin% in your main project to add this library, even though the bytecode's 
