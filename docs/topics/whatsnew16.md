@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.6.0)
 
-_[Release date: 16 November 2021](releases.md#release-details)_
+_[Released: 16 November 2021](releases.md#release-details)_
 
 Kotlin 1.6.0 introduces new language features, optimizations and improvements to existing features, and a lot of improvements to the Kotlin standard library.
 

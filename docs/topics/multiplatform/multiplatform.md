@@ -27,9 +27,9 @@ where you will create applications for Android and iOS that include a module wit
 
 Thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
 a Kotlin-based declarative UI framework developed by JetBrains,
-you can also share UIs across Android and iOS to create fully cross-platform apps.
+you can also share UIs across Android and iOS to create fully cross-platform apps:
 
-![Sharing different levels and UI](multiplatform+compose.svg){width=500}
+![Sharing different levels and UI](multiplatform-compose.svg){width=600}
 
 Try this [Compose Multiplatform mobile application](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme)
 template to create your own mobile application with UIs shared between both platforms.

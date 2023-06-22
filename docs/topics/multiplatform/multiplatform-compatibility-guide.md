@@ -211,7 +211,7 @@ Since Kotlin 1.6.20, the hierarchical project structure support has been enabled
 were kept for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out
 those properties completely.
 
-The following properties are now deprecated and will be removed in Kotlin 1.9.0:
+The following properties are now deprecated and will be removed in Kotlin 1.9.20:
 
 * `kotlin.internal.mpp.hierarchicalStructureByDefault`
 * `kotlin.mpp.enableCompatibilityMetadataVariant`
@@ -236,4 +236,257 @@ If you're a library author and want to be extra safe, check that consumers can w
 In 1.8.20, the Kotlin Gradle plugin shows a warning if the build sets these properties. Starting with Kotlin 1.9.0,
 the properties are silently ignored.
 
-In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotlin.in/issue).
+In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
+
+<anchor name="deprecate-pre-hmpp-dependencies"></anchor>
+## Deprecated support of multiplatform libraries published in the legacy mode
+
+**What's changed?**
+
+Previously, we [have deprecated
+the legacy mode](#deprecated-gradle-properties-for-hierarchical-structure-support) in Kotlin Multiplatform projects
+preventing the publication of "legacy" binaries and encouraged you to migrate your projects to the [hierarchical structure](multiplatform-hierarchy.md).
+
+To continue phasing out "legacy" binaries from the ecosystem, starting with Kotlin 1.9.0, the use of legacy libraries
+is also discouraged. If your project uses dependencies on legacy libraries, you'll see the following warning:
+
+```none
+The dependency group:artifact:1.0 was published in the legacy mode. Support for such dependencies will be removed in the future
+```
+
+**What's the best practice now?**
+
+_If you use multiplatform libraries_, most of them have already migrated to the "hierarchical structure" mode,
+so you only need to update the library version. See the documentation of the respective libraries for details.
+
+If the library doesn't support non-legacy binaries yet, you can contact the maintainers and tell them about this
+compatibility issue.
+
+_If you're a library author_, update the Kotlin Gradle plugin to the latest version and ensure you've fixed the [deprecated Gradle properties](#deprecated-gradle-properties-for-hierarchical-structure-support).
+
+The Kotlin team is eager to help the ecosystem migrate, so if you face any issues, don't hesitate to create an [issue in YouTrack](https://kotl.in/issue).
+
+**When do the changes take effect?**
+
+* 1.9.0: introduce a deprecation warning for dependencies on legacy libraries
+* 1.9.20: raise the warning for dependencies on legacy libraries to an error
+* \> 1.9.20: the support for dependencies on legacy libraries is removed. Using such dependencies can cause build failures
+
+<anchor name="compilation-source-deprecation"></anchor>
+## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
+
+**What's changed?**
+
+The access to `KotlinCompilation.source` has been deprecated. A code like this produces a deprecation warning:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+    
+    sourceSets {
+        val commonMain by getting 
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+        
+        targets["jvm"].compilations["main"].source(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**What's the best practice now?**
+
+To replace `KotlinCompilation.source(someSourceSet)`, add the  `dependsOn` relation from the
+default source set of the `KotlinCompilation` to `someSourceSet`. We recommend referring to the source directly using `by getting`,
+which is shorter and more readable. However, you can also use `KotlinCompilation.defaultSourceSet.dependsOn(someSourceSet)`,
+which is applicable in all cases.
+
+You can change the code above in one of the following ways:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+
+    sourceSets {
+        val commonMain by getting
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+
+        // Option #1. Shorter and more readable, use it when possible:
+       val jvmMain by getting { // Usually, the name of the default source set 
+                                // is a simple concatenation of the target name and the compilation name
+            dependsOn(myCustomIntermediateSourceSet)
+        }
+        
+        // Option #2. Generic solution, use it if your build script requires a more advanced approach:
+        targets["jvm"].compilations["main"].defaultSourceSet.dependsOn(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**When do the changes take effect?**
+
+In 1.9.0, the use of `KotlinComplation.source` produces a deprecation warning.
+This API will be removed in Kotlin 1.9.20 and later,
+leading to "unresolved reference" errors on the `KotlinCompilation.source` calls.
+
+<anchor name="kotlin-js-plugin-deprecation"></anchor>
+## Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin
+
+**What's changed?**
+
+Starting with Kotlin 1.9.0, the `kotlin-js` Gradle plugin is
+deprecated. Basically, it duplicated the functionality of the `kotlin-multiplatform` plugin with the `js()` target
+and shared the same implementation under the hood. Such overlap created confusion and increased maintenance
+load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatform` Gradle plugin with the `js()` target instead.
+
+**What's the best practice now?**
+
+1. Remove the `kotlin-js` Gradle plugin from your project and apply `kotlin-multiplatform` in the `settings.gradle.kts` file
+   if you're using the `pluginManagement` block:
+
+   <tabs>
+   <tab title="kotlin-js">
+   
+   ```kotlin
+   // settings.gradle.kts
+   pluginManagement {
+       plugins {
+           // Remove the following line:
+           kotlin("js") version "1.9.0"
+       }
+       
+       repositories {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   <tab title="kotlin-multiplatform">
+   
+   ```kotlin
+   // settings.gradle.kts
+   pluginManagement {
+       plugins {
+           // Add the following line instead:
+           kotlin("multiplatform") version "1.9.0"
+       }
+       
+       repositories {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   </tabs>
+
+   In case you're using a different way of applying plugins,
+   see [the Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html) for migration instructions.
+
+2. Move your source files from the `main` and `test` folders to the `jsMain` and `jsTest` folders in the same directory.
+3. Adjust dependency declarations:
+
+   * We recommend using the `sourceSets` block and configuring dependencies of respective source sets,
+     `jsMain` for production dependencies and `jsTest` for test dependencies.
+     See [Adding dependencies](multiplatform-add-dependencies.md) for more details.
+   * However, if you want to declare your dependencies in a top-level block,
+     change declarations from `api("group:artifact:1.0")` to `add("jsMainApi", "group:artifact:1.0")` and so on.
+
+      > In this case, make sure that the top-level `dependencies` block comes **after** the `kotlin` block. Otherwise, you'll get an error "Configuration not found".
+      >
+      {type="note"}
+   
+   You can change the code in your `build.gradle.kts` file in one of the following ways:
+
+   <tabs>
+   <tab title="kotlin-js">
+   
+   ```kotlin
+   // build.gradle.kts
+   plugins {
+       kotlin("js") version "1.9.0"
+   }
+   
+   dependencies {
+       testImplementation(kotlin("test"))
+       implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+   }
+   
+   kotlin {
+       js {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   <tab title="kotlin-multiplatform">
+   
+   ```kotlin
+   // build.gradle.kts
+   plugins {
+       kotlin("multiplatform") version "1.9.0"
+   }
+   
+   kotlin {
+       js {
+           // ...
+       }
+       
+       // Option #1. Declare dependencies in the `sourceSets` block:
+       sourceSets {
+           val jsMain by getting {
+               dependencies {
+                   // No need for the `js` prefix here, you can just copy and paste it from the top-level block
+                   implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+               }
+           }
+       }
+   }
+   
+   dependencies {
+      // Option #2. Add the `js` prefix to the dependency declaration:
+      add("jsTestImplementation", kotlin("test"))
+   }
+   ```
+   
+   </tab>
+   </tabs>
+
+4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin` block remains unchanged in most cases. However,
+   if you were referring to low-level Gradle entities, like tasks and configurations, by names, you now need to adjust them,
+   usually by adding the `js` prefix. For example, you can find the `browserTest` task under the name `jsBrowserTest`.
+
+**When do the changes take effect?**
+
+In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
+
+<anchor name="android-target-rename"></anchor>
+## Rename of `android` target to `androidTarget`
+
+**What's changed?**
+
+We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class
+support for the Android target. In the future, this support will be provided via a separate plugin, developed by the
+Android team from Google.
+
+To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current
+Kotlin DSL in 1.9.0. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
+from Google.
+
+**What's the best practice now?**
+
+Rename all the occurrences of  the `android` block to `androidTarget`. When the new plugin for the Android target support
+is available, migrate to the DSL from Google. It will be the preferred option to work with Android in Kotlin Multiplatform
+projects.
+
+**When do the changes take effect?**
+
+In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.

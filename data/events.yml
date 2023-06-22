@@ -1,4 +1,52 @@
 - lang: en
+  startDate: '2023-07-18'
+  endDate: '2023-07-18'
+  location: Brighton, UK
+  speaker : 'Michele Sollecito'
+  title : 'Brighton Kotlin'
+  subject : 'Apache Pulsar with Kotlin couroutines and flows'
+  url: https://www.meetup.com/brighton-kotlin/events/294227622/
+- lang: en
+  startDate: '2023-06-24'
+  endDate: '2023-06-24'
+  location: Nairobi, Kenya
+  speaker : 'Dennis Githuku'
+  title : 'Kotlin Kenya - June Meetup'
+  subject : 'Side Effects in Jetpack Compose'
+  url: https://www.meetup.com/KotlinKenya/events/294262326
+- lang: en
+  startDate: '2023-06-24'
+  endDate: '2023-06-24'
+  location: Nairobi, Kenya
+  speaker : 'Kenneth Mathari'
+  title : 'Kotlin Kenya - June Meetup'
+  subject : 'Is Graphql replacing REST in Android Development'
+  url: https://www.meetup.com/KotlinKenya/events/294262326
+- lang: en
+  startDate: '2023-06-24'
+  endDate: '2023-06-24'
+  location: Nairobi, Kenya
+  speaker : 'Kenn Junior'
+  title : 'Kotlin Kenya - June Meetup'
+  subject : 'Notification : Past, Present & Future'
+  url: https://www.meetup.com/KotlinKenya/events/294262326
+- lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Nieuwegein, Netherlands
+  speaker : ''
+  title : 'Utrecht Kotlin Meetup'
+  subject : 'Exploratory Testing | Navigating Through Uncharted Territory'
+  url: https://www.meetup.com/meetup-group-YgJEOzCn/events/293993904/
+- lang: en
+  startDate: '2023-06-13'
+  endDate: '2023-06-13'
+  location: Limassol, Cyprus
+  speaker : Nikita Lipsky
+  title : 'Kotlin User Group Cyprus'
+  subject : 'Compose Multiplatform on iOS'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-1306-tickets-636457520577
+- lang: en
   startDate: '2023-05-09'
   endDate: '2023-05-09'
   location: Amsterdam, Netherlands
