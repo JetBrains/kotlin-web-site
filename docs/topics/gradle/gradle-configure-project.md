@@ -346,7 +346,7 @@ To set any JDK (even local) for a specific task, use the [Task DSL](#setting-jdk
 
 Learn more about [Gradle JVM toolchain support in the Kotlin plugin](https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin/).
 
-### Setting JDK version with the Task DSL
+### Set JDK version with the Task DSL
 
 The Task DSL allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
 At the moment, these tasks are `KotlinCompile` and `KaptTask`.
@@ -429,6 +429,64 @@ integrationTestCompilation {
 
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
+
+### Configure with Java Modules (JPMS) enabled
+
+To make the Kotlin Gradle plugin work with [Java Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
+add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your JPMS module, for example, 
+`org.company.module`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+        
+```kotlin
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath.set(true)
+}
+
+tasks.named("compileJava", JavaCompile::class.java) {
+    options.compilerArgumentProviders.add(CommandLineArgumentProvider {
+        // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+        listOf("--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}")
+    })
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath = true
+}
+
+tasks.named("compileJava", JavaCompile.class) {
+    options.compilerArgumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+            return ["--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}"]
+        }
+    })
+}
+```
+
+</tab>
+</tabs>
+
+> Put `module-info.java` into the `src/main/java` directory as usual.
+> 
+> For a module, a package name in Kotlin files should be equal to the package name from `module-info.java` to avoid a 
+> "package is empty or does not exist" build failure. 
+>
+{type="note"}
+
+Learn more about:
+* [Building modules for the Java Module System](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular)
+* [Building applications using the Java Module System](https://docs.gradle.org/current/userguide/application_plugin.html#sec:application_modular)
+* [What "module" means in Kotlin](visibility-modifiers.md#modules)
 
 ### Other details
 
