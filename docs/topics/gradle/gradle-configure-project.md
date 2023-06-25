@@ -342,7 +342,7 @@ Check that the version of `foojay-resolver-convention` corresponds to your Gradl
 >
 {type="note"}
 
-To set any JDK (even local) for a specific task, use the [Task DSL](#setting-jdk-version-with-the-task-dsl).
+To set any JDK (even local) for a specific task, use the [Task DSL](#set-jdk-version-with-the-task-dsl).
 
 Learn more about [Gradle JVM toolchain support in the Kotlin plugin](https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin/).
 
