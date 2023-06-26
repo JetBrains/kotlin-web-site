@@ -128,7 +128,7 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
         
         dependencies {
             // ...
-            classpath("com.squareup.sqldelight:gradle-plugin:$%sqlDelightVersion%")
+            classpath("com.squareup.sqldelight:gradle-plugin:%sqlDelightVersion%")
         }
     }
     ```
