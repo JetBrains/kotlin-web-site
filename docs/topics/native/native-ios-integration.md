@@ -48,8 +48,12 @@ The resulting output:
 ```text
 init on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 shared.SwiftExample
-deinit on <_NSMainThread: 0x600003b9b900>{number = 7, name = main}
+deinit on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 ```
+
+* If the main dispatch queue isn't processed, deinit on the Swift/Objective-C objects is called on a different thread anyway.
+* You can also set `kotlin.native.binary.objcDisposeOnMain=false` in your `gradle.properties` to call
+  deinit on the Swift/Objective-C objects on a different thread, even if these objects were passed to Kotlin on the main thread.
 
 ### Completion handlers
 
