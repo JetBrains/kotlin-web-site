@@ -91,7 +91,8 @@ Previously, the Kotlin Gradle plugin eagerly created source sets that correspond
 `release` build types or custom flavors like `demo` and `full`.
 It made them accessible by constructions like `val androidDebug by getting { ... }`.
 
-In the new Android source set layout, those source sets are created in the `afterEvaluate` phase. It makes such expressions invalid,
+The new Android source set layout makes use of Android [`onVariants`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/variant/AndroidComponentsExtension#onVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1))
+to create source sets. It makes such expressions invalid,
 leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourceSet with name 'androidDebug' not found`.
 
 To work around that, use the new `invokeWhenCreated()` API in your `build.gradle.kts` file:
