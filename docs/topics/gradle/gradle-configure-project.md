@@ -548,14 +548,14 @@ It's recommended to use Android Studio for creating Android applications. [Learn
 
 ## Targeting JavaScript
 
-When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
+When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn more about setting up a Kotlin/JS project](js-project-setup.md)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("js") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
@@ -564,7 +564,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
 
