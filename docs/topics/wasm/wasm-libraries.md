@@ -64,7 +64,7 @@ kotlin {
 
 Kotlin libraries for Wasm:
 
-* Maven Central
+* Maven Central:
 
   ```kotlin
   repositories { 
@@ -72,7 +72,7 @@ Kotlin libraries for Wasm:
   }
   ```
 
-* Experimental
+* Custom Kotlin repository:
 
   ```kotlin
   repositories {
