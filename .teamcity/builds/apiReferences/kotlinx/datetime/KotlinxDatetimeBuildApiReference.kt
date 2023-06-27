@@ -1,52 +1,38 @@
 package builds.apiReferences.kotlinx.datetime
 
+import BuildParams.KOTLINX_DATETIME_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.templates.BuildApiReference
+import builds.apiReferences.templates.scriptDokkaVersionSync
+import builds.apiReferences.templates.scriptDropSnapshot
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object KotlinxDatetimeBuildApiReference : BuildType({
-  name = "kotlinx-datetime API reference"
+    name = "kotlinx-datetime API reference"
 
-  artifactRules = "core/build/dokka/html/** => pages.zip"
+    templates(BuildApiReference)
 
-  steps {
-    script {
-      name = "Drop SNAPSHOT word for deploy"
-      scriptContent = """
-                #!/bin/bash
-                sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
-            """.trimIndent()
-      dockerImage = "debian"
+    artifactRules = "core/build/dokka/html/** => pages.zip"
+
+    params {
+        param("release.tag", KOTLINX_DATETIME_RELEASE_TAG)
+        param("DOKKA_TEMPLATE_TASK", ":kotlinx-datetime:dokkaHtml")
     }
-    gradle {
-      name = "Build dokka html"
-      tasks = ":kotlinx-datetime:dokkaHtml"
-      useGradleWrapper = true
-    }
-  }
 
-  params {
-    param("release.tag", BuildParams.KOTLINX_DATETIME_RELEASE_TAG)
-    param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
-  }
-
-  vcs {
-    root(builds.apiReferences.vcsRoots.KotlinxDatetime)
-  }
-
-  triggers {
     vcs {
-      branchFilter = "+:<default>"
+        root(builds.apiReferences.vcsRoots.KotlinxDatetime)
     }
-  }
 
-  requirements {
-    doesNotContain("teamcity.agent.name", "windows")
-  }
+    dependencies {
+        dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
+    }
 
-  dependencies {
-    dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
-  }
+    steps {
+        scriptDropSnapshot {
+            scriptContent = """
+            #!/bin/bash
+            sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
+            """.trimIndent()
+        }
+    }
 })
