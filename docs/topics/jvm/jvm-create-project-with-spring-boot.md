@@ -90,7 +90,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson extensions for Kotlin for working with JSON
     implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin reflection library, required for working with Spring
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8") // Kotlin standard library
     runtimeOnly("com.h2database:h2") 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -118,9 +117,8 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
    * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
-   * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin standard library
 
-3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
+3. After the dependencies section, you can see the `KotlinCompile` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Explore the generated Spring Boot application
@@ -153,7 +151,7 @@ fun main(args: Array<String>) {
    </def>
    <def title="Program entry point – main()">
       <p>The <a href="basic-syntax.md#program-entry-point"><code>main()</code></a> function is the entry point to the application.</p>
-      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The <code>main()</code> function invokes the Spring's <code>runApplication(&amp;args)</code> function to start the application with the Spring Framework.</p>
+      <p>It is declared as a <a href="functions.md#function-scope">top-level function</a> outside the <code>DemoApplication</code> class. The <code>main()</code> function invokes the Spring's <code>runApplication(*args)</code> function to start the application with the Spring Framework.</p>
    </def>
    <def title="Variable arguments – args: Array&lt;String&gt;">
       <p>If you check the declaration of the <code>runApplication()</code> function, you will see that the parameter of the function is marked with <a href="functions.md#variable-number-of-arguments-varargs"><code>vararg</code> modifier</a>: <code>vararg args: String</code>.
