@@ -303,8 +303,13 @@ use the `kotlin.experimental.tryK2=true` Gradle property or run the following co
 ./gradlew assemble -Pkotlin.experimental.tryK2=true
 ```
 
-This Gradle property automatically sets the language version to 2.0 and updates the [build report](#build-reports)
+This Gradle property automatically sets the default language version to 2.0 and updates the [build report](#build-reports)
 with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
+
+> Build reports don't provide information about Kotlin/Native tasks yet. Despite that,
+> we still recommend you using Kotlin 2.0 as the default version.
+> 
+{type="tip"}
 
 Learn more about the stabilization of the K2 compiler in the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
 
