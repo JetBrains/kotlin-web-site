@@ -1,4 +1,4 @@
-[//]: # (title: Inline classes)
+[//]: # (title: Inline value classes)
 
 Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
 overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
@@ -40,24 +40,24 @@ functions, have the `init` block and [secondary constructors](classes.md#seconda
 
 ```kotlin
 @JvmInline
-value class Person(private val firstName: String) {
+value class Person(private val fullName: String) {
     init {
-        require(firstName.isNotEmpty()) {
+        require(fullName.isNotEmpty()) {
             "Full name shouldn't be empty"
         }
     }
 
-    constructor(name: String, lastName: String) : this("$name $lastName") {
+    constructor(firstName: String, lastName: String) : this("$firstName $lastName") {
         require(lastName.isNotBlank()) {
             "Last name shouldn't be empty"
         }
     }
 
     val length: Int
-        get() = firstName.length
+        get() = fullName.length
 
     fun greet() {
-        println("Hello, $firstName")
+        println("Hello, $fullName")
     }
 }
 
