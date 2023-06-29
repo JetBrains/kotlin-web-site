@@ -12,7 +12,7 @@ To add a single element to a list or a set, use the [`add()`](https://kotlinlang
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf(1, 2, 3, 4)
+    var numbers = mutableListOf(1, 2, 3, 4)
     numbers.add(5)
     println(numbers)
 //sampleEnd
@@ -32,7 +32,7 @@ Other elements of the argument collection will follow it, shifting the receiver 
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf(1, 2, 5, 6)
+    var numbers = mutableListOf(1, 2, 5, 6)
     numbers.addAll(arrayOf(7, 8))
     println(numbers)
     numbers.addAll(2, setOf(3, 4))
@@ -49,7 +49,7 @@ You can also add elements using the in-place version of the [`plus` operator](co
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf("one", "two")
+    var numbers = mutableListOf("one", "two")
     numbers += "three"
     println(numbers)
     numbers += listOf("four", "five")    
@@ -68,7 +68,7 @@ To remove an element from a mutable collection, use the [`remove()`](https://kot
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf(1, 2, 3, 4, 3)
+    var numbers = mutableListOf(1, 2, 3, 4, 3)
     numbers.remove(3)                    // removes the first `3`
     println(numbers)
     numbers.remove(5)                    // removes nothing
@@ -90,14 +90,14 @@ For removing multiple elements at once, there are the following functions :
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf(1, 2, 3, 4)
+    var numbers = mutableListOf(1, 2, 3, 4)
     println(numbers)
     numbers.retainAll { it >= 3 }
     println(numbers)
     numbers.clear()
     println(numbers)
 
-    val numbersSet = mutableSetOf("one", "two", "three", "four")
+    var numbersSet = mutableSetOf("one", "two", "three", "four")
     numbersSet.removeAll(setOf("one", "two"))
     println(numbersSet)
 //sampleEnd
@@ -116,7 +116,7 @@ The second operand can contain elements that are not present in the collection. 
 
 fun main() {
 //sampleStart
-    val numbers = mutableListOf("one", "two", "three", "three", "four")
+    var numbers = mutableListOf("one", "two", "three", "three", "four")
     numbers -= "three"
     println(numbers)
     numbers -= listOf("four", "five")    

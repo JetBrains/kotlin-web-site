@@ -46,7 +46,7 @@ Although, if you try to reassign a `val` collection, you'll get a compilation er
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = mutableListOf("one", "two", "three", "four")
+    var numbers = mutableListOf("one", "two", "three", "four")
     numbers.add("five")   // this is OK
     println(numbers)
     //numbers = mutableListOf("six", "seven")      // compilation error
@@ -115,7 +115,7 @@ fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int
 
 fun main() {
     val words = "A long time ago in a galaxy far far away".split(" ")
-    val shortWords = mutableListOf<String>()
+    var shortWords = mutableListOf<String>()
     words.getShortWordsTo(shortWords, 3)
     println(shortWords)
 }
@@ -168,7 +168,7 @@ with list-specific write operations, for example, to add or remove an element at
 ```kotlin
 fun main() {
 //sampleStart
-    val numbers = mutableListOf(1, 2, 3, 4)
+    var numbers = mutableListOf(1, 2, 3, 4)
     numbers.add(5)
     numbers.removeAt(1)
     numbers[0] = 0
@@ -273,7 +273,7 @@ map write operations, for example, you can add a new key-value pair or update th
 ```kotlin
 fun main() {
 //sampleStart
-    val numbersMap = mutableMapOf("one" to 1, "two" to 2)
+    var numbersMap = mutableMapOf("one" to 1, "two" to 2)
     numbersMap.put("three", 3)
     numbersMap["one"] = 11
 
