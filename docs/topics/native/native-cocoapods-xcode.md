@@ -35,7 +35,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             homepage = "https://github.com/JetBrains/kotlin"
             ios.deploymentTarget = "13.5"
             pod("Alamofire") {
-                version = "~> 5.7.0"
+                version = "5.7.0"
             }
             podfile = project.file("../ios-app/Podfile")
         }
@@ -77,7 +77,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             tvos.deploymentTarget = "13.4"
 
             pod("Alamofire") {
-                version = "~> 5.7.0"
+                version = "5.7.0"
             }
             podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }

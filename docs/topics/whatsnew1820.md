@@ -670,12 +670,12 @@ This was a [highly awaited feature](https://youtrack.jetbrains.com/issue/KT-3912
 ### Support for the link-only mode in Cocoapods Gradle plugin
 
 With Kotlin 1.8.20, you can use Pod dependencies with dynamic frameworks only for linking,
-without generating C-interop bindings. This may come in handy when C-interop bindings are already generated.
+without generating cinterop bindings. This may come in handy when cinterop bindings are already generated.
 
 Consider a project with 2 modules, a library and an app. The library depends on a Pod but doesn't produce a framework,
 only a `.klib`. The app depends on the library and produces a dynamic framework.
 In this case, you need to link this framework with the Pods that the library depends on,
-but you don't need C-interop bindings because they are already generated for the library.
+but you don't need cinterop bindings because they are already generated for the library.
 
 To enable the feature, use the `linkOnly` option or a builder property when adding a dependency on a Pod:
 
@@ -685,7 +685,7 @@ cocoapods {
     homepage = "https://github.com/JetBrains/kotlin"
    
     pod("Alamofire", linkOnly = true) {
-        version = "~> 5.7.0"
+        version = "5.7.0"
     }
 }
 ```

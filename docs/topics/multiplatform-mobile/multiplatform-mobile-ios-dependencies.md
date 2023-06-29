@@ -28,7 +28,7 @@ have some other strong reason to do so.
         cocoapods {
             //..
             pod("Alamofire") {
-                version = "~> 5.7.0"
+                version = "5.7.0"
             }
         }
     }
@@ -42,7 +42,7 @@ have some other strong reason to do so.
         cocoapods {
             //..
             pod('Alamofire') {
-                version = '~> 5.7.0'
+                version = '5.7.0'
             }
         }
     }

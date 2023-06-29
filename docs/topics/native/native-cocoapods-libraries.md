@@ -43,7 +43,7 @@ version of the library, you can just omit this parameter altogether.
             homepage = "https://github.com/JetBrains/kotlin"
 
             pod("Alamofire") {
-                version = "~> 5.7.0"
+                version = "5.7.0"
             }
         }
     }
@@ -90,7 +90,7 @@ import cocoapods.Alamofire.*
                 source = path(project.file("../subspec_dependency"))
             }
             pod("Alamofire") {
-                version = "~> 5.7.0"
+                version = "5.7.0"
             }
         }
     }
@@ -287,27 +287,23 @@ kotlin {
 }
 ```
 
-### Dependencies between Pods
+### Share Kotlin cinterop between dependent Pods
 
-You can use the cinterop binding generated for another Pod when building a binding for the new Pod.
-The dependent Pod should be declared before setting up the dependency. The Kotlin CocoaPods Gradle plugin supports two ways
-of adding dependencies between Pods:
+If you're adding multiple dependencies on Pods using the `pod()` function, you might encounter issues in Xcode
+in case there are dependencies between APIs of your Pods. 
 
-* `useInteropBindingFrom()` function specifies the name of the existing Pod that is used as dependency.
-* `interopBindingDependencies` contains a list of all dependencies to other Pods.
+To build a project from Xcode in this case, use the `useInteropBindingFrom()` function.
+It utilizes the cinterop binding generated for another Pod when building a binding for the new Pod.
+The dependent Pod should be declared before setting up the dependency:
 
 ```kotlin
 pod("WebImage") {
-    version = "~> 1.0.0"
+    version = "1.0.0"
 }
 
 pod("Info") {
-    version = "~> 1.0.0"
+    version = "1.0.0"
     
-    // Option 1. Specify the name of the previously declared Pod: 
     useInteropBindingFrom("WebImage")
-
-    // Option 2. Add the previously declared Pod to the list of dependencies: 
-    interopBindingDependencies.add("WebImage")
 }
 ```
