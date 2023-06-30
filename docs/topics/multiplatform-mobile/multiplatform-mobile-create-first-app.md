@@ -79,7 +79,7 @@ Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`.
 When the shared module is built into an Android library, common Kotlin code gets treated as Kotlin/JVM.
 When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Native:
 
-![Common Kotlin, Kotlin/JVM and Kotlin/Native]()
+<!-- ![Common Kotlin, Kotlin/JVM and Kotlin/Native]() -->
 
 ### Writing common declarations
 
