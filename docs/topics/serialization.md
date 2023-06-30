@@ -11,9 +11,9 @@ platform-neutral, they enable data exchange between systems written in any moder
 
 In Kotlin, data serialization tools are available in a separate component, [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization).
 It consists of several parts: the `org.jetbrains.kotlin.plugin.serialization` Gradle plugin, [runtime libraries](#libraries),
-and the compiler plugins.
+and compiler plugins.
 
-The compiler plugins, `kotlinx-serialization-compiler-plugin` and `kotlinx-serialization-compiler-plugin-embeddable`
+Compiler plugins, `kotlinx-serialization-compiler-plugin` and `kotlinx-serialization-compiler-plugin-embeddable`,
 are published directly to Maven Central. The second plugin is designed for working with the `kotlin-compiler-embeddable`
 artifact, which is the default option for scripting artifacts. Gradle adds compiler plugins to your projects as compiler arguments.
 
