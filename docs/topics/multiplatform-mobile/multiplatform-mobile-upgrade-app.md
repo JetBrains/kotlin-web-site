@@ -99,7 +99,7 @@ sourceSets {
             implementation("io.ktor:ktor-client-android:$ktorVersion")
         }
     }
-    val iosMain by creating {
+    val iosMain by getting {
         // ...
         dependencies {
             implementation("io.ktor:ktor-client-darwin:$ktorVersion") 
