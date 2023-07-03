@@ -283,6 +283,11 @@ def index_page():
                            features=features
                            )
 
+
+@app.route('/main')
+def next_index_page():
+    return send_file(path.join(root_folder, 'out', 'main/index.html'))
+
 def process_page(page_path):
     # get_nav() has side effect to copy and patch files from the `external` folder
     # under site folder. We need it for dev mode to make sure file is up-to-date
