@@ -43,12 +43,15 @@ tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 </tab>
 </tabs>
 
-When targeting the JVM, the tasks are called `compileKotlin` for production code and `compileTestKotlin`
+### When targeting JVM
+
+JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
 
-The names of the tasks in Android Projects contain [build variant](https://developer.android.com/studio/build/build-variants.html) names and follow the `compile<BuildVariant>Kotlin` pattern, for example, `compileDebugKotlin` or `compileReleaseUnitTestKotlin`.
+The names of the tasks in Android Projects contain [build variant](https://developer.android.com/studio/build/build-variants.html)
+names and follow the `compile<BuildVariant>Kotlin` pattern, for example, `compileDebugKotlin` or `compileReleaseUnitTestKotlin`.
 
-For both JVM and Android Projects it's possible since 1.9.0 to define options in a following way:
+For both the JVM and Android projects, it's possible to define options in the following way:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -75,17 +78,18 @@ kotlin {
 </tab>
 </tabs>
 
-Some important things to be aware of:
+Some important details to be aware of:
 
-- `android.kotlinOptions` and `kotlin.compilerOptions` interfere: one below will overwrite the one above
-- `kotlin.compilerOptions` work module-wise, not project-wise
-- `android.kotlinOptions.moduleName` might be overwritten by `kotlin.compilerOptions.moduleName` if the latter one goes below the first one
-- The separate configuration of `tasks.withType(KotlinCompile::class.java)` will overwrite the configuration inside `kotlinOptions`
+* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block is the one in effect.
+* The `kotlin.compilerOptions` configuration only works on a module level, not a project level.
+* `kotlin.compilerOptions.moduleName` overrides `android.kotlinOptions.moduleName` if it's lower.
+* The separate configuration of `tasks.withType(KotlinCompile::class.java)` overrides the configuration inside the `kotlinOptions` block.
 
+### When targeting JavaScript
 
-When targeting JavaScript, the tasks are called `compileKotlinJs` for production code and `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
+JavaScript compilation tasks are called `compileKotlinJs` for production code and `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
 
-To configure a single task, use its name. Examples:
+To configure a single task, use its name:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -116,9 +120,11 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 </tab>
 </tabs>
 
-Note that with the Gradle Kotlin DSL, you should get the task from the project's `tasks` first.
+Note that with the Kotlin Gradle DSL, you should get the task from the project's `tasks` first.
 
 Use the `Kotlin2JsCompile` and `KotlinCompileCommon` types for JS and common targets, respectively.
+
+### For all Kotlin compilation tasks
 
 It is also possible to configure all of the Kotlin compilation tasks in the project:
 
@@ -149,23 +155,48 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 </tab>
 </tabs>
 
+## All compiler options
+
 Here is a complete list of options for Gradle tasks:
 
 ### Common attributes
 
-| Name              | Description                                     | Possible values           | Default value |
-|-------------------|-------------------------------------------------|---------------------------|---------------|
-| `optIn`           | Property to configure opt-in compiler arguments | `listOf( /* opt-ins */ )` | `emptyList()` |
-| `progressiveMode` | Enable progressive compiler mode                | `true`, `false`           | `false`       |
+| Name              | Description                                                    | Possible values           | Default value |
+|-------------------|----------------------------------------------------------------|---------------------------|---------------|
+| `optIn`           | A property for configuring a list of opt-in compiler arguments | `listOf( /* opt-ins */ )` | `emptyList()` |
+| `progressiveMode` | Enable the progressive compiler mode                           | `true`, `false`           | `false`       |
 
 ### Attributes specific to JVM
 
-| Name | Description | Possible values |Default value |
-|------|-------------|-----------------|--------------|
-| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
-| `jvmTargetValidationMode` | Validation of compatibility of Kotlin and Java targets.<br/>Is a property of tasks of type `KotlinCompile`, see an [example](#example-of-setting-of-jvm-target-validation-mode) | `WARNING`, `ERROR`, `INFO` | `ERROR` |
+| Name | Description                                                                                                                                                                                                            | Possible values |Default value |
+|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------|
+| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                         |  | false |
+| `jvmTarget` | Target version of the generated JVM bytecode                                                                                                                                                                           | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
+| `noJdk` | Don't automatically include the Java runtime into the classpath                                                                                                                                                        |  | false |
+| `jvmTargetValidationMode` | <list><li>Validation of the JVM target compatibility between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type. See an [example](#example-of-setting-of-jvm-target-validation-mode)</li></list> | `WARNING`, `ERROR`, `INFO` | `ERROR` |
+
+#### Example of setting of JVM target validation mode
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
+    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
+    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
+}
+```
+
+</tab>
+</tabs>
 
 ### Attributes common to JVM, JS, and JS DCE
 
@@ -265,30 +296,6 @@ tasks
 
 </tab>
 </tabs>
-
-#### Example of setting of JVM target validation mode
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
-    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
-}
-```
-
-</tab>
-</tabs>
-
 
 Also, see [Types for compiler options](#types-for-compiler-options).
 
