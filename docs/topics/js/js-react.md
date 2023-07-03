@@ -1187,7 +1187,7 @@ To package all assets in production mode, run the `build` task in Gradle via the
 running `./gradlew build`. This generates an optimized project build, applying various improvements such as DCE
 (dead code elimination).
 
-Once the build has finished, you can find all the files needed for deployment in `/build/distributions`. They include
+Once the build has finished, you can find all the files needed for deployment in `/build/dist`. They include
 the JavaScript files, HTML files, and other resources required to run the application. You can put them on a static HTTP server,
 serve them using GitHub Pages, or host them on a cloud provider of your choice.
 
