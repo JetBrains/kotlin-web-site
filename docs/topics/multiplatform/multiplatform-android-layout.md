@@ -100,6 +100,7 @@ To work around that, use the new `invokeWhenCreated()` API in your `build.gradle
 ```kotlin
 kotlin {
 // ...
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     sourceSets.invokeWhenCreated("androidFreeDebug") {
         // ...
     }
