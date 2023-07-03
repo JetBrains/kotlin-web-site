@@ -172,7 +172,7 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
       withSourcesJar(publish = false)
   
       jvm()
-      ios()
+      linuxX64()
   }
   ```
 
