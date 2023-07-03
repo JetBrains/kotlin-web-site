@@ -79,7 +79,7 @@ Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`.
 When the shared module is built into an Android library, common Kotlin code gets treated as Kotlin/JVM.
 When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Native:
 
-<!-- ![Common Kotlin, Kotlin/JVM and Kotlin/Native]() -->
+![Common Kotlin, Kotlin/JVM, and Kotlin/Native](modules-structure.png)
 
 ### Writing common declarations
 
@@ -113,8 +113,8 @@ You can put an interface or an expect declaration in the common source set, and 
 provide actual platform-specific implementations. While building the code for the specific target,
 the Kotlin compiler will automatically substitute the actual declaration for this target instead of the expected one.
 
-1. When creating a project in Android Studio, you get a template with the `Platform` interface.
-   It contains information about the platform in its `commonMain` module:
+1. When creating a project in Android Studio, you get a template with the `Platform` interface with information about
+   the platform. Navigate to the `commonMain` module:
 
     ```kotlin
     // Platform.kt in commonMain module:
@@ -167,7 +167,7 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     `getPlatform()` function. The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the
     `IOSPlatform` implementation.
 
-## Update your application
+### Update your application
 
 The template uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:

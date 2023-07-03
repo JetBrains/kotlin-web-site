@@ -41,12 +41,12 @@
 With Kotlin Multiplatform, you can share not only logic, but keep the code for UI conceptually similar using native UI
 frameworks.
 
-You'll use [Jetpack Compose](https://developer.android.com/jetpack/compose) for the Android part of your application
-and SwiftUI for the iOS. They're both declarative UI frameworks, and you'll see similarities in the UI implementations.
-
-// In both cases, you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
-
 ## Update UI
+
+You'll use [Jetpack Compose](https://developer.android.com/jetpack/compose) for the Android part of your application
+and [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the iOS. They're both declarative UI frameworks,
+and you'll see similarities in the UI implementations. In both cases,
+you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
 
 ### The Android module
 
