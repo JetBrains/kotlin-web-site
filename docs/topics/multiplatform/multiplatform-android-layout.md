@@ -32,9 +32,9 @@ If applicable, rename source sets in your project, following this pattern:
 
 If applicable, move your source files to the new directories, following this pattern:
 
-| Previous source set layout                            | New source set layout                                                     |
-|-------------------------------------------------------|---------------------------------------------------------------------------|
-| The layout had additional `/kotlin` SourceDirectories | `src/{AndroidSourceSet.name}/kotlin`, `src/{KotlinSourceSet.name}/kotlin` |
+| Previous source set layout                            | New source set layout               |
+|-------------------------------------------------------|-------------------------------------|
+| The layout had additional `/kotlin` SourceDirectories | `src/{KotlinSourceSet.name}/kotlin` |
 
 `{AndroidSourceSet.name}` maps to `{SourceDirectories included}` as follows:
 
