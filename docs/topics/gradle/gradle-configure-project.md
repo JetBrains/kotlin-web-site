@@ -134,6 +134,8 @@ sourceSets {
 </tab>
 </tabs>
 
+<!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
+
 ### Check for JVM target compatibility of related compile tasks
 
 In the build module, you may have related compile tasks, for example:
