@@ -35,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-Beta"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-RC"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
@@ -410,6 +410,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-19.md"/>
                 <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
                 <toc-element id="compatibility-guide-17.md"/>
