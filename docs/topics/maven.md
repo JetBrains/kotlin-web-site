@@ -89,6 +89,8 @@ If you need to configure an execution, you need to specify its ID. You can find 
 > 
 {type="note"}
 
+<!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
+
 ## Compile Kotlin and Java sources
 
 To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler.

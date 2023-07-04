@@ -260,6 +260,7 @@
             <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
+            <!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
             <toc-element id="js-ir-migration.md"/>
 
