@@ -36,7 +36,7 @@ usages (similar to how content of [inline functions](inline-functions.md) is inl
 ## Members
 
 Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and 
-functions, have the `init` block and [secondary constructors](classes.md#secondary-constructors):
+functions, have an `init` block and [secondary constructors](classes.md#secondary-constructors):
 
 ```kotlin
 @JvmInline
