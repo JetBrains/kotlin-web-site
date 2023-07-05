@@ -1,4 +1,4 @@
-[//]: # (title: Inline classes)
+[//]: # (title: Inline value classes)
 
 Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
 overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
@@ -21,10 +21,6 @@ To declare an inline class for the JVM backend, use the `value` modifier along w
 value class Password(private val s: String)
 ```
 
-> The `inline` modifier for inline classes is deprecated.
-> 
-{type="warning"}
-
 An inline class must have a single property initialized in the primary constructor. At runtime, instances of the inline 
 class will be represented using this single property (see details about runtime representation [below](#representation)):
 
@@ -40,29 +36,39 @@ usages (similar to how content of [inline functions](inline-functions.md) is inl
 ## Members
 
 Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and 
-functions, and have the `init` block:
+functions, have an `init` block and [secondary constructors](classes.md#secondary-constructors):
 
 ```kotlin
 @JvmInline
-value class Name(val s: String) {
+value class Person(private val fullName: String) {
     init {
-        require(s.length > 0) { }
+        require(fullName.isNotEmpty()) {
+            "Full name shouldn't be empty"
+        }
+    }
+
+    constructor(firstName: String, lastName: String) : this("$firstName $lastName") {
+        require(lastName.isNotBlank()) {
+            "Last name shouldn't be empty"
+        }
     }
 
     val length: Int
-        get() = s.length
+        get() = fullName.length
 
     fun greet() {
-        println("Hello, $s")
+        println("Hello, $fullName")
     }
 }
 
 fun main() {
-    val name = Name("Kotlin")
-    name.greet() // method `greet` is called as a static method
-    println(name.length) // property getter is called as a static method
+    val name1 = Person("Kotlin", "Mascot")
+    val name2 = Person("Kodee")
+    name1.greet() // the `greet()` function is called as a static method
+    println(name2.length) // property getter is called as a static method
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.9"}
 
 Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
 properties (no `lateinit`/delegated properties).
@@ -140,11 +146,6 @@ value class UserId<T>(val value: T)
 fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
 ```
 
-> Generic inline classes is an [Experimental](components-stability.md) feature.
-> It may be dropped or changed at any time. Opt-in is required with the `-language-version 1.8` compiler option.
->
-{type="warning"}
-
 ### Mangling
 
 Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:
@@ -160,13 +161,8 @@ fun compute(x: Int) { }
 fun compute(x: UInt) { }
 ```
 
-To mitigate such issues, functions using inline classes are *mangled* by adding some stable hashcode to the function name. 
+To mitigate such issues, functions using inline classes are _mangled_ by adding some stable hashcode to the function name. 
 Therefore, `fun compute(x: UInt)` will be represented as `public final void compute-<hashcode>(int x)`, which solves the clash problem.
-
-> The mangling scheme has been changed in Kotlin 1.4.30. 
-> Use the `-Xuse-14-inline-classes-mangling-scheme` compiler flag to force the compiler to use the old 1.4.0 mangling scheme and preserve binary compatibility.
->
-{type="note"}
 
 ### Calling from Java code
 
