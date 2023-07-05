@@ -287,23 +287,26 @@ kotlin {
 }
 ```
 
-### Share Kotlin cinterop between dependent Pods
+### Sharing Kotlin cinterop between dependent Pods
 
-If you're adding multiple dependencies on Pods using the `pod()` function, you might encounter issues in Xcode
-in case there are dependencies between APIs of your Pods. 
+If you're adding multiple dependencies on Pods using the `pod()` function, you might encounter issues in
+case there are dependencies between APIs of your Pods.
 
-To build a project from Xcode in this case, use the `useInteropBindingFrom()` function.
+To make the code compile in this case, use the `useInteropBindingFrom()` function.
 It utilizes the cinterop binding generated for another Pod when building a binding for the new Pod.
+
 The dependent Pod should be declared before setting up the dependency:
 
 ```kotlin
-pod("WebImage") {
-    version = "1.0.0"
-}
+// The cinterop of pod("WebImage"):
+fun loadImage(): WebImage
 
-pod("Info") {
-    version = "1.0.0"
-    
-    useInteropBindingFrom("WebImage")
-}
+// The cinterop of pod("Info"):
+fun printImageInfo(image: WebImage)
+
+// Your code:
+printImageInfo(loadImage())
 ```
+
+If you didn't set up the correct dependencies between cinterops in this case,
+the code would be invalid because the `WebImage` type would come from different cinterops and, thus, packages.
