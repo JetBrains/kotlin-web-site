@@ -186,30 +186,6 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureE
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
-#### Example of setting of JVM target validation mode
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configureEach {
-    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
-}
-```
-
-</tab>
-</tabs>
-
-
 #### What can go wrong if not checking targets compatibility {initial-collapse-state="collapsed"}
 
 There are two ways of manually setting JVM targets for Kotlin and Java source sets:
