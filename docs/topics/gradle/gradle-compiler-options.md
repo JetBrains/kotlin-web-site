@@ -51,7 +51,7 @@ for test code. The tasks for custom source sets are named according to their `co
 The names of the tasks in Android Projects contain [build variant](https://developer.android.com/studio/build/build-variants.html)
 names and follow the `compile<BuildVariant>Kotlin` pattern, for example, `compileDebugKotlin` or `compileReleaseUnitTestKotlin`.
 
-For both the JVM and Android projects, it's possible to define options in the following way:
+For both the JVM and Android projects, it's possible to define options using the project Kotlin extension DSL:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -59,7 +59,7 @@ For both the JVM and Android projects, it's possible to define options in the fo
 ```kotlin
 kotlin {
     compilerOptions {
-        apiVersion.set(KotlinVersion.KOTLIN_1_9)
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
     }
 }
 ```
@@ -80,10 +80,10 @@ kotlin {
 
 Some important details to be aware of:
 
-* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block is the one in effect.
-* The `kotlin.compilerOptions` configuration only works on a module level, not a project level.
-* `kotlin.compilerOptions.moduleName` overrides `android.kotlinOptions.moduleName` if it's lower.
-* The separate configuration of `tasks.withType(KotlinCompile::class.java)` overrides the configuration inside the `kotlinOptions` block.
+* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block takes effect.
+* `kotlin.compilerOptions` configures every Kotlin compilation task in the project.
+* You can override the configuration applied by `kotlin.compilerOptions` DSL using the `tasks.named<KotlinJvmCompile>("compileKotlin") { }`
+  (or `tasks.withType<KotlinJvmCompile>().configureEach { }`) approach.
 
 ### When targeting JavaScript
 
@@ -161,42 +161,19 @@ Here is a complete list of options for Gradle tasks:
 
 ### Common attributes
 
-| Name              | Description                                                    | Possible values           | Default value |
-|-------------------|----------------------------------------------------------------|---------------------------|---------------|
-| `optIn`           | A property for configuring a list of opt-in compiler arguments | `listOf( /* opt-ins */ )` | `emptyList()` |
-| `progressiveMode` | Enable the progressive compiler mode                           | `true`, `false`           | `false`       |
+| Name              | Description                                                                              | Possible values           | Default value |
+|-------------------|------------------------------------------------------------------------------------------|---------------------------|---------------|
+| `optIn`           | A property for configuring a list of [opt-in compiler arguments](opt-in-requirements.md) | `listOf( /* opt-ins */ )` | `emptyList()` |
+| `progressiveMode` | Enables the [progressive compiler mode](whatsnew13.md#progressive-mode)                  | `true`, `false`           | `false`       |
 
 ### Attributes specific to JVM
 
-| Name | Description                                                                                                                                                                                                            | Possible values |Default value |
-|------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------|
-| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                         |  | false |
-| `jvmTarget` | Target version of the generated JVM bytecode                                                                                                                                                                           | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk` | Don't automatically include the Java runtime into the classpath                                                                                                                                                        |  | false |
-| `jvmTargetValidationMode` | <list><li>Validation of the JVM target compatibility between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type. See an [example](#example-of-setting-of-jvm-target-validation-mode)</li></list> | `WARNING`, `ERROR`, `INFO` | `ERROR` |
-
-#### Example of setting of JVM target validation mode
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
-    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
-}
-```
-
-</tab>
-</tabs>
+| Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                  | Default value               |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------|
+| `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                  | false                       |
+| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
+| `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                  | false                       |
+| `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `INFO`                                                                       | `ERROR`                     |
 
 ### Attributes common to JVM, JS, and JS DCE
 
@@ -272,12 +249,12 @@ To set a language version, use the following syntax:
 
 ```kotlin
 tasks
-    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
+    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
     .configureEach {
         compilerOptions
             .languageVersion
             .set(
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
             )
     }
 ```
