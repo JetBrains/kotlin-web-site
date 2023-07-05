@@ -1,12 +1,12 @@
-[//]: # (title: Upgrade your app)
+[//]: # (title: Share the logic)
 
 <microformat>
     <p>This is the fifth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
-      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-share-logic-ui.md">Share logic and UI</a><br/>
+      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update UI</a><br/>
       <img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/>
-      <img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Upgrade your app</strong><br/>
+      <img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Share the logic</strong><br/>
       <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 

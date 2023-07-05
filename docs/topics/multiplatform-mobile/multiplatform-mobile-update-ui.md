@@ -1,47 +1,14 @@
-[//]: # (title: Share logic and UI)
+[//]: # (title: Update UI)
 
 <microformat>
     <p>This is the third part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
-       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Share logic and UI</strong><br/>       
+       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update UI</strong><br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
-       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Upgrade your app<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share the logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
-
-## Update the logic
-
-1. In `shared/src/commonMain/kotlin`, open the `Greeting.kt` file in the project folder. This directory stores the shared
-   code for both Android and iOS. If you make changes to the shared code, you will see them reflected in both applications.
-
-   ![Common Kotlin file](common-kotlin-file.png)
-
-2. Update the shared code by using `[reversed()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html)`,
-   the Kotlin standard library function for reversing text that works on all platforms:
-
-    ```kotlin
-    class Greeting {
-        private val platform: Platform = getPlatform()
-        
-        fun greet(): String {
-            return "Guess what it is! > ${platform.name.reversed()}!"
-        }
-    }
-    ```
-
-3. Re-run the **androidApp** configuration to see the updated application in the Android simulated device.
-
-   ![Updated mobile multiplatform app on Android](first-multiplatform-project-on-android-2.png){width=300}
-
-4. In Android Studio, switch to **iosApp** and re-run it to see the updated application in the iOS simulated device.
-
-   ![Updated mobile multiplatform app on iOS](first-multiplatform-project-on-ios-2.png){width=300}
-
-With Kotlin Multiplatform, you can share not only logic, but keep the code for UI conceptually similar using native UI
-frameworks.
-
-## Update UI
 
 You'll use [Jetpack Compose](https://developer.android.com/jetpack/compose) for the Android part of your application
 and [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the iOS. They're both declarative UI frameworks,

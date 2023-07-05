@@ -6,7 +6,7 @@
        <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/>
        <img src="icon-3-todo.svg" width="20" alt="Third step"/> Share logic and UI<br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
-       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Upgrade your app<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share the logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
@@ -167,7 +167,7 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     `getPlatform()` function. The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the
     `IOSPlatform` implementation.
 
-### Update your application
+#### Update your application {initial-collapse-state="collapsed"}
 
 The template uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:
@@ -289,10 +289,9 @@ If you want to run your application on a simulated device, you can add a new run
 
 ## Next step
 
-In the next part of the tutorial, you'll learn how to share business logic and UI elements of your app between
-the common and platform-specific source sets.
+In the next part of the tutorial, you'll learn how to update the UI elements using platform-specific libaries.
 
-**[Proceed to the next part](multiplatform-mobile-share-logic-ui.md)**
+**[Proceed to the next part](multiplatform-mobile-update-ui.md)**
 
 ### See also
 
