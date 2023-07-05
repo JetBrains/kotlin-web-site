@@ -368,6 +368,8 @@ reference:
           title: Compatibility Guide for Kotlin 1.7.20
         - url: /docs/reference/compatibility-guide-18.html
           title: Compatibility Guide for Kotlin 1.8.0
+        - url: /docs/reference/compatibility-guide-19.html
+          title: Compatibility Guide for Kotlin 1.9.0
 
     - title: FAQ
       description: Every question you could possibly think of, might be answered.

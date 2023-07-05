@@ -11,6 +11,16 @@
 
     <toc-element toc-title="Get started" id="getting-started.md"/>
 
+    <toc-element toc-title="Take Kotlin tour" id="kotlin-tour-welcome.md">
+        <toc-element id="kotlin-tour-hello-world.md" hidden="true"/>
+        <toc-element id="kotlin-tour-basic-types.md" hidden="true"/>
+        <toc-element id="kotlin-tour-collections.md" hidden="true"/>
+        <toc-element id="kotlin-tour-control-flow.md" hidden="true"/>
+        <toc-element id="kotlin-tour-functions.md" hidden="true"/>
+        <toc-element id="kotlin-tour-classes.md" hidden="true"/>
+        <toc-element id="kotlin-tour-null-safety.md" hidden="true"/>
+    </toc-element>
+
     <toc-element toc-title="Kotlin overview">
         <toc-element id="multiplatform.md"/>
         <toc-element id="server-overview.md" accepts-web-file-names="httpservlets.html"/>
@@ -25,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.8.20-RC2"  hidden="true"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-RC"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
@@ -149,7 +159,7 @@
         <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
         <toc-element toc-title="Artifact compilation">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
-            <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md"/>
+            <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
             <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
         </toc-element>
         <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
@@ -250,6 +260,7 @@
             <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
+            <!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
             <toc-element id="js-ir-migration.md"/>
 
@@ -400,6 +411,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-19.md"/>
                 <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
                 <toc-element id="compatibility-guide-17.md"/>
