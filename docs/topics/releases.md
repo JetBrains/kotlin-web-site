@@ -54,6 +54,20 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.9.0</strong>
+            <p>Released: <strong>July 6, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A feature release with Kotlin K2 compiler updates, new enum class values function, new operator for open-ended ranges, preview of Gradle configuration cache in Kotlin Multiplatform, changes for Android target support in Kotlin Multiplatform, preview of custom memory allocator in Kotlin/Native.</p>
+            <p>Learn more in:</p>
+            <list>
+                <li><a href="whatsnew190.md" target="_blank">What's new in Kotlin 1.9.0</a></li>
+                <li><a href="TBD" target="_blank">What's new in Kotlin YouTube video</a></li>
+            </list>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.8.22</strong>
             <p>Released: <strong>June 8, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.22" target="_blank">Release on GitHub</a></p>
