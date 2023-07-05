@@ -1,4 +1,4 @@
-[//]: # (title: Add libraries to Kotlin/Wasm project)
+[//]: # (title: Add dependencies on Kotlin libraries to Kotlin/Wasm project)
 
 You can use the Kotlin standard library (`stdlib`) and test library ([`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/))
 in Kotlin/Wasm out of the box. The version of these libraries is the same as the version of the `kotlin-multiplatform` plugin.
@@ -9,6 +9,54 @@ by adding the Kotlin [experimental repository](https://maven.pkg.jetbrains.space
 > For Kotlin 1.9.0 and later, use the latest available libraries' versions.
 >
 {type="note"}
+
+## Supported Kotlin libraries for Kotlin/Wasm
+
+You can use one of the following repositories to add Kotlin libraries to your project:
+
+* **Maven** Central for `stdlib` and `kotlin.test` libraries:
+
+  ```kotlin
+  // build.gradle.kts
+  repositories { 
+      mavenCentral()
+  }
+  ```
+
+* **Custom Kotlin** repository for other official Kotlin libraries with experimental support:
+
+  ```kotlin
+  // build.gradle.kts
+  repositories {
+      maven {
+          url = uri("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
+      }
+  }
+  ```
+
+* **Compose dev** repository for Skiko:
+
+  ```kotlin
+  // build.gradle.kts
+  repositories {
+      maven {
+          url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/skiko/skiko-wasm/")
+      }
+  }
+  ```
+
+| Library                       | Version          | Repository    |
+|-------------------------------|------------------|---------------|
+| stdlib                        | %kotlinVersion%  | Maven Central | 
+| kotlin-test                   | %kotlinVersion%  | Maven Central |
+| kotlinx-coroutines            | 1.7.0-RC-wasm0   | Custom Kotlin |
+| Compose Multiplatform         | 1.4.0-dev-wasm08 | Custom Kotlin |
+| kotlinx-serialization         | 1.5.1-wasm0      | Custom Kotlin |
+| Ktor                          | 2.3.1-wasm0      | Custom Kotlin |
+| kotlinx-atomicfu              | 0.20.2-wasm0     | Custom Kotlin |
+| kotlinx-collections-immutable | 0.4-wasm0        | Custom Kotlin |
+| kotlinx-datetime              | 0.4.0-wasm0      | Custom Kotlin |
+| Skiko                         | 0.0.7.61-wasm03  | Compose dev   |
 
 ## Enable kotlinx libraries
 
@@ -59,40 +107,6 @@ kotlin {
     }
 }
 ```
-
-## List of supported libraries for Kotlin/Wasm
-
-Kotlin libraries for Wasm:
-
-* Maven Central:
-
-  ```kotlin
-  repositories { 
-      mavenCentral()
-  }
-  ```
-
-* Custom Kotlin repository:
-
-  ```kotlin
-  repositories {
-      maven {
-          url = uri("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
-      }
-  }
-  ```
-
-| Library                       | Version                 | Repository    |
-|-------------------------------|-------------------------|---------------|
-| stdlib                        | %kotlinVersion%         | Maven Central | 
-| kotlin-test                   | %kotlinVersion%         | Maven Central |
-| kotlinx-coroutines            | 1.7.0-RC-wasm0          | Custom        |
-| Compose Multiplatform         | 1.4.0-dev-wasm08        | Custom        |
-| kotlinx-serialization         | 1.5.1-wasm0             | Custom        |
-| Ktor                          | 2.3.1-wasm0             | Custom        |
-| kotlinx-atomicfu              | 0.20.2-wasm0            | Custom        |
-| kotlinx-collections-immutable | 0.4-wasm0               | Custom        |
-| kotlinx-datetime              | 0.4.0-wasm0             | Custom        |
 
 ## What's next?
 
