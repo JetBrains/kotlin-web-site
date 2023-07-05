@@ -82,7 +82,6 @@ The following targets are deprecated since Kotlin 1.8.20 and will be removed in 
 
 * `iosArm32`
 * `watchosX86`
-* `wasm32`
 * `mingwX86`
 * `linuxArm32Hfp`
 * `linuxMips32`

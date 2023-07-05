@@ -10,7 +10,7 @@ Kotlin/Native uses a modern memory manager that is similar to JVM, Go, and other
 * Tracing garbage collector (GC) is executed periodically to collect objects that are not reachable from the "roots",
   like local and global variables.
 
-The memory manager is the same across all the Kotlin/Native targets, except for wasm32, which is only supported in the
+The memory manager is the same across all the Kotlin/Native targets, which is only supported in the
 [legacy memory manager](#legacy-memory-manager).
 
 ## Garbage collector
