@@ -59,7 +59,7 @@ For both the JVM and Android projects, it's possible to define options using the
 ```kotlin
 kotlin {
     compilerOptions {
-        apiVersion.set(KotlinVersion.KOTLIN_1_9)
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
     }
 }
 ```
@@ -80,10 +80,10 @@ kotlin {
 
 Some important details to be aware of:
 
-* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block is the one in effect.
-* The `kotlin.compilerOptions` configuration only works on a module level, not a project level.
-* `kotlin.compilerOptions.moduleName` overrides `android.kotlinOptions.moduleName` if it's lower.
-* The separate configuration of `tasks.withType(KotlinCompile::class.java)` overrides the configuration inside the `kotlinOptions` block.
+* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block takes effect.
+* `kotlin.compilerOptions` configures every Kotlin compilation task in the project.
+* You can override the configuration applied by `kotlin.compilerOptions` DSL using the `tasks.named<KotlinJvmCompile>("compileKotlin") { }`
+  (or `tasks.withType<KotlinJvmCompile>().configureEach { }`) approach.
 
 ### When targeting JavaScript
 
@@ -211,29 +211,6 @@ Here is a complete list of options for Gradle tasks:
 | `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
 | `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                  | false                       |
 | `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `INFO`                                                                       | `ERROR`                     |
-
-#### Example of setting of JVM target validation mode
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
-    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
-}
-```
-
-</tab>
-</tabs>
 
 ### Attributes common to JVM, JS, and JS DCE
 
