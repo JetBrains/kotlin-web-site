@@ -167,8 +167,8 @@ You can also configure it on the task level in your `build.gradle(.kts)` file:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).configureEach {
-    jvmTargetValidationMode.set(JvmTargetValidationMode.WARNING)
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
+    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
 ```
 
@@ -176,7 +176,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class.java).conf
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile.class).configureEach {
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configureEach {
     jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
 }
 ```
