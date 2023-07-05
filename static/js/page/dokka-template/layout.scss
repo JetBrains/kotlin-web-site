@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+#sideMenu {
+  @media (min-width: 760px) {
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 759px) {
+  #leftColumn.open ~ #ktl-main #searchBar {
+    display: none;
+  }
+}
+
+#main {
+  box-sizing: border-box;
+
+  @media (max-width: 759px) {
+    padding-left: 24px;
+  }
+
+  @media (max-width: 759px) {
+    padding-left: 8px;
+  }
+}
+
+.main-content {
+  flex-grow: 1;
+}

@@ -39,6 +39,28 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.6.0**
+
+Released: 24 May, 2023
+
+</td>
+<td>
+
+* Support of the new Canary Android Studio Hedgehog.
+* Updated versions of Kotlin, Gradle, and libraries in the Multiplatform project.
+* Applied new [`targetHierarchy.default()`](whatsnew1820.md#new-approach-to-source-set-hierarchy) in the Multiplatform project.
+* Applied source set name suffixes to platform-specific files in the Multiplatform project.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.5.3**
 
 Released: 12 April, 2023

@@ -94,9 +94,9 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin = tasks.named<KotlinCompilationTask<*>>("compileKotlin")
-
-compileKotlin.compilerOptions { /*...*/ }
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    compilerOptions { /*...*/ }
+}
 ```
 
 </tab>

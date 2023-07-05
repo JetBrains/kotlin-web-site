@@ -94,7 +94,7 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
             }
         }
-        val iosMain by creating {
+        val iosMain by getting {
             // ...
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
@@ -125,12 +125,10 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
 
     ```kotlin
     buildscript {
-        // ...
-        val sqlDelightVersion = "%sqlDelightVersion%"
         
         dependencies {
             // ...
-            classpath("com.squareup.sqldelight:gradle-plugin:$sqlDelightVersion")
+            classpath("com.squareup.sqldelight:gradle-plugin:%sqlDelightVersion%")
         }
     }
     ```
@@ -567,12 +565,12 @@ the `androidApp/build.gradle.kts`:
 // ...
 dependencies {
     implementation(project(":shared"))
-    implementation("com.google.android.material:material:1.8.0")
+    implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("androidx.cardview:cardview:1.0.0")
 }

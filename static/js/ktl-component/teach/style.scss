@@ -25,6 +25,7 @@
   display: grid;
   grid-gap: 16px;
   margin-bottom: 32px;
+  margin-top: 32px;
 
   @media (min-width: 768px) {
     display: none;
@@ -207,9 +208,29 @@
   @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 48px;
-  }
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "left center1 right1"
+    "left center2 right2";
+
+    &__first-list {
+      grid-area: left;
+    }
+
+    &__second-list {
+      grid-area: center1;
+    }
+
+    &__third-list {
+      grid-area: center2;
+    }
+
+    &__fourth-list {
+      grid-area: right1;
+    }
+
+    &__fifth-list {
+      grid-area: right2;
+    }
   }
 }
 
