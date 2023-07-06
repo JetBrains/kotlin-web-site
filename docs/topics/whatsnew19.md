@@ -2,7 +2,7 @@
 
 _[Release date: %kotlinReleaseDate%](releases.md#release-details)_
 
-The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. In addition, here are some of the biggest highlights:
+The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
 * [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
 * [Stable replacement of the enum class values function](#stable-replacement-of-the-enum-class-values-function)
@@ -10,12 +10,12 @@ The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta
 * [New common function to get regex capture group by name](#new-common-function-to-get-regex-capture-group-by-name)
 * [New path utility to create parent directories](#new-path-utility-to-create-parent-directories)
 * [Preview of Gradle configuration cache in Kotlin Multiplatform](#preview-of-gradle-configuration-cache-in-kotlin-multiplatform)
-* [Changes for Android target support in Kotlin Multiplatform](#changes-for-android-target-support-in-kotlin-multiplatform)
+* [Changes to Android target support in Kotlin Multiplatform](#changes-to-android-target-support-in-kotlin-multiplatform)
 * [Preview of custom memory allocator in Kotlin/Native](#preview-of-custom-memory-allocator)
 * [Library linkage in Kotlin/Native](#library-linkage-in-kotlinnative)
 * [Size-related optimizations in Kotlin/Wasm](#size-related-optimizations)
 
-You can also find a short overview of the changes in this video:
+You can also find a short overview of the updates in this video:
 
 <video href="fvwTZc-dxsM" title="What's new in Kotlin 1.9.0"/>
 
@@ -28,22 +28,22 @@ The Kotlin plugins that support 1.9.0 are available for:
 | IntelliJ IDEA | 2022.3.x, 2023.1.x |
 | Android Studio | Giraffe (223), Hedgehog (231)* |
 
-*Android Studio Giraffe (223) and Hedgehog (231) will have the built-in Kotlin plugin 1.9.0 in their upcoming releases.
+*The Kotlin 1.9.0 plugin will be integrated with Android Studio Giraffe (223) and Hedgehog (231) in their upcoming releases.
 
-IntelliJ IDEA 2023.2 will have the built-in Kotlin plugin 1.9.0 in the upcoming releases.
+The Kotlin 1.9.0 plugin will be integrated with IntelliJ IDEA 2023.2 in the upcoming releases.
 
-> To download Kotlin artifacts and dependencies properly, [configure Gradle settings](#configure-gradle-settings) to use the Maven Central repository.
+> To download Kotlin artifacts and dependencies, [configure Gradle settings](#configure-gradle-settings) to use the Maven Central Repository.
 >
-{type=”warning”}
+{type="warning"}
 
 ## New Kotlin K2 compiler updates
 
 The Kotlin team at JetBrains continues to stabilize the K2 compiler and the 1.9.0 release introduces further advancements.
 The K2 compiler for the JVM is now in **Beta**.
 
-There’s also now basic support for Kotlin/Native and multiplatform projects.
+There's now also basic support for Kotlin/Native and multiplatform projects.
 
-### Compatibility of kapt compiler plugin with the K2 compiler
+### Compatibility of the kapt compiler plugin with the K2 compiler
 
 You can use the [kapt plugin](kapt.md) in your project along with the K2 compiler, but with some restrictions. 
 Despite setting `languageVersion` to `2.0`, the kapt compiler plugin still utilizes the old compiler.
@@ -97,7 +97,7 @@ Task info:
 > If you use Gradle 8.0, you might come across some problems with build reports, especially when Gradle configuration 
 > caching is enabled. This is a known issue, fixed in Gradle 8.1 and later.
 >
-{type=”note”}
+{type="note"}
 
 ### Current K2 compiler limitations
 
@@ -127,9 +127,9 @@ kotlin {
 
 We'd appreciate any feedback you may have!
 
-* Provide your feedback directly to K2 developers on Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
+* Provide your feedback directly to K2 developers Kotlin's Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
   and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you faced with the new K2 compiler on [our issue tracker](https://kotl.in/issue).
+* Report any problems you've faced with the new K2 compiler on [our issue tracker](https://kotl.in/issue).
 * [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
@@ -166,7 +166,7 @@ For more information about the `entries` property for enum classes, see [What’
 ### Stable data objects for symmetry with data classes
 
 Data object declarations that were introduced in [Kotlin 1.8.20](whatsnew1820.md#preview-of-data-objects-for-symmetry-with-data-classes)
-are Stable. This includes the functions added for symmetry with data classes: `toString()`, `equals()` and `hashCode()`.
+are now Stable. This includes the functions added for symmetry with data classes: `toString()`, `equals()`, and `hashCode()`.
 
 This feature is particularly useful with `sealed` hierarchies (like a `sealed class` or `sealed interface` hierarchy), 
 because `data object` declarations can be used conveniently alongside `data class` declarations. In this example, declaring
@@ -216,13 +216,13 @@ Previously, Kotlin allowed using only public primary constructors in inline clas
 encapsulate underlying values or create an inline class that would represent some constrained values.
 
 As Kotlin developed, these issues were fixed. Kotlin 1.4.30 lifted restrictions on `init` blocks and then Kotlin 1.8.20 
-came with a preview of secondary constructors with bodies. Now they are available by default. Learn more about the 
+came with a preview of secondary constructors with bodies. They are now available by default. Learn more about the 
 development of Kotlin inline classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/inline-classes.md).
 
 ## Kotlin/JVM
 
 Starting with version 1.9.0, the compiler can generate classes with a bytecode version corresponding to JVM 20. In addition,
-the deprecation of the `JvmDefault` annotation and legacy `-Xjvm-default` modes continues:
+the deprecation of the `JvmDefault` annotation and legacy `-Xjvm-default` modes continues.
 
 ### Deprecation of `JvmDefault` annotation and legacy `-Xjvm-default` modes
 
@@ -266,11 +266,11 @@ of memory blocks ensures efficient iteration through all allocated blocks.
 
 When a thread allocates memory, it searches for a suitable page based on the allocation size. Threads maintain a set of 
 pages for different size categories. Typically, the current page for a given size can accommodate the allocation. If not,
-the thread requests a different page from the shared allocation space. This page may be already available, require 
+the thread requests a different page from the shared allocation space. This page may already be available, require 
 sweeping, or should be created first.
 
-The new allocator allows having multiple independent allocation spaces simultaneously, which will allow us to experiment
-with different page layouts to improve performance even further.
+The new allocator allows having multiple independent allocation spaces simultaneously, which will allow the Kotlin team 
+to experiment with different page layouts to improve performance even further.
 
 For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
 
@@ -314,18 +314,18 @@ Previously, the Kotlin/Native memory manager ran `objc_release ` on a special GC
 the object gets deallocated. Issues could come up when Objective-C objects have custom deallocation hooks like the `dealloc`
 method in Objective-C or the `deinit` block in Swift, and these hooks expect to be called on a specific thread.
 
-Since hooks for objects on the main thread usually expect to be called on the main thread, Kotlin/Native runtime now 
+Since hooks for objects on the main thread usually expect to be called there, Kotlin/Native runtime now 
 calls `objc_release` on the main thread as well. It should cover the cases when the Objective-C object was passed to 
-Kotlin on the main thread, creating a Kotlin peer object on the main thread. This only works if the main dispatch queue 
+Kotlin on the main thread, creating a Kotlin peer object there. This only works if the main dispatch queue 
 is processed, which is the case for regular UI applications. When it's not the main queue or the object was passed to 
-Kotlin on the thread other than main, the `objc_release` is called on a special GC thread as before.
+Kotlin on a thread other than main, the `objc_release` is called on a special GC thread as before.
 
 #### How to opt out
 
 In case you face issues, you can disable this behavior in your `gradle.properties` file with the following option:
 
 ```none
-kotlin.native.binary.objcDisposeOnMain=false`
+kotlin.native.binary.objcDisposeOnMain=false
 ```
 
 Don’t hesitate to report such cases to [our issue tracker](https://kotl.in/issue).
@@ -351,7 +351,7 @@ fun main() {
 ```
 {validate="false"}
 
-Now the behavior is unified with Kotlin/JVM, where the implementation is consistent with Java and objects are never 
+The behavior is now unified with Kotlin/JVM, where the implementation is consistent with Java and objects are never 
 initialized in this case. You can also expect some performance improvements in your Kotlin/Native projects thanks to 
 this change.
 
@@ -385,8 +385,8 @@ Starting with Kotlin 1.9.0, the Kotlin/Native compiler treats linkage issues in 
 You might face such issues if the author of one third-party Kotlin library makes an incompatible change in experimental 
 APIs that another third-party Kotlin library consumes.
 
-Builds now do not fail during compilation in case of linkage issues between third-party Kotlin libraries. Instead, you'll
-only encounter these errors in run time similarly to JVM.
+Now builds don't fail during compilation in case of linkage issues between third-party Kotlin libraries. Instead, you'll
+only encounter these errors in run time, exactly as on the JVM.
 
 The Kotlin/Native compiler reports warnings every time it detects issues with library linkage. You can find such warnings
 in your compilation logs, for example:
@@ -402,7 +402,7 @@ Function 'getMyRemovedClass' can not be called: Function uses unlinked class sym
 You can further configure or even disable this behavior in your projects:
 
 * If you don’t want to see these warnings in your compilation logs, suppress them with the `-Xpartial-linkage-loglevel=INFO` compiler option.
-* It’s also possible to raise the severity of reported warnings to compilation errors with `-Xpartial-linkage-loglevel=ERROR`. In this case, the compilation fails and you see all the errors in the compilation log. Use this option to examine the linkage issues more closely.
+* It’s also possible to raise the severity of reported warnings to compilation errors with `-Xpartial-linkage-loglevel=ERROR`. In this case, the compilation fails and you'll see all the errors in the compilation log. Use this option to examine the linkage issues more closely.
 * If you face unexpected problems with this feature, you can always opt out with the
   `-Xpartial-linkage=disable` compiler option. Don’t hesitate to report such cases to [our issue
   tracker](https://kotl.in/issue).
@@ -452,7 +452,7 @@ has unsigned type `UInt` and `0` is signed.
 ```
 {validate="false"}
 
-To be able to use implicit conversions with native interop libraries, use the `-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion`
+To use implicit conversions with native interop libraries, use the `-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion`
 compiler option.
 
 You can configure this in your Gradle `build.gradle.kts` file:
@@ -469,17 +469,17 @@ You can configure this in your Gradle `build.gradle.kts` file:
 
 Kotlin Multiplatform has received some notable updates in 1.9.0 designed to improve your developer experience:
 
-* [Changes for Android target support](#changes-for-android-target-support)
+* [Changes to Android target support](#changes-to-android-target-support)
 * [New Android source set layout enabled by default](#new-android-source-set-layout-enabled-by-default)
 * [Preview of Gradle configuration cache in multiplatform projects](#preview-of-gradle-configuration-cache)
 
-### Changes for Android target support
+### Changes to Android target support
 
-We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class 
+We continue our efforts to stabilize Kotlin Multiplatform. An essential step is to provide first-class 
 support for the Android target. We’re excited to announce that in the future, the Android team from Google will provide 
 its own Gradle plugin to support Android in Kotlin Multiplatform.
 
-To open the way for the new solution from Google, we’re renaming the `android` block in the current Kotlin DSL in 1.9.0.
+To open the way for this new solution from Google, we’re renaming the `android` block in the current Kotlin DSL in 1.9.0.
 Please change all the occurrences of the `android` block to `androidTarget` in your build scripts. This is a temporary 
 change that is necessary to free the `android` name for the upcoming DSL from Google.
 
@@ -492,10 +492,10 @@ Starting with Kotlin 1.9.0, the new Android source set layout is the default. It
 directories, which was confusing in multiple ways. The new layout has a number of advantages:
 
 * Simplified type semantics. The new Android source layout provides clear and consistent naming conventions that help to distinguish between different types of source sets.
-* Improved source directories layout. With the new layout, the `SourceDirectories` arrangement becomes more coherent, making it easier to organize code and locate source files.
-* Clear naming schema for Gradle configurations. Now the schema is more consistent and predictable in both `KotlinSourceSets` and `AndroidSourceSets`.
+* Improved source directory layout. With the new layout, the `SourceDirectories` arrangement becomes more coherent, making it easier to organize code and locate source files.
+* Clear naming schema for Gradle configurations. The schema is now more consistent and predictable in both `KotlinSourceSets` and `AndroidSourceSets`.
 
-The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later. See our
+The new layout requires the Android Gradle plugin version 7.0 or later and is supported in Android Studio 2022.3 and later. See our
 [migration guide](multiplatform-android-migration-guide.md) to make the necessary changes in your `build.gradle(.kts)` file.
 
 ### Preview of Gradle configuration cache
@@ -518,7 +518,7 @@ The Kotlin team continues to experiment with the new Kotlin/Wasm target. This re
 
 ### Size-related optimizations
 
-Kotlin 1.9.0 introduces significant size improvements for WebAssembly projects. Comparing two "Hello World" projects, 
+Kotlin 1.9.0 introduces significant size improvements for WebAssembly (Wasm) projects. Comparing two "Hello World" projects, 
 the code footprint for Wasm in Kotlin 1.9.0 is now over 10 times smaller than in Kotlin 1.8.20.
 
 These size optimizations result in more efficient resource utilization and improved performance when targeting Wasm 
@@ -530,9 +530,9 @@ This Kotlin update introduces changes to the interoperability between Kotlin and
 is an [Experimental](components-stability.md#stability-levels-explained) feature, certain limitations apply to its 
 interoperability.
 
-#### Restriction of Dynamic type
+#### Restriction of Dynamic types
 
-Starting with version 1.9.0, Kotlin no longer supports the use of Dynamic types in Kotlin/Wasm. Instead, it is deprecated
+Starting with version 1.9.0, Kotlin no longer supports the use of `Dynamic` types in Kotlin/Wasm. This is now deprecated
 in favor of the new universal `JsAny` type, which facilitates JavaScript interoperability.
 
 For more details, see the [Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md) documentation.
@@ -549,8 +549,8 @@ types include:
 Other types were passed without conversion as opaque references, leading to inconsistencies between JavaScript and Kotlin
 subtyping.
 
-To address this, Kotlin restricts JS interop to a well-supported set of types. Starting from Kotlin 1.9.0, only external,
-primitive, string, and function types are supported in Kotlin/Wasm JS interop. Furthermore, a separate explicit type called
+To address this, Kotlin restricts JavaScript interop to a well-supported set of types. Starting from Kotlin 1.9.0, only external,
+primitive, string, and function types are supported in Kotlin/Wasm JavaScript interop. Furthermore, a separate explicit type called
 `JsReference` has been introduced to represent handles to Kotlin/Wasm objects that can be used in JavaScript interop.
 
 For more details, refer to the [Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md) documentation.
@@ -567,7 +567,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 {type="note"}
 
 ```kotlin
-import kotlin.time.ExperimentalTime
+import kotlin.time.*
 import kotlin.time.measureTime
 
 fun main() {
@@ -596,7 +596,7 @@ fun computeAck(m: Int, n: Int) {
    println("duration: ${t.inWholeNanoseconds / 1e6} ms")
 }
 ```
-{validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-1-9-0-kotlin-wasm-playground"}
 
 ## Kotlin/JS
 
@@ -620,7 +620,7 @@ Starting with Kotlin 1.9.0, the `kotlin-js` Gradle plugin is
 deprecated. We encourage you to use the `kotlin-multiplatform` Gradle plugin with the `js()` target instead.
 
 The functionality of the Kotlin/JS Gradle plugin essentially duplicated the `kotlin-multiplatform` plugin and shared the
-same implementation under the hood. Such overlap created confusion and increased maintenance load on the Kotlin team.
+same implementation under the hood. This overlap created confusion and increased maintenance load on the Kotlin team.
 
 Refer to our [Compatibility guide for Kotlin Multiplatform](multiplatform-migration-guide.md#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) 
 for migration instructions. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
@@ -681,13 +681,13 @@ tasks.withType<KotlinJsCompile>().configureEach {
 
 ### Changed default destination of JS production distribution
 
-Prior to Kotlin 1.9.0, the distribution target directory was `build/distributions`. However this is a common directory 
+Prior to Kotlin 1.9.0, the distribution target directory was `build/distributions`. However, this is a common directory 
 for Gradle archives. To resolve this issue, we’ve changed the default distribution target directory in Kotlin 1.9.0 to: 
 `build/dist/<targetName>/<binaryName>`.
 
-For example, `productionExecutable` was in `build/distributions`. In Kotlin 1.9.0, it is in `build/dist/js/productionExecutable`.
+For example, `productionExecutable` was in `build/distributions`. In Kotlin 1.9.0, it's in `build/dist/js/productionExecutable`.
 
-> If you have a pipeline in place that uses the results of these builds, make sure that you update the directory.
+> If you have a pipeline in place that uses the results of these builds, make sure to update the directory.
 >
 {type="warning"}
 
@@ -728,7 +728,7 @@ The Kotlin Gradle plugin now provides new properties for opt-ins and the compile
 
 ### Project-level compiler options for Kotlin/JVM
 
-Starting with Kotlin 1.9.0, there is a new `compilerOptions` block that is available inside the `kotlin` configuration block:
+Starting with Kotlin 1.9.0, there is a new `compilerOptions` block  available inside the `kotlin` configuration block:
 
 ```kotlin
 kotlin {
@@ -751,9 +751,9 @@ android {
 ```
 {validate="false"}
 
-* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lowest) block in the build file takes effect.
+* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lowest) block in the build file always takes effect.
 * If `moduleName` is configured on the project level, its value could be changed when passed to the compiler. It’s not the case for the `main` compilation, but for other types, for example, test sources, the Kotlin Gradle plugin will add the  `_test` suffix.
-* The configuration inside the `tasks.withType<KotlinJvmCompile>().configureEach {}` (or `tasks.named<KotlinJvmCompile>(“compileKotlin”) { }`) overrides both `kotlin.compilerOptions` and `android.kotlinOptions`.
+* The configuration inside the `tasks.withType<KotlinJvmCompile>().configureEach {}` (or `tasks.named<KotlinJvmCompile>("compileKotlin") { }`) overrides both `kotlin.compilerOptions` and `android.kotlinOptions`.
 
 ### Compiler option for Kotlin/Native module name
 
@@ -795,7 +795,7 @@ tasks.named("compileKotlinLinuxX64", org.jetbrains.kotlin.gradle.tasks.KotlinNat
 
 Kotlin 1.9.0 introduces separate compiler plugins for its official libraries. Previously, compiler plugins were embedded
 into their corresponding Gradle plugins. This could cause compatibility issues in case the compiler plugin was compiled 
-against a Kotlin version higher than the Gradle build Kotlin runtime version.
+against a Kotlin version higher than the Gradle build's Kotlin runtime version.
 
 Now compiler plugins are added as separate dependencies, so you won’t face compatibility issues with older Gradle versions
 anymore. Another major advantage of the new approach is that new compiler plugins can be used with other build systems 
@@ -810,8 +810,8 @@ Here’s the list of new compiler plugins we’re now publishing to Maven Centra
 * kotlin-sam-with-receiver-compiler-plugin
 * kotlinx-serialization-compiler-plugin
 
-Every plugin has its `-embeddable` counterpart, for example, `kotlin-allopen-compiler-plugin-embeddable`, designed for 
-working with the `kotlin-compiler-embeddable` artifact, which is the default option for scripting artifacts.
+Every plugin has its `-embeddable` counterpart, for example, `kotlin-allopen-compiler-plugin-embeddable` is designed for 
+working with the `kotlin-compiler-embeddable` artifact, the default option for scripting artifacts.
 
 Gradle adds these plugins as compiler arguments. You don’t need to make any changes to your existing projects.
 
@@ -827,7 +827,8 @@ Prior to 1.9.0, the [kapt compiler plugin](kapt.md) caused eager task creation b
 the Kotlin compilation task. This behavior has been fixed in Kotlin 1.9.0. If you use the default configuration for your 
 `build.gradle.kts` file then your setup is not affected by this change.
 
-> If you have modified the `KotlinJvmCompile` task using Gradle’s tasks API, you must similarly modify the `KaptGenerateStubs`
+> If you use a custom configuration, your setup will be adversely affected.
+> For example, if you have modified the `KotlinJvmCompile` task using Gradle’s tasks API, you must similarly modify the `KaptGenerateStubs`
 > task in your build script.
 >
 > For example, if your script has the following configuration for `KotlinJvmCompile` task:
@@ -841,7 +842,8 @@ the Kotlin compilation task. This behavior has been fixed in Kotlin 1.9.0. If yo
 > tasks.named<KaptGenerateStubs>("kaptGenerateStubs") { // your custom configuration }
 >```
 > {validate="false"}
-{type=”warning”}
+> 
+{type="warning"}
 
 For more information, see our [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-54468/KAPT-Gradle-plugin-causes-eager-task-creation).
 
@@ -850,10 +852,10 @@ For more information, see our [YouTrack ticket](https://youtrack.jetbrains.com/i
 Before Kotlin 1.9.0, there was only one way to adjust the detection of JVM target incompatibility between Kotlin and Java.
 You had to set `kotlin.jvm.target.validation.mode=ERROR` in your `gradle.properties` for the whole project.
 
-Now you can also configure it on the task level in your `build.gradle.kts` file:
+You can now also configure it on the task level in your `build.gradle.kts` file:
 
 ```kotlin
-tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>(“compileKotlin”) {
+tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>("compileKotlin") {
   jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
 ```
@@ -871,7 +873,7 @@ Kotlin 1.9.0 has some great improvements for the standard library:
 ### Stable ..< operator for open-ended ranges
 
 The new `..<` operator for open-ended ranges that was introduced in [Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges)
-and became Stable in 1.8.0. In 1.9.0, the standard library API for working with open-ended ranges is Stable.
+and became Stable in 1.8.0. In 1.9.0, the standard library API for working with open-ended ranges is also Stable.
 
 Our research shows that the new `..<` operator makes it easier to understand when an open-ended range is declared. If you
 use the [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) infix function, it’s easy to make
@@ -914,7 +916,7 @@ For more information about what you can do with this operator, see [What’s new
 
 ### Stable time API
 
-Since 1.3.50 we have previewed a new time measurement API. The duration part of the API became Stable in 1.6.0. In 1.9.0,
+Since 1.3.50, we have previewed a new time measurement API. The duration part of the API became Stable in 1.6.0. In 1.9.0,
 the remaining time measurement API is Stable.
 
 The old time API provided `measureTimeMillis` and `measureNanoTime` functions that aren’t intuitive to use. Although it 
@@ -1012,16 +1014,16 @@ fun main() {
 
 ### The Kotlin/Native standard library’s journey towards stabilization
 
-As our standard library for Kotlin/Native continues to grow, we decided that it was time for a complete review of the 
-library to ensure that it meets our high standards. As part of this, we carefully reviewed **every** existing public 
-signature. For each signature, we considered whether it:
+As our standard library for Kotlin/Native continues to grow, we decided that it was time for a complete review to ensure
+that it meets our high standards. As part of this, we carefully reviewed **every** existing public signature. For each 
+signature, we considered whether it:
 
 * Has a unique purpose.
 * Is consistent with other Kotlin APIs.
-* Has similar behavior to its counterpart for JVM.
-* Is future proof.
+* Has similar behavior to its counterpart for the JVM.
+* Is future-proof.
 
-Based on these considerations, we made one of the following decisions. We:
+Based on these considerations, we made one of the following decisions:
 * Made it Stable.
 * Made it Experimental.
 * Marked it as `private`.
@@ -1031,13 +1033,13 @@ Based on these considerations, we made one of the following decisions. We:
 * Marked it as obsolete.
 
 > If an existing signature has been:
-> * Moved to another package, the signature still exists in the original package but it is deprecated with deprecation level: `WARNING`. IntelliJ IDEA will automatically suggest replacements upon code inspection.
+> * Moved to another package, the signature still exists in the original package but it's now deprecated with deprecation level: `WARNING`. IntelliJ IDEA will automatically suggest replacements upon code inspection.
 > * Deprecated, it’s been deprecated with deprecation level: `WARNING`.
-> * Marked as obsolete, you can keep using it but it will be replaced in future.
+> * Marked as obsolete, you can keep using it, but it will be replaced in future.
 >
 {type="note"}
 
-We won’t list all of the results of the review here but here are some highlights:
+We won’t list all of the results of the review here, but some highlights include:
 * We stabilized the Atomics API.
 * We made [`kotlinx.cinterop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/) Experimental and now require different opt-ins for the package to be used. For more information, see [Explicit C-interoperability stability guarantees](#explicit-c-interoperability-stability-guarantees).
 * We marked the [`Worker`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-worker/) class and its related APIs as obsolete.
@@ -1046,7 +1048,7 @@ We won’t list all of the results of the review here but here are some highligh
 
 #### Explicit C-interoperability stability guarantees
 
-To keep our API quality high, we decided to make [`kotlinx.cinterop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/)
+To maintain the high quality of our API, we decided to make [`kotlinx.cinterop`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/)
 Experimental. Although `kotlinx.cinterop` has been thoroughly tried and tested, there is still room for improvement before
 we are satisfied enough to make it Stable. We recommend that you use this API for interoperability but that you try to 
 confine its use to specific areas in your projects. This will make your migration easier once we begin evolving this API
@@ -1074,7 +1076,7 @@ Prior to 1.8.20, the [`kotlin.jvm.Volatile` annotation](https://kotlinlang.org/a
 was available in the common standard library. However, this annotation was only effective on the JVM. If you used it on 
 other platforms, it was ignored, which leads to errors.
 
-In 1.8.20, we introduced an experimental common annotation, `kotlin.concurrent.Volatile`, that you could preview in both
+In 1.8.20, we introduced an experimental common annotation, `kotlin.concurrent.Volatile`, which you could preview in both
 the JVM and Kotlin/Native.
 
 In 1.9.0, `kotlin.concurrent.Volatile` is Stable. If you use `kotlin.jvm.Volatile` in your multiplatform projects, we 
@@ -1091,7 +1093,7 @@ As of Kotlin 1.8.0, the standard library is compiled with JVM target 1.8. So in 
 retrieve a group’s contents by its name for a regular expression match. This is useful when you want to access the results
 of regular expression matches belonging to a particular capture group.
 
-Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`. Then you
+Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`. You
 can use these group names to access the matched values:
 
 ```kotlin
@@ -1131,7 +1133,7 @@ with the `copyToRecursively()` function:
 ### New HexFormat class to format and parse hexadecimals
 
 > The new `HexFormat` class and its related extension functions are [Experimental](components-stability.md#stability-levels-explained),
-> and to use them, opt in with `@OptIn(ExperimentalStdlibApi::class)` or the compiler argument
+> and to use them, you can opt in with `@OptIn(ExperimentalStdlibApi::class)` or the compiler argument
 > `-opt-in=kotlin.ExperimentalStdlibApi`.
 >
 {type="warning"}
@@ -1201,16 +1203,17 @@ println("0x3a".hexToInt(HexFormat { number.prefix = "0x" })) // "58"
 
 The Kotlin documentation has received some notable changes:
 * The [tour of Kotlin](kotlin-tour-welcome.md) – learn the fundamentals of the Kotlin programming language with chapters including both theory and practice.
-* [Time](time.md) – learn how to use the new time API in the standard library.
+* [Android source set layout](multiplatform-android-layout.md) – learn about the new Android source set layout.
 * [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md) – learn about the incompatible changes you might encounter while developing projects with Kotlin Multiplatform.
 * [Kotlin Wasm](wasm-overview.md) – learn about Kotlin/Wasm and how you can use it in your Kotlin Multiplatform projects.
+* [Add dependencies on Kotlin libraries to Kotlin/Wasm project](wasm-libraries.md) – learn about the supported Kotlin libraries for Kotlin/Wasm.
 
 ## Install Kotlin 1.9.0
 
 ### Check the IDE version
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 2022.3.3 and 2023.1.1 automatically suggest updating the Kotlin
-plugin to version 1.9.0. IntelliJ IDEA 2023.2 will have the built-in Kotlin plugin 1.9.0.
+plugin to version 1.9.0. IntelliJ IDEA 2023.2 will include the built-in Kotlin 1.9.0 plugin.
 
 Android Studio Giraffe (223) and Hedgehog (231) will support Kotlin 1.9.0 in their upcoming releases.
 
@@ -1218,7 +1221,7 @@ The new command-line compiler is available for download on the [GitHub release p
 
 ### Configure Gradle settings
 
-To download Kotlin artifacts and dependencies properly, update your `settings.gradle(.kts)` file to use the Maven Central repository:
+To download Kotlin artifacts and dependencies, update your `settings.gradle(.kts)` file to use the Maven Central repository:
 
 ```kotlin
 pluginManagement {
