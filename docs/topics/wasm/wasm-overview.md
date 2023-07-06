@@ -48,7 +48,7 @@ With Compose Multiplatform for Web, you can run your code in the browser with al
 * [Get started with Kotlin/Wasm in IntelliJ IDEA](wasm-get-started.md)
 * Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples)
 
-## Add dependencies on Kotlin libraries
+## Libraries support
 
 You can use the Kotlin standard library (`stdlib`) and test library ([`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/))
 in Kotlin/Wasm out of the box. The version of these libraries is the same as the version of the `kotlin-multiplatform` plugin.
