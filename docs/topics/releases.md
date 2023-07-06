@@ -62,8 +62,8 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p>A feature release with Kotlin K2 compiler updates, new enum class values function, new operator for open-ended ranges, preview of Gradle configuration cache in Kotlin Multiplatform, changes for Android target support in Kotlin Multiplatform, preview of custom memory allocator in Kotlin/Native.</p>
             <p>Learn more in:</p>
             <list>
-                <li><a href="whatsnew190.md" target="_blank">What's new in Kotlin 1.9.0</a></li>
-                <li><a href="TBD" target="_blank">What's new in Kotlin YouTube video</a></li>
+                <li><a href="whatsnew19.md" target="_blank">What's new in Kotlin 1.9.0</a></li>
+                <li><a href="https://www.youtube.com/embed/fvwTZc-dxsM" target="_blank">What's new in Kotlin YouTube video</a></li>
             </list>
         </td>
     </tr>
