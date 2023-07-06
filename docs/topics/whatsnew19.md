@@ -9,10 +9,10 @@ The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta
 * [Stable ..< operator for open-ended ranges](#stable-operator-for-open-ended-ranges)
 * [New common function to get regex capture group by name](#new-common-function-to-get-regex-capture-group-by-name)
 * [New path utility to create parent directories](#new-path-utility-to-create-parent-directories)
-* [Preview of Gradle configuration cache in Kotlin Multiplatform](#preview-of-gradle-configuration-cache-in-kotlin-multiplatform)
-* [Changes to Android target support in Kotlin Multiplatform](#changes-to-android-target-support-in-kotlin-multiplatform)
+* [Preview of Gradle configuration cache in Kotlin Multiplatform](#preview-of-gradle-configuration-cache)
+* [Changes to Android target support in Kotlin Multiplatform](#changes-to-android-target-support)
 * [Preview of custom memory allocator in Kotlin/Native](#preview-of-custom-memory-allocator)
-* [Library linkage in Kotlin/Native](#library-linkage-in-kotlinnative)
+* [Library linkage in Kotlin/Native](#library-linkage-in-kotlin-native)
 * [Size-related optimizations in Kotlin/Wasm](#size-related-optimizations)
 
 You can also find a short overview of the updates in this video:
@@ -496,7 +496,7 @@ directories, which was confusing in multiple ways. The new layout has a number o
 * Clear naming schema for Gradle configurations. The schema is now more consistent and predictable in both `KotlinSourceSets` and `AndroidSourceSets`.
 
 The new layout requires the Android Gradle plugin version 7.0 or later and is supported in Android Studio 2022.3 and later. See our
-[migration guide](multiplatform-android-migration-guide.md) to make the necessary changes in your `build.gradle(.kts)` file.
+[migration guide](multiplatform-android-layout.md) to make the necessary changes in your `build.gradle(.kts)` file.
 
 ### Preview of Gradle configuration cache
 
@@ -617,7 +617,7 @@ deprecated. We encourage you to use the `kotlin-multiplatform` Gradle plugin wit
 The functionality of the Kotlin/JS Gradle plugin essentially duplicated the `kotlin-multiplatform` plugin and shared the
 same implementation under the hood. This overlap created confusion and increased maintenance load on the Kotlin team.
 
-Refer to our [Compatibility guide for Kotlin Multiplatform](multiplatform-migration-guide.md#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) 
+Refer to our [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) 
 for migration instructions. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ### Deprecation of external enum
@@ -699,7 +699,7 @@ Kotlin 1.9.0 comes with new Gradle compiler options and a lot more:
 * [New Gradle compiler options](#new-compiler-options)
 * [Project-level compiler options for Kotlin/JVM](#project-level-compiler-options-for-kotlin-jvm)
 * [Compiler option for Kotlin/Native module name](#compiler-option-for-kotlin-native-module-name)
-* [Separate compiler plugins for offical Kotlin libraries](#separate-compiler-plugins-for-offical-kotlin-libraries)
+* [Separate compiler plugins for official Kotlin libraries](#separate-compiler-plugins-for-official-kotlin-libraries)
 * [Incremented the minimum supported version](#incremented-minimum-supported-version)
 * [kapt doesn’t cause eager task creation](#kapt-doesn-t-cause-eager-task-creation-in-gradle)
 * [Programmatic configuration of the JVM target validation mode](#programmatic-configuration-of-the-jvm-target-validation-mode)
@@ -856,7 +856,7 @@ tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>("compileKotlin")
 
 Kotlin 1.9.0 has some great improvements for the standard library:
 * The [`..<` operator](#stable-operator-for-open-ended-ranges) and [time API](#stable-time-api) are Stable.
-* [The Kotlin/Native standard library has been thoroughly reviewed and updated](#the-kotlin-native-standard-librarys-journey-towards-stabilization)
+* [The Kotlin/Native standard library has been thoroughly reviewed and updated](#the-kotlin-native-standard-library-s-journey-towards-stabilization)
 * [The `@Volatile` annotation can be used on more platforms](#stable-volatile-annotation)
 * [There’s a **common** function to get a regex capture group by name](#new-common-function-to-get-regex-capture-group-by-name)
 * [The `HexFormat` class is introduced to format and parse hexadecimals](#new-hexformat-class-to-format-and-parse-hexadecimals)
