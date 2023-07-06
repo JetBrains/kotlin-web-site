@@ -1,6 +1,6 @@
 [//]: # (title: Android source set layout)
 
-The new Android source set layout was introduced in Kotlin 1.8.0 and became default in 1.9.0. Follow our guide to
+The new Android source set layout was introduced in Kotlin 1.8.0 and became default in 1.9.0. Follow this guide to
 understand the key differences between the deprecated and the new layout and migrate your projects.
 
 > You don't need to implement all the suggestions. Only those that are applicable to your particular projects. 
@@ -9,8 +9,8 @@ understand the key differences between the deprecated and the new layout and mig
 
 ## Check the compatibility
 
-Check your version of the Android Gradle plugin and upgrade if necessary.
 The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later.
+Check your version of the Android Gradle plugin and upgrade if necessary.
 
 ## Rename Kotlin source sets
 
@@ -38,13 +38,13 @@ If applicable, move your source files to the new directories, following this pat
 
 `{AndroidSourceSet.name}` maps to `{SourceDirectories included}` as follows:
 
-|             | Previous source set layout                                 | New source set layout                                                                          |
-|-------------|------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| main        | src/androidMain/kotlin, src/main/kotlin, src/main/java     | src/androidMain/kotlin, src/main/kotlin, src/main/java                                         |
-| test        | src/androidTest/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                              |
-| androidTest | src/android<b>Android</b>Test/kotlin, src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin, src/androidTest/java, <b>src/androidTest/kotlin</b> |
+|             | Previous source set layout                                    | New source set layout                                                                             |
+|-------------|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| main        | src/androidMain/kotlin<br/>src/main/kotlin<br/>src/main/java  | src/androidMain/kotlin<br/>src/main/kotlin<br/>src/main/java                                      |
+| test        | src/androidTest/kotlin<br/>src/test/kotlin<br/>src/test/java  | src/android<b>Unit</b>Test/kotlin<br/>src/test/kotlin<br/>src/test/java                           |
+| androidTest | src/android<b>Android</b>Test/kotlin<br/>src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin<br/>src/androidTest/java, <b>src/androidTest/kotlin</b> |
 
-## Move the `AndroidManifest.xml` file
+## Move the AndroidManifest.xml file
 
 If you have the `AndroidManifest.xml` file in your project, move it to the new directory, following this pattern:
 
@@ -64,7 +64,7 @@ If you have the `AndroidManifest.xml` file in your project, move it to the new d
 The new Android source set layout changes the relation between Android-instrumented tests (renamed to `androidInstrumentedTest` in the new layout)
 and common tests.
 
-Previously, there was a default `dependsOn` relation between `androidAndroidTest` and `commonTest`. In practice, it meant the following:
+Previously, there was a default `dependsOn` relation between `androidAndroidTest` and `commonTest`. It meant the following:
 
 * The code in `commonTest` was available in `androidAndroidTest`.
 * `expect` declarations in `commonTest` had to have corresponding `actual` implementations in `androidAndroidTest`.
