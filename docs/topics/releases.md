@@ -59,7 +59,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A feature release with Kotlin K2 compiler updates, new enum class values function, new operator for open-ended ranges, preview of Gradle configuration cache in Kotlin Multiplatform, changes for Android target support in Kotlin Multiplatform, preview of custom memory allocator in Kotlin/Native.</p>
+            <p>A feature release with Kotlin K2 compiler updates, new enum class values function, new operator for open-ended ranges, preview of Gradle configuration cache in Kotlin Multiplatform, changes to Android target support in Kotlin Multiplatform, preview of custom memory allocator in Kotlin/Native.</p>
             <p>Learn more in:</p>
             <list>
                 <li><a href="whatsnew19.md" target="_blank">What's new in Kotlin 1.9.0</a></li>
