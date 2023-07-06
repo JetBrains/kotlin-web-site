@@ -152,9 +152,9 @@ a modern and performant replacement for the synthetic `values()` function. In 1.
 
 ```kotlin
 enum class Color(val colorName: String, val rgb: String) {
-   RED("Red", "#FF0000"),
-   ORANGE("Orange", "#FF7F00"),
-   YELLOW("Yellow", "#FFFF00")
+    RED("Red", "#FF0000"),
+    ORANGE("Orange", "#FF7F00"),
+    YELLOW("Yellow", "#FFFF00")
 }
 
 fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
@@ -339,13 +339,13 @@ object MyObject {
     init {
         println("side effect!")
     }
-    
+
     const val y = 1
 }
 
 fun main() {
-    println(MyObject.y)	// no initialization at first
-    val x = MyObject	// initialization occurs
+    println(MyObject.y) // No initialization at first
+    val x = MyObject    // Initialization occurs
     println(x.y)
 }
 ```
@@ -422,7 +422,7 @@ kotlin {
                 // To raise linkage warnings to errors:
                 freeCompilerArgs.add("-Xpartial-linkage-loglevel=ERROR")
 
-                //  To disable the feature completely:
+                // To disable the feature completely:
                 freeCompilerArgs.add("-Xpartial-linkage=disable")
             }
         }
@@ -442,13 +442,13 @@ In this code sample an implicit integer conversion allows `options = 0` even tho
 has unsigned type `UInt` and `0` is signed.
 
 ```kotlin
-   val today = NSDate()
-    val tomorrow = NSCalendar.currentCalendar.dateByAddingUnit(
-        unit = NSCalendarUnitDay,
-        value = 1,
-        toDate = today,
-        options = 0
-    )
+val today = NSDate()
+val tomorrow = NSCalendar.currentCalendar.dateByAddingUnit(
+    unit = NSCalendarUnitDay,
+    value = 1,
+    toDate = today,
+    options = 0
+)
 ```
 {validate="false"}
 
@@ -457,11 +457,11 @@ compiler option.
 
 You can configure this in your Gradle `build.gradle.kts` file:
 ```kotlin
-   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>().configureEach {
-        compilerOptions.freeCompilerArgs.addAll(
-     "-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion"
-        )
-    }
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>().configureEach {
+    compilerOptions.freeCompilerArgs.addAll(
+        "-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion"
+    )
+}
 ```
 {validate="false"}
 
@@ -571,29 +571,24 @@ import kotlin.time.*
 import kotlin.time.measureTime
 
 fun main() {
-   println("Hello from Kotlin/Wasm!")
-
-
-   computeAck(3, 10)
+    println("Hello from Kotlin/Wasm!")
+    computeAck(3, 10)
 }
-
 
 tailrec fun ack(m: Int, n: Int): Int = when {
-   m == 0 -> n + 1
-   n == 0 -> ack(m - 1, 1)
-   else -> ack(m - 1, ack(m, n - 1))
+    m == 0 -> n + 1
+    n == 0 -> ack(m - 1, 1)
+    else -> ack(m - 1, ack(m, n - 1))
 }
 
-
-@OptIn(ExperimentalTime::class)
 fun computeAck(m: Int, n: Int) {
-   var res = 0
-   val t = measureTime {
-       res = ack(m, n)
-   }
-   println()
-   println("ack($m, $n) = ${res}")
-   println("duration: ${t.inWholeNanoseconds / 1e6} ms")
+    var res = 0
+    val t = measureTime {
+        res = ack(m, n)
+    }
+    println()
+    println("ack($m, $n) = ${res}")
+    println("duration: ${t.inWholeNanoseconds / 1e6} ms")
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-1-9-0-kotlin-wasm-playground"}
@@ -658,21 +653,18 @@ To enable these features, update your `build.gradle.kts` file accordingly:
 
 ```kotlin
 // build.gradle.kts
-
-
-kotlin {
-       js(IR) {
-           useEsModules() // Enables ES6 modules
-           browser()
-       }
-   }
-
+kotlin { 
+    js(IR) { 
+        useEsModules() // Enables ES6 modules
+        browser()
+        }
+    }
 
 // Enables ES6 classes generation
 tasks.withType<KotlinJsCompile>().configureEach {
-   kotlinOptions {
-       useEsClasses = true
-   }
+    kotlinOptions {
+        useEsClasses = true
+    }
 }
 ```
 {validate="false"}
@@ -705,7 +697,6 @@ Kotlin 1.9.0 comes with new Gradle compiler options and a lot more:
 
 * [Removed classpath property](#removed-classpath-property)
 * [New Gradle compiler options](#new-compiler-options)
-
 * [Project-level compiler options for Kotlin/JVM](#project-level-compiler-options-for-kotlin-jvm)
 * [Compiler option for Kotlin/Native module name](#compiler-option-for-kotlin-native-module-name)
 * [Separate compiler plugins for offical Kotlin libraries](#separate-compiler-plugins-for-offical-kotlin-libraries)
@@ -833,13 +824,13 @@ the Kotlin compilation task. This behavior has been fixed in Kotlin 1.9.0. If yo
 >
 > For example, if your script has the following configuration for `KotlinJvmCompile` task:
 > ```kotlin
-> tasks.named<KotlinJvmCompile>("compileKotlin") { // your custom configuration }
+> tasks.named<KotlinJvmCompile>("compileKotlin") { // Your custom configuration }
 > ```
 > {validate="false"}
 >
 > Then you need to make sure that the same modification is included as part of the `KaptGenerateStubs` task:
 > ```kotlin
-> tasks.named<KaptGenerateStubs>("kaptGenerateStubs") { // your custom configuration }
+> tasks.named<KaptGenerateStubs>("kaptGenerateStubs") { // Your custom configuration }
 >```
 > {validate="false"}
 > 
@@ -856,7 +847,7 @@ You can now also configure it on the task level in your `build.gradle.kts` file:
 
 ```kotlin
 tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>("compileKotlin") {
-  jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
+    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
 ```
 {validate="false"}
@@ -883,12 +874,12 @@ Here is an example using the `until` function:
 
 ```kotlin
 fun main() {
-   for (number in 2 until 10) {
-       if (number % 2 == 0) {
-           print("$number ")
-       }
-   }
-   // 2 4 6 8
+    for (number in 2 until 10) {
+        if (number % 2 == 0) {
+            print("$number ")
+        }
+    }
+    // 2 4 6 8
 }
 ```
 {validate="false"}
@@ -897,12 +888,12 @@ And here is an example using the new `..<` operator:
 
 ```kotlin
 fun main() {
-   for (number in 2..<10) {
-       if (number % 2 == 0) {
-           print("$number ")
-       }
-   }
-   // 2 4 6 8
+    for (number in 2..<10) {
+        if (number % 2 == 0) {
+            print("$number ")
+        }
+    }
+    // 2 4 6 8
 }
 ```
 {validate="false"}
@@ -960,26 +951,24 @@ to create a [`TimeMark`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.tim
 `TimeMarks` from the same time source, use the subtraction operator (`-`):
 
 ```kotlin
-import kotlin.time.*
 fun main() {
 //sampleStart
-   val timeSource = TimeSource.Monotonic
-   val mark1 = timeSource.markNow()
-   Thread.sleep(500) // Sleep 0.5 seconds.
-   val mark2 = timeSource.markNow()
+    val timeSource = TimeSource.Monotonic
+    val mark1 = timeSource.markNow()
+    Thread.sleep(500) // Sleep 0.5 seconds.
+    val mark2 = timeSource.markNow()
 
-   repeat(4) { n ->
-       val mark3 = timeSource.markNow()
-       val elapsed1 = mark3 - mark1
-       val elapsed2 = mark3 - mark2
+    repeat(4) { n ->
+        val mark3 = timeSource.markNow()
+        val elapsed1 = mark3 - mark1
+        val elapsed2 = mark3 - mark2
 
-       println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
-   }
-   // It’s also possible to compare time marks with each other.
-   println(mark2 > mark1) // This is true, as mark2 was captured later than mark1.
+        println("Measurement 1.${n + 1}: elapsed1=$elapsed1, elapsed2=$elapsed2, diff=${elapsed1 - elapsed2}")
+    }
+    // It’s also possible to compare time marks with each other.
+    println(mark2 > mark1) // This is true, as mark2 was captured later than mark1.
 //sampleEnd
 }
-
 ```
 {validate="false"}
 
@@ -993,19 +982,19 @@ import kotlin.time.Duration.Companion.seconds
 
 fun main() {
 //sampleStart
-   val timeSource = TimeSource.Monotonic
-   val mark1 = timeSource.markNow()
-   val fiveSeconds: Duration = 5.seconds
-   val mark2 = mark1 + fiveSeconds
+    val timeSource = TimeSource.Monotonic
+    val mark1 = timeSource.markNow()
+    val fiveSeconds: Duration = 5.seconds
+    val mark2 = mark1 + fiveSeconds
 
-   // It hasn't been 5 seconds yet
-   println(mark2.hasPassedNow())
-   // false
-  
-   // Wait six seconds
-   Thread.sleep(6000)
-   println(mark2.hasPassedNow())
-   // true
+    // It hasn't been 5 seconds yet
+    println(mark2.hasPassedNow())
+    // false
+
+    // Wait six seconds
+    Thread.sleep(6000)
+    println(mark2.hasPassedNow())
+    // true
 
 //sampleEnd
 }
@@ -1098,17 +1087,16 @@ can use these group names to access the matched values:
 
 ```kotlin
 fun main() {
-   val regex = """\b(?<city>[A-Za-z\s]+),\s(?<state>[A-Z]{2}):\s(?<areaCode>[0-9]{3})\b""".toRegex()
-   val input = "Coordinates: Austin, TX: 123"
-
-
-   val match = regex.find(input)!!
-   println(match.groups["city"]?.value) 
-   // Austin
-   println(match.groups["state"]?.value)
-   // TX
-   println(match.groups["areaCode"]?.value)
-   // 123
+    val regex = """\b(?<city>[A-Za-z\s]+),\s(?<state>[A-Z]{2}):\s(?<areaCode>[0-9]{3})\b""".toRegex()
+    val input = "Coordinates: Austin, TX: 123"
+    
+    val match = regex.find(input)!!
+    println(match.groups["city"]?.value)
+    // Austin
+    println(match.groups["state"]?.value)
+    // TX
+    println(match.groups["areaCode"]?.value)
+    // 123
 }
 ```
 {validate="false"}
@@ -1123,9 +1111,9 @@ directories already exist. If they do, it does nothing. However, if they do not,
 with the `copyToRecursively()` function:
 
  ```kotlin
- sourcePath.copyToRecursively(
-     destinationPath.createParentDirectories(),
-     followLinks = false
+sourcePath.copyToRecursively(
+    destinationPath.createParentDirectories(), 
+    followLinks = false
  )
  ```
 {validate="false"}
@@ -1166,10 +1154,10 @@ If you are working with `ByteArrays` you have the following options configurable
 For example:
 
 ```kotlin
-val macAddress = val macAddress = "001b638445e6".hexToByteArray()
+val macAddress = "001b638445e6".hexToByteArray()
 
 // Use HexFormat{} builder to separate the hexadecimal string by colons
-println(macAddress.toHexString(HexFormat { bytes.byteSeparator = ":" })) 
+println(macAddress.toHexString(HexFormat { bytes.byteSeparator = ":" }))
 // "00:1b:63:84:45:e6"
 
 // Use HexFormat{} builder to:
@@ -1178,7 +1166,7 @@ println(macAddress.toHexString(HexFormat { bytes.byteSeparator = ":" }))
 // * Separate by periods
 val threeGroupFormat = HexFormat { upperCase = true; bytes.bytesPerGroup = 2; bytes.groupSeparator = "." }
 
-println(macAddress.toHexString(threeGroupFormat)) 
+println(macAddress.toHexString(threeGroupFormat))
 // "001B.6384.45E6"
 ```
 {validate="false"}
