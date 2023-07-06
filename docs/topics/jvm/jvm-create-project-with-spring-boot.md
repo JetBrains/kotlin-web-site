@@ -90,7 +90,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson extensions for Kotlin for working with JSON
     implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin reflection library, required for working with Spring
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8") // Kotlin standard library
     runtimeOnly("com.h2database:h2") 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -118,9 +117,8 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
    * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
-   * `org.jetbrains.kotlin:kotlin-stdlib-jdk8` – Kotlin standard library
 
-3. After the dependencies section, you can see the `KotlinComiple` task configuration block.
+3. After the dependencies section, you can see the `KotlinCompile` task configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Explore the generated Spring Boot application
