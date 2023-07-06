@@ -34,7 +34,7 @@
         <custom-groups>
             <group type="cards" display="wide">
                 <title>What's new</title>
-                <a href="whatsnew1820.md" description="Latest features: Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib, new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend">What's New in Kotlin 1.8.20</a>
+                <a href="whatsnew19.md" description="Latest features: Kotlin K2 for JVM is in Beta, new language features, preview of Gradle configuration cache in Kotlin Multiplatform, changes to Android target support in Kotlin Multiplatform, preview of custom memory allocator in Kotlin/Native.">What's New in Kotlin 1.9.0</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
             <group type="cards">
