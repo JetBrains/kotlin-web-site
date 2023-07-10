@@ -120,7 +120,7 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 </tab>
 </tabs>
 
-Note that with the Kotlin Gradle DSL, you should get the task from the project's `tasks` first.
+Note that with the Gradle Kotlin DSL, you should get the task from the project's `tasks` first.
 
 Use the `Kotlin2JsCompile` and `KotlinCompileCommon` types for JS and common targets, respectively.
 
