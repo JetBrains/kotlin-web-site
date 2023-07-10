@@ -54,22 +54,6 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
     </td>
   </tr>
   <tr>
-    <td>
-      <strong><a href="https://github.com/KaterinaPetrova/kmm-ktor-sample">kmm-ktor-sample</a></strong>
-    </td>
-    <td>Networking</td>
-    <td>Ktor, kotlinx.serialization, Napier</td>
-    <td>XML, SwiftUI</td>
-    <td>Xcode build phases</td>
-    <td>-</td>
-    <td>-</td>
-    <td>
-      <list>
-        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
-      </list>
-    </td>
-  </tr>
-  <tr>
     <td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
     <td>Models, Networking, Presentation, Navigation and UI </td>
     <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
@@ -82,22 +66,6 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
         <li>99% of the code is shared</li>
         <li>MVI architectural pattern</li>
         <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
-      </list>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
-    </td>
-    <td>Algorithms</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>✅</td>
-    <td>-</td>
-    <td>
-      <list>
-        <li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li>
       </list>
     </td>
   </tr>
