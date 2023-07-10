@@ -145,9 +145,10 @@ If you build your module with Gradle, you can add arguments like this:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin = tasks.named<KotlinCompilationTask<*>>("compileKotlin")
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
+}
 
-compileKotlin.compilerOptions.freeCompilerArgs.add("-opt-in=org.mylibrary.OptInAnnotation")
 ```
 
 </tab>

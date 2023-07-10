@@ -41,11 +41,57 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 If a Kotlin file contains a single class or interface (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the `.kt` extension appended. It applies to all types of classes and interfaces.
 If a file contains multiple classes, or only top-level declarations, choose a name describing what the file contains, and name the file accordingly.
-Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
+Use [an upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
 for example, `ProcessDeclarations.kt`.
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as `Util` in file names.
+
+#### Multiplatform projects
+
+In multiplatform projects, files with top-level declarations in platform-specific source sets should have a suffix
+associated with the name of the source set. For example:
+
+* **jvm**Main/kotlin/Platform.**jvm**.kt
+* **android**Main/kotlin/Platform.**android**.kt
+* **ios**Main/kotlin/Platform.**ios**.kt
+
+As for the common source set, files with top-level declarations should not have a suffix. For example, `commonMain/kotlin/Platform.kt`.
+
+##### Technical details {initial-collapse-state="collapsed"}
+
+We recommend following this file naming scheme in multiplatform projects due to JVM limitations: it doesn't allow
+top-level members (functions, properties).
+
+To work around this, the Kotlin JVM compiler creates wrapper classes (so-called "file facades") that contain top-level
+member declarations. File facades have an internal name derived from the file name.
+
+In turn, JVM doesn't allow several classes with the same fully qualified name (FQN). This might lead to situations when
+a Kotlin project cannot be compiled to JVM:
+
+```none
+root
+|- commonMain/kotlin/myPackage/Platform.kt // contains 'fun count() { }'
+|- jvmMain/kotlin/myPackage/Platform.kt // contains 'fun multiply() { }'
+```
+
+Here both `Platform.kt` files are in the same package, so the Kotlin JVM compiler produces two file facades, both of which
+have FQN `myPackage.PlatformKt`. This produces the "Duplicate JVM classes" error.
+
+The simplest way to avoid that is renaming one of the files according to the guideline above. This naming scheme helps
+avoid clashes while retaining code readability.
+
+> There are two cases when these recommendations may seem redundant, but we still advise to follow them:
+> 
+> * Non-JVM platforms don't have issues with duplicating file facades. However, this naming scheme can help you keep
+> file naming consistent.
+> * On JVM, if source files don't have top-level declarations, the file facades aren't generated, and you won't face
+> naming clashes.
+> 
+>   However, this naming scheme can help you avoid situations when a simple refactoring
+> or an addition could include a top-level function and result in the same "Duplicate JVM classes" error.
+> 
+{type="tip"}
 
 ### Source file organization
 
@@ -89,9 +135,9 @@ Package and class naming rules in Kotlin are quite simple:
 
 * Names of packages are always lowercase and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either just concatenate them together
-or use camel case (`org.example.myProject`).
+or use the camel case (`org.example.myProject`).
 
-* Names of classes and objects start with an uppercase letter and use camel case:
+* Names of classes and objects start with an uppercase letter and use the camel case:
 
 ```kotlin
 open class DeclarationProcessor { /*...*/ }
@@ -101,7 +147,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lowercase letter and use camel case and no underscores:
+Names of functions, properties and local variables start with a lowercase letter and use the camel case and no underscores:
 
 ```kotlin
 fun processDeclarations() { /*...*/ }
@@ -192,7 +238,7 @@ capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStre
 
 Use four spaces for indentation. Do not use tabs.
 
-For curly braces, put the opening brace in the end of the line where the construct begins, and the closing brace
+For curly braces, put the opening brace at the end of the line where the construct begins, and the closing brace
 on a separate line aligned horizontally with the opening construct.
 
 ```kotlin
@@ -276,7 +322,7 @@ class Person(id: Int, name: String)
 ```
 
 Classes with longer headers should be formatted so that each primary constructor parameter is in a separate line with indentation.
-Also, the closing parenthesis should be on a new line. If you use inheritance, the superclass constructor call or 
+Also, the closing parenthesis should be on a new line. If you use inheritance, the superclass constructor call, or 
 the list of implemented interfaces should be located on the same line as the parenthesis:
 
 ```kotlin
@@ -454,7 +500,7 @@ private val defaultCharset: Charset? =
 ### Control flow statements
 
 If the condition of an `if` or `when` statement is multiline, always use curly braces around the body of the statement.
-Indent each subsequent line of the condition by four spaces relative to statement begin. 
+Indent each subsequent line of the condition by four spaces relative to the statement start. 
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
 ```kotlin
@@ -533,12 +579,12 @@ val anchor = owner
     .dropWhile { it is PsiComment || it is PsiWhiteSpace }
 ```
 
-The first call in the chain usually should have a line break before it, but it's OK to omit it if the code makes more sense that way.
+The first call in the chain should usually have a line break before it, but it's OK to omit it if the code makes more sense that way.
 
 ### Lambdas
 
 In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
-from the body. If a call takes a single lambda, pass it outside of parentheses whenever possible.
+from the body. If a call takes a single lambda, pass it outside parentheses whenever possible.
 
 ```kotlin
 list.filter { it > 10 }
@@ -575,7 +621,7 @@ foo {
 
 ### Trailing commas
 
-A trailing comma is a comma symbol after the last item of a series of elements:
+A trailing comma is a comma symbol after the last item in a series of elements:
 
 ```kotlin
 class Person(
@@ -843,7 +889,7 @@ mutated. When using factory functions to create collection instances, always use
 collection types when possible:
 
 ```kotlin
-// Bad: use of mutable collection type for value which will not be mutated
+// Bad: use of a mutable collection type for value which will not be mutated
 fun validateValue(actualValue: String, allowedValues: HashSet<String>) { ... }
 
 // Good: immutable collection type used instead
@@ -967,11 +1013,11 @@ of the operations being performed in each case and keep performance consideratio
 
 ### Loops on ranges
 
-Use the `until` function to loop over an open range:
+Use the `..<` operator to loop over an open-ended range:
 
 ```kotlin
 for (i in 0..n - 1) { /*...*/ }  // bad
-for (i in 0 until n) { /*...*/ }  // good
+for (i in 0..<n) { /*...*/ }  // good
 ```
 
 ### Strings
@@ -1016,7 +1062,7 @@ Learn the difference between [Java and Kotlin multiline strings](java-to-kotlin-
 
 ### Functions vs properties
 
-In some cases functions with no arguments might be interchangeable with read-only properties. 
+In some cases, functions with no arguments might be interchangeable with read-only properties. 
 Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
 
 Prefer a property over a function when the underlying algorithm:
@@ -1041,7 +1087,7 @@ Do not declare a method as `infix` if it mutates the receiver object.
 
 ### Factory functions
 
-If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name
+If you declare a factory function for a class, avoid giving it the same name as the class itself. Prefer using a distinct name,
 making it clear why the behavior of the factory function is special. Only if there is really no special semantics,
 you can use the same name as the class.
 
@@ -1094,7 +1140,7 @@ When writing libraries, it's recommended to follow an additional set of rules to
  * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)
  * Always explicitly specify function return types and property types (to avoid accidentally changing the return type
    when the implementation changes)
- * Provide [KDoc](kotlin-doc.md) comments for all public members, with the exception of overrides that do not require any new documentation
+ * Provide [KDoc](kotlin-doc.md) comments for all public members, except for overrides that do not require any new documentation
    (to support generating documentation for the library)
 
 Learn more about best practices and ideas to consider when writing an API for your library in [library creators' guidelines](jvm-api-guidelines-introduction.md).

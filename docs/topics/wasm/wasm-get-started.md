@@ -113,8 +113,8 @@ Run the application with the `--js-flags=--experimental-wasm-gc` command line ar
    import kotlinx.dom.appendText
    
    fun main() {
-      println("Hello, ${greet()}")
-      document.body!!.appendText("Hello, you're using Kotlin/Wasm!")
+       println("Hello, ${greet()}")
+       document.body!!.appendText("Hello, you're using Kotlin/Wasm!")
    }
    
    fun greet() = "world"

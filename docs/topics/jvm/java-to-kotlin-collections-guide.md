@@ -201,7 +201,7 @@ Read more about [collection types](collections-overview.md#collection-types) her
 
 ## Ranges and progressions
 
-In Kotlin, you can create intervals using [ranges](ranges.md#range). For example, `Version(1, 11)..Version(1, 30)` includes all of the versions from `1.11` to `1.30`. 
+In Kotlin, you can create intervals using [ranges](ranges.md). For example, `Version(1, 11)..Version(1, 30)` includes all of the versions from `1.11` to `1.30`. 
 You can check that your version is in the range by using the `in` operator: `Version(0, 9) in versionRange`.
 
 In Java, you need to manually check whether a `Version` fits both bounds:

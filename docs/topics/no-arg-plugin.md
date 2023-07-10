@@ -9,19 +9,7 @@ from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [b
 
 ## Gradle
 
-Add the plugin and specify the list of annotations that must lead to generating a no-arg constructor for the annotated classes.
-
-```groovy
-buildscript {
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
-    }
-}
-
-apply plugin: "kotlin-noarg"
-```
-
-Or using the Gradle plugins DSL:
+Add the plugin using Gradle's plugins DSL:
 
 ```groovy
 plugins {
@@ -29,7 +17,7 @@ plugins {
 }
 ```
 
-Then specify the list of no-arg annotations:
+Then specify the list of no-arg annotations that must lead to generating a no-arg constructor for the annotated classes:
 
 ```groovy
 noArg {
@@ -84,19 +72,7 @@ As with the `kotlin-spring` plugin wrapped on top of `all-open`, `kotlin-jpa` is
 and [`@MappedSuperclass`](https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html) 
 *no-arg* annotations automatically.
 
-That's how you add the plugin in Gradle: 
-
-``` groovy
-buildscript {
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlin_version"
-    }
-}
-
-apply plugin: "kotlin-jpa"
-```
-
-Or using the Gradle plugins DSL:
+Add the plugin using the Gradle plugins DSL:
 
 ```groovy
 plugins {

@@ -6,6 +6,11 @@
 }
 
 @media (max-width: 768px) {
+  .teach-cta-block-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
   .teach-cta-block-button {
     font-size: 16px;
     padding: 8px 24px;

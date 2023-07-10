@@ -34,17 +34,18 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-<!-- _No preview versions are currently available._ -->
+ _No preview versions are currently available._ 
 
+<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>1.9.0-Beta</strong>
-            <p>Released: <strong>May 24, 2023</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-Beta" target="_blank">Release on GitHub</a></p>
+        <td><strong>1.9.0-RC</strong>
+            <p>Released: <strong>June 20, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
@@ -58,7 +59,8 @@ check [our instructions on how to configure your build to support this version](
                  <li>Libraries: Stable standard library functions for open-ended ranges, new common function to get regex capture group by name, new <code>HexFormat</code> to format and parse hexadecimals, Stable time API, new path utility to create parent directories, reviewed and stabilized Kotlin/Native standard library</li>
                  <li>Gradle: build scans show whether K1 or K2 compiler is used, new Gradle property <code>kotlin.experimental.tryK2</code> to try the K2 compiler, new project-level compiler options for Kotlin/JVM plugin, removed <code>KotlinCompile</code> task's <code>classpath</code> property, exposed <code>jvmTargetValidationMode</code> property in <code>KotlinCompile</code> task, configurable standalone mode for Kotlin/Native iOS simulator tests, removed support for <code>org.gradle.api.internal.HasConvention</code> Gradle element, added <code>optIn</code> and <code>progressiveMode</code> compiler options, compiler plugins are published separately and Gradle plugins add them as compiler arguments, kapt tasks don’t trigger eager task creation, minimum supported Android Gradle plugin version is 4.2.2</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-Beta">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.0-Beta</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.0-RC</a>.</p>
         </td>
     </tr>
 </table>
+-->

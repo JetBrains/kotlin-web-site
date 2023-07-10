@@ -207,21 +207,20 @@ convertAnyAndChars(10, "Hello") // No conversion
 
 See how Kotlin types are mapped to JavaScript ones:
 
-| Kotlin | JavaScript | Comments |
-| -- | -- | -- |
-| `Byte`, `Short`, `Int`, `Char` | `Number` | |
-| `Float`, `Double` | `Number` | | 
-| `Long` | `BigInt` | |
-| `Boolean` | `Boolean` | |
-| `String` | `String` | String content is copied. In the future, the [stringref proposal](https://github.com/WebAssembly/stringref) could allow the zero-copy string interop. |
-| `Unit` | undefined | Only when non-nullable and in functions returning position. |
-| Function type, for example (`int`, `String`) → `Int` | Function reference | Parameters and return values of function types follow the same type of conversion rules. |
-| `external interface` | Any JS value with given properties | |
-| `external class` or `external object` | Corresponding JS class | |
-| `Any` (deprecated) |Opaque object for Kotlin types; JS value for external types | Type `Any` will be deprecated in Kotlin 1.9.0 in favor of the JsHandle class |
-| Other Kotlin types | Opaque JS object | This includes arrays, `Throwable` class, collections, and so on. |
-| Nullable `Type?` | Type / ` null` / undefined | |
-| Type parameters `<T : U>` | Same as an upper bound. By default, it's `Any?` (deprecated) | Type `Any` will be deprecated in Kotlin 1.9.0. |
+| Kotlin                                               | JavaScript                         | Comments                                                                                                                                              |
+|------------------------------------------------------|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Byte`, `Short`, `Int`, `Char`                       | `Number`                           |                                                                                                                                                       |
+| `Float`, `Double`                                    | `Number`                           |                                                                                                                                                       | 
+| `Long`                                               | `BigInt`                           |                                                                                                                                                       |
+| `Boolean`                                            | `Boolean`                          |                                                                                                                                                       |
+| `String`                                             | `String`                           | String content is copied. In the future, the [stringref proposal](https://github.com/WebAssembly/stringref) could allow the zero-copy string interop. |
+| `Unit`                                               | Undefined                          | Only when non-nullable and in functions returning position.                                                                                           |
+| Function type, for example (`int`, `String`) → `Int` | Function reference                 | Parameters and return values of function types follow the same type of conversion rules.                                                              |
+| `external interface`                                 | Any JS value with given properties |                                                                                                                                                       |
+| `external class` or `external object`                | Corresponding JS class             |                                                                                                                                                       |
+| Other Kotlin types                                   | Not supported                      | This includes type `Any`, arrays, the `Throwable` class, collections, and so on.                                                                      |
+| Nullable `Type?`                                     | Type / `null` / undefined          |                                                                                                                                                       |
+| Type parameters `<T : U>`                            | Same as the upper bound            | In interop declarations, only external types, like `JsAny`, are supported as upper bounds of type parameters.                                         |
 
 ## Exception handling
 

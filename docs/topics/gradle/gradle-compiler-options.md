@@ -94,9 +94,9 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin = tasks.named<KotlinCompilationTask<*>>("compileKotlin")
-
-compileKotlin.compilerOptions { /*...*/ }
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    compilerOptions { /*...*/ }
+}
 ```
 
 </tab>
@@ -118,11 +118,11 @@ Here is a complete list of options for Gradle tasks:
 
 ### Attributes specific to JVM
 
-| Name | Description | Possible values |Default value |
-|------|-------------|-----------------|--------------|
-| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |  | false |
-| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
-| `noJdk` | Don't automatically include the Java runtime into the classpath |  | false |
+| Name | Description | Possible values                                                                                  |Default value |
+|------|-------------|--------------------------------------------------------------------------------------------------|--------------|
+| `javaParameters` | Generate metadata for Java 1.8 reflection on method parameters |                                                                                                  | false |
+| `jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "20". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
+| `noJdk` | Don't automatically include the Java runtime into the classpath |                                                                                                  | false |
 
 ### Attributes common to JVM, JS, and JS DCE
 

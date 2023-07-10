@@ -179,11 +179,7 @@ object DefaultListener : MouseAdapter() {
 
 ### Data objects
 
-> Data object declarations is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. Opt-in is required with the `compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_1_9)` [compiler option](gradle-compiler-options.md).
-> 
-{type="note"}
-
-When printing a plain `object` declaration in Kotlin, you'll notice that its string representation contains both its name and the hash of the object:
+When printing a plain `object` declaration in Kotlin, the string representation contains both its name and the hash of the object:
 
 ```kotlin
 object MyObject
@@ -195,7 +191,7 @@ fun main() {
 
 Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. This instructs the compiler to generate a number of functions for your object:
 
-* `toString()` returning the name of the data object
+* `toString()` returns the name of the data object
 * `equals()`/`hashCode()` pair
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
@@ -217,7 +213,7 @@ The `equals()` function for a `data object` ensures that all objects that have t
 In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
 However, in the edge case where another object of the same type is generated at runtime (for example, by using platform reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that the objects are treated as being equal.
 
-> Make sure to only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you avoid pitfalls when more than one instance of a data object exists at runtime.
+> Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
 {type="warning"}
 
 ```kotlin
@@ -257,7 +253,7 @@ While `data object` and `data class` declarations are often used together and ha
 
 #### Using data objects with sealed hierarchies
 
-`data object` declarations are a particularly good fit for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you might have defined alongside the object:
+`data object` declarations are a particularly useful for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may have defined alongside the object:
 
 ```kotlin
 sealed interface ReadResult
