@@ -52,9 +52,9 @@ deinit on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 ```
 
 * If Swift/Objective-C objects are passed to Kotlin on a thread other than main or if the main dispatch queue isn't processed,
-  deinit on the Swift/Objective-C objects is called on a different thread anyway.
+  deinit on the Swift/Objective-C objects is called on a special GC thread.
 * You can also set `kotlin.native.binary.objcDisposeOnMain=false` in your `gradle.properties` to call deinit
-  on the Swift/Objective-C objects on a different thread, even if these objects were passed to Kotlin on the main thread.
+  on the Swift/Objective-C objects on a special GC thread, even if these objects were passed to Kotlin on the main thread.
 
 ### Completion handlers
 
