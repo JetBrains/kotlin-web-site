@@ -174,7 +174,7 @@ the other is for `AndroidSourceSets`:
 * They have different semantics: Kotlin's `androidTest` belongs to the `unitTest` type, whereas Android's belongs to
   the `integrationTest` type.
 * They create a confusing `SourceDirectories` layout, as
-  `src/androidTest/java` has a `UnitTest` and `src/androidTest/kotlin` has an `InstrumentedTest`.
+  `src/androidTest/kotlin` has a `UnitTest` and `src/androidTest/java` has an `InstrumentedTest`.
 * Both `KotlinSourceSets` and `AndroidSourceSets` use a similar naming schema for Gradle configurations, so the resulting
   configurations of `androidTest` for both Kotlin's and Android's source sets are the same: `androidTestImplementation`,
   `androidTestApi`, `androidTestRuntimeOnly`, and `androidTestCompileOnly`.
