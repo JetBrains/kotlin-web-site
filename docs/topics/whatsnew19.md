@@ -521,6 +521,8 @@ The Kotlin team continues to experiment with the new Kotlin/Wasm target. This re
 Kotlin 1.9.0 introduces significant size improvements for WebAssembly (Wasm) projects. Comparing two "Hello World" projects, 
 the code footprint for Wasm in Kotlin 1.9.0 is now over 10 times smaller than in Kotlin 1.8.20.
 
+![Kotlin/Wasm size-related optimizations](wasm-1-9-0-size-improvements.png){width=700}
+
 These size optimizations result in more efficient resource utilization and improved performance when targeting Wasm 
 platforms with Kotlin code.
 
