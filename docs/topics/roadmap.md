@@ -64,7 +64,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <list>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-55513">Promote Kotlin Multiplatform Mobile to Stable</a></li> 
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: keep binary compatibility easier for library authors</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: make binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42297" target="_blank">Improve exporting Kotlin code to Objective-C</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
             </list>
@@ -102,7 +102,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {type="note"}
 
-## What's changed since May 2022
+## What's changed since December 2022
 
 ### Completed items
 
@@ -110,7 +110,7 @@ We've **completed** the following items from the previous roadmap:
 
 * ✅ Language: [Introduce special syntax for `until` operator](https://youtrack.jetbrains.com/issue/KT-15613)
 * ✅ Language: [Provide modern and performant replacement for `Enum.values()`](https://youtrack.jetbrains.com/issue/KT-48872)
-* ✅ Language: [Design and implement solution for `toString` on objects](https://youtrack.jetbrains.com/issue/KT-4107)
+* ✅ Language: [Design and implement a solution for `toString`, `equals` and `hashCode` on objects (data object)](https://youtrack.jetbrains.com/issue/KT-4107)
 * ✅ Compiler: [Release K2 Beta](https://youtrack.jetbrains.com/issue/KT-52604)
 * ✅ Compiler: [Fix issues related to inline classes on the JVM](https://youtrack.jetbrains.com/issue/KT-49514)
 * ✅ Compiler: [Implement an experimental version of Kotlin/Wasm compiler backend](https://youtrack.jetbrains.com/issue/KT-46773)
@@ -120,26 +120,6 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Library ecosystem: [Release `kotlinx-coroutines` 1.7](https://youtrack.jetbrains.com/issue/KT-49529)
 * ✅ Library ecosystem: [Improve `kotlinx-datetime` library](https://youtrack.jetbrains.com/issue/KT-42315)
 * ✅ Library ecosystem: [Continue to develop and stabilize the standard library](https://youtrack.jetbrains.com/issue/KT-52601)
-
-* ✅ Compiler core: [Maintain the current compiler](https://youtrack.jetbrains.com/issue/KT-42286)
-* ✅ Kotlin/JVM: [Support kapt in JVM IR](https://youtrack.jetbrains.com/issue/KT-49682)
-* ✅ Kotlin/JVM: [Maintain the new JVM IR backend](https://youtrack.jetbrains.com/issue/KT-46767)
-* ✅ Kotlin/JVM: [Improve the new JVM IR backend compilation time](https://youtrack.jetbrains.com/issue/KT-46768)
-* ✅ Kotlin/Native: [Provide binary compatibility between incremental releases](https://youtrack.jetbrains.com/issue/KT-42293)
-* ✅ Kotlin/Native: [Promote new memory manager to Beta and enable it by default](https://youtrack.jetbrains.com/issue/KT-52595)
-* ✅ Kotlin/JS: [Make the new JS IR backend Stable](https://youtrack.jetbrains.com/issue/KT-42289)
-* ✅ Kotlin/JS: [Maintain the old JS backend by fixing critical bugs](https://youtrack.jetbrains.com/issue/KT-42291)
-* ✅ Multiplatform: [Promote Kotlin Multiplatform Mobile to Beta](https://youtrack.jetbrains.com/issue/KT-52596)
-* ✅ Libraries: [Release `kotlinx-serialization` 1.4](https://youtrack.jetbrains.com/issue/KT-49528)
-* ✅ IDE: [Stabilize code analysis](https://youtrack.jetbrains.com/issue/KTIJ-21906)
-* ✅ IDE: [Make update of compiler/platform versions faster](https://youtrack.jetbrains.com/issue/KTIJ-20044)
-* ✅ IDE: [Improve Multiplatform project support](https://youtrack.jetbrains.com/issue/KTIJ-20045)
-* ✅ IDE: [Stabilize Eclipse plugin](https://youtrack.jetbrains.com/issue/KTIJ-20046)
-* ✅ IDE: [Prototype the IDE plugin with the new compiler frontend](https://youtrack.jetbrains.com/issue/KTIJ-18195)
-* ✅ IDE: [Improve IDE performance](https://youtrack.jetbrains.com/issue/KTIJ-18174)
-* ✅ IDE: [Improve debugging experience](https://youtrack.jetbrains.com/issue/KTIJ-18572)
-* ✅ Website: [Make the Kotlin website mobile friendly](https://youtrack.jetbrains.com/issue/KT-44339)
-* ✅ Website: [Make the UI and navigation consistent](https://youtrack.jetbrains.com/issue/KT-46791)
 
 ### New items
 
@@ -152,16 +132,6 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Improve Kotlin build reports](https://youtrack.jetbrains.com/issue/KT-60279)
 * 🆕 Library ecosystem: [Provide initial series of `kotlinx-io` releases towards its Stable release](https://youtrack.jetbrains.com/issue/KT-60280)
 
-* ℹ️ Language: [List of all upcoming language features](https://youtrack.jetbrains.com/issue/KT-54620)
-* 🆕 Multiplatform: Promote Kotlin Multiplatform Mobile to Stable
-* 🆕 Multiplatform: Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one
-* 🆕 Tooling: First public release of K2-based IntelliJ plugin
-* 🆕 Tooling: Improve performance and code analysis stability of the current IDE plugin
-* 🆕 Tooling: Expose stable compiler arguments in Gradle DSL
-* 🆕 Tooling: Kotlin Notebooks IDEA plugin
-* 🆕 Libraries: [Improve KDoc experience](https://youtrack.jetbrains.com/issue/KT-55073)
-* 🆕 Libraries: [Provide a Kotlin API guide for libraries authors](https://youtrack.jetbrains.com/issue/KT-55077)
-
 ### Removed items
 
 We've **removed** the following items from the roadmap:
@@ -171,18 +141,6 @@ We've **removed** the following items from the roadmap:
 * ❌ Library ecosystem: [Stabilize and document `atomicfu`](https://youtrack.jetbrains.com/issue/KT-46786)
 * ❌ Library ecosystem: [Improve KDoc experience](https://youtrack.jetbrains.com/issue/KT-55073)
 * ❌ Library ecosystem: [Provide a Kotlin API guide for libraries authors](https://youtrack.jetbrains.com/issue/KT-55077)
-
-* ❌ Language: [Research and prototype namespace-based solution for statics and static extensions](https://youtrack.jetbrains.com/issue/KT-11968)
-* ❌ Language: [Multiple receivers on extension functions/properties](https://youtrack.jetbrains.com/issue/KT-10468)
-* ❌ Language: [Support inline sealed classes](https://youtrack.jetbrains.com/issue/KT-27576)
-* ❌ K2 compiler: [Stabilize the K2 Compiler Plugin API](https://youtrack.jetbrains.com/issue/KT-49508)
-* ❌ K2 compiler: [Provide Alpha support for Native in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52594)
-* ❌ K2 compiler: [Provide Alpha support for JS in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52593)
-* ❌ K2 compiler: [Support Multiplatform in the K2 platform](https://youtrack.jetbrains.com/issue/KT-52597)
-* ❌ Multiplatform: [Improve stability and robustness of the multiplatform toolchain](https://youtrack.jetbrains.com/issue/KT-49525)
-* ❌ Multiplatform: [Improve Android support in Multiplatform projects](https://youtrack.jetbrains.com/issue/KT-52599)
-* ❌ Build tools: [Make compilation avoidance support Stable for Gradle](https://youtrack.jetbrains.com/issue/KT-52603)
-* ❌ Website: [Improve Kotlin Playground](https://youtrack.jetbrains.com/issue/KT-49536)
 
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
