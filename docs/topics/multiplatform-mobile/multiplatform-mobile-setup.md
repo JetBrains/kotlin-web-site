@@ -6,7 +6,7 @@
        <img src="icon-2-todo.svg" width="20" alt="Second step"/> Create your first cross-platform app<br/>
        <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update UI<br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
-       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share the logic<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 

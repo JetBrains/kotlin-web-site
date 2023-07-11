@@ -4,9 +4,9 @@
     <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
        <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/>
-       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Share logic and UI<br/>       
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update UI<br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
-       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share the logic<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
@@ -87,20 +87,30 @@ The common source set can define expected declarations which must have actual im
 `iosMain` source sets. During compilation, the Kotlin compiler automatically substitutes all the actual
 implementations instead of expected declarations used in the common code.
 
-1. Open the `Greeting.kt` file and try to access one of the Java classes inside the `greeting()` function,
-   `java.util.Random().nextBoolean()`. Android Studio highlights that `Random` class is unresolved because you can't
-   call specific Java functions from the common Kotlin code.
+1. Open the `Greeting.kt` file and try to access one of the Java classes, `java.util.Random().nextBoolean()`, inside the `greet()` function:
+
+   ```kotlin
+   fun greet(): String {
+       val firstWord = if (Random().nextBoolean()) "Hi!" else "Hello!"
+   }
+   ```
+
+   Android Studio highlights that `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
 2. Replace it with `kotlin.random.Random` from the Kotlin standard library. The code now compiles successfully.
 3. Add a bit of unpredictability to the greeting:
 
     ```kotlin
     import kotlin.random.Random
     
-    fun greeting(): String {
-        val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
-    
-        return firstWord + "\n" +
-            "Guess what it is! > ${platform.name.reversed()}!"
+    class Greeting {
+        private val platform: Platform = getPlatform()
+
+        fun greet(): String {
+            val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
+
+            return firstWord + "\n" +
+                "Guess what it is! > ${platform.name.reversed()}!"
+        }
     }
     ```
 
@@ -114,10 +124,9 @@ provide actual platform-specific implementations. While building the code for th
 the Kotlin compiler will automatically substitute the actual declaration for this target instead of the expected one.
 
 1. When creating a project in Android Studio, you get a template with the `Platform` interface with information about
-   the platform. Navigate to the `commonMain` module:
+   the platform. Check the `Platform.kt` file in the `commonMain` module:
 
     ```kotlin
-    // Platform.kt in commonMain module:
     interface Platform {
         val name: String
     }
@@ -150,7 +159,7 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
       dependency. It's written in Kotlin/Native, meaning you can write iOS code in Kotlin. This code becomes a part of the iOS
       framework, which you will later call from Swift in your iOS application.
 
-3. Take a look at the `getPlatform()` function. Its expected variant doesn't have a body, and platform code provides actual implementations:
+3. Take a look at the `getPlatform()` function. Its expected variant doesn't have a body, and actual implementations are provided in the platform code:
 
     ```kotlin
     // Platform.kt in commonMain module:
@@ -167,12 +176,12 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     `getPlatform()` function. The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the
     `IOSPlatform` implementation.
 
-#### Update your application {initial-collapse-state="collapsed"}
+#### Experiment with the expect/actual mechanism {initial-collapse-state="collapsed"}
 
 The template uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:
 
-1. Open `Platform.kt` and add the following at the end of the file:
+1. Open `Platform.kt` in the `commonMain` module and add the following at the end of the file:
 
     ```kotlin
     expect val num: Int
@@ -202,10 +211,10 @@ such as properties and classes. Let's implement an expected property:
     actual val num: Int = 2
     ```
 
-5. Add the `num` property to the `greeting()` function to see the differences:
+5. Add the `num` property to the `greet()` function to see the differences:
 
     ```kotlin
-    fun greeting(): String {
+    fun greet(): String {
         val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
     
         return firstWord + " [$num]\n" +
@@ -252,7 +261,7 @@ to [configure and connect a hardware device and run your application on it](http
 
    ![Run multiplatform app on iOS](run-ios.png){width=450}
 
-   ![First mobile multiplatform app on Android](first-multiplatform-project-on-ios-1.png){width=300}
+   ![First mobile multiplatform app on iOS](first-multiplatform-project-on-ios-1.png){width=300}
 
 #### Run on a new iOS simulated device {initial-collapse-state="collapsed"}
 

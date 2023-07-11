@@ -6,7 +6,7 @@
        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
        <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update UI</a><br/>
        <img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/>
-       <img src="icon-5-done.svg" width="20" alt="Fifth step"/> <a href="multiplatform-mobile-upgrade-app.md">Share the logic</a><br/>
+       <img src="icon-5-done.svg" width="20" alt="Fifth step"/> <a href="multiplatform-mobile-upgrade-app.md">Share more logic</a><br/>
        <img src="icon-6.svg" width="20" alt="Sixth step"/> <strong>Wrap up your project</strong></p>
 </microformat>
 

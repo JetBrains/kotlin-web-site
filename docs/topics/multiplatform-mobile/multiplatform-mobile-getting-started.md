@@ -40,7 +40,7 @@ Get to know Kotlin Multiplatform and create a mobile app that works on both Andr
 
 ![Fourth step](icon-4.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-dependencies.md)
 
-![Fifth step](icon-5.svg){width=25}{type="joined"} [Share the logic](multiplatform-mobile-upgrade-app.md)
+![Fifth step](icon-5.svg){width=25}{type="joined"} [Share more logic](multiplatform-mobile-upgrade-app.md)
 
 ![Sixth step](icon-6.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
 

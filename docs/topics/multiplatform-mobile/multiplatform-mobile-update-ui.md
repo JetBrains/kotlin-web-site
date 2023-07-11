@@ -6,7 +6,7 @@
        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
        <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update UI</strong><br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
-       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share the logic<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
@@ -21,13 +21,13 @@ The `androidApp` module contains an Android application, defines its main activi
 `shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
 Make some changes and see how it is reflected in the UI:
 
-1. Open the `MainActivity.kt` file in `androidApp`.
-2. Navigate to the `Greeting` class declaration. Select the `greeting()` function and use the **Ctrl + B**/**Cmd + B** shortcut.
-   You'll see that it's a class from the `shared` module you edited in the previous step.
-3. Update the `greeting()` function:
+1. Navigate to the `MainActivity.kt` file in `androidApp`.
+2. Find the `Greeting` class invocation. Select the `greet()` function and use the **Ctrl + B**/**Cmd + B** shortcut.
+   You'll see that it's the same class from the `shared` module you edited in the previous step.
+3. In `Greeting.kt`, update the `greet()` function:
 
     ```kotlin
-    fun greeting(): List<String> = buildList {
+    fun greet(): List<String> = buildList {
         add(if (Random.nextBoolean()) "Hi!" else "Hello!")
         add("Guess what it is! > ${platform.name.reversed()}!")
     }
@@ -35,36 +35,41 @@ Make some changes and see how it is reflected in the UI:
 
    Now it returns a list of strings.
 
-4. Go back to `MainActivity.kt`. As you can see, it doesn't compile anymore because the `Greeting` composable
+4. Go back to `MainActivity.kt`. As you can see, it doesn't compile anymore because the `GreetingView` composable
    expects a `String` argument. Update its definition:
 
    ```kotlin
    @Composable
-   fun greeting(phrases: List<String>) {
-       LazyColumn { 
-           items(phrases) { phrase -> 
+   fun GreetingView(phrases: List<String>) {
+       LazyColumn(
+           contentPadding = PaddingValues(20.dp),
+           verticalArrangement = Arrangement.spacedBy(8.dp),
+       ) {
+           items(phrases) { phrase ->
                Text(phrase)
+               Divider()
            }
        }
    }
    ```
 
    Here the `LazyColumn` composable shows the list of `Text` items.
-
-5. Update the preview as well, passing a list as an argument:
+5. Follow Android Studio's suggestions to import the missing dependencies.
+6. Update the preview as well, passing a list as an argument:
+   
    ```kotlin
    @Preview
    @Composable
-   fun defaultPreview() {
+   fun DefaultPreview() {
        MyApplicationTheme {
            Greeting(listOf("Hello, Android!"))
        }
    }
    ```
 
-6. Now you can run the Android app to ensure it displays the list:
+7. Now you can run the Android app to ensure it displays the list:
 
-// SCREENSHOT
+   ![Updated UI of Android multiplatform app](first-multiplatform-project-on-android-2.png){width=300}
 
 ### The iOS module
 
@@ -73,35 +78,35 @@ framework. The UI of the app is written in Swift.
 
 1. Launch Xcode. Select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. Find to the `greeting()` function declaration. Select the `greeting()` function holding the **Ctrl**/**Cmd** button
+3. In the `ContenView.swift` file, select the `greet()` function by holding the **⌃ + Cmd** button.
 
    You'll see the Objective-C declarations for the Kotlin functions defined in the `shared` module. Kotlin types are
-   represented as Objective-C types when used from Objective-C/Swift. Here the `greeting()` function
+   represented as Objective-C types when used from Objective-C/Swift. Here the `greet()` function
    returns `List<String>` in Kotlin and is seen from Swift as returning `NSArray<NSString>`. For more on type mappings,
    see [Interoperability with Swift/Objective-C](native-objc-interop.md).
 
-4. As in the Android app before, the Swift code that uses the `greeting()` function doesn't compile
-   because its declaration was changed. Change the SwiftUI code to display a list of items:
+4. If you try running the project, the build will fail. As in the Android app earlier,
+   the Swift code that uses the `greet()` function doesn't compile because its declaration is different now.
+   Change the SwiftUI code to display a list of items:
 
    ```Swift
    struct ContentView: View {
-   let phrases = Greeting().greeting()
+       let phrases = Greeting().greet()
    
        var body: some View {
            List(phrases, id: \.self) {
                Text($0)
            }
        }
-   
    }
    ```
 
-    * The results of the `greeting()` call are stored in the `phrases` variable (`let` in Swift is similar to Kotlin's `val`).
+    * The results of the `greet()` call are stored in the `phrases` variable (`let` in Swift is similar to Kotlin's `val`).
     * The `List` function produces a list of `Text` items.
 
 5. Run the app to see the changes:
 
-// TODO screenshot
+   ![Updated UI of your iOS multiplatform app](first-multiplatform-project-on-ios-2.png){width=300}
 
 ## Next step
 
