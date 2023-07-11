@@ -32,7 +32,7 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current) ![YouTrack](youtrack-logo.png){width=30}{type="joined"}
 
-![Roadmap board in YouTrack](roadmap-board.png){width=800}
+![Roadmap board in YouTrack](roadmap-board.png){width=700}
 
 ### Roadmap details
 
