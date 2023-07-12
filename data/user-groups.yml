@@ -539,12 +539,6 @@
     position:
       lat: 41.69465336184713
       lng: 44.78250312871074
-  - name: Hefei KUG
-    country: China Mainland
-    url: https://weibo.com/kotlinhfug
-    position:
-      lat: 31.820591
-      lng: 117.227219
   - name: Ho Chi Minh KUG
     country: Vietnam
     url: https://www.facebook.com/kughcmc/
