@@ -19,7 +19,7 @@ The goal of this roadmap is to give you a big picture. Here's a list of our key 
 
 * **K2 compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. It will also let us introduce many anticipated language features.
 * **K2-based IntelliJ plugin**: much faster code completion, highlighting, and search, together with more stable code analysis.
-* **Kotlin Multiplatform Mobile**: promote the technology to Stable by improving the toolchain stability and documentation, and ensuring compatibility guarantees.
+* **Kotlin Multiplatform**: promote the technology to Stable by improving the toolchain stability and documentation, and ensuring compatibility guarantees.
 * **Experience of library authors**: a set of documentation and tools helping to set up, develop, and publish Kotlin libraries.
 
 ## Kotlin roadmap by subsystem
