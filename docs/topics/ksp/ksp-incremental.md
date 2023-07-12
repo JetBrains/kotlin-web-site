@@ -16,10 +16,10 @@ if the `KSNode` is obtained from any of the following:
 
 Incremental processing is currently enabled by default. To disable it, set the Gradle property `ksp.incremental=false`.
 To enable logs that dump the dirty set according to dependencies and outputs, use `ksp.incremental.log=true`.
-You can find these log files in the `build` output folder with a `.log` file extension.
+You can find these log files in the `build` output directory with a `.log` file extension.
 
-On JVM, classpath changes as well as Kotlin and Java source changes are tracked by default. 
-To only track Kotlin and Java source changes, set `ksp.incremental.intermodule=false` to disable classpath tracking.
+On the JVM, classpath changes, as well as Kotlin and Java source changes, are tracked by default.
+To track only Kotlin and Java source changes, disable classpath tracking by setting the `ksp.incremental.intermodule=false` Gradle property.
 
 ## Aggregating vs Isolating
 
