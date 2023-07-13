@@ -1,10 +1,10 @@
 [//]: # (title: Android source set layout)
 
-The new Android source set layout was introduced in Kotlin 1.8.0 and became default in 1.9.0. Follow this guide to
-understand the key differences between the deprecated and the new layout and migrate your projects.
+The new Android source set layout was introduced in Kotlin 1.8.0 and became the default in 1.9.0. Follow this guide to
+understand the key differences between the deprecated and the new layouts, as well as how to migrate your projects.
 
-> You don't need to implement all the suggestions. Only those that are applicable to your particular projects. 
-> 
+> You don't need to implement all the suggestions, only those that are applicable to your particular projects.
+>
 {type="tip"}
 
 ## Check the compatibility
@@ -14,7 +14,7 @@ Check your version of the Android Gradle plugin and upgrade if necessary.
 
 ## Rename Kotlin source sets
 
-If applicable, rename source sets in your project, following this pattern:
+If applicable, rename the source sets in your project, following this pattern:
 
 | Previous source set layout             | New source set layout               |
 |----------------------------------------|-------------------------------------|
@@ -59,19 +59,19 @@ If you have the `AndroidManifest.xml` file in your project, move it to the new d
 | main  | src/main/AndroidManifest.xml  | src/<b>android</b>Main/AndroidManifest.xml  |
 | debug | src/debug/AndroidManifest.xml | src/<b>android</b>Debug/AndroidManifest.xml |
 
-## Check the relation between Android and common tests
+## Check the relationship between Android and common tests
 
-The new Android source set layout changes the relation between Android-instrumented tests (renamed to `androidInstrumentedTest` in the new layout)
+The new Android source set layout changes the relationship between Android-instrumented tests (renamed to `androidInstrumentedTest` in the new layout)
 and common tests.
 
-Previously, there was a default `dependsOn` relation between `androidAndroidTest` and `commonTest`. It meant the following:
+Previously, the `dependsOn` relationship between `androidAndroidTest` and `commonTest` was the default. It meant the following:
 
 * The code in `commonTest` was available in `androidAndroidTest`.
 * `expect` declarations in `commonTest` had to have corresponding `actual` implementations in `androidAndroidTest`.
 * Tests declared in `commonTest` were also running as Android instrumented tests.
 
-In the new Android source set layout, the `dependsOn` relation is not added by default. If you prefer the previous behavior,
-manually declare this relation in your `build.gradle.kts` file:
+In the new Android source set layout, the `dependsOn` relationship is not added by default. If you prefer the previous behavior,
+manually declare the following relationship in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -87,11 +87,11 @@ kotlin {
 
 ## Adjust the implementation of Android flavors
 
-Previously, the Kotlin Gradle plugin eagerly created source sets that correspond to Android source sets with `debug` and
+Previously, the Kotlin Gradle plugin eagerly created source sets that corresponded to Android source sets containing `debug` and
 `release` build types or custom flavors like `demo` and `full`.
-It made them accessible by constructions like `val androidDebug by getting { ... }`.
+It made the source sets accessible by using expressions like `val androidDebug by getting { ... }`.
 
-The new Android source set layout makes use of Android [`onVariants`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/variant/AndroidComponentsExtension#onVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1))
+The new Android source set layout makes use of Android's [`onVariants`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/variant/AndroidComponentsExtension#onVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1))
 to create source sets. It makes such expressions invalid,
 leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourceSet with name 'androidDebug' not found`.
 
@@ -102,7 +102,7 @@ kotlin {
 // ...
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     sourceSets.invokeWhenCreated("androidFreeDebug") {
-        // ...
+// ...
     }
 }
 ```
