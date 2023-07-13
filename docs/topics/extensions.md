@@ -115,8 +115,7 @@ fun main() {
 ## Nullable receiver
 
 Note that extensions can be defined with a nullable receiver type. These extensions can be called on an object variable
-even if it's value is null. If the receiver is `null`, then reference to `this` inside the extension function will be `null`
-as well. So you will be forced to check for `this == null` inside the body.
+even if its value is null. If the receiver is `null`, then `this` is also `null`. So when defining an extension with a nullable receiver type, we recommend performing a `this == null` check inside the function body to avoid compiler errors. 
 
 Because of nullable receiver, you can call `toString()` in Kotlin without checking for `null`, as the check happens inside the extension function:
 
