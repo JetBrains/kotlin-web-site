@@ -307,11 +307,11 @@ This Gradle property automatically sets the default language version to 2.0 and 
 with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
 
 > Build reports don't provide information about Kotlin/Native tasks yet. Despite that,
-> we still recommend you using Kotlin 2.0 as the default version.
+> we still recommend that you use Kotlin 2.0 as the default version.
 > 
 {type="tip"}
 
-Learn more about the stabilization of the K2 compiler in the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
+Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
 
 ## Defining Kotlin compiler execution strategy
 
@@ -440,11 +440,11 @@ If there is insufficient memory to run the compilation, you can see a message ab
 >
 {type="warning"}
 
-Build reports contain the durations of different compilation phases and reasons why compilation couldn't be incremental.
+Build reports contain the durations of different compilation phases and any reasons why compilation couldn't be incremental.
 Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
 project.
 
-Kotlin build reports help investigate problems with build performance more efficiently than [Gradle build scans](https://scans.gradle.com/)
+Kotlin build reports help you to investigate problems with build performance more efficiently than with [Gradle build scans](https://scans.gradle.com/)
 that have a single Gradle task as the unit of granularity.
 
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
@@ -456,7 +456,7 @@ Build reports also show the Kotlin version used in the project. In addition, sta
 you can see whether the current or the [K2 compiler](#the-new-kotlin-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
-and [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
+and about [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
 
 ### Enabling build reports
 
