@@ -94,8 +94,8 @@ for ((k, v) in map) {
 ## Iterate over a range
 
 ```kotlin
-for (i in 1..100) { ... }  // closed range: includes 100
-for (i in 1 until 100) { ... } // half-open range: does not include 100
+for (i in 1..100) { ... }  // closed-ended range: includes 100
+for (i in 1..<100) { ... } // open-ended range: does not include 100
 for (x in 2..10 step 2) { ... }
 for (x in 10 downTo 1) { ... }
 (1..10).forEach { ... }
@@ -159,11 +159,13 @@ println(files?.size) // size is printed if files is not null
 ```kotlin
 val files = File("Test").listFiles()
 
+// For simple fallback values:
 println(files?.size ?: "empty") // if files is null, this prints "empty"
 
-// To calculate the fallback value in a code block, use `run`
+// To calculate a more complicated fallback value in a code block, use `run`
 val filesSize = files?.size ?: run { 
-    return someSize 
+    val someSize = getSomeSize()
+    someSize * 2
 }
 println(filesSize)
 ```

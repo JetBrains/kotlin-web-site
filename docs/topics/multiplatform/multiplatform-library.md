@@ -32,29 +32,6 @@ Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains
 4. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
 5. Click **Next** and then **Finish**.
 
-<deflist collapsible="true">
- <def title="Further project configuration">
-   <p>For more complex projects, you might need to add more modules and targets:</p>
-   <list>
-      <li>To add modules, select <strong>Project</strong> and click the <strong>+</strong> icon. Choose the module type.</li>
-      <li>To add target platforms, select <strong>library</strong> and click the <strong>+</strong> icon. Choose the target.</li>
-      <li>
-        <p>Configure target settings, such as the target JVM version and test framework.</p>
-        <img src="multiplatform-project-2.png" width="700" alt="Configure the project"/>
-      </li>
-      <li>
-         <p>If necessary, specify dependencies between modules:</p>
-         <list>
-            <li>Multiplatform and Android modules</li>
-            <li>Multiplatform and iOS modules</li>
-            <li>JVM modules</li>
-         </list>
-         <img src="multiplatform-project-3.png" width="700" alt="Configure the project"/>
-      </li>
-   </list>
- </def>
-</deflist>
-
 The wizard will create a sample multiplatform library with the following structure:
 
 ![Multiplatform library structure](multiplatform-lib-structure.png){width=250}
