@@ -105,7 +105,7 @@ Another way to fix high memory consumption is related to [`mimalloc`](https://gi
 the default memory allocator for many targets. It pre-allocates and holds onto the system memory to improve
 the allocation speed.
 
-To avoid that at the cost of performance, a couple of options are available:
+To avoid that at the cost of performance, a few options are available:
 
 * Switch the memory allocator from `mimalloc` to the system allocator. For that, set the `-Xallocator=std` compilation
   option in your Gradle build script.
@@ -118,8 +118,7 @@ To avoid that at the cost of performance, a couple of options are available:
   kotlin.native.binary.mimallocUseCompaction=true
   ```
 
-* Switch to the custom memory allocator. It is still [Beta](components-stability.md#stability-levels-explained) and
-  to try it in your projects, set the `-Xallocator=custom` compilation option in your Gradle build script.
+* Switch to the custom memory allocator. It is still [Beta](components-stability.md#stability-levels-explained). To try it in your projects, set the `-Xallocator=custom` compilation option in your Gradle build script.
 
   For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
 
