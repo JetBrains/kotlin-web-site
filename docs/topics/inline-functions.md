@@ -182,7 +182,7 @@ fun main(s: Array<String>) {
 
 Normal functions (not marked as inline) cannot have reified parameters.
 A type that does not have a run-time representation (for example, a non-reified type parameter or a fictitious type like
-`Nothing`) cannot be used as an argument for a `reified` type parameter.
+`Nothing`) cannot be used as an argument for a reified type parameter.
 
 ## Inline properties
 
