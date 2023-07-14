@@ -480,7 +480,7 @@ root directory.
             ContentType.Text.Html
         )
     }
-    staticResources("/", "static")
+    staticResources("/", "")
     route(ShoppingListItem.path) {
         // ...
     }
