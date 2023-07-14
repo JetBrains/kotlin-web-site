@@ -80,7 +80,7 @@ kotlin {
 
 Some important details to be aware of:
 
-* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lower) block takes effect.
+* The `android.kotlinOptions` and `kotlin.compilerOptions` configuration blocks override each other. The last (lowest) block takes effect.
 * `kotlin.compilerOptions` configures every Kotlin compilation task in the project.
 * You can override the configuration applied by `kotlin.compilerOptions` DSL using the `tasks.named<KotlinJvmCompile>("compileKotlin") { }`
   (or `tasks.withType<KotlinJvmCompile>().configureEach { }`) approach.
