@@ -121,7 +121,7 @@ printAllValues<RGB>() // prints RED, GREEN, BLUE
 
 In Kotlin 1.9.0, the `entries` property is introduced as a replacement for the `values()` function. The 
 `entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
-are working with [collections](collections-overview.md) and can you help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
+are working with [collections](collections-overview.md) and can help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
 
 For example:
 ```kotlin
