@@ -34,8 +34,8 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
             ios.deploymentTarget = "13.5"
-            pod("AFNetworking") {
-                version = "~> 4.0.0"
+            pod("Alamofire") {
+                version = "5.7.0"
             }
             podfile = project.file("../ios-app/Podfile")
         }
@@ -76,8 +76,8 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             ios.deploymentTarget = "13.5"
             tvos.deploymentTarget = "13.4"
 
-            pod("AFNetworking") {
-                version = "~> 4.0.0"
+            pod("Alamofire") {
+                version = "5.7.0"
             }
             podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }

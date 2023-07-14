@@ -42,8 +42,8 @@ version of the library, you can just omit this parameter altogether.
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            pod("AFNetworking") {
-                version = "~> 4.0.1"
+            pod("Alamofire") {
+                version = "5.7.0"
             }
         }
     }
@@ -54,7 +54,7 @@ version of the library, you can just omit this parameter altogether.
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 ```
 
 ## On a locally stored library
@@ -89,8 +89,8 @@ import cocoapods.AFNetworking.*
                 version = "1.0"
                 source = path(project.file("../subspec_dependency"))
             }
-            pod("AFNetworking") {
-                version = "~> 4.0.1"
+            pod("Alamofire") {
+                version = "5.7.0"
             }
         }
     }
@@ -108,7 +108,7 @@ To use these dependencies from the Kotlin code, import the packages `cocoapods.<
 ```kotlin
 import cocoapods.pod_dependency.*
 import cocoapods.subspec_dependency.*
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 ```
 
 ## From a custom Git repository
@@ -141,9 +141,9 @@ import cocoapods.AFNetworking.*
 
             ios.deploymentTarget = "13.5"
 
-            pod("AFNetworking") {
-                source = git("https://github.com/AFNetworking/AFNetworking") {
-                    tag = "4.0.0"
+            pod("Alamofire") {
+                source = git("https://github.com/Alamofire/Alamofire") {
+                    tag = "5.7.0"
                 }
             }
 
@@ -167,7 +167,7 @@ import cocoapods.AFNetworking.*
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.AFNetworking.*
+import cocoapods.Alamofire.*
 import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
 ```
@@ -286,3 +286,28 @@ kotlin {
     }
 }
 ```
+
+### Share Kotlin cinterop between dependent Pods
+
+If you add multiple dependencies on Pods using the `pod()` function, you might encounter issues when
+there are dependencies between APIs of your Pods.
+
+To make the code compile in such cases, use the `useInteropBindingFrom()` function.
+It utilizes the cinterop binding generated for another Pod while building a binding for the new Pod.
+
+You should declare the dependent Pod before setting up the dependency:
+
+```kotlin
+// The cinterop of pod("WebImage"):
+fun loadImage(): WebImage
+
+// The cinterop of pod("Info"):
+fun printImageInfo(image: WebImage)
+
+// Your code:
+printImageInfo(loadImage())
+```
+
+If you haven't configured the correct dependencies between cinterops in this case,
+the code would be invalid because the `WebImage` type would be sourced from different cinterop files and, consequently,
+different packages.
