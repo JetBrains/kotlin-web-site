@@ -161,7 +161,7 @@ file to:
 * `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin skips the check and doesn't produce any messages.
 
-You can also configure it on the task level in your `build.gradle(.kts)` file:
+You can also configure it at task level in your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

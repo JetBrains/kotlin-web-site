@@ -43,7 +43,7 @@ tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 </tab>
 </tabs>
 
-### When targeting JVM
+### Target the JVM
 
 JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
@@ -85,7 +85,7 @@ Some important details to be aware of:
 * You can override the configuration applied by `kotlin.compilerOptions` DSL using the `tasks.named<KotlinJvmCompile>("compileKotlin") { }`
   (or `tasks.withType<KotlinJvmCompile>().configureEach { }`) approach.
 
-### When targeting JavaScript
+### Target JavaScript
 
 JavaScript compilation tasks are called `compileKotlinJs` for production code, `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
 
