@@ -154,12 +154,35 @@ in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
+Configure the behavior of this check for the whole project by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
 file to:
 
 * `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
 * `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin skips the check and doesn't produce any messages.
+
+You can also configure it at task level in your `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
+    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configureEach {
+    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
+}
+```
+
+</tab>
+</tabs>
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
