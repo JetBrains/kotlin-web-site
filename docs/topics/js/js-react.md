@@ -553,7 +553,8 @@ window like this:
 Instead of just alerting the user, you can add some functionality for highlighting the selected video with a ▶ triangle.
 To do that, introduce some _state_ specific to this component.
 
-State is one of the core concepts in React. In modern React (which uses the so-called _Hooks API_), state is expressed using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
+State is one of the core concepts in React. In modern React (which uses the so-called _Hooks API_),
+state is expressed using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
 1. Add the following code to the top of the `VideoList` declaration:
 
@@ -575,7 +576,7 @@ State is one of the core concepts in React. In modern React (which uses the so-c
 
    To learn more about the State Hook, check out the [React documentation](https://reactjs.org/docs/hooks-state.html).
 
-2. Change the `onClick` handler and the text to be shown in your implementation of the `VideoList` component to look as follows:
+2. Change the `onClick` handler and the text in the `VideoList` component to look as follows:
 
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
@@ -681,9 +682,10 @@ Remember that in Kotlin, variables can have the [type of a function](lambdas.md#
        props.onSelectVideo(video)
    }
    ```
-   The variable `selectedVideo` in the `VideoList` component is now obsolete and can be deleted.
+   
+   You can now delete the `selectedVideo` variable from the `VideoList` component.
 
-3. You can now go back to the `App` component and pass `selectedVideo` and a handler for `onSelectVideo`
+3. Go back to the `App` component and pass `selectedVideo` and a handler for `onSelectVideo`
    for each of the two video lists:
 
    ```kotlin
@@ -904,7 +906,7 @@ A better alternative is to create an `external interface` that specifies what ki
 props for this external component. You can learn about the props' interface in the [README](https://www.npmjs.com/package/react-player)
 for the component. In this case, use the `url` and `controls` props:
 
-1. Adjust the content of `ReactYouTube.kt` by adding an external interface and replacing `dynamic` with that interface:
+1. Adjust the content of `ReactYouTube.kt` by replacing `dynamic` with an external interface:
 
    ```kotlin
    @file:JsModule("react-player")
