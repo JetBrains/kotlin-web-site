@@ -10,19 +10,20 @@
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
-You'll use [Jetpack Compose](https://developer.android.com/jetpack/compose) for the Android part of your application
-and [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the iOS. They're both declarative UI frameworks,
-and you'll see similarities in the UI implementations. In both cases,
+To build the user interface, you'll use the [Jetpack Compose](https://developer.android.com/jetpack/compose) toolkit
+for the Android part of your project and [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the iOS one.
+These are both declarative UI frameworks, and you'll see similarities in the UI implementations. In both cases,
 you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
 
 ### The Android module
 
 The `androidApp` module contains an Android application, defines its main activity and the UI views, and uses the
 `shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
+
 Make some changes and see how it is reflected in the UI:
 
 1. Navigate to the `MainActivity.kt` file in `androidApp`.
-2. Find the `Greeting` class invocation. Select the `greet()` function and use the **Ctrl + B**/**Cmd + B** shortcut.
+2. Find the `Greeting` class invocation. Select the `greet()` function and use the **Cmd + B** shortcut.
    You'll see that it's the same class from the `shared` module you edited in the previous step.
 3. In `Greeting.kt`, update the `greet()` function:
 
@@ -76,9 +77,11 @@ Make some changes and see how it is reflected in the UI:
 `iosApp` is an Xcode project that builds into an iOS application. It depends on and uses the `shared` module as an iOS
 framework. The UI of the app is written in Swift.
 
+Implement the same changes as in the Android app:
+
 1. Launch Xcode. Select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. In the `ContenView.swift` file, select the `greet()` function by holding the **⌃ + Cmd** button.
+3. In the `ContenView.swift` file, select the `greet()` function by holding the **⌃ + Cmd** shortcut.
 
    You'll see the Objective-C declarations for the Kotlin functions defined in the `shared` module. Kotlin types are
    represented as Objective-C types when used from Objective-C/Swift. Here the `greet()` function

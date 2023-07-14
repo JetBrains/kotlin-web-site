@@ -109,7 +109,7 @@ implementations instead of expected declarations used in the common code.
             val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
 
             return firstWord + "\n" +
-                "Guess what it is! > ${platform.name.reversed()}!"
+                    "Guess what it is! > ${platform.name.reversed()}!"
         }
     }
     ```
@@ -176,9 +176,9 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     `getPlatform()` function. The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the
     `IOSPlatform` implementation.
 
-#### Experiment with the expect/actual mechanism {initial-collapse-state="collapsed"}
+#### Explore the expect/actual mechanism {initial-collapse-state="collapsed"}
 
-The template uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
+The template project uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:
 
 1. Open `Platform.kt` in the `commonMain` module and add the following at the end of the file:
@@ -218,7 +218,7 @@ such as properties and classes. Let's implement an expected property:
         val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
     
         return firstWord + " [$num]\n" +
-            "Guess what it is! > ${platform.name.reversed()}!"
+                "Guess what it is! > ${platform.name.reversed()}!"
     }
     ```
 
