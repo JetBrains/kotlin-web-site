@@ -553,8 +553,7 @@ window like this:
 Instead of just alerting the user, you can add some functionality for highlighting the selected video with a ▶ triangle.
 To do that, introduce some _state_ specific to this component.
 
-State is one of core concepts in React. In modern React (which uses the so-called _Hooks API_), state is expressed
-using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
+State is one of the core concepts in React. In modern React (which uses the so-called _Hooks API_), state is expressed using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
 1. Add the following code to the top of the `VideoList` declaration:
 
@@ -576,7 +575,7 @@ using the [`useState` hook](https://reactjs.org/docs/hooks-state.html).
 
    To learn more about the State Hook, check out the [React documentation](https://reactjs.org/docs/hooks-state.html).
 
-2. Change your implementation of the `VideoList` component to look as follows:
+2. Change the `onClick` handler and the text to be shown in your implementation of the `VideoList` component to look as follows:
 
    ```kotlin
    val VideoList = FC<VideoListProps> { props ->
@@ -682,6 +681,7 @@ Remember that in Kotlin, variables can have the [type of a function](lambdas.md#
        props.onSelectVideo(video)
    }
    ```
+   The variable `selectedVideo` in the `VideoList` component is now obsolete and can be deleted.
 
 3. You can now go back to the `App` component and pass `selectedVideo` and a handler for `onSelectVideo`
    for each of the two video lists:
@@ -806,7 +806,7 @@ Now it's time to adjust the `VideoPlayer` usage site in the `App` component. Whe
 should be moved from the unwatched list to the watched list or vice versa. Since these lists can now actually
 change, move them into the application state:
 
-1. In `App.kt`, add the following `useState()` calls to the top of the `App` component:
+1. In `App.kt`, add the following properties with `useState()` calls to the top of the `App` component:
 
    ```kotlin
    val App = FC<Props> {
@@ -900,11 +900,11 @@ in GitHub.
 However, in this configuration, the generic type for the props accepted by `ReactPlayer` is set to `dynamic`. That means
 the compiler will accept any code, at the risk of breaking things at runtime.
 
-A better alternative would be to create an `external interface` that specifies what kind of properties belong to the
+A better alternative is to create an `external interface` that specifies what kind of properties belong to the
 props for this external component. You can learn about the props' interface in the [README](https://www.npmjs.com/package/react-player)
 for the component. In this case, use the `url` and `controls` props:
 
-1. Adjust the content of `ReactYouTube.kt` accordingly:
+1. Adjust the content of `ReactYouTube.kt` by adding an external interface and replacing `dynamic` with that interface:
 
    ```kotlin
    @file:JsModule("react-player")
@@ -1107,7 +1107,7 @@ suspend fun fetchVideo(id: Int): Video {
 }
 ```
 
-* _Suspending function_ `fetch()`es a video with a given `id` from the API. This response may take a while, so you `await()`
+* _Suspending function_ `fetch()` fetches a video with a given `id` from the API. This response may take a while, so you `await()`
   the result. Next, `text()`, which uses a callback, reads the body from the response. Then you `await()` its completion.
 * Before returning the value of the function, you pass it to `Json.decodeFromString`, a function from `kotlinx.coroutines`.
   It converts the JSON text you received from the request into a Kotlin object with the appropriate fields.
