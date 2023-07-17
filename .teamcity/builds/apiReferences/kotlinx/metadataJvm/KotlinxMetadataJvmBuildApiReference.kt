@@ -29,8 +29,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
     }
 
     steps {
-        step {
-            id = "step-drop-snapshot-id"
+        scriptDropSnapshot {
             enabled = false
         }
     }
