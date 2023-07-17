@@ -1,7 +1,7 @@
 [//]: # (title: Update UI)
 
 <microformat>
-    <p>This is the third part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+    <p>This is the third part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
        <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update UI</strong><br/>       
@@ -81,7 +81,7 @@ Implement the same changes as in the Android app:
 
 1. Launch Xcode. Select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. In the `ContenView.swift` file, select the `greet()` function by holding the **⌃ + Cmd** shortcut.
+3. In the `ContenView.swift` file, select the `greet()` function and use the **⌃ + Cmd** shortcut.
 
    You'll see the Objective-C declarations for the Kotlin functions defined in the `shared` module. Kotlin types are
    represented as Objective-C types when used from Objective-C/Swift. Here the `greet()` function

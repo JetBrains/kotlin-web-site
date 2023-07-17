@@ -14,12 +14,6 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
 
 ## Create the project from a template
 
-> You can also watch the [video version of this tutorial](https://www.youtube.com/watch?v=GcqFhoUuNNI) created by
-> Ekaterina
-> Petrova, Kotlin Product Marketing Manager.
->
-{type="tip"}
-
 1. In Android Studio, select **File | New | New Project**.
 2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
 
@@ -33,13 +27,11 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
-   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools
-   and
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
    > has fewer installation issues.
    >
    > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
-   > To learn more about CocoaPods and how to set up an environment for them,
-   see [CocoaPods overview and setup](native-cocoapods.md).
+   > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
    >
    {type="tip"}
 
@@ -83,9 +75,9 @@ When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Nat
 
 ### Writing common declarations
 
-The common source set can define expected declarations which must have actual implementations in the `androidMain` and
-`iosMain` source sets. During compilation, the Kotlin compiler automatically substitutes all the actual
-implementations instead of expected declarations used in the common code.
+The common source set contains shared code that can be used across multiple target platforms.
+It's designed to contain code that is platform-independent. If you try to use platform-specific APIs in the common source set,
+IDE will show a warning:
 
 1. Open the `Greeting.kt` file and try to access one of the Java classes, `java.util.Random().nextBoolean()`, inside the `greet()` function:
 
@@ -96,7 +88,7 @@ implementations instead of expected declarations used in the common code.
    ```
 
    Android Studio highlights that `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
-2. Replace it with `kotlin.random.Random` from the Kotlin standard library. The code now compiles successfully.
+2. Follow IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library. The code now compiles successfully.
 3. Add a bit of unpredictability to the greeting:
 
     ```kotlin
@@ -119,12 +111,14 @@ Using interfaces and the [expect/actual](multiplatform-connect-to-apis.md) mecha
 
 ### Adding platform-specific implementations
 
-You can put an interface or an expect declaration in the common source set, and each platform source sets will have to
-provide actual platform-specific implementations. While building the code for the specific target,
-the Kotlin compiler will automatically substitute the actual declaration for this target instead of the expected one.
+The common source set can define an interface or an expected declaration. Then each platform source sets,
+in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
+declarations from the common source set.
 
-1. When creating a project in Android Studio, you get a template with the `Platform` interface with information about
-   the platform. Check the `Platform.kt` file in the `commonMain` module:
+While building the code for a specific target,
+the Kotlin compiler will automatically substitute the expected declarations with the actual ones for this target.
+
+1. When creating a project in Android Studio, you get a template with the `Platform.kt` file in the `commonMain` module:
 
     ```kotlin
     interface Platform {
@@ -132,7 +126,9 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     }
     ```
    
-2. Switch to `androidMain` and `iosMain` modules. You'll see that they have different implementations for Android and iOS source sets:
+   It's a common `Platform` interface with information about the platform.
+2. Switch between the `androidMain` and the `iosMain` modules.
+   You'll see that they have different implementations of the same functionality for the Android and the iOS source sets:
     
     ```kotlin
     // Platform.kt in androidMain module:
@@ -154,12 +150,13 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     {validate="false"}
 
     * The `name` property implementation from `AndroidPlatform` uses the Android platform code, namely the `android.os.Build`
-      dependency. This code is written in Kotlin/JVM. If you try to access `java.util.Random` here, this code compiles.
+      dependency. This code is written in Kotlin/JVM. If you try to access `java.util.Random` here, this code will compile.
     * The `name` property implementation from `IOSPlatform` uses iOS platform code, namely the `platform.UIKit.UIDevice`
       dependency. It's written in Kotlin/Native, meaning you can write iOS code in Kotlin. This code becomes a part of the iOS
       framework, which you will later call from Swift in your iOS application.
 
-3. Take a look at the `getPlatform()` function. Its expected variant doesn't have a body, and actual implementations are provided in the platform code:
+3. Check the `getPlatform()` function in different source sets. Its expected variant doesn't have a body,
+   and actual implementations are provided in the platform code:
 
     ```kotlin
     // Platform.kt in commonMain module:
@@ -172,11 +169,13 @@ the Kotlin compiler will automatically substitute the actual declaration for thi
     actual fun getPlatform(): Platform = IOSPlatform()
     ```
 
-    During the compilation process, the Kotlin compiler automatically substitutes the correct actual implementation of the
-    `getPlatform()` function. The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the
-    `IOSPlatform` implementation.
+During compilation, the Kotlin compiler automatically substitutes the expected declaration of the `getPlatform()` function
+with its correct actual implementations.
+The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the `IOSPlatform` implementation.
 
-#### Explore the expect/actual mechanism {initial-collapse-state="collapsed"}
+Now you can run the apps to ensure everything works.
+
+#### Explore the expect/actual mechanism (optional) {initial-collapse-state="collapsed"}
 
 The template project uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:
@@ -221,8 +220,6 @@ such as properties and classes. Let's implement an expected property:
                 "Guess what it is! > ${platform.name.reversed()}!"
     }
     ```
-
-Now you can run the apps to ensure everything works.
 
 ## Run your application
 
@@ -289,7 +286,7 @@ If you want to run your application on a simulated device, you can add a new run
 
 1. Connect a real iPhone device to Xcode.
 2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
-3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting an iPhone in the **Execution target**list.
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting an iPhone in the **Execution target** list.
 4. Click **Run** to run your application on the iPhone device.
 
 > If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
