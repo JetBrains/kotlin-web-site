@@ -15,8 +15,7 @@ object BuildStdlibApiReference : BuildType({
     }
 
     params {
-        param("%apiTemplatesBranch%", "ktl-696-dokka-stdlib")
-        param("revers.deps.*.templatesBranch", "%templatesBranch%")
+        param("revers.deps.*.templatesBranch", "ktl-696-dokka-stdlib")
     }
 
     dependencies {
