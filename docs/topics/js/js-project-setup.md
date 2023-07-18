@@ -413,7 +413,7 @@ files will automatically be merged into the `build/js/packages/projectName/webpa
 To add a new [webpack loader](https://webpack.js.org/loaders/), for example, add the following to
 a `.js` file inside the `webpack.config.d`:
 
-> In this case, the configuration object presented in the `config` global object. You need to modify it in your script.
+> In this case, the configuration object presented is the `config` global object. You need to modify it in your script.
 >
 {type="note"}
 
