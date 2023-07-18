@@ -171,5 +171,5 @@ object BuildSitePages : BuildType({
                 artifactRules = "+:latest-version.zip!all-libs/** => api/core"
             }
         }
-    })
+    }
 })
