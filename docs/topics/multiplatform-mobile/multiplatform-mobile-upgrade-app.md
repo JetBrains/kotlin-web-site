@@ -186,16 +186,14 @@ data class RocketLaunch (
     class Greeting {
         // ...
         @Throws(Exception::class)
-        suspend fun greet(): String {
+        suspend fun greet(): List<String> = buildList {
             val rockets: List<RocketLaunch> =
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
             add(if (Random.nextBoolean()) "Hi!" else "Hello!")
-            add(
-                "Guess what it is! > ${platform.name.reversed()}!" +
-                        "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆" +
-                        "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
-            )
+            add("Guess what it is! > ${platform.name.reversed()}!")
+            add("\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆")
+            add("\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀")
         }
     }
     ```

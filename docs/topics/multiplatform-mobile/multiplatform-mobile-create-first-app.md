@@ -82,14 +82,19 @@ IDE will show a warning:
 1. Open the `Greeting.kt` file and try to access one of the Java classes, `java.util.Random().nextBoolean()`, inside the `greet()` function:
 
    ```kotlin
+   import java.util.Random
+   
    fun greet(): String {
        val firstWord = if (Random().nextBoolean()) "Hi!" else "Hello!"
    }
    ```
 
    Android Studio highlights that `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
-2. Follow IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library. The code now compiles successfully.
-3. Add a bit of unpredictability to the greeting:
+2. Follow IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library.
+   This is a multiplatform library that works on all platforms and is included automatically as a dependency.
+   The code should now compile successfully.
+3. Add a bit of unpredictability to the greeting. Update the shared code with the `reversed()` function
+   from the Kotlin standard library for reversing the text:
 
     ```kotlin
     import kotlin.random.Random
@@ -100,8 +105,7 @@ IDE will show a warning:
         fun greet(): String {
             val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
 
-            return firstWord + "\n" +
-                    "Guess what it is! > ${platform.name.reversed()}!"
+            return "$firstWord\nGuess what it is! > ${platform.name.reversed()}!"
         }
     }
     ```
@@ -115,8 +119,8 @@ The common source set can define an interface or an expected declaration. Then e
 in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
 declarations from the common source set.
 
-While building the code for a specific target,
-the Kotlin compiler will automatically substitute the expected declarations with the actual ones for this target.
+While building the code for a specific target, the Kotlin compiler will automatically substitute
+the invocation of the expected declarations with the invocation of the actual implementation for this target.
 
 1. When creating a project in Android Studio, you get a template with the `Platform.kt` file in the `commonMain` module:
 
@@ -169,9 +173,9 @@ the Kotlin compiler will automatically substitute the expected declarations with
     actual fun getPlatform(): Platform = IOSPlatform()
     ```
 
-During compilation, the Kotlin compiler automatically substitutes the expected declaration of the `getPlatform()` function
-with its correct actual implementations.
-The Android app uses the `AndroidPlatform` implementation, while the iOS app uses the `IOSPlatform` implementation.
+During compilation, Kotlin automatically substitutes the invocation of the `getPlatform()` expected declaration
+with the invocation of its correct actual implementation.
+The Android app uses the `AndroidPlatform()` implementation, while the iOS app uses the `IOSPlatform()` implementation.
 
 Now you can run the apps to ensure everything works.
 
@@ -216,8 +220,7 @@ such as properties and classes. Let's implement an expected property:
     fun greet(): String {
         val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
     
-        return firstWord + " [$num]\n" +
-                "Guess what it is! > ${platform.name.reversed()}!"
+        return "$firstWord [$num]\nGuess what it is! > ${platform.name.reversed()}!"
     }
     ```
 

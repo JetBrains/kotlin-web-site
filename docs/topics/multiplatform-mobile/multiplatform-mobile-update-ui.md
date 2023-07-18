@@ -54,7 +54,8 @@ Make some changes and see how it is reflected in the UI:
    }
    ```
 
-   Here the `LazyColumn` composable shows the list of `Text` items.
+   Here the `LazyColumn` composable shows the list of `Text` items, adds padding around the content and a space between the list items. 
+   
 5. Follow Android Studio's suggestions to import the missing dependencies.
 6. Update the preview as well, passing a list as an argument:
    

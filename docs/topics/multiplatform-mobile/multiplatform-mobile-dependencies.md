@@ -80,13 +80,11 @@ multiplatform support, is the most convenient way to work with dates in your sha
     ```kotlin
     class Greeting {
         private val platform: Platform = getPlatform()
-         
+   
         fun greet(): List<String> = buildList {
             add(if (Random.nextBoolean()) "Hi!" else "Hello!")
-            add(
-                "Guess what it is! > ${platform.name.reversed()}!" +
-                        "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
-            )
+            add("Guess what it is! > ${platform.name.reversed()}!")
+            add("\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆")
         }
     }
     ```
