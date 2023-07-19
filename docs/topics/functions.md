@@ -177,7 +177,7 @@ fun printHello(name: String?) { ... }
 
 ### Single-expression functions
 
-When a function contains a single `return` expression, the curly braces can be omitted and the body is specified after a `=` symbol:
+When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
 
 ```kotlin
 fun double(x: Int): Int = x * 2
