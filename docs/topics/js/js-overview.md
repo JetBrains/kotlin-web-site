@@ -3,9 +3,10 @@
 Kotlin/JS provides the ability to transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies
 to JavaScript. The current implementation of Kotlin/JS targets [ES5](https://www.ecma-international.org/ecma-262/5.1/).
 
-The recommended way to use Kotlin/JS is via the `kotlin.js` and `kotlin.multiplatform` Gradle plugins. They let you easily set up and control Kotlin projects targeting JavaScript in one place. This includes essential functionality
-such as controlling the bundling of your application, adding JavaScript dependencies directly from npm, and more. To get
-an overview of the available options, check out [Set up a Kotlin/JS project](js-project-setup.md).
+The recommended way to use Kotlin/JS is via the `kotlin.multiplatform` Gradle plugin. It lets you easily set up and control
+Kotlin projects targeting JavaScript in one place. This includes essential functionality
+such as controlling the bundling of your application, adding JavaScript dependencies directly from npm, and more.
+To get an overview of the available options, check out [Set up a Kotlin/JS project](js-project-setup.md).
 
 ## Kotlin/JS IR compiler
 

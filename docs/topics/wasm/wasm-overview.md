@@ -53,62 +53,7 @@ With Compose Multiplatform for Web, you can run your code in the browser with al
 You can use the Kotlin standard library (`stdlib`) and test library ([`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/))
 in Kotlin/Wasm out of the box. The version of these libraries is the same as the version of the `kotlin-multiplatform` plugin.
 
-Other official Kotlin (`kotlinx`) and multiplatform libraries are not fully supported yet. You can try experimental versions of such libraries
-by adding the Kotlin [experimental repository](https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental/) to your Gradle project.
-
-> For Kotlin 1.9.0-Beta and later, use the latest available libraries' versions.
->
-{type="note"}
-
-### Enable kotlinx libraries
-
-To set a dependency on a Kotlin library (`kotlinx`), such as [`kotlinx.serilization`](serialization.md) and [`kotlinx.coroutines`](coroutines-guide.md),
-update your `build.gradle.kts` file:
-
-```kotlin
-// `build.gradle.kts`
-
-repositories {
-    maven {
-        url = uri("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
-    }
-}
-
-kotlin {
-    sourceSets {
-        val wasmMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core-wasm:1.5.1-wasm0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-wasm:1.6.4-wasm0")
-            }
-        }
-    }
-}
-```
-
-### Enable multiplatform libraries
-
-To set a dependency on a multiplatform library, such as [Ktor](https://ktor.io/), update your `build.gradle.kts` file:
-
-```kotlin
-// `build.gradle.kts`
-
-repositories {
-    maven {
-        url = uri("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
-    }
-}
-
-kotlin {
-    sourceSets {
-        val wasmMain by getting {
-            dependencies {
-                implementation("io.ktor:ktor-client-core-wasm:2.3.1-wasm0")
-            }
-        }
-    }
-}
-```
+Kotlin/Wasm has an experimental support for other Kotlin libraries. [Read more how to enable them in your project](wasm-libraries.md).
 
 ## Feedback
 

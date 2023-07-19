@@ -14,15 +14,12 @@ if the `KSNode` is obtained from any of the following:
 * `Resolver.getClassDeclarationByName`
 * `Resolver.getDeclarationsFromPackage`
 
-> Currently, only changes in Kotlin and Java sources are tracked. Changes to the classpath, namely to other modules
-> or libraries, trigger a full re-processing of all sources by default. To track changes in classpath, set the Gradle property
-> `ksp.incremental.intermodule=true` for an experimental implementation on JVM.
->
-{type="note"}
-
 Incremental processing is currently enabled by default. To disable it, set the Gradle property `ksp.incremental=false`.
 To enable logs that dump the dirty set according to dependencies and outputs, use `ksp.incremental.log=true`.
-You can find these log files in the `build` output folder with a `.log` file extension.
+You can find these log files in the `build` output directory with a `.log` file extension.
+
+On the JVM, classpath changes, as well as Kotlin and Java source changes, are tracked by default.
+To track only Kotlin and Java source changes, disable classpath tracking by setting the `ksp.incremental.intermodule=false` Gradle property.
 
 ## Aggregating vs Isolating
 

@@ -46,7 +46,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version | Gradle min and max versions             | AGP min and max versions                              |
 |-------------|-----------------------------------------|-------------------------------------------------------|
-| 1.8.20      | %minGradleVersion% – %maxGradleVersion% | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
+| 1.9.0       | %minGradleVersion% – %maxGradleVersion% | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |
+| 1.8.20      | 6.8.3 – 7.6.0                           | 4.1.3 – 7.4.0                                         |      
 | 1.8.0       | 6.8.3 – 7.3.3                           | 4.1.3 – 7.2.1                                         |   
 | 1.7.20      | 6.7.1 – 7.1.1                           | 3.6.4 – 7.0.4                                         |
 | 1.7.0       | 6.7.1 – 7.0.2                           | 3.4.3 – 7.0.2                                         |
@@ -134,6 +135,8 @@ sourceSets {
 </tab>
 </tabs>
 
+<!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
+
 ### Check for JVM target compatibility of related compile tasks
 
 In the build module, you may have related compile tasks, for example:
@@ -151,12 +154,35 @@ in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
+Configure the behavior of this check for the whole project by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
 file to:
 
 * `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
 * `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin skips the check and doesn't produce any messages.
+
+You can also configure it at task level in your `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
+    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configureEach {
+    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
+}
+```
+
+</tab>
+</tabs>
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
@@ -548,14 +574,14 @@ It's recommended to use Android Studio for creating Android applications. [Learn
 
 ## Targeting JavaScript
 
-When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
+When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn more about setting up a Kotlin/JS project](js-project-setup.md)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("js") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
@@ -564,7 +590,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
 
