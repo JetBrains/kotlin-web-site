@@ -89,6 +89,8 @@ If you need to configure an execution, you need to specify its ID. You can find 
 > 
 {type="note"}
 
+<!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
+
 ## Compile Kotlin and Java sources
 
 To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler.
@@ -289,10 +291,10 @@ The following attributes are supported:
 
 ### Attributes specific to JVM
 
-| Name | Property name | Description | Possible values |Default value |
-|------|---------------|-------------|-----------------|--------------|
-| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "19" | "%defaultJvmTargetVersion%" |
-| `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME | | |
+| Name | Property name | Description | Possible values             |Default value |
+|------|---------------|-------------|-----------------------------|--------------|
+| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "20" | "%defaultJvmTargetVersion%" |
+| `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                             | |
 
 ### Attributes specific to JS
 

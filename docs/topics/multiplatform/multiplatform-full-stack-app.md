@@ -480,9 +480,7 @@ root directory.
             ContentType.Text.Html
         )
     }
-    static("/") {
-        resources("")
-    }
+    staticResources("/", "static")
     route(ShoppingListItem.path) {
         // ...
     }
@@ -585,7 +583,7 @@ Instead of rendering a simple "Hello, Kotlin/JS" string, make the application re
 that, replace the content inside `src/jsMain/kotlin/Main.kt` with the following:
 
 ```kotlin
-import kotlinx.browser.document
+import web.dom.document
 import react.create
 import react.dom.client.createRoot
 
@@ -657,12 +655,12 @@ provides a callback when users submit their entry to the shopping list to receiv
 1. Create the `src/jsMain/kotlin/InputComponent.kt` file and fill it with the following definition:
 
     ```kotlin
-    import org.w3c.dom.HTMLFormElement
+    import web.html.HTMLFormElement
     import react.*
-    import org.w3c.dom.HTMLInputElement
+    import web.html.HTMLInputElement
     import react.dom.events.ChangeEventHandler
     import react.dom.events.FormEventHandler
-    import react.dom.html.InputType
+    import web.html.InputType
     import react.dom.html.ReactHTML.form
     import react.dom.html.ReactHTML.input
     
@@ -721,8 +719,8 @@ provides a callback when users submit their entry to the shopping list to receiv
 
 #### Implement item removal
 
-Add the ability to remove the finished items from the list so that it doesn't get too long. You can modify an existing list rather
-than adding another UI element (like a "delete" button). When users click one of the items in the list, the app deletes it.
+Add the ability to remove the finished items from the list so that it doesn't get too long.
+Instead of adding another UI element (like a "delete" button), you can allow users to delete an item by clicking it.
 
 To achieve this, pass a corresponding handler to `onClick` of the list elements:
 

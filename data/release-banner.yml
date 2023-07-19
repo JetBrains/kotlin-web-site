@@ -1,10 +1,9 @@
-isActive: false
-version: 1.8.20
+isActive: true
+version: 1.9.0
 versionSuffix: ""
-url: https://blog.jetbrains.com/kotlin/2023/04/kotlin-1-8-20-released/
+url: https://blog.jetbrains.com/kotlin/2023/07/kotlin-1-9-0-released/
 keyFeatures:
-  - New K2 compiler updates
-  - AutoCloseable interface and Base64 encoding in stdlib
-  - New JVM incremental compilation by default
-  - Preview of Gradle composite builds in Multiplatform
-  - New Kotlin/Wasm target
+  - The K2 compiler for the JVM is now in Beta
+  - Great improvements for the standard library
+  - Preview of custom memory allocator in Kotlin/Native
+  - Size-related optimizations in Kotlin/Wasm

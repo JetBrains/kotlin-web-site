@@ -93,7 +93,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
 
 ### How to enable Java synthetic property references {initial-collapse-state="collapsed"}
 
-To enable this feature, set the `-language-version 1.9` compiler option. In a Gradle project, you can do so 
+To enable this feature, set the `-language-version 2.1` compiler option. In a Gradle project, you can do so 
 by adding the following to your `build.gradle(.kts)`:
 
 <tabs group="build-script">
@@ -106,7 +106,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
             )
     }
 ```
@@ -119,12 +119,16 @@ tasks
     .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
     .configureEach {
         compilerOptions.languageVersion
-            = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+            = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_1
 }
 ```
 
 </tab>
 </tabs>
+
+> Prior to Kotlin 1.9.0, to enable this feature you had to set the `-language-version 1.9` compiler option.
+> 
+{type="note"}
 
 ## Methods returning void
 

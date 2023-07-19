@@ -9,6 +9,9 @@ import builds.apiReferences.kotlinx.datetime.KotlinxDatetimePrepareDokkaTemplate
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildSearchIndex
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationPrepareDokkaTemplates
+import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmBuildApiReference
+import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmBuildSearchIndex
+import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmPrepareDokkaTemplates
 import builds.apiReferences.stdlib.BuildStdlibApiReference
 import builds.apiReferences.stdlib.StdlibPrepareDokkaTemplates
 import builds.apiReferences.templates.BuildApiReference
@@ -17,6 +20,7 @@ import builds.apiReferences.templates.PrepareDokkaTemplate
 import builds.apiReferences.vcsRoots.KotlinxCoroutines
 import builds.apiReferences.vcsRoots.KotlinxSerialization
 import builds.apiReferences.vcsRoots.KotlinxDatetime
+import builds.apiReferences.vcsRoots.Kotlin
 import jetbrains.buildServer.configs.kotlin.Project
 
 object BuildApiReferencesProject : Project({
@@ -35,12 +39,17 @@ object BuildApiReferencesProject : Project({
   buildType(KotlinxCoroutinesBuildSearchIndex)
   buildType(KotlinxCoroutinesPrepareDokkaTemplates)
 
+  buildType(KotlinxMetadataJvmBuildApiReference)
+  buildType(KotlinxMetadataJvmBuildSearchIndex)
+  buildType(KotlinxMetadataJvmPrepareDokkaTemplates)
+
   buildType(BuildStdlibApiReference)
   buildType(StdlibPrepareDokkaTemplates)
 
   vcsRoot(KotlinxSerialization)
   vcsRoot(KotlinxCoroutines)
   vcsRoot(KotlinxDatetime)
+  vcsRoot(Kotlin)
 
   template(PrepareDokkaTemplate)
   template(BuildApiReference)

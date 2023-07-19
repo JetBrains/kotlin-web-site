@@ -256,7 +256,7 @@ Try these workarounds to avoid this error:
 name, specify it explicitly:
 
     ```kotlin
-    pod("AFNetworking") {
+    pod("Alamofire") {
         moduleName = "AppsFlyerLib"
     }
     ```

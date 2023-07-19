@@ -10,7 +10,7 @@ which is subsequently compiled into JavaScript. For Kotlin/JS, this enables aggr
 on pain points that were present in the previous compiler, such as generated code size (through dead code elimination),
 and JavaScript and TypeScript ecosystem interoperability, to name some examples.
 
-The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotlin/JS Gradle plugin. To enable it in your
+The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotlin Multiplatform Gradle plugin. To enable it in your
 project, pass a compiler type to the `js` function in your Gradle build script:
 
 ```groovy
