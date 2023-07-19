@@ -1,4 +1,3 @@
-
 [//]: # (title: Create and publish a multiplatform library – tutorial)
 
 In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common
@@ -10,10 +9,14 @@ It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platfor
 You will use different ways to implement the conversion to the Base64 format on different platforms:
 
 * For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
-* For JS – the [`btoa()` function](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/btoa).
+* For JS – the [`base-64` npm package](https://www.npmjs.com/package/base-64).
 * For Kotlin/Native – your own implementation.
 
 You will also test your code using common tests, and then publish the library to your local Maven repository.
+
+> You can find a similar project in this [GitHub repository](https://github.com/KaterinaPetrova/mpp-sample-lib).
+>
+{type="note"}
 
 ## Set up the environment
 
@@ -40,8 +43,8 @@ The wizard will create a sample multiplatform library with the following structu
 
 Define the classes and interfaces you are going to implement in the common code.
 
-1. In the `commonMain/kotlin` directory, create the `org.jetbrains.base64` package.
-2. Create the `Base64.kt` file in the new package.
+1. In `commonMain/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64.kt` file in the new directory.
 3. Define the `Base64Encoder` interface that converts bytes to the `Base64` format:
 
     ```kotlin
@@ -74,7 +77,7 @@ Now you will create the `actual` implementations of the `Base64Factory` object f
 
 ### JVM
 
-1. In the `jvmMain/kotlin` directory, create the `org.jetbrains.base64` package.
+1. In `jvmMain/kotlin`, create a new `org.jetbrains.base64` package.
 2. Create the `Base64.kt` file in the new package.
 3. Provide a simple implementation of the `Base64Factory` object that delegates to the `java.util.Base64` class:
 
@@ -101,34 +104,43 @@ Pretty simple, right? You've provided a platform-specific implementation by usin
 
 The JS implementation will be very similar to the JVM one.
 
-1. In the `jsMain/kotlin` directory, create the `org.jetbrains.base64` package.
-2. Create the `Base64.kt` file in the new package.
-3. Provide a simple implementation of the `Base64Factory` object that delegates to the `btoa()` function.
+1. In `jsMain/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64.kt` file in the new directory.
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the `Base64` object:
 
     ```kotlin
     package org.jetbrains.base64
-    
-    import kotlinx.browser.window
-    
+
     actual object Base64Factory {
         actual fun createEncoder(): Base64Encoder = JsBase64Encoder
     }
-    
+
     object JsBase64Encoder : Base64Encoder {
         override fun encode(src: ByteArray): ByteArray {
-            val string = src.decodeToString()
-            val encodedString = window.btoa(string)
-            return encodedString.encodeToByteArray()
+            val binString = src.decodeToString()
+            return Base64.encode(binString).encodeToByteArray()
         }
     }
     ```
+   
+4. Create a separate file `Base64Npm.kt` in the same directory and implement the `Base64` object using the `base-64` npm package:
+
+   ```kotlin
+   package org.jetbrains.base64
+
+   @JsModule("base-64")
+   @JsNonModule
+   external object Base64 {
+       fun encode(s: String): String
+   }
+   ```
 
 ### Native
 
 Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself.
 
-1. In the `nativeMain/kotlin` directory, create the `org.jetbrains.base64` package.
-2. Create the `Base64.kt` file in the new package.
+1. In `nativeMain/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64.kt` file in the new directory.
 3. Provide your own implementation for the `Base64Factory` object:
 
     ```kotlin
@@ -211,8 +223,8 @@ One of the benefits of a multiplatform library is having a default implementatio
 
 Now you have a string-based API that you can cover with basic tests.
 
-1. In the `commonTest/kotlin` directory, create the `org.jetbrains.base64` package.
-2. Create the `Base64Test.kt` file in the new package.
+1. In `commonTest/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64Test.kt` file in the new directory.
 3. Add tests to this file:
 
     ```kotlin
@@ -262,7 +274,7 @@ The tests will run on all platforms (JVM, JS, and Native).
 
 You can also add tests that will be run only for a specific platform. For example, you can add UTF-16 tests on JVM:
 
-1. In the `jvmTest/kotlin` directory, create the `org.jetbrains.base64` package.
+1. In `jvmTest/kotlin`, create the `org.jetbrains.base64` package.
 2. Create the `Base64Test.kt` file in the new package.
 3. Add tests to this file:
 
@@ -301,7 +313,7 @@ To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gr
    group = "org.jetbrains.base64"
    version = "1.0.0"
    ```
-   
+
 2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
 
     ```bash
@@ -362,7 +374,7 @@ To implement this, move the publication logic to a separate Gradle project:
 
 1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins` and create a new file  `build.gradle.kts` inside of it.
 2. Place the following code into the new `build.gradle.kts` file:
-   
+
    ```kotlin
    plugins {
        `kotlin-dsl` // Is needed to turn our build logic written in Kotlin into the Gradle Plugin
@@ -372,9 +384,9 @@ To implement this, move the publication logic to a separate Gradle project:
        gradlePluginPortal() // To use 'maven-publish' and 'signing' plugins in our own plugin
    }
    ```
-   
+
 3. In the `convention-plugins` directory, create a `src/main/kotlin/convention.publication.gradle.kts` file
-to store all the publication logic.
+   to store all the publication logic.
 4. Add all the required logic in the new file. Be sure to make changes to match your project configuration and where explicitly noted by angle brackets (i.e. `<replace-me>`):
 
    ```kotlin
@@ -470,14 +482,13 @@ to store all the publication logic.
    }
    ```
    {initial-collapse-state="collapsed"}
-   
-   
+
    Applying just `maven-publish` is enough for publishing to the local Maven repository, but not to Maven Central.
    In the provided script, you get the credentials from `local.properties` or environment variables,
    do all the required configuration in the `publishing` section, and sign your publications with the signing plugin.
 
 5. Go back to your library project. To ask Gradle to prebuild your plugins, update the root `settings.gradle.kts`
-with the following:
+   with the following:
 
    ```kotlin
    rootProject.name = "multiplatform-lib" // your project name
@@ -485,8 +496,8 @@ with the following:
    ```
 
 6. Now, you can apply this logic in the library's `build.script`. In the `plugins` section, replace `maven-publish` with
-`conventional.publication`:
-   
+   `conventional.publication`:
+
    ```kotlin
    plugins {
        kotlin("multiplatform") version "%kotlinVersion%"
@@ -542,7 +553,7 @@ developers will be able to add it as a dependency. In a couple of hours, other d
 
 ## Add a dependency on the published library
 
-You can add your library to other multiplatform projects as a dependency. 
+You can add your library to other multiplatform projects as a dependency.
 
 In the `build.gradle.kts` file, add `mavenLocal()` or `MavenCentral()` (if the library was published
 to the external repository) and add a dependency on your library:
