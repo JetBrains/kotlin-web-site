@@ -490,3 +490,67 @@ projects.
 **When do the changes take effect?**
 
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
+
+<anchor name="declaring-multiple-targets"></anchor>
+**What's changed?**
+
+Declaring multiple targets of the same kind in one project is not recommended and will be forbidden in future releases.
+There are multiple ways of achieving same results with other Kotlin Gradle Plugin mechanisms. As part of Kotlin
+Multiplatform stabilization we are trying to emphasize the essential and reduce ambiguous APIs. 
+
+Example:
+```kotlin
+kotlin {
+    jvm()
+    jvm("jvm6") // is not recommended and will produce deprecation warning
+}
+```
+
+**What's the best practice now?**
+
+There are two ways of how to avoid multiple target declaration: different compilations and different gradle projects.
+
+If you need to compile some sources with different parameters such as dependencies or compiler options for example
+functional tests, different JDK, debug or release artifacts. Then instead of declaring multiple targets you can
+create multiple compilations in one target.
+
+Functional test build configuration sample 
+```kotlin
+kotlin {
+    jvm {
+        // Creates new compilation and 'jvmFunctionalTest' source set associated with it
+        val functionalTest by compilations.creating
+
+        // functionalTest should see public and internal declarations from 'main' compilation now.
+        // it is possible to associate with 'test' compilation as well
+        functionalTest.associateWith(compilations.getByName("main"))
+    }
+}
+```
+
+Different projects can be configured like this:
+```kotlin
+// :lib-jvm
+kotlin {
+    jvm()
+}
+
+// :lib-jvm6
+kotlin {
+    jvm {
+        // JVM specific configurations
+    }
+    
+    sourceSets {
+        jvmMain {
+            dependencies {
+                api(project(":lib-jvm"))
+            }
+        }
+    }
+}
+```
+
+**When do the changes take effect?**
+
+In Kotlin 1.9.20, a deprecation warning is introduced when multiple targets of the same type is used in Kotlin Multiplatform projects.
