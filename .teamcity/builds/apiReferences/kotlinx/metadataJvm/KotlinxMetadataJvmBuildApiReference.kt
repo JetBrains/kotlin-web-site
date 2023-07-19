@@ -3,9 +3,11 @@ package builds.apiReferences.kotlinx.metadataJvm
 import BuildParams.KOTLINX_METADATA_JVM_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.BuildApiReference
+import builds.apiReferences.templates.buildDokkaHTML
 import builds.apiReferences.templates.scriptDropSnapshot
+import builds.apiReferences.templates.vcsDefaultTrigger
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object KotlinxMetadataJvmBuildApiReference : BuildType({
     name = "kotlinx-metadata-jvm API reference"
@@ -16,11 +18,10 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
 
     params {
         param("release.tag", KOTLINX_METADATA_JVM_RELEASE_TAG)
-        param("DOKKA_TEMPLATE_TASK", ":kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLINX_METADATA_JVM_RELEASE_TAG}")
     }
 
     triggers {
-        vcs {
+        vcsDefaultTrigger {
             enabled = false
         }
     }
@@ -32,6 +33,15 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
     steps {
         scriptDropSnapshot {
             enabled = false
+        }
+        buildDokkaHTML {
+            enabled = false
+        }
+        script {
+            name = "build api reference"
+            scriptContent = """
+                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLINX_METADATA_JVM_RELEASE_TAG}
+            """.trimIndent()
         }
     }
 
