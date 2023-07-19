@@ -2,10 +2,7 @@ package builds.apiReferences.kotlinx.metadataJvm
 
 import BuildParams.KOTLINX_METADATA_JVM_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
-import builds.apiReferences.templates.BuildApiReference
-import builds.apiReferences.templates.buildDokkaHTML
-import builds.apiReferences.templates.scriptDropSnapshot
-import builds.apiReferences.templates.vcsDefaultTrigger
+import builds.apiReferences.templates.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
@@ -36,6 +33,24 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
         }
         buildDokkaHTML {
             enabled = false
+        }
+        scriptDokkaVersionSync {
+            scriptContent = """
+                #!/bin/bash
+                set -e
+                set +x
+                set -o pipefail
+                set -u
+
+                sed -i -E "s/dokka ?= ?\"[0-9\.]+\"/dokka = \"%DOKKA_TEMPLATES_VERSION%\"/gi" ./gradle/libs.versions.toml
+                
+                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./build.gradle.kts
+                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./repo/gradle-settings-conventions/settings.gradle.kts
+                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./repo/gradle-build-conventions/buildsrc-compat/build.gradle.kts
+                sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" ./settings.gradle
+                
+                sed -i -E "s|<trusted-artifacts>|<trusted-artifacts>\n<trust group=\"org.jetbrains.dokka\" />\n|" ./gradle/verification-metadata.xml
+            """.trimIndent()
         }
         script {
             name = "build api reference"
