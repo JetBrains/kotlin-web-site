@@ -38,6 +38,9 @@ It's a [template](#see-the-full-hierarchy-template) for all possible targets and
 To set up a hierarchy, call `targetHierarchy.default()` in the `kotlin` block of your `build.gradle(.kts)` file and list
 all of the targets you need. For example:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
@@ -49,6 +52,25 @@ kotlin {
     iosSimulatorArm64()
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+  // Enable the default target hierarchy:
+    targetHierarchy.default {
+      
+    }
+
+    android()
+    iosArm64()
+    iosSimulatorArm64()
+}
+```
+
+</tab>
+</tabs>
 
 When you declare the final targets `android`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
@@ -75,6 +97,9 @@ You can further configure the resulting hierarchy manually [using the `dependsOn
 To do so, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
 
 Consider this example of a project with a source set shared between the `jvm` and `native` targets only:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -103,6 +128,43 @@ kotlin {
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    // Enable the default target hierarchy:
+    targetHierarchy.default {
+      
+    }
+
+    jvm()
+    iosArm64()
+    // the rest of the necessary targets...
+
+    sourceSets {
+        commonMain {
+          
+        }
+
+        jvmAndNativeMain {
+            dependsOn(commonMain)
+        }
+
+        nativeMain {
+            dependsOn(jvmAndNativeMain)
+        }
+
+        jvmMain {
+            dependsOn(jvmAndNativeMain)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 It can be cumbersome to remove `dependsOn` relations that are automatically created by the `targetHierarchy.default()` call.
 In that case, use an entirely [manual configuration](#manual-configuration) instead of calling the default hierarchy.
@@ -142,11 +204,26 @@ combinations:
 All shortcuts create similar hierarchical structures in the code. For example, you can use the`ios()` shortcut to create
 a multiplatform project with 2 iOS-related targets, `iosArm64` and `iosX64`, and a shared source set:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 kotlin {
     ios() // iOS device and simulator targets; iosMain and iosTest source sets
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    ios() // iOS device and simulator targets; iosMain and iosTest source sets
+}
+```
+
+</tab>
+</tabs>
 
 In this case, the hierarchical structure includes the intermediate source sets `iosMain` and `iosTest`,
 which are used by the platform-specific source sets:
