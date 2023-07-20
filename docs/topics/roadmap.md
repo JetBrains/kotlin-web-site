@@ -51,10 +51,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60255" target="_blank">Release Kotlin 2.0</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60276" target="_blank">Design and implement new debugging information</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60255" target="_blank">Promote K2 compiler to Stable</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60276" target="_blank">Support debugging inline functions on Android</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60277" target="_blank">Promote Kotlin/Wasm to Alpha</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60278" target="_blank">Make Kotlin/Wasm suitable for standalone Wasm VMs (without JavaScript support)</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60278" target="_blank">Make Kotlin/Wasm suitable for standalone Wasm VMs</a></li>
             </list>
         </td>
     </tr>
@@ -86,9 +86,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Library ecosystem</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60280" target="_blank">Provide initial series of <code>kotlinx-io</code> releases towards its Stable release</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60280" target="_blank">Provide initial series of <code>kotlinx-io</code> releases</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Stabilize <code>kotlinx-kover</code></a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Promote <code>kotlinx-kover</code> to Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
             </list>
             <p><tip><a href="https://blog.jetbrains.com/ktor/2022/12/16/ktor-2023-roadmap/" target="_blank">The Ktor framework roadmap</a></tip></p>
@@ -126,11 +126,11 @@ We've **completed** the following items from the previous roadmap:
 We've **added** the following items to the roadmap:
 
 * 🆕 Compiler: [Release Kotlin 2.0](https://youtrack.jetbrains.com/issue/KT-60255)
-* 🆕 Compiler: [Design and implement new debugging information](https://youtrack.jetbrains.com/issue/KT-60276)
+* 🆕 Compiler: [Support debugging inline functions on Android](https://youtrack.jetbrains.com/issue/KT-60276)
 * 🆕 Compiler: [Promote Kotlin/Wasm to Alpha](https://youtrack.jetbrains.com/issue/KT-60277)
 * 🆕 Compiler: [Make Kotlin/Wasm suitable for standalone Wasm VMs (without JavaScript support)](https://youtrack.jetbrains.com/issue/KT-60278)
 * 🆕 Tooling: [Improve Kotlin build reports](https://youtrack.jetbrains.com/issue/KT-60279)
-* 🆕 Library ecosystem: [Provide initial series of `kotlinx-io` releases towards its Stable release](https://youtrack.jetbrains.com/issue/KT-60280)
+* 🆕 Library ecosystem: [Provide initial series of `kotlinx-io` releases](https://youtrack.jetbrains.com/issue/KT-60280)
 
 ### Removed items
 
