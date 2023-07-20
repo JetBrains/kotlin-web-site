@@ -1,7 +1,7 @@
 flask==2.0.3
 flask-flatpages==0.7.3
 frozen-flask==0.18
-Pygments==2.12.0
+Pygments==2.15.0
 python-frontmatter==1.0.0
 beautifulsoup4==4.11.1
 xmltodict==0.13.0
