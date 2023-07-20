@@ -102,11 +102,28 @@ Pretty simple, right? You've provided a platform-specific implementation by usin
 
 ### JS
 
-The JS implementation will be very similar to the JVM one.
+For the JS part of your project, you'll make use of the `base-64` npm package. It can be added as dependency to implement
+JS-specific functionality:
 
-1. In `jsMain/kotlin`, create a new `org.jetbrains.base64` directory.
-2. Create the `Base64.kt` file in the new directory.
-3. Provide a simple implementation of the `Base64Factory` object that delegates to the `Base64` object:
+1. Update your `build.gradle.kts` file by adding a dependency to the `jsMain` source set:
+
+   ```kotlin
+   kotlin {
+       // ...
+       
+       sourceSets {
+           val jsMain by getting {
+               dependencies {
+                   implementation(npm("base-64", "1.0.0"))
+               }
+           }
+       }
+   }
+   ```
+
+2. In `jsMain/kotlin`, create a new `org.jetbrains.base64` directory.
+3. Create the `Base64.kt` file in the new directory.
+4. Provide a simple implementation of the `Base64Factory` object that delegates to the `Base64` object:
 
     ```kotlin
     package org.jetbrains.base64
@@ -123,7 +140,8 @@ The JS implementation will be very similar to the JVM one.
     }
     ```
    
-4. Create a separate file `Base64Npm.kt` in the same directory and implement the `Base64` object using the `base-64` npm package:
+5. Create a separate file `Base64Npm.kt` in the same directory.
+6. Implement the `Base64` object using the `base-64` npm package:
 
    ```kotlin
    package org.jetbrains.base64
@@ -137,7 +155,7 @@ The JS implementation will be very similar to the JVM one.
 
 ### Native
 
-Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself.
+Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself:
 
 1. In `nativeMain/kotlin`, create a new `org.jetbrains.base64` directory.
 2. Create the `Base64.kt` file in the new directory.
