@@ -42,13 +42,28 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
                 set -o pipefail
                 set -u
 
+                # update Dokka version
                 sed -i -E "s/dokka ?= ?\"[0-9\.]+\"/dokka = \"%DOKKA_TEMPLATES_VERSION%\"/gi" ./gradle/libs.versions.toml
                 
-                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./build.gradle.kts
-                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./repo/gradle-settings-conventions/settings.gradle.kts
-                sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" ./repo/gradle-build-conventions/buildsrc-compat/build.gradle.kts
+                # Define the replacement string
+                replacement="maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral"
+                
+                # List of kts files to apply the command on
+                files=(
+                  "./build.gradle.kts"
+                  "./repo/gradle-settings-conventions/settings.gradle.kts"
+                  "./repo/gradle-build-conventions/buildsrc-compat/build.gradle.kts"
+                )
+                
+                # Loop through the files and apply the sed command
+                for file in "${'$'}{files[@]}"; do
+                    sed -i -E "s|mavenCentral|${'$'}replacement|" "${'$'}file"
+                done
+                
+                # modify Groovy file
                 sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" ./settings.gradle
                 
+                # add Dokka dev artifacts to the list of trusted ones
                 sed -i -E "s|<trusted-artifacts>|<trusted-artifacts>\n<trust group=\"org.jetbrains.dokka\" />\n|" ./gradle/verification-metadata.xml
             """.trimIndent()
         }
