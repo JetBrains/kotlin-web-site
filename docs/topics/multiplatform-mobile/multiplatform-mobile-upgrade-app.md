@@ -347,7 +347,11 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
-    ![Final results](multiplatform-mobile-upgrade.png){width="500"}
+   ![Final results](multiplatform-mobile-upgrade.png){width="500"}
+
+> You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp).
+> 
+{type="note"}
 
 ## Next step
 
