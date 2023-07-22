@@ -447,6 +447,9 @@ To implement this, move the publication logic to a separate Gradle project:
    val javadocJar by tasks.registering(Jar::class) {
        archiveClassifier.set("javadoc")
    }
+   val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+   }
    
    fun getExtraString(name: String) = ext[name]?.toString()
    
@@ -467,6 +470,8 @@ To implement this, move the publication logic to a separate Gradle project:
        publications.withType<MavenPublication> {
            // Stub javadoc.jar artifact
            artifact(javadocJar.get())
+           // Stub sources.jar artifact
+           artifact(sourcesJar.get())
    
            // Provide artifacts information requited by Maven Central
            pom {
@@ -550,7 +555,7 @@ To upload your library to the Sonatype repository, run the following program:
 ./gradlew publishAllPublicationsToSonatypeRepository
 ```
 
-The staging repository will be created, and all the artifacts for all publications will be uploaded to that
+The staging repository will be created, and all the artifacts for all publications including sources will be uploaded to that
 repository. All it's left to do is to check that all the artifacts you wanted to upload have made it there and to
 press the release button.
 
