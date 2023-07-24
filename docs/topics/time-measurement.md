@@ -301,13 +301,10 @@ to create a [`TimeMark`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.tim
 import kotlin.time.*
 
 fun main() {
-//sampleStart
    val timeSource = TimeSource.Monotonic
    val mark = timeSource.markNow()
-//sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-mark-moment"}
 
 ### Measure differences in time
 
