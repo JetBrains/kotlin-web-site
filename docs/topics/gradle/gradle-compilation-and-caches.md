@@ -144,10 +144,7 @@ To disable caching for all Kotlin tasks, set the system property `kotlin.caching
 
 ## Gradle configuration cache support
 
-> Gradle configuration cache support has some constraints:
-> * The configuration cache is available in Gradle 6.5 and later as an experimental feature.  
->   You can check the [Gradle releases page](https://gradle.org/releases/) to see whether it has been promoted to stable.
-> * The feature is supported only by the following Gradle plugins:
+> The Gradle configuration cache is supported only by the following Gradle plugins:
 >   * `org.jetbrains.kotlin.jvm`
 >   * `org.jetbrains.kotlin.js`
 >   * `org.jetbrains.kotlin.android`
