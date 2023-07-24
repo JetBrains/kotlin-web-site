@@ -39,8 +39,13 @@ fun main() {
 //sampleStart
     // Read only list
     val readOnlyShapes = listOf("triangle", "square", "circle")
+    println(readOnlyShapes)
+    // [triangle, square, circle]
+    
     // Mutable list with explicit type declaration
-    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle") 
+    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
+    println(shapes)
+    // [triangle, square, circle]
 //sampleEnd
 }
 ```
@@ -242,8 +247,13 @@ fun main() {
 //sampleStart
     // Read-only map
     val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
+    println(readOnlyAccountBalances)
+    // {1=100, 2=100, 3=100}
+    
     // Mutable map with explicit type declaration
-    val accountBalances: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)                    
+    val accountBalances: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)         
+    println(accountBalances)
+    // {1=100, 2=100, 3=100}
 //sampleEnd
 }
 ```
