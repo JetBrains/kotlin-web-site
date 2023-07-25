@@ -9,9 +9,9 @@ object BuildStdlibApiReference : BuildType({
   artifactRules = "latest-version.zip"
 
   dependencies {
-    dependency(AbsoluteId("Kotlin_KotlinRelease_1820_LibraryReferenceLatestDocs")) {
+    dependency(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
       snapshot {
-        reuseBuilds = ReuseBuilds.NO
+        reuseBuilds = ReuseBuilds.YES
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
       artifacts {
