@@ -1,5 +1,12 @@
 [//]: # (title: Type checks and casts)
 
+In Kotlin, you can perform type checks to check the type of an object at runtime. Type casts convert objects to a 
+different type.
+
+> To learn specifically about **generics** type checks and casts, for example `List<T>`, `Map<K,V>`, see [Generics type checks and casts](generics.md#generics-type-checks-and-casts).
+>
+{type="tip"}
+
 ## is and !is operators
 
 Use the `is` operator or its negated form `!is` to perform a runtime check that identifies whether an object conforms to a given type:
@@ -9,7 +16,7 @@ if (obj is String) {
     print(obj.length)
 }
 
-if (obj !is String) { // same as !(obj is String)
+if (obj !is String) { // Same as !(obj is String)
     print("Not a String")
 } else {
     print(obj.length)
@@ -37,7 +44,7 @@ if (x !is String) return
 print(x.length) // x is automatically cast to String
 ```
 
-or if it is on the right-hand side of `&&` or `||` and the proper check (regular or negative) is on the left-hand side:
+Or if it is on the right-hand side of `&&` or `||` and the proper check (regular or negative) is on the left-hand side:
 
 ```kotlin
 // x is automatically cast to String on the right-hand side of `||`
@@ -60,17 +67,50 @@ when (x) {
 }
 ```
 
-Note that smart casts work only when the compiler can guarantee that the variable won't change between the check and the usage.
-More specifically, smart casts can be used under the following conditions:
+> Note that smart casts work only when the compiler can guarantee that the variable won't change between the check and its usage.
+>
+{type="warning"}
 
-* `val` local variables - always, with the exception of [local delegated properties](delegated-properties.md).
-* `val` properties - if the property is private or internal or if the check is performed in the same [module](visibility-modifiers.md#modules) where the property is declared. Smart casts cannot be used on open properties or properties that have custom getters.
-* `var` local variables - if the variable is not modified between the check and the usage, is not captured in a lambda that modifies it, and is not a local delegated property.
-* `var` properties - never, because the variable can be modified at any time by other code.
+Smart casts can be used in the following conditions:
+
+<table header-style="none">
+        <tr>
+        <td>
+            <code>val</code> local variables
+        </td>
+        <td>
+            Always, except <a href="delegated-properties.md">local delegated properties</a>.
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <code>val</code> properties
+        </td>
+        <td>
+            If the property is <code>private</code>, <code>internal</code>, or if the check is performed in the same <a href="visibility-modifiers.md#modules">module</a> where the property is declared. Smart casts can't be used on <code>open</code> properties or properties that have custom getters.
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <code>var</code> local variables
+        </td>
+        <td>
+            If the variable is not modified between the check and its usage, is not captured in a lambda that modifies it, and is not a local delegated property.
+        </td>
+    </tr>
+        <tr>
+        <td>
+            <code>var</code> properties
+        </td>
+        <td>
+            Never, because the variable can be modified at any time by other code.
+        </td>
+    </tr>
+</table>
 
 ## "Unsafe" cast operator
 
-Usually, the cast operator throws an exception if the cast isn't possible. And so, it's called *unsafe*.
+Usually, the cast operator throws an exception if the cast isn't possible. Thus, it's called _unsafe_.
 The unsafe cast in Kotlin is done by the infix operator `as`.
 
 ```kotlin
@@ -94,8 +134,3 @@ val x: String? = y as? String
 ```
 
 Note that despite the fact that the right-hand side of `as?` is a non-null type `String`, the result of the cast is nullable.
-
-## Generics type checks and casts
-
-Please see the corresponding section in the [generics documentation page](generics.md#generics-type-checks-and-casts)
-for information on which type checks and casts you can perform with generics.
