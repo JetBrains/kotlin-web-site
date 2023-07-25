@@ -350,20 +350,15 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 1. Remove the `kotlin-js` Gradle plugin from your project and apply `kotlin-multiplatform` in the `settings.gradle.kts` file
    if you're using the `pluginManagement` block:
 
-   <table header-style="top">
-   <tr>
-       <td>Before</td>
-       <td>Now</td>
-   </tr>
-   <tr>
-   <td>
+   <tabs>
+   <tab title="kotlin-js">
    
    ```kotlin
    // settings.gradle.kts
    pluginManagement {
        plugins {
            // Remove the following line:
-          kotlin("js") version "1.9.0"
+           kotlin("js") version "1.9.0"
        }
        
        repositories {
@@ -372,15 +367,15 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   <td>
+   </tab>
+   <tab title="kotlin-multiplatform">
    
    ```kotlin
    // settings.gradle.kts
    pluginManagement {
        plugins {
            // Add the following line instead:
-          kotlin("multiplatform") version "1.9.0"
+           kotlin("multiplatform") version "1.9.0"
        }
        
        repositories {
@@ -389,9 +384,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   </tr>
-   </table>
+   </tab>
+   </tabs>
 
    In case you're using a different way of applying plugins,
    see [the Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html) for migration instructions.
@@ -411,13 +405,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    
    You can change the code in your `build.gradle.kts` file in one of the following ways:
 
-   <table header-style="top">
-   <tr>
-       <td>Before</td>
-       <td>Now</td>
-   </tr>
-   <tr>
-   <td>
+   <tabs>
+   <tab title="kotlin-js">
    
    ```kotlin
    // build.gradle.kts
@@ -437,8 +426,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   <td>
+   </tab>
+   <tab title="kotlin-multiplatform">
    
    ```kotlin
    // build.gradle.kts
@@ -468,9 +457,8 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    ```
    
-   </td>
-   </tr>
-   </table>
+   </tab>
+   </tabs>
 
 4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin` block remains unchanged in most cases. However,
    if you were referring to low-level Gradle entities, like tasks and configurations, by names, you now need to adjust them,

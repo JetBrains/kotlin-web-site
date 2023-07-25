@@ -33,10 +33,11 @@
     </toc-element>
 
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-Beta"/>
+        <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0" accepts-web-file-names="whatsnew.html"/>
+        <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-RC" hidden="true"/>
         <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
             <toc-element id="whatsnew1620.md" toc-title="Kotlin 1.6.20"/>
@@ -150,6 +151,7 @@
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
             <toc-element id="multiplatform-connect-to-apis.md" accepts-web-file-names="platform-specific-declarations.html,mpp-connect-to-apis.html,kmm-connect-to-platform-specific-apis.html,multiplatform-mobile-connect-to-platform-specific-apis.html"/>
             <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
+            <toc-element id="multiplatform-android-layout.md"/>
         </toc-element>
         <toc-element toc-title="Adding dependencies">
             <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html"/>
@@ -249,6 +251,7 @@
         </toc-element>
         <toc-element toc-title="WebAssembly (Wasm)">
             <toc-element id="wasm-get-started.md"/>
+            <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries"/>
             <toc-element id="wasm-js-interop.md"/>
         </toc-element>
 
@@ -260,6 +263,7 @@
             <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
             <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
             <toc-element id="javascript-dce.md"/>
+            <!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
             <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
             <toc-element id="js-ir-migration.md"/>
 
@@ -302,8 +306,9 @@
             <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
             <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
         </toc-element>
-        <toc-element id="scope-functions.md"/>
         <toc-element id="opt-in-requirements.md"/>
+        <toc-element id="scope-functions.md"/>
+        <toc-element id="time-measurement.md"/>
     </toc-element>
 
     <toc-element toc-title="Official libraries">
@@ -323,6 +328,7 @@
         <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
         <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
+        <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
     </toc-element>
 
@@ -410,6 +416,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-19.md"/>
                 <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
                 <toc-element id="compatibility-guide-17.md"/>

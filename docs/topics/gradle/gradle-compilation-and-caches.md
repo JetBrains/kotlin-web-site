@@ -142,15 +142,9 @@ the build outputs for reuse in future builds.
 To disable caching for all Kotlin tasks, set the system property `kotlin.caching.enabled` to `false`
 (run the build with the argument `-Dkotlin.caching.enabled=false`).
 
-If you use [kapt](kapt.md), note that kapt annotation processing tasks are not cached by default. However, you can
-[enable caching for them manually](kapt.md#gradle-build-cache-support).
-
 ## Gradle configuration cache support
 
-> Gradle configuration cache support has some constraints:
-> * The configuration cache is available in Gradle 6.5 and later as an experimental feature.  
->   You can check the [Gradle releases page](https://gradle.org/releases/) to see whether it has been promoted to stable.
-> * The feature is supported only by the following Gradle plugins:
+> The Gradle configuration cache is supported only by the following Gradle plugins:
 >   * `org.jetbrains.kotlin.jvm`
 >   * `org.jetbrains.kotlin.js`
 >   * `org.jetbrains.kotlin.android`
@@ -291,6 +285,31 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   {type="note"}
 * If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
+## The new Kotlin compiler
+
+The new Kotlin K2 compiler is in [Alpha](components-stability.md#stability-levels-explained).
+It has basic support for Kotlin JVM, JS, and Native projects.
+
+The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
+bring performance improvements, and provide an API for compiler extensions.
+
+The K2 compiler will become the default starting with Kotlin 2.0. To try it in your projects now and check the performance,
+use the `kotlin.experimental.tryK2=true` Gradle property or run the following command:
+
+```shell
+./gradlew assemble -Pkotlin.experimental.tryK2=true
+```
+
+This Gradle property automatically sets the default language version to 2.0 and updates the [build report](#build-reports)
+with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
+
+> Build reports don't provide information about Kotlin/Native tasks yet. Despite that,
+> we still recommend that you use Kotlin 2.0 as the default version.
+> 
+{type="tip"}
+
+Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
+
 ## Defining Kotlin compiler execution strategy
 
 _Kotlin compiler execution strategy_ defines where the Kotlin compiler is executed and if incremental compilation is supported in each case.
@@ -418,22 +437,23 @@ If there is insufficient memory to run the compilation, you can see a message ab
 >
 {type="warning"}
 
-Build reports for tracking compiler performance are available starting from Kotlin 1.7.0. Reports contain the durations 
-of different compilation phases and reasons why compilation couldn't be incremental.
-
+Build reports contain the durations of different compilation phases and any reasons why compilation couldn't be incremental.
 Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
 project.
 
-Kotlin build reports help examine problems more efficiently than [Gradle build scans](https://scans.gradle.com/). 
-Lots of engineers use them to investigate build performance, but the unit of granularity in Gradle scans is a single Gradle task.
+Kotlin build reports help you to investigate problems with build performance more efficiently than with [Gradle build scans](https://scans.gradle.com/)
+that have a single Gradle task as the unit of granularity.
 
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
 * The build wasn't incremental. Analyze the reasons and fix underlying problems.
 * The build was incremental but took too much time. Try reorganizing source files — split big files,
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
+Build reports also show the Kotlin version used in the project. In addition, starting with Kotlin 1.9.0,
+you can see whether the current or the [K2 compiler](#the-new-kotlin-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
+
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
-and [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
+and about [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
 
 ### Enabling build reports
 

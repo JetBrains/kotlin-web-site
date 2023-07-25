@@ -3,7 +3,7 @@
 JavaScript source maps provide mappings between the minified code produced by bundlers or minifiers and the actual source
 code a developer works with. This way, the source maps enable support for debugging the code during its execution.
 
-The Kotlin/JS Gradle plugin automatically generates source maps for the project builds, making them available without any additional configuration.
+The Kotlin Multiplatform Gradle plugin automatically generates source maps for the project builds, making them available without any additional configuration.
 
 ## Debug in browser
 

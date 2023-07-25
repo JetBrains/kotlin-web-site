@@ -1,6 +1,6 @@
 package builds.apiReferences.stdlib
 
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
+import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 
 object BuildStdlibApiReference : BuildType({
@@ -9,10 +9,15 @@ object BuildStdlibApiReference : BuildType({
   artifactRules = "latest-version.zip"
 
   dependencies {
-    artifacts(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
-      buildRule = lastPinned("+:*")
-      cleanDestination = true
-      artifactRules = "latest-version.zip"
+    dependency(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
+      snapshot {
+        reuseBuilds = ReuseBuilds.YES
+        onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+      artifacts {
+        cleanDestination = true
+        artifactRules = "latest-version.zip"
+      }
     }
   }
 })

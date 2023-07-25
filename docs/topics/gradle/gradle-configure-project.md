@@ -37,16 +37,24 @@ plugins {
 </tab>
 </tabs>
 
-When configuring your project, check the Kotlin Gradle plugin compatibility with available Gradle versions. 
-In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin:
+> The Kotlin Gradle plugin (KGP) and Kotlin share the same version numbering.
+>
+{type="note"}
 
-| Kotlin version | Gradle min and max versions              | Android Gradle plugin min and max versions            |
-|----------------|------------------------------------------|-------------------------------------------------------|
-| 1.8.20         | %minGradleVersion% – %maxGradleVersion%  | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |   
-| 1.8.0          | 6.8.3 – 7.3.3                            | 4.1.3 – 7.2.1                                         |   
-| 1.7.20         | 6.7.1 – 7.1.1                            | 3.6.4 – 7.0.4                                         |
+When configuring your project, check the Kotlin Gradle plugin (KGP) compatibility with available Gradle versions. 
+In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin (AGP):
 
-> Latest Gradle and AGP versions should generally work without issues.
+| KGP version | Gradle min and max versions             | AGP min and max versions                              |
+|-------------|-----------------------------------------|-------------------------------------------------------|
+| 1.9.0       | %minGradleVersion% – %maxGradleVersion% | %minAndroidGradleVersion% – %maxAndroidGradleVersion% |
+| 1.8.20      | 6.8.3 – 7.6.0                           | 4.1.3 – 7.4.0                                         |      
+| 1.8.0       | 6.8.3 – 7.3.3                           | 4.1.3 – 7.2.1                                         |   
+| 1.7.20      | 6.7.1 – 7.1.1                           | 3.6.4 – 7.0.4                                         |
+| 1.7.0       | 6.7.1 – 7.0.2                           | 3.4.3 – 7.0.2                                         |
+| 1.6.20      | 6.1.1 - 7.0.2                           | 3.4.3 - 7.0.2                                         |
+
+> You can also use Gradle and AGP versions up to the latest releases, but if you do, keep in mind that you might encounter 
+> deprecation warnings or some new features might not work.
 >
 {type="note"}
 
@@ -127,6 +135,8 @@ sourceSets {
 </tab>
 </tabs>
 
+<!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
+
 ### Check for JVM target compatibility of related compile tasks
 
 In the build module, you may have related compile tasks, for example:
@@ -144,12 +154,35 @@ in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Configure the behavior of this check by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
+Configure the behavior of this check for the whole project by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
 file to:
 
 * `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
 * `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
 * `ignore` – the plugin skips the check and doesn't produce any messages.
+
+You can also configure it at task level in your `build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
+    jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configureEach {
+    jvmTargetValidationMode = org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING
+}
+```
+
+</tab>
+</tabs>
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
@@ -190,11 +223,12 @@ plugins {
 
 When there is no explicit information about the `jvmTarget` value in the build script, its default value is `null`, 
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals 
-a current Gradle's JDK version, which is equal to your JDK version (unless you use 
-a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assume that this version is `11`. 
-Your published library artifact will [declare the compatibility](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
-with JDK 11+: `org.gradle.jvm.version=11`, which is wrong. You will have to use Java 11 in your main project to add 
-this library, although the bytecode's version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
+the current Gradle's JDK version, which is equal to your JDK version (unless you use 
+a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assuming that your JDK version is 
+`%jvmLTSVersionSupportedByKotlin%`, your published library artifact will [declare itself compatible](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
+with JDK %jvmLTSVersionSupportedByKotlin%+: `org.gradle.jvm.version=%jvmLTSVersionSupportedByKotlin%`, which is wrong. 
+In this case, you have to use Java %jvmLTSVersionSupportedByKotlin% in your main project to add this library, even though the bytecode's 
+version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 to solve this issue.
 
 ### Gradle Java toolchains support
@@ -251,7 +285,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(8)
+    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
 }
 ```
 
@@ -266,7 +300,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(8)
+    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
 }
 ```
 
@@ -302,15 +336,43 @@ java {
 </tab>
 </tabs>
 
+If you use Gradle 8.0.2 or higher, you also need to add a [toolchain resolver plugin](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories). 
+This type of plugin manages which repositories to download a toolchain from. As an example, add to your `settings.gradle(.kts)` the following plugin:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+  id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+  id 'org.gradle.toolchains.foojay-resolver-convention' version '0.5.0'
+}
+```
+
+</tab>
+</tabs>
+
+Check that the version of `foojay-resolver-convention` corresponds to your Gradle version on the [Gradle site](https://docs.gradle.org/current/userguide/toolchains.html#sub:download_repositories).
+
 > To understand which toolchain Gradle uses, run your Gradle build with the [log level `--info`](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level)
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
 > The part after the colon will be the JDK version from the toolchain.
 >
 {type="note"}
 
-To set any JDK (even local) for the specific task, use the Task DSL.
+To set any JDK (even local) for a specific task, use the [Task DSL](#set-jdk-version-with-the-task-dsl).
 
-### Setting JDK version with the Task DSL
+Learn more about [Gradle JVM toolchain support in the Kotlin plugin](https://blog.jetbrains.com/kotlin/2021/11/gradle-jvm-toolchain-support-in-the-kotlin-plugin/).
+
+### Set JDK version with the Task DSL
 
 The Task DSL allows setting any JDK version for any task implementing the `UsesKotlinJavaToolchain` interface.
 At the moment, these tasks are `KotlinCompile` and `KaptTask`.
@@ -394,7 +456,67 @@ integrationTestCompilation {
 Here, the `integrationTest` compilation is associated with the `main` compilation that gives access to `internal`
 objects from functional tests.
 
+### Configure with Java Modules (JPMS) enabled
+
+To make the Kotlin Gradle plugin work with [Java Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html), 
+add the following lines to your build script and replace `YOUR_MODULE_NAME` with a reference to your JPMS module, for example, 
+`org.company.module`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+        
+```kotlin
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath.set(true)
+}
+
+tasks.named("compileJava", JavaCompile::class.java) {
+    options.compilerArgumentProviders.add(CommandLineArgumentProvider {
+        // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+        listOf("--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}")
+    })
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Add the following three lines if you use a Gradle version less than 7.0
+java {
+    modularity.inferModulePath = true
+}
+
+tasks.named("compileJava", JavaCompile.class) {
+    options.compilerArgumentProviders.add(new CommandLineArgumentProvider() {
+        @Override
+        Iterable<String> asArguments() {
+            // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+            return ["--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}"]
+        }
+    })
+}
+```
+
+</tab>
+</tabs>
+
+> Put `module-info.java` into the `src/main/java` directory as usual.
+> 
+> For a module, a package name in Kotlin files should be equal to the package name from `module-info.java` to avoid a 
+> "package is empty or does not exist" build failure. 
+>
+{type="note"}
+
+Learn more about:
+* [Building modules for the Java Module System](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular)
+* [Building applications using the Java Module System](https://docs.gradle.org/current/userguide/application_plugin.html#sec:application_modular)
+* [What "module" means in Kotlin](visibility-modifiers.md#modules)
+
 ### Other details
+
+Learn more about [Kotlin/JVM](jvm-get-started.md).
 
 #### Lazy Kotlin/JVM task creation
 
@@ -443,20 +565,23 @@ plugins {
 </tab>
 </tabs>
 
+Learn more about [Kotlin Multiplatform for different platforms](multiplatform-get-started.md) and 
+[Kotlin Multiplatform for iOS and Android](multiplatform-mobile-getting-started.md).
+
 ## Targeting Android
 
-It's recommended to use Android Studio for creating Android applications. [Learn how to use Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
+It's recommended to use Android Studio for creating Android applications. [Learn how to use the Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
 ## Targeting JavaScript
 
-When targeting only JavaScript, use the `kotlin-js` plugin. [Learn more](js-project-setup.md)
+When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn more about setting up a Kotlin/JS project](js-project-setup.md)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    kotlin("js") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
 
@@ -465,7 +590,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.js' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
 
@@ -920,9 +1045,9 @@ see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix
 
 ### Set a dependency on a kotlinx library
 
-If you use a kotlinx library and need a platform-specific dependency, you can use platform-specific variants
-of libraries with suffixes such as `-jvm` or `-js`, for example, `kotlinx-coroutines-core-jvm`. You can also use the library's
-base artifact name instead – `kotlinx-coroutines-core`.
+If you use a [`kotlinx` library](https://github.com/Kotlin/kotlinx.coroutines) and need a platform-specific dependency, 
+you can use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for example, 
+`kotlinx-coroutines-core-jvm`. You can also use the library's base artifact name instead – `kotlinx-coroutines-core`.
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

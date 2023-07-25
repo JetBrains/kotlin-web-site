@@ -328,7 +328,7 @@ We will keep working to improve the user experience with the new targets.
 
 #### New parameters for Kotlin/Native frameworks
 
-Kotlin 1.5.30 introduces the improved CocoaPods Gradle plugin DSL for Kotlin/Native frameworks. In addition to the name of the framework, you can specify other parameters in the pod configuration:
+Kotlin 1.5.30 introduces the improved CocoaPods Gradle plugin DSL for Kotlin/Native frameworks. In addition to the name of the framework, you can specify other parameters in the Pod configuration:
 * Specify the dynamic or static version of the framework
 * Enable export dependencies explicitly
 * Enable Bitcode embedding
@@ -623,7 +623,7 @@ java {
 }
 ```
 
-For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle-configure-project.md#setting-jdk-version-with-the-task-dsl).
+For information about setting any JDK version for `KotlinCompile` tasks, look through the docs about [setting the JDK version with the Task DSL](gradle-configure-project.md#set-jdk-version-with-the-task-dsl).
 
 For Gradle versions from 6.1 to 6.6, [use the `UsesKotlinJavaToolchain` interface to set the JDK home](#ability-to-specify-jdk-home-with-useskotlinjavatoolchain-interface).
 

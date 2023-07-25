@@ -190,10 +190,10 @@ artifact. To make it work, pass one or multiple base paths of source files as an
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin = tasks.named<KotlinCompilationTask<*>>("compileKotlin")
-
-// $base is a base path of source files
-compileKotlin.compilerOptions.freeCompilerArgs.add("-Xklib-relative-path-base=$base")
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    // $base is a base path of source files
+    compilerOptions.freeCompilerArgs.add("-Xklib-relative-path-base=$base")
+}
 ```
 
 </tab>

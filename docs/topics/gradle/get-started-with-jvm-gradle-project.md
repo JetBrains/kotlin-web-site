@@ -62,7 +62,7 @@ tasks.test { // See 5️⃣
 }
 
 kotlin { // Extension for easy setup
-    jvmToolchain(8) // Target version of generated JVM bytecode. See 7️⃣
+    jvmToolchain(%jvmLTSVersionSupportedByKotlin%) // Target version of generated JVM bytecode. See 7️⃣
 }
 
 application {

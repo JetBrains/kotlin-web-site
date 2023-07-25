@@ -161,7 +161,7 @@ fun main() {
 
 ## Invoke functions on other collections
 
-Collections can be created in result of various operations on other collections. For example, [filtering](collection-filtering.md)
+Collections can be created as a result of various operations on other collections. For example, [filtering](collection-filtering.md)
 a list creates a new list of elements that match the filter:
 
 ```kotlin
@@ -175,7 +175,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-[Mapping](collection-transformations.md#map) produces a list of a transformation results:
+[Mapping](collection-transformations.md#map) produces a list from a transformation's results:
 
 ```kotlin
 fun main() {

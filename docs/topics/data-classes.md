@@ -53,9 +53,11 @@ data class Person(val name: String) {
 }
 ```
 
-Only the property `name` will be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations,
-and there will only be one component function `component1()`. While two `Person` objects can have different ages,
-they will be treated as equal.
+In this example, only the `name` property can be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations,
+and there is only be one component function `component1()`. The `age` property can't be used inside the `toString()`, 
+`equals()`, `hashCode()`, and `copy()` implementations because it's declared inside the class body. If two `Person` 
+objects have different ages but the same `name`, then they are treated as equal. This is because the `equals()` function
+can only check for equality of the `name` property. For example:
 
 ```kotlin
 data class Person(val name: String) {
@@ -67,10 +69,16 @@ fun main() {
     val person2 = Person("John")
     person1.age = 10
     person2.age = 20
-//sampleEnd
+
     println("person1 == person2: ${person1 == person2}")
+    // person1 == person2: true
+  
     println("person1 with age ${person1.age}: ${person1}")
+    // person1 with age 10: Person(name=John)
+  
     println("person2 with age ${person2.age}: ${person2}")
+    // person2 with age 20: Person(name=John)
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
