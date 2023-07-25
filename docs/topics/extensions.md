@@ -48,9 +48,8 @@ For more information about generics, see [generic functions](generics.md).
 Extensions do not actually modify the classes they extend. By defining an extension, you are not inserting new members into
 a class, only making new functions callable with the dot-notation on variables of this type.
 
-Extension functions are dispatched _statically_, which means they are not virtual by receiver type.
-An extension function being called is determined by the type of the expression on which the function is invoked,
-not by the type of the result from evaluating that expression at runtime. For example:
+Extension functions are dispatched _statically_. So which extension function is called is already known at compile time
+based on the receiver type. For example:
 
 ```kotlin
 fun main() {
@@ -75,8 +74,7 @@ This example prints _Shape_, because the extension function called depends only 
 parameter `s`, which is the `Shape` class.
 
 If a class has a member function, and an extension function is defined which has the same receiver type,
-the same name, and is applicable to given arguments, the _member always wins_.
-For example:
+the same name, and is applicable to given arguments, the _member always wins_. For example:
 
 ```kotlin
 fun main() {
@@ -115,7 +113,8 @@ fun main() {
 ## Nullable receiver
 
 Note that extensions can be defined with a nullable receiver type. These extensions can be called on an object variable
-even if its value is null. If the receiver is `null`, then `this` is also `null`. So when defining an extension with a nullable receiver type, we recommend performing a `this == null` check inside the function body to avoid compiler errors. 
+even if its value is null. If the receiver is `null`, then `this` is also `null`. So when defining an extension with a 
+nullable receiver type, we recommend performing a `this == null` check inside the function body to avoid compiler errors. 
 
 You can call `toString()` in Kotlin without checking for `null`, as the check already happens inside the extension function:
 
