@@ -11,7 +11,7 @@ object BuildStdlibApiReference : BuildType({
   dependencies {
     dependency(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
       snapshot {
-        reuseBuilds = ReuseBuilds.YES
+        reuseBuilds = ReuseBuilds.SUCCESSFUL
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
       artifacts {
