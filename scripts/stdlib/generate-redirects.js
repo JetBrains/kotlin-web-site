@@ -9,10 +9,10 @@ const RedirectCollector = require("./redirect-collector");
  * test  /api/latest/kotlin.test/  - new /kotlin-test/index.html
  */
 
-const CURRENT_ROOT_PATH = 'stdlib';
-const TARGET_ROOT_PATH = 'stdlib-latest';
+const CURRENT_ROOT_PATH = 'api/latest';
+const TARGET_ROOT_PATH = 'api/core';
 
-const STDLIB_MODULE_DIR_NAME = 'kotlin-stdlib';
+const STDLIB_MODULE_DIR_NAME = 'jvm/stdlib';
 const STDLIB_MODULE_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-stdlib';
 const KOTLIN_REFLECT_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-reflect';
 const KOTLIN_TEST_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-test';
@@ -38,7 +38,7 @@ function readFiles(basePath, currentPath, targetPath, pathChanged = false) {
         if (item.isDirectory()) {
             matchDirectory(currentPath, item, targetPath, basePath);
         } else if (item.isFile() && item.name.endsWith('.html')) {
-            matchFile(currentPath, item, targetPath, pathChanged);
+            matchFile(currentPath, item, targetPath, pathChanged, basePath);
         } else {
             console.log(`The file ${item.name} has no redirect.`);
         }
@@ -85,25 +85,25 @@ function matchDirectory(currentPath, item, targetPath, basePath) {
     }
 }
 
-function matchFile(currentPath, item, targetPath, pathChanged) {
-    const oldPath = path.join(currentPath, item.name);
+function matchFile(currentPath, item, targetPath, pathChanged, basePath) {
+    const oldPath = path.join('/', basePath, currentPath, item.name);
     const currentFilePath = path.join(targetPath, item.name);
 
     if (fs.existsSync(currentFilePath)) {
-        if (pathChanged) redirectCollector.add(oldPath, currentFilePath);
+        if (pathChanged) redirectCollector.add(oldPath, `/${currentFilePath}`);
     } else {
         if (isInitFile(item.name)) {
             const constructorName = currentPath.split('/').pop();
             const hasConstructorPage = fs.existsSync(`${targetPath}/${constructorName}.html`);
 
             if (hasConstructorPage) {
-                return redirectCollector.add(oldPath, `${targetPath}/${constructorName}.html`);
+                return redirectCollector.add(oldPath, `/${targetPath}/${constructorName}.html`);
             }
 
             const hasIndexPage = fs.existsSync(`${targetPath}/index.html`);
 
             if (hasIndexPage) {
-                return redirectCollector.add(oldPath, `${targetPath}/index.html`);
+                return redirectCollector.add(oldPath, `/${targetPath}/index.html`);
             }
         }
 
@@ -111,14 +111,14 @@ function matchFile(currentPath, item, targetPath, pathChanged) {
         const hasCompanion = fs.existsSync(companionPath);
 
         if (hasCompanion) {
-            return redirectCollector.add(oldPath, companionPath);
+            return redirectCollector.add(oldPath, `/${companionPath}`);
         }
 
         const directoryName = `${targetPath}/${item.name.replace('.html', '')}/index.html`;
         const hasDirectoryInsteadFile = fs.existsSync(directoryName);
 
         if (hasDirectoryInsteadFile) {
-            return redirectCollector.add(oldPath, directoryName);
+            return redirectCollector.add(oldPath, `/${directoryName}`);
         }
 
         const typeAliasFile = `${targetPath}/${directoryName}-of/index.html`;
@@ -126,7 +126,7 @@ function matchFile(currentPath, item, targetPath, pathChanged) {
 
         if (hasTypeForTypeAlias) {
             console.log('hasTypeForTypeAlias');
-            return redirectCollector.add(oldPath, typeAliasFile);
+            return redirectCollector.add(oldPath, `/${typeAliasFile}`);
         }
 
         redirectCollector.addUnmatchedFile(oldPath);
