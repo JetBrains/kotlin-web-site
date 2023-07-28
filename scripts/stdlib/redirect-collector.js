@@ -1,8 +1,9 @@
 const fs = require('fs');
+const YAML = require('yaml');
 
 class RedirectCollector {
 	constructor() {
-		this.redirects = {};
+		this.redirects = [];
 		this.unmatched = {
 			directory: [],
 			file: [],
@@ -10,7 +11,10 @@ class RedirectCollector {
 	}
 
 	add(from, to) {
-		this.redirects[from] = to;
+		this.redirects.push({
+			from,
+			to
+		});
 	}
 
 	addUnmatchedDirectory(path) {
@@ -22,7 +26,7 @@ class RedirectCollector {
 	}
 
 	writeRedirects() {
-		fs.writeFileSync('stdlib-redirects.json', JSON.stringify(this.redirects, null, 4), 'utf8');
+		fs.writeFileSync('redirects/stdlib-redirects.yml', YAML.stringify(this.redirects), 'utf8');
 	}
 
 	writeUnmatched() {
