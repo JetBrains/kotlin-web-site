@@ -1,6 +1,6 @@
 [//]: # (title: Ant)
 
-## Getting the Ant tasks
+## Check it out
 
 Kotlin provides three tasks for Ant:
 
