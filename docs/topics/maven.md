@@ -26,7 +26,7 @@ To use JDK 17, in your `.mvn/jvm.config` file, add:
 ## Set dependencies
 
 Kotlin has an extensive standard library that can be used in your applications.
-To use the standard library in your project, add the following dependency in your `pom.xml` file:
+To use the standard library in your project, add the following dependency to your `pom.xml` file:
 
 ```xml
 <dependencies>
@@ -339,9 +339,10 @@ write a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetb
 ## Generate documentation
 
 The standard Javadoc generation plugin (`maven-javadoc-plugin`) doesn't support Kotlin code. To generate documentation 
-for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka). For more information, see [Run Dokka – Maven](dokka-maven.md).
-Dokka supports mixed-language projects and can generate output in multiple formats, including standard Javadoc.
+for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka). Dokka supports mixed-language projects and can 
+generate output in multiple formats, including standard Javadoc. For more information about how to configure Dokka in
+your Maven project, see [Maven](dokka-maven.md).
 
 ## Enable OSGi support
 
-See [Kotlin and OSGi – Maven](kotlin-osgi.md#maven).
+[Learn how to enable OSGi support in your Maven project](kotlin-osgi.md#maven).
