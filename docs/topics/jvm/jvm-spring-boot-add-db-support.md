@@ -36,7 +36,7 @@ class MessageService(val db: JdbcTemplate) {
 
 <deflist collapsible="true">
    <def title="Constructor argument and dependency injection – (val db: JdbcTemplate)">
-      <p>A class in Kotlin has a primary constructor. It also can have one or more <a href="classes.md#secondary-constructors">secondary constructors</a>.
+      <p>A class in Kotlin has a primary constructor. It can also have one or more <a href="classes.md#secondary-constructors">secondary constructors</a>.
       The <i>primary constructor</i> is a part of the class header, and it goes after the class name and optional type parameters. In our case, the constructor is <code>(val db: JdbcTemplate)</code>.</p>
       <p><code>val db: JdbcTemplate</code> is the constructor's argument:</p>
       <code style="block" lang="kotlin">

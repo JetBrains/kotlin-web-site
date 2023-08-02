@@ -91,7 +91,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
    spring.sql.init.mode=always
    ```
 
-Here is a complete code of the `DemoApplication.kt`:
+Here is the complete code for `DemoApplication.kt`:
 
 ```kotlin
 package com.example.demo
