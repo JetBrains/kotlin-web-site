@@ -725,6 +725,12 @@
     position:
       lat: 31.1471305
       lng: 75.34121789999999
+  - name: Qingdao KUG
+    country: China Mainland
+    url: https://qingdao-kug.github.io/
+    position:
+      lat: 36.136235
+      lng: 120.2000272
   - name: Rajkot KUG
     country: India
     url: https://sites.google.com/view/kugrajkot/home
