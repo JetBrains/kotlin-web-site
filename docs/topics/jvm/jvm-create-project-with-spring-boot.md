@@ -12,6 +12,10 @@ The first part of the tutorial shows you how to create a Spring Boot project in 
 
 Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/index.html).
 
+> If you use IntelliJ IDEA Community or other IDE, you can generate a Spring Boot project using a [web-based project generator](https://start.spring.io).
+> 
+{type="note"}
+
 ## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
