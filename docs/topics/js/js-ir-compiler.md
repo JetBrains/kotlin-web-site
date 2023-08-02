@@ -23,8 +23,10 @@ kotlin {
 ```
 
 * `IR` uses the new IR compiler backend for Kotlin/JS.
-* `LEGACY` uses the default compiler backend.
+* `LEGACY` uses the old compiler backend.
 * `BOTH` compiles your project with the new IR compiler as well as the default compiler backend. Use this mode for [authoring libraries compatible with both backends](#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility).
+
+The old compiler backend is deprecated since Kotlin 1.8.0. Starting with Kotlin 1.9.0 using compiler types `LEGACY` of `BOTH` leads to an error.
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.

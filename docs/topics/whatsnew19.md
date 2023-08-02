@@ -598,9 +598,10 @@ fun computeAck(m: Int, n: Int) {
 
 ## Kotlin/JS
 
-This release introduces updates for Kotlin/JS, including the deprecation of the Kotlin/JS Gradle plugin and Experimental
+This release introduces updates for Kotlin/JS, including the removal of the old Kotlin/JS compiler, Kotlin/JS Gradle plugin deprecation and Experimental
 support for ES6:
 
+* [Removal of the old Kotlin/JS compiler](#removal-of-the-kotlin-js-legacy-target)
 * [Deprecation of the Kotlin/JS Gradle plugin](#deprecation-of-the-kotlin-js-gradle-plugin)
 * [Deprecation of external enum](#deprecation-of-external-enum)
 * [Experimental support for ES6 classes and modules](#experimental-support-for-es6-classes-and-modules)
@@ -611,6 +612,13 @@ support for ES6:
 >
 {type="note"}
 
+
+### Removal of the old Kotlin/JS compiler
+
+In Kotlin 1.8.0, we [announced](whatsnew18.md#stable-js-ir-compiler-backend) that the IR-based backend became [Stable](components-stability.md).
+Since then not specifying the compiler started to be an error, and using the old compiler lead to warnings. 
+
+In Kotlin 1.9.0 using the old backend is an error. Please migrate to the IR compiler with the help of our [migration guide](js-ir-migration.md).
 
 ### Deprecation of the Kotlin/JS Gradle plugin
 
