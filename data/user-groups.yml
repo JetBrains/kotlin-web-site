@@ -521,6 +521,12 @@
     position:
       lat: 21.1904494
       lng: 81.2849169
+  - name: Fuzhou KUG
+    country: China Mainland
+    url: https://fuzhou-kug.github.io/
+    position:
+      lat: 26.050375
+      lng: 119.1535778
   - name: Guangzhou KUG
     country: China Mainland
     url: https://gzkug.com/
