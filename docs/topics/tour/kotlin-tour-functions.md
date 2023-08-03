@@ -13,7 +13,7 @@
 You can declare your own functions in Kotlin using the `fun` keyword.
 
 ```kotlin
-fun hello(){
+fun hello() {
     return println("Hello, world!")
 }
 
