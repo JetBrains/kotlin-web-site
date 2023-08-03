@@ -1,6 +1,7 @@
 [//]: # (title: Strings)
 
-Strings in Kotlin are represented by the type `String`. Generally, a string value is a sequence of characters in double quotes (`"`):
+Strings in Kotlin are represented by the type [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/).
+Generally, a string value is a sequence of characters in double quotes (`"`):
 
 ```kotlin
 val str = "abcd 123"

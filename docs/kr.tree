@@ -306,8 +306,9 @@
             <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
             <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
         </toc-element>
-        <toc-element id="scope-functions.md"/>
         <toc-element id="opt-in-requirements.md"/>
+        <toc-element id="scope-functions.md"/>
+        <toc-element id="time-measurement.md"/>
     </toc-element>
 
     <toc-element toc-title="Official libraries">

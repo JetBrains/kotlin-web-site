@@ -25,6 +25,8 @@ Each collection type can be mutable or read only.
 
 ## List
 
+Lists store items in the order that they are added, and allow for duplicate items. 
+
 To create a read-only list ([`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/)), use the 
 `[listOf()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/list-of.html)` function.
 
@@ -39,8 +41,13 @@ fun main() {
 //sampleStart
     // Read only list
     val readOnlyShapes = listOf("triangle", "square", "circle")
+    println(readOnlyShapes)
+    // [triangle, square, circle]
+    
     // Mutable list with explicit type declaration
-    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle") 
+    val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
+    println(shapes)
+    // [triangle, square, circle]
 //sampleEnd
 }
 ```
@@ -141,6 +148,8 @@ fun main() {
 
 ## Set
 
+Whereas lists are ordered and allow duplicate items, sets are **unordered** and only store **unique** items.
+
 To create a read-only set ([`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/)), use the 
 [`setOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/set-of.html) function.
 
@@ -225,6 +234,15 @@ fun main() {
 
 ## Map
 
+Maps store items as key-value pairs. You access the value by referencing the key. You can imagine a map like a food menu.
+You can find the price (value), by finding the food (key) you want to eat. Maps are useful if you want to look up a value
+without using a numbered index, like in a list.
+
+> * Every key in a map must be unique so that Kotlin can understand which value you want to get. 
+> * You can have duplicate values in a map.
+>
+{type="note"}
+
 To create a read-only map ([`Map`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/)), use the 
 [`mapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-of.html) function.
 
@@ -232,7 +250,8 @@ To create a mutable map ([`MutableMap`](https://kotlinlang.org/api/latest/jvm/st
 use the [`mutableMapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-map-of.html) function.
 
 When creating maps, Kotlin can infer the type of items stored. To declare the type explicitly, add the types
-of the keys and values within angled brackets `<>` after the map declaration.
+of the keys and values within angled brackets `<>` after the map declaration. For example: `MutableMap<String, Int>`.
+The keys have type `String` and the values have type `Int`.
 
 The easiest way to create maps is to use [`to`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html) between each 
 key and its related value:
@@ -241,9 +260,14 @@ key and its related value:
 fun main() {
 //sampleStart
     // Read-only map
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(readOnlyJuiceMenu)
+    // {apple=100, kiwi=190, orange=100}
+
     // Mutable map with explicit type declaration
-    val accountBalances: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)                    
+    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(juiceMenu)
+    // {apple=100, kiwi=190, orange=100}
 //sampleEnd
 }
 ```
@@ -251,8 +275,8 @@ fun main() {
 
 > To prevent unwanted modifications, obtain read-only views of mutable maps by casting them to `Map`:
 > ```kotlin
->     val accountBalances: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)
->     val accountBalancesLocked: Map<Int, Int> = accountBalances
+>     val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+>     val juiceMenuLocked: Map<String, Int> = juiceMenu
 > ```
 >
 {type="tip"}
@@ -261,11 +285,12 @@ To access a value in a map, use the [indexed access operator](operator-overloadi
 its key:
 
 ```kotlin
-fun main() { 
+fun main() {
 //sampleStart
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
-    println("The first value in the map is: ${readOnlyAccountBalances[1]}")
-    // The first value in the map is: 100
+    // Read-only map
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println("The value of apple juice is: ${readOnlyJuiceMenu["apple"]}")
+    // The value of apple juice is: 100
 //sampleEnd
 }
 ```
@@ -275,10 +300,11 @@ To get the number of items in a map, use the [`.count()`](https://kotlinlang.org
 function:
 
 ```kotlin
-fun main() { 
+fun main() {
 //sampleStart
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
-    println("This map has ${readOnlyAccountBalances.count()} key-value pairs")
+    // Read-only map
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println("This map has ${readOnlyJuiceMenu.count()} key-value pairs")
     // This map has 3 key-value pairs
 //sampleEnd
 }
@@ -289,14 +315,16 @@ To add or remove items from a mutable map, use [`.put()`](https://kotlinlang.org
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
 
 ```kotlin
-fun main() { 
+fun main() {
 //sampleStart
-    val accountBalances: MutableMap<Int, Int> = mutableMapOf(1 to 100, 2 to 100, 3 to 100)
-    accountBalances.put(4, 100)  // Add key 4 with value 100 to the list
-    println(accountBalances)     // {1=100, 2=100, 3=100, 4=100}
-    
-    accountBalances.remove(4)    // Remove the key 4 from the list
-    println(accountBalances)     // {1=100, 2=100, 3=100}
+    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    juiceMenu.put("coconut", 150) // Add key "coconut" with value 150 to the map
+    println(juiceMenu)
+    // {apple=100, kiwi=190, orange=100, coconut=150}
+
+    juiceMenu.remove("orange")    // Remove key "orange" from the map
+    println(juiceMenu)
+    // {apple=100, kiwi=190, coconut=150}
 //sampleEnd
 }
 ```
@@ -306,10 +334,10 @@ To check if a specific key is already included in a map, use the [`.containsKey(
 function:
 
 ```kotlin
-fun main() { 
+fun main() {
 //sampleStart
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
-    println(readOnlyAccountBalances.containsKey(2))
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(readOnlyJuiceMenu.containsKey("kiwi"))
     // true
 //sampleEnd
 }
@@ -320,13 +348,13 @@ To obtain a collection of the keys or values of a map, use the [`keys`](https://
 and [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html) properties respectively:
 
 ```kotlin
-fun main() { 
+fun main() {
 //sampleStart
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
-    println(readOnlyAccountBalances.keys)
-    // [1, 2, 3]
-    println(readOnlyAccountBalances.values)
-    // [100, 100, 100]
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println(readOnlyJuiceMenu.keys)
+    // [apple, kiwi, orange]
+    println(readOnlyJuiceMenu.values)
+    // [100, 190, 100]
 //sampleEnd
 }
 ```
@@ -346,10 +374,10 @@ To check that a key or value is in a map, use the [`in` operator](operator-overl
 ```kotlin
 fun main() {
 //sampleStart
-    val readOnlyAccountBalances = mapOf(1 to 100, 2 to 100, 3 to 100)
-    println(2 in readOnlyAccountBalances.keys)
+    val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    println("orange" in readOnlyJuiceMenu.keys)
     // true
-    println(200 in readOnlyAccountBalances.values)
+    println(200 in readOnlyJuiceMenu.values)
     // false
 //sampleEnd
 }

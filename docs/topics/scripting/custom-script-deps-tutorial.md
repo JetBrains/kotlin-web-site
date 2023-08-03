@@ -74,7 +74,7 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
 7. Select the Kotlin or Gradle language for the **Gradle DSL**.
 8. Click **Create**.
 
-![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=800}
+![Create a root project for custom Kotlin scripting](script-deps-create-root-project.png){width=700}
 
 ## Add scripting modules
 
@@ -88,7 +88,7 @@ Now you have an empty Kotlin/JVM Gradle project. Add the required modules, scrip
 6. As a module's parent, select the root module.
 7. Click **Create**.
 
-   ![Create script definition module](script-deps-module-definition.png){width=800}
+   ![Create script definition module](script-deps-module-definition.png){width=700}
 
 8. In the module's `build.gradle(.kts)` file, remove the `version` of the Kotlin Gradle plugin. It is already in the
    root project's build script.

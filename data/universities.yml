@@ -2522,3 +2522,19 @@
   geo:
     lat: '28.45081627'
     lng: '77.58421925'
+- title: Grand View University in Des Moines
+  location: Des Moines, IA (US)
+  courses:
+  - name: CPSC 242 Computer Science II
+    url: https://www.grandview.edu/academics/undergraduate/minors/computer-science
+  geo:
+    lat: '41.6202382'
+    lng: '-93.6058123'
+- title: Catholic University Of Colombia
+  location: Bogotá (Colombia)
+  courses:
+  - name: CT10126 Programación para Dispositivos Android
+    url: https://www.ucatolica.edu.co/portal/wp-content/uploads/adjuntos/facultades/electivas-programa-2023-1.pdf
+  geo:
+    lat: '4.634201277'
+    lng: '-74.06663640502144'

@@ -4,6 +4,10 @@
     padding-right: 32px;
   }
 
+  @media (min-width: 940px) {
+    min-height: 70px; /* KTL-1147 */
+  }
+
   &, #pages-search {
     background: none #1b1b1b;
   }

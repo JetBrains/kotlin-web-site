@@ -355,7 +355,7 @@ fun handleStrings(list: MutableList<String>) {
 
 The same syntax but with the type arguments omitted can be used for casts that do not take type arguments into account: `list as ArrayList`.
 
-The type arguments of a generic function calls are also only checked at compile time. Inside the function bodies,
+The type arguments of generic function calls are also only checked at compile time. Inside the function bodies,
 the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked.
 The only exclusion is inline functions with [reified type parameters](inline-functions.md#reified-type-parameters),
 which have their actual type arguments inlined at each call site. This enables type checks and casts for the type parameters.
