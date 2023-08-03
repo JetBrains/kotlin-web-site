@@ -616,9 +616,9 @@ support for ES6:
 ### Removal of the old Kotlin/JS compiler
 
 In Kotlin 1.8.0, we [announced](whatsnew18.md#stable-js-ir-compiler-backend) that the IR-based backend became [Stable](components-stability.md).
-Since then not specifying the compiler started to be an error, and using the old compiler lead to warnings. 
+Since then, not specifying the compiler has become an error, and using the old compiler leads to warnings.
 
-In Kotlin 1.9.0 using the old backend is an error. Please migrate to the IR compiler with the help of our [migration guide](js-ir-migration.md).
+In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler by following our [migration guide](js-ir-migration.md).
 
 ### Deprecation of the Kotlin/JS Gradle plugin
 
