@@ -152,6 +152,19 @@ JS-specific functionality:
        fun encode(s: String): String
    }
    ```
+   
+   If `@JsModule` and `@JsNonModule` are invalid, please check your build.gradle.kts file compiler settings. The project might have been created with the default setting `js(BOTH)`, so please change it to `js(IR)`
+   
+   ```kotlin
+   kotlin {
+       // ...
+       js(IR) {
+           browser {
+            //...
+         }
+      }
+   }
+   ```
 
 ### Native
 
