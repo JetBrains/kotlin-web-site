@@ -601,7 +601,7 @@ fun computeAck(m: Int, n: Int) {
 This release introduces updates for Kotlin/JS, including the removal of the old Kotlin/JS compiler, Kotlin/JS Gradle plugin deprecation and Experimental
 support for ES6:
 
-* [Removal of the old Kotlin/JS compiler](#removal-of-the-kotlin-js-legacy-target)
+* [Removal of the old Kotlin/JS compiler](#removal-of-the-old-kotlin-js-compiler)
 * [Deprecation of the Kotlin/JS Gradle plugin](#deprecation-of-the-kotlin-js-gradle-plugin)
 * [Deprecation of external enum](#deprecation-of-external-enum)
 * [Experimental support for ES6 classes and modules](#experimental-support-for-es6-classes-and-modules)
