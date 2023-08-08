@@ -5,7 +5,7 @@
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
 </microformat>
 
-You can follow these instructions to install [the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio](eap.md#build-details).
+You can follow these instructions to install the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio.
 
 1. Select **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**. 
     
@@ -21,6 +21,10 @@ You can follow these instructions to install [the preview version of the Kotlin 
 
     ![Install the EAP build](idea-latest-kotlin-eap.png)
     {width="500"}
+   
+   > If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
+   >
+   {type="note"}
 
 4. Click **Install**. 
 

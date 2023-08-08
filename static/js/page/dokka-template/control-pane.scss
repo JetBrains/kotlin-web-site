@@ -6,6 +6,7 @@
 
   @media (min-width: 940px) {
     min-height: 70px; /* KTL-1147 */
+    box-sizing: border-box;
   }
 
   &, #pages-search {

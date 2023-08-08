@@ -23,13 +23,13 @@ To ensure consistency and meaningful behavior of the generated code, data classe
 
 Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
 
-* If there are explicit implementations of `equals()`, `hashCode()`, or `toString()` in the data class body or
+* If there are explicit implementations of `.equals()`, `.hashCode()`, or `.toString()` in the data class body or
   `final` implementations in a superclass, then these functions are not generated, and the existing
   implementations are used.
-* If a supertype has `componentN()` functions that are `open` and return compatible types, the
+* If a supertype has `.componentN()` functions that are `open` and return compatible types, the
   corresponding functions are generated for the data class and override those of the supertype. If the functions of the
   supertype cannot be overridden due to incompatible signatures or due to their being final, an error is reported.
-* Providing explicit implementations for the `componentN()` and `copy()` functions is not allowed.
+* Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
 
 Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
 
