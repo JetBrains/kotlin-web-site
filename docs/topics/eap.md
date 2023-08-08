@@ -63,4 +63,9 @@ check [our instructions on how to configure your build to support this version](
         </td>
     </tr>
 </table>
+
+> If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
+>
+{type="note"}
+
 -->
