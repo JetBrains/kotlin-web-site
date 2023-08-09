@@ -1,3 +1,9 @@
+/* Fix global dokka styles */
+header ul {
+  position: inherit;
+}
+/* / Fix global dokka styles */
+
 .root {
   display: flex;
   flex-direction: column;
