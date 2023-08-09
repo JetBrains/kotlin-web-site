@@ -41,6 +41,21 @@ perspective
 > - 1.8.0: raise the warning to an error
 -->
 
+### Remove language version 1.3
+
+> **Issue**: [KT-61111](https://youtrack.jetbrains.com/issue/KT-61111/Remove-language-version-1.3)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.9 introduces language version 1.9 and removes support for language version 1.3. 
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: report a warning
+> - 1.9.0: raise the warning to an error
+
 ### Prohibit super constructor call when the super interface type is a function literal
 
 > **Issue**: [KT-46344](https://youtrack.jetbrains.com/issue/KT-46344)
