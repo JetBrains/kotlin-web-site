@@ -48,6 +48,7 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `constructor`/`create` | Initializer                      | Initializer                      | [note](#initializers)                                                              |
 | Property               | Property                         | Property                         | [note 1](#top-level-functions-and-properties), [note 2](#setters)                  |
 | Method                 | Method                           | Method                           | [note 1](#top-level-functions-and-properties), [note 2](#method-names-translation) |
+| `enum class`           | `class`                          | `@interface`                     | [note](#enums)                                                                     |
 | `suspend` ->           | `completionHandler:`/ `async`    | `completionHandler:`             | [note 1](#errors-and-exceptions), [note 2](#suspending-functions)                  |
 | `@Throws fun`          | `throws`                         | `error:(NSError**)error`         | [note](#errors-and-exceptions)                                                     |
 | Extension              | Extension                        | Category member                  | [note](#extensions-and-category-members)                                           |
@@ -187,6 +188,42 @@ Note that the opposite reversed translation is not implemented yet:
 Swift/Objective-C error-throwing methods aren't imported to Kotlin as
 exception-throwing.
 
+> See how exceptions are handled in the Swift part of a [multiplatform project](multiplatform-mobile-upgrade-app.md#ios-app).
+>
+{type="tip"}
+
+### Enums
+
+Kotlin enums are imported into Objective-C as `@interface` and into Swift as `class`.
+These data structures have properties corresponding to each enum value. Consider this Kotlin code:
+
+```kotlin
+// Kotlin
+enum class Colors {
+    RED, GREEN, BLUE
+}
+```
+
+You can access the properties of this enum class from Swift as follows:
+
+```Swift
+// Swift
+Colors.red
+Colors.green
+Colors.blue
+```
+
+To use variables of a Kotlin enum in a Swift `switch` statement, provide a default statement to prevent a compilation error:
+
+```Swift
+switch color {
+    case .red: print("It's red")
+    case .green: print("It's green")
+    case .blue: print("It's blue")
+    default: fatalError("No such color")
+}
+```
+
 ### Suspending functions
 
 > Support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
@@ -203,7 +240,10 @@ Starting from Swift 5.5, Kotlin's `suspend` functions are also available for cal
 `async` functions without using the completion handlers. Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
 for details.
 
-Learn more about the [`async`/`await` mechanism in Swift](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+> * See how Kotlin's suspending functions are used in the Swift part of a [multiplatform project](multiplatform-mobile-upgrade-app.md#ios-app). 
+> * Learn more about the [`async`/`await` mechanism in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
+>
+{type="tip"}
 
 ### Extensions and category members
 
