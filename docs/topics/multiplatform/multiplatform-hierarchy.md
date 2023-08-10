@@ -4,7 +4,7 @@ Multiplatform projects support hierarchical structures.
 This means you can arrange a hierarchy of intermediate source sets for sharing the common code among some, but not all,
 [supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets has some important advantages:
 
-* If you're a library author and you want to provide a specialized API, you can use an intermediate source set for some,
+* If you're a library author, and you want to provide a specialized API, you can use an intermediate source set for some,
   but not all, targets – for example, an intermediate source set for Kotlin/Native targets but not for Kotlin/JVM ones.
 * If you want to use platform-dependent libraries in your project, you can use an intermediate source set
   to use that specific API in several native targets. For example, you can have access to iOS-specific dependencies,
@@ -58,7 +58,7 @@ kotlin {
 
 ```groovy
 kotlin {
-  // Enable the default target hierarchy:
+    // Enable the default target hierarchy:
     targetHierarchy.default {
       
     }
