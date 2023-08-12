@@ -119,8 +119,8 @@ The common source set can define an interface or an expected declaration. Then e
 in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
 declarations from the common source set.
 
-While building the code for a specific target, the Kotlin compiler will automatically substitute
-the invocation of the expected declarations with the invocation of the actual implementation for this target.
+While generating the code for a specific platform, the Kotlin compiler merges expected and actual declarations
+and generates a single declaration with actual implementations.
 
 1. When creating a project in Android Studio, you get a template with the `Platform.kt` file in the `commonMain` module:
 
@@ -159,7 +159,7 @@ the invocation of the expected declarations with the invocation of the actual im
       dependency. It's written in Kotlin/Native, meaning you can write iOS code in Kotlin. This code becomes a part of the iOS
       framework, which you will later call from Swift in your iOS application.
 
-3. Check the `getPlatform()` function in different source sets. Its expected variant doesn't have a body,
+3. Check the `getPlatform()` function in different source sets. Its expected declaration doesn't have a body,
    and actual implementations are provided in the platform code:
 
     ```kotlin
@@ -173,9 +173,15 @@ the invocation of the expected declarations with the invocation of the actual im
     actual fun getPlatform(): Platform = IOSPlatform()
     ```
 
-During compilation, Kotlin automatically substitutes the invocation of the `getPlatform()` expected declaration
-with the invocation of its correct actual implementation.
-The Android app uses the `AndroidPlatform()` implementation, while the iOS app uses the `IOSPlatform()` implementation.
+Here, the common source set defines an expected `getPlatform()` function and has actual implementations,
+`AndroidPlatform()` for the Android app and `IOSPlatform()` for the iOS app, in the platform source sets.
+
+While generating the code for a specific platform, the Kotlin compiler merges expected and actual declarations
+into a single `getPlatform()` function with its actual implementations.
+
+That's why expected and actual declarations should be defined in the same package − they are merged into one declaration
+in the resulting platform code. Any invocation of the expected `getPlatform()` function in the generated platform code
+calls a correct actual implementation.
 
 Now you can run the apps to ensure everything works.
 
