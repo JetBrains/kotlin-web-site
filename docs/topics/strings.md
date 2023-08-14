@@ -49,7 +49,7 @@ println(s + "def")
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-> In most cases using [string templates](#string-templates) or [raw strings](#raw-strings) is preferable to string concatenation.
+> In most cases using [string templates](#string-templates) or [multiline strings](#multiline-strings) is preferable to string concatenation.
 > 
 {type="note"}
 
@@ -58,7 +58,7 @@ println(s + "def")
 Kotlin has two types of string literals:
 
 * [Escaped strings](#escaped-strings)
-* [Raw strings](#raw-strings)
+* [Multiline strings](#multiline-strings)
 
 ### Escaped strings
 
@@ -72,9 +72,9 @@ val s = "Hello, world!\n"
 Escaping is done in the conventional way, with a backslash (`\`).  
 See [Characters](characters.md) page for the list of supported escape sequences.
 
-### Raw strings
+### Multiline strings
 
-_Raw strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
+_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
 ```kotlin
 val text = """
@@ -83,7 +83,7 @@ val text = """
 """
 ```
 
-To remove leading whitespace from raw strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
+To remove leading whitespace from multiline strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
 
 ```kotlin
 val text = """
@@ -123,8 +123,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can use templates both in raw and escaped strings.
-To insert the dollar sign `$`  in a raw string (which doesn't support backslash escaping) before any symbol,
+You can use templates both in multiline and escaped strings.
+To insert the dollar sign `$`  in a multiline string (which doesn't support backslash escaping) before any symbol,
 which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
