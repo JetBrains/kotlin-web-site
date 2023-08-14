@@ -387,7 +387,7 @@ kotlin.js.webpack.major.version=4
 
 The most common webpack adjustments can be made directly via the
 `kotlin.js.browser.webpackTask` configuration block in the Gradle build file:
-- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/distributions/` after
+- `outputFileName` - the name of the webpacked output file. It will be generated in `<projectDir>/build/dist/<targetName>` after
   an execution of a webpack task. The default value is the project name.
 - `output.libraryTarget` - the module system for the webpacked output. Learn more about [available module systems for
   Kotlin/JS projects](js-modules.md). The default value is `umd`.
@@ -440,7 +440,7 @@ the resulting JavaScript file, which takes more time, but generates executables 
 the `browserProductionWebpack` task when preparing your project for production use.
  
  Execute either of these tasks to obtain the respective artifacts for development or production. The generated files will
- be available in `build/distributions` unless [specified otherwise](#distribution-target-directory).
+ be available in `build/dist` unless [specified otherwise](#distribution-target-directory).
 
 ```bash
 ./gradlew browserProductionWebpack
@@ -777,7 +777,11 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 
 ## Distribution target directory
 
-By default, the results of a Kotlin/JS project build reside in the `/build/distribution` directory within the project root.
+By default, the results of a Kotlin/JS project build reside in the `/build/dist/<targetName>/<binaryName>` directory within the project root.
+
+> Prior to Kotlin 1.9.0, the default distribution target directory was `/build/distributions`.
+>
+{type="note" }
 
 To set another location for project distribution files, add the `distribution` block inside `browser` in the build script and 
 assign a value to the `directory` property.
@@ -831,7 +835,7 @@ js {
 }
 ```
 
-Note that this does not affect the webpacked output in `build/distributions`.
+Note that this does not affect the webpacked output in `build/dist`.
 
 ## package.json customization
 

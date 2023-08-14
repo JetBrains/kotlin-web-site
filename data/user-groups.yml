@@ -521,6 +521,12 @@
     position:
       lat: 21.1904494
       lng: 81.2849169
+  - name: Fuzhou KUG
+    country: China Mainland
+    url: https://fuzhou-kug.github.io/
+    position:
+      lat: 26.050375
+      lng: 119.1535778
   - name: Guangzhou KUG
     country: China Mainland
     url: https://gzkug.com/
@@ -539,12 +545,6 @@
     position:
       lat: 41.69465336184713
       lng: 44.78250312871074
-  - name: Hefei KUG
-    country: China Mainland
-    url: https://weibo.com/kotlinhfug
-    position:
-      lat: 31.820591
-      lng: 117.227219
   - name: Ho Chi Minh KUG
     country: Vietnam
     url: https://www.facebook.com/kughcmc/
@@ -731,6 +731,12 @@
     position:
       lat: 31.1471305
       lng: 75.34121789999999
+  - name: Qingdao KUG
+    country: China Mainland
+    url: https://qingdao-kug.github.io/
+    position:
+      lat: 36.136235
+      lng: 120.2000272
   - name: Rajkot KUG
     country: India
     url: https://sites.google.com/view/kugrajkot/home

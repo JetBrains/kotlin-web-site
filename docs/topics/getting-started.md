@@ -5,7 +5,7 @@ It's concise, safe, interoperable with Java and other languages, and provides ma
 
 To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language.
 
-<a href="kotlin-tour-hello-world.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour"/></a>
+<a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour"/></a>
 
 ## Install Kotlin
 

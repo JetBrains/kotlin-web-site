@@ -1,3 +1,27 @@
+- lang: de
+  startDate: '2023-10-16'
+  endDate: '2023-10-17'
+  online: true
+  speaker : 'Sebastian Aigner'
+  title : ''
+  subject : 'KKON'
+  url: https://rheinwerk-kkon.de/
+- lang: en
+  startDate: '2023-11-16'
+  endDate: '2023-11-16'
+  location: Amsterdam, Netherlands
+  speaker : 'Sebastian Aigner'
+  title : ''
+  subject : 'Kotlin Dev Day'
+  url: https://kotlindevday.com/
+- lang: en
+  startDate: '2023-09-14'
+  endDate: '2023-09-15'
+  location: New York, USA
+  speaker : ''
+  title : ''
+  subject : 'droidcon New York'
+  url: https://nyc.droidcon.com/
 - lang: en
   startDate: '2023-06-27'
   endDate: '2023-06-27'

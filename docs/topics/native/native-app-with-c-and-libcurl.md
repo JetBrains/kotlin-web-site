@@ -21,7 +21,9 @@ The tutorial is suitable for both IntelliJ IDEA Community Edition and IntelliJ I
 1. In IntelliJ IDEA, select **File | New | Project**.
 2. In the panel on the left, select **Kotlin Multiplatform | Native Application**.
 3. Specify the name and select the folder where you'll save your application.
+
    ![New project. Native application in IntelliJ IDEA](native-file-new.png){width=700}
+
 4. Click **Next** and then **Finish**.
 
 IntelliJ IDEA will create a new project with the files and folders you need to get you started. It's important to understand that

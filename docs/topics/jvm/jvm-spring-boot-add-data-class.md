@@ -98,7 +98,7 @@ The response from `MessageController` will now be a JSON document containing a c
 Here is a complete code of the `DemoApplication.kt`:
 
 ```kotlin
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
