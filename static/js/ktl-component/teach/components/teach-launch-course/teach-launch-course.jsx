@@ -31,10 +31,9 @@ export const TeachLaunchCourse = () => {
 
             <div className="teach-launch-course__links-block teach-launch-course__links-block_first">
                 <div className="ktl-h4 ktl-offset-bottom-xs">Lecture slides</div>
-                <ol
+                <ul
                     className={classNames(
                         'teach-launch-course__list teach-launch-course__list_large',
-                        'teach-numeric-list',
                         textCn('rs-text-2')
                     )}
                 >
@@ -126,7 +125,7 @@ export const TeachLaunchCourse = () => {
                             Testing
                         </a>
                     </li>
-                </ol>
+                </ul>
             </div>
 
             <div className="teach-launch-course__links-block teach-launch-course__links-block_second">
