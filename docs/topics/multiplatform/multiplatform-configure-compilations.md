@@ -43,7 +43,7 @@ kotlin {
 
 ```kotlin
 kotlin {
-    targets.getByName<KotlinJvmTarget>("jvm").compilations.all {
+    jvm().compilations.all {
         compilerOptions.configure {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
@@ -56,7 +56,7 @@ kotlin {
 
 ```groovy
 kotlin {
-    tasks.withType(KotlinJvmCompile).configureEach {
+    jvm().compilations.all {
         compilerOptions.configure {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
@@ -89,7 +89,7 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvm{
+    jvm {
         compilations.main {
             compilerOptions.configure {
                 jvmTarget.set(JvmTarget.JVM_1_8)

@@ -253,6 +253,8 @@ The configuration of Android library is stored in the `android {}` top-level blo
 
 ```kotlin
 android {
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    //  For example:
     namespace = "com.example.kotlinmultiplatformsandbox"
     compileSdk = 33
     defaultConfig {
@@ -266,6 +268,8 @@ android {
 
 ```groovy
 android {
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    //  For example:
     namespace "com.example.kotlinmultiplatformsandbox"
     compileSdk 33
     defaultConfig {
