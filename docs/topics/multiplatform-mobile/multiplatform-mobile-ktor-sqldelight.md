@@ -78,6 +78,8 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
     val dateTimeVersion = "%dateTimeVersion%"
 
     sourceSets {
+        targetHierarchy.default()
+   
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -486,7 +488,7 @@ In the `androidApp/src/main/AndroidManifest.xml` file, add the following permiss
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jetbrains.handson.androidApp">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
     
 </manifest>
@@ -572,7 +574,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.recyclerview:recyclerview:1.3.0")
-    implementation("androidx.cardview:cardview:1.0.0")
+   implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+   implementation("androidx.cardview:cardview:1.0.0")
 }
 // ...
 ```
