@@ -54,6 +54,17 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.9.10</strong>
+            <p>Released: <strong>July 17, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.10" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.9.0.</p>
+            <p>Learn more about Kotlin 1.9.0 in <a href="whatsnew19.md" target="_blank">What's new in Kotlin 1.9.0</a>.</p>
+            <note>For Android Studio Giraffe and Hedgehog, the Kotlin plugin 1.9.10 will be delivered with upcoming Android Studios updates.</note>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.9.0</strong>
             <p>Released: <strong>July 6, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0" target="_blank">Release on GitHub</a></p>
