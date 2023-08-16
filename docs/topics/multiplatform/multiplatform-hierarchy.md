@@ -209,7 +209,7 @@ a multiplatform project with 2 iOS-related targets, `iosArm64` and `iosX64`, and
 
 ```kotlin
 kotlin {
-    ios() // iOS device and simulator targets; iosMain and iosTest source sets
+    ios() // iOS device and the iosX64 simulator target; iosMain and iosTest source sets
 }
 ```
 
@@ -218,7 +218,7 @@ kotlin {
 
 ```groovy
 kotlin {
-    ios() // iOS device and simulator targets; iosMain and iosTest source sets
+    ios() // iOS device and the iosX64 simulator target; iosMain and iosTest source sets
 }
 ```
 
