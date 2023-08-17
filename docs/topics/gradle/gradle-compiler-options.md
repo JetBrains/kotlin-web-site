@@ -237,8 +237,8 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
+| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
 
 #### Example of setting a languageVersion
 
@@ -254,7 +254,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
             )
     }
 ```
