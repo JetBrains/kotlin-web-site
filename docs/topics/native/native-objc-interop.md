@@ -206,7 +206,7 @@ enum class Colors {
 
 You can access the properties of this enum class from Swift as follows:
 
-```Swift
+```swift
 // Swift
 Colors.red
 Colors.green
@@ -215,7 +215,7 @@ Colors.blue
 
 To use variables of a Kotlin enum in a Swift `switch` statement, provide a default statement to prevent a compilation error:
 
-```Swift
+```swift
 switch color {
     case .red: print("It's red")
     case .green: print("It's green")
