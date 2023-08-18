@@ -1,8 +1,8 @@
 [//]: # (title: Data classes)
 
-It is not unusual to create classes whose main purpose is to hold data.
-In such classes, some standard functionality and some utility functions are often mechanically
-derivable from the data. In Kotlin, these are called _data classes_ and are marked with `data`:
+Data classes in Kotlin are classes whose main purpose is to hold data. Data classes come automatically with additional
+member functions that allow you to print an instance to readable output, compare instances, copy instances, and more.
+Data classes are marked with `data`:
 
 ```kotlin
 data class User(val name: String, val age: Int)
@@ -10,10 +10,10 @@ data class User(val name: String, val age: Int)
 
 The compiler automatically derives the following members from all properties declared in the primary constructor:
 
-* `equals()`/`hashCode()` pair
-* `toString()` of the form `"User(name=John, age=42)"`
-* [`componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
-* `copy()` function (see below).
+* `.equals()`/`.hashCode()` pair
+* `.toString()` of the form `"User(name=John, age=42)"`
+* [`.componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
+* `.copy()` function (see below).
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 
@@ -23,13 +23,13 @@ To ensure consistency and meaningful behavior of the generated code, data classe
 
 Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
 
-* If there are explicit implementations of `equals()`, `hashCode()`, or `toString()` in the data class body or
+* If there are explicit implementations of `.equals()`, `.hashCode()`, or `.toString()` in the data class body or
   `final` implementations in a superclass, then these functions are not generated, and the existing
   implementations are used.
-* If a supertype has `componentN()` functions that are `open` and return compatible types, the
+* If a supertype has `.componentN()` functions that are `open` and return compatible types, the
   corresponding functions are generated for the data class and override those of the supertype. If the functions of the
   supertype cannot be overridden due to incompatible signatures or due to their being final, an error is reported.
-* Providing explicit implementations for the `componentN()` and `copy()` functions is not allowed.
+* Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
 
 Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
 
@@ -53,9 +53,11 @@ data class Person(val name: String) {
 }
 ```
 
-Only the property `name` will be used inside the `toString()`, `equals()`, `hashCode()`, and `copy()` implementations,
-and there will only be one component function `component1()`. While two `Person` objects can have different ages,
-they will be treated as equal.
+In this example, only the `name` property can be used inside the `.toString()`, `.equals()`, `.hashCode()`, and `.copy()` implementations,
+and there is only one component function `.component1()`. The `age` property can't be used inside the `.toString()`, 
+`.equals()`, `.hashCode()`, and `.copy()` implementations because it's declared inside the class body. If two `Person` 
+objects have different ages but the same `name`, then they are treated as equal. This is because the `.equals()` function
+can only check for equality of the `name` property. For example:
 
 ```kotlin
 data class Person(val name: String) {
@@ -67,17 +69,23 @@ fun main() {
     val person2 = Person("John")
     person1.age = 10
     person2.age = 20
-//sampleEnd
+
     println("person1 == person2: ${person1 == person2}")
+    // person1 == person2: true
+  
     println("person1 with age ${person1.age}: ${person1}")
+    // person1 with age 10: Person(name=John)
+  
     println("person2 with age ${person2.age}: ${person2}")
+    // person2 with age 20: Person(name=John)
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ## Copying
 
-Use the `copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
+Use the `.copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
 
 ```kotlin
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
@@ -97,11 +105,12 @@ _Component functions_ generated for data classes make it possible to use them in
 ```kotlin
 val jane = User("Jane", 35)
 val (name, age) = jane
-println("$name, $age years of age") // prints "Jane, 35 years of age"
+println("$name, $age years of age") 
+// Jane, 35 years of age
 ```
 
 ## Standard data classes
 
 The standard library provides the `Pair` and `Triple` classes. In most cases, though, named data classes are a better design choice
-because they make the code more readable by providing meaningful names for the properties.
+because they make the code easier to read by providing meaningful names for the properties.
 

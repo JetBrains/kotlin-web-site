@@ -306,8 +306,9 @@
             <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
             <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
         </toc-element>
-        <toc-element id="scope-functions.md"/>
         <toc-element id="opt-in-requirements.md"/>
+        <toc-element id="scope-functions.md"/>
+        <toc-element id="time-measurement.md"/>
     </toc-element>
 
     <toc-element toc-title="Official libraries">
@@ -327,6 +328,7 @@
         <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
         <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
         <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
+        <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
         <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
     </toc-element>
 

@@ -432,10 +432,9 @@ kotlin {
 
 ### Compiler option for C interop implicit integer conversions
 
-As we continue to work towards the stabilization of Kotlin/Native, we have introduced a compiler option for C interop 
-that allows you to use implicit integer conversions. Previously it wasn't necessary to configure a compiler option to 
-use implicit integer conversions. After careful consideration, we've introduced this compiler option to prevent 
-unintentional use as this feature still has room for improvement and our aim is to have an API of the highest quality.
+We have introduced a compiler option for C interop that allows you to use implicit integer conversions. After careful 
+consideration, we've introduced this compiler option to prevent unintentional use as this feature still has room for 
+improvement and our aim is to have an API of the highest quality.
 
 In this code sample an implicit integer conversion allows `options = 0` even though [`options`](https://developer.apple.com/documentation/foundation/nscalendar/options)
 has unsigned type `UInt` and `0` is signed.
@@ -598,9 +597,10 @@ fun computeAck(m: Int, n: Int) {
 
 ## Kotlin/JS
 
-This release introduces updates for Kotlin/JS, including the deprecation of the Kotlin/JS Gradle plugin and Experimental
+This release introduces updates for Kotlin/JS, including the removal of the old Kotlin/JS compiler, Kotlin/JS Gradle plugin deprecation and Experimental
 support for ES6:
 
+* [Removal of the old Kotlin/JS compiler](#removal-of-the-old-kotlin-js-compiler)
 * [Deprecation of the Kotlin/JS Gradle plugin](#deprecation-of-the-kotlin-js-gradle-plugin)
 * [Deprecation of external enum](#deprecation-of-external-enum)
 * [Experimental support for ES6 classes and modules](#experimental-support-for-es6-classes-and-modules)
@@ -611,6 +611,13 @@ support for ES6:
 >
 {type="note"}
 
+
+### Removal of the old Kotlin/JS compiler
+
+In Kotlin 1.8.0, we [announced](whatsnew18.md#stable-js-ir-compiler-backend) that the IR-based backend became [Stable](components-stability.md).
+Since then, not specifying the compiler has become an error, and using the old compiler leads to warnings.
+
+In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler by following our [migration guide](js-ir-migration.md).
 
 ### Deprecation of the Kotlin/JS Gradle plugin
 

@@ -2,6 +2,7 @@ package builds.kotlinlang.buidTypes
 
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import builds.apiReferences.kotlinx.datetime.KotlinxDatetimeBuildApiReference
+import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
@@ -164,6 +165,17 @@ object BuildSitePages : BuildType({
 
       artifacts {
         artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
+      }
+    }
+
+    dependency(KotlinxMetadataJvmBuildApiReference) {
+      snapshot {
+        reuseBuilds = ReuseBuilds.NO
+        onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+
+      artifacts {
+        artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
       }
     }
 

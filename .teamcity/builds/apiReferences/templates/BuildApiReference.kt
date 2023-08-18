@@ -3,8 +3,11 @@ package builds.apiReferences.templates
 import BuildParams.DOKKA_TEMPLATES_VERSION
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.Template
+import jetbrains.buildServer.configs.kotlin.Trigger
+import jetbrains.buildServer.configs.kotlin.Triggers
+import jetbrains.buildServer.configs.kotlin.buildSteps.GradleBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
-import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
+import jetbrains.buildServer.configs.kotlin.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 fun BuildSteps.scriptDropSnapshot(block: ScriptBuildStep.() -> Unit) = step(
@@ -36,6 +39,21 @@ fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
     }.apply(block),
 )
 
+fun BuildSteps.buildDokkaHTML(block: GradleBuildStep.() -> Unit) = step(
+    GradleBuildStep {
+        id = "step-build-dokka-html-id"
+        name = "Build dokka html"
+        tasks = "dokkaHtmlMultiModule"
+    }.apply(block),
+)
+
+fun Triggers.vcsDefaultTrigger(block: Trigger.() -> Unit) = trigger(
+    VcsTrigger {
+        id = "trigger-vcs-default-trigger-id"
+        branchFilter = "+:<default>"
+    }.apply(block)
+)
+
 object BuildApiReference : Template({
     name = "Dokka Reference Template"
 
@@ -44,13 +62,10 @@ object BuildApiReference : Template({
     params {
         param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
         param("DOKKA_TEMPLATES_VERSION", DOKKA_TEMPLATES_VERSION)
-        param("DOKKA_TEMPLATE_TASK", "dokkaHtmlMultiModule")
     }
 
     triggers {
-        vcs {
-            branchFilter = "+:<default>"
-        }
+        vcsDefaultTrigger {}
     }
 
     requirements {
@@ -60,9 +75,6 @@ object BuildApiReference : Template({
     steps {
         scriptDropSnapshot {}
         scriptDokkaVersionSync {}
-        gradle {
-            name = "Build dokka html"
-            tasks = "%DOKKA_TEMPLATE_TASK%"
-        }
+        buildDokkaHTML {}
     }
 })

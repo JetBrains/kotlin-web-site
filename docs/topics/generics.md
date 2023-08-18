@@ -322,6 +322,41 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type
 must implement _both_ `CharSequence` and `Comparable`.
 
+## Definitely non-nullable types
+
+To make interoperability with generic Java classes and interfaces easier, Kotlin supports declaring a generic type parameter
+as **definitely non-nullable**. 
+
+To declare a generic type `T` as definitely non-nullable, declare the type with `& Any`. For example: `T & Any`.
+
+A definitely non-nullable type must have a nullable [upper bound](#upper-bounds).
+
+The most common use case for declaring definitely non-nullable types is when you want to override a Java method that 
+contains `@NotNull` as an argument. For example, consider the `load()` method:
+
+```java
+import org.jetbrains.annotations.*;
+
+public interface Game<T> {
+    public T save(T x) {}
+    @NotNull
+    public T load(@NotNull T x) {}
+}
+```
+
+To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely non-nullable:
+
+```kotlin
+interface ArcadeGame<T1> : Game<T1> {
+    override fun save(x: T1): T1
+    // T1 is definitely non-nullable
+    override fun load(x: T1 & Any): T1 & Any
+}
+```
+
+When working only with Kotlin, it's unlikely that you will need to declare definitely non-nullable types explicitly because 
+Kotlin's type inference takes care of this for you.
+
 ## Type erasure
 
 The type safety checks that Kotlin performs for generic declaration usages are done at compile time.
@@ -355,7 +390,7 @@ fun handleStrings(list: MutableList<String>) {
 
 The same syntax but with the type arguments omitted can be used for casts that do not take type arguments into account: `list as ArrayList`.
 
-The type arguments of a generic function calls are also only checked at compile time. Inside the function bodies,
+The type arguments of generic function calls are also only checked at compile time. Inside the function bodies,
 the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked.
 The only exclusion is inline functions with [reified type parameters](inline-functions.md#reified-type-parameters),
 which have their actual type arguments inlined at each call site. This enables type checks and casts for the type parameters.

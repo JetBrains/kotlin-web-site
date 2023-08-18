@@ -199,14 +199,14 @@ System.out.println("Anonymized input: '" + replacementResult + "'");
 
 In Kotlin, you use the [Regex](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/) class
 that simplifies working with regular expressions.
-Additionally, use [raw strings](strings.md#string-literals) to simplify a regex pattern
+Additionally, use [multiline strings](strings.md#multiline-strings) to simplify a regex pattern
 by reducing the count of backslashes:
 
 ```kotlin
 fun main() {
 //sampleStart
     // Kotlin
-    val regex = Regex("""\w*\d+\w*""") // raw string
+    val regex = Regex("""\w*\d+\w*""") // multiline string
     val input = "login: Pokemon5, password: 1q2w3e4r5t"
     val replacementResult = regex.replace(input, replacement = "xxx")
     println("Initial input: '$input'")

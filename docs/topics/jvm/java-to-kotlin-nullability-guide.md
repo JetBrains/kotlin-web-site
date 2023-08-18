@@ -116,6 +116,36 @@ on a value of a non-nullable type.
 
 Learn more about [calling Java from Kotlin in regard to null-safety and platform types](java-interop.md#null-safety-and-platform-types).
 
+## Support for definitely non-nullable types
+
+In Kotlin, if you want to override a Java method that contains `@NotNull` as an argument, you need Kotlin's definitely
+non-nullable types.
+
+For example, consider this `load()` method in Java:
+
+```java
+import org.jetbrains.annotations.*;
+
+public interface Game<T> {
+  public T save(T x) {}
+  @NotNull
+  public T load(@NotNull T x) {}
+}
+```
+
+To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely
+non-nullable (`T1 & Any`):
+
+```kotlin
+interface ArcadeGame<T1> : Game<T1> {
+  override fun save(x: T1): T1
+  // T1 is definitely non-nullable
+  override fun load(x: T1 & Any): T1 & Any
+}
+```
+
+Learn more about generic types that are [definitely non-nullable](generics.md#definitely-non-nullable-types).
+
 ## Checking the result of a function call
 
 One of the most common situations where you need to check for `null` is when you obtain a result from a function call.

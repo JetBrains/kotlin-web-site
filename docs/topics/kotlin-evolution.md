@@ -134,7 +134,7 @@ for three previous language and API versions in addition to the latest stable on
 
 Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete. Currently, such project can enable the `-progressive` flag and get such fixes enabled even in incremental releases.
 
-All flags are available on the command line as well as [Gradle](gradle-compiler-options.md) and [Maven](maven.md#specifying-compiler-options).
+All flags are available on the command line as well as [Gradle](gradle-compiler-options.md) and [Maven](maven.md#specify-compiler-options).
 
 ### Evolving the binary format
 
