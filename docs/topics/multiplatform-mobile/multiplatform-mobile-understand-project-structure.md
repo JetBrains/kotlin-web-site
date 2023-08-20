@@ -159,7 +159,7 @@ Read [Multiplatform documentation on adding dependencies](multiplatform-add-depe
 Along with `*Main` source sets, there are three matching test source sets:
 
 * `commonTest`
-* `androidTest`
+* `androidUnitTest`
 * `iosTest`
 
 Use them to store unit tests for common and platform-specific source sets accordingly.
@@ -178,7 +178,7 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosTest by getting
     }
 
@@ -198,7 +198,7 @@ kotlin {
                 implementation kotlin('test')
             }
         }
-        androidTest {
+        androidUnitTest {
 
         }
         iosTest {
