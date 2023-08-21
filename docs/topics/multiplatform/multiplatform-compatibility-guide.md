@@ -496,9 +496,7 @@ In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is 
 
 **What's changed?**
 
-Declaring multiple targets of the same kind in one project is not recommended and will be forbidden in future releases.
-There are multiple ways of achieving same results with other Kotlin Gradle Plugin mechanisms. As part of Kotlin
-Multiplatform stabilization we are trying to emphasize the essential and reduce ambiguous APIs. 
+We discourage declaring multiple targets of the same kind in a single Gradle project.
 
 Example:
 ```kotlin
