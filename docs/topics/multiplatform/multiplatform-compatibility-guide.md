@@ -492,6 +492,8 @@ projects.
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
 <anchor name="declaring-multiple-targets"></anchor>
+## Declaring multiple targets of the same kind
+
 **What's changed?**
 
 Declaring multiple targets of the same kind in one project is not recommended and will be forbidden in future releases.
