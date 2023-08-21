@@ -254,7 +254,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
+              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
             )
     }
 ```
