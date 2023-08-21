@@ -554,3 +554,4 @@ kotlin {
 **When do the changes take effect?**
 
 In Kotlin 1.9.20, a deprecation warning is introduced when multiple targets of the same type is used in Kotlin Multiplatform projects.
+In Kotlin 2.0, error will be reported in such cases, causing your build to fail.
