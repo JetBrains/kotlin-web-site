@@ -84,7 +84,11 @@ Available plugins and their options are listed in the **Tools > Compiler plugins
   
 ### -language-version _version_
 
-Provide source compatibility with the specified version of Kotlin.
+Provide source compatibility with the specified version of Kotlin. For example:
+
+```bash
+kotlinc -language-version %cliLanguageVersion% -script script.kts
+```
 
 ### -api-version _version_
 
