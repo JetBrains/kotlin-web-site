@@ -141,7 +141,7 @@ kotlin {
 
     jvm()
     iosArm64()
-    // the rest of the necessary targets...
+    // The rest of the other targets, if needed.
 
     sourceSets {
         commonMain {
