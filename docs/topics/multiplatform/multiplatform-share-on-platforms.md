@@ -39,8 +39,7 @@ that could still directly call any of the APIs that are common to both the iOS d
 In this case, you can share code across native targets in your project using the [hierarchical structure](multiplatform-hierarchy.md)
 using one of the following ways:
 
-* [Enabling default target hierarchy](multiplatform-hierarchy.md#default-hierarchy)
-* [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
+* [Default hierarchy template](multiplatform-hierarchy.md#default-hierarchy-template)
 * [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration)
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
