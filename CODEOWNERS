@@ -2,10 +2,10 @@
 
 # Community events
 /data/events.yml @MKrishtal
+/data/user-groups.yml @MKrishtal
 
 # Tech Writers Team
-/docs/ @koshachy @danil-pavlov @sarahhaggarty
-/assets/kotlin-reference.pdf @koshachy @danil-pavlov @sarahhaggarty
-/static/js/page/api/api.js @koshachy @danil-pavlov @sarahhaggarty
-/data/releases.yml @koshachy @danil-pavlov @sarahhaggarty
-/data/release-banner.yml @koshachy @danil-pavlov @sarahhaggarty
+/docs/ @JetBrains/kotlin-technical-writing
+/assets/kotlin-reference.pdf @JetBrains/kotlin-technical-writing
+/static/js/page/api/api.js @JetBrains/kotlin-technical-writing
+/data/releases.yml @JetBrains/kotlin-technical-writing

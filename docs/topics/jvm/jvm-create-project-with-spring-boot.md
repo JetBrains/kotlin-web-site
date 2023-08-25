@@ -12,6 +12,10 @@ The first part of the tutorial shows you how to create a Spring Boot project in 
 
 Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/index.html).
 
+> If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using a [web-based project generator](https://start.spring.io).
+> 
+{type="note"}
+
 ## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
@@ -49,7 +53,9 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 6. Click **Create** to generate and set up the project.
 
-   The IDE will generate and open the new project. It may take some time to download and import the project dependencies.
+   > The IDE will generate and open a new project. It may take some time to download and import the project dependencies.
+   >
+   {type="tip"} 
 
 7. After this, you can observe the following structure in the **Project view**:
 
@@ -71,15 +77,18 @@ Here is the full script with the explanation of all parts and dependencies:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
 
 plugins { 
-    id("org.springframework.boot") version "2.7.1"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.boot") version "3.1.2"
+    id("io.spring.dependency-management") version "1.1.2"
     kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
     kotlin("plugin.spring") version "%kotlinVersion%" // The Kotlin Spring plugin
 }
 
 group = "com.example"
-version = "0.0.1-SNAPSHOT" 
-java.sourceCompatibility = JavaVersion.VERSION_17 
+version = "0.0.1-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -126,7 +135,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 Open the `DemoApplication.kt` file:
 
 ```kotlin
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -224,7 +233,7 @@ class MessageController {
 Here is a complete code of the `DemoApplication.kt`:
 
 ```kotlin
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
