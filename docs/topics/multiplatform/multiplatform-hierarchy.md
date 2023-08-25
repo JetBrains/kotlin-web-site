@@ -1,16 +1,17 @@
 [//]: # (title: Hierarchical project structure)
 
-Multiplatform projects support hierarchical structures.
+Multiplatform projects support hierarchical source set structures.
 This means you can arrange a hierarchy of intermediate source sets for sharing the common code among some, but not all,
-[supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets has some important advantages:
+[supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets allows you to:
 
-* If you're a library author, and you want to provide a specialized API, you can use an intermediate source set for some,
-  but not all, targets – for example, an intermediate source set for Kotlin/Native targets but not for Kotlin/JVM ones.
-* If you want to use platform-dependent libraries in your project, you can use an intermediate source set
-  to use that specific API in several native targets. For example, you can have access to iOS-specific dependencies,
-  such as Foundation, when sharing code across all iOS targets.
-* Some libraries aren't available for particular platforms. Specifically, native libraries are only available for source
-  sets that compile to Kotlin/Native. Using an intermediate source set will solve this issue.
+* **Provide a specialized API for some targets**. For example, a library can put an additional Native-specific APIs in an 
+intermediate source set for Kotlin/Native targets but not for Kotlin/JVM ones 
+
+* **Consume a specialized API for some targets**. Symmetrically to the previous point, if you want to benefit from a 
+richer API a Kotlin Multiplatform Library provides for some targets, you'll need to have a respective intermediate 
+source set
+
+* **Use platform-dependent libraries in your project**. For example, you can have access to iOS-specific dependencies,
 
 The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
 that source set compiles. This prevents cases like using a Windows-specific API and then compiling it to macOS,
