@@ -5,8 +5,7 @@ The exercises are divided into a series of steps, walking you through each secti
 
 ## Building Reactive Spring Boot applications with Kotlin coroutines and RSocket
 
-The tutorial shows you how to build a simple chat application using Spring Boot and Kotlin.
-You will learn about the benefits of using Kotlin for server-side development from a syntax perspective.
+Build a simple chat application using Spring Boot and Kotlin, and learn about the benefits of using Kotlin for server-side development from a syntax perspective.
 
 [**Start**](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
 
@@ -18,7 +17,7 @@ Create a React Application using Kotlin/JS, and see how you can leverage Kotlin'
 
 ## Building web applications with Spring Boot and Kotlin
 
-This tutorial shows you how to build efficiently a sample blog application by combining the power of Spring Boot and Kotlin.
+Build a sample blog application by combining the power of Spring Boot and Kotlin.
 
 [**Start**](https://spring.io/guides/tutorials/spring-boot-kotlin/)
 
@@ -30,7 +29,7 @@ Create a backend API for your application that responds to HTTP requests.
 
 ## Creating a WebSocket chat with Ktor
 
-Learn how to create a simple Chat application using Ktor including both a JVM server and a JVM client.
+Create a simple Chat application using Ktor including both a JVM server and a JVM client.
 
 [**Start**](https://ktor.io/docs/creating-web-socket-chat.html)
 
