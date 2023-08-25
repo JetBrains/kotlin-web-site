@@ -394,7 +394,7 @@
         <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
         <toc-element id="koans.md"/>
         <toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
-        <toc-element href="kotlin-hands-on.md" toc-title="Kotlin hands-on"/>
+        <toc-element id="kotlin-hands-on.md" toc-title="Kotlin hands-on"/>
         <toc-element id="kotlin-tips.md"/>
         <toc-element id="books.md"/>
         <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>
