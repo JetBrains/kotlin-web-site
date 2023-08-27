@@ -66,7 +66,7 @@ the existing `plugins` block at the very beginning of the `build.gradle.kts` fil
 ```kotlin
 plugins {
     // ...
-    kotlin("plugin.serialization") version "%kotlinVersion%"
+    kotlin("plugin.serialization") version "%kotlinVersion%" # As of writing, v1.9.x versions are not supported, this should read 1.8.21.
 }
 ```
 
