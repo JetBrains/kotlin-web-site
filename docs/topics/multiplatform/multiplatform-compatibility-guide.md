@@ -502,54 +502,186 @@ Example:
 ```kotlin
 kotlin {
     jvm()
-    jvm("jvm6") // is not recommended and will produce deprecation warning
+    jvm("jvmKtor")
+    jvm("jvmOkio") // is not recommended and will produce deprecation warning
 }
 ```
 
 **What's the best practice now?**
 
-There are two ways of how to avoid multiple target declaration: different compilations and different gradle projects.
+There are two ways of how to avoid multiple target declaration:
 
-If you need to compile some sources with different parameters such as dependencies or compiler options for example
-functional tests, different JDK, debug or release artifacts. Then instead of declaring multiple targets you can
-create multiple compilations in one target.
+1. Creating different compilations
 
-Functional test build configuration sample 
-```kotlin
-kotlin {
-    jvm {
-        // Creates new compilation and 'jvmFunctionalTest' source set associated with it
-        val functionalTest by compilations.creating
+    If you need to compile some sources with different parameters such as dependencies or compiler options for example
+    for functional tests. Then instead of declaring multiple targets you can create multiple compilations in one target.
+ 
+   <tabs group="build-script">
+   <tab title="Before" group-key="before">
 
-        // functionalTest should see public and internal declarations from 'main' compilation now.
-        // it is possible to associate with 'test' compilation as well
-        functionalTest.associateWith(compilations.getByName("main"))
-    }
-}
-```
+    ```kotlin
+   // Project ':myLibrary:integrationTests'
+   kotlin {
+      jvm("jvmKtor") // !!!
+      jvm("jvmOkio") // !!!
+   
+       sourceSets {
+           // 'commonTest' source set contains shared integration tests of 'myLibrary' between ktor and okio 
+           val commonTest by getting {
+               dependencies {
+                   implementation(projects.myLibrary) 
+               }
+           }
+           // 'jvmKtorTest' source set contains ktor-specific integration tests
+           val jvmKtorTest by getting {
+               dependencies {
+                   implementation(libs.ktor)
+                   implementation(projects.myLibrary.ktor)
+               }
+           }
+   
+           // 'jvmOkioTest' source set contains okio-specific integration tests
+           val jvmOkioTest by getting {
+               dependencies {
+                   implementation(libs.okio)
+                   implementation(projects.myLibrary.okio)
+               }
+           }
+       }
+   }
+    ```
 
-Different projects can be configured like this:
-```kotlin
-// :lib-jvm
-kotlin {
-    jvm()
-}
-
-// :lib-jvm6
-kotlin {
-    jvm {
-        // JVM specific configurations
-    }
-    
-    sourceSets {
-        jvmMain {
+   </tab>
+   <tab title="Now" group-key="now">
+   
+    ```kotlin
+   // Project ':myLibrary:integrationTests'
+   kotlin {
+      jvm {
+         val ktorIntegrationTest by compilations.creating
+         val okioIntegrationTest by compilations.creating
+   
+         // Associate with test compilation to see tests from commonTest
+         ktorIntegrationTest.associateWith(compilations.getByName("test"))
+         okioIntegrationTest.associateWith(compilations.getByName("test"))
+   
+         // Create a Test Run to for each integration test
+         testRuns {
+            create("ktorIntegration") { setExecutionSourceFrom(ktorIntegrationTest) }
+            create("okioIntegration") { setExecutionSourceFrom(okioIntegrationTest) }
+         }
+      }
+   
+      sourceSets {
+         val commonTest by getting {
             dependencies {
-                api(project(":lib-jvm"))
+               implementation(kotlin("test"))
+               implementation(projects.myLibrary)
             }
-        }
-    }
+         }
+   
+         val jvmKtorIntegrationTest by getting {
+            dependencies {
+               implementation(kotlin("test"))
+               implementation(libs.ktor)
+               implementation(projects.myLibrary.ktor)
+            }
+         }
+   
+         val jvmOkioIntegrationTest by getting {
+            dependencies {
+               implementation(kotlin("test"))
+               implementation(libs.okio)
+               implementation(projects.myLibrary.okio)
+            }
+         }
+      }
+   }
+    ```
+
+   </tab>
+   </tabs>
+
+
+
+2. Extracting new target into a separate Gradle project
+
+   <tabs group="build-script">
+   <tab title="Before" group-key="before">
+
+   ```kotlin
+   // Project ':myUILibrary'
+   kotlin {
+       jvm("jvmCompose") // !!!
+       jvm("jvmSwing")   // !!!
+   
+       sourceSets {
+           val commonMain by getting
+           val commonJvmMain by sourceSets.creating {
+               dependsOn(commonMain)
+               dependencies {
+                   // shared dependencies
+               }
+           }
+           val jvmComposeMain by getting {
+               dependsOn(commonJvmMain)
+               dependencies {
+                   // compose specific dependencies
+               }
+           }
+           val jvmSwingMain by getting {
+               dependsOn(commonJvmMain)
+               dependencies {
+                   // swing specific dependencies
+               }
+           }
+       }
+   }
+   ```
+
+   </tab>
+   <tab title="Now" group-key="now">
+
+```kotlin
+// Project ':myUILibrary
+kotlin { 
+   jvm()
+   sourceSets {
+      val jvmMain by sourceSets.creating {
+         dependencies {
+            // shared dependencies
+         }
+      }
+   }
+}
+// Project ':myUILibrary:compose'
+kotlin {
+   jvm()
+   sourceSets {
+      val jvmMain by sourceSets.creating {
+         dependencies {
+            implementation(projects.myUILibrary)
+            // compose specific dependencies
+         }
+      }
+   }
+}
+// Project ':myUILibrary:swing'
+kotlin {
+   jvm()
+   sourceSets {
+      val jvmMain by sourceSets.creating {
+         dependencies {
+            implementation(projects.myUILibrary)
+            // swing specific dependencies
+         }
+      }
+   }
 }
 ```
+
+   </tab>
+   </tabs>
 
 **When do the changes take effect?**
 
