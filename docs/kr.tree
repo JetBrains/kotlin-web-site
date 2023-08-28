@@ -150,6 +150,7 @@
         <toc-element toc-title="Sharing code principles">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
             <toc-element id="multiplatform-connect-to-apis.md" accepts-web-file-names="platform-specific-declarations.html,mpp-connect-to-apis.html,kmm-connect-to-platform-specific-apis.html,multiplatform-mobile-connect-to-platform-specific-apis.html"/>
+            <toc-element id="multiplatform-connect-to-apis-2.md"/>
             <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
             <toc-element id="multiplatform-android-layout.md"/>
         </toc-element>
