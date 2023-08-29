@@ -36,9 +36,10 @@ tests for both common and platform-specific code.
 
    This option adds extra source sets and sample code to assist you with code testing. However, to understand how to
    create and configure tests better, you'll add them manually in this tutorial.
-6. Keep all other options default. Click **Finish**.
 
    ![Mobile Multiplatform project. Additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
+
+6. Keep all other options default. Click **Finish**.
 
 ## Test the common code
 
@@ -87,7 +88,8 @@ which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) AP
 
     In this case, you need a folder called `commonTest` with the `kotlin` subfolder inside.
 
-3. Add the `GrepTest.kt` file with the following unit test to the `kotlin` folder:
+3. In the `kotlin` folder, create a new `common.example.search` directory and the `Grep.kt` file.
+4. Update your test file with the following unit test:
 
     ```kotlin
     import kotlin.test.Test
@@ -104,14 +106,12 @@ which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) AP
             )
         }
     
-    
         @Test
         fun shouldFindMatches() {
             val results = mutableListOf<String>()
             grep(sampleData, "[a-z]+") {
                 results.add(it)
             }
-    
     
             assertEquals(2, results.size)
             for (result in results) {
@@ -132,7 +132,7 @@ You can run the test by executing:
 * The `GrepTest` test class
 * The file using the context menu in the **Project View**
 
-There's also a handy **⌃ Ctrl + ⇧ Shift + R**/**Ctrl + Shift + F10** shortcut. Regardless of the option you choose,
+There's also a handy **Ctrl + Shift + R**/**Ctrl + Shift + F10** shortcut. Regardless of the option you choose,
 you'll see a list of targets to run the test on:
 
 ![Run test task](run-test-tasks.png){width=300}
@@ -145,7 +145,7 @@ In both cases, the test runs like this:
 
 ![Test output](run-test-results.png){width=700}
 
-## Explore the `kotlin.test` API
+### Explore the `kotlin.test` API
 
 As you see, the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) library provides platform-agnostic
 annotations and assertions. Annotations, such as `Test`, map to those provided by the selected framework or their nearest
@@ -182,7 +182,8 @@ might have the values "OpenJDK" and "17.0" for Android unit tests that run on a 
 An instance of `CurrentRuntime` should be created with the name and version of the platform as strings, where the
 version is optional. When the version is present, you only need the number at the start of the string, if available.
 
-1. Add the `CurrentRuntime` implementation to `commonMain`:
+1. In the `commonMain/kotlin` folder, create a new `org.kmp.testing` directory and the `CurrentRuntime.kt` file.
+2. Update it with the following implementation:
 
     ```kotlin
     class CurrentRuntime(val name: String, rawVersion: String?) {
@@ -190,12 +191,9 @@ version is optional. When the version is present, you only need the number at th
             val versionRegex = Regex("^[0-9]+(\\.[0-9]+)?")
         }
     
-    
         val version = parseVersion(rawVersion)
     
-    
         override fun toString() = "$name version $version"
-    
     
         private fun parseVersion(rawVersion: String?): String {
             val result = rawVersion?.let { versionRegex.find(it) }
@@ -204,9 +202,13 @@ version is optional. When the version is present, you only need the number at th
     }
     ```
 
-2. Write a platform- and framework-agnostic test in `commonTest` like this:
+3. In `commonTest`, create the new `org.kmp.testing/CurrentRuntimeTest.kt` file.
+4. Update it with a platform- and framework-agnostic test like this:
 
     ```kotlin
+    import kotlin.test.Test
+    import kotlin.test.assertEquals
+
     class CurrentRuntimeTest {
         @Test
         fun shouldDisplayDetails() {
@@ -214,20 +216,17 @@ version is optional. When the version is present, you only need the number at th
             assertEquals("MyRuntime version 1.1", runtime.toString())
         }
     
-    
         @Test
         fun shouldHandleNullVersion() {
             val runtime = CurrentRuntime("MyRuntime", null)
             assertEquals("MyRuntime version unknown", runtime.toString())
         }
     
-    
         @Test
         fun shouldParseNumberFromVersionString() {
             val runtime = CurrentRuntime("MyRuntime", "1.2 Alpha Experimental")
             assertEquals("MyRuntime version 1.2", runtime.toString())
         }
-    
     
         @Test
         fun shouldHandleMissingVersion() {
@@ -241,12 +240,12 @@ You can run this test using any of the ways [available in the IDE](#run-tests).
 
 ### Writing platform-specific tests
 
-> Here, the mechanism of expect and actual declarations is used for brevity and simplicity. In a more complex code, a
+> Here, the mechanism of expected and actual declarations is used for brevity and simplicity. In a more complex code, a
 > better approach is to use interfaces and factory functions.
 >
 {type="tip"}
 
-To create an instance of `CurrentRuntime`, you need to declare a function in common code as follows:
+To create an instance of `CurrentRuntime`, declare a function in the common `CurrentRuntime.kt` file as follows:
 
 ```kotlin
 expect fun determineCurrentRuntime(): CurrentRuntime
@@ -259,25 +258,24 @@ and iOS.
 
 #### For Android
 
-1. In `androidMain`, add the actual implementation of your expected function:
+1. In `androidMain`, create a new `org.kmp.testing/AndroidRuntime.kt` file.
+2. Add the actual implementation of the expected function:
 
     ```kotlin
     actual fun determineCurrentRuntime(): CurrentRuntime {
         val name = System.getProperty("java.vm.name") ?: "Android"
     
-    
         val version = System.getProperty("java.version")
-    
     
         return CurrentRuntime(name, version)
     }
     ```
 
-2. Create a new directory and use the IDE's suggestions to create the `androidUnitTest/kotlin` directory:
+3 Use the IDE's suggestions to create the `androidUnitTest/kotlin` directory:
 
    ![Creating Android test directory](create-android-test-dir.png){width=300}
 
-3. Add the test to your new directory:
+4. Add the `AndroidRuntimeTest.kt` file to the project:
 
     ```kotlin
     import kotlin.test.Test
@@ -305,7 +303,8 @@ to add support for Instrumented Tests.
 
 #### For iOS
 
-1. In `iosMain`, add the actual implementation of your expected function:
+1. In `iosMain`, create a new `org.kmp.testing/IOSRuntimeTest.kt` file.
+2. Add the actual implementation of the expected function:
 
     ```kotlin
     import kotlin.native.Platform
@@ -316,11 +315,11 @@ to add support for Instrumented Tests.
     }
     ```
 
-2. In the same way as for Android, create a folder structure for your iOS tests:
+3. In the same way as for Android, create a folder structure for your iOS tests:
 
     ![Creating iOS test directory](create-ios-test-dir.png){width=300}
 
-3. Add the test to the project:
+4. Add the `IOSRuntimeTest.kt` file to the project:
 
     ```kotlin
     import kotlin.test.Test
