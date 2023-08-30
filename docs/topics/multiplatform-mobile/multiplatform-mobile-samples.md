@@ -177,7 +177,7 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
     <td>-</td>
     <td>
       <list>
-        <li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li>
+        <li> Uses <a href="https://www.mongodb.com/docs/realm/sdk/kotlin/">Realm</a> for data persistence </li>
       </list>
     </td>
   </tr>
