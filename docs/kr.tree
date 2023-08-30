@@ -159,7 +159,6 @@
             <toc-element id="multiplatform-mobile-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
         <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
-        <toc-element id="multiplatform-testing.md"/>
         <toc-element toc-title="Artifact compilation">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
             <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
