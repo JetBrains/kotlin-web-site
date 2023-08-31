@@ -5,7 +5,7 @@ import searchConfig from '../search-config.json';
 function Index() {
     return (
         <>
-            <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} />
+            <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
         </>
     );
 }
