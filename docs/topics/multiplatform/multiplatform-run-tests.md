@@ -11,8 +11,7 @@ In this tutorial, you'll learn how to create, configure, and run tests in Kotlin
 
 Tests for multiplatform projects can be divided into two categories:
 
-* Tests for common code. These tests can be run on any platform using any supported framework. This tutorial isn't
-  intended to strictly connect these tests to any single framework.
+* Tests for common code. These tests can be run on any platform using any supported framework.
 * Tests for platform-specific code. These are essential to test platform-specific logic. They use a platform-specific
   framework and can benefit from its additional features, such as a richer API and a wider range of assertions.
 
@@ -39,7 +38,7 @@ tests for both common and platform-specific code.
 
    ![Mobile Multiplatform project. Additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
-6. Keep all other options default. Click **Finish**.
+6. Keep all other options as is. Click **Finish**.
 
 ## Test the common code
 
@@ -65,7 +64,7 @@ the pattern.
 
 ### Add tests for your common code
 
-Let's test the common code. But before you can do this, it's necessary to create a source set for common tests,
+Let's test the common code. Before you can do this, it's necessary to create a source set for common tests,
 which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API library as a dependency.
 
 1. Navigate to the `build.gradle.kts` file in the `shared` folder. You'll see that there's already a source set for
@@ -121,8 +120,8 @@ which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) AP
     }
     ```
 
-As you can see, imported annotations and assertions are neither platform- nor framework-specific. When
-you run this test later, a platform-specific framework will provide the test runner.
+As you can see, imported annotations and assertions are neither platform nor framework-specific.
+When you run this test later, a platform-specific framework will provide the test runner.
 
 ### Run tests
 
@@ -155,20 +154,18 @@ Assertions are executed through an implementation of the [`Asserter` interface](
 This interface defines the different checks commonly performed in testing. The API has a default implementation,
 but typically you will use a framework-specific implementation.
 
-For example, the JUnit 4, JUnit 5, and TestNG frameworks are all supported on JVM. On Android, for example, a call
-to `assertEquals()` might result in a call to `asserter.assertEquals()`, where the `asserter `object is an instance
-of `JUnit4Asserter`. On iOS, the default implementation of the `Asserter` type is used in conjunction with the
-Kotlin/Native test runner.
+For example, the JUnit 4, JUnit 5, and TestNG frameworks are all supported on JVM. On Android, a call to `assertEquals()`
+might result in a call to `asserter.assertEquals()`, where the `asserter` object is an instance of `JUnit4Asserter`.
+On iOS, the default implementation of the `Asserter` type is used in conjunction with the Kotlin/Native test runner.
 
 > When writing tests for common code, remember:
 >
-> * Always stay within the API. Fortunately, the compiler and the IDE prevent you from using framework-specific
-    >   functionality.
+> * Always stay within the API. Fortunately, the compiler and the IDE prevent you from using framework-specific functionality.
 > * Although the `Asserter` instance is visible, you don't need to use it in your tests.
 > * It should not matter which framework you use to run tests in `commonTest`. However, running these tests with each
-    >   framework you intend to use may help check that your development environment is correctly set up.
+>   framework you intend to use may help check that your development environment is correctly set up.
 > * When writing tests for platform-specific code, it's possible to use the annotations and extensions provided by a
-    >   specific testing framework you want to use.
+>   specific testing framework you want to use.
 >
 {type="tip"}
 
@@ -176,7 +173,7 @@ Kotlin/Native test runner.
 
 ### Writing tests for common code
 
-Consider the `CurrentRuntime` type that holds the details of the platform on which the code is executed. For example, it
+Consider `CurrentRuntime`, a type that holds the details of the platform on which the code is executed. For example, it
 might have the values "OpenJDK" and "17.0" for Android unit tests that run on a local JVM.
 
 An instance of `CurrentRuntime` should be created with the name and version of the platform as strings, where the
@@ -203,7 +200,7 @@ version is optional. When the version is present, you only need the number at th
     ```
 
 3. In `commonTest`, create the new `org.kmp.testing/CurrentRuntimeTest.kt` file.
-4. Update it with a platform- and framework-agnostic test like this:
+4. Update it with a platform and framework-agnostic test like this:
 
     ```kotlin
     import kotlin.test.Test
@@ -240,7 +237,7 @@ You can run this test using any of the ways [available in the IDE](#run-tests).
 
 ### Writing platform-specific tests
 
-> Here, the mechanism of expected and actual declarations is used for brevity and simplicity. In a more complex code, a
+> Here, the mechanism of expected and actual declarations is used for brevity and simplicity. In more complex code, a
 > better approach is to use interfaces and factory functions.
 >
 {type="tip"}
@@ -350,14 +347,14 @@ the `shared/build/tests` directory:
 
 ![HTML reports for multiplatform tests](shared-tests-folder-reports.png){width=300}
 
-Examine the report for the `allTests` task:
-
-![HTML report for multiplatform tests](multiplatform-test-report.png){width=700}
+Examine the report for the `allTests` task. You'll see that:
 
 * The Android and iOS tests depended on the common tests.
 * The common tests are always run before platform-specific ones.
 
-> When writing these tests, remember:
+![HTML report for multiplatform tests](multiplatform-test-report.png){width=700}
+
+> When writing tests, remember:
 >
 > * Tests in the `commonTest` source set should only use multiplatform libraries, like
     the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/) API, to implement the testing functionality.
