@@ -340,7 +340,7 @@ The `@UnderMigration` annotation (provided in a separate artifact `kotlin-annota
 maintainers to define the migration status for the nullability type qualifiers.
 
 The status value in `@UnderMigration(status = ...)` specifies how the compiler treats inappropriate usages of the
-annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-nullable):
+annotated types in Kotlin (e.g. using a `@MyNullable`-annotated type value as non-null):
 
 * `MigrationStatus.STRICT` makes annotation work as any plain nullability annotation, i.e. report errors for
 the inappropriate usages and affect the types in the annotated declarations as they are seen in Kotlin
