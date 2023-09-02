@@ -22,7 +22,7 @@ IntelliJ IDEA and Android Studio support Kotlin [scratch files and worksheets](h
   in a project, such as educational or demo materials.
 
   To create a Kotlin worksheet in a project directory, right-click the directory in the project tree and select
-  **New** | **Kotlin Worksheet**.
+  **New** | **Kotlin Class/File** | **Kotlin Worksheet**.
 
 Syntax highlighting, auto-completion, and other
 IntelliJ IDEA code editing features are supported in scratches and worksheets. There's no need to declare the `main()` function 
