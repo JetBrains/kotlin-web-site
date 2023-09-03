@@ -2,7 +2,7 @@
 
 Gradle is a build system that helps to automate and manage your building process. It downloads required dependencies,
 packages your code, and prepares it for compilation. Learn about Gradle basics and specifics 
-on the [Gradle website](https://docs.gradle.org/current/userguide/getting_started.html).
+on the [Gradle website](https://docs.gradle.org/current/userguide/userguide.html).
 
 You can set up your own project with [these instructions](gradle-configure-project.md) for different platforms 
 or pass a small [step-by-step tutorial](get-started-with-jvm-gradle-project.md) that will show you how to create a simple backend 
