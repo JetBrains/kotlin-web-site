@@ -29,7 +29,7 @@ async function getLatestNews() {
 		const imagePath = await saveImage(item.featuredImage);
 		latestNews.push({
 			title: item.title,
-			date: formateDate(item.pubDate),
+			date: item.pubDate,
 			link: item.link,
 			image: imagePath,
 			description: item.description
@@ -76,9 +76,7 @@ async function saveImage(imageUrl) {
 			});
 		});
 
-		request.on('error', (err) => {
-			reject(err);
-		});
+		request.on('error', reject);
 
 		request.end();
 	});
@@ -106,19 +104,4 @@ function doRequest(options) {
 
 		req.end();
 	});
-}
-
-function formateDate(rawRate) {
-	const inputDate = new Date(rawRate);
-
-	const months = [
-		'January', 'February', 'March', 'April', 'May', 'June',
-		'July', 'August', 'September', 'October', 'November', 'December'
-	];
-
-	const day = inputDate.getDate();
-	const month = inputDate.getMonth();
-	const year = inputDate.getFullYear();
-
-	return `${months[month]} ${day}, ${year}`;
 }
