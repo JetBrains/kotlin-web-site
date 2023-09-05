@@ -4,7 +4,7 @@ The Kotlin standard library contains several functions whose sole purpose is to 
 of an object. When you call such a function on an object with a [lambda expression](lambdas.md) provided, it forms a
 temporary scope. In this scope, you can access the object without its name. Such functions are called _scope functions_.
 There are five of them: [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html), [`run`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html)
-, [`with`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html), [`apply`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/apply.html)
+, [`via`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/via.html), [`with`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html), [`apply`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/apply.html)
 , and [`also`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html).
 
 Basically, these functions all perform the same action: execute a block of code on an object. What's different is how 
@@ -67,7 +67,8 @@ between them.
 | [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html) |`it`|Lambda result|Yes|
 | [`run`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html) |`this`|Lambda result|Yes|
 | [`run`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html) |-|Lambda result|No: called without the context object|
-| [`with`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html) |`this`|Lambda result|No: takes the context object as an argument.|
+| [`via`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/via.html) |`it`|Lambda result|No: called without the context object|
+| [`with`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html) |`this`|Lambda result|No: takes the context object as an argument|
 | [`apply`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/apply.html) |`this`|Context object|Yes|
 | [`also`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html) |`it`|Context object|Yes|
 
@@ -81,6 +82,7 @@ Here is a short guide for choosing scope functions depending on the intended pur
 * Object configuration and computing the result: `run`
 * Running statements where an expression is required: non-extension `run`
 * Additional effects: `also`
+* Grouping of object usage: `via`
 * Grouping function calls on an object: `with`
 
 The use cases of different scope functions overlap, so you can choose which functions to use based on the specific 
@@ -148,7 +150,7 @@ fun main() {
 
 #### it
 
-In turn, `let` and `also` reference the context object as a lambda [argument](lambdas.md#lambda-expression-syntax). If 
+In turn, `let`, `via` and `also` reference the context object as a lambda [argument](lambdas.md#lambda-expression-syntax). If
 the argument name is not specified, the object is accessed by the implicit default name `it`. `it` is shorter than 
 `this` and expressions with `it` are usually easier to read. 
 
@@ -206,7 +208,7 @@ fun main() {
 
 Scope functions differ by the result they return:
 * `apply` and `also` return the context object.
-* `let`, `run`, and `with` return the lambda result.
+* `let`, `run`, `via` and `with` return the lambda result.
 
 You should consider carefully what return value you want based on what you want to do next in your code. This helps you 
 to choose the best scope function to use.
@@ -259,7 +261,7 @@ fun main() {
 
 #### Lambda result
 
-`let`, `run`, and `with` return the lambda result. So you can use them when assigning the result to a variable, chaining
+`let`, `run`, `via`, and `with` return the lambda result. So you can use them when assigning the result to a variable, chaining
 operations on the result, and so on.
 
 ```kotlin
@@ -380,6 +382,99 @@ fun main() {
         if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
     }.uppercase()
     println("First item after modifications: '$modifiedFirstItem'")
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### via
+
+- **The context object** is available as an argument (`it`).
+- **The return value** is the lambda result.
+
+As [`via`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/via.html) is not an extension function: the context
+object is passed as an argument, but inside the lambda, it's available as an argument (`it`).
+
+We recommend using `via` for calling functions that need to use the same argument when you don't need to use the returned result.
+In code, `via` can be read as "_via this object, do the following._"
+
+```kotlin
+data class Div(
+    var marginStart: Int = 0,
+    var marginTop: Int = 0,
+    var marginEnd: Int = 0,
+    var marginBottom: Int = 0,
+)
+
+data class Page(
+    val header: Div = Div(),
+    val body: Div = Div(),
+    val footer: Div = Div(),
+)
+
+fun calculateHeaderMargin() = 10
+fun calculateBodyMargin() = 12
+fun calculateFooterMargin() = 14
+
+fun main() {
+//sampleStart
+    val page = Page()
+    via(calculateHeaderMargin()) {
+        page.header.marginStart = it
+        page.header.marginEnd = it
+    }
+    via(calculateBodyMargin()) {
+        page.body.marginStart = it
+        page.body.marginEnd = it
+    }
+    via(calculateFooterMargin()) {
+        page.footer.marginStart = it
+        page.footer.marginEnd = it
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You can also use `via` to introduce a helper object whose value is used for calculating new value.
+
+```kotlin
+data class Point(
+    val x: Int,
+    val y: Int,
+)
+
+operator fun Point.plus(point: Point) = Point(
+    x = this.x + point.x,
+    y = this.y + point.y,
+)
+
+data class Square(
+    val topLeft: Point,
+    val topRight: Point,
+    val bottomLeft: Point,
+    val bottomRight: Point,
+)
+
+fun obtainMoveDirection(): Point = Point(5, 5)
+
+fun main() {
+//sampleStart
+    val square = Square(
+        topLeft = Point(0, 10),
+        topRight = Point(10, 10),
+        bottomLeft = Point(0, 0),
+        bottomRight = Point(10, 0),
+    )
+    val movedSquare = via(obtainMoveDirection()) {
+        Square(
+            topLeft = square.topLeft + it,
+            topRight = square.topRight + it,
+            bottomLeft = square.bottomLeft + it,
+            bottomRight = square.bottomRight + it,
+        )
+    }
+    println(movedSquare)
 //sampleEnd
 }
 ```
