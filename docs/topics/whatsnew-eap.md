@@ -11,46 +11,23 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some highlights from this preview version of Kotlin:
 
-<!-- TODO: add toc -->
+* [New default hierarchy template for setting up multiplatform projects](#configuring-multiplatform-projects-with-a-template)
+* [Full support for Gradle Configuration cache in Kotlin Multiplatform](#full-support-for-gradle-configuration-cache-in-kotlin-multiplatform)
+* [Custom memory allocator enabled by default in Kotlin/Native](#custom-memory-allocator-enabled-by-default)
+* [Performance improvements for garbage collector in Kotlin/Native](#performance-improvements-for-garbage-collector)
+* [New and renamed targets in Kotlin/Wasm](#new-wasmwasi-and-wasmjs-targets-deprecation-of-wasm-target)
+* [Support of WASI API in the standard library for Kotlin/Wasm](#support-of-wasi-in-standard-library)
 
 ## IDE support
 
 The Kotlin plugins that support %kotlinEapVersion% are available for:
 
-| IDE            | Supported versions            |
-|----------------|-------------------------------|
-| IntelliJ IDEA  | 2022.3.x, 2023.1.x            |
-| Android Studio | Giraffe (223), Hedgehog (231) |
+| IDE            | Supported versions |
+|----------------|--------------------|
+| IntelliJ IDEA  | 2023.1.x, 2023.2.x |
+| Android Studio | Hedgehog, Iguana   |
 
-## New Kotlin K2 compiler updates
-
-### Preview Kotlin scripting with K2
-
-> Support for compiling scripts with the K2 compiler is [Experimental](components-stability.md).
-> It may be dropped or changed at any time. Opt-in is required (see details below), and you
-> should use it only for evaluation purposes.
->
-{type="warning"}
-
-In %kotlinEapVersion%, you can compile your [Kotlin scripts](custom-script-deps-tutorial.md) with the K2 compiler.
-To compile your scripts with the K2 compiler, use the [`-language-version`](compiler-reference.md#language-version-version)
-compiler option with the version set to `2.0`. For example:
-
-```bash
-kotlinc -language-version 2.0 -script script.kts
-```
-
-Alternatively, if you compile your scripts along with other sources, use the `kotlin.experimental.tryK2=true` Gradle property.
-
-> The K2 compiler doesn’t currently support the REPL or [javax.script](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html)
-> APIs. If you configure your scripts to compile with the K2 compiler, this is ignored for REPL and javax.script.
-> Support for REPL and javax.script APIs will come in future Kotlin releases.
->
-{type="warning"}
-
-If you encounter any issues when using scripts with the K2 compiler, please report them to our [issue tracker](http://kotl.in/issue).
-
-## Kotlin/Multiplatform
+## Kotlin Multiplatform
 
 ### Configuring multiplatform projects with a template
 
@@ -241,7 +218,7 @@ and the `mimalloc` memory allocator do not allocate separate storage for each ob
 Now the GC tracks areas instead of individual objects. This speeds up the allocation of small objects by reducing 
 the number of tasks performed on each allocation and, therefore, helps to keep down the garbage collector’s memory usage.
 
-## Updates in Kotlin/Wasm
+## Kotlin/Wasm
 
 * New `wasm-wasi` target, and rename `wasm` target to `wasm-js`
 * Support of WASI API in standard library
@@ -297,8 +274,6 @@ private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPt
 > It is not allowed to use [interoperability with JavaScript](wasm-js-interop.md), while targeting `wasmWasi`.
 >
 {type="note"}
-
-
 
 ## How to update to Kotlin %kotlinEapVersion%
 

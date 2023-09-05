@@ -43,12 +43,11 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>1.9.20-Beta</strong>
-            <p>Released: <strong>September 5, 2023</strong></p>
+            <p>Released: <strong>September 7, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-Beta" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
-                 <li>K2: preview for Kotlin scripting support</li>
                  <li>Kotlin/JVM: support for Java 21 bytecode</li>
                  <li>Kotlin/Native: custom allocator enabled by default, full parallel mark available in the GC, deprecated targets disabled, obligatory opt-in for all cinterop declarations (except for platform libraries), the GC scheduler tracking objects in big chunks, legacy memory manager disabled</li>
                  <li>Kotlin Multiplatform: hierarchy template available by default, full support for Gradle Configuration cache, the default support for third-party cinterop libraries, reworked configuration of compiler settings in multiplatform projects</li>
