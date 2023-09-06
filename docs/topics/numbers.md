@@ -13,8 +13,8 @@ For integer numbers, there are four types with different sizes and, hence, value
 | `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
 
 When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
-smallest range enough to represent the value. If it is not exceeding the range of `Int`, the type is `Int`. If it exceeds,
-the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
+smallest range enough to represent the value starting from `Int`. If it is not exceeding the range of `Int`, the type is `Int`.
+If it exceeds, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
 Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
 
 ```kotlin
