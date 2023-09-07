@@ -109,7 +109,7 @@ Green source sets are actually created and present in the project, while gray on
 
 To make it easier to work with the created project structure, IntelliJ IDEA now provides completion for source sets created with the default hierarchy template:
 
-![The IDE completion for source sets names](multiplatform-hierarchy-completion.gif){width=700}
+<img src="multiplatform-hierarchy-completion.png" alt="IDE completion for source set names" width="350" animated="true"/>
 
 Kotlin also warns you if you attempt to access a source set which doesn't exist because you haven't declared the respective target.
 In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to access the `jvmMain` source set
