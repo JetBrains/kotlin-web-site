@@ -1,0 +1,34 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.kotlin-usage-highlights {
+    margin-top: 48px;
+}
+
+.container {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+    @media (--ktl-tm) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (--ktl-ts) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    height: 192px;
+}
+
+.logo {
+    height: 48px;
+    display: block;
+}
+
+.text {
+    margin-top: 16px;
+    display: block;
+}
