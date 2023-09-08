@@ -2,6 +2,9 @@ import React from 'react';
 import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import searchConfig from '../search-config.json';
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
+import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
+import { Button } from '@rescui/button';
+import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 
@@ -53,6 +56,8 @@ const kotlinUsageHighlightsCases = [
 ];
 
 function Index() {
+    const isTS = useTS();
+
     return (
         <>
             <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
@@ -60,6 +65,17 @@ function Index() {
             <div className={'ktl-layout ktl-layout--center'}>
                 <KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />
             </div>
+
+            <CtaBlock
+                mainTitle={
+                    <>Start using{isTS && <br />} Kotlin today!</>
+                }
+                buttons={
+                    <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light">
+                        Get started
+                    </Button>
+                }
+            />
         </>
     );
 }
