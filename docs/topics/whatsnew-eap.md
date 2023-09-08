@@ -1,4 +1,4 @@
-[//]: # (title: What's new in %kotlinEapVersion%)
+[//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
@@ -36,7 +36,7 @@ The Kotlin plugins that support %kotlinEapVersion% are available for:
 
 ### Template for configuring multiplatform projects
 
-Starting with Kotlin %kotlinEapVersion%, the Kotlin Gradle Plugin automatically creates shared source sets for popular multiplatform scenarios.
+Starting with Kotlin %kotlinEapVersion%, the Kotlin Gradle plugin automatically creates shared source sets for popular multiplatform scenarios.
 If your project setup is one of them, you don't need to configure the source set hierarchy manually.
 Just explicitly specify the targets necessary for your project.
 
@@ -48,7 +48,7 @@ It includes intermediate source sets that Kotlin automatically creates for the t
 #### Create your project easier
 
 Consider a multiplatform project that targets both Android and iPhone devices and is developed on an Apple silicon MacBook.
-Compare how this project set up between different versions of Kotlin:
+Compare how this project is set up between different versions of Kotlin:
 
 <table header-style="top">
    <tr>
@@ -102,12 +102,12 @@ kotlin {
 Notice how the use of the default hierarchy template considerably reduces the amount of boilerplate code needed to set
 up your project.
 
-When you declare the `android`, `iosArm64`, and `iosSimulatorArm64` targets in your code, the Kotlin Gradle plugin finds 
+When you declare the `androidTarget`, `iosArm64`, and `iosSimulatorArm64` targets in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-![An example of using the default target hierarchy](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+![An example of the default target hierarchy in use](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
 
-Green source sets are actually created and present in the project, while gray ones from the default template are ignored.
+Green source sets are actually created and included in the project, while gray ones from the default template are ignored.
 
 #### Enjoy improved tooling support
 
@@ -115,8 +115,8 @@ To make it easier to work with the created project structure, IntelliJ IDEA now 
 
 <img src="multiplatform-hierarchy-completion.png" alt="IDE completion for source set names" width="350" animated="true"/>
 
-The IDE also warns you if you attempt to access a source set which doesn't exist because you haven't declared the respective target.
-In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to access the `jvmMain` source set
+The IDE also warns you if you attempt to access a source set that doesn't exist because you haven't declared the respective target.
+In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to use the `jvmMain` source set
 and see what happens:
 
 ```kotlin
@@ -145,19 +145,19 @@ w: Accessed 'source set jvmMain' without registering the jvm target:
   }
 ```
 
-#### Set up target hierarchy
+#### Set up the target hierarchy
 
-Starting with Kotlin %kotlinEapVersion%, the default hierarchy template is enabled by default. In most cases, no additional setup is required.
+Starting with Kotlin %kotlinEapVersion%, the default hierarchy template is automatically enabled. In most cases, no additional setup is required.
 
 However, if you're migrating existing projects created before 1.9.20, you might encounter a warning if you had previously
 introduced intermediate sources manually with  `dependsOn()` calls. To solve this issue, do the following:
 
 * If your intermediate source sets are currently covered by the default hierarchy template, remove all manual `dependsOn()`
-calls and source sets created with `by creating` constructions. 
+calls and source sets created with `by creating` constructions.
 
   To check the list of all default source sets, see the [full hierarchy template](#see-the-full-hierarchy-template).
 
-* If you want to have additional source sets that the default hierarchy template doesn't provide, for example between JS and JVM,
+* If you want to have additional source sets that the default hierarchy template doesn't provide, for example between JS and the JVM,
 adjust the hierarchy by reapplying the template explicitly with `applyDefaultHierarchyTemplate()` and configuring additional
 source sets manually as usual with `dependsOn()`:
 
@@ -168,7 +168,7 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
-    // Apply the default hierarchy explicitly. It'll create, for example,the iosMain source set:
+    // Apply the default hierarchy explicitly. It'll create, for example, the iosMain source set:
     applyDefaultHierarchyTemplate()
 
     sourceSets {
@@ -184,13 +184,13 @@ kotlin {
 ```
 
 * If there are already source sets in your project that have the exact same names as those generated by the template
-but that are shared among different sets of targets, there's currently no way to modify default `dependsOn` relations between
+but that are shared among different sets of targets, there's currently no way to modify the default `dependsOn` relations between
 the template's source sets.
 
   One option you have here is to find different source sets for your purposes, either in the default hierarchy template
   or ones that have been manually created. Another is to opt out of the template completely.
 
-  To opt out, add `kotlin.mpp.applyDefaultHierarchyTemplate=false` to your `gradle.properties` and configure all other 
+  To opt out, add `kotlin.mpp.applyDefaultHierarchyTemplate=false` to your `gradle.properties` and configure all other
   source sets manually.
 
   We're currently working on an API for creating your own hierarchy templates to simplify the setup process in such cases.
@@ -227,7 +227,7 @@ For more details and setup instructions, see the [Gradle documentation](https://
 ### Custom memory allocator enabled by default
 
 Kotlin %kotlinEapVersion% comes with the new memory allocator enabled by default. It's designed to replace the previous default allocator,
-`mimaloc` to make garbage collection more efficient and improve the runtime performance of the [Kotlin/Native memory manager](native-memory-manager.md).
+`mimaloc`, to make garbage collection more efficient and improve the runtime performance of the [Kotlin/Native memory manager](native-memory-manager.md).
 
 The new custom allocator divides system memory into pages, allowing independent sweeping in consecutive order.
 Each allocation becomes a memory block within a page, and the page keeps track of block sizes.
@@ -238,12 +238,12 @@ When a thread allocates memory, it searches for a suitable page based on the all
 Threads maintain a set of pages for different size categories.
 Typically, the current page for a given size can accommodate the allocation.
 If not, the thread requests a different page from the shared allocation space.
-This page may already be available, require sweeping, or should be created first.
+This page may already be available, require sweeping, or have to be created first.
 
 The new allocator allows for multiple independent allocation spaces simultaneously,
 which will enable the Kotlin team to experiment with different page layouts to improve performance even further.
 
-#### How to enable custom memory allocator
+#### How to enable the custom memory allocator
 
 Starting with Kotlin %kotlinEapVersion%, the new memory allocator is the default. No additional setup is required.
 
@@ -251,11 +251,11 @@ If you experience high memory consumption, you can switch back to `mimaloc` or t
 or `-Xallocator=std` in your Gradle build script. Please report such issues in [YouTrack](https://kotl.in/issue) to help
 us improve the new memory allocator.
 
-For technical details of the new allocator's design, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+For the technical details of the new allocator's design, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
 
 ### Performance improvements for the garbage collector
 
-The Kotlin team continues to improve performance and stability of the new Kotlin/Native memory manager.
+The Kotlin team continues to improve the performance and stability of the new Kotlin/Native memory manager.
 This release brings a number of significant changes to the garbage collector (GC), including the following %kotlinEapVersion% highlights:
 
 * [](#full-parallel-mark-to-reduce-the-pause-time-for-the-gc)
@@ -263,12 +263,12 @@ This release brings a number of significant changes to the garbage collector (GC
 
 #### Full parallel mark to reduce the pause time for the GC
 
-Previously, the default garbage collector performed only a partial parallel mark. When the mutator thread was paused, 
-it would mark the GC start from its own roots, like thread-local variables and the call stack. 
+Previously, the default garbage collector performed only a partial parallel mark. When the mutator thread was paused,
+it would mark the GC's start from its own roots, like thread-local variables and the call stack.
 Meanwhile, a separate GC thread was responsible for marking the start from global roots, as well as the roots of all mutators
 that were actively running the native code and therefore not paused.
 
-This approach worked well for cases where there were a limited number of global objects and the mutator threads spent 
+This approach worked well in cases where there were a limited number of global objects and the mutator threads spent
 a considerable amount of time in a runnable state executing Kotlin code. However, this is not the case for typical iOS applications.
 
 Now the GC uses a full parallel mark that combines paused mutators, the GC thread, and optional marker threads to process
@@ -285,8 +285,8 @@ This new approach makes the marking process more efficient, reducing the pause t
 Previously, the GC scheduler tracked the allocation of each object individually. However, neither the new default custom
 allocator nor the `mimalloc` memory allocator allocates separate storage for each object; they allocate large areas for several objects at once.
 
-In Kotlin %kotlinEapVersion%, the GC tracks areas instead of individual objects. This speeds up the allocation of small objects by reducing 
-the number of tasks performed on each allocation and, therefore, helps to keep down the garbage collector's memory usage.
+In Kotlin %kotlinEapVersion%, the GC tracks areas instead of individual objects. This speeds up the allocation of small objects by reducing
+the number of tasks performed on each allocation and, therefore, helps to minimize the garbage collector's memory usage.
 
 ## Kotlin/Wasm
 
@@ -305,7 +305,7 @@ the number of tasks performed on each allocation and, therefore, helps to keep d
 In this release, we're introducing a new target for Kotlin/Wasm – `wasm-wasi`. We're also renaming the `wasm` target to `wasm-js`.
 In the Gradle DSL, these targets are available as `wasmWasi` and `wasmJs`, respectively.
 
-To use these targets to your project, update the `build.gradle.kts` file:
+To use these targets in your project, update the `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -321,17 +321,17 @@ kotlin {
 The previously introduced `wasm` block has been deprecated in favor of `wasmJs`.
 
 To migrate your existing Kotlin/Wasm project, do the following:
-* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs`.
+* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs.`
 * In your project structure, rename the `wasmMain` folder to `wasmJsMain`.
 
 ### Support for the WASI API in the standard library
 
-In this release, we have included support of [WASI](https://github.com/WebAssembly/WASI), a system interface for the Wasm platform.
+In this release, we have included support for [WASI](https://github.com/WebAssembly/WASI), a system interface for the Wasm platform.
 WASI support makes it easier for you to use Kotlin/Wasm outside of browsers, for example in server-side applications, by offering
-a standardized set of APIs for accessing system resources. In addition, WASI provides capability-based security – another 
+a standardized set of APIs for accessing system resources. In addition, WASI provides capability-based security – another
 layer of security when accessing external resources.
 
-To run Kotlin/Wasm applications, you need a VM that supports Wasm Garbage Collection (GC), for example, Node.js or Deno. 
+To run Kotlin/Wasm applications, you need a VM that supports Wasm Garbage Collection (GC), for example Node.js or Deno.
 Wasmtime, WasmEdge, and others are still working towards full Wasm GC support.
 
 To import a WASI function, use the `@WasmImport` annotation:
@@ -343,7 +343,7 @@ import kotlin.wasm.WasmImport
 private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPtr: Int): Int
 ```
 
-[You can find a full example in our GitHub repository](https://github.com/Kotlin/kotlin-wasm-examples/tree/wasi/wasi-example).
+[You can find a full example in our GitHub repository](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example).
 
 > It isn't possible to use [interoperability with JavaScript](wasm-js-interop.md), while targeting `wasmWasi`.
 >
