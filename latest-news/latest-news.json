@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Kotlin News: KotlinConf 2024 Tickets, Compose Multiplatform 1.5.0, Grants Program Winners, and More",
+    "date": "August 30, 2023",
+    "link": "https://blog.jetbrains.com/kotlin/2023/08/kotlin-news-jul-aug-23/",
+    "image": "latest-news/Featured_1280x720-5.png",
+    "description": "In this new edition of the Kotlin digest, we’re bringing you the most exciting news and updates from July and August. KotlinConf 2024 tickets are now available! KotlinConf is bringing the Kotlin community together for the fifth time on May 22–24, 2024, at the Bella Center in Copenhagen, Denmark! There will be workshops, talks, networking [&#8230;]"
+  },
+  {
+    "title": "Compose Multiplatform 1.5.0 Release",
+    "date": "August 28, 2023",
+    "link": "https://blog.jetbrains.com/kotlin/2023/08/compose-multiplatform-1-5-0-release/",
+    "image": "latest-news/compose-featured_blog_1280x720-2.png",
+    "description": "As of today, Compose Multiplatform 1.5.0 is available for you to use. It takes the Jetpack Compose declarative UI framework for Kotlin and extends it beyond Android to desktop, iOS, and web. The desktop version is stable, iOS is in Alpha, and support for web is experimental. For a full introduction, see the Compose Multiplatform [&#8230;]"
+  },
+  {
+    "title": "Win a Trip to KotlinConf’24 in the Kotlin Multiplatform Contest!",
+    "date": "August 25, 2023",
+    "link": "https://blog.jetbrains.com/kotlin/2023/08/kotlin-multiplatform-contest-2024/",
+    "image": "latest-news/DSGN-17108-Kotlin-Multiplatform-contest-banners-3_Blog-Featured-image-1280x600-copy.png",
+    "description": "Are you a student or recent graduate? Have you already tried building projects with Kotlin Multiplatform, a trending technology that lets you build apps for Android, iOS, desktop, web, and server while sharing Kotlin code between all the platforms? If so, don’t miss this opportunity to practice your multiplatform coding skills by taking part in [&#8230;]"
+  },
+  {
+    "title": "Exposed moving forward",
+    "date": "August 4, 2023",
+    "link": "https://blog.jetbrains.com/kotlin/2023/08/exposed-moving-forward/",
+    "image": "latest-news/DSGN-17089-Exposed-moving-forward_Blog-Featured-image-1280x600-copy.png",
+    "description": "Exposed started out a few years back at JetBrains, as a lightweight ORM/DAO written in Kotlin. It has since been used internally on a number of critical products at JetBrains, and despite being classified as a Team project on GitHub, it has garnered a large number of external users.&#160; While the main person on the [&#8230;]"
+  }
+]
