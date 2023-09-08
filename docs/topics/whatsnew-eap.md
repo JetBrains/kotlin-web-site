@@ -321,7 +321,7 @@ kotlin {
 The previously introduced `wasm` block has been deprecated in favor of `wasmJs`.
 
 To migrate your existing Kotlin/Wasm project, do the following:
-* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs.`
+* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs`.
 * In your project structure, rename the `wasmMain` folder to `wasmJsMain`.
 
 ### Support for the WASI API in the standard library
