@@ -9,6 +9,8 @@ import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
+import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
+import { ThemeProvider } from '@rescui/ui-contexts';
 
 import GradleLogo from '../public/images/companies/gradle.svg';
 import CordaLogo from '../public/images/companies/corda.svg';
@@ -18,8 +20,8 @@ import SpringLogo from '../public/images/companies/spring.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import MultiplatformPreviewImage from '../public/images/index/multiplatform-preview.svg';
 
-import { InfoBlock } from "../blocks/main/info-block/info-block";
-import { DividerLine } from "../blocks/main/divider-line/divider-line";
+import { InfoBlock } from '../blocks/main/info-block/info-block';
+import { DividerLine } from '../blocks/main/divider-line/divider-line';
 
 import Link from 'next/link';
 
@@ -120,6 +122,7 @@ function Index() {
             </div>
 
             <CtaBlock
+                className={styles.ctaBlock}
                 mainTitle={
                     <>Start using{isTS && <br />} Kotlin today!</>
                 }
@@ -129,6 +132,10 @@ function Index() {
                     </Button>
                 }
             />
+
+            <ThemeProvider theme={'dark'}>
+                <GlobalFooter />
+            </ThemeProvider>
         </>
     );
 }

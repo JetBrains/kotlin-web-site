@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { cardCn } from '@rescui/card';
 import classNames from 'classnames';
 import styles from './kotlin-usage-highlights.module.css';
-import { useTextStyles } from '@jetbrains/kotlin-web-site-ui/out/components/typography';
+import { useTextStyles } from '@rescui/typography';
 import { useTS } from "@jetbrains/kotlin-web-site-ui/out/components/breakpoints";
 
 interface KotlinUsageHighlightsItem {
@@ -24,7 +24,8 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({title, it
 
 	return (
 		<div className={styles.kotlinUsageHighlights}>
-			<h2 className={textCn('rs-h2')}>{title}</h2>
+			<h2 className={classNames(textCn('rs-h2'), styles.title)}>{title}</h2>
+
 			<div className={styles.container}>
 				{visibleItems.map(item =>
 					<a href={item.url} target="_blank" className={cardClassName} key={item.company}>
