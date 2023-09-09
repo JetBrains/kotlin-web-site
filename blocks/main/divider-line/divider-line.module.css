@@ -1,0 +1,10 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.divider {
+    height: 1px;
+    background: rgba(25, 25, 28, 0.20);
+
+    @media (--ktl-ts) {
+        display: none;
+    }
+}
