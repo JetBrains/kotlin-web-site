@@ -21,10 +21,11 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({title, it
 	const textCn = useTextStyles();
 	const isTS = useTS();
 	const visibleItems = isTS ? items.slice(0, 4) : items;
+	const headerClass = isTS ? 'rs-h3' : 'rs-h2';
 
 	return (
 		<div className={styles.kotlinUsageHighlights}>
-			<h2 className={classNames(textCn('rs-h2'), styles.title)}>{title}</h2>
+			<h2 className={classNames(textCn(headerClass), styles.title)}>{title}</h2>
 
 			<div className={styles.container}>
 				{visibleItems.map(item =>

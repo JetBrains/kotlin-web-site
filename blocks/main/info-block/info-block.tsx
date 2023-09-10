@@ -3,6 +3,7 @@ import { useTextStyles } from '@rescui/typography';
 
 import styles from './info-block.module.css';
 import classNames from 'classnames';
+import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 
 interface InfoBlockProps {
     title: ReactNode;
@@ -13,11 +14,13 @@ interface InfoBlockProps {
 
 export const InfoBlock: FC<InfoBlockProps> = ({title, text, button, media}) => {
     const textCn = useTextStyles();
+    const isTS = useTS();
+    const headerClass = isTS ? 'rs-h3' : 'rs-h2';
 
     return (
         <div className={styles.container}>
             <div className={styles.item}>
-                <h2 className={classNames(textCn('rs-h2'), styles.title)}>{title}</h2>
+                <h2 className={classNames(textCn(headerClass), styles.title)}>{title}</h2>
 
                 <div className={classNames(textCn('rs-text-2', { hardness: 'hard' }), styles.text)}>
                     {text}
