@@ -3,7 +3,7 @@
 .container {
     display: flex;
     align-items: stretch;
-    margin: 96px 0;
+    margin-top: 96px;
 }
 
 .item {
@@ -53,7 +53,7 @@
 
 @media (--ktl-tm) {
     .container {
-        margin: 48px 0;
+        margin-top: 48px;
     }
 
     .item:first-child {
@@ -63,7 +63,7 @@
 
 @media (--ktl-ts) {
     .container {
-        margin: 72px 0 0;
+        margin-top: 72px;
     }
 
     .item:first-child {
