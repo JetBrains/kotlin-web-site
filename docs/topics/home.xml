@@ -28,7 +28,7 @@
             <a href="coding-conventions.md" description="Recommendations on the code organization, formatting, and naming">Coding conventions</a>
             <a href="basic-types.md" description="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
             <a href="control-flow.md" description="Conditions and loops: if, when, for, while">Control flow</a>
-            <a href="null-safety.md" description="Nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
+            <a href="null-safety.md" description="Nullable and non-nullable types, elvis operator, safe calls and casts ">Null safety</a>
             <a href="coroutines-overview.md" description="Concurrency: coroutines, flows, channels">Coroutines</a>
         </highlighted-group>
         <custom-groups>

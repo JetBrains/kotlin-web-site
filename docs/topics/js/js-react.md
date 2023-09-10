@@ -742,7 +742,7 @@ in each `Video` object, so you can pass it as a prop and access its attributes.
    }
    ```
 
-2. Because the `VideoPlayerProps` interface specifies that the `VideoPlayer` component takes a non-null `Video`, make
+2. Because the `VideoPlayerProps` interface specifies that the `VideoPlayer` component takes a non-nullable `Video`, make
    sure to handle this in the `App` component accordingly.
 
    In `App.kt`, replace the previous `div` snippet for the video player with the following:

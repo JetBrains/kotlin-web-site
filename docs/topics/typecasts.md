@@ -133,4 +133,4 @@ To avoid exceptions, use the *safe* cast operator `as?`, which returns `null` on
 val x: String? = y as? String
 ```
 
-Note that despite the fact that the right-hand side of `as?` is a non-null type `String`, the result of the cast is nullable.
+Note that despite the fact that the right-hand side of `as?` is a non-nullable type `String`, the result of the cast is nullable.

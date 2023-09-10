@@ -584,7 +584,7 @@ For more information about default methods in the Java interop, see the [interop
 
 Starting from Kotlin 1.4.0, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
 `IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
-null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
+null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-nullable type.
 This doesn't apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
 
 This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler

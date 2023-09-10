@@ -104,7 +104,7 @@ Note the use of Kotlin's
 [null-assertion operator](null-safety.md#the-operator) `!!`
 after the [readLine()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call.
 Kotlin's `readLine()` function is defined to return a
-[nullable type](null-safety.md#nullable-types-and-non-null-types)
+[nullable type](null-safety.md#nullable-types-and-non-nullable-types)
 `String?` and returns `null` on the end of the input, which explicitly forces the developer to handle the
 case of missing input.
 

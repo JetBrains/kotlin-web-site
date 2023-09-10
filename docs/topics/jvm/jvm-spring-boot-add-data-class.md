@@ -36,7 +36,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </p>
        </def>
        <def title="Nullable types – String?">
-          <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-null-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (<i>nullable references</i>) and those that cannot (<i>non-nullable references</i>).<br/>
+          <p>Kotlin provides <a href="null-safety.md#nullable-types-and-non-nullable-types">built-in support for nullable types</a>. In Kotlin, the type system distinguishes between references that can hold <code>null</code> (<i>nullable references</i>) and those that cannot (<i>non-nullable references</i>).<br/>
           For example, a regular variable of type <code>String</code> cannot hold <code>null</code>. To allow nulls, you can declare a variable as a nullable string by writing <code>String?</code>.
           </p>
           <p>The <code>id</code> property of the <code>Message</code> class is declared as a nullable type this time.
