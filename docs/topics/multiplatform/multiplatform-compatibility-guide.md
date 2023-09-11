@@ -512,3 +512,25 @@ with .java-sources will need an adjustment. Assuming you use a `jvm`-target with
 * 1.3.40: using `targetPresets.jvmWithJava` provokes a warning
 * 1.9.20: using `targetPresets.jvmWithJava` provokes an error
 * \>1.9.20: `targetPresets.jvmWithJava` API is removed. Using it will cause the buildscript compilation failure  
+
+> Note that the whole `targetPresets` API is deprecated, but `jvmWithJava`-preset has different deprecation timeline  
+> 
+>{type="note"}
+
+<anchor name="android-sourceset-layout-v1-deprecation"></anchor>
+## Deprecation of the legacy source set layout for Android
+
+Since Kotlin 1.9.0, new layout for Android Source Sets is used (read details about source set layouts 
+[here](https://kotlinlang.org/docs/multiplatform-android-layout.html)). Support for the legacy layout is deprecated, 
+and using respective Gradle property `kotlin.mpp.androidSourceSetLayoutVersion` will trigger deprecation diagnostic
+
+**When do the changes take effect?**
+
+* <=1.9.0: using `kotlin.mpp.androidSourceSetLayoutVersion=1` provokes a warning that can be suppressed via 
+`kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle Property
+
+* 1.9.20: using `kotlin.mpp.androidSourceSetLayoutVersion=1` provokes an error. This error **can not** be suppressed by
+`kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true`
+
+* \>1.9.20: support for `kotlin.mpp.androidSourceSetLayoutVersion=1` is removed, the property is ignored by the 
+Kotlin Gradle Plugin
