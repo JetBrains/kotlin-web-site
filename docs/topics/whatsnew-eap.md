@@ -1,264 +1,361 @@
-[//]: # (title: What's new in Kotlin 1.9.0-RC)
+[//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but it highlights the latest
 > ones and some major improvements.
 >
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/%kotlinEapVersion%).
 >
 {type="note"}
 
-The Kotlin 1.9.0-RC release is out! Here are some highlights from this preview version of Kotlin:
+The Kotlin %kotlinEapVersion% release is out! Here are some highlights from this preview version:
 
-* [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
-* [Stable replacement of the enum class values function](#stable-replacement-of-the-enum-class-values-function)
-* [Stable ..< operator for open-ended ranges](#stable-operator-for-open-ended-ranges)
-* [New common function to get regex capture group by name](#new-common-function-to-get-regex-capture-group-by-name)
-* [New path utility to create parent directories](#new-path-utility-to-create-parent-directories)
-* [Preview of Gradle configuration cache in Kotlin Multiplatform](#preview-of-gradle-configuration-cache-in-kotlin-multiplatform)
-* [Changes for Android target support in Kotlin Multiplatform](#changes-for-android-target-support-in-kotlin-multiplatform)
-* [No object initialization when accessing constant values in Kotlin/Native](#no-object-initialization-when-accessing-constant-values-in-kotlin-native)
-* [Ability to configure standalone mode for iOS simulator tests in Kotlin/Native](#ability-to-configure-standalone-mode-for-ios-simulator-tests-in-kotlin-native)
+* [New default hierarchy template for setting up multiplatform projects](#template-for-configuring-multiplatform-projects)
+* [Full support for the Gradle Configuration cache in Kotlin Multiplatform](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
+* [Custom memory allocator enabled by default in Kotlin/Native](#custom-memory-allocator-enabled-by-default)
+* [Performance improvements for the garbage collector in Kotlin/Native](#performance-improvements-for-the-garbage-collector)
+* [New and renamed targets in Kotlin/Wasm](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
+* [Support for the WASI API in the standard library for Kotlin/Wasm](#support-for-the-wasi-api-in-the-standard-library)
 
 ## IDE support
 
-The Kotlin plugins that support 1.9.0-RC are available for:
+The Kotlin plugins that support %kotlinEapVersion% are available for:
 
-| IDE            | Supported versions            |
-|----------------|-------------------------------|
-| IntelliJ IDEA  | 2022.3.x, 2023.1.x            |
-| Android Studio | Giraffe (223), Hedgehog (231) |
+| IDE            | Supported versions                                     |
+|----------------|--------------------------------------------------------|
+| IntelliJ IDEA  | 2023.1.x, 2023.2.x                                     |
+| Android Studio | Hedgehog (2023.1.1 Beta 3), Iguana (2023.2.1 Canary 2) |
 
-## New Kotlin K2 compiler updates
+## Kotlin Multiplatform
 
-The Kotlin team continues to stabilize the K2 compiler. The 1.9.0-RC release introduces further advancements, including
-basic support for Kotlin/Native and improved Kotlin/JS stability in the K2 compiler. It's an important step towards full
-support of multiplatform projects. We would appreciate [your feedback](#share-your-feedback-on-the-new-k2-compiler) to
-help us with it.
+* [Template for configuring multiplatform projects](#template-for-configuring-multiplatform-projects)
+* [Full support for the Gradle Configuration cache](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
 
-Also, starting with 1.9.0-RC and until the release of Kotlin 2.0, you can easily test the K2 compiler in your projects.
-Add `kotlin.experimental.tryK2=true` to your `gradle.properties` file or run the following command:
+### Template for configuring multiplatform projects
 
-```shell
-./gradlew assemble -Pkotlin.experimental.tryK2=true
+Starting with Kotlin %kotlinEapVersion%, the Kotlin Gradle plugin automatically creates shared source sets for popular multiplatform scenarios.
+If your project setup is one of them, you don't need to configure the source set hierarchy manually.
+Just explicitly specify the targets necessary for your project.
+
+Setup is now easier thanks to the default hierarchy template, a new feature of the Kotlin Gradle plugin.
+It's a predefined template of a source set hierarchy built into the plugin.
+It includes intermediate source sets that Kotlin automatically creates for the targets you declared.
+[See the full template](#see-the-full-hierarchy-template).
+
+#### Create your project easier
+
+Consider a multiplatform project that targets both Android and iPhone devices and is developed on an Apple silicon MacBook.
+Compare how this project is set up between different versions of Kotlin:
+
+<table header-style="top">
+   <tr>
+       <td>Kotlin 1.9.0 and earlier (a standard setup)</td>
+       <td>Kotlin 1.9.20-Beta</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+kotlin {
+    androidTarget()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        val commonMain by getting
+
+        val iosMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val iosArm64Main by getting {
+            dependsOn(iosMain)
+        }
+
+        val iosSimulatorArm64Main by getting {
+            dependsOn(iosMain)
+        }
+    }
+}
 ```
 
-This Gradle property automatically sets the language version to 2.0 and updates the build report with the number of
-Kotlin tasks compiled using the K2 compiler compared to the current compiler:
+</td>
+<td>
+
+```kotlin
+kotlin {
+    androidTarget()
+    iosArm64()
+    iosSimulatorArm64()
+   
+    // The iosMain source set is created automatically
+}
+```
+
+</td>
+</tr>
+</table>
+
+Notice how the use of the default hierarchy template considerably reduces the amount of boilerplate code needed to set
+up your project.
+
+When you declare the `androidTarget`, `iosArm64`, and `iosSimulatorArm64` targets in your code, the Kotlin Gradle plugin finds
+suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
+
+![An example of the default target hierarchy in use](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+
+Green source sets are actually created and included in the project, while gray ones from the default template are ignored.
+
+#### Enjoy improved tooling support
+
+To make it easier to work with the created project structure, IntelliJ IDEA now provides completion for source sets created with the default hierarchy template:
+
+<img src="multiplatform-hierarchy-completion.png" alt="IDE completion for source set names" width="350" animated="true"/>
+
+The IDE also warns you if you attempt to access a source set that doesn't exist because you haven't declared the respective target.
+In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to use the `jvmMain` source set
+and see what happens:
+
+```kotlin
+kotlin {
+    androidTarget()
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        jvmMain {
+        }
+    }
+}
+```
+
+In this case, Kotlin reports a warning in the build log:
 
 ```none
-##### 'kotlin.experimental.tryK2' results (Kotlin/Native not checked) #####
-:lib:compileKotlin: 2.0 language version
-:app:compileKotlin: 2.0 language version
-##### 100% (2/2) tasks have been compiled with Kotlin 2.0 #####
+w: Accessed 'source set jvmMain' without registering the jvm target:
+  kotlin {
+      jvm() /* <- register the 'jvm' target */
+
+      sourceSets.jvmMain.dependencies {
+
+      }
+  }
 ```
 
-### Share your feedback on the new K2 compiler
+#### Set up the target hierarchy
 
-We'd appreciate any feedback you might have!
+Starting with Kotlin %kotlinEapVersion%, the default hierarchy template is automatically enabled. In most cases, no additional setup is required.
 
-* Provide your feedback directly to K2 developers in the Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
-  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you've faced with the new K2 compiler via [our issue tracker](https://kotl.in/issue).
-* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
-  allow JetBrains to collect anonymous data about K2 usage.
+However, if you're migrating existing projects created before 1.9.20, you might encounter a warning if you had previously
+introduced intermediate sources manually with  `dependsOn()` calls. To solve this issue, do the following:
 
-## Stable replacement of the enum class values function
+* If your intermediate source sets are currently covered by the default hierarchy template, remove all manual `dependsOn()`
+calls and source sets created with `by creating` constructions.
 
-In 1.8.20, the `entries` property for enum classes was introduced as an Experimental feature. The `entries` property is intended to be a modern and performant replacement for the synthetic `values()` function. In 1.9.0-RC, the `entries` property is [Stable](components-stability.md#stability-levels-explained).
+  To check the list of all default source sets, see the [full hierarchy template](#see-the-full-hierarchy-template).
 
-> The `values()` function is still supported, but we recommend that you use the `entries` property instead.
+* If you want to have additional source sets that the default hierarchy template doesn't provide, for example between JS and the JVM,
+adjust the hierarchy by reapplying the template explicitly with `applyDefaultHierarchyTemplate()` and configuring additional
+source sets manually as usual with `dependsOn()`:
+
+```kotlin
+kotlin {
+    jvm()
+    js { browser() }
+    iosArm64()
+    iosSimulatorArm64()
+
+    // Apply the default hierarchy explicitly. It'll create, for example, the iosMain source set:
+    applyDefaultHierarchyTemplate()
+
+    sourceSets {
+        // Create an additional jsAndJvmMain source set
+        val jsAndJvmMain by creating {
+            dependsOn(commonMain.get())
+    }
+
+        jsMain.get().dependsOn(jsAndJvmMain)
+        jvmMain.get().dependsOn(jsAndJvmMain)
+    }
+}
+```
+
+* If there are already source sets in your project that have the exact same names as those generated by the template
+but that are shared among different sets of targets, there's currently no way to modify the default `dependsOn` relations between
+the template's source sets.
+
+  One option you have here is to find different source sets for your purposes, either in the default hierarchy template
+  or ones that have been manually created. Another is to opt out of the template completely.
+
+  To opt out, add `kotlin.mpp.applyDefaultHierarchyTemplate=false` to your `gradle.properties` and configure all other
+  source sets manually.
+
+  We're currently working on an API for creating your own hierarchy templates to simplify the setup process in such cases.
+
+#### See the full hierarchy template {initial-collapse-state="collapsed"}
+
+When you declare the targets to which your project compiles,
+the plugin picks the shared source sets from the template accordingly and creates them in your project.
+
+![Default hierarchy template](full-template-hierarchy.svg)
+
+> This example only shows the production part of the project, omitting the `Main` suffix
+> (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
 {type="tip"}
 
+### Full support for the Gradle configuration cache in Kotlin Multiplatform
+
+Previously, we introduced a [preview](whatsnew19.md#preview-of-the-gradle-configuration-cache) of the Gradle configuration
+cache, which was available for Kotlin multiplatform libraries. With %kotlinEapVersion%, the Kotlin Multiplatform plugin takes a step further.
+
+It now supports the Gradle configuration cache in the [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md),
+as well as in the integration tasks that are necessary for Xcode builds, like `embedAndSignAppleFrameworkForXcode`.
+
+Now all multiplatform projects can take advantage of the improved build time.
+The Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent builds.
+For more details and setup instructions, see the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
+
+## Kotlin/Native
+
+* [Custom memory allocator enabled by default](#custom-memory-allocator-enabled-by-default)
+* [Performance improvements for garbage collector](#performance-improvements-for-the-garbage-collector)
+
+### Custom memory allocator enabled by default
+
+Kotlin %kotlinEapVersion% comes with the new memory allocator enabled by default. It's designed to replace the previous default allocator,
+`mimaloc`, to make garbage collection more efficient and improve the runtime performance of the [Kotlin/Native memory manager](native-memory-manager.md).
+
+The new custom allocator divides system memory into pages, allowing independent sweeping in consecutive order.
+Each allocation becomes a memory block within a page, and the page keeps track of block sizes.
+Different page types are optimized for various allocation sizes.
+The consecutive arrangement of memory blocks ensures efficient iteration through all allocated blocks.
+
+When a thread allocates memory, it searches for a suitable page based on the allocation size.
+Threads maintain a set of pages for different size categories.
+Typically, the current page for a given size can accommodate the allocation.
+If not, the thread requests a different page from the shared allocation space.
+This page may already be available, require sweeping, or have to be created first.
+
+The new allocator allows for multiple independent allocation spaces simultaneously,
+which will enable the Kotlin team to experiment with different page layouts to improve performance even further.
+
+#### How to enable the custom memory allocator
+
+Starting with Kotlin %kotlinEapVersion%, the new memory allocator is the default. No additional setup is required.
+
+If you experience high memory consumption, you can switch back to `mimaloc` or the system allocator with `-Xallocator=mimalloc`
+or `-Xallocator=std` in your Gradle build script. Please report such issues in [YouTrack](https://kotl.in/issue) to help
+us improve the new memory allocator.
+
+For the technical details of the new allocator's design, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+
+### Performance improvements for the garbage collector
+
+The Kotlin team continues to improve the performance and stability of the new Kotlin/Native memory manager.
+This release brings a number of significant changes to the garbage collector (GC), including the following %kotlinEapVersion% highlights:
+
+* [](#full-parallel-mark-to-reduce-the-pause-time-for-the-gc)
+* [](#tracking-memory-in-big-chunks-to-improve-the-allocation-performance)
+
+#### Full parallel mark to reduce the pause time for the GC
+
+Previously, the default garbage collector performed only a partial parallel mark. When the mutator thread was paused,
+it would mark the GC's start from its own roots, like thread-local variables and the call stack.
+Meanwhile, a separate GC thread was responsible for marking the start from global roots, as well as the roots of all mutators
+that were actively running the native code and therefore not paused.
+
+This approach worked well in cases where there were a limited number of global objects and the mutator threads spent
+a considerable amount of time in a runnable state executing Kotlin code. However, this is not the case for typical iOS applications.
+
+Now the GC uses a full parallel mark that combines paused mutators, the GC thread, and optional marker threads to process
+the mark queue. By default, the marking process is performed by:
+
+* Paused mutators. Instead of processing their own roots and then being idle while not actively executing code, they contribute
+to the whole marking process.
+* The GC thread. This ensures that at least one thread will perform marking.
+
+This new approach makes the marking process more efficient, reducing the pause time of the GC.
+
+#### Tracking memory in big chunks to improve the allocation performance
+
+Previously, the GC scheduler tracked the allocation of each object individually. However, neither the new default custom
+allocator nor the `mimalloc` memory allocator allocates separate storage for each object; they allocate large areas for several objects at once.
+
+In Kotlin %kotlinEapVersion%, the GC tracks areas instead of individual objects. This speeds up the allocation of small objects by reducing
+the number of tasks performed on each allocation and, therefore, helps to minimize the garbage collector's memory usage.
+
+## Kotlin/Wasm
+
+* [New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
+* [Support for the WASI API in standard library](#support-for-the-wasi-api-in-the-standard-library)
+
+> Kotlin Wasm is [Experimental](components-stability.md).
+> It may be changed at any time. Use it only for evaluation purposes.
+>
+> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
+
+### New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`
+
+In this release, we're introducing a new target for Kotlin/Wasm – `wasm-wasi`. We're also renaming the `wasm` target to `wasm-js`.
+In the Gradle DSL, these targets are available as `wasmWasi` and `wasmJs`, respectively.
+
+To use these targets in your project, update the `build.gradle.kts` file:
+
 ```kotlin
-enum class Color(val colorName: String, val rgb: String) {
-    RED("Red", "#FF0000"),
-    ORANGE("Orange", "#FF7F00"),
-    YELLOW("Yellow", "#FFFF00")
+kotlin {
+   wasmWasi {
+      // ...
+   }
+   wasmJs {
+      // ...
+   }
 }
-
-fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 ```
-{validate="false"}
 
-For more information about the `entries` property for enum classes, see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
+The previously introduced `wasm` block has been deprecated in favor of `wasmJs`.
 
-## Stable ..< operator for open-ended ranges
+To migrate your existing Kotlin/Wasm project, do the following:
+* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs`.
+* In your project structure, rename the `wasmMain` folder to `wasmJsMain`.
 
-The new `..<` operator for open-ended ranges that was introduced in [Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges)
-is Stable in 1.9.0-RC. The standard library API for working with open-ended ranges is also Stable in this release.
+### Support for the WASI API in the standard library
 
-Our research shows that the new `..<` operator makes it easier to understand when an open-ended range is declared. If 
-you use the [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) infix function, it's easy 
-to make the mistake of assuming that the upper bound is included.
+In this release, we have included support for [WASI](https://github.com/WebAssembly/WASI), a system interface for the Wasm platform.
+WASI support makes it easier for you to use Kotlin/Wasm outside of browsers, for example in server-side applications, by offering
+a standardized set of APIs for accessing system resources. In addition, WASI provides capability-based security – another
+layer of security when accessing external resources.
 
-Here is an example using the `until` function:
+To run Kotlin/Wasm applications, you need a VM that supports Wasm Garbage Collection (GC), for example Node.js or Deno.
+Wasmtime, WasmEdge, and others are still working towards full Wasm GC support.
+
+To import a WASI function, use the `@WasmImport` annotation:
 
 ```kotlin
-fun main() {
-    for (number in 2 until 10) {
-        if (number % 2 == 0) {
-            print("$number ")
-        }
-    }
-    // 2 4 6 8
-}
+import kotlin.wasm.WasmImport
+
+@WasmImport("wasi_snapshot_preview1", "clock_time_get")
+private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPtr: Int): Int
 ```
-{validate="false"}
 
-And here is an example using the new `..<` operator:
+[You can find a full example in our GitHub repository](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example).
 
-```kotlin
-fun main() {
-    for (number in 2..<10) {
-        if (number % 2 == 0) {
-            print("$number ")
-        }
-    }
-    // 2 4 6 8
-}
-```
-{validate="false"}
-
-> Starting with version 2023.1.1, IntelliJ IDEA has a new code inspection that highlights when you can use the `..<` operator.
+> It isn't possible to use [interoperability with JavaScript](wasm-js-interop.md), while targeting `wasmWasi`.
 >
 {type="note"}
 
-For more information about what you can do with this operator, see [What's new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
+## How to update to Kotlin %kotlinEapVersion%
 
-## New common function to get regex capture group by name
+Install Kotlin %kotlinEapVersion% in any of the following ways:
 
-Prior to 1.9.0-RC, every platform had its own extension to get a regular expression capture group by its name from a regular expression match.
-However, there was no common function. It wasn't possible to implement prior to Kotlin 1.8.0,
-because the standard library still supported JVM targets 1.6 and 1.7.
-
-As of Kotlin 1.8.0, the standard library is compiled with JVM target 1.8. So in 1.9.0-RC,
-there is now a **common** function [`groups`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-match-result/groups.html)
-that retrieves group's contents by its name for a regular expression match.
-This is useful when you want to access the results of regular expression matches belonging to a particular capture group.
-
-Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`.
-You can use these group names to access the matched values:
-
-```kotlin
-fun main() {
-    val regex = """\b(?<city>[A-Za-z\s]+),\s(?<state>[A-Z]{2}):\s(?<areaCode>[0-9]{3})\b""".toRegex()
-    val input = "Coordinates: Austin, TX: 123"
-
-
-    val match = regex.find(input)!!
-    println(match.groups["city"]?.value) 
-    // Austin
-    println(match.groups["state"]?.value)
-    // TX
-    println(match.groups["areaCode"]?.value)
-    // 123
-}
-```
-{validate="false"}
-
-## New path utility to create parent directories
-
-In 1.9.0-RC there is a new extension function `createParentDirectories()` that you can use to create a new file with 
-all the necessary parent directories. When you provide a file path to `createParentDirectories()`, it checks whether the parent
-directories already exist. If they do, it does nothing. However, if they do not, it creates them for you.
-
-`createParentDirectories()` is particularly useful when you are copying files. For example, you can use it in combination
-with the [`copyToRecursively()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io.path/java.nio.file.-path/copy-to-recursively.html) function:
-
-```kotlin
-sourcePath.copyToRecursively(
-    destinationPath.createParentDirectories(),
-    followLinks = false
-)
-```
-{validate="false"}
-
-## Preview of Gradle configuration cache in Kotlin Multiplatform
-
-Kotlin 1.9.0-RC comes with support for [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
-in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.
-
-Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent 
-builds. The feature has become Stable since Gradle 8.1. To enable it, follow the instructions in the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
-
-> The Kotlin Multiplatform plugin still doesn't support Gradle configuration cache with Xcode integration tasks or the 
-> [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in a future Kotlin release.
->
-{type="note"}
-
-## Changes for Android target support in Kotlin Multiplatform
-
-We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this direction is to provide first-class support
-for the Android target. We're excited to announce that in the future, the Android team from Google will provide its own 
-Gradle plugin to support Android in Kotlin Multiplatform.
-
-To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current 
-Kotlin DSL in 1.9.0-RC. This is a temporary change that is necessary to free the `android` name for the upcoming DSL 
-from Google.
-
-The Google plugin will be the preferred way of working with Android in multiplatform projects. When it's ready, we'll 
-provide the necessary migration instructions so that you'll be able to use the short `android` name as before.
-
-## No object initialization when accessing constant values in Kotlin/Native
-
-Starting with Kotlin 1.9.0-RC, the Kotlin/Native backend doesn't initialize objects when accessing `const val` fields:
-
-```kotlin
-object MyObject {
-    init {
-        println("side effect!")
-    }
-    
-    const val y = 1
-}
-
-
-fun main() {
-    println(MyObject.y)	// no initialization at first
-    val x = MyObject	// initialization occurs
-    println(x.y)
-}
-```
-
-Now the behavior is unified with Kotlin/JVM, where the implementation is consistent with Java and objects are never 
-initialized in this case. You can also expect some performance improvements in your Kotlin/Native projects thanks to this
-change.
-
-## Ability to configure standalone mode for iOS simulator tests in Kotlin/Native
-
-By default, when running iOS simulator tests for Kotlin/Native, the `--standalone` flag is used to avoid manual simulator
-booting and shutdown. In 1.9.0-RC, you can now configure whether this flag is used in a Gradle task via the `standalone`
-property. By default, the `--standalone` flag is used so standalone mode is enabled.
-
-Here is an example of how to disable standalone mode in your `build.gradle.kts` file:
-```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>().configureEach {
-    standalone.set(false)
-}
-```
-{validate="false"}
-
-> If you disable standalone mode, you must boot the simulator manually. To boot your simulator from CLI, you can use the
-> following command:
->
-> ```shell
-> /usr/bin/xcrun simctl boot <DeviceId>
-> ```
-> 
-{type = "warning"}
-
-## How to update to Kotlin 1.9.0-RC
-
-Install Kotlin 1.9.0-RC in any of the following ways:
-
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.9.0-RC as
+* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to %kotlinEapVersion% as
   soon as it becomes available.
 * If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting
   **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest
   preview release. Check out [these instructions](install-eap-plugin.md) for details.
 
-Once you've installed 1.9.0-RC don't forget to [change the Kotlin version](configure-build-for-eap.md)
-to 1.9.0-RC in your build scripts.
+Once you've installed %kotlinEapVersion% don't forget to [change the Kotlin version](configure-build-for-eap.md)
+to %kotlinEapVersion% in your build scripts.

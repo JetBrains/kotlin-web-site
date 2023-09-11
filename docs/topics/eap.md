@@ -34,32 +34,29 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
- _No preview versions are currently available._ 
+<!-- _No preview versions are currently available._ -->
 
-<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>1.9.0-RC</strong>
-            <p>Released: <strong>June 20, 2023</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>1.9.20-Beta</strong>
+            <p>Released: <strong>September 11, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-Beta" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
              <ul>
-                 <li>Language: Stable <code>rangeUntil</code> operator, data objects, <code>Enum.entries</code> replacement for <code>Enum.values()</code>, and the <code>@Volatile</code> annotation</li>
-                 <li>K2: basic support for Kotlin/Native and multiplatform projects, support for Kotlin/JS since 1.8.20</li>
-                 <li>Kotlin/JVM: <code>@JvmDefault</code> and old <code>-Xjvm-default</code> modes deprecated with error, support for Java 20 bytecode</li>
-                 <li>Kotlin/Native: new custom memory allocator, no object initialization when accessing <code>const val</code>, partial linkage enabled by default</li>
-                 <li>Kotlin Multiplatform: new name for the <code>android</code> block, new Android source set layout enabled by default, support for Gradle configuration caching in multiplatform libraries, ability to disable sources publication in the Kotlin Multiplatform Gradle plugin, ability to add dependencies between Pods when using the CocoaPods Gradle plugin</li>
-                 <li>Kotlin/Wasm: runtime footprint reduced and performance improved, set system default browser as default for <code>wasmBrowserRun</code> task, improved JS interop, more compiler and IDE diagnostics for JS interop</li>
-                 <li>Kotlin/JS: deprecated legacy backend with error, deprecated external Enum class, extracted DOM API from standard library to module automatically added to builds, partial linkage enabled by default, IR compiler used by default, changed default destination of production distributions, deprecated <code>kotlin-js</code> Gradle plugin that is replaced by <code>kotlin-multiplatform</code> Gradle plugin, experimental support for ES6 classes and modules, reduced memory consumption for production builds</li>
-                 <li>Libraries: Stable standard library functions for open-ended ranges, new common function to get regex capture group by name, new <code>HexFormat</code> to format and parse hexadecimals, Stable time API, new path utility to create parent directories, reviewed and stabilized Kotlin/Native standard library</li>
-                 <li>Gradle: build scans show whether K1 or K2 compiler is used, new Gradle property <code>kotlin.experimental.tryK2</code> to try the K2 compiler, new project-level compiler options for Kotlin/JVM plugin, removed <code>KotlinCompile</code> task's <code>classpath</code> property, exposed <code>jvmTargetValidationMode</code> property in <code>KotlinCompile</code> task, configurable standalone mode for Kotlin/Native iOS simulator tests, removed support for <code>org.gradle.api.internal.HasConvention</code> Gradle element, added <code>optIn</code> and <code>progressiveMode</code> compiler options, compiler plugins are published separately and Gradle plugins add them as compiler arguments, kapt tasks don’t trigger eager task creation, minimum supported Android Gradle plugin version is 4.2.2</li>
+                 <li>Kotlin/JVM: support for Java 21 bytecode</li>
+                 <li>Kotlin/Native: custom allocator enabled by default, full parallel mark available in the GC, deprecated targets disabled, obligatory opt-in for all cinterop declarations (except for platform libraries), the GC scheduler tracking objects in big chunks, legacy memory manager disabled</li>
+                 <li>Kotlin Multiplatform: hierarchy template available by default, full support for Gradle Configuration cache, the default support for third-party cinterop libraries, reworked configuration of compiler settings in multiplatform projects</li>
+                 <li>Kotlin/Wasm: support for WASI, new <code>wasm-wasi</code> target and rename <code>wasm</code> target to <code>wasm-js</code>, compatible with recent updates in Wasm GC</li>
+                 <li>Kotlin/JS: using open-addressing hash map in the JS stdlib, ability to generate one JS file for each Kotlin source file</li>
+                 <li>Libraries: experimental support for <code>enumEntries()</code> function, further stabilization of Kotlin/Native standard library</li>
+                 <li>Gradle: support for Gradle versions 8.0 and 8.1, new build metrics for Kotlin/Native tasks, support for test fixtures to access internal declarations, new property to configure custom path to Konan and its dependencies</li>
             </ul>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.0-RC</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-Beta">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.20-Beta</a>.</p>
         </td>
     </tr>
 </table>
@@ -67,5 +64,3 @@ check [our instructions on how to configure your build to support this version](
 > If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
 >
 {type="note"}
-
--->
