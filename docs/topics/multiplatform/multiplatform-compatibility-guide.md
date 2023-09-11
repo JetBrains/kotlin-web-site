@@ -269,9 +269,9 @@ The Kotlin team is eager to help the ecosystem migrate, so if you face any issue
 
 **When do the changes take effect?**
 
-* 1.9.0: introduce a deprecation warning for dependencies on legacy libraries
-* 1.9.20: raise the warning for dependencies on legacy libraries to an error
-* \> 1.9.20: the support for dependencies on legacy libraries is removed. Using such dependencies can cause build failures
+* 1.9: introduce a deprecation warning for dependencies on legacy libraries
+* 2.0: raise the warning for dependencies on legacy libraries to an error
+* \>2.0: the support for dependencies on legacy libraries is removed. Using such dependencies can cause build failures
 
 <anchor name="compilation-source-deprecation"></anchor>
 ## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
