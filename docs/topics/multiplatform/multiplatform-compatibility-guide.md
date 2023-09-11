@@ -332,9 +332,10 @@ kotlin {
 
 **When do the changes take effect?**
 
-In 1.9.0, the use of `KotlinComplation.source` produces a deprecation warning.
-This API will be removed in Kotlin 1.9.20 and later,
-leading to "unresolved reference" errors on the `KotlinCompilation.source` calls.
+* 1.9.0: the use of `KotlinComplation.source` produces a deprecation warning
+* 1.9.20: the use of `KotlinComplation.source` produces a deprecation error
+* \>1.9.20: `KotlinComplation.source` is removed from the Kotlin Gradle Plugin. Using it will lead to "unresolved 
+reference"-errors during the buildscript compilation
 
 <anchor name="kotlin-js-plugin-deprecation"></anchor>
 ## Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin
