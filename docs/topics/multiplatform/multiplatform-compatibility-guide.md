@@ -493,6 +493,134 @@ projects.
 
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
+<anchor name="declaring-multiple-targets"></anchor>
+## Declaring multiple targets of the same kind
+
+**What's changed?**
+
+We discourage declaring multiple targets of the same kind in a single Gradle project.
+
+Example:
+```kotlin
+kotlin {
+    jvm("jvmKtor")
+    jvm("jvmOkio") // is not recommended and will produce deprecation warning
+}
+```
+
+One popular case is having two related pieces of code together. For example, you might be compelled to use
+`jvm("jvmKtor")` and `jvm("jvmOkio")` in your `:shared` Gradle project for providing an implementation of networking
+code based on Ktor or OKIO:
+
+```kotlin
+// shared/build.gradle.kts
+kotlin {
+   jvm("jvmKtor") {
+       attributes.attribute(/* ... */) 
+   }
+   jvm("jvmOkio") {
+       attributes.attribute(/* ... */) 
+   }
+
+   sourceSets {
+       val commonMain by getting
+       val commonJvmMain by sourceSets.creating {
+           dependsOn(commonMain)
+           dependencies {
+               // shared dependencies
+           }
+       }
+       val jvmKtorMain by getting {
+           dependsOn(commonJvmMain)
+           dependencies {
+               // Ktor dependencies
+           }
+       }
+       val jvmOkioMain by getting {
+           dependsOn(commonJvmMain)
+           dependencies {
+               // OKIO dependencies
+           }
+       }
+   }
+}
+```
+
+You can see that it comes with a non-trivial configuration complexity:
+* You have to set-up Gradle Attributes both on the `:shared`-side and on each consumer side. Otherwise, Gradle won't be
+able to resolve dependencies on such projects, because without an additional information it's not clear whether the 
+consumer should receive Ktor-based implementation, or OKIO-based implementation
+* You have to set-up the `commonJvmMain` source set manually
+
+All this involves a handful of low-level Gradle and KGP abstractions and APIs. 
+
+**What's the best practice now?**
+
+The configuration gets pretty complicated because Ktor-based and OKIO-based implementations are
+**in the same Gradle project**. In a lot of cases, it is possible to extract those parts into separate Gradle projects.
+Here's the rough outline of this refactoring:
+
+1. Replace two duplicating targets from the original project to one target. If you had a shared source set between
+these targets, move its sources and configuration to the default source set of the newly created target:
+
+```kotlin
+// shared/build.gradle.kts
+kotlin {
+    jvm()
+    
+    sourceSets {
+        jvmMain {
+            // ... copy the configuration of jvmCommonMain here ...
+        }
+    }
+}
+```
+
+2. Add two new Gradle projects, usually by calling `include` in your `settings.gradle.kts`. For example:
+
+```kotlin
+include(":okio-impl")
+include(":ktor-impl")
+```
+
+3. Configure each new Gradle project
+   - Most likely, you don't need to apply `kotlin("multiplatform")` plugin, as those projects will compile only for one
+   target. In our case, we can apply `kotlin("jvm")`
+   - Move the content of original target-specific source sets to their respective projects, e.g. from `jvmKtorMain` to 
+   `ktor-impl/src`
+   - Copy the configuration of source sets (dependencies, compiler options, etc.)
+   - Add a dependency from a new Gradle project to the original one.
+
+```kotlin
+// ktor-impl/build.gradle.kts
+plugins {
+    kotlin("jvm")
+}
+
+dependencies {
+    project(":shared") // add dependency on the original project
+    // ... copy dependencies of jvmKtorMain here ...
+}
+
+kotlin {
+    compilerOptions {
+        // ... copy compiler options of jvmKtorMain here ...
+    }
+}
+```
+
+While this approach requires more initial setup work, it doesn't use any low-level entities of Gradle and KGP, making
+easier to work with the resulting build and maintain it.
+
+> Unfortunately, it's too verbose to provide detailed migration instructions for each possible case. If the instructions above don't work
+> for your case, please describe your case in the respective [YouTrack-issue](https://youtrack.jetbrains.com/issue/KT-59316)
+>{type="note"}
+
+**When do the changes take effect?**
+
+In Kotlin 1.9.20, a deprecation warning is introduced when multiple targets of the same type is used in Kotlin Multiplatform projects.
+In Kotlin 2.0, error will be reported in such cases, causing your build to fail.
+
 <anchor name="jvmWithJava-preset-deprecation"></anchor>
 ## Deprecation of 'jvmWithJava'-preset
 
@@ -534,3 +662,31 @@ and using respective Gradle property `kotlin.mpp.androidSourceSetLayoutVersion` 
 
 * \>1.9.20: support for `kotlin.mpp.androidSourceSetLayoutVersion=1` is removed, the property is ignored by the 
 Kotlin Gradle Plugin
+
+<anchor name="common-sourceset-with-dependson-deprecation"></anchor>
+## Deprecation of commonMain and commonTest with custom dependsOn
+
+**What's changed?**
+
+`commonMain` and `commonTest` source sets usually represent roots of `main` and `test` source set hierarchies 
+respectively. However, it was possible to override that by configuring `dependsOn`-edges of these source sets.
+
+Maintaining such configuration requires extra effort and knowledge about multiplatform build internals. Additionally, 
+it hurts readability and reusability of the code, because without reading the particular buildscript,
+you can never be sure if the `commonMain` is the root of the `main` source set hierarchy.
+
+Therefore, accessing `dependsOn` on `commonMain` and `commonTest` is now deprecated.    
+
+**What's the best practice now?**
+
+Suppose you need to migrate to 1.9.20 a source set `customCommonMain` such that `commonMain.dependsOn(customCommonMain)`.
+
+In most cases, `customCommonMain` participates in the same compilations as `commonMain`, so you can just merge the 
+`customCommonMain` into `commonMain`:
+* copy sources of `customCommonMain` into `commonMain`
+* add all dependencies of `customCommonMain` to `commonMain`
+* add all compiler option settings of `customCommonMain` to `commonMain`
+
+In rare cases `customCommonMain` might be participating in more compilations than `commonMain` does. It requires additional
+low-level configuration of the buildscript, so if you're not sure if that's your case, it most likely isn't. 
+If you do have such case, you can "swap" these two source sets: move sources and settings of `customCommonMain` to `commonMain` and vice versa. 
