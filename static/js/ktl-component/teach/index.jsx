@@ -215,7 +215,9 @@ const Teach = (props) => {
                                   <a href="mailto:education@kotlinlang.org" className="rs-link">
                                       education@kotlinlang.org.
                                   </a>
-                                  <br />We’ll send you a Kotlin T-shirt and stickers for your students.
+                                  {' '}
+                                  <br />
+                                  We’ll send you a Kotlin T-shirt and stickers for your students.
                               </p>
                               <Button size="l" mode="outline" href="courses.html">
                                   All universities
