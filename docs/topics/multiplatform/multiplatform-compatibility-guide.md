@@ -690,3 +690,53 @@ In most cases, `customCommonMain` participates in the same compilations as `comm
 In rare cases `customCommonMain` might be participating in more compilations than `commonMain` does. It requires additional
 low-level configuration of the buildscript, so if you're not sure if that's your case, it most likely isn't. 
 If you do have such case, you can "swap" these two source sets: move sources and settings of `customCommonMain` to `commonMain` and vice versa. 
+
+**When do the changes take effect?**
+* 1.9.0: warning is reported on `commonMain` with `dependsOn`
+* \>=1.9.20: error is reported on `commonMain` or `commonTest` with `dependsOn`
+
+<anchor name="target-presets-deprecation"></anchor>
+## Deprecated "target presets" API
+
+**What's changed?**
+
+In the very early development stages, Kotlin Multiplatform introduced an API for working with so-called "target presets".
+Each target preset essentially represented a factory for Kotlin Multiplatform targets. This API turned out to be largely
+redundant, as DSL functions like `jvm()` or `iosSimulatorArm64()` cover same cases while being much more straightforward
+and concise. 
+
+In order to reduce the confusion and provide a clearer guidelines, all presets-related API is now deprecated and will be
+removed from public API of the Kotlin Gradle Plugin in future releases. This includes:
+* `presets` property in `org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension`
+* `org.jetbrains.kotlin.gradle.plugin.KotlinTargetPreset` interface and all inheritors
+* `fromPreset`-overloads 
+
+**What's the best practice now?**
+
+Use respective [Kotlin Targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead. For
+example, instead of:
+
+```kotlin
+kotlin {
+    targets {
+        fromPreset(presets.iosArm64, 'ios')
+    }
+}
+```
+
+use:
+
+```kotlin
+kotlin {
+    iosArm64()
+}
+```
+
+As you can see, the replacement is much more concise and cleaner.
+
+**When do the changes take effect?**
+* 1.9.20: warning is reported on any usages of presets-related API
+* 2.0: error is reported on any usages of presets-related API
+* \>2.0: presets-related API is removed from the public API of the Kotlin Gradle Plugin. Sources that still use it
+will fail with "unresolved reference"-kind of errors, and binaries (e.g. Gradle plugins) might fail with linkage errors
+unless recompiled against modern versions of Kotlin Gradle Plugin.
