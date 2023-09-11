@@ -492,3 +492,23 @@ projects.
 **When do the changes take effect?**
 
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
+
+<anchor name="jvmWithJava-preset-deprecation"></anchor>
+## Deprecation of 'jvmWithJava'-preset
+
+**What's changed?**
+
+`targetPresets.jvmWithJava` is deprecated and its usage is discouraged
+
+**What's the best practice now?**
+
+Use `jvm { withJava() }` target instead. Note that after switching to `jvm { withJava() }`, paths for source directories
+with .java-sources will need an adjustment. Assuming you use a `jvm`-target with the default name "jvm":
+* instead of `src/main/java`, use `src/jvmMain/java`
+* instead of `src/test/java`, use `src/jvmTest/java`
+
+**When do the changes take effect?**
+
+* 1.3.40: using `targetPresets.jvmWithJava` provokes a warning
+* 1.9.20: using `targetPresets.jvmWithJava` provokes an error
+* \>1.9.20: `targetPresets.jvmWithJava` API is removed. Using it will cause the buildscript compilation failure  
