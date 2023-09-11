@@ -104,7 +104,7 @@ in other contexts:
  * `inline` tells the compiler to [inline a function and the lambdas passed to it at the call site](inline-functions.md).
  * `inner` allows referring to an outer class instance from a [nested class](nested-classes.md).
  * `internal` marks a declaration as [visible in the current module](visibility-modifiers.md).
- * `lateinit` allows initializing a [non-null property outside of a constructor](properties.md#late-initialized-properties-and-variables).
+ * `lateinit` allows initializing a [non-nullable property outside of a constructor](properties.md#late-initialized-properties-and-variables).
  * `noinline` turns off [inlining of a lambda passed to an inline function](inline-functions.md#noinline).
  * `open` allows [subclassing a class or overriding a member](classes.md#inheritance).
  * `operator` marks a function as [overloading an operator or implementing a convention](operator-overloading.md).
@@ -143,13 +143,13 @@ Kotlin supports the following operators and special symbols:
  * `===`, `!==` - [referential equality operators](equality.md#referential-equality).
  * `<`, `>`, `<=`, `>=` - [comparison operators](operator-overloading.md#comparison-operators) (translated to calls of `compareTo()` for non-primitive types).
  * `[`, `]` - [indexed access operator](operator-overloading.md#indexed-access-operator) (translated to calls of `get` and `set`).
- * `!!` [asserts that an expression is non-null](null-safety.md#the-operator).
- * `?.` performs a [safe call](null-safety.md#safe-calls) (calls a method or accesses a property if the receiver is non-null).
+ * `!!` [asserts that an expression is non-nullable](null-safety.md#the-operator).
+ * `?.` performs a [safe call](null-safety.md#safe-calls) (calls a method or accesses a property if the receiver is non-nullable).
  * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](null-safety.md#elvis-operator)).
  * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
  * `..`, `..<` create [ranges](ranges.md).
  * `:` separates a name from a type in a declaration.
- * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-null-types).
+ * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-nullable-types).
  * `->`
      - separates the parameters and body of a [lambda expression](lambdas.md#lambda-expression-syntax).
      - separates the parameters and return type declaration in a [function type](lambdas.md#function-types).

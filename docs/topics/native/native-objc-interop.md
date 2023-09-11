@@ -402,7 +402,7 @@ class Sample<T>() {
 
 In order to support a potentially nullable type, the Objective-C header needs to define `myVal` with a nullable return value.
 
-To mitigate this, when defining your generic classes, if the generic type should *never* be null, provide a non-null 
+To mitigate this, when defining your generic classes, if the generic type should _never_ be null, provide a non-nullable 
 type constraint:
 
 ```kotlin
@@ -411,7 +411,7 @@ class Sample<T : Any>() {
 }
 ```
 
-That will force the Objective-C header to mark `myVal` as non-null.
+That will force the Objective-C header to mark `myVal` as non-nullable.
 
 #### Variance
 
@@ -431,8 +431,8 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 #### Constraints
 
 In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
-in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-null
-upper bound will make Objective-C methods/properties non-null.
+in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-nullable
+upper bound will make Objective-C methods/properties non-nullable.
 
 #### To disable
 
