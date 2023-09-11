@@ -1,7 +1,7 @@
 [//]: # (title: iOS integration)
 
 > This page describes the new memory manager enabled by default since Kotlin 1.7.20. See our [migration guide](native-migration-guide.md)
-> to move your projects from the legacy memory manager.
+> to move your projects from the legacy memory manager that will be removed in Kotlin 1.9.20.
 >
 {type="note"}
 

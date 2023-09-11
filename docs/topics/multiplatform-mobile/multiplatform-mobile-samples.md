@@ -70,7 +70,7 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
     </td>
   </tr>
   <tr>
-    <td><strong><a href="https://github.com/JetBrains/compose-jb/tree/master/examples/todoapp">todoapp</a></strong></td>
+    <td><strong><a href="https://github.com/IlyaGulya/TodoAppDecomposeMviKotlin">TodoAppDecomposeMviKotlin</a></strong></td>
     <td>Models, Networking, Presentation, Navigation and UI </td>
     <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
     <td>Jetpack Compose, SwiftUI</td>
@@ -177,7 +177,7 @@ This is a curated list of cross-platform mobile projects created with Kotlin Mul
     <td>-</td>
     <td>
       <list>
-        <li> Uses <a href="https://realm.io/">Realm</a> for data persistence </li>
+        <li> Uses <a href="https://www.mongodb.com/docs/realm/sdk/kotlin/">Realm</a> for data persistence </li>
       </list>
     </td>
   </tr>
