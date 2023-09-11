@@ -1,6 +1,6 @@
 [//]: # (title: Configure a Gradle project)
 
-To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/getting_started.html), 
+To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/userguide.html), 
 you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
 and [configure the project's dependencies](#configure-dependencies) there.
 
@@ -1150,5 +1150,5 @@ dependencies {
 Learn more about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).
