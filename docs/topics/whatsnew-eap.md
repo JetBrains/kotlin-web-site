@@ -22,12 +22,10 @@ The Kotlin %kotlinEapVersion% release is out! Here are some highlights from this
 
 The Kotlin plugins that support %kotlinEapVersion% are available for:
 
-| IDE            | Supported versions                                      |
-|----------------|---------------------------------------------------------|
-| IntelliJ IDEA  | 2023.1.x, 2023.2.x                                      |
-| Android Studio | Hedgehog (2023.1.1 Beta 3)*, Iguana (2023.2.1 Canary 2) |
-
-*The Kotlin 1.9.20-Beta plugin is available on the JetBrains Marketplace for the Hedgehog (2023.1.1 Beta 3) release.
+| IDE            | Supported versions                                     |
+|----------------|--------------------------------------------------------|
+| IntelliJ IDEA  | 2023.1.x, 2023.2.x                                     |
+| Android Studio | Hedgehog (2023.1.1 Beta 3), Iguana (2023.2.1 Canary 2) |
 
 ## Kotlin Multiplatform
 
