@@ -5,7 +5,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release, but it highlights the latest
 > ones and some major improvements.
 >
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/%kotlinEapVersion%).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
 {type="note"}
 
