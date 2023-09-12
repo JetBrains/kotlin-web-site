@@ -316,7 +316,7 @@ Instances of these factories will be created later in the code of your Android a
 
 You can navigate through the `expect` declarations and `actual` implementations by clicking the handy gutter icon:
 
-![Expect/Actual gutter](expect-actual-gutter.png){width=500}
+![Expect/Actual gutter](expect-actual-gutter-sql.png){width=500}
 
 ### Implement cache
 
