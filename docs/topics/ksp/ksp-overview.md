@@ -2,10 +2,10 @@
 
 Kotlin Symbol Processing (_KSP_) is an API that you can use to develop lightweight compiler plugins.
 KSP provides a simplified compiler plugin API that leverages the power of Kotlin while keeping the learning curve at
-a minimum. Compared to [kapt](kapt.md), annotation processors that use KSP can run up to 2 times faster.
+a minimum. Compared to [kapt](kapt.md), annotation processors that use KSP can run up to two times faster.
 
-To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
-To get started writing a KSP processor, take a look at the [KSP quickstart](ksp-quickstart.md).
+* To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
+* To get started writing a KSP processor, take a look at the [KSP quickstart](ksp-quickstart.md).
 
 ## Overview
 
@@ -157,26 +157,26 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 
 ## Supported libraries
 
-The table below includes a list of popular libraries on Android and their various stages of support for KSP.
+The table includes a list of popular libraries on Android and their various stages of support for KSP:
 
-|Library|Status|Tracking issue for KSP|
-|---|---|---|
-|Room|[Officially supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|   |
-|Moshi|[Officially supported](https://github.com/square/moshi/)|   |
-|RxHttp|[Officially supported](https://github.com/liujingxing/rxhttp)|   |
-|Kotshi|[Officially supported](https://github.com/ansman/kotshi)|   |
-|Lyricist|[Officially supported](https://github.com/adrielcafe/lyricist)|   |
-|Lich SavedState|[Officially supported](https://github.com/line/lich/tree/master/savedstate)|   |
-|gRPC Dekorator|[Officially supported](https://github.com/mottljan/grpc-dekorator)|   |
-|EasyAdapter|[Officially supported](https://github.com/AmrDeveloper/EasyAdapter)|   |
-|Koin Annotations|[Officially supported](https://github.com/InsertKoinIO/koin-annotations)|   |
-|Auto Factory|Not yet supported|[Link](https://github.com/google/auto/issues/982)|
-|Dagger|In Progress|[Link](https://dagger.dev/dev-guide/ksp)|
-|Hilt|In Progress|[Link](https://dagger.dev/dev-guide/ksp)|
-|Glide|[Officially supported](https://github.com/bumptech/glide)|   |
-|DeeplinkDispatch|[Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)| |
-|Micronaut|In Progress|[Link](https://github.com/micronaut-projects/micronaut-core/issues/6781)|
-|Epoxy|[Officially supported](https://github.com/airbnb/epoxy)||
-|Paris|[Officially supported](https://github.com/airbnb/paris)||
-|Auto Dagger|[Officially supported](https://github.com/ansman/auto-dagger)||
-|SealedX|[Officially supported](https://github.com/skydoves/sealedx)||
+|Library|Status|
+|---|---|
+|Room|[Officially supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|
+|Moshi|[Officially supported](https://github.com/square/moshi/)|
+|RxHttp|[Officially supported](https://github.com/liujingxing/rxhttp)|
+|Kotshi|[Officially supported](https://github.com/ansman/kotshi)|
+|Lyricist|[Officially supported](https://github.com/adrielcafe/lyricist)|
+|Lich SavedState|[Officially supported](https://github.com/line/lich/tree/master/savedstate)|
+|gRPC Dekorator|[Officially supported](https://github.com/mottljan/grpc-dekorator)|
+|EasyAdapter|[Officially supported](https://github.com/AmrDeveloper/EasyAdapter)|
+|Koin Annotations|[Officially supported](https://github.com/InsertKoinIO/koin-annotations)|
+|Glide|[Officially supported](https://github.com/bumptech/glide)| 
+|Micronaut|[Officially supported](https://micronaut.io/2023/07/14/micronaut-framework-4-0-0-released/)|
+|Epoxy|[Officially supported](https://github.com/airbnb/epoxy)|
+|Paris|[Officially supported](https://github.com/airbnb/paris)|
+|Auto Dagger|[Officially supported](https://github.com/ansman/auto-dagger)|
+|SealedX|[Officially supported](https://github.com/skydoves/sealedx)|
+|DeeplinkDispatch|[Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)|
+|Dagger|[Alpha](https://dagger.dev/dev-guide/ksp)|
+|Hilt|[In progress](https://dagger.dev/dev-guide/ksp)|
+|Auto Factory|[Not yet supported](https://github.com/google/auto/issues/982)|
