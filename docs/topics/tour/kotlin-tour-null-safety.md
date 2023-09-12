@@ -41,7 +41,7 @@ fun main() {
     nullable = null
 
     // By default, null values aren't accepted
-    var inferredNonNull = "The compiler assumes non-null"
+    var inferredNonNull = "The compiler assumes non-nullable"
 
     // Throws a compiler error
     inferredNonNull = null

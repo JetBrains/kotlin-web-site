@@ -529,7 +529,7 @@ fun writeToFile() {
 
 ## Null-safety
 
-When calling Kotlin functions from Java, nobody prevents us from passing `null` as a non-null parameter.
+When calling Kotlin functions from Java, nobody prevents us from passing `null` as a non-nullable parameter.
 That's why Kotlin generates runtime checks for all public functions that expect non-nulls.
 This way we get a `NullPointerException` in the Java code immediately.
 
