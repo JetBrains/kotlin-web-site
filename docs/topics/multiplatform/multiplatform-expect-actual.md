@@ -38,8 +38,8 @@ declarations corresponding to each other. It generates one declaration with its 
 Therefore, every usage of the expected declaration in the common code will call the correct actual declaration in the
 resulting platform code.
 
-When you use intermediate source sets shared between different target platforms, you can declare actual declarations
-there. Consider, for example, the `iosMain` an intermediate source set shared between the `iosX64Main`, `iosArm64Main`,
+You can declare actual declarations when you use intermediate source sets shared between different target platforms.
+Consider, for example, the `iosMain` an intermediate source set shared between the `iosX64Main`, `iosArm64Main`,
 and `iosSimulatorArm64Main`platform source sets. Only `iosMain` typically contains the actual declarations, not the
 platform source sets. The Kotlin compiler will then use these actual declarations to produce the resulting code for
 corresponding platforms.
@@ -50,7 +50,7 @@ the signatures of declarations do not match, or the declarations are in differen
 You can also use the IDE to navigate from expected to actual declarations. You can select the gutter icon to view actual
 declarations or use [shortcuts](https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_implementation).
 
-![IDE navigation from expected to actual declarations](expect-actual-gutter.png){width=700}
+![IDE navigation from expected to actual declarations](expect-actual-gutter.png){width=500}
 
 ## Different approaches to using the expect/actual mechanism
 
@@ -61,10 +61,10 @@ Consider a Kotlin Multiplatform project where you need to implement the `Identit
 login name and the current process ID. The project has the `commonMain`, `jvmMain`, and `nativeMain` source sets to make
 the app work on the JVM and in native environments like iOS.
 
-### Using expected and actual functions
+### Expected and actual functions
 
 You can define an `Identity` type and a factory function `buildIdentity()`, which is declared in the common source set
-and implemented differently in platform source sets.
+and implemented differently in platform source sets:
 
 1. In `commonMain`, declare a simple type and expect a factory function:
 
@@ -106,13 +106,13 @@ and implemented differently in platform source sets.
   )
   ```
 
-Here, platform functions return platform-specific `Identity` instances.
+  Here, platform functions return platform-specific `Identity` instances.
 
-> Starting with Kotlin version 1.9, the use of `getlogin()` and `getpid()` requires the `OptIn` annotation.
+> Starting with Kotlin version 1.9.0, using `getlogin()` and `getpid()` requires the `@OptIn` annotation.
 >
 {type="note"}
 
-### Using interfaces with expected and actual functions
+### Interfaces with expected and actual functions
 
 If the factory function becomes too big, consider using a common `Identity` interface and implementing it differently on
 different platforms.
@@ -135,7 +135,7 @@ common interface:
 2. Create platform-specific implementations of the interface without additional use of `expect` and `actual`:
 
   ```kotlin
-  // In the `jvmMain` source set:
+  // In the jvmMain source set:
   actual fun buildIdentity(): Identity = JVMIdentity()
 
   class JVMIdentity(
@@ -250,7 +250,7 @@ With this approach, you can adopt Kotlin Multiplatform simply by using interface
 use the DI framework to manage dependencies in your project, it's recommended the same approach for managing platform
 dependencies.
 
-### Using expected and actual classes
+### Expected and actual classes
 
 It's possible to use expected and actual classes to implement the same solution:
 
@@ -279,7 +279,7 @@ actual class Identity {
 ```
 
 You might have seen this approach in demonstration materials before. However, using classes in simple cases where
-interfaces would be sufficient is not recommended.
+interfaces would be sufficient is _not recommended_.
 
 With interfaces, you do not limit your design to one implementation per target platform. Also, it's much easier to
 substitute a fake implementation in tests or provide multiple implementations on a single platform.
@@ -408,7 +408,7 @@ expect class MyDate {
 }
 ```
 
-Within a JVM module, the `java.time.Month` enum could be used to implement the first expected declaration, and
+Within a JVM module, the `java.time.Month` enum could be used to implement the first expected declaration and
 the `java.time.LocalDate` class to implement the second. However, there's no way to add the `actual` keyword directly to
 these types.
 
@@ -482,7 +482,7 @@ actual enum class Department { IT, HR, Sales, Legal }
 actual enum class Department { IT, HR, Sales, Marketing }
 ```
 
-However, the matching on `Department` in common code can never be exhaustive now. Therefore, the compiler requires you
+However, matching `Department` in common code can never be exhaustive now. Therefore, the compiler requires you
 to handle potential additional cases.
 
 So, the function that implements the `when` construction on `Department` requires an `else` clause:
@@ -546,4 +546,4 @@ error.
 
 ## What's next?
 
-For general recommendations on different ways to use platform specifics, see [Using platform-specific APIs](multiplatform-connect-to-apis.md)
+For general recommendations on different ways to use platform specifics, see [Using platform-specific APIs](multiplatform-connect-to-apis.md).
