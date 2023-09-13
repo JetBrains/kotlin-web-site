@@ -1,5 +1,10 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
+.evenSection {
+    background: #fff;
+    padding-top: var(--ktl-box-page-l);
+}
+
 .videoPlayer {
     max-width: 556px;
 }

@@ -3,7 +3,6 @@
 .container {
     display: flex;
     align-items: stretch;
-    margin-top: 96px;
 }
 
 .item {
