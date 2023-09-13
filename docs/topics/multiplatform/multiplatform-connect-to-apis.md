@@ -1,14 +1,13 @@
 [//]: # (title: Use platform-specific APIs)
 
-In this article you'll learn how to use platform-specific APIs when developing multiplatform applications and libraries.
+In this article, you'll learn how to use platform-specific APIs when developing multiplatform applications and libraries.
 
 ## Kotlin multiplatform libraries
 
-Before writing code that uses platform-specific API, check whether you can avoid it by using a multiplatform library
-that already does the job. Such a library provides a common Kotlin API that is implemented differently for different
-platforms.
+Before writing code that uses platform-specific API, check whether you can avoid it with a multiplatform library that
+can do the same job. Such a library provides a common Kotlin API that is implemented differently for different platforms.
 
-There are already many libraries you can use to implement networking, logging, analytics, accessing device
+You can already benefit from many libraries you can use to implement networking, logging, analytics, accessing device
 functionality, and so on. You can look for one in [this curated list](https://github.com/terrakok/kmm-awesome).
 
 ## Expected and actual functions and properties
@@ -35,13 +34,13 @@ annotations. This section focuses on using expected and actual functions and pro
 In this example, you define an expected `platform()` function in the common source set and provide actual
 implementations in platform source sets. While generating the code for a specific platform, the Kotlin compiler merges
 expected and actual declarations. It generates one `platform()` function with its actual implementation. Expected and
-actual declarations should be defined in the same package and are merged into _one declaration_ in the resulting
+actual declarations should be defined in the same package and merged into _one declaration_ in the resulting
 platform code. Any invocation of the expected `platform()` function in the generated platform code will call the correct
 actual implementation.
 
 ### Example. Generate a UUID
 
-Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform, and you want to generate a
+Let's assume you are developing iOS and Android applications using Kotlin Multiplatform and want to generate a
 universally unique identifier (UUID).
 
 For this purpose, declare the expected function `randomUUID()` with the `expect` keyword in the common source set of
@@ -120,9 +119,11 @@ class IOSPlatform : Platform {
 }
 ```
 
-To inject correct platform implementations when you need the common interface, you can use [expected and actual
-functions](#expected-and-actual-functions), provide implementations through [different entry points](#different-entry-points),
-or use a [dependency injection (DI) framework](#dependency-injection-framework).
+To inject correct platform implementations when you need the common interface, do one of the following:
+
+* [Use expected and actual functions](#expected-and-actual-functions)
+* [Provide implementations through different entry points](#different-entry-points)
+* [Use a dependency injection framework](#dependency-injection-framework)
 
 ### Expected and actual functions
 
@@ -208,9 +209,8 @@ On Android, you create an instance of `AndroidPlatform` and pass it to the `appl
 similarly create and pass an instance of `IOSPlatform`. These entry points don't need to be the entry points of your
 apps, but this is where you can call the specific functionality of your shared module.
 
-Providing correct implementations with expected and actual functions or directly through entry points work well for
-simple scenarios. However, if you use DI in your project, we recommend you to use it in such cases as well for
-consistency.
+Providing correct implementations with expected and actual functions or directly through entry points works well for
+simple scenarios. However, if you use DI in your project, we recommend you use it in such cases as well for consistency.
 
 ### Dependency injection framework
 
@@ -218,7 +218,7 @@ A modern application typically uses a dependency injection (DI) framework to cre
 DI framework allows injecting dependencies into components based on the current environment.
 
 Any DI framework that supports Kotlin Multiplatform can help you inject different dependencies for different platforms.
-We don't want to recommend any specific framework, use the one you prefer.
+We don't want to recommend any specific framework. Use the one you prefer.
 
 For instance, that's how to inject platform implementations with one of the frameworks that support Kotlin
 Multiplatform, [Koin](https://insert-koin.io/):
@@ -253,23 +253,23 @@ actual val platformModule = module {
 ```
 
 Here, Koin DSLs create modules that define components for injection. You declare a module in common code with
-the `expect` keyword, and then provide a platform-specific implementation for each platform using the `actual` keyword.
+the `expect` keyword and then provide a platform-specific implementation for each platform using the `actual` keyword.
 The framework takes care of selecting the correct implementation at runtime.
 
-When you use a DI framework, you inject all the dependencies though this framework. The same logic applies to handling
+When you use a DI framework, you inject all the dependencies through this framework. The same logic applies to handling
 platform dependencies. We recommend sticking to DI if you already have it in your project instead of using the expected
 and actual functions manually. This way, you avoid mixing two different ways of injecting dependencies.
 
 Note that you don't have to implement the common interface in Kotlin. You can do it in other languages, for example in
-Swift, in a different _platform module_. Then you provide the implementation from the iOS platform module using the DI
+Swift, in a different _platform module_. Then, you provide the implementation from the iOS platform module using the DI
 framework:
 
 ![Using dependency injection framework](expect-di-framework.png){width=500}
 
-This approach only works if you put implementations in the platform modules. It isn't very scalable because your Kotlin
+This approach only works if you put implementations in platform modules. It isn't very scalable because your Kotlin
 Multiplatform module can't be self-sufficient − you should implement the common interface in a different module.
 
-<!--If you're interested in expanding this functionality to a shared module, please vote for this issue [TODO create or find an issue] and describe your use case.-->
+<!-- If you're interested in expanding this functionality to a shared module, please vote for this issue [TODO create or find an issue] and describe your use case. -->
 
 ## What's next?
 
