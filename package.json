@@ -10,7 +10,7 @@
     "@babel/core": "7.15.8",
     "@babel/register": "7.15.3",
     "@jetbrains/babel-preset-jetbrains": "^2.3.1",
-    "@jetbrains/kotlin-web-site-ui": "4.5.1",
+    "@jetbrains/kotlin-web-site-ui": "4.7.1",
     "@react-hook/resize-observer": "1.2.5",
     "@rescui/button": "0.4.0",
     "@rescui/card": "0.5.0",
@@ -74,7 +74,6 @@
     "use-match-media-hook": "1.0.1",
     "validator": "13.7.0",
     "webpack": "5.76.0",
-    "webpack-cli": "4.7.2",
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
@@ -91,6 +90,7 @@
     "prettier": "2.6.2",
     "start-server-and-test": "1.14.0",
     "typescript": "4.6.3",
+    "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.3.1",
     "yaml-loader": "0.7.0"
   },

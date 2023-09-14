@@ -28,7 +28,7 @@
             <a href="coding-conventions.md" description="Recommendations on the code organization, formatting, and naming">Coding conventions</a>
             <a href="basic-types.md" description="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
             <a href="control-flow.md" description="Conditions and loops: if, when, for, while">Control flow</a>
-            <a href="null-safety.md" description="Nullable and non-null types, elvis operator, safe calls and casts ">Null safety</a>
+            <a href="null-safety.md" description="Nullable and non-nullable types, elvis operator, safe calls and casts ">Null safety</a>
             <a href="coroutines-overview.md" description="Concurrency: coroutines, flows, channels">Coroutines</a>
         </highlighted-group>
         <custom-groups>
@@ -50,7 +50,7 @@
                     <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
                     <a href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" description="Kotlin Core track by JetBrains Academy">JetBrains Academy</a>
                     <a href="advent-of-code.md" description="Code puzzles in idiomatic Kotlin">Advent of Code</a>
-                    <a href="https://play.kotlinlang.org/hands-on/overview" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
+                    <a href="kotlin-hands-on.md" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
                     <a href="edu-tools-learner.md"
                        description="An IDE plugin for learning and teaching programming languages">JetBrains Academy in
                         IntelliJ IDEA</a>

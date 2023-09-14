@@ -779,9 +779,9 @@ kotlin {
                 api("com.example:foo-metadata:1.0")
             }
         }
-        val jvm6Main by getting {
+        val jvmMain by getting {
             dependencies {
-                implementation("com.example:foo-jvm6:1.0")
+                implementation("com.example:foo-jvm:1.0")
             }
         }
     }
@@ -799,9 +799,9 @@ kotlin {
                 api 'com.example:foo-metadata:1.0'
             }
         }
-        jvm6Main {
+        jvmMain {
             dependencies {
-                implementation 'com.example:foo-jvm6:1.0'
+                implementation 'com.example:foo-jvm:1.0'
             }
         }
     }
@@ -811,7 +811,8 @@ kotlin {
 </tab>
 </tabs>
 
-Additionally, source sets can depend on each other and form a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
+Additionally, source sets can depend on each other and form a hierarchy.
+In this case, the [`dependsOn()`](#source-set-parameters) relation is used.
 
 Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.

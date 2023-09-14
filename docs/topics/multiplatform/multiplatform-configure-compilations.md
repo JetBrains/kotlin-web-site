@@ -43,10 +43,9 @@ kotlin {
 
 ```kotlin
 kotlin {
-    targets.jvm.compilations.all {
+    jvm().compilations.all {
         compilerOptions.configure {
-            sourceMap.set(true)
-            metaInfo.set(true)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 }
@@ -59,8 +58,7 @@ kotlin {
 kotlin {
     jvm().compilations.all {
         compilerOptions.configure {
-            sourceMap.set(true)
-            metaInfo.set(true)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 }
@@ -91,9 +89,11 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvm().compilations.main {
-        compilerOptions.configure {
-            jvmTarget.set(JvmTarget.JVM_1_8)
+    jvm {
+        compilations.main {
+            compilerOptions.configure {
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
         }
     }
 }

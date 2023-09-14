@@ -156,4 +156,4 @@ Otherwise, you will receive an error similar to this:
 
 ## What's next?
 
-Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+Learn more about [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).

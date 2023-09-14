@@ -4,15 +4,15 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.9.0" type="string"/>
+    <var name="kotlinVersion" value="1.9.10" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.9.0-RC" type="string"/>
+    <var name="kotlinEapVersion" value="1.9.20-Beta" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.9.10" type="string"/>
 
-    <var name="kotlinReleaseDate" value="July 6, 2023" type="string"/>
+    <var name="kotlinReleaseDate" value="August 23, 2023" type="string"/>
 
-    <var name="kotlinEapReleaseDate" value="June 20, 2023" type="string"/>
+    <var name="kotlinEapReleaseDate" value="September 11, 2023" type="string"/>
 
     <var name="coroutinesVersion" value="1.7.1" type="string"/>
 
@@ -27,6 +27,10 @@
     <var name="maxAndroidGradleVersion" value="7.4.0" type="string"/>
 
     <var name="gradleVersion" value="7.6" type="string"/>
+
+    <var name="gradleLanguageVersion" value="KOTLIN_2_0" type="string"/>
+
+    <var name="gradleApiVersion" value="KOTLIN_2_0" type="string"/>
 
     <var name="serializationVersion" value="1.5.1" type="string"/>
 

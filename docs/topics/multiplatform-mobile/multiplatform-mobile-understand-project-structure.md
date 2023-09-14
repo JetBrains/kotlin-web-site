@@ -159,7 +159,7 @@ Read [Multiplatform documentation on adding dependencies](multiplatform-add-depe
 Along with `*Main` source sets, there are three matching test source sets:
 
 * `commonTest`
-* `androidTest`
+* `androidUnitTest`
 * `iosTest`
 
 Use them to store unit tests for common and platform-specific source sets accordingly.
@@ -178,7 +178,7 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosTest by getting
     }
 
@@ -198,7 +198,7 @@ kotlin {
                 implementation kotlin('test')
             }
         }
-        androidTest {
+        androidUnitTest {
 
         }
         iosTest {
@@ -253,11 +253,12 @@ The configuration of Android library is stored in the `android {}` top-level blo
 
 ```kotlin
 android {
-    compileSdk = 29
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    //  For example:
+    namespace = "com.example.kotlinmultiplatformsandbox"
+    compileSdk = 33
     defaultConfig {
         minSdk = 24
-        targetSdk = 29
     }
 }
 ```
@@ -267,11 +268,12 @@ android {
 
 ```groovy
 android {
-    compileSdk 29
-    sourceSets.main.manifest.srcFile 'src/androidMain/AndroidManifest.xml'
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    // For example:
+    namespace "com.example.kotlinmultiplatformsandbox"
+    compileSdk 33
     defaultConfig {
         minSdk 24
-        targetSdk 29
     }
 }
 ```
@@ -438,7 +440,6 @@ android {
     defaultConfig {
         applicationId = "org.example.androidApp"
         minSdk = 24
-        targetSdk = 29
         versionCode = 1
         versionName = "1.0"
     }
@@ -459,7 +460,6 @@ android {
     defaultConfig {
         applicationId 'org.example.androidApp'
         minSdk 24
-        targetSdk 29
         versionCode 1
         versionName '1.0'
     }

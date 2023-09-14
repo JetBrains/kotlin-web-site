@@ -70,7 +70,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | Kotlin/JVM (IR-based)                             | Stable       | 1.5                      |                                                                                   |
 | Kotlin/JS (IR-based)                              | Stable       | 1.8                      |                                                                                   |
 | Kotlin/Native Runtime                             | Beta         | 1.3                      |                                                                                   |
-| Kotlin/Native memory manager                      | Beta         | 1.7.20                   | Same stability level as Kotlin/Native                                             |
+| Kotlin/Native memory manager                      | Beta         | 1.7.20                   |                                                                                   |
 | klib binaries                                     | Beta         | 1.9.0                    |                                                                                   |
 | Kotlin Multiplatform                              | Beta         | 1.7.20                   |                                                                                   |
 | Kotlin/Native interop with C and Objective C      | Beta         | 1.3                      |                                                                                   |

@@ -59,7 +59,7 @@ For both the JVM and Android projects, it's possible to define options using the
 ```kotlin
 kotlin {
     compilerOptions {
-        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleApiVersion%)
     }
 }
 ```
@@ -70,7 +70,7 @@ kotlin {
 ```groovy
 kotlin {
     compilerOptions {
-        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleApiVersion%
     }
 }
 ```
@@ -171,7 +171,7 @@ Here is a complete list of options for Gradle tasks:
 | Name                      | Description                                                                                                                                                                                                                                   | Possible values                                                                                  | Default value               |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------------|
 | `javaParameters`          | Generate metadata for Java 1.8 reflection on method parameters                                                                                                                                                                                |                                                                                                  | false                       |
-| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ..., "19". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
+| `jvmTarget`               | Target version of the generated JVM bytecode                                                                                                                                                                                                  | "1.8", "9", "10", ..., "20". Also, see [Types for compiler options](#types-for-compiler-options) | "%defaultJvmTargetVersion%" |
 | `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                  | false                       |
 | `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `INFO`                                                                       | `ERROR`                     |
 
@@ -237,8 +237,8 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 | Name | Description | Possible values |Default value |
 |------|-------------|-----------------|--------------|
-| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |  |
+| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
 
 #### Example of setting a languageVersion
 
@@ -254,7 +254,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
             )
     }
 ```
@@ -267,7 +267,7 @@ tasks
     .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
     .configureEach {
         compilerOptions.languageVersion = 
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
 }
 ```
 
@@ -299,7 +299,7 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 | Option | Type | Example |
 |--------|------|---------|
 | `jvmTarget` | [`JvmTarget`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JvmTarget.kt) | `compilerOptions.jvmTarget.set(JvmTarget.JVM_11)` |
-| `apiVersion` and `languageVersion` | [`KotlinVersion`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinVersion.kt) | `compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_1_9)` |
+| `apiVersion` and `languageVersion` | [`KotlinVersion`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinVersion.kt) | `compilerOptions.languageVersion.set(KotlinVersion.%gradleLanguageVersion%)` |
 | `main` | [`JsMainFunctionExecutionMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsMainFunctionExecutionMode.kt) | `compilerOptions.main.set(JsMainFunctionExecutionMode.NO_CALL)` |
 | `moduleKind` | [`JsModuleKind`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsModuleKind.kt) | `compilerOptions.moduleKind.set(JsModuleKind.MODULE_ES)` |
 | `sourceMapEmbedSources` | [`JsSourceMapEmbedMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapEmbedMode.kt) | `compilerOptions.sourceMapEmbedSources.set(JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_INLINING)` |
@@ -309,5 +309,5 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 
 Learn more about:
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).
