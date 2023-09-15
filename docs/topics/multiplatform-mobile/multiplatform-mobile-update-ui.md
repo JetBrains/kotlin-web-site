@@ -1,10 +1,10 @@
-[//]: # (title: Update UI)
+[//]: # (title: Update the user interface)
 
 <microformat>
     <p>This is the third part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
-       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update UI</strong><br/>       
+       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update the user interface</strong><br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
        <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
@@ -15,7 +15,7 @@ for the Android part of your project and [SwiftUI](https://developer.apple.com/x
 These are both declarative UI frameworks, and you'll see similarities in the UI implementations. In both cases,
 you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
 
-### The Android module
+### Update the Android module
 
 The `androidApp` module contains an Android application, defines its main activity and the UI views, and uses the
 `shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
@@ -73,7 +73,7 @@ Make some changes and see how it is reflected in the UI:
 
    ![Updated UI of Android multiplatform app](first-multiplatform-project-on-android-2.png){width=300}
 
-### The iOS module
+### Work with the iOS module in Xcode
 
 `iosApp` is an Xcode project that builds into an iOS application. It depends on and uses the `shared` module as an iOS
 framework. The UI of the app is written in Swift.

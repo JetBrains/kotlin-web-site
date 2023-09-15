@@ -4,7 +4,7 @@
     <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
        <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/>
-       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update UI<br/>       
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update the user interface<br/>       
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
        <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
@@ -73,7 +73,7 @@ When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Nat
 
 ![Common Kotlin, Kotlin/JVM, and Kotlin/Native](modules-structure.png)
 
-### Writing common declarations
+### Write common declarations
 
 The common source set contains shared code that can be used across multiple target platforms.
 It's designed to contain code that is platform-independent. If you try to use platform-specific APIs in the common source set,
@@ -113,7 +113,7 @@ IDE will show a warning:
 Writing the code only in common Kotlin has obvious limitations because it can't use any platform specifics.
 Using interfaces and the [expect/actual](multiplatform-connect-to-apis.md) mechanism solves this.
 
-### Adding platform-specific implementations
+### Add platform-specific implementations
 
 The common source set can define an interface or an expected declaration. Then each platform source sets,
 in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
@@ -142,7 +142,9 @@ and generates a single declaration with actual implementations.
         override val name: String =
             "Android ${Build.VERSION.SDK_INT}"
     }
-    
+    ```
+   
+    ```kotlin
     // Platform.kt in the iosMain module:
     import platform.UIKit.UIDevice
     
@@ -151,7 +153,6 @@ and generates a single declaration with actual implementations.
             UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
     }
     ```
-    {validate="false"}
 
     * The `name` property implementation from `AndroidPlatform` uses the Android platform code, namely the `android.os.Build`
       dependency. This code is written in Kotlin/JVM. If you try to access `java.util.Random` here, this code will compile.
@@ -165,10 +166,14 @@ and generates a single declaration with actual implementations.
     ```kotlin
     // Platform.kt in commonMain module:
     expect fun getPlatform(): Platform
-    
+    ```
+   
+    ```kotlin
     // Platform.kt in androidMain module:
     actual fun getPlatform(): Platform = AndroidPlatform()
-    
+    ```
+   
+    ```kotlin
     // Platform.kt in iosMain module:
     actual fun getPlatform(): Platform = IOSPlatform()
     ```
