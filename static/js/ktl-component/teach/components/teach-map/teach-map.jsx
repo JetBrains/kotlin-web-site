@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import {TeachMapMarker} from './teach-map-marker.jsx';
 import './teach-map.scss';
 import {settings} from "../../../../util/map-settings";
+import { ErrorBoundary } from "react-error-boundary";
 
 export const TeachMap = ({className}) => {
   const [universities, setUniversities] = useState([]);
@@ -29,26 +30,28 @@ export const TeachMap = ({className}) => {
   }, []);
 
   return (
-    <div className={`teach-map ${className ? className : ''}`}>
-      <GoogleMapReact
-        bootstrapURLKeys={{key: settings.key}}
-        defaultCenter={settings.defaultCenter}
-        defaultZoom={settings.defaultZoom}
-        options={settings.options}
-        onChildClick={handleChildClick}
-      >
-        {universities.map(item => (
-          <TeachMapMarker
-            key={item.id}
-            lat={item.geo.lat}
-            lng={item.geo.lng}
-            university={item}
-            showTooltip={item.id === activeId}
-            onClose={handleChildClick}
-          />
-        ))}
+    <ErrorBoundary fallback={<div>Map is unavailable</div>}>
+      <div className={`teach-map ${className ? className : ''}`}>
+        <GoogleMapReact
+          bootstrapURLKeys={{key: settings.key}}
+          defaultCenter={settings.defaultCenter}
+          defaultZoom={settings.defaultZoom}
+          options={settings.options}
+          onChildClick={handleChildClick}
+        >
+          {universities.map(item => (
+            <TeachMapMarker
+              key={item.id}
+              lat={item.geo.lat}
+              lng={item.geo.lng}
+              university={item}
+              showTooltip={item.id === activeId}
+              onClose={handleChildClick}
+            />
+          ))}
 
-      </GoogleMapReact>
-    </div>
+        </GoogleMapReact>
+      </div>
+    </ErrorBoundary>
   );
 }
