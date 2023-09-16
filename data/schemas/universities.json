@@ -11,16 +11,24 @@
         "type": "string"
       },
       "courses": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            }
           },
-          "url": {
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
+          "required": ["name", "url"],
+          "additionalProperties": false
+        }
       },
       "geo": {
         "type": "object",
@@ -32,15 +40,11 @@
             "type": "number"
           }
         },
+        "required": ["lat", "lng"],
         "additionalProperties": false
       }
     },
-    "additionalProperties": false,
-    "required": [
-      "title",
-      "location",
-      "courses",
-      "geo"
-    ]
+    "required": ["title", "location", "courses", "geo"],
+    "additionalProperties": false
   }
 }
