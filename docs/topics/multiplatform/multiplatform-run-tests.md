@@ -334,6 +334,8 @@ similar directory structure to this in your project:
 You can run individual tests from the context menu or use the shortcut. One more option is to use Gradle tasks. For
 example, if you run the `allTests` Gradle task, every test in your project will be run with a corresponding test runner.
 
+![Gradle test tasks](gradle-alltests.png){width=700}
+
 When you run tests, in addition to the output in your IDE, HTML reports are generated. You can find them in
 the `shared/build/tests` directory:
 
