@@ -2,20 +2,45 @@
 
 The *no-arg* compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
 
-The generated constructor is synthetic so it can't be directly called from Java or Kotlin, but it can be called using reflection.
+The generated constructor is synthetic, so it can't be directly called from Java or Kotlin, but it can be called using reflection.
 
 This allows the Java Persistence API (JPA) to instantiate a class although it doesn't have the zero-parameter constructor
 from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](#jpa-support)).
+
+## In your Kotlin file
+
+Add new annotations to mark the code that needs a zero-argument constructor:
+
+```kotlin
+package com.my
+
+annotation class Annotation
+```
 
 ## Gradle
 
 Add the plugin using Gradle's plugins DSL:
 
-```groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 plugins {
-  id "org.jetbrains.kotlin.plugin.noarg" version "%kotlinVersion%"
+    kotlin("plugin.noarg") version "%kotlinVersion%"
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.plugin.noarg" version "%kotlinVersion%"
+}
+```
+
+</tab>
+</tabs>
 
 Then specify the list of no-arg annotations that must lead to generating a no-arg constructor for the annotated classes:
 
@@ -74,11 +99,26 @@ and [`@MappedSuperclass`](https://docs.oracle.com/javaee/7/api/javax/persistence
 
 Add the plugin using the Gradle plugins DSL:
 
-```groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 plugins {
-  id "org.jetbrains.kotlin.plugin.jpa" version "%kotlinVersion%"
+    kotlin("plugin.jpa") version "%kotlinVersion%"
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.plugin.jpa" version "%kotlinVersion%"
+}
+```
+
+</tab>
+</tabs>
 
 In Maven, enable the `jpa` plugin:
 

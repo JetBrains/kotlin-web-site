@@ -85,7 +85,7 @@ In other words, the wildcard with an _extends_\-bound (_upper_ bound) makes the 
 The key to understanding why this works is rather simple: if you can only _take_ items from a collection,
 then using a collection of `String`s and reading `Object`s from it is fine. Conversely, if you can only _put_ items
 into the collection, it's okay to take a collection of `Object`s and put `String`s into it: in Java there is
-`List<? super String>`, a _supertype_ of `List<Object>`.
+`List<? super String>`, which accepts `String`s or any of its supertypes.
 
 The latter is called _contravariance_, and you can only call methods that take `String` as an argument on `List<? super String>`
 (for example, you can call `add(String)` or `set(int, String)`).  If you call something that returns `T` in `List<T>`,

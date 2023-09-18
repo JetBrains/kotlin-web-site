@@ -1,6 +1,6 @@
 [//]: # (title: Null safety)
 
-## Nullable types and non-null types
+## Nullable types and non-nullable types
 
 Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
@@ -23,13 +23,13 @@ The only possible causes of an NPE in Kotlin are:
   * Other issues caused by external Java code.
 
 In Kotlin, the type system distinguishes between references that can hold `null` (nullable references) and those that
-cannot (non-null references).
+cannot (non-nullable references).
 For example, a regular variable of type `String` cannot hold `null`:
 
 ```kotlin
 fun main() {
 //sampleStart
-    var a: String = "abc" // Regular initialization means non-null by default
+    var a: String = "abc" // Regular initialization means non-nullable by default
     a = null // compilation error
 //sampleEnd
 }
@@ -196,7 +196,7 @@ fun foo(node: Node): String? {
 
 ## The `!!` operator
 
-The third option is for NPE-lovers: the not-null assertion operator (`!!`) converts any value to a non-null
+The third option is for NPE-lovers: the not-null assertion operator (`!!`) converts any value to a non-nullable
 type and throws an exception if the value is `null`. You can write `b!!`, and this will return a non-null value of `b`
 (for example, a `String` in our example) or throw an NPE if `b` is `null`:
 
@@ -217,7 +217,7 @@ val aInt: Int? = a as? Int
 
 ## Collections of a nullable type
 
-If you have a collection of elements of a nullable type and want to filter non-null elements, you can do so by using
+If you have a collection of elements of a nullable type and want to filter non-nullable elements, you can do so by using
 `filterNotNull`:
 
 ```kotlin

@@ -3,7 +3,9 @@
 > This page describes the features of the legacy memory manager. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
+> For more information on the concurrent programming in Kotlin, see the [Coroutines guide](coroutines-guide.md).
+>
+{type="warning"}
 
 When you extend your development experience from Android to Kotlin Multiplatform for mobile, you will encounter a different state 
 and concurrency model for iOS. This is a Kotlin/Native model that compiles Kotlin code to native binaries that can run without a virtual machine, for example on iOS. 

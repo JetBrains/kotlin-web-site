@@ -75,7 +75,7 @@ Detailed information about these functions is provided in the dedicated sections
 
 Here is a short guide for choosing scope functions depending on the intended purpose:
 
-* Executing a lambda on non-null objects: `let`
+* Executing a lambda on non-nullable objects: `let`
 * Introducing an expression as a variable in local scope: `let`
 * Object configuration: `apply`
 * Object configuration and computing the result: `run`

@@ -34,9 +34,9 @@
 
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-RC" hidden="true"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.20-Beta"/>
         <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
@@ -394,6 +394,7 @@
         <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
         <toc-element id="koans.md"/>
         <toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
+        <toc-element id="kotlin-hands-on.md" toc-title="Kotlin hands-on"/>
         <toc-element id="kotlin-tips.md"/>
         <toc-element id="books.md"/>
         <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>
