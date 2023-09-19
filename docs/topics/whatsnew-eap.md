@@ -221,6 +221,7 @@ For more details and setup instructions, see the [Gradle documentation](https://
 
 * [Custom memory allocator enabled by default](#custom-memory-allocator-enabled-by-default)
 * [Performance improvements for garbage collector](#performance-improvements-for-the-garbage-collector)
+* [Incremental compilation of klib artifacts](#incremental-compilation-of-klib-artifacts)
 
 ### Custom memory allocator enabled by default
 
@@ -285,6 +286,37 @@ allocator nor the `mimalloc` memory allocator allocates separate storage for eac
 
 In Kotlin %kotlinEapVersion%, the GC tracks areas instead of individual objects. This speeds up the allocation of small objects by reducing
 the number of tasks performed on each allocation and, therefore, helps to minimize the garbage collector's memory usage.
+
+### Incremental compilation of klib artifacts
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained).
+> It may be dropped or changed at any time. Opt-in is required (see details below).
+> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
+
+Kotlin %kotlinEapVersion% introduces a new compilation time optimization for Kotlin/Native.
+The compilation of `klib` artifacts into native code is now partially incremental.
+
+When compiling Kotlin source code into native binary in debug mode, the compilation goes through two stages:
+
+1. Source code is compiled into `klib` artifacts.
+2. `klib` artifacts, along with dependencies, are compiled into a binary.
+
+To optimize the compilation time in the second stage, the team has already implemented compiler caches for dependencies.
+They are compiled into native code only once, and the result is reused every time a binary is compiled.
+But `klib` artifacts built from project sources were always fully recompiled into native code at every project change.
+
+With new incremental compilation, if the project module change causes only a partial recompilation of source code into
+`klib` artifacts, just a part of the `klib` is further recompiled into a binary.
+
+To enable incremental compilation, add the following option to your `gradle.properties` file:
+
+```none
+kotlin.incremental.native=true
+```
+
+If you face issues, don't hesitate to report such cases to [YouTrack](https://kotl.in/issue).
 
 ## Kotlin/Wasm
 
