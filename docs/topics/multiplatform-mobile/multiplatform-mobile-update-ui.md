@@ -15,7 +15,7 @@ for the Android part of your project and [SwiftUI](https://developer.apple.com/x
 These are both declarative UI frameworks, and you'll see similarities in the UI implementations. In both cases,
 you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
 
-### Update the Android module
+## Update the Android module
 
 The `androidApp` module contains an Android application, defines its main activity and the UI views, and uses the
 `shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
@@ -73,7 +73,7 @@ Make some changes and see how it is reflected in the UI:
 
    ![Updated UI of Android multiplatform app](first-multiplatform-project-on-android-2.png){width=300}
 
-### Work with the iOS module in Xcode
+## Work with the iOS module in Xcode
 
 `iosApp` is an Xcode project that builds into an iOS application. It depends on and uses the `shared` module as an iOS
 framework. The UI of the app is written in Swift.

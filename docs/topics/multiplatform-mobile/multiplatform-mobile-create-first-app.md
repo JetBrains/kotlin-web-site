@@ -63,10 +63,10 @@ The shared module consists of three source sets: `androidMain`, `commonMain`, an
 concept for a number of files logically grouped together where each group has its own dependencies.
 In Kotlin Multiplatform, different source sets in a shared module can target different platforms.
 
-![Source sets and modules structure](basic-project-structure-2.png){width=200}
-
 The common source set uses the common Kotlin code, and platform source sets use Kotlin flavors:
-Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`.
+Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`:
+
+![Source sets and modules structure](basic-project-structure-2.png){width=200}
 
 When the shared module is built into an Android library, common Kotlin code gets treated as Kotlin/JVM.
 When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Native:
