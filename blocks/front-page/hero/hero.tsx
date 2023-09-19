@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import Button from '@rescui/button';
 import cn from 'classnames';
 
@@ -13,9 +13,11 @@ import JBLogo from '../../../assets/jetbrains-logo.svg';
 import HeroImg from './images/hero-cover.png';
 import HeroImg2x from './images/hero-cover@2x.png';
 
-interface Props {}
+interface Props {
+    children: ReactNode;
+}
 
-export const HeroSection: FC<Props> = () => {
+export const HeroSection: FC<Props> = ({ children }) => {
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
@@ -25,20 +27,21 @@ export const HeroSection: FC<Props> = () => {
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
-                            <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>
-                                Concise.
-                                <br /> Multiplatform.
-                                <br /> Fun.
-                            </h1>
+                            <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{children}</h1>
 
-                            <img className={styles.imageMobile} src={HeroImg} srcSet={`${HeroImg2x} 2x`} alt="kotlin" />
+                            <img
+                                className={styles.imageMobile}
+                                src={HeroImg.src}
+                                srcSet={`${HeroImg2x.src} 2x`}
+                                alt="kotlin"
+                            />
 
                             <div className={styles.info}>
                                 <Button size={'l'} href="/docs/getting-started.html">
                                     Get Started
                                 </Button>
                                 <div className={styles.developer}>
-                                    <img src={JBLogo} alt="jetbrains logo" className={styles.developerLogo} />r{' '}
+                                    <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />r{' '}
                                     <div className={darkTextCn('rs-text-3', { hardness: 'hard' })}>
                                         Kotlin, developed by&nbsp;
                                         <a
@@ -54,7 +57,12 @@ export const HeroSection: FC<Props> = () => {
                             </div>
                         </div>
 
-                        <img className={styles.imageDesktop} src={HeroImg} srcSet={`${HeroImg2x} 2x`} alt="kotlin" />
+                        <img
+                            className={styles.imageDesktop}
+                            src={HeroImg.src}
+                            srcSet={`${HeroImg2x.src} 2x`}
+                            alt="kotlin"
+                        />
                     </div>
                 </div>
             </section>

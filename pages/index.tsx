@@ -8,7 +8,13 @@ function Index() {
     return (
         <>
             <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
-            <HeroSection />
+            <HeroSection>
+                <>
+                    Concise.
+                    <br /> Multiplatform.
+                    <br /> Fun.
+                </>
+            </HeroSection>
         </>
     );
 }
