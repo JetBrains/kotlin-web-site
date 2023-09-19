@@ -74,7 +74,7 @@ fun foo(s: String?) {
 }
 ```
 
-* Improving the variable initialization analysis in the presence of high-order functions:
+* Improving the variable initialization analysis in the presence of higher-order functions:
 
 ```kotlin
 fun synchronize(lock: Any?, block: () -> Unit) {
