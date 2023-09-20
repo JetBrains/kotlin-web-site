@@ -33,15 +33,22 @@ plugins {
 
 ## Top-level blocks
 
-`kotlin` is the top-level block for multiplatform project configuration in the Gradle build script.
-Inside `kotlin`, you can write the following blocks:
+`kotlin {}` is the top-level block for multiplatform project configuration in the Gradle build script.
+Inside `kotlin {}`, you can write the following blocks:
 
-| **Block**        | **Description**                                                                                                          |
-|------------------|--------------------------------------------------------------------------------------------------------------------------|
-| _\<targetName\>_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section. |
-| `targets`        | All targets of the project.                                                                                              |
-| `presets`        | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                        |
-| `sourceSets`     | Configures predefined and declares custom [source sets](#source-sets) of the project.                                    |
+| **Block**         | **Description**                                                                                                                                                                                                                 |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _\<targetName\>_  | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
+| `targets`         | All targets of the project.                                                                                                                                                                                                     |
+| `presets`         | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
+| `sourceSets`      | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
+| `compilerOptions` | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
+
+> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
 
 ## Targets
 
@@ -51,7 +58,7 @@ one of the supported platforms. Kotlin provides target presets for each platform
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
-The targets of a multiplatform project are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
+The targets of a multiplatform project are described in the corresponding blocks inside `kotlin {}`, for example, `jvm`, `android`, `iosArm64`.
 The complete list of available targets is the following:
 
 <table>
@@ -118,13 +125,20 @@ Each target can have one or more [compilations](#compilations).
 
 In any target block, you can use the following declarations:
 
-| **Name**            | **Description**                                                                                                                                   | 
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `attributes`        | Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform. |
-| `preset`            | The preset that the target has been created from, if any.                                                                                         |
-| `platformType`      | Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `native`, `common`.                                   |
-| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                          |
-| `components`        | The components used to setup Gradle publications.                                                                                                 |
+| **Name**            | **Description**                                                                                                                                                                                                                                                                                 | 
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `attributes`        | Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.                                                                                                                                               |
+| `preset`            | The preset that the target has been created from, if any.                                                                                                                                                                                                                                       |
+| `platformType`      | Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `native`, `common`.                                                                                                                                                                                 |
+| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                                                                                                                        |
+| `components`        | The components used to setup Gradle publications.                                                                                                                                                                                                                                               |
+| `compilerOptions`   | The [compiler options](gradle-compiler-options.md) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
+
+> The support for `compilerOptions {}` as a common target configuration is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
 
 ### JVM targets
 
@@ -149,7 +163,7 @@ kotlin {
 
 ### JavaScript targets
 
-The `js` block describes the configuration of JavaScript targets. It can contain one of two blocks depending on the target execution environment:
+The `js {}` block describes the configuration of JavaScript targets. It can contain one of two blocks depending on the target execution environment:
 
 | **Name**  | **Description**                      | 
 |-----------|--------------------------------------|
@@ -160,7 +174,7 @@ Learn more about [configuring Kotlin/JS projects](js-project-setup.md).
 
 #### Browser
 
-`browser` can contain the following configuration blocks:
+`browser {}` can contain the following configuration blocks:
 
 | **Name**       | **Description**                                                            | 
 |----------------|----------------------------------------------------------------------------|
@@ -187,7 +201,7 @@ kotlin {
 
 #### Node.js
 
-`nodejs` can contain configurations of test and run tasks:
+`nodejs {}` can contain configurations of test and run tasks:
 
 | **Name**   | **Description**                   | 
 |------------|-----------------------------------|
@@ -382,7 +396,7 @@ kotlin {
                 myInterop {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                    definitionFile.set(project.file("def-file.def"))
+                    definitionFile = project.file("def-file.def")
 
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'
@@ -434,7 +448,7 @@ Learn more about [compilation for Android](multiplatform-configure-compilations.
 
 ## Source sets
 
-The `sourceSets` block describes source sets of the project. A source set contains Kotlin source files that participate
+The `sourceSets {}` block describes source sets of the project. A source set contains Kotlin source files that participate
 in compilations together, along with their resources, dependencies, and language settings. 
 
 A multiplatform project contains [predefined](#predefined-source-sets) source sets for its targets;
@@ -516,7 +530,7 @@ Note that a newly created source set isn't connected to other ones. To use it in
 
 ### Source set parameters
 
-Configurations of source sets are stored inside the corresponding blocks of `sourceSets`. A source set has the following parameters:
+Configurations of source sets are stored inside the corresponding blocks of `sourceSets {}`. A source set has the following parameters:
 
 | **Name**           | **Description**                                                                        | 
 |--------------------|----------------------------------------------------------------------------------------|
@@ -727,7 +741,7 @@ kotlin {
     jvm {
         compilations.main.compilerOptions.configure { 
             // Setup the Kotlin compiler options for the 'main' compilation:
-            jvmTarget.set(JvmTarget.JVM_1_8)
+            jvmTarget = JvmTarget.JVM_1_8
         }
 
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
@@ -739,7 +753,7 @@ kotlin {
     targets.all {
         compilations.all {
             compilerOptions.configure {
-                allWarningsAsError.set(true)
+                allWarningsAsErrors = true
             }
         }
     }
@@ -749,9 +763,48 @@ kotlin {
 </tab>
 </tabs>
 
+Alternatively, to configure compiler options that are common for all targets, you can use the `compilerOptions {}` [top-level block](multiplatform-dsl-reference.md#top-level-blocks):
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    
+    // Configure all compilations of all targets:
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    
+    // Configure all compilations of all targets:
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{type="warning"}
+
+
 ## Dependencies
 
-The `dependencies` block of the source set declaration contains the dependencies of this source set.
+The `dependencies {}` block of the source set declaration contains the dependencies of this source set.
 
 Learn more about [configuring dependencies](gradle-configure-project.md).
 
@@ -810,7 +863,7 @@ kotlin {
 Additionally, source sets can depend on each other and form a hierarchy.
 In this case, the [`dependsOn()`](#source-set-parameters) relation is used.
 
-Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
+Source set dependencies can also be declared in the top-level `dependencies {}` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
 
 <tabs group="build-script">
@@ -838,7 +891,7 @@ dependencies {
 
 ## Language settings
 
-The `languageSettings` block of a source set defines certain aspects of project analysis and build. The following language settings are available:
+The `languageSettings {}` block of a source set defines certain aspects of project analysis and build. The following language settings are available:
 
 | **Name**                | **Description**                                                                                                                                                                 | 
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
