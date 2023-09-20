@@ -1254,6 +1254,10 @@ a:hover {
   width: 100%;
 }
 
+.global-content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .global-layout {
   min-height: 100%;
   margin-bottom: -90px;
