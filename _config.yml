@@ -1,11 +1,10 @@
 # Jekyll Settings
-name: Kotlin
+title: "kotlin Programming Language"
 markdown: kramdown
-markdown_ext: foo
 kramdown:
+  syntax_highlighter: rouge
   input: GFM
   hard_wrap: false
-highlighter: pygments
 exclude:
   - '*.scss'
   - vendor
@@ -19,9 +18,14 @@ exclude:
   - notes.txt
   - LICENSE
   - node_modules
+  - docs_original
 
 include:
   - js
+
+theme: minima
+
+
 
 # Site Settings
 baseurl:

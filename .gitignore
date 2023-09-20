@@ -33,3 +33,4 @@ grammar.xml
 pdf/kotlin-docs.pdf
 pdf/tmp.html
 *.pyc
+pages/docs/.jekyll-cache

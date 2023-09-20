@@ -1,0 +1,36 @@
+<nav role="navigation" class="side-tree-nav">
+    {% for category in site.data._nav.reference %}
+
+    {% assign is_open = false %}
+    {% for item in category.items %}
+    {% assign url = "pages" | append: item.url | relative_url%}
+    {% if url == page.url %}{%assign is_open = true %}{% endif %}
+    {% endfor %}
+
+        <details {%if is_open %}open="true"{% endif %}>
+            <summary>{{ category.title }}</summary>
+            <ol>
+                {% for item in category.items %}
+                    {% assign url = "pages" | append: item.url | relative_url%}
+                    <li>
+                        <div class="tree-item tree-leaf js-item js-leaf">
+                            {% if url == page.url %}
+                                <div class="tree-item tree-leaf js-item js-leaf">
+                                    <div class="marker"></div>
+                                    <div class="text">{{ item.title }}</div>
+                                </div>
+                            {% else %}
+                                <a href="{{ url }}"
+                                    class="tree-item-title tree-leaf-title js-item-title js-leaf-title"
+                                >
+                                    <span class="marker"></span>
+                                    <span class="text">{{ item.title }}</span><br>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ol>
+        </details>
+    {% endfor %}
+</nav>

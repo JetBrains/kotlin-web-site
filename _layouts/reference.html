@@ -1,0 +1,35 @@
+---
+layout: base
+---
+
+    <div class="g-grid">
+
+        <div class="g-12">
+            {% include nav/docs-nav.html %}
+        </div>
+
+        <aside class="g-3">
+            <div id="reference-nav">
+              {% include nav/side-tree-nav.html %}
+            </div>
+        </aside>
+
+        <article role="main" class="page-content g-9">
+            {% include edit-on-github-link.html %}
+
+            {{ content }}
+        </article>
+    </div>
+
+    <script src='//code.jquery.com/jquery-1.11.0.min.js'></script>
+    <script type="text/javascript">
+    <!--
+    $(function() {
+      $("*").contents().filter(function() {
+        return this.nodeType==8 && this.nodeValue.match(/^original/);
+      }).each(function(i, e) {
+        var tooltips = e.nodeValue.replace(/^original *[\n\r]|[\n\r]$/g, '');
+        $(this).prev().attr('title', tooltips);
+      });
+    });
+    </script>

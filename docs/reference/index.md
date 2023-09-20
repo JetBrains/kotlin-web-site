@@ -10,25 +10,25 @@ title: "Reference"
 ---
 -->
 
-# ���t�@�����X
+# リファレンス
 
 <!--original
 # Reference
 -->
 
-Kotlin�����[�W�����C�u����](/api/latest/jvm/stdlib/index.html)�̊��S�ȃ��t�@�����X��񋟂��܂��B
+Kotlin言語と[標準ライブラリ](/api/latest/jvm/stdlib/index.html)の完全なリファレンスを提供します。
 
 <!--original
 Provides a complete reference to the Kotlin language and the [standard library](/api/latest/jvm/stdlib/index.html).
 -->
 
-### �ǂ�����n�߂�Ηǂ���
+### どこから始めれば良いか
 
 <!--original
 ### Where to Begin
 -->
 
-���̃��t�@�����X�́A���Ȃ����ȒP�ɐ����Ԃ�Kotlin���w�ׂ�悤�݌v����Ă��܂��B��{�I�ȍ\������n�߁A��荂�x�ȃg�s�b�N�ɐi�݂܂��B�ǂ�ł���ԁA[�I�����C��IDE](http://try.kotlinlang.org/)�ŗ���������Ƃ��ł��܂��B
+このリファレンスは、あなたが簡単に数時間でKotlinを学べるよう設計されています。基本的な構文から始め、より高度なトピックに進みます。読んでいる間、[オンラインIDE](http://try.kotlinlang.org/)で例を試すことができます。
 
 <!--original
 This reference is designed for you to easily learn Kotlin in a matter of hours.
@@ -36,7 +36,7 @@ Start with the [basic syntax](basic-syntax.html), then proceed to more advanced 
 While reading, you can try out the examples in the [online IDE](http://try.kotlinlang.org/).
 -->
 
-Kotlin���ǂ̂悤�Ȃ��̂��킩������A[Kotlin Koans](/docs/tutorials/koans.html) �i�C���^���N�e�B�u�ȃv���O���~���O���K�j�ɒ��킵�Ă݂Ă��������BKoan�̉�@���킩��Ȃ��A�܂��͂��G���K���g�ȉ�@�����T���̏ꍇ�́AKotlin��[�C�f�B�I��](idioms.html)���`�F�b�N���Ă��������B
+Kotlinがどのようなものかわかったら、[Kotlin Koans](/docs/tutorials/koans.html) （インタラクティブなプログラミング演習）に挑戦してみてください。Koanの解法がわからない、またはよりエレガントな解法をお探しの場合は、Kotlinの[イディオム](idioms.html)をチェックしてください。
 
 <!--original
 Once you get an idea of what Kotlin looks like, try yourself in solving some [Kotlin Koans](/docs/tutorials/koans.html) - interactive programming exercises.
@@ -44,15 +44,15 @@ If you are not sure how to solve a Koan, or you're looking for a more elegant so
 -->
 
 
-### �I�t���C���u���E�Y
-���t�@�����X�S�̂̃h�L�������g��1��[PDF�t�@�C��]({{ site.pdf_url }})�Ƃ��ă_�E�����[�h���邱�Ƃ��ł��܂��B
+### オフラインブラウズ
+リファレンス全体のドキュメントを1つの[PDFファイル]({{ site.pdf_url }})としてダウンロードすることができます。
 
 <!--original
 ### Browse offline
 You can download the entire reference documentation as a single [PDF file]({{ site.pdf_url }}).
 -->
 
-# ����
+# 書籍
 
 <!--original
 # Books
@@ -70,8 +70,8 @@ You can download the entire reference documentation as a single [PDF file]({{ si
    <a href="https://manning.com/books/kotlin-in-action"><img src="{{ site.baseurl }}/assets/images/Jemerov-Kotlin-MEAP-HI.png" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 -->
 
-[Kotlin in Action](https://manning.com/books/kotlin-in-action)��Kotlin�`�[���̊J���҂ł���Dmitry Jemerov��Svetlana Isakova�Ɏ��M����܂����B 
-���̖{��MEAP�v���O�����Ŏ�ɓ���܂��B���̃v���O�����ł͖{���͖��ɏ����������A�͒P�ʂœǂ߂�悤�ɂȂ��Ă����A�Ō�ɖ{�S�̂��������܂��B
+[Kotlin in Action](https://manning.com/books/kotlin-in-action)はKotlinチームの開発者であるDmitry JemerovとSvetlana Isakovaに執筆されました。 
+この本はMEAPプログラムで手に入ります。このプログラムでは本が章毎に書き加えられ、章単位で読めるようになっていき、最後に本全体が完成します。
 
 <!--original
 [Kotlin in Action](https://manning.com/books/kotlin-in-action) is a book on Kotlin being written by Dmitry Jemerov and Svetlana Isakova,
@@ -79,7 +79,7 @@ developers on the Kotlin team. The book is currently available through the MEAP 
 chapter-by-chapter while it is being written and get the final book when it is finished.
 -->
 
-�N�[�|���R�[�h�u39jemerov�v���g�p����ƁA39�������œ���ł��܂��B
+クーポンコード「39jemerov」を使用すると、39％引きで入手できます。
 
 <!--original
 Use the coupon code '39jemerov' to get a 39% discount code on the book.
@@ -97,7 +97,7 @@ Use the coupon code '39jemerov' to get a 39% discount code on the book.
   <a href="https://leanpub.com/kotlin-for-android-developers"><img src="{{ site.baseurl }}/assets/images/kotlin-for-android-developers.png" style="float: left; margin-right: 10px; margin-bottom: 10px;"></a>
 -->
 
-Antonio Leiva��������[Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers)�ł́AKotlin���g����Android�A�v�����X�N���b�`����쐬�����@���Љ�Ă��܂��B
+Antonio Leivaが書いた[Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers)では、Kotlinを使ってAndroidアプリをスクラッチから作成する手法を紹介しています。
 
 <!--original
 [Kotlin for Android Developers](https://leanpub.com/kotlin-for-android-developers) is a book by Antonio Leiva showing
