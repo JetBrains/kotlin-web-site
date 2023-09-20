@@ -81,7 +81,7 @@ multiplatform support, is the most convenient way to work with dates in your sha
     class Greeting {
         private val platform: Platform = getPlatform()
    
-        val daysPhrase = "\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆"
+        val daysPhrase = "There are only ${daysUntilNewYear()} days left until New Year! 🎆"
    
         fun greet(): List<String> = buildList {
             add(if (Random.nextBoolean()) "Hi!" else "Hello!")

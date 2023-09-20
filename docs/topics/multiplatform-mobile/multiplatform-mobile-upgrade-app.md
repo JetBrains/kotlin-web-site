@@ -158,9 +158,7 @@ data class RocketLaunch (
     import io.ktor.serialization.kotlinx.json.*
     import kotlinx.serialization.json.Json
     
-    class Greeting {
-        private val platform: Platform = getPlatform()
-        
+    class RocketComponent {
         private val httpClient = HttpClient {
             install(ContentNegotiation) {
                 json(Json {
@@ -183,13 +181,16 @@ data class RocketLaunch (
 
    ```kotlin
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
-       //…
+       // ...
    }
    ```
 
 4. Call the `httpClient.get` function to retrieve the information about the rocket launches:
 
    ```kotlin
+   import RocketLaunch
+   import io.ktor.client.request.*
+
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
        val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
    }
@@ -203,6 +204,8 @@ data class RocketLaunch (
 5. Update the function again to find the last successful launch in the list:
 
    ```kotlin
+   import io.ktor.client.call.*
+   
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
        val rockets: List<RocketLaunch> = httpClient.get("https://api.spacexdata.com/v4/launches").body()
        val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
@@ -214,6 +217,10 @@ data class RocketLaunch (
 6. Convert the launch date from UTC to a local date and create a formatted string:
 
    ```kotlin
+   import kotlinx.datetime.Instant
+   import kotlinx.datetime.TimeZone
+   import kotlinx.datetime.toLocalDateTime
+
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
        val rockets: List<RocketLaunch> =
            httpClient.get("https://api.spacexdata.com/v4/launches").body()
@@ -253,6 +260,11 @@ suspending functions return.
 3. Change the `greet()` function to return a `Flow`:
 
    ```kotlin
+   import kotlinx.coroutines.delay
+   import kotlinx.coroutines.flow.Flow
+   import kotlinx.coroutines.flow.flow
+   import kotlin.time.Duration.Companion.seconds
+
    fun greet(): Flow<String> = flow {
         emit(if (Random.nextBoolean()) "Hi!" else "Hello!")
         delay(1.seconds)
@@ -301,24 +313,19 @@ The view model will manage the data from `Activity` and won't disappear when the
 
     ```kotlin
     dependencies {
-        …
+        // ...
         implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
         implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.1")
     }
     ```
 
-2. In `androidApp/src/main/java`, create a new `MainViewModel`class:
+2. In `androidApp/src/main/java`, create a new `MainViewModel` class:
 
     ```kotlin
     import androidx.lifecycle.ViewModel
-    import androidx.lifecycle.viewModelScope
-    import kotlinx.coroutines.flow.MutableStateFlow
-    import kotlinx.coroutines.flow.StateFlow
-    import kotlinx.coroutines.flow.update
-    import kotlinx.coroutines.launch
     
     class MainViewModel : ViewModel() {
-        // …
+        // ...
     }
     ```
 
@@ -328,8 +335,13 @@ The view model will manage the data from `Activity` and won't disappear when the
    type and its backing property:
 
     ```kotlin
-    private val _greetingList = MutableStateFlow<List<String>>(listOf())
-    val greetingList: StateFlow<List<String>> get() = _greetingList
+    import kotlinx.coroutines.flow.MutableStateFlow
+    import kotlinx.coroutines.flow.StateFlow
+    
+    class MainViewModel : ViewModel() {
+        private val _greetingList = MutableStateFlow<List<String>>(listOf())
+        val greetingList: StateFlow<List<String>> get() = _greetingList
+    }
     ```
     
     * `StateFlow` here extends the `Flow` interface but has a single value or state.
@@ -339,10 +351,17 @@ The view model will manage the data from `Activity` and won't disappear when the
 4. In the `init` function of the View Model, collect all the strings from the `Greeting().greet()` flow:
 
     ```kotlin
+   import androidx.lifecycle.viewModelScope
+   import com.example.kotlinmultiplatformsandbox.Greeting
+   import kotlinx.coroutines.launch
+   
+    class MainViewModel : ViewModel() {
+    // ...
+
     init {
         viewModelScope.launch {
             Greeting().greet().collect { phrase ->
-              …
+               //...
             }
         }
     }
@@ -354,6 +373,8 @@ The view model will manage the data from `Activity` and won't disappear when the
 5. Inside the `collect` trailing lambda, update the value of `_greetingList` to append the collected `phrase` to the phrases `list`:
 
     ```kotlin
+    import kotlinx.coroutines.flow.update
+   
     init {
         viewModelScope.launch {
             Greeting().greet().collect { phrase ->
@@ -466,7 +487,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
 
 3. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data for it:
 
-    ```kotlin
+    ```Swift
     import SwiftUI
     import shared
     
@@ -485,7 +506,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
             @Published var greetings: Array<String> = []
             
             func startObserving() {
-                …
+                // ...
             }
         }
     }
@@ -525,14 +546,15 @@ It's a more tried-and-tested option, and may be a more stable solution at the mo
 
 #### Option 1. Configure KMP-NativeCoroutines {initial-collapse-state="collapsed"}
 
-1. In `build.gradle.kts`, add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` section:
+1. Get back to Android Studio. In the `build.gradle.kts` file of the _whole project_,
+   add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` section:
 
     ```kotlin
     id("com.google.devtools.ksp").version("1.8.22-1.0.11").apply(false)
     id("com.rickclephas.kmp.nativecoroutines").version("1.0.0-ALPHA-12").apply(false)
     ```
 
-2. In `shared/build.gradle.kts`, configure the KMP-NativeCoroutines plugin and click the **Sync** button:
+2. In the _shared_ `build.gradle.kts` file, configure the KMP-NativeCoroutines plugin:
 
     ```kotlin
     plugins {
@@ -541,7 +563,8 @@ It's a more tried-and-tested option, and may be a more stable solution at the mo
     }
     ```
 
-3. Opt in to the experimental `@ObjCName` annotation:
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+4. In the _shared_ `build.gradle.kts` file, opt in to the experimental `@ObjCName` annotation:
 
     ```kotlin
     kotlin.sourceSets.all {
@@ -551,32 +574,46 @@ It's a more tried-and-tested option, and may be a more stable solution at the mo
    
 ##### Mark the flow with KMP-NativeCoroutines
 
-1. Navigate to the `shared/common` directory and locate the `Greeting.kt` file.
-2. Add the `@NativeCoroutines`annotation to the `greet()` function. This will ensure that the plugin generates the right code to support correct flow handling on iOS.
+1. Navigate to the `shared/src/commonMain` directory and locate the `Greeting.kt` file.
+2. Add the `@NativeCoroutines`annotation to the `greet()` function. This will ensure that the plugin generates the right
+   code to support correct flow handling on iOS:
+  
+   ```kotlin
+    import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
+    
+    class Greeting {
+        // ...
+       
+        @NativeCoroutines
+        fun greet(): Flow<String> = flow {
+            // ...
+        }
+    }
+    ```
 
 ##### Import the library using SPM in XCode
 
-1. Right-click on the `iosApp` project in the left-hand project panel and select "Add packages".
+1. In Xcode, right-click the `iosApp` project in the left-hand project menu and select **Add packages**.
 2. In the search bar, enter the package name:
 
      ```none
     https://github.com/rickclephas/KMP-NativeCoroutines.git
     ```
 
-   <!-- ![Importing KMP-NativeCoroutines](multiplatform-import-kmp-nativecoroutines.png){width=700} -->
+   ![Importing KMP-NativeCoroutines](multiplatform-import-kmp-nativecoroutines.png){width=700}
 
 3. Keep the default options, "Branch" for **Dependency Rule** and "master" for **Version Rule** and click
    the **Add Package** button.
 4. In the next window, select "KMPNativeCoroutinesAsync" and "KMPNativeCoroutinesCore" and click **Add Package**:
 
-   <!-- ![Add KMP-NativeCoroutines packages](multiplatform-add-package.png){width=700} -->
+   ![Add KMP-NativeCoroutines packages](multiplatform-add-package.png){width=350}
 
     This will install the KMP-NativeCoroutines packages necessary to work with the `async/await` mechanism.
 
 ##### Consume the flow using the KMP-NativeCoroutines library
 
-1. Update the `startObserving()` function to consume the flow using KMP-NativeCoroutine's `asyncSequence()` function
-   for the `Greeting().greet()` function.
+1. In `iosApp/ContentView.swift`, update the `startObserving()` function to consume the flow using KMP-NativeCoroutine's
+   `asyncSequence()` function for the `Greeting().greet()` function.
    
    Use a loop and the `await` mechanism to iterate through the flow and update the `greetings` property every time
    the flow emits a value.
@@ -601,11 +638,11 @@ It's a more tried-and-tested option, and may be a more stable solution at the mo
    the main thread to comply with Kotlin/Native requirement:
 
     ```Swift
-    // …
+    // ...
     import KMPNativeCoroutinesAsync
     import KMPNativeCoroutinesCore
     
-    // …
+    // ...
     extension ContentView {
         @MainActor
         class ViewModel: ObservableObject {
@@ -674,7 +711,7 @@ plugins {
    the main thread to comply with Kotlin/Native requirement:
 
     ```Swift
-    /// …
+    // ...
     extension ContentView {
         @MainActor
         class ViewModel: ObservableObject {
