@@ -51,7 +51,7 @@ Compare how this project is set up between different versions of Kotlin:
 <table header-style="top">
    <tr>
        <td>Kotlin 1.9.0 and earlier (a standard setup)</td>
-       <td>Kotlin 1.9.20-Beta</td>
+       <td>Kotlin %kotlinEapVersion%</td>
    </tr>
    <tr>
 <td>
@@ -316,7 +316,7 @@ To enable incremental compilation, add the following option to your `gradle.prop
 kotlin.incremental.native=true
 ```
 
-If you face issues, don't hesitate to report such cases to [YouTrack](https://kotl.in/issue).
+If you face any issues, report such cases to [YouTrack](https://kotl.in/issue).
 
 ## Kotlin/Wasm
 
