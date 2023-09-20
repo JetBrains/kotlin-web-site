@@ -32,7 +32,7 @@ In Kotlin, everything is an object in the sense that we can call member function
 ## Numbers
 -->
 
-Kotlinは、Javaに近い方法で数字を扱うが、全く同じではありません。例えば、数値の暗黙の拡大変換が存在せず、リテラルはいくつかの事例では少し異なる。
+Kotlinは、Javaに近い方法で数字を扱うが、全く同じではありません。例えば、数値の暗黙の拡大変換が存在せず、リテラルはいくつかの事例では少し異なります。
 
 <!--original
 Kotlin handles numbers in a way close to Java, but not exactly the same. For example, there are no implicit widening conversions for numbers, and literals are slightly different in some cases.
@@ -84,7 +84,7 @@ There are the following kinds of literal constants for integral values:
 -->
 
 * 数値: `123`
-  * Long型の数を表すには大文字の`L`でタグ付けする: `123L`
+  * Long型の数を表すには大文字の`L`を末尾につける: `123L`
 * 16進数: `0x0F`
 * 2進数: `0b00001011`
 
@@ -101,7 +101,7 @@ There are the following kinds of literal constants for integral values:
 NOTE: Octal literals are not supported.
 -->
 
-Kotlinは浮動小数点数の従来の表記法もサポートしています。
+Kotlinは従来の浮動小数点数の表記法もサポートしています。
 
 <!--original
 Kotlin also supports a conventional notation for floating-point numbers:
@@ -128,7 +128,7 @@ On the Java platform, numbers are physically stored as JVM primitive types, unle
 In the latter cases numbers are boxed.
 -->
 
-数値のボクシングは一様性を保持しないことに注意してください：
+ボクシングされた数値は`===`で値が同一と判定されないことに注意してください：
 
 <!--original
 Note that boxing of numbers does not preserve identity:
@@ -152,7 +152,7 @@ print(boxedA === anotherBoxedA) // !!!Prints 'false'!!!
 ```
 -->
 
-一方、これは同一性を保持しています：
+一方、`==`では同一と判定されます：
 
 <!--original
 On the other hand, it preserves equality:
@@ -182,7 +182,7 @@ print(boxedA == anotherBoxedA) // Prints 'true'
 ### Explicit Conversions
 -->
 
-異なる表現であるが故に、小さな型は大きな型のサブタイプではありません。 もし仮にそうであったならば、次の種類の悩みを抱えたでしょう：
+異なる表現であるため、小さな型は大きな型のサブタイプではありません。 もし仮にそうであったならば、次の種類の悩みを抱えたでしょう：
 
 <!--original
 Due to different representations, smaller types are not subtypes of bigger ones.
@@ -271,7 +271,7 @@ Every number type supports the following conversions:
 * `toChar(): Char`
 -->
 
-明示的変換がないことは滅多に目立ちません。なぜならその型は文脈から推測され、算術演算がオーバロードされ適切に変換されるからです。例えば：
+明示的変換をすることはめったにありません。なぜなら型は文脈から推測され、算術演算が適切なオーバロードに変換されるからです。例えば：
 
 <!--original
 Absence of implicit conversions is rarely noticeable because the type is inferred from the context, and arithmetical operations are overloaded for appropriate conversions, for example
@@ -300,7 +300,7 @@ Kotlin supports the standard set of arithmetical operations over numbers, which 
 See [Operator overloading](operator-overloading.html).
 -->
 
-ビット演算にはそのような特殊な文字列がありませんが、中置形で呼び出せる名前付き関数があります。例えば：
+ビット演算にはそのような特殊なビルトインの演算子がありませんが、中置形で呼び出せる名前付き関数があります。例えば：
 
 <!--original
 As of bitwise operations, there're no special characters for them, but just named functions that can be called in infix form, for example:
@@ -408,7 +408,7 @@ fun decimalDigitValue(c: Char): Int {
 ```
 -->
 
-数値のように、文字はnull許容参照が必要なときにボクシングされます。同一性ははボクシング操作されると保持されません 。
+数値のように、文字はnull許容参照が必要なときにボクシングされます。同一性はボクシング操作されると保持されません。
 
 <!--original
 Like numbers, characters are boxed when a nullable reference is needed. Identity is not preserved by the boxing operation.
@@ -485,7 +485,7 @@ class Array<T> private constructor() {
 ```
 -->
 
-配列を作るには、ライブラリ関数の`arrayOf()`にアイテムの値を渡してください。つまり、`arrayOf(1, 2, 3)`は[1, 2, 3]の配列を作成します。
+配列を作るには、ライブラリ関数の`arrayOf()`にアイテムの値を渡してください。つまり、`arrayOf(1, 2, 3)`は`[1, 2, 3]`の配列を作成します。
 あるいはライブラリ関数の`arrayOfNulls()`で、null要素で埋められた指定サイズの配列を作ることができます。
 
 <!--original
@@ -493,7 +493,7 @@ To create an array, we can use a library function `arrayOf()` and pass the item 
 Alternatively, the `arrayOfNulls()` library function can be used to create an array of a given size filled with null elements.
 -->
 
-他のやり方として、配列のサイズと配列のインデックス値を与えると各要素の初期値用に値を返す関数を引数にとるファクトリ関数の使用があります。
+他のやり方として、配列のサイズと配列のインデックス値から要素を生成する関数を引数にとるファクトリ関数があります。
 
 <!--original
 Another option is to use a factory function that takes the array size and the function that can return the initial value
@@ -553,8 +553,8 @@ x[0] = x[1] + x[2]
 -->
 
 文字列は、`String`型で表されます。文字列は不変（イミュータブル）です。
-文字列の要素は、インデックスの演算でアクセスできます：`s[i]`
-文字列は *for*{: .keyword }ループでイテレート（繰り返し操作）できます：
+文字列の要素は、`s[i]`といったインデックスの演算でアクセスできます。
+文字列は *for*{: .keyword }ループで文字単位でイテレート（繰り返し操作）できます。以下の例を参照してください。
 
 <!--original
 Strings are represented by the type `String`. Strings are immutable.
@@ -664,7 +664,7 @@ By default `|` is used as margin prefix, but you can choose another character an
 ### String Templates
 -->
 
-文字列はテンプレート式、すなわち、評価され、その結果が文字列と結合されるコードの断片を含むことができる。テンプレート式は、ドル記号（$）で始まり、簡単な名前で構成されます：
+文字列はテンプレート式、すなわち、評価され、その結果が文字列と結合されるコードの断片を含むことができます。テンプレート式は、ドル記号（`$`）で始まり、簡単な名前で構成されます：
 
 <!--original
 Strings may contain template expressions, i.e. pieces of code that are evaluated and whose results are concatenated into the string.
@@ -683,7 +683,7 @@ val s = "i = $i" // evaluates to "i = 10"
 ```
 -->
 
-または、波括弧を使った従来の記法もあります：
+または、波括弧を使った（従来の）記法もあります：
 
 <!--original
 or an arbitrary expression in curly braces:
@@ -702,7 +702,7 @@ val str = "$s.length is ${s.length}" // evaluates to "abc.length is 3"
 -->
 
 テンプレートは生文字列、エスケープ済み文字列のどちらに含まれていても動作します。
-もし`$`の文字リテラルを生文字列内（バックスラッシュでのエスケープをサポートしない）で表現する必要がある場合は、次の文法を使用できる：
+もし`$`の文字リテラルを生文字列内（バックスラッシュでのエスケープをサポートしない）で表現する必要がある場合は、次の文法を使用できます：
 
 <!--original
 Templates are supported both inside raw strings and inside escaped strings.
