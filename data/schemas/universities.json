@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "courses": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "uri"
+            }
+          },
+          "required": ["name", "url"],
+          "additionalProperties": false
+        }
+      },
+      "geo": {
+        "type": "object",
+        "properties": {
+          "lat": {
+            "type": "number"
+          },
+          "lng": {
+            "type": "number"
+          }
+        },
+        "required": ["lat", "lng"],
+        "additionalProperties": false
+      }
+    },
+    "required": ["title", "location", "courses", "geo"],
+    "additionalProperties": false
+  }
+}
