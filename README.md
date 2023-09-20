@@ -1,3 +1,5 @@
+テストです。
+
 <a href="http://kotlinslackin.herokuapp.com"><img src="https://kotlinslackin.herokuapp.com/badge.svg" height="20"></a>
 
 This is the source for the [Kotlin Web Site](http://kotlinlang.org)
