@@ -3,8 +3,9 @@
 
     {% assign is_open = false %}
     {% for item in category.items %}
-    {% assign url = "pages" | append: item.url | relative_url%}
-    {% if url == page.url %}{%assign is_open = true %}{% endif %}
+    {% assign insiteUrl = "/pages" | append: item.url %}
+    {% assign url = "pages" | append: item.url | relative_url %}
+    {% if insiteUrl == page.url %}{%assign is_open = true %}{% endif %}
     {% endfor %}
 
         <details {%if is_open %}open="true"{% endif %}>
@@ -12,9 +13,10 @@
             <ol>
                 {% for item in category.items %}
                     {% assign url = "pages" | append: item.url | relative_url%}
+                    {% assign insiteUrl = "/pages" | append: item.url %}
                     <li>
                         <div class="tree-item tree-leaf js-item js-leaf">
-                            {% if url == page.url %}
+                            {% if insiteUrl == page.url %}
                                 <div class="tree-item tree-leaf js-item js-leaf">
                                     <div class="marker"></div>
                                     <div class="text">{{ item.title }}</div>

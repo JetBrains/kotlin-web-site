@@ -28,7 +28,7 @@ theme: minima
 
 
 # Site Settings
-baseurl:
+baseurl: "/kotlin-web-site-ja"
 code_baseurl: https://github.com/JetBrains/kotlin-web-site/tree/master/code
 
 # Custom Settings
