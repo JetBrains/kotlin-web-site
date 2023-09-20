@@ -29,7 +29,7 @@ would be very nice to implement once and for all, and put into a library. Exampl
 
 * 遅延プロパティ (lazy properties) ：値は最初のアクセス時に初めて計算されます
 * オブザーバブルプロパティ (observable properties) ：リスナがこのプロパティの変更に関する通知を受け取ります
-* フィールドとは分かれていない、map内でのストロングプロパティ (strong properties)
+* フィールドとは分かれていない、map内でのストアリングプロパティ (storing properties)
 
 <!--original
 * lazy properties: the value gets computed only upon first access,
