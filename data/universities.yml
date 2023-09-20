@@ -2538,3 +2538,19 @@
   geo:
     lat: 4.634201277
     lng: -74.06663640502144
+- title: Universidad Ean
+  location: Bogotá (Colombia)
+  courses:
+  - name: Desarrollo Móvil
+    url: https://universidadean.edu.co/sites/default/files/oferta-academica/planes-de-estudio/diplomado-en-desarrollo-movil.pdf
+  geo:
+    lat: 4.664164338
+    lng: -74.0549694269522
+- title: Sivas Cumhuriyet University
+  location: Sivas (Turkey)
+  courses:
+  - name: Mobile Programming
+    url: https://avesis.cumhuriyet.edu.tr/aseker/experiences
+  geo:
+    lat: 39.70892677
+    lng: 37.020304847684415
