@@ -9,19 +9,13 @@ exclude:
   - '*.scss'
   - vendor
   - bin
-  - Rakefile
   - Gemfile
   - Gemfile.lock
-  - rake
   - INSTALL.sh
   - README.md
   - notes.txt
   - LICENSE
-  - node_modules
-  - docs_original
 
-include:
-  - js
 
 theme: minima
 

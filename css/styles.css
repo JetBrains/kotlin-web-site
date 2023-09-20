@@ -914,7 +914,7 @@ a:hover {
 .page_index .global-header {
   box-sizing: border-box;
   height: 530px;
-  background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/index-page-header-bg.jpg);
+  background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/index-page-header-bg.jpg);
   background-position: top center;
 }
 
@@ -1281,12 +1281,12 @@ a:hover {
   left: 0;
   width: 23px;
   height: 19px;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -450px;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -450px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .reference-pdf-link .icon {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -1469,14 +1469,14 @@ a:hover {
 }
 
 .global-search .search-button .icon {
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -550px;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -550px;
   width: 23px;
   height: 23px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .global-search .search-button .icon {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -1626,12 +1626,12 @@ a:hover {
 .global-nav .extra-nav .link-icon {
   display: inline-block;
   opacity: 0.8;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 0;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 0;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .global-nav .extra-nav .link-icon {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -2253,14 +2253,14 @@ a:hover {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png);
+  background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png);
   background-repeat: no-repeat;
   background-position: -50px 0;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .page-content .page-link-to-github .github-icon {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -2963,12 +2963,12 @@ a:hover {
   left: 2px;
   width: 27px;
   height: 15px;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -200px;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png) no-repeat 0 -200px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .video-gallery .video-item-title .marker {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -3393,13 +3393,13 @@ a:hover {
   position: relative;
   display: inline-block;
   margin-right: 8px;
-  background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png);
+  background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png);
   background-repeat: no-repeat;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .event-content-item {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -4246,12 +4246,12 @@ a:hover {
   right: 0;
   bottom: 0;
   margin: auto;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/kotlin-overview/images/kotlin-features-sprite.png) no-repeat 200% 200%;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/kotlin-overview/images/kotlin-features-sprite.png) no-repeat 200% 200%;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .kotlin-overview-section._features .kotlin-features-list .feature-icon {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/kotlin-overview/images/kotlin-features-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/kotlin-overview/images/kotlin-features-sprite@2x.png);
     background-size: 100px 600px;
   }
 }
@@ -4353,12 +4353,12 @@ a:hover {
   position: relative;
   float: left;
   margin-right: 20px;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/kotlin-overview/images/logos-sprite.png) no-repeat;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/kotlin-overview/images/logos-sprite.png) no-repeat;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .kotlin-overview-section._features .overview-popup_versatile .logos-list-item .logo {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/kotlin-overview/images/logos-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/kotlin-overview/images/logos-sprite@2x.png);
     background-size: 100px 500px;
   }
 }
@@ -4783,14 +4783,14 @@ a:hover {
   height: 69px;
   margin-top: -35px;
   margin-left: -35px;
-  background: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite.png) no-repeat;
+  background: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite.png) no-repeat;
   background-position: 0 -100px;
   cursor: pointer;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .kotlin-overview-section._video-overview .video-player-wrap .video-player-play-button {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/layout/images/main-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/layout/images/main-sprite@2x.png);
     background-size: 150px auto;
   }
 }
@@ -5011,7 +5011,7 @@ a:hover {
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .kotlin-overview-section._community .links-list-item .link-icon:after {
-    background-image: url(/kotlin-web-site-ja/_assets/static/css/com/kotlin-overview/images/kotlin-community-sprite@2x.png);
+    background-image: url(/kotlin-web-site-ja/assets/static/css/com/kotlin-overview/images/kotlin-community-sprite@2x.png);
     background-size: 100px 200px;
   }
 }
