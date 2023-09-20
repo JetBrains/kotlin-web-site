@@ -570,7 +570,6 @@ a:hover {
 .g-layout {
   margin-left: auto;
   margin-right: auto;
-  width: 960px;
 }
 
 @media (max-width: 1000px) {
@@ -583,7 +582,6 @@ a:hover {
 
 .g-grid {
   font-size: 0;
-  margin-right: -30px;
 }
 
 .g-1 {
@@ -1122,7 +1120,6 @@ a:hover {
 .g-layout {
   margin-left: auto;
   margin-right: auto;
-  width: 960px;
 }
 
 @media (max-width: 1000px) {
@@ -1135,7 +1132,6 @@ a:hover {
 
 .g-grid {
   font-size: 0;
-  margin-right: -30px;
 }
 
 .g-1 {
