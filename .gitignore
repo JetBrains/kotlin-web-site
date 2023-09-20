@@ -34,3 +34,4 @@ pdf/kotlin-docs.pdf
 pdf/tmp.html
 *.pyc
 pages/docs/.jekyll-cache
+gomi.txt
