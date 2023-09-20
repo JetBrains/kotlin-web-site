@@ -455,7 +455,7 @@ Built-in operations on booleans include
 ## Arrays
 -->
 
-Kotlinでの配列は Array クラスで表され、`get`と`set1関数を持ちます（`[]`の演算子をオーバロードすることによって実現している）。また、`size`プロパティがいくつかの有用なメンバ関数と共に有効になっています：
+Kotlinでの配列は Array クラスで表され、`get`と`set`関数を持ちます（`[]`の演算子をオーバロードすることによって実現している）。また、`size`プロパティがいくつかの有用なメンバ関数と共に有効になっています：
 
 <!--original
 Arrays in Kotlin are represented by the `Array` class, that has `get` and `set` functions (that turn into `[]` by operator overloading conventions), and `size` property, along with a few other useful member functions:
