@@ -107,10 +107,18 @@ To make sure everything works as expected, install and run the KDoctor tool:
    <def title="Xcode">
       <list>
          <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
-         <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
-         <li>
-            <p><code>Error: can't grab Xcode schemes</code>. If you encounter an error like this, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode.</p>
-            <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
+         <li>If you haven't launched Xcode yet, open it in a separate window. Accept the license terms and allow it to perform some necessary initial tasks.</li>
+         <li><p>You may encounter <code>Error: can't grab Xcode schemes</code> or other issues regarding command line tools selection. In this case, do one of the following:</p>
+             <list>
+               <li><p>In the Terminal, run:</p>
+                   <code style="block"
+                         lang="bash">sudo xcode-select --switch /Applications/Xcode.app</code>
+               </li>
+               <li>Alternatively, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode version.
+                   <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
+                   <p>Make sure that the path to <code>Xcode.app</code> is selected. Confirm the action in a separate window if required.</p>
+               </li>
+             </list>
          </li>
       </list>
    </def>

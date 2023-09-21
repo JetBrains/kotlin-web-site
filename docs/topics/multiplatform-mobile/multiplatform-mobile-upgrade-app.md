@@ -149,7 +149,7 @@ data class RocketLaunch (
 
 ### Connect HTTP client
 
-1. In `shared/src/commonMain/kotlin`, create a new `RocketComponent` class.
+1. In `shared/src/commonMain/kotlin`, create a new `RocketComponent` class in the project folder.
 2. Add the `httpClient` property that will be used to retrieve some rocket launch information through an HTTP GET request:
 
     ```kotlin
@@ -188,7 +188,6 @@ data class RocketLaunch (
 4. Call the `httpClient.get` function to retrieve the information about the rocket launches:
 
    ```kotlin
-   import RocketLaunch
    import io.ktor.client.request.*
 
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
@@ -319,7 +318,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     }
     ```
 
-2. In `androidApp/src/main/java`, create a new `MainViewModel` class:
+2. In `androidApp/src/main/java`, create a new `MainViewModel` class in the project folder:
 
     ```kotlin
     import androidx.lifecycle.ViewModel
@@ -356,12 +355,13 @@ The view model will manage the data from `Activity` and won't disappear when the
    import kotlinx.coroutines.launch
    
     class MainViewModel : ViewModel() {
-    // ...
+        // ...
 
-    init {
-        viewModelScope.launch {
-            Greeting().greet().collect { phrase ->
-               //...
+        init {
+            viewModelScope.launch {
+                Greeting().greet().collect { phrase ->
+                    //...
+                }
             }
         }
     }
@@ -533,16 +533,20 @@ Now the view model will emit signals whenever this property changes.
 #### Choose a library to consume flows from iOS
 
 In this tutorial, you can choose between the [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
-and [SKIE](https://github.com/touchlab/SKIE/) libraries. Both are open-sources solutions that help work with flows in iOS.
-They support cancellation and generics with flows, something that the Kotlin/Native compiler doesn't provide by default yet.
+and [SKIE](https://github.com/touchlab/SKIE/) libraries that help work with flows in iOS. Both are open-sources solutions
+that support cancellation and generics with flows, something that the Kotlin/Native compiler doesn't provide by default yet.
 
 The SKIE library augments the Objective-C API produced by the Kotlin Multiplatform compiler.
+SKIE transforms flows into an equivalent of the Swift's `AsyncSequence` structure.
+Rather than using a wrapper, it looks like any other Swift library when calling it from Swift.
+
 Using SKIE is less verbose as it doesn't use wrappers around flows. It's easier to set up because it will be part of the
 framework rather than a dependency that needs to be added as a CocoaPod or SPM file. Apart from flows, SKIE also supports
 [other features](https://skie.touchlab.co/features/).
 
-The KMP-NativeCoroutines library helps you consume suspending functions and flows from iOS.
-It's a more tried-and-tested option, and may be a more stable solution at the moment.
+The KMP-NativeCoroutines library helps you consume suspending functions and flows from iOS. It's a more tried-and-tested
+option, and may be a more stable solution at the moment. KMP-NativeCoroutines supports of `async`/`await`, Combine,
+and RxSwift approaches to concurrency while SKIE supports of `async`/`await` only.
 
 #### Option 1. Configure KMP-NativeCoroutines {initial-collapse-state="collapsed"}
 
@@ -668,13 +672,11 @@ It's a more tried-and-tested option, and may be a more stable solution at the mo
 
     ![Final results](multiplatform-mobile-upgrade.png){width=500}
 
-> You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp).
->
-{type="note"}
+<!-- You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp). -->
 
 #### Option 2. Configure SKIE {initial-collapse-state="collapsed"}
 
-To set up the library, in `shared/build.gradle.kts`, configure the SKIE plugin and click the **Sync** button.
+To set up the library, in `shared/build.gradle.kts`, specify the SKIE plugin and click the **Sync** button.
 
 ```kotlin
 plugins {
@@ -696,35 +698,27 @@ plugins {
     ```Swift
     func startObserving() {
         Task {
-           do {
-               for try await phrase in Greeting().greet() {
-                  self.greetings.append(phrase)
-               }
-           } catch {
-               print("Failed with error: \(error)")
-           }
-       }
+            for await phrase in Greeting().greet() {
+                self.greetings.append(phrase)
+            }
+        }
     }
     ```
 
-3. Mark `ViewModel` with the `@MainActor` annotation. It ensures all asynchronous operations within `ViewModel` run on
-   the main thread to comply with Kotlin/Native requirement:
+3. Make sure `ViewModel` is marked with the `@MainActor` annotation. It ensures all asynchronous operations within
+   `ViewModel` run on the main thread to comply with Kotlin/Native requirement:
 
     ```Swift
     // ...
     extension ContentView {
         @MainActor
         class ViewModel: ObservableObject {
-            @Published var greetings: Array<String> = []
+            @Published var greetings: [String] = []
             
             func startObserving() {
                 Task {
-                    do {
-                        for try await phrase in Greeting().greet() {
-                            self.greetings.append(phrase)
-                        }
-                    } catch {
-                        print("Failed with error: \(error)")
+                    for await phrase in Greeting().greet() {
+                        self.greetings.append(phrase)
                     }
                 }
             }
@@ -736,9 +730,7 @@ plugins {
 
    ![Final results](multiplatform-mobile-upgrade.png){width=500}
 
-> You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp).
-> 
-{type="note"}
+<!-- You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp). -->
 
 ## Next step
 
