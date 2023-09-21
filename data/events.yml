@@ -1,3 +1,11 @@
+- lang: en
+  startDate: '2023-11-14'
+  endDate: '2023-11-14'
+  location: Brighton, UK
+  speaker : 'Andrey Breslav'
+  title : 'Brighton Kotlin'
+  subject : 'Kotlin: a bit of history'
+  url: https://www.meetup.com/Brighton-Kotlin/events/296107142
 - lang: de
   startDate: '2023-10-16'
   endDate: '2023-10-17'
@@ -11,8 +19,8 @@
   endDate: '2023-09-22'
   location: Amsterdam, Netherlands
   speaker : 'Garth Gilmour'
-  title : ''
-  subject : 'Kotlin Training Day'
+  title : 'Kotlin Training Day'
+  subject : 'Effective Ktor with Kotlin'
   url: https://pages.xebia.com/kotlin-training-day
 - lang: en
   startDate: '2023-09-14'

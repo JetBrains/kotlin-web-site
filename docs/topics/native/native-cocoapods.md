@@ -19,7 +19,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 <tabs>
 <tab title="RVM">
 
-1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
+1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -35,7 +35,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 </tab>
 <tab title="Rbenv">
 
-1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
+1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -80,7 +80,7 @@ sudo gem install cocoapods
 >
 {type="warning"}
 
-1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
+1. Install [Homebrew](https://brew.sh/) in case you don't have it yet.
 
 2. Install CocoaPods:
 

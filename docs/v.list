@@ -44,9 +44,9 @@
 
     <var name="sqlDelightVersion" value="1.5.5" type="string"/>
 
-    <var name="kspSupportedKotlinVersion" value="1.9.0" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="1.9.10" type="string"/>
 
-    <var name="kspVersion" value="1.0.11" type="string"/>
+    <var name="kspVersion" value="1.0.13" type="string"/>
 
     <var name="ktorVersion" value="2.3.2" type="string"/>
 
