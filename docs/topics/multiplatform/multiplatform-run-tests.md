@@ -8,24 +8,24 @@ Tests for multiplatform projects can be divided into two categories:
 * Tests for platform-specific code. These are essential to test platform-specific logic. They use a platform-specific
   framework and can benefit from its additional features, such as a richer API and a wider range of assertions.
 
-Both categories are supported in multiplatform projects. This tutorial will show you how to set up, create, and run unit
-tests in a simple Multiplatform project. Then you'll work with a more complex example that requires tests both for common
-and platform-specific code.
+Both categories are supported in multiplatform projects. This tutorial will first show you how to set up, create,
+and run unit tests for common code in a simple Kotlin Multiplatform project. Then you'll work with a more complex example
+that requires tests both for common and platform-specific code.
 
 > This tutorial assumes that you are familiar with:
 > * The layout of a Kotlin Multiplatform project. If this is not the case,
-    complete [this tutorial](multiplatform-mobile-getting-started.md) to get started.
+    complete [this tutorial](multiplatform-mobile-getting-started.md) before you begin.
 > * The basics of popular unit testing frameworks, such as [JUnit](https://junit.org/junit5/).
 >
 {type="tip"}
 
-## Test a simple Multiplatform project
+## Test a simple multiplatform project
 
 ### Create your project
 
-1. Check your environment for multiplatform
-   development. [Install all the necessary tools and update them to the latest versions](multiplatform-mobile-setup.md).
-2. In Android Studio, select **File | New | New Project**.
+1. Prepare your environment for multiplatform
+   development. [Check the list of necessary tools and update them to the latest versions if necessary](multiplatform-mobile-setup.md).
+2. In Android Studio, select **File** | **New** | **New Project**.
 3. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
 
    ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png){width=700}
@@ -83,7 +83,7 @@ which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) AP
    Each multiplatform project has a `commonTest` source set by default. This is where the common tests are stored.
    All you need to do is to create a corresponding folder in your project, which must have the same name.
 
-2. Start creating a new directory in `shared/src`. Choose `commonTest` containing the `kotlin` folder
+2. Creating a new directory in `shared/src`. Choose `commonTest` containing the `kotlin` folder
    from the list of standard options provided by the IDE:
 
    ![Creating common test directory](create-common-test-dir.png){width=300}
@@ -146,8 +146,8 @@ You can execute the test by running:
 * The test file using its context menu
 * The `GrepTest` test class using the **Run** icon in the gutter
 
-There's also a handy **Ctrl + Shift + R**/**Ctrl + Shift + F10** shortcut. Regardless of the option you choose,
-you'll see a list of targets to run the test on:
+There's also a handy <shortcut layout="macOS">⌃Ctrl ⇧Shift R</shortcut>/<shortcut layout="Windows">Ctrl+Shift+F10</shortcut> shortcut.
+Regardless of the option you choose, you'll see a list of targets to run the test on:
 
 ![Run test task](run-test-tasks.png){width=300}
 
@@ -227,8 +227,8 @@ You can run this test using any of the ways [available in the IDE](#run-tests).
 
 ### Add platform-specific tests
 
-> Here, the mechanism of expected and actual declarations is used for brevity and simplicity. In more complex code, a
-> better approach is to use interfaces and factory functions.
+> Here, the [mechanism of expected and actual declarations](multiplatform-connect-to-apis.md)
+> is used for brevity and simplicity. In more complex code, a better approach is to use interfaces and factory functions.
 >
 {type="note"}
 
@@ -324,7 +324,7 @@ possible to add additional dependencies and folders. To learn about adding suppo
     }
     ```
 
-### Run multiple tests and read reports
+### Run multiple tests and analyze reports
 
 At this stage, you have the code for common, Android, and iOS implementations, as well as their tests. You should have a
 similar directory structure to this in your project:
@@ -332,7 +332,7 @@ similar directory structure to this in your project:
 ![Whole project structure](code-and-test-structure.png){width=300}
 
 You can run individual tests from the context menu or use the shortcut. One more option is to use Gradle tasks. For
-example, if you run the `allTests` Gradle task, every test in your project will be run with a corresponding test runner.
+example, if you run the `allTests` Gradle task, every test in your project will be run with the corresponding test runner.
 
 ![Gradle test tasks](gradle-alltests.png){width=700}
 
@@ -343,8 +343,8 @@ the `shared/build/tests` directory:
 
 Run the `allTests` task and examine its report. You'll see that:
 
-* Android and iOS tests depended on common tests.
-* Common tests are always run before platform-specific ones.
+* Android and iOS tests depend on common tests.
+* Common tests always run before platform-specific ones.
 
 ![HTML report for multiplatform tests](multiplatform-test-report.png){width=700}
 
@@ -364,7 +364,7 @@ When working with tests in your future projects, remember:
 * When writing tests for platform-specific code, you can use the functionality of the corresponding framework, for example,
   annotations and extensions.
 * You can run tests both from the IDE and using Gradle tasks.
-* When you're running tests, HTML test reports are generated automatically.
+* When you run tests, HTML test reports are generated automatically.
 
 ## What's next?
 
