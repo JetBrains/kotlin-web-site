@@ -171,9 +171,9 @@ data class RocketLaunch (
     }
     ```
 
-   * To deserialize the result of the GET request,
-     the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON serializer are used.
-   * The JSON serializer is configured here to print the JSON in a more human-readable manner with the `prettyPrint` property,
+   * To deserialize the result of the GET request, the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json)
+     and the JSON serializer are used.
+   * The JSON serializer is configured here to print the JSON in a more readable manner with the `prettyPrint` property,
      be more flexible when reading malformed JSON with `isLenient`,
      and ignore keys that haven't been declared in the rocket launch model with `ignoreUnknownKeys`.
 
@@ -185,7 +185,7 @@ data class RocketLaunch (
    }
    ```
 
-4. Call the `httpClient.get` function to retrieve the information about the rocket launches:
+4. Call the `httpClient.get()` function to retrieve information about rocket launches:
 
    ```kotlin
    import io.ktor.client.request.*
@@ -195,8 +195,8 @@ data class RocketLaunch (
    }
    ```
 
-   * `httpClient.get()` is also a suspending function,
-     because it needs to retrieve data over the internet in an asynchronous manner without blocking threads.
+   * `httpClient.get()` is also a suspending function
+     because it needs to retrieve data over the internet asynchronously without blocking threads.
    * Suspending functions can only be called from coroutines or other suspend functions. This is why `getDateOfLastSuccessfulLaunch()`
      was marked with the `suspend` keyword. The network request will be executed in the HTTP client's thread pool.
 
@@ -232,7 +232,7 @@ data class RocketLaunch (
    
    The date will have the "MMMM DD, YYYY" format, for example, OCTOBER 5, 2022.
 
-7. Add another suspending function `launchPhrase()` that will create a message using the `getDateOfLastSuccessfulLaunch()`
+7. Add another suspending function, `launchPhrase()`, that will create a message using the `getDateOfLastSuccessfulLaunch()`
    function:
 
    ```kotlin
@@ -246,7 +246,7 @@ data class RocketLaunch (
    ```
 ### Create the flow
 
-You can use flows instead of suspending functions. They emit a sequence of values as opposed to a single value that
+You can use flows instead of suspending functions. They emit a sequence of values instead of a single value that
 suspending functions return.
 
 1. Navigate to the `Greeting.kt` file in the `shared/src/commonMain/kotlin` directory.
@@ -296,7 +296,7 @@ Update your `androidApp/src/main/AndroidManifest.xml` file with the access permi
 ## Update Android and iOS apps
 
 You've already updated the API of the shared module by changing the return type of the `greet()` function to a `Flow`.
-Now you need to update native (iOS, Android) parts of the project, so that they can properly handle the result of calling
+Now, you need to update native (iOS, Android) parts of the project so that they can properly handle the result of calling
 the `greet()` function.
 
 ### Android app
@@ -328,7 +328,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     }
     ```
 
-    This class extends Android's `ViewModel` class which ensures the correct behavior in terms of lifecycle and configuration changes.
+    This class extends Android's `ViewModel` class that ensures the correct behavior regarding lifecycle and configuration changes.
 
 3. Create a `greetingList` value of the [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/)
    type and its backing property:
@@ -388,7 +388,8 @@ The view model will manage the data from `Activity` and won't disappear when the
 
 #### Use the view model's flow from the main activity
 
-In `androidApp/src/main/java`, locate the MainActivity.kt file and update the following class replacing previous implementation:
+In `androidApp/src/main/java`, locate the MainActivity.kt file and update the following class, replacing the previous
+implementation:
 
 ```kotlin
 import android.os.Bundle
@@ -528,25 +529,25 @@ is already imported and used in `ContentView.swift` with `import shared`.
     * The `@Published` wrapper is used for the `greetings` property.
     * The `@ObservedObject` property wrapper is used to subscribe to the view model.
 
-Now the view model will emit signals whenever this property changes.
+Now, the view model will emit signals whenever this property changes.
 
 #### Choose a library to consume flows from iOS
 
 In this tutorial, you can choose between the [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
-and [SKIE](https://github.com/touchlab/SKIE/) libraries that help work with flows in iOS. Both are open-sources solutions
+and [SKIE](https://github.com/touchlab/SKIE/) libraries that help work with flows in iOS. Both are open-sourced solutions
 that support cancellation and generics with flows, something that the Kotlin/Native compiler doesn't provide by default yet.
 
 The SKIE library augments the Objective-C API produced by the Kotlin Multiplatform compiler.
-SKIE transforms flows into an equivalent of the Swift's `AsyncSequence` structure.
-Rather than using a wrapper, it looks like any other Swift library when calling it from Swift.
+SKIE transforms flows into an equivalent of Swift's `AsyncSequence` structure.
+Rather than using a wrapper, it behaves like any other Swift library when calling it from Swift.
 
 Using SKIE is less verbose as it doesn't use wrappers around flows. It's easier to set up because it will be part of the
 framework rather than a dependency that needs to be added as a CocoaPod or SPM file. Apart from flows, SKIE also supports
 [other features](https://skie.touchlab.co/features/).
 
 The KMP-NativeCoroutines library helps you consume suspending functions and flows from iOS. It's a more tried-and-tested
-option, and may be a more stable solution at the moment. KMP-NativeCoroutines supports of `async`/`await`, Combine,
-and RxSwift approaches to concurrency while SKIE supports of `async`/`await` only.
+option and maybe a more stable solution at the moment. KMP-NativeCoroutines supports `async`/`await`, Combine,
+and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 
 #### Option 1. Configure KMP-NativeCoroutines {initial-collapse-state="collapsed"}
 
@@ -568,7 +569,7 @@ and RxSwift approaches to concurrency while SKIE supports of `async`/`await` onl
     ```
 
 3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
-4. In the _shared_ `build.gradle.kts` file, opt in to the experimental `@ObjCName` annotation:
+4. In the _shared_ `build.gradle.kts` file, opt into the experimental `@ObjCName` annotation:
 
     ```kotlin
     kotlin.sourceSets.all {
@@ -606,11 +607,11 @@ and RxSwift approaches to concurrency while SKIE supports of `async`/`await` onl
 
    ![Importing KMP-NativeCoroutines](multiplatform-import-kmp-nativecoroutines.png){width=700}
 
-3. Keep the default options, "Branch" for **Dependency Rule** and "master" for **Version Rule** and click
+3. Keep the default options, "Branch" for **Dependency Rule** and "master" for **Version Rule**, and click
    the **Add Package** button.
 4. In the next window, select "KMPNativeCoroutinesAsync" and "KMPNativeCoroutinesCore" and click **Add Package**:
 
-   ![Add KMP-NativeCoroutines packages](multiplatform-add-package.png){width=350}
+   ![Add KMP-NativeCoroutines packages](multiplatform-add-package.png){width=500}
 
     This will install the KMP-NativeCoroutines packages necessary to work with the `async/await` mechanism.
 
@@ -638,8 +639,8 @@ and RxSwift approaches to concurrency while SKIE supports of `async`/`await` onl
     }
     ```
 
-3. Mark `ViewModel` with the `@MainActor` annotation. It ensures all asynchronous operations within `ViewModel` run on
-   the main thread to comply with Kotlin/Native requirement:
+3. Make sure `ViewModel` is marked with the `@MainActor` annotation. It ensures all asynchronous operations within
+   `ViewModel` run on the main thread to comply with the Kotlin/Native requirement:
 
     ```Swift
     // ...
@@ -676,6 +677,11 @@ and RxSwift approaches to concurrency while SKIE supports of `async`/`await` onl
 
 #### Option 2. Configure SKIE {initial-collapse-state="collapsed"}
 
+> We recommend using the latest version of the library.
+> Check the [SKIE repository](https://github.com/touchlab/SKIE/releases) to see if a newer version of the plugin is available.
+>
+{type="note"}
+
 To set up the library, in `shared/build.gradle.kts`, specify the SKIE plugin and click the **Sync** button.
 
 ```kotlin
@@ -683,11 +689,6 @@ plugins {
     id("co.touchlab.skie") version "0.4.19"
 }
 ```
-
-> We recommend using the latest version of the library.
-> Check the [SKIE repository](https://github.com/touchlab/SKIE/releases) to see if a newer version of the plugin is available.
->
-{type="tip"}
 
 ##### Consume the flow using SKIE
 
@@ -706,7 +707,7 @@ plugins {
     ```
 
 3. Make sure `ViewModel` is marked with the `@MainActor` annotation. It ensures all asynchronous operations within
-   `ViewModel` run on the main thread to comply with Kotlin/Native requirement:
+   `ViewModel` run on the main thread to comply with the Kotlin/Native requirement:
 
     ```Swift
     // ...
