@@ -551,6 +551,11 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 
 #### Option 1. Configure KMP-NativeCoroutines {initial-collapse-state="collapsed"}
 
+> We recommend using the latest version of the library.
+> Check the [KMP-NativeCoroutines repository](https://github.com/rickclephas/KMP-NativeCoroutines/releases) to see if a newer version of the plugin is available.
+>
+{type="note"}
+
 1. Get back to Android Studio. In the `build.gradle.kts` file of the _whole project_,
    add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` section:
 
