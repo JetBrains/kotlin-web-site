@@ -142,12 +142,12 @@ See how Kotlin types are mapped to JavaScript ones:
 | `Any`                                     | `Object`                    |                                                                                            |
 | `Throwable`                               | `Error`                     |                                                                                            |
 | Nullable `Type?`                          | `Type \| null \| undefined` |                                                                                            |
-| All other Kotlin types                    | Not supported               | Includes Kotlin collections (`List`, `Set`, `Map`, and so on), and unsigned variants.      |
+| All other Kotlin types                    | Not supported               | Includes Kotlin's collections (`List`, `Set`, `Map`, etc.), and unsigned variants.         |
 
-Additionaly, it's important to know that:
+Additionaly, it is important to know that:
 
 * Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
-* Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), so the following code works:
+* Kotlin cannot distinguish between numeric types at run time (except for `kotlin.Long`), so the following code works:
   
   ```kotlin
   fun f() {
