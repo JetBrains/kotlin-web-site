@@ -120,8 +120,33 @@ the JavaScript target, and allows you to also export Kotlin declarations that ar
 
 ## Kotlin types in JavaScript
 
-* Kotlin numeric types, except for `kotlin.Long` are mapped to JavaScript `Number`.
-* `kotlin.Char` is mapped to JavaScript `Number` representing character code.
+See how Kotlin types are mapped to JavaScript ones:
+
+| Kotlin                                    | JavaScript                  | Comments                                                                                   |
+|-------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------|
+| `Byte`, `Short`, `Int`, `Float`, `Double` | `Number`                    |                                                                                            |
+| `Char`                                    | `Number`                    | The number represents the character's code.                                                |
+| `Long`                                    | Not supported               | There is no 64-bit integer number type in JavaScript, so it is emulated by a Kotlin class. |
+| `Boolean`                                 | `Boolean`                   |                                                                                            |
+| `String`                                  | `String`                    |                                                                                            |
+| `Array`                                   | `Array`                     |                                                                                            |
+| `ByteArray`                               | `Int8Array`                 |                                                                                            |
+| `ShortArray`                              | `Int16Array`                |                                                                                            |
+| `IntArray`                                | `Int32Array`                |                                                                                            |
+| `CharArray`                               | `UInt16Array`               | Carries the property `$type$ == "CharArray"`                                               |
+| `FloatArray`                              | `Float32Array`              |                                                                                            |
+| `DoubleArray`                             | `Float64Array`              |                                                                                            |
+| `LongArray`                               | `Array<kotlin.Long>`        | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
+| `BooleanArray`                            | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`                                            |
+| `Unit`                                    | Undefined                   |                                                                                            |
+| `Any`                                     | `Object`                    |                                                                                            |
+| `Throwable`                               | `Error`                     |                                                                                            |
+| Nullable `Type?`                          | `Type \| null \| undefined` |                                                                                            |
+| All other Kotlin types                    | Not supported               | Includes Kotlin collections (`List`, `Set`, `Map`, and so on), and unsigned variants.      |
+
+Additionaly, it's important to know that:
+
+* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
 * Kotlin can't distinguish between numeric types at run time (except for `kotlin.Long`), so the following code works:
   
   ```kotlin
@@ -132,22 +157,5 @@ the JavaScript target, and allows you to also export Kotlin declarations that ar
   }
   ```
 
-* Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
-* `kotlin.Long` is not mapped to any JavaScript object, as there is no 64-bit integer number type in JavaScript. It is emulated by a Kotlin class. 
-* `kotlin.String` is mapped to JavaScript `String`.
-* `kotlin.Any` is mapped to JavaScript `Object` (`new Object()`, `{}`, and so on).
-* `kotlin.Array` is mapped to JavaScript `Array`. 
-* Kotlin collections (`List`, `Set`, `Map`, and so on) are not mapped to any specific JavaScript type.
-* `kotlin.Throwable` is mapped to JavaScript Error.
 * Kotlin preserves lazy object initialization in JavaScript.
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.
-
-### Primitive arrays
-
-Primitive array translation utilizes JavaScript `TypedArray`:
-
-* `kotlin.ByteArray`, `-.ShortArray`, `-.IntArray`, `-.FloatArray`, and `-.DoubleArray` are mapped to
-   JavaScript `Int8Array`, `Int16Array`, `Int32Array`, `Float32Array`, and `Float64Array` correspondingly.
-* `kotlin.BooleanArray` is mapped to JavaScript `Int8Array` with a property `$type$ == "BooleanArray"`.
-* `kotlin.CharArray` is mapped to JavaScript `UInt16Array` with a property `$type$ == "CharArray"`.
-* `kotlin.LongArray` is mapped to JavaScript `Array` of `kotlin.Long` with a property `$type$ == "LongArray"`.
