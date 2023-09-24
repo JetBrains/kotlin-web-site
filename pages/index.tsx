@@ -18,7 +18,13 @@ import EvernoteLogo from '../public/images/companies/evernote.svg';
 import CourseraLogo from '../public/images/companies/coursera.svg';
 import SpringLogo from '../public/images/companies/spring.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
-import MultiplatformPreviewImage from '../public/images/index/multiplatform-preview.svg';
+import GoogleLogo from '../public/images/companies/google.svg';
+import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
+import ShopifyLogo from '../public/images/companies/shopify.svg';
+import TouchlabLogo from '../public/images/companies/touchlab.svg';
+
+import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
+
 
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
@@ -26,6 +32,8 @@ import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import Link from 'next/link';
 
 import styles from './index.module.css';
+import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
+import { ArrowTopRightIcon } from '@rescui/icons';
 
 const kotlinUsageHighlightsCases = [
     {
@@ -63,6 +71,34 @@ const kotlinUsageHighlightsCases = [
         url: 'https://twitter.com/danlew42/status/809065097339564032',
         text: 'All new code in the Trello Android app is in Kotlin',
         logo: AtlassianLogo
+    }
+];
+
+const kotlinFoundationCompanies = [
+    {
+        name: 'JetBrains',
+        logo: JetbrainsLogo,
+        link: 'https://www.jetbrains.com/'
+    },
+    {
+        name: 'Google',
+        logo: GoogleLogo,
+        link: 'https://about.google/'
+    },
+    {
+        name: 'Gradle',
+        logo: GradleLogo,
+        link: 'https://gradle.org/'
+    },
+    {
+        name: 'Shopify',
+        logo: ShopifyLogo,
+        link: 'https://shopify.engineering/'
+    },
+    {
+        name: 'Touchlab',
+        logo: TouchlabLogo,
+        link: 'https://touchlab.co/'
     }
 ];
 
@@ -114,6 +150,19 @@ function Index() {
                     media={
                         <YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />
                     }
+                />
+
+                <DividerLine />
+
+                <FoundationPreview
+                    title={'Kotlin Foundation'}
+                    description={'Actively supports community efforts in developing the Kotlin ecosystem.'}
+                    button={
+                        <Button href="https://kotlinfoundation.org/" size="l" mode="rock" theme="light" icon={<ArrowTopRightIcon />} iconPosition="right">
+                            Learn more
+                        </Button>
+                    }
+                    companies={kotlinFoundationCompanies}
                 />
 
                 <DividerLine />
