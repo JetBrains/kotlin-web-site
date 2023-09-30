@@ -196,6 +196,14 @@ value?.let {
 }
 ```
 
+## Call function with value only if value is not null
+
+```kotlin
+val value = ...
+
+value?.let(::println)
+```
+
 ## Map nullable value if not null
 
 ```kotlin
