@@ -405,7 +405,7 @@ Whenever you run the server with the `run` Gradle task, the frontend is also bui
 artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration-for-the-frontend)
 section.
 
-The template already comes with a boilerplate `index.html` file in the `src/commonMain/resources` folder. It has
+The template already comes with a boilerplate `index.html` file in the `src/commonMain/resources/static` folder. It has
 a `root` node for rendering components and a `script` tag that includes the application:
 
 ```xml
@@ -448,8 +448,9 @@ tasks.getByName<Jar>("jvmJar") {
         "jsBrowserDevelopmentWebpack"
     }
     val webpackTask = tasks.getByName<KotlinWebpack>(taskName)
-    dependsOn(webpackTask) // make sure JS gets compiled first
-    from(File(webpackTask.destinationDirectory, webpackTask.outputFileName)) // bring output file along into the JAR
+    dependsOn(webpackTask)
+    from(webpackTask.map { it.mainOutputFile.get().asFile }) // bring output file along into the JAR
+    into("static")
 }
 ```
 
@@ -474,12 +475,6 @@ root directory.
 1. In `src/jvmMain/kotlin/Server.kt`, add the corresponding routes to the `routing` block:
 
     ```kotlin
-    get("/") {
-        call.respondText(
-            this::class.java.classLoader.getResource("index.html")!!.readText(),
-            ContentType.Text.Html
-        )
-    }
     staticResources("/", "static")
     route(ShoppingListItem.path) {
         // ...
