@@ -230,7 +230,7 @@ actual object IdentityBuilder {
 }
 ```
 
-#### Dependency injection framework
+#### Recommendations on dependency injection
 
 To create a loosely coupled architecture, many Kotlin projects adopt the dependency injection (DI) framework. The DI
 framework allows injecting dependencies into components based on the current environment.
@@ -286,7 +286,7 @@ substitute a fake implementation in tests or provide multiple implementations on
 
 As a general rule, rely on standard language constructs wherever possible instead of using the expect/actual mechanism.
 
-#### Inheritance
+#### Inheritance from platform classes
 
 There are special cases when using the `expect` keyword with classes may be the best approach. Let's say that
 the `Identity` type already exists on JVM:
@@ -330,7 +330,7 @@ and reuse its functionality:
 
 Here, the `CommonIdentity` type is compatible with your own design while taking advantage of the existing type on the JVM.
 
-#### Frameworks
+#### Application in frameworks
 
 If you're a framework author, you can also find expected and actual declarations useful for your framework.
 
