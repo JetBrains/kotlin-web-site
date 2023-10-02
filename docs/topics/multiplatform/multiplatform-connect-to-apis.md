@@ -87,7 +87,7 @@ sets `commonTest`, `iosTest`, and `androidTest`.
 Similarly to expected and actual functions, expected and actual properties provide you with different values on
 different platforms. Use expected and actual functions and properties for simple cases.
 
-## Interfaces
+## Interfaces in common code
 
 If platform-specific logic is too big and complex, you can define an interface to represent it in the common code and
 then provide different implementations in platform source sets.
