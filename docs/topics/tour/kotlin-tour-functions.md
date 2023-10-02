@@ -383,7 +383,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-map"}
 
-The `.map()` function accepts a lambda expression as a transformer:
+The `.map()` function accepts a lambda expression as a transform function:
 * `{ x -> x * 2 }` takes each element of the list and returns that element multiplied by 2.
 * `{ x -> x * 3 }` takes each element of the list and returns that element multiplied by 3.
 
