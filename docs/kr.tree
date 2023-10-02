@@ -34,7 +34,7 @@
 
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.20-Beta"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.20-Beta2"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
@@ -129,9 +129,10 @@
             <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
             <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html" toc-title="1. Set up an environment"/>
             <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html" toc-title="2. Create your first cross-platform app"/>
-            <toc-element id="multiplatform-mobile-dependencies.md" toc-title="3. Add dependencies"/>
-            <toc-element id="multiplatform-mobile-upgrade-app.md" toc-title="4. Upgrade your app"/>
-            <toc-element id="multiplatform-mobile-wrap-up.md" toc-title="5. Wrap up your project"/>
+            <toc-element id="multiplatform-mobile-update-ui.md" toc-title="3. Update UI"/>
+            <toc-element id="multiplatform-mobile-dependencies.md" toc-title="4. Add dependencies"/>
+            <toc-element id="multiplatform-mobile-upgrade-app.md" toc-title="5. Share more logic"/>
+            <toc-element id="multiplatform-mobile-wrap-up.md" toc-title="6. Wrap up your project"/>
             <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
             <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
             <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>

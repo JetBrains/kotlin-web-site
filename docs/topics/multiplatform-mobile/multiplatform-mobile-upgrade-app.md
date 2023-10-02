@@ -1,8 +1,13 @@
-[//]: # (title: Upgrade your app)
+[//]: # (title: Share more logic between iOS and Android)
 
 <microformat>
-    <p>This is the fourth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
-    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Upgrade your app</strong><br/><img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Wrap up your project</p>
+    <p>This is the fifth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
+      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update the user interface</a><br/>
+      <img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/>
+      <img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Share more logic</strong><br/>
+      <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
 You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
@@ -102,7 +107,7 @@ sourceSets {
     val iosMain by getting {
         // ...
         dependencies {
-            implementation("io.ktor:ktor-client-darwin:$ktorVersion") 
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
         }
     }
 }
@@ -181,13 +186,14 @@ data class RocketLaunch (
     class Greeting {
         // ...
         @Throws(Exception::class)
-        suspend fun greet(): String {
+        suspend fun greet(): List<String> = buildList {
             val rockets: List<RocketLaunch> =
                 httpClient.get("https://api.spacexdata.com/v4/launches").body()
             val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
-            return "Guess what it is! > ${platform.name.reversed()}!" +
-                    "\nThere are only ${daysUntilNewYear()} left until New Year! 🎆" +
-                    "\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀"
+            add(if (Random.nextBoolean()) "Hi!" else "Hello!")
+            add("Guess what it is! > ${platform.name.reversed()}!")
+            add("\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆")
+            add("\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀")
         }
     }
     ```
@@ -236,15 +242,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    var text by remember { mutableStateOf("Loading") }
+                    var phrases by remember { mutableStateOf(listOf("Loading")) }
                     LaunchedEffect(true) {
-                        text = try {
+                        phrases = try {
                             Greeting().greet()
                         } catch (e: Exception) {
-                            e.localizedMessage ?: "error"
+                            listOf(e.localizedMessage ?: "error")
                         }
                     }
-                    GreetingView(text)
+                    GreetingView(phrases)
                 }
             }
         }
@@ -256,9 +262,8 @@ The `greet()` function is now called inside `LaunchedEffect` to avoid recalling 
 
 ### iOS app
 
-For the iOS part of the project, you'll make use of [SwiftUI](https://developer.apple.com/xcode/swiftui/) to build the user
-interface and the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model–view–viewmodel) pattern to connect the UI to
-the shared module, which contains all the business logic.
+For the iOS part of the project, you'll make use of the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model–view–viewmodel)
+pattern to connect the UI to the shared module, which contains all the business logic.
 
 The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
@@ -267,10 +272,9 @@ is already imported and used in `ContentView.swift` with `import shared`.
 >
 {type="tip"}
 
-1. Launch your Xcode app and select **Open a project or file**.
-2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. In `iosApp/iOSApp.swift`, update the entry point for your app:
-   
+1. Get back to your iOS app in Xcode.
+2. In `iosApp/iOSApp.swift`, update the entry point for your app:
+
    ```swift
    @main
    struct iOSApp: App {
@@ -282,7 +286,7 @@ is already imported and used in `ContentView.swift` with `import shared`.
    }
    ```
 
-4. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
+3. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
    for it:
 
     ```swift
@@ -293,13 +297,15 @@ is already imported and used in `ContentView.swift` with `import shared`.
         @ObservedObject private(set) var viewModel: ViewModel
     
         var body: some View {
-            Text(viewModel.text)
+            List(viewModel.phrases, id: \.self) { phrase in
+                Text(phrase)
+            }
         }
     }
     
     extension ContentView {
         class ViewModel: ObservableObject {
-            @Published var text = "Loading..."
+            @Published var phrases: [String] = ["Loading..."]
             init() {
                 // Data will be loaded here
             }
@@ -307,27 +313,27 @@ is already imported and used in `ContentView.swift` with `import shared`.
     }
     ```
 
-   * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-   * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
-   with the view (`ContentView`).
-   * `ContentView.ViewModel` is declared as an `ObservableObject`.
-   * The `@Published` wrapper is used for the `text` property.
-   * The `@ObservedObject` property wrapper is used to subscribe to the view model.
+    * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
+    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+      with the view (`ContentView`).
+    * `ContentView.ViewModel` is declared as an `ObservableObject`.
+    * The `@Published` wrapper is used for the `text` property.
+    * The `@ObservedObject` property wrapper is used to subscribe to the view model.
 
    Now the view model will emit signals whenever this property changes.
 
-5. Call the `greet()` function, which now also loads data from the SpaceX API, and save the result in the `text` property:
+4. Call the `greet()` function, which now also loads data from the SpaceX API, and save the result in the `phrases` property:
 
     ```swift
     class ViewModel: ObservableObject {
-        @Published var text = "Loading..."
+        @Published var phrases: [String] = ["Loading..."]
         init() {
             Greeting().greet { greeting, error in
                 DispatchQueue.main.async {
                     if let greeting = greeting {
-                        self.text = greeting
+                        self.phrases = greeting
                     } else {
-                        self.text = error?.localizedDescription ?? "error"
+                        self.phrases = [error?.localizedDescription ?? "error"]
                     }
                 }
             }
@@ -335,15 +341,25 @@ is already imported and used in `ContentView.swift` with `import shared`.
     }
     ```
 
-   * Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings), thus
-   Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
-   compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
-   callbacks (`completionHandler`).
-   * The `greet()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
-   instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
-   * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
-   see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
-   That's why `DispatchQueue.main.async` is used to update `text` property.
+    * Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings), thus
+      Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
+      compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
+      callbacks (`completionHandler`).
+    * The `greet()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
+      instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
+    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
+      see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
+      That's why `DispatchQueue.main.async` is used to update `phrases` property.
+
+5. In `ContentView_Previews`, ensure that the view model is properly initialized:
+
+   ```Swift
+   struct ContentView_Previews: PreviewProvider {
+       static var previews: some View {
+           ContentView(viewModel: ContentView.ViewModel())
+       }
+   }
+   ```
 
 6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 

@@ -36,11 +36,13 @@ Get to know Kotlin Multiplatform and create a mobile app that works on both Andr
 
 ![Second step](icon-2.svg){width=25}{type="joined"} [Create your first app that works both on Android and iOS with the IDE](multiplatform-mobile-create-first-app.md)
 
-![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-dependencies.md)
+![Third step](icon-3.svg){width=25}{type="joined"} [Update the user interface](multiplatform-mobile-update-ui.md)
 
-![Fourth step](icon-4.svg){width=25}{type="joined"} [Upgrade your app](multiplatform-mobile-upgrade-app.md)
+![Fourth step](icon-4.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-dependencies.md)
 
-![Fifth step](icon-5.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
+![Fifth step](icon-5.svg){width=25}{type="joined"} [Share more logic](multiplatform-mobile-upgrade-app.md)
+
+![Sixth step](icon-6.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
 
 ## Next step
 

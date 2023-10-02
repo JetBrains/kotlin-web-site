@@ -32,7 +32,7 @@ Once you have gained some experience with Kotlin Multiplatform and want to know 
 * [Set up targets manually](multiplatform-set-up-targets.md) for your Kotlin Multiplatform project.
 * [Add dependencies](multiplatform-add-dependencies.md) on the standard, test, or another kotlinx library.
 * [Configure compilations](multiplatform-configure-compilations.md) for production and test purposes in your project.
-* [Run tests](multiplatform-run-tests.md) for JVM, JavaScript, Android, Linux, Windows, macOS, iOS, watchOS, and tvOS simulators.
+* [Create and run tests](multiplatform-run-tests.md) for JVM, JavaScript, Android, Linux, Windows, macOS, iOS, watchOS, and tvOS simulators.
 * [Publish a multiplatform library](multiplatform-publish-lib.md) to the Maven repository.
 * [Build native binaries](multiplatform-build-native-binaries.md) as executables or shared libraries, like universal frameworks or XCFrameworks.
 

@@ -1,4 +1,4 @@
-[//]: # (title: High-order functions and lambdas)
+[//]: # (title: Higher-order functions and lambdas)
 
 Kotlin functions are [first-class](https://en.wikipedia.org/wiki/First-class_function), which means they can
 be stored in variables and data structures, and can be passed as arguments to and returned from other

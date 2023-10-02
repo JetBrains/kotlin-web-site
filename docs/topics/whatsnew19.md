@@ -60,8 +60,8 @@ If you encounter any issues when using kapt with the K2 compiler, please report 
 
 ### Try the K2 compiler in your project
 
-Starting with 1.9.0 and until the release of Kotlin 2.0, you can easily test the K2 compiler with the `kotlin.experimental.tryK2=true`
-Gradle property. You can also run the following command:
+Starting with 1.9.0 and until the release of Kotlin 2.0, you can easily test the K2 compiler by adding the `kotlin.experimental.tryK2=true`
+Gradle property to your `gradle.properties` file. You can also run the following command:
 
 ```shell
 ./gradlew assemble -Pkotlin.experimental.tryK2=true
