@@ -3,7 +3,7 @@
 ## Get all member functions
 
 ```kotlin
-fun KSClassDeclaration.getDeclaredFunctions(): List<KSFunctionDeclaration> =
+fun KSClassDeclaration.getDeclaredFunctions(): Sequence<KSFunctionDeclaration> =
     declarations.filterIsInstance<KSFunctionDeclaration>()
 ```
 
@@ -31,14 +31,13 @@ fun KSTypeAlias.findActualType(): KSClassDeclaration {
 
 ```kotlin
 // @file:kotlin.Suppress("Example1", "Example2")
-fun KSFile.suppressedNames(): List<String> {
-    val ignoredNames = mutableListOf<String>()
-    annotations.filter {
-        it.shortName.asString() == "Suppress" && it.annotationType.resolve()?.declaration?.qualifiedName?.asString() == "kotlin.Suppress"
-    }.forEach {
-        val argValues: List<String> = it.arguments.flatMap { it.value }
-        ignoredNames.addAll(argValues)
+fun KSFile.suppressedNames(): Sequence<String> = annotations
+    .filter {
+        it.shortName.asString() == "Suppress" &&
+        it.annotationType.resolve().declaration.qualifiedName?.asString() == "kotlin.Suppress"
+    }.flatMap {
+        it.arguments.flatMap {
+            (it.value  as Array<String>).toList() 
+        }
     }
-    return ignoredNames
-}
 ```
