@@ -78,9 +78,8 @@ interface by default. Constants in the enum class are defined in the natural ord
 
 ## Working with enum constants
 
-Enum classes in Kotlin have synthetic methods for listing
-the defined enum constants and getting an enum constant by its name. The signatures
-of these methods are as follows (assuming the name of the enum class is `EnumClass`):
+Enum classes in Kotlin have synthetic methods for listing the defined enum constants and getting an enum constant by 
+its name. The signatures of these methods are as follows (assuming the name of the enum class is `EnumClass`):
 
 ```kotlin
 EnumClass.valueOf(value: String): EnumClass
@@ -101,23 +100,6 @@ fun main() {
 
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
-
-You can access the constants in an enum class in a generic way using
-the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
-
-```kotlin
-enum class RGB { RED, GREEN, BLUE }
-
-inline fun <reified T : Enum<T>> printAllValues() {
-    print(enumValues<T>().joinToString { it.name })
-}
-
-printAllValues<RGB>() // prints RED, GREEN, BLUE
-```
-
-> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
-> 
-> {type="tip"}
 
 In Kotlin 1.9.0, the `entries` property is introduced as a replacement for the `values()` function. The 
 `entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
@@ -148,3 +130,46 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
+
+You can access the constants in an enum class in a generic way using
+the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+inline fun <reified T : Enum<T>> printAllValues() {
+    println(enumValues<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>() // prints RED, GREEN, BLUE
+```
+
+> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
+>
+> {type="tip"}
+ 
+In Kotlin 1.9.20, the `enumEntries<T>()` function is introduced as a future replacement for the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html)
+function.
+
+The `enumValues<T>()` function is still supported, but we recommend that you use the `enumEntries<T>()` function instead
+because it has less performance impact. Every time you call `enumValues<T>()` a new array is created, whereas whenever
+you call `enumEntries<T>()` the same list is returned each time, which is far more efficient.
+
+For example:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+@OptIn(ExperimentalStdlibApi::class)
+inline fun <reified T : Enum<T>> printAllValues() {
+    println(enumEntries<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>() 
+// RED, GREEN, BLUE
+```
+
+> The `enumEntries<T>()` function is Experimental. To use it, opt in with `@OptIn(ExperimentalStdlibApi)`, and
+> [set the language version to at least 1.9](gradle-compiler-options.md#attributes-common-to-jvm-and-js).
+>
+{type="warning"}
