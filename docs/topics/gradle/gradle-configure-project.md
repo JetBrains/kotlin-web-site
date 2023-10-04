@@ -752,7 +752,7 @@ the `compilerOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of
 If you declare a standard library dependency explicitly (for example, if you need a different version), the Kotlin Gradle
 plugin won't override it or add a second standard library.
 
-If you do not need a standard library at all, you can add the opt-out option to the `gradle.properties`:
+If you don't need a standard library at all, you can add the following Gradle property to your `gradle.properties` file:
 
 ```none
 kotlin.stdlib.default.dependency=false
@@ -760,11 +760,15 @@ kotlin.stdlib.default.dependency=false
 
 #### Versions alignment of transitive dependencies
 
-If you explicitly write the Kotlin version 1.8.0 or higher in your dependencies, for example: 
+From Kotlin standard library version 1.9.20, Gradle uses metadata included in the standard library to automatically
+align transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies.
+
+If you add a dependency for any Kotlin standard library version between 1.8.0 – 1.9.10, for example: 
 `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")`, then the Kotlin Gradle Plugin uses this Kotlin version 
-for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This is for avoiding class duplication from 
-different stdlib versions. [Learn more about merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
-You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property:
+for transitive `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` dependencies. This avoids class duplication from 
+different standard library versions. [Learn more about merging `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` into `kotlin-stdlib`](whatsnew18.md#updated-jvm-compilation-target). 
+You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.alignment` Gradle property in your `gradle.properties`
+file:
 
 ```none
 kotlin.stdlib.jdk.variants.version.alignment=false
@@ -772,7 +776,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
 ##### Other ways to align versions {initial-collapse-state="collapsed"}
 
-* In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
+* If you have issues with version alignment, you can align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
 
   <tabs group="build-script">
@@ -792,10 +796,9 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   </tab>
   </tabs>
 
-* If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
-  but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
-  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `%kotlinVersion%` versions of these
-  transitive libraries:
+* If you don't add a dependency for a standard library version, but you have two different dependencies that transitively
+  bring different old versions of the Kotlin standard library, then you can explicitly require `%kotlinVersion%`
+  versions of these transitive libraries:
 
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
@@ -840,8 +843,9 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   </tab>
   </tabs>
   
-* If you have a Kotlin version equal to `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")` and 
-  an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
+* If you add a dependency for Kotlin standard library version `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")`,
+  and an old version (earlier than `1.8.0`) of the Kotlin Gradle plugin, update the Kotlin Gradle plugin to match the standard
+  library version:
 
   
   <tabs group="build-script">
@@ -867,11 +871,11 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   </tab>
   </tabs>
 
-* If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
+* If you use versions prior to `1.8.0` of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
   `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
   transitively brings `kotlin-stdlib:1.8+`, [replace your `kotlin-stdlib-jdk<7/8>:SOME_OLD_KOTLIN_VERSION` with 
   `kotlin-stdlib-jdk*:%kotlinVersion%`](whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
-  a transitive `kotlin-stdlib:1.8+` from the library that brings it:
+  the transitive `kotlin-stdlib:1.8+` from the library that brings it:
 
   <tabs group="build-script">
   <tab title="Kotlin" group-key="kotlin">
