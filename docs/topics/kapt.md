@@ -70,6 +70,28 @@ Follow these steps:
    `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
    `kapt` dependency and it will be available both for production sources and tests.
 
+## Try Kotlin K2 compiler
+
+> Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md). Opt-in is required (see details below),
+> and you should use it only for evaluation purposes.
+>
+{type="warning"}
+
+From Kotlin 1.9.20, you can try using the kapt compiler plugin with the [K2 compiler](https://blog.jetbrains.com/kotlin/2021/10/the-road-to-the-k2-compiler/),
+which brings performance improvements and many other benefits. To use the K2 compiler in your project, add the following
+options to your `gradle.properties` file:
+
+```kotlin
+kotlin.experimental.tryK2=true
+kapt.use.k2=true
+```
+Alternatively, you can enable K2 for kapt by completing the following steps:
+1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `2.0`.
+2. In your `gradle.properties` file, add `kapt.use.k2=true`.
+
+If you encounter any issues when using kapt with the K2 compiler, please report them to our
+[issue tracker](http://kotl.in/issue).
+
 ## Annotation processor arguments
 
 Use `arguments {}` block to pass arguments to annotation processors:
