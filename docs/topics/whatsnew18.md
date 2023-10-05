@@ -572,7 +572,7 @@ In Kotlin 1.8.0, the deprecation cycle continues for the following properties an
   the deprecation level to `error` for the `KotlinCompile` task's `classpath` property. All compile tasks use
   the `libraries` input for a list of libraries required for compilation.
 * We removed the `kapt.use.worker.api` property that allowed running [kapt](kapt.md) via the Gradle Workers API.
-  By default, [kapt has been using Gradle workers](kapt.md#running-kapt-tasks-in-parallel) since Kotlin 1.3.70,
+  By default, [kapt has been using Gradle workers](kapt.md#run-kapt-tasks-in-parallel) since Kotlin 1.3.70,
   and we recommend sticking to this method.
 * In Kotlin 1.7.0, we [announced the start of a deprecation cycle for the `kotlin.compiler.execution.strategy` property](whatsnew17.md#deprecation-of-the-kotlin-compiler-execution-strategy-system-property).
   In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy)

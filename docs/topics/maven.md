@@ -193,7 +193,7 @@ Alternatively, run your build with the `-Dkotlin.compiler.incremental=true` opti
 
 ## Configure annotation processing
 
-See [`kapt` – Using in Maven](kapt.md#using-in-maven).
+See [`kapt` – Using in Maven](kapt.md#use-in-maven).
 
 ## Create JAR file
 

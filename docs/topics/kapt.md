@@ -13,7 +13,7 @@ In a nutshell, you can use libraries such as [Dagger](https://google.github.io/d
 
 Please read below about how to apply the *kapt* plugin to your Gradle/Maven build.
 
-## Using in Gradle
+## Use in Gradle
 
 Follow these steps:
 1. Apply the `kotlin-kapt` Gradle plugin:
@@ -96,9 +96,9 @@ kapt {
 }
 ```
 
-## Improving the speed of builds that use kapt
+## Improve the speed of builds that use kapt
 
-### Running kapt tasks in parallel
+### Run kapt tasks in parallel
 
 To improve the speed of builds that use kapt, you can enable the [Gradle Worker API](https://guides.gradle.org/using-the-worker-api/)
 for kapt tasks. Using the Worker API lets Gradle run independent annotation processing tasks from a single project in parallel,
@@ -161,7 +161,7 @@ If you run into any problems with caching for annotation processors, disable cac
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
-### Measuring performance of annotation processors
+### Measure performance of annotation processors
 
 Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
 An example output:
@@ -187,7 +187,7 @@ plugin:org.jetbrains.kotlin.kapt3:dumpProcessorTimings=ap-perf-report.file \
 sample/src/main/
 ```
 
-### Measuring the number of files generated with annotation processors
+### Measure the number of files generated with annotation processors
 
 The `kotlin-kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
@@ -209,7 +209,7 @@ Enable the statistics in two steps:
   kapt.verbose=true
   ```
 
-> You can also enable verbose output via the [command line option `verbose`](#using-in-cli).
+> You can also enable verbose output via the [command line option `verbose`](#use-in-cli).
 >
 > {type="note"}
 
@@ -238,7 +238,7 @@ However, compile avoidance can't be used for annotation processors discovered in
 in them require running the annotation processing tasks. 
 
 To run kapt with compile avoidance:
-* Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#using-in-gradle).
+* Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#use-in-gradle).
 * Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
 
 ```none
@@ -286,7 +286,7 @@ kapt {
 }
 ```
 
-## Using in Maven
+## Use in Maven
 
 Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`: 
 
@@ -329,12 +329,12 @@ For example:
 </configuration>
 ```
 
-## Using in IntelliJ build system
+## Use in IntelliJ build system
 
 kapt is not supported for IntelliJ IDEA's own build system. Launch the build from the "Maven Projects"
 toolbar whenever you want to re-run the annotation processing.
 
-## Using in CLI
+## Use in CLI
 
 kapt compiler plugin is available in the binary distribution of the Kotlin compiler.
 
@@ -350,7 +350,7 @@ Here is a list of the available options:
 * `classes` (*required*): An output path for the generated class files and resources.
 * `stubs` (*required*): An output path for the stub files. In other words, some temporary directory.
 * `incrementalData`: An output path for the binary stubs.
-* `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass as many `apclasspath` options as many JARs you have.
+* `apclasspath` (*repeatable*): A path to the annotation processor JAR. Pass as many `apclasspath` options as the number of JARs that you have.
 * `apoptions`: A base64-encoded list of the annotation processor options. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
 * `javacArguments`: A base64-encoded list of the options passed to javac. See [AP/javac options encoding](#ap-javac-options-encoding) for more information.
 * `processors`: A comma-specified list of annotation processor qualified class names. If specified, kapt does not try to find annotation processors in `apclasspath`.
@@ -359,7 +359,8 @@ Here is a list of the available options:
     * `stubs` – only generate stubs needed for annotation processing.
     * `apt` – only run annotation processing.
     * `stubsAndApt` – generate stubs and run annotation processing.
-* `correctErrorTypes`: See [below](#using-in-gradle). Disabled by default.
+* `correctErrorTypes`: See [below](#use-in-gradle). Disabled by default.
+* `dumpFileReadHistory`: An output path to dump for each file a list of classes used during annotation processing.
 
 The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can be repeated.
 
@@ -376,7 +377,7 @@ An example:
 -P plugin:org.jetbrains.kotlin.kapt3:correctErrorTypes=true
 ```
 
-## Generating Kotlin sources
+## Generate Kotlin sources
 
 kapt can generate Kotlin sources. Just write the generated Kotlin source files to the directory specified by `processingEnv.options["kapt.kotlin.generated"]`,
 and these files will be compiled together with the main sources.
@@ -404,7 +405,7 @@ fun encodeList(options: Map<String, String>): String {
 }
 ```
 
-## Keeping Java compiler's annotation processors
+## Keep Java compiler's annotation processors
 
 By default, kapt runs all annotation processors and disables annotation processing by javac.
 However, you may need some of javac's annotation processors working (for example, [Lombok](https://projectlombok.org/)).
