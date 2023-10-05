@@ -936,7 +936,7 @@ Enable the statistics in two steps:
   kapt.verbose=true
   ```
 
-> You can also enable verbose output via the [command line option `verbose`](kapt.md#using-in-cli).
+> You can also enable verbose output via the [command line option `verbose`](kapt.md#use-in-cli).
 >
 {type="note"}
 
