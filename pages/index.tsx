@@ -34,6 +34,7 @@ import Link from 'next/link';
 import styles from './index.module.css';
 import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
 import { ArrowTopRightIcon } from '@rescui/icons';
+import { HeroSection } from '../blocks/front-page/hero/hero';
 
 const kotlinUsageHighlightsCases = [
     {
@@ -108,6 +109,14 @@ function Index() {
     return (
         <>
             <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
+
+			<HeroSection>
+				<>
+					Concise.
+					<br /> Multiplatform.
+					<br /> Fun.
+				</>
+			</HeroSection>
 
             <div className={'ktl-layout ktl-layout--center'}>
                 <InfoBlock
