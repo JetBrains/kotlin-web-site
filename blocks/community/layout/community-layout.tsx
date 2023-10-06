@@ -5,7 +5,7 @@ import Head from 'next/head';
 import GlobalHeader, { COMMUNITY_TITLE, COMMUNITY_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
-import CtaBlock from '@jetbrains/kotlin-web-site-ui/out/components/cta-block';
+import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
 import Button from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
@@ -125,13 +125,15 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                         Write to us
                     </Button>
                 }
-            >
-                <div className={'ktl-hero ktl-hero_theme_dark'}>
+                mainTitle={
+                <>
                     Give us your feedback or ask any questions
                     <br />
                     you have about the Kotlin community
-                </div>
-            </CtaBlock>
+                </>
+                }
+            />
+
 
             <ThemeProvider theme={theme}>
                 <GlobalFooter />

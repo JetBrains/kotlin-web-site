@@ -19,7 +19,7 @@
 
 @media (min-width: 1280px) {
     .content {
-        margin: 96px 710px 108px 0;
+        margin: 96px 496px 108px 0;
         max-width: 724px;
     }
 
@@ -30,7 +30,7 @@
     .image {
         position: absolute;
         display: block;
-        width: 723px;
+        width: 476px;
         right: 0;
         top: -64px;
     }

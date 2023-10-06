@@ -13,7 +13,7 @@ interface KeepInTouchProps {
 export const KeepInTouch: FC<KeepInTouchProps> = ({ links }) => {
     return (
         <div className={classNames(styles.wrapper)}>
-            <section className="ktl-container">
+            <section className="ktl-layout ktl-layout--center">
                 <h2 className="ktl-h1">Keep in Touch</h2>
                 <div className={classNames(styles.grid, 'ktl-offset-top-l')}>
                     {links.map((link) => (

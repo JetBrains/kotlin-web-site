@@ -12,13 +12,13 @@ interface CommunityBannerProps {
 
 export const CommunityBanner: FC<CommunityBannerProps> = ({ title, children }) => {
     return (
-        <div className={classNames('ktl-container', styles.banner)} data-test="community-banner">
+        <div className={classNames('ktl-layout', 'ktl-layout--center', styles.banner)} data-test="community-banner">
             <div className={styles.content}>
                 <div className="ktl-hero" dangerouslySetInnerHTML={{ __html: title }} />
                 <div className={classNames('ktl-text-1', styles.text)}>{children}</div>
             </div>
             <div className={styles.image}>
-                <Img src={communityBanner} sizes={[723]} densities={[1, 2]} alt={'Community Banner Image'}/>
+                <Img src={communityBanner} sizes={[476]} densities={[1, 2]} alt={'Community Banner Image'}/>
             </div>
         </div>
     );
