@@ -3,10 +3,20 @@
 This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
+Starting from the Kotlin 1.9.20, we document the versions of external tools recommeded for use in Kotlin Multiplatform 
+projects: 
+
+| Kotlin Version | Gradle | Android Gradle Plugin | Xcode |
+|----------------|--------|-----------------------|-------|
+| 1.9.20         | \>=7.5 | 7.4.2 <=> 8.2         | 15.0  |
+
+
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
 > Stable version of Kotlin is %kotlinVersion%.
-> 
+>
 {type="note"}
+
+
 
 ## New approach to auto-generated targets
 
