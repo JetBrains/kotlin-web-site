@@ -12,6 +12,10 @@ To start, why not take our tour of Kotlin? This tour covers the fundamentals of 
 Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.
 Download and install one of these IDEs to start using Kotlin.
 
+> Want to use a different IDE? Take a look at [this page](https://kotlinlang.org/docs/kotlin-ide.html#other-ides-support) for more info.
+>
+{type="note"}
+
 ## Create your powerful application with Kotlin
  
 <tabs>
