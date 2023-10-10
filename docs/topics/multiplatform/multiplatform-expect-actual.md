@@ -6,8 +6,8 @@
 >
 {type="warning"}
 
-Expected and actual declarations allow you to access platform-specific APIs from the Kotlin Multiplatform modules. In
-the common code, you can then provide platform-agnostic APIs.
+Expected and actual declarations allow you to access platform-specific APIs from the Kotlin Multiplatform modules.
+Then, in the common code, you can then provide platform-agnostic APIs.
 
 > This article describes the language mechanism of expected and actual declarations. For general recommendations on
 > different ways to use platform specifics, see [Use platform-specific APIs](multiplatform-connect-to-apis.md).
@@ -18,10 +18,10 @@ the common code, you can then provide platform-agnostic APIs.
 
 To define expected and actual declarations, follow these rules:
 
-1. In the common source set, declare a standard Kotlin construct. This could be a function, property, class, interface,
+1. In the common source set, declare a standard Kotlin construct. This can be a function, property, class, interface,
    enumeration, or annotation.
 2. Mark this construct with the `expect` keyword. It's your _expected declaration_. These declarations can be used in
-   common code but should not include implementation. Instead, the platform-specific code provides this implementation.
+   common code but shouldn't include any implementation. Instead, the platform-specific code provides this implementation.
 3. In each platform-specific source set, declare the same construct in the same package and mark it with the `actual`
    keyword. It's your _actual declaration_. Typically, it contains an implementation using platform-specific libraries.
 
@@ -30,36 +30,40 @@ corresponding _expected_ declaration in common code. The compiler ensures that:
 
 * Every expected declaration in the common source set has a matching actual declaration in every platform-specific
   source set.
-* Expected declarations do not contain any implementation.
+* Expected declarations don't contain any implementation.
 * Every actual declaration shares the same package as the corresponding expected declaration, such as `org.mygroup.myapp.MyType`.
 
 While generating the resulting code for different platforms, the Kotlin compiler merges the expected and actual
 declarations corresponding to each other. It generates one declaration with its actual implementation for each platform.
-Therefore, every usage of the expected declaration in the common code will call the correct actual declaration in the
+Therefore, every use of the expected declaration in the common code calls the correct actual declaration in the
 resulting platform code.
 
 You can declare actual declarations when you use intermediate source sets shared between different target platforms.
 Consider, for example, the `iosMain` an intermediate source set shared between the `iosX64Main`, `iosArm64Main`,
 and `iosSimulatorArm64Main`platform source sets. Only `iosMain` typically contains the actual declarations, not the
-platform source sets. The Kotlin compiler will then use these actual declarations to produce the resulting code for
+platform source sets. The Kotlin compiler will then use these actual declarations to produce the resulting code for the
 corresponding platforms.
 
-The IDE assists with common issues when declarations are missing, the expected declaration contains implementation,
-the signatures of declarations do not match, or the declarations are in different packages.
+The IDE assists with common issues, like:
 
-You can also use the IDE to navigate from expected to actual declarations. You can select the gutter icon to view actual
+* When declarations are missing
+* The expected declaration contains implementation
+* The signatures of declarations do not match
+* Declarations are in different packages
+
+You can also use the IDE to navigate from expected to actual declarations. Select the gutter icon to view actual
 declarations or use [shortcuts](https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_implementation).
 
 ![IDE navigation from expected to actual declarations](expect-actual-gutter.png){width=500}
 
-## Different approaches to using the expect/actual mechanism
+## Different approaches for using the expected and actual declarations
 
-Let's compare different options of using the expected/actual mechanism for solving the same problem of accessing
-platform APIs and providing a way to work with them in the common code.
+Let's explore the different options of using the expected/actual mechanism to solve the problem of accessing
+platform APIs while still providing a way to work with them in the common code.
 
 Consider a Kotlin Multiplatform project where you need to implement the `Identity` type, which should contain the user
 login name and the current process ID. The project has the `commonMain`, `jvmMain`, and `nativeMain` source sets to make
-the app work on the JVM and in native environments like iOS.
+the application work on the JVM and in native environments like iOS.
 
 ### Expected and actual functions
 
@@ -117,10 +121,10 @@ and implemented differently in platform source sets:
 If the factory function becomes too big, consider using a common `Identity` interface and implementing it differently on
 different platforms.
 
-A factory function `buildIdentity()` should again return `Identity`, but this time, it's an object implementing the
+A factory function `buildIdentity()` should return `Identity`, but this time, it's an object implementing the
 common interface:
 
-1. In `commonMain`, define the `Identity` interface and the `buildIndentity()` factory function:
+1. In `commonMain`, define the `Identity` interface and the `buildIdentity()` factory function:
 
   ```kotlin
   // In the commonMain source set:
@@ -132,7 +136,7 @@ common interface:
   }
   ```
 
-2. Create platform-specific implementations of the interface without additional use of `expect` and `actual`:
+2. Create platform-specific implementations of the interface without additional use of expected and actual declarations:
 
   ```kotlin
   // In the jvmMain source set:
@@ -154,7 +158,7 @@ common interface:
   ) : Identity
   ```
 
-Platform functions return platform-specific `Identity` instances, which are implemented as platform types `JVMIdentity`
+These platform functions return platform-specific `Identity` instances, which are implemented as platform types `JVMIdentity`
 and `NativeIdentity`.
 
 #### Expected and actual properties
@@ -247,12 +251,12 @@ This means that the only case when expected and actual declarations are needed i
 framework. See [Use platform-specific APIs](multiplatform-connect-to-apis.md#dependency-injection-framework) for examples.
 
 With this approach, you can adopt Kotlin Multiplatform simply by using interfaces and factory functions. If you already
-use the DI framework to manage dependencies in your project, it's recommended the same approach for managing platform
-dependencies.
+use the DI framework to manage dependencies in your project, we recommended that you use the same approach for managing
+platform dependencies.
 
 ### Expected and actual classes
 
-It's possible to use expected and actual classes to implement the same solution:
+You can use expected and actual classes to implement the same solution:
 
 ```kotlin
 // In the commonMain source set:
@@ -281,15 +285,15 @@ actual class Identity {
 You might have seen this approach in demonstration materials before. However, using classes in simple cases where
 interfaces would be sufficient is _not recommended_.
 
-With interfaces, you do not limit your design to one implementation per target platform. Also, it's much easier to
+With interfaces, you don't limit your design to one implementation per target platform. Also, it's much easier to
 substitute a fake implementation in tests or provide multiple implementations on a single platform.
 
-As a general rule, rely on standard language constructs wherever possible instead of using the expect/actual mechanism.
+As a general rule, rely on standard language constructs wherever possible instead of using expected and actual declarations.
 
 #### Inheritance from platform classes
 
 There are special cases when using the `expect` keyword with classes may be the best approach. Let's say that
-the `Identity` type already exists on JVM:
+the `Identity` type already exists on the JVM:
 
 ```kotlin
 open class Identity {
@@ -383,7 +387,7 @@ typically provides an expected `CommonViewModel` class, whose actual Android cou
 from the Android framework. See [Use platform-specific APIs](multiplatform-connect-to-apis.md#adapting-to-an-existing-hierarchy-using-expected-actual-classes)
 for a detailed description of this example. -->
 
-## Advanced usages of the expect/actual mechanism
+## Advanced use cases
 
 There are a number of special cases regarding expected and actual declarations.
 
@@ -408,7 +412,7 @@ expect class MyDate {
 }
 ```
 
-Within a JVM module, the `java.time.Month` enum could be used to implement the first expected declaration and
+Within a JVM module, the `java.time.Month` enum can be used to implement the first expected declaration and
 the `java.time.LocalDate` class to implement the second. However, there's no way to add the `actual` keyword directly to
 these types.
 
@@ -420,8 +424,8 @@ actual typealias Month = java.time.Month
 actual typealias MyDate = java.time.LocalDate
 ```
 
-The `typealias` declaration should be defined in the same package as the expected declaration, while the referred class
-should be defined elsewhere.
+In this case, define the `typealias` declaration in the same package as the expected declaration and create the
+referred class elsewhere.
 
 > Since the `LocalDate` type uses the `Month` enum, you need to declare both of them as expected classes in common code.
 >
@@ -435,7 +439,7 @@ for an Android-specific example of this pattern. -->
 You can make actual implementations more visible than the corresponding expected declaration. This is useful if you
 don't want to expose your API as public for common clients.
 
-Currently, the Kotlin compiler issues an error in case of visibility changes. You can suppress this error by
+Currently, the Kotlin compiler issues an error in the case of visibility changes. You can suppress this error by
 applying `@Suppress("ACTUAL_WITHOUT_EXPECT")` to the actual type alias declaration. This limitation will be lifted
 starting with Kotlin 2.0.
 
@@ -483,7 +487,7 @@ actual enum class Department { IT, HR, Sales, Marketing }
 ```
 
 However, matching `Department` in common code can never be exhaustive now. Therefore, the compiler requires you
-to handle potential additional cases.
+to handle all potential additional cases.
 
 So, the function that implements the `when` construction on `Department` requires an `else` clause:
 
@@ -516,7 +520,7 @@ class Person(val name: String, val age: Int)
 ```
 
 This might be helpful to reuse existing types on a particular platform. For example, on the JVM, you can define your
-annotation using the existing type from the JAXB specification:
+annotation using the existing type from the [JAXB specification](https://javaee.github.io/jaxb-v2/):
 
 ```kotlin
 import javax.xml.bind.annotation.XmlRootElement
@@ -529,7 +533,7 @@ metadata to code and do not appear as types in signatures. It's not essential fo
 actual class on a platform where it's never required.
 
 Because of this, you only need to provide an `actual` declaration on platforms where the annotation is used. This
-behavior is not enabled by default, and it requires the type to be marked with [`OptionalExpectation`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-optional-expectation/).
+behavior isn't enabled by default, and it requires the type to be marked with [`OptionalExpectation`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-optional-expectation/).
 
 Take the `@XmlSerializable` annotation declared above and add `OptionalExpectation`:
 
@@ -541,7 +545,7 @@ Take the `@XmlSerializable` annotation declared above and add `OptionalExpectati
 expect annotation class XmlSerializable()
 ```
 
-In case an actual declaration is missing on a platform where it's not required, the compiler will no longer generate an
+If an actual declaration is missing on a platform where it's not required, the compiler won't generate an
 error.
 
 ## What's next?
