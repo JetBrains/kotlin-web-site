@@ -34,6 +34,7 @@ We recommend that you install the latest stable versions for compatibility and b
     <tr>
         <td><a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a></td>
         <td>
+          <p>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</p>
           <p>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</p>
             <note>
               <p>
@@ -114,7 +115,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
                    <code style="block"
                          lang="bash">sudo xcode-select --switch /Applications/Xcode.app</code>
                </li>
-               <li>Alternatively, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode version.
+               <li>Alternatively, in Xcode, select <strong>Settings | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode version.
                    <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
                    <p>Make sure that the path to <code>Xcode.app</code> is selected. Confirm the action in a separate window if required.</p>
                </li>

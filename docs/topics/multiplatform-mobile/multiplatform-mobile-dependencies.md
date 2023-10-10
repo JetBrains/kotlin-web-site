@@ -61,7 +61,7 @@ multiplatform support, is the most convenient way to work with dates in your sha
 
    ![Synchronize the Gradle files](gradle-sync.png)
 
-4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` in the project folder.
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` in the project directory.
 5. Update the file with a short function that calculates
    the number of days from today until the New Year using the `date-time` date arithmetic:
    

@@ -122,7 +122,7 @@ get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
 
-In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project folder
+In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project directory
 and add a data class which stores data from the SpaceX API:
 
 ```kotlin
@@ -149,8 +149,8 @@ data class RocketLaunch (
 
 ### Connect HTTP client
 
-1. In `shared/src/commonMain/kotlin`, create a new `RocketComponent` class in the project folder.
-2. Add the `httpClient` property that will be used to retrieve some rocket launch information through an HTTP GET request:
+1. In `shared/src/commonMain/kotlin`, create a new `RocketComponent` class in the project directory.
+2. Add the `httpClient` property to retrieve rocket launch information through an HTTP GET request:
 
     ```kotlin
     import io.ktor.client.*
@@ -171,13 +171,12 @@ data class RocketLaunch (
     }
     ```
 
-   * To deserialize the result of the GET request, the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json)
-     and the JSON serializer are used.
-   * The JSON serializer is configured here to print the JSON in a more readable manner with the `prettyPrint` property,
-     be more flexible when reading malformed JSON with `isLenient`,
-     and ignore keys that haven't been declared in the rocket launch model with `ignoreUnknownKeys`.
+   * The [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON serializer deserialize the result of the GET request.
+   * The JSON serializer is configured here in way that it prints JSON in a more readable manner with the `prettyPrint` property,
+     is more flexible when reading malformed JSON with `isLenient`,
+     and ignores keys that haven't been declared in the rocket launch model with `ignoreUnknownKeys`.
 
-3. Add a suspending function to `RocketComponent` called `getDateOfLastSuccessfulLaunch()`:
+3. Add the `getDateOfLastSuccessfulLaunch()` suspending function to `RocketComponent`:
 
    ```kotlin
    private suspend fun getDateOfLastSuccessfulLaunch(): String {
@@ -196,9 +195,9 @@ data class RocketLaunch (
    ```
 
    * `httpClient.get()` is also a suspending function
-     because it needs to retrieve data over the internet asynchronously without blocking threads.
-   * Suspending functions can only be called from coroutines or other suspend functions. This is why `getDateOfLastSuccessfulLaunch()`
-     was marked with the `suspend` keyword. The network request will be executed in the HTTP client's thread pool.
+     because it needs to retrieve data over the network asynchronously without blocking threads.
+   * Suspending functions can only be called from coroutines or other suspending functions. This is why `getDateOfLastSuccessfulLaunch()`
+     was marked with the `suspend` keyword. The network request is executed in the HTTP client's thread pool.
 
 5. Update the function again to find the last successful launch in the list:
 
@@ -213,7 +212,7 @@ data class RocketLaunch (
 
    The list of rocket launches is sorted by date from oldest to newest.
 
-6. Convert the launch date from UTC to a local date and create a formatted string:
+6. Convert the launch date from UTC to a local date and format the output:
 
    ```kotlin
    import kotlinx.datetime.Instant
@@ -230,7 +229,7 @@ data class RocketLaunch (
    }
    ```
    
-   The date will have the "MMMM DD, YYYY" format, for example, OCTOBER 5, 2022.
+   The date will be in the "MMMM DD, YYYY" format, for example, OCTOBER 5, 2022.
 
 7. Add another suspending function, `launchPhrase()`, that will create a message using the `getDateOfLastSuccessfulLaunch()`
    function:
@@ -249,7 +248,7 @@ data class RocketLaunch (
 You can use flows instead of suspending functions. They emit a sequence of values instead of a single value that
 suspending functions return.
 
-1. Navigate to the `Greeting.kt` file in the `shared/src/commonMain/kotlin` directory.
+1. Open the `Greeting.kt` file in the `shared/src/commonMain/kotlin` directory.
 2. Add the `rocketComponent` property that will get the message with the last successful launch date:
 
    ```kotlin
@@ -295,7 +294,7 @@ Update your `androidApp/src/main/AndroidManifest.xml` file with the access permi
 
 ## Update Android and iOS apps
 
-You've already updated the API of the shared module by changing the return type of the `greet()` function to a `Flow`.
+You've already updated the API of the shared module by changing the return type of the `greet()` function to `Flow`.
 Now, you need to update native (iOS, Android) parts of the project so that they can properly handle the result of calling
 the `greet()` function.
 
@@ -318,7 +317,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     }
     ```
 
-2. In `androidApp/src/main/java`, create a new `MainViewModel` class in the project folder:
+2. In `androidApp/src/main/java`, create a new `MainViewModel` class in the project directory:
 
     ```kotlin
     import androidx.lifecycle.ViewModel
@@ -344,8 +343,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     ```
     
     * `StateFlow` here extends the `Flow` interface but has a single value or state.
-    * The private backing property `_greetingList` ensures that just the read-only `greetingList` is  accessible
-      to clients of this class.
+    * The private backing property `_greetingList` ensures that only clients of this class can access the read-only `greetingList` property.
 
 4. In the `init` function of the View Model, collect all the strings from the `Greeting().greet()` flow:
 
@@ -370,7 +368,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     Since the `collect()` function is suspended, the `launch` coroutine is used within the view model's scope.
     This means that the launch coroutine will run only during the correct phases of the view model's lifecycle.
 
-5. Inside the `collect` trailing lambda, update the value of `_greetingList` to append the collected `phrase` to the phrases `list`:
+5. Inside the `collect` trailing lambda, update the value of `_greetingList` to append the collected `phrase` to the list of phrases in `list`:
 
     ```kotlin
     import kotlinx.coroutines.flow.update
@@ -384,11 +382,11 @@ The view model will manage the data from `Activity` and won't disappear when the
     }
     ```
    
-    The update() function will update the value automatically.
+    The `update()` function will update the value automatically.
 
 #### Use the view model's flow from the main activity
 
-In `androidApp/src/main/java`, locate the MainActivity.kt file and update the following class, replacing the previous
+In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class, replacing the previous
 implementation:
 
 ```kotlin
@@ -442,7 +440,6 @@ fun GreetingView(phrases: List<String>) {
         }
     }
 }
-
 
 @Preview
 @Composable
@@ -524,7 +521,8 @@ is already imported and used in `ContentView.swift` with `import shared`.
     ```
     
     * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-    * `ViewModel` has a property `greetings` that is an array of String phrases. SwiftUI connects the view model (`ContentView.ViewModel`) with the view (`ContentView`).
+    * `ViewModel` has a property `greetings` that is an array of `String` phrases.
+      SwiftUI connects the view model (`ContentView.ViewModel`) with the view (`ContentView`).
     * `ContentView.ViewModel` is declared as an `ObservableObject`.
     * The `@Published` wrapper is used for the `greetings` property.
     * The `@ObservedObject` property wrapper is used to subscribe to the view model.
@@ -534,10 +532,10 @@ Now, the view model will emit signals whenever this property changes.
 #### Choose a library to consume flows from iOS
 
 In this tutorial, you can choose between the [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
-and [SKIE](https://github.com/touchlab/SKIE/) libraries that help work with flows in iOS. Both are open-sourced solutions
+and [SKIE](https://github.com/touchlab/SKIE/) libraries that help working with flows in iOS. Both are open-sourced solutions
 that support cancellation and generics with flows, something that the Kotlin/Native compiler doesn't provide by default yet.
 
-The SKIE library augments the Objective-C API produced by the Kotlin Multiplatform compiler.
+The SKIE library augments the Objective-C API produced by the Kotlin compiler.
 SKIE transforms flows into an equivalent of Swift's `AsyncSequence` structure.
 Rather than using a wrapper, it behaves like any other Swift library when calling it from Swift.
 
@@ -557,7 +555,7 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 {type="note"}
 
 1. Get back to Android Studio. In the `build.gradle.kts` file of the _whole project_,
-   add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` section:
+   add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` block:
 
     ```kotlin
     id("com.google.devtools.ksp").version("1.8.22-1.0.11").apply(false)
@@ -584,8 +582,8 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
    
 ##### Mark the flow with KMP-NativeCoroutines
 
-1. Navigate to the `shared/src/commonMain` directory and locate the `Greeting.kt` file.
-2. Add the `@NativeCoroutines`annotation to the `greet()` function. This will ensure that the plugin generates the right
+1. Open the `Greeting.kt` file in the `shared/src/commonMain/kotlin` directory.
+2. Add the `@NativeCoroutines` annotation to the `greet()` function. This will ensure that the plugin generates the right
    code to support correct flow handling on iOS:
   
    ```kotlin
@@ -626,8 +624,22 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
    `asyncSequence()` function for the `Greeting().greet()` function.
    
    Use a loop and the `await` mechanism to iterate through the flow and update the `greetings` property every time
-   the flow emits a value.
-2. To support concurrency, wrap the asynchronous operation in a `Task`:
+   the flow emits a value:
+
+    ```Swift
+    func startObserving() {
+        do {
+            let sequence = asyncSequence(for: Greeting().greet())
+            for try await phrase in sequence {
+                self.greetings.append(phrase)
+            }
+        } catch {
+            print("Failed with error: \(error)")
+        }
+    }
+    ```
+    
+2. To support concurrency, wrap the asynchronous operation in `Task`:
 
     ```Swift
     func startObserving() {
@@ -687,7 +699,7 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 >
 {type="note"}
 
-To set up the library, in `shared/build.gradle.kts`, specify the SKIE plugin and click the **Sync** button.
+To set up the library, specify the SKIE plugin in `shared/build.gradle.kts` and click the **Sync** button. 
 
 ```kotlin
 plugins {

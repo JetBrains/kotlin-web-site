@@ -35,7 +35,7 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
    >
    {type="tip"}
 
-5. Keep the default names for the application and shared folders. Click **Finish**.
+5. Keep the default names for the application and shared directorys. Click **Finish**.
 
 The project will be set up automatically. It may take some time to download and set up the required components when you
 do this for the first time.
