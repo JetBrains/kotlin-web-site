@@ -20,23 +20,23 @@ you store the data in the `phrases` variable and later iterate over it to produc
 The `androidApp` module contains an Android application, defines its main activity and the UI views, and uses the
 `shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
 
-Make some changes and see how it is reflected in the UI:
+Make some changes and see how they are reflected in the UI:
 
 1. Navigate to the `MainActivity.kt` file in `androidApp`.
 2. Find the `Greeting` class invocation. Select the `greet()` function and use the **Cmd + B** shortcut.
    You'll see that it's the same class from the `shared` module you edited in the previous step.
 3. In `Greeting.kt`, update the `greet()` function:
 
-    ```kotlin
-    fun greet(): List<String> = buildList {
-        add(if (Random.nextBoolean()) "Hi!" else "Hello!")
-        add("Guess what it is! > ${platform.name.reversed()}!")
-    }
-    ```
+   ```kotlin
+   fun greet(): List<String> = buildList {
+       add(if (Random.nextBoolean()) "Hi!" else "Hello!")
+       add("Guess what it is! > ${platform.name.reversed()}!")
+   }
+   ```
 
    Now it returns a list of strings.
 
-4. Go back to `MainActivity.kt`. As you can see, it doesn't compile anymore because the `GreetingView` composable
+4. Go back to `MainActivity.kt`. It no longer compiles because the `GreetingView` composable
    expects a `String` argument. Update its definition:
 
    ```kotlin
@@ -54,11 +54,11 @@ Make some changes and see how it is reflected in the UI:
    }
    ```
 
-   Here the `LazyColumn` composable shows the list of `Text` items, adds padding around the content and a space between the list items. 
-   
+  Here the `LazyColumn` composable shows the list of `Text` items, adds padding around the content, and adds a space between the list items.
+
 5. Follow Android Studio's suggestions to import the missing dependencies.
-6. Update the preview as well, fixing the issue with the `String` argument:
-   
+6. Update the preview, passing a list as an argument:
+
    ```kotlin
    @Preview
    @Composable
@@ -82,7 +82,7 @@ Implement the same changes as in the Android app:
 
 1. Launch Xcode. Select **Open a project or file**.
 2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
-3. In the `ContenView.swift` file, select the `greet()` function and use the **⌃ + Cmd** shortcut.
+3. In the `ContentView.swift` file, select the `greet()` function and use the **⌃ + Cmd** shortcut.
 
    You'll see the Objective-C declarations for the Kotlin functions defined in the `shared` module. Kotlin types are
    represented as Objective-C types when used from Objective-C/Swift. Here the `greet()` function
@@ -90,7 +90,7 @@ Implement the same changes as in the Android app:
    see [Interoperability with Swift/Objective-C](native-objc-interop.md).
 
 4. If you try running the project, the build will fail. As in the Android app earlier,
-   the Swift code that uses the `greet()` function doesn't compile because its declaration is different now.
+   the Swift code that uses the `greet()` function doesn't compile because its declaration is now different.
    Change the SwiftUI code to display a list of items:
 
    ```Swift
@@ -105,8 +105,8 @@ Implement the same changes as in the Android app:
    }
    ```
 
-    * The results of the `greet()` call are stored in the `phrases` variable (`let` in Swift is similar to Kotlin's `val`).
-    * The `List` function produces a list of `Text` items.
+   * The results of the `greet()` call are stored in the `phrases` variable (`let` in Swift is similar to Kotlin's `val`).
+   * The `List` function produces a list of `Text` items.
 
 5. Run the app to see the changes:
 

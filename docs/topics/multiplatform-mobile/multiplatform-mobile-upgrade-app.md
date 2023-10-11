@@ -10,12 +10,12 @@
       <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
 </microformat>
 
-You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
-requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/multiplatform/) to share with Kotlin
+Now that you've implemented common logic using external dependencies, you can start adding more complex logic. Network
+requests and data serialization are the [most popular use cases](https://kotlinlang.org/lp/multiplatform/) for sharing code using Kotlin
 Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
 you can use them in future projects.
 
-The updated app will retrieve data over the internet from a [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
+The updated app will retrieve data over the internet from the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
 and display the date of the last successful launch of a SpaceX rocket.
 
 ## Add more dependencies
@@ -47,10 +47,10 @@ sourceSets {
 The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
 of `kotlinx.coroutines`.
 
-#### If you use Kotlin prior to version 1.7.20
+#### If you're using a version of Kotlin earlier than 1.7.20
 
-If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
-If it's not the case, add the following to the end of the `build.gradle.kts` file:
+If you're using Kotlin 1.7.20 or later, you already have the new Kotlin/Native memory manager enabled by default.
+If not, add the following to the end of the `build.gradle.kts` file:
 
 ```kotlin
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
@@ -62,10 +62,10 @@ kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarge
 
 ### kotlinx.serialization
 
-For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
+For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin ships
 with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
 
-You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
+You can set up the serialization plugin with the Kotlin plugin using the Gradle plugin DSL. To do so, add the following line to
 the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
 
 ```kotlin
@@ -77,10 +77,10 @@ plugins {
 
 ### Ktor
 
-You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
+You can add Ktor in the same way you added the `kotlinx.coroutines` library earlier. In addition to specifying the core
 dependency (`ktor-client-core`) in the common source set, you also need to:
 
-* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
+* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), which is responsible for serializing/deserializing
   the content in a specific format.
 * Add the `ktor-serialization-kotlinx-json` dependency to instruct Ktor to use the JSON format and `kotlinx.serialization`
   as a serialization library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
@@ -117,7 +117,7 @@ Synchronize the Gradle files by clicking **Sync Now** in the notification.
 
 ## Create API requests
 
-You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data and a single method to
+You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data, and you'll use a single method to
 get the list of all launches from the **v4/launches** endpoint.
 
 ### Add data model
@@ -172,9 +172,9 @@ data class RocketLaunch (
     ```
 
    * The [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON serializer deserialize the result of the GET request.
-   * The JSON serializer is configured here in way that it prints JSON in a more readable manner with the `prettyPrint` property,
+   * The JSON serializer here is configured in a way that it prints JSON in a more readable manner with the `prettyPrint` property. It
      is more flexible when reading malformed JSON with `isLenient`,
-     and ignores keys that haven't been declared in the rocket launch model with `ignoreUnknownKeys`.
+     and it ignores keys that haven't been declared in the rocket launch model with `ignoreUnknownKeys`.
 
 3. Add the `getDateOfLastSuccessfulLaunch()` suspending function to `RocketComponent`:
 
@@ -212,7 +212,7 @@ data class RocketLaunch (
 
    The list of rocket launches is sorted by date from oldest to newest.
 
-6. Convert the launch date from UTC to a local date and format the output:
+6. Convert the launch date from UTC to your local date and format the output:
 
    ```kotlin
    import kotlinx.datetime.Instant
@@ -231,7 +231,7 @@ data class RocketLaunch (
    
    The date will be in the "MMMM DD, YYYY" format, for example, OCTOBER 5, 2022.
 
-7. Add another suspending function, `launchPhrase()`, that will create a message using the `getDateOfLastSuccessfulLaunch()`
+7. Add another suspending function, `launchPhrase()`, which will create a message using the `getDateOfLastSuccessfulLaunch()`
    function:
 
    ```kotlin
@@ -249,7 +249,7 @@ You can use flows instead of suspending functions. They emit a sequence of value
 suspending functions return.
 
 1. Open the `Greeting.kt` file in the `shared/src/commonMain/kotlin` directory.
-2. Add the `rocketComponent` property that will get the message with the last successful launch date:
+2. Add a `rocketComponent` property, which will get the message with the last successful launch date:
 
    ```kotlin
    private val rocketComponent = RocketComponent()
@@ -273,13 +273,13 @@ suspending functions return.
    }
    ```
 
-   * The `Flow` is created here with the `flow()` builder function that wraps all the statements.
-   * The `Flow` emits strings with a delay of a second between each emission. The last element is only emitted after
+   * The `Flow` is created here with the `flow()` builder function, which wraps all the statements.
+   * The `Flow` emits strings with a delay of one second between each emission. The last element is only emitted after
      the network response returns, so the exact delay depends on your network.
 
 ### Add internet access permission
 
-To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
+To access the internet, the Android application needs the appropriate permission. Since all network requests are made from the
 shared module, it makes sense to add the internet access permission to its manifest.
 
 Update your `androidApp/src/main/AndroidManifest.xml` file with the access permission:
@@ -295,7 +295,7 @@ Update your `androidApp/src/main/AndroidManifest.xml` file with the access permi
 ## Update Android and iOS apps
 
 You've already updated the API of the shared module by changing the return type of the `greet()` function to `Flow`.
-Now, you need to update native (iOS, Android) parts of the project so that they can properly handle the result of calling
+Now you need to update native (iOS, Android) parts of the project so that they can properly handle the result of calling
 the `greet()` function.
 
 ### Android app
@@ -304,8 +304,8 @@ As both the shared module and the Android application are written in Kotlin, usi
 
 #### Introduce a view model
 
-As the application is becoming more complex, it's time to introduce a view model to your `MainActivity` class.
-The view model will manage the data from `Activity` and won't disappear when the `Activity` undergoes a lifecycle change.
+Now that the application is becoming more complex, it's time to introduce a view model to your `MainActivity` class.
+The view model will manage the data from `Activity` and won't disappear when `Activity` undergoes a lifecycle change.
 
 1. Add the following dependencies to your `androidApp/build.gradle.kts` file:
 
@@ -327,7 +327,7 @@ The view model will manage the data from `Activity` and won't disappear when the
     }
     ```
 
-    This class extends Android's `ViewModel` class that ensures the correct behavior regarding lifecycle and configuration changes.
+    This class extends Android's `ViewModel` class, which ensures the correct behavior regarding lifecycle and configuration changes.
 
 3. Create a `greetingList` value of the [StateFlow](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/)
    type and its backing property:
@@ -451,7 +451,7 @@ fun DefaultPreview() {
 ```
 
 * The `collectAsStateWithLifecycle()` function calls on `greetingsList()` to collect the value from the view model's flow
-  and represent it as a compose state in a lifecycle-aware manner.
+  and represent it as a composable state in a lifecycle-aware manner.
 * When a new flow is created, the compose state will change and cause a recomposition of every composable using `greetings.value`,
   namely `GreetingView`. It's a scrollable `LazyColumn` with phrases arranged vertically and separated by dividers.
 
@@ -460,16 +460,16 @@ fun DefaultPreview() {
 For the iOS part of the project, you'll make use of the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model–view–viewmodel)
 pattern again to connect the UI to the shared module, which contains all the business logic.
 
-The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
+The module is already connected to the iOS project — the Android Studio plugin wizard has completed the configuration. The module
 is already imported and used in `ContentView.swift` with `import shared`.
 
-> If you see errors in Xcode regarding the shared module or when updating your code, run the **iosApp** from Android Studio.
+> If you see errors in Xcode regarding the shared module or when updating your code, run **iosApp** from Android Studio.
 >
 {type="tip"}
 
 #### Introducing a view model
 
-1. Get back to your iOS app in Xcode.
+1. Go back to your iOS app in Xcode.
 2. In `iosApp/iOSApp.swift`, update the entry point for your app:
 
    ```swift
@@ -521,40 +521,40 @@ is already imported and used in `ContentView.swift` with `import shared`.
     ```
     
     * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
-    * `ViewModel` has a property `greetings` that is an array of `String` phrases.
+    * `ViewModel` has a `greetings` property that is an array of `String` phrases.
       SwiftUI connects the view model (`ContentView.ViewModel`) with the view (`ContentView`).
     * `ContentView.ViewModel` is declared as an `ObservableObject`.
     * The `@Published` wrapper is used for the `greetings` property.
     * The `@ObservedObject` property wrapper is used to subscribe to the view model.
 
-Now, the view model will emit signals whenever this property changes.
+Now the view model will emit signals whenever this property changes.
 
 #### Choose a library to consume flows from iOS
 
 In this tutorial, you can choose between the [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines)
-and [SKIE](https://github.com/touchlab/SKIE/) libraries that help working with flows in iOS. Both are open-sourced solutions
-that support cancellation and generics with flows, something that the Kotlin/Native compiler doesn't provide by default yet.
+and [SKIE](https://github.com/touchlab/SKIE/) libraries to help you work with flows in iOS. Both are open-source solutions
+that support cancellation and generics with flows, which the Kotlin/Native compiler doesn't yet provide by default.
 
 The SKIE library augments the Objective-C API produced by the Kotlin compiler.
 SKIE transforms flows into an equivalent of Swift's `AsyncSequence` structure.
-Rather than using a wrapper, it behaves like any other Swift library when calling it from Swift.
+Rather than using a wrapper, it behaves like any other Swift library when you call it from Swift.
 
-Using SKIE is less verbose as it doesn't use wrappers around flows. It's easier to set up because it will be part of the
-framework rather than a dependency that needs to be added as a CocoaPod or SPM file. Apart from flows, SKIE also supports
+Using SKIE is less verbose as it doesn't use wrappers around flows. It's also easier to set up because it will be part of the
+framework rather than a dependency that needs to be added as a CocoaPod or SPM file. In addition to flows, SKIE also supports
 [other features](https://skie.touchlab.co/features/).
 
 The KMP-NativeCoroutines library helps you consume suspending functions and flows from iOS. It's a more tried-and-tested
-option and maybe a more stable solution at the moment. KMP-NativeCoroutines supports `async`/`await`, Combine,
+option and maybe a more stable solution at the moment. KMP-NativeCoroutines supports the `async`/`await`, Combine,
 and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 
 #### Option 1. Configure KMP-NativeCoroutines {initial-collapse-state="collapsed"}
 
 > We recommend using the latest version of the library.
-> Check the [KMP-NativeCoroutines repository](https://github.com/rickclephas/KMP-NativeCoroutines/releases) to see if a newer version of the plugin is available.
+> Check the [KMP-NativeCoroutines repository](https://github.com/rickclephas/KMP-NativeCoroutines/releases) to see whether a newer version of the plugin is available.
 >
 {type="note"}
 
-1. Get back to Android Studio. In the `build.gradle.kts` file of the _whole project_,
+1. Return to Android Studio. In the `build.gradle.kts` file of the _whole project_,
    add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the `plugins` block:
 
     ```kotlin
@@ -572,7 +572,7 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
     ```
 
 3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
-4. In the _shared_ `build.gradle.kts` file, opt into the experimental `@ObjCName` annotation:
+4. In the _shared_ `build.gradle.kts` file, opt-in to the experimental `@ObjCName` annotation:
 
     ```kotlin
     kotlin.sourceSets.all {
@@ -610,9 +610,9 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 
    ![Importing KMP-NativeCoroutines](multiplatform-import-kmp-nativecoroutines.png){width=700}
 
-3. Keep the default options, "Branch" for **Dependency Rule** and "master" for **Version Rule**, and click
+3. Keep the default options, "Branch" for **Dependency Rule**, and "master" for **Version Rule**, and then click
    the **Add Package** button.
-4. In the next window, select "KMPNativeCoroutinesAsync" and "KMPNativeCoroutinesCore" and click **Add Package**:
+4. In the next window, select "KMPNativeCoroutinesAsync" and "KMPNativeCoroutinesCore", and then click **Add Package**:
 
    ![Add KMP-NativeCoroutines packages](multiplatform-add-package.png){width=500}
 
@@ -621,11 +621,8 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 ##### Consume the flow using the KMP-NativeCoroutines library
 
 1. In `iosApp/ContentView.swift`, update the `startObserving()` function to consume the flow using KMP-NativeCoroutine's
-   `asyncSequence()` function for the `Greeting().greet()` function.
+   `asyncSequence()` function for the `Greeting().greet()` function:
    
-   Use a loop and the `await` mechanism to iterate through the flow and update the `greetings` property every time
-   the flow emits a value:
-
     ```Swift
     func startObserving() {
         do {
@@ -638,6 +635,9 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
         }
     }
     ```
+
+    The loop and the `await` mechanism here are used here to iterate through the flow and update the `greetings` property
+    every time the flow emits a value.
     
 2. To support concurrency, wrap the asynchronous operation in `Task`:
 
@@ -656,7 +656,7 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
     }
     ```
 
-3. Make sure `ViewModel` is marked with the `@MainActor` annotation. It ensures all asynchronous operations within
+3. Make sure `ViewModel` is marked with the `@MainActor` annotation. The annotation ensures that all asynchronous operations within
    `ViewModel` run on the main thread to comply with the Kotlin/Native requirement:
 
     ```Swift
@@ -686,7 +686,7 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
     }
     ```
 
-4. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
+4. Re-run both the **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
     ![Final results](multiplatform-mobile-upgrade.png){width=500}
 
@@ -695,11 +695,11 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
 #### Option 2. Configure SKIE {initial-collapse-state="collapsed"}
 
 > We recommend using the latest version of the library.
-> Check the [SKIE repository](https://github.com/touchlab/SKIE/releases) to see if a newer version of the plugin is available.
+> Check the [SKIE repository](https://github.com/touchlab/SKIE/releases) to see whether a newer version of the plugin is available.
 >
 {type="note"}
 
-To set up the library, specify the SKIE plugin in `shared/build.gradle.kts` and click the **Sync** button. 
+To set up the library, specify the SKIE plugin in `shared/build.gradle.kts` and click the **Sync** button.
 
 ```kotlin
 plugins {
@@ -723,7 +723,7 @@ plugins {
     }
     ```
 
-3. Make sure `ViewModel` is marked with the `@MainActor` annotation. It ensures all asynchronous operations within
+3. Make sure `ViewModel` is marked with the `@MainActor` annotation. The annotation ensures that all asynchronous operations within
    `ViewModel` run on the main thread to comply with the Kotlin/Native requirement:
 
     ```Swift
@@ -744,7 +744,7 @@ plugins {
     }
     ```
 
-4. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
+4. Re-run both the **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
 
    ![Final results](multiplatform-mobile-upgrade.png){width=500}
 

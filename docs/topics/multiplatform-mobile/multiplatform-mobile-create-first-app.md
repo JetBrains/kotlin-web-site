@@ -27,7 +27,7 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
 
    ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
 
-   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > We recommend using the regular framework for your first project, as it doesn't require third-party tools and
    > has fewer installation issues.
    >
    > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
@@ -35,21 +35,21 @@ Here you will learn how to create and run your first Kotlin Multiplatform applic
    >
    {type="tip"}
 
-5. Keep the default names for the application and shared directorys. Click **Finish**.
+5. Keep the default names for the application and shared directories. Click **Finish**.
 
 The project will be set up automatically. It may take some time to download and set up the required components when you
 do this for the first time.
 
 ## Examine the project structure
 
-To view the full structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+To view the full structure of your multiplatform project, switch the view from **Android** to **Project**.
 
 ![Select the Project view](select-project-view.png){width=200}
 
 Each Kotlin Multiplatform project includes three modules:
 
 * _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
-  between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process.
+  between platforms. It uses [Gradle](gradle.md) as the build system to help automate your build process.
 * _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
   The _androidApp_ module depends on and uses the shared module as a regular Android library.
 * _iosApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
@@ -63,13 +63,13 @@ The shared module consists of three source sets: `androidMain`, `commonMain`, an
 concept for a number of files logically grouped together where each group has its own dependencies.
 In Kotlin Multiplatform, different source sets in a shared module can target different platforms.
 
-The common source set uses the common Kotlin code, and platform source sets use Kotlin flavors:
-Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`:
+The common source set uses common Kotlin code, and platform source sets use Kotlin code specific to each target.
+Kotlin/JVM is used for `androidMain` and Kotlin/Native for `iosMain`:
 
 ![Source sets and modules structure](basic-project-structure-2.png){width=200}
 
-When the shared module is built into an Android library, common Kotlin code gets treated as Kotlin/JVM.
-When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Native:
+When the shared module is built into an Android library, common Kotlin code is treated as Kotlin/JVM.
+When it is built into an iOS framework, common Kotlin is treated as Kotlin/Native:
 
 ![Common Kotlin, Kotlin/JVM, and Kotlin/Native](modules-structure.png)
 
@@ -77,7 +77,7 @@ When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Nat
 
 The common source set contains shared code that can be used across multiple target platforms.
 It's designed to contain code that is platform-independent. If you try to use platform-specific APIs in the common source set,
-IDE will show a warning:
+the IDE will show a warning:
 
 1. Open the `Greeting.kt` file and try to access one of the Java classes, `java.util.Random().nextBoolean()`, inside the `greet()` function:
 
@@ -89,12 +89,12 @@ IDE will show a warning:
    }
    ```
 
-   Android Studio highlights that `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
-2. Follow IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library.
+   Android Studio highlights that the `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
+2. Follow the IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library.
    This is a multiplatform library that works on all platforms and is included automatically as a dependency.
    The code should now compile successfully.
-3. Add a bit of unpredictability to the greeting. Update the shared code with the `reversed()` function
-   from the Kotlin standard library for reversing the text:
+3. Add a bit of variety to the greeting. Update the shared code with the `reversed()` function
+   from the Kotlin standard library to reverse the text:
 
     ```kotlin
     import kotlin.random.Random
@@ -115,7 +115,7 @@ Using interfaces and the [expect/actual](multiplatform-connect-to-apis.md) mecha
 
 ### Add platform-specific implementations
 
-The common source set can define an interface or an expected declaration. Then each platform source sets,
+The common source set can define an interface or an expected declaration. Then each platform source set,
 in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
 declarations from the common source set.
 
@@ -129,7 +129,7 @@ and generates a single declaration with actual implementations.
         val name: String
     }
     ```
-   
+
    It's a common `Platform` interface with information about the platform.
 2. Switch between the `androidMain` and the `iosMain` modules.
    You'll see that they have different implementations of the same functionality for the Android and the iOS source sets:
@@ -192,48 +192,48 @@ Now you can run the apps to ensure everything works.
 
 #### Explore the expect/actual mechanism (optional) {initial-collapse-state="collapsed"}
 
-The template project uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
+The template project uses the expect/actual mechanism for functions, but it also works for most Kotlin declarations,
 such as properties and classes. Let's implement an expected property:
 
 1. Open `Platform.kt` in the `commonMain` module and add the following at the end of the file:
 
-    ```kotlin
-    expect val num: Int
-    ```
+   ```kotlin
+   expect val num: Int
+   ```
 
-    The Kotlin compiler complains that this property has no corresponding actual declarations in the platform modules.
+   The Kotlin compiler complains that this property has no corresponding actual declarations in the platform modules.
 
 2. Try to provide the implementation right away with:
 
-    ```kotlin
-    expect val num: Int = 42
-    ```
-   
-    You'll get an error saying that expected declarations must not have a body, in this case an initializer.
-    The implementations must be provided in actual platform modules. Remove the initializer.
+   ```kotlin
+   expect val num: Int = 42
+   ```
+
+   You'll get an error saying that expected declarations must not have a body, in this case an initializer.
+   The implementations must be provided in actual platform modules. Remove the initializer.
 3. Select the `num` property. Press **Option + Enter** and choose "Create actual property for module
    ModuleName.shared.main (JVM)". IDE generates the actual property in `androidMain/Platform.kt`.
    You can then complete the implementation:
 
-    ```kotlin
-    actual val num: Int = 1
+   ```kotlin
+   actual val num: Int = 1
     ```
 
 4. Now provide the implementation for the `iosMain` module. Add the following to `iosMain/Platform.kt`:
 
-    ```kotlin
-    actual val num: Int = 2
-    ```
+   ```kotlin
+   actual val num: Int = 2
+   ```
 
 5. Add the `num` property to the `greet()` function to see the differences:
 
-    ```kotlin
-    fun greet(): String {
-        val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
-    
-        return "$firstWord [$num]\nGuess what it is! > ${platform.name.reversed()}!"
-    }
-    ```
+   ```kotlin
+   fun greet(): String {
+       val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
+  
+       return "$firstWord [$num]\nGuess what it is! > ${platform.name.reversed()}!"
+   }
+   ```
 
 ## Run your application
 
@@ -252,23 +252,19 @@ or [iOS](#run-your-application-on-ios) from Android Studio.
 
 #### Run on a different Android simulated device {initial-collapse-state="collapsed"}
 
-Learn how
-to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
+Learn how to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
 
 #### Run on a real Android device {initial-collapse-state="collapsed"}
 
-Learn how
-to [configure and connect a hardware device and run your application on it](https://developer.android.com/studio/run/device).
+Learn how to [configure and connect a hardware device and run your application on it](https://developer.android.com/studio/run/device).
 
 ### Run your application on iOS
 
-1. Launch Xcode in a separate window. The first time you may also need to accept its license terms and allow it to
-   perform
-   some necessary initial tasks.
+1. Launch Xcode in a separate window. The first time you do this, you may also need to accept the license terms and allow
+   Xcode to perform some necessary initial tasks.
 2. In Android Studio, select **iosApp** in the list of run configurations and click **Run**.
 
-   If you don't have an available iOS configuration in the list, add
-   a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
+   If you don't have an available iOS configuration in the list, add a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
 
    ![Run multiplatform app on iOS](run-ios.png){width=450}
 
@@ -287,8 +283,8 @@ If you want to run your application on a simulated device, you can add a new run
    ![New run configuration for iOS application](ios-new-configuration.png)
 
 3. Name your configuration.
-4. Select the **Xcode project file**. For that, navigate to your project, for example **KotlinMultiplatformSandbox**,
-   open the`iosApp` folder and select the `.xcodeproj` file.
+4. Select the **Xcode project file**. To do so, navigate to your project, for example **KotlinMultiplatformSandbox**,
+   open the`iosApp` folder, and select the `.xcodeproj` file.
 
 5. In the **Execution target** list, select a simulated device and click **OK**.
 
@@ -309,7 +305,7 @@ If you want to run your application on a simulated device, you can add a new run
 
 ## Next step
 
-In the next part of the tutorial, you'll learn how to update the UI elements using platform-specific libaries.
+In the next part of the tutorial, you'll learn how to update the UI elements using platform-specific libraries.
 
 **[Proceed to the next part](multiplatform-mobile-update-ui.md)**
 
