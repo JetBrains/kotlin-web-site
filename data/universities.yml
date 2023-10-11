@@ -5,7 +5,7 @@
     url: https://cs50.harvard.edu/x/2022/gallery/
   geo:
     lat: 42.3576808
-    lng: "-71.1288621,10"
+    lng: -71.1288621,10
 - title: University of Cambridge
   location: Cambridge (UK)
   courses:
