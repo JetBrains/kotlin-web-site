@@ -41,10 +41,10 @@ import searchConfig from '../search-config.json';
 
 import latestNews from '../latest-news/latest-news.json';
 
-import news1 from '../latest-news/news-1.png';
-import news2 from '../latest-news/news-2.png';
-import news3 from '../latest-news/news-3.png';
-import news4 from '../latest-news/news-4.png';
+import news1 from '../latest-news/news-0.png';
+import news2 from '../latest-news/news-1.png';
+import news3 from '../latest-news/news-2.png';
+import news4 from '../latest-news/news-3.png';
 
 const newsImages = [ news1, news2, news3, news4 ];
 

@@ -30,7 +30,9 @@ function Item({ title, date, link, image, description, position }: ItemProps) {
       <div className={styles.image}>{[248, 272, 280, 312, 328, 424].map(width => (
         <Image key={width} className={cn(styles.imageSrc)} src={image} alt={title} width={width} />
       ))}</div>
-      <p className={cn(styles.date, textCn('rs-text-3'))}>{date}</p>
+      <p className={cn(styles.date, textCn('rs-text-3'))}>
+        {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
       <h3 className={cn(styles.title, textCn('rs-h4'))}>{title}</h3>
       <div className={cn(styles.text, textCn("rs-text-3"))}>
         <p className={styles.description}>{description}</p>

@@ -25,8 +25,8 @@ async function getLatestNews() {
 	const items = allJson['rss']['channel']['item'];
 	const latestNews = [];
 
-	for (const item of items.splice(0, 4)) {
-		const imagePath = await saveImage(item.featuredImage);
+	for (const [i, item] of items.splice(0, 4).entries()) {
+		const imagePath = await saveImage(i, item.featuredImage);
 		latestNews.push({
 			title: item.title,
 			date: item.pubDate,
@@ -48,13 +48,13 @@ async function getLatestNewsXML() {
 	});
 }
 
-async function saveImage(imageUrl) {
+async function saveImage(index, imageUrl) {
 	const url = new URL(imageUrl);
 
-	const localFileName = imageUrl.split('/').pop();
-	const localFilePath = path.join(latestNewsDirectory, localFileName);
+	const localFilePath = path.join(latestNewsDirectory, 'news-' + index + '.png');
 	const relativePath = path.relative(projectRoot, localFilePath);
 
+	if (fs.existsSync(relativePath)) fs.unlinkSync(relativePath);
 	const fileStream = fs.createWriteStream(localFilePath);
 
 	return new Promise((resolve, reject) => {
