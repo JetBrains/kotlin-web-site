@@ -9,7 +9,7 @@
 - title: University of Cambridge
   location: Cambridge (UK)
   courses:
-  - name: 'Kotlin: Essential Training'
+  - name: Kotlin: Essential Training
     url: https://training.cam.ac.uk/ucs/event/4426749
   geo:
     lat: 52.205356
