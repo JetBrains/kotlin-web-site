@@ -51,8 +51,8 @@ your Kotlin Multiplatform module. Do **not** include any implementation code.
 expect fun randomUUID(): String
 ```
 
-In each platform-specific source set (iOS and Android), provide the actual implementation for the
-function `randomUUID()` expected in the common module. Use the `actual` keyword to mark these actual implementations.
+In each platform-specific source set (iOS and Android), provide the actual implementation for the `randomUUID()`
+function expected in the common module. Use the `actual` keyword to mark these actual implementations.
 
 ![(Generating UUID with expected and actual declarations).](expect-generate-uuid.png){width=500}
 
@@ -150,9 +150,9 @@ class IOSPlatform : Platform
 actual fun platform() = IOSPlatform()
 ```
 
-WHen you call `platform()` in the common code, it can work with an object of the `Platform` type. When you run this common
-code on Android, the `platform()` call returns an instance of the `AndroidPlatform` class. When you run it on
-iOS, `platform()` returns an instance of the `IOSPlatform` class.
+When you call the `platform()` function in the common code, it can work with an object of the `Platform` type.
+When you run this common code on Android, the `platform()` call returns an instance of the `AndroidPlatform` class.
+When you run it on iOS, `platform()` returns an instance of the `IOSPlatform` class.
 
 ### Different entry points
 
@@ -219,7 +219,7 @@ A modern application typically uses a dependency injection (DI) framework to cre
 DI framework allows injecting dependencies into components based on the current environment.
 
 Any DI framework that supports Kotlin Multiplatform can help you inject different dependencies for different platforms.
-We don't recommend a specific framework. Use the one that bests suits your needs.
+We don't recommend a specific framework. Use the one that best suits your needs.
 
 For example, [Koin](https://insert-koin.io/) is a dependency injection framework that supports Kotlin Multiplatform:
 

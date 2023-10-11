@@ -7,7 +7,7 @@
 {type="warning"}
 
 Expected and actual declarations allow you to access platform-specific APIs from the Kotlin Multiplatform modules.
-Then, in the common code, you can then provide platform-agnostic APIs.
+Then, in the common code, you can provide platform-agnostic APIs.
 
 > This article describes the language mechanism of expected and actual declarations. For general recommendations on
 > different ways to use platform specifics, see [Use platform-specific APIs](multiplatform-connect-to-apis.md).
@@ -25,7 +25,7 @@ To define expected and actual declarations, follow these rules:
 3. In each platform-specific source set, declare the same construct in the same package and mark it with the `actual`
    keyword. It's your _actual declaration_. Typically, it contains an implementation using platform-specific libraries.
 
-During compilation for a specific target, the compiler tries to match each actual declaration it finds with the
+During compilation for a specific target, the compiler tries to match each _actual_ declaration it finds with the
 corresponding _expected_ declaration in common code. The compiler ensures that:
 
 * Every expected declaration in the common source set has a matching actual declaration in every platform-specific
@@ -46,9 +46,9 @@ corresponding platforms.
 
 The IDE assists with common issues, like:
 
-* When declarations are missing
-* The expected declaration contains implementation
-* The signatures of declarations do not match
+* Missing declarations 
+* The expected declaration contains an implementation
+* The signatures of declarations don't match
 * Declarations are in different packages
 
 You can also use the IDE to navigate from expected to actual declarations. Select the gutter icon to view actual
@@ -56,7 +56,7 @@ declarations or use [shortcuts](https://www.jetbrains.com/help/idea/navigating-t
 
 ![IDE navigation from expected to actual declarations](expect-actual-gutter.png){width=500}
 
-## Different approaches for using the expected and actual declarations
+## Different approaches for using expected and actual declarations
 
 Let's explore the different options of using the expected/actual mechanism to solve the problem of accessing
 platform APIs while still providing a way to work with them in the common code.
@@ -112,7 +112,7 @@ and implemented differently in platform source sets:
 
   Here, platform functions return platform-specific `Identity` instances.
 
-> Starting with Kotlin version 1.9.0, using `getlogin()` and `getpid()` requires the `@OptIn` annotation.
+> Starting with Kotlin version 1.9.0, using `getlogin()` and `getpid()` functions requires the `@OptIn` annotation.
 >
 {type="note"}
 
@@ -251,7 +251,7 @@ This means that the only case when expected and actual declarations are needed i
 framework. See [Use platform-specific APIs](multiplatform-connect-to-apis.md#dependency-injection-framework) for examples.
 
 With this approach, you can adopt Kotlin Multiplatform simply by using interfaces and factory functions. If you already
-use the DI framework to manage dependencies in your project, we recommended that you use the same approach for managing
+use the DI framework to manage dependencies in your project, we recommend that you use the same approach for managing
 platform dependencies.
 
 ### Expected and actual classes
