@@ -78,9 +78,7 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
     val dateTimeVersion = "%dateTimeVersion%"
 
     sourceSets {
-        targetHierarchy.default()
-   
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
@@ -88,15 +86,15 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
                 implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
-                }
             }
-        val androidMain by getting {
+        }
+        androidMain {
             dependencies {
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
                 implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
             }
         }
-        val iosMain by getting {
+        iosMain {
             // ...
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
@@ -117,32 +115,12 @@ Both the `kotlinx.serialization` and SQLDelight libraries also require additiona
    ```kotlin
        plugins {
        // ...
-       kotlin("plugin.serialization") version "%kotlinVersion%"
-       id("com.squareup.sqldelight")
+       kotlin("plugin.serialization").version("%kotlinVersion%")
+       id("com.squareup.sqldelight").version("%sqlDelightVersion%")
    }
    ```
 
-3. Now go to the `build.gradle.kts` file in the project _root directory_ and specify the classpath for the plugin in the
-   build system dependencies:
-
-    ```kotlin
-    buildscript {
-        
-        dependencies {
-            // ...
-            classpath("com.squareup.sqldelight:gradle-plugin:%sqlDelightVersion%")
-        }
-    }
-    ```
-
-4. Finally, define the SQLDelight version in the `gradle.properties` file in the project _root directory_ to ensure that
-   the SQLDelight versions of the plugin and the libraries are the same:
-
-    ```none
-    sqlDelightVersion=%sqlDelightVersion%
-    ```
-
-5. Sync the Gradle project.
+3. Sync the Gradle project.
 
 Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
 
@@ -574,8 +552,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.recyclerview:recyclerview:1.3.0")
-   implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-   implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.cardview:cardview:1.0.0")
 }
 // ...
 ```
