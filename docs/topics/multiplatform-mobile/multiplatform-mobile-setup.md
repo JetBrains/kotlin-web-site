@@ -111,7 +111,7 @@ To make sure everything works as expected, install and run the KDoctor tool:
          <li>If you haven't launched Xcode yet, open it in a separate window. Accept the license terms and allow it to perform some necessary initial tasks.</li>
          <li><p>You may encounter <code>Error: can't grab Xcode schemes</code> or other issues regarding command line tools selection. In this case, do one of the following:</p>
              <list>
-               <li><p>In the Terminal, run:</p>
+               <li><p>In Terminal, run:</p>
                    <code style="block"
                          lang="bash">sudo xcode-select --switch /Applications/Xcode.app</code>
                </li>

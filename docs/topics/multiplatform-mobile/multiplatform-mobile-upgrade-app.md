@@ -644,15 +644,15 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
     ```Swift
     func startObserving() {
         Task {
-           do {
-               let sequence = asyncSequence(for: Greeting().greet())
-               for try await phrase in sequence {
-                  self.greetings.append(phrase)
-               }
-           } catch {
-               print("Failed with error: \(error)")
-           }
-       }
+            do {
+                let sequence = asyncSequence(for: Greeting().greet())
+                for try await phrase in sequence {
+                    self.greetings.append(phrase)
+                }
+            } catch {
+                print("Failed with error: \(error)")
+            }
+        }
     }
     ```
 
@@ -672,15 +672,15 @@ and RxSwift approaches to concurrency, while SKIE supports `async`/`await` only.
             
             func startObserving() {
                 Task {
-                   do {
-                       let sequence = asyncSequence(for: Greeting().greet())
-                       for try await phrase in sequence {
-                           self.greetings.append(phrase)
-                       }
-                   } catch {
-                       print("Failed with error: \(error)")
-                   }
-               }
+                    do {
+                        let sequence = asyncSequence(for: Greeting().greet())
+                        for try await phrase in sequence {
+                            self.greetings.append(phrase)
+                        }
+                    } catch {
+                        print("Failed with error: \(error)")
+                    }
+                }
             }
         }
     }
