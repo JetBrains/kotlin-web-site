@@ -36,7 +36,7 @@ async function getLatestNews() {
 		})
 	}
 
-	fs.writeFileSync(path.join(latestNewsDirectory, NEWS_DATA), JSON.stringify(latestNews), 'utf8');
+	fs.writeFileSync(path.join(latestNewsDirectory, NEWS_DATA), JSON.stringify(latestNews, null, '  '), 'utf8');
 }
 
 async function getLatestNewsXML() {
