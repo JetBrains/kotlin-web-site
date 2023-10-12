@@ -11,10 +11,12 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some highlights from this preview version:
 
+* [Preview kapt compiler plugin with K2](#preview-kapt-compiler-plugin-with-k2)
 * [New default hierarchy template for setting up multiplatform projects](#template-for-configuring-multiplatform-projects)
 * [Full support for the Gradle Configuration cache in Kotlin Multiplatform](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
 * [Custom memory allocator enabled by default in Kotlin/Native](#custom-memory-allocator-enabled-by-default)
 * [Performance improvements for the garbage collector in Kotlin/Native](#performance-improvements-for-the-garbage-collector)
+* [Support for Xcode 15 in Kotlin/Native](#support-for-xcode-15)
 * [New and renamed targets in Kotlin/Wasm](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
 * [Support for the WASI API in the standard library for Kotlin/Wasm](#support-for-the-wasi-api-in-the-standard-library)
 
@@ -26,6 +28,35 @@ The Kotlin plugins that support %kotlinEapVersion% are available for:
 |----------------|--------------------------------------------------------|
 | IntelliJ IDEA  | 2023.1.x, 2023.2.x                                     |
 | Android Studio | Hedgehog (2023.1.1 Beta 3), Iguana (2023.2.1 Canary 2) |
+
+## New Kotlin K2 compiler updates
+
+### Support for Kotlin/Wasm
+
+Since this release, the Kotlin/Wasm supports the new K2 compiler.
+[Learn how to enable it in your project](#preview-kapt-compiler-plugin-with-k2).
+
+### Preview kapt compiler plugin with K2
+
+> Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md).
+> Opt-in is required (see details below), and you should use it only for evaluation purposes.
+>
+{type="warning"}
+
+In 1.9.20-RC, you can try using the [kapt compiler plugin](kapt.md) with the K2 compiler.
+To use the K2 compiler in your project, add the following options to your `gradle.properties` file:
+
+```text
+kotlin.experimental.tryK2=true
+kapt.use.k2=true
+```
+
+Alternatively, you can enable K2 for kapt by completing the following steps:
+1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `2.0`.
+2. In your `gradle.properties` file, add `kapt.use.k2=true`.
+
+If you encounter any issues when using kapt with the K2 compiler, please report them to our
+[issue tracker](http://kotl.in/issue).
 
 ## Kotlin Multiplatform
 
@@ -318,6 +349,12 @@ kotlin.incremental.native=true
 
 If you face any issues, report such cases to [YouTrack](https://kotl.in/issue).
 
+### Support for Xcode 15
+
+Kotlin/Native %kotlinEapVersion% supports Xcode 15.0 – the latest version of Xcode. 
+As part of this, platform libraries have been updated to reflect the changes to Objective-C frameworks for Apple targets. 
+Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
+
 ## Kotlin/Wasm
 
 * [New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
@@ -333,7 +370,7 @@ If you face any issues, report such cases to [YouTrack](https://kotl.in/issue).
 ### New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`
 
 In this release, we're introducing a new target for Kotlin/Wasm – `wasm-wasi`. We're also renaming the `wasm` target to `wasm-js`.
-In the Gradle DSL, these targets are available as `wasmWasi` and `wasmJs`, respectively.
+In the Gradle DSL, these targets are available as `wasmWasi {}` and `wasmJs {}`, respectively.
 
 To use these targets in your project, update the `build.gradle.kts` file:
 
@@ -348,11 +385,11 @@ kotlin {
 }
 ```
 
-The previously introduced `wasm` block has been deprecated in favor of `wasmJs`.
+The previously introduced `wasm {}` block has been deprecated in favor of `wasmJs {}`.
 
 To migrate your existing Kotlin/Wasm project, do the following:
-* In the `build.gradle.kts` file, rename the `wasm` block to `wasmJs`.
-* In your project structure, rename the `wasmMain` folder to `wasmJsMain`.
+* In the `build.gradle.kts` file, rename the `wasm {}` block to `wasmJs {}`.
+* In your project structure, rename the `wasmMain` directory to `wasmJsMain`.
 
 ### Support for the WASI API in the standard library
 
@@ -361,7 +398,7 @@ WASI support makes it easier for you to use Kotlin/Wasm outside of browsers, for
 a standardized set of APIs for accessing system resources. In addition, WASI provides capability-based security – another
 layer of security when accessing external resources.
 
-To run Kotlin/Wasm applications, you need a VM that supports Wasm Garbage Collection (GC), for example Node.js or Deno.
+To run Kotlin/Wasm applications, you need a VM that supports Wasm Garbage Collection (GC), for example, Node.js or Deno.
 Wasmtime, WasmEdge, and others are still working towards full Wasm GC support.
 
 To import a WASI function, use the `@WasmImport` annotation:
