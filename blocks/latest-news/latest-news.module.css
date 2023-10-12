@@ -1,5 +1,5 @@
-@import "./grid.module.css";
-@import "./images.module.css";
+@import "grid.module.css";
+@import "images.module.css";
 
 .latestNews {
     margin-bottom: var(--ktl-box-page-m);

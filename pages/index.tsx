@@ -6,21 +6,20 @@ import { ThemeProvider } from '@rescui/ui-contexts';
 import { ArrowTopRightIcon } from '@rescui/icons';
 import { Button } from '@rescui/button';
 
+import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import '@jetbrains/kotlin-web-site-ui/out/components/layout';
+
 import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
-import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
-
-import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 
-import { LatestNews } from "../static/js/ktl-component/latest-news";
+import { HeroSection } from '../blocks/front-page/hero/hero';
+import { LatestNews } from "../blocks/latest-news";
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
-
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
-import { HeroSection } from '../blocks/front-page/hero/hero';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
