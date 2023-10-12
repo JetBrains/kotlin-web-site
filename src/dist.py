@@ -52,6 +52,9 @@ def get_dist_page_type(url):
         if parsed.find("meta", {"http-equiv": "refresh"}):
             page_type = 'Redirect'
 
+        if parsed.find("meta", {"name": "robots", "content": "noindex"}):
+            page_type = 'Hidden'
+
     if url.endswith('pdf'):
         page_type = 'File_Pdf'
 
