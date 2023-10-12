@@ -14,8 +14,8 @@ import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 
-import { HeroSection } from '../blocks/front-page/hero/hero';
-import { LatestNews } from "../blocks/latest-news";
+import { HeroSection } from '../blocks/main/hero/hero';
+import { LatestNews } from "../blocks/main/latest-news";
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
