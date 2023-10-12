@@ -39,6 +39,32 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.8.0**
+
+Released: 5 October, 2023
+
+</td>
+<td>
+
+* [KT-60169](https://youtrack.jetbrains.com/issue/KT-60169) Migrated on the Gradle version catalog.
+* [KT-59269](https://youtrack.jetbrains.com/issue/KT-59269) Renamed `android` to `androidTarget`.
+* [KT-59269](https://youtrack.jetbrains.com/issue/KT-59269) Updated Kotlin and dependency versions.
+* [KTIJ-26773](https://youtrack.jetbrains.com/issue/KTIJ-26773) Refactored to use `-destination` argument instead of `-sdk` and `-arch`.
+* [KTIJ-25839](https://youtrack.jetbrains.com/issue/KTIJ-25839) Refactored generated file names.
+* [KTIJ-27058](https://youtrack.jetbrains.com/issue/KTIJ-27058) Added the JVM target config.
+* [KTIJ-27160](https://youtrack.jetbrains.com/issue/KTIJ-27160) Supported Xcode 15.0.
+* [KTIJ-27158](https://youtrack.jetbrains.com/issue/KTIJ-27158) Moved the new module wizard to the experimental state.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.6.0**
 
 Released: 24 May, 2023
