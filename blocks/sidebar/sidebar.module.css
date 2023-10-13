@@ -1,0 +1,100 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 910;
+
+    --ktf-header-animation-timing: 250ms;
+    --ktf-header-animation-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.popup::before {
+    display: block;
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    visibility: visible;
+    backdrop-filter: blur(4px);
+
+    transition: background-color var(--ktf-header-animation-function) var(--ktf-header-animation-timing),
+      visibility var(--ktf-header-animation-function) var(--ktf-header-animation-timing),
+      backdrop-filter var(--ktf-header-animation-function) var(--ktf-header-animation-timing);
+    will-change: background-color, visible;
+}
+
+
+.popup.tabletMode {
+        --ktl-sidebar-width: 320px;
+    }
+
+.popup.mobileMode {
+        --ktl-sidebar-width:  100%;
+    }
+
+@media (--ktl-mm-min) {
+    .popup:not(:is(.tabletMode, .mobileMode)) {
+        --ktl-sidebar-width: 320px;
+    }
+}
+
+@media (--ktl-mm) {
+    .popup:not(:is(.tabletMode, .mobileMode)) {
+        --ktl-sidebar-width: 100%;
+    }
+}
+
+.content {
+    margin-left: auto;
+    height: 100%;
+    max-width: 100%;
+    width: var(--ktl-sidebar-width, auto);
+}
+
+
+.dark::before {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dark > .content {
+    background-color: var(--ktl-dark-100);
+}
+
+.light::before {
+    background-color: rgba(0, 0, 0, 0.62);
+}
+
+.light > .content {
+    background-color: #fff;
+}
+
+.popup > .content {
+    transform: translateX(0);
+
+    transition: transform var(--ktf-header-animation-function) var(--ktf-header-animation-timing),
+    visibility var(--ktf-header-animation-function) var(--ktf-header-animation-timing);
+    will-change: transform;
+}
+
+.close {
+    --ktf-header-animation-timing: 300ms;
+    pointer-events: none;
+}
+
+.close::before {
+    background: rgba(0, 0, 0, 0);
+    visibility: hidden;
+}
+
+.close > .content {
+    transform: translateX(100%);
+    visibility: hidden;
+}

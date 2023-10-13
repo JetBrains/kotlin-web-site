@@ -1,0 +1,9 @@
+.popup {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+}

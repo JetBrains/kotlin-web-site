@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: var(--ktl-box-block-l);
+    border-bottom: 1px solid transparent;
+    margin-bottom: var(--ktl-box-block-m);
+}
+
+.light {
+    border-bottom-color: var(--ktl-divider-color);
+}
+
+.dark {
+    border-bottom-color: rgba(255, 255, 255, 0.30);
+}
+
+.header > .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+}

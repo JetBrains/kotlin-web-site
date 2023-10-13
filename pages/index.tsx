@@ -10,6 +10,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
+import { CodeExamples } from '../blocks/main/CodeExamples';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import GradleLogo from '../public/images/companies/gradle.svg';
@@ -109,7 +110,6 @@ function Index() {
     return (
         <>
             <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
-
 			<HeroSection>
 				<>
 					Concise.
@@ -117,7 +117,13 @@ function Index() {
 					<br /> Fun.
 				</>
 			</HeroSection>
-
+        <ThemeProvider theme={'dark'}>
+            <div style={{ background: '#19191C' }}>
+                <div className={'ktl-layout ktl-layout--center'}>
+                    <CodeExamples/>
+                </div>
+            </div>
+        </ThemeProvider>
             <div className={'ktl-layout ktl-layout--center'}>
                 <InfoBlock
                     title={'Share code on your terms and for different platforms'}
