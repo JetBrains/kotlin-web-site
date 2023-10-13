@@ -486,8 +486,8 @@ actual enum class Department { IT, HR, Sales, Legal }
 actual enum class Department { IT, HR, Sales, Marketing }
 ```
 
-However, matching `Department` in common code can never be exhaustive now. Therefore, the compiler requires you
-to handle all potential additional cases.
+However, in this case, these extra constants in platform source sets won't match with those in common code.
+Therefore, the compiler requires you to handle all additional cases.
 
 So, the function that implements the `when` construction on `Department` requires an `else` clause:
 

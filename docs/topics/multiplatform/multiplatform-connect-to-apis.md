@@ -210,7 +210,7 @@ similarly create and pass an instance of `IOSPlatform`. These entry points don't
 applications, but this is where you can call the specific functionality of your shared module.
 
 Providing the right implementations with expected and actual functions or directly through entry points works well for
-simple scenarios. However, if you use dependency injection framework in your project,
+simple scenarios. However, if you use a dependency injection framework in your project,
 we recommend you use it in simple cases as well for consistency.
 
 ### Dependency injection framework
