@@ -38,6 +38,11 @@ const nextConfig = {
             use: 'yaml-loader',
         });
 
+        config.module.rules.push({
+            test: /\.md$/,
+            type: 'asset/source',
+        });
+
         return config;
     },
 };
