@@ -28,7 +28,7 @@ const Teach = (props) => {
   return (
       <div className="teach-wrapper" data-test="teach-index-page">
           <TeachTopMenu path={path} />
-          <section className="ktl-container ktl-offset-top-xl">
+          <section className="ktl-layout ktl-layout--center ktl-offset-top-xl">
               <h1 className="ktl-hero ktl-offset-bottom-xxl">Teach Computer Science with&nbsp;Kotlin</h1>
 
               <TeachLaunchCourse />
@@ -135,7 +135,7 @@ const Teach = (props) => {
               className="teach-universities ktl-offset-top-xxl ktl-with-anchor"
               id="kotlin-courses-around-the-world"
           >
-              <div className="ktl-container">
+              <div className="ktl-layout ktl-layout--center">
                   <div className="teach-universities__top">
                       <div className="universities-top">
                           <div className="universities-top__title">
@@ -233,7 +233,7 @@ const Teach = (props) => {
           </section>
 
           <section className="teach-resources ktl-offset-top-xxl ktl-with-anchor" id="start-teaching-kotlin">
-              <div className="ktl-container">
+              <div className="ktl-layout ktl-layout--center">
                   <div className="teach-resources__top ktl-offset-bottom-xl">
                       <img
                           className="teach-resources__top-image"
@@ -454,12 +454,12 @@ const Teach = (props) => {
               </div>
           </section>
 
-          <section className="ktl-container ktl-offset-top-xxl teach-subscription-section">
+          <section className="ktl-layout ktl-layout--center ktl-offset-top-xxl teach-subscription-section">
               <SubscriptionForm />
           </section>
 
           <section className="teach-video ktl-offset-top-xxl">
-              <div className="ktl-container">
+              <div className="ktl-layout ktl-layout--center">
                   <div className="ktl-row">
                       <div className="ktl-col">
                           <YoutubePlayer
@@ -472,7 +472,7 @@ const Teach = (props) => {
               </div>
           </section>
 
-          <section className="ktl-container ktl-offset-top-xxl">
+          <section className="ktl-layout ktl-layout--center ktl-offset-top-xxl">
               <div className="ktl-row">
                   <div className="ktl-col-12 ktl-col-md-10 ktl-col-md-offset-1">
                       <TeachQuotes />

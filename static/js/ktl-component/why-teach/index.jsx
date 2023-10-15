@@ -16,7 +16,7 @@ export const WhyTeach = ({path}) => {
     <div className="teach-wrapper">
       <TeachTopMenu path={path}/>
 
-      <div className="ktl-container">
+      <div className="ktl-layout ktl-layout--center">
 
         <div className="why-teach-grid ktl-offset-top-xl">
           <div className="why-teach-grid__content">

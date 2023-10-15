@@ -10,9 +10,9 @@ const userGroupsData = userGroupsDataRaw as UserGroupsData;
 function UserGroups() {
     return (
         <CommunityLayout title={'Kotlin User Groups'} ogImageName={'community.png'}>
-            <div className={'ktl-container'}>
+            <div className={'ktl-layout ktl-layout--center'}>
                 <KugsBanner title={'Kotlin User Groups (KUGs)'}>
-                    A Kotlin User Group (or “KUG”) is a community of people who come together to share their programming
+                    A Kotlin User Group (or “KUG”) is a community of people who come together to share their
                     experience involving Kotlin and its ecosystem.
                 </KugsBanner>
 
