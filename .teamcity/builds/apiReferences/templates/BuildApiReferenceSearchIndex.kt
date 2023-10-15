@@ -14,12 +14,12 @@ object BuildApiReferenceSearchIndex : Template({
     script {
       name = "Install npm dependencies"
       scriptContent = "yarn install --frozen-lockfile"
-      dockerImage = "node:14-alpine"
+      dockerImage = "node:16-alpine"
     }
     script {
       name = "Build Search Index"
       scriptContent = "node ./scripts/search/index.js"
-      dockerImage = "node:14-alpine"
+      dockerImage = "node:16-alpine"
     }
   }
 
