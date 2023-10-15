@@ -165,7 +165,7 @@ Target-specific options only applicable to the certain target can be specified a
 ```c
  compilerOpts = -DBAR=bar
  compilerOpts.linux_x64 = -DFOO=foo1
- compilerOpts.mac_x64 = -DFOO=foo2
+ compilerOpts.macos_x64 = -DFOO=foo2
  ```
 
 With such a configuration, C headers will be analyzed with `-DBAR=bar -DFOO=foo1` on Linux and
