@@ -7,8 +7,8 @@ see [Getting started with IntelliJ IDEA](jvm-get-started.md).
 
 ## Adding Java source code to an existing Kotlin project
 
-Adding Java classes to a Kotlin project is pretty straightforward. All you need to do is create a new Java file. Select
-a directory or a package inside your project and go to **File** | **New** | **Java Class** or use the **Alt + Insert**/**Cmd + N** shortcut.
+Adding Java classes to a Kotlin project is pretty straightforward. All you need to do is create a new Java file. Create the source directory `src/main/java `
+inside your project and go to **File** | **New** | **Java Class** or use the **Alt + Insert**/**Cmd + N** shortcut. Create java sources in the Java source directory.
 
 ![Add new Java class](new-java-class.png){width=400}
 
