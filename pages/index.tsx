@@ -1,16 +1,27 @@
 import React from 'react';
-import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
-import searchConfig from '../search-config.json';
-import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
-import { Button } from '@rescui/button';
-import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 
-import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+import Link from 'next/link';
+
+import { ThemeProvider } from '@rescui/ui-contexts';
+import { ArrowTopRightIcon } from '@rescui/icons';
+import { Button } from '@rescui/button';
+
+import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
-import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
+import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
+import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
-import { ThemeProvider } from '@rescui/ui-contexts';
+
+import { HeroSection } from '../blocks/main/hero/hero';
+import { LatestNews } from "../blocks/main/latest-news";
+import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
+import { InfoBlock } from '../blocks/main/info-block/info-block';
+import { DividerLine } from '../blocks/main/divider-line/divider-line';
+import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
+
+import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
 import GradleLogo from '../public/images/companies/gradle.svg';
 import CordaLogo from '../public/images/companies/corda.svg';
@@ -23,18 +34,18 @@ import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
 import ShopifyLogo from '../public/images/companies/shopify.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
 
-import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
-
-
-import { InfoBlock } from '../blocks/main/info-block/info-block';
-import { DividerLine } from '../blocks/main/divider-line/divider-line';
-
-import Link from 'next/link';
-
 import styles from './index.module.css';
-import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
-import { ArrowTopRightIcon } from '@rescui/icons';
-import { HeroSection } from '../blocks/front-page/hero/hero';
+
+import searchConfig from '../search-config.json';
+
+import latestNews from '../latest-news/latest-news.json';
+
+import news1 from '../latest-news/news-0.png';
+import news2 from '../latest-news/news-1.png';
+import news3 from '../latest-news/news-2.png';
+import news4 from '../latest-news/news-3.png';
+
+const newsImages = [ news1, news2, news3, news4 ];
 
 const kotlinUsageHighlightsCases = [
     {
@@ -106,90 +117,101 @@ const kotlinFoundationCompanies = [
 function Index() {
     const isTS = useTS();
 
+    const news = latestNews.map((item, i) => ({
+        ...item,
+        image: newsImages[i]
+    }));
+
     return (
         <>
-            <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
+            <ThemeProvider theme="dark">
+                <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
+                <HeroSection>
+                  Concise.
+                  <br /> Multiplatform.
+                  <br /> Fun.
+                </HeroSection>
+                <div className={"ktl-layout ktl-layout--center"}>
+                    <LatestNews news={news}/>
+                </div>
+            </ThemeProvider>
 
-			<HeroSection>
-				<>
-					Concise.
-					<br /> Multiplatform.
-					<br /> Fun.
-				</>
-			</HeroSection>
+            <ThemeProvider theme="light">
+                <div className={styles.evenSection}>
+                    <div className={'ktl-layout ktl-layout--center'}>
+                        <InfoBlock
+                            title={'Share code on your terms and for different platforms'}
+                            text={
+                                <>
+                                    Simplify the development of cross-platform projects with Kotlin Multiplatform.
+                                    It reduces time spent writing and maintaining the same code for different platforms while
+                                    retaining the flexibility and benefits of native programming.
+                                    Kotlin applications will work on different operating systems,
+                                    such as iOS, Android, macOS, Windows, Linux, watchOS, and others.
+                                </>
+                            }
+                            button={
+                                <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
+                                    {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform' }
+                                </Button>
+                            }
+                            media={<img src={MultiplatformPreviewImage.src}  alt="" />}
+                        />
 
-            <div className={'ktl-layout ktl-layout--center'}>
-                <InfoBlock
-                    title={'Share code on your terms and for different platforms'}
-                    text={
-                        <>
-                            Simplify the development of cross-platform projects with Kotlin Multiplatform.
-                            It reduces time spent writing and maintaining the same code for different platforms while
-                            retaining the flexibility and benefits of native programming.
-                            Kotlin applications will work on different operating systems,
-                            such as iOS, Android, macOS, Windows, Linux, watchOS, and others.
-                        </>
-                    }
-                    button={
-                        <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
-                            {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform' }
-                        </Button>
-                    }
-                    media={<img src={MultiplatformPreviewImage.src}  alt="" />}
-                />
+                        <DividerLine />
 
-                <DividerLine />
+                        <InfoBlock
+                            title={'Big, friendly and helpful community'}
+                            text={
+                                <>
+                                    Kotlin has great support and many contributors in its fast-growing global community.
+                                    Enjoy the benefits of a rich ecosystem with a wide range of community libraries.
+                                    Help is never far away — consult extensive community resources or ask the Kotlin team directly.
+                                </>
+                            }
+                            button={
+                                <Link href={'community'}>
+                                    <Button size="l" mode="rock" theme="light">
+                                        Join the community
+                                    </Button>
+                                </Link>
+                            }
+                            media={
+                                <YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />
+                            }
+                        />
 
-                <InfoBlock
-                    title={'Big, friendly and helpful community'}
-                    text={
-                        <>
-                            Kotlin has great support and many contributors in its fast-growing global community.
-                            Enjoy the benefits of a rich ecosystem with a wide range of community libraries.
-                            Help is never far away — consult extensive community resources or ask the Kotlin team directly.
-                        </>
-                    }
-                    button={
-                        <Link href={'community'}>
-                            <Button size="l" mode="rock" theme="light">
-                                Join the community
+                        <DividerLine />
+
+                        <FoundationPreview
+                            title={'Kotlin Foundation'}
+                            description={'Actively supports community efforts in developing the Kotlin ecosystem.'}
+                            button={
+                                <Button href="https://kotlinfoundation.org/" size="l" mode="rock" theme="light" icon={<ArrowTopRightIcon />} iconPosition="right">
+                                    Learn more
+                                </Button>
+                            }
+                            companies={kotlinFoundationCompanies}
+                        />
+
+                        <DividerLine />
+
+                        <KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />
+                    </div>
+
+                    <CtaBlock
+                        className={styles.ctaBlock}
+                        mainTitle={
+                            <>Start using{isTS && <br />} Kotlin today!</>
+                        }
+                        buttons={
+                            <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light">
+                                Get started
                             </Button>
-                        </Link>
-                    }
-                    media={
-                        <YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />
-                    }
-                />
-
-                <DividerLine />
-
-                <FoundationPreview
-                    title={'Kotlin Foundation'}
-                    description={'Actively supports community efforts in developing the Kotlin ecosystem.'}
-                    button={
-                        <Button href="https://kotlinfoundation.org/" size="l" mode="rock" theme="light" icon={<ArrowTopRightIcon />} iconPosition="right">
-                            Learn more
-                        </Button>
-                    }
-                    companies={kotlinFoundationCompanies}
-                />
-
-                <DividerLine />
-
-                <KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />
-            </div>
-
-            <CtaBlock
-                className={styles.ctaBlock}
-                mainTitle={
-                    <>Start using{isTS && <br />} Kotlin today!</>
-                }
-                buttons={
-                    <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light">
-                        Get started
-                    </Button>
-                }
-            />
+                        }
+                    />
+                </div>
+            </ThemeProvider>
 
             <ThemeProvider theme={'dark'}>
                 <GlobalFooter />

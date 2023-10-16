@@ -23,3 +23,7 @@ button,
 body._no-scroll {
     overflow: hidden;
 }
+
+body {
+    background: #19191C;
+}
