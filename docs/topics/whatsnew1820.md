@@ -785,7 +785,7 @@ are no watchOS targets in the project.
 If you add a watchOS target, such as `watchosArm64`, the `watchos` source set is created, and the code from
 the `apple`, `native`, and `common` source sets is compiled to `watchosArm64`, as well.
 
-You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy).
+You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#see-the-full-hierarchy-template).
 
 > In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
 > Therefore, despite their names, they have access to the full iOS API.
@@ -825,7 +825,7 @@ tooling-assisted migration.
 This new feature is [Experimental](components-stability.md#stability-levels-explained). For Kotlin Gradle build scripts,
 you need to opt in with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
 
-For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy).
+For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy-template).
 
 #### Leave feedback
 

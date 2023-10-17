@@ -842,7 +842,7 @@ code that could still directly call any of the APIs that are common to both the 
 Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
-For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-hierarchy.md#target-shortcuts).
+For common combinations of targets, you can create a hierarchical structure with target shortcuts:
 
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
