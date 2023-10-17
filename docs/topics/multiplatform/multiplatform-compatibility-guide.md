@@ -3,20 +3,19 @@
 This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
-Starting from the Kotlin 1.9.20, we document the versions of external tools recommeded for use in Kotlin Multiplatform 
-projects: 
-
-| Kotlin Version | Gradle | Android Gradle Plugin | Xcode |
-|----------------|--------|-----------------------|-------|
-| 1.9.20         | \>=7.5 | 7.4.2 <=> 8.2         | 15.0  |
-
-
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
 > Stable version of Kotlin is %kotlinVersion%.
 >
 {type="note"}
 
+## Version compatibility
 
+When configuring your project, check the compatibility of a particular Kotlin version (the version of Kotlin Multiplatform Gradle plugin)
+with available Gradle, Xcode, and Android Gradle plugin versions:
+
+| Kotlin version | Gradle        | Android Gradle plugin | Xcode |
+|----------------|---------------|-----------------------|-------|
+| 1.9.20         | 7.5 and later | 7.4.2–8.2             | 15.0  |
 
 ## New approach to auto-generated targets
 
@@ -234,7 +233,7 @@ The following properties are now deprecated:
 * Remove these properties from your `gradle.properties` and `local.properties` files.
 * Avoid setting them programmatically in the Gradle build scripts or your Gradle plugins.
 * In case deprecated properties are set by some third-party Gradle plugin used in your build, ask the plugin maintainers
-not to set these properties.
+  not to set these properties.
 
 As the default behavior of the Kotlin toolchain doesn't include such properties since 1.6.20, we don't expect
 any serious impact from removing them. Most possible consequences will be visible immediately after the project rebuild.
@@ -243,9 +242,9 @@ If you're a library author and want to be extra safe, check that consumers can w
 
 **When do the changes take effect?**
 
-* In 1.8.20, usage of these properties provokes a warning
-* In 1.9.20, usage of these properties provokes an error
-* In 2.0, support for these properties will be removed, and Kotlin Gradle Plugin will ignore them 
+* 1.8.20: report a warning when these properties are used
+* 1.9.20: raise this warning to an error
+* 2.0: remove these properties; the Kotlin Gradle plugin ignores their usages
 
 In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
 
@@ -281,7 +280,7 @@ The Kotlin team is eager to help the ecosystem migrate, so if you face any issue
 
 * 1.9: introduce a deprecation warning for dependencies on legacy libraries
 * 2.0: raise the warning for dependencies on legacy libraries to an error
-* \>2.0: the support for dependencies on legacy libraries is removed. Using such dependencies can cause build failures
+* \>2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
 
 <anchor name="compilation-source-deprecation"></anchor>
 ## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
@@ -297,7 +296,7 @@ kotlin {
     ios()
     
     sourceSets {
-        val commonMain by getting 
+        val commonMain by getting
         val myCustomIntermediateSourceSet by creating {
             dependsOn(commonMain)
         }
@@ -329,8 +328,8 @@ kotlin {
         }
 
         // Option #1. Shorter and more readable, use it when possible:
-       val jvmMain by getting { // Usually, the name of the default source set 
-                                // is a simple concatenation of the target name and the compilation name
+        val jvmMain by getting { // Usually, the name of the default source set 
+            // is a simple concatenation of the target name and the compilation name
             dependsOn(myCustomIntermediateSourceSet)
         }
         
@@ -342,13 +341,13 @@ kotlin {
 
 **When do the changes take effect?**
 
-* 1.9.0: the use of `KotlinComplation.source` produces a deprecation warning
-* 1.9.20: the use of `KotlinComplation.source` produces a deprecation error
-* \>1.9.20: `KotlinComplation.source` is removed from the Kotlin Gradle Plugin. Using it will lead to "unresolved 
-reference"-errors during the buildscript compilation
+* 1.9.0: introduce a deprecation warning when `KotlinComplation.source` is used
+* 1.9.20: raise this warning to an error
+* \>1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
+  reference" errors during the buildscript compilation
 
 <anchor name="kotlin-js-plugin-deprecation"></anchor>
-## Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin
+## Migration from kotlin-js Gradle plugin to kotlin-multiplatform Gradle plugin
 
 **What's changed?**
 
@@ -364,9 +363,9 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 
    <tabs>
    <tab title="kotlin-js">
-   
+
    ```kotlin
-   // settings.gradle.kts
+   // settings.gradle.kts:
    pluginManagement {
        plugins {
            // Remove the following line:
@@ -378,12 +377,12 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
        }
    }
    ```
-   
+
    </tab>
    <tab title="kotlin-multiplatform">
-   
+
    ```kotlin
-   // settings.gradle.kts
+   // settings.gradle.kts:
    pluginManagement {
        plugins {
            // Add the following line instead:
@@ -395,7 +394,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
        }
    }
    ```
-   
+
    </tab>
    </tabs>
 
@@ -411,17 +410,17 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    * However, if you want to declare your dependencies in a top-level block,
      change declarations from `api("group:artifact:1.0")` to `add("jsMainApi", "group:artifact:1.0")` and so on.
 
-      > In this case, make sure that the top-level `dependencies` block comes **after** the `kotlin` block. Otherwise, you'll get an error "Configuration not found".
-      >
-      {type="note"}
-   
+     > In this case, make sure that the top-level `dependencies` block comes **after** the `kotlin` block. Otherwise, you'll get an error "Configuration not found".
+     >
+     {type="note"}
+
    You can change the code in your `build.gradle.kts` file in one of the following ways:
 
    <tabs>
    <tab title="kotlin-js">
-   
+
    ```kotlin
-   // build.gradle.kts
+   // build.gradle.kts:
    plugins {
        kotlin("js") version "1.9.0"
    }
@@ -437,12 +436,12 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
        }
    }
    ```
-   
+
    </tab>
    <tab title="kotlin-multiplatform">
-   
+
    ```kotlin
-   // build.gradle.kts
+   // build.gradle.kts:
    plugins {
        kotlin("multiplatform") version "1.9.0"
    }
@@ -452,11 +451,11 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
            // ...
        }
        
-       // Option #1. Declare dependencies in the `sourceSets` block:
+       // Option #1. Declare dependencies in the sourceSets block:
        sourceSets {
            val jsMain by getting {
                dependencies {
-                   // No need for the `js` prefix here, you can just copy and paste it from the top-level block
+                   // No need for the js prefix here, you can just copy and paste it from the top-level block
                    implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
                }
            }
@@ -464,11 +463,11 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    }
    
    dependencies {
-      // Option #2. Add the `js` prefix to the dependency declaration:
-      add("jsTestImplementation", kotlin("test"))
+       // Option #2. Add the js prefix to the dependency declaration:
+       add("jsTestImplementation", kotlin("test"))
    }
    ```
-   
+
    </tab>
    </tabs>
 
@@ -481,7 +480,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
 
 <anchor name="android-target-rename"></anchor>
-## Rename of `android` target to `androidTarget`
+## Rename of android target to androidTarget
 
 **What's changed?**
 
@@ -504,227 +503,244 @@ projects.
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
 <anchor name="declaring-multiple-targets"></anchor>
-## Declaring multiple targets of the same kind
+## Declaring multiple targets of the same type
 
 **What's changed?**
 
-We discourage declaring multiple targets of the same kind in a single Gradle project.
+We discourage declaring multiple targets of the same type in a single Gradle project. For example:
 
-Example:
 ```kotlin
 kotlin {
     jvm("jvmKtor")
-    jvm("jvmOkio") // is not recommended and will produce deprecation warning
+    jvm("jvmOkHttp") // Not recommended and produces a deprecation warning
 }
 ```
 
-One popular case is having two related pieces of code together. For example, you might be compelled to use
-`jvm("jvmKtor")` and `jvm("jvmOkio")` in your `:shared` Gradle project for providing an implementation of networking
-code based on Ktor or OKIO:
+One popular case is having two related pieces of code together. For example, you might want to use
+`jvm("jvmKtor")` and `jvm("jvmOkHttp")` in your `:shared` Gradle project to implement networking using the Ktor
+or OkHttp libraries:
 
 ```kotlin
-// shared/build.gradle.kts
+// shared/build.gradle.kts:
 kotlin {
-   jvm("jvmKtor") {
-       attributes.attribute(/* ... */) 
-   }
-   jvm("jvmOkio") {
-       attributes.attribute(/* ... */) 
-   }
+    jvm("jvmKtor") {
+        attributes.attribute(/* ... */)
+    }
+    jvm("jvmOkHttp") {
+        attributes.attribute(/* ... */)
+    }
 
-   sourceSets {
-       val commonMain by getting
-       val commonJvmMain by sourceSets.creating {
-           dependsOn(commonMain)
-           dependencies {
-               // shared dependencies
-           }
-       }
-       val jvmKtorMain by getting {
-           dependsOn(commonJvmMain)
-           dependencies {
-               // Ktor dependencies
-           }
-       }
-       val jvmOkioMain by getting {
-           dependsOn(commonJvmMain)
-           dependencies {
-               // OKIO dependencies
-           }
-       }
-   }
-}
-```
-
-You can see that it comes with a non-trivial configuration complexity:
-* You have to set-up Gradle Attributes both on the `:shared`-side and on each consumer side. Otherwise, Gradle won't be
-able to resolve dependencies on such projects, because without an additional information it's not clear whether the 
-consumer should receive Ktor-based implementation, or OKIO-based implementation
-* You have to set-up the `commonJvmMain` source set manually
-
-All this involves a handful of low-level Gradle and KGP abstractions and APIs. 
-
-**What's the best practice now?**
-
-The configuration gets pretty complicated because Ktor-based and OKIO-based implementations are
-**in the same Gradle project**. In a lot of cases, it is possible to extract those parts into separate Gradle projects.
-Here's the rough outline of this refactoring:
-
-1. Replace two duplicating targets from the original project to one target. If you had a shared source set between
-these targets, move its sources and configuration to the default source set of the newly created target:
-
-```kotlin
-// shared/build.gradle.kts
-kotlin {
-    jvm()
-    
     sourceSets {
-        jvmMain {
-            // ... copy the configuration of jvmCommonMain here ...
+        val commonMain by getting
+        val commonJvmMain by sourceSets.creating {
+            dependsOn(commonMain)
+            dependencies {
+                // Shared dependencies
+            }
+        }
+        val jvmKtorMain by getting {
+            dependsOn(commonJvmMain)
+            dependencies {
+                // Ktor dependencies
+            }
+        }
+        val jvmOkHttpMain by getting {
+            dependsOn(commonJvmMain)
+            dependencies {
+                // OkHttp dependencies
+            }
         }
     }
 }
 ```
 
-2. Add two new Gradle projects, usually by calling `include` in your `settings.gradle.kts`. For example:
+The implementation comes with a non-trivial configuration complexity:
 
-```kotlin
-include(":okio-impl")
-include(":ktor-impl")
-```
+* You have to set up Gradle attributes on the `:shared` side and each consumer's side. Otherwise, Gradle can't
+  resolve dependencies in such projects because it's not clear whether the consumer should receive the Ktor-based
+  or the OkHttp-based implementation without additional information.
+* You have to set up the `commonJvmMain` source set manually.
+* The configuration involves a handful of low-level Gradle and the Kotlin Gradle plugin abstractions and APIs.
 
-3. Configure each new Gradle project
-   - Most likely, you don't need to apply `kotlin("multiplatform")` plugin, as those projects will compile only for one
-   target. In our case, we can apply `kotlin("jvm")`
-   - Move the content of original target-specific source sets to their respective projects, e.g. from `jvmKtorMain` to 
-   `ktor-impl/src`
-   - Copy the configuration of source sets (dependencies, compiler options, etc.)
-   - Add a dependency from a new Gradle project to the original one.
+**What's the best practice now?**
 
-```kotlin
-// ktor-impl/build.gradle.kts
-plugins {
-    kotlin("jvm")
-}
+The configuration gets complicated because Ktor-based and OkHttp-based implementations are
+_in the same Gradle project_. In many cases, it's possible to extract those parts into separate Gradle projects.
+Here's a general outline of this refactoring:
 
-dependencies {
-    project(":shared") // add dependency on the original project
-    // ... copy dependencies of jvmKtorMain here ...
-}
+1. Replace two duplicating targets from the original project with a single target. If you had a shared source set between
+   these targets, move its sources and configuration to the default source set of the newly created target:
 
-kotlin {
-    compilerOptions {
-        // ... copy compiler options of jvmKtorMain here ...
+    ```kotlin
+    // shared/build.gradle.kts:
+    kotlin {
+        jvm()
+        
+        sourceSets {
+            jvmMain {
+                // Copy the configuration of jvmCommonMain here
+            }
+        }
     }
-}
-```
+    ```
 
-While this approach requires more initial setup work, it doesn't use any low-level entities of Gradle and KGP, making
-easier to work with the resulting build and maintain it.
+2. Add two new Gradle projects, usually by calling `include` in your `settings.gradle.kts` file. For example:
 
-> Unfortunately, it's too verbose to provide detailed migration instructions for each possible case. If the instructions above don't work
-> for your case, please describe your case in the respective [YouTrack-issue](https://youtrack.jetbrains.com/issue/KT-59316)
->{type="note"}
+    ```kotlin
+    include(":okhttp-impl")
+    include(":ktor-impl")
+    ```
+
+3. Configure each new Gradle project:
+
+   * Most likely, you don't need to apply the `kotlin("multiplatform")` plugin, as these projects compile only to one
+     target. In this example, you can apply `kotlin("jvm")`.
+   * Move the content of original target-specific source sets to their respective projects, for example,
+     from `jvmKtorMain` to `ktor-impl/src`.
+   * Copy the configuration of source sets: dependencies, compiler options, and so on.
+   * Add a dependency from a new Gradle project to the original one.
+
+    ```kotlin
+    // ktor-impl/build.gradle.kts:
+    plugins {
+        kotlin("jvm")
+    }
+    
+    dependencies {
+        project(":shared") // Add dependency on the original project
+        // Copy dependencies of jvmKtorMain here
+    }
+    
+    kotlin {
+        compilerOptions {
+            // Copy compiler options of jvmKtorMain here
+        }
+    }
+    ```
+
+While this approach requires more work on the initial setup, it doesn't use any low-level entities of Gradle and
+the Kotlin Gradle plugin, making it easier to use and maintain the resulting build.
+
+> Unfortunately, we can't provide detailed migration steps for each case. If the instructions above don't work
+> for you, describe your case in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-59316).
+>
+{type="tip"}
 
 **When do the changes take effect?**
 
-In Kotlin 1.9.20, a deprecation warning is introduced when multiple targets of the same type is used in Kotlin Multiplatform projects.
-In Kotlin 2.0, error will be reported in such cases, causing your build to fail.
+* 1.9.20: introduce a deprecation warning when multiple targets of the same type are used in Kotlin Multiplatform projects
+* 2.0: report an error in such cases, causing the build to fail
 
 <anchor name="jvmWithJava-preset-deprecation"></anchor>
-## Deprecation of 'jvmWithJava'-preset
+## Deprecated the jvmWithJava preset
 
 **What's changed?**
 
-`targetPresets.jvmWithJava` is deprecated and its usage is discouraged
+`targetPresets.jvmWithJava` is deprecated, and its usage is discouraged.
 
 **What's the best practice now?**
 
-Use `jvm { withJava() }` target instead. Note that after switching to `jvm { withJava() }`, paths for source directories
-with .java-sources will need an adjustment. Assuming you use a `jvm`-target with the default name "jvm":
-* instead of `src/main/java`, use `src/jvmMain/java`
-* instead of `src/test/java`, use `src/jvmTest/java`
+Use `jvm { withJava() }` target instead. Note that after switching to `jvm { withJava() }`, you'll need to adjust
+the paths to source directories with `.java` sources.
+
+For example, if you use a `jvm` target with the default name "jvm":
+
+| Before          | Now                |
+|-----------------|--------------------|
+| `src/main/java` | `src/jvmMain/java` |
+| `src/test/java` | `src/jvmTest/java` |
 
 **When do the changes take effect?**
 
-* 1.3.40: using `targetPresets.jvmWithJava` provokes a warning
-* 1.9.20: using `targetPresets.jvmWithJava` provokes an error
-* \>1.9.20: `targetPresets.jvmWithJava` API is removed. Using it will cause the buildscript compilation failure  
+* 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
+* 1.9.20: raise this warning to an error
+* \>1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
 
-> Note that the whole `targetPresets` API is deprecated, but `jvmWithJava`-preset has different deprecation timeline  
-> 
->{type="note"}
+> Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
+>
+{type="note"}
 
 <anchor name="android-sourceset-layout-v1-deprecation"></anchor>
-## Deprecation of the legacy source set layout for Android
+## Deprecated legacy Android source set layout
 
-Since Kotlin 1.9.0, new layout for Android Source Sets is used (read details about source set layouts 
-[here](https://kotlinlang.org/docs/multiplatform-android-layout.html)). Support for the legacy layout is deprecated, 
-and using respective Gradle property `kotlin.mpp.androidSourceSetLayoutVersion` will trigger deprecation diagnostic
+**What's changed?**
+
+The [new Android source set layout](multiplatform-android-layout.md) is used by default since Kotlin 1.9.0.
+Support for the legacy layout is deprecated, and the use of the `kotlin.mpp.androidSourceSetLayoutVersion` Gradle property
+now triggers a deprecation diagnostic.
 
 **When do the changes take effect?**
 
-* <=1.9.0: using `kotlin.mpp.androidSourceSetLayoutVersion=1` provokes a warning that can be suppressed via 
-`kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle Property
-
-* 1.9.20: using `kotlin.mpp.androidSourceSetLayoutVersion=1` provokes an error. This error **can not** be suppressed by
-`kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true`
-
-* \>1.9.20: support for `kotlin.mpp.androidSourceSetLayoutVersion=1` is removed, the property is ignored by the 
-Kotlin Gradle Plugin
+* <=1.9.0: report a warning when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used; the warning can be suppressed with
+  `kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle property
+* 1.9.20: raise this warning to an error; the error **cannot** be suppressed
+* \>1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
 
 <anchor name="common-sourceset-with-dependson-deprecation"></anchor>
-## Deprecation of commonMain and commonTest with custom dependsOn
+## Deprecated commonMain and commonTest with custom dependsOn
 
 **What's changed?**
 
-`commonMain` and `commonTest` source sets usually represent roots of `main` and `test` source set hierarchies 
-respectively. However, it was possible to override that by configuring `dependsOn`-edges of these source sets.
+The `commonMain` and `commonTest` source sets usually represent the roots of the `main` and `test` source set hierarchies,
+respectively. However, it was possible to override that by manually configuring `dependsOn` relations of these source sets.
 
-Maintaining such configuration requires extra effort and knowledge about multiplatform build internals. Additionally, 
-it hurts readability and reusability of the code, because without reading the particular buildscript,
-you can never be sure if the `commonMain` is the root of the `main` source set hierarchy.
+Maintaining such configuration requires extra effort and knowledge about multiplatform build internals. Additionally,
+it decreases code readability and reusability of the code because you need to read the particular buildscript
+to be sure whether the `commonMain` is the root of the `main` source set hierarchy.
 
-Therefore, accessing `dependsOn` on `commonMain` and `commonTest` is now deprecated.    
+Therefore, accessing `dependsOn` on `commonMain` and `commonTest` is now deprecated.
 
 **What's the best practice now?**
 
-Suppose you need to migrate to 1.9.20 a source set `customCommonMain` such that `commonMain.dependsOn(customCommonMain)`.
-
-In most cases, `customCommonMain` participates in the same compilations as `commonMain`, so you can just merge the 
+Suppose you need to migrate to 1.9.20 the `customCommonMain` source set that uses `commonMain.dependsOn(customCommonMain)`.
+In most cases, `customCommonMain` participates in the same compilations as `commonMain`, so you can merge the
 `customCommonMain` into `commonMain`:
-* copy sources of `customCommonMain` into `commonMain`
-* add all dependencies of `customCommonMain` to `commonMain`
-* add all compiler option settings of `customCommonMain` to `commonMain`
 
-In rare cases `customCommonMain` might be participating in more compilations than `commonMain` does. It requires additional
-low-level configuration of the buildscript, so if you're not sure if that's your case, it most likely isn't. 
-If you do have such case, you can "swap" these two source sets: move sources and settings of `customCommonMain` to `commonMain` and vice versa. 
+1. Copy sources of `customCommonMain` into `commonMain`.
+2. Add all dependencies of `customCommonMain` to `commonMain`.
+3. Add all compiler option settings of `customCommonMain` to `commonMain`.
+
+In rare cases, `customCommonMain` might be participating in more compilations than `commonMain`.
+Such configuration requires additional low-level configuration of the buildscript. If you're not sure if that's your case,
+it most likely isn't.
+
+If it's actually your case, "swap" these two source sets. To do that, move the sources and settings of `customCommonMain`
+to `commonMain` and vice versa.
 
 **When do the changes take effect?**
-* 1.9.0: warning is reported on `commonMain` with `dependsOn`
-* \>=1.9.20: error is reported on `commonMain` or `commonTest` with `dependsOn`
+
+* 1.9.0: report a warning when `dependsOn` is used in `commonMain`
+* \>=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
 
 <anchor name="target-presets-deprecation"></anchor>
-## Deprecated "target presets" API
+## Deprecated target presets API
 
 **What's changed?**
 
-In the very early development stages, Kotlin Multiplatform introduced an API for working with so-called "target presets".
+In the very early development stages, Kotlin Multiplatform introduced an API for working with so-called _target presets_.
 Each target preset essentially represented a factory for Kotlin Multiplatform targets. This API turned out to be largely
-redundant, as DSL functions like `jvm()` or `iosSimulatorArm64()` cover same cases while being much more straightforward
-and concise. 
+redundant, as DSL functions like `jvm()` or `iosSimulatorArm64()` cover the same cases while being much more straightforward
+and concise.
 
-In order to reduce the confusion and provide a clearer guidelines, all presets-related API is now deprecated and will be
-removed from public API of the Kotlin Gradle Plugin in future releases. This includes:
-* `presets` property in `org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension`
-* `org.jetbrains.kotlin.gradle.plugin.KotlinTargetPreset` interface and all inheritors
-* `fromPreset`-overloads 
+To reduce the confusion and provide a clearer guidelines, all presets-related APIs are now deprecated and will be
+removed from the public API of the Kotlin Gradle plugin in future releases. This includes:
+
+* The `presets` property in `org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension`
+* The `org.jetbrains.kotlin.gradle.plugin.KotlinTargetPreset` interface and all its inheritors
+* The `fromPreset` overloads
 
 **What's the best practice now?**
 
-Use respective [Kotlin Targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead. For
-example, instead of:
+Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead.
+It's more concise and cleaner. For example:
+
+<table header-style="top">
+    <tr>
+        <td>Before</td>
+        <td>Now</td>
+    </tr>
+    <tr>
+<td>
 
 ```kotlin
 kotlin {
@@ -734,7 +750,8 @@ kotlin {
 }
 ```
 
-use:
+</td>
+<td>
 
 ```kotlin
 kotlin {
@@ -742,11 +759,14 @@ kotlin {
 }
 ```
 
-As you can see, the replacement is much more concise and cleaner.
+</td>
+</tr>
+</table>
 
 **When do the changes take effect?**
-* 1.9.20: warning is reported on any usages of presets-related API
-* 2.0: error is reported on any usages of presets-related API
-* \>2.0: presets-related API is removed from the public API of the Kotlin Gradle Plugin. Sources that still use it
-will fail with "unresolved reference"-kind of errors, and binaries (e.g. Gradle plugins) might fail with linkage errors
-unless recompiled against modern versions of Kotlin Gradle Plugin.
+
+* 1.9.20: report a warning on any usages of the presets-related API
+* 2.0: raise this warning to an error
+* \>2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
+  with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
+  unless recompiled against the modern versions of the Kotlin Gradle plugin
