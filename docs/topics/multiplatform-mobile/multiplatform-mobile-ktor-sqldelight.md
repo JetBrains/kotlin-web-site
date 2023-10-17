@@ -1018,10 +1018,6 @@ library.
 
 ## What's next?
 
-This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in
-the main thread. To learn about how to write concurrent code and optimize your app,
-see [How to work with concurrency](multiplatform-mobile-concurrency-overview.md).
-
 You can also check out these additional learning materials:
 
 * [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-engines.html#mpp-config)

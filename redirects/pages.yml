@@ -681,3 +681,14 @@
 
 - from: /user-groups/support.html
   to: /docs/kug-guidelines.html#support-for-kugs-from-jetbrains
+
+- from:
+    - /docs/native-immutability.html
+    - /docs/native-concurrency.html
+    - /docs/multiplatform-mobile-concurrency-overview.html
+    - /docs/kmm-concurrency-overview.html
+    - /docs/multiplatform-mobile-concurrent-mutability.html
+    - /docs/kmm-concurrent-mutability.html
+    - /docs/multiplatform-mobile-concurrency-and-coroutines.html
+    - /docs/kmm-concurrency-and-coroutines.html
+  to: /docs/native-memory-manager.html
