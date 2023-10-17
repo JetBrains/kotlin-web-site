@@ -135,7 +135,7 @@ export const EventList = () => {
 
     return (
         <div className={styles.wrapper}>
-            <div className={'ktl-container'}>
+            <div className={'ktl-layout ktl-layout--center'}>
                 <h1 className={'ktl-h1'}>Events</h1>
 
                 <div className={styles.actions}>
