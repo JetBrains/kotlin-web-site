@@ -1,6 +1,5 @@
 [//]: # (title: Tips for improving Kotlin/Native compilation times)
 
-
 The Kotlin/Native compiler is constantly receiving updates that improve its performance. With the latest Kotlin/Native
 compiler and a properly configured build environment, you can significantly improve the compilation times of your projects
 with Kotlin/Native targets.
@@ -71,6 +70,13 @@ Here are some recommendations for configuring Gradle for better compilation perf
   features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
+
+* **Try incremental compilation of klib artifacts**. With incremental compilation, if your change of the project module
+  causes only a partial recompilation of source code into `klib` artifacts, just a part of the `klib` is further
+  recompiled into a binary.
+  
+  This feature is an [Experimental](components-stability.md#stability-levels-explained). To enable it,
+  add the `kotlin.incremental.native=true` option to your `gradle.properties` file.
 
 ## Windows OS configuration
 
