@@ -20,12 +20,6 @@
     position:
       lat: 37.9838096
       lng: 23.7275388
-  - name: Barcelona, KotlinBCN
-    country: Spain
-    url: https://www.meetup.com/kotlinbcn/
-    position:
-      lat: 41.3850639
-      lng: 2.1734035
   - name: Basel KUG
     country: Switzerland
     url: https://www.meetup.com/Kotlin-User-Group-Basel/
@@ -56,12 +50,6 @@
     position:
       lat: 52.0302285
       lng: 8.5324708
-  - name: Bologna KUG
-    country: Italy
-    url: https://www.facebook.com/Kotlin-User-Group-Bologna-111446750450756/
-    position:
-      lat: 44.494887
-      lng: 11.3426163
   - name: Bosnia KUG
     country: Bosnia and Herzegovina
     url: https://www.facebook.com/kotlinugbosnia
@@ -74,12 +62,6 @@
     position:
       lat: 50.82253
       lng: -0.137163
-  - name: Brussels KUG
-    country: Belgium
-    url: https://www.meetup.com/brussels-kotlin-user-group/
-    position:
-      lat: 50.8503396
-      lng: 4.3517103
   - name: Bucharest KUG
     country: Romania
     url: https://www.meetup.com/kug-bucharest/
@@ -88,7 +70,7 @@
       lng: 26.1025384
   - name: Budapest KUG
     country: Hungary
-    url: https://www.facebook.com/groups/KotlinBudapest/
+    url: https://www.meetup.com/kotlin-budapest/
     position:
       lat: 47.497912
       lng: 19.040235
@@ -100,7 +82,7 @@
       lng: 25.48583
   - name: Cologne KUG
     country: Germany
-    url: https://www.meetup.com/Kotlin-User-Group-Cologne/?from=ref
+    url: https://www.meetup.com/Kotlin-User-Group-Cologne/
     position:
       lat: 50.937531
       lng: 6.9602786
@@ -110,12 +92,6 @@
     position:
       lat: 39.3048613
       lng: 16.217289
-  - name: Croatia KUG
-    country: Croatia
-    url: https://www.meetup.com/Croatia-Kotlin-User-Group-Meetup/
-    position:
-      lat: 45.1
-      lng: 15.2
   - name: Czech KUG
     country: Czech Republic
     url: https://www.facebook.com/czkug/
@@ -128,12 +104,6 @@
     position:
       lat: 34.707130
       lng: 33.022617
-  - name: Dnipro KUG
-    country: Ukraine
-    url: https://www.meetup.com/Kotlin-Dnipro/
-    position:
-      lat: 48.464717
-      lng: 35.046183
   - name: Dobrich KUG
     country: Bulgaria
     url: https://www.facebook.com/groups/156178639762762/
@@ -170,24 +140,12 @@
     position:
       lat: 51.4485716
       lng: 5.3812984
-  - name: Estonia KUG
-    country: Estonia
-    url: https://www.facebook.com/groups/estoniaKotlin/
-    position:
-      lat: 58.595272
-      lng: 25.013607
   - name: Hamburg KUG
     country: Germany
     url: https://www.meetup.com/de-DE/Kotlin-User-Group-Hamburg/
     position:
       lat: 53.5510846
       lng: 9.9936818
-  - name: Helsinki KUG
-    country: Finland
-    url: https://www.meetup.com/Kotlin-User-Group-Helsinki/?from=ref
-    position:
-      lat: 60.1698557
-      lng: 24.938379
   - name: Italy KUG
     country: Italy
     url: https://www.facebook.com/groups/kotlinitaly/
@@ -200,12 +158,6 @@
     position:
       lat: 49.0068901
       lng: 8.4036527
-  - name: Kassel KUG
-    country: Germany
-    url: https://www.meetup.com/Kassel-Kotlin-User-Group/
-    position:
-      lat: 51.3127114
-      lng: 9.4797461
   - name: Kyiv KUG
     country: Ukraine
     url: https://www.facebook.com/groups/KyivKUG/
@@ -224,12 +176,6 @@
     position:
       lat: 53.8007554
       lng: -1.5490774
-  - name: Leiria KUG
-    country: Portugal
-    url: https://www.meetup.com/leiria-kotlin-user-group/
-    position:
-      lat: 39.7475828
-      lng: -8.8318111
   - name: Lisboa KUG
     country: Portugal
     url: https://meetup.com/kotlin-lisboa/
@@ -248,12 +194,6 @@
     position:
       lat: 49.839683
       lng: 24.029717
-  - name: Madrid KUG
-    country: Spain
-    url: https://www.meetup.com/KotlinMAD/
-    position:
-      lat: 40.4167754
-      lng: -3.7037902
   - name: Manchester Kotlin Developers
     country: United Kingdom
     url: https://www.facebook.com/kotlinmcr/
@@ -278,12 +218,6 @@
     position:
       lat: 48.1351253
       lng: 11.5819806
-  - name: Nizhny Novgorod KUG
-    country: Russia
-    url: https://www.meetup.com/kotlin_nn/
-    position:
-      lat: 56.3268684
-      lng: 44.0058793
   - name: Odessa KUG
     country: Ukraine
     url: https://www.facebook.com/groups/557764034687880/
@@ -322,16 +256,10 @@
       lng: 39.4131527
   - name: Samara KUG
     country: Russia
-    url: https://sitc.community/communities/kug/
+    url: https://t.me/samarakug
     position:
       lat: 53.203772
       lng: 50.1606382
-  - name: St. Petersburg KUG
-    country: Russia
-    url: https://www.meetup.com/St-Petersburg-Kotlin-User-Group/
-    position:
-      lat: 59.9310584
-      lng: 30.3609097
   - name: Serbia KUG
     country: Serbia
     url: https://www.meetup.com/Serbia-Kotlin-User-Group/
@@ -386,12 +314,6 @@
     position:
       lat: 48.6208
       lng: 22.287883
-  - name: Valencia KUG
-    country: Spain
-    url: https://codelsmartech.com/developer-events/
-    position:
-      lat: 39.4077013
-      lng: 0.5015955
   - name: Vienna Kotlin
     country: Austria
     url: https://www.meetup.com/Kotlin-Vienna/
