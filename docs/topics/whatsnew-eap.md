@@ -33,8 +33,8 @@ The Kotlin plugins that support %kotlinEapVersion% are available for:
 
 ### Support for Kotlin/Wasm
 
-Since this release, the Kotlin/Wasm supports the new K2 compiler.
-[Learn how to enable it in your project](#preview-kapt-compiler-plugin-with-k2).
+Since this release, the Kotlin/Wasm supports the new K2 compiler.  
+[Learn how to enable it in your project](#how-to-enable-the-kotlin-k2-compiler).
 
 ### Preview kapt compiler plugin with K2
 
@@ -57,6 +57,38 @@ Alternatively, you can enable K2 for kapt by completing the following steps:
 
 If you encounter any issues when using kapt with the K2 compiler, please report them to our
 [issue tracker](http://kotl.in/issue).
+
+### How to enable the Kotlin K2 compiler
+
+To enable and test the Kotlin K2 compiler, use the new language version with the following compiler option:
+
+```bash
+-language-version 2.0
+```
+
+You can specify it in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+   sourceSets.all {
+       languageSettings {
+           languageVersion = "2.0"
+       }
+   }
+}
+```
+
+### Leave your feedback on the new K2 compiler
+
+We would appreciate any feedback you may have!
+
+* Provide your feedback directly to K2 developers on Kotlin
+  Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
+* Report any problems you faced with the new K2 compiler
+  on [our issue tracker](https://kotl.in/issue).
+* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
+  allow JetBrains to collect anonymous data about K2 usage.
 
 ## Kotlin Multiplatform
 
