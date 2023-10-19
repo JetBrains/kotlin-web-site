@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Link from 'next/link';
 
 import { ThemeProvider } from '@rescui/ui-contexts';
-import { ArrowTopRightIcon } from '@rescui/icons';
+import { ArrowTopRightIcon, DownIcon } from '@rescui/icons';
 import { Button } from '@rescui/button';
 
 import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
@@ -13,13 +13,14 @@ import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
+import { SidebarMenu, SidebarMenuHeader } from '@jetbrains/kotlin-web-site-ui/out/components/sidebar-menu';
 
 import { HeroSection } from '../blocks/main/hero/hero';
-import { LatestNews } from "../blocks/main/latest-news";
+import { LatestNews } from '../blocks/main/latest-news';
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
-import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
+import { FoundationPreview } from '../blocks/main/foundation-preview/foundation-preview';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
@@ -44,74 +45,146 @@ import news1 from '../latest-news/news-0.png';
 import news2 from '../latest-news/news-1.png';
 import news3 from '../latest-news/news-2.png';
 import news4 from '../latest-news/news-3.png';
+import { useTextStyles } from '@rescui/typography';
 
-const newsImages = [ news1, news2, news3, news4 ];
+const menuItems = [
+    {
+        children: 'Simple',
+        href: '#example-simple',
+    },
+    {
+        href: '#example-asynchronous',
+        children: 'Asynchronous',
+    },
+    {
+        href: '#example-oop',
+        children: 'Object-oriented',
+    },
+    {
+        href: '#example-functional',
+        children: 'Functional',
+    },
+    {
+        href: '#example-tests',
+        children: 'Ideas for test',
+    },
+    {
+        href: '...',
+        target: '_blank',
+        children: 'Open in Playground',
+    },
+];
+
+function SideHeader() {
+    const textCn = useTextStyles();
+    return <SidebarMenuHeader className={textCn('rs-text-2')}>Code examples</SidebarMenuHeader>;
+}
+
+export function CodeExamples() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [selected, setSelected] = useState(0);
+
+    const onClose = useCallback(() => setIsOpen(false), [setIsOpen]);
+    const onItemClick = useCallback(
+        (e, i) => {
+            const item = menuItems[i];
+            if (item.href.startsWith('#')) {
+                e.preventDefault();
+                setSelected(i);
+            }
+            setIsOpen(false);
+        },
+        [setIsOpen]
+    );
+
+    const isTL = useTS();
+
+    return (
+        <>
+            <Button mode="clear" onClick={() => setIsOpen(!isOpen)} icon={<DownIcon />} iconPosition="right">
+                {menuItems[selected].children}
+            </Button>
+            {isTL && (
+                <SidebarMenu
+                    before={<SideHeader />}
+                    items={menuItems}
+                    activeIndex={selected}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    onItemClick={onItemClick}
+                />
+            )}
+        </>
+    );
+}
+
+const newsImages = [news1, news2, news3, news4];
 
 const kotlinUsageHighlightsCases = [
     {
         company: 'Gradle',
         url: 'https://blog.gradle.org/kotlin-meets-gradle',
         text: 'Gradle is introducing Kotlin as a language for writing build scripts',
-        logo: GradleLogo
+        logo: GradleLogo,
     },
     {
         company: 'Corda',
         url: 'https://www.corda.net/2017/01/10/kotlin/',
         text: 'Corda is an open-source distributed ledger platform, supported by major banks, and built entirely in Kotlin',
-        logo: CordaLogo
+        logo: CordaLogo,
     },
     {
         company: 'Evernote',
         url: 'https://blog.evernote.com/tech/2017/01/26/android-state-library/',
         text: 'Evernote recently integrated Kotlin into their Android client',
-        logo: EvernoteLogo
+        logo: EvernoteLogo,
     },
     {
         company: 'Coursera',
         url: 'https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/',
         text: 'Coursera Android app is partially written in Kotlin',
-        logo: CourseraLogo
+        logo: CourseraLogo,
     },
     {
         company: 'Spring',
         url: 'https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0',
-        text: 'Spring makes use of Kotlin\'s language features to offer more concise APIs',
-        logo: SpringLogo
+        text: "Spring makes use of Kotlin's language features to offer more concise APIs",
+        logo: SpringLogo,
     },
     {
         company: 'Atlassian',
         url: 'https://twitter.com/danlew42/status/809065097339564032',
         text: 'All new code in the Trello Android app is in Kotlin',
-        logo: AtlassianLogo
-    }
+        logo: AtlassianLogo,
+    },
 ];
 
 const kotlinFoundationCompanies = [
     {
         name: 'JetBrains',
         logo: JetbrainsLogo,
-        link: 'https://www.jetbrains.com/'
+        link: 'https://www.jetbrains.com/',
     },
     {
         name: 'Google',
         logo: GoogleLogo,
-        link: 'https://about.google/'
+        link: 'https://about.google/',
     },
     {
         name: 'Gradle',
         logo: GradleLogo,
-        link: 'https://gradle.org/'
+        link: 'https://gradle.org/',
     },
     {
         name: 'Shopify',
         logo: ShopifyLogo,
-        link: 'https://shopify.engineering/'
+        link: 'https://shopify.engineering/',
     },
     {
         name: 'Touchlab',
         logo: TouchlabLogo,
-        link: 'https://touchlab.co/'
-    }
+        link: 'https://touchlab.co/',
+    },
 ];
 
 function Index() {
@@ -119,7 +192,7 @@ function Index() {
 
     const news = latestNews.map((item, i) => ({
         ...item,
-        image: newsImages[i]
+        image: newsImages[i],
     }));
 
     return (
@@ -127,13 +200,14 @@ function Index() {
             <ThemeProvider theme="dark">
                 <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
                 <HeroSection>
-                  Concise.
-                  <br /> Multiplatform.
-                  <br /> Fun.
+                    Concise.
+                    <br /> Multiplatform.
+                    <br /> Fun.
                 </HeroSection>
-                <div className={"ktl-layout ktl-layout--center"}>
-                    <LatestNews news={news}/>
+                <div className={'ktl-layout ktl-layout--center'}>
+                    <LatestNews news={news} />
                 </div>
+                <CodeExamples />
             </ThemeProvider>
 
             <ThemeProvider theme="light">
@@ -143,19 +217,19 @@ function Index() {
                             title={'Share code on your terms and for different platforms'}
                             text={
                                 <>
-                                    Simplify the development of cross-platform projects with Kotlin Multiplatform.
-                                    It reduces time spent writing and maintaining the same code for different platforms while
-                                    retaining the flexibility and benefits of native programming.
-                                    Kotlin applications will work on different operating systems,
-                                    such as iOS, Android, macOS, Windows, Linux, watchOS, and others.
+                                    Simplify the development of cross-platform projects with Kotlin Multiplatform. It
+                                    reduces time spent writing and maintaining the same code for different platforms
+                                    while retaining the flexibility and benefits of native programming. Kotlin
+                                    applications will work on different operating systems, such as iOS, Android, macOS,
+                                    Windows, Linux, watchOS, and others.
                                 </>
                             }
                             button={
                                 <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
-                                    {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform' }
+                                    {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
                                 </Button>
                             }
-                            media={<img src={MultiplatformPreviewImage.src}  alt="" />}
+                            media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
 
                         <DividerLine />
@@ -166,7 +240,8 @@ function Index() {
                                 <>
                                     Kotlin has great support and many contributors in its fast-growing global community.
                                     Enjoy the benefits of a rich ecosystem with a wide range of community libraries.
-                                    Help is never far away — consult extensive community resources or ask the Kotlin team directly.
+                                    Help is never far away — consult extensive community resources or ask the Kotlin
+                                    team directly.
                                 </>
                             }
                             button={
@@ -176,9 +251,7 @@ function Index() {
                                     </Button>
                                 </Link>
                             }
-                            media={
-                                <YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />
-                            }
+                            media={<YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />}
                         />
 
                         <DividerLine />
@@ -187,7 +260,14 @@ function Index() {
                             title={'Kotlin Foundation'}
                             description={'Actively supports community efforts in developing the Kotlin ecosystem.'}
                             button={
-                                <Button href="https://kotlinfoundation.org/" size="l" mode="rock" theme="light" icon={<ArrowTopRightIcon />} iconPosition="right">
+                                <Button
+                                    href="https://kotlinfoundation.org/"
+                                    size="l"
+                                    mode="rock"
+                                    theme="light"
+                                    icon={<ArrowTopRightIcon />}
+                                    iconPosition="right"
+                                >
                                     Learn more
                                 </Button>
                             }
@@ -201,9 +281,7 @@ function Index() {
 
                     <CtaBlock
                         className={styles.ctaBlock}
-                        mainTitle={
-                            <>Start using{isTS && <br />} Kotlin today!</>
-                        }
+                        mainTitle={<>Start using{isTS && <br />} Kotlin today!</>}
                         buttons={
                             <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light">
                                 Get started

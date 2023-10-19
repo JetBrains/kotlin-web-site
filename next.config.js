@@ -10,6 +10,7 @@ let transpiledPackages = [
     ...Object.keys(packageJSON.dependencies).filter((it) => it.includes('@rescui/')),
     // transitive deps needed too:
     '@rescui/dropdown',
+    '@rescui/menu',
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);
