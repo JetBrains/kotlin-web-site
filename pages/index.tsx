@@ -20,6 +20,7 @@ import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/ko
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
+import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
@@ -38,8 +39,6 @@ import styles from './index.module.css';
 
 import searchConfig from '../search-config.json';
 
-import { HeroSection } from '../blocks/main/hero/hero';
-import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 import latestNews from '../latest-news/latest-news.json';
 
 import news1 from '../latest-news/news-0.png';
