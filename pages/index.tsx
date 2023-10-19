@@ -3,7 +3,7 @@ import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import searchConfig from '../search-config.json';
 
 import { HeroSection } from '../blocks/main/hero/hero';
-import {WhyKotlin} from "../blocks/main/why-kotlin/why-kotlin";
+import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 
 function Index() {
     return (

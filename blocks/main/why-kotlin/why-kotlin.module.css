@@ -3,7 +3,7 @@
 
 .whyKotlin {
     background: #19191C;
-    padding: 96px;
+    padding: 96px 0;
     @media (--ktl-tm) {
         padding: 48px 0;
     }
@@ -23,6 +23,10 @@
     justify-content: space-between;
     height: 52px;
     padding: 0 12px;
+    margin-bottom: 4px;
+    @media (--ktl-tm) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+    }
 }
 
 .tabList {
@@ -37,8 +41,12 @@
 
 .codeExamples {
     background: #27282C;
-    min-height: 492px;
+    min-height: 544px;
     border-radius: 8px;
+}
+
+.controlButtons {
+    display: flex;
 }
 
 .openInPlaygoundButton {
@@ -49,7 +57,7 @@
 
 .mobileMenuButton {
     display: none;
-    @media (--ktl-tl) {
+    @media (--ktl-tm) {
         display: block;
     }
 }

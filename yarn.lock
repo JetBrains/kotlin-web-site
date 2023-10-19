@@ -1418,10 +1418,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@^4.5.2":
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.7.2.tgz#3913dc84c5107dd65f9987fa601fd9769835d252"
-  integrity sha512-Y+LFzN6hkoUZr6As72sKEgBIavuKmVjh/rNNkj841OQ/Q8pfEprLeke0SK6ZAr4JLBtI6pyczApPT1/w02+S8g==
+"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.6":
+  version "4.8.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.6.tgz#6285dc216982b4d5aa53fa57580e7c39d81293a8"
+  integrity sha512-fq+Ah1yCL2y7R6ZRPH9ycIM0NPS6aIvv6P0YjztmX6Ekca648JBtm69SskoF+ZD3KIoG/RxnsOtL8MKwzY985g==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -1721,6 +1721,16 @@
     "@rescui/icons" "^0.11.2"
     classnames "^2.2.6"
     core-js "^3.9.1"
+
+"@rescui/menu@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@rescui/menu/-/menu-0.9.4.tgz#5d0d448d364d684c2a55ec4800157aa09a977fcb"
+  integrity sha512-ha7FN6AOTIk48e4Bc0fdEH5Ehhzt4Vrm0vaRObD9ukjbUxdq1R0aGmlTeXe/GcM2GGfEqfYJnfmSCYdKDxsdaQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    classnames "^2.2.6"
+    core-js "^3"
+    nanoid "^3.3.3"
 
 "@rescui/menu@^0.8.2":
   version "0.8.2"

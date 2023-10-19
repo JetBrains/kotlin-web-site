@@ -1,11 +1,13 @@
-import React, { FC, useState, useContext } from 'react';
+import React, { FC, useState, useContext, useCallback } from 'react';
 import cn from 'classnames';
 
 import { useTextStyles, createTextCn } from '@rescui/typography';
-import { TabList, Tab } from '@rescui/tab-list';
 import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
-import { CodeIcon, PlayIcon } from '@rescui/icons';
+import { CodeIcon, PlayIcon, DownIcon } from '@rescui/icons';
+import NavItem from '@jetbrains/kotlin-web-site-ui/out/components/nav-item/';
+
+import { SidebarMenu, SidebarMenuHeader } from '@jetbrains/kotlin-web-site-ui/out/components/sidebar-menu/';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
@@ -29,16 +31,34 @@ const ContentSwitcher = ({ index, children }) => {
 };
 
 export const WhyKotlin: FC<Props> = ({}) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+    const [mobileMenuVisible, setMobileMenuVisible] = useState<boolean>(false);
 
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
     const codeBlockInstance = useContext(CodeBlockContext);
 
-    const handleRunButton = () => {
+    const handleRunButton = useCallback(() => {
         codeBlockInstance.execute();
-    };
+    }, []);
+
+    const handleMobileMenuToggle = useCallback(() => {
+        setMobileMenuVisible(!mobileMenuVisible);
+    }, []);
+
+    const handleMobileMenuItemClick = useCallback((index) => {
+        setActiveIndex(index);
+        setMobileMenuVisible(false);
+    }, []);
+
+    const codeExamplesList = [
+        { children: 'Simple' },
+        { children: 'Asynchronous' },
+        { children: 'Object-oriented' },
+        { children: 'Functional' },
+        { children: 'Ideal for tests' },
+    ];
 
     return (
         <ThemeProvider theme={'dark'}>
@@ -49,37 +69,46 @@ export const WhyKotlin: FC<Props> = ({}) => {
                     <div className={styles.codeExamples}>
                         <div className={styles.navigationBar}>
                             <div className={styles.mobileMenuButton}>
-                                <Button mode={'clear'} size={'m'}>
-                                    Mobile button
-                                </Button>
+                                <NavItem icon={<DownIcon />} iconPosition={'right'} onClick={handleMobileMenuToggle}>
+                                    {codeExamplesList[activeIndex].children}
+                                </NavItem>
+
+                                <SidebarMenu
+                                    before={
+                                        <SidebarMenuHeader>
+                                            <div className={darkTextCn('rs-text-2', { hardness: 'hard' })}>
+                                                Code examples
+                                            </div>
+                                        </SidebarMenuHeader>
+                                    }
+                                    isOpen={mobileMenuVisible}
+                                    items={codeExamplesList}
+                                    activeIndex={activeIndex}
+                                    onClose={() => setMobileMenuVisible(false)}
+                                    onItemClick={(item, i) => handleMobileMenuItemClick(i)}
+                                />
                             </div>
 
-                            <TabList
-                                value={activeIndex}
-                                onChange={(v) => setActiveIndex(v)}
-                                mode={'rock'}
-                                size={'m'}
-                                className={styles.tabList}
-                            >
-                                <Tab>Simple</Tab>
-                                <Tab>Asynchronous</Tab>
-                                <Tab>Object-oriented</Tab>
-                                <Tab>Functional</Tab>
-                                <Tab>Ideal for tests</Tab>
-                            </TabList>
+                            <div className={styles.tabList}>
+                                {codeExamplesList.map((item, index) => (
+                                    <NavItem
+                                        key={index}
+                                        onClick={() => setActiveIndex(index)}
+                                        active={activeIndex === index}
+                                    >
+                                        {item.children}
+                                    </NavItem>
+                                ))}
+                            </div>
 
-                            <div>
-                                <Button
-                                    mode={'clear'}
-                                    size={'m'}
-                                    icon={<CodeIcon />}
-                                    className={styles.openInPlaygoundButton}
-                                >
-                                    Open in Playground
-                                </Button>
-                                <Button mode={'clear'} size={'m'} icon={<PlayIcon />} onClick={handleRunButton}>
+                            <div className={styles.controlButtons}>
+                                <div className={styles.openInPlaygoundButton}>
+                                    <NavItem icon={<CodeIcon />}>Open in Playground</NavItem>
+                                </div>
+
+                                <NavItem icon={<PlayIcon />} onClick={handleRunButton}>
                                     Run
-                                </Button>
+                                </NavItem>
                             </div>
                         </div>
 
@@ -104,7 +133,12 @@ export const WhyKotlin: FC<Props> = ({}) => {
                         </div>
                     </div>
 
-                    <Button mode={'outline'} size={'l'} className={styles.getStartedButton}>
+                    <Button
+                        mode={'outline'}
+                        size={'l'}
+                        className={styles.getStartedButton}
+                        href={'docs/getting-started.html'}
+                    >
                         Get started
                     </Button>
                 </div>
