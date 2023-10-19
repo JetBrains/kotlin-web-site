@@ -146,23 +146,6 @@ fun mainBackground(args: Array<String>) {
 
 Then, compile the test binary with the `-e testlauncher.mainBackground` compiler flag.
 
-## Legacy memory manager
-
-If it's necessary, you can switch back to the legacy memory manager. Set the following option in your `gradle.properties`:
-
-```none
-kotlin.native.binary.memoryModel=strict
-```
-
-> * Compiler cache support is not available for the legacy memory manager, so compilation times might
-    become worse.
-> * This Gradle option for reverting to the legacy memory manager will be removed in future releases.
->
-{type="note"}
-
-If you encounter issues with migrating from the legacy memory manager, or you want to temporarily support both the current
-and legacy memory managers, see our recommendations in the [migration guide](native-migration-guide.md).
-
 ## What's next
 
 * [Migrate from the legacy memory manager](native-migration-guide.md)
