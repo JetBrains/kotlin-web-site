@@ -518,5 +518,9 @@ To embed framework into the application and make the declarations from the share
 
    ![Configuring **Framework Search Paths** in the Xcode project settings](framework-search-path-in-xcode-project-settings.png){width=700}
 
+3. **User Script Sandboxing** under the **Build Options** section should be disabled:
+
+   ![Configuring **User Script Sandboxing** in the Xcode project settings](disable-sandboxing-in-xcode-project-settings.png){width=700}
+
 In other aspects, the Xcode part of a cross-platform mobile project is a typical iOS application project.
 To learn more about creating iOS application, see the [Xcode documentation](https://developer.apple.com/documentation/xcode#topics).
