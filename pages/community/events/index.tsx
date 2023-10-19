@@ -8,7 +8,7 @@ function UserGroups() {
         <CommunityLayout title={'Community Events'} ogImageName={'community.png'}>
             <EventList />
 
-            <div className={'ktl-container ktl-offset-bottom-xxl'}>
+            <div className={'ktl-layout ktl-layout--center ktl-offset-bottom-xxl'}>
                 <div className={'ktl-row'}>
                     <div className="ktl-col-12 ktl-col-md-6 ktl-col-lg-5">
                         <h3 className={'ktl-h2 ktl-offset-top-xxl'}>Support for Kotlin speakers</h3>

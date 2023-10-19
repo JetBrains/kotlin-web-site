@@ -1,0 +1,46 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.image {
+    background: #000;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+
+    height: 128px;
+    > .imageSrc[width] { display: none; }
+    > .imageSrc[width="280"] { display: block; }
+
+    @media (--ktl-ds) {
+        height: 142px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="312"] { display: block; }
+    }
+    @media (--ktl-tl) {
+        height: 116px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="248"] { display: block; }
+    }
+    @media (--ktl-tm) {
+        height: 128px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="280"] { display: block; }
+    }
+    @media (--ktl-ts) {
+        height: 198px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="424"] { display: block; }
+    }
+    @media (--ktl-mm) {
+        height: 152px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="328"] { display: block; }
+    }
+    @media (--ktl-ms) {
+        height: 128px;
+        > .imageSrc[width] { display: none; }
+        > .imageSrc[width="272"] { display: block; }
+    }
+}
+
+.imageSrc {
+    max-width: none;
+}

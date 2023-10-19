@@ -24,14 +24,14 @@ object PrepareDokkaTemplate: Template({
       scriptContent = """
         yarn install --frozen-lockfile
       """.trimIndent()
-      dockerImage = "node:14-alpine"
+      dockerImage = "node:16-alpine"
     }
     script {
       name = "Build Templates"
       scriptContent = """
         node ./scripts/dokka/generate-templates.js
       """.trimIndent()
-      dockerImage = "node:14-alpine"
+      dockerImage = "node:16-alpine"
     }
   }
 

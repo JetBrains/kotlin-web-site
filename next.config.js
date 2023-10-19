@@ -16,36 +16,36 @@ let transpiledPackages = [
 const withTranspile = nextTranspileModules(transpiledPackages);
 
 const nextConfig = {
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
+    output: 'export',
 
-  images: {
-    disableStaticImages: true
-  },
+    pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
-  trailingSlash: true,
+    images: {
+        unoptimized: true,
+        disableStaticImages: true,
+    },
 
-  eslint: {
-    dirs: ['blocks', 'components', 'pages'],
-  },
+    trailingSlash: true,
 
-  webpack: (config, options) => {
-    patchWebpackConfig(config, options);
+    eslint: {
+        dirs: ['blocks', 'components', 'pages'],
+    },
 
-    config.module.rules.push({
-      test: /\.ya?ml$/,
-      use: 'yaml-loader'
-    });
+    webpack: (config, options) => {
+        patchWebpackConfig(config, options);
 
-    config.module.rules.push({
-        test: /\.md$/,
-        type: 'asset/source'
-    });
+        config.module.rules.push({
+            test: /\.ya?ml$/,
+            use: 'yaml-loader',
+        });
 
-    return config
-  },
+        config.module.rules.push({
+            test: /\.md$/,
+            type: 'asset/source'
+        });
+
+        return config;
+    },
 };
 
-module.exports = withPlugins([
-  [withTranspile],
-  [optimizedImages]
-], nextConfig);
+module.exports = withPlugins([[withTranspile], [optimizedImages]], nextConfig);
