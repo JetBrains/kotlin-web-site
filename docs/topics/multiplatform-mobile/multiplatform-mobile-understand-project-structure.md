@@ -102,7 +102,7 @@ kotlin {
 
 The shared module contains the code that is common for Android and iOS applications. However, to implement the same logic
 on Android and iOS, you sometimes need to write two platform-specific versions of it.
-To handle such cases, Kotlin offers the [expect/actual](multiplatform-connect-to-apis.md) mechanism.
+To handle such cases, Kotlin offers the [expect/actual](multiplatform-expect-actual.md) mechanism.
 The source code of the shared module is organized in three source sets accordingly:
 
 * `commonMain` stores the code that works on both platforms, including the `expect` declarations

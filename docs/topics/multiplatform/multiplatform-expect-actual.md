@@ -10,7 +10,7 @@ Expected and actual declarations allow you to access platform-specific APIs from
 Then, in the common code, you can provide platform-agnostic APIs.
 
 > This article describes the language mechanism of expected and actual declarations. For general recommendations on
-> different ways to use platform specifics, see [Use platform-specific APIs](multiplatform-connect-to-apis.md).
+> different ways to use platform specifics, see [Use platform-specific APIs](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html).
 >
 {type="tip"}
 
@@ -248,7 +248,7 @@ dependencies using regular [Kotlin interfaces](interfaces.md). The DI framework 
 platform-specific implementation, for example, from a JVM or an iOS module.
 
 This means that the only case when expected and actual declarations are needed is in the configuration of the DI
-framework. See [Use platform-specific APIs](multiplatform-connect-to-apis.md#dependency-injection-framework) for examples.
+framework. See [Use platform-specific APIs](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html#dependency-injection-framework) for examples.
 
 With this approach, you can adopt Kotlin Multiplatform simply by using interfaces and factory functions. If you already
 use the DI framework to manage dependencies in your project, we recommend that you use the same approach for managing
@@ -550,4 +550,4 @@ error.
 
 ## What's next?
 
-For general recommendations on different ways to use platform specifics, see [Using platform-specific APIs](multiplatform-connect-to-apis.md).
+For general recommendations on different ways to use platform specifics, see [Use platform-specific APIs](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html).

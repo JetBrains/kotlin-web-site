@@ -142,7 +142,7 @@ This is necessary for reusing the code for both Android and iOS.
    ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
 
 4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs
-   using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md). See the following sections for details:
+   using [expected and actual declarations](multiplatform-expect-actual.md). See the following sections for details:
 
 #### Replace Android-specific code with cross-platform code {initial-collapse-state="collapsed"}
 
@@ -200,7 +200,7 @@ platform-specific functionality for this case.
 
 Provide the `expect` declaration for the `randomUUID()` function in the shared code and its `actual` implementations for
 each platform – Android and iOS – in the corresponding source sets.
-You can learn more about [connecting to platform-specific APIs](multiplatform-connect-to-apis.md).
+Learn more about [expected and actual declarations](multiplatform-expect-actual.md).
 
 1. Remove the `java.util.UUID` class from the common code:
 
