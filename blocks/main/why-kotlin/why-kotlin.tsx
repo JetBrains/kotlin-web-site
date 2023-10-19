@@ -53,11 +53,11 @@ export const WhyKotlin: FC<Props> = ({}) => {
     }, []);
 
     const codeExamplesList = [
-        { children: 'Simple' },
-        { children: 'Asynchronous' },
-        { children: 'Object-oriented' },
-        { children: 'Functional' },
-        { children: 'Ideal for tests' },
+        { children: 'Simple', codeExample: simpleExample },
+        { children: 'Asynchronous', codeExample: asyncExample },
+        { children: 'Object-oriented', codeExample: oopExample },
+        { children: 'Functional', codeExample: functionalExample },
+        { children: 'Ideal for tests', codeExample: testsExample },
     ];
 
     return (
@@ -114,21 +114,11 @@ export const WhyKotlin: FC<Props> = ({}) => {
 
                         <div className="tab-content kotlin-code-examples-section">
                             <ContentSwitcher index={activeIndex}>
-                                <div className={styles.tab} key={0}>
-                                    <CodeBlock>{simpleExample}</CodeBlock>
-                                </div>
-                                <div className={styles.tab} key={1}>
-                                    <CodeBlock>{asyncExample}</CodeBlock>
-                                </div>
-                                <div className={styles.tab} key={2}>
-                                    <CodeBlock>{oopExample}</CodeBlock>
-                                </div>
-                                <div className={styles.tab} key={3}>
-                                    <CodeBlock>{functionalExample}</CodeBlock>
-                                </div>
-                                <div className={styles.tab} key={4}>
-                                    <CodeBlock>{testsExample}</CodeBlock>
-                                </div>
+                                {codeExamplesList.map((item, index) => (
+                                    <div className={styles.tab} key={index}>
+                                        <CodeBlock>{item.codeExample}</CodeBlock>
+                                    </div>
+                                ))}
                             </ContentSwitcher>
                         </div>
                     </div>
