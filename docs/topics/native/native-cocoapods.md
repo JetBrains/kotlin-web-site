@@ -278,3 +278,18 @@ tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMes
 
 Check the [CocoaPods documentation](https://guides.cocoapods.org/) for more information. If nothing works, and you still
 encounter this error, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+
+### Rsync errors {initial-collapse-state="collapsed"}
+
+You might encounter [issues](https://github.com/CocoaPods/CocoaPods/issues/11946) if the app target in Xcode has sandboxing of the user scripts. These issue manifest as 
+`rsync error: some files could not be transferred` errors.
+
+To solve this issue disable sandboxing of user scripts in the app target:
+
+![Disable sandboxing CocoaPods](disable-sandboxing-cocoapods.png)
+
+and stop the Gradle daemon process that might have been sandboxed:
+
+```shell
+./gradlew --stop
+```

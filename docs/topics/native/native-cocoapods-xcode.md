@@ -22,10 +22,14 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 ## Xcode project with one target
 
 1. Create an Xcode project with a `Podfile` if you haven't done so yet.
-2. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle(.kts)`
+2. Make sure to disable the **User Script Sandboxing** under **Build Options** in the app target
+
+   ![Disable sandboxing CocoaPods](disable-sandboxing-cocoapods.png)
+
+3. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle(.kts)`
    of your Kotlin project.
    This step helps synchronize your Xcode project with Gradle project dependencies by calling `pod install` for your `Podfile`.
-3. Specify the minimum deployment target version for the Pod library.
+4. Specify the minimum deployment target version for the Pod library.
     ```kotlin
     kotlin {
         ios()
@@ -42,7 +46,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     }
     ```
 
-4. Add the name and path of the Gradle project you want to include in the Xcode project to `Podfile`.
+5. Add the name and path of the Gradle project you want to include in the Xcode project to `Podfile`.
 
     ```ruby
     use_frameworks!
@@ -54,7 +58,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-5. Re-import the project.
+6. Re-import the project.
 
 ## Xcode project with several targets
 
