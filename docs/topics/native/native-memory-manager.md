@@ -1,17 +1,9 @@
 [//]: # (title: Kotlin/Native memory management)
 
-> This page describes features of the new memory manager enabled by default since Kotlin 1.7.20.
-> See our [migration guide](native-migration-guide.md) to move your projects from the legacy memory manager.
->
-{type="note"}
-
 Kotlin/Native uses a modern memory manager that is similar to JVM, Go, and other mainstream technologies:
 * Objects are stored in a shared heap and can be accessed from any thread.
 * Tracing garbage collector (GC) is executed periodically to collect objects that are not reachable from the "roots",
   like local and global variables.
-
-The memory manager is the same across all the Kotlin/Native targets, except for wasm32, which is only supported in the
-[legacy memory manager](#legacy-memory-manager).
 
 ## Garbage collector
 
@@ -153,23 +145,6 @@ fun mainBackground(args: Array<String>) {
 {initial-collapse-state="collapsed"}
 
 Then, compile the test binary with the `-e testlauncher.mainBackground` compiler flag.
-
-## Legacy memory manager
-
-If it's necessary, you can switch back to the legacy memory manager. Set the following option in your `gradle.properties`:
-
-```none
-kotlin.native.binary.memoryModel=strict
-```
-
-> * Compiler cache support is not available for the legacy memory manager, so compilation times might
-    become worse.
-> * This Gradle option for reverting to the legacy memory manager will be removed in future releases.
->
-{type="note"}
-
-If you encounter issues with migrating from the legacy memory manager, or you want to temporarily support both the current
-and legacy memory managers, see our recommendations in the [migration guide](native-migration-guide.md).
 
 ## What's next
 

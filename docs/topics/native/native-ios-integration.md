@@ -1,10 +1,5 @@
 [//]: # (title: iOS integration)
 
-> This page describes the new memory manager enabled by default since Kotlin 1.7.20. See our [migration guide](native-migration-guide.md)
-> to move your projects from the legacy memory manager.
->
-{type="note"}
-
 Integration of Kotlin/Native garbage collector with Swift/Objective-C ARC is seamless and generally requires no additional
 work to be done. Learn more about [Swift/Objective-C interoperability](native-objc-interop.md).
 

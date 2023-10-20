@@ -291,10 +291,6 @@ Enable emitting debug information.
 
 Produce an application for running unit tests from the project.
 
-### -generate-worker-test-runner (-trw)
-
-Produce an application for running unit tests in a [worker thread](native-immutability.md#concurrency-in-kotlin-native).
-
 ### -generate-no-exit-test-runner (-trn)
 
 Produce an application for running unit tests without an explicit process exit.

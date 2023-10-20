@@ -60,12 +60,11 @@ Always include the following license files for the corresponding projects:
    </tr>
 </table>
 
-Specific targets require additional license files:
+The `mingwX64` target requires additional license files:
 
-| Project                                                               | Targets  | Files to be included                                                                                                                                                                                                                                                                                                              | 
-|-----------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [MinGW-w64 headers and runtime libraries](https://www.mingw-w64.org/) | `mingw*` | <list><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt">MinGW-w64 runtime license</a></li><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING">Winpthreads license</a></li></list> |
-| [Musl (math implementation)](https://musl.libc.org/)                  | `wasm32` | [Musl copyright notice](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/main/cpp/math/COPYRIGHT)                                                                                                                                                                                                        |
+| Project                                                               | Files to be included                                                                                                                                                                                                                                                                                                              | 
+|-----------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [MinGW-w64 headers and runtime libraries](https://www.mingw-w64.org/) | <list><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING.MinGW-w64-runtime/COPYING.MinGW-w64-runtime.txt">MinGW-w64 runtime license</a></li><li><a href="https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-libraries/winpthreads/COPYING">Winpthreads license</a></li></list> |
 
 > None of these libraries require the distributed Kotlin/Native binaries to be open-sourced.
 >
