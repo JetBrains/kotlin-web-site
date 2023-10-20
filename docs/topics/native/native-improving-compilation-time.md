@@ -71,13 +71,22 @@ Here are some recommendations for configuring Gradle for better compilation perf
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
 
-* **Try incremental compilation of klib artifacts**. With incremental compilation, if your change of the project module
-  causes only a partial recompilation of source code into `klib` artifacts, just a part of the `klib` is further
+* **Try incremental compilation of klib artifacts**. With incremental compilation, if only a part of the `klib` artifact
+  produced by the project module changes, just a part of `klib` is further
   recompiled into a binary.
-  
+
   This feature is an [Experimental](components-stability.md#stability-levels-explained). To enable it,
-  add the `kotlin.incremental.native=true` option to your `gradle.properties` file.
+  add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any issues,
+  create an [issue in YouTrack](https://kotl.in/issue).
 
 ## Windows OS configuration
 
 * **Configure Windows Security**. Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory, which is located in `%\USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+
+With the new incremental compilation, if the `klib` artifact produced by the project module changes only partially,
+just a part of the `klib` is further recompiled into a binary.
+
+the project module change causes
+
+ial recompilation of source code
