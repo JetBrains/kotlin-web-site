@@ -133,8 +133,10 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
                 <execution>
                     <id>test-compile</id>
-                    <goals> <goal>test-compile</goal> </goals> <!-- You can skip the <goals> element 
+                    <goals> 
+                        <goal>test-compile</goal> <!-- You can skip the <goals> element 
                     if you enable extensions for the plugin -->
+                    </goals>
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
