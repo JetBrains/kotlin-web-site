@@ -1020,7 +1020,7 @@ library.
 
 This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in
 the main thread. To learn about how to write concurrent code and optimize your app,
-see [How to work with concurrency](multiplatform-mobile-concurrency-overview.md).
+see the [Coroutines guide](coroutines-guide.md).
 
 You can also check out these additional learning materials:
 

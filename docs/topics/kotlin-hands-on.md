@@ -57,12 +57,6 @@ Create a simple HTTP client that can run natively on multiple platforms using Ko
 
 [**Start**](native-app-with-c-and-libcurl.md)
 
-## Introduction to Kotlin/Native concurrency
-
-Learn about the concurrency model in Kotlin/Native, and how to work with state in a multithreaded environment.
-
-[**Start**](multiplatform-mobile-concurrency-overview.md)
-
 ## Kotlin Multiplatform: networking and data storage
 
 Learn how to create a mobile application for Android and iOS using Kotlin Multiplatform with Ktor and SQLDelight.
