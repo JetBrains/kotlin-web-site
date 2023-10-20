@@ -28,7 +28,7 @@ The tutorial is suitable for both IntelliJ IDEA Community Edition and IntelliJ I
 
 IntelliJ IDEA will create a new project with the files and folders you need to get you started. It's important to understand that
 an application written in Kotlin/Native can target different platforms if the code does not have platform-specific
-requirements. Your code is placed in a folder named `NativeMain` with its corresponding `NativeTest`. For this tutorial,
+requirements. Your code is placed in a folder named `nativeMain` with its corresponding `nativeTest`. For this tutorial,
 keep the folder structure as is.
 
 ![Native application project structure](native-project-structure.png){width=700}
