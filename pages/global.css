@@ -1,11 +1,11 @@
+@import "@rescui/typography/lib/font-jb-sans-auto.css";
+
 :root {
     --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
     --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
-    --rs-font-family-ui: var(--ktl-font-family-inter);
 }
 
 html {
-    font-family: var(--ktl-font-family-inter);
     min-width: 320px;
 }
 
