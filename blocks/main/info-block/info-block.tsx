@@ -16,13 +16,14 @@ export const InfoBlock: FC<InfoBlockProps> = ({title, text, button, media}) => {
     const textCn = useTextStyles();
     const isTS = useTS();
     const headerClass = isTS ? 'rs-h3' : 'rs-h2';
+    const textClass = isTS ? 'rs-text-3' : 'rs-text-2';
 
     return (
         <div className={styles.container}>
-            <div className={styles.item}>
+            <div className={classNames(styles.item, styles.content)}>
                 <h2 className={classNames(textCn(headerClass), styles.title)}>{title}</h2>
 
-                <div className={classNames(textCn('rs-text-2', { hardness: 'hard' }), styles.text)}>
+                <div className={classNames(textCn(textClass, { hardness: 'hard' }), styles.text)}>
                     {text}
                 </div>
 

@@ -22,6 +22,7 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({ title, i
     const isTS = useTS();
     const visibleItems = isTS ? items.slice(0, 4) : items;
     const headerClass = isTS ? 'rs-h3' : 'rs-h2';
+    const textClass = isTS ? 'rs-text-3' : 'rs-text-2';
 
     return (
         <div className={styles.kotlinUsageHighlights}>
@@ -37,7 +38,7 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({ title, i
                         key={item.company}
                     >
                         <img src={item.logo.src} alt={item.company} className={styles.logo} />
-                        <span className={classNames(textCn('rs-text-2', { hardness: 'hard' }), styles.text)}>
+                        <span className={classNames(textCn(textClass, { hardness: 'hard' }), styles.text)}>
                             {item.text}
                         </span>
                     </a>

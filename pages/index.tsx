@@ -142,7 +142,9 @@ function Index() {
                 <div className={styles.evenSection}>
                     <div className={'ktl-layout ktl-layout--center'}>
                         <InfoBlock
-                            title={'Share code on your terms and for different platforms'}
+                            title={
+                                <>Share code on&nbsp;your terms and&nbsp;for different platforms</>
+                            }
                             text={
                                 <>
                                     Simplify the development of cross-platform projects with Kotlin Multiplatform.
