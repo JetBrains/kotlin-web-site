@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, createContext, useState } from 'react';
+import React, { FC, ReactNode, useState, useImperativeHandle, forwardRef } from 'react';
 import dynamic from 'next/dynamic';
 
 import styles from './code-block.module.css';
@@ -10,24 +10,28 @@ const KotlinPlayground = dynamic<any>(() => import('react-kotlin-playground').th
 
 interface Props {
     children: ReactNode;
+    ref: any;
 }
 
-export const CodeBlockContext = createContext(null);
-
-export const CodeBlock: FC<Props> = ({ children }) => {
+export const CodeBlock: FC<Props> = forwardRef(({ children }, ref) => {
     const [codeBlockInstance, setCodeBlockInstance] = useState(null);
 
     const handleGetInstance = (instance) => {
         setCodeBlockInstance(instance);
     };
 
-    return (
-        <CodeBlockContext.Provider value={codeBlockInstance}>
-            <pre className={styles.code}>{children}</pre>
+    useImperativeHandle(ref, () => ({
+        runInstance() {
+            codeBlockInstance?.execute();
+        },
+    }));
 
+    return (
+        <>
+            <pre className={styles.code}>{children}</pre>
             <KotlinPlayground theme={'darcula'} autoIndent={false} getInstance={handleGetInstance}>
                 {children}
             </KotlinPlayground>
-        </CodeBlockContext.Provider>
+        </>
     );
-};
+});

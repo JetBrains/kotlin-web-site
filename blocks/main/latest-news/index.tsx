@@ -70,6 +70,7 @@ export function LatestNews({ news }: { news: NewsItem[] }) {
                 mode="outline"
                 icon={<ArrowTopRightIcon />}
                 iconPosition="right"
+                size={"l"}
             >
                 Kotlin blog
             </Button>

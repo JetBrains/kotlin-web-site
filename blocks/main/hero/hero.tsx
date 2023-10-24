@@ -51,7 +51,7 @@ export const HeroSection: FC<Props> = ({ children }) => {
                                             rel={'noreferrer noopener'}
                                         >
                                             JetBrains
-                                        </a>
+                                        </a>.
                                     </div>
                                 </div>
                             </div>

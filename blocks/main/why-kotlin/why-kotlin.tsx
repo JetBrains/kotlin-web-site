@@ -1,4 +1,4 @@
-import React, { FC, useState, useContext, useCallback } from 'react';
+import React, { FC, useState, useCallback, createRef } from 'react';
 import cn from 'classnames';
 
 import { useTextStyles, createTextCn } from '@rescui/typography';
@@ -15,8 +15,6 @@ import { CodeBlock } from '../../../components/code-block/code-block';
 
 import styles from './why-kotlin.module.css';
 import './playground.css';
-
-import { CodeBlockContext } from '../../../components/code-block/code-block';
 
 import simpleExample from './code-examples/simple.md';
 import asyncExample from './code-examples/asynchronous.md';
@@ -37,12 +35,6 @@ export const WhyKotlin: FC<Props> = ({}) => {
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
-    const codeBlockInstance = useContext(CodeBlockContext);
-
-    const handleRunButton = useCallback(() => {
-        codeBlockInstance.execute();
-    }, []);
-
     const handleMobileMenuToggle = useCallback(() => {
         setMobileMenuVisible(!mobileMenuVisible);
     }, []);
@@ -59,6 +51,12 @@ export const WhyKotlin: FC<Props> = ({}) => {
         { children: 'Functional', codeExample: functionalExample },
         { children: 'Ideal for tests', codeExample: testsExample },
     ];
+
+    const codeInstanceRef = createRef<any>();
+
+    const handleRunButton = useCallback(() => {
+        codeInstanceRef?.current?.runInstance()
+    }, [codeInstanceRef]);
 
     return (
         <ThemeProvider theme={'dark'}>
@@ -116,7 +114,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
                             <ContentSwitcher index={activeIndex}>
                                 {codeExamplesList.map((item, index) => (
                                     <div className={styles.tab} key={index}>
-                                        <CodeBlock>{item.codeExample}</CodeBlock>
+                                        <CodeBlock ref={codeInstanceRef}>{item.codeExample}</CodeBlock>
                                     </div>
                                 ))}
                             </ContentSwitcher>
