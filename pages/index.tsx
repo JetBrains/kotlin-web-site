@@ -48,6 +48,9 @@ import news2 from '../latest-news/news-1.png';
 import news3 from '../latest-news/news-2.png';
 import news4 from '../latest-news/news-3.png';
 
+import releasesDataRaw from '../data/releases.yml';
+const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
+
 const newsImages = [news1, news2, news3, news4];
 
 const kotlinUsageHighlightsCases = [
@@ -129,7 +132,7 @@ function Index() {
         <>
             <ThemeProvider theme="dark">
                 <StickyHeader>
-                    <GlobalHeader productWebUrl={''} hasSearch={true} searchConfig={searchConfig} darkHeader />
+                    <GlobalHeader productWebUrl={releasesData.latest.url} hasSearch={true} searchConfig={searchConfig} darkHeader />
                 </StickyHeader>
 
                 <HeroSection>
