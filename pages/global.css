@@ -1,4 +1,5 @@
 @import "@rescui/typography/lib/font-jb-sans-auto.css";
+@import "@jetbrains/kotlin-web-site-ui/out/components/common/index.css";
 
 :root {
     --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
@@ -26,9 +27,4 @@ body._no-scroll {
 
 body {
     background: #19191C;
-}
-
-:root {
-    --rs-h2-font-size-mobile: var(--rs-h2-font-size, 35px);
-    --rs-h2-line-height-mobile: var(--rs-h2-line-height, 42px);
 }
