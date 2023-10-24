@@ -42,6 +42,25 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.9.20-RC2</strong>
+            <p>Released: <strong>October 24, 2023</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-RC2" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+             <ul>
+                 <li>K2: support for Kotlin/Wasm, preview kapt compiler plugin</li>
+                 <li>Kotlin/JVM: support for Java 21 bytecode</li>
+                 <li>Kotlin/Native: custom allocator enabled by default, full parallel mark available in the GC, deprecated targets disabled, obligatory opt-in for all cinterop declarations (except for platform libraries), the GC scheduler tracking objects in big chunks, legacy memory manager disabled, support for Xcode 15</li>
+                 <li>Kotlin Multiplatform: hierarchy template available by default, full support for Gradle Configuration cache, the default support for third-party cinterop libraries, reworked configuration of compiler settings in multiplatform projects</li>
+                 <li>Kotlin/Wasm: support for WASI, new <code>wasm-wasi</code> target and rename <code>wasm</code> target to <code>wasm-js</code>, compatible with recent updates in Wasm GC</li>
+                 <li>Kotlin/JS: using open-addressing hash map in the JS stdlib, ability to generate one JS file for each Kotlin source file</li>
+                 <li>Libraries: experimental support for <code>enumEntries()</code> function, further stabilization of Kotlin/Native standard library</li>
+                 <li>Gradle: support for Gradle versions 8.0 and 8.1, new build metrics for Kotlin/Native tasks, support for test fixtures to access internal declarations, new property to configure custom path to Konan and its dependencies</li>
+            </ul>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 1.9.20-RC2</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.9.20-RC</strong>
             <p>Released: <strong>October 12, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.20-RC" target="_blank">Release on GitHub</a></p>
