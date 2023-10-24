@@ -46,7 +46,7 @@ shared.SwiftExample
 deinit on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 ```
 
-Deinitialization on the Swift/Objective-C objects is called on a special GC thread if:
+Deinitialization on the Swift/Objective-C objects is called on a special GC thread instead of the main one if:
 
 * Swift/Objective-C objects are passed to Kotlin on a thread other than main.
 * The main dispatch queue isn't processed.
@@ -54,6 +54,9 @@ Deinitialization on the Swift/Objective-C objects is called on a special GC thre
 If you want to call deinitialization on a special GC thread explicitly,
 set `kotlin.native.binary.objcDisposeOnMain=false` in your `gradle.properties`. This option
 enables deinitialization on a special GC thread, even if Swift/Objective-C objects were passed to Kotlin on the main thread.
+
+A special GC thread has to comply with the Objective-C runtime, meaning that it should have a run loop and
+drain autorelease pools.
 
 ### Completion handlers
 

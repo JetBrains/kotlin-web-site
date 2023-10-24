@@ -7,15 +7,24 @@ Kotlin/Native uses a modern memory manager that is similar to JVM, Go, and other
 
 ## Garbage collector
 
-The exact algorithm of GC is constantly evolving. As of 1.7.20, it is the Stop-the-World Mark and Concurrent Sweep
-collector that does not separate heap into generations.
+The exact algorithm of GC is constantly evolving. Currently, it is the Stop-the-World Mark and Concurrent Sweep
+collector that does not separate the heap into generations.
+
+The GC uses a full parallel mark that combines paused mutators, the GC thread, and optional marker threads to process
+the mark queue. By default, paused mutators and at least one GC thread participate in the marking process.
+You can disable the full parallel mark with `-Xbinary=gcMarkSingleThreaded=true` compilation option.
+However, it may increase the pause time of the garbage collector.
+
+When the marking phase is completed, GC processes weak references and returns `null` if the reference points to an unmarked object.
+To decrease the GC pause time, you can enable the concurrent processing of weak references. To do that, use
+the `-Xbinary=concurrentWeakSweep=true` compilation option.
 
 GC is executed on a separate thread and kicked off based on the timer
 and memory pressure heuristics, or can be [called manually](#enable-garbage-collection-manually).
 
 ### Enable garbage collection manually
 
-To force start garbage collector, call `kotlin.native.internal.GC.collect()`. It triggers a new collection and waits for
+To force-start the garbage collector, call `kotlin.native.internal.GC.collect()`. It triggers a new collection and waits for
 its completion.
 
 ### Monitor GC performance
@@ -46,8 +55,21 @@ build script:
 
 ## Memory consumption
 
-With the Kotlin/Native memory manager, it's possible to monitor memory consumption.
-You can check for memory leaks and adjust memory consumption if necessary.
+Kotlin/Native uses its own [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+It divides system memory into pages, allowing independent sweeping in consecutive order. Each allocation becomes a memory
+block within a page, and the page keeps track of block sizes. Different page types are optimized for various allocation
+sizes. The consecutive arrangement of memory blocks ensures efficient iteration through all allocated blocks.
+
+When a thread allocates memory, it searches for a suitable page based on the allocation size. Threads maintain a set of
+pages for different size categories. Typically, the current page for a given size can accommodate the allocation.
+If not, the thread requests a different page from the shared allocation space. This page may already be available,
+require sweeping, or have to be created first.
+
+The Kotlin/Native memory allocator comes with protection against sudden spikes in memory allocations. It prevents
+situations when the mutator starts to allocate a lot of garbage quickly, and the GC thread cannot keep up with it,
+making the memory usage grow endlessly. In this case, the GC forces Stop-the-World phase until the iteration is completed.
+
+You can monitor memory consumption yourself, check for memory leaks, and adjust memory consumption if necessary.
 
 ### Check for memory leaks
 
@@ -93,26 +115,14 @@ If there are no memory leaks in the program, but you still see unexpectedly high
 try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
 update might improve memory consumption.
 
-Another way to fix high memory consumption is related to [`mimalloc`](https://github.com/microsoft/mimalloc),
-the default memory allocator for many targets. It pre-allocates and holds onto the system memory to improve
-the allocation speed.
+If you experience high memory consumption anyway, a few options are available:
 
-To avoid that at the cost of performance, a few options are available:
-
-* Switch the memory allocator from `mimalloc` to the system allocator. For that, set the `-Xallocator=std` compilation
-  option in your Gradle build script.
-* Since Kotlin 1.8.0-Beta, you can also instruct `mimalloc` to promptly release memory back to the system. It's a smaller
-  performance cost, but it gives less definitive results.
-
-  For that, enable the following binary option in your `gradle.properties` file:
-
-  ```none
-  kotlin.native.binary.mimallocUseCompaction=true
-  ```
-
-* Switch to the custom memory allocator. It is still [Beta](components-stability.md#stability-levels-explained). To try it in your projects, set the `-Xallocator=custom` compilation option in your Gradle build script.
-
-  For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+* Switch to a different memory allocator. To do that, use the following compilation options in your Gradle build script:
+  * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
+  * `-Xallocator=std` for the system allocator.
+* If you use the mimalloc allocator, you can instruct it to promptly release memory back to the system. It's a smaller
+  performance cost, but it gives less definitive results. To do that,
+  enable the `kotlin.native.binary.mimallocUseCompaction=true` binary option in your `gradle.properties` file.
 
 If none of these options improved the memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 

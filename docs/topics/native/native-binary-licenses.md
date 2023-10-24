@@ -51,12 +51,17 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://github.com/microsoft/mimalloc">mimalloc</a></td>
         <td>
           <p><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mimalloc_LICENSE.txt">MIT license</a></p>
-          <p>Always include, unless you use the system memory allocator (the <code>-Xallocator=std</code> compiler option is set). For more information on allocators, see <a href="native-memory-manager.md">Kotlin/Native memory management</a></p>
+          <p>Include in case you use the mimaloc memory allocator instead of the default one (the <code>-Xallocator=mimalloc</code> compiler option is set).</p>
+          <p>For more information on allocators, see <a href="native-memory-manager.md">Kotlin/Native memory management</a></p>
         </td>
    </tr>
    <tr>
         <td><a href="https://www.unicode.org/">Unicode character database</a></td>
         <td><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/unicode_LICENSE.txt">Unicode license</a></td>
+   </tr>
+   <tr>
+        <td>Multi-producer/multi-consumer bounded queue</td>
+        <td><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mpmc_queue_LICENSE.txt">Copyright notice</a></td>
    </tr>
 </table>
 

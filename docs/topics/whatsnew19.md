@@ -309,7 +309,7 @@ a function, or retrieved from a collection. In this case, Kotlin creates its own
 Objective-C object. When the Kotlin object gets deallocated, the Kotlin/Native runtime calls the `objc_release` function 
 that releases that Objective-C reference.
 
-Previously, the Kotlin/Native memory manager ran `objc_release ` on a special GC thread. If it's the last object reference,
+Previously, the Kotlin/Native memory manager ran `objc_release` on a special GC thread. If it's the last object reference,
 the object gets deallocated. Issues could come up when Objective-C objects have custom deallocation hooks like the `dealloc`
 method in Objective-C or the `deinit` block in Swift, and these hooks expect to be called on a specific thread.
 
