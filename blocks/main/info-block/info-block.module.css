@@ -7,11 +7,12 @@
 }
 
 .item {
-    flex: 1 0 0;
+    flex: 1 1 0;
 }
 
-.item:first-child {
+.content {
     margin-right: 68px;
+    max-width: 520px;
 }
 
 .media {

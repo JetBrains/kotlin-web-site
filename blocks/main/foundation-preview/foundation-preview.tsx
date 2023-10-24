@@ -33,7 +33,7 @@ export const FoundationPreview: FC<FoundationPreviewProps> = ({title, descriptio
 
 			<h2 className={classNames(textCn('rs-h2'), styles.title)}>{title}</h2>
 
-			<div className={classNames(textCn('rs-text-2'), styles.description)}>{description}</div>
+			<div className={classNames(textCn('rs-text-2', {hardness: 'hard'}), styles.description)}>{description}</div>
 
 			<div className={styles.secondBlock}>
 				<div className={styles.companies}>
