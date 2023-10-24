@@ -75,8 +75,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
   produced by the project module changes, just a part of `klib` is further
   recompiled into a binary.
 
-  This feature is an [Experimental](components-stability.md#stability-levels-explained). To enable it,
-  add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any issues,
+  This feature is [Experimental](components-stability.md#stability-levels-explained). To enable it,
+  add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
   create an [issue in YouTrack](https://kotl.in/issue).
 
 ## Windows OS configuration
