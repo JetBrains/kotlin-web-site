@@ -1291,4 +1291,4 @@ If you're interested in finding out more about how you can write concurrent code
 ### Learn more about React {initial-collapse-state="collapsed"}
 
 Now that you know the basic React concepts and how they translate to Kotlin, you can convert some other concepts outlined
-in the [official guides on React](https://reactjs.org/docs/) into Kotlin.
+in [React's documentation](https://react.dev/learn) into Kotlin.
