@@ -1,0 +1,64 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import './playground.css';
+
+.whyKotlin {
+    background: #19191C;
+    padding: 96px 0;
+    @media (--ktl-tm) {
+        padding: 48px 0;
+    }
+}
+
+.sectionTitle {
+    margin-bottom: 24px;
+}
+
+.getStartedButton {
+    margin-top: 24px;
+}
+
+.navigationBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    padding: 0 12px;
+    margin-bottom: 4px;
+    @media (--ktl-tm) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+    }
+}
+
+.tabList {
+    @media (--ktl-tm) {
+        display: none;
+    }
+}
+
+.tab {
+    display: block;
+}
+
+.codeExamples {
+    background: #27282C;
+    min-height: 544px;
+    border-radius: 8px;
+}
+
+.controlButtons {
+    display: flex;
+}
+
+.openInPlaygoundButton {
+    @media (--ktl-tl) {
+        display: none;
+    }
+}
+
+.mobileMenuButton {
+    display: none;
+    @media (--ktl-tm) {
+        display: block;
+    }
+}
+

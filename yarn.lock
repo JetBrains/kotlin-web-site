@@ -1418,10 +1418,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.1":
-  version "4.8.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.1.tgz#3c6000b93bd648de43246f2404a22cf6c8167ff1"
-  integrity sha512-6b+8in3cVTzPPI8QSLC6r1loZeLFLraQG3eWSoADHccyJAE+XjcS3hjjcH0biXmhalylb5D9V0b9PgIDoEO7oQ==
+"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.6":
+  version "4.8.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.6.tgz#6285dc216982b4d5aa53fa57580e7c39d81293a8"
+  integrity sha512-fq+Ah1yCL2y7R6ZRPH9ycIM0NPS6aIvv6P0YjztmX6Ekca648JBtm69SskoF+ZD3KIoG/RxnsOtL8MKwzY985g==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -1611,6 +1611,17 @@
     "@types/raf-schd" "^4.0.0"
     raf-schd "^4.0.2"
 
+"@rescui/button@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.11.0.tgz#0aa725041b19b16ebcdbdb5343f967bb42c042ba"
+  integrity sha512-M3aMY69Iz6qXguhT74Ac1WdwjTCh02nqHh6WmYx5jtFsLLFnQcDqYAyJAHVv0jI8k4u1fHZ3i1R1FhHABwy8dQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    "@rescui/icons" "^0.13.0"
+    "@rescui/use-resize-observer" "^0.1.6"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/button@^0.9.2":
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.9.2.tgz#15ca51e6e9c4328c9e557e7e5178f555a09fe9fd"
@@ -1645,6 +1656,11 @@
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.6.tgz#d35d22c7b00a2ea508fb10780fd37642c4b51077"
   integrity sha512-SfFy7W8vlWuRsEpT9VYSVRXGso6PK2pP5BuPnt3d525aW8Rx99kiuKYaqNPdu9p2nh2/XIf+febOl4Q3x/fH1g==
+
+"@rescui/colors@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.9.tgz#8d3fff387526c9d235be3c6673a92b8eebaa67d2"
+  integrity sha512-ZgMmIuCJERqPsfCY+7I9UvOIWEypyiZ4VdDdHPb/HUy9lxPpfNzV7Fs/RalBJP4wtgsfwR24d4IlYNhpJcunTA==
 
 "@rescui/dropdown-menu@^0.6.1":
   version "0.6.1"
@@ -1687,6 +1703,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/icons@^0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.13.0.tgz#fb6448be10e3a622937ef2ebaab3dc9317378d23"
+  integrity sha512-WjXVFw9gvGR39LeoZEQuoj8BT36ZKElj8L475gO393i55o7VkgUvKvx1ZGAiLJSp4Sp1BV10hHBoKHLYyWq2wQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/input@^0.8.2":
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/@rescui/input/-/input-0.8.2.tgz#a6d81c61cada676c11f80221db939f41c4ade549"
@@ -1696,6 +1721,16 @@
     "@rescui/icons" "^0.11.2"
     classnames "^2.2.6"
     core-js "^3.9.1"
+
+"@rescui/menu@0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@rescui/menu/-/menu-0.9.4.tgz#5d0d448d364d684c2a55ec4800157aa09a977fcb"
+  integrity sha512-ha7FN6AOTIk48e4Bc0fdEH5Ehhzt4Vrm0vaRObD9ukjbUxdq1R0aGmlTeXe/GcM2GGfEqfYJnfmSCYdKDxsdaQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    classnames "^2.2.6"
+    core-js "^3"
+    nanoid "^3.3.3"
 
 "@rescui/menu@^0.8.2":
   version "0.8.2"
@@ -1727,15 +1762,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/tab-list@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@rescui/tab-list/-/tab-list-0.10.2.tgz#61653ee05bf4b7630e8313276989781ef63add21"
-  integrity sha512-EphLLz07CjkKXZWKCURZAFRaFw/ORlHXPKWXCrIcPCwuK4gTJ+fFH5ackPkg/UqNejqakRXglOTXEpEdViB9ag==
+"@rescui/tab-list@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@rescui/tab-list/-/tab-list-0.11.1.tgz#9ce1ac506981df846c933a3d67ce5a5efdedf7ad"
+  integrity sha512-Of6pj/FymHLDo+oBYR8x4V0tmasvAZTrwtBtFWd89TgGuT3Sh2BGwPWWJRpvJdY7QxZLWhoXsMN8rR2HtSj4Sw==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
     "@juggle/resize-observer" "3.3.0"
-    "@rescui/button" "^0.9.2"
-    "@rescui/icons" "^0.11.2"
+    "@rescui/button" "^0.11.0"
+    "@rescui/icons" "^0.13.0"
     classnames "^2.2.6"
     core-js "^3.9.1"
 
@@ -1762,13 +1797,13 @@
     react-is "^17.0.2"
     react-popper "^2.2.5"
 
-"@rescui/typography@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.10.1.tgz#065c77ca03163a965b5a0ad74f6464fd179f93fa"
-  integrity sha512-uWzTUQ08yqLaF/ucjbILBSCXm4vBUkTa2fR0CYDRsfFs96ucOZbt/y447e0nRPZcQhbdZKJnQwIm6LKnP4y9eA==
+"@rescui/typography@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.11.0.tgz#8a348121ea3bb18249f6af18628426b04a3ee6d7"
+  integrity sha512-IT8pXLkFQs7RsJ0eWWsCVz11HuJn1dQ78Lti2mz8q6NLbvb8TS+dlh53UzN5hLVISC9kFTRtyK2IblMIDd0zpA==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/colors" "^0.1.6"
+    "@rescui/colors" "^0.1.9"
     bem-cn-fast "^1.0.2"
     inter-ui "^3.15.1"
 
@@ -1784,6 +1819,14 @@
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@rescui/use-resize-observer/-/use-resize-observer-0.1.4.tgz#e5c8c09dac569228030506e8c066e114f7fb3dea"
   integrity sha512-MoRnAaHwNXCS6MoEvMM/ODyjEgsC8N3A2rc43YXTne+aIgb/OktOPvwRB2OdBZb1EhyqOAJBPigRYFPzQYQlVA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    core-js "^3.9.1"
+
+"@rescui/use-resize-observer@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@rescui/use-resize-observer/-/use-resize-observer-0.1.6.tgz#a1f31a87980f5dab4a16442841bd53737427f14a"
+  integrity sha512-J0JF1gAmxvwGpaAcoieN1Fg9RXFOM0xhztHaYjKmnR1yFJxaEOLDSi+z0pus/aQPz8Sa4nBfbdZdp/6rNRDYFQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
     core-js "^3.9.1"
@@ -5765,10 +5808,10 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.6.tgz#85bffbf819c03b2f53270412420a4555ef882e22"
   integrity sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==
 
-kotlin-playground@^1.27.0:
-  version "1.27.2"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.27.2.tgz#8b4335652e7d746b7154c01c84dea66b006ee8c4"
-  integrity sha512-hoM50mR21jg4UZuDti3Sz6Wagxrc+Q3oPO/BxvZCY0d1KaOuXExLVcZNlfxGSXkkUFRmXCJOJvGHBIHRcbRGrg==
+kotlin-playground@^1.28.0:
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.28.0.tgz#7387672dff19fcdcae35ffe17b4dcb73d74fe23e"
+  integrity sha512-5eYPqZ1eezRHEZZl50k3ib7/vWjgvAgTlk4LY0rAM/NfLGtZS2g+Va2a9grRsaaj3iadTEPbqPYA7dbpQrkJvw==
 
 language-subtag-registry@~0.3.2:
   version "0.3.22"
@@ -7173,6 +7216,11 @@ react-is@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-kotlin-playground@0.1.0-beta.12:
+  version "0.1.0-beta.12"
+  resolved "https://registry.yarnpkg.com/react-kotlin-playground/-/react-kotlin-playground-0.1.0-beta.12.tgz#8be886975c18defda0f51d665f369579a090ef54"
+  integrity sha512-mB1LKPmXD6POp6dsz0bnKQwGioyyy6t5bPY2k0R1hfovI+zLT755FJB1tWo6VQCqCMWnH0VQ7Zo6IJnflyGeGA==
 
 react-optimized-image@^0.4.1:
   version "0.4.1"

@@ -20,6 +20,7 @@ import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/ko
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import { FoundationPreview } from "../blocks/main/foundation-preview/foundation-preview";
+import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
@@ -134,6 +135,7 @@ function Index() {
                 <div className={"ktl-layout ktl-layout--center"}>
                     <LatestNews news={news}/>
                 </div>
+                <WhyKotlin />
             </ThemeProvider>
 
             <ThemeProvider theme="light">
