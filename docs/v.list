@@ -6,13 +6,13 @@
 
     <var name="kotlinVersion" value="1.9.10" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.9.20-Beta2" type="string"/>
+    <var name="kotlinEapVersion" value="1.9.20-RC2" type="string"/>
 
     <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.9.10" type="string"/>
 
     <var name="kotlinReleaseDate" value="August 23, 2023" type="string"/>
 
-    <var name="kotlinEapReleaseDate" value="September 21, 2023" type="string"/>
+    <var name="kotlinEapReleaseDate" value="October 24, 2023" type="string"/>
 
     <var name="coroutinesVersion" value="1.7.1" type="string"/>
 

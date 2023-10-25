@@ -464,7 +464,7 @@ fun main() {
 
 You can also invoke `run` as a non-extension function. The non-extension variant of `run` has no context object, but it
 still returns the lambda result. Non-extension `run` lets you execute a block of several statements where an expression 
-is required.
+is required. In code, non-extension `run` can be read as "_run the code block and compute the result._"
 
 ```kotlin
 fun main() {

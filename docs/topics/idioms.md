@@ -330,17 +330,6 @@ stream.buffered().reader().use { reader ->
 inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(json, T::class.java)
 ```
 
-## Nullable Boolean
-
-```kotlin
-val b: Boolean? = ...
-if (b == true) {
-    ...
-} else {
-    // `b` is false or null
-}
-```
-
 ## Swap two variables
 
 ```kotlin
