@@ -746,3 +746,9 @@
     - /docs/multiplatform-mobile-faq.html
     - /docs/kmm-faq.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-faq.html
+
+- from:
+    - /docs/multiplatform-mobile-understand-project-structure.html
+    - /docs/kmm-understand-project-structure.html
+    - /docs/mpp-discover-project.html
+  to: /docs/multiplatform-discover-project.html
