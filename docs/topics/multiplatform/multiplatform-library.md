@@ -346,7 +346,7 @@ Your library will be published to the local Maven repository.
 
 ## Publish your library to the external Maven Central repository
 
-You can go public and release your multiplatform library to [Maven Central](https://search.maven.org/), a remote repository
+You can go public and release your multiplatform library to [Maven Central](https://central.sonatype.com/), a remote repository
 where maven artifacts are stored and managed. This way, other developers will be able to find it and add as a dependency
 to their projects.
 
@@ -567,7 +567,7 @@ section. In short, you need to:
 
 Soon your library will be available at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2), and other
 developers will be able to add it as a dependency. In a couple of hours, other developers will be able to find it using
-[Maven Central Repository Search](https://search.maven.org/).
+[Maven Central Repository Search](https://central.sonatype.com/).
 
 ## Add a dependency on the published library
 
