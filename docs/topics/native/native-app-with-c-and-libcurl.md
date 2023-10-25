@@ -55,14 +55,14 @@ The output will be an executable command-line app that you can run on macOS and 
     }
     
     ```
-    
-    * Targets are defined using `macOSX64`, `macosArm64`, `linuxX64`, `linuxArm64`, and `mingwX64` for macOS, Linux,
-      and Windows. See the complete list of [supported platforms](native-target-support.md).
-    * The entry itself defines a series of properties to indicate how the binary is generated and the entry
-      point of the applications. These can be left as default values.
-    * C interoperability is configured as an additional step in the build. By default, all the symbols from C are
-      imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
-      [how to configure](multiplatform-discover-project.md#multiplatform-plugin) it.
+
+   * Targets are defined using `macOSX64`, `macosArm64`, `linuxX64`, `linuxArm64`, and `mingwX64` for macOS, Linux,
+     and Windows. See the complete list of [supported platforms](native-target-support.md).
+   * The entry itself defines a series of properties to indicate how the binary is generated and the entry
+     point of the applications. These can be left as default values.
+   * C interoperability is configured as an additional step in the build. By default, all the symbols from C are
+     imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
+     [how to configure](multiplatform-discover-project.md#multiplatform-plugin) it.
 
 ## Create a definition file
 
@@ -97,20 +97,20 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
     ```
 
    * `headers` is the list of header files to generate Kotlin stubs. You can add multiple files to this entry,
-   separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be available
-   on the system path (in this case, it's `/usr/include/curl`).
+     separating each with a `\` on a new line. In this case, it's only `curl.h`. The referenced files need to be available
+     on the system path (in this case, it's `/usr/include/curl`).
    * `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
-   another one with the `#include` directive. Sometimes it's not necessary, and you can add this parameter
-   [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
+     another one with the `#include` directive. Sometimes it's not necessary, and you can add this parameter
+     [using glob patterns](https://en.wikipedia.org/wiki/Glob_(programming)) to fine-tune things.
 
      `headerFilter` is an optional argument and is mostly used when the library is installed as a system library. You don't
-   want to fetch external dependencies (such as system `stdint.h` header) into the interop library. It may be important to
-   optimize the library size and fix potential conflicts between the system and the provided Kotlin/Native compilation
-   environment.
+     want to fetch external dependencies (such as system `stdint.h` header) into the interop library. It may be important to
+     optimize the library size and fix potential conflicts between the system and the provided Kotlin/Native compilation
+     environment.
 
    * The next lines are about providing linker and compiler options, which can vary depending on different target platforms.
-   In this case, they are macOS (the `.osx` suffix) and Linux (the `.linux` suffix). Parameters without a suffix are also
-   possible (for example, `linkerOpts=`) and applied to all platforms.
+     In this case, they are macOS (the `.osx` suffix) and Linux (the `.linux` suffix). Parameters without a suffix are also
+     possible (for example, `linkerOpts=`) and applied to all platforms.
 
 The convention is that each library gets its definition file, usually with the same name as the library. For more
 information on all the options available to `cinterop`, see [the Interop section](native-c-interop.md).
@@ -196,14 +196,14 @@ the same as the C version. All the calls you'd expect in the `libcurl` library a
     ```bash
     ./gradlew runDebugExecutableNative
     ```
-    In this case, the `cinterop` generated part is implicitly included in the build.
+   In this case, the `cinterop` generated part is implicitly included in the build.
 
 2. If there are no errors during compilation, click the green **Run** icon in the gutter beside the `main()` method or
-use the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA.
+   use the **Alt+Enter** shortcut to invoke the launch menu in IntelliJ IDEA.
 
-    IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
+   IntelliJ IDEA opens the **Run** tab and shows the output — the contents of `https://example.com`:
 
-    ![Application output with HTML-code](native-output.png){width=700}
+   ![Application output with HTML-code](native-output.png){width=700}
 
 You can see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could
 hide this using `curl_easy_setopt`.

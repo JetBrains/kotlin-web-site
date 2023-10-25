@@ -82,14 +82,14 @@ scale well for big projects that have hundreds of files and libraries.
 It is then better to use the Kotlin/Native compiler with a build system, as it
 helps to download and cache the Kotlin/Native compiler binaries and libraries with
 transitive dependencies and run the compiler and tests.
-Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin) plugin.
+Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](gradle-configure-project.md#targeting-multiple-platforms) plugin.
 
 We covered the basics of setting up an IDE compatible project with Gradle in the
 [A Basic Kotlin/Native Application](native-gradle.md)
 tutorial. Please check it out if you are looking for detailed first steps
 and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
 In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native 
-and [multiplatform](multiplatform-discover-project.md#multiplatform-plugin) builds with Gradle.
+and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms) builds with Gradle.
 
 First, create a project folder. All the paths in this tutorial will be relative to this folder. Sometimes
 the missing directories will have to be created before any new files can be added.
@@ -170,8 +170,8 @@ Gradle recommends using conventions instead of configurations,
 for example, the source files are expected to be in the `src/nativeMain/kotlin` folder.
 By default, all the symbols from C are imported to the `interop` package,
 you may want to import the whole package in our `.kt` files.
-Check out the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugin)
-plugin documentation to learn about all the different ways you could configure it.
+Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md)
+to learn about all the different ways you could configure it.
 
 Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C string declarations are visible from Kotlin:
