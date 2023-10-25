@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2023-11-23'
+  endDate: '2023-11-23'
+  location: Limassol, Cyprus
+  speaker : 'Katerina Petrova'
+  title : 'State of KMP'
+  subject : 'State of KMP'
+  url: https://www.eventbrite.com/e/state-of-kotlin-multiplatform-tickets-743548241807
+- lang: en
   startDate: '2023-11-14'
   endDate: '2023-11-14'
   location: Brighton, UK
