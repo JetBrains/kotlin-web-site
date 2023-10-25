@@ -535,7 +535,7 @@ The shift of the default value from `warning` to `error` is a preparation step f
 **We encourage you to set this property to `error`** and [configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support)
 or align JVM versions manually.
 
-Learn more about [what can go wrong if you don't check the targets' compatibility](gradle-configure-project.md#what-can-go-wrong-if-not-checking-targets-compatibility).
+Learn more about [what can go wrong if you don't check the targets' compatibility](gradle-configure-project.md#what-can-go-wrong-if-targets-are-incompatible).
 
 ### Resolution of Kotlin Gradle plugins' transitive dependencies
 
