@@ -58,7 +58,7 @@ are pre-imported and included as Kotlin/Native libraries in the compiler package
 web, and native. Multiplatform libraries provide the necessary APIs for common Kotlin code and allow writing shared parts
 of projects in Kotlin all in one place.
 
-You can use the [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md) tutorial
+You can use the [Get started with Kotlin Multiplatform](multiplatform-getting-started.md) tutorial
 to create applications and share business logic between iOS and Android. To share UIs among iOS, Android, desktop, and web,
 try [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
 JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose).
@@ -76,7 +76,7 @@ Recommended documentation:
 Recommended tutorials:
 
 * [Get started with Kotlin/Native](native-get-started.md)
-* [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md)
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html)
 * [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
 * [Kotlin/Native as a dynamic Library](native-dynamic-libraries.md)
 * [Kotlin/Native as an Apple framework](apple-framework.md)

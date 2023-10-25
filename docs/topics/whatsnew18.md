@@ -797,9 +797,9 @@ The Kotlin documentation has received some notable changes:
 
 * [Get started with Gradle and Kotlin/JVM](get-started-with-jvm-gradle-project.md) – create a console application using
   IntelliJ IDEA and Gradle.
-* [Create a multiplatform app using Ktor and SQLDelight](multiplatform-mobile-ktor-sqldelight.md) – create a mobile
+* [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) – create a mobile
   application for iOS and Android using Kotlin Multiplatform Mobile.
-* [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) – learn about cross-platform
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) – learn about cross-platform
   mobile development with Kotlin and create an app that works on both Android and iOS.
 
 ## Install Kotlin 1.8.0

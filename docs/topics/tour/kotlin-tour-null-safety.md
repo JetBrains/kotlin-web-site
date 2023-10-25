@@ -199,4 +199,4 @@ fun main() {
 
 Congratulations! Now that you have completed the Kotlin tour, check out our tutorials for popular Kotlin applications:
 * [Create a backend application](jvm-create-project-with-spring-boot.md)
-* [Create a cross-platform application for Android and iOS](multiplatform-mobile-getting-started.md)
+* [Create a cross-platform application for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html)

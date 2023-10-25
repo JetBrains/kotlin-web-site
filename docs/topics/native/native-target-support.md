@@ -51,7 +51,7 @@ Mind the following terms used in tier tables:
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS on ARM64 platforms                      |
 | `iosArm64`              | `aarch64-apple-ios`               |               | Apple iOS and iPadOS on ARM64 platforms            |
 
-> We're doing our best to move `iosArm64` to Tier 1, as it's a crucial target for [Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md).
+> We're doing our best to move `iosArm64` to Tier 1, as it's a crucial target for [Kotlin Multiplatform](multiplatform-getting-started.md).
 > To do that, we need first to create a dedicated testing infrastructure because platform limitations make it difficult
 > to run compiler tests on Apple devices.
 > 

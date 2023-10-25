@@ -188,7 +188,7 @@ JVM versions in your final artifact, or you have already set up source sets in G
 
 ## Use Java sources in JVM compilations
 
-When [creating a project with the Project Wizard](multiplatform-library.md), Java sources are included in the compilations of
+When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are included in the compilations of
 the JVM target.
 
 In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:

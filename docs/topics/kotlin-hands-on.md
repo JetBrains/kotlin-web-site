@@ -39,12 +39,6 @@ Learn how to serve files, use templating engines such as Freemarker and the kotl
 
 [**Start**](https://ktor.io/docs/creating-interactive-website.html)
 
-## Building a full stack web app with Kotlin Multiplatform
-
-Create an application with Kotlin/JVM and Kotlin/JS, and explore topics around code sharing, serialization, server- and client-side development.
-
-[**Start**](multiplatform-full-stack-app.md)
-
 ## Introduction to Kotlin coroutines and channels
 
 Learn about coroutines in Kotlin and how you can communicate between them using channels.
@@ -61,10 +55,10 @@ Create a simple HTTP client that can run natively on multiple platforms using Ko
 
 Learn how to create a mobile application for Android and iOS using Kotlin Multiplatform with Ktor and SQLDelight.
 
-[**Start**](multiplatform-mobile-ktor-sqldelight.md)
+[**Start**](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html)
 
 ## Targeting iOS and Android with Kotlin Multiplatform
 
 Learn how to create a mobile application that can target both iOS and Android using Kotlin Multiplatform.
 
-[**Start**](multiplatform-mobile-create-first-app.md)
+[**Start**](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)

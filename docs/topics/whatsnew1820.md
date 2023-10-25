@@ -609,7 +609,7 @@ The following targets have been deprecated with Kotlin 1.8.20 and will be remove
 As for the remaining targets, there are now three tiers of support depending on how well a target is supported and
 tested in the Kotlin/Native compiler. A target can be moved to a different tier. For example, we'll do our best to
 provide full support for `iosArm64` in the future, as it is important
-for [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
+for [Kotlin Multiplatform](multiplatform-getting-started.md).
 
 If you're a library author, these target tiers can help you decide which targets to test on CI tools and which ones to
 skip. The Kotlin team will use the same approach when developing official Kotlin libraries,

@@ -108,7 +108,7 @@ In a nutshell, you should to opt for cross-platform solutions if:
 * You want to have a single codebase for the app logic while keeping full control over UI elements. Not all cross-platform frameworks allow you to do this, but some, like Kotlin Multiplatform Mobile, provide this capability.
 * You're eager to embrace a modern technology that continues to evolve.
 
-> Share the logic of your iOS and Android apps. See [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) in action.
+> Share the logic of your iOS and Android apps. See [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) in action.
 >
 {type="note"}
 
