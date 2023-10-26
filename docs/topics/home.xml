@@ -39,7 +39,7 @@
             </group>
             <group type="cards">
                 <title>Kotlin Multiplatform</title>
-                <a href="multiplatform-getting-started.md" description="Useful links to help you start using the SDK">Get started</a>
+                <a href="multiplatform-get-started.md" description="Useful links to help you start using the SDK">Get started</a>
                 <a href="multiplatform-mobile-plugin-releases.md" description="Features of the Kotlin Multiplatform Mobile plugin">Plugin releases for Android Studio</a>
                 <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about Kotlin Multiplatform on our YouTube channel">Kotlin Multiplatform Multiverse</a>
             </group>
