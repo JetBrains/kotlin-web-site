@@ -2554,3 +2554,35 @@
   geo:
     lat: 39.70892677
     lng: 37.020304847684415
+- title: Charotar University of Science and Technology - CHARUSAT
+  location: Change (India)
+  courses:
+  - name: CE381: MOBILE APPLICATION DEVELOPMENT
+    url: https://sites.google.com/charusat.ac.in/mobile-application/home
+  geo:
+    lat: 22.59957539
+    lng: 72.82043987374627
+- title: NIE Institute of Technology - The National Institute of Engineering
+  location: Mysuru (India)
+  courses:
+  - name: 18CSMP68 - Jetpack Compose for Android Developers
+    url: https://drive.google.com/file/d/1joCrjWuT1E36ny-cv_Y1DJ8AEK11okYP/view
+  geo:
+    lat: 12.37147346
+    lng: 76.58494258150306
+- title: Suresh Gyan Vihar University
+  location: Jaipur (India)
+  courses:
+  - name: CA 216 Android Development
+    url: https://drive.google.com/file/d/1LxniQ029VF9BGRY4wsI2GkOiq8XcOQAX/view
+  geo:
+    lat: 26.81023281
+    lng: 75.86247691076034
+- title: TH Köln
+  location: Cologne (Germany)
+  courses:
+  - name: Algorithmen und Programmierung II
+    url: https://www.th-koeln.de/mam/downloads/deutsch/studium/studiengaenge/f10/inf_ba/modulhandbuch_informatik.pdf
+  geo:
+    lat: 50.92258627
+    lng: 6.967425454902938
