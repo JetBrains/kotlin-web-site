@@ -326,10 +326,11 @@ kotlin {
         val myCustomIntermediateSourceSet by creating {
             dependsOn(commonMain)
         }
-
-        // Option #1. Shorter and more readable, use it when possible:
-        val jvmMain by getting { // Usually, the name of the default source set 
-            // is a simple concatenation of the target name and the compilation name
+        
+        // Option #1. Shorter and more readable, use it when possible. 
+        // Usually, the name of the default source set 
+        // is a simple concatenation of the target name and the compilation name:
+        val jvmMain by getting {
             dependsOn(myCustomIntermediateSourceSet)
         }
         
@@ -503,11 +504,11 @@ projects.
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
 <anchor name="declaring-multiple-targets"></anchor>
-## Declaring multiple targets of the same type
+## Declaring several similar targets
 
 **What's changed?**
 
-We discourage declaring multiple targets of the same type in a single Gradle project. For example:
+We discourage declaring several similar targets in a single Gradle project. For example:
 
 ```kotlin
 kotlin {
@@ -632,7 +633,7 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 * 2.0: report an error in such cases, causing the build to fail
 
 <anchor name="jvmWithJava-preset-deprecation"></anchor>
-## Deprecated the jvmWithJava preset
+## Deprecated jvmWithJava preset
 
 **What's changed?**
 
@@ -731,8 +732,7 @@ removed from the public API of the Kotlin Gradle plugin in future releases. This
 
 **What's the best practice now?**
 
-Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead.
-It's more concise and cleaner. For example:
+Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead, for example:
 
 <table header-style="top">
     <tr>
