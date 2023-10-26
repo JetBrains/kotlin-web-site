@@ -52,7 +52,7 @@ kotlin {
 </tab>
 </tabs>
 
-When you declare targets `android`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
+When you declare targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
 ![An example of using the default hierarchy template](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
