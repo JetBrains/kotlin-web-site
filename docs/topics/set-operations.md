@@ -28,7 +28,22 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can also apply `union`, `intersect`, and `subtract` to `List`.
+To find the elements present in either one of the two collections but not in their intersection, you can also use `union()`. 
+For this operation (known as symmetric difference), calculate the differences between the two collections and merge the 
+results.
+
+```kotlin
+fun main() {
+//sampleStart
+    val numbers = setOf("one", "two", "three")
+    val numbers2 = setOf("three", "four")
+    println((numbers-numbers2) union (numbers2-numbers)) // merge differences 
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You can also apply `union()`, `intersect()`, and `subtract()` to `List()`.
 However, their result is _always_ a `Set`, even on lists. In this result, all the duplicate elements are merged into one 
 and the index access is not available.
 
