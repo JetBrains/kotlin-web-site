@@ -8,7 +8,7 @@ business logic that applies to all platforms.
 reuse code in similar platforms with a help of the hierarchical structure.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](multiplatform-connect-to-apis.md).
+declarations](multiplatform-expect-actual.md).
 
 ## Share code on all platforms
 
@@ -22,7 +22,7 @@ Some dependencies for source sets are set by default. You don't need to specify 
 * Between the `main` and `test` source sets of a particular target, such as `androidMain` and `androidTest`.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](multiplatform-connect-to-apis.md).
+declarations](multiplatform-expect-actual.md).
 
 ## Share code on similar platforms
 
@@ -76,6 +76,6 @@ kotlin.mpp.enableCInteropCommonization=true
 
 ## What's next?
 
-* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-connect-to-apis.md)
+* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-expect-actual.md)
 * Learn more about [hierarchical project structure](multiplatform-hierarchy.md)
 * See our recommendations on [naming source files in multiplatform projects](coding-conventions.md#source-file-names)

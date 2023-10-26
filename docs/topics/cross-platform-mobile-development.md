@@ -104,7 +104,7 @@ In our [Kotlin Multiplatform survey from Q1-Q2 2021](https://blog.jetbrains.com/
 
 ![How are users satisfied with the quality of their app after Kotlin Multiplatform Mobile adoption?](survey-results-q1-q2-21.png){width=700}
 
-Another concern is the inability to seamlessly support the native features of applications. Nevertheless, if you're building a multiplatform app that needs to access platform-specific APIs, you can use Kotlin's [expected and actual declarations](multiplatform-connect-to-apis.md). They allow you to define in common code that you "expect" to be able to call the same function across multiple platforms and provide the "actual" implementations, which can interact with any platform-specific libraries thanks to Kotlin interoperability with Java and Objective-C/Swift.
+Another concern is the inability to seamlessly support the native features of applications. Nevertheless, if you're building a multiplatform app that needs to access platform-specific APIs, you can use Kotlin's [expected and actual declarations](multiplatform-expect-actual.md). They allow you to define in common code that you "expect" to be able to call the same function across multiple platforms and provide the "actual" implementations, which can interact with any platform-specific libraries thanks to Kotlin interoperability with Java and Objective-C/Swift.
 
 These issues raise the question of whether the end-user will notice a difference between native and cross-platform apps.
 

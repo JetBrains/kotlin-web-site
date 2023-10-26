@@ -20,7 +20,7 @@ To run tests for a particular target suitable for testing, run a test task `<tar
 
 ## Test shared code
 
-For testing shared code, you can use [actual declarations](multiplatform-connect-to-apis.md) in your tests.
+For testing shared code, you can use [actual declarations](multiplatform-expect-actual.md) in your tests.
 
 For example, to test the shared code in `commonMain`:
 

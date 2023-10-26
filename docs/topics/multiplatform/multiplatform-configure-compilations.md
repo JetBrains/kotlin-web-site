@@ -345,7 +345,7 @@ If the source set `jvmMain` depends on a source set `commonMain` then:
 compiled into the same target binary form, such as JVM class files.
 * Sources of `jvmMain` 'see' the declarations of `commonMain`, including internal declarations, and also see the 
 [dependencies](multiplatform-add-dependencies.md) of `commonMain`, even those specified as `implementation` dependencies.
-* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-connect-to-apis.md) 
+* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-expect-actual.md) 
 of `commonMain`.
 * The resources of `commonMain` are always processed and copied along with the resources of `jvmMain`.
 * The [language settings](multiplatform-dsl-reference.md#language-settings) of `jvmMain` and `commonMain` should be consistent.
