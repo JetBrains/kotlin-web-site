@@ -65,7 +65,7 @@ Kotlin provides the following code sharing mechanisms:
   ![Code shared across different platforms](kotlin-multiplatform-hierarchical-structure.svg){width=700}
 
 * If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](multiplatform-connect-to-apis.md).
+declarations](multiplatform-expect-actual.md).
 
 ## Get started
 

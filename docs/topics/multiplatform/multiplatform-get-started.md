@@ -28,7 +28,7 @@ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
 Once you have gained some experience with Kotlin Multiplatform and want to know how to solve particular cross-platform development tasks:
 
 * [Share code on platforms](multiplatform-share-on-platforms.md) in your Kotlin Multiplatform project.
-* [Connect to platform-specific APIs](multiplatform-connect-to-apis.md) using the Kotlin mechanism of expected and actual declarations.
+* [Connect to platform-specific APIs](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html) when developing multiplatform applications and libraries.
 * [Set up targets manually](multiplatform-set-up-targets.md) for your Kotlin Multiplatform project.
 * [Add dependencies](multiplatform-add-dependencies.md) on the standard, test, or another kotlinx library.
 * [Configure compilations](multiplatform-configure-compilations.md) for production and test purposes in your project.

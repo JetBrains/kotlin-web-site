@@ -53,7 +53,7 @@ There's a common misconception that native apps are much more secure and reliabl
 
 #### 3. Cross-platform apps don't have access to all native functions of mobile devices.
 
-It is true that not all cross-platform frameworks allow you to build apps with full access to the device's features. Nevertheless, some modern multiplatform frameworks can help you overcome this challenge. For example, Kotlin Multiplatform Mobile gives easy access to Android and iOS SDKs. It provides a [Kotlin mechanism of expected and actual declarations](multiplatform-connect-to-apis.md) to help you access the device's capabilities and features.  
+It is true that not all cross-platform frameworks allow you to build apps with full access to the device's features. Nevertheless, some modern multiplatform frameworks can help you overcome this challenge. For example, Kotlin Multiplatform Mobile gives easy access to Android and iOS SDKs. It provides a [Kotlin mechanism of expected and actual declarations](multiplatform-expect-actual.md) to help you access the device's capabilities and features.  
 
 #### 4. It can often be difficult to manage cross-platform projects.
 

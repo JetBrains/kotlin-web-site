@@ -236,7 +236,7 @@ directory. The generator will create an interface named `AppDatabase`, as specif
 
 To initialize `AppDatabase`, pass an `SqlDriver` instance to it. SQLDelight provides multiple platform-specific
 implementations of the SQLite driver, so you need to create them for each platform separately. You can do this by using
-[expected and actual declarations](multiplatform-connect-to-apis.md).
+[expected and actual declarations](multiplatform-expect-actual.md).
 
 1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
    the `com.jetbrains.handson.kmm.shared.cache` package and the `DatabaseDriverFactory` class inside it:
@@ -294,7 +294,7 @@ Instances of these factories will be created later in the code of your Android a
 
 You can navigate through the `expect` declarations and `actual` implementations by clicking the handy gutter icon:
 
-![Expect/Actual gutter](expect-actual-gutter.png){width=500}
+![Expect/Actual gutter](expect-actual-gutter-sql.png){width=500}
 
 ### Implement cache
 

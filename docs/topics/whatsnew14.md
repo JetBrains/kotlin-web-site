@@ -823,7 +823,7 @@ With the new hierarchical project structure support, you can share code among [s
 Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
 limited to one target and can't be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
 which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
-API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-connect-to-apis.md).
+API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-expect-actual.md).
 
 This made it easy to [share code on all platforms](multiplatform-share-on-platforms.md#share-code-on-all-platforms), but it was
 not so easy to [share between only some of the targets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), 

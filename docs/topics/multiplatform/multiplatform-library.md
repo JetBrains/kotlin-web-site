@@ -65,7 +65,7 @@ Define the classes and interfaces you are going to implement in the common code.
 
 The factory object is marked with the `expect` keyword in the cross-platform code.
 For each platform, you should provide an `actual` implementation of the `Base64Factory` object with the platform-specific encoder.
-Learn more about [platform-specific implementations](multiplatform-connect-to-apis.md).
+Learn more about [platform-specific implementations](multiplatform-expect-actual.md).
 
 ## Provide platform-specific implementations
 
