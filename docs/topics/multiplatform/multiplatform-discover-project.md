@@ -9,7 +9,7 @@ Discover main parts of your multiplatform project:
 
 ## Multiplatform plugin
 
-When you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
+When you create a multiplatform project, the [project wizard](https://kmp.jetbrains.com/) automatically applies the `kotlin-multiplatform` Gradle 
 plugin in the file `build.gradle(.kts`).
 
 You can also apply it manually.
@@ -70,7 +70,7 @@ The project includes the directory `src` with Kotlin source sets, which are coll
 their resources, dependencies, and language settings. A source set can be used in Kotlin compilations for one or more 
 target platforms. 
 
-Each source set directory includes Kotlin code files (the `kotlin` directory) and `resources`. The Project Wizard creates 
+Each source set directory includes Kotlin code files (the `kotlin` directory) and `resources`. The project wizard creates 
 default source sets for the `main` and `test` compilations of the common code and all added targets. 
 
 ![Source sets](source-sets.png){width=300}

@@ -45,7 +45,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
       the `.framework` for only the platform you're using.
       
       To build a platform-specific framework, call the `packForXcode` task generated
-      by the [Kotlin Multiplatform project wizard](multiplatform-mobile-create-first-app.md). 
+      by the [Kotlin Multiplatform project wizard](https://kmp.jetbrains.com/). 
       
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.

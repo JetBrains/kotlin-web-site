@@ -1,6 +1,6 @@
 [//]: # (title: Set up targets for Kotlin Multiplatform)
 
-You can add targets when [creating a project with the Project Wizard](multiplatform-library.md). If you need to add a target 
+You can add targets when creating a project with the [project wizard](https://kmp.jetbrains.com/). If you need to add a target 
 later, you can do this manually using target presets for [supported platforms](multiplatform-dsl-reference.md#targets).
 
 Learn more about [additional settings for targets](multiplatform-dsl-reference.md#common-target-configuration).

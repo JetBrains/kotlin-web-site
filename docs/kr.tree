@@ -125,52 +125,32 @@
     </toc-element>
 
     <toc-element toc-title="Multiplatform development">
-        <toc-element toc-title="Kotlin Multiplatform for iOS and Android">
-            <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
-            <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html" toc-title="1. Set up an environment"/>
-            <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html" toc-title="2. Create your first cross-platform app"/>
-            <toc-element id="multiplatform-mobile-update-ui.md" toc-title="3. Update UI"/>
-            <toc-element id="multiplatform-mobile-dependencies.md" toc-title="4. Add dependencies"/>
-            <toc-element id="multiplatform-mobile-upgrade-app.md" toc-title="5. Share more logic"/>
-            <toc-element id="multiplatform-mobile-wrap-up.md" toc-title="6. Wrap up your project"/>
-            <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
-            <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
-            <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
-            <toc-element id="multiplatform-mobile-ktor-sqldelight.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin Multiplatform for other platforms">
-            <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
-            <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
-            <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
-            <toc-element id="multiplatform-full-stack-app.md" hidden="true"/>
-        </toc-element>
-        <toc-element toc-title="Creating multiplatform libraries">
-            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
-            <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html"/>
-        </toc-element>
-        <toc-element toc-title="Sharing code principles">
+        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
+        <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
+        <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html"/>
+        <toc-element toc-title="Share code">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
             <toc-element id="multiplatform-expect-actual.md"/>
             <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
-            <toc-element id="multiplatform-android-layout.md"/>
         </toc-element>
-        <toc-element toc-title="Adding dependencies">
+        <toc-element toc-title="Add dependencies">
             <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html"/>
             <toc-element id="multiplatform-mobile-android-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html,multiplatform-mobile-add-dependencies.html" toc-title="For Android target platforms"/>
             <toc-element id="multiplatform-mobile-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
-        <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
-        <toc-element toc-title="Artifact compilation">
+        <toc-element toc-title="Compile artifacts">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
             <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
             <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
         </toc-element>
-        <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
-        <toc-element id="multiplatform-mobile-samples.md" toc-title="Samples" accepts-web-file-names="kmm-samples.html"/>
-        <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html" toc-title="FAQ"/>
+        <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries"/>
         <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team.html"/>
-        <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
-        <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases.html"/>
+        <toc-element toc-title="Reference">
+            <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
+            <toc-element id="multiplatform-android-layout.md"/>
+            <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
+            <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases.html"/>
+        </toc-element>
     </toc-element>
 
     <toc-element toc-title="Platforms">

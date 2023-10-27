@@ -75,32 +75,32 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
 
-1. **[Set up your environment for cross-platform mobile development](multiplatform-mobile-setup.md).**
+1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).**
 
 2. **Create your first application for iOS and Android:**
 
-   * To start from scratch, [create a basic cross-platform mobile application with the project wizard](multiplatform-mobile-create-first-app.md).
-   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md) tutorial.
-   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [Create a multiplatform app using Ktor and SQLdelight](multiplatform-mobile-ktor-sqldelight.md) tutorial or any [sample project](multiplatform-mobile-samples.md).
+   * To start from scratch, [create a basic cross-platform mobile application with the project wizard](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
+   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html) tutorial.
+   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [Create a multiplatform app using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) tutorial or any [sample project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
 
 3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-add-dependencies.md).
 
-   |Library|Details|
-   |-------|-------| 
-   | Ktor | [Docs](https://ktor.io/docs/client.html)| 
-   | Serialization | [Docs](serialization.md) and [sample](multiplatform-mobile-ktor-sqldelight.md#create-an-application-data-model)|
-   | Coroutines | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)|
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)|
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)|
+   |Library| Details                                                                                                                                                            |
+   |-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+   | Ktor | [Docs](https://ktor.io/docs/client.html)                                                                                                                           | 
+   | Serialization | [Docs](serialization.md) and [sample](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html#create-an-application-data-model) |
+   | Coroutines | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)                                                                                               |
+   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)                                                                                                          |
+   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)                                                                                                 |
    
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    > 
    {type="tip"}
 
-4. **Learn more about Kotlin Multiplatform for mobile:**
+4. **Learn more about Kotlin Multiplatform:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
-   * Look through [samples on GitHub](multiplatform-mobile-samples.md).
-   * [Create and publish a multiplatform library](multiplatform-library.md).
+   * Look through [samples projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
+   * [Publish a multiplatform library](multiplatform-publish-lib.md).
    * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/multiplatform/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/multiplatform/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/multiplatform/case-studies/).
 
 5. **Join the Kotlin Multiplatform community:**
@@ -130,9 +130,9 @@ Support for multiplatform programming is one of Kotlin's key benefits. It reduce
 
 Here you'll learn how to develop and publish a multiplatform library:
 
-1. **Create a multiplatform library:**
+1. **Publish a multiplatform library:**
 
-   * Complete the [Create and publish a multiplatform library](multiplatform-library.md) tutorial. It shows how to create a multiplatform library for JVM, JS, and Native platforms, test it and publish to a local Maven repository.
+   * See [Publish a multiplatform library](multiplatform-publish-lib.md) to learn more.
 
 2. **Use libraries in your application:**
 

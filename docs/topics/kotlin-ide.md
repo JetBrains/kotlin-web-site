@@ -53,5 +53,5 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
-* [Create your first cross-platform mobile app using Android Studio](multiplatform-mobile-create-first-app.md)
+* [Create your first cross-platform mobile app using Android Studio](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
