@@ -27,8 +27,8 @@ have some other strong reason to do so.
     kotlin {
         cocoapods {
             //..
-            pod("Alamofire") {
-                version = "5.7.0"
+            pod("FirebaseAuth") {
+                version = "10.16.0"
             }
         }
     }
@@ -41,8 +41,8 @@ have some other strong reason to do so.
     kotlin {
         cocoapods {
             //..
-            pod('Alamofire') {
-                version = '5.7.0'
+            pod('FirebaseAuth') {
+                version = '10.16.0'
             }
         }
     }
@@ -63,7 +63,7 @@ have some other strong reason to do so.
 To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
 
 ```kotlin
-import cocoapods.Alamofire.*
+import cocoapods.FirebaseAuth.*
 ```
 
 ### Without CocoaPods
