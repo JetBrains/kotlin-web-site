@@ -10,89 +10,59 @@ The output will be an executable command-line app that you can run on macOS and 
 > better to use the Kotlin/Native compiler with a build system, as it helps download and cache the Kotlin/Native
 > compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
 > [Gradle](gradle.md) build system through the [`kotlin-multiplatform`](multiplatform-discover-project.md#multiplatform-plugin)
-> Plugin.
+> plugin.
 >
 
-To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
-The tutorial is suitable for both IntelliJ IDEA Community Edition and IntelliJ IDEA Ultimate.
+## Before you start
 
-## Create a Kotlin/Native project
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest [Kotlin plugin](releases.md).
+2. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
+   by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
 
-1. In IntelliJ IDEA, select **File | New | Project**.
-2. In the panel on the left, select **Kotlin Multiplatform | Native Application**.
-3. Specify the name and select the folder where you'll save your application.
+3. Explore the project structure:
 
-   ![New project. Native application in IntelliJ IDEA](native-file-new.png){width=700}
+   ![Native application project structure](native-project-structure.png){width=700}
 
-4. Click **Next** and then **Finish**.
+   The template includes a project with the files and folders you need to get you started. It's important to understand
+   that an application written in Kotlin/Native can target different platforms if the code does not have platform-specific
+   requirements. Your code is placed in the `nativeMain` directory with a corresponding `nativeTest`. For this tutorial,
+   keep the folder structure as is.
 
-IntelliJ IDEA will create a new project with the files and folders you need to get you started. It's important to understand that
-an application written in Kotlin/Native can target different platforms if the code does not have platform-specific
-requirements. Your code is placed in a folder named `NativeMain` with its corresponding `NativeTest`. For this tutorial,
-keep the folder structure as is.
+4. Open the `build.gradle.kts` file, the build script that contains the project settings. Pay special attention to the
+   following in the build file:
 
-![Native application project structure](native-project-structure.png){width=700}
-
-Along with your new project, a `build.gradle(.kts)` file is generated. Pay special attention to the following
-in the build file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    val hostOs = System.getProperty("os.name")
-    val isMingwX64 = hostOs.startsWith("Windows")
-    val nativeTarget = when {
-        hostOs == "Mac OS X" -> macosX64("native")
-        hostOs == "Linux" -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
-
-    nativeTarget.apply {
-        binaries {
-            executable {
-                entryPoint = "main"
+    ```kotlin
+    kotlin {
+        val hostOs = System.getProperty("os.name")
+        val isArm64 = System.getProperty("os.arch") == "aarch64"
+        val isMingwX64 = hostOs.startsWith("Windows")
+        val nativeTarget = when {
+            hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
+            hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
+            hostOs == "Linux" && isArm64 -> linuxArm64("native")
+            hostOs == "Linux" && !isArm64 -> linuxX64("native")
+            isMingwX64 -> mingwX64("native")
+            else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
+        }
+    
+        nativeTarget.apply {
+            binaries {
+                executable {
+                    entryPoint = "main"
+                }
             }
         }
     }
-}
-
-```
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    def hostOs = System.getProperty("os.name")
-    def isMingwX64 = hostOs.startsWith("Windows")
-    def nativeTarget
-        if (hostOs == "Mac OS X") nativeTarget = macosX64('native')
-        else if (hostOs == "Linux") nativeTarget = linuxX64("native")
-        else if (isMingwX64) nativeTarget = mingwX64("native")
-        else throw new FileNotFoundException("Host OS is not supported in Kotlin/Native.")
-
-    nativeTarget.with {
-        binaries {
-            executable {
-                entryPoint = 'main'
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-* Targets are defined using `macOSX64`, `linuxX64`, and `mingwX64` for macOS, Linux, and Windows. For a complete
-  list of supported platforms, see the [Kotlin Native overview](native-overview.md#target-platforms).
-* The entry itself defines a series of properties to indicate how the binary is generated and the entry
-  point of the applications. These can be left as default values.
-* C interoperability is configured as an additional step in the build. By default, all the symbols from C are
-  imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
-  [how to configure](multiplatform-discover-project.md#multiplatform-plugin) it.
+    
+    ```
+    
+    * Targets are defined using `macOSX64`, `macosArm64`, `linuxX64`, `linuxArm64`, and `mingwX64` for macOS, Linux,
+      and Windows. See the complete list of [supported platforms](native-target-support.md).
+    * The entry itself defines a series of properties to indicate how the binary is generated and the entry
+      point of the applications. These can be left as default values.
+    * C interoperability is configured as an additional step in the build. By default, all the symbols from C are
+      imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
+      [how to configure](multiplatform-discover-project.md#multiplatform-plugin) it.
 
 ## Create a definition file
 
@@ -113,7 +83,7 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
 
 1. Select the `src` folder and create a new directory with **File | New | Directory**.
 2. Name new directory **nativeInterop/cinterop**. This is the default convention for header file locations, though it can
-   be overridden in the `build.gradle(.kts)` file if you use a different location.
+   be overridden in the `build.gradle.kts` file if you use a different location.
 3. Select this new subfolder and create a new `libcurl.def` file with **File | New | File**.
 4. Update your file with the following code:
 
@@ -145,7 +115,7 @@ headers. In this app, you'll need the `libcurl` library to make some HTTP calls.
 The convention is that each library gets its definition file, usually with the same name as the library. For more
 information on all the options available to `cinterop`, see [the Interop section](native-c-interop.md).
 
-> You need to have the `curl` library binaries on your system to make the sample work. On macOS and Linux, it is usually
+> You need to have the `curl` library binaries on your system to make the sample work. On macOS and Linux, they are usually
 > included. On Windows, you can build it from [sources](https://curl.haxx.se/download.html) (you'll need Visual Studio or
 > Windows SDK Commandline tools). For more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
 > Alternatively, you may want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
@@ -155,10 +125,7 @@ information on all the options available to `cinterop`, see [the Interop section
 ## Add interoperability to the build process
 
 To use header files, make sure they are generated as a part of the build process. For this, add the following
-entry to the `build.gradle(.kts)` file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+entry to the `build.gradle.kts` file:
 
 ```kotlin
 nativeTarget.apply {
@@ -173,34 +140,10 @@ nativeTarget.apply {
         }
     }
 }
-```     
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-nativeTarget.with {
-    compilations.main { // NL
-        cinterops {     // NL
-            libcurl     // NL
-        }               // NL
-    }                   // NL
-    binaries {
-        executable {
-            entryPoint = 'main'
-        }
-    }
-}
 ```
-
-</tab>
-</tabs>
 
 The new lines are marked with `// NL`. First, `cinterops` is added, and then an entry for each `def` file. By default,
 the name of the file is used. You can override this with additional parameters:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 val libcurl by creating {
@@ -209,22 +152,7 @@ val libcurl by creating {
     compilerOpts("-I/path")
     includeDirs.allHeaders("path")
 }
-```     
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-libcurl {
-    defFile project.file("src/nativeInterop/cinterop/libcurl.def")
-    packageName 'com.jetbrains.handson.http'
-    compilerOpts '-I/path'
-    includeDirs.allHeaders("path")
-}
 ```
-
-</tab>
-</tabs>
 
 See the [Interoperability with C](native-c-interop.md) section for more details on the available options.
 
