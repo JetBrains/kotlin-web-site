@@ -167,6 +167,7 @@ In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the foll
 import kotlinx.cinterop.*
 import libcurl.*
 
+@OptIn(ExperimentalForeignApi::class)
 fun main(args: Array<String>) {
     val curl = curl_easy_init()
     if (curl != null) {
