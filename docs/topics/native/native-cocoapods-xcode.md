@@ -22,11 +22,11 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 ## Xcode project with one target
 
 1. Create an Xcode project with a `Podfile` if you haven't done so yet.
-2. Make sure to disable the **User Script Sandboxing** under **Build Options** in the application target:
+2. Make sure to disable **User Script Sandboxing** under **Build Options** in the application target:
 
    ![Disable sandboxing CocoaPods](disable-sandboxing-cocoapods.png)
 
-3. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` to `build.gradle(.kts)`
+3. Add the path to your Xcode project `Podfile` with `podfile = project.file(..)` in the `build.gradle(.kts)` file
    of your Kotlin project.
    This step helps synchronize your Xcode project with Gradle project dependencies by calling `pod install` for your `Podfile`.
 4. Specify the minimum deployment target version for the Pod library.
