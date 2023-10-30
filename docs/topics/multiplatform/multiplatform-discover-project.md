@@ -170,7 +170,7 @@ and the corresponding `jvmMain`, `iosArm64Main`, and `jsMain` source sets for sp
 
 ![Compilation to a specific target](specific-target-diagram.svg){width=700}
 
-During compilation to the JVM, Kotlin selects all source sets labeled with “JVM”, namely, `jvmMain` and `commonMain`. It
+During compilation to the JVM, Kotlin selects all source sets labeled with "JVM", namely, `jvmMain` and `commonMain`. It
 then compiles them together to the JVM class files:
 
 ![Compilation to JVM](compilation-jvm-diagram.svg){width=700}
@@ -309,7 +309,7 @@ tutorial](multiplatform-run-tests.md).
 
 ## What's next?
 
-[Learn more about declaring and using predefined source sets in Gradle scripts.](multiplatform-hierarchy.md)
+* [Learn more about declaring and using predefined source sets in Gradle scripts](multiplatform-hierarchy.md)
 * [Learn how to configure compilations](multiplatform-configure-compilations.md)
 
 <!-- Learn how to create custom intermediate source sets and work with low-level abstractions of the Gradle build process, such as tasks, configurations, and outputs. -->
