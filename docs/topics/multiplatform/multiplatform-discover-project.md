@@ -305,7 +305,7 @@ the main code, you can have platform-specific dependencies for each source set, 
 iOS. To run tests for a particular target, use the `<targetName>Test` task.
 
 Learn how to create and run multiplatform tests in the [Test your multiplatform app
-tutorial](multiplatform-run-tests.md).
+tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html).
 
 ## What's next?
 
