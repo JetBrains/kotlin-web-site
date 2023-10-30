@@ -242,6 +242,8 @@ If you're a library author and want to be extra safe, check that consumers can w
 
 **When do the changes take effect?**
 
+Here's the planned deprecation cycle:
+
 * 1.8.20: report a warning when these properties are used
 * 1.9.20: raise this warning to an error
 * 2.0: remove these properties; the Kotlin Gradle plugin ignores their usages
@@ -277,6 +279,8 @@ _If you're a library author_, update the Kotlin Gradle plugin to the latest vers
 The Kotlin team is eager to help the ecosystem migrate, so if you face any issues, don't hesitate to create an [issue in YouTrack](https://kotl.in/issue).
 
 **When do the changes take effect?**
+
+Here's the planned deprecation cycle:
 
 * 1.9: introduce a deprecation warning for dependencies on legacy libraries
 * 2.0: raise the warning for dependencies on legacy libraries to an error
@@ -341,6 +345,8 @@ kotlin {
 ```
 
 **When do the changes take effect?**
+
+Here's the planned deprecation cycle:
 
 * 1.9.0: introduce a deprecation warning when `KotlinComplation.source` is used
 * 1.9.20: raise this warning to an error
@@ -629,7 +635,9 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 
 **When do the changes take effect?**
 
-* 1.9.20: introduce a deprecation warning when multiple targets of the same type are used in Kotlin Multiplatform projects
+Here's the planned deprecation cycle:
+
+* 1.9.20: introduce a deprecation warning when similar multiple targets are used in Kotlin Multiplatform projects
 * 2.0: report an error in such cases, causing the build to fail
 
 <anchor name="jvmWithJava-preset-deprecation"></anchor>
@@ -653,6 +661,8 @@ For example, if you use a `jvm` target with the default name "jvm":
 
 **When do the changes take effect?**
 
+Here's the planned deprecation cycle:
+
 * 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
 * 1.9.20: raise this warning to an error
 * \>1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
@@ -671,6 +681,8 @@ Support for the legacy layout is deprecated, and the use of the `kotlin.mpp.andr
 now triggers a deprecation diagnostic.
 
 **When do the changes take effect?**
+
+Here's the planned deprecation cycle:
 
 * <=1.9.0: report a warning when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used; the warning can be suppressed with
   `kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle property
@@ -709,6 +721,8 @@ If it's actually your case, "swap" these two source sets. To do that, move the s
 to `commonMain` and vice versa.
 
 **When do the changes take effect?**
+
+Here's the planned deprecation cycle:
 
 * 1.9.0: report a warning when `dependsOn` is used in `commonMain`
 * \>=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
@@ -764,6 +778,8 @@ kotlin {
 </table>
 
 **When do the changes take effect?**
+
+Here's the planned deprecation cycle:
 
 * 1.9.20: report a warning on any usages of the presets-related API
 * 2.0: raise this warning to an error
