@@ -309,7 +309,7 @@ If you experience high memory consumption, you can switch back to `mimaloc` or t
 or `-Xallocator=std` in your Gradle build script. Please report such issues in [YouTrack](https://kotl.in/issue) to help
 us improve the new memory allocator.
 
-For the technical details of the new allocator's design, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+For the technical details of the new allocator's design, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md).
 
 ### Performance improvements for the garbage collector
 
