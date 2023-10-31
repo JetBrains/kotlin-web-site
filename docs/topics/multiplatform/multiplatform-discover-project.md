@@ -1,13 +1,12 @@
 [//]: # (title: The basics of Kotlin Multiplatform project structure)
 
-With Kotlin Multiplatform, you can share code among different platforms. The setup of your multiplatform projects might
-look confusing at first.
-
-This article explains the constraints of the shared code, how to distinguish between shared and platform-specific parts
-of your code, and how to specify the platforms on which this shared code works.
+With Kotlin Multiplatform, you can share code among different platforms. This article explains the constraints
+of the shared code, how to distinguish between shared and platform-specific parts of your code,
+and how to specify the platforms on which this shared code works.
 
 You'll also learn the core concepts of Kotlin Multiplatform project setup, such as common code, targets,
-platform-specific and intermediate source sets, and test integration.
+platform-specific and intermediate source sets, and test integration. That will help you set up
+your multiplatform projects in the future.
 
 The model presented here is simplified compared to the one used by Kotlin. However, this basic model should be adequate
 for the majority of cases.
@@ -16,7 +15,7 @@ for the majority of cases.
 
 _Common code_ is the Kotlin code shared among different platforms.
 
-Consider the simple "Hello, World" example, and see what it looks like when set up for several platforms:
+Consider the simple "Hello, World" example:
 
 ```kotlin
 fun greeting() {
@@ -25,7 +24,7 @@ fun greeting() {
 ```
 
 Kotlin code shared among platforms is typically located in the `commonMain` directory. The location of code files is
-important, as it defines the list of platforms to which this code is compiled.
+important, as it affects the list of platforms to which this code is compiled.
 
 The Kotlin compiler gets the source code as input and produces a set of platform-specific binaries as a result. When
 compiling multiplatform projects, it can produce multiple binaries from the same code. For example, the compiler can
@@ -36,8 +35,8 @@ produce JVM `.classfiles` and native executable files from the same Kotlin file:
 Not every piece of Kotlin code can be compiled to all platforms. The Kotlin compiler prevents you from using
 platform-specific functions or classes in your common code since this code can't be compiled to a different platform.
 
-For instance, you can't use the `java.io.File` dependency from the common code because it can't be compiled to native
-platforms:
+For instance, you can't use the `java.io.File` dependency from the common code. It's a part of the JDK,
+while common code is also compiled to native code, where the JDK classes are not available:
 
 ![Unresolved Java reference](unresolved-java-reference.png){width=500}
 
@@ -52,8 +51,7 @@ like `fun CoroutinesDispatcher.asExecutor(): Executor`. This additional part of 
 ## Targets
 
 Targets define the platforms to which Kotlin compiles the common code. These could be, for example, the JVM, JS,
-Android, iOS, or Linux. The previous example compiled the common code to the JVM and native targets. This is how the
-Kotlin compiler understands that you want to compile to those specific platforms.
+Android, iOS, or Linux. The previous example compiled the common code to the JVM and native targets.
 
 A _Kotlin target_ is an identifier that describes a compilation target. It defines the format of the produced
 binaries, available language constructions, and allowed dependencies.
@@ -110,7 +108,8 @@ Each source set in a multiplatform project:
 Kotlin provides a bunch of predefined source sets. One of them is `commonMain`, which is present in all multiplatform
 projects and compiles to all declared targets.
 
-You interact with source sets as directories inside `src` in Kotlin Multiplatform projects:
+You interact with source sets as directories inside `src` in Kotlin Multiplatform projects.
+For example, a project with the `commonMain`, `iosMain`, and `jvmMain` source sets has the following structure:
 
 ![Shared sources](src-directory-diagram.png){width=350}
 
@@ -130,7 +129,7 @@ kotlin {
 }
 ```
 
-Source sets can be either platform-specific or intermediate.
+Aside from `commonMain`, other source sets can be either platform-specific or intermediate.
 
 ### Platform-specific source sets
 
@@ -176,7 +175,7 @@ then compiles them together to the JVM class files:
 ![Compilation to JVM](compilation-jvm-diagram.svg){width=700}
 
 Because Kotlin compiles `commonMain` and `jvmMain` together, the resulting binaries contain declarations from
-both `commonMain` and `jvmMain`. This is how you can choose which parts of your application should be shared.
+both `commonMain` and `jvmMain`.
 
 When working with multiplatform projects, remember:
 
@@ -184,7 +183,7 @@ When working with multiplatform projects, remember:
 * To choose a directory or source file to store the code, first decide among which targets you want to share your code:
 
     * If the code is shared among all targets, it should be declared in `commonMain`.
-    * If the code is used for only one target, it should be defined in a specific source set for that target (for
+    * If the code is used for only one target, it should be defined in a platform-specific source set for that target (for
       example, `jvmMain` for the JVM).
 * Code written in platform-specific source sets can access declarations from the common source set. For example, the
   code in `jvmMain` can use code from `commonMain`. However, the opposite isn't true: `commonMain` can't use code
@@ -195,7 +194,10 @@ When working with multiplatform projects, remember:
 
 ### Intermediate source sets
 
-In simple multiplatform projects, only common code is shared among all available platforms and platform-specific code.
+Simple multiplatform projects usually have only common and platform-specific code.
+The `commonMain` source set represents the common code shared among all declared targets. Platform-specific
+source sets, like `jvmMain`, represent platform-specific code compiled only to the respective target.
+
 In practice, you often need more granular code sharing.
 
 Consider an example where you need to target all modern Apple devices and Android devices:
@@ -203,10 +205,10 @@ Consider an example where you need to target all modern Apple devices and Androi
 ```kotlin
 kotlin {
     android()
-    iosArm64()         // 64-bit iPhone devices
-    macosArm64()   // Modern Apple Silicon-based Macs
-    watchosX64()    // Modern 64-bit Apple Watch devices
-    tvosArm64()       // Modern Apple TV devices  
+    iosArm64()   // 64-bit iPhone devices
+    macosArm64() // Modern Apple Silicon-based Macs
+    watchosX64() // Modern 64-bit Apple Watch devices
+    tvosArm64()  // Modern Apple TV devices  
 }
 ```
 
@@ -223,7 +225,7 @@ fun randomUuidString(): String {
 
 You can't add this function to `commonMain`. `commonMain` is compiled to all declared targets, including Android,
 but `platform.Foundation.NSUUID` is an Apple-specific API that's not available on Android. Kotlin shows an error if you
-try to reference it in `commonMain`.
+try to reference `NSUUID` in `commonMain`.
 
 You could copy and paste this code to each Apple-specific source
 set: `iosArm64Main`, `macosArm64Main`, `watchosX64Main`, and `tvosArm64Main`. But this approach is not recommended
@@ -241,7 +243,7 @@ look like this:
 Here, the gray blocks at the bottom are platform-specific source sets. Target labels are omitted for clarity.
 
 The `appleMain` block is an intermediate source set created by Kotlin for sharing code compiled to Apple-specific
-targets. The `appleMain` source set compiles to only Apple targets. Kotlin allows using Apple-specific APIs
+targets. The `appleMain` source set compiles to only Apple targets. Therefore, Kotlin allows using Apple-specific APIs
 in `appleMain`, and you can add the `randomUUID()` function here.
 
 > See [Hierarchical project structure](multiplatform-hierarchy.md) to find
