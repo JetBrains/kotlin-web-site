@@ -9,7 +9,7 @@ The output will be an executable command-line app that you can run on macOS and 
 > a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. In this case, it is
 > better to use the Kotlin/Native compiler with a build system, as it helps download and cache the Kotlin/Native
 > compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
-> [Gradle](gradle.md) build system through the [`kotlin-multiplatform`](multiplatform-discover-project.md#multiplatform-plugin)
+> [Gradle](gradle.md) build system through the [`kotlin-multiplatform`](gradle-configure-project.md#targeting-multiple-platforms)
 > plugin.
 >
 
@@ -62,7 +62,7 @@ The output will be an executable command-line app that you can run on macOS and 
      point of the applications. These can be left as default values.
    * C interoperability is configured as an additional step in the build. By default, all the symbols from C are
      imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
-     [how to configure](multiplatform-discover-project.md#multiplatform-plugin) it.
+     [how to configure](gradle-configure-project.md#targeting-multiple-platforms) it.
 
 ## Create a definition file
 
