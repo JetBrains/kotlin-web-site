@@ -77,7 +77,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | CocoaPods integration                                 | Stable       | 1.9.20                   |                                                                                   |
 | Kotlin Multiplatform Mobile plugin for Android Studio | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-mobile-plugin-releases.md) |
 | expected and actual functions and properties          | Stable       | 1.9.20                   |                                                                                   |
-| expected and actual classes                           | Beta         | 1.2                      |                                                                                   |
+| expected and actual classes                           | Beta         | 1.7.20                   |                                                                                   |
 | KDoc syntax                                           | Stable       | 1.0                      |                                                                                   |
 | Dokka                                                 | Beta         | 1.6                      |                                                                                   |
 | Scripting syntax and semantics                        | Alpha        | 1.2                      |                                                                                   |
