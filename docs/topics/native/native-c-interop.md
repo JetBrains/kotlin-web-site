@@ -172,6 +172,15 @@ With such a configuration, C headers will be analyzed with `-DBAR=bar -DFOO=foo1
 with `-DBAR=bar -DFOO=foo2` on macOS .
 Note that any definition file option can have both common and the platform-specific part.
 
+#### Linker errors
+
+Linker errors might occur when a Kotlin library depends on C or Objective-C libraries, for example, using the [CocoaPods integration](native-cocoapods.md).
+If dependent libraries aren't installed locally on the machine or configured explicitly in the project build script,
+the "Framework not found" error occurs.
+
+If you're a library author, you can help your users resolve linker errors with custom messages.
+To do that, add a `userSetupHint=message` property to your `.def` file or pass the `-Xuser-setup-hint` compiler option to `cinterop`.
+
 ### Add custom declarations
 
 Sometimes it is required to add custom C declarations to the library before
