@@ -49,7 +49,7 @@
     "iso-639-1": "2.1.13",
     "jquery": "3.5.0",
     "key-value-parser": "0.2.0",
-    "kotlin-playground": "^1.28.0",
+    "kotlin-playground": "^1.29.0-alpha.1",
     "mini-css-extract-plugin": "1.6.1",
     "mini-svg-data-uri": "1.1.3",
     "nanoid": "3.3.3",

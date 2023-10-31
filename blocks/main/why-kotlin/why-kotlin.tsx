@@ -22,6 +22,8 @@ import oopExample from './code-examples/object-oriented.md';
 import functionalExample from './code-examples/functional.md';
 import testsExample from './code-examples/ideal-for-tests.md';
 
+import { generateCrosslink } from 'kotlin-playground/dist/crosslink';
+
 interface Props {}
 
 const ContentSwitcher = ({ index, children }) => {
@@ -55,8 +57,15 @@ export const WhyKotlin: FC<Props> = ({}) => {
     const codeInstanceRef = createRef<any>();
 
     const handleRunButton = useCallback(() => {
-        codeInstanceRef?.current?.runInstance()
+        codeInstanceRef?.current?.runInstance();
     }, [codeInstanceRef]);
+
+    const handleOpenInPlaygroundButton = () => {
+        const link = generateCrosslink(codeExamplesList[activeIndex].codeExample);
+        if (typeof window !== 'undefined') {
+            window.open(link, '_blank');
+        }
+    };
 
     return (
         <ThemeProvider theme={'dark'}>
@@ -101,7 +110,9 @@ export const WhyKotlin: FC<Props> = ({}) => {
 
                             <div className={styles.controlButtons}>
                                 <div className={styles.openInPlaygoundButton}>
-                                    <NavItem icon={<CodeIcon />}>Open in Playground</NavItem>
+                                    <NavItem onClick={handleOpenInPlaygroundButton} icon={<CodeIcon />}>
+                                        Open in Playground
+                                    </NavItem>
                                 </div>
 
                                 <NavItem icon={<PlayIcon />} onClick={handleRunButton}>
@@ -113,7 +124,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
                         <div className="tab-content kotlin-code-examples-section">
                             <ContentSwitcher index={activeIndex}>
                                 {codeExamplesList.map((item, index) => (
-                                    <div className={styles.tab} key={index}>
+                                    <div className={styles.tab} key={index} tabIndex={-1}>
                                         <CodeBlock ref={codeInstanceRef}>{item.codeExample}</CodeBlock>
                                     </div>
                                 ))}
@@ -126,6 +137,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
                         size={'l'}
                         className={styles.getStartedButton}
                         href={'docs/getting-started.html'}
+                        tabIndex={1}
                     >
                         Get started
                     </Button>

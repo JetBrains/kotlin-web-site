@@ -5808,10 +5808,10 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.6.tgz#85bffbf819c03b2f53270412420a4555ef882e22"
   integrity sha512-dhG34DXATL5hSxJbIexCft8FChFXtmskoZYnoPWjXQuebWYCNkVeV3KkGegCK9CP1oswI/vQibS2GY7Em/sJJA==
 
-kotlin-playground@^1.28.0:
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.28.0.tgz#7387672dff19fcdcae35ffe17b4dcb73d74fe23e"
-  integrity sha512-5eYPqZ1eezRHEZZl50k3ib7/vWjgvAgTlk4LY0rAM/NfLGtZS2g+Va2a9grRsaaj3iadTEPbqPYA7dbpQrkJvw==
+kotlin-playground@^1.29.0-alpha.1:
+  version "1.29.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/kotlin-playground/-/kotlin-playground-1.29.0-alpha.1.tgz#0d8262e8b7dc6efd9845a7654275cc366baa14ea"
+  integrity sha512-X4AzYD7gAcKDqc04MTS1VhQLsCQ5yH2Ze0/Jqvrwte3l+VF5MTHfgvnSPX9oonqeNqRmPeL5bG6hURpokszWOA==
 
 language-subtag-registry@~0.3.2:
   version "0.3.22"

@@ -132,7 +132,12 @@ function Index() {
         <>
             <ThemeProvider theme="dark">
                 <StickyHeader>
-                    <GlobalHeader productWebUrl={releasesData.latest.url} hasSearch={true} searchConfig={searchConfig} darkHeader />
+                    <GlobalHeader
+                        productWebUrl={releasesData.latest.url}
+                        hasSearch={true}
+                        searchConfig={searchConfig}
+                        darkHeader
+                    />
                 </StickyHeader>
 
                 <HeroSection>
