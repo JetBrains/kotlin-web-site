@@ -35,3 +35,5 @@ export const CodeBlock: FC<Props> = forwardRef(({ children }, ref) => {
         </>
     );
 });
+
+CodeBlock.displayName = "CodeBlock";
