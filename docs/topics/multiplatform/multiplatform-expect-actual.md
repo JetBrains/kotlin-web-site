@@ -1,11 +1,5 @@
 [//]: # (title: Expected and actual declarations)
 
-> The mechanism of expected and actual declarations is in [Beta](components-stability.md).
-> It's almost stable, but migration steps may be required in the future.
-> We'll do our best to minimize any further changes for you to make.
->
-{type="warning"}
-
 Expected and actual declarations allow you to access platform-specific APIs from Kotlin Multiplatform modules.
 You can provide platform-agnostic APIs in the common code.
 
@@ -255,6 +249,12 @@ use the DI framework to manage dependencies in your project, we recommend using 
 platform dependencies.
 
 ### Expected and actual classes
+
+> Expected and actual classes are in [Beta](components-stability.md).
+> They are almost stable, but migration steps may be required in the future.
+> We'll do our best to minimize any further changes for you to make.
+>
+{type="warning"}
 
 You can use expected and actual classes to implement the same solution:
 
