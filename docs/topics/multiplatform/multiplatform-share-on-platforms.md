@@ -61,18 +61,13 @@ Once the `kotlinx.coroutines` library is updated and published with the hierarch
 it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
 "targets signature" of the library's `concurrent` source set.
 
-### Connect platform-specific libraries
+## Connect platform-specific libraries
 
-[Platform-specific libraries](native-platform-libs.md) shipped with Kotlin/Native (like Foundation, UIKit, and POSIX)
-are available in shared source sets by default. This helps you share more native code without being limited by
-platform-specific dependencies.
+To share more native code without being limited by platform-specific dependencies, connect [platform-specific libraries](native-platform-libs.md).
+Libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX) are available in shared source sets by default.
 
-In addition, you can enable the support for third-party libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
-To do that, add the following property to your `gradle.properties`:
-
-```none
-kotlin.mpp.enableCInteropCommonization=true
-```
+In addition, if you use the [Kotlin CocoaPods Gradle](native-cocoapods.md) plugin in your projects,
+you can work with third-party native libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
 
 ## What's next?
 
