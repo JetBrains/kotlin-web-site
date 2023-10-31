@@ -271,7 +271,7 @@ sweeping, or should be created first.
 The new allocator allows having multiple independent allocation spaces simultaneously, which will allow the Kotlin team 
 to experiment with different page layouts to improve performance even further.
 
-For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md).
 
 #### How to enable
 

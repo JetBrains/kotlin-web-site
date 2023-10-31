@@ -15,7 +15,7 @@ the mark queue. By default, paused mutators and at least one GC thread participa
 You can disable the full parallel mark with `-Xbinary=gcMarkSingleThreaded=true` compilation option.
 However, it may increase the pause time of the garbage collector.
 
-When the marking phase is completed, GC processes weak references and returns `null` if the reference points to an unmarked object.
+When the marking phase is completed, GC processes weak references and nullifies reference points to an unmarked object.
 To decrease the GC pause time, you can enable the concurrent processing of weak references. To do that, use
 the `-Xbinary=concurrentWeakSweep=true` compilation option.
 
@@ -55,7 +55,7 @@ build script:
 
 ## Memory consumption
 
-Kotlin/Native uses its own [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+Kotlin/Native uses its own [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md).
 It divides system memory into pages, allowing independent sweeping in consecutive order. Each allocation becomes a memory
 block within a page, and the page keeps track of block sizes. Different page types are optimized for various allocation
 sizes. The consecutive arrangement of memory blocks ensures efficient iteration through all allocated blocks.
@@ -118,11 +118,18 @@ update might improve memory consumption.
 If you experience high memory consumption anyway, a few options are available:
 
 * Switch to a different memory allocator. To do that, use the following compilation options in your Gradle build script:
+
   * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
   * `-Xallocator=std` for the system allocator.
+
 * If you use the mimalloc allocator, you can instruct it to promptly release memory back to the system. It's a smaller
-  performance cost, but it gives less definitive results. To do that,
-  enable the `kotlin.native.binary.mimallocUseCompaction=true` binary option in your `gradle.properties` file.
+  performance cost, but it gives less definitive results compared to the standard system allocator.
+
+  To do that, enable the following binary option in your `gradle.properties` file:
+
+  ```none
+  kotlin.native.binary.mimallocUseCompaction=true
+  ```
 
 If none of these options improved the memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
