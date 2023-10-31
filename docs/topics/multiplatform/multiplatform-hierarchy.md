@@ -333,4 +333,4 @@ Kotlin doesn't currently support sharing a source set for these combinations:
 
 If you need to access platform-specific APIs from a shared native source set, IntelliJ IDEA will help you detect common
 declarations that you can use in the shared native code.
-For other cases, use the Kotlin mechanism of [expected and actual declarations](multiplatform-connect-to-apis.md).
+For other cases, use the Kotlin mechanism of [expected and actual declarations](multiplatform-expect-actual.md).
