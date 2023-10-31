@@ -55,7 +55,7 @@ If you want to call deinitialization on a special GC thread explicitly,
 set `kotlin.native.binary.objcDisposeOnMain=false` in your `gradle.properties`. This option
 enables deinitialization on a special GC thread, even if Swift/Objective-C objects were passed to Kotlin on the main thread.
 
-A special GC thread complies with the Objective-C runtime, meaning that it should have a run loop and
+A special GC thread complies with the Objective-C runtime, meaning that it has a run loop and
 drain autorelease pools.
 
 ### Completion handlers
