@@ -256,7 +256,7 @@ Try these workarounds to avoid this error:
 name, specify it explicitly:
 
     ```kotlin
-    pod("Alamofire") {
+    pod("FirebaseAuth") {
         moduleName = "AppsFlyerLib"
     }
     ```
@@ -278,3 +278,20 @@ tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMes
 
 Check the [CocoaPods documentation](https://guides.cocoapods.org/) for more information. If nothing works, and you still
 encounter this error, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+
+### Rsync error {initial-collapse-state="collapsed"}
+
+You might encounter the `rsync error: some files could not be transferred` error. It's a [known issue](https://github.com/CocoaPods/CocoaPods/issues/11946)
+that occurs if the application target in Xcode has sandboxing of the user scripts enabled.
+
+To solve this issue:
+
+1. Disable sandboxing of user scripts in the application target:
+
+   ![Disable sandboxing CocoaPods](disable-sandboxing-cocoapods.png){width=700}
+
+2. Stop the Gradle daemon process that might have been sandboxed:
+
+    ```shell
+    ./gradlew --stop
+    ```

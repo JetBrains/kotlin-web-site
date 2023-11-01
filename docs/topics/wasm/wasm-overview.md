@@ -14,14 +14,13 @@ Wasm is designed to be fast and secure, and it can compile code from various pro
 Kotlin/Wasm is a new compilation target for Kotlin. You can use it in your Kotlin Multiplatform projects.
 With Kotlin/Wasm, you can create applications that run on different environments and devices supporting WebAssembly and meeting Kotlin's requirements.
 
-> Learn more about Kotlin/Wasm in this [YouTube video](https://www.youtube.com/watch?v=oIbX7nrSTPQ).
+> Learn more about Kotlin/Wasm with this [YouTube playlist](https://kotl.in/wasm-pl).
 >
 {type="note"}
 
 ## Browser support
 
-Almost all major browsers already support WebAssembly 1.0.
-To run applications built with Kotlin/Wasm in a browser, you need to enable an experimental [garbage collection feature](https://github.com/WebAssembly/gc).
+To run applications built with Kotlin/Wasm in a browser, you need a version supporting the new [garbage collection feature](https://github.com/WebAssembly/gc).
 
 [Learn more in Get started with Kotlin/Wasm](wasm-get-started.md#troubleshooting).
 
