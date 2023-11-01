@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.9.20)
 
-_[Released: October 31, 2023](releases.md#release-details)_
+_[Released: November 1, 2023](releases.md#release-details)_
 
 The Kotlin 1.9.20 release is out, the [K2 compiler for all the targets is now in Beta](#new-kotlin-k2-compiler-updates),
 and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Additionally, here are some of the main highlights:
