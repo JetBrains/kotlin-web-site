@@ -2,11 +2,9 @@
 
 _[Released: October 31, 2023](releases.md#release-details)_
 
-The Kotlin 1.9.20 release is out, the K2 compiler for all the targets is now in **Beta**, and Kotlin Multiplatform is now **Stable**.
-Additionally, here are some of the main highlights:
+The Kotlin 1.9.20 release is out, the [K2 compiler for all the targets is now in Beta](#new-kotlin-k2-compiler-updates),
+and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Additionally, here are some of the main highlights:
 
-* [K2 is now in Beta for all the targets](#new-kotlin-k2-compiler-updates)
-* [Kotlin Multiplatform is Stable](#kotlin-multiplatform-is-stable)
 * [New default hierarchy template for setting up multiplatform projects](#template-for-configuring-multiplatform-projects)
 * [Full support for the Gradle Configuration cache in Kotlin Multiplatform](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
 * [Custom memory allocator enabled by default in Kotlin/Native](#custom-memory-allocator-enabled-by-default)
@@ -675,10 +673,10 @@ default; you no longer need to specify a separate Gradle property to support the
 This release resolves a compatibility issue with the Compose Multiplatform compiler plugin, which mostly affected
 Compose Multiplatform projects for iOS.
 
-To work around this issue, you had to disable caching ny using the `kotlin.native.cacheKind=none` Gradle property. However, this
+To work around this issue, you had to disable caching by using the `kotlin.native.cacheKind=none` Gradle property. However, this
 workaround came at a performance cost: It slowed down compilation time, as caching didn't work in the Kotlin/Native compiler.
 
-Now, when the issue is fixed, you can remove `kotlin.native.cacheKind=none` from your `gradle.properties` file and enjoy
+Now that the issue is fixed, you can remove `kotlin.native.cacheKind=none` from your `gradle.properties` file and enjoy
 the improved compilation times in your Compose Multiplatform projects.
 
 For more tips on improving compilation times, see the [Kotlin/Native documentation](native-improving-compilation-time.md).
