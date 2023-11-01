@@ -35,7 +35,7 @@ The Kotlin team at JetBrains is continuing to stabilize the new K2 compiler, whi
 speed up new language feature development, unify all the platforms that Kotlin supports, and provide a better architecture for
 multiplatform projects.
 
-Right now K2 is in **Beta** for all the targets.
+Right now K2 is in **Beta** for all the targets. [Read more in the release blog post](https://blog.jetbrains.com/kotlin/2023/11/kotlin-1-9-20-released/)
 
 ### Support for Kotlin/Wasm
 
@@ -66,6 +66,8 @@ If you encounter any issues when using kapt with the K2 compiler, please report 
 
 ### How to enable the Kotlin K2 compiler
 
+#### Enable K2 in Gradle
+
 To enable and test the Kotlin K2 compiler, use the new language version with the following compiler option:
 
 ```bash
@@ -83,6 +85,21 @@ kotlin {
    }
 }
 ```
+
+#### Enable K2 in Maven
+
+To enable and test the Kotlin K2 compiler, update the `<project/>` section of your `pom.xml` file:
+
+```xml
+<properties>
+    <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
+</properties>
+```
+
+#### Enable K2 in JPS
+
+To enable and test the Kotlin K2 compiler in IntelliJ IDEA, go to **Settings** | **Build, Execution, Deployment** |
+**Compiler** | **Kotlin Compiler** and update the **Language Version** field to `2.0 (experimental)`.
 
 ### Leave your feedback on the new K2 compiler
 
@@ -361,7 +378,7 @@ Please note that some advanced features of Kotlin Multiplatform are still evolvi
 the current stability status of the feature you're using. In IntelliJ IDEA,  you'll need to enable experimental functionality
 explicitly in **Preferences** | **Advanced Settings** | **Enable experimental Multiplatform IDE features**.
 
-* Visit the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/10/kotlin-multiplatform-stable) to learn more about the Kotlin Multiplatform stabilization and future plans.
+* Visit the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/) to learn more about the Kotlin Multiplatform stabilization and future plans.
 * Check out the [Multiplatform compatibility guide](multiplatform-compatibility-guide.md) to see what significant changes were made on the way to stabilization.
 * Read about the [mechanism of expected and actual declarations](multiplatform-expect-actual.md), an important part of Kotlin Multiplatform that was also partially stabilized in this release.
 
