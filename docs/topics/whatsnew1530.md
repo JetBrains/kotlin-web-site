@@ -321,7 +321,7 @@ We've also introduced new targets that make Kotlin code run natively on Apple si
 
 They are available on both Intel-based and Apple silicon hosts. All existing targets are available on Apple silicon hosts as well.
 
-Note that in 1.5.30 we provide only basic support for Apple silicon targets in the `kotlin-multiplatform` Gradle plugin. Particularly, the new simulator targets aren't included in the [`ios`, `tvos`, and `watchos` target shortcuts](multiplatform-hierarchy.md#target-shortcuts). Learn how to [use Apple silicon targets with the target shortcuts](multiplatform-hierarchy.md#target-shortcuts-and-arm64-apple-silicon-simulators).
+Note that in 1.5.30 we provide only basic support for Apple silicon targets in the `kotlin-multiplatform` Gradle plugin. Particularly, the new simulator targets aren't included in the[`ios`, `tvos`, and `watchos` target shortcuts.
 We will keep working to improve the user experience with the new targets.
 
 ### Improved Kotlin DSL for the CocoaPods Gradle plugin
@@ -582,7 +582,7 @@ A Java toolchain:
 * Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn't set the `jvmTarget` option explicitly.
   If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
 
-* Affects which JDK [`kapt` workers](kapt.md#running-kapt-tasks-in-parallel) are running on.
+* Affects which JDK [`kapt` workers](kapt.md#run-kapt-tasks-in-parallel) are running on.
 
 Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_VERSION>` with the JDK version you would like to use:
 
@@ -665,7 +665,7 @@ project.tasks
 
 Use the `UsesKotlinJavaToolchain` interface for Gradle versions from 6.1 to 6.6. Starting from Gradle 6.7, use the [Java toolchains](#support-for-java-toolchains) instead.
 
-When using this feature, note that [kapt task workers](kapt.md#running-kapt-tasks-in-parallel) will only use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode), and the `kapt.workers.isolation` property will be ignored.
+When using this feature, note that [kapt task workers](kapt.md#run-kapt-tasks-in-parallel) will only use [process isolation mode](https://docs.gradle.org/current/userguide/worker_api.html#changing_the_isolation_mode), and the `kapt.workers.isolation` property will be ignored.
 
 ### Easier way to explicitly specify Kotlin daemon JVM arguments
 

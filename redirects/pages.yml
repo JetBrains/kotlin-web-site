@@ -77,9 +77,6 @@
 - from: /docs/tutorials/native/mapping-strings-from-c.html
   to: /docs/mapping-strings-from-c.html
 
-- from: /docs/tutorials/native/mpp-ios-android.html
-  to: /docs/multiplatform-mobile-create-first-app.html
-
 - from: /docs/tutorials/native/apple-framework.html
   to: /docs/apple-framework.html
 
@@ -94,9 +91,6 @@
 
 - from: /docs/tutorials/native/intro-to-kotlin-native.html
   to: /docs/native-app-with-c-and-libcurl.html
-
-- from: /docs/tutorials/native/working-with-klib.html
-  to: /docs/multiplatform-library.html
 
 - from: /docs/tutorials/native/basic-kotlin-native-app.html
   to: /docs/tutorials/native/using-command-line-compiler.html
@@ -141,9 +135,6 @@
 
 - from: /docs/tutorials/edu-tools-learner.html
   to: /docs/edu-tools-learner.html
-
-- from: /docs/tutorials/mpp/multiplatform-library.html
-  to: /docs/multiplatform-library.html
 
 - from: /docs/tutorials/mpp/intro-to-kotlin-mpp.html
   to: /docs/multiplatform.html
@@ -415,9 +406,6 @@
 - from: /docs/reference/type-safe-builders.html
   to: /docs/type-safe-builders.html
 
-- from: /docs/reference/mpp-run-tests.html
-  to: /docs/multiplatform-run-tests.html
-
 - from: /docs/reference/javascript-dce.html
   to: /docs/javascript-dce.html
 
@@ -615,9 +603,6 @@
 - from: /docs/reference/collection-ordering.html
   to: /docs/collection-ordering.html
 
-- from: /docs/reference/platform-specific-declarations.html
-  to: /docs/multiplatform-connect-to-apis.html
-
 - from: /docs/reference/operator-overloading.html
   to: /docs/operator-overloading.html
 
@@ -629,9 +614,6 @@
 
 - from: /docs/reference/scope-functions.html
   to: /docs/scope-functions.html
-
-- from: /docs/reference/mpp-connect-to-apis.html
-  to: /docs/multiplatform-connect-to-apis.html
 
 - from: /docs/reference/type-aliases.html
   to: /docs/type-aliases.html
@@ -668,11 +650,6 @@
     - /docs/kmm-use-ktor-for-networking.html
   to: https://ktor.io/docs/getting-started-ktor-client-multiplatform-mobile.html
 
-- from:
-    - /docs/kmm-configure-sqldelight-for-data-storage.html
-    - /docs/multiplatform-mobile-configure-sqldelight-for-data-storage.html
-  to: /docs/multiplatform-mobile-ktor-sqldelight.html
-
 - from: /docs/kotlin-mascot.html
   to: https://blog.jetbrains.com/kotlin/2021/10/introducing-the-kotlin-mascot/
 
@@ -681,3 +658,97 @@
 
 - from: /user-groups/support.html
   to: /docs/kug-guidelines.html#support-for-kugs-from-jetbrains
+
+- from:
+    - /docs/native-immutability.html
+    - /docs/native-concurrency.html
+    - /docs/multiplatform-mobile-concurrency-overview.html
+    - /docs/kmm-concurrency-overview.html
+    - /docs/multiplatform-mobile-concurrent-mutability.html
+    - /docs/kmm-concurrent-mutability.html
+    - /docs/multiplatform-mobile-concurrency-and-coroutines.html
+    - /docs/kmm-concurrency-and-coroutines.html
+  to: /docs/native-memory-manager.html
+
+- from:
+    - /docs/platform-specific-declarations.html
+    - /docs/mpp-connect-to-apis.html
+    - /docs/kmm-connect-to-platform-specific-apis.html
+    - /docs/multiplatform-mobile-connect-to-platform-specific-apis.html
+    - /docs/reference/platform-specific-declarations.html
+    - /docs/reference/mpp-connect-to-apis.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html
+
+- from:
+    - /docs/multiplatform-mobile-getting-started.html
+    - /docs/kmm-getting-started.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html
+
+- from:
+    - /docs/multiplatform-mobile-setup.html
+    - /docs/kmm-setup.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html
+
+- from:
+    - /docs/multiplatform-mobile-create-first-app.html
+    - /docs/kmm-create-first-app.html
+    - /docs/tutorials/native/mpp-ios-android.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html
+
+- from: /docs/multiplatform-mobile-dependencies.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dependencies.html
+
+- from: /docs/multiplatform-mobile-upgrade-app.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html
+
+- from: /docs/multiplatform-mobile-wrap-up.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-wrap-up.html
+
+- from:
+  - /docs/multiplatform-mobile-integrate-in-existing-app.html
+  - /docs/kmm-integrate-in-existing-app.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html
+
+- from:
+  - /docs/multiplatform-mobile-publish-apps.html
+  - /docs/kmm-publish-apps.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-apps.html
+
+- from:
+  - /docs/multiplatform-mobile-ktor-sqldelight.html
+  - /docs/kmm-configure-sqldelight-for-data-storage.html
+  - /docs/multiplatform-mobile-configure-sqldelight-for-data-storage.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html
+
+- from:
+    - /docs/tutorials/native/working-with-klib.html
+    - /docs/tutorials/mpp/multiplatform-library.html
+    - /docs/multiplatform-full-stack-app.html
+    - /docs/multiplatform-library.html
+    - /docs/working-with-klib.html
+    - /docs/multiplatform-create-lib.html
+    - /docs/mpp-create-lib.html
+    - /docs/mpp-publish-lib.html
+  to: /docs/multiplatform-publish-lib.html
+
+- from:
+  - /docs/reference/mpp-run-tests.html
+  - /docs/multiplatform-run-tests.html
+  - /docs/mpp-run-tests.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html
+
+- from:
+    - /docs/multiplatform-mobile-samples.html
+    - /docs/kmm-samples.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html
+
+- from:
+    - /docs/multiplatform-mobile-faq.html
+    - /docs/kmm-faq.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-faq.html
+
+- from:
+    - /docs/multiplatform-mobile-understand-project-structure.html
+    - /docs/kmm-understand-project-structure.html
+    - /docs/mpp-discover-project.html
+  to: /docs/multiplatform-discover-project.html

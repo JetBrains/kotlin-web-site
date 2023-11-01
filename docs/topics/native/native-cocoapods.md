@@ -110,7 +110,7 @@ If you encounter problems during the installation, check the [Possible issues an
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
 
-If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](multiplatform-mobile-create-first-app.md)
+If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 and choose **CocoaPods Dependency Manager** as the iOS framework distribution option. The plugin will automatically generate the project for you.
 
 If you want to configure your project manually:

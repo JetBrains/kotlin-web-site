@@ -4,7 +4,7 @@ The workflow for adding Android-specific dependencies to a Kotlin Multiplatform 
 Android projects: declare the dependency in your Gradle file and import the project. After that, you can use this
 dependency in your Kotlin code.
 
-We recommend declaring Android dependencies in Multiplatform Mobile projects by adding them to a specific Android source
+We recommend declaring Android dependencies in Kotlin Multiplatform projects by adding them to a specific Android source
 set. For that, update your `build.gradle(.kts)` file in the `shared` directory of your project:
 
 <tabs group="build-script">
@@ -32,7 +32,7 @@ sourceSets {
 </tab>
 </tabs>
 
-Moving what was a top-level dependency in an Android project to a specific source set in a Multiplatform Mobile project
+Moving what was a top-level dependency in an Android project to a specific source set in a multiplatform project
 might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move
 a `debugImplementation` dependency from the top level of an Android project, you'll need to add an implementation
 dependency to the source set named `androidDebug`. To minimize the effort you have to put in to deal with migration

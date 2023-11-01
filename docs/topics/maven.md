@@ -195,7 +195,7 @@ Alternatively, run your build with the `-Dkotlin.compiler.incremental=true` opti
 
 ## Configure annotation processing
 
-See [`kapt` – Using in Maven](kapt.md#using-in-maven).
+See [`kapt` – Using in Maven](kapt.md#use-in-maven).
 
 ## Create JAR file
 
@@ -303,10 +303,10 @@ The following attributes are supported:
 
 ### Attributes specific to JVM
 
-| Name | Property name | Description | Possible values             |Default value |
-|------|---------------|-------------|-----------------------------|--------------|
-| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "20" | "%defaultJvmTargetVersion%" |
-| `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                             | |
+| Name | Property name | Description | Possible values                |Default value |
+|------|---------------|-------------|--------------------------------|--------------|
+| `jvmTarget` | `kotlin.compiler.jvmTarget` | Target version of the generated JVM bytecode | "1.8", "9", "10", ..., "21" | "%defaultJvmTargetVersion%" |
+| `jdkHome` | `kotlin.compiler.jdkHome` |  	Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                | |
 
 ### Attributes specific to JS
 

@@ -70,7 +70,7 @@ Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Androi
 
 Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/multiplatform/case-studies/) to develop multiplatform apps with a native-like user experience.
 
-> Create your first cross-platform mobile app with [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
+> Create your first cross-platform mobile app with [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html).
 >
 {type="note"}
 

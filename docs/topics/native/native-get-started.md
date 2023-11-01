@@ -4,23 +4,12 @@ This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Native
 
 To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
 
-## Create a new Kotlin/Native project in IntelliJ IDEA
+## Before you start
 
-1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin Multiplatform**.
-3. Enter a project name, select **Native Application** as the project template, and click **Next**.
-   By default, your project will use Gradle with Kotlin DSL as the build system.
-   > Kotlin/Native doesn't support Maven and IntelliJ IDEA native builder.
-   >
-   {type="note"}
-
-4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
-
-   ![Configure a native application](native-new-project-intellij-2.png){width=700}
-
-   By default, the wizard creates the necessary `Main.kt` file with code that prints "Hello, Kotlin/Native!" to the standard output.
-
-5. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest [Kotlin plugin](releases.md).
+2. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
+   by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
+3. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
    you need the Kotlin Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
    ```kotlin
@@ -36,17 +25,12 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
 ## Build and run the application
 
-1. Click **Build Project** next to the run configuration at the top of the screen:
+Start the application by clicking **Run** next to the run configuration at the top of the screen:
 
-   ![Build the application](native-run-app.png){width=600}
+![Run the application](native-run-app.png){width=500}
 
-2. In the IntelliJ IDEA terminal or your command-line tool, run the following command:
-
-   ```bash
-   build/bin/native/debugExecutable/<your_app_name>.kexe
-   ```
-
-   IntelliJ IDEA prints "Hello, Kotlin/Native!".
+IntelliJ IDEA opens the **Run** tab and shows the output:
+![Application output](native-output-1.png){width=700}
 
 You can [configure IntelliJ IDEA](https://www.jetbrains.com/help/idea/compiling-applications.html#auto-build) to build
 your project automatically:
@@ -94,20 +78,14 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the following command in the IntelliJ IDEA terminal or your command-line tool:
-
-   ```bash
-   build/bin/native/debugExecutable/<your_app_name>.kexe
-   ```
-
+4. Save the changes and run the application.
 5. Enter your name and enjoy the result:
 
-   ![Application output](native-output-2.png)
+   ![Application output](native-output-2.png){width=700}
 
 ### Count the unique letters in your name
 
 1. Open the file `Main.kt` in `src/nativeMain/kotlin`.
-
 2. Declare the new [extension function](extensions.md#extension-functions) `countDistinctCharacters()` for `String`:
 
    * Convert the name to lowercase using the [`lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function.
@@ -137,15 +115,10 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the following command in the IntelliJ IDEA terminal or your command-line tool:
-
-   ```bash
-   build/bin/native/debugExecutable/<your_app_name>.kexe
-   ```
-
+4. Save the changes and run the application.
 5. Enter your name and enjoy the result:
 
-   ![Application output](native-output-3.png)
+   ![Application output](native-output-3.png){width=700}
 
 ## What's next?
 
