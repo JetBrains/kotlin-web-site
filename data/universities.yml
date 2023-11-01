@@ -2557,7 +2557,7 @@
 - title: Charotar University of Science and Technology - CHARUSAT
   location: Change (India)
   courses:
-  - name: CE381: MOBILE APPLICATION DEVELOPMENT
+  - name: 'CE381: MOBILE APPLICATION DEVELOPMENT'
     url: https://sites.google.com/charusat.ac.in/mobile-application/home
   geo:
     lat: 22.59957539
