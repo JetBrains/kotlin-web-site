@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.9.0)
 
-_[Release date: %kotlinReleaseDate%](releases.md#release-details)_
+_[Release date: July 6, 2023](releases.md#release-details)_
 
 The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
