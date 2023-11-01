@@ -675,6 +675,7 @@
     - /docs/mpp-connect-to-apis.html
     - /docs/kmm-connect-to-platform-specific-apis.html
     - /docs/multiplatform-mobile-connect-to-platform-specific-apis.html
+    - /docs/multiplatform-connect-to-apis.html
     - /docs/reference/platform-specific-declarations.html
     - /docs/reference/mpp-connect-to-apis.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html
@@ -694,6 +695,9 @@
     - /docs/kmm-create-first-app.html
     - /docs/tutorials/native/mpp-ios-android.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html
+
+- from: /docs/multiplatform-mobile-update-ui.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-update-ui.html
 
 - from: /docs/multiplatform-mobile-dependencies.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dependencies.html
@@ -745,7 +749,7 @@
 - from:
     - /docs/multiplatform-mobile-faq.html
     - /docs/kmm-faq.html
-  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-faq.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/faq.html
 
 - from:
     - /docs/multiplatform-mobile-understand-project-structure.html
