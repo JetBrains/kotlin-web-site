@@ -951,6 +951,16 @@ Kotlin/JS has changed its internal implementation to open addressing. This means
 * search for existing elements in a `HashMap`
 * iterate through keys or values in a `HashMap`
 
+## Documentation updates
+
+The Kotlin documentation has received some notable changes:
+* The [JVM Metadata](https://kotlinlang.org/api/kotlinx-metadata-jvm/) API reference – Explore how you can parse metadata with Kotlin/JVM.
+* [Time measurement guide](time-measurement.md) – Learn how to calculate and measure time in Kotlin.
+* Improved Collections chapter in the [tour of Kotlin](kotlin-tour-welcome.md) – Learn the fundamentals of the Kotlin programming language with chapters including both theory and practice.
+* [Definitely non-nullable types](generics.md#definitely-non-nullable-types) – Learn about definitely non-nullable generic types.
+* Improved [Arrays page](arrays.md) – Learn about arrays and when to use them.
+* [Expected and actual declarations in Kotlin Multiplatform](multiplatform-expect-actual.md) – Learn about the Kotlin mechanism of expected and actual declarations in Kotlin Multiplatform.
+
 ## Install Kotlin 1.9.20
 
 ### Check the IDE version
