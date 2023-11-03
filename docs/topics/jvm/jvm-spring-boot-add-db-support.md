@@ -28,8 +28,10 @@ class MessageService(val db: JdbcTemplate) {
     }
 
     fun save(message: Message) {
-        db.update("insert into messages values ( ?, ? )",
-           message.id, message.text)
+        db.update(
+            "insert into messages values ( ?, ? )",
+            message.id, message.text
+        )
     }
 }
 ```
@@ -119,8 +121,10 @@ class MessageService(val db: JdbcTemplate) {
 
     fun save(message: Message) {
         val id = message.id ?: UUID.randomUUID().toString()
-        db.update("insert into messages values ( ?, ? )",
-                  id, message.text)
+        db.update(
+            "insert into messages values ( ?, ? )",
+            id, message.text
+        )
     } 
 }
 ```
