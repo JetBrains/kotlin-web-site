@@ -254,8 +254,10 @@ Extend the functionality of the application to retrieve the individual messages 
     
         fun save(message: Message) {
             val id = message.id ?: UUID.randomUUID().toString()
-            db.update("insert into messages values ( ?, ? )", 
-                id, message.text)
+            db.update(
+                "insert into messages values ( ?, ? )", 
+                id, message.text
+            )
         }
     }
     ```
@@ -351,8 +353,10 @@ class MessageService(val db: JdbcTemplate) {
 
     fun save(message: Message) {
         val id = message.id ?: UUID.randomUUID().toString()
-        db.update("insert into messages values ( ?, ? )",
-            id, message.text)
+        db.update(
+            "insert into messages values ( ?, ? )",
+            id, message.text
+        )
     }
 }
 ```
