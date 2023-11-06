@@ -26,6 +26,7 @@ fun main() {
         // object expressions extend Any, so `override` is required on `toString()`
         override fun toString() = "$hello $world"
     }
+
     print(helloWorld)
 //sampleEnd
 }
