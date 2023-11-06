@@ -19,97 +19,84 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ## Advent of Code 2022
 
-* [](#day-1-calorie-counting)
-* [](#day-2-rock-paper-scissors)
-* [](#day-3-rucksack-reorganization)
-* [](#day-4-camp-cleanup)
-* [](#day-5-supply-stacks)
-* [](#day-6-tuning-trouble)
-* [](#day-7-no-space-left-on-device)
-* [](#day-8-treetop-tree-house)
-* [](#day-9-rope-bridge)
-* [](#day-10-cathode-ray-tube)
-* [](#day-11-monkey-in-the-middle)
-* [](#day-12-hill-climbing-algorithm)
-
-### Day 1: Calorie Counting
+### Day 1: Calorie counting
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/1)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 1 | Kotlin](https://www.youtube.com/watch?v=ntbsbqLCKDs)
 
-### Day 2: Rock Paper Scissors
+### Day 2: Rock paper scissors
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/2)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 2 | Kotlin](https://www.youtube.com/watch?v=Fn0SY2yGDSA)
 
-### Day 3: Rucksack Reorganization
+### Day 3: Rucksack reorganization
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/3)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 3 | Kotlin](https://www.youtube.com/watch?v=IPLfo4zXNjk)
 
-### Day 4: Camp Cleanup
+### Day 4: Camp cleanup
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/4)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 4 | Kotlin](https://www.youtube.com/watch?v=dBIbr55YS0A)
 
-### Day 5: Supply Stacks
+### Day 5: Supply stacks
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/5)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 5 | Kotlin](https://www.youtube.com/watch?v=lKq6r5Nt8Yo)
 
-### Day 6: Tuning Trouble
+### Day 6: Tuning trouble
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/6)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 6 | Kotlin](https://www.youtube.com/watch?v=VbBhaQhW0zk)
 
-### Day 7: No Space Left On Device
+### Day 7: No space left on device
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/7)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 7 | Kotlin](https://www.youtube.com/watch?v=Q819VW8yxFo)
 
-### Day 8: Treetop Tree House
+### Day 8: Treetop tree house
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/8)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 8 | Kotlin](https://www.youtube.com/watch?v=6d6FXFh-UdA)
 
-### Day 9: Rope Bridge
+### Day 9: Rope bridge
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/9)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 9 | Kotlin](https://www.youtube.com/watch?v=ShU9dNUa_3g)
 
-### Day 10: Cathode-Ray Tube
+### Day 10: Cathode-ray tube
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/10)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 10 | Kotlin](https://www.youtube.com/watch?v=KVyeNmFHoL4)
 
-### Day 11: Monkey in the Middle
+### Day 11: Monkey in the middle
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/11)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 11 | Kotlin](https://www.youtube.com/watch?v=1eBSyPe_9j0)
 
-### Day 12: Hill Climbing Algorithm
+### Day 12: Hill Climbing algorithm
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/12)
 * Check out the solution in the video:
@@ -121,11 +108,6 @@ We'll take you through the basic tips on how to get up and running with solving 
 > Read our [blog post about Advent of Code 2021](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
 > 
 {type="tip"}
-
-* [](#day-1-sonar-sweep)
-* [](#day-2-dive)
-* [](#day-3-binary-diagnostic)
-* [](#day-4-giant-squid)
 
 ### Day 1: Sonar sweep
 
@@ -172,16 +154,6 @@ Learn how to parse the input and introduce some domain classes for more convenie
 > You can find all the solutions for the Advent of Code 2020 puzzles in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
 >
 {type="tip"}
-
-* [](#day-1-report-repair)
-* [](#day-2-password-philosophy)
-* [](#day-3-toboggan-trajectory)
-* [](#day-4-passport-processing)
-* [](#day-5-binary-boarding)
-* [](#day-6-custom-customs)
-* [](#day-7-handy-haversacks)
-* [](#day-8-handheld-halting)
-* [](#day-9-encoding-error)
 
 ### Day 1: Report repair
 
