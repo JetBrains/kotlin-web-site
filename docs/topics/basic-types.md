@@ -1,8 +1,8 @@
 [//]: # (title: Basic types)
 
 In Kotlin, everything is an object in the sense that you can call member functions and properties on any variable.
-Some types can have a special internal representation – for example, numbers, characters and booleans can be
-represented as primitive values at runtime – but to the user they look like ordinary classes. 
+While certain types have an optimized internal representation as primitive values at runtime (such as numbers, characters, booleans and others),
+they appear and behave like regular classes to you.
 
 This section describes the basic types used in Kotlin:
 * [Numbers](numbers.md) and their [unsigned counterparts](unsigned-integer-types.md)
@@ -10,3 +10,7 @@ This section describes the basic types used in Kotlin:
 * [Characters](characters.md)
 * [Strings](strings.md)
 * [Arrays](arrays.md)
+
+> [Learn how to perform type checks and casts in Kotlin](typecasts.md).
+> 
+{type="tip"}
