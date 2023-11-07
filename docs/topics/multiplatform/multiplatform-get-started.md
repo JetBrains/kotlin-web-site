@@ -13,7 +13,7 @@ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
   Learn how to create, run, and add dependencies to multiplatform mobile applications.
 * [Share UIs between iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html).
   Create a Kotlin Multiplatform application that uses the [Compose Multiplatform UI framework](https://www.jetbrains.com/lp/compose-multiplatform/)
-  for sharing UIs between iOS and Android.
+  for sharing business logic and UIs among the iOS, Android, and desktop platforms.
 
 ## Dive deep into Kotlin Multiplatform
 
