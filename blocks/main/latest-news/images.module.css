@@ -5,37 +5,37 @@
     border-radius: 16px 16px 0 0;
     overflow: hidden;
 
-    height: 128px;
+    height: 156px;
     > .imageSrc[width] { display: none; }
     > .imageSrc[width="280"] { display: block; }
 
     @media (--ktl-ds) {
-        height: 142px;
+        height: 174px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="312"] { display: block; }
     }
     @media (--ktl-tl) {
-        height: 116px;
+        height: 138px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="248"] { display: block; }
     }
     @media (--ktl-tm) {
-        height: 128px;
+        height: 156px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="280"] { display: block; }
     }
     @media (--ktl-ts) {
-        height: 198px;
+        height: 238px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="424"] { display: block; }
     }
     @media (--ktl-mm) {
-        height: 152px;
+        height: 184px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="328"] { display: block; }
     }
     @media (--ktl-ms) {
-        height: 128px;
+        height: 152px;
         > .imageSrc[width] { display: none; }
         > .imageSrc[width="272"] { display: block; }
     }
