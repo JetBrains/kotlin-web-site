@@ -75,7 +75,7 @@ how to use regular expressions, and the double-ended [`ArrayDeque`](https://kotl
 ### Day 6: Tuning trouble
 
 See more in-depth performance investigations with the [kotlinx.benchmark](https://github.com/Kotlin/kotlinx-benchmark) library,
-comparing the characteristics of 16 different variations of the same solution
+comparing the characteristics of 16 different variations of the same solution.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/6)
 * Check out the solution in the video:
@@ -94,7 +94,7 @@ Learn how to model tree structures, and see a demo of generating Kotlin code pro
 ### Day 8: Treetop tree house
 
 See the `sequence` builder in action,
-and how far a first draft of a program and an idiomatic Kotlin solution can differ (with special guest Roman Elizarov!)
+and how far a first draft of a program and an idiomatic Kotlin solution can differ (with special guest Roman Elizarov!).
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/8)
 * Check out the solution in the video:
