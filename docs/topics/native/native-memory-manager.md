@@ -16,7 +16,7 @@ You can disable the full parallel mark with `-Xbinary=gcMarkSingleThreaded=true`
 However, it may increase the pause time of the garbage collector.
 
 When the marking phase is completed, GC processes weak references and nullifies reference points to an unmarked object.
-To decrease the GC pause time, you can enable the concurrent processing of weak references. To do that, use
+To decrease the GC pause time, you can enable the concurrent processing of weak references by using
 the `-Xbinary=concurrentWeakSweep=true` compilation option.
 
 GC is executed on a separate thread and kicked off based on the timer
@@ -66,7 +66,7 @@ If not, the thread requests a different page from the shared allocation space. T
 require sweeping, or have to be created first.
 
 The Kotlin/Native memory allocator comes with protection against sudden spikes in memory allocations. It prevents
-situations when the mutator starts to allocate a lot of garbage quickly, and the GC thread cannot keep up with it,
+situations where the mutator starts to allocate a lot of garbage quickly, and the GC thread cannot keep up with it,
 making the memory usage grow endlessly. In this case, the GC forces Stop-the-World phase until the iteration is completed.
 
 You can monitor memory consumption yourself, check for memory leaks, and adjust memory consumption if necessary.
@@ -117,7 +117,7 @@ update might improve memory consumption.
 
 If you experience high memory consumption anyway, a few options are available:
 
-* Switch to a different memory allocator. To do that, use the following compilation options in your Gradle build script:
+* Switch to a different memory allocator by using one of the following compilation options in your Gradle build script:
 
   * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
   * `-Xallocator=std` for the system allocator.
