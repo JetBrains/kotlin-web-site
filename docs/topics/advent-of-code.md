@@ -21,12 +21,19 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 1: Calorie counting
 
+Learn about the [Kotlin Advent of Code template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template) and convenience functions for working with strings and collections in Kotlin, 
+such as [`maxOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of.html) and [`sumOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html).
+See how extension functions can help you structure your solution in a nice manner.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/1)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 1 | Kotlin](https://www.youtube.com/watch?v=ntbsbqLCKDs)
 
 ### Day 2: Rock paper scissors
+
+Understand operations on the `Char` type in Kotlin, see how the `Pair` type and the `to` constructor work well with pattern matching.
+Understand how to order your own objects using the [`compareTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/compare-to.html) function.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/2)
 * Check out the solution in the video:
@@ -35,12 +42,20 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 3: Rucksack reorganization
 
+Learn how the [kotlinx.benchmark](https://github.com/Kotlin/kotlinx-benchmark) library helps
+you understand the performance characteristics of your code.
+See how set operations like `intersect` can help you select overlapping data,
+and see performance comparisons between different implementations of the same solution.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/3)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 3 | Kotlin](https://www.youtube.com/watch?v=IPLfo4zXNjk)
 
 ### Day 4: Camp cleanup
+
+See how `infix` and `operator` functions can make your code more expressive,
+and how extension functions for the `String` and `IntRange` types make it easy to parse input.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/4)
 * Check out the solution in the video:
@@ -49,12 +64,18 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 5: Supply stacks
 
+Learn about constructing more complex objects with factory functions,
+how to use regular expressions, and the double-ended [`ArrayDeque`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-deque/) type.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/5)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 5 | Kotlin](https://www.youtube.com/watch?v=lKq6r5Nt8Yo)
 
 ### Day 6: Tuning trouble
+
+See more in-depth performance investigations with the [kotlinx.benchmark](https://github.com/Kotlin/kotlinx-benchmark) library,
+comparing the characteristics of 16 different variations of the same solution.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/6)
 * Check out the solution in the video:
@@ -63,12 +84,17 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 7: No space left on device
 
+Learn how to model tree structures, and see a demo of generating Kotlin code programmatically.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/7)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 7 | Kotlin](https://www.youtube.com/watch?v=Q819VW8yxFo)
 
 ### Day 8: Treetop tree house
+
+See the `sequence` builder in action,
+and how far a first draft of a program and an idiomatic Kotlin solution can differ (with special guest Roman Elizarov!).
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/8)
 * Check out the solution in the video:
@@ -77,12 +103,19 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 9: Rope bridge
 
+See the `run` function, labeled returns, and convenient standard library functions like `coerceIn`, or `zipWithNext`.
+See how you can construct lists of given sizes using the `List` and `MutableList` constructors,
+and get a peek at a Kotlin-based visualization of the problem statement.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/9)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 9 | Kotlin](https://www.youtube.com/watch?v=ShU9dNUa_3g)
 
 ### Day 10: Cathode-ray tube
+
+Learn how ranges and the `in` operator make checking ranges natural,
+how function parameters can be turned into receivers, and a brief exploration of the `tailrec` modifier.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/10)
 * Check out the solution in the video:
@@ -91,12 +124,18 @@ We'll take you through the basic tips on how to get up and running with solving 
 
 ### Day 11: Monkey in the middle
 
+See how you can move from mutable,
+imperative code to a more functional approach that makes use of immutable and read-only data structures.
+Learn about context receivers and how our guest built his own visualization library just for Advent of Code.
+
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/11)
 * Check out the solution in the video:
 
 ![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 11 | Kotlin](https://www.youtube.com/watch?v=1eBSyPe_9j0)
 
 ### Day 12: Hill Climbing algorithm
+
+Use queues, `ArrayDeque`, function references, and the `tailrec` modifier to solve path finding problems with Kotlin.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/12)
 * Check out the solution in the video:
