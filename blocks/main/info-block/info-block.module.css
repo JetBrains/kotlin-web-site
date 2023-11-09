@@ -54,7 +54,7 @@
 
 @media (--ktl-tm) {
     .container {
-        margin-top: 48px;
+        margin-top: 72px;
     }
 
     .item:first-child {

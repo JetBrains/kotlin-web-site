@@ -192,7 +192,7 @@ function Index() {
                                     </Button>
                                 </Link>
                             }
-                            media={<YoutubePlayer id="JGvk4M0Rfxo" className={styles.videoPlayer} />}
+                            media={<YoutubePlayer playButtonMode={3} id="JGvk4M0Rfxo" className={styles.videoPlayer} />}
                         />
 
                         <DividerLine />

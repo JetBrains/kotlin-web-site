@@ -5,36 +5,43 @@
     padding: 96px 0;
     overflow: hidden;
 
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         padding: 48px 0;
     }
 }
 
 .heroText {
     margin: 0;
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         text-align: center;
         margin-bottom: 24px;
+    }
+
+    @media (--ktl-ts-min) {
+        font-size: 72px;
+        line-height: 72px;
     }
 }
 
 .grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (--ktl-tm) {
-        display: block;
+    display: block;
+    @media (--ktl-ts-min) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
 .content {
-
+    padding-left: 69px;
+    @media (--ktl-ds) {
+        padding-left: 0;
+    }
 }
 
 .imageMobile {
     display: none;
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         display: block;
         width: 100%;
         max-width: 260px;
@@ -44,7 +51,7 @@
 
 .imageDesktop {
     display: block;
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         display: none;
         width: 100%;
     }
@@ -54,7 +61,7 @@
     margin-top: 72px;
     display: flex;
 
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         display: block;
         text-align: center;
         margin-top: 24px;
@@ -68,7 +75,7 @@
     padding-left: 24px;
     border-left: 1px solid rgba(255, 255, 255, 0.20);
 
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         box-sizing: border-box;
         justify-content: center;
         width: 100%;
