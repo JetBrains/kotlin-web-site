@@ -51,7 +51,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
         { children: 'Asynchronous', codeExample: asyncExample },
         { children: 'Object-oriented', codeExample: oopExample },
         { children: 'Functional', codeExample: functionalExample },
-        { children: 'Ideal for tests', codeExample: testsExample },
+        { children: 'Ideal for tests', codeExample: testsExample, targetPlatform: 'junit' },
     ];
 
     const codeInstanceRef = createRef<any>();
@@ -125,7 +125,9 @@ export const WhyKotlin: FC<Props> = ({}) => {
                             <ContentSwitcher index={activeIndex}>
                                 {codeExamplesList.map((item, index) => (
                                     <div className={styles.tab} key={index} tabIndex={-1}>
-                                        <CodeBlock ref={codeInstanceRef}>{item.codeExample}</CodeBlock>
+                                        <CodeBlock ref={codeInstanceRef} targetPlatform={item.targetPlatform}>
+                                            {item.codeExample}
+                                        </CodeBlock>
                                     </div>
                                 ))}
                             </ContentSwitcher>

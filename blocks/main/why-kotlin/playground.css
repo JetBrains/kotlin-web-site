@@ -52,6 +52,10 @@
         background: transparent;
     }
 
+    .code-area {
+        min-height: 300px;
+    }
+
     .code-output {
         overflow-y: hidden;
     }

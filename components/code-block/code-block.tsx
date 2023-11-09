@@ -11,9 +11,10 @@ const KotlinPlayground = dynamic<any>(() => import('react-kotlin-playground').th
 interface Props {
     children: ReactNode;
     ref: any;
+    targetPlatform?: string;
 }
 
-export const CodeBlock: FC<Props> = forwardRef(({ children }, ref) => {
+export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, ref) => {
     const [codeBlockInstance, setCodeBlockInstance] = useState(null);
 
     const handleGetInstance = (instance) => {
@@ -29,11 +30,16 @@ export const CodeBlock: FC<Props> = forwardRef(({ children }, ref) => {
     return (
         <>
             <pre className={styles.code}>{children}</pre>
-            <KotlinPlayground theme={'darcula'} autoIndent={false} getInstance={handleGetInstance}>
+            <KotlinPlayground
+                theme={'darcula'}
+                autoIndent={false}
+                getInstance={handleGetInstance}
+                {...(targetPlatform && { targetPlatform })}
+            >
                 {children}
             </KotlinPlayground>
         </>
     );
 });
 
-CodeBlock.displayName = "CodeBlock";
+CodeBlock.displayName = 'CodeBlock';
