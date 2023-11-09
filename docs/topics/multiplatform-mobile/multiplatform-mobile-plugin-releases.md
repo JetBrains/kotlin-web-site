@@ -39,6 +39,30 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.8.1**
+
+Released: 9 November, 2023
+
+</td>
+<td>
+
+* Kotlin is updated to 1.9.20
+* Jetpack Compose is updated to 1.5.4
+* Gradle build and configuration caches are enabled by default
+* Build configs are refactored for the new Kotlin version
+* iOS framework is static now by default
+* Fixed a run on iOS devices with Xcode 15
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.8.0**
 
 Released: 5 October, 2023
