@@ -46,12 +46,12 @@ Released: 9 November, 2023
 </td>
 <td>
 
-* Kotlin is updated to 1.9.20
-* Jetpack Compose is updated to 1.5.4
-* Gradle build and configuration caches are enabled by default
-* Build configs are refactored for the new Kotlin version
-* iOS framework is static now by default
-* Fixed a run on iOS devices with Xcode 15
+* Updated Kotlin to 1.9.20.
+* Updated Jetpack Compose to 1.5.4.
+* Enabled Gradle build and configuration caches by default.
+* Refactored build configurations for the new Kotlin version.
+* iOS framework is now static by default.
+* Fixed an issue running on iOS devices with Xcode 15.
 
 </td>
 <td>
