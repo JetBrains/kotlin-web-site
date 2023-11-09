@@ -72,7 +72,7 @@ application {
 
 * 1️⃣ [Application plugin](https://docs.gradle.org/current/userguide/application_plugin.html) to add support for building CLI application in Java.
 * 2️⃣ Lean more about [sources of dependencies](https://docs.gradle.org/current/userguide/declaring_repositories.html).
-* 3️⃣ The [Maven Central Repository](https://search.maven.org/). It can also be [Google's Maven repository](https://maven.google.com/web/index.html) or your company's private repository.
+* 3️⃣ The [Maven Central Repository](https://central.sonatype.com/). It can also be [Google's Maven repository](https://maven.google.com/) or your company's private repository.
 * 4️⃣ Learn more about [declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html).
 * 5️⃣ Learn more about [tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html).
 * 6️⃣ [JUnitPlatform for tests](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html#useJUnitPlatform).

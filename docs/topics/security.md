@@ -3,7 +3,7 @@
 We do our best to make sure our products are free of security vulnerabilities. To reduce the risk of introducing a vulnerability,
 you can follow these best practices: 
 
-* Always use the latest Kotlin release. For security purposes, we sign our releases published on [Maven Central](https://search.maven.org/search?q=g:org.jetbrains.kotlin) 
+* Always use the latest Kotlin release. For security purposes, we sign our releases published on [Maven Central](https://central.sonatype.com/search?q=g:org.jetbrains.kotlin) 
 with these PGP keys:
 
   * Key ID: **kt-a@jetbrains.com**

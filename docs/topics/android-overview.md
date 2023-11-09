@@ -35,4 +35,4 @@ on [the Google website for Android developers](https://developer.android.com/kot
 To start using Kotlin for:
 
 * Android development, read [Google's documentation for developing Android apps with Kotlin](https://developer.android.com/kotlin/get-started).
-* Developing cross-platform mobile applications, see [Get started with Kotlin Multiplatform for Android and iOS](multiplatform-mobile-getting-started.md).
+* Developing cross-platform mobile applications, see [Get started with Kotlin Multiplatform for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html).

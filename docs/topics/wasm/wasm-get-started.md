@@ -4,66 +4,42 @@
 >
 {type="warning"}
 
-This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Wasm application.
+This tutorial demonstrates how to work with a Kotlin/Wasm application in IntelliJ IDEA.
 
-To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+## Before you start
 
-## Enable an experimental Kotlin/Wasm Wizard in IntelliJ IDEA
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+2. Clone the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main) repository 
+  by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
 
-1. Press double **Shift** to open a search, enter **Registry**.
+   You can also clone it from the command line:
 
-   ![Open registry in IntelliJ IDEA](wasm-enable-in-idea.png){width=700}
-
-2. Select **Registry** from the list. Registry window opens.
-3. Find the `kotlin.wasm.wizard` registry key in the list, and enable it.
-
-   ![Enable Kotlin/Wasm Wizard](wasm-enable-wizard.png){width=700}
-
-4. Restart IntelliJ IDEA.
-
-## Create a new Kotlin/Wasm project
-
-1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin Multiplatform**.
-3. Enter a project name, select **Browser Application with Kotlin/Wasm** as the project template, and click **Next**.
-
-   ![Create a Kotlin/Wasm application](wasm-new-project-intellij.png){width=700}
-
-   By default, your project will use Gradle with Kotlin DSL as the build system.
-
-4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
-
-   By default, the wizard creates the necessary `Simple.kt` file.
-
-5. Open the `build.gradle.kts` file and ensure that the Kotlin Multiplatform plugin version is set to `1.8.20`: 
-
-   ```kotlin
-   plugins {
-       kotlin("multiplatform") version "1.8.20"
-   }
+   ```bash
+   git clone git@github.com:Kotlin/kotlin-wasm-examples.git
    ```
 
-## Build and run the application
+## Run the application
 
-1. Click **Build Project** next to the run configuration at the top of the screen:
+1. Open the **Gradle** tool window: **View** | **Tool Windows** | **Gradle**.
+2. In the **kotlin-wasm-browser-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
 
-   ![Build the application](wasm-build-app.png){width=600}
+   ![Run the Gradle task](wasm-gradle-task-window.png){width=650}
 
-2. Run the application by clicking **Run** next to the run configuration at the top of the screen.
+    Alternatively, you can run the following command in Terminal from the project directory:
+
+   ```bash
+   ./gradlew wasmJsBrowserRun -t
+   ```
 
 3. Once the application starts, open the following URL in your browser:
 
-   ```text
-   http://localhost:8080
+   ```bash
+   http://localhost:8080/
    ```
 
-   You should see the "JS Client" tab in your browser:
+   You should see "Hello, World!" text:
 
-   ![Empty Kotlin/Wasm application in browser](wasm-browser-app.png){width=500}
-
-   If you open a page source, you'll find the name of the JavaScript bundle:
-
-   ![Source of Kotlin/Wasm application in browser](wasm-browser-source-app.png){width=500}
+   ![Run the Kotlin/Wasm application](wasm-app-run.png){width=650}
 
 ### Troubleshooting
 
@@ -110,28 +86,50 @@ Run the application with the `--js-flags=--experimental-wasm-gc` command line ar
 
    ```kotlin
    import kotlinx.browser.document
+   import kotlinx.browser.window
+   import kotlinx.dom.appendElement
    import kotlinx.dom.appendText
    
    fun main() {
-       println("Hello, ${greet()}")
-       document.body!!.appendText("Hello, you're using Kotlin/Wasm!")
+       document.body?.appendText("Hello, ${greet()}!")
+   
+       document.body?.appendElement("button") {
+           this.textContent = "Click me, I'm a button!"
+           addEventListener("click") {
+               window.setTimeout({
+                   window.alert("👋")
+                   null
+               }, 1000)
+           }
+       }
    }
    
    fun greet() = "world"
    ```
 
-2. Run the application by clicking **Run** next to the run configuration at the top of the screen.
+   This code adds a button to the document and an action.
 
-3. Once the application starts, open the following URL in your browser:
+2. Run the application again. Once the application starts, open the following URL in your browser:
 
-```text
-http://localhost:8080
-```
+   ```text
+   http://localhost:8080
+   ```
 
-You'll see the text "Hello, you're using Kotlin/Wasm!":
+   You should see the "Hello, World" text within the button:
 
-![Kotlin/Wasm application in browser](wasm-browser-updated-app.png){width=500}
+   ![Run Kotlin/Wasm application in browser](wasm-updated-app-run.png){width=650}
+
+3. Click the button to see the alert message:
+
+   ![Alert action](wasm-button-click.png){width=650}
+
+Now you can work with Kotlin/Wasm code that runs in the browser!
 
 ## What's next?
 
-[Explore the Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md)
+Try out other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+
+* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)

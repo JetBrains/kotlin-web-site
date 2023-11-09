@@ -42,8 +42,8 @@ version of the library, you can just omit this parameter altogether.
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            pod("Alamofire") {
-                version = "5.7.0"
+            pod("FirebaseAuth") {
+                version = "10.16.0"
             }
         }
     }
@@ -54,7 +54,7 @@ version of the library, you can just omit this parameter altogether.
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.Alamofire.*
+import cocoapods.FirebaseAuth.*
 ```
 
 ## On a locally stored library
@@ -89,8 +89,8 @@ import cocoapods.Alamofire.*
                 version = "1.0"
                 source = path(project.file("../subspec_dependency"))
             }
-            pod("Alamofire") {
-                version = "5.7.0"
+            pod("FirebaseAuth") {
+                version = "10.16.0"
             }
         }
     }
@@ -108,7 +108,7 @@ To use these dependencies from the Kotlin code, import the packages `cocoapods.<
 ```kotlin
 import cocoapods.pod_dependency.*
 import cocoapods.subspec_dependency.*
-import cocoapods.Alamofire.*
+import cocoapods.FirebaseAuth.*
 ```
 
 ## From a custom Git repository
@@ -141,9 +141,9 @@ import cocoapods.Alamofire.*
 
             ios.deploymentTarget = "13.5"
 
-            pod("Alamofire") {
-                source = git("https://github.com/Alamofire/Alamofire") {
-                    tag = "5.7.0"
+            pod("FirebaseAuth") {
+                source = git("https://github.com/firebase/firebase-ios-sdk") {
+                    tag = "10.16.0"
                 }
             }
 

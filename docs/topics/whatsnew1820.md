@@ -609,7 +609,7 @@ The following targets have been deprecated with Kotlin 1.8.20 and will be remove
 As for the remaining targets, there are now three tiers of support depending on how well a target is supported and
 tested in the Kotlin/Native compiler. A target can be moved to a different tier. For example, we'll do our best to
 provide full support for `iosArm64` in the future, as it is important
-for [Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md).
+for [Kotlin Multiplatform](multiplatform-get-started.md).
 
 If you're a library author, these target tiers can help you decide which targets to test on CI tools and which ones to
 skip. The Kotlin team will use the same approach when developing official Kotlin libraries,
@@ -785,7 +785,7 @@ are no watchOS targets in the project.
 If you add a watchOS target, such as `watchosArm64`, the `watchos` source set is created, and the code from
 the `apple`, `native`, and `common` source sets is compiled to `watchosArm64`, as well.
 
-You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy).
+You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy-template).
 
 > In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
 > Therefore, despite their names, they have access to the full iOS API.
@@ -825,7 +825,7 @@ tooling-assisted migration.
 This new feature is [Experimental](components-stability.md#stability-levels-explained). For Kotlin Gradle build scripts,
 you need to opt in with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
 
-For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy).
+For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy-template).
 
 #### Leave feedback
 

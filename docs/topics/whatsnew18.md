@@ -572,7 +572,7 @@ In Kotlin 1.8.0, the deprecation cycle continues for the following properties an
   the deprecation level to `error` for the `KotlinCompile` task's `classpath` property. All compile tasks use
   the `libraries` input for a list of libraries required for compilation.
 * We removed the `kapt.use.worker.api` property that allowed running [kapt](kapt.md) via the Gradle Workers API.
-  By default, [kapt has been using Gradle workers](kapt.md#running-kapt-tasks-in-parallel) since Kotlin 1.3.70,
+  By default, [kapt has been using Gradle workers](kapt.md#run-kapt-tasks-in-parallel) since Kotlin 1.3.70,
   and we recommend sticking to this method.
 * In Kotlin 1.7.0, we [announced the start of a deprecation cycle for the `kotlin.compiler.execution.strategy` property](whatsnew17.md#deprecation-of-the-kotlin-compiler-execution-strategy-system-property).
   In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy)
@@ -797,9 +797,9 @@ The Kotlin documentation has received some notable changes:
 
 * [Get started with Gradle and Kotlin/JVM](get-started-with-jvm-gradle-project.md) – create a console application using
   IntelliJ IDEA and Gradle.
-* [Create a multiplatform app using Ktor and SQLDelight](multiplatform-mobile-ktor-sqldelight.md) – create a mobile
+* [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) – create a mobile
   application for iOS and Android using Kotlin Multiplatform Mobile.
-* [Get started with Kotlin Multiplatform Mobile](multiplatform-mobile-getting-started.md) – learn about cross-platform
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) – learn about cross-platform
   mobile development with Kotlin and create an app that works on both Android and iOS.
 
 ## Install Kotlin 1.8.0

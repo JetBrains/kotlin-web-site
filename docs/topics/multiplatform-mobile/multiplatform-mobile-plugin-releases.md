@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin Multiplatform Mobile plugin releases)
 
-Since Kotlin Multiplatform Mobile is now in [Beta](kotlin-evolution.md), we are working on stabilizing the corresponding [plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
+We are working on stabilizing the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
 and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
 
 Ensure that you have the latest version of the Kotlin Multiplatform Mobile plugin!
@@ -35,6 +35,30 @@ Release highlights
 <th>
 Compatible Kotlin version
 </th>
+</tr>
+<tr>
+<td>
+
+**0.8.1**
+
+Released: 9 November, 2023
+
+</td>
+<td>
+
+* Updated Kotlin to 1.9.20.
+* Updated Jetpack Compose to 1.5.4.
+* Enabled Gradle build and configuration caches by default.
+* Refactored build configurations for the new Kotlin version.
+* iOS framework is now static by default.
+* Fixed an issue running on iOS devices with Xcode 15.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
 </tr>
 <tr>
 <td>

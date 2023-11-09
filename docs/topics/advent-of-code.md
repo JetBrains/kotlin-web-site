@@ -4,26 +4,149 @@
 every day from December 1 to December 25. With the permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
 we'll show how to solve these puzzles using the idiomatic Kotlin style:
 
+* [](#advent-of-code-2022)
 * [](#advent-of-code-2021)
 * [](#advent-of-code-2020)
 
-## Advent of Code 2021
-
-* [](#get-ready)
-* [](#day-1-sonar-sweep)
-* [](#day-2-dive)
-* [](#day-3-binary-diagnostic)
-* [](#day-4-giant-squid)
-
-### Get ready
+## Get ready for Advent of Code
 
 We'll take you through the basic tips on how to get up and running with solving Advent of Code challenges with Kotlin:
 
-* Read our [blog post about Advent of Code 2021](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
 * Use [this GitHub template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template) to create projects
 * Check out the welcome video by Kotlin Developer Advocate, Sebastian Aigner:
 
-  <video width="560" height="315" href="6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
+<video width="560" height="315" href="6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
+
+## Advent of Code 2022
+
+### Day 1: Calorie counting
+
+Learn about the [Kotlin Advent of Code template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template) and convenience functions for working with strings and collections in Kotlin, 
+such as [`maxOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of.html) and [`sumOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html).
+See how extension functions can help you structure your solution in a nice manner.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/1)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 1 | Kotlin](https://www.youtube.com/watch?v=ntbsbqLCKDs)
+
+### Day 2: Rock paper scissors
+
+Understand operations on the `Char` type in Kotlin, see how the `Pair` type and the `to` constructor work well with pattern matching.
+Understand how to order your own objects using the [`compareTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/compare-to.html) function.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/2)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 2 | Kotlin](https://www.youtube.com/watch?v=Fn0SY2yGDSA)
+
+### Day 3: Rucksack reorganization
+
+Learn how the [kotlinx.benchmark](https://github.com/Kotlin/kotlinx-benchmark) library helps
+you understand the performance characteristics of your code.
+See how set operations like `intersect` can help you select overlapping data,
+and see performance comparisons between different implementations of the same solution.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/3)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 3 | Kotlin](https://www.youtube.com/watch?v=IPLfo4zXNjk)
+
+### Day 4: Camp cleanup
+
+See how `infix` and `operator` functions can make your code more expressive,
+and how extension functions for the `String` and `IntRange` types make it easy to parse input.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/4)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 4 | Kotlin](https://www.youtube.com/watch?v=dBIbr55YS0A)
+
+### Day 5: Supply stacks
+
+Learn about constructing more complex objects with factory functions,
+how to use regular expressions, and the double-ended [`ArrayDeque`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-deque/) type.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/5)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 5 | Kotlin](https://www.youtube.com/watch?v=lKq6r5Nt8Yo)
+
+### Day 6: Tuning trouble
+
+See more in-depth performance investigations with the [kotlinx.benchmark](https://github.com/Kotlin/kotlinx-benchmark) library,
+comparing the characteristics of 16 different variations of the same solution.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/6)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 6 | Kotlin](https://www.youtube.com/watch?v=VbBhaQhW0zk)
+
+### Day 7: No space left on device
+
+Learn how to model tree structures, and see a demo of generating Kotlin code programmatically.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/7)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 7 | Kotlin](https://www.youtube.com/watch?v=Q819VW8yxFo)
+
+### Day 8: Treetop tree house
+
+See the `sequence` builder in action,
+and how far a first draft of a program and an idiomatic Kotlin solution can differ (with special guest Roman Elizarov!).
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/8)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 8 | Kotlin](https://www.youtube.com/watch?v=6d6FXFh-UdA)
+
+### Day 9: Rope bridge
+
+See the `run` function, labeled returns, and convenient standard library functions like `coerceIn`, or `zipWithNext`.
+See how you can construct lists of given sizes using the `List` and `MutableList` constructors,
+and get a peek at a Kotlin-based visualization of the problem statement.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/9)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 9 | Kotlin](https://www.youtube.com/watch?v=ShU9dNUa_3g)
+
+### Day 10: Cathode-ray tube
+
+Learn how ranges and the `in` operator make checking ranges natural,
+how function parameters can be turned into receivers, and a brief exploration of the `tailrec` modifier.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/10)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 10 | Kotlin](https://www.youtube.com/watch?v=KVyeNmFHoL4)
+
+### Day 11: Monkey in the middle
+
+See how you can move from mutable,
+imperative code to a more functional approach that makes use of immutable and read-only data structures.
+Learn about context receivers and how our guest built his own visualization library just for Advent of Code.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/11)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 11 | Kotlin](https://www.youtube.com/watch?v=1eBSyPe_9j0)
+
+### Day 12: Hill Climbing algorithm
+
+Use queues, `ArrayDeque`, function references, and the `tailrec` modifier to solve path finding problems with Kotlin.
+
+* Read the puzzle description on [Advent of Code](https://adventofcode.com/2022/day/12)
+* Check out the solution in the video:
+
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2022 Day 12 | Kotlin](https://www.youtube.com/watch?v=tJ74hi_3sk8)
+
+## Advent of Code 2021
+
+> Read our [blog post about Advent of Code 2021](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
+> 
+{type="tip"}
 
 ### Day 1: Sonar sweep
 
@@ -33,7 +156,7 @@ Apply windowed and count functions to work with pairs and triplets of integers.
 * Check out the solution from Anton Arhipov on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-1)
   or watch the video:
 
-<video width="560" height="315" href="76IzmtOyiHw" title="Advent of Code 2021 in Kotlin, Day 1: Sonar Sweep"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2021 in Kotlin, Day 1: Sonar Sweep](https://www.youtube.com/watch?v=76IzmtOyiHw)
 
 ### Day 2: Dive!
 
@@ -43,7 +166,7 @@ Learn about destructuring declarations and the `when` expression.
 * Check out the solution from Pasha Finkelshteyn on [GitHub](https://github.com/asm0dey/aoc-2021/blob/main/src/Day02.kt)
   or watch the video:
 
-<video width="560" height="315" href="4A2WwniJdNc" title="Advent of Code 2021 in Kotlin, Day 2: Dive!"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2021 in Kotlin, Day 2: Dive!](https://www.youtube.com/watch?v=4A2WwniJdNc)
 
 ### Day 3: Binary diagnostic
 
@@ -53,7 +176,7 @@ Explore different ways to work with binary numbers.
 * Check out the solution from Sebastian Aigner on [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/12/advent-of-code-2021-in-kotlin-day-3/)
   or watch the video:
 
-<video width="560" height="315" href="mF2PTnnOi8w" title="Advent of Code 2021 in Kotlin, Day 3: Binary Diagnostic"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2021 in Kotlin, Day 3: Binary Diagnostic](https://www.youtube.com/watch?v=mF2PTnnOi8w)
 
 ### Day 4: Giant squid
 
@@ -63,23 +186,13 @@ Learn how to parse the input and introduce some domain classes for more convenie
 * Check out the solution from Anton Arhipov on the [GitHub](https://github.com/antonarhipov/advent-of-code-2021/blob/main/src/Day04.kt)
   or watch the video:
 
-<video width="560" height="315" href="wL6sEoLezPQ" title="Advent of Code 2021 in Kotlin, Day 4: Giant Squid"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Advent of Code 2021 in Kotlin, Day 4: Giant Squid](https://www.youtube.com/watch?v=wL6sEoLezPQ)
 
 ## Advent of Code 2020
 
 > You can find all the solutions for the Advent of Code 2020 puzzles in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
 >
 {type="tip"}
-
-* [](#day-1-report-repair)
-* [](#day-2-password-philosophy)
-* [](#day-3-toboggan-trajectory)
-* [](#day-4-passport-processing)
-* [](#day-5-binary-boarding)
-* [](#day-6-custom-customs)
-* [](#day-7-handy-haversacks)
-* [](#day-8-handheld-halting)
-* [](#day-9-encoding-error)
 
 ### Day 1: Report repair
 
@@ -90,7 +203,7 @@ function to simplify your code.
 * Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/07/advent-of-code-in-idiomatic-kotlin/)
 or watch the video:
 
-<video width="560" height="315" href="o4emra1xm88" title="Kotlin Tutorial: Advent of Code Puzzles, Day 1"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin With the Kotlin Team: Advent of Code 2020 #1](https://www.youtube.com/watch?v=o4emra1xm88)
 
 ### Day 2: Password philosophy
 
@@ -101,7 +214,7 @@ function can be helpful to transform your expressions.
 * Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/07/advent-of-code-in-idiomatic-kotlin-day2/)
 or watch the video:
 
-<video width="560" height="315" href="MyvJ7G6aErQ" title="Kotlin Tutorial: Advent of Code Puzzles, Day 2"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with The Kotlin Team: Advent of Code 2020 #2](https://www.youtube.com/watch?v=MyvJ7G6aErQ)
 
 ### Day 3: Toboggan trajectory
 
@@ -112,7 +225,7 @@ function, edit code in the column selection mode, and fix integer overflows.
 * Check out the solution from Mikhail Dvorkin on [GitHub](https://github.com/kotlin-hands-on/advent-of-code-2020/blob/master/src/day03/day3.kt)
 or watch the video:
 
-<video width="560" height="315" href="ounCIclwOAw" title="Kotlin Tutorial: Adopting a Functional Style for Advent of Code Puzzles"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #3](https://www.youtube.com/watch?v=ounCIclwOAw)
 
 ### Day 4: Passport processing
 
@@ -123,7 +236,7 @@ utility functions, working with ranges, checking set membership, and matching a 
 * Check out the solution from Sebastian Aigner on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/09/validating-input-advent-of-code-in-kotlin/)
 or watch the video:
 
-<video width="560" height="315" href="-kltG4Ztv1s" title="Kotlin Tutorial: Validating and Sanitizing Input. Advent of Code Puzzles"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #4](https://www.youtube.com/watch?v=-kltG4Ztv1s)
 
 ### Day 5: Binary boarding
 
@@ -134,7 +247,7 @@ explore powerful local functions, and learn how to use the `max()` function in K
 * Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/09/idiomatic-kotlin-binary-representation/)
 or watch the video:
 
-<video width="560" height="315" href="XEFna3xyxeY" title="Kotlin Tutorial: Binary Representation of Numbers. Advent of Code Puzzles"/> 
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #5](https://www.youtube.com/watch?v=XEFna3xyxeY)
 
 ### Day 6: Custom customs
 
@@ -145,7 +258,7 @@ Learn how to group and count characters in strings and collections using the sta
 * Check out the solution from Anton Arhipov on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/09/idiomatic-kotlin-set-operations/)
 or watch the video:
 
-<video width="560" height="315" href="QLAB0kZ-Tqc" title="Idiomatic Kotlin: Operations with Sets"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #6](https://www.youtube.com/watch?v=QLAB0kZ-Tqc)
 
 ### Day 7: Handy haversacks
 
@@ -157,7 +270,7 @@ depth-first and breadth-first.
 * Check out the solution from Pasha Finkelshteyn on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/09/idiomatic-kotlin-traversing-trees/)
 or watch the video:
 
-<video width="560" height="315" href="KyZiveDXWHw" title="Idiomatic Kotlin: Solving Advent of Code Puzzles and Traversing Trees"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #7](https://www.youtube.com/watch?v=KyZiveDXWHw)
 
 ### Day 8: Handheld halting
 
@@ -169,7 +282,7 @@ use sequences and the `sequence { }` builder function to construct a lazy collec
 * Check out the solution from Sebastian Aigner on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-simulating-a-console/)
 or watch the video:
 
-<video width="560" height="315" href="0GWTTSMatO8" title="Sealed Classes, Sequences, Immutability: Idiomatic Kotlin Solving Advent of Code Puzzles"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #8](https://www.youtube.com/watch?v=0GWTTSMatO8)
 
 ### Day 9: Encoding error
 
@@ -180,7 +293,7 @@ Explore different ways to manipulate lists in Kotlin using the `any()`, `firstOr
 * Check out the solution from Svetlana Isakova on the [Kotlin Blog](https://blog.jetbrains.com/kotlin/2021/10/idiomatic-kotlin-working-with-lists/)
 or watch the video:
 
-<video width="560" height="315" href="vj3J9MuF1mI" title="Manipulating lists using windowed, scan, firstNotNullOfOrNull: Solving Advent of Code Puzzles"/>
+![YouTube](youtube.svg){width=25}{type="joined"} [Learn Kotlin with the Kotlin Team: Advent of Code 2020 #9](https://www.youtube.com/watch?v=vj3J9MuF1mI)
 
 ## What's next?
 

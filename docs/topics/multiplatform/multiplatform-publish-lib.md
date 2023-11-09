@@ -22,9 +22,6 @@ publishing {
 }
 ```
 
-To get hands-on experience, as well as learn how to publish a multiplatform library to the external Maven Central repository,
-see the [Create and publish a multiplatform library](multiplatform-library.md) tutorial.
-
 > You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 >
 {type="tip"}

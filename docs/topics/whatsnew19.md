@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.9.0)
 
-_[Release date: %kotlinReleaseDate%](releases.md#release-details)_
+_[Release date: July 6, 2023](releases.md#release-details)_
 
 The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
@@ -271,7 +271,7 @@ sweeping, or should be created first.
 The new allocator allows having multiple independent allocation spaces simultaneously, which will allow the Kotlin team 
 to experiment with different page layouts to improve performance even further.
 
-For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md).
 
 #### How to enable
 
@@ -309,7 +309,7 @@ a function, or retrieved from a collection. In this case, Kotlin creates its own
 Objective-C object. When the Kotlin object gets deallocated, the Kotlin/Native runtime calls the `objc_release` function 
 that releases that Objective-C reference.
 
-Previously, the Kotlin/Native memory manager ran `objc_release ` on a special GC thread. If it's the last object reference,
+Previously, the Kotlin/Native memory manager ran `objc_release` on a special GC thread. If it's the last object reference,
 the object gets deallocated. Issues could come up when Objective-C objects have custom deallocation hooks like the `dealloc`
 method in Objective-C or the `deinit` block in Swift, and these hooks expect to be called on a specific thread.
 

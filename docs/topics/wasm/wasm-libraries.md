@@ -45,14 +45,15 @@ You can use one of the following repositories to add Kotlin libraries to your pr
 |-------------------------------|------------------|------------------------------------------------|
 | stdlib                        | %kotlinVersion%  | Maven Central                                  | 
 | kotlin-test                   | %kotlinVersion%  | Maven Central                                  |
-| kotlinx-coroutines            | 1.7.2-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
-| Compose Multiplatform         | 1.4.0-dev-wasm09 | Custom for experimental Kotlin/Wasm artifacts  |
-| kotlinx-serialization         | 1.5.2-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
-| Ktor                          | 2.3.3-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
-| kotlinx-atomicfu              | 0.21.0-wasm0     | Custom for experimental Kotlin/Wasm artifacts  |
-| kotlinx-collections-immutable | 0.4-wasm0        | Custom for experimental Kotlin/Wasm artifacts  |
-| kotlinx-datetime              | 0.4.0-wasm1      | Custom for experimental Kotlin/Wasm artifacts  |
-| skiko                         | 0.0.7.68-wasm03  | Custom for Compose Multiplatform dev artifacts |
+| kotlinx-coroutines            | 1.7.2-wasm3      | Custom for experimental Kotlin/Wasm artifacts  |
+| Compose Multiplatform         | 1.5.10-dev-wasm02| Custom for experimental Kotlin/Wasm artifacts  |
+| Compose Compiler              | 1.5.3            | Maven Central                                  |
+| kotlinx-serialization         | 1.6.1-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
+| Ktor                          | 3.0.0-wasm1      | Custom for experimental Kotlin/Wasm artifacts  |
+| kotlinx-atomicfu              | 0.22.0-wasm2     | Custom for experimental Kotlin/Wasm artifacts  |
+| kotlinx-collections-immutable | 0.4-wasm1        | Custom for experimental Kotlin/Wasm artifacts  |
+| kotlinx-datetime              | 0.4.1-wasm1      | Custom for experimental Kotlin/Wasm artifacts  |
+| skiko                         | 0.0.7.85-wasm01  | Custom for Compose Multiplatform dev artifacts |
 
 ## Enable libraries in your project
 

@@ -1,6 +1,5 @@
 [//]: # (title: Tips for improving Kotlin/Native compilation times)
 
-
 The Kotlin/Native compiler is constantly receiving updates that improve its performance. With the latest Kotlin/Native
 compiler and a properly configured build environment, you can significantly improve the compilation times of your projects
 with Kotlin/Native targets.
@@ -46,7 +45,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
       the `.framework` for only the platform you're using.
       
       To build a platform-specific framework, call the `packForXcode` task generated
-      by the [Kotlin Multiplatform project wizard](multiplatform-mobile-create-first-app.md). 
+      by the [Kotlin Multiplatform project wizard](https://kmp.jetbrains.com/). 
       
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
@@ -71,6 +70,14 @@ Here are some recommendations for configuring Gradle for better compilation perf
   features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
+
+* **Try incremental compilation of klib artifacts**. With incremental compilation, if only a part of the `klib` artifact
+  produced by the project module changes, just a part of `klib` is further
+  recompiled into a binary.
+
+  This feature is [Experimental](components-stability.md#stability-levels-explained). To enable it,
+  add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
+  create an [issue in YouTrack](https://kotl.in/issue).
 
 ## Windows OS configuration
 

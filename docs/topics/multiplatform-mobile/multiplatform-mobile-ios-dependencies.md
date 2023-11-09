@@ -1,7 +1,7 @@
 [//]: # (title: Adding iOS dependencies)
 
 Apple SDK dependencies (such as Foundation or Core Bluetooth) are available as a set of prebuilt libraries in Kotlin
-Multiplatform Mobile projects. They do not require any additional configuration.
+Multiplatform projects. They do not require any additional configuration.
 
 You can also reuse other libraries and frameworks from the iOS ecosystem in your iOS source sets. Kotlin supports
 interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with
@@ -27,8 +27,8 @@ have some other strong reason to do so.
     kotlin {
         cocoapods {
             //..
-            pod("Alamofire") {
-                version = "5.7.0"
+            pod("FirebaseAuth") {
+                version = "10.16.0"
             }
         }
     }
@@ -41,8 +41,8 @@ have some other strong reason to do so.
     kotlin {
         cocoapods {
             //..
-            pod('Alamofire') {
-                version = '5.7.0'
+            pod('FirebaseAuth') {
+                version = '10.16.0'
             }
         }
     }
@@ -63,7 +63,7 @@ have some other strong reason to do so.
 To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
 
 ```kotlin
-import cocoapods.Alamofire.*
+import cocoapods.FirebaseAuth.*
 ```
 
 ### Without CocoaPods
