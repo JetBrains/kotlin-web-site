@@ -3,6 +3,7 @@ module.exports = {
 		autoprefixer: {},
 		'postcss-custom-properties': {},
 		'postcss-import': {},
+		'postcss-nesting': {},
 		'postcss-custom-media': {
 			preserve: false,
 		},

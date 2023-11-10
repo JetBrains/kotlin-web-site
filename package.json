@@ -58,6 +58,7 @@
     "postcss-custom-properties": "11.0.0",
     "postcss-font-smoothing": "0.1.0",
     "postcss-loader": "6.1.1",
+    "postcss-nesting": "12.0.1",
     "query-string": "3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
