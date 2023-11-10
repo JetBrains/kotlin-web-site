@@ -12,8 +12,8 @@ while retaining the flexibility and benefits of native programming.
 
 ### Android and iOS applications
 
-Sharing code between mobile platforms is a major Kotlin Multiplatform use cases. With Kotlin Multiplatform,
-you can build cross-platform mobile applications that share code between Android and iOS to implement networking,
+Sharing code between mobile platforms is a major Kotlin Multiplatform use case. With Kotlin Multiplatform,
+you can build cross-platform mobile applications that share code between Android and iOS projects to implement networking,
 data storage and data validation, analytics, computations, and other application logic.
 
 Check out the [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) and
