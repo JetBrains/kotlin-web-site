@@ -220,9 +220,6 @@ of specs at the beginning of your Podfile:
 If you don't make these changes to the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
 an error message in the log.
 
-Check out the `withXcproject` branch of the [sample project](https://github.com/Kotlin/kmm-with-cocoapods-sample),
-which contains an example of Xcode integration with an existing Xcode project named `kotlin-cocoapods-xcproj`.
-
 ## Possible issues and solutions
 
 ### CocoaPods installation {initial-collapse-state="collapsed"}
