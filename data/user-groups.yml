@@ -425,6 +425,12 @@
     position:
       lat: 26.8243622
       lng: 104.7609243
+  - name: Hangzhou KUG
+    country: China Mainland
+    url: https://hangzhou-kug.github.io/
+    position:
+      lat: 30.2605053
+      lng: 119.5479628
   - name: Tbilisi KUG
     country: Georgia
     url: https://discord.gg/6EcJH9vED6
