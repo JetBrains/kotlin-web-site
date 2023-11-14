@@ -1,7 +1,10 @@
 export function formatDate(startDate, endDate) {
   let formatted = '';
   let year, month, day;
-  const isRange = startDate.getTime() !== endDate.getTime();
+  const isRange = (startDate.getDate() !== endDate.getDate() ||
+    startDate.getMonth() !== endDate.getMonth() ||
+    startDate.getFullYear() !== endDate.getFullYear()
+  );
   const nowYear = new Date().getFullYear();
 
   const months = [
