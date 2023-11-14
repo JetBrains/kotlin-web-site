@@ -6,7 +6,7 @@ The Kotlin 1.9.20 release is out, the [K2 compiler for all the targets is now in
 and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Additionally, here are some of the main highlights:
 
 * [New default hierarchy template for setting up multiplatform projects](#template-for-configuring-multiplatform-projects)
-* [Full support for the Gradle Configuration cache in Kotlin Multiplatform](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
+* [Full support for the Gradle configuration cache in Kotlin Multiplatform](#full-support-for-the-gradle-configuration-cache-in-kotlin-multiplatform)
 * [Custom memory allocator enabled by default in Kotlin/Native](#custom-memory-allocator-enabled-by-default)
 * [Performance improvements for the garbage collector in Kotlin/Native](#performance-improvements-for-the-garbage-collector)
 * [New and renamed targets in Kotlin/Wasm](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
@@ -33,7 +33,7 @@ The Kotlin team at JetBrains is continuing to stabilize the new K2 compiler, whi
 speed up new language feature development, unify all the platforms that Kotlin supports, and provide a better architecture for
 multiplatform projects.
 
-Right now K2 is in **Beta** for all the targets. [Read more in the release blog post](https://blog.jetbrains.com/kotlin/2023/11/kotlin-1-9-20-released/)
+K2 is currently in **Beta** for all targets. [Read more in the release blog post](https://blog.jetbrains.com/kotlin/2023/11/kotlin-1-9-20-released/)
 
 ### Support for Kotlin/Wasm
 
@@ -94,7 +94,7 @@ To enable and test the Kotlin K2 compiler, update the `<project/>` section of yo
 </properties>
 ```
 
-#### Enable K2 in JPS
+#### Enable K2 in IntelliJ IDEA
 
 To enable and test the Kotlin K2 compiler in IntelliJ IDEA, go to **Settings** | **Build, Execution, Deployment** |
 **Compiler** | **Kotlin Compiler** and update the **Language Version** field to `2.0 (experimental)`.
@@ -113,7 +113,7 @@ We would appreciate any feedback you may have!
 
 ## Kotlin/JVM
 
-Starting with version 1.9.20, the compiler can generate classes with a bytecode version corresponding to JVM 21.
+Starting with version 1.9.20, the compiler can generate classes containing Java 21 bytecode.
 
 ## Kotlin/Native
 
@@ -121,10 +121,10 @@ Kotlin 1.9.20 includes a Stable memory manager with the new memory allocator ena
 
 * [Custom memory allocator enabled by default](#custom-memory-allocator-enabled-by-default)
 * [Performance improvements for the garbage collector](#performance-improvements-for-the-garbage-collector)
-* [Incremental compilation of klib artifacts](#incremental-compilation-of-klib-artifacts)
+* [Incremental compilation of `klib` artifacts](#incremental-compilation-of-klib-artifacts)
 * [Managing library linkage issues](#managing-library-linkage-issues)
 * [Companion object initialization on class constructor calls](#companion-object-initialization-on-class-constructor-calls)
-* [Opt–in requirement for all cinterop declarations](#opt-in-requirement-for-all-cinterop-declarations)
+* [Opt-in requirement for all cinterop declarations](#opt-in-requirement-for-all-cinterop-declarations)
 * [Custom message for linker errors](#custom-message-for-linker-errors)
 * [Removal of the legacy memory manager](#removal-of-the-legacy-memory-manager)
 * [Change to our target tiers policy](#change-to-our-target-tiers-policy)
@@ -196,7 +196,7 @@ the number of tasks performed on each allocation and, therefore, helps to minimi
 ### Incremental compilation of klib artifacts
 
 > This feature is [Experimental](components-stability.md#stability-levels-explained).
-> It may be dropped or changed at any time. Opt–in is required (see details below).
+> It may be dropped or changed at any time. Opt-in is required (see details below).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
@@ -227,17 +227,17 @@ If you face any issues, report such cases to [YouTrack](https://kotl.in/issue).
 ### Managing library linkage issues
 
 This release improves the way the Kotlin/Native compiler handles linkage issues in Kotlin libraries. Error messages now 
-include more readable declarations, using signature names instead of hashes, so it's easier to find and fix the issue, 
-for example:
+include more readable declarations as they use signature names instead of hashes, helping you find and fix the issue more
+easily. Here's an example:
 
 ```text
 No function found for symbol 'org.samples/MyClass.removedFunction|removedFunction(kotlin.Int;kotlin.String){}[0]'
 ```
-The Kotlin/Native compiler detects linkage issues between third–party Kotlin libraries and reports errors at runtime. 
-You might face such issues if the author of one third–party Kotlin library makes an incompatible change in experimental 
-APIs that another third–party Kotlin library consumes.
+The Kotlin/Native compiler detects linkage issues between third-party Kotlin libraries and reports errors at runtime. 
+You might face such issues if the author of one third-party Kotlin library makes an incompatible change in experimental 
+APIs that another third-party Kotlin library consumes.
 
-Starting with Kotlin 1.9.20, the compiler detects linkage issues in the silent mode by default. You can adjust this 
+Starting with Kotlin 1.9.20, the compiler detects linkage issues in silent mode by default. You can adjust this 
 setting in your projects:
 
 * If you want to record these issues in your compilation logs, enable warnings with the `-Xpartial-linkage-loglevel=WARNING` compiler option.
@@ -273,7 +273,7 @@ tracker](https://kotl.in/issue).
 
 ### Companion object initialization on class constructor calls
 
-Starting with Kotlin 1.9.20, the Kotlin/Native backend calls static initializer for companion objects in class constructors:
+Starting with Kotlin 1.9.20, the Kotlin/Native backend calls static initializers for companion objects in class constructors:
 
 ```kotlin
 class Greeting {
@@ -295,17 +295,17 @@ the semantics of a Java static initializer is loaded (resolved).
 Now that the implementation of this feature is more consistent between platforms, it's easier to share code in Kotlin 
 Multiplatform projects.
 
-### Opt–in requirement for all cinterop declarations
+### Opt-in requirement for all cinterop declarations
 
-Starting with Kotlin 1.9.20, all Kotlin declarations generated by the `cinterop` tool from C and Objective–C libraries, like 
-libcurl and libxml, are marked with `@ExperimentalForeignApi`. If the opt–in annotation is missing, your code won't compile.
+Starting with Kotlin 1.9.20, all Kotlin declarations generated by the `cinterop` tool from C and Objective-C libraries, like 
+libcurl and libxml, are marked with `@ExperimentalForeignApi`. If the opt-in annotation is missing, your code won't compile.
 
-This requirement reflects the [Experimental](components-stability.md#stability-levels-explained) status of the C and 
-Objective–C libraries import. We recommend that you confine its use to specific areas in your projects. This will make 
+This requirement reflects the [Experimental](components-stability.md#stability-levels-explained) status of the import of C
+and Objective-C libraries. We recommend that you confine its use to specific areas in your projects. This will make 
 your migration easier once we begin stabilizing the import.
 
 > As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their 
-> APIs need an opt–in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt–in requirement.
+> APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
 {type="note"}
 
@@ -313,11 +313,11 @@ your migration easier once we begin stabilizing the import.
 
 If you're a library author, you can now help your users resolve linker errors with custom messages.
 
-If your Kotlin library depends on C or Objective–C libraries, for example, using the [CocoaPods integration](native-cocoapods.md),
+If your Kotlin library depends on C or Objective-C libraries, for example, using the [CocoaPods integration](native-cocoapods.md),
 its users need to have these dependent libraries locally on the machine or configure them explicitly in the project build script.
 If this was not the case, users used to get a confusing "Framework not found" message.
 
-Now, you can provide a specific instruction or a link in the compilation failure message. To do that, pass the `-Xuser-setup-hint`
+You can now provide a specific instruction or a link in the compilation failure message. To do that, pass the `-Xuser-setup-hint`
 compiler option to `cinterop` or add a `userSetupHint=message` property to your `.def` file.
 
 ### Removal of the legacy memory manager
@@ -332,16 +332,16 @@ to make the necessary changes.
 ###  Change to our target tiers policy
 
 We've decided to upgrade the requirements for [tier 1 support](native-target-support.md#tier-1). The Kotlin team is now 
-committed to providing source and binary compatibility between compiler releases for targets eligible for tier 1. They also 
-must be regularly tested on CI to be able to compile and run. Currently, tier 1 includes the following targets for 
-Apple macOS hosts:
+committed to providing source and binary compatibility between compiler releases for targets eligible for tier 1. They 
+must also be regularly tested with CI tools to be able to compile and run. Currently, tier 1 includes the following targets 
+for macOS hosts:
 
 * `macosX64`
 * `macosArm64`
 * `iosSimulatorArm64`
 * `iosX64`
 
-In Kotlin 1.9.20, we're also removing a number of previously deprecated targets, namely:
+In Kotlin 1.9.20, we've also removed a number of previously deprecated targets, namely:
 
 * `iosArm32`
 * `watchosX86`
@@ -368,13 +368,13 @@ with the new project wizards and other notable features:
 
 ### Kotlin Multiplatform is Stable
 
-The 1.9.20 release marks an important milestone in Kotlin evolution: [Kotlin Multiplatform](multiplatform.md) has finally
-become Stable. This promotion means that the technology is safe to use in your projects and ready for production. It also
+The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform.md) has finally
+become Stable. This means that the technology is safe to use in your projects and 100% ready for production. It also
 means that further development of Kotlin Multiplatform will continue according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
 Please note that some advanced features of Kotlin Multiplatform are still evolving. When using them, you'll receive a warning that describes
-the current stability status of the feature you're using. In IntelliJ IDEA,  you'll need to enable experimental functionality
-explicitly in **Preferences** | **Advanced Settings** | **Enable experimental Multiplatform IDE features**.
+the current stability status of the feature you're using. Before using any experimental functionality in IntelliJ IDEA,  
+you'll need to enable it explicitly in **Settings** | **Advanced Settings** | **Kotlin** | **Experimental Multiplatform**.
 
 * Visit the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/) to learn more about the Kotlin Multiplatform stabilization and future plans.
 * Check out the [Multiplatform compatibility guide](multiplatform-compatibility-guide.md) to see what significant changes were made on the way to stabilization.
@@ -559,23 +559,24 @@ The JetBrains team is introducing a new way of creating cross–platform project
 
 This first implementation of the new Kotlin Multiplatform wizard covers the most popular Kotlin Multiplatform
 use cases. It incorporates all the feedback about previous project templates and makes the architecture as robust and
-well–tested as possible.
+reliable as possible.
 
 The new wizard has a distributed architecture that allows us to have a unified backend and
 different frontends, with the web version being the first step. We're considering both implementing an IDE version and
-creating a command line tool in the future. With the web version, you always get the latest version of the wizard, while
+creating a command-line tool in the future. On the web, you always get the latest version of the wizard, while
 in IDEs you'll need to wait for the next release.
 
-With the new wizard, project setup becomes easier than ever. You can tailor your projects to your needs by
+With the new wizard, project setup is easier than ever. You can tailor your projects to your needs by
 choosing the target platforms for mobile, server, and desktop development. We also plan to add web development in future releases.
 
 <img src="multiplatform-web-wizard.png" alt="Multiplatform web wizard" width="400"/>
 
 The new project wizard is now the preferred way to create cross–platform projects with Kotlin. Since 1.9.20, the Kotlin
-plugin no longer provides a "Kotlin Multiplatform" project wizard in IntelliJ IDEA.
+plugin no longer provides a **Kotlin Multiplatform** project wizard in IntelliJ IDEA.
 
 The new wizard will guide you easily through the initial setup, making the onboarding process much smoother.
-If you encounter any issues, please report them to [YouTrack](https://kotl.in/issue) to help us improve your wizard experience.
+If you encounter any issues, please report them to [YouTrack](https://kotl.in/issue) to help us improve your experience
+with the wizard.
 
 <a href="https://kmp.jetbrains.com">
    <img src="multiplatform-create-project-button.png" alt="Create a project"/>
@@ -600,7 +601,7 @@ source set. This is the easiest way to get started with your multiplatform proje
 
 Previously, if you wanted to configure a dependency on the standard library manually, you needed to configure it for
 each source set individually. From `kotlin-stdlib:1.9.20` onward, you only need to configure the dependency **once** in
-the root source set: `commonMain`:
+the `commonMain` root source set:
 
 <table header-style="top">
    <tr>
@@ -613,18 +614,18 @@ the root source set: `commonMain`:
 ```kotlin
 kotlin {
     sourceSets {
-       // For common source set
+       // For the common source set
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.9.10")
             }
 
-       // For JVM source set
+       // For the JVM source set
         val jvmMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
             }
-       // For JS source set
+       // For the JS source set
         val jsMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-js:1.9.10")
@@ -656,17 +657,17 @@ kotlin {
 This change was made possible by including new information in the Gradle metadata of the standard library. This allows
 Gradle to automatically resolve the correct standard library artifacts for the other source sets.
 
-### Default support for third–party cinterop libraries
+### Default support for third-party cinterop libraries
 
-Kotlin 1.9.20 adds default support for all cinterop dependencies in projects that have the [Kotlin CocoaPods Gradle](native-cocoapods.md)
-plugin applied.
+Kotlin 1.9.20 adds default support (rather than support by opt-in) for all cinterop dependencies in projects that have 
+the [Kotlin CocoaPods Gradle](native-cocoapods.md) plugin applied.
 
 This means you can now share more native code without being limited by platform–specific dependencies. For example, you can add
 [dependencies on Pod libraries](native-cocoapods-libraries.md) to the `iosMain` shared source set.
 
 Previously, this only worked with [platform-specific libraries](native-platform-libs.md) shipped with a Kotlin/Native
-distribution (like Foundation, UIKit, and POSIX). Now all third–party Pod libraries are available in shared source sets by
-default; you no longer need to specify a separate Gradle property to support them.
+distribution (like Foundation, UIKit, and POSIX). All third-party Pod libraries are now available in shared source sets by
+default. You no longer need to specify a separate Gradle property to support them.
 
 ### Support for Kotlin/Native compilation caches in Compose Multiplatform projects
 
@@ -674,7 +675,7 @@ This release resolves a compatibility issue with the Compose Multiplatform compi
 Compose Multiplatform projects for iOS.
 
 To work around this issue, you had to disable caching by using the `kotlin.native.cacheKind=none` Gradle property. However, this
-workaround came at a performance cost: It slowed down compilation time, as caching didn't work in the Kotlin/Native compiler.
+workaround came at a performance cost: It slowed down compilation time as caching didn't work in the Kotlin/Native compiler.
 
 Now that the issue is fixed, you can remove `kotlin.native.cacheKind=none` from your `gradle.properties` file and enjoy
 the improved compilation times in your Compose Multiplatform projects.
@@ -683,14 +684,14 @@ For more tips on improving compilation times, see the [Kotlin/Native documentati
 
 ### Compatibility guidelines
 
-When configuring your project, check the Kotlin Multiplatform Gradle plugin compatibility with the available Gradle, Xcode,
+When configuring your projects, check the Kotlin Multiplatform Gradle plugin's compatibility with the available Gradle, Xcode,
 and Android Gradle plugin (AGP) versions:
 
 | Kotlin Multiplatform Gradle plugin | Gradle | Android Gradle plugin | Xcode |
 |---------------------------|------|----|----|
 | 1.9.20        | 7.5 and later | 7.4.2–8.2 | 15.0. See details below |
 
-As of this release, the recommended version of Xcode is 15.0. Libraries delivered with Xcode 15 are fully supported, and
+As of this release, the recommended version of Xcode is 15.0. Libraries delivered with Xcode 15.0 are fully supported, and
 you can access them from anywhere in your Kotlin code.
 
 However, XCode 14.3 should still work in the majority of cases. Keep in mind that if you use version 14.3 on your local
@@ -704,7 +705,7 @@ machine, libraries delivered with Xcode 15 will be visible but not accessible.
 * [Kotlin/Wasm API improvements](#kotlin-wasm-api-improvements)
 
 > Kotlin Wasm is [Experimental](components-stability.md).
-> It may be changed at any time. Use it only for evaluation purposes.
+> It is subject to change at any time. Use it only for evaluation purposes.
 >
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
@@ -769,7 +770,7 @@ private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPt
 
 ### Kotlin/Wasm API improvements
 
-This release quality-of-life improvements to the Kotlin/Wasm API.
+This release delivers several quality-of-life improvements to the Kotlin/Wasm API.
 For example, you're no longer required to return a value for DOM event listeners:
 
 <table header-style="top">
@@ -893,7 +894,7 @@ and there are some new features:
 ### Replacement of the Enum class values generic function
 
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Opt–in is required (see details below). Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> Opt-in is required (see details below). Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
 
@@ -902,8 +903,8 @@ replacement for the synthetic `values()` function. As part of Kotlin 1.9.20, the
 `enumValues<T>()` function: `enumEntries<T>()`.
 
 > The `enumValues<T>()` function is still supported, but we recommend that you use the `enumEntries<T>()` function instead
-> because it has less performance impact. Every time you > call `enumValues<T>()` a new array is created, whereas whenever
-> you call `enumEntries<T>()` the same list is returned each time, which is far more efficient.
+> because it has less performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas whenever
+> you call `enumEntries<T>()`, the same list is returned each time, which is far more efficient.
 >
 {type="tip"}
 
@@ -923,8 +924,8 @@ printAllValues<RGB>()
 
 #### How to enable the enumEntries function
 
-To try this feature out, opt in with `@OptIn(ExperimentalStdlibApi)` and use language version 1.9 or later. If you use 
-the latest version of the Kotlin Gradle plugin, you don't need to specify the language version to test this feature.
+To try this feature, opt in with `@OptIn(ExperimentalStdlibApi)` and use language version 1.9 or later. If you use 
+the latest version of the Kotlin Gradle plugin, you don't need to specify the language version to test the feature.
 
 ### The Kotlin/Native standard library becomes Stable
 
@@ -933,7 +934,7 @@ actions we've taken to bring the Kotlin/Native standard library closer to our go
 we finally conclude this work and make the Kotlin/Native standard library Stable. Here are some highlights from this release:
 
 * The [`Vector128`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/-vector128/) class was moved from the  `kotlin.native` package to the `kotlinx.cinterop` package.
-* The opt–in requirement level for `ExperimentalNativeApi` and `NativeRuntimeApi` annotations, which were introduced as part of Kotlin 1.9.0, has been raised from `WARNING` to `ERROR`.
+* The opt-in requirement level for `ExperimentalNativeApi` and `NativeRuntimeApi` annotations, which were introduced as part of Kotlin 1.9.0, has been raised from `WARNING` to `ERROR`.
 * Kotlin/Native collections now detect concurrent modifications, for example, in the [`ArrayList`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/) and [`HashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-map/) collections.
 * The [`printStackTrace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/print-stack-trace.html) function from the `Throwable` class now prints to `STDERR` instead of `STDOUT`.
   > The output format of `printStackTrace()` isn't Stable and is subject to change.
@@ -949,11 +950,11 @@ Stable. Kotlin 1.9.20 includes the following additional changes:
 designed specifically to be consistent with Java's atomic arrays so that in the future, they can be included in the common standard library.
   > The `AtomicIntArray`, `AtomicLongArray`, and `AtomicArray<T>` classes are
   > [Experimental](components-stability.md#stability-levels-explained). They may be dropped or changed at any time. To 
-  > try them out, opt in with `@OptIn(ExperimentalStdlibApi)`. Use them only for evaluation purposes. We would
+  > try them, opt in with `@OptIn(ExperimentalStdlibApi)`. Use them only for evaluation purposes. We would
   > appreciate your feedback in [YouTrack](https://kotl.in/issue).
   >
   {type="warning"}
-* In the `kotlin.native.concurrent package`, the Atomics API that was deprecated in Kotlin 1.9.0 with deprecation level: `WARNING`, has had its deprecation level raised to: `ERROR`.
+* In the `kotlin.native.concurrent package`, the Atomics API that was deprecated in Kotlin 1.9.0 with deprecation level `WARNING` has had its deprecation level raised to `ERROR`.
 * In the `kotlin.concurrent` package, member functions of the [`AtomicInt`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-int/index.html) and [`AtomicLong`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-long/index.html) classes that had deprecation level: `ERROR`, have been removed.
 * All [member functions](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/#functions) of the `AtomicReference` class now use atomic intrinsic functions.
 
@@ -963,9 +964,9 @@ For more information on all of the changes in Kotlin 1.9.20, see our [YouTrack t
 
 Kotlin 1.9.20 improves the performance of `HashMap` operations and reduces their memory footprint in Kotlin/JS. Internally,
 Kotlin/JS has changed its internal implementation to open addressing. This means that you should see performance improvements when you:
-* Insert new elements into a `HashMap`
-* Search for existing elements in a `HashMap`
-* Iterate through keys or values in a `HashMap`
+* Insert new elements into a `HashMap`.
+* Search for existing elements in a `HashMap`.
+* Iterate through keys or values in a `HashMap`.
 
 ## Documentation updates
 
