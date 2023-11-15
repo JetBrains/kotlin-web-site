@@ -37,15 +37,6 @@ export const WhyKotlin: FC<Props> = ({}) => {
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
-    const handleMobileMenuToggle = useCallback(() => {
-        setMobileMenuVisible(!mobileMenuVisible);
-    }, []);
-
-    const handleMobileMenuItemClick = useCallback((index) => {
-        setActiveIndex(index);
-        setMobileMenuVisible(false);
-    }, []);
-
     const codeExamplesList = [
         { children: 'Simple', codeExample: simpleExample },
         { children: 'Asynchronous', codeExample: asyncExample },
@@ -54,95 +45,120 @@ export const WhyKotlin: FC<Props> = ({}) => {
         { children: 'Ideal for tests', codeExample: testsExample, targetPlatform: 'junit' },
     ];
 
+    const mobileMenuItems = [...codeExamplesList, { children: 'Open in Playground', codeExample: null }];
+
     const codeInstanceRef = createRef<any>();
 
     const handleRunButton = useCallback(() => {
         codeInstanceRef?.current?.runInstance();
     }, [codeInstanceRef]);
 
-    const handleOpenInPlaygroundButton = () => {
+    const handleOpenInPlaygroundButton = useCallback(() => {
         const link = generateCrosslink(codeExamplesList[activeIndex].codeExample);
         if (typeof window !== 'undefined') {
             window.open(link, '_blank');
         }
-    };
+    }, [activeIndex]);
+
+    const handleMobileMenuItemClick = useCallback(
+        (index) => {
+            if (index === mobileMenuItems.length - 1) {
+                handleOpenInPlaygroundButton();
+            } else {
+                setActiveIndex(index);
+                setMobileMenuVisible(false);
+            }
+        },
+        [activeIndex]
+    );
+
+    const handleMobileMenuToggle = useCallback(() => {
+        setMobileMenuVisible(!mobileMenuVisible);
+    }, []);
 
     return (
         <ThemeProvider theme={'dark'}>
             <section className={styles.whyKotlin}>
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={cn(darkTextCn('rs-h1'), styles.sectionTitle)}>Why Kotlin</div>
+                </div>
 
-                    <div className={styles.codeExamples}>
-                        <div className={styles.navigationBar}>
-                            <div className={styles.mobileMenuButton}>
-                                <NavItem icon={<DownIcon />} iconPosition={'right'} onClick={handleMobileMenuToggle}>
-                                    {codeExamplesList[activeIndex].children}
-                                </NavItem>
-
-                                <SidebarMenu
-                                    before={
-                                        <SidebarMenuHeader>
-                                            <div className={darkTextCn('rs-text-2', { hardness: 'hard' })}>
-                                                Code examples
-                                            </div>
-                                        </SidebarMenuHeader>
-                                    }
-                                    isOpen={mobileMenuVisible}
-                                    items={codeExamplesList}
-                                    activeIndex={activeIndex}
-                                    onClose={() => setMobileMenuVisible(false)}
-                                    onItemClick={(item, i) => handleMobileMenuItemClick(i)}
-                                />
-                            </div>
-
-                            <div className={styles.tabList}>
-                                {codeExamplesList.map((item, index) => (
+                <div className={styles.whyKotlinMobileWrapper}>
+                    <div className={cn('ktl-layout', 'ktl-layout--center')}>
+                        <div className={styles.codeExamples}>
+                            <div className={styles.navigationBar}>
+                                <div className={styles.mobileMenuButton}>
                                     <NavItem
-                                        key={index}
-                                        onClick={() => setActiveIndex(index)}
-                                        active={activeIndex === index}
+                                        icon={<DownIcon />}
+                                        iconPosition={'right'}
+                                        onClick={handleMobileMenuToggle}
                                     >
-                                        {item.children}
+                                        {codeExamplesList[activeIndex].children}
                                     </NavItem>
-                                ))}
-                            </div>
 
-                            <div className={styles.controlButtons}>
-                                <div className={styles.openInPlaygoundButton}>
-                                    <NavItem onClick={handleOpenInPlaygroundButton} icon={<CodeIcon />}>
-                                        Open in Playground
-                                    </NavItem>
+                                    <SidebarMenu
+                                        before={
+                                            <SidebarMenuHeader>
+                                                <div className={darkTextCn('rs-text-2', { hardness: 'hard' })}>
+                                                    Code examples
+                                                </div>
+                                            </SidebarMenuHeader>
+                                        }
+                                        isOpen={mobileMenuVisible}
+                                        items={mobileMenuItems}
+                                        activeIndex={activeIndex}
+                                        onClose={() => setMobileMenuVisible(false)}
+                                        onItemClick={(item, i) => handleMobileMenuItemClick(i)}
+                                    />
                                 </div>
 
-                                <NavItem icon={<PlayIcon />} onClick={handleRunButton}>
-                                    Run
-                                </NavItem>
+                                <div className={styles.tabList}>
+                                    {codeExamplesList.map((item, index) => (
+                                        <NavItem
+                                            key={index}
+                                            onClick={() => setActiveIndex(index)}
+                                            active={activeIndex === index}
+                                        >
+                                            {item.children}
+                                        </NavItem>
+                                    ))}
+                                </div>
+
+                                <div className={styles.controlButtons}>
+                                    <div className={styles.openInPlaygoundButton}>
+                                        <NavItem onClick={handleOpenInPlaygroundButton} icon={<CodeIcon />}>
+                                            Open in Playground
+                                        </NavItem>
+                                    </div>
+
+                                    <NavItem icon={<PlayIcon />} onClick={handleRunButton}>
+                                        Run
+                                    </NavItem>
+                                </div>
+                            </div>
+
+                            <div className="tab-content kotlin-code-examples-section">
+                                <ContentSwitcher index={activeIndex}>
+                                    {codeExamplesList.map((item, index) => (
+                                        <div className={styles.tab} key={index} tabIndex={-1}>
+                                            <CodeBlock ref={codeInstanceRef} targetPlatform={item.targetPlatform}>
+                                                {item.codeExample}
+                                            </CodeBlock>
+                                        </div>
+                                    ))}
+                                </ContentSwitcher>
                             </div>
                         </div>
 
-                        <div className="tab-content kotlin-code-examples-section">
-                            <ContentSwitcher index={activeIndex}>
-                                {codeExamplesList.map((item, index) => (
-                                    <div className={styles.tab} key={index} tabIndex={-1}>
-                                        <CodeBlock ref={codeInstanceRef} targetPlatform={item.targetPlatform}>
-                                            {item.codeExample}
-                                        </CodeBlock>
-                                    </div>
-                                ))}
-                            </ContentSwitcher>
-                        </div>
+                        <Button
+                            mode={'outline'}
+                            size={'l'}
+                            className={styles.getStartedButton}
+                            href={'docs/getting-started.html'}
+                        >
+                            Get started
+                        </Button>
                     </div>
-
-                    <Button
-                        mode={'outline'}
-                        size={'l'}
-                        className={styles.getStartedButton}
-                        href={'docs/getting-started.html'}
-                        tabIndex={1}
-                    >
-                        Get started
-                    </Button>
                 </div>
             </section>
         </ThemeProvider>

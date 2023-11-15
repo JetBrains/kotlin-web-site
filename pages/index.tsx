@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Link from 'next/link';
 
@@ -49,6 +49,7 @@ import news3 from '../latest-news/news-2.png';
 import news4 from '../latest-news/news-3.png';
 
 import releasesDataRaw from '../data/releases.yml';
+
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const newsImages = [news1, news2, news3, news4];
@@ -127,6 +128,10 @@ function Index() {
         ...item,
         image: newsImages[i],
     }));
+
+    useEffect(() => {
+        document.querySelector('body').classList.add('dark-theme');
+    });
 
     return (
         <>

@@ -26,5 +26,7 @@ body._no-scroll {
 }
 
 body {
-    background: #19191C;
+    &.dark-theme {
+        background: #19191C;
+    }
 }
