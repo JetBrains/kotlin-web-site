@@ -21,13 +21,13 @@ All you need to do is to [change the Kotlin version](configure-build-for-eap.md)
 
 ## Kotlin K2 compiler
 
-JetBrains team is still working on stabilization of the new Kotlin K2 compiler.
+The JetBrains team is still working on stabilization of the new Kotlin K2 compiler.
 The new Kotlin K2 compiler will bring major performance improvements, speed up new language feature development,
 unify all platforms that Kotlin supports, and provide a better architecture for multiplatform projects.
 
 The K2 compiler is in [Beta](components-stability.md) for all target platforms: JVM, Native, Wasm, and JS.
 The JetBrains team has ensured the quality of the new compiler by successfully compiling dozens of user and internal projects.
-A large number of users are also involved in the stabilization process, trying out the new K2 compiler in their projects and reporting any problems they find.
+A large number of users are also involved in the stabilization process, trying the new K2 compiler in their projects and reporting any problems they find.
 
 ## What to expect from upcoming Kotlin EAP releases
 
@@ -36,10 +36,10 @@ If you are currently using K2 in your project,
 we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
 [Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
 
-> Despite the fact that the Kotlin K2 compiler is in Beta for all targets, it is not recommended to use it in production projects.
-> The reason is K2 binaries poisoning: we need to ensure that code compiled with different versions of Kotlin maintains binary compatibility with the K2 binaries.
+> Despite the fact that the Kotlin K2 compiler is in Beta for all targets, it is not recommended to use it in production.
+> This is due to K2 binaries poisoning: we need to ensure that code compiled with different versions of Kotlin maintains binary compatibility with K2 binaries.
 > 
-> You can start using the K2 compiler in production starting with **Kotlin 2.0.0-RC1**.
+> You can start using the K2 compiler in production starting from **Kotlin 2.0.0-RC1**.
 >
 {type="warning"}
 
@@ -105,9 +105,9 @@ We would appreciate any feedback you may have!
 
 ## How to update to Kotlin %kotlinEapVersion%
 
-Starting with Kotlin 2.0.0-Beta1, the IntelliJ Kotlin plugin is distributed as a bundled plugin only 
-It means, you can’t install the plugin from JetBrains Marketplace anymore.
-It will bring more frequent updates, ensuring that the latest stable IntelliJ IDEA and Android Studio consistently support Kotlin versions released.
+Starting from Kotlin 2.0.0-Beta1, the IntelliJ Kotlin plugin is distributed as a bundled plugin only.
+This means that you can’t install the plugin from JetBrains Marketplace anymore.
+With this change you will receive more frequent updates, ensuring that the latest stable IntelliJ IDEA and Android Studio versions consistently support the Kotlin versions that are released.
 The bundled plugin supports upcoming Kotlin EAP releases.
 
 To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
