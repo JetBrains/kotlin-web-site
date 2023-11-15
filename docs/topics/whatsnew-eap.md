@@ -2,49 +2,94 @@
 
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
-> This document doesn't cover all of the features of the Early Access Preview (EAP) release, but it highlights the latest
-> ones and some major improvements.
+> This document doesn't cover all of the features of the Early Access Preview (EAP) release, 
+> but it highlights some major improvements.
 >
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
 {type="note"}
 
-The Kotlin %kotlinEapVersion% release is out!
+
+The Kotlin %kotlinEapVersion% release is out! 
+It mostly covers stabilization of the new Kotlin K2 compiler, 
+which reached its **Beta** status for all targets since 1.9.20.
 
 ## IDE support
 
-The Kotlin plugins that support %kotlinEapVersion% are available for:
+The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest IntelliJ IDEA and Android Studio. 
+You don’t need to update the Kotlin plugin in your IDE. 
+All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
 
-| IDE            | Supported versions                                     |
-|----------------|--------------------------------------------------------|
-| IntelliJ IDEA  | 2023.1.x, 2023.2.x                                     |
-| Android Studio | Hedgehog (2023.1.1 Beta 3), Iguana (2023.2.1 Canary 2) |
+## Kotlin K2 compiler
 
-## Kotlin K2 compiler updates
+JetBrains team is still working on stabilization of the new Kotlin K2 compiler.
+The new Kotlin K2 compiler will bring major performance improvements, speed up new language feature development,
+unify all platforms that Kotlin supports, and provide a better architecture for multiplatform projects.
 
-### Preview kapt compiler plugin with K2
+The K2 compiler is in [Beta]() for all target platforms: JVM, Native, Wasm, and JS.
+The JetBrains team has ensured the quality of the new compiler by successfully compiling dozens of user and internal projects.
+A large number of users are also involved in the stabilization process, trying out the new K2 compiler in their projects and reporting any problems they find.
 
-> Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md).
-> Opt-in is required (see details below), and you should use it only for evaluation purposes.
+## What to expect from upcoming Kotlin EAP releases
+
+The upcoming 2.0.0-Beta2 and 2.0.0-Beta3 releases will introduce increased stability to the K2 compiler.
+If you are currently using K2 in your project, 
+we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
+[Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
+
+If you are still undecided, now is an opportune time to give it a [try in your project](#how-to-enable-the-kotlin-k2-compiler).
+
+> Despite the fact that the Kotlin K2 compiler is in Beta for all targets, it is not recommended to use it in production projects.
+> You can start using the K2 compiler in production starting with Kotlin 2.0.0-RC1.
 >
 {type="warning"}
 
-In 1.9.20-RC, you can try using the [kapt compiler plugin](kapt.md) with the K2 compiler.
-To use the K2 compiler in your project, add the following options to your `gradle.properties` file:
+## Current K2 compiler limitations
 
-```text
-kotlin.experimental.tryK2=true
-kapt.use.k2=true
-```
+Enabling K2 in your Gradle project comes with certain limitations that can affect projects using Gradle versions below 8.3 in the following cases:
 
-Alternatively, you can enable K2 for kapt by completing the following steps:
-1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `2.0`.
-2. In your `gradle.properties` file, add `kapt.use.k2=true`.
+* Compilation of source code from `buildSrc`.
+* Compilation of Gradle plugins in included builds.
+* Compilation of other Gradle plugins if they are used in projects with Gradle versions below 8.3.
+* Building Gradle plugin dependencies.
 
-If you encounter any issues when using kapt with the K2 compiler, please report them to our
-[issue tracker](http://kotl.in/issue).
+If you encounter any of the problems mentioned above, you can take the following steps to address them:
 
-### How to enable the Kotlin K2 compiler
+* Set the language version for `buildSrc`, any Gradle plugins, and their dependencies:
+
+   ```kotlin
+   kotlin {
+       compilerOptions {
+           languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+           apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+       }
+   }
+   ```
+
+* Update the Gradle version in your project to 8.3 when it becomes available.
+
+## Compiler plugins support
+
+Currently, the Kotlin K2 compiler supports the following plugins:
+
+* [kapt](whatsnew1920.md#preview-kapt-compiler-plugin-with-k2)
+* [serialization](serialization.md)
+* [`all-open`](all-open-plugin.md)
+* [`no-arg`](no-arg-plugin.md)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [Lombok](lombok.md)
+* [AtomicFU](https://github.com/Kotlin/kotlinx-atomicfu)
+* [Jetpack Compose compiler plugin](https://developer.android.com/jetpack/compose)
+* [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
+* [`jvm-abi-gen`](https://github.com/JetBrains/kotlin/tree/master/plugins/jvm-abi-gen)
+
+> If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
+>
+{type="tip"}
+
+## How to enable the Kotlin K2 compiler
+
+### Enable K2 in Gradle
 
 To enable and test the Kotlin K2 compiler, use the new language version with the following compiler option:
 
@@ -56,15 +101,30 @@ You can specify it in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
-   sourceSets.all {
-       languageSettings {
-           languageVersion = "2.0"
-       }
-   }
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+        }
+    }
 }
 ```
 
-### Leave your feedback on the new K2 compiler
+### Enable K2 in Maven
+
+To enable and test the Kotlin K2 compiler, update the `<project/>` section of your `pom.xml` file:
+
+```xml
+<properties>
+    <kotlin.compiler.languageVersion>2.0</kotlin.compiler.languageVersion>
+</properties>
+```
+
+### Enable K2 in JPS
+
+To enable and test the Kotlin K2 compiler in IntelliJ IDEA, go to **Settings** | **Build, Execution, Deployment** |
+**Compiler** | **Kotlin Compiler** and update the **Language Version** field to `2.0 (experimental)`.
+
+## Leave your feedback on the new K2 compiler
 
 We would appreciate any feedback you may have!
 
@@ -78,13 +138,10 @@ We would appreciate any feedback you may have!
 
 ## How to update to Kotlin %kotlinEapVersion%
 
-Install Kotlin %kotlinEapVersion% in any of the following ways:
+Starting with Kotlin 2.0.0-Beta1, the IntelliJ Kotlin plugin is distributed as a bundled plugin only.
+It means, you can’t install the plugin from JetBrains Marketplace anymore.
+It will bring more frequent updates, ensuring that the latest stable IntelliJ IDEA and Android Studio consistently support Kotlin versions
+released after them before the subsequent stable IDE release.
+The bundled plugin supports upcoming Kotlin EAP releases.
 
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to %kotlinEapVersion% as
-  soon as it becomes available.
-* If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting
-  **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest
-  preview release. Check out [these instructions](install-eap-plugin.md) for details.
-
-Once you've installed %kotlinEapVersion% don't forget to [change the Kotlin version](configure-build-for-eap.md)
-to %kotlinEapVersion% in your build scripts.
+To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
