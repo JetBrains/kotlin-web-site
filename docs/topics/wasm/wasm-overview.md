@@ -1,11 +1,11 @@
 [//]: # (title: Kotlin Wasm)
 
-> Kotlin Wasm is [Experimental](components-stability.md).
+> Kotlin Wasm is [Alpha](components-stability.md).
 > It may be changed at any time. Use it only for evaluation purposes.
 >
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{type="note"}
 
 [WebAssembly (Wasm)](https://webassembly.org) is a binary instruction format for a stack-based virtual machine.
 This format is platform-independent because it runs on its own virtual machine.
@@ -32,11 +32,11 @@ Kotlin/Wasm allows you to both use JavaScript code and Browser API from Kotlin, 
 
 ## Compose Multiplatform for Web
 
-> Web support is [Experimental](components-stability.md) and may be changed at any time. Use it only for evaluation purposes.
+> Web support is in [Alpha](components-stability.md) and may be changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
 > If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 >
-{type="warning"}
+{type="note"}
 
 Compose Multiplatform for Web is based on new Kotlin/Wasm target.
 You can create a Kotlin Multiplatform project and experiment with sharing your mobile or desktop UIs with the web.
