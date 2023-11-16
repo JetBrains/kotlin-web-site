@@ -1,9 +1,5 @@
 [//]: # (title: Multiplatform Gradle DSL reference)
 
-> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
->
-{type="note"}
-
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
 for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-get-started.md).
