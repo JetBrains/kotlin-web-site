@@ -27,10 +27,10 @@ platforms (Fleet's Smart Mode selects the appropriate code-processing engine). T
 on all the platforms your project targets. You can also navigate between Kotlin Multiplatform code and code written in other
 languages interoperable with Kotlin.
 
-See the [Use Fleet for Multiplatform development](fleet.md) tutorial to get started.
+See the [Use Fleet for Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html) tutorial to get started.
 
 The Kotlin Multiplatform support in Fleet is still in the early stages of development. You may face issues and
-limitations, but we're committed to fixing them based on [your feedback](fleet.md#leave-feedback).
+limitations, but we're committed to fixing them based on [your feedback](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html#leave-feedback).
 
 ## Android Studio
 
