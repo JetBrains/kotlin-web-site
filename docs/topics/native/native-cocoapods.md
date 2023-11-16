@@ -257,19 +257,14 @@ name, specify it explicitly:
         moduleName = "AppsFlyerLib"
     }
     ```
-#### Check the definition file
+#### Specify headers
 
-If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
-modules with headers with the pointing main header:
+If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, specify the main header explicitly:
 
 ```kotlin
-tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMessages").configure {
-    doLast {
-        outputFile.writeText("""
-            language = Objective-C
-            headers = GNSMessages.h
-        """.trimIndent())
-    }
+pod("NearbyMessages") {
+    version = "1.1.1"
+    headers = "GNSMessages.h"
 }
 ```
 
