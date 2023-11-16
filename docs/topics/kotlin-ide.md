@@ -17,6 +17,9 @@ Read more about IntelliJ IDEA in the [official documentation](https://www.jetbra
 
 ## Fleet
 
+> Jetbrains Fleet is currently in [Public Preview](https://blog.jetbrains.com/fleet/2022/10/introducing-the-fleet-public-preview/), and at this stage is free to use.
+{type="note"}
+
 [JetBrains Fleet](https://www.jetbrains.com/fleet/) is a polyglot IDE that provides advanced support for Kotlin and a streamlined experience for Kotlin developers.
 
 You can use Fleet as a code editor to quickly make targeted edits, or turn on Smart Mode and transform it into a full-fledged
@@ -28,9 +31,6 @@ on all the platforms your project targets. You can also navigate between Kotlin 
 languages interoperable with Kotlin.
 
 See the [Use Fleet for Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html) tutorial to get started.
-
-The Kotlin Multiplatform support in Fleet is still in the early stages of development. You may face issues and
-limitations, but we're committed to fixing them based on [your feedback](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html#leave-feedback).
 
 ## Android Studio
 
