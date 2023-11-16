@@ -6,7 +6,7 @@ The [Kotlin/JS compiler](js-overview.md) already provides the ability to transpi
 Kotlin/Wasm interoperability with JavaScript is designed in a similar way, taking into account that JavaScript is a
 dynamically typed language compared to Kotlin. Follow our guide to configure interoperability in your projects.
 
-Remember that Kotlin/Wasm is still [Experimental](components-stability.md#stability-levels-explained), and some features
+Remember that Kotlin/Wasm is in [Alpha](components-stability.md#stability-levels-explained), and some features
 are not supported yet. We're planning to improve interoperability with JavaScript by implementing some of the missing
 features or similar functionality.
 
