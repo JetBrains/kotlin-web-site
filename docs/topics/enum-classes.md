@@ -66,7 +66,7 @@ enum class IntArithmetics : BinaryOperator<Int>, IntBinaryOperator {
 fun main() {
     val a = 13
     val b = 31
-    for (f in IntArithmetics.values()) {
+    for (f in IntArithmetics.entries) {
         println("$f($a, $b) = ${f.apply(a, b)}")
     }
 }
@@ -78,21 +78,21 @@ interface by default. Constants in the enum class are defined in the natural ord
 
 ## Working with enum constants
 
-Enum classes in Kotlin have synthetic methods for listing the defined enum constants and getting an enum constant by 
+Enum classes in Kotlin have synthetic properties and methods for listing the defined enum constants and getting an enum constant by 
 its name. The signatures of these methods are as follows (assuming the name of the enum class is `EnumClass`):
 
 ```kotlin
 EnumClass.valueOf(value: String): EnumClass
-EnumClass.values(): Array<EnumClass>
+EnumClass.entries: EnumEntries<EnumClass> // specialized List<EnumClass>
 ```
 
-Below is an example of these methods in action:
+Below is an example of them in action:
 
 ```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
-    for (color in RGB.values()) println(color.toString()) // prints RED, GREEN, BLUE
+    for (color in RGB.entries) println(color.toString()) // prints RED, GREEN, BLUE
     println("The first color is: ${RGB.valueOf("RED")}") // prints "The first color is: RED"
 }
 ```
@@ -101,19 +101,7 @@ fun main() {
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
 
-In Kotlin 1.9.0, the `entries` property is introduced as a replacement for the `values()` function. The 
-`entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
-are working with [collections](collections-overview.md) and can help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
-
-For example:
-```kotlin
-enum class RGB { RED, GREEN, BLUE }
-
-fun main() {
-    for (color in RGB.entries) println(color.toString())
-    // prints RED, GREEN, BLUE
-}
-```
+Prior to the introduction of `entries` in Kotlin 1.9.0, the `values()` function was used to retrieve an array of enum constants.
 
 Every enum constant also has properties: [`name`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/name.html)
 and [`ordinal`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/ordinal.html), for obtaining its name and 
