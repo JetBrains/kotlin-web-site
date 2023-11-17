@@ -756,3 +756,23 @@
     - /docs/kmm-understand-project-structure.html
     - /docs/mpp-discover-project.html
   to: /docs/multiplatform-discover-project.html
+
+- from:
+    - /docs/multiplatform-mobile-android-dependencies.html
+    - /docs/kmm-add-dependencies.html
+    - /docs/multiplatform-mobile-add-dependencies.html
+  to: /docs/multiplatform-android-dependencies.html
+
+- from:
+    - /docs/multiplatform-ios-android-dependencies.html
+  to: /docs/multiplatform-ios-dependencies.html
+
+- from:
+    - /docs/multiplatform-mobile-introduce-your-team.html
+    - /docs/kmm-introduce-your-team.html
+  to: /docs/multiplatform-introduce-your-team.html
+
+- from:
+    - /docs/multiplatform-mobile-plugin-releases.html
+    - /docs/kmm-plugin-releases.html
+  to: /docs/multiplatform-plugin-releases.html

@@ -336,7 +336,7 @@ Starting with Kotlin 1.7.0, you no longer need to install the `cocoapods-generat
 CocoaPods in your projects.
 
 Previously, you needed to install both the CocoaPods dependency manager and the `cocoapods-generate` plugin to use
-CocoaPods, for example, to handle [iOS dependencies](multiplatform-mobile-ios-dependencies.md#with-cocoapods) in
+CocoaPods, for example, to handle [iOS dependencies](multiplatform-ios-dependencies.md#with-cocoapods) in
 Kotlin Multiplatform Mobile projects.
 
 Now setting up the CocoaPods integration is easier, and we've resolved the issue when `cocoapods-generate` couldn't be

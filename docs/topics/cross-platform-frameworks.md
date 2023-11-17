@@ -8,7 +8,7 @@ Interest has steadily increased over the period from 2010 to date, as this Googl
 
 ![Google Trends chart illustrating the interest in cross-platform app development](google-trends-crossplatform.png){width=700}
 
-The growing popularity of the rapidly advancing [cross-platform mobile development](https://kotlinlang.org/docs/cross-platform-mobile-development.html#kotlin-multiplatform-mobile) technology has resulted in many new tools emerging on the market. With many options available, it can be challenging to pick the one that will best suit your needs. To help you find the right tool, we've put together a list of the six best cross-platform app development frameworks and the features that make them great. At the end of this article, you will also find a few key things to pay attention to when choosing a multiplatform development framework for your business.
+The growing popularity of the rapidly advancing [cross-platform mobile development](cross-platform-mobile-development.md#kotlin-multiplatform-mobile) technology has resulted in many new tools emerging on the market. With many options available, it can be challenging to pick the one that will best suit your needs. To help you find the right tool, we've put together a list of the six best cross-platform app development frameworks and the features that make them great. At the end of this article, you will also find a few key things to pay attention to when choosing a multiplatform development framework for your business.
 
 ## What is a cross-platform app development framework?
 

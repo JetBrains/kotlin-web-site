@@ -79,4 +79,4 @@ Check out other resources on adding dependencies in multiplatform projects and l
 
 * [Adding dependencies in the official Android documentation](https://developer.android.com/studio/build/dependencies)
 * [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
-* [Adding iOS dependencies](multiplatform-mobile-ios-dependencies.md)
+* [Adding iOS dependencies](multiplatform-ios-dependencies.md)

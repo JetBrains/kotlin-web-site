@@ -269,4 +269,4 @@ Check out other resources on adding dependencies in multiplatform projects and l
 
 * [Connecting platform-specific libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries)
 * [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
-* [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)
+* [Adding Android dependencies](multiplatform-android-dependencies.md)

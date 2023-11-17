@@ -315,5 +315,5 @@ kotlin {
 
 Check out other resources on adding dependencies in multiplatform projects and learn more about:
 
-* [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)
-* [Adding iOS dependencies](multiplatform-mobile-ios-dependencies.md)
+* [Adding Android dependencies](multiplatform-android-dependencies.md)
+* [Adding iOS dependencies](multiplatform-ios-dependencies.md)
