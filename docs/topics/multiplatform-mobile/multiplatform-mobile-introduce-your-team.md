@@ -67,10 +67,6 @@ Also, in basic scenarios, you simply need to configure your project at the start
 
 When only the Android part of the team works with shared code, the iOS developers don't even need to learn Kotlin. But when you are ready for your team to move to the next stage, where everyone contributes to the shared code, making the transition won't take much time. The similarities between the syntax and functionality of Swift and Kotlin greatly reduce the work required to learn how to read and write shared Kotlin code. [Try it yourself!](https://play.kotlinlang.org/koans/overview)
 
-**Q: I heard that Kotlin Multiplatform is experimental technology. Does that mean that we shouldn't use it for production?**
-
-A: Experimental status means we and the whole Kotlin community are just trying out an idea, but if it doesn't work, it may be dropped anytime. However, after the release of Kotlin 1.4, **Kotlin Multiplatform is in Alpha** status. This means the Kotlin team is fully committed to working to improve and evolve this technology and will not suddenly drop it. However, before going Beta, there could be some migration issues yet. But even experimental status doesn't prevent a feature from being used successfully in production, as long as you understand all the risks. Check [the Kotlin evolution page](kotlin-evolution.md) for information about the stability statuses of Kotlin Multiplatform components.
-
 **Q: There are not enough multiplatform libraries to implement the business logic, it's much easier to find native alternatives.**
 
 A: Of course, we can't compare the number of multiplatform libraries with React Native, for example. But it took five years for React Native to expand their ecosystem to its current size. Kotlin Multiplatform is still young, but the ecosystem has tremendous potential as there are already a lot of modern libraries written in Kotlin that can be easily ported to multiplatform. 
