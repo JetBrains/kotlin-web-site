@@ -31,7 +31,7 @@ export class CommunityEvent {
         this.lang = data.lang || DEFAULT_LANG;
         this.content = data.content;
         this.startDate = new Date(data.startDate + 'T00:00:00');
-        this.endDate = new Date(data.endDate + 'T00:00:00');
+        this.endDate = new Date(data.endDate + 'T23:59:59');
         this.formattedDate = formatDate(this.startDate, this.endDate);
     }
 

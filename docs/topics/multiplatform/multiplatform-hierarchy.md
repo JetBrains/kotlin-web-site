@@ -197,11 +197,11 @@ for example, between a macOS and a JVM target.
             jvmAndMacos {
                 dependsOn(commonMain.get())
             }
-            jvmAndMacos  {
-                dependsOn(macosArm64Main.get())
+            macosArm64Main {
+                dependsOn(jvmAndMacos.get())
             }
-            jvmAndMacos  {
-                dependsOn(jvmMain.get())
+            jvmMain {
+                dependsOn(jvmAndMacos.get())
             }
         } 
     }
@@ -275,15 +275,10 @@ kotlin {
         val desktopMain by creating {
             dependsOn(commonMain.get())
         }
-        val linuxX64Main by getting {
-            dependsOn(desktopMain)
-        }
-        val mingwX64Main by getting {
-            dependsOn(desktopMain)
-        }
-        val macosX64Main by getting {
-            dependsOn(desktopMain)
-        }
+        
+        linuxX64Main.get().dependsOn(desktopMain)
+        mingwX64Main.get().dependsOn(desktopMain)
+        macosX64Main.get().dependsOn(desktopMain)
     }
 }
 ```
