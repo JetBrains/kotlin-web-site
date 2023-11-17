@@ -151,7 +151,36 @@ Here you'll learn how to develop and publish a multiplatform library:
    * [Introduction to Kotlin Multiplatform](multiplatform-get-started.md).
    * [Kotlin Multiplatform supported platforms](multiplatform-dsl-reference.md#targets).
    * [Kotlin Multiplatform programming benefits](multiplatform.md).
+<!--
+```kotlin
+// Tests
+// The following example works for JVM only
+import org.junit.Test
+import kotlin.test.*
 
+class SampleTest {
+    @Test
+    fun `test sum`() {                  // Write test names with whitespaces in backticks
+        val a = 1
+        val b = 41
+        assertEquals(42, sum(a, b), "Wrong result for sum($a, $b)")
+    }
+
+    @Test
+    fun `test computation`() {
+        assertTrue("Computation failed") {
+            setup()                     // Use lambda returning the test subject
+            compute()
+        }
+    }
+}
+
+// Sources
+fun sum(a: Int, b: Int) = a + b
+fun setup() {}
+fun compute() = true
+```
+-->
 4. **Join the Kotlin Multiplatform community:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
