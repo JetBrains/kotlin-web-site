@@ -17,7 +17,7 @@ The compiler automatically derives the following members from all properties dec
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 
-* The primary constructor needs to have at least one parameter.
+* The primary constructor must have at least one parameter to provide the necessary data for generated methods like `toString()`, `equals()`, `hashCode()`, and `copy()`. Without parameters, these methods would lack the required data, undermining the main purpose and functionality of a data class.
 * All primary constructor parameters need to be marked as `val` or `var`.
 * Data classes cannot be abstract, open, sealed, or inner.
 
