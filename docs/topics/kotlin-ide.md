@@ -21,8 +21,8 @@ Read more about IntelliJ IDEA in the [official documentation](https://www.jetbra
 {type="note"}
 
 [JetBrains Fleet](https://www.jetbrains.com/fleet/) is a polyglot IDE and code editor that provides advanced support for Kotlin
-and a streamlined experience for Kotlin developers. You can use Fleet as a code editor to quickly make targeted edits, or turn on Smart Mode and transform it into a full-fledged
-IDE with code intelligence features.
+and a streamlined experience for Kotlin developers. You can use Fleet as a code editor to quickly make targeted edits,
+or turn on Smart Mode and transform it into a full-fledged IDE with code intelligence features.
 
 On top of that, with Fleet, you can quickly open and run Kotlin Multiplatform projects targeting the Android, iOS, and desktop
 platforms (Fleet's Smart Mode selects the appropriate code-processing engine). The IDE supports testing and debugging your code
@@ -69,5 +69,6 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
+* [Create a Multiplatform project with Fleet](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html)
 * [Create your first cross-platform mobile app using Android Studio](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
