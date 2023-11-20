@@ -561,21 +561,21 @@ kotlin {
 }
 ```
 
-The implementation comes with a non-trivial configuration complexity:
+The implementation comes with non-trivial configuration complexity:
 
 * You have to set up Gradle attributes on the `:shared` side and each consumer's side. Otherwise, Gradle can't
-  resolve dependencies in such projects because it's not clear whether the consumer should receive the Ktor-based
-  or the OkHttp-based implementation without additional information.
+  resolve dependencies in such projects because without additional information  it's not clear whether the consumer
+  should receive the Ktor-based or the OkHttp-based implementation.
 * You have to set up the `commonJvmMain` source set manually.
-* The configuration involves a handful of low-level Gradle and the Kotlin Gradle plugin abstractions and APIs.
+* The configuration involves a handful of low-level Gradle and Kotlin Gradle plugin abstractions and APIs.
 
 **What's the best practice now?**
 
-The configuration gets complicated because Ktor-based and OkHttp-based implementations are
+The configuration is complex because Ktor-based and OkHttp-based implementations are
 _in the same Gradle project_. In many cases, it's possible to extract those parts into separate Gradle projects.
-Here's a general outline of this refactoring:
+Here's a general outline of such as a refactoring:
 
-1. Replace two duplicating targets from the original project with a single target. If you had a shared source set between
+1. Replace two duplicated targets from the original project with a single target. If you had a shared source set between
    these targets, move its sources and configuration to the default source set of the newly created target:
 
     ```kotlin
@@ -605,7 +605,7 @@ Here's a general outline of this refactoring:
    * Move the content of original target-specific source sets to their respective projects, for example,
      from `jvmKtorMain` to `ktor-impl/src`.
    * Copy the configuration of source sets: dependencies, compiler options, and so on.
-   * Add a dependency from a new Gradle project to the original one.
+   * Add a dependency from the new Gradle project to the original project.
 
     ```kotlin
     // ktor-impl/build.gradle.kts:
@@ -629,7 +629,7 @@ While this approach requires more work on the initial setup, it doesn't use any 
 the Kotlin Gradle plugin, making it easier to use and maintain the resulting build.
 
 > Unfortunately, we can't provide detailed migration steps for each case. If the instructions above don't work
-> for you, describe your case in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-59316).
+> for you, describe your use case in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-59316).
 >
 {type="tip"}
 
@@ -637,7 +637,7 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 
 Here's the planned deprecation cycle:
 
-* 1.9.20: introduce a deprecation warning when similar multiple targets are used in Kotlin Multiplatform projects
+* 1.9.20: introduce a deprecation warning when multiple similar targets are used in Kotlin Multiplatform projects
 * 2.0: report an error in such cases, causing the build to fail
 
 <anchor name="jvmWithJava-preset-deprecation"></anchor>
@@ -699,14 +699,14 @@ respectively. However, it was possible to override that by manually configuring 
 
 Maintaining such configuration requires extra effort and knowledge about multiplatform build internals. Additionally,
 it decreases code readability and reusability of the code because you need to read the particular buildscript
-to be sure whether the `commonMain` is the root of the `main` source set hierarchy.
+to be sure whether `commonMain` is the root of the `main` source set hierarchy.
 
 Therefore, accessing `dependsOn` on `commonMain` and `commonTest` is now deprecated.
 
 **What's the best practice now?**
 
 Suppose you need to migrate to 1.9.20 the `customCommonMain` source set that uses `commonMain.dependsOn(customCommonMain)`.
-In most cases, `customCommonMain` participates in the same compilations as `commonMain`, so you can merge the
+In most cases, `customCommonMain` participates in the same compilations as `commonMain`, so you can merge
 `customCommonMain` into `commonMain`:
 
 1. Copy sources of `customCommonMain` into `commonMain`.
@@ -714,10 +714,10 @@ In most cases, `customCommonMain` participates in the same compilations as `comm
 3. Add all compiler option settings of `customCommonMain` to `commonMain`.
 
 In rare cases, `customCommonMain` might be participating in more compilations than `commonMain`.
-Such configuration requires additional low-level configuration of the buildscript. If you're not sure if that's your case,
-it most likely isn't.
+Such a configuration requires additional low-level configuration of the build script. If you're not sure if that's your
+use case, it most likely isn't.
 
-If it's actually your case, "swap" these two source sets. To do that, move the sources and settings of `customCommonMain`
+If it is your use case, "swap" these two source sets by moving the sources and settings of `customCommonMain`
 to `commonMain` and vice versa.
 
 **When do the changes take effect?**
@@ -734,10 +734,10 @@ Here's the planned deprecation cycle:
 
 In the very early development stages, Kotlin Multiplatform introduced an API for working with so-called _target presets_.
 Each target preset essentially represented a factory for Kotlin Multiplatform targets. This API turned out to be largely
-redundant, as DSL functions like `jvm()` or `iosSimulatorArm64()` cover the same cases while being much more straightforward
-and concise.
+redundant, as DSL functions like `jvm()` or `iosSimulatorArm64()` cover the same use cases while being much more
+straightforward and concise.
 
-To reduce the confusion and provide a clearer guidelines, all presets-related APIs are now deprecated and will be
+To reduce the confusion and provide clearer guidelines, all presets-related APIs are now deprecated and will be
 removed from the public API of the Kotlin Gradle plugin in future releases. This includes:
 
 * The `presets` property in `org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension`
@@ -785,4 +785,4 @@ Here's the planned deprecation cycle:
 * 2.0: raise this warning to an error
 * \>2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
-  unless recompiled against the modern versions of the Kotlin Gradle plugin
+  unless recompiled against the latest versions of the Kotlin Gradle plugin
