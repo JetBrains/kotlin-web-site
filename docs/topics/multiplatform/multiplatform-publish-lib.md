@@ -127,7 +127,7 @@ kotlin {
 ```
 
 The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
-For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
+For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBarRelease`.
 
 The default publishing setup is as follows:
 * If the published variants have the same build type (for example, all of them are `release` or`debug`),

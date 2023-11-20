@@ -62,7 +62,7 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | **Component**                                         | **Status**   | **Status since version** | **Comment**                                                                       |
 |-------------------------------------------------------|--------------|--------------------------|-----------------------------------------------------------------------------------|
 | Kotlin/JVM                                            | Stable       | 1.0                      |                                                                                   |
-| Kotlin K2 (JVM)                                       | Alpha        | 1.7                      |                                                                                   |
+| Kotlin K2 (JVM, Native, Wasm, JS)                     | Beta         | 1.9.20                   |                                                                                   |
 | kotlin-stdlib (JVM)                                   | Stable       | 1.0                      |                                                                                   |
 | Coroutines                                            | Stable       | 1.3                      |                                                                                   |
 | kotlin-reflect (JVM)                                  | Beta         | 1.0                      |                                                                                   |

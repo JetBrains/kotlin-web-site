@@ -280,8 +280,8 @@ When configuring the Kotlin daemon's JVM arguments, note that:
 
 ## The new Kotlin compiler
 
-The new Kotlin K2 compiler is in [Alpha](components-stability.md#stability-levels-explained).
-It has basic support for Kotlin JVM, JS, and Native projects.
+The new Kotlin K2 compiler is in [Beta](components-stability.md#stability-levels-explained).
+It has basic support for Kotlin JVM, Native, Wasm, and JS projects.
 
 The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
 bring performance improvements, and provide an API for compiler extensions.
