@@ -13,7 +13,6 @@ Use Maven central repository to add Kotlin libraries to your project:
   }
   ```
 
-
 | Supported libraries           |
 |-------------------------------|
 | stdlib                        | 
