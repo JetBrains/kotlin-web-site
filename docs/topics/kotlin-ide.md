@@ -1,7 +1,7 @@
 [//]: # (title: IDEs for Kotlin development)
 [//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA, Fleet and Android Studio. Eclipse has the community supported Kotlin plugin.)
 
-JetBrains provides the official Kotlin plugin for [IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](https://www.jetbrains.com/fleet/), and [Android Studio](#android-studio).
+JetBrains provides the official Kotlin plugin for [IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
 
 Other IDEs and code editors, such as [Eclipse](#eclipse), Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
