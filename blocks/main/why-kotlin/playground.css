@@ -1,5 +1,6 @@
-.kotlin-code-examples-section {
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
+.kotlin-code-examples-section {
     .CodeMirror,
     .CodeMirror pre,
     .CodeMirror .CodeMirror-code,
@@ -15,6 +16,7 @@
 
     .CodeMirror-scroll {
         height: auto !important;
+        min-height: 300px;
     }
 
     .CodeMirror-hint {
@@ -53,7 +55,7 @@
     }
 
     .code-area {
-        min-height: 300px;
+        /*min-height: 400px;*/
     }
 
     .code-output {
@@ -86,6 +88,12 @@
 
     .run-button {
         display: none;
+    }
+
+    @media (--ktl-tl) {
+        .CodeMirror-scroll {
+            min-height: 360px;
+        }
     }
 }
 

@@ -29,7 +29,7 @@
         display: block;
         content: "";
         background: var(--rs-card-background-color, #303033);
-        border-radius: 16px;
+        border-radius: 8px;
         grid-column: var(--ktl-news-grid-column);
         grid-row: var(--ktl-news-grid-row) / calc(var(--ktl-news-grid-row) + 4);
         position: relative;
@@ -97,7 +97,7 @@
     }
     .item {
         background: var(--rs-card-background-color, #303033);
-        border-radius: 16px;
+        border-radius: 8px;
         margin-top: var(--ktl-box-block-m);
     }
     .item:hover {

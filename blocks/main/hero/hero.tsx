@@ -37,8 +37,8 @@ export const HeroSection: FC<Props> = ({ children }) => {
                             />
 
                             <div className={styles.info}>
-                                <Button size={'l'} href="/docs/getting-started.html">
-                                    Get Started
+                                <Button size={'l'} href="/docs/getting-started.html" className={styles.getStartedButton}>
+                                    Get started
                                 </Button>
                                 <div className={styles.developer}>
                                     <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}

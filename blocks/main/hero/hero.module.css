@@ -93,3 +93,10 @@
     height: 52px;
     width: 52px;
 }
+
+.getStartedButton {
+    background: #7F52FF !important;
+    &:hover {
+        background: rgba(127, 82, 255, 0.8) !important;
+    }
+}

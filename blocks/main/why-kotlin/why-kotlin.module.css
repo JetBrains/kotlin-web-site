@@ -53,14 +53,13 @@
     }
 }
 
-.tab {
-    display: block;
-}
-
 .codeExamples {
     background: #27282C;
-    min-height: 512px;
     border-radius: 8px;
+    @media (--ktl-tm-min) {
+        min-height: 512px;
+        padding-bottom: 8px;
+    }
 }
 
 .controlButtons {

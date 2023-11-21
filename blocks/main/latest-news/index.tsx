@@ -58,7 +58,7 @@ export function LatestNews({ news }: { news: NewsItem[] }) {
 
     return (
         <section className={styles.latestNews}>
-            <h2 className={cn(styles.h, textCn('rs-h2'))}>Latest News</h2>
+            <h2 className={cn(styles.h, textCn('rs-h2'))}>Latest news</h2>
             <div className={styles.news}>
                 {news.map((props, i) => (
                     <Item key={props.link} position={i} {...props} />

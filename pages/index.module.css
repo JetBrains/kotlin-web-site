@@ -10,6 +10,11 @@
     max-width: 556px;
 }
 
+.videoWrapper {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 .ctaBlock {
     margin-top: 96px;
 }

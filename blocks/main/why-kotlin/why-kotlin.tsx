@@ -80,7 +80,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
         <ThemeProvider theme={'dark'}>
             <section className={styles.whyKotlin}>
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
-                    <div className={cn(darkTextCn('rs-h1'), styles.sectionTitle)}>Why Kotlin</div>
+                    <div className={cn(darkTextCn('rs-h1'), styles.sectionTitle)}>Why Kotlin?</div>
                 </div>
 
                 <div className={styles.whyKotlinMobileWrapper}>

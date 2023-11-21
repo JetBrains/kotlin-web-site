@@ -35,6 +35,7 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
                 autoIndent={false}
                 getInstance={handleGetInstance}
                 {...(targetPlatform && { targetPlatform })}
+                className={styles.codeBlockWrapper}
             >
                 {children}
             </KotlinPlayground>
