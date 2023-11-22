@@ -45,6 +45,14 @@ If you use [Snap](https://snapcraft.io/) on Ubuntu 16.04 or later, you can insta
 sudo snap install --classic kotlin
 ```
 
+### Chocolatey
+
+On Windows, you can install the compiler from the command line using [Chocolatey](https://chocolatey.org/):
+
+```bash
+choco install kotlinc
+```
+
 ## Create and run an application
 
 1. Create a simple application in Kotlin that displays `"Hello, World!"`. In your favorite editor, create a new file called
