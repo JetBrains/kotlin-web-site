@@ -1,10 +1,10 @@
 [//]: # (title: Inline value classes)
 
-Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
-overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
+Sometimes it is necessary to create a wrapper around some types for business logic. However, it introduces runtime 
+overhead due to additional heap allocations. Moreover, if the wrapped type is a primitive, the performance hit is terrible, 
 because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
 
-To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
+To solve these issues, Kotlin introduces a special kind of class called _inline class_. 
 Inline classes are a subset of [value-based classes](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md). They don't have an identity and can only hold values.
 
 To declare an inline class, use the `value` modifier before the name of the class:
