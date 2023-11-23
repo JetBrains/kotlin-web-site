@@ -71,7 +71,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.9"}
 
 All enum classes implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface by default. Constants in the enum class are defined in the natural order. For more information, see [Ordering](collection-ordering.md).
@@ -96,7 +96,7 @@ fun main() {
     println("The first color is: ${RGB.valueOf("RED")}") // prints "The first color is: RED"
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-kotlin"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.9" id="rgb-enums-kotlin"}
 
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
@@ -112,7 +112,7 @@ enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
     //sampleStart
-    println(RGB.RED.name) // prints RED
+    println(RGB.RED.name)    // prints RED
     println(RGB.RED.ordinal) // prints 0
     //sampleEnd
 }
