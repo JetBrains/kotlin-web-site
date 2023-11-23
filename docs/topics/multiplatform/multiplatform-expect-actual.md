@@ -290,6 +290,18 @@ substitute a fake implementation in tests or provide multiple implementations on
 
 As a general rule, rely on standard language constructs wherever possible instead of using expected and actual declarations.
 
+If you do decide to use expected and actual classes, the Kotlin compiler will warn you about the Beta status
+of the feature. To suppress this warning, add the following compiler option to your Gradle build file:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        // Common compiler options applied to all Kotlin source sets
+        freeCompilerArgs.add("-Xexpect-actual-classes")
+    }
+}
+```
+
 #### Inheritance from platform classes
 
 There are special cases when using the `expect` keyword with classes may be the best approach. Let's say that
