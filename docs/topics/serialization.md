@@ -2,7 +2,7 @@
 
 _Serialization_ is the process of converting data used by an application to a format that can be transferred over a network
 or stored in a database or a file. In turn, _deserialization_ is the opposite process of reading data from an external source
-and converting it into a runtime object. Together they are an essential part of most applications that exchange
+and converting it into a runtime object. Together, they are essential to most applications that exchange
 data with third parties. 
 
 Some data serialization formats, such as [JSON](https://www.json.org/json-en.html) and 
@@ -55,7 +55,9 @@ or [Apache Avro](https://avro.apache.org/). For detailed information about avail
 
 Let's take a look at how to serialize Kotlin objects into JSON.
 
-Before starting, you'll need to configure your build script so that you can use Kotlin serialization tools in your project:
+### Add plugins and dependencies
+
+Before starting, you must configure your build script so that you can use Kotlin serialization tools in your project:
 
 1. Apply the Kotlin serialization Gradle plugin `org.jetbrains.kotlin.plugin.serialization` (or `kotlin("plugin.serialization")`
 in the Kotlin Gradle DSL).
@@ -106,10 +108,12 @@ in the Kotlin Gradle DSL).
     </tab>
     </tabs>
 
-Now you're ready to use the serialization API in your code. The API is located in the the `kotlinx.serialization` package
-and its format-specific subpackages such as `kotlinx.serialization.json`.
+Now you're ready to use the serialization API in your code. The API is located in the `kotlinx.serialization` package
+and its format-specific subpackages, such as `kotlinx.serialization.json`.
 
-First, make a class serializable by annotating it with `@Serializable`.
+### Serialize and deserialize JSON
+
+1. Make a class serializable by annotating it with `@Serializable`.
 
 ```kotlin
 import kotlinx.serialization.Serializable
@@ -118,7 +122,7 @@ import kotlinx.serialization.Serializable
 data class Data(val a: Int, val b: String)
 ```
 
-You can now serialize an instance of this class by calling `Json.encodeToString()`.
+2. Serialize an instance of this class by calling `Json.encodeToString()`.
 
 ```kotlin
 import kotlinx.serialization.Serializable
@@ -135,14 +139,15 @@ fun main() {
 
 As a result, you get a string containing the state of this object in the JSON format: `{"a": 42, "b": "str"}`
 
-You can also serialize object collections, such as lists, in a single call.
+> You can also serialize object collections, such as lists, in a single call.
+> 
+> ```kotlin
+> val dataList = listOf(Data(42, "str"), Data(12, "test"))
+> val jsonList = Json.encodeToString(dataList)
+> ```
+{type="note"}
 
-```kotlin
-val dataList = listOf(Data(42, "str"), Data(12, "test"))
-val jsonList = Json.encodeToString(dataList)
-```
-
-To deserialize an object from JSON, use the `decodeFromString()` function:
+3. Use the `decodeFromString()` function to deserialize an object from JSON:
 
 ```kotlin
 import kotlinx.serialization.Serializable
@@ -157,4 +162,15 @@ fun main() {
 }
 ```
 
+## What's next
+
 For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
+
+You can further explore various aspects of Kotlin serialization in the following resources:
+
+* [Learn more about Kotlin serialization and its core concepts.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md)
+* [Explore the built-in serializable classes of Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md)
+* [Look at serializers in more detail and see how to create custom serializers.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md)
+* [Discover how polymorphic serialization is handled in Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#open-polymorphism)
+* [Look into the various JSON features handling Kotlin serialization.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-elements)
+* [Learn more about the various experimental serialization formats supported by Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md)
