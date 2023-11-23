@@ -1,9 +1,9 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA and Android Studio. Eclipse has the community supported Kotlin plugin.)
+[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA, Fleet and Android Studio. Eclipse has the community supported Kotlin plugin.)
 
-JetBrains provides the official Kotlin plugin for two Integrated Development Environments (IDEs): [IntelliJ IDEA](#intellij-idea) and [Android Studio](#android-studio).
+JetBrains provides the official Kotlin plugin for [IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
 
-Other IDEs and source editors, such as [Eclipse](#eclipse), Visual Studio Code, and Atom, have Kotlin community-supported plugins.
+Other IDEs and code editors, such as [Eclipse](#eclipse), Visual Studio Code, and Atom, have Kotlin community-supported plugins.
 
 ## IntelliJ IDEA
 
@@ -14,6 +14,24 @@ and lets you focus on the bright side of software development, making it not onl
 Kotlin plugin is bundled with each IntelliJ IDEA release.
 
 Read more about IntelliJ IDEA in the [official documentation](https://www.jetbrains.com/help/idea/discover-intellij-idea.html).
+
+## Fleet
+
+> JetBrains Fleet is currently in Public Preview, and at this stage is free to use.
+> 
+{type="note"}
+
+[JetBrains Fleet](https://www.jetbrains.com/fleet/) is a polyglot IDE and code editor that provides advanced support for Kotlin
+and a streamlined experience for Kotlin developers. You can use Fleet as a code editor to quickly make targeted edits,
+or turn on Smart Mode and transform it into a full-fledged IDE with code intelligence features.
+
+Kotlin plugin is bundled with each Fleet release.
+
+Fleet also supports Kotlin Multiplatform projects targeting the Android, iOS, and desktop platforms, including testing and debugging your code.
+Fleet's Smart Mode selects the appropriate code-processing engine as well as enables navigation between Kotlin Multiplatform code
+and code written in languages interoperable with Kotlin.
+
+See the [Use Fleet for Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html) tutorial to get started.
 
 ## Android Studio
 
@@ -37,13 +55,13 @@ If you want to contribute to the plugin, send a pull request to the [Kotlin for 
 
 ## Compatibility with the Kotlin language versions
 
-For IntelliJ IDEA and Android Studio the Kotlin plugin is bundled with each IDE release.
+For IntelliJ IDEA, Fleet, and Android Studio, the Kotlin plugin is bundled with each IDE release.
 When the new Kotlin version is released, these IDEs will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version for each IDE in [Kotlin releases](releases.md#ide-support).
 
 ## Other IDEs support
 
-JetBrains doesn't provide the Kotlin plugin for other IDEs.
+JetBrains doesn't provide Kotlin plugins for other IDEs.
 However, some of the other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have their own Kotlin plugins supported by the Kotlin community.
 
 You can use any text editor to write the Kotlin code, but without IDE-related features: code formatting, debugging tools, and so on.
@@ -53,5 +71,6 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
+* [Create a Multiplatform project with Fleet](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html)
 * [Create your first cross-platform mobile app using Android Studio](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 * Learn how to [install EAP version of the Kotlin plugin](install-eap-plugin.md)
