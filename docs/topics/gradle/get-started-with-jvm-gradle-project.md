@@ -80,7 +80,7 @@ application {
 
 As you can see, there are a few Kotlin-specific artifacts added to the Gradle build file:
 
-1. In the `plugins` block, there is the `kotlin("jvm")` artifact – the plugin defines the version of Kotlin to be used in the project.
+1. In the `plugins{}` block, there is the `kotlin("jvm")` artifact – the plugin defines the version of Kotlin to be used in the project.
 
 2. In the `dependencies` section, there is `testImplementation(kotlin("test"))`. 
    Learn more about [setting dependencies on test libraries](gradle-configure-project.md#set-dependencies-on-test-libraries).

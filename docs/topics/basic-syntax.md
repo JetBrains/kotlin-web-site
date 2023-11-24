@@ -194,16 +194,16 @@ class Shape
 Properties of a class can be listed in its declaration or body. 
 
 ```kotlin
-class Rectangle(var height: Double, var length: Double) {
-    var perimeter = (height + length) * 2 
+class Rectangle(val height: Double, val length: Double) {
+    val perimeter = (height + length) * 2 
 }
 ```
 
 The default constructor with parameters listed in the class declaration is available automatically. 
 
 ```kotlin
-class Rectangle(var height: Double, var length: Double) {
-    var perimeter = (height + length) * 2 
+class Rectangle(val height: Double, val length: Double) {
+    val perimeter = (height + length) * 2 
 }
 fun main() {
 //sampleStart
@@ -220,8 +220,8 @@ mark it as `open`.
 ```kotlin
 open class Shape
 
-class Rectangle(var height: Double, var length: Double): Shape() {
-    var perimeter = (height + length) * 2 
+class Rectangle(val height: Double, val length: Double): Shape() {
+    val perimeter = (height + length) * 2 
 }
 ```
 
@@ -242,7 +242,7 @@ Block comments in Kotlin can be nested.
 
 ```kotlin
 /* The comment starts here
-/* contains a nested comment *&#8288;/     
+/* contains a nested comment */     
 and ends here. */
 ```
 
