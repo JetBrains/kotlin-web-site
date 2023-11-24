@@ -60,7 +60,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         </td>
         <td>
             <p>A bug fix release for Kotlin 1.9.20.</p>
-            <p>Learn more about Kotlin 1.8.20 in <a href="whatsnew1920.md" target="_blank">What's new in Kotlin 1.9.20</a>.</p>
+            <p>Learn more about Kotlin 1.9.20 in <a href="whatsnew1920.md" target="_blank">What's new in Kotlin 1.9.20</a>.</p>
         </td>
     </tr>
     <tr>
