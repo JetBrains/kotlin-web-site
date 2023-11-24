@@ -1,14 +1,14 @@
 [//]: # (title: Hierarchical project structure)
 
-Multiplatform projects support hierarchical source set structures.
+Kotlin Multiplatform projects support hierarchical source set structures.
 This means you can arrange a hierarchy of intermediate source sets for sharing the common code among some, but not all,
 [supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets helps you to:
 
 * Provide a specific API for some targets. For example, a library can add native-specific APIs in an
   intermediate source set for Kotlin/Native targets but not for Kotlin/JVM ones.
-* Consume a specific API for some targets. For example, to benefit from a rich API that the Kotlin Multiplatform
+* Consume a specific API for some targets. For example, you can benefit from a rich API that the Kotlin Multiplatform
   library provides for some targets that form an intermediate source set.
-* Use platform-dependent libraries in your project. For example, you can access to iOS-specific dependencies from
+* Use platform-dependent libraries in your project. For example, you can access iOS-specific dependencies from
   the intermediate iOS source set.
 
 The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
@@ -16,13 +16,13 @@ that source set compiles. This prevents cases like using a Windows-specific API 
 resulting in linkage errors or undefined behavior at runtime.
 
 The recommended way to set up the source set hierarchy is to use the [default hierarchy template](#default-hierarchy-template).
-The template covers most popular cases. If you have a more advanced project, you can [configure it manually](#manual-configuration).
-It's a more low-level approach: it's more flexible but requires more effort and knowledge.
+The template covers the most popular cases. If you have a more advanced project, you can [configure it manually](#manual-configuration).
+This is a more low-level approach: it's more flexible but requires more effort and knowledge.
 
 ## Default hierarchy template
 
 Starting with Kotlin 1.9.20, the Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-full-hierarchy-template).
-It contains pre-defined intermediate source sets for some popular use cases.
+It contains predefined intermediate source sets for some popular use cases.
 The plugin sets up those source sets automatically based on the targets specified in your project.
 
 Consider the following example:
@@ -52,7 +52,7 @@ kotlin {
 </tab>
 </tabs>
 
-When you declare targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
+When you declare the targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
 ![An example of using the default hierarchy template](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
@@ -64,8 +64,8 @@ are no watchOS targets in the project.
 If you add a watchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
 from the `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
 
-Kotlin Gradle Plugin creates type-safe accessors for all the source sets from the default hierarchy template, so you can
-reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration):
+The Kotlin Gradle plugin creates type-safe accessors for all of the source sets from the default hierarchy template,
+so you can reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration):
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -115,7 +115,7 @@ kotlin {
 
 ### Additional configuration
 
-You might need to make adjustments to the default hierarchy template. If you had previously introduced intermediate sources
+You might need to make adjustments to the default hierarchy template. If you have previously introduced intermediate sources
 [manually](#manual-configuration) with `dependsOn` calls, it cancels the use of the default
 hierarchy template and leads to this warning:
 
@@ -133,13 +133,13 @@ Learn more about hierarchy templates: https://kotl.in/hierarchy-template
 
 To solve this issue, configure your project by doing one of the following:
 
-* [Replace your manual configuration with the default hierarchy template](#replacing-manual-configuration)
+* [Replace your manual configuration with the default hierarchy template](#replacing-a-manual-configuration)
 * [Create additional source sets in the default hierarchy template](#creating-additional-source-sets)
 * [Modify the source sets created by the default hierarchy template](#modifying-source-sets)
 
-#### Replacing manual configuration
+#### Replacing a manual configuration
 
-**Case**. All your intermediate source sets are currently covered by the default hierarchy template.
+**Case**. All of your intermediate source sets are currently covered by the default hierarchy template.
 
 **Solution**. Remove all manual `dependsOn()` calls and source sets with `by creating` constructions.
 To check the list of all default source sets, see the [full hierarchy template](#see-the-full-hierarchy-template).
@@ -147,7 +147,7 @@ To check the list of all default source sets, see the [full hierarchy template](
 #### Creating additional source sets
 
 **Case**. You want to add source sets that the default hierarchy template doesn't provide yet,
-for example, between a macOS and a JVM target.
+for example, one between a macOS and a JVM target.
 
 **Solution**:
 
@@ -212,7 +212,7 @@ for example, between a macOS and a JVM target.
 
 #### Modifying source sets
 
-**Case**. You already have the source sets with the exact same names as those generated by the template but shared among
+**Case**. You already have the source sets with the exact same names as those generated by the template, but shared among
 different sets of targets in your project. For example, a `nativeMain` source set is shared only among the desktop-specific
 targets: `linuxX64`, `mingwX64`, and `macosX64`.
 
@@ -224,14 +224,14 @@ However, you still can do one of the following:
 
 * Find different source sets for your purposes, either in the default hierarchy template or ones that have been manually created.
 * Opt out of the template completely by adding `kotlin.mpp.applyDefaultHierarchyTemplate=false`
-  to your `gradle.properties` file and configure all source sets manually.
+  to your `gradle.properties` file and manually configure all source sets.
 
-> We're currently working on an API to create your own hierarchy templates. It will be useful for projects
-> whose hierarchy configurations are significantly different from the default template.
+> We're currently working on an API to create your own hierarchy templates. This will be useful for projects
+> whose hierarchy configurations differ significantly from the default template.
 >
 > This API is not ready yet, but if you're eager to try it,
 > look into the `applyHierarchyTemplate {}` block and the declaration of `KotlinHierarchyTemplate.default` as an example.
-> Keep in mind that this API is still in development. It might not be tested, and can change in further releases.
+> Keep in mind that this API is still in development. It might not be tested and can change in further releases.
 >
 {type="tip"}
 
@@ -270,12 +270,12 @@ kotlin {
     linuxX64()
     mingwX64()
     macosX64()
-  
+
     sourceSets {
         val desktopMain by creating {
             dependsOn(commonMain.get())
         }
-        
+
         linuxX64Main.get().dependsOn(desktopMain)
         mingwX64Main.get().dependsOn(desktopMain)
         macosX64Main.get().dependsOn(desktopMain)
@@ -291,7 +291,7 @@ kotlin {
     linuxX64()
     mingwX64()
     macosX64()
-  
+
     sourceSets {
         desktopMain {
             dependsOn(commonMain.get())
