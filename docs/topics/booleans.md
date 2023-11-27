@@ -1,6 +1,7 @@
 [//]: # (title: Booleans)
 
-The type `Boolean` represents boolean objects that can have two values: `true` and `false`.
+The type `Boolean` represents boolean objects that can have two values: `true` and `false`. 
+On the JVM, the primitive `boolean` type typically uses 8 bits.
 
 `Boolean` has a nullable counterpart `Boolean?` that also has the `null` value.
 
@@ -27,6 +28,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-> **On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
+> **On the JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
 {type="note"}

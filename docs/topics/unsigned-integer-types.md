@@ -10,8 +10,11 @@ In addition to [integer types](numbers.md#integer-types), Kotlin provides the fo
 Unsigned types support most of the operations of their signed counterparts.
 
 > Unsigned numbers are implemented as [inline classes](inline-classes.md) with the single storage property of the corresponding 
-> signed counterpart type of the same width. Nevertheless, changing type from unsigned type to signed counterpart (and vice versa) 
-> is a _binary incompatible_ change.
+> signed counterpart type of the same width. However, due to the compiler's mangling of signatures containing unsigned types, 
+> changing the type from unsigned to its signed counterpart or the other way around 
+> is a _binary incompatible_ change. 
+> 
+> For more information, see [Mangling](inline-classes.md#mangling).
 >
 {type="note"}
 
