@@ -1,7 +1,7 @@
 [//]: # (title: Inline value classes)
 
-Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
-overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
+Sometimes it is useful to wrap a value in a class to create a more domain-specific type. However, it introduces runtime 
+overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is significant, 
 because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
 
 To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
