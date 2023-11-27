@@ -14,6 +14,8 @@ import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 
+import { Layout } from '../components/layout/layout';
+
 import { HeroSection } from '../blocks/main/hero/hero';
 import { LatestNews } from '../blocks/main/latest-news';
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
@@ -129,12 +131,8 @@ function Index() {
         image: newsImages[i],
     }));
 
-    useEffect(() => {
-        document.querySelector('body').classList.add('dark-theme');
-    });
-
     return (
-        <>
+        <Layout title={'Kotlin Programming Language'} ogImageName={'general.png'} darkTheme>
             <ThemeProvider theme="dark">
                 <StickyHeader>
                     <GlobalHeader
@@ -244,7 +242,7 @@ function Index() {
             <ThemeProvider theme={'dark'}>
                 <GlobalFooter />
             </ThemeProvider>
-        </>
+        </Layout>
     );
 }
 
