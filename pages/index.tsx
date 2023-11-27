@@ -123,6 +123,10 @@ const kotlinFoundationCompanies = [
     },
 ];
 
+export async function getStaticProps() {
+    return { props: { isDarkTheme: true } };
+}
+
 function Index() {
     const isTS = useTS();
 
@@ -132,7 +136,7 @@ function Index() {
     }));
 
     return (
-        <Layout title={'Kotlin Programming Language'} ogImageName={'general.png'} darkTheme>
+        <Layout title={'Kotlin Programming Language'} ogImageName={'general.png'}>
             <ThemeProvider theme="dark">
                 <StickyHeader>
                     <GlobalHeader
@@ -140,7 +144,7 @@ function Index() {
                         hasSearch={true}
                         searchConfig={searchConfig}
                         darkHeader
-                    />
+                    ></GlobalHeader>
                 </StickyHeader>
 
                 <HeroSection>

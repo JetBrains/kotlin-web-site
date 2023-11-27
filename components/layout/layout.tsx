@@ -28,12 +28,8 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
         [ogImageName, ogImagePath]
     );
 
-    const bodyClass = cn(styles.layout, {
-        [styles.darkTheme]: darkTheme,
-    });
-
     return (
-        <div className={bodyClass}>
+        <>
             <Head>
                 <title>{title}</title>
 
@@ -54,7 +50,7 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
             </Head>
 
             {children}
-        </div>
+        </>
     );
 };
 
