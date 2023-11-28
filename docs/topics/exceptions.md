@@ -52,23 +52,23 @@ The following is an example interface from the JDK implemented by the `StringBui
 ``` java
 Appendable append(CharSequence csq) throws IOException;
 ```
-# NOTE: Author is mistaked in the above, the StringBuilder.append(...) methods doesn't throw IOExceptions, thus relevant part is removed as false information.(Javadoc proof: https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html#append-java.lang.CharSequence-)
+### Author is mistaked in the above, the StringBuilder.append(...) methods doesn't throw IOExceptions, thus relevant part is removed as false information.
+### (Javadoc proof: https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html#append-java.lang.CharSequence-)
 
-#
 Bruce Eckel says this about checked exceptions:
 
 > Examination of small programs leads to the conclusion that requiring exception specifications
 >could both enhance developer productivity and enhance code quality, but experience with large software projects suggests
 >a different result – decreased productivity and little or no increase in code quality.
 
-# NOTE: Bruce Exckel is never said the above, he stated that some C# developer said it, the original part from his book "Effective Java" is:
-https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ311_020.htm
+### Bruce Exckel is never said the above, he stated that some C# developer said it, the original part from his book "Effective Java" is:
+### https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ311_020.htm
 ```kotlin
 The scale of the program seems to be a significant issue. This is a problem because most discussions tend to use small programs as demonstrations. # One of the C# designers observed that:
 
 “Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result—decreased productivity and little or no increase in code quality.”
 ```
-# And Bruce Eckel's real opinion is:
+### And Bruce Eckel's real opinion is:
 ```kotlin
 I now think that Java’s important step was to unify the error reporting model, so that all errors are reported using exceptions.
 ```
@@ -80,9 +80,16 @@ A unified error-reporting model via exceptions, regardless of whether the progra
 ```
 #
 And here are some additional thoughts on the matter:
-
 * [Java's checked exceptions were a mistake](https://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
 * [The Trouble with Checked Exceptions](https://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
+
+### The above links doesn't have any usefull information since they not provide enough explanation to the subject. They shows how exceptions can be used wrong, and such articles more relevant to category "How to write a bad code" rather than be a discusson of programming language feature. 
+### Moreover the Rod Waldhoff conclusion is: "By the way, I still think checked exceptions offer some advantage in the cases I enumerated above."
+### Anders Hejlsberg just gave example of wrong usage in case of Client-Server communication and stated that below by:
+```kotlin
+Anders Hejlsberg: No, because in a lot of cases, people don't care. They're not going to handle any of these exceptions. There's a bottom level exception handler around their message loop. That handler is just going to bring up a dialog that says what went wrong and continue. The programmers protect their code by writing try finally's everywhere, so they'll back out correctly if an exception occurs, but they're not actually interested in handling the exceptions.
+```
+### Thus the wrong exceptions usage is not their existance but wrong understanding of it by developers
 
 If you want to alert callers about possible exceptions when calling Kotlin code from Java, Swift, or Objective-C,
 you can use the `@Throws` annotation. Read more about using this annotation [for Java](java-to-kotlin-interop.md#checked-exceptions)
