@@ -52,27 +52,33 @@ The following is an example interface from the JDK implemented by the `StringBui
 ``` java
 Appendable append(CharSequence csq) throws IOException;
 ```
+# NOTE: Author is mistaked in the above, the StringBuilder.append(...) methods doesn't throw IOExceptions, thus relevant part is removed as false information.(Javadoc proof: https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html#append-java.lang.CharSequence-)
 
-This signature says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.),
-I have to catch the `IOExceptions`. Why? Because the implementation might be performing IO operations (`Writer` also implements `Appendable`).
-The result is code like this all over the place:
-
-```kotlin
-try {
-    log.append(message)
-} catch (IOException e) {
-    // Must be safe
-}
-```
-
-And that's not good. Just take a look at [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
-
+#
 Bruce Eckel says this about checked exceptions:
 
 > Examination of small programs leads to the conclusion that requiring exception specifications
 >could both enhance developer productivity and enhance code quality, but experience with large software projects suggests
 >a different result – decreased productivity and little or no increase in code quality.
 
+# NOTE: Bruce Exckel is never said the above, he stated that some C# developer said it, the original part from his book "Effective Java" is:
+https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ311_020.htm
+```kotlin
+The scale of the program seems to be a significant issue. This is a problem because most discussions tend to use small programs as demonstrations. # One of the C# designers observed that:
+
+“Examination of small programs leads to the conclusion that requiring exception specifications could both enhance developer productivity and enhance code quality, but experience with large software projects suggests a different result—decreased productivity and little or no increase in code quality.”
+```
+# And Bruce Eckel's real opinion is:
+```kotlin
+I now think that Java’s important step was to unify the error reporting model, so that all errors are reported using exceptions.
+```
+and
+```kotlin
+the great benefits actually come from:
+
+A unified error-reporting model via exceptions, regardless of whether the programmer is forced by the compiler to handle them.
+```
+#
 And here are some additional thoughts on the matter:
 
 * [Java's checked exceptions were a mistake](https://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
