@@ -139,12 +139,13 @@ fun main() {
 
 As a result, you get a string containing the state of this object in the JSON format: `{"a": 42, "b": "str"}`
 
-> You can also serialize object collections, such as lists, in a single call.
+> You can also serialize object collections, such as lists, in a single call:
 > 
 > ```kotlin
 > val dataList = listOf(Data(42, "str"), Data(12, "test"))
 > val jsonList = Json.encodeToString(dataList)
 > ```
+> 
 {type="note"}
 
 3. Use the `decodeFromString()` function to deserialize an object from JSON:
@@ -162,15 +163,17 @@ fun main() {
 }
 ```
 
+That's it! You have successfully serialized objects into JSON strings and deserialized them back into objects.
+
 ## What's next
 
 For more information about serialization in Kotlin, see the [Kotlin Serialization Guide](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serialization-guide.md).
 
-You can further explore various aspects of Kotlin serialization in the following resources:
+You can explore different aspects of Kotlin serialization in the following resources:
 
-* [Learn more about Kotlin serialization and its core concepts.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md)
-* [Explore the built-in serializable classes of Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md)
-* [Look at serializers in more detail and see how to create custom serializers.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md)
-* [Discover how polymorphic serialization is handled in Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#open-polymorphism)
-* [Look into the various JSON features handling Kotlin serialization.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-elements)
-* [Learn more about the various experimental serialization formats supported by Kotlin.](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md)
+* [Learn more about Kotlin serialization and its core concepts](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/basic-serialization.md)
+* [Explore the built-in serializable classes of Kotlin](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/builtin-classes.md)
+* [Look at serializers in more detail and learn how to create custom serializers](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/serializers.md)
+* [Discover how polymorphic serialization is handled in Kotlin](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/polymorphism.md#open-polymorphism)
+* [Look into the various JSON features handling Kotlin serialization](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/json.md#json-elements)
+* [Learn more about the experimental serialization formats supported by Kotlin](https://github.com/Kotlin/kotlinx.serialization/blob/master/docs/formats.md)
