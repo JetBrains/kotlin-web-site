@@ -136,7 +136,13 @@ function Index() {
     }));
 
     return (
-        <Layout title={'Kotlin Programming Language'} ogImageName={'general.png'}>
+        <Layout
+            title={'Kotlin Programming Language'}
+            ogImageName={'general.png'}
+            description={
+                'Kotlin is a programming language that makes coding concise, cross-platform, and fun. It is Google’s preferred language for Android app development.'
+            }
+        >
             <ThemeProvider theme="dark">
                 <StickyHeader>
                     <GlobalHeader
