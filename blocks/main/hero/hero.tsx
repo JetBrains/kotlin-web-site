@@ -43,7 +43,7 @@ export const HeroSection: FC<Props> = ({ children }) => {
                                 <div className={styles.developer}>
                                     <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
                                     <div className={darkTextCn('rs-text-3', { hardness: 'hard' })}>
-                                        Kotlin, developed by&nbsp;
+                                        Developed by&nbsp;
                                         <a
                                             href="https://www.jetbrains.com/"
                                             className={darkTextCn('rs-link', { hardness: 'hard' })}
