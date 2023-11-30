@@ -1,61 +1,63 @@
 [//]: # (title: Troubleshooting)
 
-Most of the browsers support WebAssembly. For recent browser versions, WebAssembly works by default. However,
-for older browser versions, you still need to update the browser settings.
+Kotlin/Wasm relies on new [WebAssembly proposals](https://github.com/WebAssembly/proposals) like garbage collection, 
+exception handling, and typed function references. These proposals introduce improvements and new features within WebAssembly. 
+
+However, to ensure proper execution and utilization of these features, you require an environment that supports the new proposals. 
+In some cases, you might need to set up the environment to make it compatible with the proposals.
 
 ## Browser versions
 
-To run a Kotlin/Wasm project, check if WebAssembly works with the browser version by default. Otherwise, update the 
-settings of the target environment:
+To run applications built with Kotlin/Wasm in a browser, you need a browser version supporting the new 
+[WebAssembly garbage collection (WasmGC) feature](https://github.com/WebAssembly/gc). Check if the browser version supports 
+the new WasmGC by default or if you need to set the environment up.
 
-<tabs>
-<tab title="Chrome">
+### Chrome 
 
 * For version 119 or later:
 
-  WebAssembly works by default.
+  Works by default.
 
 * For older versions:
 
-    1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
-    2. Enable **WebAssembly Garbage Collection**.
-    3. Relaunch your browser.
+  1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
+  2. Enable **WebAssembly Garbage Collection**.
+  3. Relaunch your browser.
 
   Besides updating the browser settings, make sure you use the Kotlin toolchain before 1.9.20.
 
-</tab>
-<tab title="Chromium-based">
+### Chromium-based
 
 Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Internet.
 
 * For version 119 or later:
 
-  WebAssembly works by default.
+  Works by default.
 
 * For older versions:
 
   Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
 
-</tab>
-<tab title="Firefox">
+  Besides updating the browser settings, make sure you use the Kotlin toolchain before 1.9.20.
+
+### Firefox
 
 * For version 120 or later:
 
-  WebAssembly works by default.
+  Works by default.
 
 * For version 119:
 
   1. Go to `about:config` in your browser.
   2. Enable `javascript.options.wasm_gc` option.
-  3. Relaunch your browser.
+  3. Refresh the page.
 
-</tab>
-<tab title="Safari/WebKit">
+### Safari/WebKit
 
-For Safari and WebKit, the WebAssembly garbage collection (WasmGC) support is currently under 
+For Safari and WebKit, the WebAssembly garbage collection support is currently under
 [active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
 
-</tab>
-</tabs>
-
-For more information about running a Kotlin/Wasm project, see the [Kotlin/Wasm examples.](https://github.com/Kotlin/kotlin-wasm-examples#readme) 
+> Learn more about setting up projects, using dependencies, and other tasks with the 
+> [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
+>
+{type="tip"}
