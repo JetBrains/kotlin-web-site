@@ -5,6 +5,11 @@
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
 </microformat>
 
+> Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin doesn't need to be
+> configured separately. All you need to do is [change the Kotlin version](configure-build-for-eap.md) in your build scripts.
+> 
+{type="note"}
+
 You can follow these instructions to install the preview version of the Kotlin Plugin for IntelliJ IDEA or Android Studio.
 
 1. Select **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**. 
