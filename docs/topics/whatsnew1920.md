@@ -20,12 +20,15 @@ You can also find a short overview of the updates in this video:
 
 The Kotlin plugins that support 1.9.20 are available for:
 
-| IDE            | Supported versions                      |
-|----------------|-----------------------------------------|
-| IntelliJ IDEA  | 2023.1.x, 2023.2.x                      |
-| Android Studio | Hedgehog (2023.1.1)*, Iguana (2023.2.1) |
+| IDE            | Supported versions                     |
+|----------------|----------------------------------------|
+| IntelliJ IDEA  | 2023.1.x, 2023.2.x, 2023.x             |
+| Android Studio | Hedgehog (2023.1.1), Iguana (2023.2.1) |
 
-\* The Kotlin 1.9.20 plugin will be included with Android Studio Hedgehog (231) and Iguana (232) in their upcoming releases.
+> Starting from IntelliJ IDEA 2023.3.x and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin is automatically
+> included and updated. All you need to do is update the Kotlin version in your projects.
+>
+{type="note"}
 
 ## New Kotlin K2 compiler updates
 
