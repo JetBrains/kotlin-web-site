@@ -28,9 +28,23 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 7. From the **Gradle DSL** list, select **Kotlin**.
 8. Select the **Add sample code** checkbox to create a file with a sample `"Hello World!"` application.
-9. Click **Create**.
+
+   > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
+   > sample code.
+   >
+   {type="tip"}
+
+10. Click **Create**.
 
 You have successfully created a project with Gradle.
+
+#### Specify a Gradle version for your project {initial-collapse-state="collapsed"}
+
+You can explicitly specify a Gradle version for your project under the **Advanced Settings** section, either by using the Gradle Wrapper or a local installation of Gradle:
+* **Gradle Wrapper:** From the **Gradle distribution** list,  select **Wrapper**. Deselect the **Auto-select** checkbox, and from the **Gradle version** list, select your Gradle version.
+* **Local installation:** From the **Gradle distribution** list, select **Local installation**.  For **Gradle location**, specify the path of your local Gradle version.
+
+   ![Advanced settings](jvm-new-gradle-project-advanced.png){width=700}
 
 ## Explore the build script
 

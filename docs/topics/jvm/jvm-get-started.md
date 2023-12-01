@@ -30,6 +30,12 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
+
+    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
+    > sample code.
+    >
+    {type="tip"}
+
 8. Click **Create**.
 
   > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 

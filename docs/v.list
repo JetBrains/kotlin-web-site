@@ -52,4 +52,6 @@
 
     <var name="dateTimeVersion" value="0.4.0" type="string"/>
 
+    <var name="foojayResolver" value="0.5.0" type="string"/>
+
 </vars>
