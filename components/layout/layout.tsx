@@ -47,6 +47,9 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+
             </Head>
 
             {children}

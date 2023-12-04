@@ -1,7 +1,12 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 .code {
     display: none;
 }
 
 .codeBlockWrapper {
-    /*background: lightseagreen;*/
+    display: block;
+    @media (--ktl-tm) {
+        margin-left: -16px;
+    }
 }
