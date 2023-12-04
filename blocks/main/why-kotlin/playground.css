@@ -11,7 +11,7 @@
 
     .CodeMirror pre.CodeMirror-line {
         font-size: 14px;
-        line-height: 24px;
+        line-height: 20px;
     }
 
     .CodeMirror-scroll {
@@ -64,8 +64,8 @@
 
     .output-wrapper.darcula {
         min-height: 120px;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 20px;
 
         border: 0 none transparent;
         border-top: 1px solid rgba(255, 255, 255, 0.2);
