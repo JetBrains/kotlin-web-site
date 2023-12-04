@@ -58,7 +58,7 @@
     background: #27282C;
     border-radius: 8px;
     @media (--ktl-tm-min) {
-        min-height: 512px;
+        min-height: 536px;
         padding-bottom: 8px;
     }
 }

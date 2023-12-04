@@ -1,7 +1,5 @@
-// Tests
-// The following example works for JVM only
-import org.junit.Test
-import kotlin.test.*
+import org.junit.Test                   // Tests
+import kotlin.test.*                    // The following example works for JVM only
 
 class SampleTest {
     @Test
@@ -20,7 +18,6 @@ class SampleTest {
     }
 }
 
-// Sources
-fun sum(a: Int, b: Int) = a + b
+fun sum(a: Int, b: Int) = a + b         // Sources
 fun setup() {}
 fun compute() = true
