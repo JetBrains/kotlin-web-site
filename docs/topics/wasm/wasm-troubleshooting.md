@@ -14,11 +14,11 @@ the new WasmGC by default or if you need to make changes to the environment.
 
 ### Chrome 
 
-* For version 119 or later:
+* *For version 119 or later:*
 
   Works by default.
 
-* For older versions:
+* *For older versions:*
 
   1. In your browser, go to `chrome://flags/#enable-webassembly-garbage-collection`.
   2. Enable **WebAssembly Garbage Collection**.
@@ -30,11 +30,11 @@ the new WasmGC by default or if you need to make changes to the environment.
 
 Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Internet.
 
-* For version 119 or later:
+* *For version 119 or later:*
 
   Works by default.
 
-* For older versions:
+* *For older versions:*
 
   Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
 
@@ -42,11 +42,11 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 
 ### Firefox
 
-* For version 120 or later:
+* *For version 120 or later:*
 
   Works by default.
 
-* For version 119:
+* *For version 119:*
 
   1. In your browser, go to `about:config`.
   2. Enable `javascript.options.wasm_gc` option.
