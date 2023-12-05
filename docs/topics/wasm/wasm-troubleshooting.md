@@ -57,6 +57,8 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 WebAssembly garbage collection support is currently under
 [active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
 
+##
+
 > Learn more about setting up projects, using dependencies, and other tasks with our 
 > [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
 >
