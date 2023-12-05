@@ -806,7 +806,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
 
 *  Consider two cinterop libraries, one that uses `cnames.structs.cstructName` and the other that has an actual definition:
 
-    ```C
+    ```ObjC
     // First cinterop library
     #import <Foundation/Foundation.h>
     
@@ -817,7 +817,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     }
     ```
     
-    ```C
+    ```ObjC
     // Second cinterop library
     // Header:
     #import <Foundation/Foundation.h>
@@ -838,7 +838,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     ```kotlin
     // Kotlin code:
     fun test() {
-        consumeProtocol(produceProtocol() as cnames.protocols.ForwardDeclaredProtocolProtocol)
+        consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
     }
     ```
     
