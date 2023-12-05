@@ -2,7 +2,7 @@
   url: https://blog.gradle.org/kotlin-meets-gradle
   text: Gradle is introducing Kotlin as a language for writing build scripts
 - company: Corda
-  url: https://www.corda.net/2017/01/10/kotlin/
+  url: https://corda.net/blog/kotlin/
   text: Corda is an open-source distributed ledger platform, supported by major banks, and built entirely in Kotlin
 - company: Evernote
   url: https://evernote.com/blog/android-state-library/
