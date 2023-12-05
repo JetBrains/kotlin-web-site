@@ -1,7 +1,7 @@
 [//]: # (title: Troubleshooting)
 
-Kotlin/Wasm relies on new [WebAssembly proposals](https://github.com/WebAssembly/proposals) like garbage collection, 
-exception handling, and typed function references. These proposals introduce improvements and new features within WebAssembly. 
+Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like garbage collection and 
+exception handling. These proposals introduce improvements and new features within WebAssembly. 
 
 However, to ensure proper execution and utilization of these features, you require an environment that supports the new proposals. 
 In some cases, you might need to set up the environment to make it compatible with the proposals.
