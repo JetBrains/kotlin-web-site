@@ -1,9 +1,7 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
-> Kotlin/Wasm is an [Alpha](components-stability.md) feature. It may be dropped or changed at any time. It is available only starting with [Kotlin 1.8.20](releases.md).
+> Kotlin/Wasm is an [Alpha](components-stability.md) feature. It may be changed at any time.
 >
-> [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
-> 
 {type="note"}
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
@@ -21,7 +19,7 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
    git clone git@github.com:Kotlin/kotlin-wasm-examples.git
    ```
    
-> Alternatively, you can use our experimental [web wizard](https://kmpwasm.jetbrains.com/) to download a sample project.
+> Alternatively, you can use our experimental [web wizard](https://kmp.jetbrains.com/) to download a sample project.
 >
 {type="note"}
 
@@ -90,9 +88,10 @@ folder:
 
 ## What's next?
 
-Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+* [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
 
-* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
-* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
-* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
-* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
+* Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+   * [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+   * [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+   * [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+   * [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
