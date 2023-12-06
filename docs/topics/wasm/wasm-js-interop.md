@@ -342,33 +342,35 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **External enums**      | Doesn't support external enum classes.                                                                                                                                                                              | Supports external enum classes.                                                                                                                     |
 | **Type extensions**     | Doesn't support non-external types to extend external types.                                                                                                                                                        | Supports non-external types.                                                                                                                        |
 | **`JsName` annotation** | Only has an effect when annotating external declarations.                                                                                                                                                           | Can be used to change names of regular non-external declarations.                                                                                   |
-| **`js` function**       | `js("code")` calls are allowed as a single expression body of package-level functions.                                                                                                                              | `js("code")` can be called in any context and returns a `dynamic` value.                                                                            |
-| **Module systems**      | Supports ES modules only. There is no analog of `@JsNonModule`. Provides its exports as properties on the `default` object. Allows exporting package-level functions only.                                          | Supports ES modules and legacy module systems. Provides named ESM exports. Allows exporting classes and objects.                                    |
+| **`js` function**       | `js("code")` function calls are allowed as a single expression body of package-level functions.                                                                                                                     | The `js("code")` function can be called in any context and returns a `dynamic` value.                                                               |
+| **Module systems**      | Supports ES modules only. There is no analog of the `@JsNonModule` annotation. Provides its exports as properties on the `default` object. Allows exporting package-level functions only.                           | Supports ES modules and legacy module systems. Provides named ESM exports. Allows exporting classes and objects.                                    |
 | **Types**               | Applies stricter type restrictions uniformly to all interop declarations `external`, `= js("code")`, and `@JsExport`. Allows a select number of [built-in Kotlin types and `JsAny` subtypes](#type-correspondence). | Allows all types in `external` declarations. Restricts [types that can be used in `@JsExport`](js-to-kotlin-interop.md#kotlin-types-in-javascript). |
 | **Long**                | Type corresponds to JavaScript `BigInt`.                                                                                                                                                                            | Visible as a custom class in JavaScript.                                                                                                            |
-| **Arrays**              | Not supported in interop directly yet. You can use new `JsArray` type instead.                                                                                                                                      | Implemented as JavaScript arrays.                                                                                                                   |
-| **Other types**         | Requires `JsReference<>` to pass Kotlin object to JavaScript.                                                                                                                                                       | Allows the use of non-external Kotlin class types in external declarations.                                                                         |
+| **Arrays**              | Not supported in interop directly yet. You can use the new `JsArray` type instead.                                                                                                                                  | Implemented as JavaScript arrays.                                                                                                                   |
+| **Other types**         | Requires `JsReference<>` to pass Kotlin objects to JavaScript.                                                                                                                                                      | Allows the use of non-external Kotlin class types in external declarations.                                                                         |
 | **Exception handling**  | Can't catch JavaScript exceptions.                                                                                                                                                                                  | Can catch JavaScript `Error` via the `Throwable` type. It can catch any JS exception using the `dynamic` type.                                      |
 | **Dynamic types**       | Does not support the `dynamic` type. Use `JsAny` instead (see sample code below).                                                                                                                                   | Supports the `dynamic` type.                                                                                                                        |
 
-Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
-supported in Kotlin/Wasm. Instead of `dynamic` type, you can use `JsAny` type:
-
-```kotlin
-// Kotlin/JS
-fun processUser(user: dynamic, age: Int) {
-  // ...
-  user.profile.updateAge(age)
-  // ...
-}
-
-// Kotlin/Wasm
-private fun updateUserAge(user: JsAny, age: Int): Unit =
-  js("{ user.profile.updateAge(age); }")
-
-fun processUser(user: JsAny, age: Int) {
-  // ...
-  updateUserAge(user, age)
-  // ...
-}
-```
+> Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
+> supported in Kotlin/Wasm. Instead of `dynamic` type, you can use `JsAny` type:
+>
+>```kotlin
+> // Kotlin/JS
+> fun processUser(user: dynamic, age: Int) {
+>  // ...
+>  user.profile.updateAge(age)
+>  // ...
+> }
+>
+> // Kotlin/Wasm
+> private fun updateUserAge(user: JsAny, age: Int): Unit =
+>  js("{ user.profile.updateAge(age); }")
+>
+> fun processUser(user: JsAny, age: Int) {
+>  // ...
+>  updateUserAge(user, age)
+>  // ...
+> }
+>```
+>
+{type="note"}

@@ -8,16 +8,16 @@
 {type="note"}
 
 Kotlin has the power to build applications, and reuse mobile and desktop user interfaces (UIs) in your web projects with
-Compose Multiplatform for Web and Kotlin/Wasm.
+Compose Multiplatform and Kotlin/Wasm.
 
 [Compose Multiplatform]((https://www.jetbrains.com/lp/compose-multiplatform/)) is a declarative framework based on Kotlin
 and [Jetpack Compose](https://developer.android.com/jetpack/compose), which allows you to implement the UI
-once and share it across all the platforms you target. Specifically for web platforms, Compose Multiplatform for Web uses 
+once and share it across all the platforms you target. Specifically for web platforms, Compose Multiplatform uses 
 Kotlin/Wasm as its compilation target.
 
-Explore our online demo of an application built with Compose Multiplatform for Web and Kotlin/Wasm:
+[Explore our online demo of an application built with Compose Multiplatform and Kotlin/Wasm](https://zal.im/wasm/jetsnack/)
 
-<a href="https://zal.im/wasm/jetsnack/"><img src="wasm-demo.png" width="700" alt="Kotlin/Wasm demo"/></a>
+![Kotlin/Wasm demo](wasm-demo.png){width=700}
 
 >To run applications built with Kotlin/Wasm in a browser, you need a browser version that supports the new garbage collection
 > and exception handling proposals. To check the support status, see the [WebAssembly
@@ -34,7 +34,7 @@ different environments and devices, which support Wasm and meet Kotlin's require
 
 Would you like to try it yourself?
 
-<a href="wasm-get-started.md"><img src="wasm-get-started-button.png" width="700" alt="Get started with Kotlin/Wasm"/></a>
+<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm"/></a>
 
 ## Performance
 
@@ -53,8 +53,8 @@ manipulation with DOM elements or the use of fetch API, in your Kotlin/Wasm appl
 from scratch. To learn more, see our [Kotlin/Wasm browser example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/browser-example).
 
 The declarations for browser API support are defined using JavaScript [interoperability capabilities](wasm-js-interop.md). 
-You can use the same capabilities to define your own declarations. In addition, Kotlin/Wasm and Kotlin/JS interoperability allows you to use 
-Kotlin code from JavaScript. For more information, see [Use Kotlin code in JavaScript](wasm-js-interop.md#use-kotlin-code-in-javascript).
+You can use the same capabilities to define your own declarations. In addition, Kotlin/Wasm and JavaScript interoperability 
+allows you to use Kotlin code from JavaScript. For more information, see [Use Kotlin code in JavaScript](wasm-js-interop.md#use-kotlin-code-in-javascript).
 
 
 
@@ -64,7 +64,7 @@ Kotlin code from JavaScript. For more information, see [Use Kotlin code in JavaS
 * ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite here](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 * ![Youtrack](youtrack-black-logo.png){width=25}{type="joined"} Youtrack: report any issues in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 
-### Compose Multiplatform for Web
+### Compose Multiplatform
 * ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback in the [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) public channel.
 * ![Github](git-hub.svg){width=25}{type="joined"} Github: report any issues
   [here](https://github.com/JetBrains/compose-multiplatform/issues).
