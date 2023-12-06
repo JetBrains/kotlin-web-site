@@ -20,12 +20,12 @@ This tutorial demonstrates how to work with a Kotlin/Wasm application in Intelli
 
 ## Run the application
 
-1. Open the **Gradle** tool window: **View** | **Tool Windows** | **Gradle**.
+1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 2. In the **kotlin-wasm-browser-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=650}
 
-    Alternatively, you can run the following command in Terminal from the project directory:
+    Alternatively, you can run the following command in the terminal from the project directory:
 
    ```bash
    ./gradlew wasmJsBrowserRun -t
