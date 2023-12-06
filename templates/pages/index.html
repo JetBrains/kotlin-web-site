@@ -30,23 +30,6 @@
 
     {% include 'inc/pages/index/why-section.html' %}
 
-    <section id="usage-highlights" class="kto-overview-section kotlin-highlights-section">
-        <div class="g-layout">
-            <h2 class="kotlin-highlights-section__title kto-heading kto-heading_size_hero">
-                <a class="kto-anchor-link kto-anchor-link--hover-white" href="#usage-highlights">Kotlin Usage Highlights</a>
-            </h2>
-            <div class="kto-highlights">
-                {% for testimonial in data.testimonials %}
-                    <a class="kto-highlights-item kto-highlights-item_company_{{ testimonial.company.lower() | safe }}"
-                       href="{{ testimonial.url | safe }}" target="_blank">
-                        <h3 class="kto-highlights-item__header">{{ testimonial.company | safe }}</h3>
-                        <div class="kto-highlights-item__text">{{ testimonial.text | safe }}</div>
-                    </a>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-
     <section id="get-started" class="kto-overview-section kotlin-get-started-section">
         <div class="g-layout">
             <p class="kto-text kto-text_size_s">Want to give it a try?</p>

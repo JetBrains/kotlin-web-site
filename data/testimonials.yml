@@ -1,15 +1,6 @@
 - company: Gradle
   url: https://blog.gradle.org/kotlin-meets-gradle
   text: Gradle is introducing Kotlin as a language for writing build scripts
-- company: Corda
-  url: https://www.corda.net/2017/01/10/kotlin/
-  text: Corda is an open-source distributed ledger platform, supported by major banks, and built entirely in Kotlin
-- company: Evernote
-  url: https://evernote.com/blog/android-state-library/
-  text: Evernote recently integrated Kotlin into their Android client
-- company: Coursera
-  url: https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/
-  text: Coursera Android app is partially written in Kotlin
 - company: Spring
   url: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
   text: Spring makes use of Kotlin's language features to offer more concise APIs
