@@ -1,61 +1,75 @@
 [//]: # (title: Kotlin Wasm)
 
 > Kotlin Wasm is [Alpha](components-stability.md).
-> It may be changed at any time. Use it only for evaluation purposes.
+> It may be changed at any time. You can use it in scenarios before production. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{type="note"}
-
-[WebAssembly (Wasm)](https://webassembly.org) is a binary instruction format for a stack-based virtual machine.
-This format is platform-independent because it runs on its own virtual machine.
-Wasm is designed to be fast and secure, and it can compile code from various programming languages, including Kotlin.
-
-Kotlin/Wasm is a new compilation target for Kotlin. You can use it in your Kotlin Multiplatform projects.
-With Kotlin/Wasm, you can create applications that run on different environments and devices supporting WebAssembly and meeting Kotlin's requirements.
-
-> Learn more about Kotlin/Wasm with this [YouTube playlist](https://kotl.in/wasm-pl).
+> [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
 >
 {type="note"}
 
-## Browser support
+Kotlin has the power to build applications, and reuse mobile and desktop user interfaces (UIs) in your web projects with
+Compose Multiplatform for Web and Kotlin/Wasm.
 
-To run applications built with Kotlin/Wasm in a browser, you need a version supporting the new [garbage collection feature](https://github.com/WebAssembly/gc).
+[Compose Multiplatform]((https://www.jetbrains.com/lp/compose-multiplatform/)) is a declarative framework based on Kotlin
+and [Jetpack Compose](https://developer.android.com/jetpack/compose), which allows you to implement the UI
+once and share it across all the platforms you target. Specifically for web platforms, Compose Multiplatform for Web uses 
+Kotlin/Wasm as its compilation target.
 
-[Learn more in Get started with Kotlin/Wasm](wasm-get-started.md#troubleshooting).
+Explore our online demo of an application built with Compose Multiplatform for Web and Kotlin/Wasm:
 
-## Interoperability
+<a href="https://zal.im/wasm/jetsnack/"><img src="wasm-demo.png" width="700" alt="Kotlin/Wasm demo"/></a>
 
-Kotlin/Wasm allows you to both use JavaScript code and Browser API from Kotlin, and Kotlin code from JavaScript.
-
-[Learn more about Kotlin Wasm interoperability with JavaScript](wasm-js-interop.md).
-
-## Compose Multiplatform for Web
-
-> Web support is in [Alpha](components-stability.md) and may be changed at any time. Use it only for evaluation purposes.
-> We would appreciate your feedback on it in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-> If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+>To run applications built with Kotlin/Wasm in a browser, you need a browser version that supports the new garbage collection
+> and exception handling proposals. To check the support status, see the [WebAssembly
+> roadmap](https://webassembly.org/roadmap/).
 >
-{type="note"}
+{type="tip"}
 
-Compose Multiplatform for Web is based on new Kotlin/Wasm target.
-You can create a Kotlin Multiplatform project and experiment with sharing your mobile or desktop UIs with the web.
-With Compose Multiplatform for Web, you can run your code in the browser with all the benefits of WebAssembly.
+[WebAssembly (Wasm)](https://webassembly.org/) is a binary instruction format for a stack-based virtual machine. This
+format is platform-independent because it runs on its own virtual machine. Wasm provides languages like Kotlin, and many 
+more, with a compilation target so that they can run on the web.
 
-## How to get started
+Kotlin/Wasm compiles your Kotlin code into Wasm format. Using Kotlin/Wasm, you can create applications that run on 
+different environments and devices, which support Wasm and meet Kotlin's requirements.
 
-* [Get started with Kotlin/Wasm in IntelliJ IDEA](wasm-get-started.md)
-* Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples)
+Would you like to try it yourself?
 
-## Libraries support
+<a href="wasm-get-started.md"><img src="wasm-get-started-button.png" width="700" alt="Get started with Kotlin/Wasm"/></a>
 
-You can use the Kotlin standard library (`stdlib`) and test library ([`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/))
-in Kotlin/Wasm out of the box. The version of these libraries is the same as the version of the `kotlin-multiplatform` plugin.
+## Performance
 
-Kotlin/Wasm has an experimental support for other Kotlin libraries. [Read more how to enable them in your project](wasm-libraries.md).
+Although Kotlin/Wasm is still in Alpha, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
+traits. You can see that the execution speed outperforms JS and is getting close to JVM:
 
-## Feedback
+![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}
 
-* Provide your feedback directly to developers in Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
-  and join the [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel.
-* Report any problems you faced with Kotlin/Wasm on [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-56492).
+We regularly run benchmarks on Kotlin/Wasm, and these results come from our testing in a recent version of Google Chrome.
+
+## Browser API support
+
+The Kotlin/Wasm standard library provides declarations for browser APIs (including the DOM API).
+With these declarations, you can directly use the Kotlin API to access and utilize various browser functionalities, like 
+manipulation with DOM elements or the use of fetch API, in your Kotlin/Wasm applications without defining these declarations 
+from scratch. To learn more, see our [Kotlin/Wasm browser example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/browser-example).
+
+The declarations for browser API support are defined using JavaScript [interoperability capabilities](wasm-js-interop.md). 
+You can use the same capabilities to define your own declarations. In addition, Kotlin/Wasm and Kotlin/JS interoperability allows you to use 
+Kotlin code from JavaScript. For more information, see [Use Kotlin code in JavaScript](wasm-js-interop.md#use-kotlin-code-in-javascript).
+
+
+
+## Leave feedback
+
+### Kotlin/Wasm
+* ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite here](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+* ![Youtrack](youtrack-black-logo.png){width=25}{type="joined"} Youtrack: report any issues in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+
+### Compose Multiplatform for Web
+* ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback in the [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) public channel.
+* ![Github](git-hub.svg){width=25}{type="joined"} Github: report any issues
+  [here](https://github.com/JetBrains/compose-multiplatform/issues).
+
+## Learn more
+
+* Learn more about Kotlin/Wasm in this [YouTube playlist](https://kotl.in/wasm-pl).
+* Explore the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples) in our GitHub repository.
