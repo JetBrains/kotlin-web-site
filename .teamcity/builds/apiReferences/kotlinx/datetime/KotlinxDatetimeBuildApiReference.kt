@@ -28,6 +28,9 @@ object KotlinxDatetimeBuildApiReference : BuildType({
 
     steps {
         scriptDropSnapshot {
+            enabled = true
+        }
+        scriptDropSnapshot {
             scriptContent = """
             #!/bin/bash
             sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
