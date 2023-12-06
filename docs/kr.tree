@@ -229,6 +229,7 @@
             <toc-element id="wasm-get-started.md"/>
             <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries" hidden="true"/>
             <toc-element id="wasm-js-interop.md"/>
+            <toc-element id="wasm-publish-artifacts.md"/>
         </toc-element>
 
         <toc-element toc-title="JavaScript">
