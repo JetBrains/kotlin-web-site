@@ -15,6 +15,7 @@ fun BuildSteps.scriptDropSnapshot(block: ScriptBuildStep.() -> Unit) = step(
         id = "step-drop-snapshot-id"
         name = "Drop SNAPSHOT word for deploy"
         dockerImage = "debian"
+        enabled = false
         scriptContent = """
         #!/bin/bash
         CURRENT_VERSION="$(sed -E s/^v?//g <<<%release.tag%)"
