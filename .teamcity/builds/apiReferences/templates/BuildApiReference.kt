@@ -15,7 +15,6 @@ fun BuildSteps.scriptDropSnapshot(block: ScriptBuildStep.() -> Unit) = step(
         id = "step-drop-snapshot-id"
         name = "Drop SNAPSHOT word for deploy"
         dockerImage = "debian"
-        enabled = false
         scriptContent = """
         #!/bin/bash
         CURRENT_VERSION="$(sed -E s/^v?//g <<<%release.tag%)"
@@ -31,6 +30,7 @@ fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
         id = "step-dokka-version-sync-id"
         name = "Sync dokka version with main repository templates"
         dockerImage = "debian"
+        enabled = false
         scriptContent = """
         #!/bin/bash
         sed -i -E "s/^(dokka_version|dokkaVersion)=.+/\1=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
