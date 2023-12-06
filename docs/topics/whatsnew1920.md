@@ -717,7 +717,7 @@ Wasm GC moves to the final phase and it requires updates of opcodes – constant
 Kotlin 1.9.20 supports the latest opcodes, so we strongly recommend that you update your Wasm projects to the latest version of Kotlin.
 We also recommend using the latest versions of browsers with the Wasm environment:
 * Version 119 or newer for Chrome and Chromium–based browsers.
-* Version 119 or newer for Firefox. Note that in Firefox 119, you need to [turn on Wasm GC manually](wasm-get-started.md#troubleshooting).
+* Version 119 or newer for Firefox. Note that in Firefox 119, you need to [turn on Wasm GC manually](wasm-troubleshooting.md).
 
 ### New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`
 

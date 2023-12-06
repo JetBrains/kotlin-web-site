@@ -22,7 +22,7 @@ With Kotlin/Wasm, you can create applications that run on different environments
 
 To run applications built with Kotlin/Wasm in a browser, you need a version supporting the new [garbage collection feature](https://github.com/WebAssembly/gc).
 
-[Learn more in Get started with Kotlin/Wasm](wasm-get-started.md#troubleshooting).
+[Learn more in Browser versions](wasm-troubleshooting.md).
 
 ## Interoperability
 
