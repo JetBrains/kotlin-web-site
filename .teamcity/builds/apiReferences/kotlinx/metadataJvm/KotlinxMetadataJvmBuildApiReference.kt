@@ -43,7 +43,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
                 set -u
 
                 # update Dokka version
-                sed -i -E "s/dokka ?= ?\"[0-9\.]+\"/dokka = \"%DOKKA_TEMPLATES_VERSION%\"/gi" ./gradle/libs.versions.toml
+                sed -i -E "s/dokka ?= ?\"[0-9\.]+\"/dokka = \"1.9.0-dev-218\"/gi" ./gradle/libs.versions.toml
                 
                 # Define the replacement string
                 replacement="maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral"
