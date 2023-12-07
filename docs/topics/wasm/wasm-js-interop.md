@@ -3,7 +3,7 @@
 Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in JavaScript.
 
 As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoperability with JavaScript. If you are 
-familiar with Kotlin/JS interoperability, you will find that Kotlin/Wasm interoperability is similar. However,
+familiar with Kotlin/JS interoperability, you can notice that Kotlin/Wasm interoperability is similar. However,
 there are key differences to consider. See the comparison between [Kotlin/Wasm and Kotlin/JS](#kotlin-wasm-and-kotlin-js-differences).
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
@@ -26,21 +26,22 @@ To use JavaScript code in Kotlin, you can describe its API with `external` decla
 Consider this JavaScript function: 
 
 ```javascript
-function greet(name) {
-    console.log("Hello, " + name + "!");
+function greet (name) {
+  console.log("Hello, " + name + "!");
 }
 ```
 
-You can declare it in Kotlin with the `external()` function:
+You can declare it in Kotlin as an `external` function:
 
 ```kotlin
 external fun greet(name: String)
 ```
+
 External functions don't have bodies, and you can call it as a regular Kotlin function:
 
 ```kotlin
 fun main() {
-    greet("Alice")
+  greet("Alice")
 }
 ```
 
@@ -51,11 +52,13 @@ Consider this global JavaScript variable:
 ```javascript
 let globalCounter = 0;
 ```
+
 You can declare it in Kotlin using external `var` or `val` properties:
 
 ```kotlin
 external var globalCounter: Int
 ```
+
 These properties are initialized externally. The properties can't have `= value` initializers in Kotlin code.
 
 #### JavaScript classes
@@ -64,13 +67,14 @@ Consider this JavaScript class:
 
 ```javascript
 class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
-    }
-    area() {
-        return this.height * this.width;
-    }
+  constructor (height, width) {
+    this.height = height;
+    this.width = width;
+  }
+
+  area () {
+    return this.height * this.width;
+  }
 }
 ```
 
@@ -91,10 +95,11 @@ All declarations inside the `external` class are implicitly considered external.
 You can describe the shape of a JavaScript object in Kotlin. Consider this JavaScript function and what it returns:
 
 ```javascript
-function createUser(name, age) {
-    return { name: name, age: age };
+function createUser (name, age) {
+  return { name: name, age: age };
 }
 ```
+
 See how its shape can be described in Kotlin with an `external interface User` type:
 
 ```kotlin
@@ -112,20 +117,19 @@ Therefore, external interfaces have some restrictions compared to regular interf
 * You can't use them on the right-hand side of `is` checks.
 * You can't use them in class literal expressions (such as `User::class`).
 * You can't pass them as reified type arguments.
-* `as` casts to external interfaces always succeed.
-
+* Casting with `as` to external interfaces always succeed.
 
 #### External objects
 
-Consider this JavaScript's variables holding an object:
+Consider these JavaScript variables holding an object:
 
 ```javascript
 let Counter = {
-    value: 0,
-    step: 1,
-    increment() {
-        this.value += this.step;
-    }
+  value: 0,
+  step: 1,
+  increment () {
+    this.value += this.step;
+  }
 };
 ```
 
@@ -141,7 +145,7 @@ external object Counter : JsAny {
 
 #### External type hierarchy
 
-Similar to regular classes and interfaces, you can declare `external` declarations to extend other `external` classes and implement `external` interfaces.
+Similar to regular classes and interfaces, you can declare external declarations to extend other external classes and implement external interfaces.
 However, you can't mix external and non-external declarations in the same type hierarchy.
 
 ### Kotlin functions with JavaScript code
@@ -149,37 +153,39 @@ However, you can't mix external and non-external declarations in the same type h
 You can add a JavaScript snippet to Kotlin/Wasm code by defining a function with `= js("code")` body:
 
 ```kotlin
-fun getCurrentURL(): String = 
-    js("window.location.href")
+fun getCurrentURL(): String =
+  js("window.location.href")
 ```
 
 If you want to run a block of JavaScript statements, surround your code inside the string with curly brackets `{}`:
 
 ```kotlin
-fun setLocalSettings(value: String): Unit = js("""{
-    localStorage.setItem('settings', value);
-}""")
+fun setLocalSettings(value: String): Unit = js(
+  """{
+        localStorage.setItem('settings', value);
+}"""
+)
 ```
 
 If you want to return an object, surround the curly brackets `{}` with parentheses `()`:
 
 ```kotlin
 fun createJsUser(name: String, age: Int): JsAny =
-    js("({ name: name, age: age })")
+  js("({ name: name, age: age })")
 ```
 
 Kotlin/Wasm treats calls to the `js()` function in a special way, and the implementation has some restrictions:
 * A `js()` function call must be provided with a string literal argument.
-* The `js()` function is only allowed to be called from package-level functions.
 * A `js()` function call must be the only expression in the function body.
+* The `js()` function is only allowed to be called from package-level functions.
 * The function return type must be provided explicitly.
 * [Types](wasm-js-interop.md#type-correspondence) are restricted, similar to `external fun`.
 
-The Kotlin compiler puts the code string into a function in the generated JS file and imports it into WebAssembly.
+The Kotlin compiler puts the code string into a function in the generated JavaScript file and imports it into WebAssembly format.
 The Kotlin compiler doesn't verify these JavaScript snippets.
 If there are JavaScript syntax errors, they are reported when you run your JavaScript code.
 
-> The `@JsFun` annotation has a similar functionality that will likely be deprecated in the future.
+> The `@JsFun` annotation has a similar functionality and will likely be deprecated.
 >
 {type="note"}
 
@@ -195,9 +201,9 @@ Consider this JavaScript code sample:
 export let maxUsers = 10;
 
 export class User {
-    constructor(username) {
-        this.username = username;
-    }
+  constructor (username) {
+    this.username = username;
+  }
 }
 ```
 
@@ -211,7 +217,8 @@ external val maxUsers: Int
 
 external class User : JsAny {
   constructor(username: String)
-  val username : String
+
+  val username: String
 }
 ```
 
@@ -237,6 +244,7 @@ You can then use this function in JavaScript:
 // JavaScript
 
 import exports from "./module.mjs"
+
 exports.addOne(10)
 ```
 
@@ -284,33 +292,33 @@ You can also create custom `JsAny` subtypes by declaring an `external` interface
 
 Kotlin values can be passed to JavaScript as opaque references using the `JsReference` type.
 
-For example, if we want to expose this Kotlin class `User` to JavaScript:
+For example, if you want to expose this Kotlin class `User` to JavaScript:
 
 ```kotlin
 class User(var name: String)
 ```
 
-We can use the `toJsReference()` function to create `JsReference<User>` and return it to JavaScript:
+You can use the `toJsReference()` function to create `JsReference<User>` and return it to JavaScript:
 
 ```kotlin
 @JsExport
 fun createUser(name: String): JsReference<User> {
-    return User(name).toJsReference()
+  return User(name).toJsReference()
 }
 ```
 
 These references aren't directly available in JavaScript and behave like empty frozen JavaScript objects.
-To operate on these objects, we need to export more functions to JavaScript using the `get()` method where we unwrap the 
+To operate on these objects, you need to export more functions to JavaScript using the `get()` method where you unwrap the 
 reference value:
 
 ```kotlin
 @JsExport
 fun setUserName(user: JsReference<User>, name: String) {
-    user.get().name = name
+  user.get().name = name
 }
 ```
 
-We can create a class and change its name from JavaScript:
+You can create a class and change its name from JavaScript:
 
 ```javascript
 import UserLib from "./userlib.mjs"
@@ -324,17 +332,18 @@ UserLib.setUserName(user, "Alice");
 JavaScript interop declarations can have type parameters if they have an upper bound of `JsAny` or its subtypes. For example:
 
 ```kotlin
-external fun <T : JsAny> processData(data: JsArray<T>): T 
+external fun <T : JsAny> processData(data: JsArray<T>): T
 ```
 
 ## Exception handling
 
-The Kotlin/Wasm `try-catch` expression can't catch JavaScript exceptions.
+The Kotlin `try-catch` expression can't catch JavaScript exceptions.
 
 If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm exceptions, it looks like a
 generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
+
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:
 
 |                         | **Kotlin/Wasm**                                                                                                                                                                                                     | **Kotlin/JS**                                                                                                                                       |
@@ -354,23 +363,23 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 > Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
 > supported in Kotlin/Wasm. Instead of `dynamic` type, you can use `JsAny` type:
 >
->```kotlin
+> ```kotlin
 > // Kotlin/JS
 > fun processUser(user: dynamic, age: Int) {
->  // ...
->  user.profile.updateAge(age)
->  // ...
+>    // ...
+>    user.profile.updateAge(age)
+>    // ...
 > }
 >
 > // Kotlin/Wasm
 > private fun updateUserAge(user: JsAny, age: Int): Unit =
->  js("{ user.profile.updateAge(age); }")
+>    js("{ user.profile.updateAge(age); }")
 >
 > fun processUser(user: JsAny, age: Int) {
->  // ...
->  updateUserAge(user, age)
->  // ...
+>    // ...
+>    updateUserAge(user, age)
+>    // ...
 > }
->```
+> ```
 >
 {type="note"}
