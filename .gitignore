@@ -37,7 +37,7 @@ pdf/kotlin-reference.pdf
 pdf/tmp.html
 *.pyc
 google-credentials.json
-package-lock.json
+./package-lock.json
 .env
 pages/api/
 external/
