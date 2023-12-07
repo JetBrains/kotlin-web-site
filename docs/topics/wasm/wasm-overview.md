@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin Wasm)
 
 > Kotlin Wasm is [Alpha](components-stability.md).
-> It may be changed at any time. You can use it in scenarios before production. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> It may be changed at any time. You can use it in scenarios before using in production. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 > [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
 >
@@ -36,7 +36,7 @@ Would you like to try it yourself?
 
 <a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm"/></a>
 
-## Performance
+## Kotlin/Wasm performance
 
 Although Kotlin/Wasm is still in Alpha, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
 traits. You can see that the execution speed outperforms JS and is getting close to JVM:
@@ -56,15 +56,15 @@ The declarations for browser API support are defined using JavaScript [interoper
 You can use the same capabilities to define your own declarations. In addition, Kotlin/Wasm and JavaScript interoperability 
 allows you to use Kotlin code from JavaScript. For more information, see [Use Kotlin code in JavaScript](wasm-js-interop.md#use-kotlin-code-in-javascript).
 
-
-
 ## Leave feedback
 
-### Kotlin/Wasm
-* ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-* ![Youtrack](youtrack-black-logo.png){width=25}{type="joined"} Youtrack: report any issues in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+### Kotlin/Wasm feedback
 
-### Compose Multiplatform
+* ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+* Report any issues in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+
+### Compose Multiplatform feedback
+
 * ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback in the [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) public channel.
 * [Report any issues on GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 

@@ -4,7 +4,7 @@ Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in 
 
 As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoperability with JavaScript. If you are 
 familiar with Kotlin/JS interoperability, you can notice that Kotlin/Wasm interoperability is similar. However,
-there are key differences to consider.
+there are key differences to consider. See the comparison between [Kotlin/Wasm and Kotlin/JS](#differences).
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
@@ -96,7 +96,7 @@ You can describe the shape of a JavaScript object in Kotlin. Consider this JavaS
 
 ```javascript
 function createUser (name, age) {
-   return { name: name, age: age };
+    return { name: name, age: age };
 }
 ```
 
@@ -160,7 +160,7 @@ If you want to run a block of JavaScript statements, surround your code inside t
 
 ```kotlin
 fun setLocalSettings(value: String): Unit = js(
-  """{
+    """{
         localStorage.setItem('settings', value);
 }"""
 )
@@ -209,7 +209,7 @@ export class User {
 Use this JavaScript code in Kotlin with the `@JsModule` annotation:
 
 ```kotlin
-// kotlin
+// Kotlin
 @file:JsModule("./users.mjs")
 
 external val maxUsers: Int
@@ -342,6 +342,7 @@ If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm excep
 generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
+<a name="differences"></a>
 
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:
 
@@ -365,19 +366,19 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 > ```kotlin
 > // Kotlin/JS
 > fun processUser(user: dynamic, age: Int) {
->      // ...
->      user.profile.updateAge(age)
->      // ...
+>     // ...
+>     user.profile.updateAge(age)
+>     // ...
 > }
 >
 > // Kotlin/Wasm
 > private fun updateUserAge(user: JsAny, age: Int): Unit =
->      js("{ user.profile.updateAge(age); }")
+>     js("{ user.profile.updateAge(age); }")
 >
 > fun processUser(user: JsAny, age: Int) {
->      // ...
->      updateUserAge(user, age)
->      // ...
+>     // ...
+>     updateUserAge(user, age)
+>     // ...
 > }
 > ```
 >
