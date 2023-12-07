@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin Wasm)
 
 > Kotlin Wasm is [Alpha](components-stability.md).
-> It may be changed at any time. You can use it in scenarios before using in production. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> It may be changed at any time. You can use it in scenarios before production. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
 > [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
 >

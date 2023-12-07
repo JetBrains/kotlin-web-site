@@ -31,7 +31,7 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
    >
    {type="note"}
 
-2. In the **compose-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
+2. In **compose-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=650}
 

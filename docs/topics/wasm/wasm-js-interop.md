@@ -184,7 +184,7 @@ The Kotlin compiler puts the code string into a function in the generated JavaSc
 The Kotlin compiler doesn't verify these JavaScript snippets.
 If there are JavaScript syntax errors, they are reported when you run your JavaScript code.
 
-> The `@JsFun` annotation has a similar functionality and will likely be deprecated.
+> The `@JsFun` annotation has similar functionality and will likely be deprecated.
 >
 {type="note"}
 
@@ -236,7 +236,7 @@ To make a Kotlin/Wasm function available to JavaScript code, use the `@JsExport`
 fun addOne(x: Int): Int = x + 1
 ```
 
-The Kotlin/Wasm functions marked with the `@JsExport` annotation are visible as properties on a `default` export of the generated `.mjs` module.
+Kotlin/Wasm functions marked with the `@JsExport` annotation are visible as properties on a `default` export of the generated `.mjs` module.
 You can then use this function in JavaScript:
 
 ```javascript
@@ -351,7 +351,7 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **External enums**      | Doesn't support external enum classes.                                                                                                                                                                              | Supports external enum classes.                                                                                                                     |
 | **Type extensions**     | Doesn't support non-external types to extend external types.                                                                                                                                                        | Supports non-external types.                                                                                                                        |
 | **`JsName` annotation** | Only has an effect when annotating external declarations.                                                                                                                                                           | Can be used to change names of regular non-external declarations.                                                                                   |
-| **`js` function**       | `js("code")` function calls are allowed as a single expression body of package-level functions.                                                                                                                     | The `js("code")` function can be called in any context and returns a `dynamic` value.                                                               |
+| **`js()` function**       | `js("code")` function calls are allowed as a single expression body of package-level functions.                                                                                                                     | The `js("code")` function can be called in any context and returns a `dynamic` value.                                                               |
 | **Module systems**      | Supports ES modules only. There is no analog of the `@JsNonModule` annotation. Provides its exports as properties on the `default` object. Allows exporting package-level functions only.                           | Supports ES modules and legacy module systems. Provides named ESM exports. Allows exporting classes and objects.                                    |
 | **Types**               | Applies stricter type restrictions uniformly to all interop declarations `external`, `= js("code")`, and `@JsExport`. Allows a select number of [built-in Kotlin types and `JsAny` subtypes](#type-correspondence). | Allows all types in `external` declarations. Restricts [types that can be used in `@JsExport`](js-to-kotlin-interop.md#kotlin-types-in-javascript). |
 | **Long**                | Type corresponds to JavaScript `BigInt`.                                                                                                                                                                            | Visible as a custom class in JavaScript.                                                                                                            |
