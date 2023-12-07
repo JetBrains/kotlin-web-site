@@ -40,7 +40,7 @@ repositories {
 
 kotlin {
     sourceSets {
-        val wasmMain by getting {
+        val wasmJsMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:%serializationVersion%")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
