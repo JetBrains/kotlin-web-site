@@ -4,7 +4,7 @@ Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in 
 
 As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoperability with JavaScript. If you are 
 familiar with Kotlin/JS interoperability, you can notice that Kotlin/Wasm interoperability is similar. However,
-there are key differences to consider. See the comparison between [Kotlin/Wasm and Kotlin/JS](#kotlin-wasm-and-kotlin-js-differences).
+there are key differences to consider. See the comparison between [Kotlin/Wasm and Kotlin/JS](#kotlinwasm-and-kotlinjs-interoperability-differences).
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).

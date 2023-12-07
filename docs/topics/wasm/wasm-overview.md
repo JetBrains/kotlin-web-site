@@ -66,7 +66,7 @@ allows you to use Kotlin code from JavaScript. For more information, see [Use Ko
 
 ### Compose Multiplatform
 * ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback in the [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web) public channel.
-* ![Github](git-hub.svg){width=25}{type="joined"} Github: [report any issues](https://github.com/JetBrains/compose-multiplatform/issues).
+* [Report any issues on GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
 ## Learn more
 
