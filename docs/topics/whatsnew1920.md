@@ -702,17 +702,19 @@ machine, libraries delivered with Xcode 15 will be visible but not accessible.
 
 ## Kotlin/Wasm
 
+In 1.9.20, Kotlin Wasm reached the [Alpha level](components-stability.md) of stability.
+
 * [Compatibility with Wasm GC phase 4 and final opcodes](#compatibility-with-wasm-gc-phase-4-and-final-opcodes)
 * [New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`](#new-wasm-wasi-target-and-the-renaming-of-the-wasm-target-to-wasm-js)
 * [Support for the WASI API in standard library](#support-for-the-wasi-api-in-the-standard-library)
 * [Kotlin/Wasm API improvements](#kotlin-wasm-api-improvements)
 
-> Kotlin Wasm is [Experimental](components-stability.md).
+> Kotlin Wasm is [Alpha](components-stability.md).
 > It is subject to change at any time. Use it only for evaluation purposes.
 >
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{type="note"}
 
 ### Compatibility with Wasm GC phase 4 and final opcodes
 
