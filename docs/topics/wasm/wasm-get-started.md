@@ -88,7 +88,7 @@ folder:
 
 ## What's next?
 
-* [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
+* [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly)
 
 * Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
    * [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
