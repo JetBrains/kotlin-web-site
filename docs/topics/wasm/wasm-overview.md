@@ -10,7 +10,7 @@
 Kotlin has the power to build applications, and reuse mobile and desktop user interfaces (UIs) in your web projects with
 Compose Multiplatform and Kotlin/Wasm.
 
-[Compose Multiplatform]((https://www.jetbrains.com/lp/compose-multiplatform/)) is a declarative framework based on Kotlin
+[Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) is a declarative framework based on Kotlin
 and [Jetpack Compose](https://developer.android.com/jetpack/compose), which allows you to implement the UI
 once and share it across all the platforms you target. Specifically for web platforms, Compose Multiplatform uses 
 Kotlin/Wasm as its compilation target.
