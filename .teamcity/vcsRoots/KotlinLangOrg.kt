@@ -8,6 +8,6 @@ object KotlinLangOrg: GitVcsRoot({
   branch = "refs/heads/master"
   branchSpec = "+:refs/heads/*"
   authMethod = uploadedKey {
-    uploadedKey = "default teamcity key"
+    uploadedKey = "ktl-read-write"
   }
 })
