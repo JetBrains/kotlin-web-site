@@ -35,6 +35,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
             enabled = false
         }
         scriptDokkaVersionSync {
+            enabled = true
             scriptContent = """
                 #!/bin/bash
                 set -e
