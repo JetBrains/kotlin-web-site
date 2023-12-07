@@ -1,5 +1,5 @@
 object BuildParams {
-  const val DOKKA_TEMPLATES_VERSION = "1.9.0-dev-218"
+  const val DOKKA_TEMPLATES_VERSION = "1.9.10"
 
   const val KOTLINX_COROUTINES_RELEASE_TAG = "1.7.1"
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "v1.6.2"

@@ -30,7 +30,6 @@ fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
         id = "step-dokka-version-sync-id"
         name = "Sync dokka version with main repository templates"
         dockerImage = "debian"
-        enabled = false
         scriptContent = """
         #!/bin/bash
         sed -i -E "s/^(dokka_version|dokkaVersion)=.+/\1=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
