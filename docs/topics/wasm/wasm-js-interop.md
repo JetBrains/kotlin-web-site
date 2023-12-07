@@ -27,7 +27,7 @@ Consider this JavaScript function:
 
 ```javascript
 function greet (name) {
-  console.log("Hello, " + name + "!");
+    console.log("Hello, " + name + "!");
 }
 ```
 
@@ -41,7 +41,7 @@ External functions don't have bodies, and you can call it as a regular Kotlin fu
 
 ```kotlin
 fun main() {
-  greet("Alice")
+    greet("Alice")
 }
 ```
 
@@ -67,14 +67,14 @@ Consider this JavaScript class:
 
 ```javascript
 class Rectangle {
-  constructor (height, width) {
-    this.height = height;
-    this.width = width;
-  }
+    constructor (height, width) {
+        this.height = height;
+        this.width = width;
+    }
 
-  area () {
-    return this.height * this.width;
-  }
+    area () {
+        return this.height * this.width;
+    }
 }
 ```
 
@@ -82,9 +82,9 @@ You can use it in Kotlin as an external class:
 
 ```kotlin
 external class Rectangle(height: Double, width: Double) : JsAny {
-  val height: Double
-  val width: Double
-  fun area(): Double
+    val height: Double
+    val width: Double
+     fun area(): Double
 }
 ```
 
@@ -96,7 +96,7 @@ You can describe the shape of a JavaScript object in Kotlin. Consider this JavaS
 
 ```javascript
 function createUser (name, age) {
-  return { name: name, age: age };
+   return { name: name, age: age };
 }
 ```
 
@@ -104,10 +104,9 @@ See how its shape can be described in Kotlin with an `external interface User` t
 
 ```kotlin
 external interface User : JsAny {
-  val name: String
-  val age: Int
+    val name: String
+    val age: Int
 }
-
 
 external fun createUser(name: String, age: Int): User
 ```
@@ -125,11 +124,11 @@ Consider these JavaScript variables holding an object:
 
 ```javascript
 let Counter = {
-  value: 0,
-  step: 1,
-  increment () {
-    this.value += this.step;
-  }
+    value: 0,
+    step: 1,
+    increment () {
+        this.value += this.step;
+    }
 };
 ```
 
@@ -137,9 +136,9 @@ You can use them in Kotlin as an external object:
 
 ```kotlin
 external object Counter : JsAny {
-  fun increment()
-  val value: Int
-  var step: Int
+    fun increment()
+    val value: Int
+    var step: Int
 }
 ```
 
@@ -154,7 +153,7 @@ You can add a JavaScript snippet to Kotlin/Wasm code by defining a function with
 
 ```kotlin
 fun getCurrentURL(): String =
-  js("window.location.href")
+    js("window.location.href")
 ```
 
 If you want to run a block of JavaScript statements, surround your code inside the string with curly brackets `{}`:
@@ -171,7 +170,7 @@ If you want to return an object, surround the curly brackets `{}` with parenthes
 
 ```kotlin
 fun createJsUser(name: String, age: Int): JsAny =
-  js("({ name: name, age: age })")
+    js("({ name: name, age: age })")
 ```
 
 Kotlin/Wasm treats calls to the `js()` function in a special way, and the implementation has some restrictions:
@@ -201,9 +200,9 @@ Consider this JavaScript code sample:
 export let maxUsers = 10;
 
 export class User {
-  constructor (username) {
-    this.username = username;
-  }
+    constructor (username) {
+        this.username = username;
+    }
 }
 ```
 
@@ -216,9 +215,9 @@ Use this JavaScript code in Kotlin with the `@JsModule` annotation:
 external val maxUsers: Int
 
 external class User : JsAny {
-  constructor(username: String)
+    constructor(username: String)
 
-  val username: String
+    val username: String
 }
 ```
 
@@ -303,7 +302,7 @@ You can use the `toJsReference()` function to create `JsReference<User>` and ret
 ```kotlin
 @JsExport
 fun createUser(name: String): JsReference<User> {
-  return User(name).toJsReference()
+    return User(name).toJsReference()
 }
 ```
 
@@ -314,7 +313,7 @@ reference value:
 ```kotlin
 @JsExport
 fun setUserName(user: JsReference<User>, name: String) {
-  user.get().name = name
+    user.get().name = name
 }
 ```
 
@@ -366,19 +365,19 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 > ```kotlin
 > // Kotlin/JS
 > fun processUser(user: dynamic, age: Int) {
->    // ...
->    user.profile.updateAge(age)
->    // ...
+>      // ...
+>      user.profile.updateAge(age)
+>      // ...
 > }
 >
 > // Kotlin/Wasm
 > private fun updateUserAge(user: JsAny, age: Int): Unit =
->    js("{ user.profile.updateAge(age); }")
+>      js("{ user.profile.updateAge(age); }")
 >
 > fun processUser(user: JsAny, age: Int) {
->    // ...
->    updateUserAge(user, age)
->    // ...
+>      // ...
+>      updateUserAge(user, age)
+>      // ...
 > }
 > ```
 >
