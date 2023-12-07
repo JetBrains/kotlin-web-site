@@ -84,7 +84,7 @@ You can use it in Kotlin as an external class:
 external class Rectangle(height: Double, width: Double) : JsAny {
     val height: Double
     val width: Double
-     fun area(): Double
+    fun area(): Double
 }
 ```
 
