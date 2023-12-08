@@ -545,6 +545,12 @@
     position:
       lat: 35.907757
       lng: 127.766922
+  - name: Seoul KUG
+    country: South Korea
+    url: https://haeyum.dev/kug-seoul/
+    position:
+      lat: 37.532600
+      lng: 127.024612
   - name: Kozhikode KUG
     country: India
     url: https://www.facebook.com/kotlinusergroup/
