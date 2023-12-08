@@ -1,6 +1,53 @@
 [//]: # (title: Exceptions)
 
+Exceptions are key tools for handling runtime errors, designed to maintain program flow and prevent crashes. 
+Unlike Java, Kotlin simplifies exception management by treating all exceptions as unchecked. This means that exceptions
+can be caught but are not required to be explicitly handled or declared, which streamlines error handling.
+
+Exceptions are represented by the [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/) class.
+
 ## Exception classes
+
+Let's explore some of the common types of exceptions in Kotlin, which are all subclasses of the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) class:
+
+**[ArithmeticException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/)**: Occurs when an arithmetic operation is impossible to perform, like division by zero. 
+
+```kotlin
+val example = 2 / 0 // throws ArithmeticException
+```
+
+**[IndexOutOfBoundsException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/)**: Thrown to indicate that an index of some sort (array, string, etc.) is out of range.
+
+```kotlin
+val myList = mutableListOf(1, 2, 3)
+myList.removeAt(3)  // throws IndexOutOfBoundsException
+```
+
+**[NumberFormatException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/)**: This exception occurs when attempting to convert a string to a numeric type, but the string doesn't have an appropriate format.
+
+```kotlin
+val string = "This is not a number"
+val number = string.toInt() // throws NumberFormatException
+```
+
+**[NullPointerException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/)**: Thrown when an application attempts to use an object reference that has the null value. Even though Kotlin's null safety features significantly reduce the risk of NullPointerExceptions, they can still occur if a null value is explicitly accessed without safety checks.
+
+```kotlin
+val text: String? = null
+println(text!!.length)  // throws a NullPointerException
+```
+
+While you don't have to explicitly catch these exceptions, Kotlin provides the flexibility to catch them if needed.
+
+## Handling exceptions
+
+### Custom exceptions
+
+### Exception hierarchy
+
+## What's next?
+
+## Throwing exceptions 
 
 All exception classes in Kotlin inherit the `Throwable` class.
 Every exception has a message, a stack trace, and an optional cause.
