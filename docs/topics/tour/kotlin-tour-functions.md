@@ -511,7 +511,7 @@ fun main() {
     val prefix = "https://example.com/book-info"
     val id = 5
     val urls = // Write your code here
-        println(urls)
+    println(urls)
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-1"}
