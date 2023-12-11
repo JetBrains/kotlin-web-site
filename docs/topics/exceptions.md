@@ -1,6 +1,6 @@
 [//]: # (title: Exceptions)
 
-Exceptions are key tools for handling runtime errors, designed to maintain program flow and prevent crashes. 
+Exceptions are key tools for handling runtime errors, designed to maintain program flow and prevent crashes.
 Unlike Java, Kotlin simplifies exception management by treating all exceptions as unchecked. This means that exceptions
 can be caught but are not required to be explicitly handled or declared, which streamlines error handling.
 
@@ -41,13 +41,70 @@ While you don't have to explicitly catch these exceptions, Kotlin provides the f
 
 ## Handling exceptions
 
-### Custom exceptions
+There are numerous cases when we need to implement a more precise error handling technique than the built-in exception classes provide. 
+
+### Throwing exceptions
+
+All exception classes in Kotlin inherit the [`Throwable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class, allowing you to manually raise (or throw) exceptions using the `throw` keyword. 
+This is typically done to indicate that something unexpected has happened.
+
+You can throw an exception without any additional parameters: 
+
+```kotlin
+throw Exception()
+```
+
+It is usually recommended to include some additional information, such as a custom message and an original cause.
+
+```kotlin
+throw Exception("My error message", cause)
+```
+
+Let's look at a simple example:
+
+```kotlin
+if (userInput < 0) {
+    throw IllegalArgumentException("Input must be non-negative", e)
+}
+```
+
+In this example, we are throwing an `IllegalArgumentException` when the user inputs a negative value.
+By using this syntax, you can create custom error messages and retain the original cause (`e`) of the exception, which will be included in the [stack trace](#stack-trace).
+
+### Using try-catch-finally statements
+
+Normally, when an exception occurs it interrupts the normal execution of the program. After a line of code throws an exception, Kotlin attempts to find a suitable handler for it.
+You can create such handlers using the `try` and `catch` functions.
+
+> You can use `try` as an expression, which means it can have a return value. For example:
+>
+>```kotlin
+>val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
+>```
+> 
+{type="note"}
+
+The returned value of a `try` expression is either the last expression in the `try` block or the
+last expression in the `catch` block (or blocks).
+The contents of the `finally` block don't affect the result of the expression, but it is always printed.
+
+### The Nothing type
+
+
 
 ### Exception hierarchy
 
+
+
+## Stack trace
+
+
+
 ## What's next?
 
-## Throwing exceptions 
+
+
+## Throwing exceptions with the throwable class
 
 All exception classes in Kotlin inherit the `Throwable` class.
 Every exception has a message, a stack trace, and an optional cause.
@@ -78,58 +135,11 @@ try {
 There may be zero or more `catch` blocks, and the `finally` block may be omitted.
 However, at least one `catch` or `finally` block is required.
 
-### Try is an expression
-
-`try` is an expression, which means it can have a return value:
-
-```kotlin
-val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
-```
-
-The returned value of a `try` expression is either the last expression in the `try` block or the
-last expression in the `catch` block (or blocks).
-The contents of the `finally` block don't affect the result of the expression.
-
-## Checked exceptions
-
-Kotlin does not have checked exceptions. There are many reasons for this, but we will provide a simple example that illustrates why it is the case.
-
-The following is an example interface from the JDK implemented by the `StringBuilder` class:
-
-``` java
-Appendable append(CharSequence csq) throws IOException;
-```
-
-This signature says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.),
-I have to catch the `IOExceptions`. Why? Because the implementation might be performing IO operations (`Writer` also implements `Appendable`).
-The result is code like this all over the place:
-
-```kotlin
-try {
-    log.append(message)
-} catch (IOException e) {
-    // Must be safe
-}
-```
-
-And that's not good. Just take a look at [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
-
-Bruce Eckel says this about checked exceptions:
-
-> Examination of small programs leads to the conclusion that requiring exception specifications
->could both enhance developer productivity and enhance code quality, but experience with large software projects suggests
->a different result – decreased productivity and little or no increase in code quality.
-
-And here are some additional thoughts on the matter:
-
-* [Java's checked exceptions were a mistake](https://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
-* [The Trouble with Checked Exceptions](https://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
-
 If you want to alert callers about possible exceptions when calling Kotlin code from Java, Swift, or Objective-C,
 you can use the `@Throws` annotation. Read more about using this annotation [for Java](java-to-kotlin-interop.md#checked-exceptions)
 and [for Swift and Objective-C](native-objc-interop.md#errors-and-exceptions).
 
-## The Nothing type
+## The Nothing type old
 
 `throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
 
