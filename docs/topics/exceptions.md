@@ -45,7 +45,7 @@ There are numerous cases when we need to implement a more precise error handling
 
 ### Throwing exceptions
 
-All exception classes in Kotlin inherit the [`Throwable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class, allowing you to manually raise (or throw) exceptions using the `throw` keyword. 
+All exception classes in Kotlin inherit the [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class, allowing you to manually raise (or throw) exceptions using the `throw` keyword. 
 This is typically done to indicate that something unexpected has happened.
 
 You can throw an exception without any additional parameters: 
@@ -57,7 +57,7 @@ throw Exception()
 It is usually recommended to include some additional information, such as a custom message and an original cause.
 
 ```kotlin
-throw Exception("My error message", cause)
+throw Exception("This is my error message.", cause)
 ```
 
 Let's look at a simple example:
