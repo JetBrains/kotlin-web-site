@@ -799,7 +799,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
 
 **What's the best practice now?**
 
-* Consider a C library with a `library.package` which declares a `cstructName` forward declaration.
+* Consider a C library with a `library.package` that declares a `cstructName` forward declaration.
   Previously, it was possible to import it directly from the library with `import library.package.cstructName`.
   Now, you can only use a special forward declaration package for that: `import cnames.structs.cstructName`.
   The same is true for `objcnames`.
@@ -850,6 +850,6 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
 **When do the changes take effect?**
 
 Starting with Kotlin 1.9.20, you need to explicitly make a cast to and from the corresponding C and Objective-C forward
-declarations, and it's only possible to import forward declarations by using special packages.
+declarations. Also, it's now only possible to import forward declarations by using special packages.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-58929).
