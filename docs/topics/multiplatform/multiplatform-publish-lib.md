@@ -49,8 +49,18 @@ in the publication's scope.
 
 ## Avoid duplicate publications
 
-To avoid duplicate publications of modules that can be built on several platforms (like JVM and JS), 
-configure the publishing tasks for these modules to run conditionally.
+Duplicate publications can occur if you are publishing the same multiplatform library from different hosts. For example, the library has
+a macOS version and a JS version: a macOS version can only be compiled on an Apple host, but the JS version can be
+compiled anywhere. If you try to simultaneously publish the library from different hosts, the JS modules can clash
+at the repository.
+
+To avoid that, the simplest solution is to publish from Apple hosts if you target Apple operating systems. In all other cases, Kotlin/Native supports
+cross-compilation that allows any host to produce needed artifacts.
+
+If it is necessary to publish from different hosts (if your publishing configuration is distributed, or you have specialized hosts to produce different
+modules), configure the publishing tasks to run conditionally as described below.
+
+### Configure conditional publishing tasks
 
 You can detect the platform in the script, introduce a flag such as `isMainHost` and set it to `true` for the main target 
 platform. Alternatively, you can pass the flag from an external source, for example, from CI configuration. 
@@ -108,7 +118,7 @@ kotlin {
 </tab>
 </tabs>
 
-By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target. 
+By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target.
 
 ## Publish an Android library
 
