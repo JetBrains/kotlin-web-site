@@ -25,6 +25,18 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
         runInstance() {
             codeBlockInstance?.execute();
         },
+        scrollResultsToView() {
+            if (codeBlockInstance?.nodes?.length) {
+                const outputWrapper = codeBlockInstance.nodes[0].querySelector('.output-wrapper');
+                if (typeof window !== 'undefined' && outputWrapper.getBoundingClientRect().bottom > window.innerHeight) {
+                    outputWrapper.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'end',
+                        inline: 'nearest'
+                    });
+                }
+            }
+        }
     }));
 
     return (

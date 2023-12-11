@@ -51,6 +51,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
 
     const handleRunButton = useCallback(() => {
         codeInstanceRef?.current?.runInstance();
+        codeInstanceRef?.current?.scrollResultsToView();
     }, [codeInstanceRef]);
 
     const handleOpenInPlaygroundButton = useCallback(() => {
