@@ -1,4 +1,4 @@
-[//]: # (title: High-order functions and lambdas)
+[//]: # (title: Higher-order functions and lambdas)
 
 Kotlin functions are [first-class](https://en.wikipedia.org/wiki/First-class_function), which means they can
 be stored in variables and data structures, and can be passed as arguments to and returned from other
@@ -88,7 +88,7 @@ These types have a special notation that corresponds to the signatures of the fu
 The function type notation can optionally include names for the function parameters: `(x: Int, y: Int) -> Point`.
 These names can be used for documenting the meaning of the parameters.
 
-To specify that a function type is [nullable](null-safety.md#nullable-types-and-non-null-types), use parentheses as follows:
+To specify that a function type is [nullable](null-safety.md#nullable-types-and-non-nullable-types), use parentheses as follows:
 `((Int, Int) -> Int)?`.
 
 Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)`.

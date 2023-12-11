@@ -30,6 +30,12 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    * If you don't have the necessary JDK on your computer, select **Download JDK**.
 
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
+
+    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
+    > sample code.
+    >
+    {type="tip"}
+
 8. Click **Create**.
 
   > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
@@ -55,12 +61,6 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 2. Modify the code so that it requests your name and says `Hello` to you alone, and not to the whole world:
    
    * Introduce a local variable `name` with the keyword `val`. It will get its value from an input where you will enter your name – [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html).
-     
-     > The readln() function is available since [Kotlin 1.6.0](whatsnew16.md#new-readline-functions).  
-     > Ensure that you have installed the latest version of the [Kotlin plugin](releases.md).
-     > 
-     {type="note"}
-
    * Use a string template by adding a dollar sign `$` before this variable name directly in the text output like this – `$name`.
    
    ```kotlin

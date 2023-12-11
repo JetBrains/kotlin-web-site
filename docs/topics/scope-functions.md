@@ -75,7 +75,7 @@ Detailed information about these functions is provided in the dedicated sections
 
 Here is a short guide for choosing scope functions depending on the intended purpose:
 
-* Executing a lambda on non-null objects: `let`
+* Executing a lambda on non-nullable objects: `let`
 * Introducing an expression as a variable in local scope: `let`
 * Object configuration: `apply`
 * Object configuration and computing the result: `run`
@@ -464,7 +464,7 @@ fun main() {
 
 You can also invoke `run` as a non-extension function. The non-extension variant of `run` has no context object, but it
 still returns the lambda result. Non-extension `run` lets you execute a block of several statements where an expression 
-is required.
+is required. In code, non-extension `run` can be read as "_run the code block and compute the result._"
 
 ```kotlin
 fun main() {

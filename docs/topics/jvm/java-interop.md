@@ -171,14 +171,14 @@ item.substring(1) // allowed, throws an exception if item == null
 
 Platform types are *non-denotable*, meaning that you can't write them down explicitly in the language.
 When a platform value is assigned to a Kotlin variable, you can rely on the type inference (the variable will have an inferred
-platform type then, as `item` has in the example above), or you can choose the type you expect (both nullable and non-null types are allowed):
+platform type then, as `item` has in the example above), or you can choose the type you expect (both nullable and non-nullable types are allowed):
 
 ```kotlin
 val nullable: String? = item // allowed, always works
 val notNull: String = item // allowed, may fail at runtime
 ```
 
-If you choose a non-null type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-null variables from holding
+If you choose a non-nullable type, the compiler will emit an assertion upon assignment. This prevents Kotlin's non-nullable variables from holding
 nulls. Assertions are also emitted when you pass platform values to Kotlin functions expecting non-null values and in other cases.
 Overall, the compiler does its best to prevent nulls from propagating far through the program although sometimes this is
 impossible to eliminate entirely, because of generics.
@@ -195,7 +195,7 @@ so there is a mnemonic notation for them:
 
 ### Nullability annotations
 
-Java types that have nullability annotations are represented not as platform types, but as actual nullable or non-null
+Java types that have nullability annotations are represented not as platform types, but as actual nullable or non-nullable
 Kotlin types. The compiler supports several flavors of nullability annotations, including:
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
@@ -320,7 +320,7 @@ nullability which deviates from the nullability annotations from Java.
 The [`@Nonnull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/Nonnull.html) annotation defined
 in [JSR-305](https://jcp.org/en/jsr/detail?id=305) is supported for denoting nullability of Java types.
 
-If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-null; `When.MAYBE` and
+If the `@Nonnull(when = ...)` value is `When.ALWAYS`, the annotated type is treated as non-nullable; `When.MAYBE` and
 `When.NEVER` denote a nullable type; and `When.UNKNOWN` forces the type to be [platform one](#null-safety-and-platform-types).
 
 A library can be compiled against the JSR-305 annotations, but there's no need to make the annotations artifact (e.g. `jsr305.jar`)
@@ -406,7 +406,7 @@ interface A {
 ```
 
 > The types in this example only take place with the strict mode enabled; otherwise, the platform types remain.
->See the [`@UnderMigration` annotation](#undermigration-annotation) and [Compiler configuration](#compiler-configuration) sections.
+> See the [`@UnderMigration` annotation](#undermigration-annotation) and [Compiler configuration](#compiler-configuration) sections.
 >
 {type="note"}
 
@@ -441,14 +441,14 @@ A library maintainer can add `@UnderMigration` status to both type qualifier nic
 public @interface NonNullApi {
 }
 
-// The types in the class are non-null, but only warnings are reported
+// The types in the class are non-nullable, but only warnings are reported
 // because `@NonNullApi` is annotated `@UnderMigration(status = MigrationStatus.WARN)`
 @NonNullApi
 public class Test {}
 ```
 
->The migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
->to its usages in default type qualifiers.
+> The migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
+> to its usages in default type qualifiers.
 >
 {type="note"}
 

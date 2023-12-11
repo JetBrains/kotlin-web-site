@@ -85,7 +85,7 @@ After the check is passed successfully, the compiler treats the variable as if i
 in the scope where the compiler performs the check.
 
 If you don't perform this check, the code will fail to compile with the following message:
-"Only [safe (?.)](null-safety.md#safe-calls) or [non-null asserted (!!.) calls](null-safety.md#the-operator) are allowed
+"Only [safe (?.)](null-safety.md#safe-calls) or [non-nullable asserted (!!.) calls](null-safety.md#the-operator) are allowed
 on a [nullable receiver](extensions.md#nullable-receiver) of type String?".
 
 You can write the same shorter – use the [safe-call operator ?. (If-not-null shorthand)](idioms.md#if-not-null-shorthand), 
@@ -115,6 +115,36 @@ You will need to decide whether to perform null checks, because:
 on a value of a non-nullable type.
 
 Learn more about [calling Java from Kotlin in regard to null-safety and platform types](java-interop.md#null-safety-and-platform-types).
+
+## Support for definitely non-nullable types
+
+In Kotlin, if you want to override a Java method that contains `@NotNull` as an argument, you need Kotlin's definitely
+non-nullable types.
+
+For example, consider this `load()` method in Java:
+
+```java
+import org.jetbrains.annotations.*;
+
+public interface Game<T> {
+  public T save(T x) {}
+  @NotNull
+  public T load(@NotNull T x) {}
+}
+```
+
+To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely
+non-nullable (`T1 & Any`):
+
+```kotlin
+interface ArcadeGame<T1> : Game<T1> {
+  override fun save(x: T1): T1
+  // T1 is definitely non-nullable
+  override fun load(x: T1 & Any): T1 & Any
+}
+```
+
+Learn more about generic types that are [definitely non-nullable](generics.md#definitely-non-nullable-types).
 
 ## Checking the result of a function call
 

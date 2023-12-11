@@ -77,11 +77,6 @@ Here are some libraries that you may find useful:
   Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
   lambda expressions as simple expressions in curly braces or method references.
 
-* [kotlin-statistics](https://github.com/thomasnield/kotlin-statistics) is a library providing extension functions for 
-exploratory and production statistics. It supports basic numeric list/sequence/array functions (from `sum` to `skewness`),
-slicing operators (such as `countBy`, `simpleRegressionBy`), binning operations, discrete PDF sampling,
-naive bayes classifier, clustering, linear regression, and much more.
-
 * [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was intially inspired by
 [NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
 algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,

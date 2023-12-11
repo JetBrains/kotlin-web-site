@@ -144,15 +144,8 @@ To disable caching for all Kotlin tasks, set the system property `kotlin.caching
 
 ## Gradle configuration cache support
 
-> The Gradle configuration cache is supported only by the following Gradle plugins:
->   * `org.jetbrains.kotlin.jvm`
->   * `org.jetbrains.kotlin.js`
->   * `org.jetbrains.kotlin.android`
->
-{type="note"}
-
 The Kotlin plugin uses the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
-which speeds up the build process by reusing the results of the configuration phase.
+which speeds up the build process by reusing the results of the configuration phase for subsequent builds.
 
 See the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage)
 to learn how to enable the configuration cache. After you enable this feature, the Kotlin Gradle plugin automatically
@@ -287,8 +280,8 @@ When configuring the Kotlin daemon's JVM arguments, note that:
 
 ## The new Kotlin compiler
 
-The new Kotlin K2 compiler is in [Alpha](components-stability.md#stability-levels-explained).
-It has basic support for Kotlin JVM, JS, and Native projects.
+The new Kotlin K2 compiler is in [Beta](components-stability.md#stability-levels-explained).
+It has basic support for Kotlin JVM, Native, Wasm, and JS projects.
 
 The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
 bring performance improvements, and provide an API for compiler extensions.
@@ -302,11 +295,6 @@ use the `kotlin.experimental.tryK2=true` Gradle property or run the following co
 
 This Gradle property automatically sets the default language version to 2.0 and updates the [build report](#build-reports)
 with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
-
-> Build reports don't provide information about Kotlin/Native tasks yet. Despite that,
-> we still recommend that you use Kotlin 2.0 as the default version.
-> 
-{type="tip"}
 
 Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
 
@@ -542,5 +530,5 @@ your `gradle.properties`.
 ## What's next?
 
 Learn more about:
-* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/getting_started.html).
+* [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).

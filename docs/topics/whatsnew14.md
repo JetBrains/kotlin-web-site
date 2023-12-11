@@ -584,7 +584,7 @@ For more information about default methods in the Java interop, see the [interop
 
 Starting from Kotlin 1.4.0, all runtime null checks will throw a `java.lang.NullPointerException` instead of `KotlinNullPointerException`,
 `IllegalStateException`, `IllegalArgumentException`, and `TypeCastException`. This applies to: the `!!` operator, parameter
-null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-null type.
+null checks in the method preamble, platform-typed expression null checks, and the `as` operator with a non-nullable type.
 This doesn't apply to `lateinit` null checks and explicit library function calls like `checkNotNull` or `requireNotNull`.
 
 This change increases the number of possible null check optimizations that can be performed either by the Kotlin compiler
@@ -823,7 +823,7 @@ With the new hierarchical project structure support, you can share code among [s
 Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
 limited to one target and can't be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
 which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
-API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-connect-to-apis.md).
+API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-expect-actual.md).
 
 This made it easy to [share code on all platforms](multiplatform-share-on-platforms.md#share-code-on-all-platforms), but it was
 not so easy to [share between only some of the targets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), 
@@ -842,8 +842,7 @@ code that could still directly call any of the APIs that are common to both the 
 Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
-For common combinations of targets, you can create a hierarchical structure with [target shortcuts](multiplatform-hierarchy.md#target-shortcuts).
-
+For common combinations of targets, you can create a hierarchical structure with target shortcuts.
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
 ```kotlin

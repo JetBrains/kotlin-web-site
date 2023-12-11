@@ -43,10 +43,9 @@ kotlin {
 
 ```kotlin
 kotlin {
-    targets.jvm.compilations.all {
+    jvm().compilations.all {
         compilerOptions.configure {
-            sourceMap.set(true)
-            metaInfo.set(true)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 }
@@ -59,8 +58,7 @@ kotlin {
 kotlin {
     jvm().compilations.all {
         compilerOptions.configure {
-            sourceMap.set(true)
-            metaInfo.set(true)
+            jvmTarget.set(JvmTarget.JVM_1_8)
         }
     }
 }
@@ -91,9 +89,11 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvm().compilations.main {
-        compilerOptions.configure {
-            jvmTarget.set(JvmTarget.JVM_1_8)
+    jvm {
+        compilations.main {
+            compilerOptions.configure {
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
         }
     }
 }
@@ -188,7 +188,7 @@ JVM versions in your final artifact, or you have already set up source sets in G
 
 ## Use Java sources in JVM compilations
 
-When [creating a project with the Project Wizard](multiplatform-library.md), Java sources are included in the compilations of
+When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are included in the compilations of
 the JVM target.
 
 In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
@@ -345,7 +345,7 @@ If the source set `jvmMain` depends on a source set `commonMain` then:
 compiled into the same target binary form, such as JVM class files.
 * Sources of `jvmMain` 'see' the declarations of `commonMain`, including internal declarations, and also see the 
 [dependencies](multiplatform-add-dependencies.md) of `commonMain`, even those specified as `implementation` dependencies.
-* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-connect-to-apis.md) 
+* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-expect-actual.md) 
 of `commonMain`.
 * The resources of `commonMain` are always processed and copied along with the resources of `jvmMain`.
 * The [language settings](multiplatform-dsl-reference.md#language-settings) of `jvmMain` and `commonMain` should be consistent.

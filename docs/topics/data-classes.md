@@ -17,9 +17,9 @@ The compiler automatically derives the following members from all properties dec
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 
-* The primary constructor needs to have at least one parameter.
-* All primary constructor parameters need to be marked as `val` or `var`.
-* Data classes cannot be abstract, open, sealed, or inner.
+* The primary constructor must have at least one parameter.
+* All primary constructor parameters must be marked as `val` or `var`.
+* Data classes can't be abstract, open, sealed, or inner.
 
 Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
 

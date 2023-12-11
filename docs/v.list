@@ -4,31 +4,35 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="1.9.0" type="string"/>
+    <var name="kotlinVersion" value="1.9.21" type="string"/>
 
-    <var name="kotlinEapVersion" value="1.9.0-RC" type="string"/>
+    <var name="kotlinEapVersion" value="2.0.0-Beta1" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.9.0" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v1.9.21" type="string"/>
 
-    <var name="kotlinReleaseDate" value="July 6, 2023" type="string"/>
+    <var name="kotlinReleaseDate" value="November 23, 2023" type="string"/>
 
-    <var name="kotlinEapReleaseDate" value="June 20, 2023" type="string"/>
+    <var name="kotlinEapReleaseDate" value="November 15, 2023" type="string"/>
 
-    <var name="coroutinesVersion" value="1.7.1" type="string"/>
+    <var name="coroutinesVersion" value="1.7.3" type="string"/>
 
-    <var name="coroutinesEapVersion" value="1.7.1" type="string"/>
+    <var name="coroutinesEapVersion" value="1.7.3" type="string"/>
 
     <var name="minGradleVersion" value="6.8.3" type="string"/>
 
-    <var name="maxGradleVersion" value="7.6.0" type="string"/>
+    <var name="maxGradleVersion" value="8.1.1" type="string"/>
 
     <var name="minAndroidGradleVersion" value="4.2.2" type="string"/>
 
     <var name="maxAndroidGradleVersion" value="7.4.0" type="string"/>
 
-    <var name="gradleVersion" value="7.6" type="string"/>
+    <var name="gradleVersion" value="8.1.1" type="string"/>
 
-    <var name="serializationVersion" value="1.5.1" type="string"/>
+    <var name="gradleLanguageVersion" value="KOTLIN_2_0" type="string"/>
+
+    <var name="gradleApiVersion" value="KOTLIN_2_0" type="string"/>
+
+    <var name="serializationVersion" value="1.6.0" type="string"/>
 
     <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
 
@@ -38,14 +42,16 @@
 
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
-    <var name="sqlDelightVersion" value="1.5.5" type="string"/>
+    <var name="sqlDelightVersion" value="2.0.0" type="string"/>
 
-    <var name="kspSupportedKotlinVersion" value="1.9.0" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="1.9.21" type="string"/>
 
-    <var name="kspVersion" value="1.0.11" type="string"/>
+    <var name="kspVersion" value="1.0.15" type="string"/>
 
-    <var name="ktorVersion" value="2.3.2" type="string"/>
+    <var name="ktorVersion" value="2.3.5" type="string"/>
 
     <var name="dateTimeVersion" value="0.4.0" type="string"/>
+
+    <var name="foojayResolver" value="0.5.0" type="string"/>
 
 </vars>

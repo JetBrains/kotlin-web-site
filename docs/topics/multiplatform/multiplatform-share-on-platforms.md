@@ -8,7 +8,7 @@ business logic that applies to all platforms.
 reuse code in similar platforms with a help of the hierarchical structure.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](multiplatform-connect-to-apis.md).
+declarations](multiplatform-expect-actual.md).
 
 ## Share code on all platforms
 
@@ -19,10 +19,10 @@ just share it in the common source set.
 
 Some dependencies for source sets are set by default. You don't need to specify any `dependsOn` relations manually:
 * For all platform-specific source sets that depend on the common source set, such as `jvmMain`, `macosX64Main`, and others. 
-* Between the `main` and `test` source sets of a particular target, such as `androidMain` and `androidTest`.
+* Between the `main` and `test` source sets of a particular target, such as `androidMain` and `androidUnitTest`.
 
 If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
-declarations](multiplatform-connect-to-apis.md).
+declarations](multiplatform-expect-actual.md).
 
 ## Share code on similar platforms
 
@@ -39,8 +39,7 @@ that could still directly call any of the APIs that are common to both the iOS d
 In this case, you can share code across native targets in your project using the [hierarchical structure](multiplatform-hierarchy.md)
 using one of the following ways:
 
-* [Enabling default target hierarchy](multiplatform-hierarchy.md#default-hierarchy)
-* [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
+* [Using default hierarchy template](multiplatform-hierarchy.md#default-hierarchy-template)
 * [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration)
 
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
@@ -61,21 +60,16 @@ Once the `kotlinx.coroutines` library is updated and published with the hierarch
 it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
 "targets signature" of the library's `concurrent` source set.
 
-### Connect platform-specific libraries
+## Connect platform-specific libraries
 
-[Platform-specific libraries](native-platform-libs.md) shipped with Kotlin/Native (like Foundation, UIKit, and POSIX)
-are available in shared source sets by default. This helps you share more native code without being limited by
-platform-specific dependencies.
+To share more native code without being limited by platform-specific dependencies, connect [platform-specific libraries](native-platform-libs.md).
+Libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX) are available in shared source sets by default.
 
-In addition, you can enable the support for third-party libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
-To do that, add the following property to your `gradle.properties`:
-
-```none
-kotlin.mpp.enableCInteropCommonization=true
-```
+In addition, if you use the [Kotlin CocoaPods Gradle](native-cocoapods.md) plugin in your projects,
+you can work with third-party native libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
 
 ## What's next?
 
-* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-connect-to-apis.md)
+* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-expect-actual.md)
 * Learn more about [hierarchical project structure](multiplatform-hierarchy.md)
 * See our recommendations on [naming source files in multiplatform projects](coding-conventions.md#source-file-names)

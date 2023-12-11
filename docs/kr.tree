@@ -33,10 +33,11 @@
     </toc-element>
 
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 1.9.0-RC" hidden="true"/>
+        <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
+        <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta1"/>
         <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
             <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
@@ -125,51 +126,32 @@
     </toc-element>
 
     <toc-element toc-title="Multiplatform development">
-        <toc-element toc-title="Kotlin Multiplatform for iOS and Android">
-            <toc-element id="multiplatform-mobile-getting-started.md" accepts-web-file-names="kmm-getting-started.html"/>
-            <toc-element id="multiplatform-mobile-setup.md" accepts-web-file-names="kmm-setup.html" toc-title="1. Set up an environment"/>
-            <toc-element id="multiplatform-mobile-create-first-app.md" accepts-web-file-names="kmm-create-first-app.html" toc-title="2. Create your first cross-platform app"/>
-            <toc-element id="multiplatform-mobile-dependencies.md" toc-title="3. Add dependencies"/>
-            <toc-element id="multiplatform-mobile-upgrade-app.md" toc-title="4. Upgrade your app"/>
-            <toc-element id="multiplatform-mobile-wrap-up.md" toc-title="5. Wrap up your project"/>
-            <toc-element id="multiplatform-mobile-understand-project-structure.md" accepts-web-file-names="kmm-understand-project-structure.html"/>
-            <toc-element id="multiplatform-mobile-integrate-in-existing-app.md" accepts-web-file-names="kmm-integrate-in-existing-app.html"/>
-            <toc-element id="multiplatform-mobile-publish-apps.md" accepts-web-file-names="kmm-publish-apps.html"/>
-            <toc-element id="multiplatform-mobile-ktor-sqldelight.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin Multiplatform for other platforms">
-            <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
-            <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html"/>
-            <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets manually" accepts-web-file-names="mpp-set-up-targets.html"/>
-            <toc-element id="multiplatform-full-stack-app.md" hidden="true"/>
-        </toc-element>
-        <toc-element toc-title="Creating multiplatform libraries">
-            <toc-element id="multiplatform-library.md" accepts-web-file-names="working-with-klib.html,multiplatform-create-lib.html,mpp-create-lib.html"/>
-            <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html"/>
-        </toc-element>
-        <toc-element toc-title="Sharing code principles">
+        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
+        <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html" toc-title="Understand project structure"/>
+        <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html"/>
+        <toc-element toc-title="Share code">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
-            <toc-element id="multiplatform-connect-to-apis.md" accepts-web-file-names="platform-specific-declarations.html,mpp-connect-to-apis.html,kmm-connect-to-platform-specific-apis.html,multiplatform-mobile-connect-to-platform-specific-apis.html"/>
+            <toc-element id="multiplatform-expect-actual.md"/>
             <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
-            <toc-element id="multiplatform-android-layout.md"/>
         </toc-element>
-        <toc-element toc-title="Adding dependencies">
+        <toc-element toc-title="Add dependencies">
             <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html"/>
-            <toc-element id="multiplatform-mobile-android-dependencies.md" accepts-web-file-names="kmm-add-dependencies.html,multiplatform-mobile-add-dependencies.html" toc-title="For Android target platforms"/>
-            <toc-element id="multiplatform-mobile-ios-dependencies.md" toc-title="For iOS target platforms"/>
+            <toc-element id="multiplatform-android-dependencies.md" toc-title="For Android target platforms"/>
+            <toc-element id="multiplatform-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
-        <toc-element id="multiplatform-run-tests.md" toc-title="Running tests" accepts-web-file-names="mpp-run-tests.html"/>
-        <toc-element toc-title="Artifact compilation">
+        <toc-element toc-title="Compile artifacts">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
             <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
             <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
         </toc-element>
-        <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
-        <toc-element id="multiplatform-mobile-samples.md" toc-title="Samples" accepts-web-file-names="kmm-samples.html"/>
-        <toc-element id="multiplatform-mobile-faq.md" accepts-web-file-names="kmm-faq.html" toc-title="FAQ"/>
-        <toc-element id="multiplatform-mobile-introduce-your-team.md" accepts-web-file-names="kmm-introduce-your-team.html"/>
-        <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
-        <toc-element id="multiplatform-mobile-plugin-releases.md" accepts-web-file-names="kmm-plugin-releases.html"/>
+        <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries"/>
+        <toc-element id="multiplatform-introduce-your-team.md"/>
+        <toc-element toc-title="Reference">
+            <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
+            <toc-element id="multiplatform-android-layout.md"/>
+            <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
+            <toc-element id="multiplatform-plugin-releases.md"/>
+        </toc-element>
     </toc-element>
 
     <toc-element toc-title="Platforms">
@@ -233,12 +215,6 @@
                 <toc-element id="native-memory-manager.md"/>
                 <toc-element id="native-ios-integration.md"/>
                 <toc-element id="native-migration-guide.md" toc-title="Migration guide"/>
-                <toc-element toc-title="Legacy memory manager">
-                    <toc-element id="native-immutability.md" toc-title="Immutability and concurrency" accepts-web-file-names="native-concurrency.html"/>
-                    <toc-element id="multiplatform-mobile-concurrency-overview.md" accepts-web-file-names="kmm-concurrency-overview.html"/>
-                    <toc-element id="multiplatform-mobile-concurrent-mutability.md" accepts-web-file-names="kmm-concurrent-mutability.html"/>
-                    <toc-element id="multiplatform-mobile-concurrency-and-coroutines.md" accepts-web-file-names="kmm-concurrency-and-coroutines.html"/>
-                </toc-element>
             </toc-element>
             <toc-element id="native-debugging.md"/>
             <toc-element id="native-ios-symbolication.md"/>
@@ -251,8 +227,9 @@
         </toc-element>
         <toc-element toc-title="WebAssembly (Wasm)">
             <toc-element id="wasm-get-started.md"/>
-            <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries"/>
+            <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries" hidden="true"/>
             <toc-element id="wasm-js-interop.md"/>
+            <toc-element id="wasm-troubleshooting.md"/>
         </toc-element>
 
         <toc-element toc-title="JavaScript">
@@ -394,6 +371,7 @@
         <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
         <toc-element id="koans.md"/>
         <toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
+        <toc-element id="kotlin-hands-on.md" toc-title="Kotlin hands-on"/>
         <toc-element id="kotlin-tips.md"/>
         <toc-element id="books.md"/>
         <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>

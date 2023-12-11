@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 1.9.0)
 
-_[Release date: %kotlinReleaseDate%](releases.md#release-details)_
+_[Release date: July 6, 2023](releases.md#release-details)_
 
 The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
@@ -60,8 +60,8 @@ If you encounter any issues when using kapt with the K2 compiler, please report 
 
 ### Try the K2 compiler in your project
 
-Starting with 1.9.0 and until the release of Kotlin 2.0, you can easily test the K2 compiler with the `kotlin.experimental.tryK2=true`
-Gradle property. You can also run the following command:
+Starting with 1.9.0 and until the release of Kotlin 2.0, you can easily test the K2 compiler by adding the `kotlin.experimental.tryK2=true`
+Gradle property to your `gradle.properties` file. You can also run the following command:
 
 ```shell
 ./gradlew assemble -Pkotlin.experimental.tryK2=true
@@ -271,7 +271,7 @@ sweeping, or should be created first.
 The new allocator allows having multiple independent allocation spaces simultaneously, which will allow the Kotlin team 
 to experiment with different page layouts to improve performance even further.
 
-For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/custom_alloc/README.md).
+For more information on the design of the new allocator, see this [README](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md).
 
 #### How to enable
 
@@ -309,7 +309,7 @@ a function, or retrieved from a collection. In this case, Kotlin creates its own
 Objective-C object. When the Kotlin object gets deallocated, the Kotlin/Native runtime calls the `objc_release` function 
 that releases that Objective-C reference.
 
-Previously, the Kotlin/Native memory manager ran `objc_release ` on a special GC thread. If it's the last object reference,
+Previously, the Kotlin/Native memory manager ran `objc_release` on a special GC thread. If it's the last object reference,
 the object gets deallocated. Issues could come up when Objective-C objects have custom deallocation hooks like the `dealloc`
 method in Objective-C or the `deinit` block in Swift, and these hooks expect to be called on a specific thread.
 
@@ -564,7 +564,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 
 > Using Kotlin/Wasm requires enabling experimental features in your browser.
 >
-> [Learn more about how to enable these features](wasm-get-started.md#troubleshooting).
+> [Learn more about how to enable these features](wasm-troubleshooting.md).
 >
 {type="note"}
 

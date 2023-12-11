@@ -1,137 +1,97 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
-> Kotlin/Wasm is an [Experimental](components-stability.md) feature. It may be dropped or changed at any time. It is available only starting with [Kotlin 1.8.20](releases.md).
+> Kotlin/Wasm is an [Alpha](components-stability.md) feature. It may be changed at any time.
 >
-{type="warning"}
+{type="note"}
 
-This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Wasm application.
+This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
+app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
 
-To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+## Before you start
 
-## Enable an experimental Kotlin/Wasm Wizard in IntelliJ IDEA
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+2. Clone the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main) repository 
+  by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
 
-1. Press double **Shift** to open a search, enter **Registry**.
+   You can also clone it from the command line:
 
-   ![Open registry in IntelliJ IDEA](wasm-enable-in-idea.png){width=700}
-
-2. Select **Registry** from the list. Registry window opens.
-3. Find the `kotlin.wasm.wizard` registry key in the list, and enable it.
-
-   ![Enable Kotlin/Wasm Wizard](wasm-enable-wizard.png){width=700}
-
-4. Restart IntelliJ IDEA.
-
-## Create a new Kotlin/Wasm project
-
-1. In IntelliJ IDEA, select **File** | **New** | **Project**.
-2. In the panel on the left, select **Kotlin Multiplatform**.
-3. Enter a project name, select **Browser Application with Kotlin/Wasm** as the project template, and click **Next**.
-
-   ![Create a Kotlin/Wasm application](wasm-new-project-intellij.png){width=700}
-
-   By default, your project will use Gradle with Kotlin DSL as the build system.
-
-4. Accept the default configuration on the next screen and click **Finish**. Your project will open.
-
-   By default, the wizard creates the necessary `Simple.kt` file.
-
-5. Open the `build.gradle.kts` file and ensure that the Kotlin Multiplatform plugin version is set to `1.8.20`: 
-
-   ```kotlin
-   plugins {
-       kotlin("multiplatform") version "1.8.20"
-   }
+   ```bash
+   git clone git@github.com:Kotlin/kotlin-wasm-examples.git
    ```
+   
+> Alternatively, you can use our experimental [web wizard](https://kmp.jetbrains.com/) to download a sample project.
+>
+{type="note"}
 
-## Build and run the application
+## Run the application
 
-1. Click **Build Project** next to the run configuration at the top of the screen:
+1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 
-   ![Build the application](wasm-build-app.png){width=600}
+   > You need at least Java 11 as your Gradle JVM for the examples to load successfully.
+   >
+   {type="note"}
 
-2. Run the application by clicking **Run** next to the run configuration at the top of the screen.
+2. In **compose-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
+
+   ![Run the Gradle task](wasm-gradle-task-window.png){width=650}
+
+    Alternatively, you can run the following command in the terminal from the `compose-example` directory:
+
+   ```bash
+   ./gradlew wasmJsBrowserRun -t
+   ```
 
 3. Once the application starts, open the following URL in your browser:
 
-   ```text
-   http://localhost:8080
+   ```bash
+   http://localhost:8081/
    ```
 
-   You should see the "JS Client" tab in your browser:
+   You see a "Hello World!" button. Click it:
 
-   ![Empty Kotlin/Wasm application in browser](wasm-browser-app.png){width=500}
+   ![Click hello world](wasm-composeapp-browser-hello.png){width=650}
 
-   If you open a page source, you'll find the name of the JavaScript bundle:
+   You see the Compose Multiplatform logo:
 
-   ![Source of Kotlin/Wasm application in browser](wasm-browser-source-app.png){width=500}
+   ![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
-### Troubleshooting
+## Generate artifacts
 
-Despite the fact that most of the browsers support WebAssembly, you need to update the settings in your browser.
+In **compose-example** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-To run a Kotlin/Wasm project, you need to update the settings of the target environment:
+![Run the Gradle task](wasm-gradle-task-window-compose.png){width=650}
 
-<tabs>
-<tab title="Chrome">
+Alternatively, you can run the following command in the terminal from the `compose-example` directory:
 
-* For version 109:
-
-  Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
-
-* For version 110 or later:
-
-   1. Go to `chrome://flags/#enable-webassembly-garbage-collection` in your browser.
-   2. Enable **WebAssembly Garbage Collection**.
-   3. Relaunch your browser.
-
-</tab>
-<tab title="Firefox">
-
-For version 109 or later:
-
-1. Go to `about:config` in your browser.
-2. Enable `javascript.options.wasm_function_references` and `javascript.options.wasm_gc` options.
-3. Relaunch your browser.
-
-</tab>
-<tab title="Edge">
-
-For version 109 or later:
-
-Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
-
-</tab>
-</tabs>
-
-
-## Update your application
-
-1. Open `Simple.kt` and update the code:
-
-   ```kotlin
-   import kotlinx.browser.document
-   import kotlinx.dom.appendText
-   
-   fun main() {
-       println("Hello, ${greet()}")
-       document.body!!.appendText("Hello, you're using Kotlin/Wasm!")
-   }
-   
-   fun greet() = "world"
-   ```
-
-2. Run the application by clicking **Run** next to the run configuration at the top of the screen.
-
-3. Once the application starts, open the following URL in your browser:
-
-```text
-http://localhost:8080
+```bash
+./gradlew wasmJsBrowserDistribution
 ```
+Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
+folder:
 
-You'll see the text "Hello, you're using Kotlin/Wasm!":
+![Artifacts directory](wasm-composeapp-directory.png){width=600}
 
-![Kotlin/Wasm application in browser](wasm-browser-updated-app.png){width=500}
+## Publish on GitHub pages
+
+1. Copy all the contents in your `productionExecutable` directory into the repository where you want to create a site.
+2. Follow GitHub's instructions for [creating your site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+
+   > It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
+   >
+   {type="note"}
+
+3. In a browser, navigate to your GitHub pages domain.
+
+   ![Navigate to GitHub pages](wasm-composeapp-github-hello.png){width=650}
+
+   Congratulations! You have published your artifacts on GitHub pages.
 
 ## What's next?
 
-[Explore the Kotlin/Wasm interoperability with JavaScript](wasm-js-interop.md)
+* [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly)
+
+* Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+   * [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+   * [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+   * [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+   * [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)

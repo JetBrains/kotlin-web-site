@@ -1,10 +1,5 @@
 [//]: # (title: iOS integration)
 
-> This page describes the new memory manager enabled by default since Kotlin 1.7.20. See our [migration guide](native-migration-guide.md)
-> to move your projects from the legacy memory manager.
->
-{type="note"}
-
 Integration of Kotlin/Native garbage collector with Swift/Objective-C ARC is seamless and generally requires no additional
 work to be done. Learn more about [Swift/Objective-C interoperability](native-objc-interop.md).
 
@@ -51,7 +46,7 @@ shared.SwiftExample
 deinit on <_NSMainThread: 0x600003bc0000>{number = 1, name = main}
 ```
 
-Deinitialization on the Swift/Objective-C objects is called on a special GC thread if:
+Deinitialization on the Swift/Objective-C objects is called on a special GC thread instead of the main one if:
 
 * Swift/Objective-C objects are passed to Kotlin on a thread other than main.
 * The main dispatch queue isn't processed.
@@ -59,6 +54,9 @@ Deinitialization on the Swift/Objective-C objects is called on a special GC thre
 If you want to call deinitialization on a special GC thread explicitly,
 set `kotlin.native.binary.objcDisposeOnMain=false` in your `gradle.properties`. This option
 enables deinitialization on a special GC thread, even if Swift/Objective-C objects were passed to Kotlin on the main thread.
+
+A special GC thread complies with the Objective-C runtime, meaning that it has a run loop and
+drain autorelease pools.
 
 ### Completion handlers
 

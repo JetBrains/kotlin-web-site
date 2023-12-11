@@ -742,7 +742,7 @@ in each `Video` object, so you can pass it as a prop and access its attributes.
    }
    ```
 
-2. Because the `VideoPlayerProps` interface specifies that the `VideoPlayer` component takes a non-null `Video`, make
+2. Because the `VideoPlayerProps` interface specifies that the `VideoPlayer` component takes a non-nullable `Video`, make
    sure to handle this in the `App` component accordingly.
 
    In `App.kt`, replace the previous `div` snippet for the video player with the following:
@@ -1291,4 +1291,4 @@ If you're interested in finding out more about how you can write concurrent code
 ### Learn more about React {initial-collapse-state="collapsed"}
 
 Now that you know the basic React concepts and how they translate to Kotlin, you can convert some other concepts outlined
-in the [official guides on React](https://reactjs.org/docs/) into Kotlin.
+in [React's documentation](https://react.dev/learn) into Kotlin.

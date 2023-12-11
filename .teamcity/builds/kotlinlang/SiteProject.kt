@@ -16,11 +16,13 @@ object SiteProject : Project({
   buildType(BuildWebHelpFrontend)
   buildType(BuildReferenceDocs)
   buildType(BuildSitePages)
+  buildType(FetchBlogNews)
   buildType(PdfGenerator)
   buildType(BuildSearchIndex)
 
   buildTypesOrder = arrayListOf(
     BuildSitePages,
+    FetchBlogNews,
     PdfGenerator,
     BuildSearchIndex,
     BuildReferenceDocs,

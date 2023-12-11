@@ -93,12 +93,12 @@
   ],
   "toolingAndLearningMaterials": [
     {
-      "title": "Alexander Nozik, Moscow Institute of Physics and Technology",
-      "text": "JetBrains equipped Kotlin with the best available tooling to simplify development."
-    },
-    {
       "title": "Mariusz Nowostawski, Norwegian University of Science and Technology",
       "text": "Go for it! You will love it. The language is mature, the IDE support is fantastic, the documentation is great."
+    },
+    {
+      "title": "Alexander Nozik, Moscow Institute of Physics and Technology",
+      "text": "JetBrains equipped Kotlin with the best available tooling to simplify development."
     }
   ]
 }

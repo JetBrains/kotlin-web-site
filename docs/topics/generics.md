@@ -85,7 +85,7 @@ In other words, the wildcard with an _extends_\-bound (_upper_ bound) makes the 
 The key to understanding why this works is rather simple: if you can only _take_ items from a collection,
 then using a collection of `String`s and reading `Object`s from it is fine. Conversely, if you can only _put_ items
 into the collection, it's okay to take a collection of `Object`s and put `String`s into it: in Java there is
-`List<? super String>`, a _supertype_ of `List<Object>`.
+`List<? super String>`, which accepts `String`s or any of its supertypes.
 
 The latter is called _contravariance_, and you can only call methods that take `String` as an argument on `List<? super String>`
 (for example, you can call `add(String)` or `set(int, String)`).  If you call something that returns `T` in `List<T>`,
@@ -321,6 +321,41 @@ fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
 
 The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type
 must implement _both_ `CharSequence` and `Comparable`.
+
+## Definitely non-nullable types
+
+To make interoperability with generic Java classes and interfaces easier, Kotlin supports declaring a generic type parameter
+as **definitely non-nullable**. 
+
+To declare a generic type `T` as definitely non-nullable, declare the type with `& Any`. For example: `T & Any`.
+
+A definitely non-nullable type must have a nullable [upper bound](#upper-bounds).
+
+The most common use case for declaring definitely non-nullable types is when you want to override a Java method that 
+contains `@NotNull` as an argument. For example, consider the `load()` method:
+
+```java
+import org.jetbrains.annotations.*;
+
+public interface Game<T> {
+    public T save(T x) {}
+    @NotNull
+    public T load(@NotNull T x) {}
+}
+```
+
+To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely non-nullable:
+
+```kotlin
+interface ArcadeGame<T1> : Game<T1> {
+    override fun save(x: T1): T1
+    // T1 is definitely non-nullable
+    override fun load(x: T1 & Any): T1 & Any
+}
+```
+
+When working only with Kotlin, it's unlikely that you will need to declare definitely non-nullable types explicitly because 
+Kotlin's type inference takes care of this for you.
 
 ## Type erasure
 

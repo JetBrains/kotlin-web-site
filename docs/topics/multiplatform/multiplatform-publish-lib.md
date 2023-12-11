@@ -22,9 +22,6 @@ publishing {
 }
 ```
 
-To get hands-on experience, as well as learn how to publish a multiplatform library to the external Maven Central repository,
-see the [Create and publish a multiplatform library](multiplatform-library.md) tutorial.
-
 > You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 >
 {type="tip"}
@@ -130,7 +127,7 @@ kotlin {
 ```
 
 The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
-For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
+For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBarRelease`.
 
 The default publishing setup is as follows:
 * If the published variants have the same build type (for example, all of them are `release` or`debug`),

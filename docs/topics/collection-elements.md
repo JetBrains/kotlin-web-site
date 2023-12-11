@@ -130,7 +130,7 @@ It combines 2 actions:
 - Maps the collection with the selector function
 - Returns the first non-null value in the result
 
-`firstNotNullOf()` throws the `NoSuchElementException` if the resulting collection doesn't have a non-null element. 
+`firstNotNullOf()` throws the `NoSuchElementException` if the resulting collection doesn't have a non-nullable element. 
 Use the counterpart [`firstNotNullOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of-or-null.html) 
 to return null in this case.
 

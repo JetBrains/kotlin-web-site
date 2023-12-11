@@ -19,7 +19,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 <tabs>
 <tab title="RVM">
 
-1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have yet.
+1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -35,7 +35,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 </tab>
 <tab title="Rbenv">
 
-1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have yet.
+1. Install [rbenv from GitHub](https://github.com/rbenv/rbenv#installation) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -80,7 +80,7 @@ sudo gem install cocoapods
 >
 {type="warning"}
 
-1. Install [Homebrew](https://brew.sh/) in case you don't have yet.
+1. Install [Homebrew](https://brew.sh/) in case you don't have it yet.
 
 2. Install CocoaPods:
 
@@ -110,7 +110,7 @@ If you encounter problems during the installation, check the [Possible issues an
 
 ## Add and configure Kotlin CocoaPods Gradle plugin
 
-If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](multiplatform-mobile-create-first-app.md)
+If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 and choose **CocoaPods Dependency Manager** as the iOS framework distribution option. The plugin will automatically generate the project for you.
 
 If you want to configure your project manually:
@@ -220,9 +220,6 @@ of specs at the beginning of your Podfile:
 If you don't make these changes to the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
 an error message in the log.
 
-Check out the `withXcproject` branch of the [sample project](https://github.com/Kotlin/kmm-with-cocoapods-sample),
-which contains an example of Xcode integration with an existing Xcode project named `kotlin-cocoapods-xcproj`.
-
 ## Possible issues and solutions
 
 ### CocoaPods installation {initial-collapse-state="collapsed"}
@@ -256,25 +253,37 @@ Try these workarounds to avoid this error:
 name, specify it explicitly:
 
     ```kotlin
-    pod("Alamofire") {
+    pod("FirebaseAuth") {
         moduleName = "AppsFlyerLib"
     }
     ```
-#### Check the definition file
+#### Specify headers
 
-If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
-modules with headers with the pointing main header:
+If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, specify the main header explicitly:
 
 ```kotlin
-tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMessages").configure {
-    doLast {
-        outputFile.writeText("""
-            language = Objective-C
-            headers = GNSMessages.h
-        """.trimIndent())
-    }
+pod("NearbyMessages") {
+    version = "1.1.1"
+    headers = "GNSMessages.h"
 }
 ```
 
 Check the [CocoaPods documentation](https://guides.cocoapods.org/) for more information. If nothing works, and you still
 encounter this error, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+
+### Rsync error {initial-collapse-state="collapsed"}
+
+You might encounter the `rsync error: some files could not be transferred` error. It's a [known issue](https://github.com/CocoaPods/CocoaPods/issues/11946)
+that occurs if the application target in Xcode has sandboxing of the user scripts enabled.
+
+To solve this issue:
+
+1. Disable sandboxing of user scripts in the application target:
+
+   ![Disable sandboxing CocoaPods](disable-sandboxing-cocoapods.png){width=700}
+
+2. Stop the Gradle daemon process that might have been sandboxed:
+
+    ```shell
+    ./gradlew --stop
+    ```

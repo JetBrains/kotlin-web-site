@@ -1,264 +1,113 @@
-[//]: # (title: What's new in Kotlin 1.9.0-RC)
+[//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
-> This document doesn't cover all of the features of the Early Access Preview (EAP) release, but it highlights the latest
-> ones and some major improvements.
+> This document doesn't cover all of the features of the Early Access Preview (EAP) release, 
+> but it highlights some major improvements.
 >
-> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v1.9.0-RC).
+> See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
 {type="note"}
 
-The Kotlin 1.9.0-RC release is out! Here are some highlights from this preview version of Kotlin:
-
-* [New Kotlin K2 compiler updates](#new-kotlin-k2-compiler-updates)
-* [Stable replacement of the enum class values function](#stable-replacement-of-the-enum-class-values-function)
-* [Stable ..< operator for open-ended ranges](#stable-operator-for-open-ended-ranges)
-* [New common function to get regex capture group by name](#new-common-function-to-get-regex-capture-group-by-name)
-* [New path utility to create parent directories](#new-path-utility-to-create-parent-directories)
-* [Preview of Gradle configuration cache in Kotlin Multiplatform](#preview-of-gradle-configuration-cache-in-kotlin-multiplatform)
-* [Changes for Android target support in Kotlin Multiplatform](#changes-for-android-target-support-in-kotlin-multiplatform)
-* [No object initialization when accessing constant values in Kotlin/Native](#no-object-initialization-when-accessing-constant-values-in-kotlin-native)
-* [Ability to configure standalone mode for iOS simulator tests in Kotlin/Native](#ability-to-configure-standalone-mode-for-ios-simulator-tests-in-kotlin-native)
+The Kotlin %kotlinEapVersion% release is out! 
+It mostly covers stabilization of the new Kotlin K2 compiler, 
+which reached its **Beta** status for all targets since 1.9.20.
 
 ## IDE support
 
-The Kotlin plugins that support 1.9.0-RC are available for:
+The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest IntelliJ IDEA and Android Studio. 
+You don’t need to update the Kotlin plugin in your IDE. 
+All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
 
-| IDE            | Supported versions            |
-|----------------|-------------------------------|
-| IntelliJ IDEA  | 2022.3.x, 2023.1.x            |
-| Android Studio | Giraffe (223), Hedgehog (231) |
+## Kotlin K2 compiler
 
-## New Kotlin K2 compiler updates
+The JetBrains team is still working on stabilization of the new Kotlin K2 compiler.
+The new Kotlin K2 compiler will bring major performance improvements, speed up new language feature development,
+unify all platforms that Kotlin supports, and provide a better architecture for multiplatform projects.
 
-The Kotlin team continues to stabilize the K2 compiler. The 1.9.0-RC release introduces further advancements, including
-basic support for Kotlin/Native and improved Kotlin/JS stability in the K2 compiler. It's an important step towards full
-support of multiplatform projects. We would appreciate [your feedback](#share-your-feedback-on-the-new-k2-compiler) to
-help us with it.
+The K2 compiler is in [Beta](components-stability.md) for all target platforms: JVM, Native, Wasm, and JS.
+The JetBrains team has ensured the quality of the new compiler by successfully compiling dozens of user and internal projects.
+A large number of users are also involved in the stabilization process, trying the new K2 compiler in their projects and reporting any problems they find.
 
-Also, starting with 1.9.0-RC and until the release of Kotlin 2.0, you can easily test the K2 compiler in your projects.
-Add `kotlin.experimental.tryK2=true` to your `gradle.properties` file or run the following command:
+## What to expect from upcoming Kotlin EAP releases
 
-```shell
-./gradlew assemble -Pkotlin.experimental.tryK2=true
-```
+The upcoming 2.0.0-Beta2 and 2.0.0-Beta3 releases will introduce increased stability to the K2 compiler.
+If you are currently using K2 in your project, 
+we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
+[Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
 
-This Gradle property automatically sets the language version to 2.0 and updates the build report with the number of
-Kotlin tasks compiled using the K2 compiler compared to the current compiler:
+> Despite the fact that the Kotlin K2 compiler is in Beta for all targets, it is not recommended to use it in production.
+> This is due to K2 binaries poisoning: we need to ensure that code compiled with different versions of Kotlin maintains binary compatibility with K2 binaries.
+> 
+> You can start using the K2 compiler in production starting from **Kotlin 2.0.0-RC1**.
+>
+{type="warning"}
 
-```none
-##### 'kotlin.experimental.tryK2' results (Kotlin/Native not checked) #####
-:lib:compileKotlin: 2.0 language version
-:app:compileKotlin: 2.0 language version
-##### 100% (2/2) tasks have been compiled with Kotlin 2.0 #####
-```
+## Current K2 compiler limitations
 
-### Share your feedback on the new K2 compiler
+Enabling K2 in your Gradle project comes with certain limitations that can affect projects using Gradle versions below 8.3 in the following cases:
 
-We'd appreciate any feedback you might have!
+* Compilation of source code from `buildSrc`.
+* Compilation of Gradle plugins in included builds.
+* Compilation of other Gradle plugins if they are used in projects with Gradle versions below 8.3.
+* Building Gradle plugin dependencies.
 
-* Provide your feedback directly to K2 developers in the Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
-  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you've faced with the new K2 compiler via [our issue tracker](https://kotl.in/issue).
-* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
-  allow JetBrains to collect anonymous data about K2 usage.
+If you encounter any of the problems mentioned above, you can take the following steps to address them:
 
-## Stable replacement of the enum class values function
+* Set the language version for `buildSrc`, any Gradle plugins, and their dependencies:
 
-In 1.8.20, the `entries` property for enum classes was introduced as an Experimental feature. The `entries` property is intended to be a modern and performant replacement for the synthetic `values()` function. In 1.9.0-RC, the `entries` property is [Stable](components-stability.md#stability-levels-explained).
+   ```kotlin
+   kotlin {
+       compilerOptions {
+           languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+           apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+       }
+   }
+   ```
 
-> The `values()` function is still supported, but we recommend that you use the `entries` property instead.
+* Update the Gradle version in your project to 8.3 when it becomes available.
+
+## Compiler plugins support
+
+Currently, the Kotlin K2 compiler supports the following plugins:
+
+* [kapt](whatsnew1920.md#preview-kapt-compiler-plugin-with-k2)
+* [serialization](serialization.md)
+* [`all-open`](all-open-plugin.md)
+* [`no-arg`](no-arg-plugin.md)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [Lombok](lombok.md)
+* [AtomicFU](https://github.com/Kotlin/kotlinx-atomicfu)
+* [Jetpack Compose compiler plugin](https://developer.android.com/jetpack/compose)
+* [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
+* [`jvm-abi-gen`](https://github.com/JetBrains/kotlin/tree/master/plugins/jvm-abi-gen)
+
+> If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
 {type="tip"}
 
-```kotlin
-enum class Color(val colorName: String, val rgb: String) {
-    RED("Red", "#FF0000"),
-    ORANGE("Orange", "#FF7F00"),
-    YELLOW("Yellow", "#FFFF00")
-}
+## How to enable the Kotlin K2 compiler
 
-fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
-```
-{validate="false"}
+Starting with Kotlin 2.0.0-Beta1, the Kotlin K2 compiler is enabled by default. 
+No additional actions are required.
 
-For more information about the `entries` property for enum classes, see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
+## Leave your feedback on the new K2 compiler
 
-## Stable ..< operator for open-ended ranges
+We would appreciate any feedback you may have!
 
-The new `..<` operator for open-ended ranges that was introduced in [Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges)
-is Stable in 1.9.0-RC. The standard library API for working with open-ended ranges is also Stable in this release.
+* Provide your feedback directly to K2 developers on Kotlin
+  Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
+* Report any problems you faced with the new K2 compiler
+  on [our issue tracker](https://kotl.in/issue).
+* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
+  allow JetBrains to collect anonymous data about K2 usage.
 
-Our research shows that the new `..<` operator makes it easier to understand when an open-ended range is declared. If 
-you use the [`until`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/until.html) infix function, it's easy 
-to make the mistake of assuming that the upper bound is included.
+## How to update to Kotlin %kotlinEapVersion%
 
-Here is an example using the `until` function:
+Starting from Kotlin 2.0.0-Beta1, the IntelliJ Kotlin plugin is distributed as a bundled plugin only.
+This means that you can’t install the plugin from JetBrains Marketplace anymore.
+With this change you will receive more frequent updates, ensuring that the latest stable IntelliJ IDEA and Android Studio versions consistently support the Kotlin versions that are released.
+The bundled plugin supports upcoming Kotlin EAP releases.
 
-```kotlin
-fun main() {
-    for (number in 2 until 10) {
-        if (number % 2 == 0) {
-            print("$number ")
-        }
-    }
-    // 2 4 6 8
-}
-```
-{validate="false"}
-
-And here is an example using the new `..<` operator:
-
-```kotlin
-fun main() {
-    for (number in 2..<10) {
-        if (number % 2 == 0) {
-            print("$number ")
-        }
-    }
-    // 2 4 6 8
-}
-```
-{validate="false"}
-
-> Starting with version 2023.1.1, IntelliJ IDEA has a new code inspection that highlights when you can use the `..<` operator.
->
-{type="note"}
-
-For more information about what you can do with this operator, see [What's new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
-
-## New common function to get regex capture group by name
-
-Prior to 1.9.0-RC, every platform had its own extension to get a regular expression capture group by its name from a regular expression match.
-However, there was no common function. It wasn't possible to implement prior to Kotlin 1.8.0,
-because the standard library still supported JVM targets 1.6 and 1.7.
-
-As of Kotlin 1.8.0, the standard library is compiled with JVM target 1.8. So in 1.9.0-RC,
-there is now a **common** function [`groups`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-match-result/groups.html)
-that retrieves group's contents by its name for a regular expression match.
-This is useful when you want to access the results of regular expression matches belonging to a particular capture group.
-
-Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`.
-You can use these group names to access the matched values:
-
-```kotlin
-fun main() {
-    val regex = """\b(?<city>[A-Za-z\s]+),\s(?<state>[A-Z]{2}):\s(?<areaCode>[0-9]{3})\b""".toRegex()
-    val input = "Coordinates: Austin, TX: 123"
-
-
-    val match = regex.find(input)!!
-    println(match.groups["city"]?.value) 
-    // Austin
-    println(match.groups["state"]?.value)
-    // TX
-    println(match.groups["areaCode"]?.value)
-    // 123
-}
-```
-{validate="false"}
-
-## New path utility to create parent directories
-
-In 1.9.0-RC there is a new extension function `createParentDirectories()` that you can use to create a new file with 
-all the necessary parent directories. When you provide a file path to `createParentDirectories()`, it checks whether the parent
-directories already exist. If they do, it does nothing. However, if they do not, it creates them for you.
-
-`createParentDirectories()` is particularly useful when you are copying files. For example, you can use it in combination
-with the [`copyToRecursively()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io.path/java.nio.file.-path/copy-to-recursively.html) function:
-
-```kotlin
-sourcePath.copyToRecursively(
-    destinationPath.createParentDirectories(),
-    followLinks = false
-)
-```
-{validate="false"}
-
-## Preview of Gradle configuration cache in Kotlin Multiplatform
-
-Kotlin 1.9.0-RC comes with support for [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
-in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.
-
-Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent 
-builds. The feature has become Stable since Gradle 8.1. To enable it, follow the instructions in the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
-
-> The Kotlin Multiplatform plugin still doesn't support Gradle configuration cache with Xcode integration tasks or the 
-> [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in a future Kotlin release.
->
-{type="note"}
-
-## Changes for Android target support in Kotlin Multiplatform
-
-We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this direction is to provide first-class support
-for the Android target. We're excited to announce that in the future, the Android team from Google will provide its own 
-Gradle plugin to support Android in Kotlin Multiplatform.
-
-To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current 
-Kotlin DSL in 1.9.0-RC. This is a temporary change that is necessary to free the `android` name for the upcoming DSL 
-from Google.
-
-The Google plugin will be the preferred way of working with Android in multiplatform projects. When it's ready, we'll 
-provide the necessary migration instructions so that you'll be able to use the short `android` name as before.
-
-## No object initialization when accessing constant values in Kotlin/Native
-
-Starting with Kotlin 1.9.0-RC, the Kotlin/Native backend doesn't initialize objects when accessing `const val` fields:
-
-```kotlin
-object MyObject {
-    init {
-        println("side effect!")
-    }
-    
-    const val y = 1
-}
-
-
-fun main() {
-    println(MyObject.y)	// no initialization at first
-    val x = MyObject	// initialization occurs
-    println(x.y)
-}
-```
-
-Now the behavior is unified with Kotlin/JVM, where the implementation is consistent with Java and objects are never 
-initialized in this case. You can also expect some performance improvements in your Kotlin/Native projects thanks to this
-change.
-
-## Ability to configure standalone mode for iOS simulator tests in Kotlin/Native
-
-By default, when running iOS simulator tests for Kotlin/Native, the `--standalone` flag is used to avoid manual simulator
-booting and shutdown. In 1.9.0-RC, you can now configure whether this flag is used in a Gradle task via the `standalone`
-property. By default, the `--standalone` flag is used so standalone mode is enabled.
-
-Here is an example of how to disable standalone mode in your `build.gradle.kts` file:
-```kotlin
-tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>().configureEach {
-    standalone.set(false)
-}
-```
-{validate="false"}
-
-> If you disable standalone mode, you must boot the simulator manually. To boot your simulator from CLI, you can use the
-> following command:
->
-> ```shell
-> /usr/bin/xcrun simctl boot <DeviceId>
-> ```
-> 
-{type = "warning"}
-
-## How to update to Kotlin 1.9.0-RC
-
-Install Kotlin 1.9.0-RC in any of the following ways:
-
-* If you use the _Early Access Preview_ update channel, the IDE will suggest automatically updating to 1.9.0-RC as
-  soon as it becomes available.
-* If you use the _Stable_ update channel, you can change the channel to _Early Access Preview_ at any time by selecting
-  **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates** in your IDE. You'll then be able to install the latest
-  preview release. Check out [these instructions](install-eap-plugin.md) for details.
-
-Once you've installed 1.9.0-RC don't forget to [change the Kotlin version](configure-build-for-eap.md)
-to 1.9.0-RC in your build scripts.
+To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.

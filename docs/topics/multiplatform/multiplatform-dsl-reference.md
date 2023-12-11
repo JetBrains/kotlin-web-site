@@ -1,9 +1,5 @@
 [//]: # (title: Multiplatform Gradle DSL reference)
 
-> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
->
-{type="note"}
-
 The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
 for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-get-started.md).
@@ -779,9 +775,9 @@ kotlin {
                 api("com.example:foo-metadata:1.0")
             }
         }
-        val jvm6Main by getting {
+        val jvmMain by getting {
             dependencies {
-                implementation("com.example:foo-jvm6:1.0")
+                implementation("com.example:foo-jvm:1.0")
             }
         }
     }
@@ -799,9 +795,9 @@ kotlin {
                 api 'com.example:foo-metadata:1.0'
             }
         }
-        jvm6Main {
+        jvmMain {
             dependencies {
-                implementation 'com.example:foo-jvm6:1.0'
+                implementation 'com.example:foo-jvm:1.0'
             }
         }
     }
@@ -811,7 +807,8 @@ kotlin {
 </tab>
 </tabs>
 
-Additionally, source sets can depend on each other and form a hierarchy. In this case, the [dependsOn()](#source-set-parameters) relation is used.
+Additionally, source sets can depend on each other and form a hierarchy.
+In this case, the [`dependsOn()`](#source-set-parameters) relation is used.
 
 Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
 In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
