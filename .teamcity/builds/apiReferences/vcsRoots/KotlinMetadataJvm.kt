@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 object KotlinMetadataJvm : GitVcsRoot({
   name = "kotlin metadata vcs root"
   url = "git@github.com:JetBrains/kotlin.git"
-  branch = "build-2.0.0-dev-10103"
+  branch = "refs/heads/build-2.0.0-dev-10103"
   branchSpec = """
     +:refs/heads/(*)
   """.trimIndent()
