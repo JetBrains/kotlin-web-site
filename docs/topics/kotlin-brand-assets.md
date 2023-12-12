@@ -24,7 +24,7 @@ Pay special attention to the following restrictions concerning the use of the lo
 ## Kotlin mascot
 
 Kodee is Kotlin's reimagined mascot. More than just a symbol, Kodee is your friendly companion who’s there to encourage and inspire you to express your creativity.
-When using it, we ask you to follow these [simple guidelines](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot.zip).
+When using it, we ask you to follow these [simple guidelines](https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Mascot_Guidelines.pdf).
 
 ![Kotlin mascot Kodee proportions](mascot-body-proportions.png){width=700}
 
