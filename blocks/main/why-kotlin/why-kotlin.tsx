@@ -141,7 +141,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
                             <div className="tab-content kotlin-code-examples-section">
                                 <ContentSwitcher index={activeIndex}>
                                     {codeExamplesList.map((item, index) => (
-                                        <div className={styles.tab} key={index} tabIndex={-1}>
+                                        <div className={styles.tab} key={index}>
                                             <CodeBlock ref={codeInstanceRef} targetPlatform={item.targetPlatform}>
                                                 {item.codeExample}
                                             </CodeBlock>

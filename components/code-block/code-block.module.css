@@ -4,6 +4,25 @@
     display: none;
 }
 
+.codeBlockContainer {
+    display: block;
+    position: relative;
+}
+
+.buttonWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    &:focus-within {
+        padding: 12px;
+        height: auto;
+        width: auto;
+    }
+}
+
 .codeBlockWrapper {
     display: block;
     @media (--ktl-tm) {
