@@ -20,7 +20,7 @@ import builds.apiReferences.templates.PrepareDokkaTemplate
 import builds.apiReferences.vcsRoots.KotlinxCoroutines
 import builds.apiReferences.vcsRoots.KotlinxSerialization
 import builds.apiReferences.vcsRoots.KotlinxDatetime
-import builds.apiReferences.vcsRoots.Kotlin
+import builds.apiReferences.vcsRoots.KotlinMetadataJvm
 import jetbrains.buildServer.configs.kotlin.Project
 
 object BuildApiReferencesProject : Project({
@@ -49,7 +49,7 @@ object BuildApiReferencesProject : Project({
   vcsRoot(KotlinxSerialization)
   vcsRoot(KotlinxCoroutines)
   vcsRoot(KotlinxDatetime)
-  vcsRoot(Kotlin)
+  vcsRoot(KotlinMetadataJvm)
 
   template(PrepareDokkaTemplate)
   template(BuildApiReference)
