@@ -786,3 +786,70 @@ Here's the planned deprecation cycle:
 * \>2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
   unless recompiled against the latest versions of the Kotlin Gradle plugin
+
+## New approach to forward declarations
+
+**What's changed?**
+
+The JetBrains team has revamped the approach to forward declarations in Kotlin to make their behavior more predictable
+and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
+
+* You can only import forward declarations using the `cnames` or ` objcnames` packages.
+* You need to explicitly make a cast to and from the corresponding C and Objective-C forward declaration.
+
+**What's the best practice now?**
+
+* Consider a C library with a `library.package` that declares a `cstructName` forward declaration.
+  Previously, it was possible to import it directly from the library with `import library.package.cstructName`.
+  Now, you can only use a special forward declaration package for that: `import cnames.structs.cstructName`.
+  The same is true for `objcnames`.
+
+*  Consider two cinterop libraries, one that uses `cnames.structs.cstructName` and the other that has an actual definition:
+
+    ```ObjC
+    // First cinterop library
+    #import <Foundation/Foundation.h>
+    
+    @protocol ForwardDeclaredProtocol;
+    
+    NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
+        return [NSString stringWithUTF8String:"Protocol"];
+    }
+    ```
+    
+    ```ObjC
+    // Second cinterop library
+    // Header:
+    #import <Foundation/Foundation.h>
+    @protocol ForwardDeclaredProtocol
+    @end
+    // Implementation:
+    @implementation ForwardDeclaredProtocolImpl : NSObject
+    @end;
+    
+    id<ForwardDeclaredProtocol> produceProtocol() {
+      return [ForwardDeclaredProtocolImpl new];
+    }
+    ```
+    
+    Previously, it was possible to transfer objects between them seamlessly. Now, an explicit `as`  cast is required
+    for the forward declaration:
+    
+    ```kotlin
+    // Kotlin code:
+    fun test() {
+        consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
+    }
+    ```
+    
+    > The casting to `cnames.struct.cstructName` is only allowed from the corresponding real class.
+    > Otherwise, you'll get an error.
+    >
+    {type="note"}
+
+**When do the changes take effect?**
+
+Starting with Kotlin 1.9.20, you need to explicitly make a cast to and from the corresponding C and Objective-C forward
+declarations. Also, it's now only possible to import forward declarations by using special packages.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-58929).
