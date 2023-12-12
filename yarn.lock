@@ -1430,10 +1430,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.13":
-  version "4.8.0-alpha.13"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.13.tgz#3d17d53389758613c7330a27b708e4b16c5fe59f"
-  integrity sha512-82Hi8uq0C8bSYAkZ9cBTn8uGgLYmUHlVlCfZe1Ilv9b1yqV33hhEPrMYIb97iEbQ/NpWXu39ykK9YzKq6M/5NA==
+"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.14":
+  version "4.8.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.14.tgz#84808f1f2bb5c600196f2617306821c4f63b1bf4"
+  integrity sha512-6Wa9ObyKbxyAS5gkXm9RVH7spfdUt8OiS6FR/klWHPor4jmxNts2Rj5nyDdGZ0r0Y7fZJqLSFsEuEFZsTo/gvQ==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
