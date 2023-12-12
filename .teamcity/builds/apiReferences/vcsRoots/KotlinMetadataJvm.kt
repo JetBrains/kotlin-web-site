@@ -3,12 +3,12 @@ package builds.apiReferences.vcsRoots
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object KotlinMetadataJvm : GitVcsRoot({
-  name = "kotlin vcs root"
+  name = "kotlin metadata vcs root"
   url = "git@github.com:JetBrains/kotlin.git"
-  branch = "refs/tags/1.9.21"
+  branch = "1.9.20"
   branchSpec = """
     +:refs/heads/(*)
-    +:refs/tags/(*)
+    +:(refs/merge/*)
   """.trimIndent()
   useTagsAsBranches = true
   checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
