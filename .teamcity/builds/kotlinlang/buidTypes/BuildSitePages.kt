@@ -168,15 +168,9 @@ object BuildSitePages : BuildType({
       }
     }
 
-    dependency(KotlinxMetadataJvmBuildApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-
-      artifacts {
-        artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
-      }
+    artifacts(KotlinxMetadataJvmBuildApiReference) {
+      buildRule = lastSuccessful("<default>")
+      artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
     }
 
     artifacts(AbsoluteId("Kotlin_KotlinRelease_1920_LibraryReferenceLegacyDocs")) {
