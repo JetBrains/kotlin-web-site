@@ -74,15 +74,82 @@ By using this syntax, you can create custom error messages and retain the origin
 ### Using try-catch-finally statements
 
 Normally, when an exception occurs it interrupts the normal execution of the program. After a line of code throws an exception, Kotlin attempts to find a suitable handler for it.
-You can create such handlers using the `try` and `catch` functions.
 
-> You can use `try` as an expression, which means it can have a return value. For example:
+You can create such handlers using the `try` and `catch` functions:
+
+```kotlin
+try {
+    // code that may throw an exception
+} catch (e: SomeException) {
+    // code for handling the exception
+}
+```
+
+> You can use `try-catch` as an expression, so it has a return value. For example:
 >
->```kotlin
->val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
->```
-> 
+> ```kotlin
+> val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
+> ```
+>
 {type="note"}
+
+Kotlin supports the use of several handlers inside the same `try` block. You can add as many catch blocks as you need:
+
+```kotlin
+fun main() {
+    val numbers = arrayOf(10, 0, null)
+    val index = 1 // Change this value to get different exceptions.
+
+    try {
+        val number = numbers[index] 
+        val result = 10 / number!! 
+        println("Result: $result")
+    } catch (e: ArrayIndexOutOfBoundsException) {
+        println("Caught an ArrayIndexOutOfBoundsException: ${e.message}")
+    } catch (e: ArithmeticException) {
+        println("Caught an ArithmeticException: ${e.message}")
+    } catch (e: NullPointerException) {
+        println("Caught a NullPointerException: ${e.message}")
+    } catch (e: Exception) {
+        println("Another exception happened: ${e.message}")
+    }
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+When you have multiple `catch` blocks, it's important to order them from the most specific to the least specific exception.
+This ordering aligns with the program's execution flow. If you were to catch a general exception before a more specific one, the specific exception would never be reached, as the general catch block would intercept all exceptions, including the specific ones.
+
+> Alternatively, you can also use a `when` statement inside a `catch` block to handle multiple exceptions:
+> ```kotlin
+> catch (e: Exception) {
+>		when (e) {
+>            is ArrayIndexOutOfBoundsException -> println("Caught an ArrayIndexOutOfBoundsException: ${e.message}")
+>            is ArithmeticException -> println("Caught an ArithmeticException: ${e.message}")
+>            is NullPointerException -> println("Caught a NullPointerException: ${e.message}")
+>            else -> println ("Another exception happened: ${e.message}")
+>        }
+>    }
+> ```
+> 
+> {type="tip"}
+
+The `finally` block in Kotlin is used to execute code after the `try` and any `catch` blocks have completed. 
+The `finally` block is executed regardless if an exception was thrown or caught. You can use it for cleanup tasks and ensure that certain operations are completed no matter what happens in the `try-catch` blocks.
+
+Here is how you would typically use the `try-catch-finally` blocks together:
+
+```kotlin
+try {
+    // code that may throw an exception
+}
+catch (e: Exception) {
+    // exception handler
+}
+finally {
+    // code is always executed
+}
+```
 
 The returned value of a `try` expression is either the last expression in the `try` block or the
 last expression in the `catch` block (or blocks).
@@ -93,6 +160,10 @@ The contents of the `finally` block don't affect the result of the expression, b
 
 
 ### Exception hierarchy
+
+
+
+## Creating custom exceptions
 
 
 
