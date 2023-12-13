@@ -154,16 +154,17 @@ class MessageService(val db: MessageRepository) {
 The application is ready to run again.
 By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't change hence the application should work the same way as previously.
 
-## Next step
+## What's next
 
-Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
-We will also send you language tips and useful materials on using Kotlin with Spring.
+Get your personal language map to help you navigate Kotlin features and track your progress in studying the language:
 
-<a href="https://info.jetbrains.com/kotlin-tips.html">
+<a href="https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Language_Features_Map.pdf">
    <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
 </a>
 
-> You will need to share your email address on the next page to receive the materials.
->
-{type="note"}
-
+* Learn more about [Calling Java from Kotlin code](java-interop.md) and [Calling Kotlin from Java code](java-to-kotlin-interop.md).
+* Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
+* Check out our Java to Kotlin migration guides: 
+  * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
+  * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
+  * [Nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).
