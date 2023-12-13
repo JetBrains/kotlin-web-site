@@ -49,76 +49,13 @@ in the publication's scope.
 
 ## Avoid duplicate publications
 
-Duplicate publications can occur if you are publishing the same multiplatform library from different hosts. For example, the library has
-a macOS version and a JS version: a macOS version can only be compiled on an Apple host, but the JS version can be
-compiled anywhere. If you try to simultaneously publish the library from different hosts, the JS modules can clash
-at the repository.
+Duplicate publications will occur when you are publishing the same multiplatform library from different hosts. For example, the library has
+a macOS version and a JS version: you can compile the macOS version only on an Apple host, but the JS version can be
+compiled anywhere. If you try to simultaneously publish the library from an Apple host and a Windows host the JS modules will \[or "can"?\]
+clash at the repository.
 
-To avoid that, the simplest solution is to publish from Apple hosts if you target Apple operating systems. In all other cases, Kotlin/Native supports
-cross-compilation that allows any host to produce needed artifacts.
-
-If it is necessary to publish from different hosts (if your publishing configuration is distributed, or you have specialized hosts to produce different
-modules), configure the publishing tasks to run conditionally as described below.
-
-### Configure conditional publishing tasks
-
-You can detect the platform in the script, introduce a flag such as `isMainHost` and set it to `true` for the main target 
-platform. Alternatively, you can pass the flag from an external source, for example, from CI configuration. 
-
-This simplified example ensures that publications are only uploaded when `isMainHost=true` is passed. This means that 
-a publication that can be published from multiple platforms will be published only once – from the main host.
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    jvm()
-    js()
-    mingwX64()
-    linuxX64()
-    val publicationsFromMainHost = 
-        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
-    publishing {
-        publications {
-            matching { it.name in publicationsFromMainHost }.all {
-                val targetPublication = this@all
-                tasks.withType<AbstractPublishToMaven>()
-                        .matching { it.publication == targetPublication }
-                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-            }
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    jvm()
-    js()
-    mingwX64()
-    linuxX64()
-    def publicationsFromMainHost = 
-        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
-    publishing {
-        publications {
-            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
-                tasks.withType(AbstractPublishToMaven)
-                        .matching { it.publication == targetPublication }
-                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target.
+To avoid duplication, publish only from an Apple host when your project targets Apple operating systems. For all other cases, Kotlin/Native supports
+cross-compilation, allowing any host to produce needed artifacts. Just make sure you use a single publishing host at any given time.
 
 ## Publish an Android library
 
