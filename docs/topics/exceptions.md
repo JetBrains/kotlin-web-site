@@ -52,7 +52,7 @@ On the other hand, the `Exception` branch is used for conditions that you might 
 `RuntimeException` is usually caused by insufficient checks in the program code, and can be prevented programmatically.
 The following picture demonstrates a hierarchy of subtypes descended from `RuntimeException`:
 
-![Hierarchy of RuntimeException](runtime.png){width=600}
+![Hierarchy of RuntimeExceptions](runtime.png){width=600}
 
 ## Handling exceptions
 
@@ -255,86 +255,14 @@ As you can see the `TODO` function always throws a [NotImplementedError](https:/
 
 ## Creating custom exceptions
 
-
+TODO()
 
 ## Stack trace
 
-
+TODO()
 
 ## What's next?
 
-For information about Java interoperability, see the section on exceptions in the [Java interoperability page](java-interop.md#checked-exceptions) .
+* For information about Java interoperability, see the section on exceptions in the [Java interoperability page](java-interop.md#checked-exceptions).
+* Check out exceptions related idioms, in the [Idioms page](idioms.md#try-catch-expression).
 
-## Throwing exceptions with the throwable class
-
-All exception classes in Kotlin inherit the `Throwable` class.
-Every exception has a message, a stack trace, and an optional cause.
-
-To throw an exception object, use the `throw` expression:
-
-```kotlin
-fun main() {
-//sampleStart
-    throw Exception("Hi There!")
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-To catch an exception, use the `try`...`catch` expression:
-
-```kotlin
-try {
-    // some code
-} catch (e: SomeException) {
-    // handler
-} finally {
-    // optional finally block
-}
-```
-
-There may be zero or more `catch` blocks, and the `finally` block may be omitted.
-However, at least one `catch` or `finally` block is required.
-
-If you want to alert callers about possible exceptions when calling Kotlin code from Java, Swift, or Objective-C,
-you can use the `@Throws` annotation. Read more about using this annotation [for Java](java-to-kotlin-interop.md#checked-exceptions)
-and [for Swift and Objective-C](native-objc-interop.md#errors-and-exceptions).
-
-## The Nothing type old
-
-`throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
-
-```kotlin
-val s = person.name ?: throw IllegalArgumentException("Name required")
-```
-
-The `throw` expression has the type `Nothing`.
-This type has no values and is used to mark code locations that can never be reached.
-In your own code, you can use `Nothing` to mark a function that never returns:
-
-```kotlin
-fun fail(message: String): Nothing {
-    throw IllegalArgumentException(message)
-}
-```
-
-When you call this function, the compiler will know that the execution doesn't continue beyond the call:
-
-```kotlin
-val s = person.name ?: fail("Name required")
-println(s)     // 's' is known to be initialized at this point
-```
-
-You may also encounter this type when dealing with type inference. The nullable variant of this type,
-`Nothing?`, has exactly one possible value, which is `null`. If you use `null` to initialize
-a value of an inferred type and there's no other information that can be used to determine a more
-specific type, the compiler will infer the `Nothing?` type:
-
-```kotlin
-val x = null           // 'x' has type `Nothing?`
-val l = listOf(null)   // 'l' has type `List<Nothing?>
-```
-
-## Java interoperability
-
-Please see the section on exceptions in the [Java interoperability page](java-interop.md) for information about Java interoperability.
