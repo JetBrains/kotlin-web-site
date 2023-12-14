@@ -232,9 +232,9 @@ function Index() {
                             companies={kotlinFoundationCompanies}
                         />
 
-                        <DividerLine />
+                        {/*<DividerLine />*/}
 
-                        <KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />
+                        {/*<KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />*/}
                     </div>
 
                     <CtaBlock
