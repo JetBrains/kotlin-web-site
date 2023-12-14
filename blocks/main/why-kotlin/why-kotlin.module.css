@@ -12,7 +12,7 @@
 
 .whyKotlinMobileWrapper {
     @media (--ktl-tm) {
-        background: #27282C;
+        background: #0C0C0E;
         padding-bottom: 48px;
     }
 }
@@ -55,7 +55,7 @@
 }
 
 .codeExamples {
-    background: #27282C;
+    background: #0C0C0E;
     border-radius: 8px;
     @media (--ktl-tm-min) {
         min-height: 536px;

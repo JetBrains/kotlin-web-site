@@ -7,6 +7,7 @@
     .CodeMirror .CodeMirror-code pre {
         font-family: 'JetBrains Mono', monospace;
         font-size: 14px;
+        line-height: 20px;
     }
 
     .CodeMirror pre.CodeMirror-line {
@@ -39,7 +40,7 @@
 
     .executable-fragment.darcula,
     .sample[theme=darcula] {
-        background: #27282C;
+        background: #0C0C0E;
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
         border: 0 none transparent;
