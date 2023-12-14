@@ -42,20 +42,30 @@ This `kotlinMultiplatform` publication includes metadata artifacts and reference
 > This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
 >
 {type="note"}
- 
+
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
 in the publication's scope.
 
-## Avoid duplicate publications
+## Host requirements
 
-Duplicate publications will occur when you are publishing the same multiplatform library from different hosts. For example, the library has
-a macOS version and a JS version: you can compile the macOS version only on an Apple host, but the JS version can be
-compiled anywhere. If you try to simultaneously publish the library from an Apple host and a Windows host the JS modules will \[or "can"?\]
-clash at the repository.
+Except for Apple platform targets, Kotlin/Native supports cross-compilation, allowing any host to produce needed artifacts.
 
-To avoid duplication, publish only from an Apple host when your project targets Apple operating systems. For all other cases, Kotlin/Native supports
-cross-compilation, allowing any host to produce needed artifacts. Just make sure you use a single publishing host at any given time.
+So, to avoid any issues:
+* Publish only from an Apple host when your project targets Apple operating systems.
+* Never publish from multiple hosts to avoid duplicating publications at the repo.
+  
+  Maven Central, for example, explicitly forbids duplicate publications and reacts with this error: **TBD**
+  
+### Problems solved since Kotlin 1.9.20 {initial-collapse-state="collapsed"}
+
+Before Kotlin/Native covered all the necessary cross-compilation options, multiplatform projects sometimes needed several hosts
+to publish all the modules: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
+To avoid duplicating modules that could be compiled on any host, maintainers of such environments needed to configure the build process:
+for example, assign a main host for each target platform and check for the main host in the build script.
+
+Such workarounds are no longer needed. If you are using a legacy build process that is configured in this manner, we recommend
+switching to the current solution outlined above: use only one host for publishing, and make it an Apple host if you target the Apple platform.
 
 ## Publish an Android library
 
