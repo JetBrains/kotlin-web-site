@@ -1,6 +1,16 @@
-import React, {FC, ReactNode, useState, useImperativeHandle, forwardRef, useEffect, useCallback, createRef} from 'react';
+import React, {
+    FC,
+    ReactNode,
+    useState,
+    useImperativeHandle,
+    forwardRef,
+    useEffect,
+    useCallback,
+    createRef,
+} from 'react';
 import dynamic from 'next/dynamic';
 import { Button } from '@rescui/button';
+import { ThemeProvider } from '@rescui/ui-contexts';
 
 import styles from './code-block.module.css';
 
@@ -63,7 +73,7 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
                 editButtonRef.current.focus();
             }
         }
-    }
+    };
 
     useEffect(() => {
         const cmInstance = codeBlockInstance?.codemirror;
@@ -94,9 +104,17 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
         <div className={styles.codeBlockContainer} tabIndex={-1}>
             <pre className={styles.code}>{children}</pre>
             <div className={styles.buttonWrapper}>
-                <Button className={styles.editButton} mode={'outline'} onClick={handleEdit} ref={editButtonRef}>
-                    Edit
-                </Button>
+                <ThemeProvider theme={'light'}>
+                    <Button
+                        className={styles.editButton}
+                        mode={'rock'}
+                        onClick={handleEdit}
+                        ref={editButtonRef}
+                        size={'l'}
+                    >
+                        Edit code example
+                    </Button>
+                </ThemeProvider>
             </div>
             <div>
                 <KotlinPlayground
