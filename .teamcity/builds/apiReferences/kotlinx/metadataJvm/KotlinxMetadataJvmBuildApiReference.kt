@@ -6,12 +6,14 @@ import builds.apiReferences.templates.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
+private const val LIB_DIR = "libraries/kotlinx-metadata/jvm"
+
 object KotlinxMetadataJvmBuildApiReference : BuildType({
     name = "kotlinx-metadata-jvm API reference"
 
     templates(BuildApiReference)
 
-    artifactRules = "libraries/kotlinx-metadata/jvm/build/dokka/** => pages.zip"
+    artifactRules = "$LIB_DIR/build/dokka/** => pages.zip"
 
     params {
         param("release.tag", KOTLINX_METADATA_JVM_RELEASE_TAG)
@@ -76,6 +78,6 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
     }
 
     dependencies {
-        dependsOnDokkaTemplate(KotlinxMetadataJvmPrepareDokkaTemplates, "libraries/kotlinx-metadata/jvm/dokka-templates")
+        dependsOnDokkaTemplate(KotlinxMetadataJvmPrepareDokkaTemplates, "$LIB_DIR/dokka-templates")
     }
 })

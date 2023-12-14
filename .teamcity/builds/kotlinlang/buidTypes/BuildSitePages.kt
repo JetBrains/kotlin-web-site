@@ -157,6 +157,17 @@ object BuildSitePages : BuildType({
       }
     }
 
+    dependency(KotlinxMetadataJvmBuildApiReference) {
+      snapshot {
+          reuseBuilds = ReuseBuilds.NO
+          onDependencyFailure = FailureAction.FAIL_TO_START
+      }
+
+      artifacts {
+          artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
+      }
+    }
+
     dependency(KotlinxSerializationBuildApiReference) {
       snapshot {
         reuseBuilds = ReuseBuilds.NO
@@ -165,17 +176,6 @@ object BuildSitePages : BuildType({
 
       artifacts {
         artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
-      }
-    }
-
-    dependency(KotlinxMetadataJvmBuildApiReference) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.NO
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-
-      artifacts {
-        artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
       }
     }
 
