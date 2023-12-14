@@ -39,6 +39,21 @@ println(text!!.length)  // throws a NullPointerException
 
 While you don't have to explicitly catch these exceptions, Kotlin provides the flexibility to catch them if needed.
 
+### Exception hierarchy
+
+The root of the Kotlin exception hierarchy is the [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class. It has two direct subclasses, [Error](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/) and [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/).
+
+The `Error` branch of the `Throwable` class is used to represent serious problems that a reasonable application should not try to catch. It represents abnormal conditions such as, [OutOfMemoryError](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-out-of-memory-error/) and `StackOverflowError`.
+
+On the other hand, the `Exception` branch is used for conditions that you might want to catch. Subtypes of `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), deal with exceptional events in applications.
+
+![Exception herarchy - the Throwable class](throwable.png){width=600}
+
+`RuntimeException` is usually caused by insufficient checks in the program code, and can be prevented programmatically.
+The following picture demonstrates a hierarchy of subtypes descended from `RuntimeException`:
+
+![Hierarchy of RuntimeException](runtime.png){width=600}
+
 ## Handling exceptions
 
 There are numerous cases when we need to implement a more precise error handling technique than the built-in exception classes provide. 
@@ -155,13 +170,88 @@ The returned value of a `try` expression is either the last expression in the `t
 last expression in the `catch` block (or blocks).
 The contents of the `finally` block don't affect the result of the expression, but it is always printed.
 
+Let's look at an example to demonstrate:
+
+```kotlin
+fun division() { 
+    //sampleStart
+    val a = 0 // Change this value to 0 to execute the catch block or to a non-zero Int value to execute the try block.
+    try {
+        val b = 44 / a
+        println("The try block is executed if a != 0")
+    }
+    catch (e: ArithmeticException) {
+        println("The catch block is executed if a == 0")
+    }
+    finally {
+        println("The finally block is always executed")
+    }
+    //sampleEnd
+}
+
+fun main() {
+    division()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You can also use `try` with the `finally` block, without `catch` blocks:
+
+```kotlin
+fun main() {
+    try {
+        val a = 0/0 // throws ArithmeticException
+    }
+    finally {
+        println("End of the try block") // will be printed
+    }
+    println("End of the program") // will not be printed
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+As you can see, in Kotlin, you have the flexibility to use only a `catch` block, only a `finally` block, or both, depending on your specific needs, but a try block must always be accompanied by at least one `catch` block or a `finally` block.
+
 ### The Nothing type
 
+In Kotlin, [Nothing](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html) is a subtype of all other types. This means you can use `Nothing` in a generic type or as a return type where any other type is expected, without causing type errors.
 
+`Nothing` is a unique type used to represent a function or expression that never successfully completes, either due to always throwing an exception or some other form of non-standard termination, like an infinite loop. It is useful if you want to signal abnormal termination
+or unfinished code, making your intentions clear both to the compiler and to anyone reading your code.
 
-### Exception hierarchy
+This Kotlin code demonstrates the use of the `Nothing` type:
 
+```kotlin
+fun fail(): Nothing {
+    throw Exception("Declared to return nothing and to always throw an exception")
+}
 
+fun exampleFunction(): String {
+    return fail() // This is allowed at compile time because Nothing is a subtype of String
+}
+
+fun main() {
+    val result: String = exampleFunction() // This will never return a String, instead it throws an exception
+    println(result)
+}
+```
+{kotlin-runnable="true"}
+
+Kotlin's [TODO](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-t-o-d-o.html) function also uses the `Nothing` type, used as a placeholder to highlight areas of the code that need future implementation:
+
+```kotlin
+fun notImplementedSuperFunction(): Int {
+    TODO("This function is not yet implemented")
+}
+
+fun main() {
+    val result = notImplementedSuperFunction() // This will throw a NotImplementedError
+    println(result)
+}
+```
+{kotlin-runnable="true"}
+
+As you can see the `TODO` function always throws a [NotImplementedError](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-not-implemented-error/).
 
 ## Creating custom exceptions
 
@@ -173,7 +263,7 @@ The contents of the `finally` block don't affect the result of the expression, b
 
 ## What's next?
 
-
+For information about Java interoperability, see the section on exceptions in the [Java interoperability page](java-interop.md#checked-exceptions) .
 
 ## Throwing exceptions with the throwable class
 
