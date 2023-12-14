@@ -26,6 +26,8 @@ body._no-scroll {
 }
 
 body {
+    /* Fix for mobile menu in safari*/
+    right: 0;
     &.dark-theme {
         background: #19191C;
     }
