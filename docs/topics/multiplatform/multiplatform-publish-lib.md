@@ -60,9 +60,32 @@ So, to avoid any issues:
 ### Problems solved since Kotlin 1.9.20 {initial-collapse-state="collapsed"}
 
 Before Kotlin/Native covered all the necessary cross-compilation options, multiplatform projects sometimes needed several hosts
-to publish all the modules: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
-To avoid duplicating modules that could be compiled on any host, maintainers of such environments needed to configure the build process:
-for example, assign a main host for each target platform and check for the main host in the build script.
+to publish all the modules: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on. If you
+weren't careful configuring the build, modules that could be compiled on all of these hosts were published more than once, resulting
+in duplicate publications at the repo.
+
+For example, it was recommended to assign a main host for each target and check for it like this:
+
+```kotlin
+kotlin {
+  jvm()
+  js()
+  mingwX64()
+  linuxX64()
+  val publicationsFromMainHost =
+    listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
+  publishing {
+    publications {
+      matching { it.name in publicationsFromMainHost }.all {
+        val targetPublication = this@all
+        tasks.withType<AbstractPublishToMaven>()
+          .matching { it.publication == targetPublication }
+          .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+      }
+    }
+  }
+}
+```
 
 Such workarounds are no longer needed. If you are using a legacy build process that is configured in this manner, we recommend
 switching to the current solution outlined above: use only one host for publishing, and make it an Apple host if you target the Apple platform.
