@@ -61,6 +61,10 @@ Here are some libraries that you may find useful:
 
 ### Kotlin libraries
 
+* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to
+  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
+  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
+
 * [Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source plotting library for the JVM written in Kotlin.
   It provides a powerful and flexible DSL for chart creation,
   along with seamless integration with Kotlin Notebook and Kotlin DataFrame. 
@@ -72,10 +76,6 @@ Here are some libraries that you may find useful:
 * [KotlinDL](https://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
   by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
   for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
-
-* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to 
-  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
-  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
 
 * [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) adds a missing layer of compatibility between
   Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
