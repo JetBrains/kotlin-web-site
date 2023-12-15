@@ -240,7 +240,7 @@ look like this:
 
 ![Intermediate source sets](intermediate-source-sets-diagram.svg){width=700}
 
-Here, the gray blocks at the bottom are platform-specific source sets. Target labels are omitted for clarity.
+Here, the multicolored blocks at the bottom are platform-specific source sets. Target labels are omitted for clarity.
 
 The `appleMain` block is an intermediate source set created by Kotlin for sharing code compiled to Apple-specific
 targets. The `appleMain` source set compiles to only Apple targets. Therefore, Kotlin allows using Apple-specific APIs
