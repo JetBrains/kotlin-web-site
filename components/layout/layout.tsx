@@ -31,6 +31,7 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
     return (
         <>
             <Head>
+
                 <title>{title}</title>
 
                 <meta property="og:title" content={title} />
@@ -40,6 +41,7 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
                 <meta property="og:image" content={ogImagePath} />
 
                 {description && <meta property="og:description" content={description} />}
+                {description && <meta name="description" content={description} />}
                 <meta property="og:site_name" content="Kotlin" />
 
                 <meta name="twitter:card" content="summary_large_image" />

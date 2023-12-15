@@ -5,7 +5,6 @@ import React, {
     useImperativeHandle,
     forwardRef,
     useEffect,
-    useCallback,
     createRef,
 } from 'react';
 import dynamic from 'next/dynamic';
@@ -25,9 +24,26 @@ interface Props {
     targetPlatform?: string;
 }
 
+declare global {
+  interface Window {
+    dataLayer?: any;
+  }
+}
+
+function trackEvent(event) {
+    if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'GAEvent',
+            ...event,
+        });
+    }
+}
+
 export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, ref) => {
     const [codeBlockInstance, setCodeBlockInstance] = useState(null);
     const [editorFocus, setEditorFocus] = useState<boolean>(false);
+    const [isCodeSampleEdited, setIsCodeSampleEdited] = useState<boolean>(false);
     const editButtonRef = createRef<any>();
 
     const handleGetInstance = (instance) => {
@@ -36,6 +52,14 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
 
     useImperativeHandle(ref, () => ({
         runInstance() {
+            const event = {
+                eventCategory: 'kotlin-playground',
+                eventAction: 'Playground Run',
+                eventLabel: !isCodeSampleEdited ? 'unchanged' : 'changed',
+            };
+
+            trackEvent(event);
+
             codeBlockInstance?.execute();
         },
         scrollResultsToView() {
@@ -88,6 +112,10 @@ export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, re
             cmInstance.on('blur', (codemirror, event) => {
                 handleEditorBlur();
             });
+
+            cmInstance.on('change', (codemirror, event) => {
+                setIsCodeSampleEdited(true);
+            })
         }
     }, [codeBlockInstance]);
 
