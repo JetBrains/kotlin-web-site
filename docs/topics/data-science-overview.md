@@ -81,7 +81,7 @@ Here are some libraries that you may find useful:
   Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
   lambda expressions as simple expressions in curly braces or method references.
 
-* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was intially inspired by
+* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was initially inspired by
 [NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
 algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
 provides interchangeable wrappers over existing Java and Kotlin libraries including
