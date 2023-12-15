@@ -397,16 +397,3 @@ The Spring application is ready to run:
 The final step shows you how to use more popular connection to database using Spring Data. 
 
 **[Proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)**
-
-### Get the Kotlin language map 
-
-Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
-We will also send you language tips and useful materials on using Kotlin with Spring.
-
-<a href="https://info.jetbrains.com/kotlin-tips.html">
-   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
-</a>
-
-> You will need to share your email address on the next page to receive the materials.
->
-{type="note"}

@@ -148,16 +148,3 @@ The Spring application is ready to run:
 In the next part of the tutorial, you'll add and configure a database to your project, and make HTTP requests.
 
 **[Proceed to the next chapter](jvm-spring-boot-add-db-support.md)**
-
-### Get the Kotlin language map
-
-Get your personal language map to help you navigate Kotlin features and track your progress in studying the language.
-We will also send you language tips and useful materials on using Kotlin with Spring.
-
-<a href="https://info.jetbrains.com/kotlin-tips.html">
-   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
-</a>
-
-> You will need to share your email address on the next page to receive the materials.
->
-{type="note"}
