@@ -205,7 +205,7 @@ kotlin {
 If you want to use a multiplatform library just for specific source sets, you can add it exclusively to them. The
 specified library declarations will then be available only in those source sets.
 
-> Don't use a platform-specific name in such cases, like SQLDelight `native-driver` in the example below. Find the exact name in the library's documentation.
+> Use a general library name in such cases, not a platform-specific one. Like with SQLDelight in the example below, use `native-driver`, not `native-driver-iosx64` or other iOS versions. Find the exact name in the library's documentation.
 >
 {type="note"}
 
