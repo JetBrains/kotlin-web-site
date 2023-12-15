@@ -357,6 +357,6 @@ In the provided code, we have slightly modified the output format of the stack t
 
 ## What's next?
 
-* For information about Java interoperability, see the section on exceptions in the [Java interoperability page](java-interop.md#checked-exceptions).
-* Check out exceptions related idioms, in the [Idioms page](idioms.md#try-catch-expression).
+* For information about Java interoperability, see the section on exceptions on the [Java interoperability page](java-interop.md#checked-exceptions).
+* Check out exception-related idioms on the [Idioms page](idioms.md#try-catch-expression).
 
