@@ -55,7 +55,7 @@ So, to avoid any issues:
 * Publish only from an Apple host when your project targets Apple operating systems.
 * Never publish from multiple hosts to avoid duplicating publications at the repo.
   
-  Maven Central, for example, explicitly forbids duplicate publications and reacts with this error: **TBD**
+  Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
   
 ### Problems solved since Kotlin 1.9.20 {initial-collapse-state="collapsed"}
 
