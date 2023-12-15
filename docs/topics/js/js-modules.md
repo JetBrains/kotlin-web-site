@@ -12,8 +12,8 @@ following configurations for JavaScript modules:
 - Plain. Don't compile for any module system. You can access a module by its name in the global scope.
 
 ## Browser targets
- 
-If you're targeting the browser and want to use a different module system than UMD, you can specify the desired module
+
+If you intend to run your code in a web browser environment and want to use a module system other than UMD, you can specify the desired module
 type in the `webpackTask` configuration block. For example, to switch to CommonJS, use:
 
 ```groovy
@@ -30,19 +30,19 @@ kotlin {
 
 ```
 
-Webpack provides two different "flavors" of CommonJS, `commonjs` and `commonjs2`, which affect the way your declarations
-are made available. While in most cases, you probably want `commonjs2`, which adds the `module.exports` syntax to the
-generated library, you can also opt for the "pure" `commonjs` option, which implements the CommonJS specification exactly.
+Webpack provides two different flavors of CommonJS, `commonjs` and `commonjs2`, which affect the way your declarations
+are made available. In most cases, you probably want `commonjs2`, which adds the `module.exports` syntax to the
+generated library. Alternatively, you can also opt for the `commonjs` option, which adheres strictly to the CommonJS specification.
 To learn more about the difference between `commonjs` and `commonjs2`, see the [Webpack repository](https://github.com/webpack/webpack/issues/1114).
 
 ## JavaScript libraries and Node.js files
 
-If you are creating a library to be consumed from JavaScript or a Node.js file, and want to use a different module
+If you are creating a library for use in JavaScript or Node.js environments, and want to use a different module
 system, the instructions are slightly different.
 
 ### Choose the target module system
 
-To select module kind, set the `moduleKind` compiler option in the Gradle build script:
+To select the target module system, set the `moduleKind` compiler option in the Gradle build script:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -211,6 +211,6 @@ external fun sayHello(name: String)
 ### Module system used by the Kotlin Standard Library
 
 Kotlin is distributed with the Kotlin/JS standard library as a single file, which is itself compiled as an UMD module,
-so you can use it with any module system described above. While for most use cases of Kotlin/JS, it is recommended to use
+so you can use it with any module system described above. For most use cases of Kotlin/JS, it is recommended to use
 a Gradle dependency on `kotlin-stdlib-js`, which is also available on NPM as the [`kotlin`](https://www.npmjs.com/package/kotlin)
 package.
