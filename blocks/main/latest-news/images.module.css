@@ -4,40 +4,32 @@
     background: #000;
     border-radius: 8px 8px 0 0;
     overflow: hidden;
-
+    width: 280px;
     height: 156px;
-    > .imageSrc[width] { display: none; }
-    > .imageSrc[width="280"] { display: block; }
 
     @media (--ktl-ds) {
-        height: 174px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="312"] { display: block; }
+        width: 312px;
+        height: 175px;
     }
     @media (--ktl-tl) {
-        height: 138px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="248"] { display: block; }
+        width: 248px;
+        height: 139px;
     }
     @media (--ktl-tm) {
+        width: 280px;
         height: 156px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="280"] { display: block; }
     }
     @media (--ktl-ts) {
+        width: 424px;
         height: 238px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="424"] { display: block; }
     }
     @media (--ktl-mm) {
-        height: 184px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="328"] { display: block; }
+        width: 328px;
+        height: 185px;
     }
     @media (--ktl-ms) {
+        width: 272px;
         height: 152px;
-        > .imageSrc[width] { display: none; }
-        > .imageSrc[width="272"] { display: block; }
     }
 }
 
