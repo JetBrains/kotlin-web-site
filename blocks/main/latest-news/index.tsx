@@ -1,6 +1,7 @@
 import cn from 'classnames';
+import React from 'react';
 
-import Image from 'next/image';
+import { Img } from 'react-optimized-image';
 
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
@@ -9,17 +10,18 @@ import { ArrowTopRightIcon } from '@rescui/icons';
 import styles from './latest-news.module.css';
 import { CSSProperties } from 'react';
 
+import latestNews from '../../../latest-news/latest-news.json';
+
 type NewsItem = {
     title: string;
     date: string;
     link: string;
-    image: ImgSrc | string;
     description: string;
 };
 
 type ItemProps = NewsItem & { position: number };
 
-function Item({ title, date, link, image, description, position }: ItemProps) {
+function Item({ title, date, link, description, position }: ItemProps) {
     const textCn = useTextStyles();
     const gridLine = Math.floor(position / 2);
 
@@ -38,9 +40,15 @@ function Item({ title, date, link, image, description, position }: ItemProps) {
             }
         >
             <div className={styles.image}>
-                {[248, 272, 280, 312, 328, 424].map((width) => (
-                    <Image key={width} className={cn(styles.imageSrc)} src={image} alt={title} width={width} />
-                ))}
+                {/** require there is a workaround, the plugin doesn't work with variables **/}
+                <Img
+                    className={cn(styles.imageSrc)}
+                    src={require(`../../../latest-news/news-${position}.png`)}
+                    alt={title}
+                    breakpoints={[374, 472, 616, 808, 1000, 1190]}
+                    sizes={[272, 328, 424, 280, 248, 312, 280]}
+                    densities={[1, 2]}
+                />
             </div>
             <p className={cn(styles.date, textCn('rs-text-3'))}>
                 {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -53,14 +61,14 @@ function Item({ title, date, link, image, description, position }: ItemProps) {
     );
 }
 
-export function LatestNews({ news }: { news: NewsItem[] }) {
+export function LatestNews() {
     const textCn = useTextStyles();
 
     return (
         <section className={styles.latestNews}>
             <h2 className={cn(styles.h, textCn('rs-h2'))}>Latest news</h2>
             <div className={styles.news}>
-                {news.map((props, i) => (
+                {latestNews.map((props, i) => (
                     <Item key={props.link} position={i} {...props} />
                 ))}
             </div>

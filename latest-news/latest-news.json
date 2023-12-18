@@ -1,30 +1,30 @@
 [
   {
-    "title": "Welcome Fleet with Kotlin Multiplatform Tooling",
-    "date": "Tue, 07 Nov 2023 14:24:34 +0000",
-    "link": "https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-tooling-in-fleet/",
+    "title": "Kandy: the new Kotlin plotting library by JetBrains",
+    "date": "Thu, 14 Dec 2023 15:58:36 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kandy-the-new-kotlin-plotting-library-by-jetbrains/",
     "image": "latest-news/news-0.png",
-    "description": "Kotlin Multiplatform (KMP) is an open-source technology built by JetBrains that allows you to share code across multiple platforms while retaining the benefits of native programming. Supported platforms include iOS, Android, desktop, web, and others. Today, we&#8217;re launching a preview for Kotlin Multiplatform support in Fleet, which simplifies the development of multiplatform applications, adding to [&#8230;]"
+    "description": "We are excited to introduce Kandy, a new Kotlin plotting library by JetBrains. It provides a new, powerful DSL for creating charts of various kinds. The first public preview version is ready for you to try, and we welcome any feedback and comments you may have. Kandy Documentation How does it look and feel? Why [&#8230;]"
   },
   {
-    "title": "Compose Multiplatform 1.5.10 – The Perfect Time To Get Started",
-    "date": "Thu, 02 Nov 2023 12:01:27 +0000",
-    "link": "https://blog.jetbrains.com/kotlin/2023/11/compose-multiplatform-1-5-10-release/",
+    "title": "KotlinConf Global 2024: Uniting Kotlin Enthusiasts Worldwide!",
+    "date": "Tue, 12 Dec 2023 11:52:46 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlinconf-global-2024-uniting-kotlin-enthusiasts-worldwide/",
     "image": "latest-news/news-1.png",
-    "description": "Compose Multiplatform is a declarative UI framework built by JetBrains that allows developers to share their applications’ UIs across different platforms. It enables you to reuse up to 100% of your codebase across Android, iOS, desktop, and web. The framework leverages the code-sharing capabilities of the core Kotlin Multiplatform technology, which just became Stable in [&#8230;]"
+    "description": "KotlinConf Global returns next year, in May. This means that no matter where you are in the world, you can join us in celebrating all things Kotlin. At KotlinConf 2024, you can expect a great lineup of keynotes, sessions, and workshops, delivered by industry experts and Kotlin enthusiasts. The attendees will be able to deep [&#8230;]"
   },
   {
-    "title": "Kotlin Multiplatform Is Stable and Production-Ready",
-    "date": "Wed, 01 Nov 2023 11:31:28 +0000",
-    "link": "https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/",
+    "title": "Kotlin for WebAssembly Goes Alpha",
+    "date": "Thu, 07 Dec 2023 12:56:36 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlin-for-webassembly-goes-alpha/",
     "image": "latest-news/news-2.png",
-    "description": "In a highly anticipated move, Kotlin Multiplatform, an open-source technology built by JetBrains that allows developers to share code across platforms while retaining the benefits of native programming, has become Stable and is now 100% ready for use in production. Read on to learn about the evolution of Kotlin Multiplatform (KMP), how it can streamline [&#8230;]"
+    "description": "Kotlin/Wasm, the newest Kotlin Multiplatform target platform, has reached Alpha status! Here’s what you need to know about this change at a glance: Get started with Kotlin/Wasm WebAssembly: The newest Kotlin Multiplatform target WebAssembly is establishing itself as the standard compilation target for languages targeting the browser – and beyond! With Kotlin/Wasm, we’re giving you [&#8230;]"
   },
   {
-    "title": "Kotlin 1.9.20 Released",
-    "date": "Wed, 01 Nov 2023 11:29:19 +0000",
-    "link": "https://blog.jetbrains.com/kotlin/2023/11/kotlin-1-9-20-released/",
+    "title": "News Digest: Kotlin Multiplatform Special",
+    "date": "Mon, 04 Dec 2023 13:35:13 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlin-news-nov-23/",
     "image": "latest-news/news-3.png",
-    "description": "The Kotlin 1.9.20 release is out, the K2 compiler for all the targets is now in Beta, and Kotlin Multiplatform is now Stable. Here are some highlights from this release: For the complete list of changes, refer to What&#8217;s new in Kotlin 1.9.20 or the release notes on GitHub. The New Kotlin K2 Compiler Is [&#8230;]"
+    "description": "November has been a busy and eventful month with a lot of exciting news and many updates in the Kotlin Multiplatform ecosystem. Catch up on all the highlights in our digest. Kotlin Developer Survey We want to hear from Kotlin developers! Help us make Kotlin even better by completing this 10-minute survey and sharing your [&#8230;]"
   }
 ]

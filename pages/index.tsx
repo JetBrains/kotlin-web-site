@@ -43,18 +43,13 @@ import styles from './index.module.css';
 
 import searchConfig from '../search-config.json';
 
-import latestNews from '../latest-news/latest-news.json';
 
-import news1 from '../latest-news/news-0.png';
-import news2 from '../latest-news/news-1.png';
-import news3 from '../latest-news/news-2.png';
-import news4 from '../latest-news/news-3.png';
 
 import releasesDataRaw from '../data/releases.yml';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
-const newsImages = [news1, news2, news3, news4];
+
 
 const kotlinUsageHighlightsCases = [
     {
@@ -130,11 +125,6 @@ export async function getStaticProps() {
 function Index() {
     const isTS = useTS();
 
-    const news = latestNews.map((item, i) => ({
-        ...item,
-        image: newsImages[i],
-    }));
-
     return (
         <Layout
             title={'Kotlin Programming Language'}
@@ -159,7 +149,7 @@ function Index() {
                     <br /> Fun.
                 </HeroSection>
                 <div className={'ktl-layout ktl-layout--center'}>
-                    <LatestNews news={news} />
+                    <LatestNews />
                 </div>
                 <WhyKotlin />
             </ThemeProvider>
