@@ -216,7 +216,7 @@ function Index() {
                                     icon={<ArrowTopRightIcon />}
                                     iconPosition="right"
                                 >
-                                    Learn more
+                                    Learn&nbsp;more
                                 </Button>
                             }
                             companies={kotlinFoundationCompanies}
