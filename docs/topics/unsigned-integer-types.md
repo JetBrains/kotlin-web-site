@@ -12,7 +12,7 @@ In addition to [integer types](numbers.md#integer-types), Kotlin provides the fo
 
 Unsigned types support most of the operations of their signed counterparts.
 
-> Unsigned numbers are implemented as [inline classes](inline-classes.md) with the single storage property of the corresponding 
+> Unsigned numbers are implemented as [inline classes](inline-classes.md) with a single storage property of the corresponding 
 > signed counterpart type of the same width. However, due to the compiler's mangling of signatures containing unsigned types, 
 > changing the type from unsigned to its signed counterpart or the other way around 
 > is a _binary incompatible_ change. 
@@ -37,7 +37,7 @@ Same as for primitives, each unsigned type has a corresponding type that represe
 
 Same as for signed integer arrays, they provide a similar API to the `Array` class without boxing overhead.
 
-When you use unsigned arrays, you will receive a warning that indicates that this feature is not stable yet.
+When you use unsigned arrays, you receive a warning that indicates that this feature is not stable yet.
 To remove the warning, opt-in with the `@ExperimentalUnsignedTypes` annotation.
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
 arrays are not a stable feature, so an API that uses them can be broken by changes in the language.
