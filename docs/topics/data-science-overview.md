@@ -88,10 +88,6 @@ provides interchangeable wrappers over existing Java and Kotlin libraries includ
 [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
 [Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others.
 
-* [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
-and Python's [pandas](https://pandas.pydata.org/). This library provides functionality for data manipulation using
-a functional-style API; it also includes functions for filtering, transforming, aggregating, and reshaping tabular data.
-
 * [lets-plot](https://github.com/JetBrains/lets-plot) is a plotting library for statistical data written in Kotlin.
 Lets-Plot is multiplatform and can be used not only with JVM, but also with JS and Python. 
 
