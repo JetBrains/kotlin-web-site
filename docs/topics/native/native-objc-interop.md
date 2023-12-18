@@ -9,8 +9,9 @@
 >
 {type="warning"}
 
-This document covers some details of Kotlin/Native interoperability with
-Swift/Objective-C.
+This document covers some details of Kotlin/Native interoperability with Swift/Objective-C.
+
+For the specific aspects of memory management between iOS and Kotlin, see [iOS integration](native-ios-integration.md).
 
 ## Usage
 
@@ -197,10 +198,6 @@ Note that the opposite reversed translation is not implemented yet:
 Swift/Objective-C error-throwing methods aren't imported to Kotlin as
 exception-throwing.
 
-> See how exceptions are handled in the Swift part of a [multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html#ios-app).
->
-{type="tip"}
-
 ### Enums
 
 Kotlin enums are imported into Objective-C as `@interface` and into Swift as `class`.
@@ -249,10 +246,7 @@ Starting from Swift 5.5, Kotlin's `suspend` functions are also available for cal
 `async` functions without using the completion handlers. Currently, this functionality is highly experimental and has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)
 for details.
 
-> * See how Kotlin's suspending functions are used in the Swift part of a [multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html#ios-app). 
-> * Learn more about the [`async`/`await` mechanism in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
->
-{type="tip"}
+Learn more about the [`async`/`await` mechanism in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
 
 ### Extensions and category members
 

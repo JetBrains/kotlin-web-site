@@ -804,10 +804,10 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
   Now, you can only use a special forward declaration package for that: `import cnames.structs.cstructName`.
   The same is true for `objcnames`.
 
-*  Consider two cinterop libraries, one that uses `cnames.structs.cstructName` and the other that has an actual definition:
+*  Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol` and the other that has an actual definition:
 
     ```ObjC
-    // First cinterop library
+    // First objcinterop library
     #import <Foundation/Foundation.h>
     
     @protocol ForwardDeclaredProtocol;
@@ -818,7 +818,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     ```
     
     ```ObjC
-    // Second cinterop library
+    // Second objcinterop library
     // Header:
     #import <Foundation/Foundation.h>
     @protocol ForwardDeclaredProtocol
@@ -828,7 +828,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     @end;
     
     id<ForwardDeclaredProtocol> produceProtocol() {
-      return [ForwardDeclaredProtocolImpl new];
+        return [ForwardDeclaredProtocolImpl new];
     }
     ```
     
@@ -842,7 +842,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     }
     ```
     
-    > The casting to `cnames.struct.cstructName` is only allowed from the corresponding real class.
+    > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
     > Otherwise, you'll get an error.
     >
     {type="note"}
@@ -851,5 +851,3 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
 
 Starting with Kotlin 1.9.20, you need to explicitly make a cast to and from the corresponding C and Objective-C forward
 declarations. Also, it's now only possible to import forward declarations by using special packages.
-
-For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-58929).
