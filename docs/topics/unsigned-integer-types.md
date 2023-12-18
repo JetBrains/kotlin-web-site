@@ -13,11 +13,11 @@ In addition to [integer types](numbers.md#integer-types), Kotlin provides the fo
 Unsigned types support most of the operations of their signed counterparts.
 
 > Unsigned numbers are implemented as [inline classes](inline-classes.md) with a single storage property of the corresponding 
-> signed counterpart type of the same width. However, due to the compiler's mangling of signatures containing unsigned types, 
-> changing the type from unsigned to its signed counterpart or the other way around 
-> is a _binary incompatible_ change. 
+> signed counterpart type of the same width. However, due to the compiler's signature mangling for unsigned types, 
+> changing a type from an unsigned to its signed counterpart (or vice versa) results in a change that is both source incompatible and binary incompatible. 
+> This is because the mangling alters the method signatures in the compiled bytecode, making them distinct between unsigned and signed types. 
 > 
-> For more information, see [Mangling](inline-classes.md#mangling).
+> For more information on mangling, see [Mangling](inline-classes.md#mangling).
 >
 {type="note"}
 
