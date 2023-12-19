@@ -1706,6 +1706,15 @@
     "@babel/runtime-corejs3" "^7.14.0"
     core-js "^3.9.1"
 
+"@rescui/icons@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.13.1.tgz#90a4598b5fbc2424bdd454acf74c40695bc01b01"
+  integrity sha512-Q6OKdYOjph7GV1Ou/y3hv+ACAjSDGD9pNF/xELMlBN3y10cFvNFulUSvBrDSeIO39tmuM171nvxGOWU+mv2rvA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.14.0"
+    classnames "^2.2.6"
+    core-js "^3.9.1"
+
 "@rescui/icons@^0.11.2":
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.11.2.tgz#754668960df98d9432f6a79b552de03573a942e8"
