@@ -45,7 +45,7 @@ The root of the Kotlin exception hierarchy is the [Throwable](https://kotlinlang
 
 The `Error` branch of the `Throwable` class is used to represent serious problems that a reasonable application should not try to catch. It represents abnormal conditions, such as [OutOfMemoryError](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-out-of-memory-error/) and `StackOverflowError`.
 
-On the other hand, the `Exception` branch is used for conditions that you might want to catch. Subtypes of `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), deal with exceptional events in applications.
+On the other hand, the `Exception` branch is used for conditions that you might want to catch. Subtypes of the `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), deal with exceptional events in applications.
 
 ![Exception herarchy - the Throwable class](throwable.png){width=600}
 
