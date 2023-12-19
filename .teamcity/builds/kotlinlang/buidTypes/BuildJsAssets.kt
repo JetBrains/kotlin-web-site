@@ -30,7 +30,7 @@ object BuildJsAssets: BuildType({
         
         NODE_ENV=production yarn run build
       """.trimIndent()
-      dockerImage = "node:16"
+      dockerImage = "node:18"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
       dockerPull = true
     }
