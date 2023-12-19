@@ -12,14 +12,24 @@
 
 .heroText {
     margin: 0;
+    font-size: 72px;
+    line-height: 72px;
     @media (--ktl-ts) {
         text-align: center;
-        margin-bottom: 24px;
     }
 
     @media (--ktl-ts-min) {
-        font-size: 72px;
-        line-height: 72px;
+        margin-left: -4px;
+    }
+}
+
+.subtitle {
+    opacity: 0.5;
+    margin: 0;
+
+    @media (--ktl-ts) {
+        text-align: center;
+        margin-bottom: 24px;
     }
 }
 
@@ -96,6 +106,7 @@
 
 .getStartedButton {
     background: #7F52FF !important;
+
     &:hover {
         background: rgba(127, 82, 255, 0.8) !important;
     }
