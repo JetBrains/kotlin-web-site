@@ -1,0 +1,100 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.kotlin-code-examples-section {
+    .CodeMirror,
+    .CodeMirror pre,
+    .CodeMirror .CodeMirror-code,
+    .CodeMirror .CodeMirror-code pre {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .CodeMirror pre.CodeMirror-line {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .CodeMirror-scroll {
+        height: auto !important;
+        min-height: 300px;
+    }
+
+    .CodeMirror-hint {
+        height: 20px;
+        max-width: 600px;
+    }
+
+    .CodeMirror .CodeMirror-lines pre.CodeMirror-line, .CodeMirror .CodeMirror-lines pre.CodeMirror-line-like {
+        font-variant-ligatures: none;
+    }
+
+    .CodeMirror-gutters {
+        background: none !important;
+        border-right: none !important;
+    }
+
+    .executable-fragment-wrapper {
+        margin-bottom: 0;
+    }
+
+    .executable-fragment.darcula,
+    .sample[theme=darcula] {
+        background: #0C0C0E;
+        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border: 0 none transparent;
+    }
+
+    .sample[theme=darcula] {
+        padding: 20px 0 0 0;
+    }
+
+    .cm-s-darcula.CodeMirror,
+    .output-wrapper.darcula {
+        background: transparent;
+    }
+
+    .code-area {
+        /*min-height: 400px;*/
+    }
+
+    .code-output {
+        overflow-y: hidden;
+    }
+
+    .output-wrapper.darcula {
+        min-height: 120px;
+        font-size: 14px;
+        line-height: 20px;
+
+        border: 0 none transparent;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .console-close {
+        top: 5px;
+        right: 5px;
+        height: 16px;
+        width: 16px;
+    }
+
+    .compiler-info {
+        display: none;
+    }
+
+    .js-code-output-executor.darcula {
+        border: 0 none transparent;
+    }
+
+    .run-button {
+        display: none;
+    }
+
+    @media (--ktl-tl) {
+        .CodeMirror-scroll {
+            min-height: 360px;
+        }
+    }
+}
+

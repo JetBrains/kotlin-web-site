@@ -1,0 +1,58 @@
+@import "grid.module.css";
+@import "images.module.css";
+
+.latestNews {
+    margin-bottom: var(--ktl-box-page-m);
+}
+
+.h {
+    padding: 0;
+    margin: 0 0 var(--ktl-box-section-s);
+}
+
+.blog {
+    margin-top: var(--ktl-box-section-s);
+}
+
+.item {
+    text-decoration: none;
+}
+
+.image, .title, .text, .date {
+    padding: 0;
+    margin: 0;
+}
+
+.title, .text, .date {
+    padding-left: var(--ktl-box-block-l);
+    padding-right: var(--ktl-box-block-l);
+}
+
+.date {
+    padding-top: var(--ktl-box-block-l);
+    padding-bottom: var(--ktl-box-block-m);
+}
+
+.title {
+    max-height: 3em;
+
+    display: -webkit-box;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.text {
+    padding-top: var(--ktl-box-block-m);
+    padding-bottom: var(--ktl-box-block-l);
+}
+
+.description {
+    max-height: 6.2em;
+    display: -webkit-box;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}

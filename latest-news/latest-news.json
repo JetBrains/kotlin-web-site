@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Kandy: the new Kotlin plotting library by JetBrains",
+    "date": "Thu, 14 Dec 2023 15:58:36 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kandy-the-new-kotlin-plotting-library-by-jetbrains/",
+    "image": "latest-news/news-0.png",
+    "description": "We are excited to introduce Kandy, a new Kotlin plotting library by JetBrains. It provides a new, powerful DSL for creating charts of various kinds. The first public preview version is ready for you to try, and we welcome any feedback and comments you may have. Kandy Documentation How does it look and feel? Why [&#8230;]"
+  },
+  {
+    "title": "KotlinConf Global 2024: Uniting Kotlin Enthusiasts Worldwide!",
+    "date": "Tue, 12 Dec 2023 11:52:46 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlinconf-global-2024-uniting-kotlin-enthusiasts-worldwide/",
+    "image": "latest-news/news-1.png",
+    "description": "KotlinConf Global returns next year, in May. This means that no matter where you are in the world, you can join us in celebrating all things Kotlin. At KotlinConf 2024, you can expect a great lineup of keynotes, sessions, and workshops, delivered by industry experts and Kotlin enthusiasts. The attendees will be able to deep [&#8230;]"
+  },
+  {
+    "title": "Kotlin for WebAssembly Goes Alpha",
+    "date": "Thu, 07 Dec 2023 12:56:36 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlin-for-webassembly-goes-alpha/",
+    "image": "latest-news/news-2.png",
+    "description": "Kotlin/Wasm, the newest Kotlin Multiplatform target platform, has reached Alpha status! Here’s what you need to know about this change at a glance: Get started with Kotlin/Wasm WebAssembly: The newest Kotlin Multiplatform target WebAssembly is establishing itself as the standard compilation target for languages targeting the browser – and beyond! With Kotlin/Wasm, we’re giving you [&#8230;]"
+  },
+  {
+    "title": "News Digest: Kotlin Multiplatform Special",
+    "date": "Mon, 04 Dec 2023 13:35:13 +0000",
+    "link": "https://blog.jetbrains.com/kotlin/2023/12/kotlin-news-nov-23/",
+    "image": "latest-news/news-3.png",
+    "description": "November has been a busy and eventful month with a lot of exciting news and many updates in the Kotlin Multiplatform ecosystem. Catch up on all the highlights in our digest. Kotlin Developer Survey We want to hear from Kotlin developers! Help us make Kotlin even better by completing this 10-minute survey and sharing your [&#8230;]"
+  }
+]

@@ -1,11 +1,12 @@
+@import "@rescui/typography/lib/font-jb-sans-auto.css";
+@import "@jetbrains/kotlin-web-site-ui/out/components/common/index.css";
+
 :root {
     --rs-color-primary-light-theme: var(--ktl-color-primary-light-theme);
     --rs-color-primary-t-dim-light-theme: rgba(127, 82, 255, 0.8);
-    --rs-font-family-ui: var(--ktl-font-family-inter);
 }
 
 html {
-    font-family: var(--ktl-font-family-inter);
     min-width: 320px;
 }
 
@@ -22,4 +23,24 @@ button,
 
 body._no-scroll {
     overflow: hidden;
+}
+
+body {
+    /* Fix for mobile menu in safari*/
+    right: 0;
+    &.dark-theme {
+        background: #19191C;
+    }
+}
+
+:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+[data-test="input__inner"] {
+    &:focus[data-focus-method=key] {
+        outline: none;
+        box-shadow: none;
+    }
 }

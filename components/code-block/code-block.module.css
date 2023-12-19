@@ -1,0 +1,31 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.code {
+    display: none;
+}
+
+.codeBlockContainer {
+    display: block;
+    position: relative;
+}
+
+.buttonWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    &:focus-within {
+        padding: 12px;
+        height: auto;
+        width: auto;
+    }
+}
+
+.codeBlockWrapper {
+    display: block;
+    @media (--ktl-tm) {
+        margin-left: -16px;
+    }
+}

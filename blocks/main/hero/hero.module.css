@@ -1,0 +1,102 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.heroSection {
+    background: #19191C;
+    padding: 96px 0;
+    overflow: hidden;
+
+    @media (--ktl-ts) {
+        padding: 48px 0;
+    }
+}
+
+.heroText {
+    margin: 0;
+    @media (--ktl-ts) {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    @media (--ktl-ts-min) {
+        font-size: 72px;
+        line-height: 72px;
+    }
+}
+
+.grid {
+    display: block;
+    @media (--ktl-ts-min) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.content {
+    padding-left: 69px;
+    @media (--ktl-ds) {
+        padding-left: 0;
+    }
+}
+
+.imageMobile {
+    display: none;
+    @media (--ktl-ts) {
+        display: block;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+    }
+}
+
+.imageDesktop {
+    display: block;
+    @media (--ktl-ts) {
+        display: none;
+        width: 100%;
+    }
+}
+
+.info {
+    margin-top: 72px;
+    display: flex;
+
+    @media (--ktl-ts) {
+        display: block;
+        text-align: center;
+        margin-top: 24px;
+    }
+}
+
+.developer {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    padding-left: 24px;
+    border-left: 1px solid rgba(255, 255, 255, 0.20);
+
+    @media (--ktl-ts) {
+        box-sizing: border-box;
+        justify-content: center;
+        width: 100%;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.20);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+        padding: 24px 0;
+        margin-left: 0;
+        margin-top: 72px;
+    }
+}
+
+.developerLogo {
+    margin-right: 12px;
+    height: 52px;
+    width: 52px;
+}
+
+.getStartedButton {
+    background: #7F52FF !important;
+    &:hover {
+        background: rgba(127, 82, 255, 0.8) !important;
+    }
+}
