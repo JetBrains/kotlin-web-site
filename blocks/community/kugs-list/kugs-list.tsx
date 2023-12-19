@@ -3,12 +3,15 @@ import classnames from 'classnames';
 import kugsLogo from '../../../public/images/community/kugs-logo.svg';
 import styles from './kugs-list.module.css';
 import { Svg } from 'react-optimized-image';
+import { useTextStyles } from '@rescui/typography';
 
 interface KugsListProps {
     userGroupData: UserGroupsData;
 }
 
 export const KugsList: FC<KugsListProps> = ({ userGroupData }) => {
+    const textCn = useTextStyles();
+
     const countUserGroups = useMemo(() => {
         let counter = 0;
         userGroupData.forEach((group) => (counter += group.groups.length));
@@ -51,7 +54,7 @@ export const KugsList: FC<KugsListProps> = ({ userGroupData }) => {
                 <Svg className={styles.logo} src={kugsLogo} />
                 {countUserGroups} KUGs around the world
             </h2>
-            <ul className={styles.list}>
+            <ul className={classnames(styles.list, textCn('rs-text-3'))}>
                 {userGroupsByRegion.map((region) => (
                     <li key={region.name} className={classnames(styles.region)}>
                         <h2 className="ktl-h2 ktl-offset-bottom-m">{region.name}</h2>
