@@ -15,6 +15,6 @@ export class IndexPage implements PageWithGlobalSearch {
     async init() {
         await this.page.goto('/');
 
-        await this.page.waitForSelector(testSelector('index-page-banner'));
+        await this.page.waitForSelector(testSelector('main-page-why-kotlin'));
     }
 }
