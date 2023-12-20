@@ -5,6 +5,8 @@ import cn from 'classnames';
 import { useTextStyles, createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
+import Image from 'next/image';
+
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import styles from './hero.module.css';
@@ -31,12 +33,7 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                             <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{title}</h1>
                             <p className={cn(darkTextCn('rs-subtitle-2'), styles.subtitle)}>{children}</p>
 
-                            <img
-                                className={styles.imageMobile}
-                                src={HeroImg.src}
-                                srcSet={`${HeroImg2x.src} 2x`}
-                                alt="kotlin"
-                            />
+                            <Image src={HeroImg} alt={"kotlin"} className={styles.imageMobile} />
 
                             <div className={styles.info}>
                                 <Button size={'l'} href="/docs/getting-started.html" className={styles.getStartedButton}>

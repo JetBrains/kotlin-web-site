@@ -35,6 +35,7 @@
 
 .grid {
     display: block;
+    position: relative;
     @media (--ktl-ts-min) {
         display: flex;
         justify-content: space-between;
@@ -47,6 +48,9 @@
     @media (--ktl-ds) {
         padding-left: 0;
     }
+    @media (--ktl-ts-min) and (--ktl-tl) {
+        flex-shrink: 0;
+    }
 }
 
 .imageMobile {
@@ -56,6 +60,7 @@
         width: 100%;
         max-width: 260px;
         margin: 0 auto;
+        height: auto;
     }
 }
 
