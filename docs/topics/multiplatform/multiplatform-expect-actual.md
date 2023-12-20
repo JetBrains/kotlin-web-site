@@ -524,7 +524,7 @@ annotation, which must have a corresponding actual declaration in each platform 
 
 ```kotlin
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
+@Retention(AnnotationRetention.RUNTIME)
 expect annotation class XmlSerializable()
 
 @XmlSerializable
@@ -552,7 +552,7 @@ Take the `@XmlSerializable` annotation declared above and add `OptionalExpectati
 ```kotlin
 @OptIn(ExperimentalMultiplatform::class)
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
+@Retention(AnnotationRetention.RUNTIME)
 @OptionalExpectation
 expect annotation class XmlSerializable()
 ```
