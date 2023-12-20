@@ -15,7 +15,7 @@ const Courses = ({universities, path}) => {
     <div>
       <TeachTopMenu path={path} />
 
-      <section className="ktl-container">
+      <section className="ktl-layout ktl-layout--center">
         <h1 className="ktl-h1 ktl-offset-top-xl">Universities That Teach Kotlin</h1>
 
         <div className="ktl-courses__tabs ktl-offset-top-m">

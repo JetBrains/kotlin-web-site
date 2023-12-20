@@ -1,0 +1,120 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.foundationPreview {
+    border-radius: 8px;
+    background: #E8E8E8;
+    padding: 32px;
+    margin-top: 96px;
+    height: 320px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.foundationPreviewImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 434px;
+    height: 320px;
+    z-index: 1;
+}
+
+.title {
+    margin: 0;
+    z-index: 2;
+}
+
+.description {
+    margin-top: 8px;
+    flex: 1 1 auto;
+    z-index: 2;
+}
+
+.secondBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.companies {
+    display: flex;
+    gap: 16px;
+}
+
+@media (--ktl-tl) {
+    .foundationPreview {
+        padding: 72px 24px;
+        height: auto;
+        align-items: center;
+    }
+
+    .secondBlock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .companies {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 48px;
+        max-width: 376px;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .description {
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .companies {
+        gap: 12px;
+    }
+
+    .buttonWrap {
+        margin-top: 48px;
+    }
+}
+
+@media (--ktl-ds) {
+    .foundationPreviewImage {
+        right: -48px;
+        top: -6px;
+    }
+}
+
+@media (--ktl-tl) {
+    .foundationPreviewImage {
+        top: auto;
+        right: -120px;
+        bottom: -120px;
+        transform: rotate(115deg);
+    }
+}
+
+@media (--ktl-tm) {
+    .foundationPreview {
+        margin-top: 48px;
+    }
+}
+
+@media (--ktl-ts) {
+    .foundationPreview {
+        margin-top: 72px;
+    }
+}
+
+@media (--ktl-mm) {
+    .foundationPreview {
+        margin-left: -24px;
+        margin-right: -24px;
+        border-radius: 0;
+    }
+}

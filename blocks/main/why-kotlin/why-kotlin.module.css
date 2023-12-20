@@ -1,0 +1,81 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import './playground.css';
+
+.whyKotlin {
+    background: #19191C;
+    padding: 96px 0;
+    overflow: hidden;
+    @media (--ktl-tm) {
+        padding: 48px 0 0 0;
+    }
+}
+
+.whyKotlinMobileWrapper {
+    @media (--ktl-tm) {
+        background: #0C0C0E;
+        padding-bottom: 48px;
+    }
+}
+
+.sectionTitle {
+    margin-bottom: 24px;
+}
+
+.getStartedButton {
+    margin-top: 24px;
+}
+
+.navigationBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    padding: 0 12px;
+    margin-bottom: 4px;
+    @media (--ktl-tm) {
+        position: relative;
+        padding: 0;
+        &:after {
+            content: '';
+            position: absolute;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.20);
+            width: 1000px;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.tabList {
+    @media (--ktl-tm) {
+        display: none;
+    }
+}
+
+.codeExamples {
+    background: #0C0C0E;
+    border-radius: 8px;
+    @media (--ktl-tm-min) {
+        min-height: 536px;
+        padding-bottom: 8px;
+    }
+}
+
+.controlButtons {
+    display: flex;
+}
+
+.openInPlaygoundButton {
+    @media (--ktl-tl) {
+        display: none;
+    }
+}
+
+.mobileMenuButton {
+    display: none;
+    @media (--ktl-tm) {
+        display: block;
+    }
+}

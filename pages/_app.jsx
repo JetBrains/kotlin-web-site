@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 
@@ -11,6 +11,10 @@ import { Favicon } from '../components/favicon/favicon';
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+    useEffect(() => {
+        document.body.className = pageProps.isDarkTheme ? 'dark-theme' : '';
+    });
+
     return (
         <>
             <Head>

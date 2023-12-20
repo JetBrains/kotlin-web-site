@@ -1,0 +1,31 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.pageWrapper {
+    overflow: hidden;
+}
+
+.evenSection {
+    display: flex; /* disable margin collapsing */
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+}
+
+.videoPlayer {
+    max-width: 556px;
+}
+
+.videoWrapper {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ctaBlock {
+    margin-top: 96px;
+}
+
+@media (--ktl-ts) {
+    .ctaBlock {
+        margin-top: 24px;
+    }
+}
