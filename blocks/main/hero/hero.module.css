@@ -2,11 +2,15 @@
 
 .heroSection {
     background: #19191C;
-    padding: 96px 0;
+    padding: 48px 0;
     overflow: hidden;
 
-    @media (--ktl-ts) {
-        padding: 48px 0;
+    @media (--ktl-ts-min) {
+        padding: 72px 0;
+    }
+
+    @media (--ktl-ds-min) {
+        padding: 96px 0;
     }
 }
 
@@ -21,6 +25,10 @@
     @media (--ktl-ts-min) {
         margin-left: -4px;
     }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
+        text-align: center;
+    }
 }
 
 .subtitle {
@@ -28,6 +36,11 @@
     margin: 0;
 
     @media (--ktl-ts) {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
         text-align: center;
         margin-bottom: 24px;
     }
@@ -41,13 +54,15 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .content {
-    padding-left: 69px;
-    @media (--ktl-ds) {
-        padding-left: 0;
-    }
     @media (--ktl-ts-min) and (--ktl-tl) {
         flex-shrink: 0;
     }
@@ -62,6 +77,14 @@
         margin: 0 auto;
         height: auto;
     }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
+        display: block;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        height: auto;
+    }
 }
 
 .imageDesktop {
@@ -70,16 +93,26 @@
         display: none;
         width: 100%;
     }
+    @media screen and (--ktl-tm) and (orientation: landscape) {
+        display: none;
+        width: 100%;
+    }
 }
 
 .info {
-    margin-top: 72px;
+    margin-top: 96px;
     display: flex;
 
     @media (--ktl-ts) {
         display: block;
         text-align: center;
         margin-top: 24px;
+    }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
+        text-align: center;
+        margin-top: 24px;
+        display: block;
     }
 }
 
@@ -91,6 +124,18 @@
     border-left: 1px solid rgba(255, 255, 255, 0.20);
 
     @media (--ktl-ts) {
+        box-sizing: border-box;
+        justify-content: center;
+        width: 100%;
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.20);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+        padding: 24px 0;
+        margin-left: 0;
+        margin-top: 72px;
+    }
+
+    @media screen and (--ktl-tm) and (orientation: landscape) {
         box-sizing: border-box;
         justify-content: center;
         width: 100%;
