@@ -32,8 +32,6 @@ If you have any questions or feedback about the roadmap or the items on it, feel
 
 Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrains.com/agiles/153-1251/current) ![YouTrack](youtrack-logo.png){width=30}{type="joined"}
 
-![Roadmap board in YouTrack](roadmap-board.png){width=700}
-
 ### Roadmap details
 
 <table>
@@ -119,7 +117,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 We've **completed** the following items from the previous roadmap:
 
 * ✅ Compiler: [Promote Kotlin/Wasm to Alpha](https://youtrack.jetbrains.com/issue/KT-60277)
-* ✅ Multiplatform: [Promote Kotlin Multiplatform Mobile to Stable](https://youtrack.jetbrains.com/issue/KT-55513)
+* ✅ Multiplatform: [Promote Kotlin Multiplatform to Stable](https://youtrack.jetbrains.com/issue/KT-55513)
 
 ### New items
 
