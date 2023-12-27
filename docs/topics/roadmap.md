@@ -51,9 +51,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Kotlin/Wasm: Switch wasm-wasi target of libraries to WASI Preview 2</a></li>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Kotlin/Wasm: Support Component Model</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-60277" target="_blank">Promote Kotlin/Wasm to Beta</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64568" target="_blank">Kotlin/Wasm: Switch wasm-wasi target of libraries to WASI Preview 2</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64569" target="_blank">Kotlin/Wasm: Support Component Model</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60255" target="_blank">Promote K2 compiler to Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60276" target="_blank">Support debugging inline functions on Android</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60278" target="_blank">Make Kotlin/Wasm suitable for standalone Wasm VMs</a></li>
@@ -64,9 +63,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Multiplatform</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Support SwiftPM for Kotlin Multiplatform users</a></li>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Swift export: Design and implement support for Kotlin classes and interfaces</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64571" target="_blank">Support SwiftPM for Kotlin Multiplatform users</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64572" target="_blank">Swift export: Design and implement support for Kotlin classes and interfaces</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager's robustness and performance, and deprecate the old one</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: Make binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
@@ -77,9 +76,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Support Gradle project isolation</a></li>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64575" target="_blank">Support Gradle project isolation</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTNB-506" target="_blank">Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60279">Improve Kotlin build reports</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-23988">First public release of K2-based IntelliJ plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-23989">Improve performance and code analysis stability of the current IDE plugin</a></li>
@@ -92,7 +91,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Library ecosystem</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="TO UPDATE" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60280" target="_blank">Provide initial series of <code>kotlinx-io</code> releases</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Promote <code>kotlinx-kover</code> to Beta</a></li>
@@ -126,16 +125,15 @@ We've **completed** the following items from the previous roadmap:
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Compiler: [Promote Kotlin/Wasm to Beta](https://youtrack.jetbrains.com/issue/KT-60277)
-* 🆕 Compiler: [Kotlin/Wasm: Switch wasm-wasi target of libraries to WASI Preview 2]()
-* 🆕 Compiler: [Kotlin/Wasm: Support Component Model]()
-* 🆕 Multiplatform: [Unify inline semantics between all Kotlin targets]()
-* 🆕 Multiplatform: [Support SwiftPM for Kotlin Multiplatform users]()
-* 🆕 Multiplatform: [Swift export: Design and implement support for Kotlin classes and interfaces]()
-* 🆕 Tooling: [Support Gradle project isolation]()
-* 🆕 Tooling: [Improve integration of Kotlin/Native toolchain into Gradle]()
-* 🆕 Tooling: [Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints]()
-* 🆕 Library ecosystem [Promote kotlinx-datetime to Beta]()
+* 🆕 Compiler: [Kotlin/Wasm: Switch wasm-wasi target of libraries to WASI Preview 2](https://youtrack.jetbrains.com/issue/KT-64568)
+* 🆕 Compiler: [Kotlin/Wasm: Support Component Model](https://youtrack.jetbrains.com/issue/KT-64569)
+* 🆕 Multiplatform: [Unify inline semantics between all Kotlin targets](https://youtrack.jetbrains.com/issue/KT-64570)
+* 🆕 Multiplatform: [Support SwiftPM for Kotlin Multiplatform users](https://youtrack.jetbrains.com/issue/KT-64571)
+* 🆕 Multiplatform: [Swift export: Design and implement support for Kotlin classes and interfaces](https://youtrack.jetbrains.com/issue/KT-64572)
+* 🆕 Tooling: [Support Gradle project isolation](https://youtrack.jetbrains.com/issue/KT-64575)
+* 🆕 Tooling: [Improve integration of Kotlin/Native toolchain into Gradle](https://youtrack.jetbrains.com/issue/KT-64577)
+* 🆕 Tooling: [Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints](https://youtrack.jetbrains.com/issue/KTNB-506)
+* 🆕 Library ecosystem [Promote kotlinx-datetime to Beta](https://youtrack.jetbrains.com/issue/KT-64578)
 
 ### Removed items
 
