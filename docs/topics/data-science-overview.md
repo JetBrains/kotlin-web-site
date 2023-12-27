@@ -61,6 +61,10 @@ Here are some libraries that you may find useful:
 
 ### Kotlin libraries
 
+* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to
+  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
+  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
+
 * [Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source plotting library for the JVM written in Kotlin.
   It provides a powerful and flexible DSL for chart creation,
   along with seamless integration with [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook)
@@ -74,24 +78,16 @@ Here are some libraries that you may find useful:
   by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
   for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
 
-* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to 
-  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
-  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
-
 * [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) adds a missing layer of compatibility between
   Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
   lambda expressions as simple expressions in curly braces or method references.
 
-* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was intially inspired by
+* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was initially inspired by
 [NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
 algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
 provides interchangeable wrappers over existing Java and Kotlin libraries including
 [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
 [Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others.
-
-* [krangl](https://github.com/holgerbrandl/krangl) is a library inspired by R's [dplyr](https://dplyr.tidyverse.org/)
-and Python's [pandas](https://pandas.pydata.org/). This library provides functionality for data manipulation using
-a functional-style API; it also includes functions for filtering, transforming, aggregating, and reshaping tabular data.
 
 * [lets-plot](https://github.com/JetBrains/lets-plot) is a plotting library for statistical data written in Kotlin.
 Lets-Plot is multiplatform and can be used not only with JVM, but also with JS and Python. 
