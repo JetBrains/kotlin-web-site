@@ -17,8 +17,8 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotli
 
 The goal of this roadmap is to give you a big picture. Here's a list of our key projects – the most important things we focus on delivering:
 
-* **K2 compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. It will also let us introduce many anticipated language features.
-* **K2-based IntelliJ plugin**: much faster code completion, highlighting, and search, together with more stable code analysis.
+* **K2 compiler**: a rewrite of the Kotlin compiler optimized for speed, parallelism, and unification. It will also allow us to introduce many highly-anticipated language features.
+* **K2-based IntelliJ plugin**: faster code completion, highlighting, and search, together with more stable code analysis.
 * **Kotlin Multiplatform**: streamline build setup and enhance the iOS development experience.
 * **Experience of library authors**: a set of documentation and tools helping to set up, develop, and publish Kotlin libraries.
 
@@ -67,7 +67,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="TO UPDATE" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
                 <li>🆕 <a href="TO UPDATE" target="_blank">Support SwiftPM for Kotlin Multiplatform users</a></li>
                 <li>🆕 <a href="TO UPDATE" target="_blank">Swift export: Design and implement support for Kotlin classes and interfaces</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager robustness and performance and deprecate the old one</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-55512">Improve the new Kotlin/Native memory manager's robustness and performance, and deprecate the old one</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-52600" target="_blank">Stabilize klib: Make binary compatibility easier for library authors</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-42294" target="_blank">Improve Kotlin/Native compilation time</a></li>
             </list>
@@ -92,9 +92,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Library ecosystem</strong></td>
         <td>
             <list>
+                <li>🆕 <a href="TO UPDATE" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60280" target="_blank">Provide initial series of <code>kotlinx-io</code> releases</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48011" target="_blank">Release <code>kotlinx-metadata-jvm</code> as Stable</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Promote <code>kotlinx-kover</code> to Stable</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-49527" target="_blank">Promote <code>kotlinx-kover</code> to Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-48998" target="_blank">Release Dokka as Stable</a></li>
             </list>
             <p>Ktor and Exposed roadmaps:</p>
@@ -134,6 +135,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Support Gradle project isolation]()
 * 🆕 Tooling: [Improve integration of Kotlin/Native toolchain into Gradle]()
 * 🆕 Tooling: [Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints]()
+* 🆕 Library ecosystem [Promote kotlinx-datetime to Beta]()
 
 ### Removed items
 
