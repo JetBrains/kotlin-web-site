@@ -67,7 +67,8 @@ Here are some libraries that you may find useful:
 
 * [Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source plotting library for the JVM written in Kotlin.
   It provides a powerful and flexible DSL for chart creation,
-  along with seamless integration with Kotlin Notebook and Kotlin DataFrame. 
+  along with seamless integration with [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook)
+  and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html).
 
 * [Multik](https://github.com/Kotlin/multik): multidimensional arrays in Kotlin. The library provides Kotlin-idiomatic, 
   type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
