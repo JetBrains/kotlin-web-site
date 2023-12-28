@@ -4,9 +4,8 @@ You can publish a multiplatform library to a local Maven repository with the [`m
 Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
 where the library should be published. The plugin creates publications automatically.
 
-> Here and further down the page all examples show the `shared/build.gradle.kts` file, not the root project configuration.
->
-{type="tip"}
+<tabs group="build-script">
+<tab title="shared/build.gradle.kts" group-key="kotlin">
 
 ```kotlin
 plugins {
@@ -25,6 +24,8 @@ publishing {
     }
 }
 ```
+</tab>
+</tabs>
 
 > You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 >
