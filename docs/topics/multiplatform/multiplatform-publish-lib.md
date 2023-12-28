@@ -56,9 +56,9 @@ in the publication's scope.
 
 Except for Apple platform targets, Kotlin/Native supports cross-compilation, allowing any host to produce needed artifacts.
 
-So, to avoid any issues:
+To avoid any issues during publication:
 * Publish only from an Apple host when your project targets Apple operating systems.
-* Never publish from multiple hosts to avoid duplicating publications at the repo.
+* Publish all artifacts from one host only to avoid duplicating publications in the repository.
   
   Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
   
