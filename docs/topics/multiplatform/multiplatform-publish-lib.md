@@ -87,10 +87,10 @@ kotlin {
                 val targetPublication = this@all
                 tasks.withType<AbstractPublishToMaven>()
                     .matching { it.publication == targetPublication }
-                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-      }
+                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } } 
+            } 
+        } 
     }
-  }
 }
 ```
 
