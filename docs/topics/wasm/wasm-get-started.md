@@ -88,10 +88,12 @@ folder:
 
 ## What's next?
 
-* [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly)
+Join the Kotlin/Wasm community in Kotlin Slack:
 
-* Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
-   * [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
-   * [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
-   * [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
-   * [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
+<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community"/></a>
+
+Try other Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
