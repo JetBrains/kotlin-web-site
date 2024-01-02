@@ -214,8 +214,9 @@ abstract class Tag(val name: String) { ... }
 
 You don't have to annotate the `HTML` or `Head` classes with `@HtmlTagMarker` because their superclass is already annotated:
 
-```
+```kotlin
 class HTML() : Tag("html") { ... }
+
 class Head() : Tag("head") { ... }
 ```
 
