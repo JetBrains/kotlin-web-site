@@ -5,6 +5,8 @@ import cn from 'classnames';
 import { useTextStyles, createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
+import Image from 'next/image';
+
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import styles from './hero.module.css';
@@ -14,10 +16,11 @@ import HeroImg from './images/hero-cover.png';
 import HeroImg2x from './images/hero-cover@2x.png';
 
 interface Props {
+    title: string,
     children: ReactNode;
 }
 
-export const HeroSection: FC<Props> = ({ children }) => {
+export const HeroSection: FC<Props> = ({ children, title }) => {
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
@@ -27,14 +30,10 @@ export const HeroSection: FC<Props> = ({ children }) => {
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
-                            <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{children}</h1>
+                            <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{title}</h1>
+                            <p className={cn(darkTextCn('rs-subtitle-2'), styles.subtitle)}>{children}</p>
 
-                            <img
-                                className={styles.imageMobile}
-                                src={HeroImg.src}
-                                srcSet={`${HeroImg2x.src} 2x`}
-                                alt="kotlin"
-                            />
+                            <Image src={HeroImg} alt={"kotlin"} className={styles.imageMobile} />
 
                             <div className={styles.info}>
                                 <Button size={'l'} href="/docs/getting-started.html" className={styles.getStartedButton}>
