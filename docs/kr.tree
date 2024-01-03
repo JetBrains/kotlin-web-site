@@ -229,6 +229,7 @@
         <toc-element toc-title="WebAssembly (Wasm)">
             <toc-element id="wasm-get-started.md"/>
             <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries" hidden="true"/>
+            <toc-element id="wasm-debugging.md"/>
             <toc-element id="wasm-js-interop.md"/>
             <toc-element id="wasm-troubleshooting.md"/>
         </toc-element>
