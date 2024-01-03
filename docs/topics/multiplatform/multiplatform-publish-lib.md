@@ -57,14 +57,17 @@ To avoid any issues during publication:
   
   Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
   
-### Problems solved since Kotlin 1.7.20 {initial-collapse-state="collapsed"}
+### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed"}
 
-Before Kotlin/Native covered all the necessary cross-compilation options, multiplatform projects sometimes needed several hosts
-to publish all the modules: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on. If you
-weren't careful configuring the build, modules that could be compiled on all of these hosts were published more than once, resulting
-in duplicate publications at the repo.
+Before 1.7.20, the Kotlin/Native compiler didn't support all cross-compilation options. If you use earlier versions, you may need
+to publish multiplatform projects from multiple hosts: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
+This can result in duplicate publications of modules that are cross-compiled. The most straightforward way to avoid this is to upgrade to a later
+version of Kotlin and publish from a single host as described above.
 
-For example, it was recommended to assign a main host for each target and check for it like this:
+If upgrading is not an option, assign a main host for each target and check for it in the `shared/build.gradle(.kts)` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
@@ -72,7 +75,7 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-    
+  
     val publicationsFromMainHost =
         listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
   
@@ -82,15 +85,40 @@ kotlin {
                 val targetPublication = this@all
                 tasks.withType<AbstractPublishToMaven>()
                     .matching { it.publication == targetPublication }
-                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } } 
-            } 
-        } 
+                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
+        }
     }
 }
 ```
 
-Such workarounds are no longer needed. If you are using a legacy build process that is configured in this manner, we recommend
-switching to the current solution outlined above: use only one host for publishing, and make it an Apple host if you target the Apple platform.
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+  
+    def publicationsFromMainHost =
+        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
+  
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
+                tasks.withType(AbstractPublishToMaven)
+                    .matching { it.publication == targetPublication }
+                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Publish an Android library
 
