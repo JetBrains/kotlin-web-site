@@ -1,11 +1,8 @@
 [//]: # (title: Publishing multiplatform libraries)
 
 You can publish a multiplatform library to a local Maven repository with the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
-Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
-where the library should be published. The plugin creates publications automatically.
-
-<tabs group="build-script">
-<tab title="shared/build.gradle.kts" group-key="kotlin">
+In the `shared/build.gradle.kts` file, specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) where the library
+should be published. The plugin creates publications automatically.
 
 ```kotlin
 plugins {
@@ -24,8 +21,6 @@ publishing {
     }
 }
 ```
-</tab>
-</tabs>
 
 > You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 >
@@ -62,7 +57,7 @@ To avoid any issues during publication:
   
   Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
   
-### Problems solved since Kotlin 1.9.20 {initial-collapse-state="collapsed"}
+### Problems solved since Kotlin 1.7.20 {initial-collapse-state="collapsed"}
 
 Before Kotlin/Native covered all the necessary cross-compilation options, multiplatform projects sometimes needed several hosts
 to publish all the modules: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on. If you
@@ -102,7 +97,7 @@ switching to the current solution outlined above: use only one host for publishi
 To publish an Android library, you need to provide additional configuration.
 
 By default, no artifacts of an Android library are published. To publish artifacts produced by a set of [Android variants](https://developer.android.com/studio/build/build-variants), 
-specify the variant names in the Android target block:
+specify the variant names in the Android target block in the `shared/build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -129,7 +124,7 @@ set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
-with no classifier). This mode is disabled by default and can be enabled as follows:
+with no classifier). This mode is disabled by default and can be enabled as follows in the `shared/build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -147,7 +142,7 @@ kotlin {
 ## Disable sources publication
 
 By default, the Kotlin Multiplatform Gradle plugin publishes sources for all the specified targets. However,
-you can configure and disable sources publication with the `withSourcesJar()` API:
+you can configure and disable sources publication with the `withSourcesJar()` API in the `shared/build.gradle.kts` file:
 
 * To disable sources publication for all the targets:
 
