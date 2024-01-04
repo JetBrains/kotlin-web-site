@@ -3,7 +3,7 @@
 Characters are represented by the type `Char`.
 Character literals go in single quotes: `'1'`.
 
-> On the JVM a `char` represents a 16-bit Unicode character.
+> On the JVM, a character stored as primitive type: `char`, represents a 16-bit Unicode character.
 >
 {type="note"}
 

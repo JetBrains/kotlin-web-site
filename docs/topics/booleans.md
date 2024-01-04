@@ -2,7 +2,7 @@
 
 The type `Boolean` represents boolean objects that can have two values: `true` and `false`. 
 
-> On the JVM, the primitive `boolean` type typically uses 8 bits.
+> On the JVM, booleans stored as primitive type: `boolean`, typically use 8 bits.
 >
 {type="note"}
 

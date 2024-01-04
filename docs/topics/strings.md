@@ -2,7 +2,7 @@
 
 Strings in Kotlin are represented by the type [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/). 
 
-> On the JVM, a `String` in UTF-16 encoding uses approximately 2 bytes per character.
+> On the JVM, an object of `String` type in UTF-16 encoding uses approximately 2 bytes per character.
 > 
 {type="note"}
 
