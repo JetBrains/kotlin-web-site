@@ -1,7 +1,6 @@
 [//]: # (title: Data classes)
 
-Data classes in Kotlin are primarily used to hold data. Data classes come automatically with additional
-member functions that allow you to print an instance to readable output, compare instances, copy instances, and more.
+Data classes in Kotlin are primarily used to hold data. For each data class, the compiler automatically generates additional member functions that allow you to print an instance to readable output, compare instances, copy instances, and more.
 Data classes are marked with `data`:
 
 ```kotlin
@@ -53,8 +52,8 @@ data class Person(val name: String) {
 }
 ```
 
-In this example, only the `name` property is used by default inside the `.toString()`, `.equals()`, `.hashCode()`, and `.copy()` implementations,
-and there is only one component function, `.component1()`. The `age` property, declared inside the class body, is not included in these automatically generated functions by default. 
+In the example below, only the `name` property is used by default inside the `.toString()`, `.equals()`, `.hashCode()`, and `.copy()` implementations,
+and there is only one component function, `.component1()`. The `age` property is declared inside the class body and is excluded.
 Therefore, two `Person` objects with the same `name` but different `age` values are considered equal since `.equals()` only evaluates properties from the primary constructor:
 
 ```kotlin
