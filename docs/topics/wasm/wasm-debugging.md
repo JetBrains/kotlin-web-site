@@ -38,11 +38,14 @@ This tutorial demonstrates how to debug a web application built with Kotlin/Wasm
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=650}
 
-   Alternatively, you can run the following command in the terminal from the `compose-example` directory:
+    You can also run the following command in the terminal from the `compose-example` directory:
 
    ```bash
    ./gradlew wasmJsBrowserRun
    ```
+   >Alternatively, you can load **compose-example** by opening it directly from the file explorer in **File | Open**.
+   >
+   {type="note"}
 
 4. Once the application starts, open the following URL in your browser:
 
@@ -81,18 +84,25 @@ steps should also work.
 To debug a Kotlin/Wasm application:
 
 1. In the browser window of the application, access developer tools by right-clicking and selecting the **Inspect** action.
+Alternatively, you can use the **Fn + F12** shortcut.
 
 2. Switch to the **Sources** tab and find the Kotlin file to debug.
 
 3. Set breakpoints in the Kotlin file by clicking on the numbers of the code lines you want to inspect. Only the code lines 
 with darker numbers accept breakpoints.
 
+![Set breakpoints](wasm-breakpoints.png){width=700}
+
 4. Interact with the application by clicking on the **Hello World!** button. This action triggers the execution of the 
 code, and the debugger pauses at each breakpoint.
 
 5. Inspect variables and code execution at the breakpoints by using the debugging control buttons (step over, step into, step out, and more).
 
+![Debug controls](wasm-debug-controls.png){width=700}
+
 6. Check the **Call stack** and **Scope** tool windows to trace the sequence of function calls and pinpoint the location of any errors.
+
+![Check call stack](wasm-debug-scope.png){width=700}
 
 7. Make the required changes to the code and [run the application](#run-the-application) again.
 
