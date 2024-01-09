@@ -26,6 +26,9 @@ val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<I
 One of the trickiest aspects of Java's type system is the wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
 Kotlin doesn't have these. Instead, Kotlin has declaration-site variance and type projections.
 
+
+### Variance and wildcards in Java
+
 Let's think about why Java needs these mysterious wildcards. The problem is explained well in 
 [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
 Item 31: _Use bounded wildcards to increase API flexibility_.
@@ -36,12 +39,12 @@ compiled but caused an exception at runtime:
 ```java
 // Java
 List<String> strs = new ArrayList<String>();
-List<Object> objs = strs; // !!! A compile-time error here saves us from a runtime exception later.
-objs.add(1); // Put an Integer into a list of Strings
-String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
+List<Object> objs = strs; // Java reports a type mismatch here at compile-time, but what if it didn't?
+objs.add(1); // We would be able to put an Integer into a list of Strings
+String s = strs.get(0); // And then at runtime, Java would throw a ClassCastException: Integer cannot be cast to String
 ```
 
-Java prohibits such things in order to guarantee run-time safety. But this has implications. For example,
+Java prohibits such things to guarantee runtime safety. But this has implications. For example,
 consider the `addAll()` method from the `Collection` interface. What's the signature of this method? Intuitively,
 you'd write it this way:
 
@@ -56,15 +59,16 @@ But then, you would not be able to do the following (which is perfectly safe):
 
 ```java
 // Java
+
+// The following would not compile with the naive declaration of addAll:
+// Collection<String> is not a subtype of Collection<Object>
 void copyAll(Collection<Object> to, Collection<String> from) {
     to.addAll(from);
-    // !!! Would not compile with the naive declaration of addAll:
-    // Collection<String> is not a subtype of Collection<Object>
 }
 ```
 
 (In Java, you probably learned this the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
-Item 28: _Prefer lists to arrays_)
+Item 28: _Prefer lists to arrays_.)
 
 That's why the actual signature of `addAll()` is the following:
 
@@ -93,12 +97,9 @@ you don't get a `String`, but rather an `Object`.
 
 Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
 
->"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers",
-> and proposes the following mnemonic:
->
->_PECS stands for Producer-Extends, Consumer-Super._
->
-{type="tip"}
+>"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers,"
+
+and proposes the following mnemonic: _PECS_ stands for _Producer-Extends, Consumer-Super._
 
 > If you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object,
 > but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
