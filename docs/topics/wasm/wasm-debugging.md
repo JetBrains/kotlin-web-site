@@ -84,7 +84,7 @@ steps should also work.
 To debug a Kotlin/Wasm application:
 
 1. In the browser window of the application, access developer tools by right-clicking and selecting the **Inspect** action.
-Alternatively, you can use the **Fn + F12** shortcut.
+Alternatively, you can use either the **F12** or the **Fn + F12** shortcut.
 
 2. Switch to the **Sources** tab and find the Kotlin file to debug.
 

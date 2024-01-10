@@ -1,5 +1,10 @@
 [//]: # (title: Troubleshooting)
 
+> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+>
+{type="note"}
+
 Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like garbage collection and 
 exception handling to introduce improvements and new features within WebAssembly. 
 

@@ -7,7 +7,7 @@ familiar with Kotlin/JS interoperability, you can notice that Kotlin/Wasm intero
 there are key differences to consider.
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
-> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 >
 {type="note"}
 
