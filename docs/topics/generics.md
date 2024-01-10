@@ -105,7 +105,7 @@ and proposes the following mnemonic: _PECS_ stands for _Producer-Extends, Consum
 > but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
 > to remove all the items from the list, since `clear()` does not take any parameters at all.
 >
->The only thing guaranteed by wildcards (or other types of variance) is _type safety_. Immutability is a completely different story.
+> The only thing guaranteed by wildcards (or other types of variance) is _type safety_. Immutability is a completely different story.
 >
 {type="note"}
 
