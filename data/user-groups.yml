@@ -713,6 +713,12 @@
     position:
       lat: 40.1872023
       lng: 44.515209
+  - name: Xiamen KUG
+    country: China Mainland
+    url: https://xiamen-kug.github.io/
+    position:
+      lat: 24.5463383
+      lng: 117.9941655
   - name: Xi'An KUG
     country: China Mainland
     url: https://kotlinxa.com/
