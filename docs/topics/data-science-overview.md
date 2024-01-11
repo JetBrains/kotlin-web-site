@@ -45,15 +45,6 @@ Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20ee
 
 [Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
 
-### Zeppelin Kotlin interpreter
-
-Apache Zeppelin is a popular web-based solution for interactive data analytics. It provides strong support 
-for the Apache Spark cluster computing system, which is particularly useful for data engineering. 
-Starting from [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/), Apache Zeppelin comes with 
-bundled Kotlin interpreter. 
-
-![Kotlin in Zeppelin notebook](kotlin-zeppelin-interpreter.png){width=800}
-
 ## Libraries
 
 The ecosystem of libraries for data-related tasks created by the Kotlin community is rapidly expanding. 
