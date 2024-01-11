@@ -123,6 +123,3 @@ library for Java
 * [Weka](https://www.cs.waikato.ac.nz/ml/index.html) - a collection of machine learning algorithms for data mining tasks
 
 * [Tablesaw](https://github.com/jtablesaw/tablesaw) - a Java dataframe. It includes a visualization library based on Plot.ly
-
-If this list doesn't cover your needs, you can find more options in the 
-**[Kotlin Machine Learning Demos](https://github.com/thomasnield/kotlin-machine-learning-demos)** GitHub repository with showcases from Thomas Nield.
