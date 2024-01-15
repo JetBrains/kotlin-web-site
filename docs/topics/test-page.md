@@ -336,7 +336,7 @@ jvmTest<Scope>
 * `inline code`
 * [internal anchor](#lists)
 * [internal link](roadmap.md)
-* [external link](jetbrains.com)
+* [external link](https://jetbrains.com)
 * emojis ❌✅🆕
 * variable using: lastest Kotlin version is %kotlinVersion% 
 
