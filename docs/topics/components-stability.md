@@ -15,7 +15,7 @@ Here's a quick guide to these stability levels and their meaning:
   * We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
 
 **Alpha** means "use at your own risk, expect migration issues": 
-  * We decided to productize this idea, but it hasn't reached the final shape yet.
+  * We intend to productize this idea, but it hasn't reached its final shape yet.
 
 **Beta** means "you can use it, we'll do our best to minimize migration issues for you": 
   * It's almost done, user feedback is especially important now.
