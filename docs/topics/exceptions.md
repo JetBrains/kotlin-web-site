@@ -156,7 +156,7 @@ This ordering aligns with the program's execution flow. If you were to catch a g
 > 
 > {type="tip"}
 
-The `finally` block in Kotlin is used to execute code after the `try` and any `catch` blocks have been completed. 
+The `finally` block in Kotlin is used to execute code after the `try` and `catch` block(s) have been completed. 
 The `finally` block is executed regardless if an exception was thrown or caught. You can use it for cleanup tasks, such as closing files or network connections, ensuring that certain operations are completed no matter what happens in the `try-catch` blocks.
 
 Here is how you would typically use the `try-catch-finally` blocks together:
