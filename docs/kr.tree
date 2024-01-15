@@ -431,5 +431,6 @@
         </toc-element>
         <toc-element id="kotlin-brand-assets.md" accepts-web-file-names="kotlin-logo.html"/>
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+        <toc-element id="test-page.md" hidden="true"/>
     </toc-element>
 </product-profile>
