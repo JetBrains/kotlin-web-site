@@ -39,9 +39,17 @@ compiled but caused an exception at runtime:
 ```java
 // Java
 List<String> strs = new ArrayList<String>();
-List<Object> objs = strs; // Java reports a type mismatch here at compile-time, but what if it didn't?
-objs.add(1); // We would be able to put an Integer into a list of Strings
-String s = strs.get(0); // And then at runtime, Java would throw a ClassCastException: Integer cannot be cast to String
+
+// Java reports a type mismatch here at compile-time.
+List<Object> objs = strs;
+
+// What if it didn't?
+// We would be able to put an Integer into a list of Strings.
+objs.add(1);
+
+// And then at runtime, Java would throw
+// a ClassCastException: Integer cannot be cast to String
+String s = strs.get(0); 
 ```
 
 Java prohibits such things to guarantee runtime safety. But this has implications. For example,
@@ -97,9 +105,9 @@ you don't get a `String`, but rather an `Object`.
 
 Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
 
->"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers,"
+>"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers."
 
-and proposes the following mnemonic: _PECS_ stands for _Producer-Extends, Consumer-Super._
+He then proposes the following mnemonic: _PECS_ stands for _Producer-Extends, Consumer-Super._
 
 > If you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object,
 > but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
