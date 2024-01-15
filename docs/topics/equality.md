@@ -34,6 +34,13 @@ Referential equality is checked by the `===` operation and its negated counterpa
 true if and only if `a` and `b` point to the same object. For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
+> On the Kotlin/JS platform, `===` and `==` do not have any difference, because in JS `===` is used to
+> check if two values have the same type and are equal in value, while == is only used to check if values are equal.
+> Kotlin/JS always uses `===`.
+>
+{type="note"}
+
+
 ## Floating-point numbers equality
 
 When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
