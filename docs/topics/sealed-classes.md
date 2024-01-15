@@ -4,6 +4,7 @@ _Sealed_ classes and interfaces represent restricted class hierarchies that prov
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
 the module and package within which the sealed class is defined. For example, third-party clients can't extend your sealed class in their code.
 Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
+Java introduced [a similar concept](https://docs.oracle.com/en/java/javase/15/language/sealed-classes-and-interfaces.html#GUID-0C709461-CC33-419A-82BF-61461336E65F) in Java 15, where sealed classes use the `sealed` keyword along with the `permits` clause to define restricted hierarchies.
 
 The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled,
 no new implementations can appear.
@@ -31,7 +32,23 @@ class DatabaseError(val source: DataSource): IOError()
 object RuntimeError : Error
 ```
 
-A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot be instantiated directly and can have `abstract` members.
+A sealed class itself is an [abstract](classes.md#abstract-classes) and cannot be instantiated directly. 
+However, it may contain or inherit constructors. These constructors are not for creating instances of the sealed class itself but for its subclasses.
+Let's look at an example where we have a sealed class called `Error` with several subclasses, which we instantiate:
+
+```kotlin
+sealed class Error(val message: String) {
+    class NetworkError : Error("Network failure")
+    class DatabaseError : Error("Database cannot be reached")
+    class UnknownError : Error("An unknown error has occurred")
+}
+
+fun main() {
+    val errors = listOf(Error.NetworkError(), Error.DatabaseError(), Error.UnknownError())
+    errors.forEach { println(it.message) }
+}
+```
+{kotlin-runnable="true"}
 
 Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
 `private`:
