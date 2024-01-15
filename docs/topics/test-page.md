@@ -386,8 +386,9 @@ Note:
 >
 {type="note"}
 
-<img src="multiplatform-web-wizard.png" alt="Multiplatform web wizard" width="400"/>
+Tip: 
 
-<a href="https://kmp.jetbrains.com">
-   <img src="multiplatform-create-project-button.png" alt="Create a project"/>
-</a>
+> As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their
+> APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
+>
+{type="tip"}
