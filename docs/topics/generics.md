@@ -29,12 +29,9 @@ Kotlin doesn't have these. Instead, Kotlin has declaration-site variance and typ
 
 ### Variance and wildcards in Java
 
-Let's think about why Java needs these mysterious wildcards. The problem is explained well in 
-[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
-Item 31: _Use bounded wildcards to increase API flexibility_.
-First, generic types in Java are _invariant_, meaning that `List<String>` is _not_ a subtype of `List<Object>`.
-If `List` were not _invariant_, it would have been no better than Java's arrays, as the following code would have 
-compiled but caused an exception at runtime:
+Let's think about why Java needs these mysterious wildcards. First, generic types in Java are _invariant_,
+meaning that `List<String>` is _not_ a subtype of `List<Object>`. If `List` were not _invariant_, it would
+have been no better than Java's arrays, as the following code would have compiled but caused an exception at runtime:
 
 ```java
 // Java
@@ -75,9 +72,6 @@ void copyAll(Collection<Object> to, Collection<String> from) {
 }
 ```
 
-(In Java, you probably learned this the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
-Item 28: _Prefer lists to arrays_.)
-
 That's why the actual signature of `addAll()` is the following:
 
 ```java
@@ -103,7 +97,9 @@ The latter is called _contravariance_, and you can only call methods that take `
 (for example, you can call `add(String)` or `set(int, String)`).  If you call something that returns `T` in `List<T>`,
 you don't get a `String`, but rather an `Object`.
 
-Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
+Joshua Bloch, in his book [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), explains the problem well
+(Item 31: "Use bounded wildcards to increase API flexibility"). He gives the name _Producers_ to objects you only
+_read from_ and _Consumers_ to those you only _write to_. He recommends:
 
 >"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers."
 
