@@ -19,7 +19,7 @@ To install the Kotlin compiler manually:
 2. Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
 The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
 
->For Windows users who want to use the command-line compiler, we recommend using the manual installation method.
+> For Windows users who want to use the command-line compiler, we recommend using the manual installation method.
 > 
 {type="note"}
 
