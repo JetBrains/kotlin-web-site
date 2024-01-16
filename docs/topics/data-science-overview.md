@@ -9,8 +9,9 @@ of tried and true Java libraries.
 
 ## Interactive editors
 
-Notebooks such as [Jupyter Notebook](https://jupyter.org/), [Datalore](http://jetbrains.com/datalore), and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
-convenient tools for data visualization and exploratory research.
+Notebooks such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
+[Jupyter Notebook](https://jupyter.org/),
+and [Datalore](http://jetbrains.com/datalore) provide convenient tools for data visualization and exploratory research.
 Kotlin integrates with these tools to help you explore data, share your findings with 
 colleagues, or build up your data science and machine learning skills.
 
@@ -118,7 +119,7 @@ library for Java
 
 * [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) - a natural language processing toolkit
 
-* [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering and recommendation
+* [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering, and recommendation
 
 * [Weka](https://www.cs.waikato.ac.nz/ml/index.html) - a collection of machine learning algorithms for data mining tasks
 
