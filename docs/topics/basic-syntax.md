@@ -459,7 +459,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-collection"}
 
-Check if a collection contains an object using `in` operator.
+Check if a collection contains an object using `in` operator:
 
 ```kotlin
 fun main() {
@@ -474,7 +474,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-collection-in"}
 
-Using lambda expressions to filter and map collections:
+Use [lambda expressions](lambdas.md) to filter and map collections:
 
 ```kotlin
 fun main() {
