@@ -9,8 +9,9 @@ of tried and true Java libraries.
 
 ## Interactive editors
 
-Notebooks such as [Jupyter Notebook](https://jupyter.org/), [Datalore](http://jetbrains.com/datalore), and [Apache Zeppelin](https://zeppelin.apache.org/) provide 
-convenient tools for data visualization and exploratory research.
+Notebooks such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
+[Jupyter Notebook](https://jupyter.org/),
+and [Datalore](http://jetbrains.com/datalore) provide convenient tools for data visualization and exploratory research.
 Kotlin integrates with these tools to help you explore data, share your findings with 
 colleagues, or build up your data science and machine learning skills.
 
@@ -23,6 +24,16 @@ for working with Kotlin notebooks. Be sure to check out our [blog post](https://
 
 ![Kotlin Notebook](kotlin-notebook.png){width=800}
 
+### Kotlin Notebooks in Datalore
+
+With Datalore, you can use Kotlin in the browser straight out of the box, no installation required.
+You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports.
+Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
+
+![Kotlin in Datalore](kotlin-datalore.png){width=800}
+
+[Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
+
 ### Jupyter Kotlin kernel
 
 The Jupyter Notebook is an open-source web application that allows you to create and share documents 
@@ -34,25 +45,6 @@ support to Jupyter Notebook.
 
 Check out Kotlin kernel's [GitHub repo](https://github.com/Kotlin/kotlin-jupyter) for installation 
 instructions, documentation, and examples.
-
-### Kotlin Notebooks in Datalore
-
-With Datalore, you can use Kotlin in the browser straight out of the box, no installation required.
-You can also collaborate on Kotlin notebooks in real time, get smart coding assistance when writing code, and share results as interactive or static reports.
-Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
-
-![Kotlin in Datalore](kotlin-datalore.png){width=800}
-
-[Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
-
-### Zeppelin Kotlin interpreter
-
-Apache Zeppelin is a popular web-based solution for interactive data analytics. It provides strong support 
-for the Apache Spark cluster computing system, which is particularly useful for data engineering. 
-Starting from [version 0.9.0](https://zeppelin.apache.org/docs/0.9.0-preview1/), Apache Zeppelin comes with 
-bundled Kotlin interpreter. 
-
-![Kotlin in Zeppelin notebook](kotlin-zeppelin-interpreter.png){width=800}
 
 ## Libraries
 
@@ -127,11 +119,8 @@ library for Java
 
 * [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) - a natural language processing toolkit
 
-* [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering and recommendation
+* [Apache Mahout](https://mahout.apache.org/) - a distributed framework for regression, clustering, and recommendation
 
 * [Weka](https://www.cs.waikato.ac.nz/ml/index.html) - a collection of machine learning algorithms for data mining tasks
 
 * [Tablesaw](https://github.com/jtablesaw/tablesaw) - a Java dataframe. It includes a visualization library based on Plot.ly
-
-If this list doesn't cover your needs, you can find more options in the 
-**[Kotlin Machine Learning Demos](https://github.com/thomasnield/kotlin-machine-learning-demos)** GitHub repository with showcases from Thomas Nield.
