@@ -16,7 +16,10 @@ Read on for our tips on how to speed up the Kotlin/Native compilation process.
 
   When building in containers (such as Docker) or with continuous integration systems, the compiler may have to create
   the `~/.konan` directory from scratch for each build. To avoid this step, configure your environment to preserve `~/.konan`
-  between builds. For example, redefine its location using the `KONAN_DATA_DIR` environment variable.
+  between builds. For example, redefine its location using the `kotlin.data.dir` Gradle property.
+
+  Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory via
+  the `cinterop` and `konanc` tools.
 
 ## Gradle configuration
 
