@@ -388,7 +388,7 @@ def page(page_path):
 
 @app.route('/404.html')
 def page_404():
-    return render_template('pages/404.html')
+    return send_file(path.join(root_folder, 'out', '404.html'))
 
 
 @freezer.register_generator
@@ -443,7 +443,7 @@ def generate_redirect_pages():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('pages/404.html'), 404
+    return send_file(path.join(root_folder, 'out', '404.html')), 404
 
 
 app.register_error_handler(404, page_not_found)
