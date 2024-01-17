@@ -42,11 +42,11 @@
   startDate: '2024-05-22'
   endDate: '2024-05-24'
   location: Copenhagen, Denmark
-  speaker : 
+  speaker : ''
   title : ''
   subject : 'KotlinConf'
   url: https://kotlinconf.com/
-  - lang: en
+- lang: en
   startDate: '2023-11-23'
   endDate: '2023-11-23'
   location: Limassol, Cyprus
