@@ -31,6 +31,13 @@ val string = "This is not a number"
 val number = string.toInt() // throws NumberFormatException
 ```
 
+**[NoSuchElementException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/)**: This exception is thrown when an element that does not exist in a particular collection is accessed. It commonly occurs when using methods that expect a specific element, such as `first()`, `last()`, or `elementAt()`.
+
+```kotlin
+val emptyList = listOf<Int>()
+val firstElement = emptyList.first()  // throws NoSuchElementException
+```
+
 **[NullPointerException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/)**: Thrown when an application attempts to use an object reference that has the null value. 
 Even though Kotlin's null safety features significantly reduce the risk of NullPointerExceptions, they can still occur either through deliberate use of the `!!` operator or when interacting with languages like Java, which lack Kotlin's null safety.
 
@@ -49,7 +56,7 @@ The `Error` branch of the `Throwable` class is used to represent serious problem
 
 On the other hand, the `Exception` branch is used for conditions that you might want to catch. Subtypes of the `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), deal with exceptional events in applications.
 
-![Exception herarchy - the Throwable class](throwable.png){width=600}
+![Exception hierarchy - the Throwable class](throwable.png){width=600}
 
 `RuntimeException` is usually caused by insufficient checks in the program code and can be prevented programmatically.
 Kotlin helps prevent common RuntimeExceptions like `NullpointerException` and provides compile-time warnings for potential runtime errors, such as divisions by zero.
@@ -172,6 +179,15 @@ finally {
     // code is always executed
 }
 ```
+
+> It is more idiomatic in Kotlin to use the `[.use](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/use.html)` function for managing resources that implement the `[AutoClosable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/)` interface, such as files or streams. This function automatically closes the resource when the block of code completes, regardless whether an exception is thrown or not, eliminating the need for a `finally` block.
+> ```kotlin
+> FileWriter("test.txt").use { writer ->
+> writer.write("some text") // After this block, '.use' automatically calls 'writer.close()', similar to a 'finally' block
+> }
+> ```
+> 
+> {type="tip"}
 
 The returned value of a `try` expression is either the last expression in the `try` block or the
 last expression in the `catch` block (or blocks).
