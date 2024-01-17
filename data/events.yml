@@ -1,4 +1,52 @@
 - lang: en
+  startDate: '2024-01-24'
+  endDate: '2024-01-24'
+  location: Amsterdam, Netherlands
+  speaker : 'Alejandro Serrano Mena'
+  title : 'Kotlin MeetUp Amsterdam'
+  subject : 'Functors and monads for better Schedules'
+  url: https://www.meetup.com/dutch-kotlin-user-group/events/298396544
+- lang: en
+  startDate: '2024-01-24'
+  endDate: '2024-01-24'
+  location: Amsterdam, Netherlands
+  speaker : 'Urs Peter'
+  title : 'Kotlin MeetUp Amsterdam'
+  subject : 'Grow with the Flow: A Game-Changing Success Story featuring Spring Boot Reactive Streams, Kotlin & Flow'
+  url: https://www.meetup.com/dutch-kotlin-user-group/events/298396544
+- lang: en
+  startDate: '2024-01-24'
+  endDate: '2024-01-24'
+  location: Vienna, Austria
+  speaker : 'Dominik Moser'
+  title : 'Kotlin Vienna'
+  subject : 'Integrating Native libraries with Kotlin using Project Panama'
+  url: https://www.meetup.com/kotlin-vienna/events/295318844
+- lang: en
+  startDate: '2024-01-24'
+  endDate: '2024-01-24'
+  location: Vienna, Austria
+  speaker : 'Frantisek Nagy'
+  title : 'Kotlin Vienna'
+  subject : 'Introducing Kotlin Multiplatform to Existing Project'
+  url: https://www.meetup.com/kotlin-vienna/events/295318844
+- lang: en
+  startDate: '2024-01-24'
+  endDate: '2024-01-24'
+  location: Vienna, Austria
+  speaker : 'Mario Fleischhacker'
+  title : 'Kotlin Vienna'
+  subject : 'Modernizing Web Development: Kotlin and HTMX'
+  url: https://www.meetup.com/kotlin-vienna/events/295318844
+- lang: en
+  startDate: '2024-05-22'
+  endDate: '2024-05-24'
+  location: Copenhagen, Denmark
+  speaker : ''
+  title : ''
+  subject : 'KotlinConf'
+  url: https://kotlinconf.com/
+- lang: en
   startDate: '2023-11-23'
   endDate: '2023-11-23'
   location: Limassol, Cyprus
