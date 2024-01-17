@@ -97,17 +97,39 @@ you can create subclasses in any source set between the `expect` and `actual` de
 ## Sealed classes and when expression
 
 The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
-expression. 
-If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
+expression.
+The `when` expression, used with a sealed class, allows the Kotlin compiler to check exhaustively that all possible cases are covered. In such cases, you don't need to add an `else` clause. 
+Here's an example demonstrating this with a `when` expression:
 
 ```kotlin
+// Sealed class and its subclasses
+sealed class Error
+class FileReadError(val file: String): Error()
+class DatabaseError(val source: String): Error()
+object RuntimeError : Error()
+
+//sampleStart
+// Function to log errors
 fun log(e: Error) = when(e) {
-    is FileReadError -> { println("Error while reading file ${e.file}") }
-    is DatabaseError -> { println("Error while reading from database ${e.source}") }
-    is RuntimeError ->  { println("Runtime error") }
-    // the `else` clause is not required because all the cases are covered
+    is FileReadError -> println("Error while reading file ${e.file}")
+    is DatabaseError -> println("Error while reading from database ${e.source}")
+    is RuntimeError -> println("Runtime error")
+    // No `else` clause is required because all the cases are covered
+}
+//sampleEnd
+
+// List all errors
+fun main() {
+    val errors = listOf(
+        FileReadError("example.txt"),
+        DatabaseError("usersDatabase"),
+        RuntimeError
+    )
+
+    errors.forEach { log(it) }
 }
 ```
+{kotlin-runnable="true"}
 
 > `when` expressions on [`expect`](multiplatform-expect-actual.md) sealed classes in the common code of multiplatform projects still 
 > require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
