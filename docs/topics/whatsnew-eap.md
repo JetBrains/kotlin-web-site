@@ -10,7 +10,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! It mostly covers the stabilization of the [new Kotlin K2 compiler](#kotlin-k2-compiler), 
-which reached its Beta status for all targets since 1.9.20. In addition, there are also improvements to the Gradle build tool.
+which reached its Beta status for all targets since 1.9.20. In addition, there are also improvements for the Gradle build tool.
 
 ## IDE support
 
@@ -41,14 +41,18 @@ If you encounter any of the problems mentioned above, you can take the following
 
 * Set the language version for `buildSrc`, any Gradle plugins, and their dependencies:
 
-```kotlin
-   kotlin {
-  compilerOptions {
-    languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
-    apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+  ```kotlin
+  kotlin {
+      compilerOptions {
+          languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+          apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
+      }
   }
-}
-```
+  ```
+  > If you configure language and API versions for specific tasks, these values will override the values set by the `compilerOptions` extension.
+  > In this case, language and API versions should not be higher than 1.9.
+  >
+  {type="note"}
 
 * Update the Gradle version in your project to 8.3 when it becomes available.
 
@@ -66,7 +70,7 @@ Currently, the Kotlin K2 compiler supports the following plugins:
 * [Jetpack Compose compiler plugin](https://developer.android.com/jetpack/compose)
 * [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
 * [`jvm-abi-gen`](https://github.com/JetBrains/kotlin/tree/master/plugins/jvm-abi-gen)
-* [`parcelize`](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
+* [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
@@ -99,61 +103,61 @@ of another task that hadn't been executed yet. The workaround for this issue was
 
 ```kotlin
 kotlin {
-  macosArm64("native") {
-    compilations.getByName("main") {
-      cinterops {
-        val cinterop by creating {
-          defFileProperty.set(createDefFileTask.flatMap { it.defFile.asFile })
-          project.tasks.named(interopProcessingTaskName).configure {
-            dependsOn(createDefFileTask)
-          }
+    macosArm64("native") {
+        compilations.getByName("main") {
+            cinterops {
+                val cinterop by creating {
+                    defFileProperty.set(createDefFileTask.flatMap { it.defFile.asFile })
+                    project.tasks.named(interopProcessingTaskName).configure {
+                        dependsOn(createDefFileTask)
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
 ```
 
-To fix this, there is a new `RegularFileProperty` called `definitionFile`.  Now, Gradle lazily verifies the presence of 
+To fix this, there is a new `RegularFileProperty` called `definitionFile`. Now, Gradle lazily verifies the presence of 
 the `definitionFile` property after the connected task has run later in the build process. This new approach eliminates 
 the need for additional dependencies.
 
 The `CInteropProcess` task and the `CInteropSettings` class use the `definitionFile` property instead of `defFile` and 
-`defFileProperty`. Both `defFile` and `defFileProperty` parameters are now deprecated:
+`defFileProperty`:
 
-<tabs>
+<tabs group ="build-script">
 
-<tab id="kotlin" title="Kotlin">
+<tab id="kotlin" title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-  macosArm64("native") {
-    compilations.getByName("main") {
-      cinterops {
-        val cinterop by creating {
-          definitionFile.set(project.file("def-file.def"))
+    macosArm64("native") {
+        compilations.getByName("main") {
+            cinterops {
+                val cinterop by creating {
+                    definitionFile.set(project.file("def-file.def"))
+                }
+            }
         }
-      }
     }
-  }
 }
 ```
 
 </tab>
 
-<tab id="groovy" title="Groovy">
+<tab id="groovy" title="Groovy" group-key="groovy">
 
 ```groovy
 kotlin {
-  macosArm64("native") {
-    compilations.main {
-      cinterops {
-        cinterop {
-          definitionFile.set(project.file("def-file.def"))
+    macosArm64("native") {
+        compilations.main {
+            cinterops {
+                cinterop {
+                    definitionFile.set(project.file("def-file.def"))
+                }
+            }
         }
-      }
     }
-  }
 }
 ```
 
@@ -161,33 +165,49 @@ kotlin {
 
 </tabs>
 
+> `defFile` and `defFileProperty` parameters are now deprecated.
+>
+{type="warning"}
+
 ## Visibility changes in Gradle
 
-> This change doesn't impact Groovy DSL users.
+> This change impacts only Kotlin DSL users.
 > 
 {type="note"}
 
-In Kotlin %kotlinEapVersion%, we've modified the Kotlin Gradle Plugin for better control and safety in your build scripts. Previously, certain Kotlin DSL functions and properties intended for a specific DSL context would inadvertently leak to other DSL contexts. This leakage could lead to the use of incorrect compiler options, settings being applied multiple times, and other misconfigurations:
+In Kotlin %kotlinEapVersion%, we've modified the Kotlin Gradle Plugin for better control and safety in your build scripts.
+Previously, certain Kotlin DSL functions and properties intended for a specific DSL context would inadvertently leak to 
+other DSL contexts. This leakage could lead to the use of incorrect compiler options, settings being applied multiple times,
+and other misconfigurations:
 
 ```kotlin
 kotlin {
-  jvm {
-// Could not access methods and properties defined in the extension class
-    compilations.configureEach {
-// Could not access methods and properties defined in the extension and Kotlin target classes
-      compileTaskProvider.configure {
-// Could not access methods and properties defined in the extension, Kotlin target, Kotlin compilation classes
-// For example:
-        explicitApi() // ERROR as it is defined in the extension class
-        mavenPublication {} // ERROR as it is defined in the Kotlin target class
-        defaultSourceSet {} // ERROR as it is defined in the Kotlin compilation class
-      }
+    // Target DSL couldn't access methods and properties defined in the
+    // kotlin{} extension DSL
+    jvm {
+        // Compilation DSL couldn't access methods and properties defined
+        // in the kotlin{} extension DSL and Kotlin jvm{} target DSL
+        compilations.configureEach {
+            // Compilation task DSLs couldn't access methods and 
+            // properties defined in the kotlin{} extension, Kotlin jvm{}
+            // target or Kotlin compilation DSL
+            compileTaskProvider.configure {
+                // For example:
+                explicitApi()
+                // ERROR as it is defined in the kotlin{} extension DSL
+                mavenPublication {}
+                // ERROR as it is defined in the Kotlin jvm{} target DSL
+                defaultSourceSet {}
+                // ERROR as it is defined in the Kotlin compilation DSL
+            }
+        }
     }
-  }
 }
 ```
 
-To fix this issue, we've added the [`@KotlinGradlePluginDsl` annotation](https://kotlinlang.org/docs/type-safe-builders.html#scope-control-dslmarker), preventing the exposure of the Kotlin Gradle plugin DSL functions and properties to the levels where they are not intended to be available. The following levels are separated from each other:
+To fix this issue, we've added the `@KotlinGradlePluginDsl` annotation,
+preventing the exposure of the Kotlin Gradle plugin DSL functions and properties to the levels where they are not intended
+to be available. The following levels are separated from each other:
 
 * Kotlin extension
 * Kotlin target
@@ -198,11 +218,11 @@ If your build script is configured incorrectly, you should see compiler warnings
 
 ```kotlin
 kotlin {
-  jvm {
-    sourceSets.getByName("jvmMain").dependencies {
-      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3")
+    jvm {
+        sourceSets.getByName("jvmMain").dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3")
+        }
     }
-  }
 }
 ```
 

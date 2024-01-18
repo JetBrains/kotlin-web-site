@@ -48,7 +48,7 @@ check [our instructions on how to configure your build to support this version](
         </td>
         <td>
             <p>A stabilization release for the Kotlin K2 compiler.</p>
-            <p>Improvements to Gradle build tool.</p>
+            <p>Includes improvements for the Gradle build tool.</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-Beta3">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.0-Beta3</a>.</p>
         </td>
     </tr>
