@@ -81,6 +81,10 @@ Currently, the Kotlin K2 compiler supports the following plugins:
 Starting with Kotlin 2.0.0-Beta1, the Kotlin K2 compiler is enabled by default.
 No additional actions are required.
 
+## Try the Kotlin K2 compiler in Kotlin Playground
+
+Kotlin Playground supports the 2.0.0-Beta3 release. [Check it out!](https://pl.kotl.in/czuoQprce)
+
 ## Leave your feedback on the new K2 compiler
 
 We would appreciate any feedback you may have!
