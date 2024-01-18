@@ -11,7 +11,7 @@ This tutorial demonstrates how to debug a web application built with Kotlin/Wasm
 ## Before you start
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. Clone the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/tree/main) repository
+2. Clone the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples/) repository
    by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
 
    You can also clone it from the command line:
