@@ -10,7 +10,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! It mostly covers the stabilization of the [new Kotlin K2 compiler](#kotlin-k2-compiler), 
-which reached its Beta status for all targets since 1.9.20. In addition, there are also improvements for the Gradle build tool.
+which reached its Beta status for all targets since 1.9.20. In addition, there are also [improvements for the Gradle build tool](#gradle-improvements).
 
 ## IDE support
 
@@ -28,7 +28,7 @@ The K2 compiler is in [Beta](components-stability.md) for all target platforms: 
 The JetBrains team has ensured the quality of the new compiler by successfully compiling dozens of user and internal projects.
 A large number of users are also involved in the stabilization process, trying the new K2 compiler in their projects and reporting any problems they find.
 
-## Current K2 compiler limitations
+### Current K2 compiler limitations
 
 Enabling K2 in your Gradle project comes with certain limitations that can affect projects using Gradle versions below 8.3 in the following cases:
 
@@ -56,7 +56,7 @@ If you encounter any of the problems mentioned above, you can take the following
 
 * Update the Gradle version in your project to 8.3 when it becomes available.
 
-## Compiler plugins support
+### Compiler plugins support
 
 Currently, the Kotlin K2 compiler supports the following plugins:
 
@@ -76,16 +76,16 @@ Currently, the Kotlin K2 compiler supports the following plugins:
 >
 {type="tip"}
 
-## How to enable the Kotlin K2 compiler
+### How to enable the Kotlin K2 compiler
 
 Starting with Kotlin 2.0.0-Beta1, the Kotlin K2 compiler is enabled by default.
 No additional actions are required.
 
-## Try the Kotlin K2 compiler in Kotlin Playground
+### Try the Kotlin K2 compiler in Kotlin Playground
 
 Kotlin Playground supports the 2.0.0-Beta3 release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
-## Leave your feedback on the new K2 compiler
+### Leave your feedback on the new K2 compiler
 
 We would appreciate any feedback you may have!
 
@@ -97,7 +97,14 @@ We would appreciate any feedback you may have!
 * [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
-## Improved Gradle dependency handling for CInteropProcess in Kotlin/Native
+## Gradle improvements
+
+This version brings the following changes:
+* [Improved Gradle dependency handling for CInteropProcess in Kotlin/Native](#improved-gradle-dependency-handling-for-cinteropprocess-in-kotlin-native)
+* [Visibility changes in Gradle](#visibility-changes-in-gradle)
+* [New directory for Kotlin data in Gradle projects](#new-directory-for-kotlin-data-in-gradle-projects)
+
+### Improved Gradle dependency handling for CInteropProcess in Kotlin/Native
 
 In this release, we enhanced the handling of the `defFile` property to ensure better Gradle task dependency management in 
 Kotlin/Native projects. 
@@ -173,7 +180,7 @@ kotlin {
 >
 {type="warning"}
 
-## Visibility changes in Gradle
+### Visibility changes in Gradle
 
 > This change impacts only Kotlin DSL users.
 > 
@@ -239,7 +246,7 @@ In this case, the warning message for `sourceSets` is:
 We would appreciate your feedback on this change! Share your comments directly to Kotlin developers in our [#eap Slack channel](https://kotlinlang.slack.com/archives/C0KLZSCHF).
 [Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
-## New directory for Kotlin data in Gradle projects
+### New directory for Kotlin data in Gradle projects
 
 > With this change, you may need to add the `.kotlin` directory to your project's `.gitignore` file.
 >
