@@ -13,9 +13,15 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 
 ### Manual install
 
+To install the Kotlin compiler manually:
+
 1. Download the latest version (`kotlin-compiler-%kotlinVersion%.zip`) from [GitHub Releases](%kotlinLatestUrl%).
 2. Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
 The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
+
+> For Windows users who want to use the command-line compiler, we recommend using the manual installation method.
+> 
+{type="note"}
 
 ### SDKMAN!
 

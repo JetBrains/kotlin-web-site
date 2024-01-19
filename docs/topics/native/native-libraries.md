@@ -140,7 +140,15 @@ When given a `-library foo` flag, the compiler searches the `foo` library in the
 
 * Current compilation directory or an absolute path.
 * All repositories specified with `-repo` flag.
-* Libraries installed in the default repository (For now the default is  `~/.konan`, however it could be changed by setting **KONAN_DATA_DIR** environment variable).
+* Libraries installed in the default repository.
+
+   > The default repository is `~/.konan`. You can change it by setting the `kotlin.data.dir` Gradle property.
+   > 
+   > Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory 
+   > via the `cinterop` and `konanc` tools.
+   > 
+   {type="note"}
+
 * Libraries installed in `$installation/klib` directory.
 
 ### Library format

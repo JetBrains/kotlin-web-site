@@ -2,16 +2,19 @@
 
 In addition to [integer types](numbers.md#integer-types), Kotlin provides the following types for unsigned integer numbers:
 
-* `UByte`: an unsigned 8-bit integer, ranges from 0 to 255
-* `UShort`: an unsigned 16-bit integer, ranges from 0 to 65535
-* `UInt`: an unsigned 32-bit integer, ranges from 0 to 2^32 - 1
-* `ULong`: an unsigned 64-bit integer, ranges from 0 to 2^64 - 1
+| Type     | Size (bits) | Min value | Max value                                       |
+|----------|-------------|-----------|-------------------------------------------------|
+| `UByte`  | 8           | 0         | 255                                             |
+| `UShort` | 16          | 0         | 65,535                                          |
+| `UInt`   | 32          | 0         | 4,294,967,295 (2<sup>32</sup> - 1)              |
+| `ULong`  | 64          | 0         | 18,446,744,073,709,551,615 (2<sup>64</sup> - 1) |
+
 
 Unsigned types support most of the operations of their signed counterparts.
 
-> Unsigned numbers are implemented as [inline classes](inline-classes.md) with the single storage property of the corresponding 
-> signed counterpart type of the same width. Nevertheless, changing type from unsigned type to signed counterpart (and vice versa) 
-> is a _binary incompatible_ change.
+> Unsigned numbers are implemented as [inline classes](inline-classes.md) with a single storage property that contains the corresponding 
+> signed counterpart type of the same width. If you want to convert between unsigned and signed integer types, 
+> make sure you update your code so that any function calls and operations support the new type.
 >
 {type="note"}
 
@@ -22,19 +25,19 @@ Unsigned types support most of the operations of their signed counterparts.
 >
 {type="warning"}
 
-Same as for primitives, each of unsigned type has corresponding type that represents arrays of that type:
+Same as for primitives, each unsigned type has a corresponding type that represents arrays of that type:
 
-* `UByteArray`: an array of unsigned bytes
-* `UShortArray`: an array of unsigned shorts
-* `UIntArray`: an array of unsigned ints
-* `ULongArray`: an array of unsigned longs
+* `UByteArray`: an array of unsigned bytes.
+* `UShortArray`: an array of unsigned shorts.
+* `UIntArray`: an array of unsigned ints.
+* `ULongArray`: an array of unsigned longs.
 
-Same as for signed integer arrays, they provide similar API to `Array` class without boxing overhead.
+Same as for signed integer arrays, they provide a similar API to the `Array` class without boxing overhead.
 
-When you use unsigned arrays, you'll get a warning that indicates that this feature is not stable yet.
-To remove the warning, opt-in the `@ExperimentalUnsignedTypes` annotation.
+When you use unsigned arrays, you receive a warning that indicates that this feature is not stable yet.
+To remove the warning, opt-in with the `@ExperimentalUnsignedTypes` annotation.
 It's up to you to decide if your clients have to explicitly opt-in into usage of your API, but keep in mind that unsigned
-arrays are not a stable feature, so API which uses them can be broken by changes in the language.
+arrays are not a stable feature, so an API that uses them can be broken by changes in the language.
 [Learn more about opt-in requirements](opt-in-requirements.md).
 
 [Ranges and progressions](ranges.md) are supported for `UInt` and `ULong` by classes `UIntRange`,`UIntProgression`,

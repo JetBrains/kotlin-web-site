@@ -143,10 +143,8 @@ function Index() {
                     ></GlobalHeader>
                 </StickyHeader>
 
-                <HeroSection>
-                    Concise.
-                    <br /> Multiplatform.
-                    <br /> Fun.
+                <HeroSection title={'Kotlin'}>
+                    Concise. Multiplatform. Fun.
                 </HeroSection>
                 <div className={'ktl-layout ktl-layout--center'}>
                     <LatestNews />

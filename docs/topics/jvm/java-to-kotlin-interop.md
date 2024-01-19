@@ -391,7 +391,8 @@ with `@JvmDefaultWithoutCompatibility` (see [this YouTrack issue](https://youtra
 The Kotlin visibility modifiers map to Java in the following way:
 
 * `private` members are compiled to `private` members
-* `private` top-level declarations are compiled to package-local declarations
+* `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also included,
+if accessed from within a class. 
 * `protected` remains `protected` (note that Java allows accessing protected members from other classes in the same package
 and Kotlin doesn't, so Java classes will have broader access to the code)
 * `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make

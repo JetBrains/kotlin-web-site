@@ -88,20 +88,3 @@ kotlin {
 
 </tab>
 </tabs>
-
-## Decode inlined stack frames
-
-Xcode doesn't seem to properly decode stack trace elements of inlined function
-calls (these aren't only Kotlin `inline` functions but also functions that are
-inlined when optimizing machine code). So some stack trace elements may be
-missing. If this is the case, consider using `lldb` to process crash report
-that is already symbolicated by Xcode, for example:
-
-```bash
-$ lldb -b -o "script import lldb.macosx" -o "crashlog file.crash"
-```
-
-This command should output crash report that is additionally processed and
-includes inlined stack trace elements.
-
-More details can be found in [LLDB documentation](https://lldb.llvm.org/use/symbolication.html).

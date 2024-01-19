@@ -1,8 +1,8 @@
 [//]: # (title: Publishing multiplatform libraries)
 
 You can publish a multiplatform library to a local Maven repository with the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
-Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
-where the library should be published. The plugin creates publications automatically.
+In the `shared/build.gradle.kts` file, specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) where the library
+should be published. The plugin creates publications automatically.
 
 ```kotlin
 plugins {
@@ -42,21 +42,29 @@ This `kotlinMultiplatform` publication includes metadata artifacts and reference
 > This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
 >
 {type="note"}
- 
+
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
 in the publication's scope.
 
-## Avoid duplicate publications
+## Host requirements
 
-To avoid duplicate publications of modules that can be built on several platforms (like JVM and JS), 
-configure the publishing tasks for these modules to run conditionally.
+Except for Apple platform targets, Kotlin/Native supports cross-compilation, allowing any host to produce needed artifacts.
 
-You can detect the platform in the script, introduce a flag such as `isMainHost` and set it to `true` for the main target 
-platform. Alternatively, you can pass the flag from an external source, for example, from CI configuration. 
+To avoid any issues during publication:
+* Publish only from an Apple host when your project targets Apple operating systems.
+* Publish all artifacts from one host only to avoid duplicating publications in the repository.
+  
+  Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
+  
+### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed"}
 
-This simplified example ensures that publications are only uploaded when `isMainHost=true` is passed. This means that 
-a publication that can be published from multiple platforms will be published only once – from the main host.
+Before 1.7.20, the Kotlin/Native compiler didn't support all cross-compilation options. If you use earlier versions, you may need
+to publish multiplatform projects from multiple hosts: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
+This can result in duplicate publications of modules that are cross-compiled. The most straightforward way to avoid this is to upgrade to a later
+version of Kotlin and publish from a single host as described above.
+
+If upgrading is not an option, assign a main host for each target and check for it in the `shared/build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -67,15 +75,17 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-    val publicationsFromMainHost = 
+  
+    val publicationsFromMainHost =
         listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
+  
     publishing {
         publications {
             matching { it.name in publicationsFromMainHost }.all {
                 val targetPublication = this@all
                 tasks.withType<AbstractPublishToMaven>()
-                        .matching { it.publication == targetPublication }
-                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+                    .matching { it.publication == targetPublication }
+                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
             }
         }
     }
@@ -91,14 +101,16 @@ kotlin {
     js()
     mingwX64()
     linuxX64()
-    def publicationsFromMainHost = 
+  
+    def publicationsFromMainHost =
         [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
+  
     publishing {
         publications {
             matching { it.name in publicationsFromMainHost }.all { targetPublication ->
                 tasks.withType(AbstractPublishToMaven)
-                        .matching { it.publication == targetPublication }
-                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+                    .matching { it.publication == targetPublication }
+                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
             }
         }
     }
@@ -108,14 +120,12 @@ kotlin {
 </tab>
 </tabs>
 
-By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target. 
-
 ## Publish an Android library
 
 To publish an Android library, you need to provide additional configuration.
 
 By default, no artifacts of an Android library are published. To publish artifacts produced by a set of [Android variants](https://developer.android.com/studio/build/build-variants), 
-specify the variant names in the Android target block:
+specify the variant names in the Android target block in the `shared/build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -142,7 +152,7 @@ set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
 
 You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
-with no classifier). This mode is disabled by default and can be enabled as follows:
+with no classifier). This mode is disabled by default and can be enabled as follows in the `shared/build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -160,7 +170,7 @@ kotlin {
 ## Disable sources publication
 
 By default, the Kotlin Multiplatform Gradle plugin publishes sources for all the specified targets. However,
-you can configure and disable sources publication with the `withSourcesJar()` API:
+you can configure and disable sources publication with the `withSourcesJar()` API in the `shared/build.gradle.kts` file:
 
 * To disable sources publication for all the targets:
 
