@@ -2,9 +2,9 @@
 
 Maven is a build system that you can use to build and manage any Java-based project.
 
-## Configure plugin and versions
+## Configure and enable the plugin
 
-The *kotlin-maven-plugin* compiles Kotlin sources and modules. Currently, only Maven v3 is supported.
+The `kotlin-maven-plugin` compiles Kotlin sources and modules. Currently, only Maven v3 is supported.
 
 In your `pom.xml` file, define the version of Kotlin you want to use in the `kotlin.version` property:
 
@@ -12,6 +12,18 @@ In your `pom.xml` file, define the version of Kotlin you want to use in the `kot
 <properties>
     <kotlin.version>%kotlinVersion%</kotlin.version>
 </properties>
+```
+
+To enable `kotlin-maven-plugin`, update your `pom.xml` file:
+
+```xml
+<plugins>
+    <plugin>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <version>%kotlinVersion%</version>
+    </plugin>
+</plugins>
 ```
 
 ### Use JDK 17
@@ -237,7 +249,7 @@ in your Maven `pom.xml` file, where `main.class` is defined as a property and po
 </plugin>
 ```
 
-## Create self-contained JAR file
+## Create a self-contained JAR file
 
 To create a self-contained JAR file containing the code from your module along with its dependencies, include the following
 under `build->plugins` in your Maven `pom.xml` file, where `main.class` is defined as a property and points to
@@ -310,17 +322,17 @@ The following attributes are supported:
 
 ### Attributes specific to JVM
 
-| Name              | Property name                   | Description                                                                                          | Possible values                                                                          | Default value               |
-|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------------------------|
-| `nowarn`          |                                 | Generate no warnings                                                                                 | true, false                                                                              | false                       |
-| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin                                    | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |                             |
-| `apiVersion`      | kotlin.compiler.apiVersion      | Allow using declarations only from the specified version of bundled libraries                        | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9" (EXPERIMENTAL) |                             |
-| `sourceDirs`      |                                 | The directories containing the source files to compile                                               |                                                                                          | The project source roots    |
-| `compilerPlugins` |                                 | Enabled compiler plugins                                                                             |                                                                                          | []                          |
-| `pluginOptions`   |                                 | Options for compiler plugins                                                                         |                                                                                          | []                          |
-| `args`            |                                 | Additional compiler arguments                                                                        |                                                                                          | []                          |
-| `jvmTarget`       | `kotlin.compiler.jvmTarget`     | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "21"                                                              | "%defaultJvmTargetVersion%" |
-| `jdkHome`         | `kotlin.compiler.jdkHome`       | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                                                          |                             |
+| Name              | Property name                   | Description                                                                                          | Possible values                                                                                                              | Default value               |
+|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| `nowarn`          |                                 | Generate no warnings                                                                                 | true, false                                                                                                                  | false                       |
+| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin                                    | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |                             |
+| `apiVersion`      | kotlin.compiler.apiVersion      | Allow using declarations only from the specified version of bundled libraries                        | "1.3" (DEPRECATED), "1.4" (DEPRECATED), "1.5", "1.6", "1.7", "1.8", "1.9", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |                             |
+| `sourceDirs`      |                                 | The directories containing the source files to compile                                               |                                                                                                                              | The project source roots    |
+| `compilerPlugins` |                                 | Enabled compiler plugins                                                                             |                                                                                                                              | []                          |
+| `pluginOptions`   |                                 | Options for compiler plugins                                                                         |                                                                                                                              | []                          |
+| `args`            |                                 | Additional compiler arguments                                                                        |                                                                                                                              | []                          |
+| `jvmTarget`       | `kotlin.compiler.jvmTarget`     | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "21"                                                                                                  | "%defaultJvmTargetVersion%" |
+| `jdkHome`         | `kotlin.compiler.jdkHome`       | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                                                                                              |                             |
 
 ## Use BOM
 
@@ -329,15 +341,15 @@ write a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetb
 
 ```xml
 <dependencyManagement>
-  <dependencies>  
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-bom</artifactId>
-      <version>%kotlinVersion%</version>
-      <type>pom</type>
-      <scope>import</scope>
-    </dependency>
-  </dependencies>
+    <dependencies>  
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-bom</artifactId>
+            <version>%kotlinVersion%</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
 </dependencyManagement>
 ```
 
