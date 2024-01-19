@@ -1,23 +1,26 @@
 [//]: # (title: Sealed classes and interfaces)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
+Unlike `internal` classes, they provide inherent exhaustiveness for `when` expressions within the declared module or package.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
-the module and package within which the sealed class is defined. For example, third-party clients can't extend your sealed class in their code.
-Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
+the module and package within which the sealed class is defined. 
+
+Sealed classes are best used in scenarios when:
+
+* **Limited Subclassing is Desired:** You can have a finite set of types extending a class that is known when this class is compiled.
+* **Type-Safe Design is Required:** When safety and pattern matching are crucial in your project, particularly for state management or handling complex conditional logic. For an example, check out the [Sealed classes and when expression section](#sealed-classes-and-when-expression).
+* **Working with closed APIs:** If you want to design robust and maintainable public APIs for libraries, sealed classes are ideal as they ensure that third-party clients use the APIs as intended.
+
 Java introduced [a similar concept](https://docs.oracle.com/en/java/javase/15/language/sealed-classes-and-interfaces.html#GUID-0C709461-CC33-419A-82BF-61461336E65F) in Java 15, where sealed classes use the `sealed` keyword along with the `permits` clause to define restricted hierarchies.
 
-The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled,
+The same logic applies to sealed interfaces and their implementations: once a module with a sealed interface is compiled,
 no new implementations can appear.
-
-In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: the set of values
-for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
-of a sealed class can have _multiple_ instances, each with its own state.
 
 As an example, consider a library's API. It's likely to contain error classes to let the library users handle errors 
 that it can throw. If the hierarchy of such error classes includes interfaces or abstract classes visible in the public API,
 then nothing prevents implementing or extending them in the client code. However, the library doesn't know about errors
 declared outside it, so it can't treat them consistently with its own classes. With a sealed hierarchy of error classes,
-library authors can be sure that they know all possible error types and no other ones can appear later.
+library authors can be sure that they know all possible error types and that no other ones can appear later.
 
 To declare a sealed class or interface, put the `sealed` modifier before its name:
 
@@ -48,7 +51,23 @@ fun main() {
     errors.forEach { println(it.message) }
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
+In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: the set of values
+for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
+of a sealed class can have _multiple_ instances, each with its own state. 
+To illustrate this, consider error handling as an example. In our example, the `sealed class Error` with several subclasses uses an `enum` to represent error severity. The constructor of each subclass initializes the `severity` and can change its state:
+
+```kotlin
+enum class ErrorSeverity { MINOR, MAJOR, CRITICAL }
+
+sealed class Error(val severity: ErrorSeverity) {
+    class FileReadError(val file: File): Error(ErrorSeverity.MAJOR)
+    class DatabaseError(val source: DataSource): Error(ErrorSeverity.CRITICAL)
+    object RuntimeError : Error(ErrorSeverity.CRITICAL)
+    // Additional error types can be added here
+}
+```
 
 Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
 `private`:
@@ -67,7 +86,7 @@ Direct subclasses of sealed classes and interfaces must be declared in the same 
 inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.md)
 as long as they are compatible with normal inheritance rules in Kotlin.
 
-Subclasses of sealed classes must have a proper qualified name. They can't be local nor anonymous objects.
+Subclasses of sealed classes must have a properly qualified name. They can't be local or anonymous objects.
 
 > `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
 >
@@ -77,7 +96,7 @@ These restrictions don't apply to indirect subclasses. If a direct subclass of a
 it can be extended in any way that its modifiers allow:
 
 ```kotlin
-sealed interface Error // has implementations only in same package and module
+sealed interface Error // has implementations only in the same package and module
 
 sealed class IOError(): Error // extended only in same package and module
 open class CustomError(): Error // can be extended wherever it's visible
@@ -129,7 +148,7 @@ fun main() {
     errors.forEach { log(it) }
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 > `when` expressions on [`expect`](multiplatform-expect-actual.md) sealed classes in the common code of multiplatform projects still 
 > require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
