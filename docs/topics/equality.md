@@ -14,6 +14,10 @@ By convention, an expression like `a == b` is translated to:
 a?.equals(b) ?: (b === null)
 ```
 
+While this equality operator is called structural equality to distinguish it from *explicit*, referential equality (`===`), 
+it's important to note that the underlying implementation of `equals`, and thus `==`, may still be referential in nature. 
+In fact, this is the default for all classes except for [data classes](https://kotlinlang.org/docs/data-classes.html).
+
 If `a` is not `null`, it calls the `equals(Any?)` function, otherwise (`a` is `null`) it checks that `b`
 is referentially equal to `null`.
 
