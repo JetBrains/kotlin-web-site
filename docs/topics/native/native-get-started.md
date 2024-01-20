@@ -39,6 +39,8 @@ your project automatically:
 2. On the **Compiler** page, select **Build project automatically**.
 3. Apply the changes.
 
+If program crashed on `readln()` add ```runTask?.standardInput = System.`in` ``` to `executable { }` section in `gradle.kts`.
+
 Now when you make changes in the class files or save the file (**Ctrl + S**/**Cmd + S**), IntelliJ IDEA automatically
 performs the incremental build of the project.
 
