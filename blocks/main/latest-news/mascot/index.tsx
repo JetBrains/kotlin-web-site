@@ -11,6 +11,9 @@ type MascotAnimationProps = {
     className?: string;
 };
 
+const ANIMATION_INITIAL_DELAY = 1000 as const;
+const ANIMATION_AFTER_DELAY = 5000 as const;
+
 function sleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -48,8 +51,11 @@ function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinis
     const { ref: inViewRef, inView } = useInView();
 
     useEffect(() => {
-        let animation: AnimationItem;
         const node = mascotNode.current;
+
+        let animation: AnimationItem;
+        let play: ReturnType<typeof createAnimation>[1];
+
         let isStarted = false;
 
         function done() {
@@ -59,18 +65,16 @@ function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinis
         let cancelable: (body: () => Promise<void>) => ReturnType<typeof body> = (body) => body();
 
         async function playAnimation() {
-            await sleep(1000);
+            await sleep(ANIMATION_INITIAL_DELAY);
 
             await cancelable(async () => {
-                let play: ReturnType<typeof createAnimation>[1];
                 [animation, play] = createAnimation(node, initialData);
                 isStarted = true;
                 await play();
             });
 
             await cancelable(async () => {
-                let play: ReturnType<typeof createAnimation>[1];
-                const [secondData] = await Promise.all([import('./option4.json'), sleep(5000)]);
+                const [secondData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
                 [animation, play] = createAnimation(node, secondData);
                 await play();
             });
@@ -81,8 +85,8 @@ function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinis
         if (node && inView) {
             playAnimation();
             return () => {
-                animation?.destroy();
                 cancelable = async () => {};
+                animation?.destroy();
                 done();
             };
         }
