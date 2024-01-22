@@ -1,13 +1,11 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { useInView } from 'react-intersection-observer';
-import lottie, { AnimationItem } from 'lottie-web/build/player/lottie_svg';
-
-import initialData from './option3.json';
+import { AnimationItem, LottiePlayer } from 'lottie-web/build/player/lottie_svg';
 
 import styles from './mascot.module.css';
 
-type MascotAnimationProps = {
+type MascotProps = {
     className?: string;
 };
 
@@ -18,7 +16,11 @@ function sleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function createAnimation(node: Element, animationData: Record<string, unknown>): [AnimationItem, () => Promise<void>] {
+function createAnimation(
+    lottie: LottiePlayer,
+    node: Element,
+    animationData: Record<string, unknown>
+): [AnimationItem, () => Promise<void>] {
     const animation = lottie.loadAnimation({
         container: node,
         renderer: 'svg',
@@ -46,7 +48,7 @@ function createAnimation(node: Element, animationData: Record<string, unknown>):
     ];
 }
 
-function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinish: () => void }) {
+function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => void }) {
     const mascotNode = useRef<HTMLSpanElement>(null);
     const { ref: inViewRef, inView } = useInView();
 
@@ -56,26 +58,30 @@ function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinis
         let animation: AnimationItem;
         let play: ReturnType<typeof createAnimation>[1];
 
-        let isStarted = false;
+        let isOnceStarted = false;
 
         function done() {
-            if (isStarted) onFinish();
+            if (isOnceStarted) onFinish();
         }
 
         let cancelable: (body: () => Promise<void>) => ReturnType<typeof body> = (body) => body();
 
         async function playAnimation() {
-            await sleep(ANIMATION_INITIAL_DELAY);
+            const [lottie, initialData] = await Promise.all([
+                import('lottie-web/build/player/lottie_svg').then((l) => l.default),
+                import('./option3.json'),
+                sleep(ANIMATION_INITIAL_DELAY),
+            ]);
 
             await cancelable(async () => {
-                [animation, play] = createAnimation(node, initialData);
-                isStarted = true;
+                [animation, play] = createAnimation(lottie, node, initialData);
+                isOnceStarted = true;
                 await play();
             });
 
             await cancelable(async () => {
-                const [secondData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
-                [animation, play] = createAnimation(node, secondData);
+                const [afterData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
+                [animation, play] = createAnimation(lottie, node, afterData);
                 await play();
             });
 
@@ -99,7 +105,7 @@ function MascotContent({ className, onFinish }: MascotAnimationProps & { onFinis
     );
 }
 
-export default memo(function Mascot(props: MascotAnimationProps) {
+export default memo(function Mascot(props: MascotProps) {
     const [isComplete, setComplete] = useState(false);
     return isComplete ? null : <MascotContent {...props} onFinish={() => setComplete(true)} />;
 });
