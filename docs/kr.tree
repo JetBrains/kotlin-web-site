@@ -331,9 +331,13 @@
         <toc-element toc-title="Dokka">
             <include from="kl" target="dokka" origin="dokka"/>
         </toc-element>
+        <toc-element toc-title="Tools for running code snippets">
+            <toc-element id="kotlin-playground.md" toc-title="Kotlin Playground"/>
+            <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html" toc-title="IDE scratches and worksheets"/>
+            <toc-element id="ki-shell.md" toc-title="ki shell command line tool"/>
+        </toc-element>
         <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
         <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
-        <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
         <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
