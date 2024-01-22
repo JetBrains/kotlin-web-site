@@ -155,6 +155,23 @@
         </toc-element>
     </toc-element>
 
+    <toc-element toc-title="Data analysis">
+        <toc-element id="get-started-with-kotlin-notebooks.md" toc-title="Get started with Kotlin notebooks"/>
+        <toc-element id="kotlin-notebook-set-up-env.md" toc-title="1. Set up an environment"/>
+        <toc-element id="kotlin-notebook-create.md" toc-title="2. Create your first Kotlin notebook"/>
+        <toc-element id="kotlin-notebook-add-dependencies.md" toc-title="3. Add dependencies to the Kotlin notebook"/>
+        <toc-element id="kotlin-notebook-share.md" toc-title="4. Share the Kotlin notebook"/>
+        <toc-element id="data-analysis-notebooks-output-formats.md" toc-title="Output formats in Kotlin notebooks"/>
+        <toc-element toc-title="Working with data sources">
+            <toc-element id="data-analysis-work-with-data-sources.md" toc-title="Retrieve data from files"/>
+            <toc-element id="data-analysis-work-with-api.md" toc-title="Retrieve data from web sources and APIs"/>
+            <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve to databases"/>
+        </toc-element>
+        <toc-element id="data-analysis-visualization.md" toc-title="Data visualization in Kotlin notebooks"/>
+        <toc-element id="data-science-libraries.md" toc-title="Libraries for data analysis"/>
+
+    </toc-element>
+
     <toc-element toc-title="Platforms">
         <toc-element toc-title="JVM">
             <toc-element id="jvm-get-started.md"/>
