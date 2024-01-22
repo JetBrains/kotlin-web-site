@@ -8,7 +8,7 @@ Interest has steadily increased over the period from 2010 to date, as this Googl
 
 ![Google Trends chart illustrating the interest in cross-platform app development](google-trends-crossplatform.png){width=700}
 
-The growing popularity of the rapidly advancing [cross-platform mobile development](cross-platform-mobile-development.md#kotlin-multiplatform-mobile) technology has resulted in many new tools emerging on the market. With many options available, it can be challenging to pick the one that will best suit your needs. To help you find the right tool, we've put together a list of the six best cross-platform app development frameworks and the features that make them great. At the end of this article, you will also find a few key things to pay attention to when choosing a multiplatform development framework for your business.
+The growing popularity of the rapidly advancing [cross-platform mobile development](cross-platform-mobile-development.md#kotlin-multiplatform) technology has resulted in many new tools emerging on the market. With many options available, it can be challenging to pick the one that will best suit your needs. To help you find the right tool, we've put together a list of the six best cross-platform app development frameworks and the features that make them great. At the end of this article, you will also find a few key things to pay attention to when choosing a multiplatform development framework for your business.
 
 ## What is a cross-platform app development framework?
 
@@ -54,9 +54,9 @@ An open-source UI software framework, React Native was developed in 2015 (a bit 
 
 As one of the most popular cross-platform app development frameworks, React Native has a large and strong community of developers who share their technical knowledge. Thanks to this community, you can get the support you need when building mobile apps with the framework.
 
-### Kotlin Multiplatform Mobile
+### Kotlin Multiplatform
 
-Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Android and iOS applications. It allows you to share common code between the two platforms and write platform-specific code only when it's necessary, for example, when you need to build native UI components or when you are working with platform-specific APIs.
+Kotlin Multiplatform is an SDK developed by JetBrains for creating Android and iOS applications. It allows you to share common code between the two platforms and write platform-specific code only when it's necessary, for example, when you need to build native UI components or when you are working with platform-specific APIs.
 
 **Programming language:** Kotlin.
 
@@ -64,11 +64,11 @@ Kotlin Multiplatform Mobile is an SDK developed by JetBrains for creating Androi
 
 **Key features:**
 
-* You can easily start using Kotlin Multiplatform Mobile in existing projects.
+* You can easily start using Kotlin Multiplatform in existing projects.
 * Kotlin Multiplatform Mobile provides you with full access over the user interface. You can utilize the latest UI frameworks, such as SwiftUI and Jetpack Compose.
 * Developers have easy access to the Android and iOS SDKs without any restrictions.
 
-Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/multiplatform/case-studies/) to develop multiplatform apps with a native-like user experience.
+Even though this cross-platform mobile development framework is the youngest on our list, it has a mature community. It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated documentation and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/case-studies.html) to develop multiplatform apps with a native-like user experience.
 
 > Create your first cross-platform mobile app with [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html).
 >
