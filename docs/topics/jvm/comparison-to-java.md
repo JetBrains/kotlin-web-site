@@ -1,5 +1,12 @@
 [//]: # (title: Comparison to Java)
 
+> The current comparison between Kotlin and Java was made before the release of Java 21. 
+> This page is outdated, but an update is planned and will be available soon. 
+> 
+> Use this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-62083/) to track the progress.
+>
+{type="warning"}
+
 ## Some Java issues addressed in Kotlin
 
 Kotlin fixes a series of issues that Java suffers from:
