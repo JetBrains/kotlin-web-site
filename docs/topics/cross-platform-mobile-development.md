@@ -28,7 +28,7 @@ Progressive web apps combine the features of mobile apps with solutions used in 
 
 Web applications do not require separate bundling or distribution and can be published online. They are accessible via the browser on your computer, smartphone, and tablet, and don't need to be installed via Google Play or the App Store.
 
-The drawback here is that users cannot utilize all of their device’s functionality while using the app, such as contacts, calendars, the phone, and other assets, which results in a limited user experience. In terms of app performance, native apps have the lead.
+The drawback here is that users cannot utilize all of their device's functionality while using the app, such as contacts, calendars, the phone, and other assets, which results in a limited user experience. In terms of app performance, native apps have the lead.
 
 #### 3. Cross-platform apps 
 
@@ -60,7 +60,7 @@ However, many modern businesses need to reduce the time to market and the cost o
 >
 {type="tip"}
 
-> [Get Started with Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/)
+> [Get started with Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/)
 > 
 {type="note"}
 
@@ -76,7 +76,7 @@ There are plenty of reasons businesses choose this approach over other options.
 
 With cross-platform programming, mobile engineers don't need to write new code for every operating system. Using a single codebase allows developers to cut down on time spent doing repetitive tasks, such as API calls, data storage, data serialization, and analytics implementation.
 
-Technologies like Kotlin Multiplatform allow you to implement the data, business, and presentation layers of your app just once. Alternatively, you can adopt KMP  gradually: Choose a piece of logic that changes frequently and usually goes out of sync, such as data validation, filtering, or sorting; make it cross-platform; and then connect it to your project as a microlibrary.
+Technologies like Kotlin Multiplatform allow you to implement the data, business, and presentation layers of your app just once. Alternatively, you can adopt KMP gradually: Choose a piece of logic that changes frequently and usually goes out of sync, such as data validation, filtering, or sorting; make it cross-platform; and then connect it to your project as a microlibrary.
 
 At JetBrains, we regularly conduct Kotlin Multiplatform surveys and ask our community members about what parts of code they share between different platforms.
 
@@ -84,7 +84,7 @@ At JetBrains, we regularly conduct Kotlin Multiplatform surveys and ask our comm
 
 #### 2. Time savings
 
-Due to code reusability, cross-platform applications require less code, and when it comes to coding, less code is more. Time is saved because you do not have to write as much code. Additionally, with fewer lines of code, there’s less room for bugs to emerge, resulting in less time spent testing and maintaining your code.
+Due to code reusability, cross-platform applications require less code, and when it comes to coding, less code is more. Time is saved because you do not have to write as much code. Additionally, with fewer lines of code, there's less room for bugs to emerge, resulting in less time spent testing and maintaining your code.
 
 #### 3. Effective resource management
 
@@ -104,15 +104,15 @@ Since you don't need to build different apps for different platforms, you can de
 
 ### Challenges of a cross-platform development approach
 
-All solutions come with their own limitations. Some in the tech community argue that cross-platform programming still struggles with glitches related to performance. Furthermore, project leads might have fears that their focus on optimizing the development process might negatively impact the app’s user experience.
+All solutions come with their own limitations. Some in the tech community argue that cross-platform programming still struggles with glitches related to performance. Furthermore, project leads might have fears that their focus on optimizing the development process might negatively impact the app's user experience.
 
 With improvements to the underlying technologies, however, cross-platform solutions are becoming increasingly [stable](https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/), adaptable, and flexible.
 
-Here are the results of two Kotlin Multiplatform user surveys regarding framework usage, conducted 6 months apart.
+Here are the results of two Kotlin Multiplatform user surveys regarding framework usage, conducted 6 months apart:
 
 ![Kotlin Multiplatform usage survey results](kmp-survey-results-2023.png){width=700}
 
-Another commonly voiced concern is that multiplatform development makes it impossible to seamlessly support the native features of platforms. With Kotlin Multiplatform, however, you can use Kotlin’s [expected and actual declarations](multiplatform-expect-actual.md) to enable your multiplatform app to access platform-specific APIs. Expected and actual declarations allow you to define in common code that you “expect” to be able to call the same function across multiple platforms and provide the “actual” implementations, which can interact with any platform-specific libraries thanks to Kotlin’s interoperability with Java and Objective-C/Swift.
+Another commonly voiced concern is that multiplatform development makes it impossible to seamlessly support the native features of platforms. With Kotlin Multiplatform, however, you can use Kotlin's [expected and actual declarations](multiplatform-expect-actual.md) to enable your multiplatform app to access platform-specific APIs. Expected and actual declarations allow you to define in common code that you "expect" to be able to call the same function across multiple platforms and provide the "actual" implementations, which can interact with any platform-specific libraries thanks to Kotlin's interoperability with Java and Objective-C/Swift.
 
 As modern multiplatform frameworks continue to evolve, they increasingly allow mobile engineers to craft a native-like experience. If an application is well-written, the user will not be able to notice the difference. However, the quality of your product will heavily depend on the cross-platform app development tools you choose.
 
@@ -160,7 +160,7 @@ Kotlin Multiplatform is an open-source technology built by JetBrains that allows
 >
 {type="note"}
 
-McDonald’s, Netflix, 9GAG, VMware, Cash App, Philips, and many other companies are already capitalizing on Kotlin Multiplatform’s ability to be gradually integrated, as well as its low adoption risk. Some of them opt to enhance their app stability by sharing specific, crucial segments of their existing Kotlin code. Others aim to maximize code reuse without compromising app quality and share all application logic across mobile, desktop, web, and TV, while preserving native UIs on each platform. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
+McDonald's, Netflix, 9GAG, VMware, Cash App, Philips, and many other companies are already capitalizing on Kotlin Multiplatform's ability to be gradually integrated, as well as its low adoption risk. Some of them opt to enhance their app stability by sharing specific, crucial segments of their existing Kotlin code. Others aim to maximize code reuse without compromising app quality and share all application logic across mobile, desktop, web, and TV, while preserving native UIs on each platform. The benefits of this approach are apparent from the stories of the companies that have already adopted it.
 
 > Check out all the [Kotlin Multiplatform case studies from global companies and startups](https://www.jetbrains.com/help/kotlin-multiplatform-dev/case-studies.html)
 >
