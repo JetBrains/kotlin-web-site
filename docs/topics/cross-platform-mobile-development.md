@@ -110,7 +110,7 @@ With improvements to the underlying technologies, however, cross-platform soluti
 
 Here are the results of two Kotlin Multiplatform user surveys regarding framework usage, conducted 6 months apart.
 
-[Kotlin Multiplatform usage survey results](kmp-survey-results-2023.png){width=700}
+![Kotlin Multiplatform usage survey results](kmp-survey-results-2023.png){width=700}
 
 Another commonly voiced concern is that multiplatform development makes it impossible to seamlessly support the native features of platforms. With Kotlin Multiplatform, however, you can use Kotlin’s [expected and actual declarations](multiplatform-expect-actual.md) to enable your multiplatform app to access platform-specific APIs. Expected and actual declarations allow you to define in common code that you “expect” to be able to call the same function across multiple platforms and provide the “actual” implementations, which can interact with any platform-specific libraries thanks to Kotlin’s interoperability with Java and Objective-C/Swift.
 
