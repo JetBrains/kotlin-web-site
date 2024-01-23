@@ -58,10 +58,10 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
         let animation: AnimationItem;
         let play: ReturnType<typeof createAnimation>[1];
 
-        let isOnceStarted = false;
+        let wasOnceStarted = false;
 
         function done() {
-            if (isOnceStarted) onFinish();
+            if (wasOnceStarted) onFinish();
         }
 
         let cancelable: (body: () => Promise<void>) => ReturnType<typeof body> = (body) => body();
@@ -75,7 +75,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
 
             await cancelable(async () => {
                 [animation, play] = createAnimation(lottie, node, initialData);
-                isOnceStarted = true;
+                wasOnceStarted = true;
                 await play();
             });
 
