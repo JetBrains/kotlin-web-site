@@ -1,11 +1,11 @@
 [//]: # (title: Sealed classes and interfaces)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
-Unlike `internal` classes, they provide inherent exhaustiveness for `when` expressions within the declared module or package.
+Sealed classes and interfaces, in contrast to `internal` classes, ensure inherent exhaustiveness in `when` expressions within their declared module or package.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
 the module and package within which the sealed class is defined. 
 
-Sealed classes are best used in scenarios when:
+Sealed classes are best used for scenarios when:
 
 * **Limited Subclassing is Desired:** You can have a finite set of types extending a class that is known when this class is compiled.
 * **Type-Safe Design is Required:** When safety and pattern matching are crucial in your project, particularly for state management or handling complex conditional logic. For an example, check out the [Sealed classes and when expression section](#sealed-classes-and-when-expression).
@@ -34,6 +34,9 @@ class DatabaseError(val source: DataSource): IOError()
 
 object RuntimeError : Error
 ```
+
+The hierarchy of our sealed interface and sealed class example looks like this:
+![Hierarchy Illustration of Sealed Classes and Interfaces](sealedClasses_interfaces.png){width=600}
 
 A sealed class itself is an [abstract](classes.md#abstract-classes) and cannot be instantiated directly. 
 However, it may contain or inherit constructors. These constructors are not for creating instances of the sealed class itself but for its subclasses.
