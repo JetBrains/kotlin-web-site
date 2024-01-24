@@ -12,6 +12,8 @@ type MascotProps = {
 const ANIMATION_INITIAL_DELAY = 1500 as const;
 const ANIMATION_AFTER_DELAY = 7000 as const;
 
+async function noop() {}
+
 function sleep(ms: number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
 }
@@ -73,7 +75,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
                 sleep(ANIMATION_INITIAL_DELAY),
             ]);
 
-            await skipInactiveHook(async () => {
+            await skipInactiveHook(async function initialPlay() {
                 [animation, play] = createAnimation(lottie, node, initialData);
                 wasOnceStarted = true;
                 await play();
@@ -81,11 +83,11 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
 
             let afterData: Parameters<typeof createAnimation>[2];
 
-            await skipInactiveHook(async () => {
+            await skipInactiveHook(async function afterPrepare() {
                 [afterData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
             });
 
-            await skipInactiveHook(async () => {
+            await skipInactiveHook(async function afterPlay() {
                 [animation, play] = createAnimation(lottie, node, afterData);
                 await play();
             });
@@ -96,7 +98,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
         if (node && inView) {
             playAnimation();
             return function playCleanup() {
-                skipInactiveHook = async () => {};
+                skipInactiveHook = noop;
                 animation?.destroy();
                 done();
             };
