@@ -13,7 +13,7 @@ const ANIMATION_INITIAL_DELAY = 1500 as const;
 const ANIMATION_AFTER_DELAY = 7000 as const;
 
 function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+    return new Promise<void>((resolve) => setTimeout(() => resolve(), ms));
 }
 
 function createAnimation(
@@ -79,8 +79,13 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
                 await play();
             });
 
+            let afterData: Parameters<typeof createAnimation>[2];
+
             await cancelable(async () => {
-                const [afterData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
+                [afterData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
+            });
+
+            await cancelable(async () => {
                 [animation, play] = createAnimation(lottie, node, afterData);
                 await play();
             });
@@ -99,7 +104,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
     }, [mascotNode.current, inView]);
 
     return (
-        <div ref={inViewRef} className={cn(styles.container, className)}>
+        <div aria-hidden="true" ref={inViewRef} className={cn(styles.container, className)}>
             <span ref={mascotNode} className={styles.animation} />
         </div>
     );
