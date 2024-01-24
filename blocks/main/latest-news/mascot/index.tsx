@@ -64,7 +64,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
             if (wasOnceStarted) onFinish();
         }
 
-        let cancelable: (body: () => Promise<void>) => ReturnType<typeof body> = (body) => body();
+        let skipInactiveHook: (body: () => Promise<void>) => ReturnType<typeof body> = (body) => body();
 
         async function playAnimation() {
             const [lottie, initialData] = await Promise.all([
@@ -73,7 +73,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
                 sleep(ANIMATION_INITIAL_DELAY),
             ]);
 
-            await cancelable(async () => {
+            await skipInactiveHook(async () => {
                 [animation, play] = createAnimation(lottie, node, initialData);
                 wasOnceStarted = true;
                 await play();
@@ -81,11 +81,11 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
 
             let afterData: Parameters<typeof createAnimation>[2];
 
-            await cancelable(async () => {
+            await skipInactiveHook(async () => {
                 [afterData] = await Promise.all([import('./option4.json'), sleep(ANIMATION_AFTER_DELAY)]);
             });
 
-            await cancelable(async () => {
+            await skipInactiveHook(async () => {
                 [animation, play] = createAnimation(lottie, node, afterData);
                 await play();
             });
@@ -95,8 +95,8 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
 
         if (node && inView) {
             playAnimation();
-            return () => {
-                cancelable = async () => {};
+            return function playCleanup() {
+                skipInactiveHook = async () => {};
                 animation?.destroy();
                 done();
             };
