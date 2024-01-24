@@ -29,10 +29,10 @@ function createAnimation(
         animationData,
     });
 
-    const animationComplete = new Promise((resolve) => {
+    const animationComplete = new Promise<void>((resolve) => {
         function done() {
             animation.removeEventListener('complete', done);
-            resolve(null);
+            resolve();
         }
 
         animation.addEventListener('complete', done);
