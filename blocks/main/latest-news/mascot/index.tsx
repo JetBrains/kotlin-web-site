@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { useInView } from 'react-intersection-observer';
-import { AnimationItem, LottiePlayer } from 'lottie-web/build/player/lottie_svg';
+import { AnimationItem, LottiePlayer } from 'lottie-web/build/player/lottie_light';
 
 import styles from './mascot.module.css';
 
@@ -70,7 +70,7 @@ function MascotContent({ className, onFinish }: MascotProps & { onFinish: () => 
 
         async function playAnimation() {
             const [lottie, initialData] = await Promise.all([
-                import('lottie-web/build/player/lottie_svg').then((l) => l.default),
+                import('lottie-web/build/player/lottie_light').then((l) => l.default),
                 import('./option3.json'),
                 sleep(ANIMATION_INITIAL_DELAY),
             ]);
