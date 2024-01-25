@@ -46,8 +46,8 @@ Released: 25 January, 2024
 </td>
 <td>
 
-* Support of the new Canary Android Studio Jellyfish
-* Added declaration of `sourceCompatibility` and `targetCompatibility` in shared module
+* Support for the new Canary Android Studio Jellyfish.
+* Added declarations of `sourceCompatibility` and `targetCompatibility` in the shared module.
 
 </td>
 <td>
