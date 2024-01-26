@@ -789,8 +789,7 @@ By default, the results of a Kotlin/JS project build reside in the `/build/dist/
 >
 {type="note" }
 
-To set another location for project distribution files, add the `distribution {}` block inside the `browser {}` block in the build script and 
-assign a value to the `outputDirectory` property using the `outputDirectory.set()` method.
+To set another location for project distribution files, in your build script inside the `browser {}` block, add a `distribution {}` block and assign a value to the `outputDirectory` property by using the `set()` method.
 Once you run a project build task, Gradle will save the output bundle in this location together with project resources.
 
 <tabs group="build-script">
