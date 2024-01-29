@@ -268,7 +268,7 @@ Add these properties to the `gradle.properties` file in your projects for them t
 
 ## What to expect from upcoming Kotlin EAP releases
 
-The upcoming 2.0.0-Beta4 release will increase the stability of the K2 compiler.
+The upcoming 2.0.0-Beta4 and 2.0.0-Beta5 releases will increase the stability of the K2 compiler.
 If you are currently using K2 in your project, 
 we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
 [Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
