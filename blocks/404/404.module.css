@@ -24,3 +24,11 @@
         display: none;
     }
 }
+
+.heading {
+    margin: 24px 0 0;
+}
+
+.subheading {
+    margin: 12px 0 0;
+}
