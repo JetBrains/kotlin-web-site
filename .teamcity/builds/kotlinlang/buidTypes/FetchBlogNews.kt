@@ -21,6 +21,10 @@ private const val SCRIPT_PATH = "scripts/latest-news"
 object FetchBlogNews : BuildType({
     name = "Fetch Blog News"
 
+    artifactRules = """
+        $DATA_PATH => latest-news.zip
+    """.trimIndent()
+
     triggers {
         schedule {
             schedulingPolicy = cron {
@@ -46,14 +50,6 @@ object FetchBlogNews : BuildType({
         checkoutMode = CheckoutMode.ON_AGENT
     }
 
-    // @ToDo: Is it safe? Should be replaced by token from storage???
-    features {
-        sshAgent {
-            enabled = true
-            teamcitySshKey = "ktl-read-write"
-        }
-    }
-
     steps {
         nodejs {
             name = "Install packages"
@@ -75,33 +71,6 @@ object FetchBlogNews : BuildType({
                 UPDATE_TIME=`date -u +"%%Y-%%m-%%d %%H:%%M.%%S"`
                 echo "##teamcity[setParameter name='env.UPDATE_TIME' value='${'$'}UPDATE_TIME']"
                 node ./$SCRIPT_PATH/index.js
-            """.trimIndent()
-        }
-
-        script {
-            name = "Commit and Push changes"
-
-            conditions {
-                equals("teamcity.build.branch.is_default", "true")
-            }
-
-            // language=bash
-            scriptContent = """
-                #!/bin/bash
-                set -e -u
-                
-                VCS_STATUS=`git status --porcelain`
-                
-                if [[ -n "${'$'}VCS_STATUS" ]]; then
-                  echo "============="
-                  echo "${'$'}VCS_STATUS"
-                  git add $DATA_PATH
-                  git \
-                    -c user.name="Teamcity Agent" -c user.email="support@jetbrains.com" \
-                    commit -m "chore(ci): [${'$'}UPDATE_TIME] update latest news"
-                  echo "============="
-                  git push origin HEAD:%teamcity.build.branch%
-                fi
             """.trimIndent()
         }
     }
