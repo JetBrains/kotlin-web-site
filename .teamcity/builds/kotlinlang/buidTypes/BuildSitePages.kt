@@ -179,7 +179,7 @@ object BuildSitePages : BuildType({
         artifacts {
             buildRule = lastSuccessful("<default>")
             artifactRules = """
-                +: latest-news.zip!** => latest-news/
+                +:latest-news.zip!** => latest-news/
             """.trimIndent()
             cleanDestination = true
         }
