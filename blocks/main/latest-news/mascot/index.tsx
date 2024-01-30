@@ -9,8 +9,8 @@ type MascotProps = {
     className?: string;
 };
 
-const ANIMATION_INITIAL_DELAY = 1500 as const;
-const ANIMATION_AFTER_DELAY = 7000 as const;
+const ANIMATION_INITIAL_DELAY = 500 as const;
+const ANIMATION_AFTER_DELAY = 5000 as const;
 
 async function noop() {}
 
