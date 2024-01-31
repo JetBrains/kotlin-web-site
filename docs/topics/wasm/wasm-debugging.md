@@ -53,8 +53,8 @@ This tutorial demonstrates how to debug a web application built with Kotlin/Wasm
    http://localhost:8080/
    ```
    
-   > The port number can vary. If the 8080 port is unavailable, you can find the corresponding port number printed in the console
-   > after building the application.
+   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed 
+   > in the Gradle build console.
    >
    {type="tip"}
 
@@ -84,7 +84,7 @@ steps should also work.
 To debug a Kotlin/Wasm application:
 
 1. In the browser window of the application, access developer tools by right-clicking and selecting the **Inspect** action.
-Alternatively, you can use either the **Fn + F12** or just the  **F12** shortcut.
+Alternatively, you can use the **F12** shortcut.
 
 2. Switch to the **Sources** tab and find the Kotlin file to debug.
 
@@ -94,7 +94,7 @@ with darker numbers accept breakpoints.
 ![Set breakpoints](wasm-breakpoints.png){width=700}
 
 4. Interact with the application by clicking on the **Hello World!** button. This action triggers the execution of the 
-code, and the debugger pauses at each breakpoint.
+code, and the debugger pauses when execution reaches a breakpoint.
 
 5. Inspect variables and code execution at the breakpoints by using the debugging control buttons (step over, step into, step out, and more).
 
@@ -108,8 +108,8 @@ code, and the debugger pauses at each breakpoint.
 
 ### Configuration for debugging
 
-In projects requiring additional debugging configuration, you need to allow Webpack servers to access your sources. 
-Add the following code snippet to the Gradle build file:
+By default, browsers lack access to the project sources necessary for debugging. You can configure the Webpack DevServer 
+to serve these sources by adding the following code snippet to the Gradle build file:
 
 ```kotlin
 // Add this line in the dependencies block
@@ -134,7 +134,7 @@ devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
 ## Leave feedback
 
 * ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to the developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-* Report any issues in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
+* Provide your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 
 ## What's next?
 
