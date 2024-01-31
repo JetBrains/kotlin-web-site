@@ -1997,8 +1997,8 @@
 - title: Lovely Professional University
   location: Phagwara (India)
   courses:
-  - name: CSE 224 Android Development Using Kotlin Language
-    url: https://www.lpu.in/downloads/Summer-School-Brochure.pdf
+  - name: CSE 224 Fundamentals of Android
+    url: https://drive.google.com/file/d/11LfuwZQz9GA98NxXOeBI7J-4hHZQwHsc/view
   geo:
     lat: 31.25613872
     lng: 75.70520787
@@ -2501,8 +2501,8 @@
 - title: Manav Rachna International Institute of Research and Studies - MRIIRS
   location: Faridabad (India)
   courses:
-  - name: Mobile Computing with Android (CSH319) T & P
-    url: https://drive.google.com/file/d/1xL9raHbwl7WOZ34vxAA-ux4aZGso6nUy/view?usp=sharing
+  - name: "BCS-DS-577: Kotlin"
+    url: https://drive.google.com/file/d/1rk_8CIQvNdggNBnFogstf3DrJuBWpp-g/view?usp=drivesdk
   geo:
     lat: 28.45060447
     lng: 77.28370448
@@ -2586,3 +2586,35 @@
   geo:
     lat: 50.92258627
     lng: 6.967425454902938
+- title: Manav Rachna University
+  location: Faridabad (India)
+  courses:
+  - name: Mobile Computing with Android (CSH319) T & P
+    url: https://drive.google.com/file/d/1xL9raHbwl7WOZ34vxAA-ux4aZGso6nUy/view?usp=sharing
+  geo:
+    lat: 28.85469489
+    lng: 77.26330090113763
+- title: Vidyavardhaka College of Engineering
+  location: Mysore (India)
+  courses:
+  - name: "22CS47: Mobile Application Development"
+    url: https://drive.google.com/file/d/10Zv6nNvzwikJbL9Tv9433KeGqocCLp98/view?usp=drive_link
+  geo:
+    lat: 12.33677461
+    lng: 76.61873426615823
+- title: Swarrnim Startup & Innovation University
+  location: Bhoyan Rathod (India)
+  courses:
+  - name: Advance Mobile App Development
+    url: https://docs.google.com/document/d/139hWzVXWnUCcdksxpPzIsFmakAvV43YE/edit
+  geo:
+    lat: 23.23579486
+    lng: 72.54208134152324
+- title: KAZGUU University Higher School of Economics
+  location: Astana (Kazakhstan)
+  courses:
+  - name: Mobile Development
+    url: https://drive.google.com/file/d/11wlEq8rsUAhEnpq4wVciMj8LS1GRqznG/view
+  geo:
+    lat: 51.14945101
+    lng: 71.37953666993862
