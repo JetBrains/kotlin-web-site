@@ -2597,7 +2597,7 @@
 - title: Vidyavardhaka College of Engineering
   location: Mysore (India)
   courses:
-  - name: 22CS47: Mobile Application Development
+  - name: "22CS47: Mobile Application Development"
     url: https://drive.google.com/file/d/10Zv6nNvzwikJbL9Tv9433KeGqocCLp98/view?usp=drive_link
   geo:
     lat: 12.33677461
