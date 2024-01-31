@@ -2501,7 +2501,7 @@
 - title: Manav Rachna International Institute of Research and Studies - MRIIRS
   location: Faridabad (India)
   courses:
-  - name: BCS-DS-577: Kotlin
+  - name: "BCS-DS-577: Kotlin"
     url: https://drive.google.com/file/d/1rk_8CIQvNdggNBnFogstf3DrJuBWpp-g/view?usp=drivesdk
   geo:
     lat: 28.45060447
