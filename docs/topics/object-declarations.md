@@ -254,7 +254,10 @@ While `data object` and `data class` declarations are often used together and ha
 
 #### Using data objects with sealed hierarchies
 
-`data object` declarations are a particularly useful for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may have defined alongside the object:
+Data object declarations are particularly useful for sealed hierarchies like 
+[sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may 
+have defined alongside the object. In this example, declaring `EndOfFile` as a `data object` instead of a plain `object` 
+means that it will get a `toString()` function without the need to override it manually:
 
 ```kotlin
 sealed interface ReadResult
@@ -262,18 +265,12 @@ data class Number(val number: Int) : ReadResult
 data class Text(val text: String) : ReadResult
 data object EndOfFile : ReadResult
 
-fun printReadResult(r: ReadResult) {
-    when(r) {
-        is Number -> println("Num(${r.number}")
-        is Text -> println("Txt(${r.text}")
-        is EndOfFile -> println("EOF")
-    }
-}
-
 fun main() {
-    printReadResult(EndOfFile) // EOF
+  println(Number(7)) // Number(number=7)
+  println(EndOfFile) // EndOfFile
 }
 ```
+{kotlin-runnable="true" id="data-objects-sealed-hierarchies"}
 
 ### Companion objects
 
