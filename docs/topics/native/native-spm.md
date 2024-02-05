@@ -23,7 +23,7 @@ Choose the options that suit your needs best and set them up. Then move on to th
 ## Create the XCFramework and the package description files
 
 To be able to provide a Swift package, you need to do the following:
-1. Set up publishing of an [XCFramework](multiplatform-build-native-binaries.md##build-xcframeworks). Add an `XCFramework`
+1. Set up publishing of an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks). Add an `XCFramework`
 call to your iOS targets description in the `shared/build.gradle.kts` file:
    ```kotlin
    import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
