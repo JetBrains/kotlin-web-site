@@ -1,7 +1,11 @@
-[//]: # (title: Swift Package Manager overview and setup)
+[//]: # (title: Swift Package export setup)
 
-Kotlin/Native output can be consumed as an SPM dependency. For example, if your Kotlin Multiplatform project has
-an iOS target, and you want to make the binary available to iOS developers in the environment they are used to.
+Kotlin/Native output for an Apple target can be consumed as an SPM dependency.
+For example, if your Kotlin Multiplatform project has an iOS target, and you want to make the binary available to iOS
+developers in Xcode.
+
+This guide shows how to do this using the [XCFramework building](multiplatform-build-native-binaries.md#build-xcframeworks)
+capability of Kotlin Gradle.
 
 ## Prepare locations for the files to be uploaded
 
@@ -13,10 +17,10 @@ S3, GitHub Releases, or a Maven repository). Choose the option that is easiest t
 
 ### Options for Package.swift distribution
 The `Package.swift` that describes the Swift Package needs to be placed in a Git repository:
-* Store the `Package.swift` file in an independent repository to make its versioning completely separate from the
+* Store the `Package.swift` file in an independent repository to make its versioning separate from the
   KMP project the file describes. This is the recommended approach, allowing scalability and generally easier
   maintenance.
-* Put the `Package.swift` file next to your KMP code to have a more straightforward approach. Keep in mind that if
+* Put the `Package.swift` file next to your KMP code for a more straightforward approach. Keep in mind that if
   you are using Semantic Versioning tags for Kotlin, versioning the SPM package in the same repository can become
   challenging.
 * Store the `Package.swift` within the consumer project's repo to avoid the versioning and maintenance issues.
@@ -78,7 +82,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
          .library(name: "shared", targets: ["shared"])
       ],
       targets: [
-         .binaryTarget(name: "shared", url: "<link to uploaded xcframework zip>")
+         .binaryTarget(name: "shared", url: "<link to the uploaded XCFramework ZIP file>")
       ],
    )
    ```
