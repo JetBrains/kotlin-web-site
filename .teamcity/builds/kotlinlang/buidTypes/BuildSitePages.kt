@@ -8,7 +8,6 @@ import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 
 private const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
@@ -21,14 +20,6 @@ object BuildSitePages : BuildType({
         dist/** => pages.zip
         robots.txt => pages.zip
     """.trimIndent()
-
-  triggers {
-    finishBuildTrigger {
-      buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
-      branchFilter = "+:<default>"
-      successfulOnly = true
-    }
-  }
 
   vcs {
     root(vcsRoots.KotlinLangOrg)
@@ -176,14 +167,6 @@ object BuildSitePages : BuildType({
       artifacts {
           artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
       }
-    }
-
-    artifacts(FetchBlogNews) {
-      buildRule = lastSuccessful(branch = "+:<default>")
-      artifactRules = """
-        +:latest-news.zip!** => latest-news/
-      """.trimIndent()
-      cleanDestination = true
     }
 
     dependency(KotlinxSerializationBuildApiReference) {
