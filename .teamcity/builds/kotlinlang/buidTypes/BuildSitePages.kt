@@ -138,7 +138,6 @@ object BuildSitePages : BuildType({
 
     dependency(KotlinxCoroutinesBuildApiReference) {
       snapshot {
-        reuseBuilds = ReuseBuilds.NO
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
 
@@ -149,7 +148,6 @@ object BuildSitePages : BuildType({
 
     dependency(KotlinxDatetimeBuildApiReference) {
       snapshot {
-        reuseBuilds = ReuseBuilds.NO
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
 
@@ -160,18 +158,16 @@ object BuildSitePages : BuildType({
 
     dependency(KotlinxMetadataJvmBuildApiReference) {
       snapshot {
-          reuseBuilds = ReuseBuilds.NO
-          onDependencyFailure = FailureAction.FAIL_TO_START
+        onDependencyFailure = FailureAction.FAIL_TO_START
       }
 
       artifacts {
-          artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
+        artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
       }
     }
 
     dependency(KotlinxSerializationBuildApiReference) {
       snapshot {
-        reuseBuilds = ReuseBuilds.NO
         onDependencyFailure = FailureAction.FAIL_TO_START
       }
 
