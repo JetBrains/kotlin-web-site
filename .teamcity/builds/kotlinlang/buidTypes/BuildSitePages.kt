@@ -178,20 +178,12 @@ object BuildSitePages : BuildType({
       }
     }
 
-    dependency(FetchBlogNews) {
-        snapshot {
-            onDependencyFailure = FailureAction.FAIL_TO_START
-            onDependencyCancel = FailureAction.CANCEL
-            synchronizeRevisions = false
-        }
-
-        artifacts {
-            buildRule = lastSuccessful("<default>")
-            artifactRules = """
-                +:latest-news.zip!** => latest-news/
-            """.trimIndent()
-            cleanDestination = true
-        }
+    artifacts(FetchBlogNews) {
+      buildRule = lastSuccessful(branch = "+:<default>")
+      artifactRules = """
+        +:latest-news.zip!** => latest-news/
+      """.trimIndent()
+      cleanDestination = true
     }
 
     dependency(KotlinxSerializationBuildApiReference) {
