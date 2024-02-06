@@ -417,7 +417,10 @@
             <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
             <toc-element toc-title="The six best cross-platform app development frameworks" id="cross-platform-frameworks.md"/>
         </toc-element>
-        <toc-element toc-title="Google Summer of Code with Kotlin 2023" id="gsoc-2023.md"/>
+        <toc-element toc-title="Google Summer of Code">
+            <toc-element toc-title="Google Summer of Code with Kotlin 2024" id="gsoc-2024.md"/>
+            <toc-element toc-title="Google Summer of Code with Kotlin 2023" id="gsoc-2023.md"/>
+        </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
         <toc-element toc-title="Community">
