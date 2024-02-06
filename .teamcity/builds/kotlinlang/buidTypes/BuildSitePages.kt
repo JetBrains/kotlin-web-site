@@ -8,8 +8,9 @@ import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 
-const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
+private const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
 object BuildSitePages : BuildType({
   name = "Build site pages"
@@ -20,6 +21,14 @@ object BuildSitePages : BuildType({
         dist/** => pages.zip
         robots.txt => pages.zip
     """.trimIndent()
+
+  triggers {
+    finishBuildTrigger {
+      buildType = FetchBlogNews
+      branchFilter = "+:<default>"
+      successfulOnly = true
+    }
+  }
 
   vcs {
     root(vcsRoots.KotlinLangOrg)
@@ -125,6 +134,7 @@ object BuildSitePages : BuildType({
                 """.trimIndent()
       }
     }
+
     dependency(BuildReferenceDocs) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
@@ -166,6 +176,22 @@ object BuildSitePages : BuildType({
       artifacts {
           artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
       }
+    }
+
+    dependency(FetchBlogNews) {
+        snapshot {
+            onDependencyFailure = FailureAction.FAIL_TO_START
+            onDependencyCancel = FailureAction.CANCEL
+            synchronizeRevisions = false
+        }
+
+        artifacts {
+            buildRule = lastSuccessful("<default>")
+            artifactRules = """
+                +:latest-news.zip!** => latest-news/
+            """.trimIndent()
+            cleanDestination = true
+        }
     }
 
     dependency(KotlinxSerializationBuildApiReference) {
