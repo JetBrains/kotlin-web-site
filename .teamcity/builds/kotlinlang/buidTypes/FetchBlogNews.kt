@@ -27,10 +27,11 @@ object FetchBlogNews : BuildType({
 
     triggers {
         schedule {
-            schedulingPolicy = cron {
-                hours = "*/1"
-            }
             branchFilter = "+:<default>"
+            schedulingPolicy = cron {
+                hours = "9"
+                dayOfWeek = "1-5"
+            }
             triggerBuild = always()
         }
     }
