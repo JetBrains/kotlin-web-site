@@ -7,14 +7,19 @@ object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
 
   vcs {
-    root(vcsRoots.KotlinLangOrg)
+    root(vcsRoots.KotlinLangOrg, """
+      +:dokka-templates
+      +:package.json
+      +:.yarn.lock
+      +:scripts/dokka/
+    """.trimIndent())
   }
 
   artifactRules = "dokka-templates/** => dokka-templates"
 
   steps {
     script {
-      name = "Fix npm sharp platform related issue"
+      name = "Fix npm sharp platform relatgied issue"
       scriptContent = """
         rm -rf node_modules/sharp
       """.trimIndent()
