@@ -90,4 +90,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
 
 Now that both files are accessible, you can try and set up the dependency:
 * In an Xcode project, choose **File | Add Package Dependencies...** and provide the Git URL for the `Package.swift` file.
+  
+  An example of adding an SPM dependency to the iOS part of a KMP project is shown in the [Get started tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html#option-2-configure-kmp-nativecoroutines)
+  for Kotlin Multiplatform.
 * In an SPM project, create a dependency following the Apple documentation on [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency).
