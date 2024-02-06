@@ -24,7 +24,7 @@ object BuildSitePages : BuildType({
 
   triggers {
     finishBuildTrigger {
-      buildType = FetchBlogNews
+      buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
       branchFilter = "+:<default>"
       successfulOnly = true
     }
