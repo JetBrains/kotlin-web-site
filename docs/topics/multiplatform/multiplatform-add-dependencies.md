@@ -55,8 +55,8 @@ Learn how to [change the default behavior](gradle-configure-project.md#dependenc
 
 ### Test libraries
 
-For multiplatform tests, the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available.
-When you create a multiplatform project, you can add test dependencies to common and platform-specific source sets:
+For multiplatform tests, the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available. When you
+create a multiplatform project, you can add test dependencies to all the source sets by using a single dependency in `commonTest`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
