@@ -1,8 +1,9 @@
 [//]: # (title: Swift Package export setup)
 
 Kotlin/Native output for an Apple target can be consumed as an SPM dependency.
-For example, if your Kotlin Multiplatform project has an iOS target, and you want to make the binary available to iOS
-developers in Xcode.
+For example, if your Kotlin Multiplatform project has an iOS target, you may want to make the binary available
+as a dependency to iOS developers working on native Swift projects in Xcode. Using KMP tooling, you can provide
+an artifact that would seamlessly integrate with Xcode experience.
 
 This guide shows how to do this using the [XCFramework building](multiplatform-build-native-binaries.md#build-xcframeworks)
 capability of Kotlin Gradle.
@@ -31,7 +32,7 @@ The `Package.swift` that describes the Swift Package needs to be placed in a Git
   2. If you publish the KMP project using an automated CI process, this process would need to include publishing the
   updated `Package.swift` file to the consumer repo. Such a process can be unpredictable and difficult to maintain.
 
-Choose the options that suit your needs best and set them up. Then move on to the next step, where you'll create the files. 
+Create or adjust a Git repository as needed. Now you are ready to create the package files.
 
 ## Create the XCFramework and the package description files
 
