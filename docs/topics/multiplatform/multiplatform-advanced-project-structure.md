@@ -27,7 +27,7 @@ is crucial to understanding how Kotlin Multiplatform projects work under the hoo
 
 ### dependsOn and source set hierarchies
 
-_`dependsOn_` is a Kotlin-specific relation between two Kotlin source sets. This could be a connection between common
+`dependsOn` is a Kotlin-specific relation between two Kotlin source sets. This could be a connection between common
 and platform-specific source sets. For example, when the `jvmMain` source set depends on `commonMain`, `iosArm64Main`
 on `iosMain`, and others.
 
