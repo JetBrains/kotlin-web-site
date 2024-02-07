@@ -31,6 +31,7 @@ object FetchBlogNews : BuildType({
                 dayOfWeek = "1-5"
             }
             triggerBuild = always()
+            withPendingChangesOnly = false
         }
     }
 
