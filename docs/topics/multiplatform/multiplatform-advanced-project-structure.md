@@ -55,11 +55,11 @@ is supposed to see API from `commonMain`, but not from `iosArm64Main`:
 
 ```kotlin
 kotlin {
-   // Targets declaration
-   sourceSets {
-      // Example of configuring the dependsOn relation 
-      iosArm64Main.dependsOn(commonMain)
-   }
+    // Targets declaration
+    sourceSets {
+        // Example of configuring the dependsOn relation 
+        iosArm64Main.dependsOn(commonMain)
+    }
 }
 ```
 
