@@ -11,12 +11,8 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
 
 Create a project using the Kotlin Multiplatform wizard:
 
-> The Kotlin Multiplatform wizard is an [Experimental](components-stability.md) feature. It may be changed at any time.
->
-{type="note"}
-
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name to "ComposeDemo" and the project ID to "kmp.project.demo".
+2. On the **New Project** tab, change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
 3. Select the **Web** option.
 4. Click the **Download** button and unpack the resulting archive.
 
@@ -26,11 +22,11 @@ Create a project using the Kotlin Multiplatform wizard:
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 2. On the Welcome screen of IntelliJ IDEA, click **Open** or select **File | Open** in the menu bar.
-3. Navigate to the unpacked "ComposeDemo" folder and click **Open**.
+3. Navigate to the unpacked "WasmDemo" folder and click **Open**.
 
 ## Run the application
 
-1. IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 
    > You need at least Java 11 as your Gradle JVM for the examples to load successfully.
    >
@@ -40,7 +36,7 @@ Create a project using the Kotlin Multiplatform wizard:
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
 
-   Alternatively, you can also run the following command in the terminal from the `composeApp` directory:
+   Alternatively, you can run the following command in the terminal from the `composeApp` directory:
 
    ```bash
    ./gradlew wasmJsBrowserRun -t
@@ -57,11 +53,11 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {type="tip"}
 
-   You see a "Click me!" button. Click it:
+   You can see a "Click me!" button. Click it:
 
    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
-   You see the Compose Multiplatform logo:
+   Now you can see the Compose Multiplatform logo:
 
    ![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
