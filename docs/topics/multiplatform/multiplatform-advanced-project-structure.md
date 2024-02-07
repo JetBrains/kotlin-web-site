@@ -137,7 +137,7 @@ There are three important concepts in dependency resolution:
    represents the intermediate state of dependency resolution. The final state of resolution is always represented
    by _source set → source set_ dependencies.
 
-   > The final source set → source set dependencies are not `dependsOn` relations.
+   > The final _source set → source set_ dependencies are not `dependsOn` relations.
    >
    {type="note"}
 
