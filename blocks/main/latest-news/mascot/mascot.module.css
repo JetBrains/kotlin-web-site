@@ -1,0 +1,14 @@
+.container {
+    overflow-x: clip;
+    position: relative;
+    z-index: calc(var(--ktl-news-grid-bg-idx, 5) - 2);
+    height: 0;
+}
+
+.animation {
+    position: absolute;
+    transform: translateY(calc(-100% + 2px));
+    right: -48px;
+    height: 128px;
+    width: 248px;
+}

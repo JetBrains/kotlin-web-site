@@ -58,19 +58,22 @@ If you encounter any of the problems mentioned above, you can take the following
 
 ### Compiler plugins support
 
-Currently, the Kotlin K2 compiler supports the following plugins:
+Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins:
 
-* [kapt](whatsnew1920.md#preview-kapt-compiler-plugin-with-k2)
-* [serialization](serialization.md)
 * [`all-open`](all-open-plugin.md)
-* [`no-arg`](no-arg-plugin.md)
-* [SAM with receiver](sam-with-receiver-plugin.md)
-* [Lombok](lombok.md)
 * [AtomicFU](https://github.com/Kotlin/kotlinx-atomicfu)
-* [Jetpack Compose compiler plugin](https://developer.android.com/jetpack/compose)
-* [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
 * [`jvm-abi-gen`](https://github.com/JetBrains/kotlin/tree/master/plugins/jvm-abi-gen)
+* [kapt](whatsnew1920.md#preview-kapt-compiler-plugin-with-k2)
+* [Lombok](lombok.md)
+* [`no-arg`](no-arg-plugin.md)
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
+* [SAM with receiver](sam-with-receiver-plugin.md)
+* [serialization](serialization.md)
+
+In addition, the Kotlin K2 compiler supports:
+* the [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
+* the [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
+since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
@@ -268,7 +271,7 @@ Add these properties to the `gradle.properties` file in your projects for them t
 
 ## What to expect from upcoming Kotlin EAP releases
 
-The upcoming 2.0.0-Beta4 release will increase the stability of the K2 compiler.
+The upcoming 2.0.0-Beta4 and 2.0.0-Beta5 releases will increase the stability of the K2 compiler.
 If you are currently using K2 in your project, 
 we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
 [Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).

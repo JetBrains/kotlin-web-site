@@ -167,8 +167,8 @@ fun Foo(): Foo { return FooImpl() }
 ### Names for test methods
 
 In tests (and **only** in tests), you can use method names with spaces enclosed in backticks.
-Note that such method names are currently not supported by the Android runtime. Underscores in method names are
-also allowed in test code.
+Note that such method names are only supported by Android runtime from API level 30. Underscores
+in method names are also allowed in test code.
 
 ```kotlin
 class MyTestCase {

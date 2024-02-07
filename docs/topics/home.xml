@@ -37,11 +37,12 @@
                 <a href="whatsnew1920.md" description="Latest features: Kotlin K2 is in Beta and Stable Kotlin Multiplatform">What's New in Kotlin 1.9.20</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
-            <group type="cards">
+            <group type="cards" display="wide">
                 <title>Kotlin Multiplatform</title>
-                <a href="multiplatform-get-started.md" description="Useful links to help you start using the SDK">Get started</a>
-                <a href="multiplatform-plugin-releases.md" description="Features of the Kotlin Multiplatform Mobile plugin">Plugin releases for Android Studio</a>
-                <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Videos about Kotlin Multiplatform on our YouTube channel">Kotlin Multiplatform Multiverse</a>
+                <a href="https://www.jetbrains.com/kotlin-multiplatform/" description="Learn how Kotlin Multiplatform helps you share code between your applications">Why Kotlin Multiplatform</a>
+                <a href="https://kmp.jetbrains.com/" description="Quickly create and download a multiplatform project template">Kotlin Multiplatform Wizard</a>
+                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html" description="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
+                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html" description="Use Compose Multiplatform to implement one user interface across all platforms">Get started with Compose Multiplatform</a>
             </group>
             <group type="links" display="normal">
                 <link-collection>
@@ -66,7 +67,6 @@
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg" description="Tutorials on using the standard library">Kotlin standard library</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB" description="Talking Kotlin podcast">Talking Kotlin podcast</a>
                     <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA" description="Stories about teaching Kotlin">Kotlin for educators</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxS9GQ0HtzUG1a7WQ2cvF6U" description="Talks from the Kotlin Online Event 2021">Kotlin Online Event 2021</a>
                 </link-collection>
                 <link-collection>
                     <title>Stay in touch and contribute</title>

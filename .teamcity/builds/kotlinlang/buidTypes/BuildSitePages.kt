@@ -9,7 +9,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
+private const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
 object BuildSitePages : BuildType({
   name = "Build site pages"
@@ -125,6 +125,7 @@ object BuildSitePages : BuildType({
                 """.trimIndent()
       }
     }
+
     dependency(BuildReferenceDocs) {
       snapshot {
         onDependencyFailure = FailureAction.FAIL_TO_START
