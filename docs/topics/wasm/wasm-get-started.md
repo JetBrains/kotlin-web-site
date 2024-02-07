@@ -28,7 +28,7 @@ Create a project using the Kotlin Multiplatform wizard:
 
 1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 
-   > You need at least Java 11 as your Gradle JVM for the examples to load successfully.
+   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
    >
    {type="note"}
 
@@ -72,6 +72,7 @@ Alternatively, you can run the following command in the terminal from the `compo
 ```bash
 ./gradlew wasmJsBrowserDistribution
 ```
+
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
 folder:
 
