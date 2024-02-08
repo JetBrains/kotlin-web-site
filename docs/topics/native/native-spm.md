@@ -10,11 +10,11 @@ capability of Kotlin Gradle.
 
 ## Prepare locations for the files to be uploaded
 
-To make your framework available to be consumed, you will need to upload two files to be available for download,
-a zip archive of the XCFramework itself and the `Package.swift` file.
-
-The ZIP archive of the XCFramework should be uploaded to a convenient file storage with direct access (for example,
-S3, GitHub Releases, or a Maven repository). Choose the option that is easiest to integrate into your workflow.
+To make your framework available to be consumed, you will need to upload two files:
+* A ZIP archive of the XCFramework itself should be uploaded to a convenient file storage with direct access (for example,
+  S3, GitHub Releases, or a Maven repository). Choose the option that is easiest to integrate into your workflow.
+* The `Package.swift` file describing the package needs to be placed in a Git repository. You need to decide which
+  repository to use. Pros and cons for several options are discussed below.
 
 ### Options for Package.swift distribution
 The `Package.swift` that describes the Swift Package needs to be placed in a Git repository:
@@ -34,10 +34,10 @@ The `Package.swift` that describes the Swift Package needs to be placed in a Git
 
 Create or adjust a Git repository as needed. Now you are ready to create the package files.
 
-## Create the XCFramework and the package description files
+## Create the XCFramework and the `Package.swift` file
 
-> The following example shows how to provide an SPM package for a Kotlin Multiplatform project with native UI
-> implementations. For projects using Compose Multiplatform, substitute `shared` in code examples for `composeApp`.
+> The following example assumes that the shared code of your KPM project is stored in the `shared` module.
+> If your project is structured differently, substitute "shared" in code and path examples with the name of your module.  
 >
 {type="tip"}
 
@@ -58,6 +58,8 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
          iosSimulatorArm64(),
       ).forEach {
            it.binaries.framework {
+   
+              // This is the name of the module that will be imported in the consumer project
               baseName = "Shared"
               xcf.add(this)
            }
@@ -66,10 +68,15 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
    }
    ```
 2. Sync the updated Gradle configuration.
-3. Run the Gradle task to create the framework: `./gradlew :shared:assembleSharedReleaseXCFramework`
-4. The resulting framework will be created as the `shared/build/XCFrameworks/release/shared.xcframework` file in your project directory.
-5. Put the `shared.xcframework` file in a ZIP archive and upload it to a file storage with direct access.
-6. Create a `Package.swift` file with the following code:
+3. Run the Gradle task to create the framework:
+   
+   `./gradlew :shared:assembleSharedReleaseXCFramework`
+4. The resulting framework will be created as the `shared/build/XCFrameworks/release/shared.xcframework` folder in your project directory.
+5. Put the `shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
+   
+   `swift package compute-checksum shared.xcframework.zip`
+6. Upload the ZIP file to the file storage of your choice.
+7. Create a `Package.swift` file with the following code:
    ```Swift
    // swift-tools-version:5.3
    import PackageDescription
@@ -83,11 +90,16 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
          .library(name: "shared", targets: ["shared"])
       ],
       targets: [
-         .binaryTarget(name: "shared", url: "<link to the uploaded XCFramework ZIP file>")
-      ],
+         .binaryTarget(
+            name: "shared",
+            url: "<link to the uploaded XCFramework ZIP file>"),
+            checksum:"<checksum calculated for the ZIP file>"
+      ]
    )
    ```
-7. Upload the file to the repository you settled on earlier.
+8. Push the `Package.swift` file to the repository you settled on earlier.
+   
+   Make sure to create a git tag with the Semantic Version of the package
 
 Now that both files are accessible, you can try and set up the dependency:
 * In an Xcode project, choose **File | Add Package Dependencies...** and provide the Git URL for the `Package.swift` file.
