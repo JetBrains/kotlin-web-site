@@ -5,3 +5,9 @@
 .darkTheme {
     background: #19191C;
 }
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
