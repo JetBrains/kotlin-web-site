@@ -3,11 +3,8 @@
 Exceptions are key tools for handling runtime errors, designed to maintain program flow and prevent crashes.
 Kotlin simplifies exception management by treating all exceptions as unchecked, an approach also seen in languages like 
 C#. This means that exceptions can be caught but are not required to be explicitly handled or declared, unlike in Java. 
-If you want to alert callers about possible exceptions when calling Kotlin code from Java, Swift, or Objective-C, you 
-can use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throws/) annotation. For more information 
-about using this annotation, see 
-[Calling Kotlin from Java](https://kotlinlang.org/docs/java-to-kotlin-interop.html#checked-exceptions) and 
-[Interoperability with Swift/Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#errors-and-exceptions).
+For more information about how Kotlin handles exceptions when interacting with Java, Swift, and Objective-C, see 
+[Exception interoperability with Java, Swift, and Objective-C](#exception-interoperability-with-java-swift-and-objective-c).
 
 Exceptions are represented by subclasses of the 
 [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/) class, which are subclasses of the 
@@ -63,9 +60,9 @@ For example:
 ```kotlin
 fun main() {
     val userInput = -1
-///sampleStart
+//sampleStart
     require(userInput >= 0) { "Input must be non-negative" }
-///sampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -76,9 +73,9 @@ This function is used to verify the state of an object or variable. Here's an ex
 ```kotlin
 fun main() {
     val userInput = -1
-    ///sampleStart
+//sampleStart    
     check(userInput >= 0) { "Input must be non-negative" }
-    ///sampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -99,7 +96,7 @@ try {
 }
 ```
 
-> The Kotlin idiomatic way is to use `try-catch` as an expression so it has a return value. For example:
+> The Kotlin idiomatic way is to use `try-catch` as an expression, so it has a return value. For example:
 >
 > ```kotlin
 > val result = try { 
@@ -154,10 +151,11 @@ specific one, the specific exception would never be reached, as the general catc
 > 
 > {type="tip"}
 
-The `finally` block in Kotlin is used to execute code after the `try` and `catch` block(s) have been completed. 
-The `finally` block is executed regardless if an exception was thrown or caught. You can use it for cleanup tasks, such 
-as closing files or network connections, ensuring that certain operations are completed no matter what happens in the 
-`try-catch` blocks.
+When working with resources like files or network connections, ensuring that they are properly released or closed is crucial.
+This is where the `finally` block in Kotlin plays a vital role. 
+It is mainly used for code cleanup after the execution of `try` and `catch` block(s), guaranteeing that the code 
+in the `finally` block runs regardless of whether an exception was thrown or caught. 
+This ensures that resources acquired in the `try` block are always released, preventing potential resource leaks.
 
 Here is how you would typically use the `try-catch-finally` blocks together:
 
@@ -255,6 +253,16 @@ As you can see, the `finally` block guarantees that the resource is closed, rega
 
 In Kotlin, you have the flexibility to use only a `catch` block, only a `finally` block, or both, depending on your 
 needs, but a `try` block must always be accompanied by at least one `catch` block or a `finally` block.
+
+### Exception interoperability with Java, Swift, and Objective-C
+
+Since Kotlin treats all exceptions as unchecked, it can lead to complications when such exceptions are called from 
+languages that distinguish between checked and unchecked exceptions. 
+To address this disparity in exception handling between Kotlin and languages like Java, Swift, and Objective-C, 
+you can use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throws/) annotation. 
+This annotation alerts callers about possible exceptions. 
+For more information, see [Calling Kotlin from Java](https://kotlinlang.org/docs/java-to-kotlin-interop.html#checked-exceptions) and 
+[Interoperability with Swift/Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#errors-and-exceptions).
 
 ### The Nothing type
 
@@ -458,44 +466,21 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Now, we can analyze the output. The first line is the description of the exception:
+Running this code in a JVM environment produces the following output:
+
+```kotlin
+Exception in thread "main" java.lang.Exception: This is an exception!
+    at MainKt.main(Main.kt:3)
+    at MainKt.main(Main.kt)
+```
+
+The first line is the description of the exception:
 
 `Exception in thread "main" java.lang.Exception: This is an exception!`: This line describes the exception that was thrown. 
-It includes the type of exception (`java.lang.Exception`), the thread in which it occurred (`main`), and the message 
+It includes the type of exception (`java.lang.Exception`), the thread where it occurred (`main`), and the message 
 associated with the exception ("This is an exception!").
 
 Each line that starts with an "`at`" after the exception description is the stack trace. A single line is called a stack trace element or a stack frame:
 
-* `at FileKt.main (File.kt:3)`:  This line shows the method call (`FileKt.main`) and the source file and line number where the call was made (`File.kt:3`). The line numbers indicate where in the code the current method was called.
-* `at FileKt.main (File.kt:-1)`: The line number `-1` or special markers like `-2` often indicate native or internal JVM methods where the source code mapping is not directly available.
-* `at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (:-2)`: This is also a stack trace element, which represents an internal JVM method call, without a specific source code line reference.
-
-You can also create a stack trace without throwing an exception by using the `Thread.currentThread().stackTrace` property:
-
-```kotlin
-fun main() {
-    printCurrentStackTrace()
-}
-
-//sampleStart
-fun printCurrentStackTrace() {
-    val stackTraceElements = Thread.currentThread().stackTrace
-
-    for (i in 1 until stackTraceElements.size) {
-        val element = stackTraceElements[i]
-        println("at ${element.className}.${element.methodName}(${element.fileName}:${element.lineNumber})")
-//sampleEnd        
-    }
-}
-```
-{kotlin-runnable="true"}
-
-In the provided code, we have slightly modified the output format of the stack trace to more closely resemble the format 
-typically seen in exception stack traces. This is achieved by custom formatting the `StackTraceElement` objects to include 
-the "`at`" prefix, followed by the class name, method name, file name, and line number, mirroring the 
-conventional presentation of an exception's stack trace.
-
-## What's next?
-
-* For information about Java interoperability, see the section on exceptions on the [Java interoperability page](java-interop.md#checked-exceptions).
-* Check out exception-related idioms on the [Idioms page](idioms.md#try-catch-expression).
+* `at MainKt.main (Main.kt:3)`: This line shows the method call (`MainKt.main`) and the source file and line number where the call was made (`Main.kt:3`). The line numbers indicate where in the code the current method was called.
+* `at MainKt.main (Main.kt)`: This line shows the entry point into the `main` function.
