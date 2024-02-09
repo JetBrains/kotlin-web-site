@@ -127,7 +127,8 @@
 
     <toc-element toc-title="Multiplatform development">
         <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
-        <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html" toc-title="Understand project structure"/>
+        <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure"/>
+        <toc-element id="multiplatform-advanced-project-structure.md" toc-title="Explore advanced project structure"/>
         <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html"/>
         <toc-element toc-title="Share code">
             <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
