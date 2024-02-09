@@ -1,7 +1,8 @@
 [//]: # (title: Sealed classes and interfaces)
 
 _Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
-Sealed classes and interfaces, in contrast to `internal` classes, ensure inherent exhaustiveness in `when` expressions within their declared module or package.
+Unlike `open` classes, which allow unrestricted subclassing, sealed classes and interfaces ensure inherent exhaustiveness 
+in `when` expressions, thereby offering a more controlled hierarchy.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
 the module and package within which the sealed class is defined. 
 
@@ -38,7 +39,7 @@ object RuntimeError : Error
 The hierarchy of our sealed interface and sealed class example looks like this:
 ![Hierarchy Illustration of Sealed Classes and Interfaces](sealedClasses_interfaces.png){width=600}
 
-A sealed class itself is an [abstract](classes.md#abstract-classes) and cannot be instantiated directly. 
+A sealed class itself is always an [abstract](classes.md#abstract-classes) and as a result cannot be instantiated directly. 
 However, it may contain or inherit constructors. These constructors are not for creating instances of the sealed class itself but for its subclasses.
 Let's look at an example where we have a sealed class called `Error` with several subclasses, which we instantiate:
 
@@ -56,10 +57,12 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: the set of values
-for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
-of a sealed class can have _multiple_ instances, each with its own state. 
-To illustrate this, consider error handling as an example. In our example, the `sealed class Error` with several subclasses uses an `enum` to represent error severity. The constructor of each subclass initializes the `severity` and can change its state:
+Sealed classes share a restriction over the set of values with [`enum`](enum-classes.md) classes.
+Each enum constant exists only as a _single instance_, whereas subclasses
+of a sealed class may have _multiple_ instances, each with its own state. 
+To illustrate this, consider error handling as an example. In our example, the `sealed class Error` along with its 
+several subclasses, employs an `enum` to denote error severity.
+Each subclass constructor initializes the `severity` and can alter its state:
 
 ```kotlin
 enum class ErrorSeverity { MINOR, MAJOR, CRITICAL }
@@ -125,17 +128,18 @@ Here's an example demonstrating this with a `when` expression:
 
 ```kotlin
 // Sealed class and its subclasses
-sealed class Error
-class FileReadError(val file: String): Error()
-class DatabaseError(val source: String): Error()
-object RuntimeError : Error()
+sealed class Error {
+    class FileReadError(val file: String): Error()
+    class DatabaseError(val source: String): Error()
+    object RuntimeError : Error()
+}
 
 //sampleStart
 // Function to log errors
 fun log(e: Error) = when(e) {
-    is FileReadError -> println("Error while reading file ${e.file}")
-    is DatabaseError -> println("Error while reading from database ${e.source}")
-    is RuntimeError -> println("Runtime error")
+    is Error.FileReadError -> println("Error while reading file ${e.file}")
+    is Error.DatabaseError -> println("Error while reading from database ${e.source}")
+    Error.RuntimeError -> println("Runtime error")
     // No `else` clause is required because all the cases are covered
 }
 //sampleEnd
@@ -143,9 +147,9 @@ fun log(e: Error) = when(e) {
 // List all errors
 fun main() {
     val errors = listOf(
-        FileReadError("example.txt"),
-        DatabaseError("usersDatabase"),
-        RuntimeError
+        Error.FileReadError("example.txt"),
+        Error.DatabaseError("usersDatabase"),
+        Error.RuntimeError
     )
 
     errors.forEach { log(it) }
