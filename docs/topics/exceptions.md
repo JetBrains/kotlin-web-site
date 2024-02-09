@@ -468,7 +468,7 @@ fun main() {
 
 Running this code in a JVM environment produces the following output:
 
-```kotlin
+```text
 Exception in thread "main" java.lang.Exception: This is an exception!
     at MainKt.main(Main.kt:3)
     at MainKt.main(Main.kt)
