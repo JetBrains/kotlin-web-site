@@ -25,12 +25,6 @@ body._no-scroll {
     overflow: hidden;
 }
 
-html,
-body,
-#__next {
-    height: 100%;
-}
-
 body {
     /* Fix for mobile menu in safari*/
     right: 0;
