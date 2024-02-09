@@ -42,17 +42,17 @@ object BuildSitePages : BuildType({
             name = "Build html pages"
             scriptContent = """
                 #!/bin/bash
-              
+                
                 set -x
-              
+                
                 cat $kotlinWebsiteSetup
                 source $kotlinWebsiteSetup
-              
+                
                 ## refresh packages
-                pip install -r requirements.txt
-                npm i -g yarn  
+                npm i -g yarn
                 yarn install --frozen-lockfile
-              
+                pip install -r requirements.txt
+                
                 ## build
                 python kotlin-website.py build
             """.trimIndent()
@@ -69,11 +69,15 @@ object BuildSitePages : BuildType({
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
                 #cp -fR _webhelp/mobile build/docs/
+                
                 mv build dist
+                
                 cp -fR spec dist/
                 cp -fR _assets dist/
+                
                 cp -fR out/* dist/
                 cp -fR out/_next dist/_next/
+
                 cp -fR libs/* dist/api/
             """.trimIndent()
         }
