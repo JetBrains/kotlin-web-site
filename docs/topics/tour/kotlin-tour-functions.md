@@ -241,15 +241,11 @@ calls it by using default parameter values and named arguments so that the code 
 
 |---|---|
 ```kotlin
-fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
-    ((hours * 60) + minutes) * 60 + seconds
-
+fun intervalInSeconds(){
+// Write your code here
+}
 fun main() {
-    println(intervalInSeconds(1, 20, 15))
-    println(intervalInSeconds(0, 1, 25))
-    println(intervalInSeconds(2, 0, 0))
-    println(intervalInSeconds(0, 10, 0))
-    println(intervalInSeconds(1, 0, 1))
+    println(intervalInSeconds())
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-3"}
