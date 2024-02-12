@@ -111,7 +111,7 @@ fun main(){
     // Purr purr
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-local-variables" validate="false"}
 
 #### Type checks with logical `or` operator
 
@@ -133,9 +133,11 @@ fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
         // signalStatus is smart cast to common supertype: Status
         signalStatus.signal()
-        // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast to type: Any
-        // So calling the signal() function, triggered an Unresolved reference error
-        // The signal() function can only be called successfully after another type check:
+        // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast 
+        // to type: Any so calling the signal() function, triggered an
+        // Unresolved reference error. The signal() function can only 
+        // be called successfully after another type check:
+        
         // check(signalStatus is Status)
         // signalStatus.signal()
     }
@@ -156,7 +158,7 @@ Specifically, inline functions are now treated as having an implicit
 [`callsInPlace`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/-contract-builder/calls-in-place.html) contract.
 So any lambda functions passed to an inline function are called "in place". Since lambda functions are called in place, 
 the compiler knows that a lambda function can't leak references to any variables contained within its function body. 
-The compiler can use this knowledge along with other compiler analyses to decide if it's safe to smart cast any of the captured variables. 
+The compiler uses this knowledge along with other compiler analyses to decide if it's safe to smart cast any of the captured variables. 
 For example:
 
 ```kotlin
@@ -171,15 +173,18 @@ fun nextProcessor(): Processor? = null
 fun runProcessor(): Processor? {
     var processor: Processor? = null
     inlineAction {
-        // In Kotlin %kotlinEapVersion%, the compiler knows that processor is a local variable
-        // and inlineAction is an inline function so references to processor
-        // can't be leaked. Therefore it's safe to smart cast processor.
+        // In Kotlin %kotlinEapVersion%, the compiler knows that processor 
+        // is a local variable and inlineAction is an inline function so 
+        // references to processor can't be leaked. Therefore, it's safe 
+        // to smart cast processor.
+      
         // If processor isn't null, processor is smart cast
         if (processor != null) {
-            // The compiler knows that processor isn't null so no safe call is needed
+            // The compiler knows that processor isn't null so no safe call 
+            // is needed
             processor.process()
 
-            // In Kotlin 1.9.20, you have to perform a safe call
+            // In Kotlin 1.9.20, you have to perform a safe call:
             // processor?.process()
         }
 
@@ -199,12 +204,14 @@ For example:
 ```kotlin
 class Holder(val provider: (() -> Unit)?) {
     fun process() {
-        // In Kotlin %kotlinEapVersion%, if provider isn't null then provider is smart cast
+        // In Kotlin %kotlinEapVersion%, if provider isn't null then
+        // provider is smart cast
         if (provider != null) {
             // The compiler knows that provider isn't null
             provider()
 
-            // In 1.9.20 the compiler doesn't know that provider isn't null so it triggers an error:
+            // In 1.9.20 the compiler doesn't know that provider isn't 
+            // null so it triggers an error:
             // Reference has a nullable type '(() -> Unit)?', use explicit '?.invoke()' to make a function-like call instead
         }
     }
@@ -224,20 +231,22 @@ class Holder(val provider: Provider?, val processor: Processor?) {
     fun process() {
         if (provider != null) {
             provider() 
-            // In 1.9.20 the compiler triggers an error: Reference has a nullable type 'Provider?', use explicit '?.invoke()' to make a function-like call instead
-
+            // In 1.9.20 the compiler triggers an error: 
+            // Reference has a nullable type 'Provider?' use explicit '?.invoke()' to make a function-like call instead
         }
     }
 }
 ```
 
 #### Exception handling
+
 In Kotlin %kotlinEapVersion%, we've made improvements to exception handling so that smart cast information can be passed
 on to `catch` and `finally` blocks. This change makes your code safer as the compiler keeps track of whether 
 your object has a nullable type or not.
 For example:
 
 ```kotlin
+//sampleStart
 fun testString() {
     var stringInput: String? = null
     // stringInput is smart cast to String type
@@ -247,27 +256,29 @@ fun testString() {
         println(stringInput.length)
         // 0
 
-        // The compiler rejects previous smart cast information for stringInput. 
-        // Now stringInput has String? type
+        // The compiler rejects previous smart cast information for 
+        // stringInput. Now stringInput has String? type.
         stringInput = null
 
         // Trigger an exception
         if (2 > 1) throw Exception()
         stringInput = ""
     } catch (exception: Exception) {
-        // In Kotlin %kotlinEapVersion%, the compiler knows stringInput can be null so stringInput stays nullable
+        // In Kotlin %kotlinEapVersion%, the compiler knows stringInput 
+        // can be null so stringInput stays nullable.
         println(stringInput?.length)
         // null
 
-        // In Kotlin 1.9.20, the compiler says that a safe call isn't needed, but this is incorrect
+        // In Kotlin 1.9.20, the compiler says that a safe call isn't
+        // needed, but this is incorrect.
     }
 }
-
+//sampleEnd
 fun main() {
     testString()
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-exception-handling"}
 
 #### Increment and decrement operators
 
@@ -277,7 +288,7 @@ your code could lead to unresolved reference errors. In Kotlin %kotlinEapVersion
 
 ```kotlin
 interface Rho {
-    operator fun inc(): sigma = TODO()
+    operator fun inc(): Sigma = TODO()
 }
 
 interface Sigma : Rho {
@@ -294,28 +305,29 @@ fun main(input: Rho) {
     // Check if unknownObject inherits from interface tau
     if (unknownObject is Tau) {
 
-        // Uses the overloaded inc() operator from interface rho
-        // which smart casts the type of unknownObject to sigma
+        // Uses the overloaded inc() operator from interface Rho
+        // which smart casts the type of unknownObject to Sigma.
         ++unknownObject
 
-        // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type sigma
-        // so the sigma() function is called successfully
+        // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type
+        // Sigma so the sigma() function is called successfully.
         unknownObject.sigma()
 
-        // In Kotlin 1.9.20, the compiler thinks unknownObject has type tau
-        // so calling the sigma() function throws an error
+        // In Kotlin 1.9.20, the compiler thinks unknownObject has type
+        // Tau so calling the sigma() function throws an error.
 
-        // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type sigma
-        // so calling the tau() function throws an error
+        // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type
+        // Sigma so calling the tau() function throws an error.
         unknownObject.tau()
         // Unresolved reference 'tau'
 
-        // In Kotlin 1.9.20, the compiler mistakenly thinks that unknownObject has type tau
-        // so the tau() function is called successfully
+        // In Kotlin 1.9.20, the compiler mistakenly thinks that 
+        // unknownObject has type Tau so the tau() function is
+        // called successfully.
     }
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-increment-decrement-operators" validate="false"}
 
 
 ### Compiler plugins support
@@ -353,16 +365,16 @@ Kotlin Playground supports the 2.0.0-Beta4 release. [Check it out!](https://pl.k
 
 ### Support in IntelliJ IDEA
 
-IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode from 
-[IntelliJ IDEA 2024.1 EAP 1](https://blog.jetbrains.com/idea/2024/01/intellij-idea-2024-1/#intellij-idea%E2%80%99s-k2-kotlin-mode-now-in-alpha).
-
-We are actively collecting feedback about K2 Kotlin mode.
-Please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P)!
-
-> The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been significantly improved, 
+> The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been significantly improved,
 > but not all IDE features are supported yet.
 >
 {type="warning"}
+
+IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode from 
+[IntelliJ IDEA 2024.1 EAP 1](https://blog.jetbrains.com/idea/2024/01/intellij-idea-2024-1/#intellij-idea%\E2%80%99s-k2-kotlin-mode-now-in-alpha).
+
+We are actively collecting feedback about K2 Kotlin mode.
+Please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P)!
 
 ### Leave your feedback on the new K2 compiler
 
@@ -373,7 +385,7 @@ We would appreciate any feedback you may have!
   and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
 * Report any problems you face with the new K2 compiler
   in [our issue tracker](https://kotl.in/issue).
-* [Enable the **Send usage statistics** option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
+* [Enable the Send usage statistics option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
 ## Gradle improvements
@@ -554,10 +566,10 @@ Add these properties to the `gradle.properties` file in your projects for them t
 
 Before Kotlin 2.0.0-Beta4, if you had a [Kotlin/Native target](native-target-support.md) configured in the Gradle build script
 of your multiplatform project, then Gradle would always download the Kotlin/Native compiler in the 
-[configuration phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:configuration). 
-Even if there was no task to compile code for a Kotlin/Native target. Downloading the Kotlin/Native compiler in this way 
-was particularly inefficient for Linux users that had macOS targets in their projects. 
-For example, to perform tests or checks with their Kotlin project as part of a CI process.
+[configuration phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:configuration).
+Even if there was no task to compile code for a Kotlin/Native target due to run in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution).
+Downloading the Kotlin/Native compiler in this way was particularly inefficient for users who only wanted to check the 
+JVM or JavaScript code in their projects. For example, to perform tests or checks with their Kotlin project as part of a CI process.
 
 In Kotlin 2.0.0-Beta4, we changed this behavior in the Kotlin Gradle plugin so that the Kotlin/Native 
 compiler is downloaded in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution) 
@@ -608,17 +620,16 @@ To make it easier to work with JavaScript APIs, in Kotlin 2.0.0-Beta4 we provide
 [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects),
 that you can use to create type-safe plain JavaScript objects.
 The plugin checks your code for any [external interfaces](wasm-js-interop.md#external-interfaces) 
-that have a `@JsPlainObject` annotation and then adds:
+that have a `@JsPlainObject` annotation and adds:
 
-* An inline `invoke` operator function inside the companion object that you can use as a constructor.
-* A `.copy()` function that you can use to create a copy of your object while adjusting some of its properties.
+* an inline `invoke` operator function inside the companion object that you can use as a constructor.
+* a `.copy()` function that you can use to create a copy of your object while adjusting some of its properties.
 
 For example:
 
 ```kotlin
 import kotlinx.js.JsPlainObject
 
-//sampleStart
 @JsPlainObject
 external interface User {
     var name: String
@@ -637,7 +648,6 @@ fun main() {
     println(JSON.stringify(copy)) 
     // { "name": "Name", "age": 11, "email": "some@user.com" }
 }
-// sampleEnd
 ```
 
 Any JavaScript objects created with this approach are safer because instead of only seeing errors at runtime, 
@@ -658,8 +668,8 @@ external interface FetchOptions {
 // A wrapper for Window.fetch
 suspend fun fetch(url: String, options: FetchOptions? = null) = TODO("Add your custom behavior here")
 
-// A compile-time error is triggered as method is not recognized
-fetch("https://google.com", options = FetchOptions(method = "POST")) 
+// A compile-time error is triggered as metod is not recognized
+fetch("https://google.com", options = FetchOptions(metod = "POST")) 
 // A compile-time error is triggered as method is required
 fetch("https://google.com", options = FetchOptions(body = "SOME STRING")) 
 ```
@@ -668,12 +678,14 @@ In comparison, if you use the `js()` function instead to create your JavaScript 
 errors are only found at runtime or aren't triggered at all:
 
 ```kotlin
-suspend fun fetch(url: String, options: FetchOptions? = null) = ...
+suspend fun fetch(url: String, options: FetchOptions? = null) = TODO("Add your custom behavior here")
 
-// No error is triggered. The wrong method (GET) is used
-fetch("https://google.com", options = js("{ method: 'POST' }")) 
+// No error is triggered. As metod is not recognized, the wrong method 
+// (GET) is used.
+fetch("https://google.com", options = js("{ metod: 'POST' }")) 
 
-// By default GET method is used, a runtime error is triggered as body should not be present
+// By default, the GET method is used. A runtime error is triggered as 
+// body shouldn't be present.
 fetch("https://google.com", options = js("{ body: 'SOME STRING' }")) 
 // TypeError: Window.fetch: HEAD or GET Request cannot have a body
 ```
@@ -685,7 +697,7 @@ To use the `js-plain-objects` plugin, add the following to your `build.gradle.kt
 
 ```kotlin
 plugins {
-    kotlin("plugin.js-plain-objects") version "%kotlinVersion%"
+    kotlin("plugin.js-plain-objects") version "%kotlinEapVersion%"
 }
 ```
 
@@ -694,7 +706,7 @@ plugins {
 
 ```groovy
 plugins {
-    kotlin "plugin.js-plain-objects" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.js-plain-objects" version "%kotlinEapVersion%"
 }
 ```
 
@@ -704,7 +716,7 @@ plugins {
 ### Support for npm package manager
 
 Previously, it was only possible for the Kotlin Multiplatform Gradle plugin to use [Yarn](https://yarnpkg.com/lang/en/) 
-as a package manager to download and install npm dependencies. From Kotlin %kotlinEapVersion%, you can use [npm](#https://www.npmjs.com/) 
+as a package manager to download and install npm dependencies. From Kotlin %kotlinEapVersion%, you can use [npm](https://www.npmjs.com/) 
 as your package manager instead. Using npm as a package manager means that you have one less tool to manage during your setup. 
 
 For backwards compatibility, Yarn is still the default package manager. To use npm as your package manager, 
