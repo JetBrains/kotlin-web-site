@@ -4,12 +4,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 48px 0;
     max-width: 100%;
     overflow: hidden;
     text-align: center;
+    height: 100%;
 
-    @media (--ktl-ts-min) {
+    @media (--ktl-mm-min) {
         padding: 96px 0;
     }
 }
@@ -20,7 +22,7 @@
 }
 
 .lineBreak {
-    @media (--ktl-ts-min) {
+    @media (--ktl-mm-min) {
         display: none;
     }
 }
