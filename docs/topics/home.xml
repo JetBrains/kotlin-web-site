@@ -44,40 +44,6 @@
                 <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html" description="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
                 <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html" description="Use Compose Multiplatform to implement one user interface across all platforms">Get started with Compose Multiplatform</a>
             </group>
-            <group type="links" display="normal">
-                <link-collection>
-                    <title>Learn Kotlin</title>
-                    <a href="https://play.kotlinlang.org/byExample/overview" description="Simple annotated examples for the Kotlin syntax">Kotlin by example</a>
-                    <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
-                    <a href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" description="Kotlin Core track by JetBrains Academy">JetBrains Academy</a>
-                    <a href="advent-of-code.md" description="Code puzzles in idiomatic Kotlin">Advent of Code</a>
-                    <a href="kotlin-hands-on.md" description="Complete long-form tutorials to fully grasp a technology">Hands-on tutorials</a>
-                    <a href="edu-tools-learner.md"
-                       description="An IDE plugin for learning and teaching programming languages">JetBrains Academy in
-                        IntelliJ IDEA</a>
-                    <a href="books.md" description="The books that we've reviewed and recommend for learning Kotlin">Books</a>
-                </link-collection>
-                <link-collection>
-                    <title>Watch Kotlin videos on YouTube</title>
-                    <a href="https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw" description="Official Kotlin YouTube channel">Kotlin YouTube channel</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmxOJL0GSSZ1Vot4KL2Vwe7x" description="Tutorials on using Kotlin with Spring">Kotlin in Spring Framework</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmx-dpq9nkdaVJX0GnrM1Mp1" description="Webinars on using Kotlin for server-side development">Webinars with experts</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" description="Tutorials on using Kotlin Multiplatform">Kotlin Multiplatform Multiverse</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmyQA0l15nAfE1-pnu6fSvvG" description="Kotlin for competitive programming">Competitive programming</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy6Fz9aq-JMlzk34ce5hJrg" description="Tutorials on using the standard library">Kotlin standard library</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB" description="Talking Kotlin podcast">Talking Kotlin podcast</a>
-                    <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA" description="Stories about teaching Kotlin">Kotlin for educators</a>
-                </link-collection>
-                <link-collection>
-                    <title>Stay in touch and contribute</title>
-                    <a href="contribute.md" description="The ways in which you can help the development of Kotlin">Contribute to Kotlin</a>
-                    <a href="eap.md" description="Preview versions for trying out features before their official releases">Participate in Early Access Program</a>
-                    <a href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" description="Official public Kotlin Slack">Join Kotlin Slack</a>
-                    <a href="https://twitter.com/kotlin" description="Official Kotlin Twitter">Follow Kotlin on Twitter</a>
-                    <a href="https://www.reddit.com/r/Kotlin/" description="Kotlin on Reddit">Chat on Reddit</a>
-                    <a href="https://stackoverflow.com/questions/tagged/kotlin" description="Kotlin on Stack Overflow">Participate in Stack Overflow discussions</a>
-                </link-collection>
-            </group>
         </custom-groups>
     </section-starting-page>
 </topic>
