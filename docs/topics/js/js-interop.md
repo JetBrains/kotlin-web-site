@@ -211,3 +211,22 @@ function usingAsOperator(s) {
     return typeof (tmp$ = s) === 'string' ? tmp$ : throwCCE();
 }
 ```
+## Equality
+
+Kotlin/JS has particular semantics for equality comparison, especially in the case of strings. 
+
+In Kotlin/JS, there is no difference between `===` and `==` operators when comparing strings. The reason is that in Kotlin/JS,
+the `==` operator checks that two values are equal. Meanwhile, the `===` operator checks both that two values are equal 
+and that the types of these two values are also equal. In JS, Kotlin always uses the `===` operator:
+
+ ```kotlin
+ fun main() {
+     val name = "kotlin"
+     val value1 = name.substring(0, 1)
+     val value2 = name.substring(0, 1)
+     
+     println(if (value1 === value2) "yes" else "no")
+     // Prints 'yes' in Kotlin/JS
+     // Prints 'no' in other platforms
+ }
+ ```

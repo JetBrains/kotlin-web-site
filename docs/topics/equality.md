@@ -7,7 +7,8 @@ In Kotlin, there are two types of equality:
 
 ## Structural equality
 
-Structural equality is checked by the `==` operation and its negated counterpart `!=`.
+Structural equality verifies if two objects have the same content or structure. Structural equality is checked by the `==` 
+operation and its negated counterpart `!=`.
 By convention, an expression like `a == b` is translated to:
 
 ```kotlin
@@ -15,56 +16,99 @@ a?.equals(b) ?: (b === null)
 ```
 
 If `a` is not `null`, it calls the `equals(Any?)` function. Otherwise (`a` is `null`), it checks that `b`
-is referentially equal to `null`.
+is referentially equal to `null`:
+
+```kotlin
+fun main() {
+    var a = "hello"
+    var b = "hello"
+    var c = null
+    var d = null
+    var e = d
+
+    println(a == b)
+    // true
+    println(a == c)
+    // false
+    println(c == e)
+    // true
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 Note that there's no point in optimizing your code when comparing to `null` explicitly:
 `a == null` will be automatically translated to `a === null`.
 
+In Kotlin, the `equals()` function is inherited by all classes from the `Any` class. By default, the `equals()` function 
+implements [referential equality](#referential-equality). However, classes in Kotlin can override the `equals()` 
+function to provide a custom equality logic and, in this way, implement structural equality.
+
+Value classes and data classes are two specific types in Kotlin that automatically override `equals()`. 
+Value classes override the `equals()` function to implement structural equality by default.
+
+Similarly, data classes override the `equals()` function to implement structural equality by default. However, if a data class 
+is marked as `final` in the parent class, its `equals()` behavior remains unchanged.
+
+Distinctly, non-data classes (those not declared with the `data` modifier) do not override the 
+`equals()` function by default. Instead, non-data classes implement referential equality behavior inherited from the `Any` class.
+To implement structural equality, non-data classes require a custom equality logic to override the `equals()` function.
+
 To provide a custom equals check implementation, override the
-[`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html) function.
+[`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html) function:
+
+```kotlin
+class Point(val x: Int, val y: Int) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Point) return false
+
+        // Compares properties for structural equality
+        return this.x == other.x && this.y == other.y
+    }
+}
+```
+
 Functions with the same name and other signatures (like `equals(other: Foo)`) don't affect equality checks with
 the operators `==` and `!=`.
-
-While this equality operator (`==`) is called structural equality to distinguish it from the [referential equality](#referential-equality) (`===`),
-its underlying behavior could be referential in nature.
-
-One common scenario where structural equality can exhibit referential behavior is when handling non-data classes, 
-especially those without a custom implementation of the `equals()` function. In fact, this behavior is inherent by default
-in all classes except for [data classes](data-classes.md).
 
 Structural equality has nothing to do with comparison defined by the `Comparable<...>` interface, so only a custom 
 `equals(Any?)` implementation may affect the behavior of the operator. 
 
 ## Referential equality
 
-Referential equality is checked by the `===` operation and its negated counterpart `!==`. `a === b` evaluates to
-true if and only if `a` and `b` point to the same object. For values represented by primitive types at runtime
-(for example, `Int`), the `===` equality check is equivalent to the `==` check.
+Referential equality verifies the memory addresses of two objects to determine if they are the same instance.
 
-> In Kotlin/JS, there is no difference between `===` and `==` operators when comparing strings. The reason is that in Kotlin/JS,
-> the `==` operator checks that two values are equal. Meanwhile, the `===` operator also checks that two values are equal 
-> besides verifying that the types of these two values are equal. In JS, Kotlin always uses the `===` operator:
->
-> ```kotlin
-> fun main() {
->     val name = "kotlin"
->     val value1 = name.substring(0, 1)
->     val value2 = name.substring(0, 1)
->     
->     println(if (value1 === value2) "yes" else "no")
->     // Prints 'yes' in Kotlin/JS
->     // Prints 'no' in other platforms
-> }
-> ```
->
-{type="note"}
+Referential equality is checked by the `===` operation and its negated counterpart `!==`. `a === b` evaluates to
+true if and only if `a` and `b` point to the same object: 
+
+```kotlin
+fun main() {
+    val a = "Hello"
+    val b = a
+    val c = "world"
+    val d = "world"
+
+    println(a === b)
+    // true
+    println(a === c)
+    // false
+    println(c === d)
+    // true
+
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+For values represented by primitive types at runtime
+(for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
 ## Floating-point numbers equality
 
-When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
+Equality checks for `Float` or `Double` operands (nullable or not) follow the 
 [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754). 
 
-Otherwise, structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, `NaN` is considered greater than any other element, including `POSITIVE_INFINITY`, and `-0.0` is not equal to `0.0`.
+For other operand types, structural equality is implemented. This approach disagrees with the IEEE standard, considering 
+that `NaN` is equal to itself, `NaN` is considered greater than any other element (including `POSITIVE_INFINITY`), and `-0.0` is not equal to `0.0`.
 
 For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
 
