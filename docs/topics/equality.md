@@ -102,6 +102,10 @@ fun main() {
 For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
+> For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md) documentation.
+>
+{type="tip"}
+
 ## Floating-point numbers equality
 
 Equality checks for `Float` or `Double` operands (nullable or not) follow the 
