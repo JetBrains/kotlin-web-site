@@ -19,6 +19,8 @@ The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest Int
 You don't need to update the Kotlin plugin in your IDE. 
 All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
 
+For details about IntelliJ IDEA's support for the Kotlin K2 compiler, see [Support in IntelliJ IDEA](#support-in-intellij-idea).
+
 ## Kotlin K2 compiler
 
 The JetBrains team is still working on the stabilization of the new Kotlin K2 compiler.
@@ -74,14 +76,14 @@ In Kotlin %kotlinEapVersion%, we've made improvements related to smart casts in 
 #### Local variables and further scopes
 
 Previously, if a variable was evaluated as not `null` within an `if` condition, 
-the variable was smart cast and information about this variable was shared further within the scope of the `if` block. 
+the variable was smart cast, and information about this variable was shared further within the scope of the `if` block. 
 However, if you declared the variable **outside** the `if` condition, no information about the variable was available 
 within the `if` condition, so it couldn't be smart cast. This behavior was also seen with `when` expressions and `while` loops.
 
 From Kotlin %kotlinEapVersion%, if you declare a variable before using it in your `if`, `when`, or `while` condition 
 then any information collected by the compiler about the variable is accessible in the condition statement and its block for smart casting.
 This can be useful when you want to do things like extract boolean conditions into variables.
-Then you can give the variable a meaningful name, which makes your code easier to read, and easily reuse the variable later in your code.
+Then, you can give the variable a meaningful name, which makes your code easier to read, and easily reuse the variable later in your code.
 For example:
 
 ```kotlin
@@ -99,7 +101,7 @@ fun petAnimal(animal: Any) {
         // isCat was smart cast to type Cat.
         // Therefore, the purr() function is successfully called.
         // In Kotlin 1.9.20, the compiler doesn't know
-        // about the smart cast so calling the purr()
+        // about the smart cast, so calling the purr()
         // function triggers an error.
         animal.purr()
     }
@@ -115,7 +117,7 @@ fun main(){
 
 #### Type checks with logical `or` operator
 
-In Kotlin %kotlinEapVersion%, if you combine type checks for objects with an `or` operator (`||`) then a smart cast 
+In Kotlin %kotlinEapVersion%, if you combine type checks for objects with an `or` operator (`||`), then a smart cast 
 is made to their closest common supertype. Before this change, a smart cast was always made to `Any` type. 
 In this case, you still had to manually check the type of the object afterward before you could access any of its properties or call its functions.
 For example:
@@ -131,10 +133,10 @@ interface Declined : Status
 
 fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
-        // signalStatus is smart cast to common supertype: Status
+        // signalStatus is smart cast to a common supertype Status
         signalStatus.signal()
         // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast 
-        // to type: Any so calling the signal() function, triggered an
+        // to type Any, so calling the signal() function triggered an
         // Unresolved reference error. The signal() function can only 
         // be called successfully after another type check:
         
@@ -174,13 +176,13 @@ fun runProcessor(): Processor? {
     var processor: Processor? = null
     inlineAction {
         // In Kotlin %kotlinEapVersion%, the compiler knows that processor 
-        // is a local variable and inlineAction is an inline function so 
+        // is a local variable, and inlineAction() is an inline function, so 
         // references to processor can't be leaked. Therefore, it's safe 
         // to smart cast processor.
       
         // If processor isn't null, processor is smart cast
         if (processor != null) {
-            // The compiler knows that processor isn't null so no safe call 
+            // The compiler knows that processor isn't null, so no safe call 
             // is needed
             processor.process()
 
@@ -204,14 +206,14 @@ For example:
 ```kotlin
 class Holder(val provider: (() -> Unit)?) {
     fun process() {
-        // In Kotlin %kotlinEapVersion%, if provider isn't null then
+        // In Kotlin %kotlinEapVersion%, if provider isn't null, then
         // provider is smart cast
         if (provider != null) {
             // The compiler knows that provider isn't null
             provider()
 
-            // In 1.9.20 the compiler doesn't know that provider isn't 
-            // null so it triggers an error:
+            // In 1.9.20, the compiler doesn't know that provider isn't 
+            // null, so it triggers an error:
             // Reference has a nullable type '(() -> Unit)?', use explicit '?.invoke()' to make a function-like call instead
         }
     }
@@ -231,7 +233,7 @@ class Holder(val provider: Provider?, val processor: Processor?) {
     fun process() {
         if (provider != null) {
             provider() 
-            // In 1.9.20 the compiler triggers an error: 
+            // In 1.9.20, the compiler triggers an error: 
             // Reference has a nullable type 'Provider?' use explicit '?.invoke()' to make a function-like call instead
         }
     }
@@ -257,7 +259,7 @@ fun testString() {
         // 0
 
         // The compiler rejects previous smart cast information for 
-        // stringInput. Now stringInput has String? type.
+        // stringInput. Now stringInput has the String? type.
         stringInput = null
 
         // Trigger an exception
@@ -265,7 +267,7 @@ fun testString() {
         stringInput = ""
     } catch (exception: Exception) {
         // In Kotlin %kotlinEapVersion%, the compiler knows stringInput 
-        // can be null so stringInput stays nullable.
+        // can be null, so stringInput stays nullable.
         println(stringInput?.length)
         // null
 
@@ -302,27 +304,27 @@ interface Tau {
 fun main(input: Rho) {
     var unknownObject: Rho = input
 
-    // Check if unknownObject inherits from interface tau
+    // Check if unknownObject inherits from the Tau interface
     if (unknownObject is Tau) {
 
-        // Uses the overloaded inc() operator from interface Rho
+        // Uses the overloaded inc() operator from interface Rho,
         // which smart casts the type of unknownObject to Sigma.
         ++unknownObject
 
         // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type
-        // Sigma so the sigma() function is called successfully.
+        // Sigma, so the sigma() function is called successfully.
         unknownObject.sigma()
 
         // In Kotlin 1.9.20, the compiler thinks unknownObject has type
-        // Tau so calling the sigma() function throws an error.
+        // Tau, so calling the sigma() function throws an error.
 
         // In Kotlin %kotlinEapVersion%, the compiler knows unknownObject has type
-        // Sigma so calling the tau() function throws an error.
+        // Sigma, so calling the tau() function throws an error.
         unknownObject.tau()
         // Unresolved reference 'tau'
 
         // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau so the tau() function is
+        // unknownObject has type Tau, so the tau() function is
         // called successfully.
     }
 }
@@ -616,7 +618,7 @@ This version brings the following changes:
 >
 {type="warning"}
 
-To make it easier to work with JavaScript APIs, in Kotlin 2.0.0-Beta4 we provide a new plugin: 
+To make it easier to work with JavaScript APIs, in Kotlin 2.0.0-Beta4, we provide a new plugin: 
 [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects),
 that you can use to create type-safe plain JavaScript objects.
 The plugin checks your code for any [external interfaces](wasm-js-interop.md#external-interfaces) 
@@ -651,9 +653,9 @@ fun main() {
 ```
 
 Any JavaScript objects created with this approach are safer because instead of only seeing errors at runtime, 
-you can see them at compile time, or even highlighted by your IDE.
+you can see them at compile time or even highlighted by your IDE.
 
-Consider this example that uses a `fetch()` function to interact with a JavaScript API, using external interfaces 
+Consider this example that uses a `fetch()` function to interact with a JavaScript API using external interfaces 
 to describe the shape of the JavaScript objects:
 
 ```kotlin
@@ -669,6 +671,7 @@ external interface FetchOptions {
 suspend fun fetch(url: String, options: FetchOptions? = null) = TODO("Add your custom behavior here")
 
 // A compile-time error is triggered as metod is not recognized
+// as method
 fetch("https://google.com", options = FetchOptions(metod = "POST")) 
 // A compile-time error is triggered as method is required
 fetch("https://google.com", options = FetchOptions(body = "SOME STRING")) 
@@ -719,7 +722,7 @@ Previously, it was only possible for the Kotlin Multiplatform Gradle plugin to u
 as a package manager to download and install npm dependencies. From Kotlin %kotlinEapVersion%, you can use [npm](https://www.npmjs.com/) 
 as your package manager instead. Using npm as a package manager means that you have one less tool to manage during your setup. 
 
-For backwards compatibility, Yarn is still the default package manager. To use npm as your package manager, 
+For backward compatibility, Yarn is still the default package manager. To use npm as your package manager, 
 in your `gradle.properties` file, set the following property:
 
 ```kotlin
