@@ -10,8 +10,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! It mostly covers the stabilization of the [new Kotlin K2 compiler](#kotlin-k2-compiler), 
-which reached its Beta status for all targets since 1.9.20. In addition, there are also [improvements for the Gradle build tool](#gradle-improvements)
-as well as changes in [Kotlin/Wasm](#generation-of-typescript-declaration-files-in-kotlin-wasm) and [Kotlin/JS](#kotlin-js).
+which reached its Beta status for all targets since 1.9.20. In addition, there are [improvements for the Gradle build tool](#gradle-improvements)
+as well as changes in [Kotlin/JS](#kotlin-js).
 
 ## IDE support
 
@@ -576,34 +576,6 @@ JVM or JavaScript code in their projects. For example, to perform tests or check
 In Kotlin 2.0.0-Beta4, we changed this behavior in the Kotlin Gradle plugin so that the Kotlin/Native 
 compiler is downloaded in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution) 
 **only** when a compilation is requested for a Kotlin/Native target.
-
-## Generation of TypeScript declaration files in Kotlin/Wasm
-
-> Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
-> It may be dropped or changed at any time.
->
-{type="warning"}
-
-In Kotlin 2.0.0-Beta4, the Kotlin/Wasm compiler is now capable of generating TypeScript definitions from any 
-`@JsExport` declarations in your Kotlin code. These definitions can be used by IDEs and JavaScript tools to provide code autocompletion, 
-help with type-checks, and make it easier to include Kotlin code in JavaScript.
-
-The Kotlin/Wasm compiler collects any [top-level functions](wasm-js-interop.md#functions-with-the-jsexport-annotation) 
-marked with `@JsExport` and automatically generates TypeScript definitions in a `.d.ts` file.
-
-To generate TypeScript definitions, in your `build.gradle.kts` file in the wasmJs section, 
-add the `generateTypeScriptDefinitions()` function:
-
-```kotlin
-kotlin {
-    wasmJs {
-        binaries.executable()
-        browser {
-        }
-        generateTypeScriptDefinitions()
-    }
-}
-```
 
 ## Kotlin/JS
 
