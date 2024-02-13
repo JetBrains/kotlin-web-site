@@ -46,8 +46,8 @@ function to provide a custom equality logic and, in this way, implement structur
 Value classes and data classes are two specific types in Kotlin that automatically override `equals()`. 
 Value classes override the `equals()` function to implement structural equality by default.
 
-Similarly, data classes override the `equals()` function to implement structural equality by default. However, if a data class 
-is marked as `final` in the parent class, its `equals()` behavior remains unchanged.
+Similarly, data classes override the `equals()` function to implement structural equality by default. However, if the
+`equals()` function is marked as `final` in the parent class, its behavior remains unchanged.
 
 Distinctly, non-data classes (those not declared with the `data` modifier) do not override the 
 `equals()` function by default. Instead, non-data classes implement referential equality behavior inherited from the `Any` class.
@@ -83,10 +83,10 @@ true if and only if `a` and `b` point to the same object:
 
 ```kotlin
 fun main() {
-    val a = "Hello"
-    val b = a
-    val c = "world"
-    val d = "world"
+    var a = "Hello"
+    var b = a
+    var c = "world"
+    var d = "world"
 
     println(a === b)
     // true
@@ -102,17 +102,18 @@ fun main() {
 For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
-> For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md) documentation.
+> For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md#equality) documentation.
 >
 {type="tip"}
 
 ## Floating-point numbers equality
 
-Equality checks for `Float` or `Double` operands (nullable or not) follow the 
-[IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754). 
+When the equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
+[IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754).
 
-For other operand types, structural equality is implemented. This approach disagrees with the IEEE standard, considering 
-that `NaN` is equal to itself, `NaN` is considered greater than any other element (including `POSITIVE_INFINITY`), and `-0.0` is not equal to `0.0`.
+Otherwise, structural equality is implemented. This approach disagrees with the standard, considering 
+that `NaN` is equal to itself, `NaN` is considered greater than any other element (including `POSITIVE_INFINITY`), and 
+`-0.0` is not equal to `0.0`.
 
 For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
 

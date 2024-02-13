@@ -214,11 +214,13 @@ function usingAsOperator (s) {
 
 ## Equality
 
-Kotlin/JS has particular semantics for equality comparison, especially in the case of strings. 
+Kotlin/JS has particular semantics for equality comparison. 
 
-In Kotlin/JS, there is no difference between `===` and `==` operators when comparing strings. The reason is that in Kotlin/JS,
-the `==` operator checks that two values are equal. Meanwhile, the `===` operator checks both that two values are equal 
-and that the types of these two values are also equal. In JS, Kotlin always uses the `===` operator:
+In Kotlin/JS, the Kotlin [referential equality](equality.md#referential-equality) operator (`===`) always translates to the JavaScript
+[strict equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) operator (`===`) when comparing strings. 
+
+The JavaScript `===` operator checks not only that two values are equal but also that
+the types of these two values are equal:
 
  ```kotlin
 fun main() {
@@ -229,6 +231,21 @@ fun main() {
     println(if (value1 === value2) "yes" else "no")
     // Prints 'yes' in Kotlin/JS
     // Prints 'no' in other platforms
+}
+ ```
+
+Because of this usage of the JavaScript `===` operator, there is no Kotlin [structural equality](equality.md#structural-equality) `==` operator 
+when comparing strings in Kotlin/JS.
+
+Also, in Kotlin/JS, the [`Byte`, `Short`, `Int`, `Float`, and `Double`](js-to-kotlin-interop.md#kotlin-types-in-javascript) numeric types 
+are all represented with the `Number` JavaScript type in runtime. In consequence, these five types are numerically equal, 
+and their values are indistinguishable:
+
+ ```kotlin
+fun main() {
+    println(1.0 as Any === 1 as Any)
+    // Prints 'true' in Kotlin/JS
+    // Prints 'false' in other platforms
 }
  ```
 
