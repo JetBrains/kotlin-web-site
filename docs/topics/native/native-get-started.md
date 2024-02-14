@@ -59,8 +59,22 @@ performs the incremental build of the project.
        val name = readln()
    }
    ```
-
-3. Eliminate the whitespaces and count the letters:
+3. In the `build.gradle.kts` file, specify `System.in` as the input to use when running the project:
+   ```kotlin
+   kotlin {
+       //...
+       nativeTarget.apply {
+           binaries {
+               executable {
+                   entryPoint = "main"
+                   runTask?.standardInput = System.`in`
+               }
+           }
+       }
+       //...
+   }
+   ```
+4. Eliminate the whitespaces and count the letters:
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.
    * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context. 
    * Use a [string template](strings.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
@@ -78,8 +92,8 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the application.
-5. Enter your name and enjoy the result:
+5. Save the changes and run the application.
+6. Enter your name and enjoy the result:
 
    ![Application output](native-output-2.png){width=700}
 

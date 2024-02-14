@@ -35,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta3"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta4"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
@@ -418,7 +418,10 @@
             <toc-element toc-title="Native and cross-platform mobile development" id="native-and-cross-platform.md"/>
             <toc-element toc-title="The six best cross-platform app development frameworks" id="cross-platform-frameworks.md"/>
         </toc-element>
-        <toc-element toc-title="Google Summer of Code with Kotlin 2023" id="gsoc-2023.md"/>
+        <toc-element toc-title="Google Summer of Code">
+            <toc-element toc-title="Google Summer of Code with Kotlin 2024" id="gsoc-2024.md"/>
+            <toc-element toc-title="Google Summer of Code with Kotlin 2023" id="gsoc-2023.md"/>
+        </toc-element>
         <toc-element id="security.md"/>
         <toc-element id="kotlin-pdf.md"/>
         <toc-element toc-title="Community">
