@@ -3,9 +3,8 @@
 The Kotlin Multiplatform Gradle plugin lets you run tests through a variety of test runners that can be specified via the Gradle
 configuration.
 
-When you create a multiplatform project, the Project Wizard automatically adds test dependencies to all the source sets.
-If you created your project without it, you can add the dependencies manually to make test annotations
-and functionality available for the JavaScript target:
+When you create a multiplatform project, you can add test dependencies to all the source sets, including the JavaScript
+target, by using a single dependency in `commonTest`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -15,10 +14,8 @@ and functionality available for the JavaScript target:
 
 kotlin {
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test")) // This brings all the platform dependencies automatically
-            }
+         commonTest.dependencies {
+            implementation(kotlin("test")) // This makes test annotations and functionality available in JS
         }
     }
 }
@@ -34,7 +31,7 @@ kotlin {
     sourceSets {
         commonTest {
             dependencies {
-                implementation kotlin("test") // This brings all the platform dependencies automatically
+                implementation kotlin("test") // This makes test annotations and functionality available in JS
             }
         }
     }

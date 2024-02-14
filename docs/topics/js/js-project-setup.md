@@ -159,10 +159,8 @@ these transitive dependencies as well.
 The dependencies on the [standard library](https://kotlinlang.org/api/latest/jvm/stdlib/index.html)
 are added automatically. The version of the standard library is the same as the version of the Kotlin Multiplatform plugin.
 
-The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for multiplatform tests.
-When you create a multiplatform project, the Project Wizard automatically adds test dependencies to all the source sets.
-
-If you don't use the Project Wizard to create your project, you can add the dependencies manually:
+For multiplatform tests, the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available. When you
+create a multiplatform project, you can add test dependencies to all the source sets by using a single dependency in `commonTest`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -170,10 +168,8 @@ If you don't use the Project Wizard to create your project, you can add the depe
 ```kotlin
 kotlin {
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test")) // Brings all the platform dependencies automatically
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test")) // Brings all the platform dependencies automatically
         }
     }
 }
