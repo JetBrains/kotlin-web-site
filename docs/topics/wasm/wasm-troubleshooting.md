@@ -24,7 +24,8 @@ the new WasmGC by default or if you need to make changes to the environment.
   2. Enable **WebAssembly Garbage Collection**.
   3. Relaunch your browser.
 
-  In addition to updating the browser settings, make sure you use a Kotlin version before 1.9.20.
+  In addition to updating the browser settings, make sure you use a Kotlin version before 1.9.20 when using a Chrome
+  version older than version 119.
 
 ### Chromium-based
 
@@ -38,7 +39,8 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 
   Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
 
-  In addition to updating the browser settings, make sure you use a Kotlin version before 1.9.20.
+  In addition to updating the browser settings, make sure you use a Kotlin version before 1.9.20 when using a Chromium-based
+  version older than version 119.
 
 ### Firefox
 
