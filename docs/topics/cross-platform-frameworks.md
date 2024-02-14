@@ -58,14 +58,14 @@ Kotlin Multiplatform (KMP) is an open-source technology built by JetBrains that 
 
 **Programming language:** Kotlin.
 
-**Mobile app examples:** McDonald’s, Netflix, Forbes, 9GAG, Cash App, Philips.
+**Mobile app examples:** McDonald's, Netflix, Forbes, 9GAG, Cash App, Philips. [Read more about Koltlin Multiplatform case studies](https://www.jetbrains.com/help/kotlin-multiplatform-dev/case-studies.html).
 
 **Key features:**
 
 * Developers can reuse code across Android, iOS, web, desktop, and server-side while keeping native code if needed.
 * Kotlin Multiplatform can be seamlessly integrated into any project. Developers can utilize platform-specific APIs while making the most of both native and cross-platform development.
 * Thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a modern declarative cross-platform UI framework by JetBrains, developers have full code-sharing flexibility and the ability to share both the logic and the UI.
-* There’s no need to introduce a new language to your code base when you already use Kotlin for Android. You can reuse your Kotlin code and expertise, which makes migrating to Kotlin Multiplatform less risky compared to other technologies.
+* There's no need to introduce a new language to your codebase when you already use Kotlin for Android. You can reuse your Kotlin code and expertise, which makes migrating to Kotlin Multiplatform less risky compared to other technologies.
 
 Even though this cross-platform mobile development framework is one of the youngest on our list, it has a mature community. In November 2023, JetBrains promoted it to [Stable](https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/). It's growing fast and is already making a distinct impression on today's market. Thanks to its regularly updated [documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) and community support, you can always find answers to your questions. What's more, many [global companies and startups already use Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/case-studies.html) to develop multiplatform apps with a native-like user experience.
 
@@ -95,12 +95,12 @@ There's constant activity on the Ionic Framework Forum, where community members 
 
 **Programming languages:** C#, XAML.
 
-**Mobile app examples:**  NBC Sports Next, Escola Agil, Irth Solutions.
+**Mobile app examples:** NBC Sports Next, Escola Agil, Irth Solutions.
 
 **Key features:**
 
 * .NET MAUI provides cross-platform APIs for accessing native device features, like the GPS, accelerometer, and battery and network states.
-* There’s a single project system which is enabled using multi-targeting to target Android, iOS, macOS, and Windows.
+* There's a single project system which is enabled using multi-targeting to target Android, iOS, macOS, and Windows.
 * With the support for .NET hot reload, developers can modify their managed source code while the app is running.
 
 Even though .NET MAUI is still a relatively new framework, it has already gained traction among developers and has an active community on Stack Overflow and Microsoft Q&A.
