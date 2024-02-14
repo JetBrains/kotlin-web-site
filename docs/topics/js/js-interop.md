@@ -202,11 +202,11 @@ fun usingAsOperator(s: Any) = s as String
 They will be compiled accordingly:
 
 ```javascript
-function usingUnsafeCast (s) {
+function usingUnsafeCast(s) {
     return s;
 }
 
-function usingAsOperator (s) {
+function usingAsOperator(s) {
     var tmp$;
     return typeof (tmp$ = s) === 'string' ? tmp$ : throwCCE();
 }
@@ -217,7 +217,7 @@ function usingAsOperator (s) {
 Kotlin/JS has particular semantics for equality comparison. 
 
 In Kotlin/JS, the Kotlin [referential equality](equality.md#referential-equality) operator (`===`) always translates to the JavaScript
-[strict equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) operator (`===`) when comparing strings. 
+[strict equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) operator (`===`). 
 
 The JavaScript `===` operator checks not only that two values are equal but also that
 the types of these two values are equal:
@@ -234,12 +234,8 @@ fun main() {
 }
  ```
 
-Because of this usage of the JavaScript `===` operator, there is no Kotlin [structural equality](equality.md#structural-equality) `==` operator 
-when comparing strings in Kotlin/JS.
-
 Also, in Kotlin/JS, the [`Byte`, `Short`, `Int`, `Float`, and `Double`](js-to-kotlin-interop.md#kotlin-types-in-javascript) numeric types 
-are all represented with the `Number` JavaScript type in runtime. In consequence, these five types are numerically equal, 
-and their values are indistinguishable:
+are all represented with the `Number` JavaScript type in runtime. In consequence, the values of these five types are indistinguishable:
 
  ```kotlin
 fun main() {

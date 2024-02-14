@@ -108,12 +108,16 @@ For values represented by primitive types at runtime
 
 ## Floating-point numbers equality
 
-When the equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
+When the operands of an equality check are statically known to be `Float` or `Double` (nullable or not), the check follows the 
 [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754).
 
-Otherwise, structural equality is implemented. This approach disagrees with the standard, considering 
-that `NaN` is equal to itself, `NaN` is considered greater than any other element (including `POSITIVE_INFINITY`), and 
-`-0.0` is not equal to `0.0`.
+The behavior is different for operands that are not statically typed as floating-point numbers. In these cases,
+structural equality is implemented. As a result, checks with operands not statically typed as floating-point numbers differ from the 
+IEEE standard. In this scenario:
+
+* `NaN` is equal to itself
+* `NaN` is greater than any other element (including `POSITIVE_INFINITY`) 
+* `-0.0` is not equal to `0.0`
 
 For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
 
