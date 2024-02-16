@@ -152,7 +152,7 @@ For example, you have a `network` and a `database` module, which you combine in 
     }
     ```
 
-2. Each of the included modules should still have its iOS targets configured, for example:
+2. Each of the included modules should have its iOS targets configured, for example:
 
     ```kotlin
     kotlin {
@@ -171,13 +171,23 @@ For example, you have a `network` and a `database` module, which you combine in 
     }
     ```
 
-3. Run the Gradle task that assembles the framework:
+3. Currently, a framework cannot be assembled if the module being built does not contain any source code. To work around
+this:
+   1. Create a source file inside the `umbrella` folder, for example, `umbrella/src/commonMain/kotlin/Umbrella.kt`.
+   2. Create an empty `main()` function inside this file:
+       ```kotlin
+      fun main() {
+
+      }
+       ```
+
+4. Run the Gradle task that assembles the framework:
 
     ```shell
     ./gradlew :umbrella:assembleUmbrellaReleaseXCFramework
     ```
 
-4. Repeat steps 5-9 from the previous section for `umbrella.xcframework`: archive, calculate the checksum, upload
+5. Follow steps 5–9 from [the previous section](#create-the-xcframework-and-the-package-swift-file) for `umbrella.xcframework`: archive, calculate the checksum, upload
 the archived XCFramework, create and push a `Package.swift` file.
 
 Now you can try and import the dependency into an Xcode project: you should have both `network` and `database` modules
