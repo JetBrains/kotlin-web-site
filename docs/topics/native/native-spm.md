@@ -118,13 +118,13 @@ the `Package.swift` file.
 If your project contains unrelated KMP modules which you would like to export as a single iOS binary, you can create
 an umbrella module and combine other modules in it.
 
-For example, you have a `network` and a `database` module, which you combine in an `umbrella` module.
+For example, you have a `network` and a `database` module, which you combine in an `together` module.
 
-1. In the `umbrella/build.gradle.kts` file, specify dependencies and the framework configuration:
+1. In the `together/build.gradle.kts` file, specify dependencies and the framework configuration:
 
     ```kotlin
     kotlin {
-        val frameworkName = "umbrella"
+        val frameworkName = "together"
         val xcf = XCFramework()
     
         listOf(
@@ -134,8 +134,8 @@ For example, you have a `network` and a `database` module, which you combine in 
         ).forEach { iosTarget ->
             // Same as in the example above, with added export calls for dependencies
             iosTarget.binaries.framework {
-                export(projects.shared)
-                export(projects.sharedUi)
+                export(projects.network)
+                export(projects.database)
     
                 baseName = frameworkName
                 xcf.add(this)
@@ -145,8 +145,8 @@ For example, you have a `network` and a `database` module, which you combine in 
         // Dependencies set as api to export underlying modules
         sourceSets {
             commonMain.dependencies {
-                api(projects.shared)
-                api(projects.sharedUi)
+                api(projects.network)
+                api(projects.database)
             }
         }
     }
@@ -171,9 +171,9 @@ For example, you have a `network` and a `database` module, which you combine in 
     }
     ```
 
-3. Currently, a framework cannot be assembled if the module being built does not contain any source code. To work around
+3. Currently, a framework cannot be assembled if the module being exported does not contain any source code. To work around
 this:
-   1. Create a source file inside the `umbrella` folder, for example, `umbrella/src/commonMain/kotlin/Umbrella.kt`.
+   1. Create a source file inside the `together` folder, for example, `together/src/commonMain/kotlin/Together.kt`.
    2. Create an empty `main()` function inside this file:
        ```kotlin
       fun main() {
@@ -184,10 +184,10 @@ this:
 4. Run the Gradle task that assembles the framework:
 
     ```shell
-    ./gradlew :umbrella:assembleUmbrellaReleaseXCFramework
+    ./gradlew :together:assembleTogetherReleaseXCFramework
     ```
 
-5. Follow steps 5–9 from [the previous section](#create-the-xcframework-and-the-package-swift-file) for `umbrella.xcframework`: archive, calculate the checksum, upload
+5. Follow steps 5–9 from [the previous section](#create-the-xcframework-and-the-package-swift-file) for `together.xcframework`: archive, calculate the checksum, upload
 the archived XCFramework, create and push a `Package.swift` file.
 
 Now you can try and import the dependency into an Xcode project: you should have both `network` and `database` modules
