@@ -1,12 +1,11 @@
 [//]: # (title: Booleans)
 
-The type `Boolean` represents boolean objects that can have two values: `true` and `false`. 
+The type `Boolean` represents boolean objects that can have two values: `true` and `false`.
+`Boolean` has a [nullable](null-safety.md) counterpart declared as `Boolean?`.
 
 > On the JVM, booleans stored as the primitive `boolean` type typically use 8 bits.
 >
 {type="note"}
-
-`Boolean` has a nullable counterpart (`Boolean?`) with the `null` value.
 
 Built-in operations on booleans include:
 
@@ -29,6 +28,8 @@ fun main() {
     // false
     println(!myTrue)
     // false
+    println(boolNull)
+    // null
 //sampleEnd
 }
 ```
