@@ -71,15 +71,15 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab id="cross-platform-mobile" title="Cross-platform mobile app">
+<tab id="cross-platform-mobile" title="Cross-platform app">
 
-Here you'll learn how to develop and improve your cross-platform mobile application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
+Here you'll learn how to develop and improve your cross-platform application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
 
 1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).**
 
 2. **Create your first application for iOS and Android:**
 
-   * To start from scratch, [create a basic cross-platform mobile application with the project wizard](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
+   * To start from scratch, [create a basic cross-platform application with the project wizard](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
    * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html) tutorial.
    * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [Create a multiplatform app using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) tutorial or any [sample project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
 
@@ -121,45 +121,6 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 * If you're new to Android and want to learn to create applications with Kotlin, check out [this Udacity course](https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012).
 
 Follow Kotlin on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
-
-</tab>
-
-<tab id="multiplatform-library" title="Multiplatform library">
-
-Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the same code for different platforms while retaining the flexibility and benefits of native programming.
-
-Here you'll learn how to develop and publish a multiplatform library:
-
-1. **Publish a multiplatform library:**
-
-   * See [Publish a multiplatform library](multiplatform-publish-lib.md) to learn more.
-
-2. **Use libraries in your application:**
-
-   * [Ktor](https://ktor.io/docs/)
-   * [Serialization](serialization.md)
-   * [Coroutines](coroutines-overview.md)
-   * [DateTime](https://github.com/Kotlin/kotlinx-datetime#readme)
-
-   > Learn more about [adding dependencies on libraries](multiplatform-add-dependencies.md).
-   > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
-   >
-   {type="tip"}
-
-3. **Learn more about Kotlin Multiplatform programming:**
-
-   * [Introduction to Kotlin Multiplatform](multiplatform-get-started.md).
-   * [Kotlin Multiplatform supported platforms](multiplatform-dsl-reference.md#targets).
-   * [Kotlin Multiplatform programming benefits](multiplatform.md).
-
-4. **Join the Kotlin Multiplatform community:**
-
-   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
-   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
-
-5. **Follow Kotlin** on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
-
-If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 </tab>
 
