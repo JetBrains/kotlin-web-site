@@ -1,6 +1,6 @@
 [//]: # (title: Sealed classes and interfaces)
 
-_Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
+_Sealed_ classes and interfaces define restricted class hierarchies, providing a structured approach to control inheritance.
 Unlike `open` classes, which allow unrestricted subclassing, sealed classes and interfaces ensure inherent exhaustiveness 
 in `when` expressions, thereby offering a more controlled hierarchy.
 All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
@@ -80,9 +80,9 @@ Constructors of sealed classes can have one of two [visibilities](visibility-mod
 
 ```kotlin
 sealed class IOError {
-    constructor() { /*...*/ } // protected by default
-    private constructor(description: String): this() { /*...*/ } // private is OK
-    // public constructor(code: Int): this() {} // Error: public and internal are not allowed
+    constructor() { /*...*/ } // visibility is protected by default. It's visible inside this class and its subclasses.
+    private constructor(description: String): this() { /*...*/ } // private means it's visible inside this class only (including all its members).
+    // public constructor(code: Int): this() {} // Error: public and internal are not allowed.
 }
 ```
 
@@ -124,7 +124,7 @@ you can create subclasses in any source set between the `expect` and `actual` de
 The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
 expression.
 The `when` expression, used with a sealed class, allows the Kotlin compiler to check exhaustively that all possible cases are covered. In such cases, you don't need to add an `else` clause. 
-Here's an example demonstrating this with a `when` expression:
+Here's an example demonstrating this:
 
 ```kotlin
 // Sealed class and its subclasses
@@ -157,8 +157,9 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-> `when` expressions on [`expect`](multiplatform-expect-actual.md) sealed classes in the common code of multiplatform projects still 
-> require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
-> common code.
+> In multiplatform projects, `when` expressions involving sealed classes within 
+> [expected declarations](multiplatform-expect-actual.md) in common code still require an `else` branch. 
+> This is because subclasses of `actual` platform implementations may extend sealed classes that 
+> aren't known in the common code.
 >
 {type="note"}
