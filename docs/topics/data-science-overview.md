@@ -102,7 +102,7 @@ Here are some examples of such libraries:
 
 * [Smile](https://github.com/haifengl/smile) - a comprehensive machine learning, natural language processing,
 linear algebra, graph, interpolation, and visualization system. Besides Java API, Smile also provides a functional
-[Kotlin API](https://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
+[Kotlin API](https://haifengl.github.io/api/kotlin/index.html) along with Scala and Clojure API.
    * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) - a Kotlin rewrite of the Scala implicits for the natural
    language processing part of Smile in the format of extension functions and interfaces.
 
