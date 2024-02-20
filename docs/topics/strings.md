@@ -158,9 +158,13 @@ To format a string to your specific requirements, use the [`String.format()`](ht
 function. 
 
 The `String.format()` function accepts a format string and one or more arguments. The format string contains one placeholder 
-(`%`) for each remaining argument, followed by [format specifiers](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary). 
-Format specifiers are formatting instructions for the respective argument. In the output, each argument fills its 
-corresponding placeholder in the defined format:
+(`%`) for each remaining argument, followed by format specifiers. 
+Format specifiers are formatting instructions for the respective argument, consisting of flags, width, precision, and 
+conversion type, which collectively shape the output's formatting. Common format specifiers include 
+`%d` for integers, `%f` for floating-point numbers, and `%s` for strings. For a detailed understanding and an extensive list 
+of format specifiers, see [Java's Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
+
+Let's look at an example:
 
 ```kotlin
 fun main() { 
