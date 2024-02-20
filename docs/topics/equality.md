@@ -67,6 +67,10 @@ class Point(val x: Int, val y: Int) {
     }
 }
 ```
+> When overriding the equals() function, you should also override the [hashCode() function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/hash-code.html#kotlin.Any$hashCode()) 
+> to keep consistency between equality and hashing and ensure a proper behavior of these functions.
+>
+{type="note"}
 
 Functions with the same name and other signatures (like `equals(other: Foo)`) don't affect equality checks with
 the operators `==` and `!=`.
