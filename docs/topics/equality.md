@@ -105,7 +105,7 @@ fun main() {
 For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
-> The referential equality is implemented differently in Kotlin/JS. For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md#equality) documentation.
+> The referential equality is implemented differently in Kotlin/JS. For more information about equality, see the [Kotlin/JS](js-interop.md#equality) documentation.
 >
 {type="tip"}
 
