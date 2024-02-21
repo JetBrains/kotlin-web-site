@@ -43,11 +43,10 @@ In Kotlin, the `equals()` function is inherited by all classes from the `Any` cl
 implements [referential equality](#referential-equality). However, classes in Kotlin can override the `equals()` 
 function to provide a custom equality logic and, in this way, implement structural equality.
 
-Value classes and data classes are two specific types in Kotlin that automatically override `equals()`. 
-Value classes override the `equals()` function to implement structural equality by default.
+Value classes and data classes are two specific Kotlin types that automatically override the `equals()` function. 
+That's why they implement structural equality by default.
 
-Similarly, data classes override the `equals()` function to implement structural equality by default. However, if the
-`equals()` function is marked as `final` in the parent class, its behavior remains unchanged.
+However, in the case of data classes, if the `equals()` function is marked as `final` in the parent class, its behavior remains unchanged.
 
 Distinctly, non-data classes (those not declared with the `data` modifier) do not override the 
 `equals()` function by default. Instead, non-data classes implement referential equality behavior inherited from the `Any` class.
@@ -106,7 +105,7 @@ fun main() {
 For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
 
-> For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md#equality) documentation.
+> The referential equality is implemented differently in Kotlin/JS. For more information about equality in Kotlin/JS, see the [Kotlin/JS](js-interop.md#equality) documentation.
 >
 {type="tip"}
 

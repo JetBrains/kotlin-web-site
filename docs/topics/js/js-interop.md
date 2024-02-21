@@ -214,7 +214,7 @@ function usingAsOperator(s) {
 
 ## Equality
 
-Kotlin/JS has particular semantics for equality comparison. 
+Kotlin/JS has particular semantics for equality checks compared to other platforms. 
 
 In Kotlin/JS, the Kotlin [referential equality](equality.md#referential-equality) operator (`===`) always translates to the JavaScript
 [strict equality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) operator (`===`). 
@@ -229,19 +229,19 @@ fun main() {
     val value2 = name.substring(0, 1)
 
     println(if (value1 === value2) "yes" else "no")
-    // Prints 'yes' in Kotlin/JS
-    // Prints 'no' in other platforms
+    // Prints 'yes' on Kotlin/JS
+    // Prints 'no' on other platforms
 }
  ```
 
 Also, in Kotlin/JS, the [`Byte`, `Short`, `Int`, `Float`, and `Double`](js-to-kotlin-interop.md#kotlin-types-in-javascript) numeric types 
-are all represented with the `Number` JavaScript type in runtime. In consequence, the values of these five types are indistinguishable:
+are all represented with the `Number` JavaScript type in runtime. Therefore, the values of these five types are indistinguishable:
 
  ```kotlin
 fun main() {
     println(1.0 as Any === 1 as Any)
-    // Prints 'true' in Kotlin/JS
-    // Prints 'false' in other platforms
+    // Prints 'true' on Kotlin/JS
+    // Prints 'false' on other platforms
 }
  ```
 
