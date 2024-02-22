@@ -248,7 +248,7 @@ Extend the functionality of the application to retrieve the individual messages 
             Message(response.getString("id"), response.getString("text"))
         }
     
-        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", arrayOf(id), intArrayOf(Types.VARCHAR)) { response, _ ->
             Message(response.getString("id"), response.getString("text"))
         }
     
@@ -292,13 +292,14 @@ Extend the functionality of the application to retrieve the individual messages 
        <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;/{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code>, you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
     <def title="vararg argument position in the parameter list">
-        <p>The <code>query()</code> function takes three arguments:</p>
+        <p>The <code>query()</code> function takes four arguments:</p>
         <list>
             <li>SQL query string that requires a parameter to run</li>
-            <li>`id`, which is a parameter of type String</li>
+            <li>`arrayOf(id)`, args array contains the actual values for the query parameters</li>
+            <li>int[] argTypes contains the SQL types of the parameters (in this case, Types.VARCHAR for a string)</li>
             <li><code>RowMapper</code> instance is implemented by a lambda expression</li>
         </list>
-        <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
+        <p>The second parameter for the <code>query()</code> function is declared as <i>variable arguments</i> (<code>varargs</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list if arg types are provided in the third parameter.</p>
     </def>
     </deflist>
 
@@ -347,7 +348,7 @@ class MessageService(val db: JdbcTemplate) {
         Message(response.getString("id"), response.getString("text"))
     }
 
-    fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+    fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", arrayOf(id), intArrayOf(Types.VARCHAR)) { response, _ ->
         Message(response.getString("id"), response.getString("text"))
     }
 
