@@ -5,14 +5,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 48px 0;
+    padding: var(--ktl-box-section-l) 0;
     max-width: 100%;
     overflow: hidden;
     text-align: center;
     height: 100%;
 
     @media (--ktl-mm-min) {
-        padding: 96px 0;
+        padding: var(--ktl-box-page-l) 0;
     }
 }
 
@@ -28,7 +28,7 @@
 }
 
 .heading {
-    margin: 24px 0 0;
+    margin: var(--ktl-box-section-s) 0 0;
 }
 
 .subheading {
