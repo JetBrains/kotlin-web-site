@@ -2,6 +2,21 @@
 
 A collection of random and frequently used idioms in Kotlin. If you have a favorite idiom, contribute it by sending a pull request.
 
+## Use inline value classes to wrap single values for type-safety
+
+```kotlin
+@JvmInline
+value class EmployeeId(private val id: String)
+
+@JvmInline
+value class CustomerId(private val id: String)
+```
+
+Now accidentally mixing up `EmployeeId` and `CustomerId` will result in a compilation error. The inline classes will be represented by the 
+underlying type at runtime. `@JvmInline` is only needed for JVM backends.
+
+(See [Inline classes](inline-classes.md) for more information)
+
 ## Create DTOs (POJOs/POCOs)
 
 ```kotlin
