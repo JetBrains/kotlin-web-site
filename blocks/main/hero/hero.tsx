@@ -61,6 +61,8 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                             src={HeroImg.src}
                             srcSet={`${HeroImg2x.src} 2x`}
                             alt="kotlin"
+                            height="560"
+                            width="560"
                         />
                     </div>
                 </div>

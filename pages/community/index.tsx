@@ -34,7 +34,7 @@ function Index() {
                     },
                     {
                         icon: TwitterIcon,
-                        title: 'Twitter',
+                        title: 'X',
                         description: 'Quick tips and news, straight to your feed.',
                         link: 'https://twitter.com/kotlin',
                     },

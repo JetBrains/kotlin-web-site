@@ -51,7 +51,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 4. Install CocoaPods:
 
     ```bash
-    sudo gem install cocoapods
+    sudo gem install -n /usr/local/bin cocoapods
     ```
 
 </tab>

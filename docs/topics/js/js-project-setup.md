@@ -159,10 +159,8 @@ these transitive dependencies as well.
 The dependencies on the [standard library](https://kotlinlang.org/api/latest/jvm/stdlib/index.html)
 are added automatically. The version of the standard library is the same as the version of the Kotlin Multiplatform plugin.
 
-The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for multiplatform tests.
-When you create a multiplatform project, the Project Wizard automatically adds test dependencies to all the source sets.
-
-If you don't use the Project Wizard to create your project, you can add the dependencies manually:
+For multiplatform tests, the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available. When you
+create a multiplatform project, you can add test dependencies to all the source sets by using a single dependency in `commonTest`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -170,10 +168,8 @@ If you don't use the Project Wizard to create your project, you can add the depe
 ```kotlin
 kotlin {
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test")) // Brings all the platform dependencies automatically
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test")) // Brings all the platform dependencies automatically
         }
     }
 }
@@ -789,8 +785,7 @@ By default, the results of a Kotlin/JS project build reside in the `/build/dist/
 >
 {type="note" }
 
-To set another location for project distribution files, add the `distribution {}` block inside `browser {}` in the build script and 
-assign a value to the `directory` property.
+To set another location for project distribution files, in your build script inside the `browser {}` block, add a `distribution {}` block and assign a value to the `outputDirectory` property by using the `set()` method.
 Once you run a project build task, Gradle will save the output bundle in this location together with project resources.
 
 <tabs group="build-script">
@@ -801,7 +796,7 @@ kotlin {
     js {
         browser {
             distribution {
-                directory = File("$projectDir/output/")
+                outputDirectory.set(projectDir.resolve("output"))
             }
         }
         binaries.executable()
@@ -818,7 +813,7 @@ kotlin {
     js {
         browser {
             distribution {
-                directory = file("$projectDir/output/")
+                outputDirectory.set(file("$projectDir/output"))
             }
         }
         binaries.executable()

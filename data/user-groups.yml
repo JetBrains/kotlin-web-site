@@ -415,7 +415,7 @@
       lng: 119.1535778
   - name: Guangzhou KUG
     country: China Mainland
-    url: https://gzkug.com/
+    url: https://gzkug.github.io/
     position:
       lat: 26.5962666
       lng: 106.551573
@@ -437,6 +437,12 @@
     position:
       lat: 31.85571
       lng: 117.1214513
+  - name: Hunan KUG
+    country: China Mainland
+    url: https://hunan-kug.github.io/
+    position:
+      lat: 28.1763401
+      lng: 112.6949393
   - name: Tbilisi KUG
     country: Georgia
     url: https://discord.gg/6EcJH9vED6

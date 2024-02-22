@@ -35,4 +35,14 @@ object BuildJsAssets: BuildType({
       dockerPull = true
     }
   }
+
+  dependencies {
+    artifacts(FetchBlogNews) {
+      buildRule = lastSuccessful(branch = "+:<default>")
+      artifactRules = """
+        +:latest-news.zip!** => latest-news/
+      """.trimIndent()
+      cleanDestination = true
+    }
+  }
 })

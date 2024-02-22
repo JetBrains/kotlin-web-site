@@ -190,7 +190,8 @@ fun main() {
 }
 ```
 
-Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. This instructs the compiler to generate a number of functions for your object:
+Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. 
+This instructs the compiler to generate a number of functions for your object:
 
 * `toString()` returns the name of the data object
 * `equals()`/`hashCode()` pair
@@ -212,9 +213,13 @@ fun main() {
 
 The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
 In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
-However, in the edge case where another object of the same type is generated at runtime (for example, by using platform reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that the objects are treated as being equal.
+However, in the edge case where another object of the same type is generated at runtime (for example, by using platform 
+reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that 
+the objects are treated as being equal.
 
-> Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
+> Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator).
+> This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
+>
 {type="warning"}
 
 ```kotlin
@@ -243,18 +248,26 @@ fun createInstanceViaReflection(): MySingleton {
 }
 ```
 
-The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime instances of a `data object` have the same hash code.
+The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime 
+instances of a `data object` have the same hash code.
 
 #### Differences between data objects and data classes
 
-While `data object` and `data class` declarations are often used together and have some similarities, there are some functions that are not generated for a `data object`:
+While `data object` and `data class` declarations are often used together and have some similarities, there are some 
+functions that are not generated for a `data object`:
 
-* No `copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `copy()` function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would be violated by allowing copies of the instance to be created.
-* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
+* No `copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `copy()` 
+  function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would 
+  be violated by allowing copies of the instance to be created.
+* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. 
+  Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
 
 #### Using data objects with sealed hierarchies
 
-`data object` declarations are a particularly useful for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may have defined alongside the object:
+Data object declarations are particularly useful for sealed hierarchies like 
+[sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes 
+you may have defined alongside the object. In this example, declaring `EndOfFile` as a `data object` instead of a plain `object` 
+means that it will get the `toString()` function without the need to override it manually:
 
 ```kotlin
 sealed interface ReadResult
@@ -262,18 +275,12 @@ data class Number(val number: Int) : ReadResult
 data class Text(val text: String) : ReadResult
 data object EndOfFile : ReadResult
 
-fun printReadResult(r: ReadResult) {
-    when(r) {
-        is Number -> println("Num(${r.number}")
-        is Text -> println("Txt(${r.text}")
-        is EndOfFile -> println("EOF")
-    }
-}
-
 fun main() {
-    printReadResult(EndOfFile) // EOF
+  println(Number(7)) // Number(number=7)
+  println(EndOfFile) // EndOfFile
 }
 ```
+{kotlin-runnable="true" id="data-objects-sealed-hierarchies"}
 
 ### Companion objects
 

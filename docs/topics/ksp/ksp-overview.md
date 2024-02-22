@@ -159,24 +159,25 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 
 The table includes a list of popular libraries on Android and their various stages of support for KSP:
 
-|Library|Status|
-|---|---|
-|Room|[Officially supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)|
-|Moshi|[Officially supported](https://github.com/square/moshi/)|
-|RxHttp|[Officially supported](https://github.com/liujingxing/rxhttp)|
-|Kotshi|[Officially supported](https://github.com/ansman/kotshi)|
-|Lyricist|[Officially supported](https://github.com/adrielcafe/lyricist)|
-|Lich SavedState|[Officially supported](https://github.com/line/lich/tree/master/savedstate)|
-|gRPC Dekorator|[Officially supported](https://github.com/mottljan/grpc-dekorator)|
-|EasyAdapter|[Officially supported](https://github.com/AmrDeveloper/EasyAdapter)|
-|Koin Annotations|[Officially supported](https://github.com/InsertKoinIO/koin-annotations)|
-|Glide|[Officially supported](https://github.com/bumptech/glide)| 
-|Micronaut|[Officially supported](https://micronaut.io/2023/07/14/micronaut-framework-4-0-0-released/)|
-|Epoxy|[Officially supported](https://github.com/airbnb/epoxy)|
-|Paris|[Officially supported](https://github.com/airbnb/paris)|
-|Auto Dagger|[Officially supported](https://github.com/ansman/auto-dagger)|
-|SealedX|[Officially supported](https://github.com/skydoves/sealedx)|
-|DeeplinkDispatch|[Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)|
-|Dagger|[Alpha](https://dagger.dev/dev-guide/ksp)|
-|Hilt|[In progress](https://dagger.dev/dev-guide/ksp)|
-|Auto Factory|[Not yet supported](https://github.com/google/auto/issues/982)|
+| Library          | Status                                                                                            |
+|------------------|---------------------------------------------------------------------------------------------------|
+| Room             | [Officially supported](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02) |
+| Moshi            | [Officially supported](https://github.com/square/moshi/)                                          |
+| RxHttp           | [Officially supported](https://github.com/liujingxing/rxhttp)                                     |
+| Kotshi           | [Officially supported](https://github.com/ansman/kotshi)                                          |
+| Lyricist         | [Officially supported](https://github.com/adrielcafe/lyricist)                                    |
+| Lich SavedState  | [Officially supported](https://github.com/line/lich/tree/master/savedstate)                       |
+| gRPC Dekorator   | [Officially supported](https://github.com/mottljan/grpc-dekorator)                                |
+| EasyAdapter      | [Officially supported](https://github.com/AmrDeveloper/EasyAdapter)                               |
+| Koin Annotations | [Officially supported](https://github.com/InsertKoinIO/koin-annotations)                          |
+| Glide            | [Officially supported](https://github.com/bumptech/glide)                                         | 
+| Micronaut        | [Officially supported](https://micronaut.io/2023/07/14/micronaut-framework-4-0-0-released/)       |
+| Epoxy            | [Officially supported](https://github.com/airbnb/epoxy)                                           |
+| Paris            | [Officially supported](https://github.com/airbnb/paris)                                           |
+| Auto Dagger      | [Officially supported](https://github.com/ansman/auto-dagger)                                     |
+| SealedX          | [Officially supported](https://github.com/skydoves/sealedx)                                       |
+| DeeplinkDispatch | [Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)  |
+| Dagger           | [Alpha](https://dagger.dev/dev-guide/ksp)                                                         |
+| Motif            | [Alpha](https://github.com/uber/motif)                                                            |
+| Hilt             | [In progress](https://dagger.dev/dev-guide/ksp)                                                   |
+| Auto Factory     | [Not yet supported](https://github.com/google/auto/issues/982)                                    |
