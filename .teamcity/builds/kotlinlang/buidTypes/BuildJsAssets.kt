@@ -3,7 +3,6 @@ package builds.kotlinlang.buidTypes
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 
 object BuildJsAssets: BuildType({
   name = "Build site JS Assets"
@@ -18,14 +17,6 @@ object BuildJsAssets: BuildType({
 
     cleanCheckout = true
     showDependenciesChanges = true
-  }
-
-  triggers {
-    finishBuildTrigger {
-        buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
-        branchFilter = "+:<default>"
-        successfulOnly = true
-    }
   }
 
   steps {

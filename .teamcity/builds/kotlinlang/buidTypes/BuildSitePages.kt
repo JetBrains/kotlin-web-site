@@ -8,6 +8,7 @@ import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 
 private const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
@@ -24,6 +25,14 @@ object BuildSitePages : BuildType({
   vcs {
     root(vcsRoots.KotlinLangOrg)
     cleanCheckout = true
+  }
+
+  triggers {
+    finishBuildTrigger {
+      buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
+      branchFilter = "+:<default>"
+      successfulOnly = true
+    }
   }
 
   steps {
