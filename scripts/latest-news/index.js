@@ -15,6 +15,10 @@ if (!fs.existsSync(latestNewsDirectory)) {
 
 getLatestNews();
 
+function normalizeText(text) {
+	return text.replace(/&#(\d+);/gi, (_, ascii_code) => String.fromCharCode(ascii_code));
+}
+
 async function getLatestNews() {
 	const latestNewsXMl = await getLatestNewsXML();
 
@@ -28,11 +32,11 @@ async function getLatestNews() {
 	for (const [i, item] of items.splice(0, 4).entries()) {
 		const imagePath = await saveImage(i, item.featuredImage);
 		latestNews.push({
-			title: item.title,
+			title: normalizeText(item.title),
 			date: item.pubDate,
 			link: item.link,
 			image: imagePath,
-			description: item.description
+			description: normalizeText(item.description)
 		})
 	}
 
