@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 
+import Link from 'next/link';
+
 import Mascot404 from './404-mascot.svg';
 
 import { useTextStyles } from '@rescui/typography';
@@ -16,9 +18,9 @@ export const NotFoundContent: FC = () => {
             <h1 className={cn(textCn('rs-h1'), styles.heading)}>Page not found</h1>
             <p className={cn(textCn('rs-text-2', { hardness: 'hard' }), styles.subheading)}>
                 Please use search or try<br className={styles.lineBreak} /> starting from{' '}
-                <a className={textCn('rs-link', { hardness: 'hard', mode: 'classic' })} href="https://kotlinlang.org/">
+                <Link className={textCn('rs-link', { hardness: 'hard', mode: 'classic' })} href="/">
                     home.
-                </a>
+                </Link>
             </p>
         </div>
     );
