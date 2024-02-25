@@ -13,7 +13,5 @@ export class ApiReferencePage implements BasePage {
 
     async init() {
         await this.page.goto(this.url);
-
-        await this.page.waitForSelector(testSelector('content'));
     }
 }

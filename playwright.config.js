@@ -6,7 +6,7 @@ const config = {
     reporter: process.env.CI ? 'dot' : 'list',
     snapshotDir: 'test/snapshots',
     use: {
-        baseURL: process.env.BASE_URL || 'http://localhost:9000',
+        baseURL: process.env.BASE_URL || 'http://localhost:8080',
         trace: 'off',
         ignoreHTTPSErrors: true,
     },
