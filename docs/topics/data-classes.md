@@ -31,7 +31,7 @@ Additionally, the generation of data class members follows these rules with rega
   supertype cannot be overridden due to incompatible signatures or due to their being final, an error is reported.
 * Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
 
-Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
+Data classes may extend other classes.
 
 > On the JVM, if the generated class needs to have a parameterless constructor, default values for the properties have
 > to be specified (see [Constructors](classes.md#constructors)):
