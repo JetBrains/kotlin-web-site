@@ -196,6 +196,14 @@ value?.let {
 }
 ```
 
+## Convert value to a non-nullable type
+
+```kotlin
+val value = ...
+
+val len = value!!.length // return length of value or NPE
+```
+
 ## Map nullable value if not null
 
 ```kotlin
