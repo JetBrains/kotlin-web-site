@@ -137,6 +137,32 @@ You can:
 [project-badge]: https://jb.gg/badges/official.svg
 [slack-url]: https://slack.kotlinlang.org
 
+## Local development
+
+#### preliminaries: python3 installed
+
+```
+# install frontend dependencies
+yarn install
+
+# at first start you need to build the static
+yarn run next-build-static
+
+# run NextJS server
+yarn run next-dev
+
+# run webpack dev server for everything else
+yarn start
+
+# install dependencies for the python server
+pip  install --no-build-isolation -r requirements.txt
+
+# run python server
+python3 kotlin_website.py
+```
+Now you can open the website at [http://localhost:9000](http://localhost:9000).
+
+
 ## Pages on Next.js
 
 You can find all pages in the [pages](pages) directory.
