@@ -11,7 +11,11 @@
 
 ## Create a simple Kotlin notebook
 
-Basic notebook with some outputs in different cells.
+1. In IntelliJ IDEA, select **File | New | Project**.
+2. In the panel on the left, select **New Project**. 
+3. Name the new project and change its location if necessary.
+4. From the Language list, select Kotlin.
+Select Kotlin language as language for the new project.
 
 1. To create a new notebook, select **File | New | Kotlin Notebook**.
 2. Set the name of the new notebook, for example, **first-notebook**, and click **Enter**.
@@ -21,6 +25,7 @@ Basic notebook with some outputs in different cells.
    ```kotlin
    println("Hello, it's a Kotlin notebook!")
    ```
+
 
 ## Next step
 
