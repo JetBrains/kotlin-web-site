@@ -5,14 +5,20 @@ All direct subclasses of a sealed class are known at compile time. No other subc
 package within which the sealed class is defined. The same logic applies to sealed interfaces and their implementations: 
 once a module with a sealed interface is compiled, no new implementations can be created.
 
+> Direct subclasses are classes that immediately inherit from their superclass.
+> 
+> Indirect subclasses are classes that inherit from more than one level down from their superclass.
+>
+{type="note"}
+
 When you combine sealed classes and interfaces with the `when` expression, you can cover the behavior of all possible 
 subclasses and ensure that no new subclasses are created to affect your code adversely.
 
 Sealed classes are best used for scenarios when:
 
-* **Limited subclassing is desired:** You can have a predefined, finite set of subclasses extending a class, all of which are known at compile time.
-* **Type-safe design is required:** When safety and pattern matching are crucial in your project, particularly for state management or handling complex conditional logic. For an example, check out the [Use sealed classes with when expressions section](#use-sealed-classes-with-when-expression).
-* **Working with closed APIs:** If you want to design robust and maintainable public APIs for libraries, sealed classes are ideal as they ensure that third-party clients use the APIs as intended.
+* **Limited class inheritance is desired:** You have a predefined, finite set of subclasses that extend a class, all of which are known at compile time.
+* **Type-safe design is required:** Safety and pattern matching are crucial in your project. Particularly for state management or handling complex conditional logic. For an example, check out [Use sealed classes with when expressions section](#use-sealed-classes-with-when-expression).
+* **Working with closed APIs:** You want robust and maintainable public APIs for libraries that ensure that third-party clients use the APIs as intended.
 
 For more detailed practical applications, see [Use case scenarios](#use-case-scenarios).
 
@@ -74,12 +80,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-Sealed classes, similar to [`enum`](enum-classes.md) classes, enforce a subclassing limitation, restricting which classes 
-can inherit from them. However, unlike enum classes where each constant is a **single**, **stateless** instance, 
-subclasses of a sealed class can have **multiple** instances, each capable of maintaining its own **state**.
-
-To illustrate this, consider error handling as an example. In our example, the `sealed class Error` along with its 
-several subclasses, employs an `enum` to denote error severity.
+You can use [`enum`](enum-classes.md) classes within your sealed classes to use enum constants to represent states and provide 
+additional detail. Each enum constant exists only as a **single** instance, whereas subclasses of a sealed class may 
+have **multiple** instances.
+In our example, the `sealed class Error` along with its several subclasses, employs an `enum` to denote error severity.
 Each subclass constructor initializes the `severity` and can alter its state:
 
 ```kotlin
@@ -98,10 +102,16 @@ Constructors of sealed classes can have one of two [visibilities](visibility-mod
 
 ```kotlin
 sealed class IOError {
-    constructor() { /*...*/ } // visibility is protected by default. It's visible inside this class and its subclasses.
-    private constructor(description: String): this() { /*...*/ } // private means it's visible inside this class only (including all its members).
-    // public constructor(code: Int): this() {} // Error: public and internal are not allowed.
+    // A sealed class constructor has protected visibility by default. It's visible inside this class and its subclasses 
+    constructor() { /*...*/ }
+
+    // Private constructor, visible inside this class only
+    private constructor(description: String): this() { /*...*/ }
+
+    // This will raise an error because public and internal constructors are not allowed in sealed classes
+    // public constructor(code: Int): this() {} 
 }
+
 ```
 
 ## Inheritance
@@ -112,7 +122,7 @@ as long as they are compatible with normal inheritance rules in Kotlin.
 
 Subclasses of sealed classes must have a properly qualified name. They can't be local or anonymous objects.
 
-> `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
+> `enum` classes can't extend a sealed class, or any other class. But they can implement sealed interfaces:
 >
 > ```kotlin
 > sealed interface Error
@@ -130,13 +140,14 @@ These restrictions don't apply to indirect subclasses. If a direct subclass of a
 it can be extended in any way that its modifiers allow:
 
 ```kotlin
-sealed interface Error // has implementations only in the same package and module
+// Sealed interface 'Error'has implementations only in the same package and module
+sealed interface Error
 
-sealed class IOError(): Error // extended only in same package and module
-open class CustomError(): Error // can be extended wherever it's visible
+// Sealed class 'IOError' extends 'Error' and is extendable only within the same package
+sealed class IOError(): Error
 
-class FileNotFound : IOError() // direct subclass of IOError
-class NetworkIOError : FileNotFound() // indirect subclass of IOError
+// Open class 'CustomError' extends 'Error' and can be extended anywhere it's visible
+open class CustomError(): Error
 ```
 
 ### Inheritance in multiplatform projects
@@ -188,8 +199,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-> In multiplatform projects, `when` expressions involving sealed classes within 
-> [expected declarations](multiplatform-expect-actual.md) in common code still require an `else` branch. 
+> In multiplatform projects, if you have a sealed class with a `when` expression as an 
+> [expected declarations](multiplatform-expect-actual.md) in your common code, you still need an `else` branch. 
 > This is because subclasses of `actual` platform implementations may extend sealed classes that 
 > aren't known in the common code.
 >
@@ -202,8 +213,8 @@ Let's explore some practical scenarios where the application of sealed classes o
 ### State management in UI applications
 
 You can use sealed classes to represent different states of a UI in an application. 
-This approach allows for a structured and safe handling of UI changes. 
-In this example, we are showcasing how to manage various UI states:
+This approach allows for structured and safe handling of UI changes. 
+This example demonstrates how to manage various UI states:
 
 ```kotlin
 sealed class UIState {
@@ -225,8 +236,8 @@ fun updateUI(state: UiState) {
 
 In practical business applications, handling various payment methods efficiently is a common requirement. 
 This example illustrates how to implement such business logic using sealed classes. 
-By representing different payment methods as subclasses of a sealed class, we establish a clear and manageable structure 
-for processing transactions:
+By representing different payment methods as subclasses of a sealed class, it establishes a clear and manageable 
+structure for processing transactions:
 
 ```kotlin
 sealed class Payment {
@@ -244,20 +255,20 @@ fun processPayment(payment: Payment) {
 }
 ```
 
-Here, `Payment` is a sealed class that represents different payment methods in an e-commerce system: 
-`CreditCard`, `PayPal`, and `Cash`. Each subclass can have its specific properties (like `number` and `expiryDate` for 
-`CreditCard`, and `email` for `PayPal`). The `processPayment` function demonstrates how to handle different payment methods. 
-This approach ensures that all possible payment types are considered, and the system remains flexible for future additions of payment methods.
+`Payment` is a sealed class that represents different payment methods in an e-commerce system: 
+`CreditCard`, `PayPal`, and `Cash`. Each subclass can have its specific properties, like `number` and `expiryDate` for 
+`CreditCard`, and `email` for `PayPal`. The `processPayment()` function demonstrates how to handle different payment methods.
+This approach ensures that all possible payment types are considered, and the system remains flexible for new payment 
+methods to be added in the future.
 
 ### API request-response handling
 
-In this example, we explore a practical implementation of user authentication system using  API request and 
-response handling using sealed interfaces and classes. We are focusing on a user authentication system with 
-login and logout functionalities. The `ApiRequest` sealed interface defines specific request types - `LoginRequest` 
-for login and `LogoutRequest` for logout operations. We employ a sealed class, `ApiResponse`, to encapsulate different 
-response scenarios: `UserSuccess` with user data, `UserNotFound` for absent users, and `Error` for any failures. 
-The `handleRequest` function processes these requests in a type-safe manner using a `when` expression, while 
-`getUserById` simulates user retrieval:
+This example explores a practical implementation of a user authentication system that handles API requests and responses 
+using sealed interfaces and classes. The user authentication system has login and logout functionalities. 
+The `ApiRequest` sealed interface defines specific request types: `LoginRequest` for login, and `LogoutRequest` for logout operations. 
+The sealed class, `ApiResponse`, encapsulates different response scenarios: `UserSuccess` with user data, `UserNotFound` 
+for absent users, and `Error` for any failures. The `handleRequest` function processes these requests in a type-safe manner 
+using a `when` expression, while `getUserById` simulates user retrieval:
 
 ```kotlin
 // Import necessary modules
@@ -282,7 +293,7 @@ object LogoutRequest : ApiRequest
 // Define the ApiResponse sealed class with detailed response types
 sealed class ApiResponse {
     data class UserSuccess(val user: UserData) : ApiResponse()
-    object UserNotFound : ApiResponse()
+    data object UserNotFound : ApiResponse()
     data class Error(val message: String) : ApiResponse()
 }
 
