@@ -39,7 +39,7 @@ Create a project using the Kotlin Multiplatform wizard:
    Alternatively, you can run the following command in the terminal from the `composeApp` directory:
 
    ```bash
-   ./gradlew wasmJsBrowserRun -t
+   ../gradlew wasmJsBrowserRun -t
    ```
 
 3. Once the application starts, open the following URL in your browser:
@@ -70,7 +70,7 @@ In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsB
 Alternatively, you can run the following command in the terminal from the `composeApp` directory:
 
 ```bash
-./gradlew wasmJsBrowserDistribution
+../gradlew wasmJsBrowserDistribution
 ```
 
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
