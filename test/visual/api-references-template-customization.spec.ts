@@ -21,7 +21,7 @@ const pagesWithCustomizedTemplates = [
     },
 ];
 
-test.describe.skip('Check api references template customization', async () => {
+test.describe('Check api references template customization', async () => {
     for (const pageWithCustomizedTemplate of pagesWithCustomizedTemplates) {
         test(`Check footer on the ${pageWithCustomizedTemplate.name} page`, async ({ page }) => {
             const currentPage = pageWithCustomizedTemplate.getInstance(page);
