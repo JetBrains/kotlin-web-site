@@ -28,7 +28,7 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](
 Start by creating the data frame containing the records to visualize. This data frame stores simulated numbers of the 
 monthly average temperature in three cities: Berlin, Madrid, and Caracas.
 
-Use the `dataFrameOf()` function from the Koltin DataFrame library
+Use the `dataFrameOf()` function from the Kotlin DataFrame library
 to generate the data frame. To create the data frame, run the following code snippet in the Kotlin Notebook:
 
 ```kotlin
@@ -161,7 +161,7 @@ Here's the result:
 
 ![Bar chart](visualization-bar-chart.svg){width=600}
 
-<br> </br>
+<br>
 
 > To increase type safety, there are different options to access a column's records when working with the Kandy and Kotlin DataFrame libraries together.
 > For more information about options to access columns, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
