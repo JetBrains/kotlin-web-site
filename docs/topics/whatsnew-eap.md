@@ -331,6 +331,189 @@ fun main(input: Rho) {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-increment-decrement-operators" validate="false"}
 
+### Kotlin Multiplatform improvements
+
+In Kotlin %kotlinEapVersion%, we've made improvements in the K2 compiler related to Kotlin Multiplatform in the following areas:
+* [Separation of common and platform sources during compilation](#separation-of-common-and-platform-sources-during-compilation)
+* [Different visibility levels of expected and actual declarations](#different-visibility-levels-of-expected-and-actual-declarations)
+
+#### Separation of common and platform sources during compilation
+
+Previously, due to its design, the Kotlin compiler couldn't keep common and platform source sets separate at compile time.
+This means that common code could access platform code, which resulted in different behavior between platforms. In addition,
+some compiler settings and dependencies from common code were leaked into platform code.
+
+In Kotlin %kotlinEapVersion%, we redesigned the compilation scheme as part of the new Kotlin K2 compiler so that there is a strict 
+separation between common and platform source sets. The most noticeable change is when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
+
+<table header-style="top">
+   <tr>
+       <td>Common code</td>
+       <td>Platform code</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+fun foo(x: Any) = println("common foo")
+
+fun exampleFunction() {
+    foo(42)  
+}
+```
+
+</td>
+<td>
+
+```kotlin
+// JVM
+fun foo(x: Int) = println("platform foo")
+
+// JavaScript
+// There is no foo() function overload
+// on the JavaScript platform
+```
+
+</td>
+</tr>
+</table>
+
+In this example, the common code has different behavior depending on which platform it is run on:
+
+* On the JVM platform, calling the `foo()` function in common code results in the `foo()` function from platform code 
+being called: `platform foo`
+
+* On the JavaScript platform, calling the `foo()` function in common code results in the `foo()` function from common 
+code being called: `common foo`, since there is none available in platform code.
+
+In Kotlin %kotlinEapVersion%, common code doesn’t have access to platform code, so both platforms successfully resolve the `foo()` 
+function to the `foo()` function in common code: `common foo`
+
+In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was 
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For example, if you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes):
+
+<table header-style="top">
+   <tr>
+       <td>Common code</td>
+       <td>Platform code</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+expect class Identity {
+    fun confirmIdentity(): String
+}
+
+fun common() {
+    // Before %kotlinEapVersion%,
+    // it triggers an IDE-only error
+    Identity().confirmIdentity()
+    // RESOLUTION_TO_CLASSIFIER : Expected class
+    // Identity has no default constructor.
+}
+
+```
+
+</td>
+<td>
+
+```kotlin
+actual class Identity {
+    actual fun confirmIdentity() = "expect class fun: jvm"
+}
+```
+
+</td>
+</tr>
+</table>
+
+In this example, the expected class `Identity` has no default constructor, so it can’t be called successfully in common code.
+Previously, only an IDE error was reported, but the code still compiled successfully on the JVM. However, now the compiler
+correctly reports an error:
+
+```kotlin
+Expected class 'expect class Identity : Any' does not have default constructor
+```
+
+##### When resolution behavior doesn’t change
+
+We are still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same when
+you call functions that aren’t within the same source set. You will notice this difference mainly when you use overloads 
+from a multiplatform library in your common code.
+
+For example, if you have this library, which has two `whichFun()` functions with different signatures:
+
+```kotlin
+// Example library
+
+// MODULE: common
+fun whichFun(x: Any) = println("common function") 
+
+// MODULE: JVM
+fun whichFun(x: Int) = println("platform function")
+```
+
+If you call the `whichFun()` function in your common code, the function that has the most relevant argument type in the 
+library is resolved:
+
+```kotlin
+// A project that uses the example library for the JVM target
+
+// MODULE: common
+fun main(){
+    whichFun(2) 
+    // platform function
+}
+```
+In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from common code 
+is resolved because your code doesn’t have access to the platform-specific version:
+
+```kotlin
+// Example library isn’t used
+
+// MODULE: common
+fun whichFun(x: Any) = println("common function") 
+
+fun main(){
+    whichFun(2) 
+    // common function
+}
+
+// MODULE: JVM
+fun whichFun(x: Int) = println("platform function")
+```
+
+Similar to multiplatform libraries, since the `commonTest` module is in a separate source set, it also still has access 
+to platform-specific code. Therefore, the resolution of calls to functions in the `commonTest` module has the same behavior
+as in the old compilation scheme.
+
+In the future, these remaining cases will be more consistent with the new compilation scheme.
+
+#### Different visibility levels of expected and actual declarations
+
+Before Kotlin %kotlinEapVersion%, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). 
+Kotlin %kotlinEapVersion% supports different visibility levels **only** if the actual declaration is _less_ strict than 
+the expected declaration. For example:
+
+```kotlin
+expect internal class Attribute // Visibility is internal
+actual class Attribute          // Visibility is public by default,
+                                // which is less strict
+```
+
+If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
+strict. Any visibility modifiers for `actual typealias` are ignored. For example:
+
+```kotlin
+expect internal class Attribute                 // Visibility is internal
+internal actual typealias Attribute = Expanded  // The internal visibility 
+                                                // modifier is ignored
+class Expanded                                  // Visibility is public by default,
+                                                // which is less strict
+```
 
 ### Compiler plugins support
 
@@ -551,7 +734,7 @@ We would appreciate your feedback on this change! Share your comments directly t
 {type="warning"}
 
 In Kotlin 1.8.20, the Kotlin Gradle plugin started to store its data in the Gradle project cache directory: `<project-root-directory>/.gradle/kotlin`.
-However, the `.gradle` directory is reserved for Gradle only, and as a result it's not future-proof. To solve this, in 
+However, the `.gradle` directory is reserved for Gradle only, and as a result it's not future-proof. To solve this, since 
 Kotlin 2.0.0-Beta2 we store Kotlin data in your `<project-root-directory>/.kotlin` by default. We will continue to store
 some data in `.gradle/kotlin` directory for backward compatibility.
 
