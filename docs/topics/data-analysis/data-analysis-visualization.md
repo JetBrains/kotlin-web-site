@@ -4,11 +4,11 @@ Kotlin offers an all-in-one-place solution for powerful and flexible data visual
 before diving into complex models.
 
 This tutorial demonstrates how to create different chart types in IntelliJ IDEA using the Kotlin Notebook plugin with
-the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) libraries.
+the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) libraries.
 
 ## Before you start
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+1. Download and install the latest version of [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac).
 2. Install the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) in IntelliJ IDEA.
    
     > Alternatively, access the Kotlin Notebook plugin from **Settings/Preferences** | **Plugins** | **Marketplace** within IntelliJ IDEA.
@@ -16,7 +16,7 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [DataFrame](https:/
     {type="tip"}
 
 3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
-4. In the Kotlin Notebook, import the Kandy and DataFrame libraries by running the following command:
+4. In the Kotlin Notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
 
     ```kotlin
     %use kandy
@@ -25,12 +25,11 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [DataFrame](https:/
 
 ## Create the data frame
 
-Start by creating the data frame containing the records to visualize. 
+Start by creating the data frame containing the records to visualize. This data frame stores simulated numbers of the 
+monthly average temperature in three cities: Berlin, Madrid, and Caracas.
 
-In this tutorial, we'll use the DataFrame library to generate the data frame. This data frame stores simulated numbers 
-of the monthly average temperature in three cities: Berlin, Madrid, and Caracas.
-
-To create the data frame, run the following code snippet in the Kotlin Notebook:
+Use the `dataFrameOf()` function from the Koltin DataFrame library
+to generate the data frame. To create the data frame, run the following code snippet in the Kotlin Notebook:
 
 ```kotlin
 // The months variable stores a list with the 12 months of the year
@@ -68,7 +67,7 @@ The first four rows of the data frame contain records of the temperature in Berl
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
 
-> Find more information about creating, exploring, and managing data frames in the [DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
+> Find more information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
 > 
 > To learn about retrieving data from files, web sources, or databases, see [Working with data sources](data-analysis-work-with-data-sources.md).
 > 
@@ -84,11 +83,11 @@ and the values for the X and Y axes. You can customize colors and sizes:
 ```kotlin
 df.plot {
     line {
-        // Specifies the data frame's column used for the X and Y axes 
-        x("Month")
-        y("Temperature")
-        // Specifies the data frame's column used for categories (and their colors) 
-        color("City") {
+        // Accesses the data frame's columns used for the X and Y axes 
+        x(Month)
+        y(Temperature)
+        // Accesses the data frame's column used for categories and sets colors for these categories 
+        color(City) {
             scale = categorical("Berlin" to Color.PURPLE, "Madrid" to Color.ORANGE, "Caracas" to Color.GREEN)
         }
         // Customizes the line's size
@@ -101,25 +100,25 @@ df.plot {
 
 Here's the result:
 
-![Line chart](visualization-line-chart.png){width=600}
+![Line chart](visualization-line-chart.svg){width=600}
 
 ## Create a points chart
 
 Now, let's visualize the `df` data frame in a points (scatter) chart. 
 
 Within the `plot()` function, specify the `points` chart type. Add the X and Y axes' values and the categorical values from the `df` columns.
-You can also add a heading to your chart:
+You can also include a heading to your chart:
 
 ```kotlin
 df.plot {
     points {
-        // Specifies the data frame's column used for the X and Y axes 
-        x("Month") { axis.name = "Month" }
-        y("Temperature") { axis.name = "Temperature" }
+        // Accesses the data frame's columns used for the X and Y axes 
+        x(Month) { axis.name = "Month" }
+        y(Temperature) { axis.name = "Temperature" }
         // Customizes the point's size
         size = 5.5
-        // Specifies the data frame's column used for categories (and their colors) 
-        color("City") {
+        // Accesses the data frame's column used for categories and sets colors for these categories 
+        color(City) {
             scale = categorical("Berlin" to Color.LIGHT_GREEN, "Madrid" to Color.BLACK, "Caracas" to Color.YELLOW)
         }
     }
@@ -130,24 +129,24 @@ df.plot {
 
 Here's the result:
 
-![Points chart](visualization-points-chart.png){width=600}
+![Points chart](visualization-points-chart.svg){width=600}
 
 ## Create a bar chart
 
-Finally, let's create a bar chart grouped by city using the same data as the previous charts for the X and Y axes and categories. 
-For colors, you can also use the hexadecimal codes: 
+Finally, let's create a bar chart grouped by city using the same data as in the previous charts. 
+For colors, you can also use hexadecimal codes: 
 
 ```kotlin
 // Groups by cities  
-df.groupBy("City").plot {
+df.groupBy { City }.plot {
     // Adds a chart heading
     layout.title = "Temperature per month"
     bars {
-        // Specifies the data frame's column used for the X and Y axes 
-        x("Month")
-        y("Temperature")
-        // Specifies the data frame's column used for categories (and their colors) 
-        fillColor("City") {
+        // Accesses the data frame's columns used for the X and Y axes 
+        x(Month)
+        y(Temperature)
+        // Accesses the data frame's column used for categories and sets colors for these categories 
+        fillColor(City) {
             scale = categorical(
                 "Berlin" to Color.hex("#6F4E37"),
                 "Madrid" to Color.hex("#C2D4AB"),
@@ -160,7 +159,15 @@ df.groupBy("City").plot {
 
 Here's the result:
 
-![Bar chart](visualization-bar-chart.png){width=600}
+![Bar chart](visualization-bar-chart.svg){width=600}
+
+<br> </br>
+
+> To increase type safety, there are different options to access a column's records when working with the Kandy and Kotlin DataFrame libraries together.
+> For more information about options to access columns, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
+>
+{type="tip"}
+
 
 ## What's next
 
