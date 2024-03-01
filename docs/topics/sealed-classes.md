@@ -17,7 +17,7 @@ subclasses and ensure that no new subclasses are created to affect your code adv
 Sealed classes are best used for scenarios when:
 
 * **Limited class inheritance is desired:** You have a predefined, finite set of subclasses that extend a class, all of which are known at compile time.
-* **Type-safe design is required:** Safety and pattern matching are crucial in your project. Particularly for state management or handling complex conditional logic. For an example, check out [Use sealed classes with when expressions section](#use-sealed-classes-with-when-expression).
+* **Type-safe design is required:** Safety and pattern matching are crucial in your project. Particularly for state management or handling complex conditional logic. For an example, check out [Use sealed classes with when expressions](#use-sealed-classes-with-when-expression).
 * **Working with closed APIs:** You want robust and maintainable public APIs for libraries that ensure that third-party clients use the APIs as intended.
 
 For more detailed practical applications, see [Use case scenarios](#use-case-scenarios).
@@ -51,10 +51,10 @@ If the hierarchy of such error classes includes interfaces or abstract classes v
 prevents other developers from implementing or extending them in the client code. 
 Since the library doesn't know about errors declared outside of it, it can’t treat them consistently with its own classes. 
 However, with a **sealed** hierarchy of error classes, library authors can be sure that they know all the possible error 
-types and that other ones can’t appear later.
+types and that other error types can't appear later.
 
 The hierarchy of the example looks like this:
-![Hierarchy Illustration of Sealed Classes and Interfaces](sealedClasses_interfaces.png){width=600}
+![Hierarchy Illustration of Sealed Classes and Interfaces](sealedClasses_interfaces.svg){width=700}
 
 ### Constructors
 
@@ -200,7 +200,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
 > In multiplatform projects, if you have a sealed class with a `when` expression as an 
-> [expected declarations](multiplatform-expect-actual.md) in your common code, you still need an `else` branch. 
+> [expected declaration](multiplatform-expect-actual.md) in your common code, you still need an `else` branch. 
 > This is because subclasses of `actual` platform implementations may extend sealed classes that 
 > aren't known in the common code.
 >
