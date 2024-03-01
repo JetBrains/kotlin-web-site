@@ -9,6 +9,8 @@
   </p>
 </microformat>
 
+Before you create your first Kotlin notebook, you need to set up an environment.
+
 ## Set up the environment
 
 1. Download and install the latest version of [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/index.html).
