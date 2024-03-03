@@ -1,10 +1,15 @@
 import { expect, test } from '@playwright/test';
 import { testSelector } from '../utils';
 import { WebHelpPage } from '../page/webhelp-page';
-import { ELEMENT_PADDING_OFFSET, MICRO_ANIMATION_TIMEOUT, RESOLUTIONS } from './visual-constants';
+import {
+    ELEMENT_PADDING_OFFSET,
+    MICRO_ANIMATION_TIMEOUT,
+    MICRO_ANIMATION_TIMEOUT_LONG,
+    RESOLUTIONS
+} from './visual-constants';
 import { getElementScreenshotWithPadding } from './utils';
 
-test.describe.only('WebHelp page', async () => {
+test.describe('WebHelp page appearance', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
@@ -70,17 +75,49 @@ test.describe.only('WebHelp page', async () => {
 
         test(`Should render just a codeblock properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const codeBlock = page.locator(testSelector('code-block')).filter({hasText: 'MessageService' }).first();
+            const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             const screenshot = await codeBlock.screenshot();
             expect(screenshot).toMatchSnapshot(`code-block_${resolution.name}.png`);
         });
 
         test(`Should render hovered codeblock properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const codeBlock = page.locator(testSelector('code-block')).filter({hasText: 'MessageService' }).first();
+            const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             await codeBlock.hover();
             const screenshot = await codeBlock.screenshot();
             expect(screenshot).toMatchSnapshot(`code-block_hovered_${resolution.name}.png`);
         });
+
+        test(`Should render expandable codeblock properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const codeBlock = page.locator(testSelector('code-collapse')).filter({ hasText: 'package' }).first();
+            const codeBlockElement = await codeBlock.elementHandle();
+            const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolution.name}.png`);
+        });
+
+        test(`Should render expandable codeblock when expanded properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const codeBlock = page.locator(testSelector('code-collapse')).filter({ hasText: 'package' }).first();
+            await codeBlock.locator(testSelector('synopsis-ending')).click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+            const codeBlockElement = await codeBlock.elementHandle();
+            const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_expanded_${resolution.name}.png`);
+        });
+
+        test(`Should render collapsed codeblock properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const codeBlock = page.locator(testSelector('code-collapse')).filter({ hasText: 'package' }).first();
+            await codeBlock.locator(testSelector('synopsis-ending')).click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+            const closeIcon = codeBlock.locator(testSelector('collapse-button')).first();
+            await closeIcon.click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+            const codeBlockElement = await codeBlock.elementHandle();
+            const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolution.name}.png`);
+        });
+
     }
 });
