@@ -9,7 +9,7 @@ import {
 } from './visual-constants';
 import { getElementScreenshotWithPadding } from './utils';
 
-test.describe('WebHelp page appearance', async () => {
+test.describe.only('WebHelp page appearance', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
@@ -119,5 +119,31 @@ test.describe('WebHelp page appearance', async () => {
             expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolution.name}.png`);
         });
 
+        test(`Should render playground properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = await page.$('.kotlin-playground__wrapper');
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+            const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`playground_${resolution.name}.png`);
+        });
+
+        test(`Should render expanded playground properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = await page.$('.kotlin-playground__wrapper');
+            await page.locator('.fold-button').click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+            const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`playground_expanded_${resolution.name}.png`);
+        });
+
+        test(`Should render playground after run properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = await page.$('.kotlin-playground__wrapper');
+            await page.locator('.run-button').click();
+            const RUN_TIMEOUT = 3000;
+            await page.waitForTimeout(RUN_TIMEOUT);
+            const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`playground_run_${resolution.name}.png`);
+        });
     }
 });
