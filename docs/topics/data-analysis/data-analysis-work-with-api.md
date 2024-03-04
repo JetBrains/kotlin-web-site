@@ -26,8 +26,8 @@ For an example Notebook, see [DataFrame examples on GitHub](https://github.com/K
 
 ## Fetch data from an API
 
-Fetching data from APIs using the Kotlin Notebook with the DataFrame library is achieved through the .read() function, 
-which is similar to [retrieving data from files](data-analysis-work-with-data-sources.md#retrieve-data-from-a-file), such as CSV or JSON.
+Fetching data from APIs using the Kotlin Notebook with the DataFrame library is achieved through the [`.read()`](https://kotlin.github.io/dataframe/read.html) 
+function, which is similar to [retrieving data from files](data-analysis-work-with-data-sources.md#retrieve-data-from-a-file), such as CSV or JSON.
 However, when working with web-based sources, you might require additional formatting to transform the raw API data into 
 a structured format.
 
@@ -89,7 +89,7 @@ items
 ## Clean and refine data
 
 Cleaning and refining data are crucial steps in preparing your dataset for analysis. The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html) 
-offers powerful functionalities for these tasks. Functions like [`.move`](https://kotlin.github.io/dataframe/move.html), 
+offers powerful functionalities for these tasks. Methods like [`.move`](https://kotlin.github.io/dataframe/move.html), 
 [`.concat`](https://kotlin.github.io/dataframe/concatdf.html), [`.select`](https://kotlin.github.io/dataframe/select.html), 
 [`.parse`](https://kotlin.github.io/dataframe/parse.html), and [`.join`](https://kotlin.github.io/dataframe/join.html) 
 are instrumental in organizing and transforming your data. 
@@ -144,7 +144,7 @@ After you've successfully [fetched](#fetch-data-from-an-api) and [cleaned and re
 using functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), the next step 
 is to analyze this prepared dataset to extract meaningful insights.
 
-Functions such as [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html) for categorizing data, 
+Methods such as [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html) for categorizing data, 
 [`.sum`](https://kotlin.github.io/dataframe/sum.html) and [`.maxBy`](https://kotlin.github.io/dataframe/maxby.html) for 
 aggregations, and [`.sortBy`](https://kotlin.github.io/dataframe/sortby.html) for ordering data are particularly useful. 
 These tools allow you to perform complex data analysis tasks efficiently. 
@@ -166,7 +166,7 @@ val channels = joined.groupBy { channel }.sortByCount().aggregate {
 channels
 ```
 
-The results of our analysis:
+The results of the analysis:
 
 ![Analysis results](kotlinAnalysis.png){width=700}
 

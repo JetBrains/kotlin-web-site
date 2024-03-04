@@ -98,7 +98,7 @@ val moviesTitle = moviesWithYear
     }
 ```
 
-5. **Filter movies and display the resulting data frame:** Focus on specific data using the `.filter` function. 
+5. **Filter movies and display the resulting data frame:** Focus on specific data using the `.filter` method. 
 Here, we are filtering on movies that were released after the year 1990:
 
 ```kotlin
