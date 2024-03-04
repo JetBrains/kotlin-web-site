@@ -9,7 +9,7 @@ import {
 } from './visual-constants';
 import { getElementScreenshotWithPadding } from './utils';
 
-test.describe.only('WebHelp page appearance', async () => {
+test.describe('WebHelp page appearance', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
@@ -144,6 +144,83 @@ test.describe.only('WebHelp page appearance', async () => {
             await page.waitForTimeout(RUN_TIMEOUT);
             const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
             expect(screenshot).toMatchSnapshot(`playground_run_${resolution.name}.png`);
+        });
+
+        test(`Should render markdown table properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('div.table').filter({ hasText: 'Primitive-type array' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`table_${resolution.name}.png`);
+        });
+
+        test(`Should render XML table properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('div.table').filter({ hasText: 'Last modified on' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`table_xml_${resolution.name}.png`);
+        });
+
+        test(`Should render XML table with codeblocks properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('div.table').filter({ hasText: 'configure' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`table_xml_codeblocks_${resolution.name}.png`);
+        });
+
+        test(`Should render complex table with codeblocks properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('div.table').filter({ hasText: 'Dependencies' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`table_complex_codeblocks_${resolution.name}.png`);
+        });
+
+        test(`Should render ordered list properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('ol').filter({ hasText: 'One' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`ordered-list_${resolution.name}.png`);
+        });
+
+        test(`Should render unordered list properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('ul').filter({ hasText: 'First bullet' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`unordered-list_${resolution.name}.png`);
+        });
+
+        test(`Should render text elements properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('ul').filter({ hasText: 'Bold text' }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`text-elements_${resolution.name}.png`);
+        });
+
+        test(`Should render video player properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('div.video-player').first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`video-player_${resolution.name}.png`);
+        });
+
+        test(`Should render warning properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('blockquote').filter({hasText: 'Support for K2'}).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`blockquote_warning_${resolution.name}.png`);
+        });
+
+        test(`Should render note properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('blockquote').filter({hasText: 'As for native'}).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`blockquote_note_${resolution.name}.png`);
+        });
+
+        test(`Should render tip properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('blockquote').filter({hasText: 'As for native'}).last();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`blockquote_tip_${resolution.name}.png`);
         });
     }
 });
