@@ -161,7 +161,7 @@ Here's the result:
 
 ![Bar chart](visualization-bar-chart.svg){width=600}
 
-<br>
+<p>&nbsp;</p>
 
 > To increase type safety, there are different options to access a column's records when working with the Kandy and Kotlin DataFrame libraries together.
 > For more information about options to access columns, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
