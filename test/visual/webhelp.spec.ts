@@ -237,5 +237,43 @@ test.describe('WebHelp page appearance', async () => {
             const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
             expect(screenshot).toMatchSnapshot(`definition-list_expanded_${resolution.name}.png`);
         });
+
+        test(`Should render markdown image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('img[title="Create a test"]').first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_${resolution.name}.png`);
+        });
+
+        test(`Should render xml image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('img[title="Multiplatform web wizard"]').first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_xml_${resolution.name}.png`);
+        });
+
+        test(`Should render inline image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('img[title="YouTrack"]');
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_inline_${resolution.name}.png`);
+        });
+
+        test(`Should render zoomable image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_zoomable_${resolution.name}.png`);
+        });
+
+        test(`Should render zoomed image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
+            await element.locator('button').click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT);
+            const lightbox = page.locator('div.light-box');
+            const screenshot = await lightbox.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_zoomed_${resolution.name}.png`);
+        });
     }
 });

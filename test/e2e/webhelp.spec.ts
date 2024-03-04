@@ -29,4 +29,20 @@ kotlin("kapt") version "1.9.22"
         const clipboardContent = await page.$eval('#clipboardTextarea', (textAreaElement: HTMLTextAreaElement) => textAreaElement.value);
         expect(clipboardContent).toEqual(EXPECTED_CODEBLOCK_CONTENT);
     });
+
+    test(`Should zoom zoomable image when clicked`, async ({ page }) => {
+        const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
+        await element.locator('button').first().click();
+        const lightbox = page.locator('div.light-box').first();
+        expect(await lightbox.count()).toBe(1);
+    });
+
+    test(`Should close zoomable image when close button clicked`, async ({ page }) => {
+        const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
+        await element.locator('button').first().click();
+        const lightbox = page.locator('div.light-box').first();
+        expect(await lightbox.count()).toBe(1);
+        await lightbox.locator('button').first().click();
+        expect(await lightbox.count()).toBe(0);
+    });
 });
