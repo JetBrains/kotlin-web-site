@@ -22,7 +22,6 @@ test.describe('WebHelp page appearance', async () => {
             expect(screenshot).toMatchSnapshot(`layout_${resolution.name}.png`);
         });
 
-
         test(`Should render micro format properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
             const screenshot = await page.locator(testSelector('micro-format-content')).screenshot();
@@ -204,23 +203,39 @@ test.describe('WebHelp page appearance', async () => {
 
         test(`Should render warning properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = page.locator('blockquote').filter({hasText: 'Support for K2'}).first();
+            const element = page.locator('blockquote').filter({ hasText: 'Support for K2' }).first();
             const screenshot = await element.screenshot();
             expect(screenshot).toMatchSnapshot(`blockquote_warning_${resolution.name}.png`);
         });
 
         test(`Should render note properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = page.locator('blockquote').filter({hasText: 'As for native'}).first();
+            const element = page.locator('blockquote').filter({ hasText: 'As for native' }).first();
             const screenshot = await element.screenshot();
             expect(screenshot).toMatchSnapshot(`blockquote_note_${resolution.name}.png`);
         });
 
         test(`Should render tip properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
-            const element = page.locator('blockquote').filter({hasText: 'As for native'}).last();
+            const element = page.locator('blockquote').filter({ hasText: 'As for native' }).last();
             const screenshot = await element.screenshot();
             expect(screenshot).toMatchSnapshot(`blockquote_tip_${resolution.name}.png`);
+        });
+
+        test(`Should render definition list properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = await page.locator('dl.definition-list').first().elementHandle();
+            const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`definition-list_${resolution.name}.png`);
+        });
+
+        test(`Should render expanded definition list properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = await page.locator('dl.definition-list').first().elementHandle();
+            await page.locator('dt').first().click();
+            await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT);
+            const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+            expect(screenshot).toMatchSnapshot(`definition-list_expanded_${resolution.name}.png`);
         });
     }
 });
