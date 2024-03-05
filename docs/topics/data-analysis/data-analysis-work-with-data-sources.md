@@ -1,7 +1,12 @@
 [//]: # (title: Retrieve data from files)
 
-Kotlin Notebook, coupled with the  [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), enables you 
-to retrieve and manipulate data from numerous file formats, including CSV, JSON, XML, and TXT. 
+Kotlin Notebook, coupled with the  [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), enables 
+you to work with both non-structured and structured data. It offers the flexibility to transform non-structured data, 
+such as those found in TXT files, into structured datasets. For this transformation, you can utilize methods 
+such as [`add`](https://kotlin.github.io/dataframe/adddf.html), [`split`](https://kotlin.github.io/dataframe/split.html),
+[`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html)
+for this purpose. Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
+including CSV, JSON, XLS, and XLSX.
 
 ## Before you start
 
@@ -47,11 +52,13 @@ val dfJson = DataFrame.read("jsonFile.json")
 dfJson
 ```
 
-This will display the data from the file of your choice, such as CSV, JSON, XML, or TXT.
-![Display data](displayData.png){width=700}
+This will display the data from the file of your choice, such as CSV, JSON, XLS, or XLSX.
+![Display data](display-data.png){width=700}
 
 To gain insights into the structure or schema of your data, apply the `.schema()` function on your DataFrame variable. 
 For example, `dfJson.schema()` will list the type of each column in your JSON dataset.
+
+![Schema example](schema-data-analysis.png){width=700}
 
 ## Refine data
 
@@ -68,7 +75,7 @@ the release year of the movies. The goal is to refine this dataset for easier an
 ```
 
 2. **Read data from a CSV file:**
-Load your data into the notebook. Here, we are reading data from a CSV file named "movies.csv" and creating a DataFrame called `movies`:
+Load your data into the notebook. This example involves reading data from a CSV file named "movies.csv" and creating a DataFrame called `movies`:
 
 ```kotlin
 val movies = DataFrame.read("movies.csv")
@@ -98,15 +105,15 @@ val moviesTitle = moviesWithYear
     }
 ```
 
-5. **Filter movies and display the resulting data frame:** Focus on specific data using the `.filter` method. 
-Here, we are filtering on movies that were released after the year 1990:
+5. **Filter movies and display the resulting DataFrame:** Use the `.filter` method to focus on specific data. 
+In this case, the dataset is filtered to focus on movies that were released after the year 1990:
 
 ```kotlin
 val moviesNew = moviesWithYear.filter { year >= 1990 }
 moviesNew
 ```
 
-![Data refinement result](refinedData.png){width=700}
+![Data refinement result](refined-data.png){width=700}
 
 This is a practical demonstration of how DataFrame's functions, like `.add`, `.update`, and `.filter` can be used to 
 effectively refine and analyze data in Kotlin.

@@ -128,7 +128,7 @@ rows from the year 2000 onwards using the [`.filter`](https://kotlin.github.io/d
 
 ## Analyze data in Kotlin Notebook
 
-After [establishing connection to an SQL database](#connect-to-database), Kotlin Notebook enables in-depth data analysis 
+After [establishing a connection to an SQL database](#connect-to-database), Kotlin Notebook enables in-depth data analysis 
 utilizing the [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html). This includes functions for 
 grouping, sorting, and aggregating data, helping you to uncover and understand patterns within your data.
 

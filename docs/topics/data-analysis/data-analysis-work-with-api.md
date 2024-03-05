@@ -1,10 +1,10 @@
 [//]: # (title: Retrieve data from web sources and APIs)
 
 Kotlin Notebook provides a powerful platform for accessing and manipulating data from various web sources and APIs.
-The [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html) enables you to fetch and process data from online APIs.
-Whether you're extracting data, statistics, or other information, Kotlin Notebook simplifies these tasks by allowing you 
-to connect to APIs, parse the JSON responses, and transform them into structured data formats for comprehensive analysis 
-and visualization.
+It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
+for clarity.
+When used in conjunction with the [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook enables you to connect to APIs, parse JSON 
+responses, and transform them into structured data formats for comprehensive analysis and visualization.
 
 For an example Notebook, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
 
@@ -31,7 +31,7 @@ function, which is similar to [retrieving data from files](data-analysis-work-wi
 However, when working with web-based sources, you might require additional formatting to transform the raw API data into 
 a structured format.
 
-Let's look at an example where we fetch data from the [YouTube Data API](https://console.cloud.google.com/apis/library/youtube.googleapis.com):
+Let's look at an example of fetching data from the [YouTube Data API](https://console.cloud.google.com/apis/library/youtube.googleapis.com):
 
 1. **Import libraries:** Import the DataFrame library, which is essential for data manipulation tasks.
 This is done by running the following command in a code cell:
@@ -70,7 +70,7 @@ fun load(path: String, maxPages: Int): AnyFrame {
 }
 ```
 
-5. **Create the data frame:** Use the `load()` function we created to fetch data and create a data frame in a new code cell. 
+5. **Create the DataFrame:** Use the previously defined `load()` function to fetch data and create a DataFrame in a new code cell. 
 This example fetches data, or in this case, videos related to Kotlin, with a maximum of 50 results per page, up to a maximum of 5 pages. 
 The result is stored in the `df` variable:
 
@@ -79,7 +79,7 @@ val df = load("search?q=cute%20cats&maxResults=50&part=snippet", 5)
 df
 ```
 
-6. **Concatenate items and display the resulting data frame:** Finally, extract and concatenate items from the DataFrame:
+6. **Concatenate items and display the resulting DataFrame:** Finally, extract and concatenate items from the DataFrame:
 
 ```kotlin
 val items = df.items.concat()
@@ -94,11 +94,12 @@ offers powerful functionalities for these tasks. Methods like [`.move`](https://
 [`.parse`](https://kotlin.github.io/dataframe/parse.html), and [`.join`](https://kotlin.github.io/dataframe/join.html) 
 are instrumental in organizing and transforming your data. 
 
-Let's explore an example where we have already [fetched some data using YouTube's data API](#fetch-data-from-an-api).
+Let's explore an example where the data is already [fetched using YouTube's data API](#fetch-data-from-an-api).
 The goal is to clean and restructure the dataset to prepare for in-depth analysis:
 
 1. **Reorganize and clean data:**
-You can start by reorganizing and cleaning your data. Here, we're moving certain columns under new headers and removing unnecessary ones for clarity:
+You can start by reorganizing and cleaning your data. This involves moving certain columns under new headers and removing 
+unnecessary ones for clarity:
 
 ```kotlin
 val videos = items.dropNulls { id.videoId }
@@ -146,29 +147,49 @@ is to analyze this prepared dataset to extract meaningful insights.
 
 Methods such as [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html) for categorizing data, 
 [`.sum`](https://kotlin.github.io/dataframe/sum.html) and [`.maxBy`](https://kotlin.github.io/dataframe/maxby.html) for 
-aggregations, and [`.sortBy`](https://kotlin.github.io/dataframe/sortby.html) for ordering data are particularly useful. 
+[summary statistics](https://kotlin.github.io/dataframe/summarystatistics.html), and [`.sortBy`](https://kotlin.github.io/dataframe/sortby.html) for ordering data are particularly useful. 
 These tools allow you to perform complex data analysis tasks efficiently. 
 
 Let's look at an example, using `.groupBy` to categorize videos by channel, `.sum` to calculate total views per category, 
 and `.maxBy` to find the latest or most viewed video in each group:
 
-```kotlin
-val view by column<Int>() // Simplify column access by setting up references, making subsequent operations more intuitive.
+1. **Set up column references:** Simplify the access to specific columns by setting up references:
 
-val channels = joined.groupBy { channel }.sortByCount().aggregate {
+```kotlin
+val view by column<Int>()
+```
+
+2. **Group and sort data:** Use the `.groupBy` method to group the data by the `channel` column and sort it. 
+
+```kotlin
+val channels = joined.groupBy { channel }.sortByCount()
+```
+
+In the resulting table, you can interactively explore the data. Clicking on the `group` field 
+of a row corresponding to a channel will expand that row to reveal more details about that channel's videos.
+
+You can click on the table icon in the bottom left to return to the grouped dataset.
+
+![Expanding a row](results-of-expanding-group-data-analysis.png){width=700}
+
+3. **Summarize and analyze data**: Use `.aggregate`, `.sum`, `.maxBy`, and `.flatten` to create a DataFrame summarizing each 
+channel's total views and details of its latest or most viewed video:
+
+```kotlin
+val aggregated = channels.aggregate {
    viewCount.sum() into view
 
    val last = maxBy { publishedAt }
    last.title into "last title"
    last.publishedAt into "time"
    last.viewCount into "viewCount"
-}.sortByDesc(view).flatten() // Sort the DataFrame in descending order based on the values in the view column and transform it into a flat structure.
-channels
+}.sortByDesc(view).flatten() // Sort the DataFrame in descending order by view count and transform it into a flat structure.
+aggregated
 ```
 
 The results of the analysis:
 
-![Analysis results](kotlinAnalysis.png){width=700}
+![Analysis results](kotlin-analysis.png){width=700}
 
 For more advanced techniques, see the [Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/gettingstarted.html).
 
