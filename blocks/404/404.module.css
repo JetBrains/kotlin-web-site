@@ -1,0 +1,41 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--ktl-box-section-l) 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+    height: 100%;
+
+    @media (--ktl-mm-min) {
+        padding: var(--ktl-box-page-l) 0;
+    }
+}
+
+.image {
+    max-width: none;
+    display: flex;
+}
+
+.lineBreak {
+    @media (--ktl-mm-min) {
+        display: none;
+    }
+}
+
+.heading {
+    margin: var(--ktl-box-section-s) 0 0;
+}
+
+.subheading {
+    margin: 12px 0 0;
+}
+
+
+.wrapper {
+    flex: 1;
+}

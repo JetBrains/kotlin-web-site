@@ -54,7 +54,9 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
 
             </Head>
 
-            {children}
+            <div className={styles.wrapper}>
+                {children}
+            </div>
         </>
     );
 };

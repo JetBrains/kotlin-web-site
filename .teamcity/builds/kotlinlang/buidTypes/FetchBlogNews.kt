@@ -28,7 +28,7 @@ object FetchBlogNews : BuildType({
             branchFilter = "+:<default>"
             schedulingPolicy = cron {
                 hours = "9"
-                dayOfWeek = "1-5"
+                dayOfWeek = "2-6" // (1 is Sunday, 7 is Saturday)
             }
             triggerBuild = always()
             withPendingChangesOnly = false
