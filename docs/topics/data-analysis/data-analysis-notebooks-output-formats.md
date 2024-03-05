@@ -208,9 +208,9 @@ You can create various charts directly in your Kotlin Notebook to visualize your
            // Access the data frame's column used for categories and sets colors for these categories
            fillColor(Product) {
                scale = categorical(
-                   "Laptops" to Color.PURPLE,
-                   "Smartphones" to Color.ORANGE,
-                   "Tablets" to Color.GREEN
+                   "Laptop" to Color.PURPLE,
+                   "Smartphone" to Color.ORANGE,
+                   "Tablet" to Color.GREEN
                )
                legend.name = "Product types"
            }
