@@ -4,8 +4,8 @@ Kotlin Notebook, coupled with the  [DataFrame library](https://kotlin.github.io/
 you to work with both non-structured and structured data. It offers the flexibility to transform non-structured data, 
 such as those found in TXT files, into structured datasets. For this transformation, you can utilize methods 
 such as [`add`](https://kotlin.github.io/dataframe/adddf.html), [`split`](https://kotlin.github.io/dataframe/split.html),
-[`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html)
-for this purpose. Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
+[`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html). 
+Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
 including CSV, JSON, XLS, and XLSX.
 
 ## Before you start
