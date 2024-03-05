@@ -20,13 +20,13 @@ var a3: Int? = a1 + a2
 
 ![Plain text code output](plain-text-output.png){width=300}
 
-* If a cell's result doesn't match with other output types, it will be printed as a plain text using the `toString()` function.
+* If a cell's result doesn't match with other output types, it will be printed as plain text using the `toString()` function.
 * If your code contains errors, Kotlin Notebook displays an error message and a traceback, providing insights for debugging.
 
 ### Rich text
 
 Use Markdown types of cells to get rich text output. It supports various types of formatting with Markdown and HTML markup.
-HTML can even contain CSS and JavaScript. This way your cell's output can include lists, tables, font styles, code blocks,
+HTML can even contain CSS and JavaScript. This way, your cell's output can include lists, tables, font styles, code blocks,
 and more:
 
 ```none
@@ -134,7 +134,7 @@ You can render mathematical formulas and equations using the LaTeX format, a typ
    %use lib-ext(0.11.0-398)
    ```
 
-2. In the new cell, run you formula: 
+2. In the new cell, run your formula: 
     
    ```none
    LATEX("c^2 = a^2 + b^2 - 2 a b \\cos\\alpha")
@@ -200,8 +200,7 @@ You can create various charts directly in your Kotlin Notebook to visualize your
 2. Use the same data frame and run the `plot()` function in the new cell:
 
    ```kotlin
-   dfSales.plot { 
-   layout.title = "Yearly Gadget Sales Results"
+   dfSales.groupBy { Product }.plot {
        bars {
            // Access the data frame's columns used for the X and Y axes
            x(Month)
@@ -216,8 +215,9 @@ You can create various charts directly in your Kotlin Notebook to visualize your
                legend.name = "Product types"
            }
        }
-       // Customize the chart's layout size
+       // Customize the chart's appearance
        layout.size = 1000 to 450
+       layout.title = "Yearly Gadget Sales Results"
    }
    ```
 
@@ -226,5 +226,5 @@ You can create various charts directly in your Kotlin Notebook to visualize your
 ## What's next
 
 * [Visualize data using the DataFrame and Kandy libraries](data-analysis-visualization.md)
-* [Retrieve data from the CSV and Json files](data-analysis-work-with-data-sources.md)
+* [Retrieve data from the CSV and JSON files](data-analysis-work-with-data-sources.md)
 * [Check out the list of supported libraries](data-science-libraries.md)
