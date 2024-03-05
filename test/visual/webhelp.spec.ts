@@ -15,6 +15,39 @@ test.describe('WebHelp page appearance', async () => {
         await webHelpPage.init();
     });
 
+    test(`Should render table of contents properly on desktop`, async ({ page }) => {
+        await page.setViewportSize(RESOLUTIONS[0]);
+        const element = page.locator('nav').locator('ul.toc').first();
+        const screenshot = await element.screenshot();
+        expect(screenshot).toMatchSnapshot('table-of-contents_desktop.png');
+    });
+
+    test(`Should render table of contents with expanded item  properly on desktop`, async ({ page }) => {
+        await page.setViewportSize(RESOLUTIONS[0]);
+        const element = page.locator('nav').locator('ul.toc').first();
+        const tocItem = element.locator(testSelector('toc-item')).filter({ hasText: 'Basics' }).first();
+        await tocItem.click();
+        await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+        const screenshot = await element.screenshot();
+        expect(screenshot).toMatchSnapshot('table-of-contents-expanded_desktop.png');
+    });
+
+    test(`Should render article navigation properly on desktop`, async ({ page }) => {
+        await page.setViewportSize(RESOLUTIONS[0]);
+        const element = await page.locator('aside').locator('ul.toc').first().elementHandle();
+        const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+        expect(screenshot).toMatchSnapshot('article-navigation_desktop.png');
+    });
+
+    test(`Should render indicate current section in article navigation`, async ({ page }) => {
+        await page.setViewportSize(RESOLUTIONS[0]);
+        await page.locator('a[href="/docs/test-page.html#lists"]').first().click();
+        await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
+        const element = await page.locator('aside').locator('ul.toc').first().elementHandle();
+        const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
+        expect(screenshot).toMatchSnapshot('article-navigation-current-section_desktop.png');
+    });
+
     for (const resolution of RESOLUTIONS) {
         test(`Should render layout of the article properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
@@ -274,6 +307,13 @@ test.describe('WebHelp page appearance', async () => {
             const lightbox = page.locator('div.light-box');
             const screenshot = await lightbox.screenshot();
             expect(screenshot).toMatchSnapshot(`image_zoomed_${resolution.name}.png`);
+        });
+
+        test(`Should render button-style image properly on ${resolution.name}`, async ({ page }) => {
+            await page.setViewportSize(resolution);
+            const element = page.locator('img[title="Create a project"]').first();
+            const screenshot = await element.screenshot();
+            expect(screenshot).toMatchSnapshot(`image_button-style_${resolution.name}.png`);
         });
     }
 });

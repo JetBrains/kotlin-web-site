@@ -1,11 +1,22 @@
 import { expect, test } from '@playwright/test';
 import { testSelector } from '../utils';
 import { WebHelpPage } from '../page/webhelp-page';
+import {  RESOLUTIONS } from '../visual/visual-constants';
 
 test.describe('WebHelp page interactivity', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
+    });
+
+    test(`Should open page  item  properly on desktop`, async ({ page }) => {
+        await page.setViewportSize(RESOLUTIONS[0]);
+        const element = page.locator('nav').locator('ul.toc').first();
+        const tocItem = element.locator(testSelector('toc-item')).filter({ hasText: 'Basics' }).first();
+        await tocItem.click();
+        const linkTocItem = element.locator('a[href="basic-syntax.html"]').first();
+        await linkTocItem.click();
+        expect(page.url()).toContain('basic-syntax.html');
     });
 
 
