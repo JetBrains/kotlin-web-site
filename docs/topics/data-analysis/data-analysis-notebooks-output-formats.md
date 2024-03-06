@@ -3,6 +3,48 @@
 Kotlin Notebook supports a variety of output types, including text, HTML, and images. With the help of external libraries,
 you can expand your output options and visualize your data with charts, spreadsheets, and more.
 
+Each output is a JSON object that maps the [Jupiter MIME type](https://jupyterlab.readthedocs.io/en/latest/user/file_formats.html)
+to some data. From this map, Kotlin Notebook picks the MIME type that it supports and has the highest priority among other
+types and renders it like this:
+
+* [Text](#texts) uses `text/plain` MIME type.
+* The [BufferedImage class](#buffered-images) serializes images into a Base64 string and uses the `image/png` mime type.
+* The [Image class](#loaded-images), as well as the [LaTeX format](#math-formulas-and-equations), use the `text/html` MIME
+  type with the `img` tag inside.
+* [Kotlin DataFrame tables](#data-frames) and [Kandy plots](#charts) use their own internal MIME types, which are backed
+  by static `HTML/images`. This way, you can display them on GitHub.
+
+You can set up the mapping manually, for example, to use Markdown as a cell output:
+
+```kotlin
+MimeTypedResult(
+    mapOf(
+        "text/plain" to "123",
+        "text/markdown" to "# HEADER",
+        //other mime:value pairs
+    )
+)
+```
+
+To display any kind of output, use the `DISPLAY()` function. It also enables the combination of several outputs:
+
+```kotlin
+DISPLAY(HTML("<h2>Gaussian distribution</h2>"))
+DISPLAY(LATEX("f(x) = \\frac{1}{\\sigma \\sqrt{2\\pi}} \\cdot e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}"))
+
+val experimentX = experimentData.map { it.key }
+val experimentY = experimentData.map { it.value }
+
+DISPLAY(plot {
+    bars {
+        x(experimentX)
+        y(experimentY)
+    }
+})
+```
+
+![Different outputs for Gaussian distribution](gaussian-distribution-output.png){width=700}
+
 ## Texts
 
 ### Plain text
@@ -25,18 +67,18 @@ var a3: Int? = a1 + a2
 
 ### Rich text
 
-Use Markdown types of cells to get rich text output. It supports various types of formatting with Markdown and HTML markup.
+Use cells of the Markdown type to get rich text output. It supports various types of formatting with Markdown and HTML markup.
 HTML can even contain CSS and JavaScript. This way, your cell's output can include lists, tables, font styles, code blocks,
 and more:
 
 ```none
 ## Line magics
- 
-| Spell                              | Description                                                                                                      | Example                                                                               | 
+
+| Spell                              | Description                                                                                                      | Example                                                                               |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| <code>%use</code>                  | Injects code for supported libraries: artifact resolution, default imports, initialization code, type renderers. | <code>%use klaxon(5.5), lets-plot</code>                                              |                                          
+| <code>%use</code>                  | Injects code for supported libraries: artifact resolution, default imports, initialization code, type renderers. | <code>%use klaxon(5.5), lets-plot</code>                                              |                                         
 | <code>%trackClasspath</code>       | Logs any changes of current classpath. Useful for debugging artifact resolution failures.                        | <code>%trackClasspath [on |off]</code>                                                |
-| <code>%trackExecution </code>      | Logs pieces of code that are going to be executed. Useful for debugging of libraries support.                    | <code>%trackExecution [all|generated|off]</code>                                      |           
+| <code>%trackExecution</code>       | Logs pieces of code that are going to be executed. Useful for debugging of libraries support.                    | <code>%trackExecution [all|generated|off]</code>                                      |          
 | <code>%useLatestDescriptors</code> | Use latest versions of library descriptors available. By default, bundled descriptors are used.                  | <code>%useLatestDescriptors [on|off]</code>                                           |
 | <code>%output</code>               | Output capturing settings.                                                                                       | <code>%output --max-cell-size=1000 --no-stdout --max-time=100 --max-buffer=400</code> |
 | <code>%logLevel</code>             | Set logging level.                                                                                               | <code>%logLevel [off|error|warn|info|debug]</code>                                    |
@@ -49,21 +91,26 @@ and more:
 
 ## HTML
 
-Kotlin Notebook can render HTML directly, showing scripts or even embedding websites:
+Kotlin Notebook can render HTML directly, executing scripts or even embedding websites:
 
 ```none
 HTML("""
 <p>Counter: <span id="ctr">0</span> <button onclick="inc()">Increment</button></p>
 <script>
-function inc() {
-let counter = document.getElementById("ctr")
-counter.innerHTML = parseInt(counter.innerHTML) + 1;
+    function inc() {
+        let counter = document.getElementById("ctr")
+        counter.innerHTML = parseInt(counter.innerHTML) + 1;
 }
 </script>
 """)
 ```
 
 ![Using HTML script](direct-html-output.png){width=300}
+
+
+> Mark your notebook as **Trusted** at the top of the file to be able to execute scripts.
+>
+{type="note"}
 
 ## Images
 
@@ -72,7 +119,7 @@ Static images can be displayed in formats such as `.png`, `jpeg`, and `.svg`.
 
 ### Buffered images
 
-By default, you can use `BufferedImage` type to display images:
+By default, you can use `BufferedImage` class to display images:
 
 ```kotlin
 import java.awt.Color
@@ -134,8 +181,8 @@ You can render mathematical formulas and equations using the LaTeX format, a typ
    %use lib-ext(0.11.0-398)
    ```
 
-2. In the new cell, run your formula: 
-    
+2. In the new cell, run your formula:
+
    ```none
    LATEX("c^2 = a^2 + b^2 - 2 a b \\cos\\alpha")
    ```
@@ -154,25 +201,25 @@ With Kotlin Notebook, you can visualize structured data with data frames:
 
 2. Create the data frame and run it in the new cell:
 
-    ```kotlin
-    val months = listOf(
-        "January", "February",
-        "March", "April", "May",
-        "June", "July", "August",
-        "September", "October", "November",
-        "December"
-    )
+   ```kotlin
+   val months = listOf(
+       "January", "February",
+       "March", "April", "May",
+       "June", "July", "August",
+       "September", "October", "November",
+       "December"
+   )
+
+   // Sales data for different products and regions:
+   val salesLaptop = listOf(120, 130, 150, 180, 200, 220, 240, 230, 210, 190, 160, 140)
+   val salesSmartphone = listOf(90, 100, 110, 130, 150, 170, 190, 180, 160, 140, 120, 100)
+   val salesTablet = listOf(60, 70, 80, 90, 100, 110, 120, 110, 100, 90, 80, 70)
     
-    // Sales data for different products and regions:
-    val salesLaptop = listOf(120, 130, 150, 180, 200, 220, 240, 230, 210, 190, 160, 140)
-    val salesSmartphone = listOf(90, 100, 110, 130, 150, 170, 190, 180, 160, 140, 120, 100)
-    val salesTablet = listOf(60, 70, 80, 90, 100, 110, 120, 110, 100, 90, 80, 70)
-    
-    // A data frame with columns for Month, Sales, and Product
-    val dfSales = dataFrameOf(
-        "Month" to months + months + months,
-        "Sales" to salesLaptop + salesSmartphone + salesTablet,
-        "Product" to List(12) { "Laptop" } + List(12) { "Smartphone" } + List(12) { "Tablet" },
+   // A data frame with columns for Month, Sales, and Product
+   val dfSales = dataFrameOf(
+       "Month" to months + months + months,
+       "Sales" to salesLaptop + salesSmartphone + salesTablet,
+       "Product" to List(12) { "Laptop" } + List(12) { "Smartphone" } + List(12) { "Tablet" },
     )
     ```
 
@@ -185,7 +232,14 @@ With Kotlin Notebook, you can visualize structured data with data frames:
    dfSales.maxBy("Sales")
    ```
 
-![Using DataFrame to visualize data](dataframe-output.png){width=500}
+   ![Using DataFrame to visualize data](dataframe-output.png){width=500}
+
+4. You can also export your data frame as a CSV file:
+
+   ```kotlin
+   // Export your data to CSV format
+   dfSales.writeCSV("sales-stats.csv")
+   ```
 
 ## Charts
 
@@ -198,9 +252,9 @@ You can create various charts directly in your Kotlin Notebook to visualize your
    ```
 
 2. Use the same data frame and run the `plot()` function in the new cell:
-
+ 
    ```kotlin
-   dfSales.groupBy { Product }.plot {
+   val salesPlot = dfSales.groupBy { Product }.plot {
        bars {
            // Access the data frame's columns used for the X and Y axes
            x(Month)
@@ -219,12 +273,21 @@ You can create various charts directly in your Kotlin Notebook to visualize your
        layout.size = 1000 to 450
        layout.title = "Yearly Gadget Sales Results"
    }
-   ```
 
-![Using Kandy to render visualize data](kandy-output.png){width=700}
+    salesPlot
+    ```
+
+   ![Using Kandy to render visualize data](kandy-output.png){width=700}
+
+3. You can also export your plot in `.png`, `jpeg`, or `.hml` format:
+
+   ```kotlin
+   // Specify the output format for the plot file:
+   salesPlot.save("sales-chart.svg")
+   ```
 
 ## What's next
 
 * [Visualize data using the DataFrame and Kandy libraries](data-analysis-visualization.md)
 * [Retrieve data from the CSV and JSON files](data-analysis-work-with-data-sources.md)
-* [Check out the list of supported libraries](data-science-libraries.md)
+* [Check out the list of recommended libraries](data-science-libraries.md)
