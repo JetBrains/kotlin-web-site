@@ -110,8 +110,9 @@ By default, a pipe symbol `|` is used as margin prefix, but you can choose anoth
 
 ## String templates
 
-String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into the string.
-A template expression starts with a dollar sign (`$`) and consists of either a name:
+String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into a string.
+When a template expression is processed, Kotlin automatically calls the `.toString()` function on the expression's result
+to convert it into a string. A template expression starts with a dollar sign (`$`) and consists of either a variable name:
 
 ```kotlin
 fun main() {
@@ -119,6 +120,11 @@ fun main() {
     val i = 10
     println("i = $i") 
     // i = 10
+    
+    val letters = listOf("a","b","c","d","e")
+    println("Letters: $letters") 
+    // Letters: [a, b, c, d, e]
+
 //sampleEnd
 }
 ```
