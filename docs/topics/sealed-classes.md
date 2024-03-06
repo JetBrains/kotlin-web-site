@@ -54,7 +54,7 @@ However, with a **sealed** hierarchy of error classes, library authors can be su
 types and that other error types can't appear later.
 
 The hierarchy of the example looks like this:
-![Hierarchy Illustration of Sealed Classes and Interfaces](sealed-classes-interfaces.svg){width=700}
+![Hierarchy illustration of sealed classes and interfaces](sealed-classes-interfaces.svg){width=700}
 
 ### Constructors
 
@@ -129,7 +129,7 @@ Subclasses of sealed classes must have a properly qualified name. They can't be 
 > 
 > // enum class extending the sealed interface Error
 > enum class ErrorType : Error {
->    FILE_ERROR, DATABASE_ERROR
+>     FILE_ERROR, DATABASE_ERROR
 > }
 >
 > ```
@@ -140,7 +140,7 @@ These restrictions don't apply to indirect subclasses. If a direct subclass of a
 it can be extended in any way that its modifiers allow:
 
 ```kotlin
-// Sealed interface 'Error'has implementations only in the same package and module
+// Sealed interface 'Error' has implementations only in the same package and module
 sealed interface Error
 
 // Sealed class 'IOError' extends 'Error' and is extendable only within the same package
