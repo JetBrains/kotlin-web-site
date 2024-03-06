@@ -1,14 +1,30 @@
 [//]: # (title: Kotlin for data analysis)
 
-From building data pipelines to productionizing machine learning models, Kotlin can be a great choice for 
-working with data:
-* Kotlin is concise, readable, and easy to learn.
-* Static typing and null safety help create reliable, maintainable code that is easy to troubleshoot. 
-* Kotlin has 100% interoperability with Java, providing excellent performance and the ability to leverage the entire ecosystem of tried and true Java libraries.
+Data analysis isn’t something that software developers do every day.
+However, exploring and analyzing data is something that needs to be done often. 
+For example, analyze what’s actually inside collections when debugging, dig into memory dumps or databases, 
+work with REST APIs, and receive JSON files with data in them.
 
-> Some marketing info is required here!
-> 
-{type="note"}
+Exploratory Data Analysis (EDA) tools, such as Kandy and DataFrame, offer you a rich set of capabilities to help you with the following scenarios:
+
+1. Load, clean, and transform data stored in various file formats, including CSV, JSON, TXT, right in the IDE.
+
+    With our EDA tools, you can perform tasks like filtering the data, sorting, aggregating, and visualizing it. 
+    Kandy, our plotting tool, allows you to create a wide range of charts to gain insights into the dataset.
+
+2. Efficiently analyze data stored in relational databases.
+
+    DataFrame seamlessly integrates with databases and provides capabilities similar to SQL queries. 
+    You can retrieve, manipulate, and visualize data directly from databases.
+
+3. Fetch and analyze real-time and dynamic datasets from web APIs.
+
+    The EDA tools’ flexibility allows integration with external APIs via OpenAPI and other protocols.
+    This helps you with fetching data from web APIs, cleaning, and transforming it, and creating visualizations.
+
+<!-- VIDEO -->
+
+<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="700" alt="Get started with Kotlin Notebook"/></a>
 
 ## Notebooks
 
@@ -28,27 +44,11 @@ for working with Kotlin notebooks.
 
 ![Kotlin Notebook](kotlin-notebook.png){width=800}
 
-![Get started with Kotlin Notebook](multiplatform-create-project-button.png){width=700}
-
-> Learn more about Kotlin Notebook in our [blog post](https://blog.jetbrains.com/kotlin/2023/07/introducing-kotlin-notebook/).
-> 
-{type="note"}
-
 ### Kotlin notebooks in Datalore
 
 With Datalore, you can use Kotlin in the browser straight out of the box, no installation required.
 You can also collaborate on Kotlin notebooks in real time,
 get smart coding assistance when writing code, and share results as interactive or static reports.
-
-Check out a [sample report](https://datalore.jetbrains.com/view/report/9YLrg20eesVX2cQu1FKLiZ).
-
-![Kotlin in Datalore](kotlin-datalore.png){width=800}
-
-[Sign up and use Kotlin with a free Datalore Community account](https://datalore.jetbrains.com/).
-
-![Get started with Datalore](multiplatform-create-project-button.png){width=700}
-
-Get started with Datalore https://www.jetbrains.com/help/datalore/datalore-quickstart.html#overview
 
 ### Jupyter Notebooks with Kotlin kernel
 
@@ -58,10 +58,13 @@ visualizations, and Markdown text.
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open source project that brings Kotlin 
 support to Jupyter Notebook. 
 
-![Kotlin in Jupyter notebook](kotlin-jupyter-kernel.png){width=800}
+## Kandy
 
-Check out Kotlin kernel's [GitHub repo](https://github.com/Kotlin/kotlin-jupyter) for installation 
-instructions, documentation, and examples.
+Text about the Kandy library.
+
+## DataFrame
+
+Text about the DataFrame library.
 
 ## What's next
 
