@@ -23,8 +23,7 @@ For detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitH
 %use dataframe
 ```
 
-5. Ensure you have access to an SQL database, either locally hosted, such as MariaDB or MySQL, or remotely hosted on a 
-server or cloud platform.
+5. Ensure you have access to an SQL database, such as MariaDB or MySQL.
 
 
 ## Connect to database
@@ -35,11 +34,13 @@ the schema of all tables within it.
 
 Let's look at an example:
 
-1. **Import libraries:** Import the DataFrame library, which is essential for data manipulation tasks.
-This is done by running the following command in a code cell:
+1. **Import libraries:** Import the DataFrame library, which is essential for data manipulation tasks, along with
+the necessary Java libraries for SQL connectivity and utility functions: 
 
 ```kotlin
 %use dataframe
+import java.sql.DriverManager
+import java.util.*
 ```
 
 2. **Establish database connection:** Use `DatabaseConfiguration` to define your database's connection parameters, 
@@ -71,15 +72,16 @@ For more information on connecting to SQL databases, see [Read from SQL database
 ## Retrieve and manipulate data
 
 After [establishing a connection to an SQL database](#connect-to-database), you can retrieve and manipulate data in Kotlin Notebook, utilizing the DataFrame library. 
-You can use `readAllSqlTables` to retrieve data and methods, such as [`.filter`](https://kotlin.github.io/dataframe/filter.html), [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
-and [`.convert`](https://kotlin.github.io/dataframe/convert.html) to manipulate data. 
+You can use `readSqlTable` to retrieve data. To manipulate data, you can use methods, such as [`.filter`](https://kotlin.github.io/dataframe/filter.html), [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
+and [`.convert`](https://kotlin.github.io/dataframe/convert.html). 
 
 Let's look at an example of connecting to an IMDB database and retrieving data about movies directed by Quentin Tarantino:
 
-1. **Fetch data from all tables:** Retrieve data from all tables using the `readAllSqlTables` function:
+1. **Fetch data from a table:** Use the `readSqlTable` function to retrieve data from the "movies" table, setting `limit` 
+to restrict the query to the first 100 records for efficiency:
 
 ```kotlin
-val dfs = DataFrame.readAllSqlTables(dbConfig, limit = 100)
+val dfs = DataFrame.readSqlTable(dbConfig, tableName = "movies", limit = 100)
 ```
 
 2. **Execute SQL query:**
@@ -87,6 +89,10 @@ Use an SQL query to retrieve a specific dataset related to movies directed by Qu
 This query selects movie details and combines genres for each movie:
 
 ```kotlin
+val props = Properties()
+props.setProperty("user", USER_NAME)
+props.setProperty("password", PASSWORD)
+
 val TARANTINO_FILMS_SQL_QUERY = """
     SELECT name, year, rank, GROUP_CONCAT(genre) as "genres"
     FROM movies JOIN movies_directors ON movie_id = movies.id

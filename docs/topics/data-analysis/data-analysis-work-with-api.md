@@ -2,9 +2,10 @@
 
 Kotlin Notebook provides a powerful platform for accessing and manipulating data from various web sources and APIs.
 It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
-for clarity.
-When used in conjunction with the [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook enables you to connect to APIs, parse JSON 
-responses, and transform them into structured data formats for comprehensive analysis and visualization.
+for clarity. This makes it particularly useful when exploring APIs you are not familiar with.
+
+When used in conjunction with the [DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook not only enables you to connect to and fetch 
+JSON data from APIs but also assists in reshaping this data for comprehensive analysis and visualization.
 
 For an example Notebook, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
 
