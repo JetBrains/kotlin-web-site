@@ -106,6 +106,8 @@ Here the constructor is private. By default, all constructors are `public`, whic
 amounts to them being visible everywhere the class is visible (this means that a constructor of an `internal` class is only
 visible within the same module).
 
+For sealed classes, constructors are `protected` by default. For more information, see [Sealed classes](sealed-classes.md#constructors).
+
 ### Local declarations
 
 Local variables, functions, and classes can't have visibility modifiers.

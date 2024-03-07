@@ -173,15 +173,10 @@ As a consequence, smaller types _are NOT implicitly converted_ to bigger types.
 This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
 ```kotlin
-fun main() {
-//sampleStart
-    val b: Byte = 1 // OK, literals are checked statically
-    // val i: Int = b // ERROR
-    val i1: Int = b.toInt()
-//sampleEnd
-}
+val b: Byte = 1 // OK, literals are checked statically
+// val i: Int = b // ERROR
+val i1: Int = b.toInt()
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 All number types support conversions to other types:
 

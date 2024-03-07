@@ -33,7 +33,7 @@
         grid-column: var(--ktl-news-grid-column);
         grid-row: var(--ktl-news-grid-row) / calc(var(--ktl-news-grid-row) + 4);
         position: relative;
-        z-index: -1;
+        z-index: calc(var(--ktl-news-grid-bg-idx, 5) - 1);
     }
 
     .item:hover::before {
@@ -68,6 +68,7 @@
 
 .image, .title, .text, .date {
     grid-column: var(--ktl-news-grid-column);
+    z-index: var(--ktl-news-grid-data-idx, 5);
 }
 
 .image { grid-row: var(--ktl-news-grid-row); }

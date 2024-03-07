@@ -6,6 +6,22 @@
   title: 'KotlinConf 2024 Global Minna'
   subject: 'KotlinConf 2024 Global Minna'
   url: https://kommunity.com/kotlin-minna-user-group/events/kotlinconf-2024-global-minna-2180e651
+  startDate: '2024-02-22'
+  endDate: '2024-02-22'
+  location: Limassol, Cyprus
+  speaker : 'Andrey Fomenkov'
+  title : 'Cyprus KUG meetup'
+  subject : 'Optimizing Android Project Build Time'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-2202-tickets-811213329907
+- lang: en
+  startDate: '2024-02-22'
+  endDate: '2024-02-22'
+  location: Limassol, Cyprus
+  speaker : 'Aleksei Beloglazov'
+  title : 'Cyprus KUG meetup'
+  subject : 'Load Testing with Gatling and VictoriaMetrics'
+  url: https://www.eventbrite.com/e/cyprus-kotlin-user-group-meetup-2202-tickets-811213329907
+- lang: en
   startDate: '2024-01-24'
   endDate: '2024-01-24'
   location: Amsterdam, Netherlands
