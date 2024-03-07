@@ -7,12 +7,12 @@ Each output is a JSON object that maps the [Jupiter MIME type](https://jupyterla
 to some data. From this map, Kotlin Notebook picks the MIME type that it supports and has the highest priority among other
 types and renders it like this:
 
-* [Text](#texts) uses `text/plain` MIME type.
-* The [BufferedImage class](#buffered-images) serializes images into a Base64 string and uses the `image/png` mime type.
+* [Text](#texts) uses the `text/plain` MIME type.
+* The [BufferedImage class](#buffered-images) uses the `image/png` MIME type that is mapped to a Base64 string.
 * The [Image class](#loaded-images), as well as the [LaTeX format](#math-formulas-and-equations), use the `text/html` MIME
   type with the `img` tag inside.
 * [Kotlin DataFrame tables](#data-frames) and [Kandy plots](#charts) use their own internal MIME types, which are backed
-  by static `HTML/images`. This way, you can display them on GitHub.
+  by static HTML or images. This way, you can display them on GitHub.
 
 You can set up the mapping manually, for example, to use Markdown as a cell output:
 
@@ -62,14 +62,14 @@ var a3: Int? = a1 + a2
 
 ![Plain text code output](plain-text-output.png){width=300}
 
-* If a cell's result doesn't match with other output types, it will be printed as plain text using the `toString()` function.
+* If a cell's result cannot be [rendered](https://github.com/Kotlin/kotlin-jupyter?tab=readme-ov-file#rendering)
+  and displayed as any of the output types, it will be printed as plain text using the `toString()` function.
 * If your code contains errors, Kotlin Notebook displays an error message and a traceback, providing insights for debugging.
 
 ### Rich text
 
-Use cells of the Markdown type to get rich text output. It supports various types of formatting with Markdown and HTML markup.
-HTML can even contain CSS and JavaScript. This way, your cell's output can include lists, tables, font styles, code blocks,
-and more:
+Choose cells of the Markdown type to use rich text. This way, you can format the content with Markdown and HTML markup,
+using lists, tables, font styles, code blocks, and more. HTML can contain CSS styles and JavaScript.
 
 ```none
 ## Line magics
