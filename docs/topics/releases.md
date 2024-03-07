@@ -60,7 +60,7 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
     </tr>
     <tr>
         <td><strong>1.9.23</strong>
-            <p>Released: <strong>March 6, 2024</strong></p>
+            <p>Released: <strong>March 7, 2024</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.23" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
