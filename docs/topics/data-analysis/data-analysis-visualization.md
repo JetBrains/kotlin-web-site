@@ -1,4 +1,4 @@
-[//]: # (title: Data visualization in the Kotlin Notebook with Kandy)
+[//]: # (title: Data visualization in Kotlin Notebook with Kandy)
 
 Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data 
 before diving into complex models.
@@ -15,8 +15,8 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](
     >
     {type="tip"}
 
-3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
-4. In the Kotlin Notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
+3. Create a new notebook by selecting **File** | **New** | **Kotlin Notebook**.
+4. In your notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
 
     ```kotlin
     %use kandy
@@ -29,7 +29,7 @@ Start by creating the data frame containing the records to visualize. This data 
 monthly average temperature in three cities: Berlin, Madrid, and Caracas.
 
 Use the `dataFrameOf()` function from the Kotlin DataFrame library
-to generate the data frame. To create the data frame, run the following code snippet in the Kotlin Notebook:
+to generate the data frame. Run the following code snippet in Kotlin Notebook:
 
 ```kotlin
 // The months variable stores a list with the 12 months of the year
@@ -67,15 +67,15 @@ The first four rows of the data frame contain records of the temperature in Berl
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
 
-> Find more information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
+> * Find more information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
 > 
-> To learn about retrieving data from files, web sources, or databases, see [Working with data sources](data-analysis-work-with-data-sources.md).
+> * To learn about retrieving data from files, web sources, or databases, see [Working with data sources](data-analysis-work-with-data-sources.md).
 > 
 {type="note"}
 
 ## Create a line chart
 
-Let's create a line chart with the `df` data frame in the Kotlin Notebook.
+Let's create a line chart with the `df` data frame in Kotlin Notebook.
 
 Use the `plot()` function from the Kandy library. Within the `plot()` function, specify the type of chart (in this case, it's `line`) 
 and the values for the X and Y axes. You can customize colors and sizes:
@@ -163,8 +163,8 @@ Here's the result:
 
 <p>&nbsp;</p>
 
-> To increase type safety, there are different options to access a column's records when working with the Kandy and Kotlin DataFrame libraries together.
-> For more information about options to access columns, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
+> There are different options to access a column's records that can help you increase type safety when working with the Kandy and Kotlin DataFrame libraries together.
+> For more information, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
 >
 {type="tip"}
 
