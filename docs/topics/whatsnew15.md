@@ -75,7 +75,7 @@ Direct subclasses may be top-level or nested inside any number of other named cl
 
 The subclasses of a sealed class must have a name that is properly qualified – they cannot be local or anonymous objects.
 
-[Learn more about sealed class hierarchies](sealed-classes.md#location-of-direct-subclasses).
+[Learn more about sealed class hierarchies](sealed-classes.md#inheritance).
 
 ### Inline classes
 

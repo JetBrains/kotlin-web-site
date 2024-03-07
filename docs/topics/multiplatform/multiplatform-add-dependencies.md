@@ -3,7 +3,7 @@
 Every program requires a set of libraries to operate successfully. A Kotlin Multiplatform project can depend on
 multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
 
-To add a dependency on a library, update your `build.gradle(.kts)` file in the `shared` directory of your project. Set a
+To add a dependency on a library, update your `build.gradle(.kts)` file in the directory of your project containing shared code. Set a
 dependency of the required [type](gradle-configure-project.md#dependency-types) (for example, `implementation`) in the [`dependencies`](multiplatform-dsl-reference.md#dependencies)
 block: 
 
