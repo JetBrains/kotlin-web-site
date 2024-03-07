@@ -67,11 +67,10 @@ The first four rows of the data frame contain records of the temperature in Berl
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
 
-> * Find more information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
-> 
-> * To learn about retrieving data from files, web sources, or databases, see [Working with data sources](data-analysis-work-with-data-sources.md).
-> 
-{type="note"}
+> There are different options to access a column's records that can help you increase type safety when working with the Kandy and Kotlin DataFrame libraries together.
+> For more information, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
+>
+{type="tip"}
 
 ## Create a line chart
 
@@ -161,15 +160,9 @@ Here's the result:
 
 ![Bar chart](visualization-bar-chart.svg){width=600}
 
-<p>&nbsp;</p>
-
-> There are different options to access a column's records that can help you increase type safety when working with the Kandy and Kotlin DataFrame libraries together.
-> For more information, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
->
-{type="tip"}
-
-
 ## What's next
 
 * Explore more chart examples in the [Kandy documentation](https://kotlin.github.io/kandy/examples.html).
+* Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
+* Learn about retrieving data from files, web sources, or databases in [Working with data sources](data-analysis-work-with-data-sources.md).
 * Learn more about data visualization in Kotlin Notebook in this [YouTube video]( https://www.youtube.com/watch?v=m4Cqz2_P9rI&t=4s).
