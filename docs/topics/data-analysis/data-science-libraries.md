@@ -1,88 +1,41 @@
 [//]: # (title: Kotlin and Java libraries for data analysis)
 
-Kotlin has 100% interoperability with Java, providing excellent performance and the ability to leverage 
-the entire ecosystem of tried and true Java libraries.
+From data collection to model building, Kotlin offers robust libraries facilitating 
+different tasks in the data pipeline.
+
+In addition to its own libraries, Kotlin has 100% interoperability with Java. This interoperability provides the ability to leverage 
+the entire ecosystem of tried and true Java libraries with excellent performance. With this perk, you can easily use either Kotlin 
+or Java libraries when working on Kotlin data projects. 
 
 ## Kotlin libraries
 
-* [Kotlin DataFrame](https://github.com/Kotlin/dataframe) is a library for structured data processing. It aims to
-  reconcile Kotlin's static typing with the dynamic nature of data by utilizing both the full power of the Kotlin language
-  and the opportunities provided by intermittent code execution in Jupyter notebooks and REPLs.
-
-* [Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source plotting library for the JVM written in Kotlin.
-  It provides a powerful and flexible DSL for chart creation,
-  along with seamless integration with [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook)
-  and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html).
-
-* [Multik](https://github.com/Kotlin/multik) is a library for multidimensional arrays in Kotlin. The library provides Kotlin-idiomatic, 
-  type- and dimension-safe API for mathematical operations over multidimensional arrays. Multik offers swappable 
-  JVM and native computational engines, and a combination of the two for optimal performance.
-
-* [KotlinDL](https://github.com/jetbrains/kotlindl) is a high-level Deep Learning API written in Kotlin and inspired
-  by Keras. It offers simple APIs for training deep learning models from scratch, importing existing Keras models
-  for inference, and leveraging transfer learning for tweaking existing pre-trained models to your tasks.
-
-* [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) adds a missing layer of compatibility between
-  Kotlin and Apache Spark. It allows Kotlin developers to use familiar language features such as data classes, and
-  lambda expressions as simple expressions in curly braces or method references.
-
-* [kmath](https://github.com/mipt-npm/kmath) is an experimental library that was initially inspired by
-[NumPy](https://numpy.org/) but evolved to more flexible abstractions. It implements mathematical operations combined in
-algebraic structures over Kotlin types, defines APIs for linear structures, expressions, histograms, streaming operations,
-provides interchangeable wrappers over existing Java and Kotlin libraries including
-[ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j),
-[Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others.
-
-* [lets-plot](https://github.com/JetBrains/lets-plot) is a plotting library for statistical data written in Kotlin.
-Lets-Plot is multiplatform and can be used not only with JVM, but also with JS and Python. 
-
-* [kravis](https://github.com/holgerbrandl/kravis) is another library for the visualization of tabular data inspired by
-R's [ggplot](https://ggplot2.tidyverse.org/).
-
-* [londogard-nlp-toolkit](https://github.com/londogard/londogard-nlp-toolkit/) is a library that provides utilities when working with natural language processing such as word/subword/sentence embeddings, word-frequencies, stopwords, stemming, and much more.
+| **Library**                                                              | **Purpose**                                                                                                              | **Features**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|--------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Kotlin DataFrame](https://github.com/Kotlin/dataframe)                  | - Data collection <br/> - Data cleaning and processing                                                                   | - Operations for creating, sorting, and cleaning data frames, feature engineering, and more  <br/> - Processing of structured data  <br/> - Support for `CSV`, `JSON`, and other input formats <br/> - Reading from SQL databases <br/> - Connecting with different APIs to access data and increase type safety                                                                                                                                                                                                                                                                                                                                                          |
+| [Kandy](https://kotlin.github.io/kandy/welcome.html)                     | Data exploration and visualization                                                                                       | - Powerful, readable, and typesafe DSL for plotting charts of various types <br/> - Open-source library written in Kotlin for the JVM <br/> - Support for [Kotlin Notebook](https://kotlin.github.io/kandy/kandy-in-kotlin-notebook.html), [Datalore](https://kotlin.github.io/kandy/kandy-in-datalore.html), and [Jupyter Notebook](https://kotlin.github.io/kandy/kandy-in-jupyter-notebook.html) <br/> - Seamless integration with [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html)                                                                                                                                                          |
+| [KotlinDL](https://github.com/jetbrains/kotlindl)                        | Model building                                                                                                           | - Deep learning API written in Kotlin and inspired by [Keras](https://keras.io/) <br/> - Training deep learning models from scratch or importing existing Keras and ONNX models for inference <br/> - Transferring learning for tailoring existing pre-trained models to your tasks <br/> - Support for the [Android platform](https://developer.android.com/about)                                                                                                                                                                                                                                                                                                       |
+| [Multik](https://github.com/Kotlin/multik)                               | - Data cleaning and processing  <br/> - Model building                                                                   | - Mathematical operations over multidimensional arrays (linear algebra, statistics, arithmetics, and other calculations) <br/> - Creating, copying, indexing, slicing, and other array operations <br/> - Kotlin-idiomatic library with benefits such as type and dimension safety and swappable computational engines, running on the JVM or as native code                                                                                                                                                                                                                                                                                                              |
+| [Kotlin for Apache Spark](https://github.com/JetBrains/kotlin-spark-api) | - Data collection <br/> - Data cleaning and processing <br/> - Data exploration and visualization <br/> - Model building | - Layer of compatibility between [Apache Spark](https://spark.apache.org/) and Kotlin <br/> - Apache Spark data transformation operations in Kotlin-idiomatic code <br/> - Simple usage of Kotlin features, such as data classes and lambda expressions, in curly braces or method reference                                                                                                                                                                                                                                                                                                                                                                              |
+| [Lets-Plot](https://github.com/JetBrains/lets-plot)                      | Data exploration and visualization                                                                                       | - Plotting statistical data written in Kotlin <br/> - Support for [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](https://datalore.jetbrains.com/), and [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme) <br/> - Compatible with the JVM, JS, and Python <br/> - Embedding charts in [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) applications                                                                                                                                                                                                                     |
+| [KMath](https://github.com/mipt-npm/kmath)                               | - Data cleaning and processing <br/> - Data exploration and visualization <br/> - Model building                         | - Modular library to work with mathematical abstractions in [Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/) (JVM, JS, Native, and Wasm) <br/> - APIs for algebraic structures, mathematical expressions, histograms, and streaming operations <br/> - Interchangeable wrappers over existing Java and Kotlin libraries, including [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j), [Apache Commons Math](https://commons.apache.org/proper/commons-math/), [Multik](https://github.com/Kotlin/multik), and others <br/> - Inspired by Python's [NumPy](https://numpy.org/) but with other additional features like type safety |
+| [kravis](https://github.com/holgerbrandl/kravis)                         | Data exploration and visualization                                                                                       | - Visualization of tabular data <br/> - Inspired by R's [ggplot](https://ggplot2.tidyverse.org/) <br/> - Support for [Jupyter with Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter#readme)                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 ## Java libraries
 
-Since Kotlin provides first-class interop with Java, you can also use Java libraries for data science in your Kotlin code.
+Since Kotlin provides first-class interoperability with Java, you can use Java libraries for data tasks in your Kotlin code.
 Here are some examples of such libraries:
 
-* [DeepLearning4J](https://deeplearning4j.konduit.ai) is a deep learning library for Java
-
-* [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j) is an efficient matrix math library for JVM
-
-* [Dex](https://github.com/PatMartin/Dex) is a Java-based data visualization tool
-
-* [Smile](https://github.com/haifengl/smile) is a comprehensive machine learning, natural language processing,
-linear algebra, graph, interpolation, and visualization system. Besides Java API, Smile also provides a functional
-[Kotlin API](https://haifengl.github.io/api/kotlin/smile-kotlin/index.html) along with Scala and Clojure API.
-   * [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt) is a Kotlin rewrite of the Scala implicits for the natural
-   language processing part of Smile in the format of extension functions and interfaces.
-
-* [Apache Commons Math](https://commons.apache.org/proper/commons-math/) is a general math, statistics, and machine learning
-library for Java
-
-* [NM Dev](https://nm.dev/) is a Java mathematical library that covers all of classical mathematics.
-
-* [OptaPlanner](https://www.optaplanner.org/) is a solver utility for optimization planning problems
-
-* [Charts](https://github.com/HanSolo/charts) is a scientific JavaFX charting library in development
-
-* [Apache OpenNLP](https://opennlp.apache.org/) is a machine learning based toolkit for the processing of natural language text
-
-* [CoreNLP](https://stanfordnlp.github.io/CoreNLP/) is a natural language processing toolkit
-
-* [Apache Mahout](https://mahout.apache.org/) is a distributed framework for regression, clustering, and recommendation
-
-* [Weka](https://www.cs.waikato.ac.nz/ml/index.html) is a collection of machine learning algorithms for data mining tasks
-
-* [Tablesaw](https://github.com/jtablesaw/tablesaw) is a Java dataframe. It includes a visualization library based on Plot.ly
-
-## New structure (?)
-
-I'd like to see these two lists as tables (we should find a way how to group these libraries)
-
-| Library                                                 | Features                   | Notes                                        |
-|---------------------------------------------------------|----------------------------|----------------------------------------------|
-| [Kotlin DataFrame](https://github.com/Kotlin/dataframe) | Structured data processing | Support for `csv`, `json`, and other formats |
-| [Kandy](https://kotlin.github.io/kandy/welcome.html)    | Data visualization         | ...                                          |
-| ...                                                     | ...                        | ...                                          |
+| **Library**                                                                   | **Purpose**                                                                                       | **Features**                                                                                                                                                                                                                                                                                                                                                                                        |
+|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Tablesaw](https://github.com/jtablesaw/tablesaw)                             | - Data collection <br/> - Data cleaning and processing <br/> - Data exploration and visualization | - Tools for loading, cleaning, transforming, filtering, and summarizing data <br/> -  Inspired by [Plot.ly](https://plotly.com/)                                                                                                                                                                                                                                                                    |
+| [CoreNLP](https://stanfordnlp.github.io/CoreNLP/)                             | Data cleaning and processing                                                                      | - Natural language processing toolkit <br/> - Linguistic annotations for text, such as sentiment and quote attributions <br/> - Support for eight languages                                                                                                                                                                                                                                         |
+| [Smile](https://github.com/haifengl/smile)                                    | - Data cleaning and processing <br/> - Data exploration and visualization <br/> - Model building  | - Ready-made algorithms for machine learning and natural language processing <br/> - Linear algebra, graph, interpolation, and visualization tools <br/> - Provides functional [Kotlin API](https://github.com/haifengl/smile/tree/master/kotlin), [Scala API](https://github.com/haifengl/smile/tree/master/scala), [Clojure API](https://github.com/haifengl/smile/tree/master/clojure), and more |
+| [Smile-NLP-kt](https://github.com/londogard/smile-nlp-kt)                     | Data cleaning and processing                                                                      | - Kotlin rewrite of the [Scala](https://www.scala-lang.org/api/current/) implicits for the natural language processing part of Smile <br/> - Operations in the format of Kotlin extension functions and interfaces <br/> - Sentence breaking, stemming, bag of words, and other tasks                                                                                                               |
+| [Weka](https://www.cs.waikato.ac.nz/ml/index.html)                            | - Data cleaning and processing <br/> - Data exploration and visualization  <br/> - Model building | - Collection of machine learning algorithms for data mining tasks   <br/> - Tools for data preparation, classification, regression, clustering, association rules mining, and visualization                                                                                                                                                                                                         |
+| [ND4J](https://github.com/eclipse/deeplearning4j/tree/master/nd4j)            | - Data cleaning and processing  <br/> - Model building                                            | - Matrix mathematics library for the JVM <br/> - Over 500 mathematical, linear algebra, and deep learning operations                                                                                                                                                                                                                                                                                |
+| [Apache Commons Math](https://commons.apache.org/proper/commons-math/)        | - Data cleaning and processing  <br/> - Model building                                            | - Mathematics and statistics operations for Java <br/> - Correlations, distributions, linear algebra, geometry, and other operations <br/> - Machine learning models                                                                                                                                                                                                                                |
+| [NM Dev](https://nm.dev/)                                                     | - Data cleaning and processing  <br/> - Model building                                            | - Java math library of numerical algorithms <br/> - Object-oriented numerical methods <br/> -  Linear algebra, optimization, statistics, calculus, and more operations                                                                                                                                                                                                                              |
+| [Apache OpenNLP](https://opennlp.apache.org/)                                 | - Data cleaning and processing  <br/> - Model building                                            | - Machine-learning-based toolkit for the processing of natural language text <br/> - Tokenization, sentence segmentation, part-of-speech tagging, and other tasks <br/> - Built-in tools for data modeling and model validation                                                                                                                                                                     |
+| [Charts](https://github.com/HanSolo/charts) <br/> (Library under development) | Data exploration and visualization                                                                | - [JavaFX](https://openjfx.io/) library for scientific charts <br/> - Complex charts, such as logarithmic, heatmap, and force-directed graph                                                                                                                                                                                                                                                        |
+| [DeepLearning4J](https://deeplearning4j.konduit.ai)                           | Model building                                                                                    | - Deep learning library for Java <br/> - Importing and retraining models ([Pytorch](https://pytorch.org/), [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/)) <br/> - Deploying in JVM microservice environments, mobile devices, IoT, and [Apache Spark](https://spark.apache.org/)                                                                                            |
+| [OptaPlanner](https://www.optaplanner.org/)                                   | Model building                                                                                    | - Solver utility for optimization planning problems <br/> -  Compatible with object-oriented and functional programming                                                                                                                                                                                                                                                                             |
