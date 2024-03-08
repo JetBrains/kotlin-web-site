@@ -174,5 +174,6 @@ refinedMoviesDf.toStandaloneHTML(DisplayConfiguration(rowsLimit = null)).openInB
 
 ## What's next
 
-* Visualize data using the Kandy library
-* Check out the list of supported libraries
+* Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html).
+* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md).
+* Check out the list of [supported libraries](data-science-libraries.md).
