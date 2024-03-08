@@ -198,4 +198,4 @@ For more advanced techniques, see the [Kotlin DataFrame documentation](https://k
 
 * Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html).
 * Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md).
-* Check out the list of [supported libraries](data-science-libraries.md).
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-science-libraries.md).
