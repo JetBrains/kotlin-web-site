@@ -131,11 +131,11 @@ For more examples, see [Examples of Kotlin Dataframe](https://github.com/Kotlin/
 ## Save DataFrame
 
 After [refining data in Kotlin Notebook](#refine-data) using the DataFrame library, you can easily export your processed 
-data. For this, numerous [`.write`](https://kotlin.github.io/dataframe/write.html) functions are available, allowing you 
-to save in various file formats including CSV, JSON, XLS, XLSX, Apache Arrow, and even as an HTML table.
+data. You can utilize a variety of [`.write`](https://kotlin.github.io/dataframe/write.html) functions for this purpose, which support saving in multiple formats
+including CSV, JSON, XLS, XLSX, Apache Arrow, and even as HTML tables.
 This can be particularly useful for sharing your findings, creating reports, or making your data available for further analysis.
 
-Here's how you can filter a DataFrame, remove a column, and then save the refined data to a JSON file, and open an HTML table 
+Here's how you can filter a DataFrame, remove a column, save the refined data to a JSON file, and open an HTML table 
 in your browser:
 
 1. **Read data from a file:** Read your data in Kotlin Notebook from a file. Use the `.read()` function to load a file named
