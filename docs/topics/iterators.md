@@ -23,6 +23,10 @@ fun main() {
     val numbersIterator = numbers.iterator()
     while (numbersIterator.hasNext()) {
         println(numbersIterator.next())
+        // one
+        // two
+        // three
+        // four
     }
 //sampleEnd
 }
@@ -39,6 +43,10 @@ fun main() {
     val numbers = listOf("one", "two", "three", "four")
     for (item in numbers) {
         println(item)
+        // one
+        // two
+        // three
+        // four
     }
 //sampleEnd
 }
@@ -55,6 +63,10 @@ fun main() {
     val numbers = listOf("one", "two", "three", "four")
     numbers.forEach {
         println(it)
+        // one
+        // two
+        // three
+        // four
     }
 //sampleEnd
 }
@@ -79,9 +91,14 @@ fun main() {
     val listIterator = numbers.listIterator()
     while (listIterator.hasNext()) listIterator.next()
     println("Iterating backwards:")
+    // Iterating backwards:
     while (listIterator.hasPrevious()) {
         print("Index: ${listIterator.previousIndex()}")
         println(", value: ${listIterator.previous()}")
+        // Index: 3, value: four
+        // Index: 2, value: three
+        // Index: 1, value: two
+        // Index: 0, value: one
     }
 //sampleEnd
 }
@@ -106,13 +123,15 @@ fun main() {
     mutableIterator.next()
     mutableIterator.remove()    
     println("After removal: $numbers")
+    // After removal: [two, three, four]
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 In addition to removing elements, the [`MutableListIterator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/index.html)
-can also insert and replace elements while iterating the list.
+can also insert and replace elements while iterating the list by using the [`add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/add.html)
+and [`set()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/set.html) functions.
 
 ```kotlin
 
@@ -123,9 +142,12 @@ fun main() {
     
     mutableListIterator.next()
     mutableListIterator.add("two")
+    println(numbers)
+    // [one, two, four, four]
     mutableListIterator.next()
     mutableListIterator.set("three")   
     println(numbers)
+    // [one, two, three, four]
 //sampleEnd
 }
 ```
