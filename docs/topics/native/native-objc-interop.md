@@ -12,10 +12,10 @@
 This document covers some details of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
 declarations in Swift/Objective-C and Objective-C declarations in Kotlin.
 
-Some other useful resources you might find useful:
+Some other resources you might find useful:
 
 * The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia), a collection of examples on how you can use Kotlin declarations in Swift code. 
-* The [iOS integration](native-ios-integration.md) section that covers specific aspects of memory management between iOS and Kotlin. 
+* The [iOS integration](native-ios-integration.md) section, covering specific aspects of memory management between iOS and Kotlin. 
 
 ## Usage
 
@@ -100,7 +100,7 @@ Objective-C does not support packages in a framework. If the Kotlin compiler fin
 which have the same name but different packages, it renames them. This algorithm is not stable yet and can change between
 Kotlin releases. To work around this, you can rename the conflicting Kotlin classes in the framework.
 
-### Customize Objective-C/Swift construct names
+### Custom declaration names
 
 > The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
 >
@@ -147,11 +147,17 @@ package my.library
 fun foo() {}
 ```
 
-can be called from Swift like
+Can be called from Swift like this:
 
 ```swift
 MyLibraryUtilsKt.foo()
 ```
+
+See a collection of examples on accessing top-level Kotlin declarations in the Kotlin-Swift interopedia:
+
+* [Top-level functions](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/Top-level%20functions.md)
+* [Top-level read-only properties](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/functionsandproperties/Top-level%20val%20properties.md)
+* [Top-level mutable properties](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/functionsandproperties/Top-level%20mutable%20var%20properties.md)
 
 ### Method names translation
 
@@ -164,7 +170,7 @@ In this case, the clashing methods can be called from Kotlin using named argumen
 [player moveTo:UP byInches:42]
 ```
 
-In Kotlin, it would be:
+In Kotlin, it's:
 
 ```kotlin
 player.moveTo(LEFT, byMeters = 17)
@@ -179,7 +185,7 @@ Here's how  some methods of `kotlin.Any` are mapped to Swift/Objective-C:
 | `hashCode()` | `hash`         | `hash`        |
 | `toString()` | `description`  | `description` |
 
-[See a data classes example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Data%20classes.md).
+[See an example with data classes in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Data%20classes.md).
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration with
 the [`@ObjCName` annotation](#customize-objective-c-swift-construct-names).
@@ -257,7 +263,7 @@ Starting from Swift 5.5, Kotlin's `suspend` functions are also available for cal
 has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)for details.
 
 * Learn more about the [`async`/`await` mechanism in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
-* See an example and how to use third-party libraries to implement this functionality in the [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/coroutines/Suspend%20functions.md).
+* See an example and recommendations on third-party libraries that implement the same functionality in the [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/coroutines/Suspend%20functions.md).
 
 ### Extensions and category members
 
@@ -368,7 +374,7 @@ So, the following Kotlin function:
 fun foo(block: (Int) -> Unit) { ... }
 ```
 
-Would be represented in Swift as:
+Is represented in Swift as:
 
 ```swift
 func foo(block: (KotlinInt) -> KotlinUnit)
@@ -411,7 +417,7 @@ class Sample<T>() {
 }
 ```
 
-Will look in Swift like this:
+Looks in Swift like this:
 
 ```swift
 class Sample<T>() {
