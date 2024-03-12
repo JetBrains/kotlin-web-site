@@ -2,10 +2,11 @@
   startDate: '2024-06-08'
   endDate: '2024-06-08'
   location: Minna, Nigeria
-  speaker: To be announced
+  speaker: 'To be announced'
   title: 'KotlinConf 2024 Global Minna'
   subject: 'KotlinConf 2024 Global Minna'
   url: https://kommunity.com/kotlin-minna-user-group/events/kotlinconf-2024-global-minna-2180e651
+- lang: en
   startDate: '2024-02-22'
   endDate: '2024-02-22'
   location: Limassol, Cyprus
