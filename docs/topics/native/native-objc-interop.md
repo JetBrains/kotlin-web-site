@@ -188,7 +188,7 @@ Here's how  some methods of `kotlin.Any` are mapped to Swift/Objective-C:
 [See an example with data classes in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Data%20classes.md).
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration with
-the [`@ObjCName` annotation](#customize-objective-c-swift-construct-names).
+the [`@ObjCName` annotation](#custom-declaration-names).
 
 ### Errors and exceptions
 
