@@ -12,7 +12,7 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
 Create a project using the Kotlin Multiplatform wizard:
 
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
+2. On the **New Project** tab, you can change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
 3. Select the **Web** option.
 4. Click the **Download** button and unpack the resulting archive.
 

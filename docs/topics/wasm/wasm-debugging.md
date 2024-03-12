@@ -4,7 +4,7 @@
 >
 {type="note"}
 
-This tutorial demonstrates how to debug a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+This tutorial demonstrates how to debug in the browser a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application built with Kotlin/Wasm.
 
 ## Before you start
@@ -12,7 +12,7 @@ application built with Kotlin/Wasm.
 Create a project using the Kotlin Multiplatform wizard:
 
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
+2. On the **New Project** tab, you can change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
 3. Select the **Web** option.
 4. Click the **Download** button and unpack the resulting archive.
 
