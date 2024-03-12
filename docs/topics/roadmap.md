@@ -98,7 +98,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
             <p>Ktor and Exposed roadmaps:</p>
             <list>
-                <li><a href="https://blog.jetbrains.com/ktor/2022/12/16/ktor-2023-roadmap/" target="_blank">Ktor framework roadmap</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2024/03/the-ktor-roadmap-for-2024/" target="_blank">Ktor framework roadmap</a></li>
                 <li><a href="https://blog.jetbrains.com/kotlin/2023/08/exposed-moving-forward/" target="_blank">Exposed library roadmap</a></li>
             </list>
          </td>
