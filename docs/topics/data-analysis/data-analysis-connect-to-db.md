@@ -75,7 +75,7 @@ dataschemas.forEach {
 
 ## Retrieve and manipulate data
 
-After [establishing a connection to an SQL database](#connect-to-database), you can retrieve and manipulate data in Kotlin Notebook, utilizing the DataFrame library. 
+After [establishing a connection to an SQL database](#connect-to-database), you can retrieve and manipulate data in Kotlin Notebook, utilizing the Kotlin DataFrame library. 
 You can use `readSqlTable()` to retrieve data. To manipulate data, you can use methods, such as [`.filter`](https://kotlin.github.io/dataframe/filter.html), [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
 and [`.convert`](https://kotlin.github.io/dataframe/convert.html). 
 
