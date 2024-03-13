@@ -35,9 +35,9 @@ and this can conflict with using tags for the project itself.
 
 Now that you understand the options, create or adjust a Git repository as needed.
 
-## Create the XCFramework and the `Package.swift` file
+## Create the XCFramework and the Package.swift file
 
-> The following example assumes that the shared code of your KPM project is stored in the `shared` module.
+> The following example assumes that the shared code of your KMP project is stored in the `shared` module.
 > If your project is structured differently, substitute "shared" in code and path examples with the name of your module.  
 >
 {type="tip"}
@@ -53,7 +53,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
       // ...
       val xcf = XCFramework()
       // Name of the module that will be imported in the consumer project
-      val xcframeworkName = "ExampleDependency"
+      val xcframeworkName = "Shared"
    
       listOf(
          iosX64(),
@@ -93,8 +93,8 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
       targets: [
          .binaryTarget(
             name: "shared",
-            url: "<link to the uploaded XCFramework ZIP file>"),
-            checksum:"<checksum calculated for the ZIP file>"
+            url: "<link to the uploaded XCFramework ZIP file>",
+            checksum:"<checksum calculated for the ZIP file>")
       ]
    )
    ```
@@ -105,7 +105,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
     ```
     
     The output will describe any found errors, or show the parsed tree of the manifest if it is grammatically correct. 
-9. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create a git tag with the
+9. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
 Semantic Version of the package.
 
 Now that both files are accessible, you can try and set up the dependency in Xcode:
@@ -113,12 +113,16 @@ Now that both files are accessible, you can try and set up the dependency in Xco
 the `Package.swift` file.
 * In an SPM project, create a dependency following the Apple documentation on [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency).
 
-## Exporting different modules as a single XCFramework
+## Exporting multiple modules as a single XCFramework
 
-If your project contains unrelated KMP modules which you would like to export as a single iOS binary, you can create
-an umbrella module and combine other modules in it.
+To make several KMP modules available as iOS binaries, create an umbrella module and combine other modules in it,
+then build an XCFramework of this umbrella module.
 
-For example, you have a `network` and a `database` module, which you combine in an `together` module.
+> The name `umbrella` is reserved in Apple development. Don't use it for the module you are exporting.
+> 
+{type="note"}
+
+For example, you have a `network` and a `database` module, which you combine in an `together` module:
 
 1. In the `together/build.gradle.kts` file, specify dependencies and the framework configuration:
 
@@ -132,7 +136,8 @@ For example, you have a `network` and a `database` module, which you combine in 
             iosArm64(),
             iosSimulatorArm64()
         ).forEach { iosTarget ->
-            // Same as in the example above, with added export calls for dependencies
+            // Same as in the example above,
+            // with added export calls for dependencies
             iosTarget.binaries.framework {
                 export(projects.network)
                 export(projects.database)
@@ -171,15 +176,8 @@ For example, you have a `network` and a `database` module, which you combine in 
     }
     ```
 
-3. Currently, a framework cannot be assembled if the module being exported does not contain any source code. To work around
-this:
-   1. Create a source file inside the `together` folder, for example, `together/src/commonMain/kotlin/Together.kt`.
-   2. Create an empty `main()` function inside this file:
-       ```kotlin
-      fun main() {
-
-      }
-       ```
+3. Currently, the Gradle script cannot assemble a framework if the module being exported does not contain any source code.
+   To work around this, create an empty Kotlin file inside the `together` folder, for example, `together/src/commonMain/kotlin/Together.kt`.
 
 4. Run the Gradle task that assembles the framework:
 
@@ -190,5 +188,5 @@ this:
 5. Follow steps 5–9 from [the previous section](#create-the-xcframework-and-the-package-swift-file) for `together.xcframework`: archive, calculate the checksum, upload
 the archived XCFramework, create and push a `Package.swift` file.
 
-Now you can try and import the dependency into an Xcode project: you should have both `network` and `database` modules
-available for import in Swift code.
+Now you can try and import the dependency into an Xcode project: after adding the `import together` directive,
+you should have classes from both the `network` and `database` modules available for import in Swift code.
