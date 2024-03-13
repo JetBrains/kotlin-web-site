@@ -42,7 +42,7 @@ An open-source UI software framework, React Native was developed in 2015 (a bit 
 
 **Programming language:** JavaScript.
 
-**Mobile app examples:** Microsoft Office (parts of), Facebook (parts of), Skype, Xbox Game Pass, Playstation, Discord, NFL, Bloomberg, Shopify, Oculus, Messanger Desktop. Check out more [in the showcase](https://reactnative.dev/showcase).
+**Mobile app examples:** React Native is used in Microsoft’s Office, Skype, and Xbox Game Pass; Meta’s Facebook, desktop Messenger, and Oculus. Check out more in the [React Native showcase](https://reactnative.dev/showcase).
 
 **Key features:**
 
