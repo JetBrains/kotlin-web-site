@@ -43,8 +43,10 @@ use: `DataFrame.read("example.csv")`.
 The `.read()` function automatically detects the input format based on the file extension and content.
 You can also add other arguments to customize the function, such as specifying the delimiter with `delimiter = ';'`.
 
-For a comprehensive overview of additional file formats and a variety of read functions, see the 
-[Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
+> For a comprehensive overview of additional file formats and a variety of read functions, see the 
+> [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
+> 
+{type="tip"}
 
 ## Display data
 
