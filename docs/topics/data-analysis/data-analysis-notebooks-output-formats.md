@@ -4,7 +4,7 @@ Kotlin Notebook supports a variety of output types, including text, HTML, and im
 you can expand your output options and visualize your data with charts, spreadsheets, and more.
 
 Each output is a JSON object that maps the [Jupiter MIME type](https://jupyterlab.readthedocs.io/en/latest/user/file_formats.html)
-to some data. From this map, Kotlin Notebook picks the MIME type that it supports and has the highest priority among other
+to some data. From this map, Kotlin Notebook selects the supported MIME type with the highest priority among other
 types and renders it like this:
 
 * [Text](#texts) uses the `text/plain` MIME type.
@@ -220,11 +220,11 @@ With Kotlin Notebook, you can visualize structured data with data frames:
        "Month" to months + months + months,
        "Sales" to salesLaptop + salesSmartphone + salesTablet,
        "Product" to List(12) { "Laptop" } + List(12) { "Smartphone" } + List(12) { "Tablet" },
-    )
-    ```
+   )
+   ```
 
-    The data frame uses the `dataFrameOf()` function and includes the number of products (laptops, smartphones,
-    and tablets) sold in a 12-month period.
+   The data frame uses the `dataFrameOf()` function and includes the number of products (laptops, smartphones,
+   and tablets) sold in a 12-month period.
 
 3. Explore the data in your frame, for example, by finding the product and month with the highest sales:
 
@@ -274,8 +274,8 @@ You can create various charts directly in your Kotlin Notebook to visualize your
        layout.title = "Yearly Gadget Sales Results"
    }
 
-    salesPlot
-    ```
+   salesPlot
+   ```
 
    ![Using Kandy to render visualize data](kandy-output.png){width=700}
 
