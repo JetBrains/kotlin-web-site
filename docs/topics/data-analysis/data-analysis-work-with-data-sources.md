@@ -33,7 +33,7 @@ To retrieve data from a file in Kotlin Notebook:
 
 1. Open your Kotlin Notebook file (`.ipynb`).
 2. Import the Kotlin DataFrame library by adding `%use dataframe` in a code cell at the start of your Notebook.
-> Make sure to run the code cell with the `%use dataframe` line before you run any other code cells that rely on the DataFrame library.
+> Make sure to run the code cell with the `%use dataframe` line before you run any other code cells that rely on the Kotlin DataFrame library.
 >
 {type="note"}
 
@@ -112,12 +112,18 @@ val moviesTitle = moviesWithYear
 ```
 
 4. Use the `.filter` method to focus on specific data. 
-In this case, the dataset is filtered to focus on movies that were released after the year 1990:
+In this case, the dataset is filtered to focus on movies that were released after the year 1996:
 
 ```kotlin
-val moviesNew = moviesWithYear.filter { year >= 1990 }
+val moviesNew = moviesWithYear.filter { year >= 1996 }
 moviesNew
 ```
+
+For comparison, here is the dataset before refinement:
+
+![Original dataset](original-dataset.png){width=700}
+
+The refined dataset:
 
 ![Data refinement result](refined-data.png){width=700}
 

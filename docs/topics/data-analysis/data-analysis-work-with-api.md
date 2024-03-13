@@ -7,7 +7,7 @@ for clarity. This makes it particularly useful when exploring APIs you are not f
 When used in conjunction with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook not only enables you to connect to and fetch 
 JSON data from APIs but also assists in reshaping this data for comprehensive analysis and visualization.
 
-> For an example Notebook, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
+> For Kotlin Notebook examples, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
 > 
 {type="tip"}
 
@@ -63,15 +63,29 @@ This ensures you gather data across multiple pages:
 
 ```kotlin
 fun load(path: String, maxPages: Int): AnyFrame {
-    val rows = mutableListOf<AnyRow>() // Initialize a mutable list to store rows of data.
-    var pagePath = path // Set the initial page path for data loading.
+
+   // Initialize a mutable list to store rows of data.
+    val rows = mutableListOf<AnyRow>()
+
+   // Set the initial page path for data loading.
+    var pagePath = path
     do {
-        val row = load(pagePath) // Load data from the current page path.
-        rows.add(row) // Add the loaded data as a row to the list.
-        val next = row.getValueOrNull<String>("nextPageToken") // Retrieve the token for the next page, if available.
-        pagePath = path + "&pageToken=" + next // Update the page path for the next iteration, including the new token.
-    } while (next != null && rows.size < maxPages) // Continue loading pages until there's no next page.
-    return rows.concat() // Concatenate and return all loaded rows as a DataFrame.
+        
+       // Load data from the current page path.
+        val row = load(pagePath)
+       // Add the loaded data as a row to the list.
+        rows.add(row)
+       
+       // Retrieve the token for the next page, if available.
+        val next = row.getValueOrNull<String>("nextPageToken")
+       // Update the page path for the next iteration, including the new token.
+        pagePath = path + "&pageToken=" + next
+
+       // Continue loading pages until there's no next page.
+    } while (next != null && rows.size < maxPages) 
+    
+    // Concatenate and return all loaded rows as a DataFrame.
+    return rows.concat() 
 }
 ```
 
@@ -167,11 +181,13 @@ val channels = joined.groupBy { channel }.sortByCount()
 ```
 
 In the resulting table, you can interactively explore the data. Clicking on the `group` field 
-of a row corresponding to a channel will expand that row to reveal more details about that channel's videos.
+of a row corresponding to a channel expands that row to reveal more details about that channel's videos.
+
+![Expanding a row to reveal more details](results-of-expanding-group-data-analysis.png){width=700}
 
 You can click on the table icon in the bottom left to return to the grouped dataset.
 
-![Expanding a row](results-of-expanding-group-data-analysis.png){width=700}
+![Click on the table icon in the bottom left to return](return-to-grouped-dataset.png){width=700}
 
 3. Use `.aggregate`, `.sum`, `.maxBy`, and `.flatten` to create a DataFrame summarizing each 
 channel's total views and details of its latest or most viewed video:
