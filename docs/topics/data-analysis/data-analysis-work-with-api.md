@@ -64,27 +64,27 @@ This ensures you gather data across multiple pages:
 ```kotlin
 fun load(path: String, maxPages: Int): AnyFrame {
 
-   // Initialize a mutable list to store rows of data.
+    // Initializes a mutable list to store rows of data.
     val rows = mutableListOf<AnyRow>()
 
-   // Set the initial page path for data loading.
+    // Sets the initial page path for data loading.
     var pagePath = path
     do {
         
-       // Load data from the current page path.
+        // Loads data from the current page path.
         val row = load(pagePath)
-       // Add the loaded data as a row to the list.
+        // Adds the loaded data as a row to the list.
         rows.add(row)
        
-       // Retrieve the token for the next page, if available.
+        // Retrieves the token for the next page, if available.
         val next = row.getValueOrNull<String>("nextPageToken")
-       // Update the page path for the next iteration, including the new token.
+        // Updates the page path for the next iteration, including the new token.
         pagePath = path + "&pageToken=" + next
 
-       // Continue loading pages until there's no next page.
+        // Continues loading pages until there's no next page.
     } while (next != null && rows.size < maxPages) 
     
-    // Concatenate and return all loaded rows as a DataFrame.
+    // Concatenates and returns all loaded rows as a DataFrame.
     return rows.concat() 
 }
 ```
@@ -194,13 +194,14 @@ channel's total views and details of its latest or most viewed video:
 
 ```kotlin
 val aggregated = channels.aggregate {
-   viewCount.sum() into view
+    viewCount.sum() into view
 
-   val last = maxBy { publishedAt }
-   last.title into "last title"
-   last.publishedAt into "time"
-   last.viewCount into "viewCount"
-}.sortByDesc(view).flatten() // Sort the DataFrame in descending order by view count and transform it into a flat structure.
+    val last = maxBy { publishedAt }
+    last.title into "last title"
+    last.publishedAt into "time"
+    last.viewCount into "viewCount"
+    // Sorts the DataFrame in descending order by view count and transform it into a flat structure.
+}.sortByDesc(view).flatten()
 aggregated
 ```
 

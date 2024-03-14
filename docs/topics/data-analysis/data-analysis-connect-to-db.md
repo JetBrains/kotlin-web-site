@@ -5,7 +5,7 @@ MariaDB, PostgreSQL, MySQL, and SQLite.
 Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook can establish 
 connections to databases, execute SQL queries, and import the results for further operations.
 
-For detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
+For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
 
 ## Before you start
 
@@ -45,7 +45,7 @@ import java.sql.DriverManager
 import java.util.*
 ```
 
-3. Use `DatabaseConfiguration` to define your database's connection parameters, 
+3. Use the `DatabaseConfiguration` class to define your database's connection parameters, 
 including the URL, username, and password:
 
 ```kotlin
@@ -76,7 +76,7 @@ dataschemas.forEach {
 ## Retrieve and manipulate data
 
 After [establishing a connection to an SQL database](#connect-to-database), you can retrieve and manipulate data in Kotlin Notebook, utilizing the Kotlin DataFrame library. 
-You can use `readSqlTable()` to retrieve data. To manipulate data, you can use methods, such as [`.filter`](https://kotlin.github.io/dataframe/filter.html), [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
+You can use the `readSqlTable()` function to retrieve data. To manipulate data, you can use methods, such as [`.filter`](https://kotlin.github.io/dataframe/filter.html), [`.groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
 and [`.convert`](https://kotlin.github.io/dataframe/convert.html). 
 
 Let's look at an example of connecting to an IMDB database and retrieving data about movies directed by Quentin Tarantino:
@@ -127,9 +127,14 @@ DriverManager.getConnection(URL, props).use { connection ->
 
 ```kotlin
 val df = dfTarantinoMovies
-    .fillNA { year }.with { 0 } // Replace any missing values in the 'year' column with 0.
-    .convert { year }.toInt() // Convert the 'year' column to integers.
-    .filter { year > 2000 } // Filter the data to include only movies released after the year 2000.
+    // Replaces any missing values in the 'year' column with 0.
+    .fillNA { year }.with { 0 }
+    
+    // Converts the 'year' column to integers.
+    .convert { year }.toInt()
+
+    // Filters the data to include only movies released after the year 2000.
+    .filter { year > 2000 }
 df
 ```
 
@@ -140,7 +145,7 @@ rows from the year 2000 onwards using the [`.filter`](https://kotlin.github.io/d
 
 ## Analyze data in Kotlin Notebook
 
-After [establishing a connection to an SQL database](#connect-to-database), Kotlin Notebook enables in-depth data analysis 
+After [establishing a connection to an SQL database](#connect-to-database), you can use Kotlin Notebook for in-depth data analysis 
 utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html). This includes functions for 
 grouping, sorting, and aggregating data, helping you to uncover and understand patterns within your data.
 
@@ -157,10 +162,17 @@ val actorDf = DataFrame.readSqlTable(dbConfig, "actors", 10000)
 
 ```kotlin
 val top20ActorNames = actorDf
-   .groupBy { first_name } // Group the data by the first_name column to organize it based on actor first names.
-   .count() // Count the occurrences of each unique first name, providing a frequency distribution.
-   .sortByDesc("count") // Sort the results in descending order of count to identify the most common names.
-   .take(20) // Select the top 20 most frequent names for analysis.
+    // Groups the data by the first_name column to organize it based on actor first names.
+   .groupBy { first_name }
+
+    // Counts the occurrences of each unique first name, providing a frequency distribution.
+   .count()
+
+    // Sorts the results in descending order of count to identify the most common names.
+   .sortByDesc("count")
+
+    // Selects the top 20 most frequent names for analysis.
+   .take(20)
 top20ActorNames
 ```
 
