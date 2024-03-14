@@ -34,7 +34,7 @@ does not have any built-in presets, and you need to specify your own list of spe
 
 ```groovy
 plugins {
-    id("org.jetbrains.kotlin.plugin.sam.with.receiver") version "$kotlin_version"
+    kotlin("plugin.sam.with.receiver") version "$kotlin_version"
 }
 ```
 
