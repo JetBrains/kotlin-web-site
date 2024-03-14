@@ -7,9 +7,11 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 ## Before you start
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest [Kotlin plugin](releases.md).
-2. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
+2. In IDEA, install the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
+plugin and restart the IDE.
+3. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
    by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
-3. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
+4. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
    you need the Kotlin Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
    ```kotlin
@@ -92,7 +94,7 @@ performs the incremental build of the project.
    }
    ```
 
-5. Save the changes and run the application.
+5. Run the application.
 6. Enter your name and enjoy the result:
 
    ![Application output](native-output-2.png){width=700}
@@ -129,7 +131,7 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the application.
+4. Run the application.
 5. Enter your name and enjoy the result:
 
    ![Application output](native-output-3.png){width=700}
