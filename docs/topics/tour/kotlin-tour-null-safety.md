@@ -37,7 +37,7 @@ fun main() {
     // nullable has nullable String type
     var nullable: String? = "You can keep a null here"
 
-    // This is OK  
+    // This is OK
     nullable = null
 
     // By default, null values aren't accepted
@@ -87,7 +87,7 @@ fun main() {
 ## Use safe calls
 
 To safely access properties of an object that might contain a `null` value, use the safe call operator `?.`. The safe call
-operator returns `null` if the object's property is `null`. This is useful if you want to avoid the presence of `null`
+operator returns `null` if the object is `null`. This is useful if you want to avoid the presence of `null`
 values triggering errors in your code.
 
 In the following example, the `lengthString()` function uses a safe call to return either the length of the string or `null`:
@@ -168,8 +168,8 @@ fun employeeById(id: Int) = when(id) {
 }
 
 fun salaryById(id: Int) = // Write your code here
-    
-fun main() { 
+
+fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
@@ -190,7 +190,7 @@ fun employeeById(id: Int) = when(id) {
 fun salaryById(id: Int) = employeeById(id)?.salary ?: 0
 
 fun main() {
- println((1..5).sumOf { id -> salaryById(id) })
+    println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}

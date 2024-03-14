@@ -1133,7 +1133,7 @@ sourcePath.copyToRecursively(
 >
 {type="warning"}
 
-In 1.9.0, the [`HexFormat`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-hexformat/) class and its related 
+In 1.9.0, the [`HexFormat`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-hex-format/) class and its related 
 extension functions are provided as an Experimental feature that allows you to convert between numerical values and 
 hexadecimal strings. Specifically, you can use the extension functions to convert between hexadecimal strings and 
 `ByteArrays` or other numeric types (`Int`, `Short`, `Long`).

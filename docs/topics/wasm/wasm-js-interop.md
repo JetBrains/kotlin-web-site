@@ -178,7 +178,7 @@ Kotlin/Wasm treats calls to the `js()` function in a special way, and the implem
 * A `js()` function call must be the only expression in the function body.
 * The `js()` function is only allowed to be called from package-level functions.
 * The function return type must be provided explicitly.
-* [Types](wasm-js-interop.md#type-correspondence) are restricted, similar to `external fun`.
+* [Types](#type-correspondence) are restricted, similar to `external fun`.
 
 The Kotlin compiler puts the code string into a function in the generated JavaScript file and imports it into WebAssembly format.
 The Kotlin compiler doesn't verify these JavaScript snippets.
@@ -262,7 +262,7 @@ See how Kotlin types correspond to Javascript types:
 | `Boolean`,                                  | `Boolean`                         |
 | `String`,                                   | `String`                          |
 | `Unit` in return position                   | `undefined`                       |
-| Function type, for example `(String) → Int` | Function                          |
+| Function type, for example `(String) -> Int` | Function                          |
 | `JsAny` and subtypes                        | Any JavaScript value              |
 | `JsReference`                               | Opaque reference to Kotlin object |
 | Other types                                 | Not supported                     |
@@ -357,7 +357,7 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **Long**                | Type corresponds to JavaScript `BigInt`.                                                                                                                                                                            | Visible as a custom class in JavaScript.                                                                                                            |
 | **Arrays**              | Not supported in interop directly yet. You can use the new `JsArray` type instead.                                                                                                                                  | Implemented as JavaScript arrays.                                                                                                                   |
 | **Other types**         | Requires `JsReference<>` to pass Kotlin objects to JavaScript.                                                                                                                                                      | Allows the use of non-external Kotlin class types in external declarations.                                                                         |
-| **Exception handling**  | Can't catch JavaScript exceptions.                                                                                                                                                                                  | Can catch JavaScript `Error` via the `Throwable` type. It can catch any JS exception using the `dynamic` type.                                      |
+| **Exception handling**  | Can't catch JavaScript exceptions.                                                                                                                                                                                  | Can catch JavaScript `Error` via the `Throwable` type. It can catch any JavaScript exception using the `dynamic` type.                                      |
 | **Dynamic types**       | Does not support the `dynamic` type. Use `JsAny` instead (see sample code below).                                                                                                                                   | Supports the `dynamic` type.                                                                                                                        |
 
 > Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not

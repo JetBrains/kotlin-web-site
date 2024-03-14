@@ -28,7 +28,7 @@ important, as it affects the list of platforms to which this code is compiled.
 
 The Kotlin compiler gets the source code as input and produces a set of platform-specific binaries as a result. When
 compiling multiplatform projects, it can produce multiple binaries from the same code. For example, the compiler can
-produce JVM `.classfiles` and native executable files from the same Kotlin file:
+produce JVM `.class` files and native executable files from the same Kotlin file:
 
 ![Common code](common-code-diagram.svg){width=700}
 
@@ -141,7 +141,7 @@ In a multiplatform project with native and JS targets, the following code in `co
 ```kotlin
 // commonMain/kotlin/common.kt
 // Doesn't compile in common code
-fun common() {
+fun greeting() {
     java.io.File("greeting.txt").writeText("Hello, Multiplatform!")
 }
 ```

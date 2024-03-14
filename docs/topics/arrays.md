@@ -311,10 +311,10 @@ fun main() {
 
 #### Convert to Map
 
-To convert an array to a `map`, use the [`.toMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-map.html)
-function. 
+To convert an array to a `Map`, use the [`.toMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-map.html)
+function.
 
-Only an array of [`Pair<K,V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/) can be converted to a `map`.
+Only an array of [`Pair<K,V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/) can be converted to a `Map`.
 The first value of a `Pair` instance becomes a key, and the second becomes a value. This example uses the [infix notation](functions.md#infix-notation)
 to call the [`to`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html) function to create tuples of `Pair`:
 
@@ -359,7 +359,7 @@ This example creates an instance of  the `IntArray` class:
 ```kotlin
 fun main() {
 //sampleStart
-    // Creates an array of Int of size 5 with values
+    // Creates an array of Int of size 5 with values zeros
     val exampleArray = IntArray(5)
     println(exampleArray.joinToString())
     // 0, 0, 0, 0, 0
