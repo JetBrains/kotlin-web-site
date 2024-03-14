@@ -105,8 +105,8 @@ val TARANTINO_FILMS_SQL_QUERY = """
     ORDER BY year
     """
 
-// Retrieve a list of Quentin Tarantino's movies, including their name, year, rank, and a concatenated string of all genres. 
-// Results are grouped by name, year, rank, and sorted by year.
+// Retrieves a list of Quentin Tarantino's movies, including their name, year, rank, and a concatenated string of all genres. 
+// The results are grouped by name, year, rank, and sorted by year.
 
 var dfTarantinoMovies: DataFrame<*>
 
