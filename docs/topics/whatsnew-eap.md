@@ -413,7 +413,6 @@ fun common() {
     // RESOLUTION_TO_CLASSIFIER : Expected class
     // Identity has no default constructor.
 }
-
 ```
 
 </td>
@@ -805,7 +804,7 @@ This version brings the following changes:
 * [Visibility changes in Gradle](#visibility-changes-in-gradle)
 * [New directory for Kotlin data in Gradle projects](#new-directory-for-kotlin-data-in-gradle-projects)
 * [Kotlin/Native compiler downloaded when needed](#kotlin-native-compiler-downloaded-when-needed)
-* [Deprecating old compiler configuration options](#deprecating-old-compiler-configuration-options)
+* [Deprecating old ways of defining compiler options](#deprecating-old-ways-of-defining-compiler-options)
 
 ### Improved Gradle dependency handling for CInteropProcess in Kotlin/Native
 
@@ -996,40 +995,44 @@ kotlin.native.toolchain.enabled=false
 Please report such problems to our issue tracker [YouTrack](https://kotl.in/issue), as this property will be removed in
 future releases.
 
-### Deprecating old compiler configuration options
+### Deprecating old ways of defining compiler options
 
-In this release, we revise the compiler configuration options to resolve ambiguity between them and make the setup more
-straightforward.
+In this release, we continue refining the ways of setting up compiler options. It should resolve ambiguity between
+different ways and make the project configuration more straightforward.
 
-Since Kotlin %kotlinEapVersion%, the following DSLs are deprecated:
+Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler options are deprecated:
 
-* The `HasCompilerOptions` interface, that was inconsistent with other DSLs for configuring compiler options. It also had
-  the same `compilerOptions` object as the Kotlin compilation task, which was confusing.
-* The `kotlinOptions` types from the `KotlinCompile<KotlinOptions>` interface.
+* The `HasCompilerOptions` interface. It was inconsistent with other DSLs and had the same `compilerOptions` object as
+  the Kotlin compilation task, which was confusing. Instead, we recommend using the `compilerOptions` property from the
+  Kotlin compilation task:
+  
+  ```kotlin
+  kotlinCompilation.compileTaskProvider.configure {
+      compilerOptions { ... }
+  }
+  ```
+  
+  For example:
+  
+  ```kotlin
+  kotlin {
+     js(IR) {
+         compilations.all {
+             compileTaskProvider.configure {
+                 compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+             }
+         }
+     }
+  }
+  ```
 
-Instead, we recommend using the `compilerOptions` property of a Kotlin compilation task:
+* The `KotlinCompile<KotlinOptions>` interface. Use `KotlinCompilationTask<CompilerOptions>` instead.
+* The `kotlinOptions` DSL from the `KotlinCompilation` interface.
+* The `kotlinOptions` DSL from the `KotlinNativeArtifactConfig` interface, the `KotlinNativeLink` class,
+  and the `KotlinNativeLinkArtifactTask` class. Use the `toolOptions` DSL instead.
+* The `dceOptions` DSL from the `KotlinJsDce` interface. Use the `toolOptions` DSL instead.
 
-```kotlin
-kotlinCompilation.compileTaskProvider.configure {
-    compilerOptions { ... }
-}
-```
-
-For example:
-
-```kotlin
-kotlin {
-   js(IR) {
-       compilations.all {
-           compileTaskProvider.configure {
-               compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-           }
-       }
-   }
-}
-```
-
-For more information on how to configure compiler options in the Kotlin Gradle plugin, see [How to define options](gradle-compiler-options.md#how-to-define-options).
+For more information on how to specify compiler options in the Kotlin Gradle plugin, see [How to define options](gradle-compiler-options.md#how-to-define-options).
 
 ## Standard library: Stable AutoCloseable interface
 
@@ -1098,4 +1101,4 @@ Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 1
 bundled plugin included in your IDE. This means that you can't install the plugin from JetBrains Marketplace anymore. 
 The bundled plugin supports upcoming Kotlin EAP releases.
 
-To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
+To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md#adjust-the-kotlin-version) to %kotlinEapVersion% in your build scripts.
