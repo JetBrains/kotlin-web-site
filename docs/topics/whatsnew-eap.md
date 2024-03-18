@@ -62,7 +62,7 @@ If you encounter any of the problems mentioned above, you can take the following
 ### Smart cast improvements
 
 The Kotlin compiler can automatically cast an object to a type in specific cases,
-saving you the trouble of having to explicitly cast it yourself. This is called [smart casting](typecasts.md#smart-casts).
+saving you the trouble of having to explicitly specify it yourself. This is called [smart casting](typecasts.md#smart-casts).
 The Kotlin K2 compiler now performs smart casts in even more scenarios than before.
 
 In Kotlin %kotlinEapVersion%, we've made improvements related to smart casts in the following areas:
@@ -117,9 +117,9 @@ fun main(){
 
 #### Type checks with logical `or` operator
 
-In Kotlin %kotlinEapVersion%, if you combine type checks for objects with an `or` operator (`||`), then a smart cast 
-is made to their closest common supertype. Before this change, a smart cast was always made to `Any` type. 
-In this case, you still had to manually check the type of the object afterward before you could access any of its properties or call its functions.
+In Kotlin %kotlinEapVersion%, if you combine type checks for objects with an `or` operator (`||`), a smart cast 
+is made to their closest common supertype. Before this change, a smart cast was always made to the `Any` type. 
+In this case, you still had to manually check the object type afterward before you could access any of its properties or call its functions.
 For example:
 
 ```kotlin
@@ -146,7 +146,7 @@ fun signalCheck(signalStatus: Any) {
 }
 ```
 
-> The common supertype is an **approximation** of a union type. [Union types](https://en.wikipedia.org/wiki/Union_type)
+> The common supertype is an **approximation** of a [union type](https://en.wikipedia.org/wiki/Union_type). Union types
 > are not supported in Kotlin.
 >
 {type="note"}
@@ -158,7 +158,7 @@ allowing it to determine in combination with other compiler analyses whether it'
 
 Specifically, inline functions are now treated as having an implicit 
 [`callsInPlace`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/-contract-builder/calls-in-place.html) contract.
-So any lambda functions passed to an inline function are called "in place". Since lambda functions are called in place, 
+So, any lambda functions passed to an inline function are called "in place". Since lambda functions are called in place, 
 the compiler knows that a lambda function can't leak references to any variables contained within its function body. 
 The compiler uses this knowledge along with other compiler analyses to decide if it's safe to smart cast any of the captured variables. 
 For example:
@@ -206,8 +206,8 @@ For example:
 ```kotlin
 class Holder(val provider: (() -> Unit)?) {
     fun process() {
-        // In Kotlin %kotlinEapVersion%, if provider isn't null, then
-        // provider is smart cast
+        // In Kotlin %kotlinEapVersion%, if provider isn't null,
+        // it is smart cast
         if (provider != null) {
             // The compiler knows that provider isn't null
             provider()
@@ -234,7 +234,7 @@ class Holder(val provider: Provider?, val processor: Processor?) {
         if (provider != null) {
             provider() 
             // In 1.9.20, the compiler triggers an error: 
-            // Reference has a nullable type 'Provider?' use explicit '?.invoke()' to make a function-like call instead
+            // Reference has a nullable type 'Provider?', use explicit '?.invoke()' to make a function-like call instead
         }
     }
 }
@@ -244,7 +244,7 @@ class Holder(val provider: Provider?, val processor: Processor?) {
 
 In Kotlin %kotlinEapVersion%, we've made improvements to exception handling so that smart cast information can be passed
 on to `catch` and `finally` blocks. This change makes your code safer as the compiler keeps track of whether 
-your object has a nullable type or not.
+your object has a nullable type.
 For example:
 
 ```kotlin
@@ -307,7 +307,7 @@ fun main(input: Rho) {
     // Check if unknownObject inherits from the Tau interface
     if (unknownObject is Tau) {
 
-        // Uses the overloaded inc() operator from interface Rho,
+        // Use the overloaded inc() operator from interface Rho,
         // which smart casts the type of unknownObject to Sigma.
         ++unknownObject
 
@@ -432,7 +432,7 @@ In this example, the expected class `Identity` has no default constructor, so it
 Previously, only an IDE error was reported, but the code still compiled successfully on the JVM. However, now the compiler
 correctly reports an error:
 
-```kotlin
+```none
 Expected class 'expect class Identity : Any' does not have default constructor
 ```
 
@@ -527,7 +527,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [`no-arg`](no-arg-plugin.md)
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
 * [SAM with receiver](sam-with-receiver-plugin.md)
-* [serialization](serialization.md)
+* [Serialization](serialization.md)
 
 In addition, the Kotlin K2 compiler supports:
 * the [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
