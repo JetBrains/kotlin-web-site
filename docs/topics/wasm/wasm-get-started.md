@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
-> Kotlin/Wasm is an [Alpha](components-stability.md) feature. It may be changed at any time.
+> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 >
 {type="note"}
 
@@ -12,7 +12,12 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
 Create a project using the Kotlin Multiplatform wizard:
 
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, you can change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
+2. On the **New Project** tab, change the project name and ID to your preference. In this tutorial, we set the name to "WasmDemo" and the ID to "wasm.project.demo".
+
+   > These are the name and ID of the project directory. You can also leave them as they are.
+   >
+   {type="tip"}
+
 3. Select the **Web** option.
 4. Click the **Download** button and unpack the resulting archive.
 
@@ -48,12 +53,12 @@ Create a project using the Kotlin Multiplatform wizard:
    http://localhost:8080/
    ```
 
-   >The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
+   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
    > in the Gradle build console.
    >
    {type="tip"}
 
-   You can see a "Click me!" button. Click it:
+   You should see a "Click me!" button. Click it:
 
    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 

@@ -1,10 +1,10 @@
 [//]: # (title: Debug Kotlin/Wasm code)
 
-> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
+> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 >
 {type="note"}
 
-This tutorial demonstrates how to debug in the browser a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+This tutorial demonstrates how to use your browser to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
 application built with Kotlin/Wasm.
 
 ## Before you start
@@ -12,7 +12,12 @@ application built with Kotlin/Wasm.
 Create a project using the Kotlin Multiplatform wizard:
 
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, you can change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
+2. On the **New Project** tab, change the project name and ID to your preference. In this tutorial, we set the name to "WasmDemo" and the ID to "wasm.project.demo".
+
+   > These are the name and ID of the project directory. You can also leave them as they are.
+   >
+   {type="tip"}
+
 3. Select the **Web** option.
 4. Click the **Download** button and unpack the resulting archive.
 
@@ -48,12 +53,12 @@ Create a project using the Kotlin Multiplatform wizard:
    http://localhost:8080/
    ```
 
-   >The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
+   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
    > in the Gradle build console.
    >
    {type="tip"}
 
-   You can see a "Click me!" button. Click it:
+   You should see a "Click me!" button. Click it:
 
    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
@@ -61,63 +66,34 @@ Create a project using the Kotlin Multiplatform wizard:
 
    ![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
-## Debug in the browser
+## Debug in your browser
 
-> Currently, debugging is only available in the browser. Debugging in 
+> Currently, debugging is only available in your browser. In the future, you will be able to debug your code in 
 > [IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-64683/Kotlin-Wasm-debugging-in-IntelliJ-IDEA) and 
-> [Fleet](https://youtrack.jetbrains.com/issue/KT-64684) is in the plan. 
+> [Fleet](https://youtrack.jetbrains.com/issue/KT-64684). 
 >
 {type="note"}
 
 You can debug this Compose Multiplatform application
-in your browser out of the box without additional configurations. 
+in your browser out-of-the-box, without additional configurations. 
 
-However, for other projects, you may need to set the required configuration in the Gradle 
-build file. For more information, see [Configuration for debugging](#configuration-for-debugging).
+However, for other projects, you may need to configure additional settings in your Gradle 
+build file. For more information about how to configure your browser for debugging, expand the next section.
 
-> For this tutorial, we are using Chrome. If you use a different browser, the experience should be similar and the following 
-> steps should also work. 
-> 
-{type="tip"}
+### Configure your browser for debugging {initial-collapse-state="collapsed"}
 
-To debug a Kotlin/Wasm application:
+By default, browsers can't access some of the project's sources necessary for debugging. To provide access, you can configure the Webpack DevServer
+to serve these sources. In the `ComposeApp` directory, add the following code snippets to your `build.gradle.kts` file.
 
-1. In the browser window of the application, access developer tools by right-clicking and selecting the **Inspect** action.
-Alternatively, you can use the **F12** shortcut or select **View** | **Developer** | **Developer Tools**.
-
-2. Switch to the **Sources** tab and select the Kotlin file to debug. In this tutorial, we'll work with the `Greeting.kt` file.
-
-3. Set breakpoints in the Kotlin file by clicking on the numbers of the code lines you want to inspect. Only the code lines 
-with darker numbers accept breakpoints.
-
-![Set breakpoints](wasm-breakpoints.png){width=700}
-
-4. Interact with the application by clicking on the **Click me!** button. This action triggers the execution of the 
-code, and the debugger pauses when the execution reaches a breakpoint.
-
-5. Inspect variables and code execution at the breakpoints by using debugging control buttons such as: 
-   * Step into to investigate a function deeper
-   * Step over to execute the current line and pause on the next line
-   * Step out to execute the code until it exits the current function
-
-![Debug controls](wasm-debug-controls.png){width=700}
-
-6. Check the **Call stack** and **Scope** tool windows to trace the sequence of function calls and pinpoint the location of any errors.
-
-![Check call stack](wasm-debug-scope.png){width=700}
-
-7. Make the required changes to the code and [run the application](#run-the-application) again.
-
-### Configuration for debugging
-
-By default, browsers lack access to the project sources necessary for debugging. To gain access, you can configure the Webpack DevServer 
-to serve these sources. Add the following code snippet to the Gradle build file inside the `ComposeApp` directory:
+Add this line in the dependencies block:
 
 ```kotlin
-// Add this line in the dependencies block
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+```
 
-// Add these lines inside commonWebpackConfig{}
+Add this code snippet inside `commonWebpackConfig{}`:
+
+```kotlin
 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
     static = (static ?: mutableListOf()).apply {
         // Serve sources to debug inside browser
@@ -128,14 +104,50 @@ devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
 }
 ```
 
-> Debugging sources of libraries is currently 
-> unavailable. [We are working on addressing this limitation](https://youtrack.jetbrains.com/issue/KT-64685).
+> Currently, you can't debug library sources.
+> [We will support this in the future](https://youtrack.jetbrains.com/issue/KT-64685).
 >
 {type="note"}
 
+### Debug your Kotlin/Wasm application
+
+> This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
+> see [Browser versions](wasm-troubleshooting.md#browser-versions).
+> 
+{type="tip"}
+
+1. In the browser window of the application, right-click and select the **Inspect** action to access developer tools.
+   Alternatively, you can use the **F12** shortcut or select **View** | **Developer** | **Developer Tools**.
+
+2. Switch to the **Sources** tab and select the Kotlin file to debug. In this tutorial, we'll work with the `Greeting.kt` file.
+
+3. Click on the line numbers to set breakpoints on the code that you want to inspect. Only the lines
+   with darker numbers can have breakpoints.
+
+![Set breakpoints](wasm-breakpoints.png){width=700}
+
+4. Click on the **Click me!** button to interact with the application. This action triggers the execution of the 
+   code, and the debugger pauses when the execution reaches a breakpoint.
+
+5. In the Debugging pane, use the debugging control buttons to inspect variables and code execution at the breakpoints:
+   * Step into ![Step into](wasm-step-into.png){width=30}{type="joined"} to investigate a function deeper
+   * Step over ![Step over](wasm-step-over.png){width=30}{type="joined"} to execute the current line and pause on the next line
+   * Step out ![Step out](wasm-step-out.png){width=30}{type="joined"} to execute the code until it exits the current function
+
+![Debug controls](wasm-debug-controls.png){width=700}
+
+6. Check the **Call stack** and **Scope** panes to trace the sequence of function calls and pinpoint the location of any errors.
+
+![Check call stack](wasm-debug-scope.png){width=700}
+
+7. Make changes to your code and [run the application](#run-the-application) again to verify that everything works as expected.
+8. Click on the line numbers with breakpoints to remove the breakpoints.
+
 ## Leave feedback
 
-* ![Slack](slack.svg){width=25}{type="joined"} Slack: provide your feedback directly to the developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel. [Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+We would appreciate any feedback you may have on your debugging experience!
+
+* ![Slack](slack.svg){width=25}{type="joined"} Slack: [get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and provide your feedback directly to the developers in our [#webassembly](https://kotlinlang.slack.com/archives/CDFP59223) channel.
 * Provide your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 
 ## What's next?
