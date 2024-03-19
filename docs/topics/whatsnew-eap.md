@@ -545,7 +545,7 @@ No additional actions are required.
 
 ### Try the Kotlin K2 compiler in Kotlin Playground
 
-Kotlin Playground supports the 2.0.0-Beta4 release. [Check it out!](https://pl.kotl.in/czuoQprce)
+Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ### Support in IntelliJ IDEA
 
@@ -574,18 +574,18 @@ We would appreciate any feedback you may have!
 
 ## Kotlin/Native: resolving conflicts with Objective-C methods
 
-Objective-C methods can have different names, but the same number and types of parameters, for example,
+Objective-C methods can have different names, but the same number and types of parameters. For example,
 [`locationManager:didEnterRegion:`](https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423560-locationmanager?language=objc)
 and [`locationManager:didExitRegion:`](https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423630-locationmanager?language=objc).
-In Kotlin, these methods have the same signature, so an attempt to use them triggers conflicting overloads error.
+In Kotlin, these methods have the same signature, so an attempt to use them triggers a conflicting overloads error.
 
 Previously, you had to manually suppress conflicting overloads to avoid this compilation error. To improve Kotlin
 interoperability with Objective-C, the Kotlin %kotlinEapVersion% introduces the new `@ObjCSignatureOverride` annotation.
 
 The annotation instructs the Kotlin compiler to ignore conflicting overloads, in case several functions with the same
-argument types, but different argument names are inherited from the Objective-C class.
+argument types, but different argument names, are inherited from the Objective-C class.
 
-Applying this annotation is also safer than general error suppression. It allows you to use it only in case of overriding
+Applying this annotation is also safer than general error suppression. It allows you to use it only in the case of overriding
 Objective-C methods, which are supported and tested, while general suppression may hide important errors and lead to silently broken code.
 
 ## Kotlin/Wasm
@@ -607,17 +607,17 @@ It helps to ease the previous limitation when [generic class types](generics.md)
 exported declarations. Now you can export functions with unsigned primitives as a return or parameter type and consume
 external declarations that return unsigned primitives.
 
-For more information on Kotlin/Wasm interoperability with JavaScript, see [documentation](wasm-js-interop.md#use-javascript-code-in-kotlin).
+For more information on Kotlin/Wasm interoperability with JavaScript, see the [documentation](wasm-js-interop.md#use-javascript-code-in-kotlin).
 
 ### Binaryen available by default in production builds
 
 Kotlin/Wasm now applies WebAssembly's [Binaryen](https://github.com/WebAssembly/binaryen) library during production
 compilation to all the projects as opposed to the previous manual approach.
 
-Binaryen is a great tool for code optimization, we believe it will improve your project performance and enhance your
+Binaryen is a great tool for code optimization. We believe it will improve your project performance and enhance your
 development experience.
 
-> This change only affects production compilation, the development compilation process stays the same.
+> This change only affects production compilation. The development compilation process stays the same.
 >
 {type="note"}
 
@@ -681,7 +681,7 @@ This version brings the following changes:
 >
 {type="warning"}
 
-To make it easier to work with JavaScript APIs, in Kotlin 2.0.0-Beta4, we provide a new plugin: 
+To make it easier to work with JavaScript APIs, in Kotlin %kotlinEapVersion%, we provide a new plugin: 
 [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects),
 that you can use to create type-safe plain JavaScript objects.
 The plugin checks your code for any [external interfaces](wasm-js-interop.md#external-interfaces) 
@@ -992,7 +992,7 @@ the following Gradle property to your `gradle.properties` file:
 kotlin.native.toolchain.enabled=false
 ```
 
-Please report such problems to our issue tracker [YouTrack](https://kotl.in/issue), as this property will be removed in
+Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue), as this property will be removed in
 future releases.
 
 ### Deprecating old ways of defining compiler options
