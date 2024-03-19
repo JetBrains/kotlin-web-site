@@ -32,11 +32,26 @@ fun test(context: TaskContext) {
 The usage is the same to [all-open](all-open-plugin.md) and [no-arg](no-arg-plugin.md), except the fact that sam-with-receiver
 does not have any built-in presets, and you need to specify your own list of special-treated annotations.
 
-```groovy
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
 plugins {
-    kotlin("plugin.sam.with.receiver") version "$kotlin_version"
+    kotlin("plugin.sam.with.receiver") version "%kotlinVersion%"
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id "org.jetbrains.kotlin.plugin.sam.with.receiver" version "%kotlinVersion%"
+}
+```
+
+</tab>
+</tabs>
 
 Then specify the list of SAM-with-receiver annotations:
 
