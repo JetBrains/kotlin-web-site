@@ -10,8 +10,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! It mostly covers the stabilization of the [new Kotlin K2 compiler](#kotlin-k2-compiler), 
-which reached its Beta status for all targets since 1.9.20. In addition, there are [improvements for the Gradle build tool](#gradle-improvements)
-as well as changes in [Kotlin/JS](#kotlin-js).
+which reached its Beta status for all targets since 1.9.20. In addition, there are new features in [Kotlin/Wasm](#kotlin-wasm)
+and [Kotlin/JS](#kotlin-js), as well as [improvements for the Gradle build tool](#gradle-improvements).
 
 ## IDE support
 
@@ -660,7 +660,7 @@ Now, you can import each Kotlin declaration marked with `@JsExport` by name:
 fun add(a: Int, b: Int) = a + b
 ```
 
-```js
+```javascript
 //JS:
 import { add } from "./index.mjs"
 ```
@@ -1053,27 +1053,29 @@ interface XMLWriter {
     fun element(name: String, content: XMLWriter.() -> Unit)
     fun attribute(name: String, value: String)
     fun text(value: String)
+
+    fun flushAndClose()
 }
 
-fun writeBooksTo(writer: XMLWriter) { 
-    val autoCloseable = AutoCloseable { writer.close() }
-    writer.use { xml ->
-        xml.document(encoding = "UTF-8", version = "1.0") {
+fun writeBooksTo(writer: XMLWriter) {
+    val autoCloseable = AutoCloseable { writer.flushAndClose() }
+    autoCloseable.use {
+        writer.document(encoding = "UTF-8", version = "1.0") {
             element("bookstore") {
-            element("book") {
-                attribute("category", "fiction")
-                element("title") { text("Harry Potter and the Prisoner of Azkaban") }
-                element("author") { text("J. K. Rowling") }
-                element("year") { text("1999") }
-                element("price") { text("29.99") }
-            }
-            element("book") {
-                attribute("category", "programming")
-                element("title") { text("Kotlin in Action") }
-                element("author") { text("Dmitry Jemerov") }
-                element("author") { text("Svetlana Isakova") }
-                element("year") { text("2017") }
-                element("price") { text("25.19") }
+                element("book") {
+                    attribute("category", "fiction")
+                    element("title") { text("Harry Potter and the Prisoner of Azkaban") }
+                    element("author") { text("J. K. Rowling") }
+                    element("year") { text("1999") }
+                    element("price") { text("29.99") }
+                }
+                element("book") {
+                    attribute("category", "programming")
+                    element("title") { text("Kotlin in Action") }
+                    element("author") { text("Dmitry Jemerov") }
+                    element("author") { text("Svetlana Isakova") }
+                    element("year") { text("2017") }
+                    element("price") { text("25.19") }
                 }
             }
         }
