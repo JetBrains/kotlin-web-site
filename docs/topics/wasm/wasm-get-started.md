@@ -58,11 +58,11 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {type="tip"}
 
-   You should see a "Click me!" button. Click it:
+   You see a "Click me!" button. Click it:
 
    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
-   Now you can see the Compose Multiplatform logo:
+   Now you see the Compose Multiplatform logo:
 
    ![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
