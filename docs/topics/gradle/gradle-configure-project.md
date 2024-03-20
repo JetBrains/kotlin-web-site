@@ -18,9 +18,11 @@ from the Gradle plugins DSL:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// replace `<...>` with the plugin name 
+// Replace `<...>` with the plugin name appropriate for your target environment.
 plugins {
     kotlin("<...>") version "%kotlinVersion%"
+    // For example, if your target environment is JVM:
+    // kotlin("jvm") version "%kotlinVersion%"
 }
 ```
 
@@ -28,9 +30,11 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// replace `<...>` with the plugin name
+// Replace `<...>` with the plugin name appropriate for your target environment.
 plugins {
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+    // For example, if your target environment is JVM: 
+    // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
 }
 ```
 
