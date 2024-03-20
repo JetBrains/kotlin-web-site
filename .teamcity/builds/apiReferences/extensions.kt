@@ -7,10 +7,9 @@ import jetbrains.buildServer.configs.kotlin.FailureAction
 fun Dependencies.dependsOnDokkaTemplate(build: BuildType, artifactPath: String = "dokka-templates") {
   dependency(build) {
     snapshot {
-      onDependencyFailure = FailureAction.CANCEL
+      onDependencyFailure = FailureAction.FAIL_TO_START
       onDependencyCancel = FailureAction.CANCEL
     }
-
     artifacts {
       artifactRules = "+:dokka-templates/** => $artifactPath"
     }
@@ -20,10 +19,9 @@ fun Dependencies.dependsOnDokkaTemplate(build: BuildType, artifactPath: String =
 fun Dependencies.dependsOnDokkaPagesJson(build: BuildType) {
   dependency(build) {
     snapshot {
-      onDependencyFailure = FailureAction.CANCEL
+      onDependencyFailure = FailureAction.FAIL_TO_START
       onDependencyCancel = FailureAction.CANCEL
     }
-
     artifacts {
       artifactRules = "+:pages.zip!scripts/pages.json => api-references"
     }
