@@ -1,13 +1,9 @@
 package builds.kotlinlang.buidTypes
 
-import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
-import builds.apiReferences.kotlinx.datetime.KotlinxDatetimeBuildApiReference
-import builds.apiReferences.kotlinx.metadataJvm.KotlinxMetadataJvmBuildApiReference
-import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.kotlinlang.templates.DockerImageBuilder
+import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
-import jetbrains.buildServer.configs.kotlin.ReuseBuilds
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
@@ -77,8 +73,6 @@ object BuildSitePages : BuildType({
                 
                 cp -fR out/* dist/
                 cp -fR out/_next dist/_next/
-
-                cp -fR libs/* dist/api/
             """.trimIndent()
         }
         script {
@@ -147,46 +141,6 @@ object BuildSitePages : BuildType({
             }
             artifacts {
                 artifactRules = "+:docs.zip!** => _webhelp/reference/"
-            }
-        }
-
-        dependency(KotlinxCoroutinesBuildApiReference) {
-            snapshot {
-                reuseBuilds = ReuseBuilds.SUCCESSFUL
-                onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx.coroutines/"
-            }
-        }
-
-        dependency(KotlinxDatetimeBuildApiReference) {
-            snapshot {
-                reuseBuilds = ReuseBuilds.SUCCESSFUL
-                onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx-datetime/"
-            }
-        }
-
-        dependency(KotlinxMetadataJvmBuildApiReference) {
-            snapshot {
-                reuseBuilds = ReuseBuilds.SUCCESSFUL
-                onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx-metadata-jvm/"
-            }
-        }
-
-        dependency(KotlinxSerializationBuildApiReference) {
-            snapshot {
-                reuseBuilds = ReuseBuilds.SUCCESSFUL
-                onDependencyFailure = FailureAction.FAIL_TO_START
-            }
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
             }
         }
 
