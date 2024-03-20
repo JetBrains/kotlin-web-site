@@ -72,7 +72,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
         script {
             name = "build api reference"
             scriptContent = """
-                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLINX_METADATA_JVM_RELEASE_TAG}
+                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLINX_METADATA_JVM_RELEASE_TAG} --no-daemon
             """.trimIndent()
         }
     }
