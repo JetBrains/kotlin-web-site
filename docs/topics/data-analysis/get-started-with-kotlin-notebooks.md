@@ -1,6 +1,4 @@
-[//]: # (title: Get started with Kotlin Notebook)
-
-Some basic info on Kotlin notebooks is expected.
+[//]: # (title: Get started with data analysis with Kotlin Notebook)
 
 Get to know Kotlin notebooks by completing these steps:
 
