@@ -75,7 +75,7 @@ Create a project using the Kotlin Multiplatform wizard:
 {type="note"}
 
 You can debug this Compose Multiplatform application
-in your browser out-of-the-box, without additional configurations. 
+in your browser out of the box, without additional configurations. 
 
 However, for other projects, you may need to configure additional settings in your Gradle 
 build file. For more information about how to configure your browser for debugging, expand the next section.
@@ -91,7 +91,7 @@ Add this line in the dependencies block:
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 ```
 
-Add this code snippet inside `commonWebpackConfig{}`:
+Add this code snippet inside `commonWebpackConfig{}`, located in `kotlin{}` / `wasmJs{}` / `browser{}`:
 
 ```kotlin
 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
@@ -103,6 +103,29 @@ devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
     }
 }
 ```
+
+The resulting `kotlin{}` block looks like this:
+
+```kotlin
+kotlin {
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        moduleName = "composeApp"
+        browser {
+            commonWebpackConfig {
+                outputFileName = "composeApp.js"
+                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser
+                        add(project.projectDir.path)
+                        add(project.projectDir.path + "/commonMain/")
+                        add(project.projectDir.path + "/wasmJsMain/")
+               }
+            }
+         }
+      }
+```
+{initial-collapse-state="collapsed"}
 
 > Currently, you can't debug library sources.
 > [We will support this in the future](https://youtrack.jetbrains.com/issue/KT-64685).
