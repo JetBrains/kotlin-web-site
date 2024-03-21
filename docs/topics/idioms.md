@@ -125,6 +125,22 @@ object Resource {
 }
 ```
 
+## Use inline value classes for type-safe values
+
+```kotlin
+@JvmInline
+value class EmployeeId(private val id: String)
+
+@JvmInline
+value class CustomerId(private val id: String)
+```
+
+If you accidentally mix up `EmployeeId` and `CustomerId`, a compilation error is triggered.
+
+> The `@JvmInline` annotation is only needed for JVM backends.
+>
+{type="note"}
+
 ## Instantiate an abstract class
 
 ```kotlin
