@@ -57,7 +57,7 @@ If you encounter any of the problems mentioned above, you can take the following
   >
   {type="note"}
 
-* Update the Gradle version in your project to 8.3 when it becomes available.
+* Update the Gradle version in your project to 8.3 or later.
 
 ### Smart cast improvements
 
