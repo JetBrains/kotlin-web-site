@@ -98,7 +98,7 @@ fun petAnimal(animal: Any) {
     if (isCat) {
         // In Kotlin %kotlinEapVersion%, the compiler can access
         // information about isCat, so it knows that
-        // isCat was smart cast to type Cat.
+        // animal was smart cast to type Cat.
         // Therefore, the purr() function is successfully called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
