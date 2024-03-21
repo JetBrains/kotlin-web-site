@@ -776,3 +776,7 @@
     - /docs/multiplatform-mobile-plugin-releases.html
     - /docs/kmm-plugin-releases.html
   to: /docs/multiplatform-plugin-releases.html
+
+- from:
+    - /docs/wasm-libraries.html
+  to: /docs/wasm-overview.html
