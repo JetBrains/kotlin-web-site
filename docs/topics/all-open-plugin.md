@@ -22,7 +22,7 @@ Add the plugin in your `build.gradle(.kts)` file:
 
 ```kotlin
 plugins {
-    id("org.jetbrains.kotlin.plugin.allopen") version "%kotlinVersion%"
+    kotlin("plugin.allopen") version "%kotlinVersion%"
 }
 ```
 

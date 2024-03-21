@@ -1201,7 +1201,6 @@ The Kotlin documentation has received some notable changes:
 * [Android source set layout](multiplatform-android-layout.md) – Learn about the new Android source set layout.
 * [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md) – Learn about the incompatible changes you might encounter while developing projects with Kotlin Multiplatform.
 * [Kotlin Wasm](wasm-overview.md) – Learn about Kotlin/Wasm and how you can use it in your Kotlin Multiplatform projects.
-* [Add dependencies on Kotlin libraries to Kotlin/Wasm project](wasm-libraries.md) – Learn about the supported Kotlin libraries for Kotlin/Wasm.
 
 ## Install Kotlin 1.9.0
 

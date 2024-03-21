@@ -35,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta4"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta5"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
@@ -228,7 +228,6 @@
         </toc-element>
         <toc-element toc-title="WebAssembly (Wasm)">
             <toc-element id="wasm-get-started.md"/>
-            <toc-element id="wasm-libraries.md" toc-title="Add dependencies on Kotlin libraries" hidden="true"/>
             <toc-element id="wasm-debugging.md"/>
             <toc-element id="wasm-js-interop.md"/>
             <toc-element id="wasm-troubleshooting.md"/>

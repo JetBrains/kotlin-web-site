@@ -29,8 +29,12 @@ Kotlin/Wasm as its compilation target.
 format is platform-independent because it runs on its own virtual machine. Wasm provides Kotlin and other languages with 
 a compilation target to run on the web.
 
-Kotlin/Wasm compiles your Kotlin code into Wasm format. Using Kotlin/Wasm, you can create applications for different 
-environments and devices that support Wasm and meet Kotlin's requirements.
+Kotlin/Wasm compiles your Kotlin code into Wasm format. Using Kotlin/Wasm, you can create applications that run on 
+different environments and devices, which support Wasm and meet Kotlin's requirements. 
+
+Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like other Kotlin and Multiplatform
+projects, you can include dependency declarations in the build script. For more information, 
+see [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
 
 Would you like to try it yourself?
 
