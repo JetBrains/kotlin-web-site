@@ -24,7 +24,7 @@
 
     <var name="minAndroidGradleVersion" value="4.2.2" type="string"/>
 
-    <var name="maxAndroidGradleVersion" value="7.4.0" type="string"/>
+    <var name="maxAndroidGradleVersion" value="8.1.0" type="string"/>
 
     <var name="gradleVersion" value="8.1.1" type="string"/>
 
