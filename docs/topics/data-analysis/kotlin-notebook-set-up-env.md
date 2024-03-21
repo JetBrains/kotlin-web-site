@@ -26,6 +26,6 @@ Before you create your first Kotlin notebook, you need to set up an environment.
 
 ## Next step
 
-Add dependencies to Kotlin notebooks:
+In the next part of the tutorial, you will learn how to create a Kotlin notebook.
 
 **[Proceed to the next chapter](kotlin-notebook-create.md)**
