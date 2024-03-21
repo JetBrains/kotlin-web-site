@@ -18,7 +18,7 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {type="tip"}
 
-3. Select the **Web** option.
+3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
 ![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
@@ -85,13 +85,13 @@ build file. For more information about how to configure your browser for debuggi
 By default, browsers can't access some of the project's sources necessary for debugging. To provide access, you can configure the Webpack DevServer
 to serve these sources. In the `ComposeApp` directory, add the following code snippets to your `build.gradle.kts` file.
 
-Add this line in the dependencies block:
+Add this import as a top-level declaration:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 ```
 
-Add this code snippet inside `commonWebpackConfig{}`, located in `kotlin{}` / `wasmJs{}` / `browser{}`:
+Add this code snippet inside the `commonWebpackConfig{}`block, located in the `wasmJs{}` target DSL and `browser{}` platform DSL:
 
 ```kotlin
 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
@@ -104,7 +104,7 @@ devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
 }
 ```
 
-The resulting `kotlin{}` block looks like this:
+The resulting code block looks like this:
 
 ```kotlin
 kotlin {
@@ -115,15 +115,17 @@ kotlin {
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
+                    static = (static ?: mutableListOf()).apply { 
+                        // Serve sources to debug inside browser 
                         add(project.projectDir.path)
                         add(project.projectDir.path + "/commonMain/")
                         add(project.projectDir.path + "/wasmJsMain/")
-               }
+                    }
+                } 
             }
-         }
-      }
+        }
+    }
+}
 ```
 {initial-collapse-state="collapsed"}
 
@@ -153,9 +155,9 @@ kotlin {
    code, and the debugger pauses when the execution reaches a breakpoint.
 
 5. In the Debugging pane, use the debugging control buttons to inspect variables and code execution at the breakpoints:
-   * Step into ![Step into](wasm-step-into.png){width=30}{type="joined"} to investigate a function deeper
-   * Step over ![Step over](wasm-step-over.png){width=30}{type="joined"} to execute the current line and pause on the next line
-   * Step out ![Step out](wasm-step-out.png){width=30}{type="joined"} to execute the code until it exits the current function
+   * ![Step into](wasm-step-into.png){width=30}{type="joined"} Step into to investigate a function deeper
+   * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line
+   * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function
 
 ![Debug controls](wasm-debug-controls.png){width=700}
 
