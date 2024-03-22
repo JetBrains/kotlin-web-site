@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
-> Kotlin/Wasm is an [Alpha](components-stability.md) feature. It may be changed at any time.
+> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 >
 {type="note"}
 
@@ -12,8 +12,13 @@ app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a si
 Create a project using the Kotlin Multiplatform wizard:
 
 1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name to "WasmDemo" and the project ID to "wasm.project.demo".
-3. Select the **Web** option.
+2. On the **New Project** tab, change the project name and ID to your preference. In this tutorial, we set the name to "WasmDemo" and the ID to "wasm.project.demo".
+
+   > These are the name and ID of the project directory. You can also leave them as they are.
+   >
+   {type="tip"}
+
+3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
 ![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
@@ -36,10 +41,10 @@ Create a project using the Kotlin Multiplatform wizard:
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
 
-   Alternatively, you can run the following command in the terminal from the `composeApp` directory:
+   Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
    ```bash
-   ../gradlew wasmJsBrowserRun -t
+   ./gradlew wasmJsBrowserRun -t
    ```
 
 3. Once the application starts, open the following URL in your browser:
@@ -48,16 +53,16 @@ Create a project using the Kotlin Multiplatform wizard:
    http://localhost:8080/
    ```
 
-   >The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
+   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
    > in the Gradle build console.
    >
    {type="tip"}
 
-   You can see a "Click me!" button. Click it:
+   You see a "Click me!" button. Click it:
 
    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
-   Now you can see the Compose Multiplatform logo:
+   Now you see the Compose Multiplatform logo:
 
    ![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
@@ -67,14 +72,14 @@ In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsB
 
 ![Run the Gradle task](wasm-gradle-task-window-compose.png){width=600}
 
-Alternatively, you can run the following command in the terminal from the `composeApp` directory:
+Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
 ```bash
-../gradlew wasmJsBrowserDistribution
+./gradlew wasmJsBrowserDistribution
 ```
 
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
-folder:
+directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=600}
 
