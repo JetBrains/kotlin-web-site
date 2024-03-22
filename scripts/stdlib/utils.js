@@ -33,9 +33,11 @@ module.exports.writeRedirects = async function writeRedirects(name, urls) {
             return 0;
         });
 
+    console.log(`write ${urls.length} redirects...`);
     await writeFile(name, YAML.stringify(content), 'utf8');
 };
 
 module.exports.writeUnmatched = async function writeUnmatched(name, urls) {
+    console.log(`write ${urls.length} unmatched pages...`);
     await writeFile(name, JSON.stringify(urls, null, 4), 'utf8');
 };
