@@ -1,6 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const RedirectCollector = require("./redirect-collector");
+const { promises: { readdir, readFile } } = require('fs');
+const { join } = require('path');
+const { OLD_PATH_PREFIX, writeRedirects, writeUnmatched, exists } = require('./utils');
+const Redirects = require('./redirect-collector');
+const LinksProcessor = require('./links-processor');
 
 /**
  * In general the mapping is next:
@@ -9,184 +11,152 @@ const RedirectCollector = require("./redirect-collector");
  * test  /api/latest/kotlin.test/  - new /kotlin-test/index.html
  */
 
-const CURRENT_ROOT_PATH = 'api/latest';
-const TARGET_ROOT_PATH = 'api/core';
+const redirects = new Redirects();
+const folders = new Set();
 
-const STDLIB_MODULE_DIR_NAME = 'jvm/stdlib';
-const STDLIB_MODULE_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-stdlib';
-const KOTLIN_REFLECT_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-reflect';
-const KOTLIN_TEST_TARGET_PATH = TARGET_ROOT_PATH + '/kotlin-test';
+makeStdlibRedirects()
+    .then(async () => {
+        for (const [from, to] of redirects.redirects.entries()) {
+            const direction = to.replace(/^\/api\//, 'api/');
 
-const redirectCollector = new RedirectCollector();
+            if (!redirects.matched.get(direction)) {
+                const parts = direction.split('/');
+                const name = parts.pop();
+                const dir = parts.join('/');
+                await addFile(dir, name);
+            }
 
-makeStdlibRedirects();
-makeKotlinTestRedirects();
-
-redirectCollector.writeRedirects();
-redirectCollector.writeUnmatched();
-
-function makeStdlibRedirects() {
-    readFiles(CURRENT_ROOT_PATH, `/${STDLIB_MODULE_DIR_NAME}`, STDLIB_MODULE_TARGET_PATH, false);
-}
-
-function makeKotlinTestRedirects() {
-    readFiles(CURRENT_ROOT_PATH, `/kotlin.test`, KOTLIN_TEST_TARGET_PATH, false);
-}
-
-function readFiles(basePath, currentPath, targetPath, pathChanged = false) {
-    fs.readdirSync(`${basePath}${currentPath}`, { withFileTypes: true }).forEach((item) => {
-        if (item.isDirectory()) {
-            matchDirectory(currentPath, item, targetPath, basePath);
-        } else if (item.isFile() && item.name.endsWith('.html')) {
-            matchFile(currentPath, item, targetPath, pathChanged, basePath);
-        } else {
-            console.log(`The file ${item.name} has no redirect.`);
-        }
-    });
-}
-
-function matchDirectory(currentPath, item, targetPath, basePath) {
-    const currentDirectoryPath = path.join(currentPath, item.name);
-    const targetDirectoryPath = path.join(targetPath, item.name);
-
-    if (fs.existsSync(targetDirectoryPath)) {
-        return readFiles(basePath, `/${currentDirectoryPath}`, targetDirectoryPath);
-    } else {
-        const manuallyMatched = getManuallyMatched(currentDirectoryPath);
-
-        if (manuallyMatched) {
-            return manuallyMatched.forEach(({ from, to }) => redirectCollector.add(from, to));
-        }
-
-        if (isReflectModules(item.name)) {
-            return readFiles(
-                basePath,
-                `/${currentDirectoryPath}`,
-                `${KOTLIN_REFLECT_TARGET_PATH}/${item.name}`,
-                true
-            );
-        }
-
-        const withoutPrefix = fixNoKotlinNameOnTheFolder(item.name);
-
-        if (withoutPrefix) {
-            const currentPath = path.join(targetPath, withoutPrefix);
-
-            if (fs.existsSync(currentPath)) {
-                return readFiles(basePath, `/${currentDirectoryPath}`, currentPath, true);
+            const value = redirects.matched.get(direction);
+            if (value) {
+                redirects.add(from, value);
+                redirects.redirects.delete(from);
             }
         }
 
-        if (isExternalTypesExtensionDirectory(item.name)) {
-            return readFiles(basePath, `/${currentDirectoryPath}`, targetPath, true);
-        }
+        return [...redirects.matched.entries()];
+    })
+    .then(urls => Promise.all([
+        writeRedirects('redirects/stdlib-redirects.yml', urls),
+        writeUnmatched('not-found.json', [...redirects.unmatched])
+    ]));
 
-        redirectCollector.addUnmatchedDirectory(currentDirectoryPath);
+
+async function makeStdlibRedirects() {
+    await readFiles(OLD_PATH_PREFIX, '');
+
+    for (const folder of folders) {
+        await readFiles(folder);
     }
 }
 
-function matchFile(currentPath, item, targetPath, pathChanged, basePath) {
-    const oldPath = path.join('/', basePath, currentPath, item.name);
-    const currentFilePath = path.join(targetPath, item.name);
+async function readFiles(currentPath) {
+    const dirents = await readdir(currentPath, { withFileTypes: true });
 
-    if (fs.existsSync(currentFilePath)) {
-        if (pathChanged) redirectCollector.add(oldPath, `/${currentFilePath}`);
-    } else {
-        if (isInitFile(item.name)) {
-            const constructorName = currentPath.split('/').pop();
-            const hasConstructorPage = fs.existsSync(`${targetPath}/${constructorName}.html`);
+    await Promise.all(
+        dirents.map(async item => {
+            const itemPath = `${currentPath}/${item.name}`;
 
-            if (hasConstructorPage) {
-                return redirectCollector.add(oldPath, `/${targetPath}/${constructorName}.html`);
-            }
-
-            const hasIndexPage = fs.existsSync(`${targetPath}/index.html`);
-
-            if (hasIndexPage) {
-                return redirectCollector.add(oldPath, `/${targetPath}/index.html`);
-            }
-        }
-
-        const companionPath = `${targetPath}/-companion/${item.name}`;
-        const hasCompanion = fs.existsSync(companionPath);
-
-        if (hasCompanion) {
-            return redirectCollector.add(oldPath, `/${companionPath}`);
-        }
-
-        const directoryName = `${targetPath}/${item.name.replace('.html', '')}/index.html`;
-        const hasDirectoryInsteadFile = fs.existsSync(directoryName);
-
-        if (hasDirectoryInsteadFile) {
-            return redirectCollector.add(oldPath, `/${directoryName}`);
-        }
-
-        const typeAliasFile = `${targetPath}/${directoryName}-of/index.html`;
-        const hasTypeForTypeAlias = fs.existsSync(typeAliasFile);
-
-        if (hasTypeForTypeAlias) {
-            console.log('hasTypeForTypeAlias');
-            return redirectCollector.add(oldPath, `/${typeAliasFile}`);
-        }
-
-        redirectCollector.addUnmatchedFile(oldPath);
-    }
+            if (item.isDirectory())
+                folders.add(itemPath);
+            else if (item.isFile() && item.name.endsWith('.html'))
+                await addFile(currentPath, item.name);
+            else
+                console.log(`${item.name} is incompatible file for redirect: ${itemPath}.`);
+        })
+    );
 }
 
-/**
- * With the old dokka, there was a group with extensions for external types,
- * now these extensions are all smeared among other package functions
- */
-function isExternalTypesExtensionDirectory(name) {
-    return name.startsWith('java.') || name.startsWith('kotlin.sequences.');
+const MANUAL_LINKS = {
+    'api/latest/jvm/stdlib/kotlin/-any/to-string.html':
+        'api/core/kotlin-stdlib/kotlin/to-string.html',
+
+    'api/latest/jvm/stdlib/kotlin/-any/hash-code.html':
+        'api/core/kotlin-stdlib/kotlin/hash-code.html',
+
+    'api/latest/jvm/stdlib/kotlin/-enum/compare-to.html':
+        'api/core/kotlin-stdlib/kotlin/compare-to.html',
+};
+
+function getTargetPath(path, name) {
+    return MANUAL_LINKS[path + "/" + name] || (
+        new LinksProcessor(path, name)
+            .replaceKotlinJvmOptionals()
+            .replaceKotlinReflect()
+            .dropSomeKotlinPrefixes() // .replaceKotlinPackages()
+            .dropEmptyPackages()
+            .replaceRootPrefixes()
+            .value
+    );
 }
 
-/**
- * Init file was removed
- */
-function isInitFile(name) {
-    return name === '-init-.html';
-}
+async function addFile(currentPath, name) {
+    const oldPath = join(currentPath, name);
+    const expectedPath = getTargetPath(currentPath, name);
+    const expectedModulePath = expectedPath.split('/').slice(0, -1).join('/');
 
-/**
- * There is a folder that has lost its prefix
- */
-function fixNoKotlinNameOnTheFolder(name) {
-    const prefix = '-kotlin';
-
-    if (name.startsWith('-kotlin')) {
-        return name.slice(prefix.length);
+    if (await exists(expectedPath)) {
+        redirects.add(oldPath, expectedPath);
+        return;
     }
 
-    return null;
-}
+    /**
+     * Init file was removed
+     */
+    if (name === '-init-.html') {
+        const constructorName = expectedModulePath.split('/').pop();
+        const constructorPage = `${expectedModulePath}/${constructorName}.html`;
 
-/**
- * kotlin.reflect now is a separated module
- */
-function isReflectModules(name) {
-    return ['kotlin.reflect.full', 'kotlin.reflect.jvm'].includes(name);
-}
+        if (await exists(constructorPage)) {
+            redirects.add(oldPath, `${expectedModulePath}/${constructorName}.html`);
+            return;
+        }
 
-/**
- * Some pages were matched manually
- */
-function getManuallyMatched(path) {
-    const javaUtilOptional = `/${STDLIB_MODULE_DIR_NAME}/kotlin.jvm.optionals/java.util.-optional`;
-    const javaUtilOptionalTo = `${STDLIB_MODULE_TARGET_PATH}/kotlin.jvm.optionals/get-or-default.html`;
+        const indexPath = `${expectedModulePath}/index.html`;
 
-    const manuallyMatched = {
-        [javaUtilOptional]: [
-            {
-                from: javaUtilOptional,
-                to: javaUtilOptionalTo,
-            },
-            {
-                from: `${javaUtilOptional}/-any.html`,
-                to: javaUtilOptionalTo,
-            },
-        ],
-    };
+        if (await exists(indexPath)) {
+            redirects.add(oldPath, `${expectedModulePath}/index.html`);
+            return;
+        }
+    }
 
-    return manuallyMatched[path];
+    const companionPath = `${expectedModulePath}/-companion/${name}`;
+
+    if (await exists(companionPath)) {
+        redirects.add(oldPath, companionPath);
+        return;
+    }
+
+    const insideDefaultPath = `${expectedModulePath}/-default/${name}`;
+
+    if (await exists(insideDefaultPath)) {
+        redirects.add(oldPath, insideDefaultPath);
+        return;
+    }
+
+    const directoryName = `${expectedModulePath}/${name.replace(/\.html$/, '')}`;
+    const nowDirectoryName = `${directoryName}/index.html`;
+
+    if (await exists(nowDirectoryName)) {
+        redirects.add(oldPath, nowDirectoryName);
+        return;
+    }
+
+    const typeAliasFile = `${directoryName}-of/index.html`;
+
+    if (await exists(typeAliasFile)) {
+        console.log('hasTypeForTypeAlias');
+        return redirects.add(oldPath, typeAliasFile);
+    }
+
+    const text = await readFile(oldPath, { encoding: 'utf-8' });
+    const match = text.match(/<meta http-equiv="refresh" content="0; url=([^"]+)"\/>/);
+
+    if (match) {
+        let to = match[1];
+        if (to.endsWith('/')) to += 'index.html';
+        redirects.addRedirect(oldPath, to);
+        return;
+    }
+
+    redirects.addUnmatched(oldPath);
 }
