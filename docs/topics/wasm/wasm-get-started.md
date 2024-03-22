@@ -18,7 +18,7 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {type="tip"}
 
-3. Select the **Web** option.
+3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
 ![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
@@ -79,7 +79,7 @@ Alternatively, you can run the following command in the terminal from the `WasmD
 ```
 
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
-folder:
+directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=600}
 

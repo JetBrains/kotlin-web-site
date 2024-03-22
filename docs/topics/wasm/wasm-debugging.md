@@ -91,7 +91,7 @@ Add this import as a top-level declaration:
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 ```
 
-Add this code snippet inside the `commonWebpackConfig{}`block, located in the `wasmJs{}` target DSL and `browser{}` platform DSL:
+Add this code snippet inside the `commonWebpackConfig{}`block, located in the `wasmJs{}` target DSL and `browser{}` platform DSL within `kotlin{}`:
 
 ```kotlin
 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
@@ -155,9 +155,9 @@ kotlin {
    code, and the debugger pauses when the execution reaches a breakpoint.
 
 5. In the Debugging pane, use the debugging control buttons to inspect variables and code execution at the breakpoints:
-   * ![Step into](wasm-step-into.png){width=30}{type="joined"} Step into to investigate a function deeper
-   * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line
-   * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function
+   * ![Step into](wasm-step-into.png){width=30}{type="joined"} Step into to investigate a function more deeply.
+   * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line.
+   * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
 
 ![Debug controls](wasm-debug-controls.png){width=700}
 
