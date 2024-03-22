@@ -7,7 +7,7 @@
 >
 {type="note"}
 
-With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects with
+With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
 Compose Multiplatform and Kotlin/Wasm.
 
 [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) is a declarative framework based on Kotlin
