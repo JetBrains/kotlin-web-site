@@ -1,37 +1,21 @@
-const fs = require('fs');
-const YAML = require('yaml');
+module.exports = class RedirectCollector {
+    constructor() {
+        this.matched = new Map();
+        this.redirects = new Map();
+        this.unmatched = new Set();
+    }
 
-class RedirectCollector {
-	constructor() {
-		this.redirects = [];
-		this.unmatched = {
-			directory: [],
-			file: [],
-		};
-	}
+    add(from, to) {
+        if (this.matched.has(from)) throw Error(`Double match ${from}: ${this.matched.get(from)} <-> ${to}`);
 
-	add(from, to) {
-		this.redirects.push({
-			from,
-			to
-		});
-	}
+        this.matched.set(from, to);
+    }
 
-	addUnmatchedDirectory(path) {
-		this.unmatched.directory.push(path);
-	}
+    addUnmatched(path) {
+        this.unmatched.add(path);
+    }
 
-	addUnmatchedFile(path) {
-		this.unmatched.file.push(path);
-	}
-
-	writeRedirects() {
-		fs.writeFileSync('redirects/stdlib-redirects.yml', YAML.stringify(this.redirects), 'utf8');
-	}
-
-	writeUnmatched() {
-		fs.writeFileSync('not-found.json', JSON.stringify(this.unmatched, null, 4), 'utf8');
-	}
+    addRedirect(oldPath, toPath) {
+        this.redirects.set(oldPath, toPath);
+    }
 }
-
-module.exports = RedirectCollector;
