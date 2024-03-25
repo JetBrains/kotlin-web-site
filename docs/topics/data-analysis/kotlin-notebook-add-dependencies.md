@@ -25,7 +25,7 @@ syntax in any code cell, Kotlin Notebook has a simplified method to load popular
 2. Type the following code in the code cell:
 
 ```kotlin
-// Replace libraryName with the library dependency you want to add.
+// Replace libraryName with the library dependency you want to add
 %use libraryName
 
 // For example, if you want to add a dependency to the Kotlin DataFrame library, write: 
@@ -37,7 +37,7 @@ You can also use the autocompletion feature in Kotlin Notebook to quickly access
 
 3. Run the code cell.
 
-And that's it! When the `%use` statement is executed, it downloads the library dependencies and also adds 
+And that's it! When the `%use` statement is executed, it downloads the library dependencies and adds 
 the default imports to your notebook.
 
 > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
