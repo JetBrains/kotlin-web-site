@@ -29,7 +29,6 @@ class LinksProcessor {
         return this;
     }
 
-
     replaceKotlinJvmOptionals() {
         return this.replaceAtStart(
             STDLIB_MODULE_DIR + '/kotlin.jvm.optionals/java.util.-optional/',
@@ -57,16 +56,12 @@ class LinksProcessor {
             .replaceAtStart(TEST_MODULE_DIR + '/', TARGET_TEST_MODULE_DIR + '/')
             .replaceAtStart(STDLIB_MODULE_DIR + '/', TARGET_STDLIB_MODULE_DIR + '/');
     }
-
     /**
      * There is a folder that has lost its prefix
      */
-    replaceKotlinPackages() {
-        return this.dropPackageByRe('-kotlin([^/]+)', '/$1');
-    }
-
     dropSomeKotlinPrefixes() {
-        return this.dropPackageByRe('-kotlin((-null-pointer-exception)|(aa))', '/$1/');
+        // If you need more, just use it like that: -kotlin((add_your_module)|(-null-pointer-exception))
+        return this.dropPackageByRe('-kotlin((-null-pointer-exception))', '/$1/');
     }
 
     /**
@@ -76,7 +71,8 @@ class LinksProcessor {
     dropEmptyPackages() {
         return this
             .dropPackageByRe('java\\.[^/]+')
-            .dropPackageByRe('kotlin\\.sequences\\.[^/]+');
+            .dropPackageByRe('kotlin\\.sequences\\.[^/]+')
+            .dropPackageByRe('-kotlin-reflection-not-supported-error');
     }
 }
 

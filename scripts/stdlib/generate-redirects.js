@@ -33,6 +33,9 @@ makeStdlibRedirects()
             }
         }
 
+        if(redirects.redirects.size > 0)
+            console.log(`unresolved ${redirects.redirects.size} redirects...`)
+
         return [...redirects.matched.entries()];
     })
     .then(urls => Promise.all([
@@ -67,14 +70,21 @@ async function readFiles(currentPath) {
 }
 
 const MANUAL_LINKS = {
-    'api/latest/jvm/stdlib/kotlin/-any/to-string.html':
-        'api/core/kotlin-stdlib/kotlin/to-string.html',
+    "api/latest/kotlin.test/alltypes/index.html":
+        "api/core/kotlin-test/",
+    "api/latest/jvm/stdlib/alltypes/index.html":
+        "api/core/kotlin-stdlib/",
 
-    'api/latest/jvm/stdlib/kotlin/-any/hash-code.html':
-        'api/core/kotlin-stdlib/kotlin/hash-code.html',
-
-    'api/latest/jvm/stdlib/kotlin/-enum/compare-to.html':
-        'api/core/kotlin-stdlib/kotlin/compare-to.html',
+    // > I think it's the right thing to hide HIDDEN deprecated api from the documentation,
+    // > so these pages can be redirected just to their containing package in the new docs.
+    "api/latest/kotlin.test/kotlin.test/assert-true-no-inline.html":
+        "api/core/kotlin-test/kotlin.test/index.html",
+    "api/latest/kotlin.test/kotlin.test/assert-false-no-inline.html":
+        "api/core/kotlin-test/kotlin.test/index.html",
+    "api/latest/kotlin.test/kotlin.test/expect-no-inline.html":
+        "api/core/kotlin-test/kotlin.test/index.html",
+    "api/latest/kotlin.test/kotlin.test/assert-not-null-no-inline.html":
+        "api/core/kotlin-test/kotlin.test/index.html",
 };
 
 function getTargetPath(path, name) {
@@ -147,16 +157,16 @@ async function addFile(currentPath, name) {
         console.log('hasTypeForTypeAlias');
         return redirects.add(oldPath, typeAliasFile);
     }
-
+/*
     const text = await readFile(oldPath, { encoding: 'utf-8' });
     const match = text.match(/<meta http-equiv="refresh" content="0; url=([^"]+)"\/>/);
 
-    if (match) {
+    if (match && match[1]) {
         let to = match[1];
         if (to.endsWith('/')) to += 'index.html';
         redirects.addRedirect(oldPath, to);
         return;
     }
-
+*/
     redirects.addUnmatched(oldPath);
 }
