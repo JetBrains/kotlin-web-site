@@ -1,3 +1,5 @@
+- from: /api/latest/jvm/stdlib/alltypes/index.html
+  to: /api/core/kotlin-stdlib/
 - from: /api/latest/jvm/stdlib/index.html
   to: /api/core/kotlin-stdlib/
 - from: /api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/-b-i-n-a-r-y.html
@@ -2566,6 +2568,10 @@
   to: /api/core/kotlin-stdlib/kotlin.jvm/-jvm-wildcard/
 - from: /api/latest/jvm/stdlib/kotlin.jvm/-jvm-wildcard/index.html
   to: /api/core/kotlin-stdlib/kotlin.jvm/-jvm-wildcard/
+- from: /api/latest/jvm/stdlib/kotlin.jvm/-kotlin-reflection-not-supported-error/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.jvm/
+- from: /api/latest/jvm/stdlib/kotlin.jvm/-kotlin-reflection-not-supported-error/index.html
+  to: /api/core/kotlin-stdlib/kotlin.jvm/
 - from: /api/latest/jvm/stdlib/kotlin.jvm/-purely-implements/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.jvm/-purely-implements/
 - from: /api/latest/jvm/stdlib/kotlin.jvm/-purely-implements/index.html
@@ -5782,12 +5788,8 @@
   to: /api/core/kotlin-stdlib/kotlin/-annotation/
 - from: /api/latest/jvm/stdlib/kotlin/-any/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-any/-any.html
-- from: /api/latest/jvm/stdlib/kotlin/-any/hash-code.html
-  to: /api/core/kotlin-stdlib/kotlin/hash-code.html
 - from: /api/latest/jvm/stdlib/kotlin/-any/index.html
   to: /api/core/kotlin-stdlib/kotlin/-any/
-- from: /api/latest/jvm/stdlib/kotlin/-any/to-string.html
-  to: /api/core/kotlin-stdlib/kotlin/to-string.html
 - from: /api/latest/jvm/stdlib/kotlin/-arithmetic-exception/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-arithmetic-exception/-arithmetic-exception.html
 - from: /api/latest/jvm/stdlib/kotlin/-arithmetic-exception/index.html
@@ -6138,8 +6140,6 @@
   to: /api/core/kotlin-stdlib/kotlin/-dsl-marker/
 - from: /api/latest/jvm/stdlib/kotlin/-enum/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/-enum.html
-- from: /api/latest/jvm/stdlib/kotlin/-enum/compare-to.html
-  to: /api/core/kotlin-stdlib/kotlin/compare-to.html
 - from: /api/latest/jvm/stdlib/kotlin/-enum/index.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/
 - from: /api/latest/jvm/stdlib/kotlin/-enum/name.html
@@ -24566,6 +24566,8 @@
   to: /api/core/kotlin-stdlib/org.w3c.xhr/-x-m-l-http-request/with-credentials.html
 - from: /api/latest/jvm/stdlib/org.w3c.xhr/index.html
   to: /api/core/kotlin-stdlib/org.w3c.xhr/
+- from: /api/latest/kotlin.test/alltypes/index.html
+  to: /api/core/kotlin-test/
 - from: /api/latest/kotlin.test/index.html
   to: /api/core/kotlin-test/
 - from: /api/latest/kotlin.test/kotlin.test.junit/-j-unit-asserter/assert-equals.html
@@ -24720,6 +24722,8 @@
   to: /api/core/kotlin-test/kotlin.test/assert-fails-with.html
 - from: /api/latest/kotlin.test/kotlin.test/assert-fails.html
   to: /api/core/kotlin-test/kotlin.test/assert-fails.html
+- from: /api/latest/kotlin.test/kotlin.test/assert-false-no-inline.html
+  to: /api/core/kotlin-test/kotlin.test/
 - from: /api/latest/kotlin.test/kotlin.test/assert-false.html
   to: /api/core/kotlin-test/kotlin.test/assert-false.html
 - from: /api/latest/kotlin.test/kotlin.test/assert-is-not.html
@@ -24728,6 +24732,8 @@
   to: /api/core/kotlin-test/kotlin.test/assert-is.html
 - from: /api/latest/kotlin.test/kotlin.test/assert-not-equals.html
   to: /api/core/kotlin-test/kotlin.test/assert-not-equals.html
+- from: /api/latest/kotlin.test/kotlin.test/assert-not-null-no-inline.html
+  to: /api/core/kotlin-test/kotlin.test/
 - from: /api/latest/kotlin.test/kotlin.test/assert-not-null.html
   to: /api/core/kotlin-test/kotlin.test/assert-not-null.html
 - from: /api/latest/kotlin.test/kotlin.test/assert-not-same.html
@@ -24736,12 +24742,16 @@
   to: /api/core/kotlin-test/kotlin.test/assert-null.html
 - from: /api/latest/kotlin.test/kotlin.test/assert-same.html
   to: /api/core/kotlin-test/kotlin.test/assert-same.html
+- from: /api/latest/kotlin.test/kotlin.test/assert-true-no-inline.html
+  to: /api/core/kotlin-test/kotlin.test/
 - from: /api/latest/kotlin.test/kotlin.test/assert-true.html
   to: /api/core/kotlin-test/kotlin.test/assert-true.html
 - from: /api/latest/kotlin.test/kotlin.test/asserter.html
   to: /api/core/kotlin-test/kotlin.test/asserter.html
 - from: /api/latest/kotlin.test/kotlin.test/current-stack-trace.html
   to: /api/core/kotlin-test/kotlin.test/current-stack-trace.html
+- from: /api/latest/kotlin.test/kotlin.test/expect-no-inline.html
+  to: /api/core/kotlin-test/kotlin.test/
 - from: /api/latest/kotlin.test/kotlin.test/expect.html
   to: /api/core/kotlin-test/kotlin.test/expect.html
 - from: /api/latest/kotlin.test/kotlin.test/fail.html
