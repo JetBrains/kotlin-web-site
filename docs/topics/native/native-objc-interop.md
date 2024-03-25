@@ -9,13 +9,14 @@
 >
 {type="warning"}
 
-This document covers some details of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
-declarations in Swift/Objective-C and Objective-C declarations in Kotlin.
+This document covers some aspects of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
+declarations in Swift/Objective-C code and Objective-C declarations in Kotlin code.
 
 Some other resources you might find useful:
 
-* The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia), a collection of examples on how you can use Kotlin declarations in Swift code. 
-* The [iOS integration](native-ios-integration.md) section, covering specific aspects of memory management between iOS and Kotlin. 
+* The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia), a collection of examples
+  on how to use Kotlin declarations in Swift code. 
+* The [iOS integration](native-ios-integration.md) section, covering specifics of memory management between iOS and Kotlin. 
 
 ## Usage
 
@@ -89,7 +90,7 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 ### Name translation
 
 Objective-C classes are imported into Kotlin with their original names.
-Protocols are imported as interfaces with `Protocol` name suffix, for example, `@protocol Foo` -> `interface FooProtocol`.
+Protocols are imported as interfaces with a `Protocol` name suffix, for example, `@protocol Foo` -> `interface FooProtocol`.
 These classes and interfaces are placed into a package [specified in build configuration](#usage)
 (`platform.*` packages for preconfigured system frameworks).
 
@@ -125,7 +126,7 @@ let index = array.index(of: "element")
 
 ### Initializers
 
-Swift/Objective-C initializers are imported to Kotlin as constructors and factory methods named `create`.
+A Swift/Objective-C initializer is imported to Kotlin as constructors or as factory methods named `create`.
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
@@ -147,7 +148,7 @@ package my.library
 fun foo() {}
 ```
 
-Can be called from Swift like this:
+You can them call the `foo()` function from Swift like this:
 
 ```swift
 MyLibraryUtilsKt.foo()
@@ -177,7 +178,7 @@ player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
 
-Here's how  some methods of `kotlin.Any` are mapped to Swift/Objective-C:
+Here's how  the `kotlin.Any` functions are mapped to Swift/Objective-C:
 
 | Kotlin       | Swift          | Objective-C   |
 |--------------|----------------|---------------|
@@ -192,9 +193,9 @@ the [`@ObjCName` annotation](#custom-declaration-names).
 
 ### Errors and exceptions
 
-Kotlin has no concept of checked exceptions, all Kotlin exceptions are unchecked. Swift has only checked errors.
-So if Swift or Objective-C code calls a Kotlin method which throws an exception to be handled, the Kotlin method
-should be marked with the `@Throws` annotation specifying a list of "expected" exception classes.
+All Kotlin exceptions are unchecked, meaning that errors are caught at runtime. However, Swift has only checked errors
+that are handled at compile time. So, if Swift or Objective-C code calls a Kotlin method that throws an exception,
+the Kotlin method should be marked with the `@Throws` annotation, specifying a list of "expected" exception classes.
 
 When compiling to the Objective-C/Swift framework, non-`suspend` functions that have or inherit the `@Throws` annotation
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
@@ -204,7 +205,7 @@ When Kotlin function called from Swift/Objective-C code throws an exception whic
 the `@Throws`-specified classes or their subclasses, it is propagated as `NSError`.
 Other Kotlin exceptions reaching Swift/Objective-C are considered unhandled and cause program termination.
 
-`suspend` functions without `@Throws` propagate only `CancellationException` as `NSError`.
+`suspend` functions without `@Throws` propagate only `CancellationException` (as `NSError`).
 Non-`suspend` functions without `@Throws` don't propagate Kotlin exceptions at all.
 
 Note that the opposite reversed translation is not implemented yet: Swift/Objective-C error-throwing methods aren't
@@ -260,7 +261,7 @@ in Swift/Objective-C terminology.
 
 Starting from Swift 5.5, Kotlin's `suspend` functions are also available for calling from Swift as
 `async` functions without using the completion handlers. Currently, this functionality is highly experimental and
-has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610)for details.
+has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-47610) for details.
 
 * Learn more about the [`async`/`await` mechanism in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/Concurrency.html).
 * See an example and recommendations on third-party libraries that implement the same functionality in the [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/coroutines/Suspend%20functions.md).
@@ -268,7 +269,7 @@ has certain limitations. See [this YouTrack issue](https://youtrack.jetbrains.co
 ### Extensions and category members
 
 Members of Objective-C categories and Swift extensions are generally imported to Kotlin as extensions. That's why
-these declarations can't be overridden in Kotlin. And the extension initializers aren't available as Kotlin constructors.
+these declarations can't be overridden in Kotlin, and the extension initializers aren't available as Kotlin constructors.
 
 > Currently, there are two exceptions. Starting with Kotlin 1.8.20, category members that are declared
 > in the same headers as the NSView class (from the AppKit framework) or UIView classes (from the UIKit framework) are
@@ -332,14 +333,14 @@ See more examples in the Kotlin-Swift interopedia:
 
 ### NSNumber
 
-Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, `kotlin.Int` box is represented
+Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, the `kotlin.Int` box is represented
 as `KotlinInt` class instance in Swift (or `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
 These classes are derived from `NSNumber`, so the instances are proper `NSNumber`s supporting all corresponding operations.
 
 `NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
 or return value. The reason is that `NSNumber` type doesn't provide enough information about a wrapped primitive value
 type, for example, `NSNumber` is statically not known to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
-should be cast to and from `NSNumber` [manually below](#casting-between-mapped-types).
+should be [cast to and from `NSNumber` manually](#casting-between-mapped-types).
 
 ### NSMutableString
 
@@ -351,10 +352,10 @@ All instances of `NSMutableString` are copied when passed to Kotlin.
 Kotlin collections are converted to Swift/Objective-C collections as described in the [table above](#mappings).
 Swift/Objective-C collections are mapped to Kotlin in the same way, except for `NSMutableSet` and `NSMutableDictionary`.
 
-`NSMutableSet` isn't converted to a Kotlin `MutableSet`. To pass an object for Kotlin `MutableSet`, you can create this
-kind of Kotlin collection explicitly by either creating it in Kotlin with `mutableSetOf()`, for example, or using the
-`KotlinMutableSet` class in Swift (or `${prefix}MutableSet` in Objective-C, where `prefix` is the framework names prefix).
-The same holds for `MutableMap`.
+`NSMutableSet` isn't converted to a Kotlin `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
+kind of Kotlin collection. To do this, use, for example, the `mutableSetOf()` function in Kotlin or the
+`KotlinMutableSet` class in Swift and `${prefix}MutableSet` in Objective-C (`prefix` is the framework names prefix).
+The same is true for `MutableMap`.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/Collections.md).
 
@@ -368,19 +369,19 @@ function type. In the latter case, primitive types are mapped to their boxed rep
 is represented as a corresponding `Unit` singleton in Swift/Objective-C. The value of this singleton can be retrieved the
 same way as for any other Kotlin `object`. See singletons in the [table above](#mappings).
 
-So, the following Kotlin function:
+Consider the following Kotlin function:
 
 ```kotlin
 fun foo(block: (Int) -> Unit) { ... }
 ```
 
-Is represented in Swift as:
+It's represented in Swift as follows:
 
 ```swift
 func foo(block: (KotlinInt) -> KotlinUnit)
 ```
 
-And you can call it like:
+And you can call it like this:
 
 ```kotlin
 foo {
