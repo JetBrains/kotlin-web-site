@@ -134,7 +134,8 @@ Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
-Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method for the property `foo`. The same goes for a protocol's read-only properties that are implemented as mutable.
+Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method
+for the property `foo`. The same goes for a protocol's read-only properties that are implemented as mutable.
 
 ### Top-level functions and properties
 
@@ -178,7 +179,7 @@ player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
 
-Here's how  the `kotlin.Any` functions are mapped to Swift/Objective-C:
+Here's how the `kotlin.Any` functions are mapped to Swift/Objective-C:
 
 | Kotlin       | Swift          | Objective-C   |
 |--------------|----------------|---------------|
@@ -289,7 +290,7 @@ with an additional receiver parameter. These types include:
 * Kotlin `Any` type
 * Kotlin function types and subtypes
 * Objective-C classes and protocols
-  
+
 [See a collection of examples in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/tree/main/docs/extensions).
 
 ### Kotlin singletons
@@ -535,8 +536,8 @@ such as unsafe pointers, structs, and so on.
 >
 {type="warning"}
 
-By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating an Objective-C header.  
-For example, the following Kotlin code with KDoc: 
+By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating
+an Objective-C header. For example, the following Kotlin code with KDoc:
 
 ```kotlin
 /**
