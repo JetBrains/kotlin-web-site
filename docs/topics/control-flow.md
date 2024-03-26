@@ -196,7 +196,7 @@ for (item: Int in ints) {
 
 As mentioned before, `for` iterates through anything that provides an iterator. This means that it:
 
-* has a member or an extension function `iterator()` that returns `Iterator<>`:
+* has a member or an extension function `iterator()` that returns `Iterator<>`, which:
   * has a member or an extension function `next()`
   * has a member or an extension function `hasNext()` that returns `Boolean`.
 
