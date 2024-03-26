@@ -2,8 +2,8 @@
 
 Kotlin/Native output for an Apple target can be consumed as a Swift package manager (SPM) dependency.
 For example, if your Kotlin Multiplatform project has an iOS target, you may want to make the binary available
-as a dependency to iOS developers working on native Swift projects in Xcode. Using KMP tooling, you can provide
-an artifact that would seamlessly integrate with Xcode experience.
+as a dependency to iOS developers working on native Swift projects. Using KMP tooling, you can provide
+an artifact that would seamlessly integrate with projects in Xcode.
 
 This guide shows how to do this by building [XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks)
 with the Kotlin Gradle plugin.
@@ -11,33 +11,34 @@ with the Kotlin Gradle plugin.
 ## Prepare file locations
 
 To make your framework consumable, you need to upload two files:
-* A ZIP archive of the XCFramework itself should be uploaded to a convenient file storage with direct access (for example,
-S3, GitHub Releases, or a Maven repository). Choose the option that is easiest to integrate into your workflow.
-* The `Package.swift` file describing the package needs to be placed in a Git repository. To decide which
-repository to use, see pros and cons of several options below.
+* A ZIP archive of the XCFramework. Upload it to a convenient file storage with direct access (for example,
+creating a GitHub release with the archive attached, using Amazon S3 or Maven).
+  Choose the option that is easiest to integrate into your workflow.
+* The `Package.swift` file describing the package. Prepare a Git repository and push it there.
+  To decide how to organize your repositories, see the pros and cons of several options below.
 
 ### Swift package distribution
-The `Package.swift` that describes the Swift Package needs to be placed in a Git repository:
-* Store the `Package.swift` file in an independent repository to make its versioning separate from the
-KMP project the file describes. This is the recommended approach, allowing scalability and generally easier
-maintenance.
-* Put the `Package.swift` file next to your KMP code for a more straightforward approach. Keep in mind that versioning
-a Swift Package in the same repository as the code can become challenging as SPM uses Git tags for versioning packages
-and this can conflict with using tags for the project itself. 
-* Store the `Package.swift` within the consumer project's repo to avoid the versioning and maintenance issues.
 
+Consider the following options for organizing your Git repositories:
+
+* Store the `Package.swift` file in an independent repository. This allows versioning it separately from the
+Kotlin Multiplatform project the file describes. This is the recommended approach: it allows scaling and generally easier
+to maintain.
+* Put the `Package.swift` file next to your Kotlin Multiplatform code. This is a more straightforward approach, but
+  keep in mind in this case the Swift package and the code will use the same versioning. SPM uses
+  Git tags for versioning packages, and this can conflict with tags used for the project. 
+* Store the `Package.swift` within the consumer project's repository. This helps to avoid the versioning and maintenance issues.
   However, this approach can cause problems with multi-repository SPM setups of the consumer project and further automation:
+
   1. In a multi-package project, only one consumer package can depend on the external module, to avoid dependency conflicts
-  within the project. So, all the logic that depends on your KMP module should be encapsulated in a particular consumer package.
-  2. If you publish the KMP project using an automated CI process, this process would need to include publishing the
-  updated `Package.swift` file to the consumer repo. Such a phase in CI can be difficult to maintain as it may lead
-  to conflicting updates of the consumer repo.
+  within the project. So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a particular consumer package.
+  2. If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include publishing the
+  updated `Package.swift` file to the consumer repository. Such a phase in CI can be difficult to maintain as it may lead
+  to conflicting updates of the consumer repository.
 
-Now that you understand the options, create or adjust a Git repository as needed.
+## Create the XCFramework and the Swift package manifest
 
-## Create the XCFramework and the Package.swift file
-
-> The following example assumes that the shared code of your KMP project is stored in the `shared` module.
+> The following example assumes that the shared code of your Kotlin Multiplatform project is stored in the `shared` module.
 > If your project is structured differently, substitute "shared" in code and path examples with your module's name.  
 >
 {type="tip"}
@@ -78,7 +79,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
 4. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
    
    `swift package compute-checksum Shared.xcframework.zip`
-5. Upload the ZIP file to the file storage of your choice.
+5. <a name="upload"></a>Upload the ZIP file to the file storage of your choice.
 6. Create a `Package.swift` file with the following code:
    ```Swift
    // swift-tools-version:5.3
@@ -111,15 +112,20 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
 8. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
 semantic version of the package.
 
-Now that both files are accessible, you can set up the dependency in Xcode:
-* In an Xcode project, choose **File | Add Package Dependencies...** and provide the Git URL for the repo with
-the `Package.swift` file.
-* In an SPM project, create a dependency following the Apple documentation on [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency).
+Now that both files are accessible, you can test the import in Xcode:
 
-## Exporting multiple modules as a single XCFramework
+1. Choose **File | Add Package Dependencies...**
+2. Provide the Git URL for the repository with the `Package.swift` file.
+3. Depending on the type of your project, the dialog will vary:
+   * If you're making a Swift package, press the **Copy package** button. This will put a `.package` line in your clipboard.
+     Paste this line into the [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency)
+     block of your own `Package.swift` file, and add the necessary product to the appropriate `Target.Dependency` block.
+   * For other Xcode projects, press the **Add package** button, then select products and corresponding targets for the package.
 
-To make several KMP modules available as iOS binaries, create an umbrella module and combine other modules in it,
-then build an XCFramework of this umbrella module.
+## Exporting multiple modules as an XCFramework
+
+To make code from several Kotlin Multiplatform modules available as an iOS binary, combine these modules in a single
+umbrella module. Then, build and export the XCFramework of this umbrella module.
 
 <!--TODO remove this note when https://youtrack.jetbrains.com/issue/KT-66565 is fixed-->
 
@@ -152,7 +158,7 @@ For example, you have a `network` and a `database` module, which you combine in 
             }
         }
     
-        // Dependencies set as api to export underlying modules
+        // Dependencies set as "api" (as opposed to "implementation") to export underlying modules
         sourceSets {
             commonMain.dependencies {
                 api(projects.network)
@@ -187,7 +193,7 @@ For example, you have a `network` and a `database` module, which you combine in 
     ./gradlew :together:assembleTogetherReleaseXCFramework
     ```
 
-5. Follow steps 5–9 from [the previous section](#create-the-xcframework-and-the-package-swift-file) for `together.xcframework`: archive, calculate the checksum, upload
+5. Follow steps 5–9 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum, upload
 the archived XCFramework, create and push a `Package.swift` file.
 
 Now you can import the dependency into an Xcode project. After adding the `import together` directive,
